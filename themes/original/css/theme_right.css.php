@@ -1837,35 +1837,35 @@ span.CodeMirror-selected {
 
 
 span.mysql-keyword {
-    color: blue;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
 }
 span.mysql-var {
-    color: red;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
 }
 span.mysql-comment {
-    color: #AA7700;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
 }
 span.mysql-string {
-    color: green;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
 }
 span.mysql-operator {
-    color: blue;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
 }
 span.mysql-word {
-    color: black;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
 }
 span.mysql-function {
-    color: darkorange;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
 }
 span.mysql-type {
-    color: purple;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
 }
 span.mysql-attribute {
-    color: purple;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
 }
 span.mysql-separator {
-    color: #666666;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
 }
 span.mysql-number {
-    color: darkcyan;
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
 }
