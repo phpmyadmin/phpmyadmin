@@ -92,6 +92,41 @@ class PMA_GIS_Visualization
     }
 
     /**
+     * Handles common tasks of writing the visualization to file for various formats.
+     *
+     * @param string $file_name file name
+     * @param string $type      mime type
+     * @param string $ext       extension of the file
+     */
+    private function _toFile($file_name, $type, $ext)
+    {
+        // convert filename to iso-8859-1, it is safer
+        $file_name = PMA_convert_string('', 'iso-8859-1', $file_name);
+
+        // Check if the user already added extension;
+        // get the substring where the extension would be if it was included
+        $extension_start_pos = strlen($file_name) - strlen($ext) - 1;
+        $user_extension = substr($file_name, $extension_start_pos, strlen($file_name));
+        $required_extension = "." . $ext;
+        if (strtolower($user_extension) != $required_extension) {
+            $file_name  .= $required_extension;
+        }
+
+        header('Content-type: ' . $type);
+        header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        header('Content-Disposition: Attachment;filename=' . $file_name);
+        if (PMA_USR_BROWSER_AGENT == 'IE') {
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+        } else {
+            header('Pragma: no-cache');
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        }
+        ob_clean();
+        flush();
+    }
+
+    /**
      * Generate the visualization in SVG format.
      *
      * @return the generated image resource
@@ -129,15 +164,12 @@ class PMA_GIS_Visualization
     /**
      * Saves as a SVG image to a file.
      *
-     * @param string $fileName File name
+     * @param string $file_name File name
      */
-    public function toFileAsSvg($fileName)
+    public function toFileAsSvg($file_name)
     {
         $img = $this->_svg();
-        header('Content-Disposition: Attachment;filename=' . $fileName . '.svg');
-        header('Content-type: image/svg+xml');
-        ob_clean();
-        flush();
+        $this->_toFile($file_name, 'image/svg+xml', 'svg');
         echo($img);
     }
 
@@ -187,15 +219,12 @@ class PMA_GIS_Visualization
     /**
      * Saves as a PNG image to a file.
      *
-     * @param string $fileName File name
+     * @param string $file_name File name
      */
-    public function toFileAsPng($fileName)
+    public function toFileAsPng($file_name)
     {
         $img = $this->_png();
-        header('Content-Disposition: Attachment;filename=' . $fileName . '.png');
-        header('Content-type: image/png');
-        ob_clean();
-        flush();
+        $this->_toFile($file_name, 'image/png', 'png');
         imagepng($img, null, 9, PNG_ALL_FILTERS);
         imagedestroy($img);
     }

@@ -78,6 +78,7 @@ if (isset($_REQUEST['saveToFile'])) {
 
     $save_format = $_REQUEST['fileFormat'];
     PMA_GIS_save_to_file($data, $visualizationSettings, $save_format, $file_name);
+    exit();
 }
 
 $svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? false : true;
