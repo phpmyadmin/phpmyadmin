@@ -2208,7 +2208,7 @@ msgstr "Hiçbir yeri"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Sol"
 
 #: libraries/config.values.php:47
 #| msgid "Height"
