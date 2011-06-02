@@ -2371,6 +2371,9 @@ $(document).ready(function() {
     }); //end of Drop Table Ajax action
 }) // end of $(document).ready() for Drop Table
 
+/**
+ * Attach CodeMirror2 editor to SQL edit area.
+ */
 $(document).ready(function() {
     var elm = $('#sqlquery');
     if (elm) {
