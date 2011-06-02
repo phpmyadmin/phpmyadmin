@@ -77,14 +77,13 @@
                         var dx = e.pageX - this.colMov.x0;
                         $(this.cCpy)
                             .css('left', this.colMov.objLeft + dx)
-                            .fadeIn();
+                            .show();
                     } else {    // vertical alignment
                         var dy = e.pageY - this.colMov.y0;
                         $(this.cCpy)
                             .css('top', this.colMov.objTop + dy)
-                            .fadeIn();
+                            .show();
                     }
-                    $(this.t).stop(true, true).fadeTo('normal', 0.5);
                     
                     // pointer animation
                     var hoveredCol = this.getHoveredCol(e);
@@ -100,14 +99,14 @@
                                               colPos.left + $(hoveredCol).outerWidth();
                                 $(this.cPointer)
                                     .css('left', newleft)
-                                    .fadeIn();
+                                    .show();
                             } else {    // vertical alignment
                                 var newtop = newn < this.colMov.n ?
                                               colPos.top - 20 :     // 20 here is from col_pointer.png image height
                                               colPos.top + $(hoveredCol).outerHeight() - 20;
                                 $(this.cPointer)
                                     .css('top', newtop)
-                                    .fadeIn();
+                                    .show();
                             }
                         } else {
                             // no movement to other column, hide the column pointer
@@ -142,8 +141,6 @@
                     this.reposRsz();
                     this.colRsz = false;
                 } else if (this.colMov) {
-                    $(this.t).stop(true, true).fadeTo('fast', 1.0);
-                    
                     // shift columns
                     if (this.colMov.newn != this.colMov.n) {
                         this.shiftCol(this.colMov.n, this.colMov.newn);
