@@ -1839,36 +1839,33 @@ span.CodeMirror-selected {
 .CodeMirror-nonmatchingbracket {color: #f22 !important;}
 
 
-span.plsql-keyword {
+span.mysql-keyword {
     color: blue;
 }
-span.plsql-var {
+span.mysql-var {
     color: red;
 }
-span.plsql-comment {
+span.mysql-comment {
     color: #AA7700;
 }
-span.plsql-string {
+span.mysql-string {
     color: green;
 }
-span.plsql-operator {
+span.mysql-operator {
     color: blue;
 }
-span.plsql-word {
+span.mysql-word {
     color: black;
 }
-span.plsql-function {
+span.mysql-function {
     color: darkorange;
 }
-span.plsql-sqlplus {
-    color: darkorange;
-}
-span.plsql-type {
+span.mysql-type {
     color: purple;
 }
-span.plsql-separator {
+span.mysql-separator {
     color: #666666;
 }
-span.plsql-number {
+span.mysql-number {
     color: darkcyan;
 }

@@ -2374,6 +2374,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     var elm = $('#sqlquery');
     if (elm) {
-        var myCodeMirror = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-plsql"});
+        var myCodeMirror = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
     }
 })

@@ -41,7 +41,7 @@ if (isset($GLOBALS['db'])) {
 $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
 $GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
 /* We should rather use/define MySQL mode here */
-$GLOBALS['js_include'][] = 'codemirror/mode/plsql/plsql.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * Here we add a timestamp when loading the file, so that users who
