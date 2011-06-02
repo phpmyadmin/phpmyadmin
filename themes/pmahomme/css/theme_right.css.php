@@ -1022,11 +1022,6 @@ form.clock {
 
 
 /* table stats */
-div#tablestatistics {
-    margin-bottom: 0.5em;
-    padding-bottom: 0.5em;
-}
-
 div#tablestatistics table {
     float: <?php echo $left; ?>;
     margin-bottom: 0.5em;
