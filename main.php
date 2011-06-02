@@ -154,8 +154,14 @@ echo '<div id="main_pane_right">';
 
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
+    $server_type = 'MySQL';
+    if (PMA_DRIZZLE) {
+        $server_type = 'Drizzle';
+    } else if (strpos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+        $server_type = 'MariaDB';
+    }
     echo '<div class="group">';
-    echo '<h2>' . (PMA_DRIZZLE ? 'Drizzle' : 'MySQL') . '</h2>';
+    echo '<h2>' . $server_type . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
     PMA_printListItem(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
@@ -318,8 +324,9 @@ echo '</noscript>';
  * If someday there is a constant that we can check about mysqlnd, we can use it instead
  * of strpos().
  * If no default server is set, PMA_DBI_get_client_info() is not defined yet.
+ * Drizzle can speak MySQL protocol, so don't warn about version mismatch for Drizzle servers.
  */
-if (function_exists('PMA_DBI_get_client_info')) {
+if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
     $_client_info = PMA_DBI_get_client_info();
     if ($server > 0 && strpos($_client_info, 'mysqlnd') === false && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
         trigger_error(PMA_sanitize(sprintf(__('Your PHP MySQL library version %s differs from your MySQL server version %s. This may cause unpredictable behavior.'),
