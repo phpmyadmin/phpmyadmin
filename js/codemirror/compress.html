@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title>CodeMirror: Compression Helper</title>
+    <link rel="stylesheet" type="text/css" href="css/docs.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+
+<h1><span class="logo-braces">{ }</span> <a href="http://codemirror.net/">CodeMirror</a></h1>
+
+<pre class="grey">
+<img src="css/baboon.png" class="logo" alt="logo"/>/* Script compression
+   helper */
+</pre>
+
+    <p>To optimize loading CodeMirror, especially when including a
+    bunch of different modes, it is recommended that you combine and
+    minify (and preferably also gzip) the scripts. This page makes
+    those first two steps very easy. Simply select the version and
+    scripts you need in the form below, and
+    click <strong>Compress</strong> to download the minified script
+    file.</p>
+
+    <form id="form" action="http://marijnhaverbeke.nl/uglifyjs" method="post">
+      <input type="hidden" id="download" name="download" value="codemirror-compressed.js"/>
+      <p>Version: <select id="version" onchange="setVersion(this);" style="padding: 1px">
+        <option value="http://codemirror.net/">HEAD</option>
+        <option value="http://marijnhaverbeke.nl/git/codemirror2?a=blob_plain;hb=v2.01;f=">2.01</option>
+        <option value="http://marijnhaverbeke.nl/git/codemirror2?a=blob_plain;hb=v2.0;f=">2.0</option>
+        <option value="http://marijnhaverbeke.nl/git/codemirror2?a=blob_plain;hb=beta2;f=">beta2</option>
+        <option value="http://marijnhaverbeke.nl/git/codemirror2?a=blob_plain;hb=beta1;f=">beta1</option>
+      </select></p>
+
+      <select multiple="multiple" name="code_url" style="width: 40em;" class="field" id="files">
+        <optgroup label="CodeMirror Library">
+          <option value="http://codemirror.net/lib/codemirror.js" selected>codemirror.js</option>
+          <option value="http://codemirror.net/lib/overlay.js">overlay.js</option>
+        </optgroup>
+        <optgroup label="Modes">
+          <option value="http://codemirror.net/mode/javascript/javascript.js">javascript.js</option>
+          <option value="http://codemirror.net/mode/xml/xml.js">xml.js</option>
+          <option value="http://codemirror.net/mode/css/css.js">css.js</option>
+          <option value="http://codemirror.net/mode/htmlmixed/htmlmixed.js">htmlmixed.js</option>
+          <option value="http://codemirror.net/mode/clike/clike.js">clike.js</option>
+          <option value="http://codemirror.net/mode/python/python.js">python.js</option>
+          <option value="http://codemirror.net/mode/php/php.js">php.js</option>
+          <option value="http://codemirror.net/mode/haskell/haskell.js">haskell.js</option>
+          <option value="http://codemirror.net/mode/diff/diff.js">diff.js</option>
+          <option value="http://codemirror.net/mode/stex/stex.js">stex.js</option>
+          <option value="http://codemirror.net/mode/smalltalk/smalltalk.js">smalltalk.js</option>
+          <option value="http://codemirror.net/mode/rst/rst.js">rst.js</option>
+          <option value="http://codemirror.net/mode/plsql/plsql.js">plsql.js</option>
+        </optgroup>
+      </select></p>
+
+      <p>
+        <button type="submit">Compress</button> with <a href="http://github.com/mishoo/UglifyJS/">UglifyJS</a>
+      </p>
+
+      <p>Custom code to add to the compressed file:<textarea name="js_code" style="width: 100%; height: 15em;" class="field"></textarea></p>
+    </form>
+
+    <script type="text/javascript">
+      function setVersion(ver) {
+        var urlprefix = ver.options[ver.selectedIndex].value;
+        var select = document.getElementById("files"), m;
+        for (var optgr = select.firstChild; optgr; optgr = optgr.nextSibling)
+          for (var opt = optgr.firstChild; opt; opt = opt.nextSibling) {
+            if (opt.nodeName != "OPTION")
+              continue;
+            else if (m = opt.value.match(/^http:\/\/codemirror.net\/2\/(.*)$/))
+              opt.value = urlprefix + m[1];
+            else if (m = opt.value.match(/http:\/\/marijnhaverbeke.nl\/git\/codemirror\?a=blob_plain;hb=[^;]+;f=(.*)$/))
+              opt.value = urlprefix + m[1];
+          }
+       }
+    </script>
+    <script type="text/javascript" src="css/font.js"></script>
+
+  </body>
+</html>
+

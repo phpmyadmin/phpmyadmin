@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+  <head>
+    <title>CodeMirror</title>
+    <link rel="stylesheet" type="text/css" href="css/docs.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="alternate" href="http://twitter.com/statuses/user_timeline/242283288.rss" type="application/rss+xml"/>
+  </head>
+  <body>
+
+<h1><span class="logo-braces">{ }</span> <a href="http://codemirror.net/">CodeMirror</a></h1>
+
+<pre class="grey">
+<img src="css/baboon.png" class="logo" alt="logo"/>/* In-browser code editing
+   made bearable */
+</pre>
+
+<div class="clear"><div class="left blk">
+
+  <p style="margin-top: 0">CodeMirror is a JavaScript library that can
+  be used to create a relatively pleasant editor interface for
+  code-like content &#x2015; computer programs, HTML markup, and
+  similar. If a mode has been written for the language you are
+  editing, the code will be coloured, and the editor will optionally
+  help you with indentation.</p>
+
+  <p>This is the project page for CodeMirror 2, the currently more
+  actively developed, and recommended
+  version. <a href="1/index.html">CodeMirror 1</a> is still available
+  from here.</p>
+
+  <div class="clear"><div class="left1 blk">
+
+    <h2 style="margin-top: 0">Supported modes:</h2>
+
+    <ul>
+      <li><a href="mode/javascript/index.html">JavaScript</a></li>
+      <li><a href="mode/xml/index.html">XML/HTML</a></li>
+      <li><a href="mode/css/index.html">CSS</a></li>
+      <li><a href="mode/htmlmixed/index.html">HTML mixed-mode</a></li>
+      <li><a href="mode/python/index.html">Python</a></li>
+      <li><a href="mode/php/index.html">PHP</a></li>
+      <li><a href="mode/diff/index.html">diff</a></li>
+      <li><a href="mode/clike/index.html">C, Java, and similar</a></li>
+      <li><a href="mode/stex/index.html">sTeX, LaTeX</a></li>
+      <li><a href="mode/haskell/index.html">Haskell</a></li>
+      <li><a href="mode/smalltalk/index.html">Smalltalk</a></li>
+      <li><a href="mode/rst/index.html">reStructuredText</a></li>
+      <li><a href="mode/plsql/index.html">PL/SQL</a></li>
+    </ul>
+
+  </div><div class="left2 blk">
+
+    <h2 style="margin-top: 0">Usage demos:</h2>
+
+    <ul>
+      <li><a href="demo/complete.html">Autocompletion</a></li>
+      <li><a href="demo/mustache.html">Mode overlays</a></li>
+      <li><a href="demo/search.html">Search/replace</a></li>
+      <li><a href="demo/resize.html">Auto-resizing editor</a></li>
+      <li><a href="demo/marker.html">Setting breakpoints</a></li>
+      <li><a href="demo/activeline.html">Highlighting the current line</a></li>
+    </ul>
+
+  </div></div>
+
+  <h2 id="code">Getting the code</h2>
+
+  <p>All of CodeMirror is released under a <a
+  href="LICENSE">MIT-style</a> license. To get it, you can download
+  the <a href="http://codemirror.net/codemirror.zip">latest
+  release</a> or the current <a
+  href="http://codemirror.net/codemirror2-latest.zip">development
+  snapshot</a> as zip files. To create a custom minified script file,
+  you can use the <a href="compress.html">compression API</a>.</p>
+
+  <p>We use <a href="http://git-scm.com/">git</a> for version control.
+  The main repository can be fetched in this way:</p>
+
+  <pre class="code">git clone http://marijnhaverbeke.nl/git/codemirror2</pre>
+
+  <p>CodeMirror can also be found on GitHub at <a
+  href="http://github.com/marijnh/CodeMirror2">marijnh/CodeMirror2</a>.
+  If you plan to hack on the code and contribute patches, the best way
+  to do it is to create a GitHub fork, and send pull requests.</p>
+
+  <h2 id="documention">Documentation</h2>
+
+  <p>The <a href="manual.html">manual</a> is your first stop for
+  learning how to use this library. It starts with a quick explanation
+  of how to use the editor, and then describes all of the (many)
+  options and methods that CodeMirror exposes.</p>
+
+  <p>For those who want to learn more about the code, there is
+  an <a href="internals.html">overview of the internals</a> available.
+  The <a href="http://github.com/marijnh/CodeMirror2">source code</a>
+  itself is, for the most part, also well commented.</p>
+
+  <h2 id="support">Support and bug reports</h2>
+
+  <p>There is
+  a <a href="http://groups.google.com/group/codemirror">Google
+  group</a> (a sort of mailing list/newsgroup thing) for discussion
+  and news related to CodeMirror. Reporting bugs is best done
+  on <a href="http://github.com/marijnh/CodeMirror2/issues">github</a>.
+  You can also e-mail me
+  directly: <a href="mailto:marijnh@gmail.com">Marijn
+  Haverbeke</a>.</p>
+
+  <h2 id="supported">Supported browsers</h2>
+
+  <p>The following browsers are able to run CodeMirror:</p>
+
+  <ul>
+    <li>Firefox 2 or higher</li>
+    <li>Chrome, any version</li>
+    <li>Safari 3 or higher</li>
+    <li>Internet Explorer 6 or higher</li>
+    <li>Opera 9 or higher (with some key-handling problems on OS X)</li>
+  </ul>
+
+  <p>I am not actively testing against every new browser release, and
+  vendors have a habit of introducing bugs all the time, so I am
+  relying on the community to tell me when something breaks.
+  See <a href="#support">here</a> for information on how to contact
+  me.</p>
+
+</div>
+
+<div class="right blk">
+
+  <a href="http://codemirror.net/codemirror.zip" class="download">Download the latest release</a>
+
+  <h2>Make a donation</h2>
+
+  <ul>
+    <li><span onclick="document.getElementById('paypal').submit();" class="quasilink">Paypal</span></li>
+    <li><span onclick="document.getElementById('bankinfo').style.display = 'block';" class="quasilink">Bank</span></li>
+  </ul>
+
+  <p id="bankinfo" style="display: none;">
+    Bank: <i>Rabobank</i><br/>
+    Country: <i>Netherlands</i><br/>
+    SWIFT: <i>RABONL2U</i><br/>
+    Account: <i>147850770</i><br/>
+    Name: <i>Marijn Haverbeke</i><br/>
+    IBAN: <i>NL26 RABO 0147 8507 70</i>
+  </p>
+
+  <h2>Releases:</h2>
+
+  <p class="rel">26-05-2011: <a href="http://codemirror.net/codemirror-2.01.zip">Version 2.01</a>:</p>
+  <ul class="rel-note">
+    <li>Add a <a href="mode/smalltalk/index.html">Smalltalk mode</a>.</li>
+    <li>Add a <a href="mode/rst/index.html">reStructuredText mode</a>.</li>
+    <li>Add a <a href="mode/python/index.html">Python mode</a>.</li>
+    <li>Add a <a href="mode/plsql/index.html">PL/SQL mode</a>.</li>
+    <li><code>coordsChar</code> now works</li>
+    <li>Fix a problem where <code>onCursorActivity</code> interfered with <code>onChange</code>.</li>
+    <li>Fix a number of scrolling and mouse-click-position glitches.</li>
+    <li>Pass information about the changed lines to <code>onChange</code>.</li>
+    <li>Support cmd-up/down on OS X.</li>
+    <li>Add triple-click line selection.</li>
+    <li>Don't handle shift when changing the selection through the API.</li>
+    <li>Support <code>"nocursor"</code> mode for <code>readOnly</code> option.</li>
+    <li>Add an <code>onHighlightComplete</code> option.</li>
+    <li>Fix the context menu for Firefox.</li>
+  </ul>
+
+  <p class="rel">28-03-2011: <a href="http://codemirror.net/codemirror-2.0.zip">Version 2.0</a>:</p>
+  <p class="rel-note">CodeMirror 2 is a complete rewrite that's
+  faster, smaller, simpler to use, and less dependent on browser
+  quirks. See <a href="internals.html">this</a>
+  and <a href="http://groups.google.com/group/codemirror/browse_thread/thread/5a8e894024a9f580">this</a>
+  for more information.</a>
+
+  <p class="rel">28-03-2011: <a href="http://codemirror.net/codemirror-1.0.zip">Version 1.0</a>:</p>
+  <ul class="rel-note">
+    <li>Fix error when debug history overflows.</li>
+    <li>Refine handling of C# verbatim strings.</li>
+    <li>Fix some issues with JavaScript indentation.</li>
+  </ul>
+
+  <p class="rel">22-02-2011: <a href="https://github.com/marijnh/codemirror2/tree/beta2">Version 2.0 beta 2</a>:</p>
+  <p class="rel-note">Somewhate more mature API, lots of bugs shaken out.</a>
+
+  <p class="rel">17-02-2011: <a href="http://codemirror.net/codemirror-0.94.zip">Version 0.94</a>:</p>
+  <ul class="rel-note">
+    <li><code>tabMode: "spaces"</code> was modified slightly (now indents when something is selected).</li>
+    <li>Fixes a bug that would cause the selection code to break on some IE versions.</li>
+    <li>Disabling spell-check on WebKit browsers now works.</li>
+  </ul>
+
+  <p class="rel">08-02-2011: <a href="http://codemirror.net/2/">Version 2.0 beta 1</a>:</p>
+  <p class="rel-note">CodeMirror 2 is a complete rewrite of
+  CodeMirror, no longer depending on an editable frame.</p>
+
+  <p class="rel">19-01-2011: <a href="http://codemirror.net/codemirror-0.93.zip">Version 0.93</a>:</p>
+  <ul class="rel-note">
+    <li>Added a <a href="contrib/regex/index.html">Regular Expression</a> parser.</li>
+    <li>Fixes to the PHP parser.</li>
+    <li>Support for regular expression in search/replace.</li>
+    <li>Add <code>save</code> method to instances created with <code>fromTextArea</code>.</li>
+    <li>Add support for MS T-SQL in the SQL parser.</li>
+    <li>Support use of CSS classes for highlighting brackets.</li>
+    <li>Fix yet another hang with line-numbering in hidden editors.</li>
+  </ul>
+
+  <p><a href="oldrelease.html">Older releases...</a></p>
+
+</div></div>
+
+<div style="height: 2em">&nbsp;</div>
+
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal">
+    <input type="hidden" name="cmd" value="_s-xclick"/>
+    <input type="hidden" name="hosted_button_id" value="3FVHS5FGUY7CC"/>
+  </form>
+
+  <script type="text/javascript" src="css/font.js"></script>
+
+  </body>
+</html>
+
