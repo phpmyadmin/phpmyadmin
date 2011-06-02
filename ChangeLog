@@ -11,6 +11,7 @@
 + rfe #2098927 Remember recent tables
 + rfe #3078542 Remember the last sort order for each table
 + AJAX for Create table in navigation panel
++ rfe #3310562 Wording about Column
 
 3.4.2.0 (not yet released)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label

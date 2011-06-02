@@ -95,7 +95,7 @@ $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 $header_cells = array();
 $content_cells = array();
 
-$header_cells[] = __('Column');
+$header_cells[] = __('Name');
 $header_cells[] = __('Type')
      . ($GLOBALS['cfg']['ReplaceHelpImg']
         ? PMA_showMySQLDocu('SQL-Syntax', 'data-types')
