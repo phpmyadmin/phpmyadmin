@@ -3322,10 +3322,10 @@ msgid "Enable highlighting"
 msgstr "Povolit zvýrazňování"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
+msgstr ""
+"Nejvyšší počet tabulek v seznamu nedávných  tabulek; nastavte 0 pro vypnutí"
 
 #: libraries/config/messages.inc.php:287
 #| msgid "Untracked tables"
