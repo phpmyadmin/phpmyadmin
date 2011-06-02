@@ -2207,6 +2207,9 @@ span.mysql-function {
 span.mysql-type {
     color: purple;
 }
+span.mysql-attribute {
+    color: purple;
+}
 span.mysql-separator {
     color: #666666;
 }
