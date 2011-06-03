@@ -3979,10 +3979,9 @@ msgstr ""
 "utilizadas entre sesiones, valor sugerido: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "La tabla abierta actualmente"
+msgstr "Tabla recientemente utilizada"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
