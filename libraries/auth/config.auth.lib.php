@@ -78,7 +78,7 @@ function PMA_auth_fails()
     }
 
     // Defines the charset to be used
-    header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+    header('Content-Type: text/html; charset=utf-8');
     /* HTML header */
     $page_title = __('Access denied');
     require './libraries/header_meta_style.inc.php';

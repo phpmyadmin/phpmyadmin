@@ -343,7 +343,7 @@ if ($import_file != 'none' && !$error) {
 
 // Convert the file's charset if necessary
 if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_file)) {
-    if ($charset_of_file != $charset) {
+    if ($charset_of_file != 'utf-8') {
         $charset_conversion = TRUE;
     }
 } elseif (isset($charset_of_file) && $charset_of_file != 'utf8') {
