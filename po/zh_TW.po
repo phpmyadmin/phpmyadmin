@@ -1581,7 +1581,7 @@ msgstr[0] "插入了 %1$d 行。"
 #: libraries/RecentTable.class.php:113
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table"
-msgstr "無法儲存最近資料表"
+msgstr "無法儲存最新資料表"
 
 #: libraries/RecentTable.class.php:148
 msgid "Recent tables"
