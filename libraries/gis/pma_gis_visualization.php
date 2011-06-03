@@ -112,6 +112,8 @@ class PMA_GIS_Visualization
             $file_name  .= $required_extension;
         }
 
+        ob_clean();
+
         header('Content-type: ' . $type);
         header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
         header('Content-Disposition: Attachment;filename=' . $file_name);
@@ -122,8 +124,6 @@ class PMA_GIS_Visualization
             header('Pragma: no-cache');
             header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
         }
-        ob_clean();
-        flush();
     }
 
     /**

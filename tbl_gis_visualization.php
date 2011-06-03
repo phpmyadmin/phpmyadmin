@@ -20,15 +20,16 @@ $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
 $GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
 
+// Allows for resending headers even after sending some data
+ob_start();
+
 // Runs common work
-require './libraries/db_common.inc.php';
+require_once './libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
 $url_params['back'] = 'sql.php';
 
-
 // Import visualization functions
 require_once './libraries/gis_visualization.lib.php';
-
 
 // Execute the query and return the result
 $result = PMA_DBI_try_query($sql_query);
