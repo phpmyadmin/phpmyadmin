@@ -21,10 +21,10 @@ if (! defined('PHPMYADMIN')) {
 // Some definitions
 $param_directions    = array('IN', 'OUT', 'INOUT');
 $param_sqldataaccess = array('',
-                               'NO SQL',
-                               'CONTAINS SQL',
-                               'READS SQL DATA',
-                               'MODIFIES SQL DATA');
+                             'NO SQL',
+                             'CONTAINS SQL',
+                             'READS SQL DATA',
+                             'MODIFIES SQL DATA');
 
 /**
  * This function processes the datatypes supported by the DB, as specified in
@@ -228,6 +228,8 @@ function getRoutineDefiner($parsed_query)
  *
  * @param   string   $db     The database that the routine belogs to.
  * @param   string   $name   The name of the routine.
+ * @param   bool     $all    Whether to return all data or just
+ *                           the info about parameters.
  *
  * @return  array    Data necessary to create the routine editor.
  *
@@ -244,13 +246,13 @@ function getRoutineDefiner($parsed_query)
  * @uses    substr()
  * @uses    htmlentities()
  */
-function getFormInputFromRoutineName($db, $name)
+function getFormInputFromRoutineName($db, $name, $all = true)
 {
     global $_REQUEST, $param_directions, $param_sqldataaccess;
 
     $retval  = array();
 
-    // Build and execute query
+    // Build and execute the query
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
@@ -263,11 +265,6 @@ function getFormInputFromRoutineName($db, $name)
     // Get required data
     $retval['name'] = $routine['SPECIFIC_NAME'];
     $retval['type'] = $routine['ROUTINE_TYPE'];
-    if ($retval['type'] == 'FUNCTION') {
-        $retval['type_toggle'] = 'PROCEDURE';
-    } else {
-        $retval['type_toggle'] = 'FUNCTION';
-    }
     $parsed_query = PMA_SQP_parse(
                         PMA_DBI_get_definition(
                             $db,
@@ -281,50 +278,58 @@ function getFormInputFromRoutineName($db, $name)
     $retval['param_name']   = $params['name'];
     $retval['param_type']   = $params['type'];
     $retval['param_length'] = $params['length'];
-    $retval['returntype']   = '';
-    $retval['returnlength'] = '';
-    if (! empty($routine['DTD_IDENTIFIER'])) {
-        $brac1_pos = strpos($routine['DTD_IDENTIFIER'], '(');
-        $brac2_pos = strrpos($routine['DTD_IDENTIFIER'], ')');
-        if ($brac1_pos !== false && $brac2_pos !== false) {
-            $retval['returntype']   = strtoupper(
-                                          trim(
-                                              substr(
-                                                  $routine['DTD_IDENTIFIER'],
-                                                  0,
-                                                  $brac1_pos
-                                              )
-                                          )
-                                      );
-            $retval['returnlength'] = htmlentities(
-                                          trim(
-                                              substr(
-                                                  $routine['DTD_IDENTIFIER'],
-                                                  $brac1_pos+1,
-                                                  $brac2_pos-$brac1_pos-1
-                                              )
-                                          ),
-                                          ENT_QUOTES
-                                      );
+
+    if ($all) {
+        if ($retval['type'] == 'FUNCTION') {
+            $retval['type_toggle'] = 'PROCEDURE';
         } else {
-            $retval['returntype'] = strtoupper($routine['DTD_IDENTIFIER']);
+            $retval['type_toggle'] = 'FUNCTION';
         }
+        $retval['returntype']   = '';
+        $retval['returnlength'] = '';
+        if (! empty($routine['DTD_IDENTIFIER'])) {
+            $brac1_pos = strpos($routine['DTD_IDENTIFIER'], '(');
+            $brac2_pos = strrpos($routine['DTD_IDENTIFIER'], ')');
+            if ($brac1_pos !== false && $brac2_pos !== false) {
+                $retval['returntype']   = strtoupper(
+                                              trim(
+                                                  substr(
+                                                      $routine['DTD_IDENTIFIER'],
+                                                      0,
+                                                      $brac1_pos
+                                                  )
+                                              )
+                                          );
+                $retval['returnlength'] = htmlentities(
+                                              trim(
+                                                  substr(
+                                                      $routine['DTD_IDENTIFIER'],
+                                                      $brac1_pos+1,
+                                                      $brac2_pos-$brac1_pos-1
+                                                  )
+                                              ),
+                                              ENT_QUOTES
+                                          );
+            } else {
+                $retval['returntype'] = strtoupper($routine['DTD_IDENTIFIER']);
+            }
+        }
+        $retval['definer']         = getRoutineDefiner($parsed_query);
+        $retval['definition']      = $routine['ROUTINE_DEFINITION'];
+        $retval['isdeterministic'] = '';
+        if ($routine['IS_DETERMINISTIC'] == 'YES') {
+            $retval['isdeterministic'] = " checked='checked'";
+        }
+        $retval['securitytype_definer'] = '';
+        $retval['securitytype_invoker'] = '';
+        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+            $retval['securitytype_definer'] = " selected='selected'";
+        } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
+            $retval['securitytype_invoker'] = " selected='selected'";
+        }
+        $retval['sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
+        $retval['comment']       = $routine['ROUTINE_COMMENT'];
     }
-    $retval['definer']         = getRoutineDefiner($parsed_query);
-    $retval['definition']      = $routine['ROUTINE_DEFINITION'];
-    $retval['isdeterministic'] = '';
-    if ($routine['IS_DETERMINISTIC'] == 'YES') {
-        $retval['isdeterministic'] = " checked='checked'";
-    }
-    $retval['securitytype_definer'] = '';
-    $retval['securitytype_invoker'] = '';
-    if ($routine['SECURITY_TYPE'] == 'DEFINER') {
-        $retval['securitytype_definer'] = " selected='selected'";
-    } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
-        $retval['securitytype_invoker'] = " selected='selected'";
-    }
-    $retval['sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-    $retval['comment']       = $routine['ROUTINE_COMMENT'];
 
     return $retval;
 } // getFormInputFromRoutineName()
@@ -791,7 +796,141 @@ $routine_errors = array();
 /**
  * Handle all user requests other than the default of listing routines
  */
-if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
+if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name'])) {
+    $routine        = getFormInputFromRoutineName($db, $_REQUEST['routine_name'], false);
+    $queries        = array();
+    $end_query      = 'SELECT ';
+    $args           = '';
+    $need_end_query = false;
+    if ($routine['type'] == 'FUNCTION') {
+        $need_end_query = true;
+        for ($i=0; $i<$routine['num_params']; $i++) {
+            if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
+                $value = PMA_sqladdslashes($_REQUEST['params'][$routine['param_name'][$i]]);
+                $queries[] = "SET @p$i='$value';\n";
+                $args  .= "@p$i";
+            }
+            if ($i != $routine['num_params']-1) {
+                $args .= ", ";
+            }
+        }
+        $queries[] = "SELECT " . PMA_backquote($_REQUEST['routine_name']) . "($args) "
+                   . "AS " . PMA_backquote($_REQUEST['routine_name']) . ";";
+    } else {
+        for ($i=0; $i<$routine['num_params']; $i++) {
+            if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
+                $value = PMA_sqladdslashes($_REQUEST['params'][$routine['param_name'][$i]]);
+                $queries[] = "SET @p$i='$value';\n";
+                $args  .= "@p$i";
+            } else {
+                $args  .= "@p$i";
+            }
+            if ($i != $routine['num_params']-1) {
+                $args .= ", ";
+            }
+            if ($routine['param_dir'][$i] == 'OUT' || $routine['param_dir'][$i] == 'INOUT') {
+                $need_end_query = true;
+                $end_query .= "@p$i AS " . PMA_backquote($routine['param_name'][$i]);
+                if ($i != $routine['num_params']-1) {
+                    $end_query .= ", ";
+                }
+            }
+        }
+        $queries[] = "CALL " . PMA_backquote($_REQUEST['routine_name']) . "($args);";
+        if ($need_end_query) {
+            if (substr($end_query, -2) == ", ") {
+                $end_query = substr($end_query, 0, -2);
+            }
+            $queries[] = "$end_query;";
+        }
+    }
+
+    $sql_query = '';
+    foreach ($queries as $num => $query) {
+        $resource = PMA_DBI_query($query, null, PMA_DBI_QUERY_STORE);
+        if (! is_bool($resource)) {
+            $result = $resource;
+        }
+        $sql_query .= $query;
+    }
+
+    // FIXME: This whole "displayTable" business is rubbish, it's probably best
+    // to write the code to display the results of the query here from scratch.
+    $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+    $unlim_num_rows = $num_rows;
+    $fields_meta = PMA_DBI_get_fields_meta($result);
+    $fields_cnt  = count($fields_meta);
+    $disp = 'nnnn000000';
+    require_once './libraries/parse_analyze.lib.php';
+    require_once "display_tbl.lib.php";
+    $analyzed_sql[0]['queryflags']['procedure'] = true;
+    PMA_displayTable_checkConfigParams();
+    PMA_displayTable($result, $disp, $analyzed_sql);
+
+    require './libraries/footer.inc.php';
+    // exit;
+} else if (! empty($_GET['execute_dialog']) && ! empty($_GET['routine_name'])) {
+    /**
+     * Display the execute form for a routine.
+     */
+    if ($GLOBALS['is_ajax_request'] != true) {
+        echo "\n\n<h2>" . __("Execute Routine") . "</h2>\n\n";
+    }
+    $routine = getFormInputFromRoutineName($db, $_GET['routine_name'], false);
+    echo "<form action='db_routines.php?$url_query' method='post'>\n"
+       . "<input type='hidden' name='routine_name' value='{$routine['name']}' />\n"
+       . PMA_generate_common_hidden_inputs($db, $table) . "\n";
+    echo '<fieldset>' . "\n"
+       . "<legend>{$routine['name']}</legend>\n";
+    echo "<table id='rte_table'>\n";
+    echo "<caption class='tblHeaders'>\n";
+    echo __('Routine Parameters');
+    echo "</caption>\n";
+    echo "<tr>\n";
+    echo "<th>" . __('Type') . "</th>\n";
+    echo "<th>" . __('Name') . "</th>\n";
+    echo "<th>" . __('Value') . "</th>\n";
+    echo "</tr>\n<tr>\n";
+    for ($i=0; $i<$routine['num_params']; $i++) {
+        if ($routine['type'] == 'PROCEDURE' && $routine['param_dir'][$i] == 'OUT') {
+            continue;
+        }
+        $class = '';
+        if (in_array($routine['param_type'][$i], array('DATETIME', 'TIMESTAMP'))) {
+            $class = 'datetimefield';
+        } else if ($routine['param_type'][$i] == 'DATE') {
+            $class = 'datefield';
+        }
+        echo "\n<tr>\n";
+        echo "<td>{$routine['param_type'][$i]}</td>\n";
+        echo "<td>{$routine['param_name'][$i]}</td>\n";
+        if ($routine['param_type'][$i] == 'ENUM') { // TODO: must also handle SET fields
+            echo "<td><select name='params[{$routine['param_name'][$i]}]'>\n";
+            $tokens = PMA_SQP_parse(html_entity_decode($routine['param_length'][$i], ENT_QUOTES));
+            for ($i=0; $i<$tokens['len']; $i++) {
+                if ($tokens[$i]['type'] != 'punct_listsep') {
+                    $tokens[$i]['data'] = htmlentities(PMA_unquote($tokens[$i]['data']), ENT_QUOTES);
+                    echo "<option value='{$tokens[$i]['data']}'>{$tokens[$i]['data']}</option>\n";
+                }
+            }
+            echo "</select></td>\n";
+        } else {
+            echo "<td style='white-space: nowrap;'>\n";
+            echo "<input class='$class' type='text' name='params[{$routine['param_name'][$i]}]' />\n";
+            echo "</td>\n";
+        }
+        echo "</tr>\n";
+    }
+    echo "\n</tr></table>\n";
+    echo "</fieldset>\n\n";
+    echo "<fieldset class='tblFooters'>\n"
+       . "    <input type='submit' name='execute_routine'\n"
+       . "           value='" . __('Go') . "' />\n"
+       . "</fieldset>\n"
+       . "</form>\n\n";
+    require './libraries/footer.inc.php';
+    // exit;
+} else if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
     /**
      * Display the export for a routine.
      */
@@ -994,8 +1133,22 @@ if (! $routines) {
                               . '">' . $titles['Edit'] . '</a>';
         }
         if (PMA_currentUserHasPrivilege('EXECUTE', $db)) {
-            $execlink = '<a ' . $conditional_class_exec. ' href="#" >'
-                              . $titles['Execute'] . '</a>';
+            // Check if he routine has any input parameters. If it does,
+            // we will show a dialog to get values for these parameters,
+            // otherwise we can execute it directly.
+            $routine_details = getFormInputFromRoutineName($db, $routine['SPECIFIC_NAME'], false);
+            $execute_action = 'execute_routine';
+            for ($i=0; $i<$routine_details['num_params']; $i++) {
+                if ($routine_details['type'] == 'PROCEDURE' && $routine_details['param_dir'][$i] == 'OUT') {
+                    continue;
+                }
+                $execute_action = 'execute_dialog';
+                break;
+            }
+            $execlink = '<a ' . $conditional_class_exec. ' href="db_routines.php?' . $url_query
+                              . '&amp;' . $execute_action . '=1'
+                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                              . '">' . $titles['Execute'] . '</a>';
         }
         if ($routine['ROUTINE_DEFINITION'] !== NULL) {
             $exprlink = '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
