@@ -161,9 +161,10 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_type = 'MariaDB';
     }
     echo '<div class="group">';
-    echo '<h2>' . $server_type . '</h2>';
+    echo '<h2>' . __('Database server') . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
+    PMA_printListItem(__('Server type') . ': ' . $server_type, 'li_server_type');
     PMA_printListItem(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
     PMA_printListItem(__('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto');
