@@ -4021,10 +4021,9 @@ msgstr ""
 "podatkov; predlagano: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Tabela za hranjenje uporabnikovih nastavitev"
+msgstr "Tabela nastavitev uporabniškega vmesnika"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
