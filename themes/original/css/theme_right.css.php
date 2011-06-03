@@ -1777,9 +1777,9 @@ fieldset .disabled-field td {
     border-right: solid 1px #FFFFFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -8px;
+    margin-left: -3px;
     position: absolute;
-    width: 3px;
+    width: 5px;
 }
 
 .pma_table thead th span, .pma_table tbody td span {

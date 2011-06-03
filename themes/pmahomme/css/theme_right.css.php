@@ -2127,12 +2127,12 @@ fieldset .disabled-field td {
 }
 
 .colborder {
-    border-right: 1px solid #FFF;
+    border-left: 1px solid #FFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -8px;
+    margin-left: -1px;
     position: absolute;
-    width: 3px;
+    width: 5px;
 }
 
 .pma_table thead th span, .pma_table tbody td span {
