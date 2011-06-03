@@ -2212,7 +2212,7 @@ msgstr "Oboje"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nikjer"
 
 #: libraries/config.values.php:47
 msgid "Left"
