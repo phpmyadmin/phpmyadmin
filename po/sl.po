@@ -2219,10 +2219,9 @@ msgid "Left"
 msgstr "Levo"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Višina"
+msgstr "Desno"
 
 #: libraries/config.values.php:75
 msgid "Open"
