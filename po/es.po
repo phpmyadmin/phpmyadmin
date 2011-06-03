@@ -3379,10 +3379,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Número máximo de tablas recientemente utilizadas; 0 para desactivar"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "La tabla abierta actualmente"
+msgstr "Tablas recientemente utilizadas"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
