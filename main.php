@@ -168,8 +168,8 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . __('MySQL charset') . ': '
        . '        <span xml:lang="en" dir="ltr">'
-       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
-       . '           (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
+       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']] . "\n"
+       . '           (' . $mysql_charset_map['utf-8'] . ')' . "\n"
        . '        </span>' . "\n"
        . '    </li>' . "\n";
     echo '  </ul>';
