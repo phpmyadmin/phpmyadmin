@@ -1595,7 +1595,7 @@ msgstr "沒有最新資料表"
 #: libraries/StorageEngine.class.php:194
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "沒有該儲存引擎的詳細資訊"
+msgstr "沒有該儲存引擎的詳細狀態資訊"
 
 #: libraries/StorageEngine.class.php:354
 #, php-format
