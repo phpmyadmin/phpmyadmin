@@ -464,7 +464,6 @@ function PMA_sqlQueryFormBookmark()
  * @uses    $GLOBALS['cfg']['BZipDump']
  * @uses    $GLOBALS['cfg']['UploadDir']
  * @uses    $GLOBALS['cfg']['AvailableCharsets']
- * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['max_upload_size']
  * @uses    PMA_supportedDecompressions()
  * @uses    PMA_getFileSelectOptions()

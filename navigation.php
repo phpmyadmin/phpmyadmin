@@ -11,7 +11,6 @@
  * @uses $GLOBALS['available_languages']
  * @uses $GLOBALS['lang']
  * @uses $GLOBALS['text_dir']
- * @uses $GLOBALS['charset']
  * @uses $GLOBALS['pmaThemeImage']
  * @uses $GLOBALS['cfg']['LeftFrameLight']
  * @uses $GLOBALS['cfg']['ShowTooltip']
@@ -118,7 +117,7 @@ require_once './libraries/header_http.inc.php';
  * Displays the frame
  */
 // xml declaration moves IE into quirks mode, making much trouble with CSS
-/* echo '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?>'; */
+/* echo '<?xml version="1.0" encoding="utf-8"?>'; */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -131,8 +130,7 @@ require_once './libraries/header_http.inc.php';
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type"
-        content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <base target="frame_content" />
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />

@@ -147,7 +147,7 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
+                    $dump_buffer = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $dump_buffer);
                 }
                 // as bzipped
                 if ($GLOBALS['compression'] == 'bzip'  && @function_exists('bzcompress')) {
@@ -181,7 +181,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $line);
+                $line = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $line);
             }
             if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
@@ -637,7 +637,7 @@ if ($save_on_server && isset($message)) {
 if (!empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
+        $dump_buffer = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $dump_buffer);
     }
 
     // Do the compression

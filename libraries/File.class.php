@@ -259,7 +259,7 @@ class PMA_File
      * @uses    curl_setopt_array()
      * @uses    PMA_File::$_error_message
      * @uses    $_FILES
-     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
      */
@@ -378,7 +378,7 @@ class PMA_File
      * @uses    $_REQUEST
      * @uses    PMA_File::setLocalSelectedFile()
      * @uses    is_string()
-     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
      */
@@ -462,7 +462,7 @@ class PMA_File
      * @access  public
      * @uses    PMA_File::setUploadedFromTblChangeRequest()
      * @uses    PMA_File::setSelectedFromTblChangeRequest()
-     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
      */
@@ -820,7 +820,7 @@ class PMA_File
         echo '<hr />';
 
         if ($GLOBALS['charset_conversion']) {
-            $result = PMA_convert_string($this->getCharset(), $GLOBALS['charset'], $result);
+            $result = PMA_convert_string($this->getCharset(), 'utf-8', $result);
         } else {
             /**
              * Skip possible byte order marks (I do not think we need more
