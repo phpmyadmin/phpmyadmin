@@ -686,7 +686,6 @@ if (!empty($qry_select)) {
 // 2. FROM
 
 // Create LEFT JOINS out of Relations
-// Code originally by Mike Beck <mike.beck@ibmiller.de>
 // If we can use Relations we could make some left joins.
 // First find out if relations are available in this database.
 

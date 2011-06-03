@@ -21,6 +21,11 @@ var only_once_elements = new Array();
 var ajax_message_init = false;
 
 /**
+ * @var codemirror_editor object containing CodeMirror editor
+ */
+var codemirror_editor = false;
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -719,15 +724,31 @@ function setSelectOptions(the_form, the_select, do_check)
     return true;
 } // end of the 'setSelectOptions()' function
 
+/**
+ * Sets current value for query box.
+ */
+function setQuery(query) {
+    if (codemirror_editor) {
+        codemirror_editor.setValue(query);
+    } else {
+        document.sqlform.sql_query.value = query;
+    }
+}
+
 
 /**
   * Create quick sql statements.
   *
   */
 function insertQuery(queryType) {
+    if (queryType == "clear") {
+        setQuery('');
+        return;
+    }
+
     var myQuery = document.sqlform.sql_query;
-    var myListBox = document.sqlform.dummy;
     var query = "";
+    var myListBox = document.sqlform.dummy;
     var table = document.sqlform.table.value;
 
     if (myListBox.options.length > 0) {
@@ -758,7 +779,7 @@ function insertQuery(queryType) {
         } else if(queryType == "delete") {
             query = "DELETE FROM `" + table + "` WHERE 1";
         }
-        document.sqlform.sql_query.value = query;
+        setQuery(query);
         sql_box_locked = false;
     }
 }
@@ -785,8 +806,11 @@ function insertValueQuery() {
             }
         }
 
+        /* CodeMirror support */
+        if (codemirror_editor) {
+            codemirror_editor.replaceSelection(chaineAj);
         //IE support
-        if (document.selection) {
+        } else if (document.selection) {
             myQuery.focus();
             sel = document.selection.createRange();
             sel.text = chaineAj;
@@ -1147,11 +1171,7 @@ $(document).ready(function(){
     });
 
     $('.sqlbutton').click(function(evt){
-        if (evt.target.id == 'clear') {
-            $('#sqlquery').val('');
-        } else {
-            insertQuery(evt.target.id);
-        }
+        insertQuery(evt.target.id);
         return false;
     });
 
@@ -1310,6 +1330,53 @@ function PMA_showNoticeForEnum(selectElement) {
 }
 
 /**
+ * Generates a dialog box to pop up the create_table form
+ */
+function PMA_createTableDialog( div, url , target){
+     /**
+     *  @var    button_options  Object that stores the options passed to jQueryUI
+     *                          dialog
+     */
+     var button_options = {};
+     // in the following function we need to use $(this)
+     button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+
+     var button_options_error = {};
+     button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+
+     var $msgbox = PMA_ajaxShowMessage();
+
+     $.get( target , url ,  function(data) {
+         //in the case of an error, show the error message returned.
+         if (data.success != undefined && data.success == false) {
+             div
+             .append(data.error)
+             .dialog({
+                 title: PMA_messages['strCreateTable'],
+                 height: 230,
+                 width: 900,
+                 open: PMA_verifyTypeOfAllColumns,
+                 buttons : button_options_error
+             })// end dialog options
+             //remove the redundant [Back] link in the error message.
+             .find('fieldset').remove();
+         } else {
+             div
+             .append(data)
+             .dialog({
+                 title: PMA_messages['strCreateTable'],
+                 height: 600,
+                 width: 900,
+                 open: PMA_verifyTypeOfAllColumns,
+                 buttons : button_options
+             }); // end dialog options
+         }
+         PMA_ajaxRemoveMessage($msgbox);
+     }) // end $.get()
+
+}
+
+/**
  * jQuery function that uses jQueryUI's dialogs to confirm with user. Does not
  *  return a jQuery object yet and hence cannot be chained
  *
@@ -1403,7 +1470,7 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  */
 $(document).ready(function() {
 
-    /**
+     /**
      * Attach event handler to the submit action of the create table minimal form
      * and retrieve the full table form and display it in a dialog
      *
@@ -1412,50 +1479,15 @@ $(document).ready(function() {
     $("#create_table_form_minimal.ajax").live('submit', function(event) {
         event.preventDefault();
         $form = $(this);
-
-        /* @todo Validate this form! */
-
-        /**
-         *  @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
-         */
-        var button_options = {};
-        // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
-
-        var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
-
-        var $msgbox = PMA_ajaxShowMessage();
         PMA_prepareForAjaxRequest($form);
 
-        $.get($form.attr('action'), $form.serialize(), function(data) {
-            //in the case of an error, show the error message returned.
-            if (data.success != undefined && data.success == false) {
-                $('<div id="create_table_dialog"></div>')
-                .append(data.error)
-                .dialog({
-                    title: PMA_messages['strCreateTable'],
-                    height: 230,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options_error
-                })// end dialog options
-                //remove the redundant [Back] link in the error message.
-                .find('fieldset').remove();
-            } else {
-                $('<div id="create_table_dialog"></div>')
-                .append(data)
-                .dialog({
-                    title: PMA_messages['strCreateTable'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options
-                }); // end dialog options
-            }
-            PMA_ajaxRemoveMessage($msgbox);
-        }) // end $.get()
+        /*variables which stores the common attributes*/
+        var url = $form.serialize();
+        var action = $form.attr('action');
+        var div =  $('<div id="create_table_dialog"></div>');
+
+        /*Calling to the createTableDialog function*/
+        PMA_createTableDialog(div, url, action);
 
         // empty table name and number of columns from the minimal form
         $form.find('input[name=table],input[name=num_fields]').val('');
@@ -2358,3 +2390,13 @@ $(document).ready(function() {
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
 }) // end of $(document).ready() for Drop Table
+
+/**
+ * Attach CodeMirror2 editor to SQL edit area.
+ */
+$(document).ready(function() {
+    var elm = $('#sqlquery');
+    if (elm.length > 0) {
+        codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+    }
+})

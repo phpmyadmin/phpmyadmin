@@ -109,9 +109,9 @@ $forms['Main_frame']['Browse'] = array(
     'BrowseMarkerEnable',
     'RepeatCells',
     'LimitChars',
-    'ModifyDeleteAtLeft',
-    'ModifyDeleteAtRight',
-    'DefaultDisplay');
+    'RowActionLinks',
+    'DefaultDisplay',
+    'RememberSorting');
 $forms['Main_frame']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',

@@ -18,13 +18,17 @@ require_once './libraries/common.inc.php';
 if ( false === $GLOBALS['cfg']['AllowThirdPartyFraming']) {
     echo PMA_includeJS('cross_framing_protection.js');
 }
-// generate title
-$title = PMA_expandUserString(
+// generate title (unless we already have $page_title, from cookie auth)
+if (! isset($page_title)) {
+    $title = PMA_expandUserString(
             !empty($GLOBALS['table']) ? $GLOBALS['cfg']['TitleTable'] :
             (!empty($GLOBALS['db']) ? $GLOBALS['cfg']['TitleDatabase'] :
             (!empty($GLOBALS['cfg']['Server']['host']) ? $GLOBALS['cfg']['TitleServer'] :
             $GLOBALS['cfg']['TitleDefault']))
-            );
+        );
+} else {
+    $title = $page_title;
+}
 // here, the function does not exist with this configuration: $cfg['ServerDefault'] = 0;
 $is_superuser    = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
@@ -35,6 +39,8 @@ if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
 }
 $GLOBALS['js_include'][] = 'messages.php' . PMA_generate_common_url($params);
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * Here we add a timestamp when loading the file, so that users who

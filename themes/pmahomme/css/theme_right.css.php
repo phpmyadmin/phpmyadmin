@@ -1022,22 +1022,13 @@ form.clock {
 
 
 /* table stats */
-div#tablestatistics {
-    border-bottom: 0.1em solid #669999;
-    margin-bottom: 0.5em;
-    padding-bottom: 0.5em;
-}
-
 div#tablestatistics table {
     float: <?php echo $left; ?>;
     margin-bottom: 0.5em;
-    margin-<?php echo $right; ?>: 0.5em;
-    width:99%;
+    margin-<?php echo $right; ?>: 1.5em;
+    margin-top: 0.5em;
 }
 
-div#tablestatistics table caption {
-    margin-<?php echo $right; ?>: 0.5em;
-}
 /* END table stats */
 
 
@@ -1193,16 +1184,6 @@ div#serverstatus table tbody td.descr a,
 div#serverstatus table .tblFooters a {
     white-space: nowrap;
 }
-div#serverstatus div#statuslinks a:before,
-div#serverstatus div#sectionlinks a:before,
-div#serverstatus table tbody td.descr a:before,
-div#serverstatus table .tblFooters a:before {
-}
-div#serverstatus div#statuslinks a:after,
-div#serverstatus div#sectionlinks a:after,
-div#serverstatus table tbody td.descr a:after,
-div#serverstatus table .tblFooters a:after {
-}
 /* end serverstatus */
 
 /* querywindow */
@@ -1266,11 +1247,9 @@ div#querywindowcontainer fieldset {
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-
 	box-shadow:0px 1px 1px #fff inset;
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
-
 }
 #sectionlinks a, #statuslinks a{
 	font-size:0.88em;
@@ -1283,6 +1262,7 @@ div#querywindowcontainer fieldset {
 	color: #111;
 	text-decoration: none;
 	background: #ddd;
+    white-space: nowrap;
 	border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
@@ -2124,6 +2104,106 @@ fieldset .disabled-field td {
 
 #table_columns select {
     margin:             0 6px;
+}
+
+.CodeMirror {
+  line-height: 1em;
+  font-family: monospace;
+  background: white;
+  border: 1px solid black;
+}
+
+.CodeMirror-scroll {
+  overflow: auto;
+  height:             <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+}
+
+.CodeMirror-gutter {
+  position: absolute; left: 0; top: 0;
+  background-color: #f7f7f7;
+  border-right: 1px solid #eee;
+  min-width: 2em;
+  height: 100%;
+}
+.CodeMirror-gutter-text {
+  color: #aaa;
+  text-align: right;
+  padding: .4em .2em .4em .4em;
+}
+.CodeMirror-lines {
+  padding: .4em;
+}
+
+.CodeMirror pre {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border-width: 0; margin: 0; padding: 0; background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0; margin: 0;
+}
+
+.CodeMirror textarea {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+.CodeMirror-cursor {
+  z-index: 10;
+  position: absolute;
+  visibility: hidden;
+  border-left: 1px solid black !important;
+}
+.CodeMirror-focused .CodeMirror-cursor {
+  visibility: visible;
+}
+
+span.CodeMirror-selected {
+  background: #ccc !important;
+  color: HighlightText !important;
+}
+.CodeMirror-focused span.CodeMirror-selected {
+  background: Highlight !important;
+}
+
+.CodeMirror-matchingbracket {color: #0f0 !important;}
+.CodeMirror-nonmatchingbracket {color: #f22 !important;}
+
+
+span.mysql-keyword {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord']; ?>;
+}
+span.mysql-var {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier']; ?>;
+}
+span.mysql-comment {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['comment']; ?>;
+}
+span.mysql-string {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['quote']; ?>;
+}
+span.mysql-operator {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
+}
+span.mysql-word {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha']; ?>;
+}
+span.mysql-function {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName']; ?>;
+}
+span.mysql-type {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType']; ?>;
+}
+span.mysql-attribute {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib']; ?>;
+}
+span.mysql-separator {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['punct']; ?>;
+}
+span.mysql-number {
+    color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
 }
 
 .colborder {

@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `pma_bookmark` (
   `id` int(11) NOT NULL auto_increment,
   `dbase` varchar(255) NOT NULL default '',
   `user` varchar(255) NOT NULL default '',
-  `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL default '',
+  `label` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
   `query` text NOT NULL,
   PRIMARY KEY  (`id`)
 )
@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `pma_column_info` (
   `db_name` varchar(64) NOT NULL default '',
   `table_name` varchar(64) NOT NULL default '',
   `column_name` varchar(64) NOT NULL default '',
-  `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL default '',
-  `mimetype` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL default '',
+  `comment` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `mimetype` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
   `transformation` varchar(255) NOT NULL default '',
   `transformation_options` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `pma_history` (
 CREATE TABLE IF NOT EXISTS `pma_pdf_pages` (
   `db_name` varchar(64) NOT NULL default '',
   `page_nr` int(10) unsigned NOT NULL auto_increment,
-  `page_descr` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL default '',
+  `page_descr` varchar(50) COLLATE utf8_general_ci NOT NULL default '',
   PRIMARY KEY  (`page_nr`),
   KEY `db_name` (`db_name`)
 )
@@ -110,10 +110,28 @@ CREATE TABLE IF NOT EXISTS `pma_pdf_pages` (
 --
 
 CREATE TABLE IF NOT EXISTS `pma_recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` blob NOT NULL,
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+)
+  ENGINE=MyISAM COMMENT='Recently accessed tables'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma_table_uiprefs`
+--
+
+CREATE TABLE IF NOT EXISTS `pma_table_uiprefs` (
+  `username` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `prefs` text NOT NULL,
+  PRIMARY KEY (`username`,`db_name`,`table_name`)
+)
+  ENGINE=MyISAM COMMENT='Tables'' UI preferences'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -191,18 +209,20 @@ CREATE TABLE IF NOT EXISTS `pma_designer_coords` (
 -- 
 
 CREATE TABLE IF NOT EXISTS `pma_tracking` (
-  `db_name` varchar(64) collate utf8_bin NOT NULL,
-  `table_name` varchar(64) collate utf8_bin NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
   `version` int(10) unsigned NOT NULL,
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
-  `schema_snapshot` text collate utf8_bin NOT NULL,
-  `schema_sql` text collate utf8_bin,
-  `data_sql` longtext collate utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') collate utf8_bin default NULL,
+  `schema_snapshot` text NOT NULL,
+  `schema_sql` text,
+  `data_sql` longtext,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') default NULL,
   `tracking_active` int(1) unsigned NOT NULL default '1',
   PRIMARY KEY  (`db_name`,`table_name`,`version`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
+)
+  ENGINE=MyISAM ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- --------------------------------------------------------
 
