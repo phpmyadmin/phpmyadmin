@@ -202,7 +202,10 @@ $(document).ready(function() {
                          /*process the topmenucontainer and get the href of privileges*/
                          var url = $('#topmenucontainer').find('.tabactive').attr('href');
                          if (url.substring(0, 22) == "server_privileges.php?") {
-                              url = url.substring(22);
+                             url = url.substring(22);
+                         }
+                         if(url.substring(url.length-16,url.length) == "&viewing_mode=db"){
+                             url = url.substring(0, url.length-16);
                          }
                        	 url = url +"&ajax_request=true&db_specific=true";
 
