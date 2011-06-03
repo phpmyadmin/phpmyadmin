@@ -3374,10 +3374,9 @@ msgid "Enable highlighting"
 msgstr "Permitir destacar"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Número máximo de tablas mostradas en una lista de tablas"
+msgstr "Número máximo de tablas recientemente utilizadas; 0 para desactivar"
 
 #: libraries/config/messages.inc.php:287
 #, fuzzy
