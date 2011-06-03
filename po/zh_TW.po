@@ -1584,9 +1584,8 @@ msgid "Could not save recent table"
 msgstr "無法儲存最近資料表"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 msgid "Recent tables"
-msgstr "沒有資料表"
+msgstr "最新資料表"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
