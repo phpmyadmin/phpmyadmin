@@ -1600,7 +1600,7 @@ msgstr "沒有該儲存引擎的詳細狀態資訊"
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "MySQL 伺服器支援 %s ."
+msgstr "MySQL 伺服器支援 %s"
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
