@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-03 19:08+0200\n"
+"PO-Revision-Date: 2011-06-03 19:09+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4007,7 +4007,6 @@ msgid "Display columns table"
 msgstr "Tabela prikaznih stolpcev"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4015,8 +4014,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
-"podatkov; predlagano: [kbd]pma_config[/kbd]"
+"Pustite prazno, če ne želite \"vztrajnih\" nastavitev uporabniškega vmesnika "
+"tabel skozi seje; predlagano: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
 #| msgid "User preferences storage table"
