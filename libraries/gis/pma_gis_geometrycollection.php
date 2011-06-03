@@ -84,13 +84,13 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $line_color Color for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data Array containing data related to scaling
      * @param image  $image      Image object
      *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
+    public function prepareRowAsPng($spatial, $label, $color, $scale_data, $image)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
@@ -102,9 +102,37 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
-            $image = $gis_obj->prepareRowAsPng($sub_part, $label, $line_color, $scale_data, $image);
+            $image = $gis_obj->prepareRowAsPng($sub_part, $label, $color, $scale_data, $image);
         }
         return $image;
+    }
+
+    /**
+     * Adds to the PDF object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS GEOMETRYCOLLECTION object
+     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $pdf        Pdf object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
+    {
+        // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
+        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        // Split the geometry collection object to get its constituents.
+        $sub_parts = $this->_explodeGeomCol($goem_col);
+
+        foreach ($sub_parts as $sub_part) {
+            $type_pos = stripos($sub_part, '(');
+            $type = substr($sub_part, 0, $type_pos);
+
+            $gis_obj = PMA_GIS_Factory::factory($type);
+            $image = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
+        }
+        return $pdf;
     }
 
     /**
@@ -112,12 +140,12 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $line_color Color for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $line_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $color, $scale_data)
     {
         $row = '';
 
@@ -131,7 +159,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
-            $row .= $gis_obj->prepareRowAsSvg($sub_part, $label, $line_color, $scale_data);
+            $row .= $gis_obj->prepareRowAsSvg($sub_part, $label, $color, $scale_data);
         }
         return $row;
     }

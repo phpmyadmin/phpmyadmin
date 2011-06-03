@@ -81,6 +81,41 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     }
 
     /**
+     * Adds to the PDF object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS LINESTRING object
+     * @param string $label      Label for the GIS LINESTRING object
+     * @param string $line_color Color for the GIS LINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $pdf        Pdf object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    {
+        // allocate colors
+        $r = hexdec(substr($line_color, 1, 2));
+        $g = hexdec(substr($line_color, 3, 2));
+        $b = hexdec(substr($line_color, 4, 2));
+        $line = array('width' => 1.5, 'color' => array($r, $g, $b));
+
+        // Trim to remove leading 'LINESTRING(' and trailing ')'
+        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $points_arr = $this->extractPoints($linesrting, $scale_data);
+
+        foreach ($points_arr as $point) {
+            if (! isset($temp_point)) {
+                $temp_point = $point;
+            } else {
+                // draw line section
+                $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
+                $temp_point = $point;
+            }
+        }
+        return $pdf;
+    }
+
+    /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
      * @param string $spatial    GIS LINESTRING object

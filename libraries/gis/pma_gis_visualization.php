@@ -92,16 +92,17 @@ class PMA_GIS_Visualization
     }
 
     /**
-     * Handles common tasks of writing the visualization to file for various formats.
+     * Sanitizes the file name.
      *
      * @param string $file_name file name
-     * @param string $type      mime type
      * @param string $ext       extension of the file
+     *
+     * @return the sanitized file name
      */
-    private function _toFile($file_name, $type, $ext)
+    private function _sanitizeName($file_name, $ext)
     {
         // convert filename to iso-8859-1, it is safer
-        $file_name = PMA_convert_string('', 'iso-8859-1', $file_name);
+        $file_name = PMA_convert_string('utf-8', 'iso-8859-1', $file_name);
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
@@ -111,6 +112,19 @@ class PMA_GIS_Visualization
         if (strtolower($user_extension) != $required_extension) {
             $file_name  .= $required_extension;
         }
+        return $file_name;
+    }
+
+    /**
+     * Handles common tasks of writing the visualization to file for various formats.
+     *
+     * @param string $file_name file name
+     * @param string $type      mime type
+     * @param string $ext       extension of the file
+     */
+    private function _toFile($file_name, $type, $ext)
+    {
+        $file_name = $this->_sanitizeName($file_name);
 
         ob_clean();
 
@@ -230,6 +244,40 @@ class PMA_GIS_Visualization
     }
 
     /**
+     * Saves as a PDF to a file.
+     *
+     * @param string $file_name File name
+     */
+    public function toFileAsPdf($file_name)
+    {
+        $this->init();
+
+        include_once './libraries/tcpdf/tcpdf.php';
+
+        // create pdf
+        $pdf = new TCPDF('', 'pt', 'A4', true, 'UTF-8', false);
+
+        // disable header and footer
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        //set auto page breaks
+        $pdf->SetAutoPageBreak(false);
+
+        // add a page
+        $pdf->AddPage();
+
+        $scale_data = $this->_scaleDataSet($this->_data);
+        $pdf = $this->_prepareDataSet($this->_data, 0, $scale_data, 'pdf', $pdf);
+
+        // sanitize file name
+        $file_name = $this->_sanitizeName($file_name, 'pdf');
+
+        ob_clean();
+        $pdf->Output($file_name, 'D');
+    }
+
+    /**
      * Calculates the scale, horizontal and vertical offset that should be used.
      *
      * @param array $data Row data
@@ -340,6 +388,11 @@ class PMA_GIS_Visualization
                     $row[$this->_settings['spatialColumn']], $label,
                     $this->_settings['colors'][$index], $scale_data, $results
                 );
+            } elseif ($format == 'pdf') {
+                $results = $gis_obj->prepareRowAsPdf(
+                    $row[$this->_settings['spatialColumn']], $label,
+                    $this->_settings['colors'][$index], $scale_data, $results
+                );
             }
             $color_number++;
         }
@@ -347,3 +400,4 @@ class PMA_GIS_Visualization
     }
 }
 ?>
+

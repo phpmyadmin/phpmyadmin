@@ -76,6 +76,36 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     }
 
     /**
+     * Adds to the PDF object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param string $label      Label for the GIS MULTIPOINT object
+     * @param string $line_color Color for the GIS MULTIPOINT object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $pdf        Pdf object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    {
+        // allocate colors
+        $r = hexdec(substr($line_color, 1, 2));
+        $g = hexdec(substr($line_color, 3, 2));
+        $b = hexdec(substr($line_color, 4, 2));
+        $line = array('width' => 1.25, 'color' => array($r, $g, $b));
+
+        // Trim to remove leading 'MULTIPOINT(' and trailing ')'
+        $multipoint = substr($spatial, 11, (strlen($spatial) - 12));
+        $points_arr = $this->extractPoints($multipoint, $scale_data);
+
+        foreach ($points_arr as $point) {
+            // draw a small circle to mark the point
+            $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+        }
+        return $pdf;
+    }
+
+    /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
      * @param string $spatial     GIS MULTIPOINT object

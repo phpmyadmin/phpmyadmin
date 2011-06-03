@@ -109,6 +109,51 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     }
 
     /**
+     * Adds to the PDF object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param string $fill_color Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $pdf        Pdf object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
+    {
+        // allocate colors
+        $r = hexdec(substr($fill_color, 1, 2));
+        $g = hexdec(substr($fill_color, 3, 2));
+        $b = hexdec(substr($fill_color, 4, 2));
+        $color = array($r, $g, $b);
+
+        // Trim to remove leading 'POLYGON((' and trailing '))'
+        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+
+        // If the polygon doesnt have an inner polygon
+        if (strpos($polygon, "),(") === false) {
+            $points_arr = $this->extractPoints($polygon, $scale_data, true);
+        } else {
+            // Seperate outer and inner polygons
+            $parts = explode("),(", $polygon);
+            $outer = $parts[0];
+            $inner = array_slice($parts, 1);
+
+            $points_arr = $this->extractPoints($outer, $scale_data, true);
+
+            foreach ($inner as $inner_poly) {
+                $points_arr = array_merge(
+                    $points_arr, $this->extractPoints($inner_poly, $scale_data, true)
+                );
+            }
+        }
+
+        // draw polygon
+        $pdf->Polygon($points_arr, 'F*', array(), $color, true);
+        return $pdf;
+    }
+
+    /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
      * @param string $spatial    GIS POLYGON object

@@ -95,6 +95,46 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     }
 
     /**
+     * Adds to the PDF object, the data related to a row in the GIS dataset.
+     *
+     * @param string $spatial    GIS MULTILINESTRING object
+     * @param string $label      Label for the GIS MULTILINESTRING object
+     * @param string $line_color Color for the GIS MULTILINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param image  $pdf        Pdf object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    {
+        // allocate colors
+        $r = hexdec(substr($line_color, 1, 2));
+        $g = hexdec(substr($line_color, 3, 2));
+        $b = hexdec(substr($line_color, 4, 2));
+        $line = array('width' => 1.5, 'color' => array($r, $g, $b));
+
+        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
+        $multilinestirng = substr($spatial, 17, (strlen($spatial) - 19));
+        // Seperate each linestring
+        $linestirngs = explode("),(", $multilinestirng);
+
+        foreach ($linestirngs as $linestring) {
+            $points_arr = $this->extractPoints($linestring, $scale_data);
+            foreach ($points_arr as $point) {
+                if (! isset($temp_point)) {
+                    $temp_point = $point;
+                } else {
+                    // draw line section
+                    $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
+                    $temp_point = $point;
+                }
+            }
+            unset($temp_point);
+        }
+        return $pdf;
+    }
+
+    /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
      * @param string $spatial    GIS MULTILINESTRING object
