@@ -87,6 +87,9 @@ $(function() {
                                 var numLoadedPoints=0;
                                 var otherSum=0;
                                 
+                                // No realtime updates for graphs that are being exported
+                                if(thisChart.options.chart.forExport==true) return;
+                                        
                                 var addnewPoint = function() {
                                     $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1, type:'queries'},function(data) {
                                         if(activeTimeouts[tab.attr('id')+"_chart_cnt"]==null) return;
