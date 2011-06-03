@@ -445,7 +445,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     global $sql_query, $num_rows;
     global $vertical_display, $highlight_columns;
 
-    // required to generate sort links that will remember whether the 
+    // required to generate sort links that will remember whether the
     // "Show all" button has been clicked
     $sql_md5 = md5($GLOBALS['sql_query']);
     $session_max_rows = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
@@ -1026,6 +1026,11 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
         $set_class = ' set';
     }
 
+    $bit_class = '';
+    if(strpos($meta->type, 'bit') !== false) {
+        $bit_class = ' bit';
+    }
+
     $mime_type_class = '';
     if(isset($meta->mimetype)) {
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
@@ -1034,7 +1039,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
     $result = $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
-    . $enum_class . $set_class . $mime_type_class;
+    . $enum_class . $set_class . $bit_class . $mime_type_class;
 
     return $result;
 }
