@@ -3678,10 +3678,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "Al explorar tablas, se recordará el ordenamiento de cada tabla"
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Cambiar el nombre de la tabla a"
+msgstr "Recordar ordenamiento de la tabla"
 
 #: libraries/config/messages.inc.php:350
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
