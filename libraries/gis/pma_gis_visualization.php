@@ -124,7 +124,7 @@ class PMA_GIS_Visualization
      */
     private function _toFile($file_name, $type, $ext)
     {
-        $file_name = $this->_sanitizeName($file_name);
+        $file_name = $this->_sanitizeName($file_name, $ext);
 
         ob_clean();
 
