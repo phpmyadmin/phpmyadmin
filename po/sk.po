@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-03 14:48+0200\n"
+"PO-Revision-Date: 2011-06-03 14:51+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -7338,6 +7338,7 @@ msgstr "Súčasné nastavenia budú prepísané!"
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Môžete vymazať všetky vaše nastavenia a vrátiť sa k východziím hodnotám."
 
 #: querywindow.php:93
 msgid "Import files"
