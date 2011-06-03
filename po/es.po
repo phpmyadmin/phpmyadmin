@@ -2236,10 +2236,9 @@ msgid "Left"
 msgstr "Izquierda"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Altura"
+msgstr "Derecha"
 
 # Used for
 # http://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
