@@ -6359,7 +6359,7 @@ msgstr "Tablas persistentes utilizadas recientemente"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Preferencias de interfaz de tablas persistentes"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
