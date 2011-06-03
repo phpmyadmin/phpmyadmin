@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-03 19:05+0200\n"
+"PO-Revision-Date: 2011-06-03 19:06+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6251,10 +6251,9 @@ msgid "SQL history"
 msgstr "Zgodovina SQL"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Vztrajne povezave"
+msgstr "Vztrajno nedavno uporabljene tabele"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
