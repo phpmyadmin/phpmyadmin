@@ -3543,7 +3543,7 @@ msgstr "Estos son los enlaces para Editar, Editar en el lugar, Copiar y Borrar"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Donde mostrar los enlaces de filas de tabla"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
