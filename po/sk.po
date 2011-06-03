@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.2-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.2-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
@@ -7117,6 +7117,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Vaše nastavenia budú uložené len počas tohto prihlásenia. Pre trvalé "
+"nastavenie potrebujete nastaviť %smiesto uloženia phpMyAdmin konfigurácie%s."
 
 #: libraries/user_preferences.lib.php:142
 #, fuzzy
@@ -7577,11 +7579,11 @@ msgstr "Importovať súbory"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Načítať z pamäte prehliadača"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Nastavenia budú načítané z lokálneho úložišťa vášho prehliadača."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
@@ -7602,10 +7604,12 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím "
+"%sNastavovacieho skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Uložiť do úložiska prehliadača"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
@@ -7618,6 +7622,7 @@ msgstr "Súčasné nastavenia budú prepísané!"
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Môžete vymazať všetky vaše nastavenia a vrátiť sa k východziím hodnotám."
 
 #: querywindow.php:93
 msgid "Import files"
