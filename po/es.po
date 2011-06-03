@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-19 19:01+0200\n"
+"PO-Revision-Date: 2011-06-03 21:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1619,10 +1619,9 @@ msgstr[0] "%1$d fila insertada."
 msgstr[1] "%1$d filas insertadas."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "No se pudo guardar la configuración"
+msgstr "No se pudo guardar la tabla reciente"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
