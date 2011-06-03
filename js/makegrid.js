@@ -63,6 +63,7 @@
                     objTop: parseInt(objPos.top),
                     objLeft: parseInt(objPos.left)
                 };
+                $('body').css('cursor', 'move');
                 $('body').noSelect();
             },
             
@@ -162,6 +163,7 @@
 
                     this.colMov = false;
                 }
+                $('body').css('cursor', 'default');
                 $('body').noSelect(false);
             },
             
@@ -169,6 +171,7 @@
              * Reposition column resize bars.
              */
             reposRsz: function() {
+                $(this.cRsz).find('div').hide();
                 $firstRowCols = this.alignment == 'horizontal' ?
                                 $(this.t).find('tr:first th:gt(0)') :
                                 $(this.t).find('tr:first td');
@@ -176,7 +179,9 @@
                     $this = $(this);
                     var n = $this.index();
                     $cb = $(g.cRsz).find('div:eq(' + (n - 1) + ')');   // column border
-                    $cb.css('left', $this.position().left + $this.outerWidth());
+                    var pad = parseInt($this.css('padding-right'));
+                    $cb.css('left', Math.floor($this.position().left + $this.width() + pad) + 'px')
+                       .show();
                 });
             },
             
@@ -282,7 +287,8 @@
         $firstRowCols.each(function() {
             $this = $(this);
             var cb = document.createElement('div'); // column border
-            cb.style.left = $this.position().left + $this.outerWidth() + 'px';
+            var pad = parseInt($this.css('padding-right'));
+            cb.style.left = Math.floor($this.position().left + $this.width() + pad) + 'px';
             cb.className = 'colborder';
             $(cb).mousedown(function(e) {
                 g.dragStartRsz(e, this);
