@@ -218,7 +218,7 @@ $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xl
 
 // Do we need to convert charset?
 $output_charset_conversion = $asfile && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
-    && isset($charset_of_file) && $charset_of_file != $charset
+    && isset($charset_of_file) && $charset_of_file != 'utf-8'
     && $type != 'xls';
 
 // Use on the fly compression?
@@ -273,7 +273,7 @@ if ($asfile) {
     $filename = PMA_expandUserString($filename_template);
 
     // convert filename to iso-8859-1, it is safer
-    $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
+    $filename = PMA_convert_string('utf-8', 'iso-8859-1', $filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
