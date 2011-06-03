@@ -6880,7 +6880,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Vaše nastavenia budú uložené len počas tohto prihlásenia. Pre trvalé "
-"nastavenie potrebujete nastaviť %miesto uloženia phpMyAdmin konfigurácie%s."
+"nastavenie potrebujete nastaviť %smiesto uloženia phpMyAdmin konfigurácie%s."
 
 #: libraries/user_preferences.lib.php:142
 #, fuzzy
