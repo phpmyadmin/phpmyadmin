@@ -1,4 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * "Echo" service to allow force downloading of exported charts 
+ *
+ * @package phpMyAdmin
+ */
+
 if(isset($_POST['filename']) && isset($_POST['image'])) {
 	header("Cache-Control: public");
 	header("Content-Description: File Transfer");
