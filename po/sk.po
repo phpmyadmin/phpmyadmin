@@ -7300,7 +7300,7 @@ msgstr "Načítať z pamäte prehliadača"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Nastavenia budú načítané z lokálneho úložišťa vášho prehliadača."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
