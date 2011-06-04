@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 12:19+0200\n"
+"PO-Revision-Date: 2011-06-04 12:20+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3568,7 +3568,7 @@ msgstr "...au serveur MySQL"
 
 #: libraries/config/messages.inc.php:328
 msgid "Persistent connections"
-msgstr "Connexions persistentes"
+msgstr "Connexions persistantes"
 
 #: libraries/config/messages.inc.php:329
 msgid ""
