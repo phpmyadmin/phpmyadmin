@@ -4057,10 +4057,9 @@ msgstr ""
 "[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Gebruikersvoorkeuren opslagtabel"
+msgstr "UI voorkeuren tabel"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
