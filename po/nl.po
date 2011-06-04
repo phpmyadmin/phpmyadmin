@@ -3370,10 +3370,9 @@ msgstr ""
 "uit te schakelen"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Tabellen zonder tracker"
+msgstr "Recent gebruikte tabellen"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
