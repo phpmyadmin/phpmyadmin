@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 15:07+0200\n"
+"PO-Revision-Date: 2011-06-04 15:09+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -3952,7 +3952,6 @@ msgid "Server port"
 msgstr "Server poort"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3960,8 +3959,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikers instellingen op te slaan, voorgesteld: "
-"[kbd]pma_config[/kbd]"
+"Laat dit veld leeg om geen recente gebruikte tabellen op te slaan over "
+"sessies heen, voorstel: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
 #, fuzzy
