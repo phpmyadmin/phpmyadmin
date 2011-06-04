@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 14:52+0200\n"
+"PO-Revision-Date: 2011-06-04 14:54+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -972,10 +972,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "U staat op het punt een complete database te VERWIJDEREN!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "U staat op het punt een complete database te VERWIJDEREN!"
+msgstr "U staat op het punt een volledige tabel te VERWIJDEREN!"
 
 #: js/messages.php:33
 #, fuzzy
