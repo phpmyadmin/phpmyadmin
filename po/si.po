@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 15:33+0200\n"
+"PO-Revision-Date: 2011-06-04 15:34+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2324,7 +2324,7 @@ msgstr "ආනයන අකර්මන්‍යයි, (%s) ක්‍රිය�
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "අපනයන අකර්මන්‍යයි, (%s) ක්‍රියාවලිය නොමැත"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
