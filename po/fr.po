@@ -2223,7 +2223,7 @@ msgstr "Les deux"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nulle part"
 
 #: libraries/config.values.php:47
 msgid "Left"
