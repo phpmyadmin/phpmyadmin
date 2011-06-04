@@ -1110,9 +1110,8 @@ msgid "Hide search results"
 msgstr "සෙවුම් ප්‍රතිඵල සඟවන්න"
 
 #: js/messages.php:85
-#, fuzzy
 msgid "Show search results"
-msgstr "SQL විමසුම"
+msgstr "සෙවුම් ප්‍රතිඵල පෙන්වන්න"
 
 #: js/messages.php:86
 #, fuzzy
