@@ -91,7 +91,7 @@ if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && 
 function PMD_return_new($b,$ret)
 {
     global $db,$T1,$F1,$T2,$F2;
-    header("Content-Type: text/xml; charset=utf-8");//utf-8 .$_GLOBALS['charset']
+    header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
     die('<root act="relation_new" return="'.$ret.'" b="'.$b.
     '" DB1="'.urlencode($db).

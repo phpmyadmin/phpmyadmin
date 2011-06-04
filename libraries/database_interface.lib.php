@@ -82,7 +82,6 @@ function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows 
  * and charset names to ISO charset from information_schema.CHARACTER_SETS
  *
  * @uses    $GLOBALS['cfg']['IconvExtraParams']
- * @uses    $GLOBALS['charset']     as target charset
  * @uses    PMA_DBI_fetch_value()   to get server_language
  * @uses    preg_match()            to filter server_language
  * @uses    in_array()
@@ -135,20 +134,20 @@ function PMA_DBI_convert_message($message) {
             if ((@stristr(PHP_OS, 'AIX')) && (@strcasecmp(ICONV_IMPL, 'unknown') == 0) && (@strcasecmp(ICONV_VERSION, 'unknown') == 0)) {
                 require_once './libraries/iconv_wrapper.lib.php';
                 $message = PMA_aix_iconv_wrapper($encodings[$server_language],
-                    $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
+                    'utf-8' . $GLOBALS['cfg']['IconvExtraParams'], $message);
             } else {
                 $message = iconv($encodings[$server_language],
-                    $GLOBALS['charset'] . $GLOBALS['cfg']['IconvExtraParams'], $message);
+                    'utf-8' . $GLOBALS['cfg']['IconvExtraParams'], $message);
             }
         } elseif (function_exists('recode_string')) {
-            $message = recode_string($encodings[$server_language] . '..'  . $GLOBALS['charset'],
+            $message = recode_string($encodings[$server_language] . '..'  . 'utf-8',
                 $message);
         } elseif (function_exists('libiconv')) {
-            $message = libiconv($encodings[$server_language], $GLOBALS['charset'], $message);
+            $message = libiconv($encodings[$server_language], 'utf-8', $message);
         } elseif (function_exists('mb_convert_encoding')) {
             // do not try unsupported charsets
             if (! in_array($server_language, array('ukrainian', 'greek', 'serbian'))) {
-                $message = mb_convert_encoding($message, $GLOBALS['charset'],
+                $message = mb_convert_encoding($message, 'utf-8',
                     $encodings[$server_language]);
             }
         }
@@ -919,7 +918,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  * @uses    $GLOBALS['collation_connection']
  * @uses    $GLOBALS['available_languages']
  * @uses    $GLOBALS['mysql_charset_map']
- * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['cfg']['Lang']
  * @uses    defined()

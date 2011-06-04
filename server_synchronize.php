@@ -253,22 +253,18 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             echo '<form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">'
             . PMA_generate_common_hidden_inputs('', '');
-            echo '<table id="serverstatustraffic" class="data" width = "60%">
+            echo '<table id="serverstatustraffic" class="data" width = "40%">
             <tr>
-            <td> <h2>'
-            . ($GLOBALS['cfg']['MainPageIconic']
-            ? '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="32"'
+            <td>'
+            . '<img class="icon" src="' . $pmaThemeImage . 'new_struct.jpg" width="32"'
             . ' height="32" alt="" />'
-            : '')
             . __('Structure Synchronization')
-            .'</h2>' .'</td>';
-            echo '<td> <h2>'
-            . ($GLOBALS['cfg']['MainPageIconic']
-            ? '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="32"'
+            .'</td>';
+            echo '<td>'
+            . '<img class="icon" src="' . $pmaThemeImage . 'new_data.jpg" width="32"'
             . ' height="32" alt="" />'
-            : '')
             . __('Data Synchronization')
-            . '</h2>' .'</td>';
+            . '</td>';
             echo '</tr>
             </table>';
 

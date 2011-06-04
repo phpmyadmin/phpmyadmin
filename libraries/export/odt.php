@@ -100,7 +100,7 @@ function PMA_exportFooter() {
  * @access  public
  */
 function PMA_exportHeader() {
-    $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?' . '>'
+    $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
         . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
         . '<office:body>'
         . '<office:text>';
@@ -236,7 +236,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
  *
  * @access  public
  */
- // @@@ Table structure 
+ // @@@ Table structure
 function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
 {
     global $cfgRelation;
