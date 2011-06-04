@@ -2240,7 +2240,7 @@ msgstr "Beide"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nergens"
 
 #: libraries/config.values.php:47
 msgid "Left"
