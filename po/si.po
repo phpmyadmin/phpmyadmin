@@ -960,10 +960,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ දත්තගබඩාවක් විනාශකර දැමීමටයි!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ දත්තගබඩාවක් විනාශකර දැමීමටයි!"
+msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් විනාශකර දැමීමටයි!"
 
 #: js/messages.php:33
 #, fuzzy
