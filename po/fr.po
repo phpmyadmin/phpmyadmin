@@ -4043,10 +4043,9 @@ msgstr ""
 "manière «persistente», valeur suggérée : [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Table de stockage des préférences utilisateur"
+msgstr "Table de stockage des préférences d'interface de table"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
