@@ -24,6 +24,13 @@ if ($GLOBALS['is_ajax_request'] != true) {
 	 * Displays the tabs
 	 */
 	require_once './libraries/db_info.inc.php';
+} else {
+	if (strlen($db)) {
+		PMA_DBI_select_db($db);
+		if (! isset($url_query)) {
+		    $url_query = PMA_generate_common_url($db);
+		}
+	}
 }
 
 /**

@@ -2098,7 +2098,7 @@ fieldset .disabled-field td {
     vertical-align:     middle;
 }
 
-#rte_table input, #rte_table select, #rte_table textarea {
+.rte_table input, .rte_table select, .rte_table textarea {
     width:              100%;
     margin:             0;
     box-sizing:         border-box;

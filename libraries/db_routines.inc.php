@@ -27,6 +27,24 @@ $param_sqldataaccess = array('',
                              'MODIFIES SQL DATA');
 
 /**
+ * Generate the conditional classes that will be used to attach jQuery events to links.
+ */
+$ajax_class = array(
+                  'add'    => '',
+                  'edit'   => '',
+                  'exec'   => '',
+                  'drop'   => '',
+                  'export' => ''
+              );
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $ajax_class['add']    = 'class="add_routine_anchor"';
+    $ajax_class['edit']   = 'class="edit_routine_anchor"';
+    $ajax_class['exec']   = 'class="exec_routine_anchor"';
+    $ajax_class['drop']   = 'class="drop_routine_anchor"';
+    $ajax_class['export'] = 'class="export_routine_anchor"';
+}
+
+/**
  * This function processes the datatypes supported by the DB, as specified in
  * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
  * if a datatype is supported) or an HTML snippet that creates a drop-down list.
@@ -259,8 +277,7 @@ function getFormInputFromRoutineName($db, $name, $all = true)
     $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' "
              . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name,true) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
-    $routine = PMA_DBI_fetch_result($query);
-    $routine = $routine[0];
+    $routine = PMA_DBI_fetch_single_row($query);
 
     // Get required data
     $retval['name'] = $routine['SPECIFIC_NAME'];
@@ -495,18 +512,6 @@ function getFormInputFromRequest()
 function displayRoutineEditor($mode, $operation, $routine, $errors) {
     global $db, $table, $url_query, $param_directions, $param_sqldataaccess;
 
-    // Error handling
-    $message = '';
-    if (count($errors)) {
-        $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
-        $message->addString('<ul>');
-        foreach ($errors as $num => $string) {
-            $message->addString('<li>' . $string . '</li>');
-        }
-        $message->addString('</ul>');
-        $message = $message->getDisplay() . "\n";
-    }
-
     // Handle some logic first
     if ($operation == 'change') {
         if ($routine['type'] == 'PROCEDURE') {
@@ -529,12 +534,6 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
         unset($routine['param_length'][$routine['num_params']-1]);
         $routine['num_params']--;
     }
-    $colspan = 3;
-    $direction_header = '';
-    if ($routine['type'] == 'PROCEDURE') {
-        $colspan = 4;
-        $direction_header = "            <th>" . __('Direction') . "</th>\n";
-    }
     $disable_remove_parameter = '';
     if (! $routine['num_params']) {
         $disable_remove_parameter = " color: gray;' disabled='disabled";
@@ -546,25 +545,31 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
                           . "<input name='routine_original_type' "
                           . "type='hidden' value='{$routine['original_type']}'/>\n";
     }
+    $isfunction_class = '';
+    $isprocedure_class = '';
+    if ($routine['type'] == 'PROCEDURE') {
+        $isfunction_class = ' hide';
+    } else {
+        $isprocedure_class = ' hide';
+    }
 
     // Create the output
     $retval  = "";
     $retval .= "<!-- START " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
-    $retval .= $message;
-    $retval .= "<form action='db_routines.php?$url_query' method='post'>\n";
+    $retval .= "<form class='rte_form' action='db_routines.php?$url_query' method='post'>\n";
     $retval .= "<input name='{$mode}routine' type='hidden' value='1' />\n";
     $retval .= $original_routine;
     $retval .= PMA_generate_common_hidden_inputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
-    $retval .= "<table id='rte_table'>\n";
+    $retval .= "<table class='rte_table'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Routine Name') . "</td>\n";
     $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Type') . "</td>\n";
-    $retval .= "    <td>\n";
+    $retval .= "    <td class='routine_changetype_cell'>\n";
     $retval .= "        <input name='routine_type' type='hidden' value='{$routine['type']}' />\n";
     $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
     $retval .= "            {$routine['type']}\n";
@@ -577,26 +582,25 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "    <td>" . __('Parameters') . "</td>\n";
     $retval .= "    <td>\n";
     // parameter handling start
-    $retval .= "        <table>\n";
+    $retval .= "        <table class='routine_params_table'>\n";
     $retval .= "        <tr>\n";
-    $retval .= $direction_header;
+    $retval .= "            <th class='routine_direction_cell$isprocedure_class'>" . __('Direction') . "</th>\n";
     $retval .= "            <th>" . __('Name') . "</th>\n";
     $retval .= "            <th>" . __('Type') . "</th>\n";
     $retval .= "            <th>" . __('Length/Values') . "</th>\n";
+    $retval .= "            <th class='routine_param_remove hide'>&nbsp;</th>\n";
     $retval .= "        </tr>";
     for ($i=0; $i<$routine['num_params']; $i++) { // each parameter
         $retval .= "        <tr>\n";
-        if ($routine['type'] == 'PROCEDURE') {
-            $retval .= "            <td><select name='routine_param_dir[$i]'>\n";
-            foreach ($param_directions as $key => $value) {
-                $selected = "";
-                if (! empty($routine['param_dir']) && $routine['param_dir'][$i] == $value) {
-                    $selected = " selected='selected'";
-                }
-                $retval .= "                <option$selected>$value</option>\n";
+        $retval .= "            <td class='routine_direction_cell$isprocedure_class'><select name='routine_param_dir[$i]'>\n";
+        foreach ($param_directions as $key => $value) {
+            $selected = "";
+            if (! empty($routine['param_dir']) && $routine['param_dir'][$i] == $value) {
+                $selected = " selected='selected'";
             }
-            $retval .= "            </select></td>\n";
+            $retval .= "                <option$selected>$value</option>\n";
         }
+        $retval .= "            </select></td>\n";
         $retval .= "            <td><input name='routine_param_name[$i]' type='text'\n";
         $retval .= "                       value='{$routine['param_name'][$i]}' /></td>\n";
         $retval .= "            <td><select name='routine_param_type[$i]'>";
@@ -604,35 +608,39 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
         $retval .= "            </select></td>\n";
         $retval .= "            <td><input name='routine_param_length[$i]' type='text'\n";
         $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
+        $retval .= "            <td class='routine_param_remove hide' style='vertical-align: middle;'>\n";
+        $retval .= "                <a href='#' class='routine_param_remove_anchor'>\n";
+        $retval .= "                    " . PMA_getIcon('b_drop.png') . "\n";
+        $retval .= "                </a>\n";
+        $retval .= "            </td>\n";
         $retval .= "        </tr>\n";
     }
-    $retval .= "        <tr>\n";
-    $retval .= "            <td colspan='$colspan'>\n";
-    $retval .= "                <input style='width: 49%;' type='submit' \n";
-    $retval .= "                       name='routine_addparameter'\n";
-    $retval .= "                       value='" . __('Add another parameter') . "'>\n";
-    $retval .= "                <input style='width: 49%;$disable_remove_parameter' type='submit' \n";
-    $retval .= "                       name='routine_removeparameter'\n";
-    $retval .= "                       value='" . __('Remove last parameter') . "'>\n";
-    $retval .= "            </td>\n";
-    $retval .= "        </tr>\n";
     $retval .= "        </table>\n";
-    // parameter handling end
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
-    if ($routine['type'] == 'FUNCTION') {
-        $retval .= "<tr>\n";
-        $retval .= "    <td>" . __('Return Type') . "</td>\n";
-        $retval .= "    <td><select name='routine_returntype'>\n";
-        $retval .= getSupportedDatatypes(true, $routine['returntype']) . "\n";
-        $retval .= "    </select></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= "    <td>" . __('Return Length/Values') . "</td>\n";
-        $retval .= "    <td><input type='text' name='routine_returnlength'\n";
-        $retval .= "               value='{$routine['returnlength']}' /></td>\n";
-        $retval .= "</tr>\n";
-    }
+    $retval .= "<tr>\n";
+    $retval .= "    <td>&nbsp;</td>\n";
+    $retval .= "    <td>\n";
+    $retval .= "        <input style='width: 49%;' type='submit' \n";
+    $retval .= "               name='routine_addparameter'\n";
+    $retval .= "               value='" . __('Add another parameter') . "'>\n";
+    $retval .= "        <input style='width: 49%;$disable_remove_parameter' type='submit' \n";
+    $retval .= "               name='routine_removeparameter'\n";
+    $retval .= "               value='" . __('Remove last parameter') . "'>\n";
+    $retval .= "    </td>\n";
+    $retval .= "</tr>\n";
+    // parameter handling end
+    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
+    $retval .= "    <td>" . __('Return Type') . "</td>\n";
+    $retval .= "    <td><select name='routine_returntype'>\n";
+    $retval .= getSupportedDatatypes(true, $routine['returntype']) . "\n";
+    $retval .= "    </select></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
+    $retval .= "    <td>" . __('Return Length/Values') . "</td>\n";
+    $retval .= "    <td><input type='text' name='routine_returnlength'\n";
+    $retval .= "               value='{$routine['returnlength']}' /></td>\n";
+    $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
     $retval .= "    <td><textarea name='routine_definition'>{$routine['definition']}</textarea></td>\n";
@@ -781,6 +789,82 @@ function createQueryFromRequest() {
     }
     return $query;
 } // end createQueryFromRequest()
+
+/**
+ * Creates the HTML for a row of the routines list.
+ *
+ * @return  string    An HTML snippet containing a row for the routines list.
+ *
+ * @uses    sprintf()
+ * @uses    PMA_currentUserHasPrivilege()
+ * @uses    PMA_backquote
+ * @uses    getFormInputFromRoutineName()
+ * @uses    urlencode()
+ */
+function routineMakeRowForList($routine, $ct = 0) {
+    global $titles, $db, $url_query, $ajax_class;
+
+    // Do the logic first
+    $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
+    $editlink = $titles['NoEdit'];
+    $execlink = $titles['NoExecute'];
+    $exprlink = $titles['NoExport'];
+    $droplink = $titles['NoDrop'];
+    $sql_drop = sprintf('DROP %s IF EXISTS %s',
+                           $routine['ROUTINE_TYPE'],
+                           PMA_backquote($routine['SPECIFIC_NAME']));
+    if ($routine['ROUTINE_DEFINITION'] !== NULL
+        && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
+        && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
+        $editlink = '<a ' . $ajax_class['edit'] . ' href="db_routines.php?' . $url_query
+                          . '&amp;editroutine=1'
+                          . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                          . '">' . $titles['Edit'] . '</a>';
+    }
+    if (PMA_currentUserHasPrivilege('EXECUTE', $db)) {
+        // Check if he routine has any input parameters. If it does,
+        // we will show a dialog to get values for these parameters,
+        // otherwise we can execute it directly.
+        $routine_details = getFormInputFromRoutineName($db, $routine['SPECIFIC_NAME'], false);
+        $execute_action = 'execute_routine';
+        for ($i=0; $i<$routine_details['num_params']; $i++) {
+            if ($routine_details['type'] == 'PROCEDURE' && $routine_details['param_dir'][$i] == 'OUT') {
+                continue;
+            }
+            $execute_action = 'execute_dialog';
+            break;
+        }
+        $execlink = '<a ' . $ajax_class['exec']. ' href="db_routines.php?' . $url_query
+                          . '&amp;' . $execute_action . '=1'
+                          . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                          . '">' . $titles['Execute'] . '</a>';
+    }
+    if ($routine['ROUTINE_DEFINITION'] !== NULL) {
+        $exprlink = '<a ' . $ajax_class['export'] . ' href="db_routines.php?' . $url_query
+                          . '&amp;exportroutine=1'
+                          . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                          . '">' . $titles['Export'] . '</a>';
+    }
+    if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
+        $droplink = '<a ' . $ajax_class['drop']. ' href="sql.php?' . $url_query
+                          . '&amp;sql_query=' . urlencode($sql_drop)
+                          . '" >' . $titles['Drop'] . '</a>';
+    }
+    // Display a row of data
+    $retval  = "        <tr class='$rowclass'>\n";
+    $retval .= "            <td>\n";
+    $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
+    $retval .= "                <strong>{$routine['ROUTINE_NAME']}</strong>\n";
+    $retval .= "            </td>\n";
+    $retval .= "            <td>$editlink</td>\n";
+    $retval .= "            <td>$execlink</td>\n";
+    $retval .= "            <td>$exprlink</td>\n";
+    $retval .= "            <td>$droplink</td>\n";
+    $retval .= "            <td>{$routine['ROUTINE_TYPE']}</td>\n";
+    $retval .= "            <td>{$routine['DTD_IDENTIFIER']}</td>\n";
+    $retval .= "        </tr>\n";
+    return $retval;
+} // end routineMakeRowForList()
 
 /**
  *  ### MAIN ##########################################################################################################
@@ -966,7 +1050,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
      * Handle a request to create/edit a routine
      */
     $routine_query = createQueryFromRequest();
-    if (! count($routine_errors)) {
+    if (! count($routine_errors)) { // set by createQueryFromRequest()
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
             // Backup the old routine, in case something goes wrong
@@ -995,12 +1079,11 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 } else {
                     $message = PMA_Message::success(__('Routine %1$s has been modified.'));
                     $message->addParam(PMA_backquote($_REQUEST['routine_name']));
-                    $message->display();
-                    echo '<code class="sql">'
-                       . PMA_SQP_formatHtml(PMA_SQP_parse($drop_routine))
-                       . '<br /><br />'
-                       . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
-                       . '</code>';
+                    $query_html = '<code class="sql">'
+                                . PMA_SQP_formatHtml(PMA_SQP_parse($drop_routine))
+                                . '<br /><br />'
+                                . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
+                                . '</code>';
                 }
             }
         } else {
@@ -1012,12 +1095,36 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             } else {
                 $message = PMA_Message::success(__('Routine %1$s has been created.'));
                 $message->addParam(PMA_backquote($_REQUEST['routine_name']));
-                $message->display();
-                echo '<code class="sql">'
-                   . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
-                   . '</code>';
+                $query_html = '<code class="sql">'
+                            . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
+                            . '</code>';
             }
         }
+    }
+
+    if (count($routine_errors)) {
+        $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
+        $message->addString('<ul>');
+        foreach ($routine_errors as $num => $string) {
+            $message->addString('<li>' . $string . '</li>');
+        }
+        $message->addString('</ul>');
+    }
+
+    if ($GLOBALS['is_ajax_request']) {
+        $extra_data = array();
+        if (isset($query_html)) {
+            $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
+            $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . "'";
+            $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
+
+            $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
+            $extra_data['new_row']   = routineMakeRowForList($routine);
+            $extra_data['sql_query'] = $query_html;
+        }
+        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+    } else {
+        echo $message->getDisplay() . $query_html;
     }
 }
 
@@ -1059,25 +1166,33 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         $mode = 'edit';
     }
     // Show form
-    echo displayRoutineEditor($mode, $operation, $routine, $routine_errors);
+    $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors);
+    if (! empty($_REQUEST['ajax_request'])) {
+        $template  = "        <tr>\n";
+        $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";
+        foreach ($param_directions as $key => $value) {
+            $template .= "                <option>$value</option>\n";
+        }
+        $template .= "            </select></td>\n";
+        $template .= "            <td><input name='routine_param_name[%s]' type='text'\n";
+        $template .= "                       value='' /></td>\n";
+        $template .= "            <td><select name='routine_param_type[%s]'>";
+        $template .= getSupportedDatatypes(true) . "\n";
+        $template .= "            </select></td>\n";
+        $template .= "            <td><input name='routine_param_length[%s]' type='text'\n";
+        $template .= "                       value='' /></td>\n";
+        $template .= "            <td class='routine_param_remove' style='vertical-align: middle;'>\n";
+        $template .= "                <a href='#' class='routine_param_remove_anchor'>\n";
+        $template .= "                    " . PMA_getIcon('b_drop.png') . "\n";
+        $template .= "                </a>\n";
+        $template .= "            </td>\n";
+        $template .= "        </tr>\n";
+        $extra_data = array('title' => __('Add a new Routine'), 'param_template' => $template, 'type' => $routine['type']);
+        PMA_ajaxResponse($editor, true, $extra_data);
+    }
+    echo $editor;
     require './libraries/footer.inc.php';
     // exit;
-}
-
-/**
- * Generate the conditional classes that will be used to attach jQuery events to links.
- */
-$conditional_class_add    = '';
-$conditional_class_edit   = '';
-$conditional_class_exec   = '';
-$conditional_class_drop   = '';
-$conditional_class_export = '';
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class_add    = 'class="add_routine_anchor"';
-    $conditional_class_edit   = 'class="edit_routine_anchor"';
-    $conditional_class_exec   = 'class="exec_routine_anchor"';
-    $conditional_class_drop   = 'class="drop_routine_anchor"';
-    $conditional_class_export = 'class="export_routine_anchor"';
 }
 
 /**
@@ -1090,6 +1205,7 @@ $routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROU
 /**
  * Display a list of available routines
  */
+echo "\n\n<span id='js_query_display'></span>";
 echo "\n\n";
 echo "<!-- LIST OF ROUTINES START -->\n";
 echo "<fieldset>\n";
@@ -1112,68 +1228,10 @@ if (! $routines) {
     echo "            <th>" . __('Return type') . "</th>\n";
     echo "        </tr>\n";
     echo "        <!-- TABLE DATA -->\n";
-    $ct=0;
+    $ct = 0;
     // Display each routine
     foreach ($routines as $routine) {
-        // Do the logic first
-        $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
-        $editlink = $titles['NoEdit'];
-        $execlink = $titles['NoExecute'];
-        $exprlink = $titles['NoExport'];
-        $droplink = $titles['NoDrop'];
-        $sql_drop = sprintf('DROP %s IF EXISTS %s',
-                               $routine['ROUTINE_TYPE'],
-                               PMA_backquote($routine['SPECIFIC_NAME']));
-        if ($routine['ROUTINE_DEFINITION'] !== NULL
-            && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
-            && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
-            $editlink = '<a ' . $conditional_class_edit . ' href="db_routines.php?' . $url_query
-                              . '&amp;editroutine=1'
-                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                              . '">' . $titles['Edit'] . '</a>';
-        }
-        if (PMA_currentUserHasPrivilege('EXECUTE', $db)) {
-            // Check if he routine has any input parameters. If it does,
-            // we will show a dialog to get values for these parameters,
-            // otherwise we can execute it directly.
-            $routine_details = getFormInputFromRoutineName($db, $routine['SPECIFIC_NAME'], false);
-            $execute_action = 'execute_routine';
-            for ($i=0; $i<$routine_details['num_params']; $i++) {
-                if ($routine_details['type'] == 'PROCEDURE' && $routine_details['param_dir'][$i] == 'OUT') {
-                    continue;
-                }
-                $execute_action = 'execute_dialog';
-                break;
-            }
-            $execlink = '<a ' . $conditional_class_exec. ' href="db_routines.php?' . $url_query
-                              . '&amp;' . $execute_action . '=1'
-                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                              . '">' . $titles['Execute'] . '</a>';
-        }
-        if ($routine['ROUTINE_DEFINITION'] !== NULL) {
-            $exprlink = '<a ' . $conditional_class_export . ' href="db_routines.php?' . $url_query
-                              . '&amp;exportroutine=1'
-                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                              . '">' . $titles['Export'] . '</a>';
-        }
-        if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
-            $droplink = '<a ' . $conditional_class_drop. ' href="sql.php?' . $url_query
-                              . '&amp;sql_query=' . urlencode($sql_drop)
-                              . '" >' . $titles['Drop'] . '</a>';
-        }
-        // Display a row of data
-        echo "        <tr class='$rowclass'>\n";
-        echo "            <td>\n";
-        echo "                <span class='drop_sql hide'>$sql_drop</span>\n";
-        echo "                <strong>{$routine['ROUTINE_NAME']}</strong>\n";
-        echo "            </td>\n";
-        echo "            <td>$editlink</td>\n";
-        echo "            <td>$execlink</td>\n";
-        echo "            <td>$exprlink</td>\n";
-        echo "            <td>$droplink</td>\n";
-        echo "            <td>{$routine['ROUTINE_TYPE']}</td>\n";
-        echo "            <td>{$routine['DTD_IDENTIFIER']}</td>\n";
-        echo "        </tr>\n";
+        echo routineMakeRowForList($routine, $ct);
         $ct++;
     }
     echo "    </table>\n";
@@ -1188,7 +1246,7 @@ echo '<!-- ADD ROUTINE FORM START -->' . "\n";
 echo '<fieldset>' . "\n";
 if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
     echo '<a href="db_routines.php?' . $url_query
-       . '&amp;addroutine=1" ' . $conditional_class_add . '>' . "\n"
+       . '&amp;addroutine=1" ' . $ajax_class['add'] . '>' . "\n"
        . PMA_getIcon('b_routine_add.png') . "\n"
        . __('Add a new Routine') . '</a>' . "\n";
 } else {
@@ -1198,4 +1256,5 @@ if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
 echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
 echo '</fieldset>' . "\n";
 echo '<!-- ADD ROUTINE FORM END -->' . "\n\n";
+
 ?>
