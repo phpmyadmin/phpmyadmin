@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 14:55+0200\n"
+"PO-Revision-Date: 2011-06-04 14:57+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -709,7 +709,7 @@ msgstr "වගුවට නාම මූලයක් එක් කරන්න"
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "දත්තගබඩාවේ නාම මූලය ප්‍රතිස්ථාපනය කරන්න"
+msgstr "වගු නාම මූලය ප්‍රතිස්ථාපනය කරන්න"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 #, fuzzy
