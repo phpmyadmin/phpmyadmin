@@ -13,7 +13,6 @@ require_once 'PHPUnit/Framework.php';
 
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
-$GLOBALS['charset'] = 'utf-8';
 
 function __($s) {
     return $s;

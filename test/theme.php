@@ -17,7 +17,7 @@ require_once './libraries/common.inc.php';
 $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 // start output
-header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
@@ -28,8 +28,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <head>
     <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
         <?php echo htmlspecialchars($HTTP_HOST); ?> - Theme Test</title>
-    <meta http-equiv="Content-Type"
-        content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css"
         href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"

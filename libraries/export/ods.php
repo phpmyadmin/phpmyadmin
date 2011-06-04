@@ -68,7 +68,7 @@ function PMA_exportFooter() {
  * @access  public
  */
 function PMA_exportHeader() {
-    $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?' . '>'
+    $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
         . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
         . '<office:automatic-styles>'
             . '<number:date-style style:name="N37" number:automatic-order="true">'

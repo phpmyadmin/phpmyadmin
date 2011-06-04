@@ -186,22 +186,14 @@ class PMA_Export_Relation_Schema
      * @param string type Schema Type
      * @param string error_message the error mesage
      * @global array    the PMA configuration array
-     * @global integer  the current server id
-     * @global string   the current language
-     * @global string   the charset to convert to
      * @global string   the current database name
-     * @global string   the current charset
-     * @global string   the current text direction
-     * @global string   a localized string
-     * @global string   an other localized string
      * @access public
      * @return void
      */
     function dieSchema($pageNumber, $type = '', $error_message = '')
     {
         global $cfg;
-        global $server, $lang, $convcharset, $db;
-        global $charset, $text_dir;
+        global $db;
 
         require_once './libraries/header.inc.php';
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type ."</strong></p>" . "\n";
