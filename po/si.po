@@ -1620,10 +1620,9 @@ msgid "Recent tables"
 msgstr "නූතන වගු"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "සකස් කෙරුණු සේවාදායක කිසිවක් නොමැත"
+msgstr "නූතන වගු කිසිවක් නොමැත"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
