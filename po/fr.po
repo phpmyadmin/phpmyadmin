@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 12:10+0200\n"
+"PO-Revision-Date: 2011-06-04 12:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -3653,7 +3653,7 @@ msgstr "Moteur de conversion"
 
 #: libraries/config/messages.inc.php:348
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "En affichant les tables, l'ordre de tri de chaque table est mémorisé"
 
 #: libraries/config/messages.inc.php:349
 #, fuzzy
