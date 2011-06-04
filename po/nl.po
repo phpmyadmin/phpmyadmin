@@ -9302,10 +9302,9 @@ msgid "Insecure connection"
 msgstr "Onveilige verbinding"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Configuratie opslag"
+msgstr "Configuratie opgeslagen."
 
 #: setup/frames/index.inc.php:93
 msgid ""
