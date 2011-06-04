@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 15:15+0200\n"
+"PO-Revision-Date: 2011-06-04 15:16+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -10202,10 +10202,9 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Laat %s zien met datums van %s tot %s door gebruiker %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder tracking data rij uit verslag"
 
 #: tbl_tracking.php:443
 #, fuzzy
