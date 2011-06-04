@@ -3357,10 +3357,9 @@ msgid "Enable highlighting"
 msgstr "Active la surbrillance"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Nombre maximum de tables affichées dans la liste des tables"
+msgstr "Nombre maximum de tables récentes; mettre 0 pour désactiver"
 
 #: libraries/config/messages.inc.php:287
 #, fuzzy
