@@ -1615,10 +1615,9 @@ msgid "Could not save recent table"
 msgstr "නූතන වගු සුරැකීම අසමත් විය"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "වගු ගණන් කරන්න"
+msgstr "නූතන වගු"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
