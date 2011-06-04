@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 15:27+0200\n"
+"PO-Revision-Date: 2011-06-04 15:29+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1822,7 +1822,7 @@ msgstr "PBMS BLOB තොරතුරු ලබාගැනීම අසමත්
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "BLOB අන්තර්ගත-ප්‍රකාරය ලබාගැනීම අසමත් විය:"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
