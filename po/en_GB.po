@@ -3482,7 +3482,7 @@ msgstr "These are Edit, Inline edit, Copy and Delete links"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Where to show the table row links"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
