@@ -10188,10 +10188,9 @@ msgid "Query error"
 msgstr "Fout in query"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Deze manipulatie-statements tracken:"
+msgstr "Tracking data manipulatie succesvol verwijderd"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
