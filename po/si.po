@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 14:58+0200\n"
+"PO-Revision-Date: 2011-06-04 15:00+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -965,10 +965,9 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් විනාශකර දැමීමටයි!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ දත්තගබඩාවක් විනාශකර දැමීමටයි!"
+msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ වගුවක් ලොප් කිරීමටයි!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
