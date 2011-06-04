@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 12:07+0200\n"
+"PO-Revision-Date: 2011-06-04 12:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1628,10 +1628,9 @@ msgid "Recent tables"
 msgstr "Tables récentes"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Aucun serveur n'est configuré"
+msgstr "Il n'y a pas de tables récentes"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
