@@ -2227,7 +2227,7 @@ msgstr "Nulle part"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "À gauche"
 
 #: libraries/config.values.php:47
 #, fuzzy
