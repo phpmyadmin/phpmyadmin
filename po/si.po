@@ -1830,7 +1830,7 @@ msgstr "දසුන නරඹන්න"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Play audio"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
