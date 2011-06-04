@@ -1133,10 +1133,9 @@ msgid "Browsing"
 msgstr "Verkennen"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Verwijderen van %s"
+msgstr "Verwijderen"
 
 #: js/messages.php:90
 msgid ""
