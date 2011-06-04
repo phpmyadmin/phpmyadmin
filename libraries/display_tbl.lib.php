@@ -661,7 +661,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     //     ... at the left column of the result table header if possible
     //     and required
-    elseif ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && $is_display['text_btn'] == '1') {
+    elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+            && $is_display['text_btn'] == '1') {
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 4 : 0;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
@@ -677,7 +678,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     }
 
     //     ... elseif no button, displays empty(ies) col(s) if required
-    elseif ($GLOBALS['cfg']['ModifyDeleteAtLeft']
+    elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
              && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 4 : 0;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -689,6 +690,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         else {
             $vertical_display['textbtn'] = '    <td' . $rowspan . '></td>' . "\n";
         } // end vertical mode
+    }
+
+    //     ... elseif display an empty column if the actions links are disabled to match the rest of the table
+    elseif ($GLOBALS['cfg']['RowActionLinks'] == 'none' && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
+            || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
+        echo '<td></td>';
     }
 
     // 2. Displays the fields' name
@@ -912,9 +919,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     // 3. Displays the needed checkboxes at the right
     //    column of the result table header if possible and required...
-    if ($GLOBALS['cfg']['ModifyDeleteAtRight']
-        && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
-        && $is_display['text_btn'] == '1') {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'right' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
+         && $is_display['text_btn'] == '1') {
         $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 4 : 1;
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
@@ -933,7 +940,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
     //     ... elseif no button, displays empty columns if required
     // (unless coming from Browse mode print view)
-    elseif ($GLOBALS['cfg']['ModifyDeleteAtRight']
+    elseif (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
              && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
              && (!$GLOBALS['is_header_sent'])) {
         $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 4 : 1;
@@ -1026,6 +1033,11 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
         $set_class = ' set';
     }
 
+    $bit_class = '';
+    if(strpos($meta->type, 'bit') !== false) {
+        $bit_class = ' bit';
+    }
+
     $mime_type_class = '';
     if(isset($meta->mimetype)) {
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
@@ -1034,7 +1046,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
     $result = $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
-    . $enum_class . $set_class . $mime_type_class;
+    . $enum_class . $set_class . $bit_class . $mime_type_class;
 
     return $result;
 }
@@ -1249,13 +1261,20 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             } // end if (1.2.2)
 
             // 1.3 Displays the links at left if required
-            if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
-             && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
+            if (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+                 && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
+                 || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
                 echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+            } else if (($GLOBALS['cfg']['RowActionLinks'] == 'none')
+                        && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
+                        || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
+                if (! isset($js_conf)) {
+                    $js_conf = '';
+                }
+                echo PMA_generateCheckboxAndLinks('none', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
             } // end if (1.3)
         } // end if (1)
 
@@ -1465,13 +1484,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         } // end for (2)
 
         // 3. Displays the modify/delete links on the right if required
-        if ($GLOBALS['cfg']['ModifyDeleteAtRight']
-         && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
-          || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
-                if (! isset($js_conf)) {
-                    $js_conf = '';
-                }
-                echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+        if (($GLOBALS['cfg']['RowActionLinks'] == 'right' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+             && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
+             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
+            if (! isset($js_conf)) {
+                $js_conf = '';
+            }
+            echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
         } // end if (3)
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -1551,15 +1570,19 @@ function PMA_displayVerticalTable()
     global $vertical_display;
 
     // Displays "multi row delete" link at top if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] != 'right')
+        && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
+        if ($GLOBALS['cfg']['RowActionLinks'] == 'none') {
+            // if we are not showing the RowActionLinks, then we need to show the Multi-Row-Action checkboxes
+            echo '<th></th>' . "\n";
+        }
         echo $vertical_display['textbtn'];
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo '<th></th>' . "\n";
             }
-
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
             $foo_counter++;
         } // end while
@@ -1567,7 +1590,8 @@ function PMA_displayVerticalTable()
     } // end if
 
     // Displays "edit" link at top if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
@@ -1585,7 +1609,8 @@ function PMA_displayVerticalTable()
     } // end if
 
     // Displays "copy" link at top if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
@@ -1603,7 +1628,8 @@ function PMA_displayVerticalTable()
     } // end if
 
     // Displays "delete" link at top if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'left' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
@@ -1640,7 +1666,8 @@ function PMA_displayVerticalTable()
     } // end while
 
     // Displays "multi row delete" link at bottom if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'right' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         echo $vertical_display['textbtn'];
         $foo_counter = 0;
@@ -1656,7 +1683,8 @@ function PMA_displayVerticalTable()
     } // end if
 
     // Displays "edit" link at bottom if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'right' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['edit']) && (count($vertical_display['edit']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
@@ -1674,7 +1702,8 @@ function PMA_displayVerticalTable()
     } // end if
 
     // Displays "copy" link at bottom if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'right' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['copy']) && (count($vertical_display['copy']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
@@ -1692,7 +1721,8 @@ function PMA_displayVerticalTable()
     } // end if
 
     // Displays "delete" link at bottom if required
-    if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
+    if (($GLOBALS['cfg']['RowActionLinks'] == 'right' || $GLOBALS['cfg']['RowActionLinks'] == 'both')
+         && is_array($vertical_display['delete']) && (count($vertical_display['delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
@@ -2680,6 +2710,8 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
         $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_right', '', '', '');
+    } else { // $position == 'none'
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
     }
     return $ret;
 }
