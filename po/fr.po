@@ -1674,7 +1674,7 @@ msgstr "La table %s se nomme maintenant %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Impossible de sauvegarder les préférences d'interface de tables"
 
 #: libraries/Theme.class.php:160
 #, php-format
