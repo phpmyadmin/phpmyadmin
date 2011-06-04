@@ -199,13 +199,11 @@ $(document).ready(function() {
                      }
                      if($('#fieldset_add_user a.ajax').attr('name') == 'db_specific'){
 
-                         /*process the topmenucontainer and get the href of privileges*/
-                         var url = $('#topmenucontainer').find('.tabactive').attr('href');
-                         if (url.substring(0, 22) == "server_privileges.php?") {
-                             url = url.substring(22);
-                         }
-                         if(url.substring(url.length-16,url.length) == "&viewing_mode=db"){
-                             url = url.substring(0, url.length-16);
+                         /*process the fieldset_add_user attribute and get the val of privileges*/
+                         var url = $('#fieldset_add_user a.ajax').attr('val');
+
+                         if(url.substring(url.length-23,url.length) == "&goto=db_operations.php"){
+                             url = url.substring(0, url.length-23);
                          }
                        	 url = url +"&ajax_request=true&db_specific=true";
 

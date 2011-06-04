@@ -2297,7 +2297,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     }else{
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
-           . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" class="'.$conditional_class.'" name="db_specific">' . "\n"
+           . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" val="'.'checkprivs='.htmlspecialchars($checkprivs). '&'.$GLOBALS['url_query'] . '" class="'.$conditional_class.'" name="db_specific">' . "\n"
            . PMA_getIcon('b_usradd.png')
            . '        ' . __('Add a new User') . '</a>' . "\n"
            . '</fieldset>' . "\n";
