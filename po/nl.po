@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 14:51+0200\n"
+"PO-Revision-Date: 2011-06-04 14:52+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -710,10 +710,9 @@ msgid "Add prefix to table"
 msgstr "Voeg voorvoegsel toe aan tabel"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Vervang tabelgegevens door het bestand"
+msgstr "Vervang tabelvoorvoegsel"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 #, fuzzy
