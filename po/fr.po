@@ -4040,7 +4040,7 @@ msgid ""
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
 "Laisser vider pour ne pas conserver les préférences d'interface de tables de "
-"manière «persistente», valeur suggérée : [kbd]pma_table_uiprefs[/kbd]"
+"manière «persistante», valeur suggérée : [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
 #| msgid "User preferences storage table"
