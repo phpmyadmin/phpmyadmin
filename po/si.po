@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-04 15:31+0200\n"
+"PO-Revision-Date: 2011-06-04 15:33+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -2319,7 +2319,7 @@ msgstr "\"%s\" සඳහා %s දිගුව අවශ්‍යය"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "ආනයන අකර්මන්‍යයි, (%s) ක්‍රියාවලිය නොමැත"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
