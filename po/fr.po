@@ -3523,7 +3523,7 @@ msgstr "Il s'agit des liens Modifier, Éditer en place, Copier et Effacer"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "À quel endroit afficher les liens pour chaque ligne de données"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
