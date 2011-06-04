@@ -6066,7 +6066,7 @@ msgstr "Verzenden"
 
 #: libraries/mult_submits.inc.php:263
 msgid "Add table prefix"
-msgstr ""
+msgstr "Voeg tabelvoorvoegsel toe"
 
 #: libraries/mult_submits.inc.php:266
 #, fuzzy
