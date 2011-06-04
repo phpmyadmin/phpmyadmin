@@ -1634,10 +1634,9 @@ msgid "Could not save recent table"
 msgstr "Recente tabel kon niet opgeslagen worden"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Tel tabellen"
+msgstr "Recente tabellen"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
