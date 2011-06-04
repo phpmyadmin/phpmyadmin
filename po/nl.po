@@ -3541,7 +3541,7 @@ msgstr "Dit zijn Bewerken, Inline bewerken, Kopieer en Delete links"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Waar de tabelrij links getoond worden"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
