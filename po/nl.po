@@ -1693,7 +1693,7 @@ msgstr "Tabel %s is hernoemd naar %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "UI tabel voorkeuren konden niet worden opgeslagen"
 
 #: libraries/Theme.class.php:160
 #, php-format
