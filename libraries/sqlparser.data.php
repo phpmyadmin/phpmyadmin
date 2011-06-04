@@ -527,7 +527,6 @@ $PMA_SQPdata_reserved_word = array (
     'LOGS',
     'LOW_PRIORITY',
     'MARIA',                // 5.1 ?
-    'MASTER',
     'MASTER_CONNECT_RETRY',
     'MASTER_HOST',
     'MASTER_LOG_FILE',
@@ -685,7 +684,7 @@ $PMA_SQPdata_reserved_word = array (
  *
  * @global integer MySQL reserved words count
  */
-$PMA_SQPdata_reserved_word_cnt = 288;
+$PMA_SQPdata_reserved_word_cnt = 287;
 
 /**
  * words forbidden to be used as column or table name wihtout quotes
