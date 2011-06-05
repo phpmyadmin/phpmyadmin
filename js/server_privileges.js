@@ -176,14 +176,14 @@ $(document).ready(function() {
              */
             var $form = $(this).find("form[name=usersForm]").last();
 
-            if( ! checkAddUser($form.get(0)) ) {
-                PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
+            if ( ! checkAddUser($form.get(0)) ) {
+                PMA_ajaxShowMessage( PMA_messages['strFormEmpty'] );
                 return false;
             }
 
             //We also need to post the value of the submit button in order to get this to work correctly
-            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
-                if(data.success == true) {
+            $.post( $form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function( data ) {
+                if ( data.success == true ) {
                     $("#add_user_dialog").dialog("close").remove();
                     PMA_ajaxShowMessage(data.message);
                     $("#topmenucontainer")
@@ -192,61 +192,61 @@ $(document).ready(function() {
                      .end()
                      .after(data.sql_query);
 
-                     //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                     var $notice_class = $("#topmenucontainer").next("div").find('.notice');
-                     if($notice_class.text() == '') {
+                    //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                    var $notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    if ( $notice_class.text() == '' ) {
                         $notice_class.remove();
-                     }
-                     if($('#fieldset_add_user a.ajax').attr('name') == 'db_specific'){
+                    }
+                    if ( $('#fieldset_add_user a.ajax').attr('name') == 'db_specific' ) {
 
-                         /*process the fieldset_add_user attribute and get the val of privileges*/
-                         var url = $('#fieldset_add_user a.ajax').attr('val');
+                        /*process the fieldset_add_user attribute and get the val of privileges*/
+                        var url = $('#fieldset_add_user a.ajax').attr('val');
 
-                         if(url.substring(url.length-23,url.length) == "&goto=db_operations.php"){
-                             url = url.substring(0, url.length-23);
-                         }
-                       	 url = url +"&ajax_request=true&db_specific=true";
+                        if ( url.substring( url.length - 23, url.length ) == "&goto=db_operations.php" ) {
+                            url = url.substring( 0, url.length - 23 );
+                        }
+                       	url = url + "&ajax_request=true&db_specific=true";
 
-                       	 /* post request for get the updated userForm table */
-                       	 $.post($form.attr('action'),url,function(priv_data){
+                       	/* post request for get the updated userForm table */
+                       	$.post( $form.attr('action' ), url, function( priv_data ) {
 
-                       	     /*Remove the old userForm table*/
-                             if($('#userFormDiv').length != 0){
-                             $('#userFormDiv').remove();
-                             }else{
+                       	    /*Remove the old userForm table*/
+                            if ( $('#userFormDiv').length != 0 ) {
+                                $('#userFormDiv').remove();
+                            } else {
                                 $("#usersForm").remove();
-                             }
-                             var user_div = $('<div id="userFormDiv"></div>');
-                             /*If the jason string pared valiedly*/
-                             if(typeof priv_data.success != 'undefined'){
-                                 if(priv_data.success == true){
-                                     user_div
-                                     .html(priv_data.user_form)
-                                     .insertAfter('#result_query');
-                                 }else{
-                                         PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+priv_data.error, "7000");
-                                 }
-                            }else{
-                                /*parse the json string*/
-                                var obj = $.parseJSON(priv_data);
-                                user_div
-                                .html(obj.user_form)
-                                .insertAfter('#result_query');
                             }
-                         });
-                     }else{
-                     appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
-                     }
+                            var user_div = $('<div id="userFormDiv"></div>');
+                            /*If the jason string pared valiedly*/
+                            if ( typeof priv_data.success != 'undefined' ) {
+                                if ( priv_data.success == true ) {
+                                    user_div
+                                     .html( priv_data.user_form )
+                                     .insertAfter('#result_query');
+                                } else {
+                                    PMA_ajaxShowMessage( PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, "7000" );
+                                }
+                            } else {
+                                /*parse the json string*/
+                                var obj = $.parseJSON( priv_data );
+                                user_div
+                                 .html( obj.user_form )
+                                 .insertAfter('#result_query');
+                            }
+                        });
+                    } else {
+                        appendNewUser( data.new_user_string, data.new_user_initial, data.new_user_initial_string );
+                    }
                 } else {
-                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+                    PMA_ajaxShowMessage( PMA_messages['strErrorProcessingRequest'] + " : " + data.error, "7000");
                 }
             })
         };
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
+        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
 
-        $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
+        $.get( $(this).attr("href"), {'ajax_request':true}, function( data ) {
             $('<div id="add_user_dialog"></div>')
-            .prepend(data)
+            .prepend( data )
             .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
             .end()
             .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
@@ -262,7 +262,7 @@ $(document).ready(function() {
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
-            PMA_ajaxRemoveMessage($msgbox);
+            PMA_ajaxRemoveMessage( $msgbox );
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
