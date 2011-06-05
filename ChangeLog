@@ -18,6 +18,7 @@
 - bug #3311170 [sync] Missing helper icons in Synchronize
 - patch #3304473 [setup] Redefine a lable that was wrong
 - bug #3304544 [parser] master is not a reserved word
+- bug #3307616 [edit] Inline edit updates multiple duplicate rows
 
 3.4.2.0 (not yet released)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
