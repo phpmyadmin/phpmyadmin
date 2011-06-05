@@ -21,10 +21,11 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 
+
 /**
  * Not selection yet required -> displays the selection form
  */
-if (! isset($zoom_submit)) {
+if (true) {
     // Gets some core libraries
     require_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -87,8 +88,97 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 
 }
 
+
+if(isset($zoom_submit)) {
+
+    // Unlike tbl_search page this part builds two queries, Query1 for the search criteria on 1st column and Query2 for the other column. This has to be done because user can select two same columns having different criteria. 
+    $chart ='';
+    $cx = $cy = $w = array();
+    $sql_query = 'SELECT ';
+
+    // Add the colums to be selected
+    $columns = $inputs;
+    $columns = PMA_backquote($columns);
+    $sql_query .= implode(', ', $columns);
+    
+
+    //Add the table
+	
+    $sql_query .= ' FROM ' . PMA_backquote($table);
+    for($i = 0 ; $i < 2 ; $i++){
+
+        $tmp = array();
+        // The where clause
+        $charsets = array();
+        $cnt_func = count($zoomFunc[$i]);
+        $func_type = $zoomFunc[$i];
+        list($charsets[$i]) = explode('_', $collations[$i]);
+        $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
+        $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
+        if($whereClause)
+                $w[] = $whereClause;
+
+        } // end for
+        //print_r($w);
+        if ($w) {
+            $sql_query .= ' WHERE ' . implode(' AND ', $w);
+        }
+    $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $cx[] = $row[$inputs[0]];
+	$cy[] = $row[$inputs[1]];
+    }
+
+    for($j = 0 ; $j < count($cx) ; $j++){
+	$cx[$j] = 20 + 500 * $cx[$j]/ max($cx);
+	$cy[$j] = 300 * $cy[$j]/ max($cy) -20 ;
+    }
+    $chart .= '
+            <div style="float: right">
+            <?xml version="1.0" standalone="no"?>
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+            "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+            <svg width="540" height="325" version="1.1"
+            xmlns="http://www.w3.org/2000/svg">
+
+            <defs>
+            <marker id = "MidMarker" viewBox = "0 0 10 10" refX = "5" refY = "5" markerUnits = "strokeWidth" markerWidth = "3" markerHeight = "3" stroke = "lightblue" stroke-width = "2" fill = "none" orient = "auto">
+            <path d = "M 0 0 L 10 10 M 0 10 L 10 0"/>
+            </marker>
+            <path id="myTextPath1"
+              d="M10,180 L10,50"/>
+            <path id="myTextPath2"
+              d="M250,315 L370,315"/>
+            </defs>
+            <g id ="zoomplot" >
+            <text x="6" y="190"  style="font-family: Arial; font-size  : 54; stroke:none; fill:#000000;" >
+                <textPath xlink:href="#myTextPath1" >';
+    $chart .= $inputs[0];       
+    $chart .= '</textPath>
+            </text>
+            <text x="250" y="315"  style="font-family: Arial; font-size  : 54; stroke:none; fill:#000000;" >
+                <textPath xlink:href="#myTextPath2" >';
+    $chart .= $inputs[1];       
+    $chart .= '</textPath>
+            </text>
+
+            <line x1="20" y1="300" x2="520" y2="300" style="stroke: black" marker-end = "url(#MidMarker)"/>
+            <line x1="20" y1="300" x2="20" y2="0" style="stroke: black"/>';
+            
+            for($j = 0 ; $j < count($cx) ; $j++){
+          	 $chart .= '<circle cx="' . $cx[$j] .'" cy="' . $cy[$j] . '" r=".1"  fill="red" stroke="blue" />';
+            }
+
+    $chart .='</g>
+            </svg>
+            </div>';
+
 ?>
 
+<?php
+}
+?>
 <form method="post" action="tbl_zoom_select.php" name="zoomInputForm" id="zoom_search_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -96,10 +186,15 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 <input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
 
 <fieldset id="zoom_fieldset_table_qbe">
+<?php if(isset($zoom_submit)){ 
+
+	echo $chart; ?>
+	
+<?php } ?>
     <legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
     <table class="data">
     <?php echo PMA_tbl_setTableHeader();?>
-    <tbody-->
+    <tbody>
 <?php
     $odd_row = true;
    
@@ -195,45 +290,17 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 </fieldset>
 </form>
 
+
+
 <div id="sqlqueryresults"></div>
     <?php
     require './libraries/footer.inc.php';
 ?>
+
 
 </fieldset>
 
 <?php
 }
 
-else {
 
-    // Unlike tbl_search page this part builds two queries, Query1 for the search criteria on 1st column and Query2 for the other column. This has to be done because user can select two same columns having different criteria. 
-
-    for($i = 0 ; $i < 2 ; $i++){
-
-        $sql_query = 'SELECT ';
-
-        // Add the colums to be selected
-	
-        $sql_query .= PMA_backquote($inputs[$i]);
-
-        //Add the table
-	
-        $sql_query .= ' FROM ' . PMA_backquote($table);
-
-        // The where clause
-        $charsets = array();
-        $cnt_func = count($zoomFunc[$i]);
-        reset($zoomFunc[$i]);
-        $func_type = $zoomFunc[$i];
-        list($charsets[$i]) = explode('_', $collations[$i]);
-        $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
-        $w = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
-        if ($w != '') {
-            $sql_query .= ' WHERE ' . $w;
-        }
-            print $sql_query."<br>";
-    }
-}
-
-?>
