@@ -13,6 +13,7 @@
 + AJAX for Create table in navigation panel
 + rfe #3310562 Wording about Column
 + AJAX for Add a user in Database privileges
++ Patch #3271804 for rfe #3177495, new DisableMultiTableMaintenance directive
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
