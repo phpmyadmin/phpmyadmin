@@ -154,7 +154,7 @@ $(document).ready(function() {
      *
      * @see         PMA_ajaxShowMessage()
      * @see         appendNewUser()
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        add_user_click
      *
@@ -176,14 +176,14 @@ $(document).ready(function() {
              */
             var $form = $(this).find("form[name=usersForm]").last();
 
-            if( ! checkAddUser($form.get(0)) ) {
+            if (! checkAddUser($form.get(0))) {
                 PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
                 return false;
             }
 
             //We also need to post the value of the submit button in order to get this to work correctly
             $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").attr('value'), function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     $("#add_user_dialog").dialog("close").remove();
                     PMA_ajaxShowMessage(data.message);
                     $("#topmenucontainer")
@@ -191,20 +191,58 @@ $(document).ready(function() {
                      .remove()
                      .end()
                      .after(data.sql_query);
-                                                                
-                     //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
-                     var $notice_class = $("#topmenucontainer").next("div").find('.notice');
-                     if($notice_class.text() == '') {
-                        $notice_class.remove();
-                     }
 
-                     appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
+                    //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                    var $notice_class = $("#topmenucontainer").next("div").find('.notice');
+                    if ($notice_class.text() == '') {
+                        $notice_class.remove();
+                    }
+                    if ($('#fieldset_add_user a.ajax').attr('name') == 'db_specific') {
+
+                        /*process the fieldset_add_user attribute and get the val of privileges*/
+                        var url = $('#fieldset_add_user a.ajax').attr('val');
+
+                        if (url.substring(url.length - 23, url.length) == "&goto=db_operations.php") {
+                            url = url.substring(0, url.length - 23);
+                        }
+                        url = url + "&ajax_request=true&db_specific=true";
+
+                        /* post request for get the updated userForm table */
+                        $.post($form.attr('action' ), url, function(priv_data) {
+
+                       	    /*Remove the old userForm table*/
+                            if ($('#userFormDiv').length != 0) {
+                                $('#userFormDiv').remove();
+                            } else {
+                                $("#usersForm").remove();
+                            }
+                            var user_div = $('<div id="userFormDiv"></div>');
+                            /*If the JSON string parsed correctly*/
+                            if (typeof priv_data.success != 'undefined') {
+                                if (priv_data.success == true) {
+                                    user_div
+                                     .html(priv_data.user_form)
+                                     .insertAfter('#result_query');
+                                } else {
+                                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, "7000");
+                                }
+                            } else {
+                                /*parse the JSON string*/
+                                var obj = $.parseJSON(priv_data);
+                                user_div
+                                 .html(obj.user_form)
+                                 .insertAfter('#result_query');
+                            }
+                        });
+                    } else {
+                        appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
+                    }
                 } else {
-                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : "+data.error, "7000");
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, "7000");
                 }
             })
         };
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close").remove();}
+        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close").remove(); }
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             $('<div id="add_user_dialog"></div>')
@@ -224,7 +262,7 @@ $(document).ready(function() {
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
-            PMA_ajaxRemoveMessage($msgbox);    
+            PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
@@ -234,7 +272,7 @@ $(document).ready(function() {
      * Ajax event handler for 'Reload Privileges' anchor
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        reload_privileges_click
      */
@@ -258,7 +296,7 @@ $(document).ready(function() {
      * AJAX handler for 'Revoke User'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
@@ -268,7 +306,7 @@ $(document).ready(function() {
         PMA_ajaxShowMessage(PMA_messages['strRemovingSelectedUsers']);
 
         $form = $("#usersForm");
-        
+
         $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).attr('value') + "&ajax_request=true", function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
@@ -309,7 +347,7 @@ $(document).ready(function() {
      * Step 1: Load Edit User Dialog
      * @memberOf    jQuery
      * @name        edit_user_click
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      */
     $(".edit_user_anchor.ajax").live('click', function(event) {
         /** @lends jQuery */
@@ -334,15 +372,15 @@ $(document).ready(function() {
                 buttons: button_options
             }); //dialog options end
             displayPasswordGenerateButton();
-            PMA_ajaxRemoveMessage($msgbox);    
+            PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     })
 
     /**
      * Step 2: Submit the Edit User Dialog
-     * 
+     *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
@@ -368,7 +406,7 @@ $(document).ready(function() {
             if(data.success == true) {
 
                 PMA_ajaxShowMessage(data.message);
-                
+
                 //Close the jQueryUI dialog
                 $("#edit_user_dialog").dialog("close").remove();
 
@@ -422,7 +460,7 @@ $(document).ready(function() {
      * AJAX handler for 'Export Privileges'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        export_user_click
      */
@@ -445,7 +483,7 @@ $(document).ready(function() {
                 width : 500,
                 buttons: button_options
             });
-            PMA_ajaxRemoveMessage($msgbox);            
+            PMA_ajaxRemoveMessage($msgbox);
         }) //end $.get
     }) //end export privileges
 
@@ -453,7 +491,7 @@ $(document).ready(function() {
      * AJAX handler to Paginate the Users Table
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable'] 
+     * @see         $cfg['AjaxEnable']
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
@@ -476,7 +514,7 @@ $(document).ready(function() {
     })// end of the paginate users table
 
     /*
-     * Additional confirmation dialog after clicking 
+     * Additional confirmation dialog after clicking
      * 'Drop the databases...'
      */
     $('#checkbox_drop_users_db').click(function() {
