@@ -48,9 +48,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     }
     if (! isset($mysql_charsets)) {
         $mysql_charsets = array();
-        $mysql_charsets_count = 0;
         $mysql_collations_flat = array();
-        $mysql_collations_count = 0;
     }
 
     if (!defined('DEBUG_TIMING')) {
@@ -195,8 +193,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * @global array    MySQL function names
      * @global array    List of available character sets
      * @global array    List of available collations
-     * @global integer  Character sets count
-     * @global integer  Collations count
      *
      * @access public
      */
@@ -204,7 +200,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     {
         global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type;
         global $PMA_SQPdata_function_name, $PMA_SQPdata_forbidden_word;
-        global $mysql_charsets, $mysql_collations_flat, $mysql_charsets_count, $mysql_collations_count;
+        global $mysql_charsets, $mysql_collations_flat;
 
         // Convert all line feeds to Unix style
         $sql = str_replace("\r\n", "\n", $sql);
@@ -215,11 +211,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             return array();
         }
 
+        // Get counts of some arrays
         $PMA_SQPdata_column_attrib_cnt  = count($PMA_SQPdata_column_attrib);
         $PMA_SQPdata_function_name_cnt  = count($PMA_SQPdata_function_name);
         $PMA_SQPdata_reserved_word_cnt  = count($PMA_SQPdata_reserved_word);
         $PMA_SQPdata_forbidden_word_cnt = count($PMA_SQPdata_forbidden_word);
         $PMA_SQPdata_column_type_cnt    = count($PMA_SQPdata_column_type);
+        $mysql_charsets_count = count($mysql_charsets);
+        $mysql_collations_count = count($mysql_collations_flat);
 
         $sql_array               = array();
         $sql_array['raw']        = $sql;
