@@ -12,6 +12,7 @@
 + rfe #3078542 Remember the last sort order for each table
 + AJAX for Create table in navigation panel
 + rfe #3310562 Wording about Column
++ AJAX for Add a user in Database privileges
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
