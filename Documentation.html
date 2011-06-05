@@ -1845,6 +1845,15 @@ $cfg['TrustedProxies'] =
     Default is <code>1000</code>.
     </dd>
 
+    <dt
+    id="cfg_DisableMultiTableMaintenance">$cfg['DisableMultiTableMaintenance'] boolean</dt>
+    <dd>
+    In the database Structure page, it's possible to mark some tables then
+    choose an operation like optimizing for many tables. This can slow down
+    a server; therefore, setting this to <code>true</code> prevents this kind
+    of multiple maintenance operation. Default is <code>false</code>.
+    </dd>
+
     <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
     <dd>Navi frame width in pixels. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
