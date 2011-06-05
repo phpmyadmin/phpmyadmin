@@ -55,7 +55,7 @@ echo '<div id="div_mysql_charset_collations">' . "\n"
    . '</tr>' . "\n";
 
 $i = 0;
-$table_row_count = count($mysql_charsets) + $mysql_collations_count;
+$table_row_count = count($mysql_charsets) + count($mysql_collations);
 
 foreach ($mysql_charsets as $current_charset) {
     if ($i >= $table_row_count / 2) {
