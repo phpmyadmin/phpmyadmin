@@ -944,6 +944,8 @@ $(document).ready(function() {
 
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
+        //Fix non-escaped backslashes
+        sql_query = sql_query.replace(/\\/g, '\\\\');
         new_clause = new_clause.substring(0, new_clause.length-5);
         new_clause = PMA_urlencode(new_clause);
         sql_query += ' WHERE ' + PMA_urldecode(where_clause);
