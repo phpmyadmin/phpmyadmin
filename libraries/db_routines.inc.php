@@ -680,7 +680,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
-    $retval .= "<fieldset class='tblFooters'>\n";
+    $retval .= "<fieldset class='tblFooters routineEditorSubmit'>\n";
     $retval .= "    <input type='submit' name='routine_process_{$mode}routine'\n";
     $retval .= "           value='" . __('Go') . "' />\n";
     $retval .= "</fieldset>\n";
