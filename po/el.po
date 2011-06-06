@@ -3961,10 +3961,9 @@ msgstr ""
 "συνεδριών, προτείνεται: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "Ο τρέχων ανοιχτός πίνακας"
+msgstr "Πρόσφατα χρησιμοποιημένος πίνακας"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
