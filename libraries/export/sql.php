@@ -449,7 +449,11 @@ function PMA_exportHeader()
            .  PMA_exportComment('version ' . PMA_VERSION)
            .  PMA_exportComment('http://www.phpmyadmin.net')
            .  PMA_exportComment();
-    $head .= empty($cfg['Server']['port']) ? PMA_exportComment(__('Host') . ': ' . $cfg['Server']['host']) : PMA_exportComment(__('Host') . ': ' .  $cfg['Server']['host'] . ':' . $cfg['Server']['port']);
+    $host_string = __('Host') . ': ' .  $cfg['Server']['host'];
+    if (!empty($cfg['Server']['port'])) {
+        $host_string .= ':' . $cfg['Server']['port'];
+    }
+    $head .= PMA_exportComment($host_string);
     $head .=  PMA_exportComment(__('Generation Time')
            . ': ' .  PMA_localisedDate())
            .  PMA_exportComment(__('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3))
