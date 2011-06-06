@@ -92,13 +92,13 @@ $(function() {
             switch(tab.attr('id')) {
                 case 'statustabs_traffic':
                     settings = {
-                        series: [{name:'Connections', data:[]},{name:'Processes', data:[]}],
+                        series: [{name:'Connections since last refresh', data:[]},{name:'Processes', data:[]}],
                         title: {text:'Connections / Processes'},
                         refresh:{ type: 'proc',
                                   callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
                                         chartObj.series[0].addPoint(
                                             { x:curVal.x, y:curVal.y_conn-lastVal.y_conn },
-                                            true, numLoadedPoints >= numMaxPoints
+                                            false, numLoadedPoints >= numMaxPoints
                                         );
                                         chartObj.series[1].addPoint(
                                             { x:curVal.x, y:curVal.y_proc },
@@ -331,6 +331,7 @@ $(function() {
                 tickPixelInterval: 150
             },
             yAxis: {
+                min: 0,
                 title: {
                     text: 'Total count'
                 },
