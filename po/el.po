@@ -2218,7 +2218,7 @@ msgstr "Και τα δύο"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Πουθενά"
 
 #: libraries/config.values.php:47
 msgid "Left"
