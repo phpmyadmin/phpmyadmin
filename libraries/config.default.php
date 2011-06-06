@@ -213,6 +213,13 @@ $cfg['Servers'][$i]['password'] = '';
 $cfg['Servers'][$i]['SignonSession'] = '';
 
 /**
+ * PHP script to use for 'signon' authentication method
+ *
+ * @global string $cfg['Servers'][$i]['SignonScript']
+ */
+$cfg['Servers'][$i]['SignonScript'] = '';
+
+/**
  * URL where to redirect user to login for 'signon' authentication method
  *
  * @global string $cfg['Servers'][$i]['SignonURL']
