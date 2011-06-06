@@ -5,8 +5,8 @@
             // constant
             minColWidth: 5,
             
-            // changeable vars
-            alignment: 'horizontal',
+            // variables, assigned with default value, changed later
+            alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
             
             // functions
@@ -16,9 +16,9 @@
                     x0: e.pageX,
                     n: n,
                     obj: obj,
-                    objLeft: parseInt(obj.style.left),
-                    objWidth: this.alignment == 'horizontal' ?
-                              $(this.t).find('tr:first th:eq(' + (1 + n) + ') span').outerWidth() :
+                    objLeft: $(obj).position().left,
+                    objWidth: this.alignment != 'vertical' ?
+                              $(this.t).find('th.draggable:eq(' + n + ') span').outerWidth() :
                               $(this.t).find('tr:first td:eq(' + n + ') span').outerWidth()
                 };
                 $('body').css('cursor', 'col-resize');
@@ -29,7 +29,7 @@
                 // prepare the cCpy and cPointer from the dragged column
                 $(this.cCpy).text($(obj).text());
                 var objPos = $(obj).position();
-                if (this.alignment == 'horizontal') {
+                if (this.alignment != 'vertical') {
                     $(this.cCpy).css({
                         top: objPos.top + 20,
                         left: objPos.left,
@@ -53,15 +53,15 @@
                     });
                 }
                 // get the column index
-                var n = $(this.t).find('th:gt(0)').index(obj);
+                var n = $(this.t).find('th.draggable').index(obj);
                 this.colMov = {
                     x0: e.pageX,
                     y0: e.pageY,
                     n: n,
                     newn: n,
                     obj: obj,
-                    objTop: parseInt(objPos.top),
-                    objLeft: parseInt(objPos.left)
+                    objTop: objPos.top,
+                    objLeft: objPos.left
                 };
                 $('body').css('cursor', 'move');
                 $('body').noSelect();
@@ -71,10 +71,10 @@
                 if (this.colRsz) {
                     var dx = e.pageX - this.colRsz.x0;
                     if (this.colRsz.objWidth + dx > this.minColWidth)
-                        $(this.colRsz.obj).css('left', this.colRsz.objLeft + dx);
+                        $(this.colRsz.obj).css('left', this.colRsz.objLeft + dx + 'px');
                 } else if (this.colMov) {
                     // dragged column animation
-                    if (this.alignment == 'horizontal') {
+                    if (this.alignment != 'vertical') {
                         var dx = e.pageX - this.colMov.x0;
                         $(this.cCpy)
                             .css('left', this.colMov.objLeft + dx)
@@ -89,12 +89,12 @@
                     // pointer animation
                     var hoveredCol = this.getHoveredCol(e);
                     if (hoveredCol) {
-                        var newn = $(this.t).find('th:gt(0)').index(hoveredCol);
+                        var newn = $(this.t).find('th.draggable').index(hoveredCol);
                         this.colMov.newn = newn;
                         if (newn != this.colMov.n) {
                             // show the column pointer in the right place
                             var colPos = $(hoveredCol).position();
-                            if (this.alignment == 'horizontal') {
+                            if (this.alignment != 'vertical') {
                                 var newleft = newn < this.colMov.n ?
                                               colPos.left :
                                               colPos.left + $(hoveredCol).outerWidth();
@@ -126,16 +126,19 @@
                     }
                     var n = this.colRsz.n;
                     // do the resizing
-                    if (this.alignment == 'horizontal') {
-                        $(this.t).find('tr').each(function() {
-                            $(this).find('th:eq(' + (1 + n) + ') span,' +
-                                         'td:eq(' + (g.actionSpan + n) + ') span')
-                                   .css('width', nw + 'px');
+                    if (this.alignment != 'vertical') {
+                        // resize the header
+                        $(this.t).find('th.draggable:eq(' + n + ') span')
+                               .css('width', nw);
+                        // resize the data
+                        $(this.t).find('tr:gt(0)').each(function() {
+                            $(this).find('td:eq(' + (g.actionSpan + n) + ') span')
+                                   .css('width', nw);
                         });
                     } else {    // vertical alignment
                         $(this.t).find('tr').each(function() {
                             $(this).find('td:eq(' + n + ') span')
-                                   .css('width', nw + 'px');
+                                   .css('width', nw);
                         });
                     }
                     $('body').css('cursor', 'default');
@@ -172,15 +175,16 @@
              */
             reposRsz: function() {
                 $(this.cRsz).find('div').hide();
-                $firstRowCols = this.alignment == 'horizontal' ?
-                                $(this.t).find('tr:first th:gt(0)') :
+                $firstRowCols = this.alignment != 'vertical' ?
+                                $(this.t).find('th.draggable') :
                                 $(this.t).find('tr:first td');
+                var firstElmtIdx = $firstRowCols.index();
                 $firstRowCols.each(function() {
                     $this = $(this);
                     var n = $this.index();
-                    $cb = $(g.cRsz).find('div:eq(' + (n - 1) + ')');   // column border
+                    $cb = $(g.cRsz).find('div:eq(' + (n - firstElmtIdx) + ')');   // column border
                     var pad = parseInt($this.css('padding-right'));
-                    $cb.css('left', Math.floor($this.position().left + $this.width() + pad) + 'px')
+                    $cb.css('left', Math.floor($this.position().left + $this.width() + pad))
                        .show();
                 });
             },
@@ -189,15 +193,15 @@
              * Shift column from index oldn to newn.
              */
             shiftCol: function(oldn, newn) {
-                if (this.alignment == 'horizontal') {
+                if (this.alignment != 'vertical') {
                     // shift header
                     $(this.t).find('thead tr').each(function() {
                         if (newn < oldn) {
-                            $(this).find('th:eq(' + (1 + newn) + ')')
-                                   .before($(this).find('th:eq(' + (1 + oldn) + ')'));
+                            $(this).find('th.draggable:eq(' + newn + ')')
+                                   .before($(this).find('th.draggable:eq(' + oldn + ')'));
                         } else {
-                            $(this).find('th:eq(' + (1 + newn) + ')')
-                                   .after($(this).find('th:eq(' + (1 + oldn) + ')'));
+                            $(this).find('th.draggable:eq(' + newn + ')')
+                                   .after($(this).find('th.draggable:eq(' + oldn + ')'));
                         }
                     });
                     // shift data
@@ -231,8 +235,8 @@
              */
             getHoveredCol: function(e) {
                 var hoveredCol;
-                $headers = $(this.t).find('th:gt(0)');
-                if (this.alignment == 'horizontal') {
+                $headers = $(this.t).find('th.draggable');
+                if (this.alignment != 'vertical') {
                     $headers.each(function() {
                         var left = $(this).position().left;
                         var right = left + $(this).outerWidth();
@@ -271,25 +275,29 @@
         g.t = t;
         
         // assign the table alignment
-        // Currently, we can detect the alignment from the first table header.
-        // If the first th have children (<- T -> symbol), then the alignment is horizontal, vertical otherwise.
-        g.alignment = $(t).find('th:first').children().length > 0 ? 'horizontal' : 'vertical';
+        g.alignment = $("#top_direction_dropdown").val();
         
-        // assign the first column (actions) span
-        g.actionSpan = g.alignment == 'horizontal' ?
-                       parseInt($(t).find('tr:first th:first').attr('colspan')) :
-                       parseInt($(t).find('tr:first th:first').attr('rowspan'));
+        // get first row data columns
+        var $firstRowCols = g.alignment != 'vertical' ?
+                            $(t).find('th.draggable') :
+                            $(t).find('tr:first td');
+        
+        // assign first column (actions) span
+        if (! $(t).find('tr:first th:first').hasClass('draggable')) {  // action header exist
+            g.actionSpan = g.alignment != 'vertical' ?
+                           $(t).find('tr:first th:first').prop('colspan') :
+                           $(t).find('tr:first th:first').prop('rowspan');
+        } else {
+            g.actionSpan = 0;
+        }
         
         // create column borders
-        $firstRowCols = g.alignment == 'horizontal' ?
-                        $(t).find('tr:first th:gt(0)') :
-                        $(t).find('tr:first td');
         $firstRowCols.each(function() {
             $this = $(this);
             var cb = document.createElement('div'); // column border
             var pad = parseInt($this.css('padding-right'));
-            cb.style.left = Math.floor($this.position().left + $this.width() + pad) + 'px';
-            cb.className = 'colborder';
+            $(cb).css('left', Math.floor($this.position().left + $this.width() + pad));
+            $(cb).addClass('colborder');
             $(cb).mousedown(function(e) {
                 g.dragStartRsz(e, this);
             });
@@ -300,11 +308,8 @@
         $(t).find('th, td:not(:has(span))')
             .wrapInner('<span />');
         
-        // create draggable header
-        $(t).find('th:gt(0)').addClass('draggable');
-        
         // register events
-        $(t).find('th:gt(0)').mousedown(function(e) {
+        $(t).find('th.draggable').mousedown(function(e) {
             g.dragStartMove(e, this);
         });
         $(document).mousemove(function(e) {

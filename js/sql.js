@@ -42,12 +42,13 @@ function getFieldName($this_field, disp_mode) {
     else {
         var this_field_index = $this_field.index();
         // ltr or rtl direction does not impact how the DOM was generated
-        //
+        // check if the action column in the left exist
+        var leftActionExist = !$('#table_results').find('th:first').hasClass('draggable');
         // 5 columns to account for the checkbox, edit, appended inline edit, copy and delete anchors but index is zero-based so substract 4
-        var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-4 )+') a').text();
+        var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index - (leftActionExist ? 4 : 0)) + ') a').text();
         // happens when just one row (headings contain no a)
         if ("" == field_name) {
-            field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-4 )+')').text();
+            field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index - (leftActionExist ? 4 : 0)) + ')').text();
         }
     }
 
@@ -540,19 +541,16 @@ $(document).ready(function() {
                 $this_hide.parent().removeClass("hover noclick");
                 $this_hide.siblings().removeClass("hover");
 
-                var last_column = $this_hide.siblings().length;
+                var $input_siblings = $this_hide.parent('tr').find('.inline_edit');
                 var txt = '';
-                for(var i = 4; i < last_column; i++) {
-                    if($this_hide.siblings("td:eq(" + i + ")").hasClass("inline_edit") == false) {
-                        continue;
-                    }
-                    var $this_hide_siblings = $this_hide.siblings("td:eq(" + i + ")");
+                $input_siblings.each(function() {
+                    var $this_hide_siblings = $(this);
                     txt = $this_hide_siblings.data('original_data');
                     if($this_hide_siblings.children('span').children().length != 0) {
                         $this_hide_siblings.children('span').empty();
                         $this_hide_siblings.children('span').append(txt);
                     }
-                }
+                });
                 $(this).prev().prev().remove();
                 $(this).prev().remove();
                 $(this).remove();
@@ -566,7 +564,8 @@ $(document).ready(function() {
 
             $('#table_results tbody tr td span a#hide').click(function() {
                 var $hide_a = $(this);
-                var pos = $hide_a.parents('td').index();
+                var $this_hide = $(this).parents('td');
+                var pos = $this_hide.index();
 
                 var $this_span = $hide_a.parent();
                 $this_span.find('a, br').remove();
@@ -574,12 +573,12 @@ $(document).ready(function() {
 
                 var $this_row = $this_span.parents('tr');
                 // changing inline_edit_active to inline_edit_anchor
-                $this_row.siblings("tr:eq(3) td:eq(" + pos + ")").removeClass("inline_edit_active").addClass("inline_edit_anchor");
+                $this_hide.removeClass("inline_edit_active").addClass("inline_edit_anchor");
 
                 // removing marked and hover classes.
                 $this_row.parent('tbody').find('tr').find("td:eq(" + pos + ")").removeClass("marked hover");
 
-                for( var i = 6; i <= rows + 2; i++){
+                for( var i = 0; i <= rows + 2; i++){
                     if( $this_row.siblings("tr:eq(" + i + ") td:eq(" + pos + ")").hasClass("inline_edit") == false) {
                         continue;
                     }

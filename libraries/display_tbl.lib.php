@@ -695,7 +695,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     //     ... elseif display an empty column if the actions links are disabled to match the rest of the table
     elseif ($GLOBALS['cfg']['RowActionLinks'] == 'none' && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
-        echo '<td></td>';
+        echo '<th></th>';
     }
 
     // 2. Displays the fields' name
@@ -870,6 +870,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo '<th';
                 $th_class = array();
+                $th_class[] = 'draggable';
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -882,7 +883,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '>' . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . ($condition_field ? ' class="condition"' : '') . '>' . "\n"
+                . 'class="draggable' . ($condition_field ? ' condition' : '') . '">' . "\n"
                 . $order_link . $comments . '    </th>' . "\n";
         } // end if (2.1)
 
@@ -891,9 +892,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo '<th';
+                $th_class = array();
+                $th_class[] = 'draggable';
                 if ($condition_field) {
-                    echo ' class="condition"';
+                    $th_class[] = 'condition';
                 }
+                echo ' class="' . implode(' ', $th_class) . '"';
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                     echo ' valign="bottom"';
                 }
@@ -911,7 +915,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo "\n" . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . ($condition_field ? ' class="condition"' : '') . '>' . "\n"
+                . 'class="draggable' . ($condition_field ? ' condition"' : '') . '">' . "\n"
                 . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                 . $comments . '    </th>';
         } // end else (2.2)
