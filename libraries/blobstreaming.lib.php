@@ -91,40 +91,49 @@ function checkBLOBStreamingPlugins()
         $serverCfg['socket'] = "";
     }
 
-    $has_blobstreaming = false;
-    if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50109) {
+    $has_blobstreaming = PMA_cacheGet('has_blobstreaming', true);
+    if ($has_blobstreaming === null) {
+        if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50109) {
 
-        // Retrieve MySQL plugins
-        $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
+            // Retrieve MySQL plugins
+            $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
 
-        foreach ($existing_plugins as $one_existing_plugin) {
-            // check if required plugins exist
-            if ( strtolower($one_existing_plugin['Library']) == 'libpbms.so'
-                && $one_existing_plugin['Status'] == "ACTIVE") {
-                $has_blobstreaming = true;
-                break;
+            foreach ($existing_plugins as $one_existing_plugin) {
+                // check if required plugins exist
+                if ( strtolower($one_existing_plugin['Library']) == 'libpbms.so'
+                    && $one_existing_plugin['Status'] == "ACTIVE") {
+                    $has_blobstreaming = true;
+                    break;
+                }
             }
+            unset($existing_plugins, $one_existing_plugin);
+        } else if (PMA_DRIZZLE) {
+            $has_blobstreaming = (bool)PMA_DBI_fetch_result(
+                "SELECT 1
+                FROM data_dictionary.plugins
+                WHERE module_name = 'PBMS'
+                    AND is_active = true
+                LIMIT 1");
         }
-        unset($existing_plugins, $one_existing_plugin);
-    } else if (PMA_DRIZZLE) {
-        $has_blobstreaming = (bool)PMA_DBI_fetch_result(
-            "SELECT 1
-            FROM data_dictionary.plugins
-            WHERE module_name = 'PBMS'
-                AND is_active = true
-            LIMIT 1");
+        PMA_cacheSet('has_blobstreaming', $has_blobstreaming, true);
     }
 
     // set variable indicating BS plugin existence
     $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', $has_blobstreaming);
 
+    if (!$has_blobstreaming) {
+        PMA_cacheSet('skip_blobstreaming', true, true);
+        return false;
+    }
+
     if ($has_blobstreaming) {
         $bs_variables = PMA_BS_GetVariables();
 
        // if no BS variables exist, set plugin existence to false and return
-        if (count($bs_variables) <= 0) {
+        if (count($bs_variables) == 0) {
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', false);
             PMA_cacheSet('skip_blobstreaming', true, true);
+            PMA_cacheSet('has_blobstreaming', false, true);
             return false;
         } // end if (count($bs_variables) <= 0)
 
