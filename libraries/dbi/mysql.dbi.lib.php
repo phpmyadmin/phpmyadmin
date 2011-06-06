@@ -154,65 +154,15 @@ function PMA_DBI_select_db($dbname, $link = null)
  * @param integer $options
  * @return mixed
  */
-function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_rows = true)
+function PMA_DBI_real_query($query, $link, $options)
 {
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
-            return false;
-        }
-    }
-
-    if ($GLOBALS['cfg']['DBG']['sql']) {
-        $time = microtime(true);
-    }
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
-        $r = mysql_query($query, $link);
+        return mysql_query($query, $link);
     } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
-        $r = mysql_unbuffered_query($query, $link);
+        return mysql_unbuffered_query($query, $link);
     } else {
-        $r = mysql_query($query, $link);
+        return mysql_query($query, $link);
     }
-
-    if ($cache_affected_rows) { 
-       $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, $get_from_cache = false); 
-    }
-
-    if ($GLOBALS['cfg']['DBG']['sql']) {
-        $time = microtime(true) - $time;
-
-        $hash = md5($query);
-
-        if (isset($_SESSION['debug']['queries'][$hash])) {
-            $_SESSION['debug']['queries'][$hash]['count']++;
-        } else {
-            $_SESSION['debug']['queries'][$hash] = array();
-            $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = $query;
-            $_SESSION['debug']['queries'][$hash]['time'] = $time;
-        }
-
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
-                . $trace_step['line'] . ': '
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                //. (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
-    }
-    if ($r != false && PMA_Tracker::isActive() == true ) {
-        PMA_Tracker::handleQuery($query);
-    }
-
-    return $r;
 }
 
 function PMA_DBI_fetch_array($result)
@@ -406,7 +356,7 @@ function PMA_DBI_insert_id($link = null)
  * @uses    $GLOBALS['userlink']
  * @uses    mysql_affected_rows()
  * @param   object mysql   $link   the mysql object
- * @param   boolean        $get_from_cache 
+ * @param   boolean        $get_from_cache
  * @return  string integer
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
