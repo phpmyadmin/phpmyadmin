@@ -2281,13 +2281,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     break;
                 case 'punct':
                     $before         .= ' ';
-                    // workaround for
-                    // select * from mytable limit 0,-1
-                    // (a side effect of this workaround is that
-                    // select 20 - 9
-                    // becomes
-                    // select 20 -9
-                    // )
                     if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
                             ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
                         $before .= PMA_showMySQLDocu(
@@ -2298,6 +2291,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             true);
                         $after .= '</a>';
                     }
+
+                    // workaround for
+                    // select * from mytable limit 0,-1
+                    // (a side effect of this workaround is that
+                    // select 20 - 9
+                    // becomes
+                    // select 20 -9
+                    // )
                     if ($typearr[3] != 'digit_integer') {
                        $after        .= ' ';
                     }
