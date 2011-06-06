@@ -3526,7 +3526,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Που να προβάλονται οι σύνδεσμοι γραμμής πίνακα"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
