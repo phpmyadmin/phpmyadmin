@@ -752,7 +752,7 @@ class PMA_Tracker
             $prefix  = explode('DROP VIEW ', $query);
             $str = strstr($prefix[1], 'IF EXISTS');
 
-            if ($str == FALSE ) {
+            if ($str == false ) {
                 $str = $prefix[1];
             }
             $result['tablename'] = self::getTableName($str);
@@ -810,7 +810,7 @@ class PMA_Tracker
             $prefix  = explode('DROP TABLE ', $query);
             $str = strstr($prefix[1], 'IF EXISTS');
 
-            if ($str == FALSE ) {
+            if ($str == false ) {
                 $str = $prefix[1];
             }
             $result['tablename'] = self::getTableName($str);

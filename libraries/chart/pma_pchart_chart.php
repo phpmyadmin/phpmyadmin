@@ -190,7 +190,7 @@ abstract class PMA_pChart_chart extends PMA_chart
                 $this->getGraphAreaColor(RED),
                 $this->getGraphAreaColor(GREEN),
                 $this->getGraphAreaColor(BLUE),
-                FALSE
+                false
         );
         $this->chart->drawScale(
                 $this->dataSet->GetData(),
@@ -199,7 +199,7 @@ abstract class PMA_pChart_chart extends PMA_chart
                 $this->getScaleColor(RED),
                 $this->getScaleColor(GREEN),
                 $this->getScaleColor(BLUE),
-                TRUE,0,2,TRUE
+                true,0,2,true
         );
         
         if($this->settings['gradientIntensity']>0)
@@ -218,7 +218,7 @@ abstract class PMA_pChart_chart extends PMA_chart
         
         $this->chart->drawGrid(
                 4,
-                TRUE,
+                true,
                 $this->getGridColor(RED),
                 $this->getGridColor(GREEN),
                 $this->getGridColor(BLUE),

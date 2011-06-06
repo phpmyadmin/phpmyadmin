@@ -31,13 +31,13 @@ if (empty($filename)) {
 
 $hdrs = get_headers($filename, 1);
 
-if ($hdrs === FALSE) {
+if ($hdrs === false) {
     die(__('Failed to fetch headers'));
 }
 
 $fHnd = fopen($filename, "rb");
 
-if ($fHnd === FALSE) {
+if ($fHnd === false) {
     die(__('Failed to open remote URL'));
 }
 

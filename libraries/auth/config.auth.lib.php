@@ -16,7 +16,7 @@
  */
 function PMA_auth()
 {
-    return TRUE;
+    return true;
 } // end of the 'PMA_auth()' function
 
 
@@ -29,7 +29,7 @@ function PMA_auth()
  */
 function PMA_auth_check()
 {
-    return TRUE;
+    return true;
 } // end of the 'PMA_auth_check()' function
 
 
@@ -42,7 +42,7 @@ function PMA_auth_check()
  */
 function PMA_auth_set_user()
 {
-    return TRUE;
+    return true;
 } // end of the 'PMA_auth_set_user()' function
 
 
@@ -96,7 +96,7 @@ function PMA_auth_fails()
         <td>
 
     <?php
-    $GLOBALS['is_header_sent'] = TRUE;
+    $GLOBALS['is_header_sent'] = true;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         trigger_error(__('Access denied'), E_USER_NOTICE);
@@ -126,13 +126,13 @@ function PMA_auth_fails()
         require_once './libraries/select_server.lib.php';
         echo '<tr>' . "\n";
         echo ' <td>' . "\n";
-        PMA_select_server(TRUE, TRUE);
+        PMA_select_server(true, true);
         echo ' </td>' . "\n";
         echo '</tr>' . "\n";
     }
     echo '</table>' . "\n";
     require './libraries/footer.inc.php';
-    return TRUE;
+    return true;
 } // end of the 'PMA_auth_fails()' function
 
 ?>
