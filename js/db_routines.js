@@ -13,11 +13,6 @@ $(document).ready(function() {
     var $edit_row = null;
     $('.add_routine_anchor, .edit_routine_anchor').live('click', function(event) {
         event.preventDefault();
-        if ($('.add_routine_anchor, .edit_routine_anchor').hasClass('isActive')) {
-            // One add/edit dialog at a time, please
-            return false;
-        }
-        $('.add_routine_anchor, .edit_routine_anchor').addClass('isActive');
         if ($(this).hasClass('edit_routine_anchor')) {
             // Remeber the row of the routine being edited for later, so that if the edit
             // is successful, we can replace the row with info about the modified routine.
@@ -43,8 +38,8 @@ $(document).ready(function() {
                                 height: 550, // of the dialog based on the size of the viewport
                                 buttons: button_options,
                                 title: data.title,
+                                modal: true,
                                 close: function () {
-                                    $('.add_routine_anchor, .edit_routine_anchor').removeClass('isActive');
                                     $(this).remove();
                                 }
                         });
