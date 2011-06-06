@@ -20,8 +20,7 @@ if (! defined('PHPMYADMIN')) {
 
 // Some definitions
 $param_directions    = array('IN', 'OUT', 'INOUT');
-$param_sqldataaccess = array('',
-                             'NO SQL',
+$param_sqldataaccess = array('NO SQL',
                              'CONTAINS SQL',
                              'READS SQL DATA',
                              'MODIFIES SQL DATA');
