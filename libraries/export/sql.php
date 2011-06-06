@@ -526,7 +526,7 @@ function PMA_exportDBCreate($db)
     global $crlf;
     if (isset($GLOBALS['sql_drop_database'])) {
         if (!PMA_exportOutputHandler('DROP DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db) . ';' . $crlf)) {
-            return FALSE;
+            return false;
         }
     }
     $create_query = 'CREATE DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db);
@@ -538,7 +538,7 @@ function PMA_exportDBCreate($db)
     }
     $create_query .= ';' . $crlf;
     if (!PMA_exportOutputHandler($create_query)) {
-        return FALSE;
+        return false;
     }
     if (isset($GLOBALS['sql_backquotes']) && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') {
         $result = PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
@@ -579,7 +579,7 @@ function PMA_exportDBFooter($db)
 {
     global $crlf;
 
-    $result = TRUE;
+    $result = true;
     if (isset($GLOBALS['sql_constraints'])) {
         $result = PMA_exportOutputHandler($GLOBALS['sql_constraints']);
         unset($GLOBALS['sql_constraints']);
@@ -688,7 +688,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
 
     // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
     $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'', null, PMA_DBI_QUERY_STORE);
-    if ($result != FALSE) {
+    if ($result != false) {
         if (PMA_DBI_num_rows($result) > 0) {
             $tmpres        = PMA_DBI_fetch_assoc($result);
             // Here we optionally add the AUTO_INCREMENT next value,
@@ -747,7 +747,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
         return PMA_exportComment(__('in use') . '(' . $tmp_error . ')');
     }
 
-    if ($result != FALSE && ($row = PMA_DBI_fetch_row($result))) {
+    if ($result != false && ($row = PMA_DBI_fetch_row($result))) {
         $create_query = $row[1];
         unset($row);
 
@@ -821,13 +821,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
                 $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
                 $sql_drop_foreign_keys .= 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $crlf;
 
-                $first = TRUE;
+                $first = true;
                 for ($j = $i; $j < $sql_count; $j++) {
                     if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$j])) {
                         if (!$first) {
                             $sql_constraints .= $crlf;
                         }
-                        if (strpos($sql_lines[$j], 'CONSTRAINT') === FALSE) {
+                        if (strpos($sql_lines[$j], 'CONSTRAINT') === false) {
                             $tmp_str = preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
                             $sql_constraints_query .= $tmp_str;
                             $sql_constraints .= $tmp_str;
@@ -841,7 +841,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
                             }
                             $sql_drop_foreign_keys .= 'DROP FOREIGN KEY ' . $matches[3];
                         }
-                        $first = FALSE;
+                        $first = false;
                     } else {
                         break;
                     }
@@ -895,12 +895,12 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mim
         $res_rel = PMA_getForeigners($db, $table);
 
         if ($res_rel && count($res_rel) > 0) {
-            $have_rel = TRUE;
+            $have_rel = true;
         } else {
-            $have_rel = FALSE;
+            $have_rel = false;
         }
     } else {
-           $have_rel = FALSE;
+           $have_rel = false;
     } // end if
 
     if ($do_mime && $cfgRelation['mimework']) {
@@ -958,7 +958,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mim
  *
  * @access  public
  */
-function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE, $export_mode, $export_type)
+function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, $comments = false, $mime = false, $dates = false, $export_mode, $export_type)
 {
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
                           ? PMA_backquote($table)
@@ -1058,7 +1058,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
           . PMA_possibleCRLF();
 
         if (! PMA_exportOutputHandler($head)) {
-            return FALSE;
+            return false;
         }
         return true;
     }
@@ -1078,7 +1078,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         return PMA_exportOutputHandler(PMA_exportComment(__('in use') . ' (' . $tmp_error . ')'));
     }
 
-    if ($result != FALSE) {
+    if ($result != false) {
         $fields_cnt     = PMA_DBI_num_fields($result);
 
         // Get field information
@@ -1155,7 +1155,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                       . PMA_exportComment()
                       . $crlf;
                 if (! PMA_exportOutputHandler($head)) {
-                    return FALSE;
+                    return false;
                 }
             }
             $current_row++;
@@ -1221,7 +1221,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                         $insert_line  = '(' . implode(', ', $values) . ')';
                         if (isset($GLOBALS['sql_max_query_size']) && $GLOBALS['sql_max_query_size'] > 0 && $query_size + strlen($insert_line) > $GLOBALS['sql_max_query_size']) {
                             if (!PMA_exportOutputHandler(';' . $crlf)) {
-                                return FALSE;
+                                return false;
                             }
                             $query_size = 0;
                             $current_row = 1;
@@ -1238,19 +1238,19 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             unset($values);
 
             if (!PMA_exportOutputHandler(($current_row == 1 ? '' : $separator . $crlf) . $insert_line)) {
-                return FALSE;
+                return false;
             }
 
         } // end while
         if ($current_row > 0) {
             if (!PMA_exportOutputHandler(';' . $crlf)) {
-                return FALSE;
+                return false;
             }
         }
-    } // end if ($result != FALSE)
+    } // end if ($result != false)
     PMA_DBI_free_result($result);
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_exportData()' function
 }
 ?>

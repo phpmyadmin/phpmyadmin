@@ -87,8 +87,8 @@ define('PMA_CSDROPDOWN_COLLATION', 0);
 define('PMA_CSDROPDOWN_CHARSET',   1);
 
 function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
-    $name = null, $id = null, $default = null, $label = TRUE, $indent = 0,
-    $submitOnChange = FALSE, $displayUnavailable = FALSE)
+    $name = null, $id = null, $default = null, $label = true, $indent = 0,
+    $submitOnChange = false, $displayUnavailable = false)
 {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available;
@@ -312,7 +312,7 @@ function PMA_getCollationDescr($collation) {
             $descr = __('Unicode') . ' (' . __('multilingual') . ')';
             break;
         case 'bin':
-            $is_bin = TRUE;
+            $is_bin = true;
         case 'general':
             switch ($parts[0]) {
                 // Unicode charsets

@@ -35,7 +35,7 @@ function PMA_internal_enc_check() {
         $enc_list = 'ASCII,SJIS,EUC-JP,JIS';
     }
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_internal_enc_check' function
 
 
@@ -57,7 +57,7 @@ function PMA_change_enc_order() {
         $enc_list = 'ASCII,EUC-JP,SJIS,JIS';
     }
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_change_enc_order' function
 
 

@@ -184,7 +184,7 @@ function PMA_RangeOfUsers($initial = '')
  *
  * @return  array
  */
-function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
+function PMA_extractPrivInfo($row = '', $enableHTML = false)
 {
     $grants = array(
         array('Select_priv', 'SELECT', __('Allows reading data.')),
@@ -235,7 +235,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         unset($users_grants);
     }
     $privs = array();
-    $allPrivileges = TRUE;
+    $allPrivileges = true;
     foreach ($grants as $current_grant) {
         if ((!empty($row) && isset($row[$current_grant[0]]))
          || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
@@ -261,7 +261,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
                 }
                 $privs[] = $priv_string . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
             } else {
-                $allPrivileges = FALSE;
+                $allPrivileges = false;
             }
         }
     }
@@ -326,7 +326,7 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
  *
  * @return  void
  */
-function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
+function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
 {
     global $random_n;
 
@@ -404,10 +404,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
         if ($res) {
             while ($row1 = PMA_DBI_fetch_row($res)) {
                 $columns[$row1[0]] = array(
-                    'Select' => FALSE,
-                    'Insert' => FALSE,
-                    'Update' => FALSE,
-                    'References' => FALSE
+                    'Select' => false,
+                    'Insert' => false,
+                    'Update' => false,
+                    'References' => false
                 );
             }
             PMA_DBI_free_result($res);
@@ -431,7 +431,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE)
         while ($row1 = PMA_DBI_fetch_row($res)) {
             $row1[1] = explode(',', $row1[1]);
             foreach ($row1[1] as $current) {
-                $columns[$row1[0]][$current] = TRUE;
+                $columns[$row1[0]][$current] = true;
             }
         }
         PMA_DBI_free_result($res);
@@ -963,7 +963,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     if($GLOBALS['is_ajax_request'] != true) {
                         // this is needed in case tracking is on:
                         $GLOBALS['db'] = $username;
-                        $GLOBALS['reload'] = TRUE;
+                        $GLOBALS['reload'] = true;
                         PMA_reloadNavigation();
                     }
 
@@ -1232,7 +1232,7 @@ if (isset($_REQUEST['change_pw'])) {
         $sql_query        = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . PMA_sqlAddslashes($hostname) . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
         $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddslashes($username) . '\'@\'' . PMA_sqlAddslashes($hostname) . '\' = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
         PMA_DBI_try_query($local_query)
-            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
+            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
         $message = PMA_Message::success(__('The password for %s was changed successfully.'));
         $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
     }
@@ -1258,7 +1258,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
 
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
-            $GLOBALS['reload'] = TRUE;
+            $GLOBALS['reload'] = true;
 
             if($GLOBALS['is_ajax_request'] != true) {
                 PMA_reloadNavigation();
@@ -1554,16 +1554,16 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             if( $GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
 
-                // initialize to FALSE the letters A-Z
+                // initialize to false the letters A-Z
                 for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
                     if (! isset($array_initials[chr($letter_counter + 64)])) {
-                        $array_initials[chr($letter_counter + 64)] = FALSE;
+                        $array_initials[chr($letter_counter + 64)] = false;
                     }
                 }
 
                 $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', null, PMA_DBI_QUERY_STORE);
                 while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
-                    $array_initials[$tmp_initial] = TRUE;
+                    $array_initials[$tmp_initial] = true;
                 }
 
                 // Display the initials, which can be any characters, not
@@ -1964,7 +1964,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                        . '    <td>' . htmlspecialchars((! isset($dbname)) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
                        . '    <td><tt>' . "\n"
-                       . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, TRUE)) . "\n"
+                       . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, true)) . "\n"
                        . '        </tt></td>' . "\n"
                        . '    <td>' . ((((! isset($dbname)) && $row['Grant_priv'] == 'Y') || (isset($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? __('Yes') : __('No')) . '</td>' . "\n"
                        . '    <td>';
@@ -2133,7 +2133,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     unset($default_choice);
 
     echo '</fieldset>' . "\n";
-    PMA_displayPrivTable('*', '*', FALSE);
+    PMA_displayPrivTable('*', '*', false);
     echo '    <fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
        . '        <input type="submit" name="adduser_submit" value="' . __('Go') . '" />' . "\n"
        . '    </fieldset>' . "\n"
@@ -2155,7 +2155,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . '    </tr>' . "\n"
        . '</thead>' . "\n"
        . '<tbody>' . "\n";
-    $odd_row = TRUE;
+    $odd_row = true;
     unset($row, $row1, $row2);
 
     // now, we build the table...
@@ -2222,11 +2222,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     $res = PMA_DBI_query($sql_query);
     $row = PMA_DBI_fetch_assoc($res);
     if ($row) {
-        $found = TRUE;
+        $found = true;
     }
 
     if ($found) {
-        while (TRUE) {
+        while (true) {
             // prepare the current user
             $current_privileges = array();
             $current_user = $row['User'];
@@ -2261,7 +2261,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '        </td>' . "\n"
                    . '        <td>' . "\n"
                    . '            <tt>' . "\n"
-                   . '                ' . join(',' . "\n" . '                ', PMA_extractPrivInfo($current, TRUE)) . "\n"
+                   . '                ' . join(',' . "\n" . '                ', PMA_extractPrivInfo($current, true)) . "\n"
                    . '            </tt>' . "\n"
                    . '        </td>' . "\n"
                    . '        <td>' . "\n"

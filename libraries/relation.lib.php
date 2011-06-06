@@ -1034,18 +1034,18 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
         $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table);
 
         if ($override_total == true || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']) {
-            // foreign_display can be FALSE if no display field defined:
+            // foreign_display can be false if no display field defined:
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
             $f_query_main = 'SELECT ' . PMA_backquote($foreign_field)
-                        . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display));
+                        . (($foreign_display == false) ? '' : ', ' . PMA_backquote($foreign_display));
             $f_query_from = ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
             $f_query_filter = empty($foreign_filter) ? '' : ' WHERE ' . PMA_backquote($foreign_field)
-                            . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, TRUE) . '%"'
-                            . (($foreign_display == FALSE) ? '' : ' OR ' . PMA_backquote($foreign_display)
-                                . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, TRUE) . '%"'
+                            . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, true) . '%"'
+                            . (($foreign_display == false) ? '' : ' OR ' . PMA_backquote($foreign_display)
+                                . ' LIKE "%' . PMA_sqlAddslashes($foreign_filter, true) . '%"'
                                 );
-            $f_query_order = ($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display);
+            $f_query_order = ($foreign_display == false) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display);
             $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
 
             if (!empty($foreign_filter)) {
@@ -1091,7 +1091,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
  * @uses    $GLOBALS['cfgRelation']
  * @uses    $GLOBALS['db']
  * @param   string   whether to go from master to foreign or vice versa
- * @return  boolean  always TRUE
+ * @return  boolean  always true
  * @global  array    $tab_left the list of tables that we still couldn't connect
  * @global  array    $tab_know the list of allready connected tables
  * @global  string   $fromclause
@@ -1202,7 +1202,7 @@ function PMA_REL_create_page($newpage, $cfgRelation, $db, $query_default_option)
     $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                  . ' (db_name, page_descr)'
                  . ' VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($newpage) . '\')';
-    PMA_query_as_controluser($ins_query, FALSE, $query_default_option);
+    PMA_query_as_controluser($ins_query, false, $query_default_option);
     return PMA_DBI_insert_id(isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : '');
 }
 ?>

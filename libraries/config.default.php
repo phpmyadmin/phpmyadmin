@@ -1309,7 +1309,7 @@ $cfg['Export']['texytext_structure_or_data'] = 'structure_and_data';
  *
  * @global boolean $cfg['Export']['texytext_columns']
  */
-$cfg['Export']['texytext_columns'] = FALSE;
+$cfg['Export']['texytext_columns'] = false;
 
 /**
  *
