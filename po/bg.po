@@ -3274,10 +3274,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Непроследявани таблици"
+msgstr "Последно отваряни таблици"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
