@@ -2089,6 +2089,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
         $number_of_tokens=-1)
     {
+        global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
         if (! is_array($arr)) {
@@ -2180,21 +2181,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $keywords_priv_list_cnt            = 2;
 
         if ($number_of_tokens == -1) {
-            $arraysize = $arr['len'];
-        } else {
-            $arraysize = $number_of_tokens;
+            $number_of_tokens = $arr['len'];
         }
         $typearr   = array();
-        if ($arraysize >= 0) {
+        if ($number_of_tokens >= 0) {
             $typearr[0] = '';
             $typearr[1] = '';
             $typearr[2] = '';
-            //$typearr[3] = $arr[0]['type'];
             $typearr[3] = $arr[$start_token]['type'];
         }
 
         $in_priv_list = false;
-        for ($i = $start_token; $i < $arraysize; $i++) {
+        for ($i = $start_token; $i < $number_of_tokens; $i++) {
 // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
@@ -2205,11 +2203,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             2 current
             3 next
             */
-            if (($i + 1) < $arraysize) {
-                // array_push($typearr, $arr[$i + 1]['type']);
+            if (($i + 1) < $number_of_tokens) {
                 $typearr[4] = $arr[$i + 1]['type'];
             } else {
-                //array_push($typearr, null);
                 $typearr[4] = '';
             }
 
@@ -2285,6 +2281,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     break;
                 case 'punct':
                     $before         .= ' ';
+                    if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
+                            ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
+                            false,
+                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
+                            true);
+                        $after .= '</a>';
+                    }
+
                     // workaround for
                     // select * from mytable limit 0,-1
                     // (a side effect of this workaround is that
@@ -2386,6 +2393,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if (strtoupper($arr[$i]['data']) == 'BINARY'
                       && $typearr[3] == 'alpha_identifier') {
                         $after     .= ' ';
+                    }
+                    break;
+                case 'alpha_functionName':
+                    $funcname = strtoupper($arr[$i]['data']);
+                    if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_functions_docs[$funcname]['link'],
+                            false,
+                            $PMA_SQPdata_functions_docs[$funcname]['anchor'],
+                            true);
+                        $after .= '</a>';
                     }
                     break;
                 case 'alpha_reservedWord':
@@ -2544,6 +2563,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             }
                             break;
                         default:
+                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))){
+                                $after .= '</a>';
+                                $close_docu_link = false;
+                            } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
+                                /* Handle multi word statements first */
+                                if (isset($typearr[4]) && $typearr[4] == 'alpha_reservedWord' && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data'])])) {
+                                    $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data']);
+                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                                    $close_docu_link = true;
+                                } else if (isset($typearr[3]) && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'])])) {
+                                    $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data']);
+                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                                    $close_docu_link = true;
+                                } else {
+                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'], false, $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'], true);
+                                    $after .= '</a>';
+                                }
+                            }
                             break;
                     } // end switch ($arr[$i]['data'])
 

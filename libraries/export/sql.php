@@ -449,7 +449,11 @@ function PMA_exportHeader()
            .  PMA_exportComment('version ' . PMA_VERSION)
            .  PMA_exportComment('http://www.phpmyadmin.net')
            .  PMA_exportComment();
-    $head .= empty($cfg['Server']['port']) ? PMA_exportComment(__('Host') . ': ' . $cfg['Server']['host']) : PMA_exportComment(__('Host') . ': ' .  $cfg['Server']['host'] . ':' . $cfg['Server']['port']);
+    $host_string = __('Host') . ': ' .  $cfg['Server']['host'];
+    if (!empty($cfg['Server']['port'])) {
+        $host_string .= ':' . $cfg['Server']['port'];
+    }
+    $head .= PMA_exportComment($host_string);
     $head .=  PMA_exportComment(__('Generation Time')
            . ': ' .  PMA_localisedDate())
            .  PMA_exportComment(__('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3))
@@ -677,8 +681,6 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
 {
     global $sql_drop_table;
     global $sql_backquotes;
-    global $cfgRelation;
-    global $sql_constraints;
     global $sql_constraints_query; // just the text of the query
     global $sql_drop_foreign_keys;
 
@@ -1040,7 +1042,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $sql_backquotes;
-    global $rows_cnt;
     global $current_row;
 
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
@@ -1062,9 +1063,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         }
         return true;
     }
-
-    // it's not a VIEW
-    $buffer = '';
 
     // analyze the query to get the true column names, not the aliases
     // (this fixes an undefined index, also if Complete inserts
