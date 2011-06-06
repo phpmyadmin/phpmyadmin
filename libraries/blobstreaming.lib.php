@@ -92,6 +92,7 @@ function checkBLOBStreamingPlugins()
     }
 
     $has_blobstreaming = PMA_cacheGet('has_blobstreaming', true);
+
     if ($has_blobstreaming === null) {
         if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50109) {
 
@@ -151,6 +152,7 @@ function checkBLOBStreamingPlugins()
             // the pbms client lib and PHP extension to make use of blob streaming.
             $PMA_Config->set('BLOBSTREAMING_PLUGINS_EXIST', false);
             PMA_cacheSet('skip_blobstreaming', true, true);
+            PMA_cacheSet('has_blobstreaming', false, true);
             return false;
         }
 
