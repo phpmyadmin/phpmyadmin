@@ -1418,22 +1418,22 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 }
 
 /**
- * Returns TRUE if $db.$view_name is a view, FALSE if not
+ * Returns true if $db.$view_name is a view, false if not
  *
  * @uses   PMA_DBI_fetch_result()
  * @param  string $db         database name
  * @param  string $view_name  view/table name
  *
- * @return bool               TRUE if $db.$view_name is a view, FALSE if not
+ * @return bool               true if $db.$view_name is a view, false if not
  */
 function PMA_isView($db, $view_name)
 {
     $result = PMA_DBI_fetch_result("SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = '".$db."' and TABLE_NAME = '".$view_name."';");
 
     if ($result) {
-        return TRUE;
+        return true;
     } else {
-        return FALSE;
+        return false;
     }
 }
 ?>

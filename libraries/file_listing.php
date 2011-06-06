@@ -12,7 +12,7 @@
  *
  * @param   string  directory to list
  * @param   string  regular expression to match files
- * @returns array   sorted file list on success, FALSE on failure
+ * @returns array   sorted file list on success, false on failure
  */
 function PMA_getDirContent($dir, $expression = '')
 {
@@ -32,7 +32,7 @@ function PMA_getDirContent($dir, $expression = '')
         asort($result);
         return $result;
     } else {
-        return FALSE;
+        return false;
     }
 }
 
@@ -42,13 +42,13 @@ function PMA_getDirContent($dir, $expression = '')
  * @param   string  directory to list
  * @param   string  regullar expression to match files
  * @param   string  currently active choice
- * @returns array   sorted file list on success, FALSE on failure
+ * @returns array   sorted file list on success, false on failure
  */
 function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')
 {
     $list = PMA_getDirContent($dir, $extensions);
-    if ($list === FALSE) {
-        return FALSE;
+    if ($list === false) {
+        return false;
     }
     $result = '';
     foreach ($list as $key => $val) {

@@ -44,7 +44,7 @@ function PMA_getZipContents($file)
                          * haven't found 'content.xml' or there was a parsing
                          * error that we must display
                          */
-                        if ($entry === FALSE) {
+                        if ($entry === false) {
                             $error_message = __('Error in ZIP archive:') . ' Could not find "content.xml"';
                         } else {
                             $error_message = __('Error in ZIP archive:') . ' ' . PMA_getZipError($zip_handle);

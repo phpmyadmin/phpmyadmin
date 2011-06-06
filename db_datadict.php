@@ -142,12 +142,12 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
         $res_rel = PMA_getForeigners($db, $table);
 
         if (count($res_rel) > 0) {
-            $have_rel = TRUE;
+            $have_rel = true;
         } else {
-            $have_rel = FALSE;
+            $have_rel = false;
         }
     } else {
-        $have_rel = FALSE;
+        $have_rel = false;
     } // end if
 
 

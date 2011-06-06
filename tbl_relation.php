@@ -31,7 +31,7 @@ require_once './libraries/tbl_info.inc.php';
 // Note: in libraries/tbl_links.inc.php we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
 // has not been done yet (will be done in tbl_relation.php later).
-$avoid_show_comment = TRUE;
+$avoid_show_comment = true;
 
 /**
  * Displays top menu links
@@ -269,7 +269,7 @@ if (isset($_REQUEST['destination_foreign'])) {
             }
             if (substr($tmp_error, 1, 4) == '1216'
             ||  substr($tmp_error, 1, 4) == '1452') {
-                PMA_mysqlDie($tmp_error, $sql_query, FALSE, '', FALSE);
+                PMA_mysqlDie($tmp_error, $sql_query, false, '', false);
                 echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
@@ -436,15 +436,15 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                          . $existrel[$myfield]['foreign_table'] . '.'
                          . $existrel[$myfield]['foreign_field'];
             } else {
-                $foreign_field    = FALSE;
+                $foreign_field    = false;
             }
-            $seen_key = FALSE;
+            $seen_key = false;
             foreach ($selectboxall as $value) {
                 echo '                '
                      . '<option value="' . htmlspecialchars($value) . '"';
                 if ($foreign_field && $value == $foreign_field) {
                     echo ' selected="selected"';
-                    $seen_key = TRUE;
+                    $seen_key = true;
                 }
                 echo '>' . htmlspecialchars($value) . '</option>'. "\n";
             } // end while
@@ -478,16 +478,16 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
                              . PMA_backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
                              . PMA_backquote($existrel_foreign[$myfield]['foreign_field']);
                 } else {
-                    $foreign_field    = FALSE;
+                    $foreign_field    = false;
                 }
 
-                $found_foreign_field = FALSE;
+                $found_foreign_field = false;
                 foreach ($selectboxall_foreign as $value) {
                     echo '                '
                          . '<option value="' . htmlspecialchars($value) . '"';
                     if ($foreign_field && $value == $foreign_field) {
                         echo ' selected="selected"';
-                        $found_foreign_field = TRUE;
+                        $found_foreign_field = true;
                     }
                     echo '>' . htmlspecialchars($value) . '</option>'. "\n";
                 } // end while

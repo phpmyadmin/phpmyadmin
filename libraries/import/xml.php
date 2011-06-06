@@ -41,11 +41,11 @@ $buffer = "";
  */
 while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
     $data = PMA_importGetNextChunk();
-    if ($data === FALSE) {
+    if ($data === false) {
         /* subtract data we didn't handle yet and stop processing */
         $offset -= strlen($buffer);
         break;
-    } elseif ($data === TRUE) {
+    } elseif ($data === true) {
         /* Handle rest of buffer */
     } else {
         /* Append new data to buffer */
@@ -70,7 +70,7 @@ unset($buffer);
 /**
  * The XML was malformed
  */
-if ($xml === FALSE) {
+if ($xml === false) {
     PMA_Message::error(__('The XML file specified was either malformed or incomplete. Please correct the issue and try again.'))->display();
     unset($xml);
     $GLOBALS['finished'] = false;

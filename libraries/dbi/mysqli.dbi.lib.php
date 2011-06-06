@@ -232,7 +232,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
         $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
 
-    if ($r != FALSE && PMA_Tracker::isActive() == TRUE ) {
+    if ($r != false && PMA_Tracker::isActive() == true ) {
         PMA_Tracker::handleQuery($query);
     }
 
