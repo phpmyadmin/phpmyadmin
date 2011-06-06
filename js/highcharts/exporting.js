@@ -119,7 +119,7 @@ defaultOptions.exporting = {
                 onclick: function() {
                     this.exportChart();
                 }
-            }, {
+            },/* {
                 textKey: 'downloadJPEG',
                 onclick: function() {
                     this.exportChart({
@@ -133,7 +133,7 @@ defaultOptions.exporting = {
                         type: 'application/pdf'
                     });
                 }
-            }, {
+            }, */{
                 textKey: 'downloadSVG',
                 onclick: function() {
                     this.exportChart({
@@ -328,7 +328,7 @@ extend(Chart.prototype, {
                 }, doc.body);
                 
                 // add the values
-                each(['filename', 'type', 'width', 'image'], function(name) {
+                each(['filename', 'type', 'width', 'image','token'], function(name) {
                     createElement('input', {
                         type: HIDDEN,
                         name: name,
@@ -336,7 +336,8 @@ extend(Chart.prototype, {
                             filename: options.filename || 'chart', 
                             type: options.type, 
                             width: options.width, 
-                            image: canvas.toDataURL() 
+                            image: canvas.toDataURL(),
+							token: pma_token 
                         }[name]
                     }, null, form);
                 });

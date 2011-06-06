@@ -1,18 +1,30 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * "Echo" service to allow force downloading of exported charts 
+ * "Echo" service to allow force downloading of exported charts (png or svg)
  *
  * @package phpMyAdmin
  */
+ 
 
-if(isset($_POST['filename']) && isset($_POST['image'])) {
+define('PMA_MINIMUM_COMMON',true);
+
+require_once './libraries/common.inc.php';
+
+if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
+	$allowed = Array( 'image/png'=>'png', 'image/svg+xml'=>'svg');
+	
+	if(!isset($allowed[$_REQUEST['type']])) exit('Invalid filename');
+	
+	if(!preg_match("/(".implode("|",$allowed).")$/i",$_REQUEST['filename']))
+		$_REQUEST['filename'].='.'.$allowed[$_REQUEST['type']];
+
 	header("Cache-Control: public");
 	header("Content-Description: File Transfer");
-	header("Content-Disposition: attachment; filename=".$_POST['filename']);
-	header("Content-Type: image/png");
+	header("Content-Disposition: attachment; filename=".$_REQUEST['filename']);
+	header("Content-Type: ".$_REQUEST['type']);
 	header("Content-Transfer-Encoding: binary");
 	
-	echo base64_decode(substr($_POST['image'],strpos($_POST['image'],',')+1));
-}
+	echo base64_decode(substr($_REQUEST['image'],strpos($_REQUEST['image'],',')+1));
+} else exit('Invalid request');
 ?>

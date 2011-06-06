@@ -344,6 +344,7 @@ require './libraries/server_links.inc.php';
 
 ?>
 <script type="text/javascript">
+pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo $url_query;?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 </script>
