@@ -2222,7 +2222,7 @@ msgstr "Πουθενά"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Αριστερά"
 
 #: libraries/config.values.php:47
 #| msgid "Height"
