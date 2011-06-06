@@ -1,4 +1,56 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+// Validate editor form fields
+function validateRoutineEditor() {
+    var inputname = '';
+    var isError = false;
+    $('.rte_table').last().find(':input[name=routine_name], :input[name=routine_definition]').each(function() {
+        if ($(this).val() == '') {
+            $(this).focus();
+            isError = true;
+            return false;
+        }
+    });
+    if (! isError) {
+        $('.routine_params_table').last().find('tr').each(function() {
+            if (! isError) {
+                $(this).find(':input').each(function() {
+                    inputname = $(this).attr('name');
+                    if (inputname.substr(0, 17) == 'routine_param_dir' ||
+                        inputname.substr(0, 18) == 'routine_param_name' ||
+                        inputname.substr(0, 18) == 'routine_param_type') {
+                        if ($(this).val() == '') {
+                            $(this).focus();
+                            isError = true;
+                            return false;
+                        }
+                    }
+                });
+            }
+        });
+    }
+    if (! isError) {
+        // SET and ENUM fields must have some values (a.k.a. length)
+        $('.routine_params_table').last().find('tr').each(function() {
+            var $inputtyp = $(this).find(':input[name^=routine_param_type]');
+            var $inputlen = $(this).find(':input[name^=routine_param_length]');
+            if ($inputtyp.length && $inputlen.length) {
+                if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET') && $inputlen.val() == '') {
+                    $inputlen.focus();
+                    isError = true;
+                    return false;
+                }
+            }
+        });
+    }
+    if (! isError) {
+        return true;
+    } else {
+        alert(PMA_messages['strFormEmpty']);
+        return false;
+    }
+}
+
 /**
  * Attach Ajax event handlers for the Routines Editor.
  *
@@ -28,53 +80,8 @@ $(document).ready(function() {
                  */
                 var button_options = {};
                 button_options[PMA_messages['strGo']] = function() {
-                    // Validate editor fields
-                    var inputname = '';
-                    var errored_out = false;
-                    $('.rte_table').last().find(':input[name=routine_name], :input[name=routine_definition]').each(function() {
-                        if ($(this).val() == '') {
-                            alert(PMA_messages['strFormEmpty']);
-                            $(this).focus();
-                            errored_out = true;
-                            return false;
-                        }
-                    });
-                    if (! errored_out) {
-                        $('.routine_params_table').last().find('tr').each(function() {
-                            if (! errored_out) {
-                                $(this).find(':input').each(function() {
-                                    inputname = $(this).attr('name');
-                                    if (inputname.substr(0, 17) == 'routine_param_dir' ||
-                                        inputname.substr(0, 18) == 'routine_param_name' ||
-                                        inputname.substr(0, 18) == 'routine_param_type') {
-                                        if ($(this).val() == '') {
-                                            alert(PMA_messages['strFormEmpty']);
-                                            $(this).focus();
-                                            errored_out = true;
-                                            return false;
-                                        }
-                                    }
-                                });
-                            }
-                        });
-                    }
-                    if (! errored_out) {
-                        // SET and ENUM fields must have some values (a.k.a. length)
-                        $('.routine_params_table').last().find('tr').each(function() {
-                            var $inputtyp = $(this).find(':input[name^=routine_param_type]');
-                            var $inputlen = $(this).find(':input[name^=routine_param_length]');
-                            if ($inputtyp.length && $inputlen.length) {
-                                if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET') && $inputlen.val() == '') {
-                                    alert(PMA_messages['strFormEmpty']);
-                                    $inputlen.focus();
-                                    errored_out = true;
-                                    return false;
-                                }
-                            }
-                        });
-                    }
-                    // Validation finished, submit request
-                    if (! errored_out) {
+                    // Validate editor and submit request, if passed.
+                    if (validateRoutineEditor()) {
                         var data = $('.rte_form').last().serialize() + "&routine_process_"+mode+"routine=1&ajax_request=true";
                         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
                         $.post('db_routines.php', data, function (data) {
