@@ -43,7 +43,7 @@ if (isset($mode)) {
     if ('export' == $mode) {
         $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . PMA_sqlAddslashes($db) . "'";
 
-        PMA_query_as_controluser($sql,TRUE,PMA_DBI_QUERY_STORE);
+        PMA_query_as_controluser($sql,true,PMA_DBI_QUERY_STORE);
     }
 
     if ('import' == $mode) {
@@ -57,7 +57,7 @@ if (isset($mode)) {
         ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
         AND
         ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddslashes($db) .'\'
-        AND pdf_page_number = ' . $pdf_page_number_q . ';', TRUE, PMA_DBI_QUERY_STORE);     
+        AND pdf_page_number = ' . $pdf_page_number_q . ';', true, PMA_DBI_QUERY_STORE);     
     }
 }
 

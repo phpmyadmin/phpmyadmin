@@ -11,6 +11,16 @@
 + rfe #2098927 Remember recent tables
 + rfe #3078542 Remember the last sort order for each table
 + AJAX for Create table in navigation panel
++ rfe #3310562 Wording about Column
++ AJAX for Add a user in Database privileges
++ Patch #3271804 for rfe #3177495, new DisableMultiTableMaintenance directive
+
+3.4.3.0 (not yet released)
+- bug #3311170 [sync] Missing helper icons in Synchronize
+- patch #3304473 [setup] Redefine a lable that was wrong
+- bug #3304544 [parser] master is not a reserved word
+- bug #3307616 [edit] Inline edit updates multiple duplicate rows
+- patch #3311539 [edit] Inline edit does not escape backslashes
 
 3.4.2.0 (not yet released)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
@@ -24,6 +34,7 @@
 - bug #3306958 [interface] Unnecessary Details slider
 - bug #3308476 [interface] "Show all" not persistent after a sort
 - bug #3308072 [auth] Version disclosure to anonymous visitors
+- bug #3306981 [interface] pmahomme and table statistics
 
 3.4.1.0 (2011-05-20)
 - bug #3301108 [interface] Synchronize and already configured host

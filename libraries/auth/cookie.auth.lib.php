@@ -110,7 +110,6 @@ function PMA_get_blowfish_secret() {
  * @uses    $GLOBALS['pma_auth_server']
  * @uses    $GLOBALS['text_dir']
  * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['target']
  * @uses    $GLOBALS['db']
  * @uses    $GLOBALS['table']
@@ -162,7 +161,7 @@ function PMA_auth()
     $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
 
     // Defines the charset to be used
-    header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+    header('Content-Type: text/html; charset=utf-8');
     // Defines the "item" image depending on text direction
     $item_img = $GLOBALS['pmaThemeImage'] . 'item_' . $GLOBALS['text_dir'] . '.png';
 

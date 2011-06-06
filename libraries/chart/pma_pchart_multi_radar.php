@@ -55,7 +55,7 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
                 $this->getGraphAreaColor(RED),
                 $this->getGraphAreaColor(GREEN),
                 $this->getGraphAreaColor(BLUE),
-                FALSE
+                false
         );
         
         if($this->settings['gradientIntensity']>0)
@@ -98,7 +98,7 @@ class PMA_pChart_multi_radar extends PMA_pChart_multi
         $borderOffset += 40;
 
         // Draw the radar chart
-        $this->chart->drawRadarAxis($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), TRUE, $borderOffset, 
+        $this->chart->drawRadarAxis($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), true, $borderOffset, 
             120, 120, 120, 230, 230, 230, -1, 2);
         $this->chart->drawFilledRadar($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 50, $borderOffset);
     }

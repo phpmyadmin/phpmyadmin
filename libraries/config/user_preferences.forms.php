@@ -32,6 +32,7 @@ $forms['Features']['General'] = array(
     'Servers/1/only_db', // saves to Server/only_db
     'Servers/1/hide_db', // saves to Server/hide_db
     'SkipLockedTables',
+    'DisableMultiTableMaintenance',
     'MaxDbList',
     'MaxTableList');
 $forms['Features']['Text_fields'] = array(
@@ -109,8 +110,7 @@ $forms['Main_frame']['Browse'] = array(
     'BrowseMarkerEnable',
     'RepeatCells',
     'LimitChars',
-    'ModifyDeleteAtLeft',
-    'ModifyDeleteAtRight',
+    'RowActionLinks',
     'DefaultDisplay',
     'RememberSorting');
 $forms['Main_frame']['Edit'] = array(

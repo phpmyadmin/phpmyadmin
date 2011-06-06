@@ -99,7 +99,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
             .' alt="' . __('phpMyAdmin documentation') . '" />';
     }
     echo '</a>';
-    echo '    ' . PMA_showMySQLDocu('', '', TRUE) . "\n";
+    echo '    ' . PMA_showMySQLDocu('', '', true) . "\n";
 
     $params = array('uniqid' => uniqid());
     if (!empty($GLOBALS['db'])) {

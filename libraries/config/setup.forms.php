@@ -135,6 +135,7 @@ $forms['Features']['Other_core_settings'] = array(
     'ExecTimeLimit',
     'MemoryLimit',
     'SkipLockedTables',
+    'DisableMultiTableMaintenance',
     'UseDbSearch',
     'AllowThirdPartyFraming');
 $forms['Sql_queries']['Sql_queries'] = array(
@@ -199,8 +200,7 @@ $forms['Main_frame']['Browse'] = array(
     'BrowseMarkerEnable',
     'RepeatCells',
     'LimitChars',
-    'ModifyDeleteAtLeft',
-    'ModifyDeleteAtRight',
+    'RowActionLinks',
     'DefaultDisplay',
     'RememberSorting');
 $forms['Main_frame']['Edit'] = array(

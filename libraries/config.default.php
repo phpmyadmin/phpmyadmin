@@ -1309,7 +1309,7 @@ $cfg['Export']['texytext_structure_or_data'] = 'structure_and_data';
  *
  * @global boolean $cfg['Export']['texytext_columns']
  */
-$cfg['Export']['texytext_columns'] = FALSE;
+$cfg['Export']['texytext_columns'] = false;
 
 /**
  *
@@ -2249,20 +2249,14 @@ $cfg['CharTextareaRows'] = 2;
 $cfg['LimitChars'] = 50;
 
 /**
- * show edit/delete links on left side of browse
- * (or at the top with vertical browse)
+ * Where to show the edit/inline_edit/delete links in browse mode
+ * Possible values are 'left', 'right', 'both' and 'none';
+ * which will be interpreted as 'top', 'bottom', 'both' and 'none'
+ * respectively for vertical display mode
  *
- * @global boolean $cfg['ModifyDeleteAtLeft']
+ * @global string $cfg['RowActionLinks']
  */
-$cfg['ModifyDeleteAtLeft'] = true;
-
-/**
- * show edit/delete links on right side of browse
- * (or at the bottom with vertical browse)
- *
- * @global boolean $cfg['ModifyDeleteAtRight']
- */
-$cfg['ModifyDeleteAtRight'] = false;
+$cfg['RowActionLinks'] = 'left';
 
 /**
  * default display direction (horizontal|vertical|horizontalflipped)
@@ -2626,6 +2620,13 @@ $cfg['CheckConfigurationPermissions'] = true;
  * This is required as some web servers (IIS) have problems with long URLs.
  */
 $cfg['LinkLengthLimit'] = 2000;
+
+/**
+ * Disable the table maintenance mass operations, like optimizing or
+ * repairing the selected tables of a database. An accidental execution
+ * of such a maintenance task can enormously slow down a bigger database.
+ */
+$cfg['DisableMultiTableMaintenance'] = false;
 
 /*******************************************************************************
  * SQL Parser Settings

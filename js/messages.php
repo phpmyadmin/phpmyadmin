@@ -91,6 +91,9 @@ $js_messages['strCreateTable'] = __('Create Table');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
 
+/* For db_stucture.js */
+$js_messages['strInsertTable'] = __('Insert Table');
+
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
 $js_messages['strHideSearchResults'] = __('Hide search results');

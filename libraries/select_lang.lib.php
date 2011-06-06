@@ -157,7 +157,7 @@ function PMA_langDetect($str, $envType)
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
         //             2 for the 'HTTP_USER_AGENT' one
         $expr = $value[0];
-        if (strpos($expr, '[-_]') === FALSE) {
+        if (strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
         if (($envType == 1 && preg_match('/^(' . addcslashes($expr,'/') . ')(;q=[0-9]\\.[0-9])?$/i', $str))
@@ -347,12 +347,12 @@ function PMA_langList()
     /* Open the directory */
     $handle = @opendir($GLOBALS['lang_path']);
     /* This can happen if the kit is English-only */
-    if ($handle === FALSE) {
+    if ($handle === false) {
         return $result;
     }
 
     /* Process all files */
-    while (FALSE !== ($file = readdir($handle))) {
+    while (false !== ($file = readdir($handle))) {
         if ($file != "." && $file != ".." && file_exists($GLOBALS['lang_path'] . '/' . $file . '/LC_MESSAGES/phpmyadmin.mo')) {
             $result[$file] = PMA_langDetails($file);
         }
@@ -477,9 +477,6 @@ _textdomain('phpmyadmin');
 if (! function_exists('__')) {
     die('Bad invocation!');
 }
-
-/* We use only utf-8 */
-$charset = 'utf-8';
 
 /* l10n: Text direction, use either ltr or rtl */
 $GLOBALS['text_dir'] = __('ltr');
