@@ -315,6 +315,44 @@ function PMA_DBI_free_result()
 }
 
 /**
+ * Check if there are any more query results from a multi query
+ *
+ * @uses    $GLOBALS['userlink']
+ * @uses    mysqli_more_results()
+ * @param   object mysqli   $link   the mysqli object
+ * @return  boolean         true or false
+ */
+function PMA_DBI_more_results($link = null) {
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
+    }
+    return mysqli_more_results($link);
+}
+
+/**
+ * Prepare next result from multi_query
+ *
+ * @uses    $GLOBALS['userlink']
+ * @uses    mysqli_next_result()
+ * @param   object mysqli   $link   the mysqli object
+ * @return  boolean         true or false
+ */
+function PMA_DBI_next_result($link = null) {
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
+    }
+    return mysqli_next_result($link);
+}
+
+/**
  * Returns a string representing the type of connection used
  * @uses    mysqli_get_host_info()
  * @uses    $GLOBALS['userlink']    as default for $link

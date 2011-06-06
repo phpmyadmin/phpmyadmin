@@ -929,8 +929,15 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     }
 
     $sql_query = '';
+    $result = null;
     foreach ($queries as $num => $query) {
-        $resource = PMA_DBI_query($query, null, PMA_DBI_QUERY_STORE);
+        $resource = PMA_DBI_query($query);
+        while (true) {
+            if(! PMA_DBI_more_results()) {
+                break;
+            }
+            PMA_DBI_next_result();
+        }
         if (! is_bool($resource)) {
             $result = $resource;
         }
@@ -939,16 +946,18 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
 
     // FIXME: This whole "displayTable" business is rubbish, it's probably best
     // to write the code to display the results of the query here from scratch.
-    $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
-    $unlim_num_rows = $num_rows;
-    $fields_meta = PMA_DBI_get_fields_meta($result);
-    $fields_cnt  = count($fields_meta);
-    $disp = 'nnnn000000';
-    require_once './libraries/parse_analyze.lib.php';
-    require_once "display_tbl.lib.php";
-    $analyzed_sql[0]['queryflags']['procedure'] = true;
-    PMA_displayTable_checkConfigParams();
-    PMA_displayTable($result, $disp, $analyzed_sql);
+    if ($result) {
+        $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+        $unlim_num_rows = $num_rows;
+        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_cnt  = count($fields_meta);
+        $disp = 'nnnn000000';
+        require_once './libraries/parse_analyze.lib.php';
+        require_once "display_tbl.lib.php";
+        $analyzed_sql[0]['queryflags']['procedure'] = true;
+        PMA_displayTable_checkConfigParams();
+        PMA_displayTable($result, $disp, $analyzed_sql);
+    }
 
     require './libraries/footer.inc.php';
     // exit;
@@ -1256,4 +1265,11 @@ echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
 echo '</fieldset>' . "\n";
 echo '<!-- ADD ROUTINE FORM END -->' . "\n\n";
 
+if ($GLOBALS['cfg']['Server']['extension'] !== 'mysqli') {
+    trigger_error(__('You are using PHP\'s deprecated \'mysql\' extension, '
+                   . 'which is not capable of handling multi queries. '
+                   . '<b>The execution of some stored Routines may fail!</b> '
+                   . 'Please use the improved \'mysqli\' extension to '
+                   . 'avoid any problems.'), E_USER_WARNING);
+}
 ?>
