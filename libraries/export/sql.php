@@ -681,8 +681,6 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
 {
     global $sql_drop_table;
     global $sql_backquotes;
-    global $cfgRelation;
-    global $sql_constraints;
     global $sql_constraints_query; // just the text of the query
     global $sql_drop_foreign_keys;
 
@@ -1044,7 +1042,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $sql_backquotes;
-    global $rows_cnt;
     global $current_row;
 
     $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
@@ -1066,9 +1063,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         }
         return true;
     }
-
-    // it's not a VIEW
-    $buffer = '';
 
     // analyze the query to get the true column names, not the aliases
     // (this fixes an undefined index, also if Complete inserts
