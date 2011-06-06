@@ -1754,6 +1754,10 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
+.rte_table {
+    width:              100%;
+}
+
 .rte_table td {
     vertical-align:     middle;
 }

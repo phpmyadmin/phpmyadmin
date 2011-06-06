@@ -1,16 +1,23 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 // Validate editor form fields
-function validateRoutineEditor() {
+function validateRoutineEditor(syntaxHiglighter) {
     var inputname = '';
-    var isError = false;
-    $('.rte_table').last().find(':input[name=routine_name], :input[name=routine_definition]').each(function() {
-        if ($(this).val() == '') {
-            $(this).focus();
+    var $elm      = null;
+    var isError   = false;
+
+    $elm = $('.rte_table').last().find('input[name=routine_name]');
+    if ($elm.val() == '') {
+        $elm.focus();
+        isError = true;
+    }
+    if (! isError) {
+        $elm = $('.rte_table').find('textarea[name=routine_definition]');
+        if ($elm.val() == '') {
+            syntaxHiglighter.focus();
             isError = true;
-            return false;
         }
-    });
+    }
     if (! isError) {
         $('.routine_params_table').last().find('tr').each(function() {
             if (! isError) {
@@ -49,7 +56,7 @@ function validateRoutineEditor() {
         alert(PMA_messages['strFormEmpty']);
         return false;
     }
-}
+} // end validateRoutineEditor()
 
 /**
  * Attach Ajax event handlers for the Routines Editor.
@@ -60,9 +67,10 @@ function validateRoutineEditor() {
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    var $ajaxDialog = null;
-    var param_template = '';
-    var $edit_row = null;
+    var $ajaxDialog      = null;
+    var param_template   = '';
+    var $edit_row        = null;
+    var syntaxHiglighter = null;
     $('.add_routine_anchor, .edit_routine_anchor').live('click', function(event) {
         event.preventDefault();
         if ($(this).hasClass('edit_routine_anchor')) {
@@ -80,8 +88,9 @@ $(document).ready(function() {
                  */
                 var button_options = {};
                 button_options[PMA_messages['strGo']] = function() {
+                    syntaxHiglighter.save();
                     // Validate editor and submit request, if passed.
-                    if (validateRoutineEditor()) {
+                    if (validateRoutineEditor(syntaxHiglighter)) {
                         var data = $('.rte_form').last().serialize() + "&routine_process_"+mode+"routine=1&ajax_request=true";
                         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
                         $.post('db_routines.php', data, function (data) {
@@ -167,6 +176,12 @@ $(document).ready(function() {
                 $('.routine_param_remove').show();
                 $('input[name=routine_removeparameter]').remove();
                 $('input[name=routine_addparameter]').css('width', '100%');
+                // Attach syntax highlited editor to routine definition
+                var elm  = $('textarea[name=routine_definition]').last();
+                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
+                syntaxHiglighter = CodeMirror.fromTextArea(elm[0], opts);
+                // Hack to prevent the syntax highlighter from expanding beyond dialog boundries
+                $('.CodeMirror-scroll').find('div').first().css('width', '1px');
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
@@ -211,4 +226,4 @@ $(document).ready(function() {
         event.preventDefault();
         $('.routine_return_row, .routine_direction_cell').toggle();
     }); // end $.live()
-}); // end of $(document).ready() for Export of Routines, Triggers and Events.
+}); // end of $(document).ready() for Routine Editor
