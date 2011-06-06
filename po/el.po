@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-19 13:51+0200\n"
+"PO-Revision-Date: 2011-06-06 09:40+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1613,10 +1613,9 @@ msgstr[0] "Εισήχθηκε %1$d γραμμή."
 msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
+msgstr "Αδύνατη η αποθήκευση πρόσφατου πίνακα"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
