@@ -3362,10 +3362,9 @@ msgstr ""
 "απενεργοποιήση"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "Ο τρέχων ανοιχτός πίνακας"
+msgstr "Πρόσφατα χρησιμποιημένοι πίνακες"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
