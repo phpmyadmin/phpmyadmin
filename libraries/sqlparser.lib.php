@@ -2180,21 +2180,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $keywords_priv_list_cnt            = 2;
 
         if ($number_of_tokens == -1) {
-            $arraysize = $arr['len'];
-        } else {
-            $arraysize = $number_of_tokens;
+            $number_of_tokens = $arr['len'];
         }
         $typearr   = array();
-        if ($arraysize >= 0) {
+        if ($number_of_tokens >= 0) {
             $typearr[0] = '';
             $typearr[1] = '';
             $typearr[2] = '';
-            //$typearr[3] = $arr[0]['type'];
             $typearr[3] = $arr[$start_token]['type'];
         }
 
         $in_priv_list = false;
-        for ($i = $start_token; $i < $arraysize; $i++) {
+        for ($i = $start_token; $i < $number_of_tokens; $i++) {
 // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
@@ -2205,11 +2202,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             2 current
             3 next
             */
-            if (($i + 1) < $arraysize) {
-                // array_push($typearr, $arr[$i + 1]['type']);
+            if (($i + 1) < $number_of_tokens) {
                 $typearr[4] = $arr[$i + 1]['type'];
             } else {
-                //array_push($typearr, null);
                 $typearr[4] = '';
             }
 
