@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-31 17:18+0200\n"
+"PO-Revision-Date: 2011-06-04 12:20+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1618,22 +1618,19 @@ msgstr[0] "%1$d ligne insérée."
 msgstr[1] "%1$d lignes insérées."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Impossible de sauvegarder la configuration"
+msgstr "Impossible de sauvegarder l'historique des tables récentes"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Comptage des tables"
+msgstr "Tables récentes"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Aucun serveur n'est configuré"
+msgstr "Il n'y a pas de tables récentes"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1677,7 +1674,7 @@ msgstr "La table %s se nomme maintenant %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Impossible de sauvegarder les préférences d'interface de tables"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -2226,17 +2223,16 @@ msgstr "Les deux"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nulle part"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "À gauche"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Hauteur"
+msgstr "À droite"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3361,16 +3357,14 @@ msgid "Enable highlighting"
 msgstr "Active la surbrillance"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Nombre maximum de tables affichées dans la liste des tables"
+msgstr "Nombre maximum de tables récentes; mettre 0 pour désactiver"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "Table actuellement ouverte"
+msgstr "Tables récemment utilisées"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
@@ -3529,7 +3523,7 @@ msgstr "Il s'agit des liens Modifier, Éditer en place, Copier et Effacer"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "À quel endroit afficher les liens pour chaque ligne de données"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
@@ -3574,7 +3568,7 @@ msgstr "...au serveur MySQL"
 
 #: libraries/config/messages.inc.php:328
 msgid "Persistent connections"
-msgstr "Connexions persistentes"
+msgstr "Connexions persistantes"
 
 #: libraries/config/messages.inc.php:329
 msgid ""
@@ -3659,13 +3653,12 @@ msgstr "Moteur de conversion"
 
 #: libraries/config/messages.inc.php:348
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "En affichant les tables, l'ordre de tri de chaque table est mémorisé"
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Changer le nom de la table pour"
+msgstr "Mémoriser l'ordre de tri de la table"
 
 #: libraries/config/messages.inc.php:350
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -3948,7 +3941,6 @@ msgid "Server port"
 msgstr "Port"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3956,14 +3948,13 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Laisser vider pour désactiver les préférences utilisateur, valeur suggérée : "
-"[kbd]pma_config[/kbd]"
+"Laisser vide pour ne pas conserver de manière «persistante» les tables "
+"récemment utilisées, valeur suggérée : [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "Table actuellement ouverte"
+msgstr "Table récemment utilisée"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -4041,7 +4032,6 @@ msgid "Display columns table"
 msgstr "Table pour colonnes descriptives"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4049,14 +4039,13 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Laisser vider pour désactiver les préférences utilisateur, valeur suggérée : "
-"[kbd]pma_config[/kbd]"
+"Laisser vider pour ne pas conserver les préférences d'interface de tables de "
+"manière «persistante», valeur suggérée : [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Table de stockage des préférences utilisateur"
+msgstr "Table de stockage des préférences d'interface de table"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -6304,14 +6293,13 @@ msgid "SQL history"
 msgstr "Historique SQL"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Connexions persistentes"
+msgstr "Tables récemment utilisées (persistantes)"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Préférences d'interface de tables (persistantes)"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"

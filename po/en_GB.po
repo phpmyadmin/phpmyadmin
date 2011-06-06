@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-31 19:28+0200\n"
+"PO-Revision-Date: 2011-06-04 12:04+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2198,17 +2198,16 @@ msgstr "Both"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nowhere"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Left"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Height"
+msgstr "Right"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3483,7 +3482,7 @@ msgstr "These are Edit, Inline edit, Copy and Delete links"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Where to show the table row links"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"

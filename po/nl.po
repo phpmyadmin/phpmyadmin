@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-03-16 20:18+0200\n"
+"PO-Revision-Date: 2011-06-04 15:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -705,22 +705,19 @@ msgid "Analyze table"
 msgstr "Analyseer tabel"
 
 #: db_structure.php:521
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Ga naar tabel"
+msgstr "Voeg voorvoegsel toe aan tabel"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Vervang tabelgegevens door het bestand"
+msgstr "Vervang tabelvoorvoegsel"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Vervang tabelgegevens door het bestand"
+msgstr "Vervang tabel met voorvoegsel"
 
 #: db_structure.php:574 libraries/schema/User_Schema.class.php:387
 msgid "Data Dictionary"
@@ -972,19 +969,17 @@ msgstr "Weet u zeker dat u dit wilt "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:277 sql.php:278
 msgid "You are about to DESTROY a complete database!"
-msgstr "U staat op het punt een complete database te VERWIJDEREN!"
+msgstr "U staat op het punt een volledige database te VERWIJDEREN!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "U staat op het punt een complete database te VERWIJDEREN!"
+msgstr "U staat op het punt een volledige tabel te VERWIJDEREN!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "U staat op het punt een complete database te VERWIJDEREN!"
+msgstr "U staat op het punt een volledige database LEEG te maken!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
@@ -1123,33 +1118,31 @@ msgid "Searching"
 msgstr "Zoeken"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Verberg zoekcriteria"
+msgstr "Verberg zoekresultaten"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Toon zoek-criteria"
+msgstr "Toon zoekresultaten"
 
 #: js/messages.php:86
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Verkennen"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Verwijderen van %s"
+msgstr "Verwijderen"
 
 #: js/messages.php:90
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"Opmerking : Als het bestand meerdere tabellen bevat, zullen deze "
+"samengevoegd worden tot één tabel."
 
 #: js/messages.php:93
 msgid "Hide query box"
@@ -1221,6 +1214,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
+"U hebt de layoutwijzigingen niet opgeslagen. Deze zullen verloren gaan als u "
+"deze niet opslaat. Wilt u doorgaan?"
 
 #: js/messages.php:115
 msgid "Add an option for column "
@@ -1257,10 +1252,9 @@ msgid ", latest stable version:"
 msgstr ", meest recente versie:"
 
 #: js/messages.php:129
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Ga naar database"
+msgstr "Recent bijgewerkt"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:147
@@ -1635,22 +1629,19 @@ msgstr[0] "%1$d rij toegevoegd."
 msgstr[1] "%1$d rijen toegevoegd."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Opslaan van het configuratiebestand is niet mogelijk"
+msgstr "Recente tabel kon niet opgeslagen worden"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Tel tabellen"
+msgstr "Recente tabellen"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Er zijn momenteel geen servers geconfigureerd"
+msgstr "Er zijn geen recente tabellen"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1694,7 +1685,7 @@ msgstr "Tabel %s is hernoemd naar %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "UI tabel voorkeuren konden niet worden opgeslagen"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -2241,17 +2232,16 @@ msgstr "Beide"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nergens"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Hoogte"
+msgstr "Rechts"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3373,16 +3363,16 @@ msgid "Enable highlighting"
 msgstr "Markeren inschakelen"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellen lijst"
+msgstr ""
+"Het maximum aantal recent gebruikte tabellen dat wordt getoond; vul 0 in om "
+"uit te schakelen"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Tabellen zonder tracker"
+msgstr "Recent gebruikte tabellen"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
@@ -3542,7 +3532,7 @@ msgstr "Dit zijn Bewerken, Inline bewerken, Kopieer en Delete links"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Waar de tabelrij links getoond worden"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
@@ -3673,13 +3663,12 @@ msgstr "Hercoderings engine"
 
 #: libraries/config/messages.inc.php:348
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Bij het bekijken van tabellen, wordt de sorteervolgorde onthouden"
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Tabel hernoemen naar"
+msgstr "Onthoud de tabelsortering"
 
 #: libraries/config/messages.inc.php:350
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -3963,7 +3952,6 @@ msgid "Server port"
 msgstr "Server poort"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3971,14 +3959,13 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikers instellingen op te slaan, voorgesteld: "
-"[kbd]pma_config[/kbd]"
+"Laat dit veld leeg om geen recente gebruikte tabellen op te slaan over "
+"sessies heen, voorstel: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Herinner gebruikersnaam"
+msgstr "Recent gebruikte tabel"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -4059,7 +4046,6 @@ msgid "Display columns table"
 msgstr "Toon velden tabel"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4067,14 +4053,13 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen gebruikers instellingen op te slaan, voorgesteld: "
-"[kbd]pma_config[/kbd]"
+"Laat dit veld leeg om geen UI voorkeuren op te slaan, voorstel: "
+"[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Gebruikersvoorkeuren opslagtabel"
+msgstr "UI voorkeuren tabel"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -4721,10 +4706,9 @@ msgstr "Compatibel met MySQL&nbsp;4.0"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Nieuwe database aanmaken"
+msgstr "Database aanmaken"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -6051,14 +6035,13 @@ msgid "Convert to Kana"
 msgstr "Zet om naar Kana"
 
 #: libraries/mult_submits.inc.php:249
-#, fuzzy
 #| msgid "Fr"
 msgid "From"
-msgstr "vr"
+msgstr "Van"
 
 #: libraries/mult_submits.inc.php:252
 msgid "To"
-msgstr ""
+msgstr "Naar"
 
 #: libraries/mult_submits.inc.php:257 libraries/mult_submits.inc.php:271
 #: libraries/sql_query_form.lib.php:439
@@ -6067,13 +6050,12 @@ msgstr "Verzenden"
 
 #: libraries/mult_submits.inc.php:263
 msgid "Add table prefix"
-msgstr ""
+msgstr "Voeg tabelvoorvoegsel toe"
 
 #: libraries/mult_submits.inc.php:266
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
-msgstr "Voeg index toe"
+msgstr "Voeg voorvoegsel toe"
 
 #: libraries/mult_submits.inc.php:477 tbl_replace.php:331
 msgid "No change"
@@ -6332,14 +6314,13 @@ msgid "SQL history"
 msgstr "SQL-geschiedenis"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Persistente connecties"
+msgstr "Persistente recent gebruikte tabellen"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Persistente UI tabelvoorkeuren"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
@@ -8154,10 +8135,10 @@ msgid "Unable to change master"
 msgstr "Wijzigen master mislukt"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed succesfully to %s"
 msgid "Master server changed successfully to %s"
-msgstr "Master server gewijzigd in %s"
+msgstr "Master server succesvol gewijzigd in %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
@@ -9321,16 +9302,18 @@ msgid "Insecure connection"
 msgstr "Onveilige verbinding"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Configuratie opslag"
+msgstr "Configuratie opgeslagen."
 
 #: setup/frames/index.inc.php:93
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Instellingen werden opgeslagen in bestand config/config.inc.php van de "
+"phpMyAdmin installatiefolder, kopieer dit bestand naar de installatiefolder "
+"en verwijder de config folder."
 
 #: setup/frames/index.inc.php:100 setup/frames/menu.inc.php:15
 msgid "Overview"
@@ -10198,22 +10181,19 @@ msgid "Version %s snapshot (SQL code)"
 msgstr "Versie %s snapshot (SQL-code)"
 
 #: tbl_tracking.php:382
-#, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data definition successfully deleted"
-msgstr "Deze definitie-statements tracken:"
+msgstr "Tracking data definitie succesvol verwijderd"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Gather errors"
 msgid "Query error"
-msgstr "Verzamel foutmeldingen"
+msgstr "Fout in query"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Deze manipulatie-statements tracken:"
+msgstr "Tracking data manipulatie succesvol verwijderd"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
@@ -10225,16 +10205,14 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr "Laat %s zien met datums van %s tot %s door gebruiker %s %s"
 
 #: tbl_tracking.php:432
-#, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
-msgstr "Verwijder tracking data voor deze tabel"
+msgstr "Verwijder tracking data rij uit verslag"
 
 #: tbl_tracking.php:443
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Geen databases"
+msgstr "Geen gegevens"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"

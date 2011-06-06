@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-01 23:43+0200\n"
+"PO-Revision-Date: 2011-06-05 21:27+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -1670,7 +1670,7 @@ msgstr "Tabela %s je preimenovana v %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Ne morem shraniti nastavitev uporabniškega vmesnika tabel"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -2212,17 +2212,16 @@ msgstr "Oboje"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nikjer"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Levo"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Višina"
+msgstr "Desno"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3342,10 +3341,9 @@ msgid "Enable highlighting"
 msgstr "Omogoči poudarjanje"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Največje število tabel prikazanih na seznamu tabel"
+msgstr "Največje število nedavno uporabljenih tabel; določite 0 za onemogočitev"
 
 #: libraries/config/messages.inc.php:287
 msgid "Recently used tables"
@@ -3508,7 +3506,7 @@ msgstr "To so povezave Uredi, Uredi v vrstici, Kopiraj in Izbriši"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Kje naj prikažem povezave vrstic tabel"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
@@ -3918,7 +3916,6 @@ msgid "Server port"
 msgstr "Vrata strežnika"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3926,8 +3923,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
-"podatkov; predlagano: [kbd]pma_config[/kbd]"
+"Pustite prazno, če ne želite \"vztrajno\" nedavno uporabljenih tabel skozi "
+"seje; predlagano: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
 msgid "Recently used table"
@@ -4010,7 +4007,6 @@ msgid "Display columns table"
 msgstr "Tabela prikaznih stolpcev"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4018,14 +4014,13 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
-"podatkov; predlagano: [kbd]pma_config[/kbd]"
+"Pustite prazno, če ne želite \"vztrajnih\" nastavitev uporabniškega vmesnika "
+"tabel skozi seje; predlagano: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Tabela za hranjenje uporabnikovih nastavitev"
+msgstr "Tabela nastavitev uporabniškega vmesnika"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -6253,14 +6248,13 @@ msgid "SQL history"
 msgstr "Zgodovina SQL"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Vztrajne povezave"
+msgstr "Vztrajno nedavno uporabljene tabele"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Vztrajne nastavitve uporabniškega vmesnika tabel"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
@@ -9582,8 +9576,8 @@ msgid ""
 "The result of this query can't be used for a chart. See [a@./Documentation."
 "html#faq6_29@Documentation]FAQ 6.29[/a]"
 msgstr ""
-"Rezultat te poizvedbe ni mogoče uporabiti za grafikon. Oglejte si [a@./"
-"Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+"Rezultata te poizvedbe ni mogoče uporabiti za grafikon. Oglejte si "
+"[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 
 #: tbl_chart.php:90
 msgid "Width"

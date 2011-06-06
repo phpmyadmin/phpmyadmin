@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-19 19:01+0200\n"
+"PO-Revision-Date: 2011-06-03 21:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1619,22 +1619,19 @@ msgstr[0] "%1$d fila insertada."
 msgstr[1] "%1$d filas insertadas."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "No se pudo guardar la configuración"
+msgstr "No se pudo guardar la tabla reciente"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Contar las tablas"
+msgstr "Tablas recientes"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "No existen servidores configurados"
+msgstr "No existen tablas recientes"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1679,7 +1676,7 @@ msgstr "Tabla %s ahora se llama %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "No se pudieron guardar las preferencias de interfaz"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -2232,17 +2229,16 @@ msgstr "Ambos"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Ninguno"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Izquierda"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Altura"
+msgstr "Derecha"
 
 # Used for
 # http://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
@@ -3378,16 +3374,14 @@ msgid "Enable highlighting"
 msgstr "Permitir destacar"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Número máximo de tablas mostradas en una lista de tablas"
+msgstr "Número máximo de tablas recientemente utilizadas; 0 para desactivar"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "La tabla abierta actualmente"
+msgstr "Tablas recientemente utilizadas"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
@@ -3549,7 +3543,7 @@ msgstr "Estos son los enlaces para Editar, Editar en el lugar, Copiar y Borrar"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Donde mostrar los enlaces de filas de tabla"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
@@ -3681,13 +3675,12 @@ msgstr "Motor de recodificación"
 
 #: libraries/config/messages.inc.php:348
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Al explorar tablas, se recordará el ordenamiento de cada tabla"
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Cambiar el nombre de la tabla a"
+msgstr "Recordar ordenamiento de la tabla"
 
 #: libraries/config/messages.inc.php:350
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -3975,7 +3968,6 @@ msgid "Server port"
 msgstr "Puerto del servidor"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3983,14 +3975,13 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Deje en blanco para eliminar soporte de almacenamiento de preferencias en "
-"base de datos, valor sugerido : [kbd]pma_config[/kbd]"
+"Deje en blanco para eliminar la \"persistencia\" de las tablas recientemente "
+"utilizadas entre sesiones, valor sugerido: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "La tabla abierta actualmente"
+msgstr "Tabla recientemente utilizada"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -4070,7 +4061,6 @@ msgid "Display columns table"
 msgstr "Mostrar tabla de columnas"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4078,14 +4068,14 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Deje en blanco para eliminar soporte de almacenamiento de preferencias en "
-"base de datos, valor sugerido : [kbd]pma_config[/kbd]"
+"Deje en blanco para eliminar la \"persistencia\" de las preferencias de "
+"interfaz de tablas entre sesiones, valor sugerido : "
+"[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Tabla de almacenamiento de preferencias de usuario"
+msgstr "Preferencias de interfaz de tablas"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -6363,14 +6353,13 @@ msgid "SQL history"
 msgstr "Historial-SQL"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Conexiones persistentes"
+msgstr "Tablas persistentes utilizadas recientemente"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Preferencias de interfaz de tablas persistentes"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"

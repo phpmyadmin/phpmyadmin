@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-28 14:02+0200\n"
+"PO-Revision-Date: 2011-06-06 10:24+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -2200,13 +2200,12 @@ msgstr ""
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Ляво"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Височина"
+msgstr "Дясно"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3275,10 +3274,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Непроследявани таблици"
+msgstr "Последно отваряни таблици"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
@@ -3799,10 +3797,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Анализиране на таблицата"
+msgstr "Последно отваряна таблица"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -3878,10 +3875,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Дефрагментиране на таблица"
+msgstr "Таблица с визуалните настройки"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -4717,7 +4713,7 @@ msgstr "%d не е валиден номер на ред."
 
 #: libraries/display_tbl.lib.php:392
 msgid "row(s) starting from row #"
-msgstr "ред(ове) започвайки от №"
+msgstr "ред(а) започвайки от №"
 
 #: libraries/display_tbl.lib.php:397
 msgid "horizontal"
