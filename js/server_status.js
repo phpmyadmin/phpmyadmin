@@ -1,3 +1,19 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @fileoverview    functions used in server status pages
+ * @name            Server Status
+ *
+ * @requires    jQuery
+ * @requires    jQueryUI
+ * @requires    jQueryCookie
+ * @requires    jQueryTablesorter
+ * @requires    Highcharts
+ * @requires    canvg
+ * @requires    js/functions.js
+ *
+ */
+
+// Add a tablesorter parser to properly handle thousands seperated numbers and SI units
 $(function() {
     jQuery.tablesorter.addParser({
         id: "fancyNumber",
@@ -8,14 +24,14 @@ $(function() {
             var num = jQuery.tablesorter.formatFloat( s.replace(PMA_messages['strThousandsSeperator'],'').replace(PMA_messages['strDecimalSeperator'],'.') );
             var factor = 1;
             switch (s.charAt(s.length-1)) {
-                case '%': factor = 0.01; break;
-                // Todo: Please complete this list
-                case 'k': factor = 1000; break;
-                case 'M': factor = 1000*1000; break;
-                case 'G': factor = 1000*1000*1000; break;
-                case 'T': factor = 1000*1000*1000*1000; break;
+                case '%': factor = -2; break;
+                // Todo: Complete this list (as well as in the regexp a few lines up)
+                case 'k': factor = 3; break;
+                case 'M': factor = 6; break;
+                case 'G': factor = 9; break;
+                case 'T': factor = 12; break;
             }
-            return num*factor;
+            return num*Math.pow(10,factor);
         },
         type: "numeric"
     });
@@ -71,15 +87,20 @@ $(function() {
         
         if(tabStatus[tab.attr('id')]!='realtime') {
             var series, title;
-            var settings = { chart: {renderTo:tab.attr('id')+"_chart_cnt"} }
+            var settings = new Object();
             
             switch(tab.attr('id')) {
                 case 'statustabs_traffic':
+                    settings.chart = {
+                        load: function() {
+                        }
+                    }
+                    settings.series = [{name:'Issued queries since last refresh', data:[]}];
+                    settings.title = {text:'Issued queries'};
+                    settings.tooltip = { formatter:function() { return this.point.name; } };
                     break;
                 case 'statustabs_queries':
-                    settings.chart = { 
-                        renderTo:tab.attr('id')+"_chart_cnt", 
-                        defaultSeriesType: 'spline',
+                    settings.chart = {
                         events: {
                             load: function() {
                                 var thisChart = this;
@@ -119,8 +140,6 @@ $(function() {
                             }
                         }
                     };
-                    settings.c_differentialData = true;
-                    settings.c_dataType = 'queries';
                     settings.series = [{name:'Issued queries since last refresh', data:[]}];
                     settings.title = {text:'Issued queries'};
                     settings.tooltip = { formatter:function() { return this.point.name; } };
@@ -129,6 +148,8 @@ $(function() {
                 default:
                     return;
             }
+            
+            settings.chart.renderTo=tab.attr('id')+"_chart_cnt";
                         
             tab.find('.tabInnerContent')
                 .hide()
@@ -236,6 +257,7 @@ $(function() {
         }
     }
     
+    /* Filters the status variables by name/category/alert in the variables tab */
     function filterVariables() {
         var useful_links=0;
         var section = text;
@@ -320,6 +342,7 @@ $(function() {
         chart = new Highcharts.Chart(settings);
     }
     
+    // Provides a nicely formatted and sorted tooltip of each datapoint of the query statistics
     function sortedQueriesPointInfo(queries, lastQueries){
         var max, maxIdx, num=0;
         var queryKeys = new Array();
