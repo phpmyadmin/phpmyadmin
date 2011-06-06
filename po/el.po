@@ -1623,10 +1623,9 @@ msgid "Recent tables"
 msgstr "Πρόσφατοι πίνακες"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Δεν υπάρχουν ρυθμισμένοι διακομιστές"
+msgstr "Δεν υπάρχουν πρόσφατοι πίνακες"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
