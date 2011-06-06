@@ -33,9 +33,12 @@ if (isset($_REQUEST['ajax_request'])) {
     if(isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
             case 'proc':
+                $c = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Connections"', 0, 1);
                 $result = PMA_DBI_query('SHOW PROCESSLIST');
                 $num_procs = PMA_DBI_num_rows($result);
-                exit((microtime(true)*1000).','.$num_procs);
+                
+                $ret = Array('x'=>(microtime(true)*1000),'y_proc'=>$num_procs,'y_conn'=>$c['Connections']);
+                exit(json_encode($ret));
             case 'queries':
                 $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" AND Value>0', 0, 1);
                 cleanDeprecated($queries);
@@ -368,6 +371,9 @@ echo __('Runtime Information');
                 <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
+                </a>
+                <a href="#">
+                    <?php echo __('Realtime chart'); ?>
                 </a>
             </div>	
             <div class="tabInnerContent">

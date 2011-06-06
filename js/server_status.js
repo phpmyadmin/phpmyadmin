@@ -91,64 +91,44 @@ $(function() {
             
             switch(tab.attr('id')) {
                 case 'statustabs_traffic':
-                    settings.chart = {
-                        load: function() {
-                        }
-                    }
-                    settings.series = [{name:'Issued queries since last refresh', data:[]}];
-                    settings.title = {text:'Issued queries'};
-                    settings.tooltip = { formatter:function() { return this.point.name; } };
+                    settings = {
+                        series: [{name:'Connections', data:[]},{name:'Processes', data:[]}],
+                        title: {text:'Connections / Processes'},
+                        refresh:{ type: 'proc',
+                                  callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
+                                        chartObj.series[0].addPoint(
+                                            { x:curVal.x, y:curVal.y_conn-lastVal.y_conn },
+                                            true, numLoadedPoints >= numMaxPoints
+                                        );
+                                        chartObj.series[1].addPoint(
+                                            { x:curVal.x, y:curVal.y_proc },
+                                            true, numLoadedPoints >= numMaxPoints
+                                        );                                            
+                                    }
+                                }
+                    };
                     break;
                 case 'statustabs_queries':
-                    settings.chart = {
-                        events: {
-                            load: function() {
-                                var thisChart = this;
-                                var lastValue=null;
-                                var numLoadedPoints=0;
-                                var otherSum=0;
-                                
-                                // No realtime updates for graphs that are being exported
-                                if(thisChart.options.chart.forExport==true) return;
-                                        
-                                var addnewPoint = function() {
-                                    $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1, type:'queries'},function(data) {
-                                        if(activeTimeouts[tab.attr('id')+"_chart_cnt"]==null) return;
-                                        
-                                        var chartData = jQuery.parseJSON(data);
-                                        var pointInfo='';
-                                        var i=0;
-                                        
-                                        chartData.x = parseInt(chartData.x);
-                                        chartData.y = parseInt(chartData.y);
-                                        
-                                        if(lastValue==null) lastValue = chartData;
-                                        
-                                        thisChart.series[0].addPoint({
-                                            x:chartData.x, 
-                                            y:chartData.y-lastValue.y,
-                                            name:sortedQueriesPointInfo(chartData,lastValue)
-                                        }, true, numLoadedPoints >= numMaxPoints);
-                                            
-                                        lastValue = chartData;
-                                        numLoadedPoints++;
-                                        activeTimeouts[tab.attr('id')+"_chart_cnt"] = setTimeout(addnewPoint, refreshRate);
-                                    });
+                    settings = {
+                        series: [{name:'Issued queries since last refresh', data:[]}],
+                        title: {text:'Issued queries'},
+                        tooltip: { formatter:function() { return this.point.name; } },
+                        refresh:{ type: 'queries',
+                                  callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
+                                        chartObj.series[0].addPoint(
+                                            { x:curVal.x,  y:curVal.y-lastVal.y, name:sortedQueriesPointInfo(curVal,lastVal) },
+                                            true, numLoadedPoints >= numMaxPoints
+                                        );
+                                    }
                                 }
-                                
-                                activeTimeouts[tab.attr('id')+"_chart_cnt"] = setTimeout(addnewPoint, 0);
-                            }
-                        }
                     };
-                    settings.series = [{name:'Issued queries since last refresh', data:[]}];
-                    settings.title = {text:'Issued queries'};
-                    settings.tooltip = { formatter:function() { return this.point.name; } };
                     break;
 
                 default:
                     return;
             }
             
+            if(!settings.chart) settings.chart = {};
             settings.chart.renderTo=tab.attr('id')+"_chart_cnt";
                         
             tab.find('.tabInnerContent')
@@ -302,10 +282,46 @@ $(function() {
     }
     
     function initChart(passedSettings) {
+        var container = passedSettings.chart.renderTo;
+        
         var settings = {
             chart: {
                 defaultSeriesType: 'spline',
-                marginRight: 10
+                marginRight: 10,
+                events: {
+                    load: function() {
+                        var thisChart = this;
+                        var lastValue=null;
+                        var numLoadedPoints=0;
+                        var otherSum=0;
+                        
+                        // No realtime updates for graphs that are being exported
+                        if(thisChart.options.chart.forExport==true) return;
+                                
+                        var addnewPoint = function() {
+                            $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1, type:passedSettings.refresh.type},function(data) {
+                                if(activeTimeouts[container]==null) return;
+                                
+                                var chartData = jQuery.parseJSON(data);
+                                var pointInfo='';
+                                var i=0;
+                                
+                                chartData.x = parseInt(chartData.x);
+                                chartData.y = parseInt(chartData.y);
+                                
+                                if(lastValue==null) lastValue = chartData;
+                                
+                                passedSettings.refresh.callback(thisChart,chartData,lastValue,numLoadedPoints)
+                                    
+                                lastValue = chartData;
+                                numLoadedPoints++;
+                                activeTimeouts[container] = setTimeout(addnewPoint, refreshRate);
+                            });
+                        }
+                        
+                        activeTimeouts[container] = setTimeout(addnewPoint, 0);
+                    }
+                }
             },
             credits: {
                 enabled:false
@@ -337,6 +353,7 @@ $(function() {
             series: []
         }
         
+        // Overwrite/Merge default settings with passedsettings
         $.extend(true,settings,passedSettings);
 
         chart = new Highcharts.Chart(settings);
