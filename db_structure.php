@@ -504,7 +504,7 @@ echo '    <option value="export" >'
 echo '    <option value="print" >'
     . __('Print view') . '</option>' . "\n";
 
-if (!$db_is_information_schema) {
+if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
     echo '    <option value="empty_tbl" >'
          . __('Empty') . '</option>' . "\n";
     echo '    <option value="drop_tbl" >'

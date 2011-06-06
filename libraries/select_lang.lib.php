@@ -478,9 +478,6 @@ if (! function_exists('__')) {
     die('Bad invocation!');
 }
 
-/* We use only utf-8 */
-$charset = 'utf-8';
-
 /* l10n: Text direction, use either ltr or rtl */
 $GLOBALS['text_dir'] = __('ltr');
 

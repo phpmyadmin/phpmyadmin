@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-05-19 21:59+0200\n"
+"PO-Revision-Date: 2011-06-02 21:51+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1604,22 +1604,19 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d satır eklendi."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Yapılandırma kaydedilemedi"
+msgstr "Son tablo kaydedilemedi"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Tabloları say"
+msgstr "Son tablolar"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Yapılandırılmış sunucular yok"
+msgstr "Son tablolar yok"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1661,7 +1658,7 @@ msgstr "%s tablosu %s olarak yeniden adlandırıldı"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Tablo KA tercihleri kaydedilemedi"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -2207,17 +2204,16 @@ msgstr "Her ikisi"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Hiçbir yeri"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Sol"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Yükseklik"
+msgstr "Sağ"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -3337,16 +3333,15 @@ msgid "Enable highlighting"
 msgstr "Vurgulamalar etkin"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Tablo listesinde görüntülenecek olan en fazla tablo sayısıdır"
+msgstr ""
+"En fazla son kullanılan tablo sayısıdır; etkisizleştirmek için 0'a ayarlayın"
 
 #: libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "Şu anda açık olan tablo"
+msgstr "Son kullanılan tablolar"
 
 #: libraries/config/messages.inc.php:288
 msgid "Use less graphically intense tabs"
@@ -3507,7 +3502,7 @@ msgstr "Bunlar Düzenle, Sıralı düzenle, Kopyala ve Sil bağlantılarıdır"
 
 #: libraries/config/messages.inc.php:318
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Tablo satır bağlantılarının nerede gösterileceği"
 
 #: libraries/config/messages.inc.php:319
 msgid "Use natural order for sorting table and database names"
@@ -3636,13 +3631,12 @@ msgstr "Kaydetme motoru"
 
 #: libraries/config/messages.inc.php:348
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Tablolara gözatılırken her tablonun sıralaması hatırlanır"
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Tabloyu yeniden şuna adlandır"
+msgstr "Tablonun sıralamasını hatırla"
 
 #: libraries/config/messages.inc.php:350
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -3927,7 +3921,6 @@ msgid "Server port"
 msgstr "Sunucu bağ.noktası"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3935,14 +3928,13 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
-"önerilen: [kbd]pma_config[/kbd]"
+"Oturum geçişlerinde \"sürekli\" son kullanılan tablolar olmaması için boş "
+"bırakın, önerilen: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "Şu anda açık olan tablo"
+msgstr "Son kullanılan tablo"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
@@ -4021,7 +4013,6 @@ msgid "Display columns table"
 msgstr "Görüntü sütunları tablosu"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4029,14 +4020,13 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Veritabanında kullanıcı tercihleri depolaması olmaması için boş bırakın, "
-"önerilen: [kbd]pma_config[/kbd]"
+"Oturum geçişlerinde \"sürekli\" tabloların KA tercihleri olmaması için boş "
+"bırakın, önerilen: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Kullanıcı tercihleri depolama tablosu"
+msgstr "KA tercihleri tablosu"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
@@ -6275,14 +6265,13 @@ msgid "SQL history"
 msgstr "SQL geçmişi"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Sürekli bağlantılar"
+msgstr "Sürekli son kullanılan tablolar"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Sürekli tabloların KA tercihleri"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"

@@ -183,9 +183,9 @@ if (! isset($sql_backquotes)) {
 }
 
 /**
- * Exports routines (procedures and functions) 
+ * Exports routines (procedures and functions)
  *
- * @param   string      $db 
+ * @param   string      $db
  *
  * @return  bool        Whether it suceeded
  */
@@ -389,7 +389,7 @@ function PMA_exportHeader()
             $set_names = $mysql_charset_map[$GLOBALS['charset_of_file']];
         } else {
             // by default we use the connection charset
-            $set_names = $mysql_charset_map[$GLOBALS['charset']];
+            $set_names = $mysql_charset_map['utf-8'];
         }
         $head .=  $crlf
                . '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . $crlf

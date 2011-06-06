@@ -28,7 +28,7 @@ $GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen');
 $GLOBALS['PMA_allow_ctype'] = @extension_loaded('ctype');
 
 if ($GLOBALS['PMA_allow_mbstr']) {
-    mb_internal_encoding($GLOBALS['charset']);
+    mb_internal_encoding('utf-8');
 }
 
 /**

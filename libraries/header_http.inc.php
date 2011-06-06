@@ -30,6 +30,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-ch
 header('Pragma: no-cache'); // HTTP/1.0
 if (!defined('IS_TRANSFORMATION_WRAPPER')) {
     // Define the charset to be used
-    header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+    header('Content-Type: text/html; charset=utf-8');
 }
 ?>
