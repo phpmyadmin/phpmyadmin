@@ -2312,11 +2312,14 @@ $(document).ready(function() {
                 /**
                  * Display the dialog to the user
                  */
-                $('<div>'+data.message+'</div>').dialog({
-                            width: 450,
-                            buttons: button_options,
-                            title: data.title
-                        }).find('textarea').width('100%');
+                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
+                                      width: 500,
+                                      buttons: button_options,
+                                      title: data.title
+                                  });
+                // Attach syntax highlited editor to export dialog
+                var elm = $ajaxDialog.find('textarea');
+                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
