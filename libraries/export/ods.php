@@ -40,7 +40,7 @@ require_once './libraries/opendocument.lib.php';
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -55,9 +55,9 @@ function PMA_exportFooter() {
         . '</office:body>'
         . '</office:document-content>';
     if (!PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.spreadsheet', $GLOBALS['ods_buffer']))) {
-        return FALSE;
+        return false;
     }
-    return TRUE;
+    return true;
 }
 
 /**
@@ -68,7 +68,7 @@ function PMA_exportFooter() {
  * @access  public
  */
 function PMA_exportHeader() {
-    $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?' . '>'
+    $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
         . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
         . '<office:automatic-styles>'
             . '<number:date-style style:name="N37" number:automatic-order="true">'
@@ -106,7 +106,7 @@ function PMA_exportHeader() {
         . '</office:automatic-styles>'
         . '<office:body>'
         . '<office:spreadsheet>';
-    return TRUE;
+    return true;
 }
 
 /**
@@ -119,7 +119,7 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -132,7 +132,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -145,7 +145,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -228,7 +228,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     $GLOBALS['ods_buffer'] .= '</table:table>';
 
-    return TRUE;
+    return true;
 }
 
 }

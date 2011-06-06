@@ -72,7 +72,7 @@ require_once './libraries/opendocument.lib.php';
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -87,9 +87,9 @@ function PMA_exportFooter() {
         . '</office:body>'
         . '</office:document-content>';
     if (!PMA_exportOutputHandler(PMA_createOpenDocument('application/vnd.oasis.opendocument.text', $GLOBALS['odt_buffer']))) {
-        return FALSE;
+        return false;
     }
-    return TRUE;
+    return true;
 }
 
 /**
@@ -100,11 +100,11 @@ function PMA_exportFooter() {
  * @access  public
  */
 function PMA_exportHeader() {
-    $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="' . $GLOBALS['charset'] . '"?' . '>'
+    $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
         . '<office:document-content '. $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
         . '<office:body>'
         . '<office:text>';
-    return TRUE;
+    return true;
 }
 
 /**
@@ -118,7 +118,7 @@ function PMA_exportHeader() {
  */
 function PMA_exportDBHeader($db) {
     $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . htmlspecialchars(__('Database') . ' ' . $db) . '</text:h>';
-    return TRUE;
+    return true;
 }
 
 /**
@@ -131,7 +131,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -144,7 +144,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -217,7 +217,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     $GLOBALS['odt_buffer'] .= '</table:table>';
 
-    return TRUE;
+    return true;
 }
 
 /**
@@ -236,7 +236,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
  *
  * @access  public
  */
- // @@@ Table structure 
+ // @@@ Table structure
 function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
 {
     global $cfgRelation;
@@ -272,12 +272,12 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $res_rel = PMA_getForeigners($db, $table);
 
         if ($res_rel && count($res_rel) > 0) {
-            $have_rel = TRUE;
+            $have_rel = true;
         } else {
-            $have_rel = FALSE;
+            $have_rel = false;
         }
     } else {
-           $have_rel = FALSE;
+           $have_rel = false;
     } // end if
 
     /**
@@ -412,7 +412,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     PMA_DBI_free_result($result);
 
     $GLOBALS['odt_buffer'] .= '</table:table>';
-    return TRUE;
+    return true;
 } // end of the 'PMA_exportStructure' function
 
 } // end else

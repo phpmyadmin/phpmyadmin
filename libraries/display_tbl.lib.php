@@ -1033,6 +1033,11 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
         $set_class = ' set';
     }
 
+    $bit_class = '';
+    if(strpos($meta->type, 'bit') !== false) {
+        $bit_class = ' bit';
+    }
+
     $mime_type_class = '';
     if(isset($meta->mimetype)) {
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
@@ -1041,7 +1046,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
     $result = $class . ($condition_field ? ' condition' : '') . $nowrap
     . ' ' . ($is_field_truncated ? ' truncated' : '')
     . ($transform_function != $default_function ? ' transformed' : '')
-    . $enum_class . $set_class . $mime_type_class;
+    . $enum_class . $set_class . $bit_class . $mime_type_class;
 
     return $result;
 }
@@ -2286,7 +2291,7 @@ function default_function($buffer) {
 function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     global $db, $table, $sql_query, $unlim_num_rows;
 
-    $header_shown = FALSE;
+    $header_shown = false;
     $header = '<fieldset><legend>' . __('Query results operations') . '</legend>';
 
     if ($the_disp_mode[6] == '1' || $the_disp_mode[9] == '1') {
@@ -2295,7 +2300,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
 
             if (!$header_shown) {
                 echo $header;
-                $header_shown = TRUE;
+                $header_shown = true;
             }
 
             $_url_params = array(
@@ -2335,7 +2340,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         }
         if (!$header_shown) {
             echo $header;
-            $header_shown = TRUE;
+            $header_shown = true;
         }
         $_url_params['unlim_num_rows'] = $unlim_num_rows;
 
@@ -2373,7 +2378,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
      */
     if (!$header_shown) {
         echo $header;
-        $header_shown = TRUE;
+        $header_shown = true;
     }
     if (! isset($analyzed_sql[0]['queryflags']['procedure'])) {
         echo PMA_linkOrButton(
@@ -2593,7 +2598,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
     $ret = '';
     if (! empty($edit_url)) {
         $ret .= '<td class="' . $class . '" align="center" ' . ' ><span class="nowrap">'
-           . PMA_linkOrButton($edit_url, $edit_str, array(), FALSE);
+           . PMA_linkOrButton($edit_url, $edit_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
@@ -2624,7 +2629,7 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
             $ret .= 'class="' . $class . '" ';
         }
         $ret .= 'align="center" ' . ' ><span class="nowrap">'
-           . PMA_linkOrButton($copy_url, $copy_str, array(), FALSE);
+           . PMA_linkOrButton($copy_url, $copy_str, array(), false);
         /*
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
@@ -2655,7 +2660,7 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
             $ret .= 'class="' . $class . '" ';
         }
         $ret .= 'align="center" ' . ' >'
-           . PMA_linkOrButton($del_url, $del_str, $js_conf, FALSE)
+           . PMA_linkOrButton($del_url, $del_str, $js_conf, false)
            . '</td>';
     }
     return $ret;

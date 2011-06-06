@@ -22,11 +22,11 @@ if (isset($plugin_list)) {
     $buffer = '';
     while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
         $data = PMA_importGetNextChunk();
-        if ($data === FALSE) {
+        if ($data === false) {
             // subtract data we didn't handle yet and stop processing
             $offset -= strlen($buffer);
             break;
-        } elseif ($data === TRUE) {
+        } elseif ($data === true) {
             // Handle rest of buffer
         } else {
             // Append new data to buffer

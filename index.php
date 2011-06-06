@@ -12,7 +12,6 @@
  *                                              or common.inc.php
  * @uses    $GLOBALS['available_languages'] from common.inc.php (select_lang.lib.php)
  * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['charset']
  * @uses    $GLOBALS['lang']
  * @uses    $GLOBALS['text_dir']
  * @uses    $_ENV['HTTP_HOST']
@@ -102,8 +101,7 @@ include ('./libraries/header_http.inc.php');
 <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
     <?php echo htmlspecialchars($HTTP_HOST); ?></title>
-<meta http-equiv="Content-Type"
-    content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="robots" content="noindex,nofollow" />
 <script type="text/javascript">
 // <![CDATA[

@@ -45,7 +45,7 @@ class PMA_pChart_Pie extends PMA_pChart_multi
                 $this->getGraphAreaColor(RED),
                 $this->getGraphAreaColor(GREEN),
                 $this->getGraphAreaColor(BLUE),
-                FALSE
+                false
         );
         
         if($this->settings['gradientIntensity']>0)
@@ -83,7 +83,7 @@ class PMA_pChart_Pie extends PMA_pChart_multi
                 // lower part. This is why we set an offset to the
                 // Y middle coordiantes.
                 $middleY - 15,
-                120, PIE_PERCENTAGE, FALSE, 60, 30, 10, 1);
+                120, PIE_PERCENTAGE, false, 60, 30, 10, 1);
     }
 
     /**

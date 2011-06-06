@@ -12,9 +12,7 @@
  * (around 4.0.2) as well as the MySQL documentation.
  *
  * Note: before adding a value in the arrays, ensure that you respect
- * proper sorting, especially with underscores. And don't forget to
- * update the _cnt variable at the end of each array.
- * (It's slower to have PHP do the count).
+ * proper sorting, especially with underscores.
  *
  * It's easier to use only uppercase for proper sorting. In case of
  * doubt, use the test case to verify.
@@ -332,12 +330,6 @@ $PMA_SQPdata_function_name = array (
     'YEAR',
     'YEARWEEK'
 );
-/**
- * $PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
- *
- * @global integer MySQL attributes count
- */
-$PMA_SQPdata_function_name_cnt = 298;
 
 /**
  * @global array MySQL attributes
@@ -374,12 +366,6 @@ $PMA_SQPdata_column_attrib = array (
     'VARYING',
     'ZEROFILL'
 );
-/**
- * $PMA_SQPdata_column_attrib_cnt = count($PMA_SQPdata_column_attrib);
- *
- * @global integer MySQL attributes count
- */
-$PMA_SQPdata_column_attrib_cnt = 30;
 
 /**
  * words that are reserved by MySQL and may not be used as identifiers without quotes
@@ -527,7 +513,6 @@ $PMA_SQPdata_reserved_word = array (
     'LOGS',
     'LOW_PRIORITY',
     'MARIA',                // 5.1 ?
-    'MASTER',
     'MASTER_CONNECT_RETRY',
     'MASTER_HOST',
     'MASTER_LOG_FILE',
@@ -680,12 +665,6 @@ $PMA_SQPdata_reserved_word = array (
     'XOR',
     'YEAR_MONTH'
 );
-/**
- * $PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
- *
- * @global integer MySQL reserved words count
- */
-$PMA_SQPdata_reserved_word_cnt = 288;
 
 /**
  * words forbidden to be used as column or table name wihtout quotes
@@ -1177,12 +1156,6 @@ $PMA_SQPdata_forbidden_word = array (
     'YEAR_MONTH',
     'ZEROFILL'
 );
-/**
- * count($PMA_SQPdata_forbidden_word);
- *
- * @global integer MySQL forbidden words count
- */
-$PMA_SQPdata_forbidden_word_cnt = 482;
 
 /**
  * the MySQL column/data types
@@ -1248,11 +1221,5 @@ $PMA_SQPdata_column_type = array (
     'VARCHAR',
     'YEAR'
 );
-/**
- * $PMA_SQPdata_column_type_cnt = count($PMA_SQPdata_column_type);
- *
- * @global integer MySQL column types count
- */
-$PMA_SQPdata_column_type_cnt = 54;
 
 ?>

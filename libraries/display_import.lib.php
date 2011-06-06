@@ -190,7 +190,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             echo '<select id="charset_of_file" name="charset_of_file" size="1">';
             foreach ($cfg['AvailableCharsets'] as $temp_charset) {
                 echo '<option value="' . htmlentities($temp_charset) .  '"';
-                if ((empty($cfg['Import']['charset']) && $temp_charset == $charset)
+                if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
                         || $temp_charset == $cfg['Import']['charset']) {
                     echo ' selected="selected"';
                 }
@@ -199,7 +199,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             echo ' </select><br />';
         } else {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
-            echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
+            echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', false);
         } // end if (recoding)
         ?>
         </div>

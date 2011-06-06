@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-if (! PMA_cacheExists('mysql_charsets_count', true)) {
+if (! PMA_cacheExists('mysql_charsets', true)) {
     $sql = PMA_DRIZZLE
         ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
         : 'SELECT * FROM information_schema.CHARACTER_SETS';
@@ -26,7 +26,6 @@ if (! PMA_cacheExists('mysql_charsets_count', true)) {
     }
     PMA_DBI_free_result($res);
 
-    $mysql_charsets_count = count($mysql_charsets);
     sort($mysql_charsets, SORT_STRING);
 
     $mysql_collations = array_flip($mysql_charsets);
@@ -63,7 +62,6 @@ if (! PMA_cacheExists('mysql_charsets_count', true)) {
             $mysql_charsets_available['utf8_general_ci']);
     }
 
-    $mysql_collations_count = count($mysql_collations_flat);
     sort($mysql_collations_flat, SORT_STRING);
     foreach ($mysql_collations AS $key => $value) {
         sort($mysql_collations[$key], SORT_STRING);
@@ -73,22 +71,18 @@ if (! PMA_cacheExists('mysql_charsets_count', true)) {
 
     PMA_cacheSet('mysql_charsets', $GLOBALS['mysql_charsets'], true);
     PMA_cacheSet('mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions'], true);
-    PMA_cacheSet('mysql_charsets_count', $GLOBALS['mysql_charsets_count'], true);
     PMA_cacheSet('mysql_charsets_available', $GLOBALS['mysql_charsets_available'], true);
     PMA_cacheSet('mysql_collations', $GLOBALS['mysql_collations'], true);
     PMA_cacheSet('mysql_default_collations', $GLOBALS['mysql_default_collations'], true);
     PMA_cacheSet('mysql_collations_flat', $GLOBALS['mysql_collations_flat'], true);
-    PMA_cacheSet('mysql_collations_count', $GLOBALS['mysql_collations_count'], true);
     PMA_cacheSet('mysql_collations_available', $GLOBALS['mysql_collations_available'], true);
 } else {
     $GLOBALS['mysql_charsets']                  = PMA_cacheGet('mysql_charsets', true);
     $GLOBALS['mysql_charsets_descriptions']     = PMA_cacheGet('mysql_charsets_descriptions', true);
-    $GLOBALS['mysql_charsets_count']            = PMA_cacheGet('mysql_charsets_count', true);
     $GLOBALS['mysql_charsets_available']        = PMA_cacheGet('mysql_charsets_available', true);
     $GLOBALS['mysql_collations']                = PMA_cacheGet('mysql_collations', true);
     $GLOBALS['mysql_default_collations']        = PMA_cacheGet('mysql_default_collations', true);
     $GLOBALS['mysql_collations_flat']           = PMA_cacheGet('mysql_collations_flat', true);
-    $GLOBALS['mysql_collations_count']          = PMA_cacheGet('mysql_collations_count', true);
     $GLOBALS['mysql_collations_available']      = PMA_cacheGet('mysql_collations_available', true);
 }
 
@@ -96,8 +90,8 @@ define('PMA_CSDROPDOWN_COLLATION', 0);
 define('PMA_CSDROPDOWN_CHARSET',   1);
 
 function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
-    $name = null, $id = null, $default = null, $label = TRUE, $indent = 0,
-    $submitOnChange = FALSE, $displayUnavailable = FALSE)
+    $name = null, $id = null, $default = null, $label = true, $indent = 0,
+    $submitOnChange = false, $displayUnavailable = false)
 {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available;
@@ -328,7 +322,7 @@ function PMA_getCollationDescr($collation) {
             $descr = __('Unicode') . ' (' . __('multilingual') . ')';
             break;
         case 'bin':
-            $is_bin = TRUE;
+            $is_bin = true;
         case 'general':
             switch ($parts[0]) {
                 // Unicode charsets

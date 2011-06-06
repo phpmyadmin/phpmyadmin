@@ -28,7 +28,7 @@ if (empty($is_info)) {
         // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
-        if (! isset($error) || FALSE === $error) {
+        if (! isset($error) || false === $error) {
             require './libraries/mult_submits.inc.php';
         }
         if (empty($message)) {
@@ -509,7 +509,7 @@ echo '    <option value="export" >'
 echo '    <option value="print" >'
     . __('Print view') . '</option>' . "\n";
 
-if (!$db_is_information_schema) {
+if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
     echo '    <option value="empty_tbl" >'
          . __('Empty') . '</option>' . "\n";
     echo '    <option value="drop_tbl" >'

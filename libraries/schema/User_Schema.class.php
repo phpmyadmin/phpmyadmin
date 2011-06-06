@@ -139,7 +139,7 @@ class PMA_User_Schema
         global $db,$table,$query_default_option,$cfgRelation;
         $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
-        $page_rs    = PMA_query_as_controluser($page_query, FALSE, $query_default_option);
+        $page_rs    = PMA_query_as_controluser($page_query, false, $query_default_option);
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
@@ -213,7 +213,7 @@ class PMA_User_Schema
             $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                         . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                         . ' AND pdf_page_number = \'' . PMA_sqlAddslashes($this->chosenPage) . '\'';
-            $page_rs    = PMA_query_as_controluser($page_query, FALSE, $query_default_option);
+            $page_rs    = PMA_query_as_controluser($page_query, false, $query_default_option);
             $array_sh_page = array();
             while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
                    $array_sh_page[] = $temp_sh_page;
@@ -223,7 +223,7 @@ class PMA_User_Schema
              */
 
             if (! isset($_POST['with_field_names']) && ! isset($_POST['showwysiwyg'])) {
-                $with_field_names = TRUE;
+                $with_field_names = true;
             }
             $this->_displayScratchboardTables($array_sh_page);
             ?>
@@ -248,7 +248,7 @@ class PMA_User_Schema
             $odd_row = true;
             foreach ($array_sh_page as $dummy_sh_page => $sh_page) {
                     $_mtab            =  $sh_page['table_name'];
-                    $tabExist[$_mtab] =  FALSE;
+                    $tabExist[$_mtab] =  false;
                     echo "\n" . '    <tr class="noclick ';
                     if ($odd_row) {
                         echo 'odd';
@@ -263,7 +263,7 @@ class PMA_User_Schema
                             echo "\n" . '                <option value="' . htmlspecialchars($value) . '"';
                             if ($value == $sh_page['table_name']) {
                                 echo ' selected="selected"';
-                                $tabExist[$_mtab] = TRUE;
+                                $tabExist[$_mtab] = true;
                             }
                             echo '>' . htmlspecialchars($value) . '</option>';
                     }
@@ -427,13 +427,13 @@ class PMA_User_Schema
     {
         $_strtrans  = '';
         $_strname   = '';
-        $shoot      = FALSE;
+        $shoot      = false;
         if (!empty($tabExist) && is_array($tabExist)) {
             foreach ($tabExist as $key => $value) {
                     if (!$value) {
                         $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . htmlspecialchars($key) . '" />' . "\n";
                         $_strname   .= '<li>' . htmlspecialchars($key) . '</li>' . "\n";
-                        $shoot       = TRUE;
+                        $shoot       = true;
                     }
             }
             if ($shoot) {
@@ -548,7 +548,7 @@ class PMA_User_Schema
                          .   ' AND   table_name = \'' . PMA_sqlAddslashes($current_row) . '\'' . "\n"
                          .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($chpage) . '\'';
                          echo $del_query;
-                PMA_query_as_controluser($del_query, FALSE, $query_default_option);
+                PMA_query_as_controluser($del_query, false, $query_default_option);
         }
     }
 
@@ -591,7 +591,7 @@ class PMA_User_Schema
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
                                 .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                                 .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($choosePage) . '\'';
-        PMA_query_as_controluser($query, FALSE, $query_default_option);
+        PMA_query_as_controluser($query, false, $query_default_option);
     }
 
     /**
@@ -608,7 +608,7 @@ class PMA_User_Schema
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
                                 .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                                 .   ' AND   page_nr = \'' . PMA_sqlAddslashes($choosePage) . '\'';
-        PMA_query_as_controluser($query, FALSE, $query_default_option);
+        PMA_query_as_controluser($query, false, $query_default_option);
     }
 
     /**
@@ -667,7 +667,7 @@ class PMA_User_Schema
                            . ' WHERE master_db = \'' . $db . '\''
                            . ' GROUP BY master_table'
                            . ' ORDER BY ' . PMA_backquote('COUNT(master_table)') . ' DESC ';
-            $master_tables_rs = PMA_query_as_controluser($master_tables, FALSE, $query_default_option);
+            $master_tables_rs = PMA_query_as_controluser($master_tables, false, $query_default_option);
             if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
@@ -739,7 +739,7 @@ class PMA_User_Schema
             $insert_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
                           . '(db_name, table_name, pdf_page_number, x, y) '
                           . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($current_table) . '\',' . $pageNumber . ',' . $pos_x . ',' . $pos_y . ')';
-            PMA_query_as_controluser($insert_query, FALSE, $query_default_option);
+            PMA_query_as_controluser($insert_query, false, $query_default_option);
 
             /*
              * compute for the next table
@@ -794,7 +794,7 @@ class PMA_User_Schema
                             .   ' WHERE db_name = \'' .  PMA_sqlAddslashes($db) . '\''
                             .   ' AND   table_name = \'' . PMA_sqlAddslashes($arrvalue['name']) . '\''
                             .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($this->chosenPage) . '\'';
-                $test_rs    = PMA_query_as_controluser($test_query, FALSE, $query_default_option);
+                $test_rs    = PMA_query_as_controluser($test_query, false, $query_default_option);
                 //echo $test_query;
                 if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
@@ -815,7 +815,7 @@ class PMA_User_Schema
                                   . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($arrvalue['name']) . '\', \'' . PMA_sqlAddslashes($this->chosenPage) . '\',' . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                 }
                 //echo $ch_query;
-                PMA_query_as_controluser($ch_query, FALSE, $query_default_option);
+                PMA_query_as_controluser($ch_query, false, $query_default_option);
             } // end if
         } // end for
     }

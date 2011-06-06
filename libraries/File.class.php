@@ -259,7 +259,7 @@ class PMA_File
      * @uses    curl_setopt_array()
      * @uses    PMA_File::$_error_message
      * @uses    $_FILES
-     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
      */
@@ -271,11 +271,11 @@ class PMA_File
         $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
 
         // for blobstreaming
-        $is_bs_upload = FALSE;
+        $is_bs_upload = false;
 
         // check if this field requires a repository upload
         if (isset($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key])) {
-            $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? TRUE : FALSE;
+            $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? true : false;
         }
         // if request is an upload to the BLOB repository
         if ($is_bs_upload) {
@@ -290,7 +290,7 @@ class PMA_File
 
             if (! $bs_db || ! $bs_table) {
                 $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
-                return FALSE;
+                return false;
             }
             $blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
             PMA_File::setRecentBLOBReference($blob_url);
@@ -378,7 +378,7 @@ class PMA_File
      * @uses    $_REQUEST
      * @uses    PMA_File::setLocalSelectedFile()
      * @uses    is_string()
-     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
      */
@@ -388,11 +388,11 @@ class PMA_File
          && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])) {
             // ... whether with multiple rows ...
             // for blobstreaming
-            $is_bs_upload = FALSE;
+            $is_bs_upload = false;
 
             // check if this field requires a repository upload
             if (isset($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key])) {
-                $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? TRUE : FALSE;
+                $is_bs_upload = ($_REQUEST['upload_blob_repo']['multi_edit'][$rownumber][$key] == "on") ? true : false;
             }
 
             // is a request to upload file to BLOB repository using uploadDir mechanism
@@ -423,7 +423,7 @@ class PMA_File
 
                 if (! $bs_db || !$bs_table) {
                     $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
-                    return FALSE;
+                    return false;
                 }
                 $blob_url = PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
                 PMA_File::setRecentBLOBReference($blob_url);
@@ -462,7 +462,7 @@ class PMA_File
      * @access  public
      * @uses    PMA_File::setUploadedFromTblChangeRequest()
      * @uses    PMA_File::setSelectedFromTblChangeRequest()
-     * @param   string  $key the md5 hash of the column name 
+     * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
      */
@@ -820,7 +820,7 @@ class PMA_File
         echo '<hr />';
 
         if ($GLOBALS['charset_conversion']) {
-            $result = PMA_convert_string($this->getCharset(), $GLOBALS['charset'], $result);
+            $result = PMA_convert_string($this->getCharset(), 'utf-8', $result);
         } else {
             /**
              * Skip possible byte order marks (I do not think we need more

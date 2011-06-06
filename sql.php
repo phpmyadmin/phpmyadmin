@@ -157,7 +157,7 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddslashes($table) . '\'',
-        'label', FALSE, TRUE);
+        'label', false, true);
 
     if (! empty($book_sql_query)) {
         $GLOBALS['using_bookmark_message'] = PMA_message::notice(__('Using bookmark "%s" as default browse query.'));
@@ -736,7 +736,7 @@ if (0 == $num_rows || $is_affected) {
             //if some posted fields need to be transformed, generate them here.
             $mime_map = PMA_getMIME($db, $table);
 
-            if ($mime_map === FALSE) {
+            if ($mime_map === false) {
                 $mime_map = array();
             }
 

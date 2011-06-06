@@ -825,20 +825,10 @@ form.clock {
 
 
 /* table stats */
-div#tablestatistics {
-    border-bottom: 0.1em solid #669999;
-    margin-bottom: 0.5em;
-    padding-bottom: 0.5em;
-}
-
 div#tablestatistics table {
     float: <?php echo $left; ?>;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    margin-<?php echo $right; ?>: 0.5em;
-}
-
-div#tablestatistics table caption {
     margin-<?php echo $right; ?>: 0.5em;
 }
 /* END table stats */
