@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 11:25-0400\n"
-"PO-Revision-Date: 2011-06-06 09:41+0200\n"
+"PO-Revision-Date: 2011-06-06 09:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3355,10 +3355,11 @@ msgid "Enable highlighting"
 msgstr "Ενεργοποίηση επισήμανσης"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
+msgstr ""
+"Μέγιστος αριθμός πρόσφατα χρησιμοποιημένων πινάκων. ορίστε το σε 0 για "
+"απενεργοποιήση"
 
 #: libraries/config/messages.inc.php:287
 #, fuzzy
