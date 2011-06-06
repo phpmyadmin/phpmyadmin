@@ -2583,10 +2583,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Tablo bakımı"
+msgstr "Çoklu tablo bakımı etkisiz"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
