@@ -171,13 +171,16 @@ function clear_fast_filter() {
  * Reloads the recent tables list.
  */
 function PMA_reloadRecentTable() {
-    $.get('navigation.php',
-            { 'token' : window.parent.token, 'ajax_request' : true, 'recent_table' : true },
-            function (data) {
-        if (data.success == true) {
-            $('#recentTable').html(data.options);
-        }
-    });
+    $.get('navigation.php', {
+            'token': window.parent.token,
+            'server': window.parent.server,
+            'ajax_request': true,
+            'recent_table': true},
+        function (data) {
+            if (data.success == true) {
+                $('#recentTable').html(data.options);
+            }
+        });
 }
 
 /* Performed on load */
