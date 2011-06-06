@@ -2563,6 +2563,26 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             }
                             break;
                         default:
+					        if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
+                                if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE','NOT','IN','REGEXP'))){
+                                    $after .= '</a>';
+                                    $close_docu_link = false;
+                                } else {
+                                    /* Handle multi word statements first */
+                                    if (isset($typearr[4]) && $typearr[4] == 'alpha_reservedWord' && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data'])])) {
+                                        $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data']);
+                                        $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                                        $close_docu_link = true;
+                                    } else if (isset($typearr[3]) && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'])])) {
+                                        $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data']);
+                                        $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                                        $close_docu_link = true;
+                                    } else {
+                                        $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'], false, $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'], true);
+                                        $after .= '</a>';
+                                    }
+                                }
+                            }
                             break;
                     } // end switch ($arr[$i]['data'])
 
