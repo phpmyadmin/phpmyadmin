@@ -3875,10 +3875,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Дефрагментиране на таблица"
+msgstr "Таблица с настройките на интерфейса"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
