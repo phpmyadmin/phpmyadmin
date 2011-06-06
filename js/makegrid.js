@@ -103,8 +103,8 @@
                                     .show();
                             } else {    // vertical alignment
                                 var newtop = newn < this.colMov.n ?
-                                              colPos.top - 20 :     // 20 here is from col_pointer.png image height
-                                              colPos.top + $(hoveredCol).outerHeight() - 20;
+                                              colPos.top :
+                                              colPos.top + $(hoveredCol).outerHeight();
                                 $(this.cPointer)
                                     .css('top', newtop)
                                     .show();
@@ -262,20 +262,20 @@
         g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
         g.cPointer = document.createElement('div'); // column pointer, used when reordering column
         
+        // assign the table alignment
+        g.alignment = $("#top_direction_dropdown").val();
+        
         // adjust g.cCpy
         g.cCpy.className = 'cCpy';
         $(g.cCpy).hide();
         
         // adjust g.cPoint
-        g.cPointer.className = 'cPointer';
+        g.cPointer.className = g.alignment != 'vertical' ? 'cPointer' : 'cPointerVer';
         $(g.cPointer).hide();
         
         // chain table and grid together
         t.grid = g;
         g.t = t;
-        
-        // assign the table alignment
-        g.alignment = $("#top_direction_dropdown").val();
         
         // get first row data columns
         var $firstRowCols = g.alignment != 'vertical' ?

@@ -1885,7 +1885,7 @@ span.mysql-number {
 }
 
 .cCpy {
-    background: #333;
+    background: #000;
     color: #FFF;
     margin: 0.1em;
     padding: 0.3em;
@@ -1898,8 +1898,17 @@ span.mysql-number {
 
 .cPointer {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
-    height: 20px;       /* if the height changed, also change makegrid.js */
+    height: 20px;
     margin-left: -5px;  /* must be minus half of its width */
     position: absolute;
     width: 10px;
+}
+
+.cPointerVer {  /* cPointer with vertical display mode */
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer_ver.png);
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;   /* must be minus half of its height */
+    position: absolute;
+    width: 20px;
 }

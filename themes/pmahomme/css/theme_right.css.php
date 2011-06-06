@@ -2238,8 +2238,17 @@ span.mysql-number {
 
 .cPointer {
     background: url(./themes/pmahomme/img/col_pointer.png);
-    height: 20px;       /* if the height changed, also change makegrid.js */
+    height: 20px;
     margin-left: -5px;  /* must be minus half of its width */
     position: absolute;
     width: 10px;
+}
+
+.cPointerVer {  /* cPointer with vertical display mode */
+    background: url(./themes/pmahomme/img/col_pointer_ver.png);
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;   /* must be minus half of its height */
+    position: absolute;
+    width: 20px;
 }
