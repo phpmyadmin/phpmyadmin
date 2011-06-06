@@ -92,7 +92,7 @@ function checkBLOBStreamingPlugins()
     }
 
     $has_blobstreaming = false;
-    if (PMA_MYSQL_INT_VERSION >= 50109) {
+    if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50109) {
 
         // Retrieve MySQL plugins
         $existing_plugins = PMA_DBI_fetch_result('SHOW PLUGINS');
@@ -106,6 +106,13 @@ function checkBLOBStreamingPlugins()
             }
         }
         unset($existing_plugins, $one_existing_plugin);
+    } else if (PMA_DRIZZLE) {
+        $has_blobstreaming = (bool)PMA_DBI_fetch_result(
+            "SELECT 1
+            FROM data_dictionary.plugins
+            WHERE module_name = 'PBMS'
+                AND is_active = true
+            LIMIT 1");
     }
 
     // set variable indicating BS plugin existence
