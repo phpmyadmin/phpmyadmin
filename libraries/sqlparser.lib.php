@@ -2089,7 +2089,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
         $number_of_tokens=-1)
     {
-        global $PMA_SQPdata_operators_docs;
+        global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
         if (! is_array($arr)) {
@@ -2393,6 +2393,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if (strtoupper($arr[$i]['data']) == 'BINARY'
                       && $typearr[3] == 'alpha_identifier') {
                         $after     .= ' ';
+                    }
+                    break;
+                case 'alpha_functionName':
+                    $funcname = strtoupper($arr[$i]['data']);
+                    if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_functions_docs[$funcname]['link'],
+                            false,
+                            $PMA_SQPdata_functions_docs[$funcname]['anchor'],
+                            true);
+                        $after .= '</a>';
                     }
                     break;
                 case 'alpha_reservedWord':
