@@ -2089,6 +2089,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
         $number_of_tokens=-1)
     {
+        global $PMA_SQPdata_operators_docs;
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
         if (! is_array($arr)) {
@@ -2287,6 +2288,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // becomes
                     // select 20 -9
                     // )
+                    if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
+                            ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
+                            false,
+                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
+                            true);
+                        $after .= '</a>';
+                    }
                     if ($typearr[3] != 'digit_integer') {
                        $after        .= ' ';
                     }
