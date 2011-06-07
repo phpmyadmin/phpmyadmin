@@ -911,7 +911,12 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                     $value = implode(',', $value);
                 }
                 $value = PMA_sqladdslashes($value);
-                $queries[] = "SET @p$i='$value';\n";
+                if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
+                      && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
+                    $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
+                } else {
+                    $queries[] = "SET @p$i='$value';\n";
+                }
                 $args  .= "@p$i";
             } else {
                 $args  .= "@p$i";
@@ -987,25 +992,78 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     echo __('Routine Parameters');
     echo "</caption>\n";
     echo "<tr>\n";
-    echo "<th>" . __('Type') . "</th>\n";
-    echo "<th>" . __('Name') . "</th>\n";
-    echo "<th>" . __('Value') . "</th>\n";
+    echo "<th>" . __('Name')     . "</th>\n";
+    echo "<th>" . __('Type')     . "</th>\n";
+    if ($cfg['ShowFunctionFields']) {
+        echo "<th>" . __('Function') . "</th>\n";
+    }
+    echo "<th>" . __('Value')    . "</th>\n";
     echo "</tr>\n<tr>\n";
+    $ct = 0;
     for ($i=0; $i<$routine['num_params']; $i++) {
+        $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
         if ($routine['type'] == 'PROCEDURE' && $routine['param_dir'][$i] == 'OUT') {
             continue;
         }
+        echo "\n<tr class='$rowclass'>\n";
+        echo "<td><strong>{$routine['param_name'][$i]}</strong></td>\n";
+        echo "<td>{$routine['param_type'][$i]}</td>\n";
+        if ($cfg['ShowFunctionFields']) {
+            echo "<td>\n";
+            // Get a list of data types that are not yet supported.
+            $no_support_types = PMA_unsupportedDatatypes();
+            if (stristr($routine['param_type'][$i], 'enum')
+                || stristr($routine['param_type'][$i], 'set')
+                || in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
+                echo "--\n";
+            } else {
+                $dropdown_built = array();
+                $op_spacing_needed = false;
+                // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
+                // or something similar. Then directly look up the entry in the RestrictFunctions array,
+                // which will then reveal the available dropdown options
+                if (isset($cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])])
+                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])]])) {
+                    $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])];
+                    $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
+                } else {
+                    $dropdown = array();
+                }
+                // loop on the dropdown array and print all available options for that field.
+                echo "<select name=funcs[{$routine['param_name'][$i]}]>";
+                echo "<option></option>\n";
+                foreach ($dropdown as $each_dropdown){
+                    echo '<option>' . $each_dropdown . '</option>' . "\n";
+                    $dropdown_built[$each_dropdown] = 'true';
+                    $op_spacing_needed = true;
+                }
+                // For compatibility's sake, do not let out all other functions. Instead
+                // print a separator (blank) and then show ALL functions which weren't shown
+                // yet.
+                $cnt_functions = count($cfg['Functions']);
+                for ($j = 0; $j < $cnt_functions; $j++) {
+                    if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
+                        if ($op_spacing_needed == true) {
+                            echo '                ';
+                            echo '<option value="">--------</option>' . "\n";
+                            $op_spacing_needed = false;
+                        }
+                        echo '<option>' . $cfg['Functions'][$j] . '</option>' . "\n";
+                    }
+                } // end for
+                echo "</select>";
+            }
+            echo "</td>\n";
+        }
+        // Append a class to date/time fields so that jQuery can attach a datepicker to them
         $class = '';
         if (in_array($routine['param_type'][$i], array('DATETIME', 'TIMESTAMP'))) {
             $class = 'datetimefield';
         } else if ($routine['param_type'][$i] == 'DATE') {
             $class = 'datefield';
         }
-        echo "\n<tr>\n";
-        echo "<td>{$routine['param_type'][$i]}</td>\n";
-        echo "<td>{$routine['param_name'][$i]}</td>\n";
+        echo "<td style='white-space: nowrap;'>\n";
         if (in_array($routine['param_type'][$i], array('ENUM', 'SET'))) {
-            echo "<td>\n";
             $tokens = PMA_SQP_parse(html_entity_decode($routine['param_length'][$i], ENT_QUOTES));
             if ($routine['param_type'][$i] == 'ENUM') {
                 $input_type = 'radio';
@@ -1020,13 +1078,14 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                        . "{$tokens[$j]['data']}<br />\n";
                 }
             }
-            echo "</td>\n";
+        } else if (in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
+            echo "\n";
         } else {
-            echo "<td style='white-space: nowrap;'>\n";
             echo "<input class='$class' type='text' name='params[{$routine['param_name'][$i]}]' />\n";
-            echo "</td>\n";
         }
+        echo "</td>\n";
         echo "</tr>\n";
+        $ct++;
     }
     echo "\n</tr></table>\n";
     echo "</fieldset>\n\n";

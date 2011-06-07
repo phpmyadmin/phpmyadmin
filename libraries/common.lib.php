@@ -2995,6 +2995,28 @@ function PMA_buildActionTitles() {
 }
 
 /**
+ * Returns a list of datatypes that are not (yet) handled by PMA.
+ * Used by: tbl_change.php and libraries/db_routines.inc.php
+ *
+ * @return   array   list of datatypes
+ */
+
+function PMA_unsupportedDatatypes() {
+    // These GIS data types are not yet supported.
+    $no_support_types = array('geometry',
+                              'point',
+                              'linestring',
+                              'polygon',
+                              'multipoint',
+                              'multilinestring',
+                              'multipolygon',
+                              'geometrycollection'
+                        );
+
+    return $no_support_types;
+}
+
+/**
  * Checks if the current user has a specific privilege and returns true if the
  * user indeed has that privilege or false if (s)he doesn't. This function must
  * only be used for features that are available since MySQL 5, because it

@@ -537,8 +537,8 @@ foreach ($rows as $row_id => $vrow) {
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
         $tabindex = $idindex;
 
-        // These GIS data types are not yet supported.
-        $no_support_types = array('geometry', 'point', 'linestring', 'polygon', 'multipoint', 'multilinestring', 'multipolygon', 'geometrycollection');
+        // Get a list of data types that are not yet supported.
+        $no_support_types = PMA_unsupportedDatatypes();
 
         // The function column
         // -------------------
