@@ -1,7 +1,7 @@
 ﻿phpMyAdmin - ChangeLog
 ======================
 
-3.4.2.0 (not yet released)
+3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
 - bug #3303869 [interface] Unnecessary scrolling on Databases page
 - patch #3303813 [setup] Define a label that was missing
