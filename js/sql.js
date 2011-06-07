@@ -1152,7 +1152,7 @@ $(document).ready(function() {
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
-    $('.column_heading.pointer').live('click', function() {
+    $('.column_heading.marker').live('click', function() {
         PMA_changeClassForColumn($(this), 'marked');
         });
 })
