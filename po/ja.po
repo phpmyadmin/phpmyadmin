@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 11:48+0200\n"
+"PO-Revision-Date: 2011-06-07 11:54+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3920,7 +3920,6 @@ msgid "Server port"
 msgstr "サーバのポート"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3928,8 +3927,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_config[/"
-"kbd] としておくのがいいでしょう。"
+"最近使用したテーブルをセッションを跨いで「永続的に」記憶しない場合は空欄にします。[kbd]pma_recent[/kbd] "
+"としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:410
 #, fuzzy
