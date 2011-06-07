@@ -1143,6 +1143,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if ($vertical_display['emptypre'] > 0) {
                 echo '    <th colspan="' . $vertical_display['emptypre'] . '">' . "\n"
                     .'        &nbsp;</th>' . "\n";
+            } else if ($GLOBALS['cfg']['RowActionLinks'] == 'none') {
+                echo '    <th></th>' . "\n";
             }
 
             foreach ($vertical_display['desc'] as $val) {
