@@ -1429,8 +1429,8 @@ function PMA_localizeNumber($value)
  */
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
-	if($value==0) return '0';
-	
+    if($value==0) return '0';
+    
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
@@ -1471,15 +1471,15 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
 
     $dh = PMA_pow(10, $digits_right);
     $li = PMA_pow(10, $digits_left);
-	
-	$d=-8;
-	if($only_down || $value>=1) $d=0;
-	while($value / (PMA_pow(1000, $d, 'pow')) > $li && $d<8)
-		$d++;
-	
+    
+    $d=-8;
+    if($only_down || $value>=1) $d=0;
+    while($value / (PMA_pow(1000, $d, 'pow')) > $li && $d<8)
+        $d++;
+    
     //number_format is not multibyte safe, str_replace is safe
-	$value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
-	$unit = $units[$d];
+    $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
+    $unit = $units[$d];
     
     // If we dont want any zeros after the comma just add the thousand seperator
     if($noTrailingZero)
