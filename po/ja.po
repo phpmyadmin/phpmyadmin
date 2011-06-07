@@ -8323,9 +8323,8 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"InnoDBバッファプールでラッチされているページ数。これは現在読み込んでいる、あ"
-"るいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュしたり削除し"
-"たりできなくなっているページの数です"
+"InnoDB バッファプールでラッチされているページ数。これは現在読み込んでいる、あるいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュした"
+"り削除したりできなくなっているページの数です"
 
 #: server_status.php:72
 msgid ""
