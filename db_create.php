@@ -13,7 +13,9 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 
 require_once './libraries/mysql_charsets.lib.php';
-require './libraries/replication.inc.php';
+if (!PMA_DRIZZLE) {
+    require './libraries/replication.inc.php';
+}
 require './libraries/build_html_for_db.lib.php';
 
 PMA_checkParameters(array('new_db'));

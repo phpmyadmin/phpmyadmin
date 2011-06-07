@@ -42,7 +42,11 @@ if (empty($is_info)) {
     $sub_part = '_structure';
     require './libraries/db_info.inc.php';
 
-    require_once './libraries/replication.inc.php';
+    if (!PMA_DRIZZLE) {
+        require './libraries/replication.inc.php';
+    } else {
+        $server_slave_status = false;
+    }
 }
 
 require_once './libraries/bookmark.lib.php';
