@@ -421,6 +421,19 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         $tables = PMA_DBI_fetch_result($sql, array('TABLE_SCHEMA', 'TABLE_NAME'),
           null, $link);
         unset($sql_where_table, $sql);
+
+        if (PMA_DRIZZLE) {
+            // correct I_S and D_D names returned by D_D.TABLES - Drizzle generally uses lower case for them,
+            // but TABLES returns uppercase
+            foreach ((array)$database as $db) {
+                $db_upper = strtoupper($db);
+                if (!isset($tables[$db]) && isset($tables[$db_upper])) {
+                    $tables[$db] = $tables[$db_upper];
+                    unset($tables[$db_upper]);
+                }
+            }
+        }
+
         if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
             // here, the array's first key is by schema name
             foreach($tables as $one_database_name => $one_database_tables) {
