@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 08:13+0200\n"
+"PO-Revision-Date: 2011-06-07 08:14+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7648,10 +7648,9 @@ msgid "wildcard"
 msgstr "знак за заместване"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "New user has been added."
-msgstr "Изглед %s беше изтрит"
+msgstr "Нов потребител беше създаден."
 
 #: server_processlist.php:29
 #, php-format
