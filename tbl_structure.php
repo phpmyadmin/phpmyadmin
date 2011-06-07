@@ -932,7 +932,7 @@ if ($cfg['ShowStats']) {
 // END - Calc Table Space
 
 if (!PMA_DRIZZLE) {
-    require './libraries/tbl_triggers.lib.php';
+    require './libraries/tbl_triggers.inc.php';
 }
 
 echo '<div class="clearfloat"></div>' . "\n";
