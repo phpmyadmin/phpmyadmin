@@ -3931,10 +3931,9 @@ msgstr ""
 "としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "現在開いているテーブル"
+msgstr "最近使用したテーブル"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
