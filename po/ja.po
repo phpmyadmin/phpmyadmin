@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:12+0200\n"
+"PO-Revision-Date: 2011-06-07 12:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1194,7 +1194,7 @@ msgstr "主キーまたはユニークキーを選択してください"
 
 #: js/messages.php:114 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr "表示するカラムを選択してください"
+msgstr "表示するカラムの選択"
 
 #: js/messages.php:115
 msgid ""
