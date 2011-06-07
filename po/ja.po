@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 11:54+0200\n"
+"PO-Revision-Date: 2011-06-07 12:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6233,10 +6233,9 @@ msgid "SQL history"
 msgstr "SQL 履歴"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "永続的な接続"
+msgstr "最近使用したテーブルの永続的な記憶"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
