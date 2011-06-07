@@ -177,15 +177,13 @@
                 $firstRowCols = this.alignment != 'vertical' ?
                                 $(this.t).find('tr:first th.draggable') :
                                 $(this.t).find('tr:first td');
-                var firstElmtIdx = $firstRowCols.index();
-                $firstRowCols.each(function() {
-                    $this = $(this);
-                    var n = $this.index();
-                    $cb = $(g.cRsz).find('div:eq(' + (n - firstElmtIdx) + ')');   // column border
+                for (var n = 0; n < $firstRowCols.length; n++) {
+                    $this = $($firstRowCols[n]);
+                    $cb = $(g.cRsz).find('div:eq(' + n + ')');   // column border
                     var pad = parseInt($this.css('padding-right'));
                     $cb.css('left', Math.floor($this.position().left + $this.width() + pad))
                        .show();
-                });
+                }
             },
             
             /**
