@@ -1101,10 +1101,9 @@ msgid "Create Table"
 msgstr "Създаване таблица"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Използване таблиците"
+msgstr "Вмъкване на таблица"
 
 #: js/messages.php:86
 msgid "Searching"
