@@ -1402,7 +1402,6 @@ function PMA_localizeNumber($value)
 
 /**
  * Formats $value to the given length and appends SI prefixes
- * $comma is not substracted from the length
  * with a $length of 0 no truncation occurs, number is only formated
  * to the current locale
  *
@@ -1416,10 +1415,11 @@ function PMA_localizeNumber($value)
  * echo PMA_formatNumber(0, 6);             //       0
  *
  * </code>
- * @param   double   $value     the value to format
- * @param   integer  $length    the max length
- * @param   integer  $comma     the number of decimals to retain
- * @param   boolean  $only_down do not reformat numbers below 1
+ * @param   double   $value            the value to format
+ * @param   integer  $digits_left      number of digits left of the comma
+ * @param   integer  $digits_right     number of digits right of the comma
+ * @param   boolean  $only_down        do not reformat numbers below 1
+ * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
  *
  * @return  string   the formatted value and its unit
  *
@@ -1427,13 +1427,15 @@ function PMA_localizeNumber($value)
  *
  * @version 1.1.0 - 2005-10-27
  */
-function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
+function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
+	if($value==0) return '0';
+	
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
-    if ($length === 0) {
-        $value = number_format($value, $comma);
-        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$comma));
+    if ($digits_left === 0) {
+        $value = number_format($value, $digits_right);
+        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
         
         return PMA_localizeNumber($value);
     }
@@ -1459,11 +1461,6 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
         8 => 'Y'
     );
 
-    // we need at least 3 digits to be displayed
-    if (3 > $length + $comma) {
-        $length = 3 - $comma;
-    }
-
     // check for negative value to retain sign
     if ($value < 0) {
         $sign = '-';
@@ -1472,33 +1469,25 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
         $sign = '';
     }
 
-    $dh = PMA_pow(10, $comma);
-    $li = PMA_pow(10, $length);
-    $unit = $units[0];
-
-    if ($value >= 1) {
-        for ($d = 8; $d >= 0; $d--) {
-            if (isset($units[$d]) && $value >= $li * PMA_pow(1000, $d-1)) {
-                $value = round($value / (PMA_pow(1000, $d) / $dh)) /$dh;
-                $unit = $units[$d];
-                break 1;
-            } // end if
-        } // end for
-    } elseif (!$only_down && (float) $value !== 0.0) {
-        for ($d = -8; $d <= 8; $d++) {
-            // force using pow() because of the negative exponent
-            if (isset($units[$d]) && $value <= $li * PMA_pow(1000, $d-1, 'pow')) {
-                $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
-                $unit = $units[$d];
-                break 1;
-            } // end if
-        } // end for
-    } // end if ($value >= 1) elseif (!$only_down && (float) $value !== 0.0)
-
+    $dh = PMA_pow(10, $digits_right);
+    $li = PMA_pow(10, $digits_left);
+	
+	$d=-8;
+	if($only_down || $value>=1) $d=0;
+	while($value / (PMA_pow(1000, $d, 'pow')) > $li && $d<8)
+		$d++;
+	
     //number_format is not multibyte safe, str_replace is safe
-    $value = PMA_localizeNumber(number_format($value, $comma));
+	$value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
+	$unit = $units[$d];
     
-    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$comma)).' '.$unit;
+    // If we dont want any zeros after the comma just add the thousand seperator
+    if($noTrailingZero)
+        $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
+    else
+        $value = PMA_localizeNumber(number_format($value, $digits_right));
+    
+    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
