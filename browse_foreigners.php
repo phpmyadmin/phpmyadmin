@@ -23,9 +23,9 @@ require_once './libraries/header_http.inc.php';
  */
 require_once './libraries/transformations.lib.php'; // Transformations
 $cfgRelation = PMA_getRelationsParam();
-$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
+$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false);
 
-$override_total = TRUE;
+$override_total = true;
 
 if (! isset($pos)) {
     $pos = 0;
@@ -180,7 +180,7 @@ if (is_array($foreignData['disp_row'])) {
     $values = array();
     $keys   = array();
     foreach ($foreignData['disp_row'] as $relrow) {
-        if ($foreignData['foreign_display'] != FALSE) {
+        if ($foreignData['foreign_display'] != false) {
             $values[] = $relrow[$foreignData['foreign_display']];
         } else {
             $values[] = '';

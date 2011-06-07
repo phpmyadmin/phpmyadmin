@@ -69,5 +69,5 @@ if ($text_dir == 'ltr') {
 /**
  * Sets a variable to remember headers have been sent
  */
-$is_header_sent = TRUE;
+$is_header_sent = true;
 ?>

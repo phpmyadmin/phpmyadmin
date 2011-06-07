@@ -167,7 +167,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
     $buffer .= $crlf . ');' . $crlf;
     if (! PMA_exportOutputHandler($buffer)) {
-        return FALSE;
+        return false;
     }
 
     PMA_DBI_free_result($result);

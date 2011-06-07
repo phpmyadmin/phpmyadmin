@@ -199,7 +199,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
             echo ' </select><br />';
         } else {
             echo '<label for="charset_of_file">' . __('Character set of the file:') . '</label>' . "\n";
-            echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', FALSE);
+            echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', 'charset_of_file', 'utf8', false);
         } // end if (recoding)
         ?>
         </div>

@@ -164,18 +164,15 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @uses    PMA_DBI_QUERY_STORE
  * @uses    PMA_DBI_QUERY_UNBUFFERED
- * @uses    $GLOBALS['userlink']
  * @uses    MYSQLI_STORE_RESULT
  * @uses    MYSQLI_USE_RESULT
  * @uses    mysqli_query()
- * @uses    defined()
  * @param   string          $query      query to execute
  * @param   object mysqli   $link       mysqli object
  * @param   integer         $options
- * @param   boolean         $cache_affected_rows
  * @return  mixed           true, false or result object
  */
-function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_rows = true)
+function PMA_DBI_real_query($query, $link, $options)
 {
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
         $method = MYSQLI_STORE_RESULT;
@@ -185,64 +182,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
         $method = 0;
     }
 
-    if (empty($link)) {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
-            return false;
-        }
-    }
-
-    if ($GLOBALS['cfg']['DBG']['sql']) {
-        $time = microtime(true);
-    }
-    $r = mysqli_query($link, $query, $method);
-
-    if ($cache_affected_rows) { 
-       $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, $get_from_cache = false); 
-    }
-
-    if ($GLOBALS['cfg']['DBG']['sql']) {
-        $time = microtime(true) - $time;
-
-        $hash = md5($query);
-
-        if (isset($_SESSION['debug']['queries'][$hash])) {
-            $_SESSION['debug']['queries'][$hash]['count']++;
-        } else {
-            $_SESSION['debug']['queries'][$hash] = array();
-            $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = $query;
-            $_SESSION['debug']['queries'][$hash]['time'] = $time;
-        }
-
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
-                . $trace_step['line'] . ': '
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                //. (isset($trace_step['object']) ? get_class($trace_step['object']) : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
-    }
-
-    if ($r != FALSE && PMA_Tracker::isActive() == TRUE ) {
-        PMA_Tracker::handleQuery($query);
-    }
-
-    return $r;
-
-    // From the PHP manual:
-    // "note: returns true on success or false on failure. For SELECT,
-    // SHOW, DESCRIBE or EXPLAIN, mysqli_query() will return a result object"
-    // so, do not use the return value to feed mysqli_num_rows() if it's
-    // a boolean
+    return mysqli_query($link, $query, $method);
 }
 
 /**
@@ -452,9 +392,9 @@ function PMA_DBI_insert_id($link = '')
             return false;
         }
     }
-    // When no controluser is defined, using mysqli_insert_id($link) 
+    // When no controluser is defined, using mysqli_insert_id($link)
     // does not always return the last insert id due to a mixup with
-    // the tracking mechanism, but this works: 
+    // the tracking mechanism, but this works:
     return PMA_DBI_fetch_value('SELECT LAST_INSERT_ID();', 0, 0, $link);
     // Curiously, this problem does not happen with the mysql extension but
     // there is another problem with BIGINT primary keys so PMA_DBI_insert_id()
@@ -467,7 +407,7 @@ function PMA_DBI_insert_id($link = '')
  * @uses    $GLOBALS['userlink']
  * @uses    mysqli_affected_rows()
  * @param   object mysqli   $link   the mysqli object
- * @param   boolean         $get_from_cache 
+ * @param   boolean         $get_from_cache
  * @return  string integer
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)

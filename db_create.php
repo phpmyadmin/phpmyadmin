@@ -49,7 +49,7 @@ if (! $result) {
      * If in an Ajax request, just display the message with {@link PMA_ajaxResponse}
      */
     if($GLOBALS['is_ajax_request'] == true) {
-        PMA_ajaxResponse($message, FALSE);
+        PMA_ajaxResponse($message, false);
     }
 
     require_once './libraries/header.inc.php';

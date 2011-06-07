@@ -365,7 +365,7 @@ $pdf = new PMA_PDF('L', 'pt', 'A3');
  */
 function PMA_exportComment($text)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -381,10 +381,10 @@ function PMA_exportFooter()
 
     // instead of $pdf->Output():
     if (!PMA_exportOutputHandler($pdf->getPDFData())) {
-        return FALSE;
+        return false;
     }
 
-    return TRUE;
+    return true;
 }
 
 /**
@@ -412,7 +412,7 @@ function PMA_exportHeader()
     $pdf->setAttributes($attr);
     $pdf->setTopMargin(45);
 
-    return TRUE;
+    return true;
 }
 
 /**
@@ -426,7 +426,7 @@ function PMA_exportHeader()
  */
 function PMA_exportDBHeader($db)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -440,7 +440,7 @@ function PMA_exportDBHeader($db)
  */
 function PMA_exportDBFooter($db)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -454,7 +454,7 @@ function PMA_exportDBFooter($db)
  */
 function PMA_exportDBCreate($db)
 {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -479,7 +479,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $pdf->setAttributes($attr);
     $pdf->mysql_report($sql_query);
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_exportData()' function
 }
 ?>

@@ -41,7 +41,7 @@ if (isset($plugin_list)) {
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -99,7 +99,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -112,7 +112,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -133,10 +133,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     global $what;
 
     if (! PMA_exportOutputHandler('<h2>' . __('Dumping data for table') . ' ' . $table . '</h2>')) {
-        return FALSE;
+        return false;
     }
     if (! PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
-        return FALSE;
+        return false;
     }
 
     // Gets the data from the database
@@ -151,7 +151,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         } // end for
         $schema_insert .= '</tr>';
         if (! PMA_exportOutputHandler($schema_insert)) {
-            return FALSE;
+            return false;
         }
     } // end if
 
@@ -170,15 +170,15 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         } // end for
         $schema_insert .= '</tr>';
         if (! PMA_exportOutputHandler($schema_insert)) {
-            return FALSE;
+            return false;
         }
     } // end while
     PMA_DBI_free_result($result);
     if (! PMA_exportOutputHandler('</table>')) {
-        return FALSE;
+        return false;
     }
 
-    return TRUE;
+    return true;
 }
 
 function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
@@ -186,7 +186,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     global $cfgRelation;
 
     if (! PMA_exportOutputHandler('<h2>' . __('Table structure for table') . ' ' .$table . '</h2>')) {
-        return FALSE;
+        return false;
     }
 
     /**
@@ -217,19 +217,19 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $res_rel = PMA_getForeigners($db, $table);
 
         if ($res_rel && count($res_rel) > 0) {
-            $have_rel = TRUE;
+            $have_rel = true;
         } else {
-            $have_rel = FALSE;
+            $have_rel = false;
         }
     } else {
-           $have_rel = FALSE;
+           $have_rel = false;
     } // end if
 
     /**
      * Displays the table structure
      */
     if (! PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
-        return FALSE;
+        return false;
     }
 
     $columns_cnt = 4;
@@ -262,7 +262,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $schema_insert .= '</tr>';
 
     if (! PMA_exportOutputHandler($schema_insert)) {
-        return FALSE;
+        return false;
     }
 
     while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -340,7 +340,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $schema_insert .= '</tr>';
 
         if (! PMA_exportOutputHandler($schema_insert)) {
-            return FALSE;
+            return false;
         }
     } // end while
     PMA_DBI_free_result($result);

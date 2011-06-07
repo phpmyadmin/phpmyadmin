@@ -328,14 +328,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $startquotepos   = $count2;
                 $quotetype       = $c;
                 $count2++;
-                $escaped         = FALSE;
-                $escaped_escaped = FALSE;
+                $escaped         = false;
+                $escaped_escaped = false;
                 $pos             = $count2;
                 $oldpos          = 0;
                 do {
                     $oldpos = $pos;
                     $pos    = $GLOBALS['PMA_strpos'](' ' . $sql, $quotetype, $oldpos + 1) - 1;
-                    // ($pos === FALSE)
+                    // ($pos === false)
                     if ($pos < 0) {
                         if ($c == '`') {
                             /*
@@ -477,7 +477,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $is_digit                = !$is_identifier && !$is_sql_variable && $GLOBALS['PMA_STR_isDigit']($c);
                 $is_hex_digit            = $is_digit && $c == '0' && $count2 < $len && $GLOBALS['PMA_substr']($sql, $count2, 1) == 'x';
                 $is_float_digit          = $c == '.';
-                $is_float_digit_exponent = FALSE;
+                $is_float_digit_exponent = false;
 
                 /* DEBUG
                 echo '<pre>2';
@@ -513,7 +513,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     if ($is_digit && (!$is_hex_digit) && ($c2 == '.')) {
                         $count2++;
                         if (!$is_float_digit) {
-                            $is_float_digit = TRUE;
+                            $is_float_digit = true;
                             continue;
                         } else {
                             $debugstr = __('Invalid Identifer') . ' @ ' . ($count1+1) . "\n"
@@ -524,21 +524,21 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
                     if ($is_digit && (!$is_hex_digit) && (($c2 == 'e') || ($c2 == 'E'))) {
                         if (!$is_float_digit_exponent) {
-                            $is_float_digit_exponent = TRUE;
-                            $is_float_digit          = TRUE;
+                            $is_float_digit_exponent = true;
+                            $is_float_digit          = true;
                             $count2++;
                             continue;
                         } else {
-                            $is_digit                = FALSE;
-                            $is_float_digit          = FALSE;
+                            $is_digit                = false;
+                            $is_float_digit          = false;
                         }
                     }
                     if (($is_hex_digit && PMA_STR_isHexDigit($c2)) || ($is_digit && $GLOBALS['PMA_STR_isDigit']($c2))) {
                         $count2++;
                         continue;
                     } else {
-                        $is_digit     = FALSE;
-                        $is_hex_digit = FALSE;
+                        $is_digit     = false;
+                        $is_hex_digit = false;
                     }
 
                     $count2++;
@@ -559,7 +559,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     }
                 } elseif ($is_user) {
                     $type = 'punct_user';
-                } elseif ($is_sql_variable != FALSE) {
+                } elseif ($is_sql_variable != false) {
                     $type = 'alpha_variable';
                 } else {
                     $type = 'alpha';
@@ -776,9 +776,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 }
                 // check if present in the list of forbidden words
                 if ($t_suffix == '_reservedWord' && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt)) {
-                    $sql_array[$i]['forbidden'] = TRUE;
+                    $sql_array[$i]['forbidden'] = true;
                 } else {
-                    $sql_array[$i]['forbidden'] = FALSE;
+                    $sql_array[$i]['forbidden'] = false;
                 }
                 $sql_array[$i]['type'] .= $t_suffix;
             }
@@ -807,12 +807,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     {
         $typeSeperator = '_';
         if (strcmp($whatWeWant, $toCheck) == 0) {
-            return TRUE;
+            return true;
         } else {
-            if (strpos($whatWeWant, $typeSeperator) === FALSE) {
+            if (strpos($whatWeWant, $typeSeperator) === false) {
                 return strncmp($whatWeWant, $toCheck, strpos($toCheck, $typeSeperator)) == 0;
             } else {
-                return FALSE;
+                return false;
             }
         }
     }
@@ -853,8 +853,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             'create_table_fields' => array()
         );
         $subresult_empty = $subresult;
-        $seek_queryend         = FALSE;
-        $seen_end_of_table_ref = FALSE;
+        $seek_queryend         = false;
+        $seen_end_of_table_ref = false;
         $number_of_brackets_in_extract = 0;
         $number_of_brackets_in_group_concat = 0;
 
@@ -866,10 +866,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
         // we must not use CURDATE as a table_ref
         // so we track whether we are in the EXTRACT()
-        $in_extract          = FALSE;
+        $in_extract          = false;
 
         // for GROUP_CONCAT(...)
-        $in_group_concat     = FALSE;
+        $in_group_concat     = false;
 
 /* Description of analyzer results
  *
@@ -1038,9 +1038,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 //DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
-            if ($seek_queryend == TRUE) {
+            if ($seek_queryend == true) {
                 if ($arr[$i]['type'] == 'punct_queryend') {
-                    $seek_queryend = FALSE;
+                    $seek_queryend = false;
                 } else {
                     continue;
                 } // end if (type == punct_queryend)
@@ -1075,13 +1075,13 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($in_extract) {
                     $number_of_brackets_in_extract--;
                     if ($number_of_brackets_in_extract == 0) {
-                       $in_extract = FALSE;
+                       $in_extract = false;
                     }
                 }
                 if ($in_group_concat) {
                     $number_of_brackets_in_group_concat--;
                     if ($number_of_brackets_in_group_concat == 0) {
-                       $in_group_concat = FALSE;
+                       $in_group_concat = false;
                     }
                 }
             }
@@ -1101,18 +1101,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if ($arr[$i]['type'] == 'alpha_functionName') {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($upper_data =='EXTRACT') {
-                    $in_extract = TRUE;
+                    $in_extract = true;
                     $number_of_brackets_in_extract = 0;
                 }
                 if ($upper_data =='GROUP_CONCAT') {
-                    $in_group_concat = TRUE;
+                    $in_group_concat = true;
                     $number_of_brackets_in_group_concat = 0;
                 }
             }
 
 // ==============================================================
             if ($arr[$i]['type'] == 'alpha_reservedWord'
-//             && $arr[$i]['forbidden'] == FALSE) {
+//             && $arr[$i]['forbidden'] == false) {
             ) {
                 // We don't know what type of query yet, so run this
                 if ($subresult['querytype'] == '') {
@@ -1122,7 +1122,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // Check if we support this type of query
                 if (!PMA_STR_binarySearchInArr($subresult['querytype'], $supported_query_types, $supported_query_types_cnt)) {
                     // Skip ahead to the next one if we don't
-                    $seek_queryend = TRUE;
+                    $seek_queryend = true;
                     continue;
                 } // end if (query not supported)
 
@@ -1139,17 +1139,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         // this is a subquery so do not analyze inside it
                         continue;
                     }
-                    $seen_from = FALSE;
-                    $previous_was_identifier = FALSE;
+                    $seen_from = false;
+                    $previous_was_identifier = false;
                     $current_select_expr = -1;
-                    $seen_end_of_table_ref = FALSE;
+                    $seen_end_of_table_ref = false;
                 } // end if (data == SELECT)
 
                 if ($upper_data =='FROM' && !$in_extract) {
                     $current_table_ref = -1;
-                    $seen_from = TRUE;
-                    $previous_was_identifier = FALSE;
-                    $save_table_ref = TRUE;
+                    $seen_from = true;
+                    $previous_was_identifier = false;
+                    $save_table_ref = true;
                 } // end if (data == FROM)
 
                 // here, do not 'continue' the loop, as we have more work for
@@ -1162,7 +1162,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              || $arr[$i]['type'] == 'quote_single'
              || $arr[$i]['type'] == 'alpha_identifier'
              || ($arr[$i]['type'] == 'alpha_reservedWord'
-                && $arr[$i]['forbidden'] == FALSE)) {
+                && $arr[$i]['forbidden'] == false)) {
 
                 switch ($arr[$i]['type']) {
                     case 'alpha_identifier':
@@ -1197,7 +1197,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $alias_for_select_expr = $identifier;
                         } else {
                             $chain[] = $identifier;
-                            $previous_was_identifier = TRUE;
+                            $previous_was_identifier = true;
 
                         } // end if !$previous_was_identifier
                     } else {
@@ -1209,7 +1209,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                                 $alias_for_table_ref = $identifier;
                             } else {
                                 $chain[] = $identifier;
-                                $previous_was_identifier = TRUE;
+                                $previous_was_identifier = true;
 
                             } // end if ($previous_was_identifier)
                         } // end if ($save_table_ref &&!$seen_end_of_table_ref)
@@ -1220,7 +1220,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 // ===================================
             if ($arr[$i]['type'] == 'punct_qualifier') {
                 // to be able to detect an identifier following another
-                $previous_was_identifier = FALSE;
+                $previous_was_identifier = false;
                 continue;
             } // end if (punct_qualifier)
 
@@ -1285,7 +1285,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  */
                 if (($arr[$i]['type'] == 'alpha_reservedWord')
                  && ($upper_data != 'FROM')) {
-                    $previous_was_identifier = TRUE;
+                    $previous_was_identifier = true;
                 }
 
             } // end if (save a select expr)
@@ -1340,7 +1340,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  .= ' ' . $subresult['table_ref'][$current_table_ref]['table_alias'];
 
                 unset($chain);
-                $previous_was_identifier = TRUE;
+                $previous_was_identifier = true;
                 //continue;
 
             } // end if (save a table ref)
@@ -1367,29 +1367,29 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 
             // e n d i n g    l o o p  #1
-            // set the $previous_was_identifier to FALSE if the current
+            // set the $previous_was_identifier to false if the current
             // token is not an identifier
             if (($arr[$i]['type'] != 'alpha_identifier')
              && ($arr[$i]['type'] != 'quote_double')
              && ($arr[$i]['type'] != 'quote_single')
              && ($arr[$i]['type'] != 'quote_backtick')) {
-                $previous_was_identifier = FALSE;
+                $previous_was_identifier = false;
             } // end if
 
             // however, if we are on AS, we must keep the $previous_was_identifier
             if (($arr[$i]['type'] == 'alpha_reservedWord')
              && ($upper_data == 'AS'))  {
-                $previous_was_identifier = TRUE;
+                $previous_was_identifier = true;
             }
 
             if (($arr[$i]['type'] == 'alpha_reservedWord')
              && ($upper_data =='ON' || $upper_data =='USING')) {
-                $save_table_ref = FALSE;
+                $save_table_ref = false;
             } // end if (data == ON)
 
             if (($arr[$i]['type'] == 'alpha_reservedWord')
              && ($upper_data =='JOIN' || $upper_data =='FROM')) {
-                $save_table_ref = TRUE;
+                $save_table_ref = true;
             } // end if (data == JOIN)
 
             /**
@@ -1411,19 +1411,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                  || ($arr[$i]['type'] == 'alpha_reservedWord'
                  && !$in_group_concat
                  && PMA_STR_binarySearchInArr($upper_data, $words_ending_table_ref, $words_ending_table_ref_cnt))) {
-                    $seen_end_of_table_ref = TRUE;
+                    $seen_end_of_table_ref = true;
                     // to be able to save the last table ref, but do not
                     // set it true if we found a word like "ON" that has
                     // already set it to false
-                    if (isset($save_table_ref) && $save_table_ref != FALSE) {
-                        $save_table_ref = TRUE;
+                    if (isset($save_table_ref) && $save_table_ref != false) {
+                        $save_table_ref = true;
                     } //end if
 
                 } // end if (check for end of table ref)
             } //end if (!$seen_end_of_table_ref)
 
             if ($seen_end_of_table_ref) {
-                $save_table_ref = FALSE;
+                $save_table_ref = false;
             } // end if
 
         } // end for $i (loop #1)
@@ -1465,20 +1465,20 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         $section_before_limit = '';
         $section_after_limit = ''; // truly the section after the limit clause
-        $seen_reserved_word = FALSE;
-        $seen_group = FALSE;
-        $seen_order = FALSE;
-        $seen_order_by = FALSE;
-        $in_group_by = FALSE; // true when we are inside the GROUP BY clause
-        $in_order_by = FALSE; // true when we are inside the ORDER BY clause
-        $in_having = FALSE; // true when we are inside the HAVING clause
-        $in_select_expr = FALSE; // true when we are inside the select expr clause
-        $in_where = FALSE; // true when we are inside the WHERE clause
-        $seen_limit = FALSE; // true if we have seen a LIMIT clause
-        $in_limit = FALSE; // true when we are inside the LIMIT clause
-        $after_limit = FALSE; // true when we are after the LIMIT clause
-        $in_from = FALSE; // true when we are in the FROM clause
-        $in_group_concat = FALSE;
+        $seen_reserved_word = false;
+        $seen_group = false;
+        $seen_order = false;
+        $seen_order_by = false;
+        $in_group_by = false; // true when we are inside the GROUP BY clause
+        $in_order_by = false; // true when we are inside the ORDER BY clause
+        $in_having = false; // true when we are inside the HAVING clause
+        $in_select_expr = false; // true when we are inside the select expr clause
+        $in_where = false; // true when we are inside the WHERE clause
+        $seen_limit = false; // true if we have seen a LIMIT clause
+        $in_limit = false; // true when we are inside the LIMIT clause
+        $after_limit = false; // true when we are after the LIMIT clause
+        $in_from = false; // true when we are in the FROM clause
+        $in_group_concat = false;
         $first_reserved_word = '';
         $current_identifier = '';
         $unsorted_query = $arr['raw']; // in case there is no ORDER BY
@@ -1521,7 +1521,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if (!$seen_reserved_word) {
                     $first_reserved_word = $upper_data;
                     $subresult['querytype'] = $upper_data;
-                    $seen_reserved_word = TRUE;
+                    $seen_reserved_word = true;
 
                     // if the first reserved word is DROP or DELETE,
                     // we know this is a query that needs to be confirmed
@@ -1543,22 +1543,22 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
                 if ($upper_data == 'LIMIT' && ! $in_subquery) {
                     $section_before_limit = substr($arr['raw'], 0, $arr[$i]['pos'] - 5);
-                    $in_limit = TRUE;
-                    $seen_limit = TRUE;
+                    $in_limit = true;
+                    $seen_limit = true;
                     $limit_clause = '';
-                    $in_order_by = FALSE; // @todo maybe others to set FALSE
+                    $in_order_by = false; // @todo maybe others to set false
                 }
 
                 if ($upper_data == 'PROCEDURE') {
                     $subresult['queryflags']['procedure'] = 1;
-                    $in_limit = FALSE;
-                    $after_limit = TRUE;
+                    $in_limit = false;
+                    $after_limit = true;
                 }
                 /**
-                 * @todo set also to FALSE if we find FOR UPDATE or LOCK IN SHARE MODE
+                 * @todo set also to false if we find FOR UPDATE or LOCK IN SHARE MODE
                  */
                 if ($upper_data == 'SELECT') {
-                    $in_select_expr = TRUE;
+                    $in_select_expr = true;
                     $select_expr_clause = '';
                 }
                 if ($upper_data == 'DISTINCT' && !$in_group_concat) {
@@ -1579,75 +1579,75 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
                 // if this is a real SELECT...FROM
                 if ($upper_data == 'FROM' && isset($subresult['queryflags']['select_from']) && $subresult['queryflags']['select_from'] == 1) {
-                    $in_from = TRUE;
+                    $in_from = true;
                     $from_clause = '';
-                    $in_select_expr = FALSE;
+                    $in_select_expr = false;
                 }
 
 
-                // (we could have less resetting of variables to FALSE
+                // (we could have less resetting of variables to false
                 // if we trust that the query respects the standard
                 // MySQL order for clauses)
 
                 // we use $seen_group and $seen_order because we are looking
                 // for the BY
                 if ($upper_data == 'GROUP') {
-                    $seen_group = TRUE;
-                    $seen_order = FALSE;
-                    $in_having = FALSE;
-                    $in_order_by = FALSE;
-                    $in_where = FALSE;
-                    $in_select_expr = FALSE;
-                    $in_from = FALSE;
+                    $seen_group = true;
+                    $seen_order = false;
+                    $in_having = false;
+                    $in_order_by = false;
+                    $in_where = false;
+                    $in_select_expr = false;
+                    $in_from = false;
                 }
                 if ($upper_data == 'ORDER' && !$in_group_concat) {
-                    $seen_order = TRUE;
-                    $seen_group = FALSE;
-                    $in_having = FALSE;
-                    $in_group_by = FALSE;
-                    $in_where = FALSE;
-                    $in_select_expr = FALSE;
-                    $in_from = FALSE;
+                    $seen_order = true;
+                    $seen_group = false;
+                    $in_having = false;
+                    $in_group_by = false;
+                    $in_where = false;
+                    $in_select_expr = false;
+                    $in_from = false;
                 }
                 if ($upper_data == 'HAVING') {
-                    $in_having = TRUE;
+                    $in_having = true;
                     $having_clause = '';
-                    $seen_group = FALSE;
-                    $seen_order = FALSE;
-                    $in_group_by = FALSE;
-                    $in_order_by = FALSE;
-                    $in_where = FALSE;
-                    $in_select_expr = FALSE;
-                    $in_from = FALSE;
+                    $seen_group = false;
+                    $seen_order = false;
+                    $in_group_by = false;
+                    $in_order_by = false;
+                    $in_where = false;
+                    $in_select_expr = false;
+                    $in_from = false;
                 }
 
                 if ($upper_data == 'WHERE') {
-                    $in_where = TRUE;
+                    $in_where = true;
                     $where_clause = '';
                     $where_clause_identifiers = array();
-                    $seen_group = FALSE;
-                    $seen_order = FALSE;
-                    $in_group_by = FALSE;
-                    $in_order_by = FALSE;
-                    $in_having = FALSE;
-                    $in_select_expr = FALSE;
-                    $in_from = FALSE;
+                    $seen_group = false;
+                    $seen_order = false;
+                    $in_group_by = false;
+                    $in_order_by = false;
+                    $in_having = false;
+                    $in_select_expr = false;
+                    $in_from = false;
                 }
 
                 if ($upper_data == 'BY') {
                     if ($seen_group) {
-                        $in_group_by = TRUE;
+                        $in_group_by = true;
                         $group_by_clause = '';
                     }
                     if ($seen_order) {
-                        $seen_order_by = TRUE;
+                        $seen_order_by = true;
                         // Here we assume that the ORDER BY keywords took
                         // exactly 8 characters.
                         // We use PMA_substr() to be charset-safe; otherwise
                         // if the table name contains accents, the unsorted
                         // query would be missing some characters.
                         $unsorted_query = PMA_substr($arr['raw'], 0, $arr[$i]['pos'] - 8);
-                        $in_order_by = TRUE;
+                        $in_order_by = true;
                         $order_by_clause = '';
                     }
                 }
@@ -1655,12 +1655,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 // if we find one of the words that could end the clause
                 if (PMA_STR_binarySearchInArr($upper_data, $words_ending_clauses, $words_ending_clauses_cnt)) {
 
-                    $in_group_by = FALSE;
-                    $in_order_by = FALSE;
-                    $in_having   = FALSE;
-                    $in_where    = FALSE;
-                    $in_select_expr = FALSE;
-                    $in_from = FALSE;
+                    $in_group_by = false;
+                    $in_order_by = false;
+                    $in_having   = false;
+                    $in_where    = false;
+                    $in_select_expr = false;
+                    $in_from = false;
                 }
 
             } // endif (reservedWord)
@@ -1676,7 +1676,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $sep='';
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($upper_data =='GROUP_CONCAT') {
-                    $in_group_concat = TRUE;
+                    $in_group_concat = true;
                     $number_of_brackets_in_group_concat = 0;
                 }
             }
@@ -1690,7 +1690,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($in_group_concat) {
                     $number_of_brackets_in_group_concat--;
                     if ($number_of_brackets_in_group_concat == 0) {
-                        $in_group_concat = FALSE;
+                        $in_group_concat = false;
                     }
                 }
             }
@@ -1781,17 +1781,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // not a timestamp, it will be useful when logic has been
         // added for complete field attributes analysis.
 
-        $seen_foreign = FALSE;
-        $seen_references = FALSE;
-        $seen_constraint = FALSE;
+        $seen_foreign = false;
+        $seen_references = false;
+        $seen_constraint = false;
         $foreign_key_number = -1;
-        $seen_create_table = FALSE;
-        $seen_create = FALSE;
-        $seen_alter = FALSE;
-        $in_create_table_fields = FALSE;
+        $seen_create_table = false;
+        $seen_create = false;
+        $seen_alter = false;
+        $in_create_table_fields = false;
         $brackets_level = 0;
-        $in_timestamp_options = FALSE;
-        $seen_default = FALSE;
+        $in_timestamp_options = false;
+        $seen_default = false;
 
         for ($i = 0; $i < $size; $i++) {
         // DEBUG echo "Loop 3 <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
@@ -1800,46 +1800,46 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $upper_data = strtoupper($arr[$i]['data']);
 
                 if ($upper_data == 'NOT' && $in_timestamp_options) {
-                    $create_table_fields[$current_identifier]['timestamp_not_null'] = TRUE;
+                    $create_table_fields[$current_identifier]['timestamp_not_null'] = true;
 
                 }
 
                 if ($upper_data == 'CREATE') {
-                    $seen_create = TRUE;
+                    $seen_create = true;
                 }
 
                 if ($upper_data == 'ALTER') {
-                    $seen_alter = TRUE;
+                    $seen_alter = true;
                 }
 
                 if ($upper_data == 'TABLE' && $seen_create) {
-                    $seen_create_table = TRUE;
+                    $seen_create_table = true;
                     $create_table_fields = array();
                 }
 
                 if ($upper_data == 'CURRENT_TIMESTAMP') {
                     if ($in_timestamp_options) {
                         if ($seen_default) {
-                            $create_table_fields[$current_identifier]['default_current_timestamp'] = TRUE;
+                            $create_table_fields[$current_identifier]['default_current_timestamp'] = true;
                         }
                     }
                 }
 
                 if ($upper_data == 'CONSTRAINT') {
                     $foreign_key_number++;
-                    $seen_foreign = FALSE;
-                    $seen_references = FALSE;
-                    $seen_constraint = TRUE;
+                    $seen_foreign = false;
+                    $seen_references = false;
+                    $seen_constraint = true;
                 }
                 if ($upper_data == 'FOREIGN') {
-                    $seen_foreign = TRUE;
-                    $seen_references = FALSE;
-                    $seen_constraint = FALSE;
+                    $seen_foreign = true;
+                    $seen_references = false;
+                    $seen_constraint = false;
                 }
                 if ($upper_data == 'REFERENCES') {
-                    $seen_foreign = FALSE;
-                    $seen_references = TRUE;
-                    $seen_constraint = FALSE;
+                    $seen_foreign = false;
+                    $seen_references = true;
+                    $seen_constraint = false;
                 }
 
 
@@ -1884,8 +1884,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
                                 if ($clause == 'on_update'
                                 && $in_timestamp_options) {
-                                    $create_table_fields[$current_identifier]['on_update_current_timestamp'] = TRUE;
-                                    $seen_default = FALSE;
+                                    $create_table_fields[$current_identifier]['on_update_current_timestamp'] = true;
+                                    $seen_default = false;
                                 }
 
                             } else {
@@ -1905,7 +1905,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if ($arr[$i]['type'] == 'punct_bracket_open_round') {
                 $brackets_level++;
                 if ($seen_create_table && $brackets_level == 1) {
-                    $in_create_table_fields = TRUE;
+                    $in_create_table_fields = true;
                 }
             }
 
@@ -1913,10 +1913,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             if ($arr[$i]['type'] == 'punct_bracket_close_round') {
                 $brackets_level--;
                 if ($seen_references) {
-                    $seen_references = FALSE;
+                    $seen_references = false;
                 }
                 if ($seen_create_table && $brackets_level == 0) {
-                    $in_create_table_fields = FALSE;
+                    $in_create_table_fields = false;
                 }
             }
 
@@ -1924,7 +1924,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 $upper_data = strtoupper($arr[$i]['data']);
                 if ($seen_create_table && $in_create_table_fields) {
                     if ($upper_data == 'DEFAULT') {
-                        $seen_default = TRUE;
+                        $seen_default = true;
                         $create_table_fields[$current_identifier]['default_value'] = $arr[$i + 1]['data'];
                     }
                 }
@@ -1939,9 +1939,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $create_table_fields[$current_identifier]['type'] = $upper_data;
                     if ($upper_data == 'TIMESTAMP') {
                         $arr[$i]['type'] = 'alpha_columnType';
-                        $in_timestamp_options = TRUE;
+                        $in_timestamp_options = true;
                     } else {
-                        $in_timestamp_options = FALSE;
+                        $in_timestamp_options = false;
                         if ($upper_data == 'CHAR') {
                             $arr[$i]['type'] = 'alpha_columnType';
                         }
@@ -1962,7 +1962,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 if ($seen_create_table && $in_create_table_fields) {
                     $current_identifier = $identifier;
                     // we set this one even for non TIMESTAMP type
-                    $create_table_fields[$current_identifier]['timestamp_not_null'] = FALSE;
+                    $create_table_fields[$current_identifier]['timestamp_not_null'] = false;
                 }
 
                 if ($seen_constraint) {
@@ -2089,6 +2089,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
         $number_of_tokens=-1)
     {
+        global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
         //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
         // then check for an array
         if (! is_array($arr)) {
@@ -2103,17 +2104,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             case 'color':
                 $str                                = '<span class="syntax">';
                 $html_line_break                    = '<br />';
-                $docu                               = TRUE;
+                $docu                               = true;
                 break;
             case 'query_only':
                 $str                                = '';
                 $html_line_break                    = "\n";
-                $docu                               = FALSE;
+                $docu                               = false;
                 break;
             case 'text':
                 $str                                = '';
                 $html_line_break                    = '<br />';
-                $docu                               = TRUE;
+                $docu                               = true;
                 break;
         } // end switch
         // inner_sql is a span that exists for all cases, except query_only
@@ -2126,7 +2127,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $indent                                     = 0;
         $bracketlevel                               = 0;
         $functionlevel                              = 0;
-        $infunction                                 = FALSE;
+        $infunction                                 = false;
         $space_punct_listsep                        = ' ';
         $space_punct_listsep_function_name          = ' ';
         // $space_alpha_reserved_word = '<br />'."\n";
@@ -2180,21 +2181,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $keywords_priv_list_cnt            = 2;
 
         if ($number_of_tokens == -1) {
-            $arraysize = $arr['len'];
-        } else {
-            $arraysize = $number_of_tokens;
+            $number_of_tokens = $arr['len'];
         }
         $typearr   = array();
-        if ($arraysize >= 0) {
+        if ($number_of_tokens >= 0) {
             $typearr[0] = '';
             $typearr[1] = '';
             $typearr[2] = '';
-            //$typearr[3] = $arr[0]['type'];
             $typearr[3] = $arr[$start_token]['type'];
         }
 
-        $in_priv_list = FALSE;
-        for ($i = $start_token; $i < $arraysize; $i++) {
+        $in_priv_list = false;
+        for ($i = $start_token; $i < $number_of_tokens; $i++) {
 // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
@@ -2205,11 +2203,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             2 current
             3 next
             */
-            if (($i + 1) < $arraysize) {
-                // array_push($typearr, $arr[$i + 1]['type']);
+            if (($i + 1) < $number_of_tokens) {
                 $typearr[4] = $arr[$i + 1]['type'];
             } else {
-                //array_push($typearr, null);
                 $typearr[4] = '';
             }
 
@@ -2227,7 +2223,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     break;
                 case 'punct_bracket_open_round':
                     $bracketlevel++;
-                    $infunction = FALSE;
+                    $infunction = false;
                     // Make sure this array is sorted!
                     if (($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
                         || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float')
@@ -2237,7 +2233,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_with_brackets_1before, $keywords_with_brackets_1before_cnt))
                         ) {
                         $functionlevel++;
-                        $infunction = TRUE;
+                        $infunction = true;
                         $after      .= ' ';
                     } else {
                         $indent++;
@@ -2263,7 +2259,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $after          = '';
                     break;
                 case 'punct_listsep':
-                    if ($infunction == TRUE) {
+                    if ($infunction == true) {
                         $after      .= $space_punct_listsep_function_name;
                     } else {
                         $after      .= $space_punct_listsep;
@@ -2277,7 +2273,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     $space_punct_listsep               = ' ';
                     $space_punct_listsep_function_name = ' ';
                     $space_alpha_reserved_word         = ' ';
-                    $in_priv_list                      = FALSE;
+                    $in_priv_list                      = false;
                     break;
                 case 'comment_mysql':
                 case 'comment_ansi':
@@ -2285,6 +2281,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     break;
                 case 'punct':
                     $before         .= ' ';
+                    if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']]) &&
+                            ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))) {
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
+                            false,
+                            $PMA_SQPdata_operators_docs[$arr[$i]['data']]['anchor'],
+                            true);
+                        $after .= '</a>';
+                    }
+
                     // workaround for
                     // select * from mytable limit 0,-1
                     // (a side effect of this workaround is that
@@ -2300,7 +2307,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     // only close bracket level when it was opened before
                     if ($bracketlevel > 0) {
                         $bracketlevel--;
-                        if ($infunction == TRUE) {
+                        if ($infunction == true) {
                             $functionlevel--;
                             $after     .= ' ';
                             $before    .= ' ';
@@ -2308,7 +2315,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             $indent--;
                             $before    .= ($mode != 'query_only' ? '</div>' : ' ');
                         }
-                        $infunction    = ($functionlevel > 0) ? TRUE : FALSE;
+                        $infunction    = ($functionlevel > 0) ? true : false;
                     }
                     break;
                 case 'alpha_columnType':
@@ -2388,6 +2395,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $after     .= ' ';
                     }
                     break;
+                case 'alpha_functionName':
+                    $funcname = strtoupper($arr[$i]['data']);
+                    if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_functions_docs[$funcname]['link'],
+                            false,
+                            $PMA_SQPdata_functions_docs[$funcname]['anchor'],
+                            true);
+                        $after .= '</a>';
+                    }
+                    break;
                 case 'alpha_reservedWord':
                     // do not uppercase the reserved word if we are calling
                     // this function in query_only mode, because we need
@@ -2430,7 +2449,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         // on first keyword, check if it introduces a
                         // privilege list
                             if (PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_priv_list, $keywords_priv_list_cnt)) {
-                                $in_priv_list = TRUE;
+                                $in_priv_list = true;
                             }
                         }
                     } else {
@@ -2544,6 +2563,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             }
                             break;
                         default:
+                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))){
+                                $after .= '</a>';
+                                $close_docu_link = false;
+                            } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
+                                /* Handle multi word statements first */
+                                if (isset($typearr[4]) && $typearr[4] == 'alpha_reservedWord' && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data'])])) {
+                                    $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data']);
+                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                                    $close_docu_link = true;
+                                } else if (isset($typearr[3]) && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'])])) {
+                                    $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data']);
+                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                                    $close_docu_link = true;
+                                } else {
+                                    $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'], false, $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'], true);
+                                    $after .= '</a>';
+                                }
+                            }
                             break;
                     } // end switch ($arr[$i]['data'])
 

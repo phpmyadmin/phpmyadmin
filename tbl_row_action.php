@@ -87,7 +87,7 @@ if (!empty($submit_mult)) {
 
         case 'row_export':
             // Needed to allow SQL export
-            $single_table = TRUE;
+            $single_table = true;
 
             // As we got the rows to be exported from the
             // 'rows_to_delete' checkbox, we use the index of it as the

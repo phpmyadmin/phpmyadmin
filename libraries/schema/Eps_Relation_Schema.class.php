@@ -777,7 +777,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
                     /* put the foreign table on the schema only if selected
                     * by the user
                     * (do not use array_search() because we would have to
-                    * to do a === FALSE and this is not PHP3 compatible)
+                    * to do a === false and this is not PHP3 compatible)
                     */
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->_addRelation($one_table,$eps->getFont(),$eps->getFontSize(), $master_field, $rel['foreign_table'], $rel['foreign_field'], $this->tableDimension);

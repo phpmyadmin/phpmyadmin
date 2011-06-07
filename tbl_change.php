@@ -469,12 +469,12 @@ foreach ($rows as $row_id => $vrow) {
          <?php } //End if
 
         // Prepares the field value
-        $real_null_value = FALSE;
+        $real_null_value = false;
         $special_chars_encoded = '';
         if (isset($vrow)) {
             // (we are editing)
             if (is_null($vrow[$field['Field']])) {
-                $real_null_value = TRUE;
+                $real_null_value = true;
                 $vrow[$field['Field']]    = '';
                 $special_chars   = '';
                 $data            = $vrow[$field['Field']];
@@ -500,7 +500,7 @@ foreach ($rows as $row_id => $vrow) {
 
             //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
             if (isset($default_action) && $default_action === 'insert') {
-                if ($field['Key'] === 'PRI' && strpos($field['Extra'], 'auto_increment') !== FALSE) {
+                if ($field['Key'] === 'PRI' && strpos($field['Extra'], 'auto_increment') !== false) {
                     $data = $special_chars_encoded = $special_chars = NULL;
                 }
             }
@@ -516,7 +516,7 @@ foreach ($rows as $row_id => $vrow) {
             // display default values
             if (! isset($field['Default'])) {
                 $field['Default'] = '';
-                $real_null_value          = TRUE;
+                $real_null_value          = true;
                 $data                     = '';
             } else {
                 $data                     = $field['Default'];
@@ -574,7 +574,7 @@ foreach ($rows as $row_id => $vrow) {
                 }
 
                 $dropdown_built = array();
-                $op_spacing_needed = FALSE;
+                $op_spacing_needed = false;
 
                 // what function defined as default?
                 // for the first timestamp we don't set the default function
@@ -611,8 +611,8 @@ foreach ($rows as $row_id => $vrow) {
                         echo ' selected="selected"';
                     }
                     echo '>' . $each_dropdown . '</option>' . "\n";
-                    $dropdown_built[$each_dropdown] = 'TRUE';
-                    $op_spacing_needed = TRUE;
+                    $dropdown_built[$each_dropdown] = 'true';
+                    $op_spacing_needed = true;
                 }
 
                 // For compatibility's sake, do not let out all other functions. Instead
@@ -620,16 +620,16 @@ foreach ($rows as $row_id => $vrow) {
                 // yet.
                 $cnt_functions = count($cfg['Functions']);
                 for ($j = 0; $j < $cnt_functions; $j++) {
-                    if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
+                    if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
                         // Is current function defined as default?
                         $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                     || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
                                   ? ' selected="selected"'
                                   : '';
-                        if ($op_spacing_needed == TRUE) {
+                        if ($op_spacing_needed == true) {
                             echo '                ';
                             echo '<option value="">--------</option>' . "\n";
-                            $op_spacing_needed = FALSE;
+                            $op_spacing_needed = false;
                         }
 
                         echo '                ';
@@ -957,7 +957,7 @@ foreach ($rows as $row_id => $vrow) {
 
             if (!empty($cfg['UploadDir'])) {
                 $files = PMA_getFileSelectOptions(PMA_userDir($cfg['UploadDir']));
-                if ($files === FALSE) {
+                if ($files === false) {
                     echo '        <font color="red">' . __('Error') . '</font><br />' . "\n";
                     echo '        ' . __('The directory you set for upload work cannot be reached') . "\n";
                 } elseif (!empty($files)) {
@@ -978,7 +978,7 @@ foreach ($rows as $row_id => $vrow) {
             // field size should be at least 4 and max 40
             $fieldsize = min(max($field['len'], 4), 40);
             echo $backup_field . "\n";
-            if ($field['is_char'] && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== FALSE)) {
+            if ($field['is_char'] && ($cfg['CharEditing'] == 'textarea' || strpos($data, "\n") !== false)) {
                 echo "\n";
                 ?>
                 <textarea name="fields<?php echo $field_name_appendix; ?>"
