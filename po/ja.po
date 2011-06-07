@@ -3637,10 +3637,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "表示している各テーブルのソートが記憶されます。"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "リネーム後のテーブル名"
+msgstr "テーブルのソートを記憶する"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
