@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 11:44+0200\n"
+"PO-Revision-Date: 2011-06-07 11:45+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3351,10 +3351,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "最近使用したテーブルの最大数。0 で無効になります。"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "現在開いているテーブル"
+msgstr "最近使用したテーブル"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
