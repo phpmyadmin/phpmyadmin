@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-06 10:24+0200\n"
+"PO-Revision-Date: 2011-06-07 08:13+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6711,7 +6711,7 @@ msgstr "Визуални настройки"
 
 #: main.php:146 prefs_manage.php:274
 msgid "More settings"
-msgstr "Още настройки"
+msgstr "Още"
 
 #: main.php:163
 msgid "Protocol version"
