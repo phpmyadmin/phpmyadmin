@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:16+0200\n"
+"PO-Revision-Date: 2011-06-07 12:17+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5655,7 +5655,7 @@ msgstr "他のデータベースシステムまたは古い MySQL サーバと�
 #: libraries/export/sql.php:166
 #, php-format
 msgid "Add %s statement"
-msgstr "%s コマンドの追加"
+msgstr "%s 文の追加"
 
 #: libraries/export/sql.php:144
 msgid "Add statements:"
