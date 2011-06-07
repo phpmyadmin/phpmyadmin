@@ -7665,7 +7665,7 @@ msgstr "このバージョンの MySQL では無効です"
 #: server_privileges.php:57 server_privileges.php:196
 #: server_privileges.php:559
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "サーバ設定のリロード、サーバキャッシュのフラッシュを許可する"
+msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する"
 
 #: server_privileges.php:58 server_privileges.php:208
 #: server_privileges.php:566
