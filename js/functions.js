@@ -1428,7 +1428,7 @@ function PMA_createChart(passedSettings) {
                                 
                             lastValue = curValue;
                             numLoadedPoints++;
-                            chart_activeTimeouts[container] = setTimeout(addnewPoint, refreshRate);
+                            chart_activeTimeouts[container] = setTimeout(addnewPoint, passedSettings.realtime.refreshRate || 5000);
                         });
                     }
                     
