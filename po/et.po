@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-06 11:35+0200\n"
+"POT-Creation-Date: 2011-06-07 06:29-0400\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: estonian <et@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -46,7 +46,7 @@ msgstr "Otsi"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358
-#: db_structure.php:535 enum_editor.php:63 js/messages.php:61
+#: db_structure.php:535 enum_editor.php:63 js/messages.php:60
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1300
 #: libraries/common.lib.php:2274 libraries/core.lib.php:557
@@ -195,7 +195,7 @@ msgstr "Lingib "
 msgid "Comments"
 msgstr "Kommentaarid"
 
-#: db_datadict.php:260 js/messages.php:80 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -211,7 +211,7 @@ msgstr "Kommentaarid"
 msgid "No"
 msgstr "Ei"
 
-#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -381,27 +381,27 @@ msgstr "Ridu"
 msgid "Size"
 msgstr "Suurus"
 
-#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:747
-#: libraries/export/sql.php:1078
+#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:749
+#: libraries/export/sql.php:1076
 msgid "in use"
 msgstr "kasutusel"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:702
+#: libraries/export/sql.php:704
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
 msgstr "Loodud"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:707
+#: libraries/export/sql.php:709
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
 msgstr "Viimane muudatus"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:712
+#: libraries/export/sql.php:714
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
@@ -509,7 +509,7 @@ msgstr "Lae päring"
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:224
+#: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "Ligipääs keelatud"
 
@@ -632,8 +632,8 @@ msgstr ""
 #: db_structure.php:379 libraries/display_tbl.lib.php:2073
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:152
@@ -752,7 +752,7 @@ msgstr "Kontrolli tabelit"
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
-#: libraries/export/sql.php:564 libraries/export/texytext.php:77
+#: libraries/export/sql.php:568 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
@@ -882,8 +882,8 @@ msgstr "Väljavõte salvestati faili %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Te kindlasti proovisite laadida liiga suurt faili. Palun uuri "
 "dokumentatsiooni %sdocumentation%s selle limiidi seadmiseks."
@@ -1061,161 +1061,157 @@ msgstr "Parool on tühi!"
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei ühti!"
 
-#: js/messages.php:54
+#: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
+#: server_privileges.php:2108 server_privileges.php:2302
 #, fuzzy
-#| msgid "Add a new User"
-msgid "Add a New User"
-msgstr "Lisa uus kasutaja"
+#| msgid "Any user"
+msgid "Add user"
+msgstr "Kõik kasutajad"
 
 #: js/messages.php:55
-#, fuzzy
-msgid "Create User"
-msgstr "Suhte loomine (relation)"
-
-#: js/messages.php:56
 #, fuzzy
 #| msgid "Reload privileges"
 msgid "Reloading Privileges"
 msgstr "Lae privileegid uuesti"
 
-#: js/messages.php:57
+#: js/messages.php:56
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Eemalda valitud kasutajad"
 
-#: js/messages.php:58 libraries/tbl_properties.inc.php:791
+#: js/messages.php:57 libraries/tbl_properties.inc.php:791
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:62 libraries/tbl_properties.inc.php:796 pmd_general.php:388
+#: js/messages.php:61 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr "Katkesta"
 
-#: js/messages.php:65
+#: js/messages.php:64
 #, fuzzy
 msgid "Loading"
 msgstr "Lokaalne"
 
-#: js/messages.php:66
+#: js/messages.php:65
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Protsessid"
 
-#: js/messages.php:67 libraries/import/ods.php:80
+#: js/messages.php:66 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:68
+#: js/messages.php:67
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:69
+#: js/messages.php:68
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:70 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:69 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "Korras"
 
-#: js/messages.php:73
+#: js/messages.php:72
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Nimeta andmebaas ümber"
 
-#: js/messages.php:74
+#: js/messages.php:73
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Nimeta andmebaas ümber"
 
-#: js/messages.php:75
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Kopeeri andmebaas"
 
-#: js/messages.php:76
+#: js/messages.php:75
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Tähetabel"
 
-#: js/messages.php:77
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Tabelil peab olema vähemalt üks väli."
 
-#: js/messages.php:78
+#: js/messages.php:77
 #, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Loo tabel"
 
-#: js/messages.php:83
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Kasuta tabeleid"
 
-#: js/messages.php:86
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Otsi"
 
-#: js/messages.php:87
+#: js/messages.php:86
 #, fuzzy
 msgid "Hide search results"
 msgstr "SQL-päring"
 
-#: js/messages.php:88
+#: js/messages.php:87
 #, fuzzy
 msgid "Show search results"
 msgstr "SQL-päring"
 
-#: js/messages.php:89
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Vaata"
 
-#: js/messages.php:90
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Kustutan %s"
 
-#: js/messages.php:93
+#: js/messages.php:92
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:96
+#: js/messages.php:95
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL-päring"
 
-#: js/messages.php:97
+#: js/messages.php:96
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL-päring"
 
-#: js/messages.php:98
+#: js/messages.php:97
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Mootor"
 
-#: js/messages.php:99 libraries/Index.class.php:465
+#: js/messages.php:98 libraries/Index.class.php:465
 #: libraries/common.lib.php:594 libraries/common.lib.php:1129
 #: libraries/common.lib.php:2989 libraries/config/messages.inc.php:471
 #: libraries/display_tbl.lib.php:1205 libraries/import.lib.php:1150
@@ -1224,7 +1220,7 @@ msgstr "Mootor"
 msgid "Edit"
 msgstr "Muuda"
 
-#: js/messages.php:100 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:785 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1232,77 +1228,77 @@ msgstr "Muuda"
 msgid "Save"
 msgstr "Salvesta"
 
-#: js/messages.php:101 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:100 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "Peida"
 
-#: js/messages.php:104
+#: js/messages.php:103
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL-päring"
 
-#: js/messages.php:105
+#: js/messages.php:104
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL-päring"
 
-#: js/messages.php:108 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:107 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignoreeri"
 
-#: js/messages.php:111
+#: js/messages.php:110
 msgid "Select referenced key"
 msgstr "Vali eelistus võti (referenced key)"
 
-#: js/messages.php:112
+#: js/messages.php:111
 msgid "Select Foreign Key"
 msgstr "Vali võõrvõti(Foreign Key)"
 
-#: js/messages.php:113
+#: js/messages.php:112
 msgid "Please select the primary key or a unique key"
 msgstr "Palun vali primaarne või unkaalne võti"
 
-#: js/messages.php:114 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:113 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Vali väli mida kuvada"
 
-#: js/messages.php:115
+#: js/messages.php:114
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:118
+#: js/messages.php:117
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:121
+#: js/messages.php:120
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Genereeri parool"
 
-#: js/messages.php:122 libraries/replication_gui.lib.php:365
+#: js/messages.php:121 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Genereeri"
 
-#: js/messages.php:123
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Muuda parooli"
 
-#: js/messages.php:126 tbl_structure.php:471
+#: js/messages.php:125 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Esm"
 
-#: js/messages.php:129 setup/lib/index.lib.php:158
+#: js/messages.php:128 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1310,31 +1306,31 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:131
+#: js/messages.php:130
 #, fuzzy
 msgid ", latest stable version:"
 msgstr "Suhte loomine (relation)"
 
-#: js/messages.php:132
+#: js/messages.php:131
 #, fuzzy
 msgid "up to date"
 msgstr "Pole andmebaase"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:150
+#: js/messages.php:149
 #, fuzzy
 msgid "Done"
 msgstr "Andmed"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:152
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Eelmine"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:154 libraries/common.lib.php:2337
+#: js/messages.php:153 libraries/common.lib.php:2337
 #: libraries/common.lib.php:2340 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
@@ -1342,96 +1338,96 @@ msgid "Next"
 msgstr "Järgmine"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:156
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Kokku"
 
-#: js/messages.php:159
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binaarne"
 
-#: js/messages.php:160
+#: js/messages.php:159
 msgid "February"
 msgstr ""
 
-#: js/messages.php:161
+#: js/messages.php:160
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mär"
 
-#: js/messages.php:162
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:163
+#: js/messages.php:162
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:164
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:165
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:166
+#: js/messages.php:165
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Aug"
 
-#: js/messages.php:167
+#: js/messages.php:166
 msgid "September"
 msgstr ""
 
-#: js/messages.php:168
+#: js/messages.php:167
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:169
+#: js/messages.php:168
 msgid "November"
 msgstr ""
 
-#: js/messages.php:170
+#: js/messages.php:169
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1540
+#: js/messages.php:173 libraries/common.lib.php:1540
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1542
+#: js/messages.php:175 libraries/common.lib.php:1542
 msgid "Feb"
 msgstr "Veb"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1544
+#: js/messages.php:177 libraries/common.lib.php:1544
 msgid "Mar"
 msgstr "Mär"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1546
+#: js/messages.php:179 libraries/common.lib.php:1546
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1548
+#: js/messages.php:181 libraries/common.lib.php:1548
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1439,176 +1435,176 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1550
+#: js/messages.php:183 libraries/common.lib.php:1550
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:186 libraries/common.lib.php:1552
+#: js/messages.php:185 libraries/common.lib.php:1552
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:188 libraries/common.lib.php:1554
+#: js/messages.php:187 libraries/common.lib.php:1554
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:190 libraries/common.lib.php:1556
+#: js/messages.php:189 libraries/common.lib.php:1556
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:192 libraries/common.lib.php:1558
+#: js/messages.php:191 libraries/common.lib.php:1558
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:194 libraries/common.lib.php:1560
+#: js/messages.php:193 libraries/common.lib.php:1560
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:196 libraries/common.lib.php:1562
+#: js/messages.php:195 libraries/common.lib.php:1562
 msgid "Dec"
 msgstr "Det"
 
-#: js/messages.php:199
+#: js/messages.php:198
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Püh"
 
-#: js/messages.php:200
+#: js/messages.php:199
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Esm"
 
-#: js/messages.php:201
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Tei"
 
-#: js/messages.php:202
+#: js/messages.php:201
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:203
+#: js/messages.php:202
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:204
+#: js/messages.php:203
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Ree"
 
-#: js/messages.php:205
+#: js/messages.php:204
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1565
+#: js/messages.php:208 libraries/common.lib.php:1565
 msgid "Sun"
 msgstr "Püh"
 
 #. l10n: Short week day name
-#: js/messages.php:211 libraries/common.lib.php:1567
+#: js/messages.php:210 libraries/common.lib.php:1567
 msgid "Mon"
 msgstr "Esm"
 
 #. l10n: Short week day name
-#: js/messages.php:213 libraries/common.lib.php:1569
+#: js/messages.php:212 libraries/common.lib.php:1569
 msgid "Tue"
 msgstr "Tei"
 
 #. l10n: Short week day name
-#: js/messages.php:215 libraries/common.lib.php:1571
+#: js/messages.php:214 libraries/common.lib.php:1571
 msgid "Wed"
 msgstr "Kol"
 
 #. l10n: Short week day name
-#: js/messages.php:217 libraries/common.lib.php:1573
+#: js/messages.php:216 libraries/common.lib.php:1573
 msgid "Thu"
 msgstr "Nel"
 
 #. l10n: Short week day name
-#: js/messages.php:219 libraries/common.lib.php:1575
+#: js/messages.php:218 libraries/common.lib.php:1575
 msgid "Fri"
 msgstr "Ree"
 
 #. l10n: Short week day name
-#: js/messages.php:221 libraries/common.lib.php:1577
+#: js/messages.php:220 libraries/common.lib.php:1577
 msgid "Sat"
 msgstr "Lau"
 
 #. l10n: Minimal week day name
-#: js/messages.php:225
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Püh"
 
 #. l10n: Minimal week day name
-#: js/messages.php:227
+#: js/messages.php:226
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Esm"
 
 #. l10n: Minimal week day name
-#: js/messages.php:229
+#: js/messages.php:228
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Tei"
 
 #. l10n: Minimal week day name
-#: js/messages.php:231
+#: js/messages.php:230
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Kol"
 
 #. l10n: Minimal week day name
-#: js/messages.php:233
+#: js/messages.php:232
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Nel"
 
 #. l10n: Minimal week day name
-#: js/messages.php:235
+#: js/messages.php:234
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Ree"
 
 #. l10n: Minimal week day name
-#: js/messages.php:237
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Lau"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:239
+#: js/messages.php:238
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:241
+#: js/messages.php:240
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:242
+#: js/messages.php:241
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "kasutusel"
 
-#: js/messages.php:243
+#: js/messages.php:242
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1840,8 +1836,8 @@ msgstr "Tere tulemast %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Arvatav põhjus on te pole veel loonud seadete faili. Soovitavalt võid "
 "kasutada %1$ssetup script%2$s et seadistada."
@@ -1895,26 +1891,30 @@ msgid "Cookies must be enabled past this point."
 msgstr "Küpsised(cookies) peavad alates sellest momendist lubatud olema."
 
 #: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/signon.auth.lib.php:222
+#: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:647
-#: libraries/auth/signon.auth.lib.php:226
+#: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Ebaaktiivne %s sekundit või rohkem, palun sisenege uuesti"
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
-#: libraries/auth/signon.auth.lib.php:232
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Ei suuda MySQL serverisse logida"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
 msgstr "Vale kasutajanimi/parool. Ligipääs keelatud."
+
+#: libraries/auth/signon.auth.lib.php:87
+msgid "Can not find signon authentication script:"
+msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1990,7 +1990,7 @@ msgstr "Tabelid"
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
-#: libraries/export/latex.php:215 libraries/export/sql.php:1056
+#: libraries/export/latex.php:215 libraries/export/sql.php:1057
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:759
 msgid "Data"
@@ -4656,7 +4656,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
-#: libraries/export/sql.php:604
+#: libraries/export/sql.php:608
 #, fuzzy
 msgid "Events"
 msgstr "Saadetud"
@@ -4710,16 +4710,16 @@ msgstr "Võib olla umbkaudne. Vaadake FAQ 3.11"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
-#: libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysql.dbi.lib.php:313
+#: libraries/dbi/mysqli.dbi.lib.php:357
 msgid "The server is not responding"
 msgstr "Server ei vasta"
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysqli.dbi.lib.php:357
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(või kohaliku MySQL serveri soketid ei ole korrektselt seadistatud)"
 
-#: libraries/dbi/mysql.dbi.lib.php:370
+#: libraries/dbi/mysql.dbi.lib.php:320
 msgid "Details..."
 msgstr ""
 
@@ -4891,8 +4891,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Seda väärtust on tõlgendatud kasutades %1$sstrftime%2$s, sa võid kasutada "
 "sama aja(time) formaati. Lisaks tulevad ka järgnevad muudatused: %3$s. "
@@ -4914,7 +4914,7 @@ msgid "Compression:"
 msgstr "Pakkimine"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:517
-#: libraries/export/sql.php:1056 libraries/tbl_properties.inc.php:578
+#: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
 msgstr "Pole"
@@ -5612,8 +5612,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5675,12 +5675,12 @@ msgid "Data dump options"
 msgstr "Andmebaasi eksportimise seaded"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
-#: libraries/export/sql.php:1154 libraries/export/texytext.php:123
+#: libraries/export/sql.php:1152 libraries/export/texytext.php:123
 msgid "Dumping data for table"
 msgstr "Tabeli andmete salvestamine"
 
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
-#: libraries/export/sql.php:973 libraries/export/texytext.php:170
+#: libraries/export/sql.php:975 libraries/export/texytext.php:170
 msgid "Table structure for table"
 msgstr "Struktuur tabelile"
 
@@ -5744,17 +5744,17 @@ msgstr "Olemasolevad MIME-tüübid"
 msgid "Host"
 msgstr "Masin"
 
-#: libraries/export/latex.php:144 libraries/export/sql.php:453
+#: libraries/export/latex.php:144 libraries/export/sql.php:457
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Tegemisaeg"
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:455
+#: libraries/export/latex.php:145 libraries/export/sql.php:459
 #: libraries/export/xml.php:111 main.php:162
 msgid "Server version"
 msgstr "Serveri versioon"
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:456
+#: libraries/export/latex.php:146 libraries/export/sql.php:460
 #: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr "PHP versioon"
@@ -5889,32 +5889,32 @@ msgstr "Toimingud"
 msgid "Functions"
 msgstr "Funktsioonid"
 
-#: libraries/export/sql.php:806
+#: libraries/export/sql.php:808
 msgid "Constraints for dumped tables"
 msgstr "Piirangud salvestatud tabelitele"
 
-#: libraries/export/sql.php:815
+#: libraries/export/sql.php:817
 msgid "Constraints for table"
 msgstr "Piirangud tabelile"
 
-#: libraries/export/sql.php:915
+#: libraries/export/sql.php:917
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TÜÜBID TABELILE"
 
-#: libraries/export/sql.php:927
+#: libraries/export/sql.php:929
 msgid "RELATIONS FOR TABLE"
 msgstr "SEOSED TABELILE"
 
-#: libraries/export/sql.php:984 libraries/export/xml.php:38
+#: libraries/export/sql.php:986 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
 msgstr ""
 
-#: libraries/export/sql.php:996
+#: libraries/export/sql.php:998
 msgid "Structure for view"
 msgstr "Vaate (view) struktuur"
 
-#: libraries/export/sql.php:1005
+#: libraries/export/sql.php:1007
 msgid "Stand-in structure for view"
 msgstr "Sise-vaate struktuur"
 
@@ -8095,11 +8095,6 @@ msgstr "Kasutaja ülevaade"
 msgid "Grant"
 msgstr "Õigused"
 
-#: server_privileges.php:1679 server_privileges.php:1703
-#: server_privileges.php:2108 server_privileges.php:2302
-msgid "Add a new User"
-msgstr "Lisa uus kasutaja"
-
 #: server_privileges.php:1684
 msgid "Remove selected users"
 msgstr "Eemalda valitud kasutajad"
@@ -8119,8 +8114,8 @@ msgstr "Kustuta andmebaasid millel on samad nimed nagu kasutajatel."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Märkus: phpMyAdmin võtab kasutajate privileegid otse MySQL privileges "
 "tabelist. Tabeli sisu võib erineda sellest, mida server hetkel kasutab, seda "
@@ -10399,6 +10394,18 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Nimeta tabel ümber"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add a New User"
+#~ msgstr "Lisa uus kasutaja"
+
+#, fuzzy
+#~ msgid "Create User"
+#~ msgstr "Suhte loomine (relation)"
+
+#~ msgid "Add a new User"
+#~ msgstr "Lisa uus kasutaja"
 
 #, fuzzy
 #~| msgid "Dumping data for table"

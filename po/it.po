@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-06 11:35+0200\n"
+"POT-Creation-Date: 2011-06-07 06:29-0400\n"
 "PO-Revision-Date: 2011-05-25 22:43+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -48,7 +48,7 @@ msgstr "Cerca"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358
-#: db_structure.php:535 enum_editor.php:63 js/messages.php:61
+#: db_structure.php:535 enum_editor.php:63 js/messages.php:60
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1300
 #: libraries/common.lib.php:2274 libraries/core.lib.php:557
@@ -197,7 +197,7 @@ msgstr "Collegamenti a"
 msgid "Comments"
 msgstr "Commenti"
 
-#: db_datadict.php:260 js/messages.php:80 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -213,7 +213,7 @@ msgstr "Commenti"
 msgid "No"
 msgstr "No"
 
-#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -375,27 +375,27 @@ msgstr "Righe"
 msgid "Size"
 msgstr "Dimensione"
 
-#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:747
-#: libraries/export/sql.php:1078
+#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:749
+#: libraries/export/sql.php:1076
 msgid "in use"
 msgstr "in uso"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:702
+#: libraries/export/sql.php:704
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
 msgstr "Creazione"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:707
+#: libraries/export/sql.php:709
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
 msgstr "Ultimo cambiamento"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:712
+#: libraries/export/sql.php:714
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
@@ -498,7 +498,7 @@ msgstr "Invia Query"
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:224
+#: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "Accesso negato"
 
@@ -614,8 +614,8 @@ msgstr "Il tracking non è attivo."
 #: db_structure.php:379 libraries/display_tbl.lib.php:2073
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Questa vista ha, come minimo, questo numero di righe. Per informazioni "
 "controlla la %sdocumentazione%s."
@@ -730,7 +730,7 @@ msgstr "Tabelle monitorate"
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
-#: libraries/export/sql.php:564 libraries/export/texytext.php:77
+#: libraries/export/sql.php:568 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
@@ -854,8 +854,8 @@ msgstr "Il dump è stato salvato nel file %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Stai probabilmente cercando di caricare sul server un file troppo grande. "
 "Fai riferimento alla documentazione %sdocumentation%s se desideri aggirare "
@@ -1031,129 +1031,128 @@ msgstr "La password è vuota!"
 msgid "The passwords aren't the same!"
 msgstr "La password non coincide!"
 
-#: js/messages.php:54
-msgid "Add a New User"
-msgstr "Aggiungi un nuovo Utente"
+#: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
+#: server_privileges.php:2108 server_privileges.php:2302
+#, fuzzy
+#| msgid "Any user"
+msgid "Add user"
+msgstr "Qualsiasi utente"
 
 #: js/messages.php:55
-msgid "Create User"
-msgstr "Crea Utente"
-
-#: js/messages.php:56
 msgid "Reloading Privileges"
 msgstr "Ricaricamento privilegi"
 
-#: js/messages.php:57
+#: js/messages.php:56
 msgid "Removing Selected Users"
 msgstr "Rimozione Utenti Selezionati"
 
-#: js/messages.php:58 libraries/tbl_properties.inc.php:791
+#: js/messages.php:57 libraries/tbl_properties.inc.php:791
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
 msgstr "Chiudi"
 
-#: js/messages.php:62 libraries/tbl_properties.inc.php:796 pmd_general.php:388
+#: js/messages.php:61 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr "Annulla"
 
-#: js/messages.php:65
+#: js/messages.php:64
 msgid "Loading"
 msgstr "Caricamento"
 
-#: js/messages.php:66
+#: js/messages.php:65
 msgid "Processing Request"
 msgstr "Elaborazione Richiesta"
 
-#: js/messages.php:67 libraries/import/ods.php:80
+#: js/messages.php:66 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr "Errore nel processare la richiesta"
 
-#: js/messages.php:68
+#: js/messages.php:67
 msgid "Dropping Column"
 msgstr "Eliminazione colonna"
 
-#: js/messages.php:69
+#: js/messages.php:68
 msgid "Adding Primary Key"
 msgstr "Creazione chiave primaria"
 
-#: js/messages.php:70 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:69 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:73
+#: js/messages.php:72
 msgid "Renaming Databases"
 msgstr "Rinominazione dei Database"
 
-#: js/messages.php:74
+#: js/messages.php:73
 msgid "Reload Database"
 msgstr "Ricarica Database"
 
-#: js/messages.php:75
+#: js/messages.php:74
 msgid "Copying Database"
 msgstr "Sto copiando il Database"
 
-#: js/messages.php:76
+#: js/messages.php:75
 msgid "Changing Charset"
 msgstr "Sto cambiando il charset"
 
-#: js/messages.php:77
+#: js/messages.php:76
 msgid "Table must have at least one column"
 msgstr "La tabella deve avere come minimo una colonna"
 
-#: js/messages.php:78
+#: js/messages.php:77
 msgid "Create Table"
 msgstr "Crea tabella"
 
-#: js/messages.php:83
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Utilizza tabelle"
 
-#: js/messages.php:86
+#: js/messages.php:85
 msgid "Searching"
 msgstr "Ricerca in corso"
 
-#: js/messages.php:87
+#: js/messages.php:86
 msgid "Hide search results"
 msgstr "Nascondi i risultati della ricerca"
 
-#: js/messages.php:88
+#: js/messages.php:87
 msgid "Show search results"
 msgstr "Mostra i risultati della ricerca"
 
-#: js/messages.php:89
+#: js/messages.php:88
 msgid "Browsing"
 msgstr "Navigazione"
 
-#: js/messages.php:90
+#: js/messages.php:89
 msgid "Deleting"
 msgstr "Cancellazione"
 
-#: js/messages.php:93
+#: js/messages.php:92
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 "Nota: Se il file contiene piú di una tabella, i dati saranno combinati in un "
 "unica tabella"
 
-#: js/messages.php:96
+#: js/messages.php:95
 msgid "Hide query box"
 msgstr "Nascondi riquadro query SQL"
 
-#: js/messages.php:97
+#: js/messages.php:96
 msgid "Show query box"
 msgstr "Mostra riquadro query SQL"
 
-#: js/messages.php:98
+#: js/messages.php:97
 msgid "Inline Edit"
 msgstr "Modifica in linea"
 
-#: js/messages.php:99 libraries/Index.class.php:465
+#: js/messages.php:98 libraries/Index.class.php:465
 #: libraries/common.lib.php:594 libraries/common.lib.php:1129
 #: libraries/common.lib.php:2989 libraries/config/messages.inc.php:471
 #: libraries/display_tbl.lib.php:1205 libraries/import.lib.php:1150
@@ -1162,7 +1161,7 @@ msgstr "Modifica in linea"
 msgid "Edit"
 msgstr "Modifica"
 
-#: js/messages.php:100 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:785 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1170,41 +1169,41 @@ msgstr "Modifica"
 msgid "Save"
 msgstr "Salva"
 
-#: js/messages.php:101 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:100 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "Nascondi"
 
-#: js/messages.php:104
+#: js/messages.php:103
 msgid "Hide search criteria"
 msgstr "Nascondi criteri di ricerca"
 
-#: js/messages.php:105
+#: js/messages.php:104
 msgid "Show search criteria"
 msgstr "Mostra criteri di ricerca"
 
-#: js/messages.php:108 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:107 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Ignora"
 
-#: js/messages.php:111
+#: js/messages.php:110
 msgid "Select referenced key"
 msgstr "Seleziona le chiavi referenziali"
 
-#: js/messages.php:112
+#: js/messages.php:111
 msgid "Select Foreign Key"
 msgstr "Seleziona Foreign Key"
 
-#: js/messages.php:113
+#: js/messages.php:112
 msgid "Please select the primary key or a unique key"
 msgstr "Seleziona la chiave primaria o una chiave univoca"
 
-#: js/messages.php:114 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:113 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Scegli la colonna da mostrare"
 
-#: js/messages.php:115
+#: js/messages.php:114
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1212,27 +1211,27 @@ msgstr ""
 "Non hai salvato i cambiamenti della disposizione. Questi cambiamenti saranno "
 "persi se non li salvi. Vuoi procedere?"
 
-#: js/messages.php:118
+#: js/messages.php:117
 msgid "Add an option for column "
 msgstr "Aggiungi un'opzione alla colonna "
 
-#: js/messages.php:121
+#: js/messages.php:120
 msgid "Generate password"
 msgstr "Genera password"
 
-#: js/messages.php:122 libraries/replication_gui.lib.php:365
+#: js/messages.php:121 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Genera"
 
-#: js/messages.php:123
+#: js/messages.php:122
 msgid "Change Password"
 msgstr "Cambia password"
 
-#: js/messages.php:126 tbl_structure.php:471
+#: js/messages.php:125 tbl_structure.php:471
 msgid "More"
 msgstr "Più"
 
-#: js/messages.php:129 setup/lib/index.lib.php:158
+#: js/messages.php:128 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1242,26 +1241,26 @@ msgstr ""
 "l'aggiornamento. La versione più recente è la %s, rilasciata il %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:131
+#: js/messages.php:130
 msgid ", latest stable version:"
 msgstr ", versione stabile piú recente:"
 
-#: js/messages.php:132
+#: js/messages.php:131
 msgid "up to date"
 msgstr "aggiornata"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:150
+#: js/messages.php:149
 msgid "Done"
 msgstr "Fatto"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:152
+#: js/messages.php:151
 msgid "Prev"
 msgstr "Precedente"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:154 libraries/common.lib.php:2337
+#: js/messages.php:153 libraries/common.lib.php:2337
 #: libraries/common.lib.php:2340 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
@@ -1269,231 +1268,231 @@ msgid "Next"
 msgstr "Prossimo"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:156
+#: js/messages.php:155
 msgid "Today"
 msgstr "Oggi"
 
-#: js/messages.php:159
+#: js/messages.php:158
 msgid "January"
 msgstr "Gennaio"
 
-#: js/messages.php:160
+#: js/messages.php:159
 msgid "February"
 msgstr "Febbraio"
 
-#: js/messages.php:161
+#: js/messages.php:160
 msgid "March"
 msgstr "Marzo"
 
-#: js/messages.php:162
+#: js/messages.php:161
 msgid "April"
 msgstr "Aprile"
 
-#: js/messages.php:163
+#: js/messages.php:162
 msgid "May"
 msgstr "Maggio"
 
-#: js/messages.php:164
+#: js/messages.php:163
 msgid "June"
 msgstr "Giugno"
 
-#: js/messages.php:165
+#: js/messages.php:164
 msgid "July"
 msgstr "Luglio"
 
-#: js/messages.php:166
+#: js/messages.php:165
 msgid "August"
 msgstr "Agosto"
 
-#: js/messages.php:167
+#: js/messages.php:166
 msgid "September"
 msgstr "Setttembre"
 
-#: js/messages.php:168
+#: js/messages.php:167
 msgid "October"
 msgstr "Ottobre"
 
-#: js/messages.php:169
+#: js/messages.php:168
 msgid "November"
 msgstr "Novembre"
 
-#: js/messages.php:170
+#: js/messages.php:169
 msgid "December"
 msgstr "Dicembre"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1540
+#: js/messages.php:173 libraries/common.lib.php:1540
 msgid "Jan"
 msgstr "Gen"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1542
+#: js/messages.php:175 libraries/common.lib.php:1542
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1544
+#: js/messages.php:177 libraries/common.lib.php:1544
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1546
+#: js/messages.php:179 libraries/common.lib.php:1546
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1548
+#: js/messages.php:181 libraries/common.lib.php:1548
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mag"
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1550
+#: js/messages.php:183 libraries/common.lib.php:1550
 msgid "Jun"
 msgstr "Giu"
 
 #. l10n: Short month name
-#: js/messages.php:186 libraries/common.lib.php:1552
+#: js/messages.php:185 libraries/common.lib.php:1552
 msgid "Jul"
 msgstr "Lug"
 
 #. l10n: Short month name
-#: js/messages.php:188 libraries/common.lib.php:1554
+#: js/messages.php:187 libraries/common.lib.php:1554
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:190 libraries/common.lib.php:1556
+#: js/messages.php:189 libraries/common.lib.php:1556
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:192 libraries/common.lib.php:1558
+#: js/messages.php:191 libraries/common.lib.php:1558
 msgid "Oct"
 msgstr "Ott"
 
 #. l10n: Short month name
-#: js/messages.php:194 libraries/common.lib.php:1560
+#: js/messages.php:193 libraries/common.lib.php:1560
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:196 libraries/common.lib.php:1562
+#: js/messages.php:195 libraries/common.lib.php:1562
 msgid "Dec"
 msgstr "Dic"
 
-#: js/messages.php:199
+#: js/messages.php:198
 msgid "Sunday"
 msgstr "Domenica"
 
-#: js/messages.php:200
+#: js/messages.php:199
 msgid "Monday"
 msgstr "Lunedì"
 
-#: js/messages.php:201
+#: js/messages.php:200
 msgid "Tuesday"
 msgstr "Martedì"
 
-#: js/messages.php:202
+#: js/messages.php:201
 msgid "Wednesday"
 msgstr "Mercoledì"
 
-#: js/messages.php:203
+#: js/messages.php:202
 msgid "Thursday"
 msgstr "Giovedì"
 
-#: js/messages.php:204
+#: js/messages.php:203
 msgid "Friday"
 msgstr "Venerdì"
 
-#: js/messages.php:205
+#: js/messages.php:204
 msgid "Saturday"
 msgstr "Sabato"
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1565
+#: js/messages.php:208 libraries/common.lib.php:1565
 msgid "Sun"
 msgstr "Dom"
 
 #. l10n: Short week day name
-#: js/messages.php:211 libraries/common.lib.php:1567
+#: js/messages.php:210 libraries/common.lib.php:1567
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:213 libraries/common.lib.php:1569
+#: js/messages.php:212 libraries/common.lib.php:1569
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:215 libraries/common.lib.php:1571
+#: js/messages.php:214 libraries/common.lib.php:1571
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:217 libraries/common.lib.php:1573
+#: js/messages.php:216 libraries/common.lib.php:1573
 msgid "Thu"
 msgstr "Gio"
 
 #. l10n: Short week day name
-#: js/messages.php:219 libraries/common.lib.php:1575
+#: js/messages.php:218 libraries/common.lib.php:1575
 msgid "Fri"
 msgstr "Ven"
 
 #. l10n: Short week day name
-#: js/messages.php:221 libraries/common.lib.php:1577
+#: js/messages.php:220 libraries/common.lib.php:1577
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:225
+#: js/messages.php:224
 msgid "Su"
 msgstr "Do"
 
 #. l10n: Minimal week day name
-#: js/messages.php:227
+#: js/messages.php:226
 msgid "Mo"
 msgstr "Lu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:229
+#: js/messages.php:228
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:231
+#: js/messages.php:230
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:233
+#: js/messages.php:232
 msgid "Th"
 msgstr "Gi"
 
 #. l10n: Minimal week day name
-#: js/messages.php:235
+#: js/messages.php:234
 msgid "Fr"
 msgstr "Ve"
 
 #. l10n: Minimal week day name
-#: js/messages.php:237
+#: js/messages.php:236
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:239
+#: js/messages.php:238
 msgid "Wk"
 msgstr "Sett"
 
-#: js/messages.php:241
+#: js/messages.php:240
 msgid "Hour"
 msgstr "Ora"
 
-#: js/messages.php:242
+#: js/messages.php:241
 msgid "Minute"
 msgstr "Minuto"
 
-#: js/messages.php:243
+#: js/messages.php:242
 msgid "Second"
 msgstr "Secondo"
 
@@ -1729,8 +1728,8 @@ msgstr "Benvenuto in %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La ragione di questo è che probabilmente non hai creato alcun file di "
 "configurazione. Potresti voler usare %1$ssetup script%2$s per crearne uno."
@@ -1785,14 +1784,14 @@ msgid "Cookies must be enabled past this point."
 msgstr "Da questo punto in poi, i cookie devono essere abilitati."
 
 #: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/signon.auth.lib.php:222
+#: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Login senza password è vietato dalla configurazione (vedi AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:647
-#: libraries/auth/signon.auth.lib.php:226
+#: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
@@ -1800,13 +1799,19 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
-#: libraries/auth/signon.auth.lib.php:232
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Impossibile eseguire il login nel server MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
 msgstr "Nome utente o password errati. Accesso negato."
+
+#: libraries/auth/signon.auth.lib.php:87
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Can not find signon authentication script:"
+msgstr "Autenticazione via config"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1880,7 +1885,7 @@ msgstr "Tabelle"
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
-#: libraries/export/latex.php:215 libraries/export/sql.php:1056
+#: libraries/export/latex.php:215 libraries/export/sql.php:1057
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:759
 msgid "Data"
@@ -4643,7 +4648,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "L'estensione %s è mancante. Controlla la tua configurazione di PHP."
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
-#: libraries/export/sql.php:604
+#: libraries/export/sql.php:608
 msgid "Events"
 msgstr "Eventi"
 
@@ -4699,16 +4704,16 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Connessione per controluser come definito nella configurazione fallita."
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
-#: libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysql.dbi.lib.php:313
+#: libraries/dbi/mysqli.dbi.lib.php:357
 msgid "The server is not responding"
 msgstr "Il server non risponde"
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysqli.dbi.lib.php:357
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(o il socket del server locale MySQL non è correttamente configurato)"
 
-#: libraries/dbi/mysql.dbi.lib.php:370
+#: libraries/dbi/mysql.dbi.lib.php:320
 msgid "Details..."
 msgstr "Dettagli..."
 
@@ -4852,8 +4857,8 @@ msgstr ", il nome della tabella diventerá @TABLE@"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Questo valore è interpretato usando %1$sstrftime%2$s: in questo modo puoi "
 "usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte "
@@ -4874,7 +4879,7 @@ msgid "Compression:"
 msgstr "Compressione:"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:517
-#: libraries/export/sql.php:1056 libraries/tbl_properties.inc.php:578
+#: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
 msgstr "Nessuno"
@@ -5593,8 +5598,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentazione ed ulteriori informazioni a riguardo di PBXT é disponibile "
 "su %sPrimeBase XT Home Page%s."
@@ -5647,12 +5652,12 @@ msgid "Data dump options"
 msgstr "Opzioni del dump dei dati"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
-#: libraries/export/sql.php:1154 libraries/export/texytext.php:123
+#: libraries/export/sql.php:1152 libraries/export/texytext.php:123
 msgid "Dumping data for table"
 msgstr "Dump dei dati per la tabella"
 
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
-#: libraries/export/sql.php:973 libraries/export/texytext.php:170
+#: libraries/export/sql.php:975 libraries/export/texytext.php:170
 msgid "Table structure for table"
 msgstr "Struttura della tabella"
 
@@ -5702,17 +5707,17 @@ msgstr "Mostra tipi MIME"
 msgid "Host"
 msgstr "Host"
 
-#: libraries/export/latex.php:144 libraries/export/sql.php:453
+#: libraries/export/latex.php:144 libraries/export/sql.php:457
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Generato il"
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:455
+#: libraries/export/latex.php:145 libraries/export/sql.php:459
 #: libraries/export/xml.php:111 main.php:162
 msgid "Server version"
 msgstr "Versione del server"
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:456
+#: libraries/export/latex.php:146 libraries/export/sql.php:460
 #: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr "Versione PHP"
@@ -5865,32 +5870,32 @@ msgstr "Procedure"
 msgid "Functions"
 msgstr "Funzioni"
 
-#: libraries/export/sql.php:806
+#: libraries/export/sql.php:808
 msgid "Constraints for dumped tables"
 msgstr "Limiti per le tabelle scaricate"
 
-#: libraries/export/sql.php:815
+#: libraries/export/sql.php:817
 msgid "Constraints for table"
 msgstr "Limiti per la tabella"
 
-#: libraries/export/sql.php:915
+#: libraries/export/sql.php:917
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/export/sql.php:927
+#: libraries/export/sql.php:929
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/export/sql.php:984 libraries/export/xml.php:38
+#: libraries/export/sql.php:986 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
 msgstr "Triggers"
 
-#: libraries/export/sql.php:996
+#: libraries/export/sql.php:998
 msgid "Structure for view"
 msgstr "Struttura per la vista"
 
-#: libraries/export/sql.php:1005
+#: libraries/export/sql.php:1007
 msgid "Stand-in structure for view"
 msgstr "Struttura stand-in per le viste"
 
@@ -7300,8 +7305,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sul server è in esecuzione Suhosin. Controlla la documentazione: "
-"%sdocumentation%s per possibili problemi."
+"Sul server è in esecuzione Suhosin. Controlla la documentazione: %"
+"sdocumentation%s per possibili problemi."
 
 #: navigation.php:207 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
@@ -7991,11 +7996,6 @@ msgstr "Vista d'insieme dell'utente"
 msgid "Grant"
 msgstr "Grant"
 
-#: server_privileges.php:1679 server_privileges.php:1703
-#: server_privileges.php:2108 server_privileges.php:2302
-msgid "Add a new User"
-msgstr "Aggiungi un nuovo utente"
-
 #: server_privileges.php:1684
 msgid "Remove selected users"
 msgstr "Rimuove gli utenti selezionati"
@@ -8014,8 +8014,8 @@ msgstr "Elimina i databases gli stessi nomi degli utenti."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
 "dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "
@@ -9554,10 +9554,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se credi che é necessario, usa delle ulteriori impostazioni di protezione - "
-"%saimpostazioni di autenticazione dei host%s e %slista di proxy di fiducia"
-"%s. Comunque, la protezione a base di IP potrebbe non essere affidabile se "
-"il tuo IP appartiene ad un ISP dove migliaia di utenti, incluso te, sono "
+"Se credi che é necessario, usa delle ulteriori impostazioni di protezione - %"
+"saimpostazioni di autenticazione dei host%s e %slista di proxy di fiducia%s. "
+"Comunque, la protezione a base di IP potrebbe non essere affidabile se il "
+"tuo IP appartiene ad un ISP dove migliaia di utenti, incluso te, sono "
 "connessi."
 
 #: setup/lib/index.lib.php:268
@@ -9572,8 +9572,8 @@ msgstr ""
 "Hai impostato il tipo di autenticazione [kbd]config[/kbd] e hai inclusi il "
 "nome utente e la parola chiave per l'auto-login, questo non è desiderato per "
 "gli host in uso live. Chiunque che conosce o indovina il tuo URL di "
-"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta "
-"%sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta %"
+"sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -10362,6 +10362,15 @@ msgstr "Nome VISTA"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Rinomina la vista in"
+
+#~ msgid "Add a New User"
+#~ msgstr "Aggiungi un nuovo Utente"
+
+#~ msgid "Create User"
+#~ msgstr "Crea Utente"
+
+#~ msgid "Add a new User"
+#~ msgstr "Aggiungi un nuovo utente"
 
 #~ msgid "Show table row links on left side"
 #~ msgstr "Mostra collegamenti alle righe della tabbella sulla sinistra"
