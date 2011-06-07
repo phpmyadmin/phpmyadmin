@@ -12,9 +12,10 @@
 class PMA_Table
 {
     /**
-     * UI preferences property: sorted column
+     * UI preferences properties
      */
     const PROP_SORTED_COLUMN = 'sorted_col';
+    const PROP_COLUMN_ORDER = 'col_order';
 
     static $cache = array();
 

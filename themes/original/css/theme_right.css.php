@@ -1871,7 +1871,7 @@ span.mysql-number {
     width: 5px;
 }
 
-.pma_table thead th span, .pma_table tbody td span {
+.pma_table th.draggable span, .pma_table tbody td span {
     display: block;
     overflow: hidden;
 }

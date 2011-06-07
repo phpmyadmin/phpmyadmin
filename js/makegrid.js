@@ -8,6 +8,7 @@
             // variables, assigned with default value, changed later
             alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
+            colOrder: new Array(),
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -52,8 +53,10 @@
                         left: objPos.left
                     });
                 }
-                // get the column index
-                var n = $(this.t).find('th.draggable').index(obj);
+                
+                // get the column index, zero-based
+                var n = this.getHeaderIdx(obj);
+                
                 this.colMov = {
                     x0: e.pageX,
                     y0: e.pageY,
@@ -89,7 +92,7 @@
                     // pointer animation
                     var hoveredCol = this.getHoveredCol(e);
                     if (hoveredCol) {
-                        var newn = $(this.t).find('th.draggable').index(hoveredCol);
+                        var newn = this.getHeaderIdx(hoveredCol);
                         this.colMov.newn = newn;
                         if (newn != this.colMov.n) {
                             // show the column pointer in the right place
@@ -127,12 +130,9 @@
                     var n = this.colRsz.n;
                     // do the resizing
                     if (this.alignment != 'vertical') {
-                        // resize the header
-                        $(this.t).find('th.draggable:eq(' + n + ') span')
-                               .css('width', nw);
-                        // resize the data
-                        $(this.t).find('tr:gt(0)').each(function() {
-                            $(this).find('td:eq(' + (g.actionSpan + n) + ') span')
+                        $(this.t).find('tr').each(function() {
+                            $(this).find('th.draggable:eq(' + n + ') span,' +
+                                         'td:eq(' + (g.actionSpan + n) + ') span')
                                    .css('width', nw);
                         });
                     } else {    // vertical alignment
@@ -153,6 +153,8 @@
                         this.colMov.objTop = objPos.top;
                         this.colMov.objLeft = objPos.left;
                         this.colMov.n = this.colMov.newn;
+                        // send request to server to remember the column order
+                        this.sendColOrder();
                     }
                     
                     // animate new column position
@@ -176,17 +178,15 @@
             reposRsz: function() {
                 $(this.cRsz).find('div').hide();
                 $firstRowCols = this.alignment != 'vertical' ?
-                                $(this.t).find('th.draggable') :
+                                $(this.t).find('tr:first th.draggable') :
                                 $(this.t).find('tr:first td');
-                var firstElmtIdx = $firstRowCols.index();
-                $firstRowCols.each(function() {
-                    $this = $(this);
-                    var n = $this.index();
-                    $cb = $(g.cRsz).find('div:eq(' + (n - firstElmtIdx) + ')');   // column border
+                for (var n = 0; n < $firstRowCols.length; n++) {
+                    $this = $($firstRowCols[n]);
+                    $cb = $(g.cRsz).find('div:eq(' + n + ')');   // column border
                     var pad = parseInt($this.css('padding-right'));
                     $cb.css('left', Math.floor($this.position().left + $this.width() + pad))
                        .show();
-                });
+                }
             },
             
             /**
@@ -194,24 +194,17 @@
              */
             shiftCol: function(oldn, newn) {
                 if (this.alignment != 'vertical') {
-                    // shift header
-                    $(this.t).find('thead tr').each(function() {
+                    $(this.t).find('tr').each(function() {
                         if (newn < oldn) {
-                            $(this).find('th.draggable:eq(' + newn + ')')
-                                   .before($(this).find('th.draggable:eq(' + oldn + ')'));
+                            $(this).find('th.draggable:eq(' + newn + '),' +
+                                         'td:eq(' + (g.actionSpan + newn) + ')')
+                                   .before($(this).find('th.draggable:eq(' + oldn + '),' +
+                                                        'td:eq(' + (g.actionSpan + oldn) + ')'));
                         } else {
-                            $(this).find('th.draggable:eq(' + newn + ')')
-                                   .after($(this).find('th.draggable:eq(' + oldn + ')'));
-                        }
-                    });
-                    // shift data
-                    $(this.t).find('tbody tr').each(function() {
-                        if (newn < oldn) {
-                            $(this).find('td:eq(' + (g.actionSpan + newn) + ')')
-                                   .before($(this).find('td:eq(' + (g.actionSpan + oldn) + ')'));
-                        } else {
-                            $(this).find('td:eq(' + (g.actionSpan + newn) + ')')
-                                   .after($(this).find('td:eq(' + (g.actionSpan + oldn) + ')'));
+                            $(this).find('th.draggable:eq(' + newn + '),' +
+                                         'td:eq(' + (g.actionSpan + newn) + ')')
+                                   .after($(this).find('th.draggable:eq(' + oldn + '),' +
+                                                       'td:eq(' + (g.actionSpan + oldn) + ')'));
                         }
                     });
                     // reposition the column resize bars
@@ -227,6 +220,10 @@
                                .after($(this.t).find('tr:eq(' + (g.actionSpan + oldn) + ')'));
                     }
                 }
+                // adjust the colOrder
+                var tmp = this.colOrder[oldn];
+                this.colOrder.splice(oldn, 1);
+                this.colOrder.splice(newn, 0, tmp);
             },
             
             /**
@@ -254,6 +251,54 @@
                     });
                 }
                 return hoveredCol;
+            },
+            
+            /**
+             * Get a zero-based index from a <th class="draggable"> tag in a table.
+             */
+            getHeaderIdx: function(obj) {
+                var n;
+                if (this.alignment != 'vertical') {
+                    n = $(obj).parents('tr').find('th.draggable').index(obj);
+                } else {
+                    var column_idx = $(obj).index();
+                    var $th_in_same_column = $(this.t).find('th.draggable:nth-child(' + (column_idx + 1) + ')');
+                    n = $th_in_same_column.index(obj);
+                }
+                return n;
+            },
+            
+            /**
+             * Reposition the table back to normal order.
+             */
+            restore: function() {
+                // use insertion sort, since we already have shiftCol function
+                for (var i = 1; i < this.colOrder.length; i++) {
+                    var x = this.colOrder[i];
+                    var j = i - 1;
+                    while (j >= 0 && x < this.colOrder[j]) {
+                        j--;
+                    }
+                    if (j != i - 1) {
+                        this.shiftCol(i, j + 1);
+                    }
+                }
+                // send request to server to remember the column order
+                this.sendColOrder();
+            },
+            
+            /**
+             * Send column order to the server.
+             */
+            sendColOrder: function() {
+                $.get('sql.php', {
+                    ajax_request: true,
+                    db: window.parent.db,
+                    table: window.parent.table,
+                    token: window.parent.token,
+                    set_col_order: true,
+                    col_order: this.colOrder
+                });
             }
         }
         
@@ -279,7 +324,7 @@
         
         // get first row data columns
         var $firstRowCols = g.alignment != 'vertical' ?
-                            $(t).find('th.draggable') :
+                            $(t).find('tr:first th.draggable') :
                             $(t).find('tr:first td');
         
         // assign first column (actions) span
@@ -289,6 +334,20 @@
                            $(t).find('tr:first th:first').prop('rowspan');
         } else {
             g.actionSpan = 0;
+        }
+        
+        // initialize column order
+        $col_order = $('#col_order');
+        if ($col_order.length > 0) {
+            g.colOrder = $col_order.val().split(',');
+            for (var i = 0; i < g.colOrder.length; i++) {
+                g.colOrder[i] = parseInt(g.colOrder[i]);
+            }
+        } else {
+            g.colOrder = new Array();
+            for (var i = 0; i < $firstRowCols.length; i++) {
+                g.colOrder.push(i);
+            }
         }
         
         // create column borders
@@ -317,6 +376,9 @@
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);
+        });
+        $('#restore_table').live('click', function() {
+            g.restore();
         });
         
         // add table class

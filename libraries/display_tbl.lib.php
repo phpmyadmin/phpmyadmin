@@ -374,6 +374,16 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             );
     } // end move toward
     ?>
+    <td>
+        <input id="restore_table" type="submit" value="Restore table" />
+        <?php
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        if ($col_order) {
+            echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+        }
+        ?>
+    </td>
 </tr>
 </table>
 
@@ -735,7 +745,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
     }
 
-    for ($i = 0; $i < $fields_cnt; $i++) {
+    // prepare to get the column order, if there is
+    $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+    $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+
+    for ($j = 0; $j < $fields_cnt; $j++) {
+        // assign $i with appropriate column order
+        $i = $col_order ? $col_order[$j] : $j;
         //  See if this column should get highlight because it's used in the
         //  where-query.
         if (isset($highlight_columns[$fields_meta[$i]->name]) || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)])) {
@@ -1148,6 +1164,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if ($vertical_display['emptypre'] > 0) {
                 echo '    <th colspan="' . $vertical_display['emptypre'] . '">' . "\n"
                     .'        &nbsp;</th>' . "\n";
+            } else if ($GLOBALS['cfg']['RowActionLinks'] == 'none') {
+                echo '    <th></th>' . "\n";
             }
 
             foreach ($vertical_display['desc'] as $val) {
@@ -1283,7 +1301,15 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         } // end if (1)
 
         // 2. Displays the rows' values
-        for ($i = 0; $i < $fields_cnt; ++$i) {
+
+        // prepare to get the column order, if there is
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+
+        for ($j = 0; $j < $fields_cnt; ++$j) {
+            // assign $i with appropriate column order
+            $i = $col_order ? $col_order[$j] : $j;
+
             $meta    = $fields_meta[$i];
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
@@ -1650,8 +1676,14 @@ function PMA_displayVerticalTable()
         echo '</tr>' . "\n";
     } // end if
 
+    // prepare to get the column order, if there is
+    $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+    $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+
     // Displays data
-    foreach ($vertical_display['desc'] AS $key => $val) {
+    foreach ($vertical_display['desc'] AS $j => $val) {
+        // assign appropriate key with current column order
+        $key = $col_order ? $col_order[$j] : $j;
 
         echo '<tr>' . "\n";
         echo $val;

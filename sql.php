@@ -152,6 +152,13 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $extra_data['select'] = $select;
     PMA_ajaxResponse(NULL, true, $extra_data);
 }
+
+if(isset($_REQUEST['set_col_order']) && $_REQUEST['set_col_order'] == true) {
+    $pmatable = new PMA_Table($table, $db);
+    $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $_REQUEST['col_order']);
+    PMA_ajaxResponse(NULL);
+}
+
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
