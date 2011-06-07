@@ -4043,9 +4043,7 @@ msgstr "DROP DATABASE を追加"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr ""
-"テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS コマンドを追加"
-"するかどうか。"
+msgstr "テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS 文を追加するかどうか。"
 
 #: libraries/config/messages.inc.php:431
 msgid "Add DROP TABLE"
