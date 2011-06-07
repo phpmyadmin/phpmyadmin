@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:47+0200\n"
+"PO-Revision-Date: 2011-06-07 12:48+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2580,10 +2580,9 @@ msgid ""
 msgstr "データベースで選択したテーブルを最適化や修復するというような、大量操作するテーブルメンテナンスを無効にします。"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "テーブル管理"
+msgstr "複数テーブルのメンテナンスを無効にする"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
