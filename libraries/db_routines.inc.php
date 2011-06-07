@@ -581,7 +581,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "    <td>" . __('Parameters') . "</td>\n";
     $retval .= "    <td>\n";
     // parameter handling start
-    $retval .= "        <table class='routine_params_table'>\n";
+    $retval .= "        <table class='routine_params_table' style='width: 100%;'>\n";
     $retval .= "        <tr>\n";
     $retval .= "            <th class='routine_direction_cell$isprocedure_class'>" . __('Direction') . "</th>\n";
     $retval .= "            <th>" . __('Name') . "</th>\n";
@@ -987,7 +987,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
        . PMA_generate_common_hidden_inputs($db, $table) . "\n";
     echo '<fieldset>' . "\n"
        . "<legend>{$routine['name']}</legend>\n";
-    echo "<table id='rte_table'>\n";
+    echo "<table class='rte_table'>\n";
     echo "<caption class='tblHeaders'>\n";
     echo __('Routine Parameters');
     echo "</caption>\n";
