@@ -2604,10 +2604,9 @@ msgstr ""
 "la réparation."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "<b>Maintenance</b> de la table"
+msgstr "Désactiver la maintenance de tables multiples"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
