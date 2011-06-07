@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-04 12:04+0200\n"
+"PO-Revision-Date: 2011-06-07 12:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1099,10 +1099,9 @@ msgid "Create Table"
 msgstr "Create Table"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Use Tables"
+msgstr "Insert Table"
 
 #: js/messages.php:86
 msgid "Searching"
