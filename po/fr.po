@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-04 12:20+0200\n"
+"PO-Revision-Date: 2011-06-07 12:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1110,11 +1110,10 @@ msgstr "La table doit comporter au moins une colonne."
 msgid "Create Table"
 msgstr "Nouvelle table"
 
-#: js/messages.php:82
-#, fuzzy
+#: js/messages.php:83
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Utiliser les tables"
+msgstr "Insérer dans la table"
 
 #: js/messages.php:85
 msgid "Searching"
@@ -2606,12 +2605,13 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Désactiver les opérations de masse sur les tables, comme l'optimisation ou "
+"la réparation."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "<b>Maintenance</b> de la table"
+msgstr "Désactiver la maintenance de tables multiples"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -8078,10 +8078,14 @@ msgid "wildcard"
 msgstr "passepartout"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
+<<<<<<< HEAD
 msgid "User has been added."
 msgstr "La vue %s a été supprimée"
+=======
+msgid "New user has been added."
+msgstr "Un utilisateur a été ajouté"
+>>>>>>> pootle/master
 
 #: server_processlist.php:29
 #, php-format

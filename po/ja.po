@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-05-31 12:04+0200\n"
+"PO-Revision-Date: 2011-06-07 12:48+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -165,7 +165,7 @@ msgstr "種別"
 #: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Null"
-msgstr "ヌル(NULL)"
+msgstr "NULL"
 
 #: db_datadict.php:171 db_structure.php:460 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
@@ -1032,7 +1032,7 @@ msgstr "すべてのユーザ"
 
 #: js/messages.php:55
 msgid "Reloading Privileges"
-msgstr "特権をリロードする"
+msgstr "特権を再読み込み"
 
 #: js/messages.php:56
 msgid "Removing Selected Users"
@@ -1193,7 +1193,7 @@ msgstr "主キーまたはユニークキーを選択してください"
 
 #: js/messages.php:113 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr "表示するカラムを選択してください"
+msgstr "表示するカラムの選択"
 
 #: js/messages.php:114
 msgid ""
@@ -1610,22 +1610,19 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d 行挿入しました。"
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "設定が保存できません"
+msgstr "最近使用したテーブルが保存できません"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "テーブル数"
+msgstr "最近使用したテーブル"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "設定するサーバがありません"
+msgstr "最近使用したテーブルはありません"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -2213,17 +2210,16 @@ msgstr "両方"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "なし"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "左"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "高さ"
+msgstr "右"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -2457,9 +2453,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"CHARとVARCHAR型のカラムに対しての編集用のフォームパーツのタイプを定義します。"
-"[kbd]input[/kbd] は入力文字数を制限することができます。[kbd]textarea[/kbd] は"
-"改行を入力すことができます。"
+"CHAR と VARCHAR 型のカラムに対しての編集用のフォームパーツのタイプを定義します。[kbd]input[/kbd] "
+"は入力文字数を制限することができます。[kbd]textarea[/kbd] は改行を入力すことができます。"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2587,13 +2582,12 @@ msgstr "サーバをリストで表示する"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "データベースで選択したテーブルを最適化や修復するというような、大量操作するテーブルメンテナンスを無効にします。"
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "テーブル管理"
+msgstr "複数テーブルのメンテナンスを無効にする"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -2848,11 +2842,11 @@ msgstr "外部キー制限"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr "閲覧モード"
+msgstr "表示モード"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
-msgstr "閲覧モードの詳細設定"
+msgstr "表示モードの詳細設定"
 
 #: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
@@ -3232,11 +3226,11 @@ msgstr "空の行はインポートしない"
 
 #: libraries/config/messages.inc.php:256
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "金額は単位を取り除く（例えば、$5.00 を 5.00）"
+msgstr "金額は単位を取り除く（例：$5.00 を 5.00）"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "パーセントは適切な小数に変換する（例えば、12.00% を .12）"
+msgstr "パーセントは適切な小数に変換する（例：12.00% を .12）"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
@@ -3354,16 +3348,14 @@ msgid "Enable highlighting"
 msgstr "強調表示を有効"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "テーブルのリストに表示されるテーブルの最大数"
+msgstr "最近使用したテーブルの最大数。0 で無効になります。"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used tables"
-msgstr "現在開いているテーブル"
+msgstr "最近使用したテーブル"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
@@ -3491,9 +3483,7 @@ msgstr "テーブルの最大数"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
-msgstr ""
-"cookie 認証で mcrypt 拡張がなかった場合、警告を表示します。チェックを入れると"
-"このメッセージを表示しないようにします。"
+msgstr "cookie 認証で mcrypt 拡張がなかった場合、警告を表示します。チェックを入れるとこのメッセージは表示されません。"
 
 #: libraries/config/messages.inc.php:316
 msgid "mcrypt warning"
@@ -3517,7 +3507,7 @@ msgstr "編集、インライン編集、コピー、削除のリンクことで
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "テーブルの行リンクを表示する場所"
 
 #: libraries/config/messages.inc.php:321
 msgid "Use natural order for sorting table and database names"
@@ -3644,13 +3634,12 @@ msgstr "コード変換エンジン"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "表示している各テーブルのソートが記憶されます。"
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "リネーム後のテーブル名"
+msgstr "テーブルのソートを記憶する"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -3931,7 +3920,6 @@ msgid "Server port"
 msgstr "サーバのポート"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -3939,14 +3927,13 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_config[/"
-"kbd] としておくのがいいでしょう。"
+"最近使用したテーブルをセッションを跨いで「永続的に」記憶しない場合は空欄にします。[kbd]pma_recent[/kbd] "
+"としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Currently opened table"
 msgid "Recently used table"
-msgstr "現在開いているテーブル"
+msgstr "最近使用したテーブル"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
@@ -4047,9 +4034,7 @@ msgstr "ユーザ設定保存テーブル"
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
-msgstr ""
-"データベースを作成するときにログの最初の行に DROP DATABASE IF EXISTS コマンド"
-"を追加するかどうか。"
+msgstr "データベースを作成するときにログの最初の行に DROP DATABASE IF EXISTS 文を追加するかどうか。"
 
 #: libraries/config/messages.inc.php:429
 msgid "Add DROP DATABASE"
@@ -4059,9 +4044,7 @@ msgstr "DROP DATABASE を追加"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr ""
-"テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS コマンドを追加"
-"するかどうか。"
+msgstr "テーブルを作成するときにログの最初の行に DROP TABLE IF EXISTS 文を追加するかどうか。"
 
 #: libraries/config/messages.inc.php:431
 msgid "Add DROP TABLE"
@@ -4071,9 +4054,7 @@ msgstr "DROP TABLE を追加"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr ""
-"ビューを作成するときにログの最初の行に DROP VIEW IF EXISTS コマンドを追加する"
-"かどうか。"
+msgstr "ビューを作成するときにログの最初の行に DROP VIEW IF EXISTS 文を追加するかどうか。"
 
 #: libraries/config/messages.inc.php:433
 msgid "Add DROP VIEW"
@@ -4247,10 +4228,8 @@ msgid ""
 "['LeftFrameTableSeparator'] directive, so only the folder is called like the "
 "alias, the table name itself stays unchanged"
 msgstr ""
-"[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg"
-"['LeftFrameTableSeparator']の指示に応じてテーブルを分割/入れ子するために使用"
-"されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル名自体"
-"はそのまま変わることありません。"
+"[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg['LeftFrameTableSeparator'] の指示に応"
+"じてテーブルを分割/入れ子するために使用されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル名自体はそのまま変わることありません。"
 
 #: libraries/config/messages.inc.php:467
 msgid "Display table comment instead of its name"
@@ -4324,9 +4303,7 @@ msgstr "新しいデータベース名の提案"
 
 #: libraries/config/messages.inc.php:484
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
-"Suhosin が検出された場合、警告をメインページに表示します。チェックを入れると"
-"このメッセージを表示しないようにします。"
+msgstr "Suhosin が検出された場合、警告をメインページに表示します。チェックを入れるとこのメッセージは表示されません。"
 
 #: libraries/config/messages.inc.php:485
 msgid "Suhosin warning"
@@ -4336,9 +4313,7 @@ msgstr "Suhosin 警告"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
-msgstr ""
-"編集モードでの textarea の1行の文字数。SQL クエリ用のでは 2 倍、クエリウィン"
-"ドウに対しては 1.25 倍になります。"
+msgstr "編集モードでの textarea の 1 行の文字数。SQL クエリ用のでは 2 倍、クエリウィンドウに対しては 1.25 倍になります。"
 
 #: libraries/config/messages.inc.php:487
 msgid "Textarea columns"
@@ -4897,9 +4872,7 @@ msgstr "ファイルは圧縮されていないもの、もしくは、%s で圧
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
-msgstr ""
-"圧縮ファイルの名前は<b>.[フォーマット].[圧縮形式]</b>で終わっていること。例え"
-"ば、<b>.sql.zip</b>。"
+msgstr "圧縮ファイルの名前は<b>.[フォーマット].[圧縮形式]</b>で終わっていること。例：<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -5642,7 +5615,7 @@ msgstr "PDF"
 
 #: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
-msgstr "(ひとつのテーブルのデータを含むレポートを生成します)"
+msgstr "(1 つのテーブルのデータを含むレポートを生成します)"
 
 #: libraries/export/pdf.php:24
 msgid "Report title:"
@@ -5695,15 +5668,15 @@ msgstr ""
 
 #: libraries/export/sql.php:216
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<code>INSERT</code> コマンドの代わりに以下を使う："
+msgstr "<code>INSERT</code> 文の代わりに以下を使う："
 
 #: libraries/export/sql.php:221
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> コマンド"
+msgstr "<code>INSERT DELAYED</code> 文"
 
 #: libraries/export/sql.php:227
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code>INSERT IGNORE</code> コマンド"
+msgstr "<code>INSERT IGNORE</code> 文"
 
 #: libraries/export/sql.php:237
 msgid "Function to use when dumping data:"
@@ -5719,9 +5692,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"全ての <code>INSERT</code> コマンドにカラム名を含める <br /> &nbsp; &nbsp; "
-"&nbsp; 例: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</"
-"code>"
+"全ての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; &nbsp; 例: "
+"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:257
 msgid ""
@@ -5729,8 +5701,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"全ての <code>INSERT</code> コマンドを複数行挿入で行う<br /> &nbsp; &nbsp; "
-"&nbsp; 例: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"全ての <code>INSERT</code> 文を複数行挿入で行う<br /> &nbsp; &nbsp; &nbsp; 例: "
+"<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:258
 msgid ""
@@ -5752,8 +5724,7 @@ msgstr ""
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
-msgstr ""
-"16進表記でバイナリカラムをダンプする<i>(例えば、\"abc\" を 0x616263)</i>"
+msgstr "16 進表記でバイナリカラムをダンプする<i>(例：\"abc\" を 0x616263)</i>"
 
 #: libraries/export/sql.php:281
 msgid ""
@@ -5937,11 +5908,11 @@ msgstr "このプラグインでは圧縮されたファイルのインポート
 
 #: libraries/import/ods.php:28
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "パーセントは適切な小数に変換する<i>（例えば、12.00% を .12）</i>"
+msgstr "パーセントは適切な小数に変換する<i>（例：12.00% を .12）</i>"
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "金額は単位を取り除く<i>（例えば、$5.00 を 5.00）</i>"
+msgstr "金額は単位を取り除く<i>（例：$5.00 を 5.00）</i>"
 
 #: libraries/import/sql.php:32
 msgid "SQL compatibility mode:"
@@ -6246,10 +6217,9 @@ msgid "SQL history"
 msgstr "SQL 履歴"
 
 #: libraries/relation.lib.php:143
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "永続的な接続"
+msgstr "最近使用したテーブルの永続的な記憶"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
@@ -7047,7 +7017,7 @@ msgstr "MySQL の文字セット"
 
 #: main.php:181
 msgid "Web server"
-msgstr "Web サーバ"
+msgstr "ウェブサーバ"
 
 #: main.php:187
 msgid "MySQL client version"
@@ -7225,7 +7195,7 @@ msgstr "リレーションを作成"
 
 #: pmd_general.php:90
 msgid "Reload"
-msgstr "リロード"
+msgstr "再読み込み"
 
 #: pmd_general.php:93
 msgid "Help"
@@ -7645,7 +7615,7 @@ msgstr "データのインポート、エクスポートを許可する"
 #: server_privileges.php:47 server_privileges.php:554
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "特権テーブルのリロードなしのユーザ・特権の追加を許可する"
+msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加を許可する"
 
 #: server_privileges.php:48 server_privileges.php:201
 #: server_privileges.php:530
@@ -7698,7 +7668,7 @@ msgstr "このバージョンの MySQL では無効です"
 #: server_privileges.php:57 server_privileges.php:196
 #: server_privileges.php:559
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "サーバ設定のリロード、サーバキャッシュのフラッシュを許可する"
+msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する"
 
 #: server_privileges.php:58 server_privileges.php:208
 #: server_privileges.php:566
@@ -7837,7 +7807,7 @@ msgstr "削除するユーザが選択されていません!"
 
 #: server_privileges.php:1273
 msgid "Reloading the privileges"
-msgstr "特権をリロードしています"
+msgstr "特権を再読み込みしています"
 
 #: server_privileges.php:1291
 msgid "The selected users have been deleted successfully."
@@ -7845,7 +7815,7 @@ msgstr "選択したユーザを正しく削除しました"
 
 #: server_privileges.php:1326
 msgid "The privileges were reloaded successfully."
-msgstr "特権を正常にリロードしました"
+msgstr "特権を正常に再読み込みしました"
 
 #: server_privileges.php:1337 server_privileges.php:1729
 msgid "Edit Privileges"
@@ -7890,10 +7860,8 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should %"
 "sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
-"作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
-"特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権リロー"
-"ド%s をしてください"
+"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手作業で特権を更新した場合は phpMyAdmin "
+"が利用しているテーブルの内容とサーバの特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み込み%s をしてください"
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
@@ -7942,7 +7910,7 @@ msgstr "元のユーザの特権をすべて無効にしてから削除する"
 msgid ""
 " ... delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr "ユーザテーブルから元のユーザを削除し、特権をリロードする"
+msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする"
 
 #: server_privileges.php:2114
 msgid "Database for user"
@@ -7984,7 +7952,6 @@ msgid "wildcard"
 msgstr "ワイルドカード"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "ビュー %s を破棄しました"
@@ -8352,9 +8319,8 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"InnoDBバッファプールでラッチされているページ数。これは現在読み込んでいる、あ"
-"るいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュしたり削除し"
-"たりできなくなっているページの数です"
+"InnoDB バッファプールでラッチされているページ数。これは現在読み込んでいる、あるいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュした"
+"り削除したりできなくなっているページの数です"
 
 #: server_status.php:72
 msgid ""
@@ -8363,10 +8329,9 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"行ロックやアダプティブハッシュインデックスといった管理オーバヘッドのせいでビ"
-"ジーになっているページ数。この値はInnodb_buffer_pool_pages_total - "
-"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_dataという式でも計算"
-"できます"
+"行ロックやアダプティブハッシュインデックスといった管理オーバヘッドのせいでビジーになっているページ数。この値は "
+"Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
+"Innodb_buffer_pool_pages_data という式でも計算できます"
 
 #: server_status.php:73
 msgid "Total size of buffer pool, in pages."
@@ -8376,17 +8341,13 @@ msgstr "ページのバッファプールサイズの合計"
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
-msgstr ""
-"InnoDBが開始したランダム読み込みの回数。これはクエリがテーブルの大部分をラン"
-"ダムな順番でスキャンするときに発生します"
+msgstr "InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をランダムな順番でスキャンするときに発生します"
 
 #: server_status.php:75
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
-msgstr ""
-"InnoDBが開始したシーケンシャル読み込みの回数。これはInnoDBがシーケンシャルな"
-"フルテーブルスキャンを行うときに発生します"
+msgstr "InnoDB が開始したシーケンシャル読み込みの回数。これは InnoDB がシーケンシャルなフルテーブルスキャンを行うときに発生します"
 
 #: server_status.php:76
 msgid "The number of logical read requests InnoDB has done."
@@ -9209,7 +9170,7 @@ msgstr "読み込む"
 
 #: setup/frames/index.inc.php:239
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin のホームページ"
+msgstr "phpMyAdmin のオフィシャルサイト"
 
 #: setup/frames/index.inc.php:240
 msgid "Donate"
@@ -9740,7 +9701,7 @@ msgstr "コピーしたテーブルに切り替える"
 
 #: tbl_operations.php:590
 msgid "Table maintenance"
-msgstr "テーブル管理"
+msgstr "テーブルメンテナンス"
 
 #: tbl_operations.php:614
 msgid "Defragment table"
@@ -10009,9 +9970,7 @@ msgstr ""
 
 #: tbl_tracking.php:224
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
-"SQL コマンドをエクスポートしました。ダンプしたものをコピーするか実行するかし"
-"てください。"
+msgstr "SQL 文をエクスポートしました。ダンプしたものをコピーするか実行するかしてください。"
 
 #: tbl_tracking.php:255
 #, php-format
@@ -10061,11 +10020,11 @@ msgstr "データ操作コマンド"
 
 #: tbl_tracking.php:558
 msgid "SQL dump (file download)"
-msgstr "SQL文のダンプ（ファイルでダウンロード）"
+msgstr "SQL 文のダンプ（ファイルでダウンロード）"
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
-msgstr "SQL文のダンプ"
+msgstr "SQL 文のダンプ"
 
 #: tbl_tracking.php:560
 msgid "This option will replace your table and contained data."
