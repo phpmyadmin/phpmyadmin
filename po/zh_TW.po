@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-07 06:29-0400\n"
+"POT-Creation-Date: 2011-06-07 06:41-0400\n"
 "PO-Revision-Date: 2011-06-03 09:09+0200\n"
 "Last-Translator:  <kiange@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -7804,7 +7804,7 @@ msgstr "萬用字元"
 #: server_privileges.php:2295
 #, fuzzy
 #| msgid "View %s has been dropped"
-msgid "New user has been added."
+msgid "User has been added."
 msgstr "已刪除 view %s"
 
 #: server_processlist.php:29

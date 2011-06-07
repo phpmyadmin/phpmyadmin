@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-07 06:29-0400\n"
+"POT-Creation-Date: 2011-06-07 06:41-0400\n"
 "PO-Revision-Date: 2011-05-31 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -7986,7 +7986,7 @@ msgstr "ワイルドカード"
 #: server_privileges.php:2295
 #, fuzzy
 #| msgid "View %s has been dropped"
-msgid "New user has been added."
+msgid "User has been added."
 msgstr "ビュー %s を破棄しました"
 
 #: server_processlist.php:29

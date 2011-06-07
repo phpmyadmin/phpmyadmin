@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-07 06:29-0400\n"
+"POT-Creation-Date: 2011-06-07 06:41-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7498,7 +7498,7 @@ msgid "wildcard"
 msgstr ""
 
 #: server_privileges.php:2295
-msgid "New user has been added."
+msgid "User has been added."
 msgstr ""
 
 #: server_processlist.php:29

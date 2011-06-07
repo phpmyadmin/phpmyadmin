@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-07 06:29-0400\n"
+"POT-Creation-Date: 2011-06-07 06:41-0400\n"
 "PO-Revision-Date: 2010-03-12 09:11+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -8075,7 +8075,7 @@ msgstr "xüsusi işare"
 
 #: server_privileges.php:2295
 #, fuzzy
-msgid "New user has been added."
+msgid "User has been added."
 msgstr "%s sahesi leğv edildi"
 
 #: server_processlist.php:29
