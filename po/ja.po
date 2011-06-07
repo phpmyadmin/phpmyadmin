@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:31+0200\n"
+"PO-Revision-Date: 2011-06-07 12:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7612,7 +7612,7 @@ msgstr "データのインポート、エクスポートを許可する"
 #: server_privileges.php:47 server_privileges.php:554
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "特権テーブルの再読み込みなしのユーザ・特権の追加を許可する"
+msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加を許可する"
 
 #: server_privileges.php:48 server_privileges.php:201
 #: server_privileges.php:530
