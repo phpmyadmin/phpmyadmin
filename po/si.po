@@ -1131,7 +1131,7 @@ msgstr "නොසලකන්න"
 
 #: js/messages.php:101
 msgid "Select referenced key"
-msgstr ""
+msgstr "සම්බන්දිත මූලය තෝරන්න"
 
 # ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology
 # Terms - ICTA
@@ -1722,7 +1722,7 @@ msgstr "දෘඪාංග සත්‍යාපනය අසමත් විය
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "වලංගු සත්‍යාපන යතුරක් සම්බන්ද කර නැත"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
@@ -1738,11 +1738,11 @@ msgstr "PBMS සම්බන්ධතාවය අසමත් විය:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "PBMS BLOB තොරතුරු ලබාගැනීම අසමත් විය:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "BLOB අන්තර්ගත-ප්‍රකාරය ලබාගැනීම අසමත් විය:"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1750,7 +1750,7 @@ msgstr "දසුන නරඹන්න"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Play audio"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
@@ -2225,12 +2225,12 @@ msgstr "\"%s\" සඳහා %s දිගුව අවශ්‍යය"
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "ආනයන අකර්මන්‍යයි, (%s) ක්‍රියාවලිය නොමැත"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "අපනයන අකර්මන්‍යයි, (%s) ක්‍රියාවලිය නොමැත"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
@@ -2247,7 +2247,7 @@ msgstr "උපරිම %s"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "මෙම සිටුවම අක්‍රීය කර ඇත, ඔබගේ වින්‍යාස සඳහා එය නොයෙදෙනු ඇත"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
