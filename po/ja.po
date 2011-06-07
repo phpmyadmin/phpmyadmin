@@ -10037,7 +10037,7 @@ msgstr "データ操作コマンド"
 
 #: tbl_tracking.php:558
 msgid "SQL dump (file download)"
-msgstr "SQL文のダンプ（ファイルでダウンロード）"
+msgstr "SQL 文のダンプ（ファイルでダウンロード）"
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
