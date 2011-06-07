@@ -7192,7 +7192,7 @@ msgstr "リレーションを作成"
 
 #: pmd_general.php:90
 msgid "Reload"
-msgstr "リロード"
+msgstr "再読み込み"
 
 #: pmd_general.php:93
 msgid "Help"
