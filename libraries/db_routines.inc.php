@@ -1157,12 +1157,16 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
     if (! empty($_REQUEST['addroutine'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
             echo "\n\n<h2>" . __("Create Routine") . "</h2>\n\n";
+        } else {
+            $title = __("Create Routine");
         }
         $routine = getFormInputFromRequest();
         $mode = 'add';
     } else if (! empty($_REQUEST['editroutine'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
             echo "\n\n<h2>" . __("Edit Routine") . "</h2>\n\n";
+        } else {
+            $title = __("Edit Routine");
         }
         if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
             $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
@@ -1195,7 +1199,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         $template .= "                </a>\n";
         $template .= "            </td>\n";
         $template .= "        </tr>\n";
-        $extra_data = array('title' => __('Add a new Routine'), 'param_template' => $template, 'type' => $routine['type']);
+        $extra_data = array('title' => $title, 'param_template' => $template, 'type' => $routine['type']);
         PMA_ajaxResponse($editor, true, $extra_data);
     }
     echo $editor;
