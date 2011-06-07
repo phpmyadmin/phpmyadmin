@@ -4300,9 +4300,7 @@ msgstr "新しいデータベース名の提案"
 
 #: libraries/config/messages.inc.php:484
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
-"Suhosin が検出された場合、警告をメインページに表示します。チェックを入れると"
-"このメッセージを表示しないようにします。"
+msgstr "Suhosin が検出された場合、警告をメインページに表示します。チェックを入れるとこのメッセージは表示されません。"
 
 #: libraries/config/messages.inc.php:485
 msgid "Suhosin warning"
