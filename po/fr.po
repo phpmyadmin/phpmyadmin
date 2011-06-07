@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:47+0200\n"
+"PO-Revision-Date: 2011-06-07 12:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8079,10 +8079,9 @@ msgid "wildcard"
 msgstr "passepartout"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "New user has been added."
-msgstr "La vue %s a été supprimée"
+msgstr "Un utilisateur a été ajouté"
 
 #: server_processlist.php:29
 #, php-format
