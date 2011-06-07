@@ -4322,9 +4322,7 @@ msgstr "Suhosin 警告"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
-msgstr ""
-"編集モードでの textarea の1行の文字数。SQL クエリ用のでは 2 倍、クエリウィン"
-"ドウに対しては 1.25 倍になります。"
+msgstr "編集モードでの textarea の 1 行の文字数。SQL クエリ用のでは 2 倍、クエリウィンドウに対しては 1.25 倍になります。"
 
 #: libraries/config/messages.inc.php:487
 msgid "Textarea columns"
