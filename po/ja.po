@@ -5655,7 +5655,7 @@ msgstr "他のデータベースシステムまたは古い MySQL サーバと�
 #: libraries/export/sql.php:166
 #, php-format
 msgid "Add %s statement"
-msgstr "%s 文の追加"
+msgstr "%s コマンドの追加"
 
 #: libraries/export/sql.php:144
 msgid "Add statements:"
