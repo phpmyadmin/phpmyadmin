@@ -46,6 +46,10 @@ $js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf(__('Are you sure yo
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strNotNumber'] = __('This is not a number!');
 
+/* Charts */
+/* l10n: Default description for the y-Axis of Charts */
+$js_messages['strTotalCount'] = __('Total count');
+
 /* For server_privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');

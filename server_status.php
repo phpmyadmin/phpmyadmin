@@ -64,12 +64,12 @@ require_once './libraries/replication_gui.lib.php';
  * JS Includes
  */
  
-$GLOBALS['js_include'][] = 'pMap.js';
 $GLOBALS['js_include'][] = 'server_status.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+/* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
@@ -511,14 +511,20 @@ function printQueryStatistics() {
         <tbody>
 
     <?php
+    $chart_json = Array();
+    $query_sum = array_sum($used_queries);
+    $other_sum = 0;
     foreach ($used_queries as $name => $value) {
         $odd_row = !$odd_row;
 
-    // For the percentage column, use Questions - Connections, because
-    // the number of connections is not an item of the Query types
-    // but is included in Questions. Then the total of the percentages is 100.
-        $name = str_replace('Com_', '', $name);
-        $name = str_replace('_', ' ', $name);
+        // For the percentage column, use Questions - Connections, because
+        // the number of connections is not an item of the Query types
+        // but is included in Questions. Then the total of the percentages is 100.
+        $name = str_replace(Array('Com_','_'), Array('',' '), $name);
+        
+        if($value < $query_sum * 0.02)
+            $other_sum += $value;
+        else $chart_json[$name] = $value;
     ?>
             <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
                 <th class="name"><?php echo htmlspecialchars($name); ?></th>
@@ -534,15 +540,21 @@ function printQueryStatistics() {
         </tbody>
         </table>
         
-        <div id="serverstatusquerieschart">
+        <div id="serverstatusquerieschart" style="width:500px; height:350px; ">
         <?php 
-            // Generate the graph if this is an ajax request
+            /*// Generate the graph if this is an ajax request
             if(isset($_REQUEST['ajax_request'])) {
                 echo createQueryChart();
             } else {
                 echo '<a href="'.$PMA_PHP_SELF.'?'.$url_query.'&amp;query_chart=1#serverstatusqueries"'
                     .'title="' . __('Show query chart') . '">['.__('Show query chart').']</a>';
-            }
+            }*/
+            
+            if($other_sum>0)
+                $chart_json[__('Other')] = $other_sum;
+            
+            echo json_encode($chart_json);
+            
         ?>
         </div>
         <?php

@@ -13,7 +13,7 @@
  *
  */
 
-// Add a tablesorter parser to properly handle thousands seperated numbers and SI units
+// Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
 $(function() {
     jQuery.tablesorter.addParser({
         id: "fancyNumber",
@@ -52,9 +52,6 @@ $(function() {
     
     // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
-    // active timeouts that refresh the charts
-    var activeTimeouts = new Object();
-    
     // Add tabs
     $('#serverStatusTabs').tabs({
         // Tab persistence
@@ -66,19 +63,64 @@ $(function() {
     // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
     $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
     
-    // Load chart asynchronly so the page loads faster
-    $.get($('#serverstatusquerieschart a').first().attr('href'),{ajax_request:1}, function(data) {
-        $('#serverstatusquerieschart').html(data);
-        // Init imagemap again
-        imageMap.init();
+    // Build query statistics chart
+    var cdata = new Array();
+    $.each(jQuery.parseJSON($('#serverstatusquerieschart').html()),function(key,value) {
+        cdata.push([key,parseInt(value)]);
+    });
+    
+    PMA_createChart({
+        chart: {
+            renderTo: 'serverstatusquerieschart'
+            
+        },
+        title: {
+            text:'',
+            margin:0
+        },
+        series: [{
+            type:'pie',
+            name: 'Query statistics',
+            data: cdata
+        }],
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                   formatter: function() {
+                      return '<b>'+ this.point.name +'</b><br> '+ Highcharts.numberFormat(this.percentage, 2) +' %';
+                   }
+                }
+            }
+        },		
+        tooltip: {
+            formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+Highcharts.numberFormat(this.y, 2)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
+        }
     });
     
     // Table sorting
     initTableSorter('statustabs_queries');
     initTableSorter('statustabs_allvars');
     
-    // Ajax reload of variables (always the first link)
-    $('.statuslinks a:nth-child(1)').click(function() { return refreshHandler(this); });
+    // Ajax refresh of variables (always the first link in each tab)
+    $('.statuslinks a:nth-child(1)').click(function() { 
+        // ui-tabs-panel class is added by the jquery tabs feature
+        var tab=$(element).parents('div.ui-tabs-panel');
+        
+        // Show ajax load icon
+        $(element).find('img').show();
+
+        $.get($(element).attr('href'),{ajax_request:1},function(data) {
+            initTab(tab,data);
+            $(element).find('img').hide();
+        });
+        
+        tabStatus[tab.attr('id')]='data';
+        
+        return false;
+    });
     
     /** Realtime charting of variables (always the second link) **/
     $('.statuslinks a:nth-child(2)').click(function() {
@@ -94,8 +136,9 @@ $(function() {
                     settings = {
                         series: [{name:'Connections since last refresh', data:[]},{name:'Processes', data:[]}],
                         title: {text:'Connections / Processes'},
-                        refresh:{ type: 'proc',
-                                  callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
+                        realtime:{ url:'server_status.php?'+url_query,
+                                   type: 'proc',
+                                   callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
                                         chartObj.series[0].addPoint(
                                             { x:curVal.x, y:curVal.y_conn-lastVal.y_conn },
                                             false, numLoadedPoints >= numMaxPoints
@@ -113,7 +156,8 @@ $(function() {
                         series: [{name:'Issued queries since last refresh', data:[]}],
                         title: {text:'Issued queries'},
                         tooltip: { formatter:function() { return this.point.name; } },
-                        refresh:{ type: 'queries',
+                        realtime:{ url:'server_status.php?'+url_query,
+                                  type: 'queries',
                                   callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
                                         chartObj.series[0].addPoint(
                                             { x:curVal.x,  y:curVal.y-lastVal.y, name:sortedQueriesPointInfo(curVal,lastVal) },
@@ -135,12 +179,12 @@ $(function() {
                 .hide()
                 .after('<div style="width:700px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
             tabStatus[tab.attr('id')]='realtime';            
-            initChart(settings);
+            PMA_createChart(settings);
             $(this).html(PMA_messages['strStaticData']);
             tab.find('.statuslinks a:nth-child(1)').hide();
         } else {
-            clearTimeout(activeTimeouts[tab.attr('id')+"_chart_cnt"]);
-            activeTimeouts[tab.attr('id')+"_chart_cnt"]=null;
+            clearTimeout(chart_activeTimeouts[tab.attr('id')+"_chart_cnt"]);
+            chart_activeTimeouts[tab.attr('id')+"_chart_cnt"]=null;
             tab.find('.tabInnerContent').show();
             tab.find('div#'+tab.attr('id')+'_chart_cnt').remove();
             tabStatus[tab.attr('id')]='data';
@@ -150,6 +194,7 @@ $(function() {
         return false; 
     });
     
+
     /* 3 Filtering functions */
     $('#filterAlert').change(function() {
         alertFilter = this.checked;
@@ -185,23 +230,6 @@ $(function() {
         }
         
         initTableSorter(tab.attr('id'));        
-    }
-    
-    function refreshHandler(element) {
-        // ui-tabs-panel class is added by the jquery tabs feature
-        var tab=$(element).parents('div.ui-tabs-panel');
-        
-        // Show ajax load icon
-        $(element).find('img').show();
-
-        $.get($(element).attr('href'),{ajax_request:1},function(data) {
-            initTab(tab,data);
-            $(element).find('img').hide();
-        });
-        
-        tabStatus[tab.attr('id')]='data';
-        
-        return false;
     }
     
     function initTableSorter(tabid) {
@@ -279,85 +307,6 @@ $(function() {
                 $(this).parent().css('display','none');
             }
         });
-    }
-    
-    function initChart(passedSettings) {
-        var container = passedSettings.chart.renderTo;
-        
-        var settings = {
-            chart: {
-                defaultSeriesType: 'spline',
-                marginRight: 10,
-                events: {
-                    load: function() {
-                        var thisChart = this;
-                        var lastValue=null;
-                        var numLoadedPoints=0;
-                        var otherSum=0;
-                        
-                        // No realtime updates for graphs that are being exported
-                        if(thisChart.options.chart.forExport==true) return;
-                                
-                        var addnewPoint = function() {
-                            $.get('server_status.php?'+url_query,{ajax_request:1, chart_data:1, type:passedSettings.refresh.type},function(data) {
-                                if(activeTimeouts[container]==null) return;
-                                
-                                var chartData = jQuery.parseJSON(data);
-                                var pointInfo='';
-                                var i=0;
-                                
-                                chartData.x = parseInt(chartData.x);
-                                chartData.y = parseInt(chartData.y);
-                                
-                                if(lastValue==null) lastValue = chartData;
-                                
-                                passedSettings.refresh.callback(thisChart,chartData,lastValue,numLoadedPoints)
-                                    
-                                lastValue = chartData;
-                                numLoadedPoints++;
-                                activeTimeouts[container] = setTimeout(addnewPoint, refreshRate);
-                            });
-                        }
-                        
-                        activeTimeouts[container] = setTimeout(addnewPoint, 0);
-                    }
-                }
-            },
-            credits: {
-                enabled:false
-            },
-            xAxis: {
-                type: 'datetime',
-                tickPixelInterval: 150
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Total count'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+ 
-                        Highcharts.numberFormat(this.y, 2);
-                }
-            },
-            exporting: {
-                enabled: true
-            },
-            series: []
-        }
-        
-        // Overwrite/Merge default settings with passedsettings
-        $.extend(true,settings,passedSettings);
-
-        chart = new Highcharts.Chart(settings);
     }
     
     // Provides a nicely formatted and sorted tooltip of each datapoint of the query statistics
