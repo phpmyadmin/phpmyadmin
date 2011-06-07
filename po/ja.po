@@ -2210,7 +2210,7 @@ msgstr "なし"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "左"
 
 #: libraries/config.values.php:47
 #, fuzzy
