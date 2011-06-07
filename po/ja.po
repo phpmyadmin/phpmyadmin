@@ -8353,9 +8353,7 @@ msgstr "InnoDB が開始したランダム読み込みの回数。これはク�
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
-msgstr ""
-"InnoDBが開始したシーケンシャル読み込みの回数。これはInnoDBがシーケンシャルな"
-"フルテーブルスキャンを行うときに発生します"
+msgstr "InnoDB が開始したシーケンシャル読み込みの回数。これは InnoDB がシーケンシャルなフルテーブルスキャンを行うときに発生します"
 
 #: server_status.php:76
 msgid "The number of logical read requests InnoDB has done."
