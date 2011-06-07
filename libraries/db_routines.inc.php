@@ -880,68 +880,47 @@ $routine_errors = array();
  * Handle all user requests other than the default of listing routines
  */
 if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name'])) {
-    $routine        = getFormInputFromRoutineName($db, $_REQUEST['routine_name'], false);
-    $queries        = array();
-    $end_query      = 'SELECT ';
-    $args           = '';
-    $need_end_query = false;
-    if ($routine['type'] == 'FUNCTION') {
-        $need_end_query = true;
-        for ($i=0; $i<$routine['num_params']; $i++) {
-            if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
-                $value = $_REQUEST['params'][$routine['param_name'][$i]];
-                if (is_array($value)) { // is SET type
-                    $value = implode(',', $value);
-                }
-                $value = PMA_sqladdslashes($value);
-                $queries[] = "SET @p$i='$value';\n";
-                $args  .= "@p$i";
+    // Build the queries
+    $routine   = getFormInputFromRoutineName($db, $_REQUEST['routine_name'], false);
+    $queries   = array();
+    $end_query = array();
+    $args      = array();
+    for ($i=0; $i<$routine['num_params']; $i++) {
+        if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
+            $value = $_REQUEST['params'][$routine['param_name'][$i]];
+            if (is_array($value)) { // is SET type
+                $value = implode(',', $value);
             }
-            if ($i != $routine['num_params']-1) {
-                $args .= ", ";
-            }
-        }
-        $queries[] = "SELECT " . PMA_backquote($_REQUEST['routine_name']) . "($args) "
-                   . "AS " . PMA_backquote($_REQUEST['routine_name']) . ";";
-    } else {
-        for ($i=0; $i<$routine['num_params']; $i++) {
-            if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
-                $value = $_REQUEST['params'][$routine['param_name'][$i]];
-                if (is_array($value)) { // is SET type
-                    $value = implode(',', $value);
-                }
-                $value = PMA_sqladdslashes($value);
-                if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
-                      && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
-                    $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
-                } else {
-                    $queries[] = "SET @p$i='$value';\n";
-                }
-                $args  .= "@p$i";
+            $value = PMA_sqladdslashes($value);
+            if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
+                  && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
+                $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
             } else {
-                $args  .= "@p$i";
+                $queries[] = "SET @p$i='$value';\n";
             }
-            if ($i != $routine['num_params']-1) {
-                $args .= ", ";
-            }
-            if ($routine['param_dir'][$i] == 'OUT' || $routine['param_dir'][$i] == 'INOUT') {
-                $need_end_query = true;
-                $end_query .= "@p$i AS " . PMA_backquote($routine['param_name'][$i]);
-                if ($i != $routine['num_params']-1) {
-                    $end_query .= ", ";
-                }
-            }
+            $args[] = "@p$i";
+        } else {
+            $args[] = "@p$i";
         }
-        $queries[] = "CALL " . PMA_backquote($_REQUEST['routine_name']) . "($args);";
-        if ($need_end_query) {
-            if (substr($end_query, -2) == ", ") {
-                $end_query = substr($end_query, 0, -2);
+        if ($routine['type'] == 'PROCEDURE') {
+            if ($routine['param_dir'][$i] == 'OUT' || $routine['param_dir'][$i] == 'INOUT') {
+                $end_query[] = "@p$i AS " . PMA_backquote($routine['param_name'][$i]);
             }
-            $queries[] = "$end_query;";
         }
     }
-
-    $sql_query = '';
+    if ($routine['type'] == 'PROCEDURE') {
+        $queries[] = "CALL " . PMA_backquote($routine['name'])
+                   . "(" . implode(', ', $args) . ");\n";
+        if (count($end_query)) {
+            $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
+        }
+    } else {
+        $queries[] = "SELECT " . PMA_backquote($routine['name'])
+                   . "(" . implode(', ', $args) . ") "
+                   . "AS " . PMA_backquote($routine['name']) . ";\n";
+    }
+    // Execute the queries
+    $affected = 0;
     $result = null;
     foreach ($queries as $num => $query) {
         $resource = PMA_DBI_query($query);
@@ -951,29 +930,59 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             }
             PMA_DBI_next_result();
         }
-        if (! is_bool($resource)) {
+        if (substr($query, 0, 6) == 'SELECT') {
             $result = $resource;
+        } else if (substr($query, 0, 4) == 'CALL') {
+            $affected = PMA_DBI_affected_rows() - PMA_DBI_num_rows($resource);
         }
-        $sql_query .= $query;
     }
 
-    // FIXME: This whole "displayTable" business is rubbish, it's probably best
-    // to write the code to display the results of the query here from scratch.
+    // If any of the queries failed, we wouldn't have gotten
+    // this far, so we simply show a success message.
+    $message  = __('Your SQL query has been executed successfully');
+    if ($routine['type'] == 'PROCEDURE') {
+        $message .= '<br />';
+        $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
+    }
+    $message = PMA_message::success($message);
+
+    // Pass the sql query through the "pretty printer"
+    // and display it.
+    $output  = '<code class="sql" style="margin-bottom: 1em;">';
+    $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
+    $output .= '</code>';
+
+    // Display results
     if ($result) {
-        $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
-        $unlim_num_rows = $num_rows;
-        $fields_meta = PMA_DBI_get_fields_meta($result);
-        $fields_cnt  = count($fields_meta);
-        $disp = 'nnnn000000';
-        require_once './libraries/parse_analyze.lib.php';
-        require_once "display_tbl.lib.php";
-        $analyzed_sql[0]['queryflags']['procedure'] = true;
-        PMA_displayTable_checkConfigParams();
-        PMA_displayTable($result, $disp, $analyzed_sql);
+        $output .= "<fieldset><legend>";
+        $output .= sprintf(__('Execution Results of Routine %s'),
+                           PMA_backquote(htmlspecialchars($routine['name'])));
+        $output .= "</legend>";
+        $output .= "<table><tr>";
+        foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
+            $output .= "<th>{$field->name}</th>";
+        }
+        $output .= "</tr>";
+        // Stored routines can only ever return ONE ROW.
+        $data = PMA_DBI_fetch_single_row($result);
+        foreach ($data as $key => $value) {
+            if ($value === null) {
+                $value = '<i>NULL</i>';
+            }
+            $output .= "<td class='odd'>$value</td>";
+        }
+        $output .= "</table></fieldset>";
+    } else {
+        $notice = __('MySQL returned an empty result set (i.e. zero rows).');
+        $output .= PMA_message::notice($notice)->getDisplay();
     }
-
-    require './libraries/footer.inc.php';
-    // exit;
+    if ($GLOBALS['is_ajax_request']) {
+        // FIXME: STUB
+    } else {
+        echo $message->getDisplay() . $output;
+        unset($_POST);
+        // Now deliberately fall through to displaying the routines list
+    }
 } else if (! empty($_GET['execute_dialog']) && ! empty($_GET['routine_name'])) {
     /**
      * Display the execute form for a routine.
