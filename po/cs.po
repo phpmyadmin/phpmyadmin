@@ -2593,10 +2593,9 @@ msgstr ""
 "vybraných tabulek z databáze."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Údržba tabulky"
+msgstr "Vypnout hromadné operace s tabulkami"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
