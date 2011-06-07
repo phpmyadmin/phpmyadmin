@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 11:42+0200\n"
+"PO-Revision-Date: 2011-06-07 11:44+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -3346,10 +3346,9 @@ msgid "Enable highlighting"
 msgstr "強調表示を有効"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "テーブルのリストに表示されるテーブルの最大数"
+msgstr "最近使用したテーブルの最大数。0 で無効になります。"
 
 #: libraries/config/messages.inc.php:289
 #, fuzzy
