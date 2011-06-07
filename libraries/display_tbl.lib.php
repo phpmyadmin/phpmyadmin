@@ -870,6 +870,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
                     $th_class[] = 'pointer';
                 }
+                if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
+                    $th_class[] = 'marker';
+                }
                 echo ' class="' . implode(' ', $th_class) . '"';
 
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
