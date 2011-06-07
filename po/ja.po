@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:27+0200\n"
+"PO-Revision-Date: 2011-06-07 12:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1033,7 +1033,7 @@ msgstr "ユーザを作成する"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
-msgstr "特権をリロードする"
+msgstr "特権を再読み込み"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
