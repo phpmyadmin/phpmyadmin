@@ -889,7 +889,11 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         $need_end_query = true;
         for ($i=0; $i<$routine['num_params']; $i++) {
             if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
-                $value = PMA_sqladdslashes($_REQUEST['params'][$routine['param_name'][$i]]);
+                $value = $_REQUEST['params'][$routine['param_name'][$i]];
+                if (is_array($value)) { // is SET type
+                    $value = implode(',', $value);
+                }
+                $value = PMA_sqladdslashes($value);
                 $queries[] = "SET @p$i='$value';\n";
                 $args  .= "@p$i";
             }
@@ -902,7 +906,11 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     } else {
         for ($i=0; $i<$routine['num_params']; $i++) {
             if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
-                $value = PMA_sqladdslashes($_REQUEST['params'][$routine['param_name'][$i]]);
+                $value = $_REQUEST['params'][$routine['param_name'][$i]];
+                if (is_array($value)) { // is SET type
+                    $value = implode(',', $value);
+                }
+                $value = PMA_sqladdslashes($value);
                 $queries[] = "SET @p$i='$value';\n";
                 $args  .= "@p$i";
             } else {
@@ -996,16 +1004,23 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         echo "\n<tr>\n";
         echo "<td>{$routine['param_type'][$i]}</td>\n";
         echo "<td>{$routine['param_name'][$i]}</td>\n";
-        if ($routine['param_type'][$i] == 'ENUM') { // TODO: must also handle SET fields
-            echo "<td><select name='params[{$routine['param_name'][$i]}]'>\n";
+        if (in_array($routine['param_type'][$i], array('ENUM', 'SET'))) {
+            echo "<td>\n";
             $tokens = PMA_SQP_parse(html_entity_decode($routine['param_length'][$i], ENT_QUOTES));
-            for ($i=0; $i<$tokens['len']; $i++) {
-                if ($tokens[$i]['type'] != 'punct_listsep') {
-                    $tokens[$i]['data'] = htmlentities(PMA_unquote($tokens[$i]['data']), ENT_QUOTES);
-                    echo "<option value='{$tokens[$i]['data']}'>{$tokens[$i]['data']}</option>\n";
+            if ($routine['param_type'][$i] == 'ENUM') {
+                $input_type = 'radio';
+            } else {
+                $input_type = 'checkbox';
+            }
+            for ($j=0; $j<$tokens['len']; $j++) {
+                if ($tokens[$j]['type'] != 'punct_listsep') {
+                    $tokens[$j]['data'] = htmlentities(PMA_unquote($tokens[$j]['data']), ENT_QUOTES);
+                    echo "<input name='params[{$routine['param_name'][$i]}][]' "
+                       . "value='{$tokens[$j]['data']}' type='$input_type' />"
+                       . "{$tokens[$j]['data']}<br />\n";
                 }
             }
-            echo "</select></td>\n";
+            echo "</td>\n";
         } else {
             echo "<td style='white-space: nowrap;'>\n";
             echo "<input class='$class' type='text' name='params[{$routine['param_name'][$i]}]' />\n";
