@@ -3507,7 +3507,7 @@ msgstr "編集、インライン編集、コピー、削除のリンクことで
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "テーブルの行リンクを表示する場所"
 
 #: libraries/config/messages.inc.php:321
 msgid "Use natural order for sorting table and database names"
