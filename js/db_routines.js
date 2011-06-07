@@ -37,18 +37,30 @@ function validateRoutineEditor(syntaxHiglighter) {
         });
     }
     if (! isError) {
-        // SET and ENUM fields must have some values (a.k.a. length)
+        // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
         $('.routine_params_table').last().find('tr').each(function() {
-            var $inputtyp = $(this).find(':input[name^=routine_param_type]');
-            var $inputlen = $(this).find(':input[name^=routine_param_length]');
+            var $inputtyp = $(this).find('select[name^=routine_param_type]');
+            var $inputlen = $(this).find('input[name^=routine_param_length]');
             if ($inputtyp.length && $inputlen.length) {
-                if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET') && $inputlen.val() == '') {
+                if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET' || $inputtyp.val().substr(0,3) == 'VAR')
+                   && $inputlen.val() == '') {
                     $inputlen.focus();
                     isError = true;
                     return false;
                 }
             }
         });
+    }
+    if (! isError && $('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
+        // The length/values of return variable for functions must
+        // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
+        var $returntyp = $('select[name=routine_returntype]');
+        var $returnlen = $('input[name=routine_returnlength]');
+        if (($returntyp.val() == 'ENUM' || $returntyp.val() == 'SET' || $returntyp.val().substr(0,3) == 'VAR')
+           && $returnlen.val() == '') {
+            $returnlen.focus();
+            isError = true;
+        }
     }
     if (! isError) {
         return true;

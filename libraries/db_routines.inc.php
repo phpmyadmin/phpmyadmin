@@ -722,8 +722,9 @@ function createQueryFromRequest() {
         $routine_errors[] = __('You must provide a routine Name');
     }
     $params = '';
-    $warned_about_dir  = false;
-    $warned_about_name = false;
+    $warned_about_dir    = false;
+    $warned_about_name   = false;
+    $warned_about_length = false;
     if ( ! empty($_REQUEST['routine_param_name']) && ! empty($_REQUEST['routine_param_type'])
         && ! empty($_REQUEST['routine_param_length']) && is_array($_REQUEST['routine_param_name'])
         && is_array($_REQUEST['routine_param_type']) && is_array($_REQUEST['routine_param_length'])) {
@@ -744,6 +745,13 @@ function createQueryFromRequest() {
                     && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
                                    $_REQUEST['routine_param_type'][$i])) {
                     $params .= "(" . $_REQUEST['routine_param_length'][$i] . ")";
+                } else if ($_REQUEST['routine_param_length'][$i] == ''
+                           && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['routine_param_type'][$i])) {
+                    if (! $warned_about_length) {
+                        $warned_about_length = true;
+                        $routine_errors[] = __('You must provide Length/Values for routine '
+                                             . 'parameters of type ENUM, SET, VARCHAR and VARBINARY.');
+                    }
                 }
                 if ($i != count($_REQUEST['routine_param_name'])-1) {
                     $params .= ", ";
@@ -760,8 +768,15 @@ function createQueryFromRequest() {
         $query .= "RETURNS {$_REQUEST['routine_returntype']}";
         if (! empty($_REQUEST['routine_returnlength'])
             && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
-                            $_REQUEST['routine_returnlength'])) {
+                            $_REQUEST['routine_returntype'])) {
             $query .= "(" . $_REQUEST['routine_returnlength'] . ")";
+        } else if (empty($_REQUEST['routine_returnlength'])
+            && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['routine_returntype'])) {
+            if (! $warned_about_length) {
+                $warned_about_length = true;
+                $routine_errors[] = __('You must provide Length/Values for routine '
+                                     . 'parameters of type ENUM, SET, VARCHAR and VARBINARY.');
+            }
         }
         $query .= ' ';
     }
@@ -1140,6 +1155,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     /**
      * Handle a request to create/edit a routine
      */
+    $query_html = '';
     $routine_query = createQueryFromRequest();
     if (! count($routine_errors)) { // set by createQueryFromRequest()
         // Execute the created query
