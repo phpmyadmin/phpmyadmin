@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:23+0200\n"
+"PO-Revision-Date: 2011-06-07 12:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5616,7 +5616,7 @@ msgstr "PDF"
 
 #: libraries/export/pdf.php:23
 msgid "(Generates a report containing the data of a single table)"
-msgstr "(ひとつのテーブルのデータを含むレポートを生成します)"
+msgstr "(1 つのテーブルのデータを含むレポートを生成します)"
 
 #: libraries/export/pdf.php:24
 msgid "Report title:"
