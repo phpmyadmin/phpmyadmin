@@ -8,6 +8,7 @@
             // variables, assigned with default value, changed later
             alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
+            colOrder: new Array(),
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -152,6 +153,8 @@
                         this.colMov.objTop = objPos.top;
                         this.colMov.objLeft = objPos.left;
                         this.colMov.n = this.colMov.newn;
+                        // send request to server to remember the column order
+                        this.sendColOrder();
                     }
                     
                     // animate new column position
@@ -217,6 +220,10 @@
                                .after($(this.t).find('tr:eq(' + (g.actionSpan + oldn) + ')'));
                     }
                 }
+                // adjust the colOrder
+                var tmp = this.colOrder[oldn];
+                this.colOrder.splice(oldn, 1);
+                this.colOrder.splice(newn, 0, tmp);
             },
             
             /**
@@ -259,6 +266,39 @@
                     n = $th_in_same_column.index(obj);
                 }
                 return n;
+            },
+            
+            /**
+             * Reposition the table back to normal order.
+             */
+            restore: function() {
+                // use insertion sort, since we already have shiftCol function
+                for (var i = 1; i < this.colOrder.length; i++) {
+                    var x = this.colOrder[i];
+                    var j = i - 1;
+                    while (j >= 0 && x < this.colOrder[j]) {
+                        j--;
+                    }
+                    if (j != i - 1) {
+                        this.shiftCol(i, j + 1);
+                    }
+                }
+                // send request to server to remember the column order
+                this.sendColOrder();
+            },
+            
+            /**
+             * Send column order to the server.
+             */
+            sendColOrder: function() {
+                $.get('sql.php', {
+                    ajax_request: true,
+                    db: window.parent.db,
+                    table: window.parent.table,
+                    token: window.parent.token,
+                    set_col_order: true,
+                    col_order: this.colOrder
+                });
             }
         }
         
@@ -296,6 +336,20 @@
             g.actionSpan = 0;
         }
         
+        // initialize column order
+        $col_order = $('#col_order');
+        if ($col_order.length > 0) {
+            g.colOrder = $col_order.val().split(',');
+            for (var i = 0; i < g.colOrder.length; i++) {
+                g.colOrder[i] = parseInt(g.colOrder[i]);
+            }
+        } else {
+            g.colOrder = new Array();
+            for (var i = 0; i < $firstRowCols.length; i++) {
+                g.colOrder.push(i);
+            }
+        }
+        
         // create column borders
         $firstRowCols.each(function() {
             $this = $(this);
@@ -322,6 +376,9 @@
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);
+        });
+        $('#restore_table').live('click', function() {
+            g.restore();
         });
         
         // add table class
