@@ -1303,43 +1303,6 @@ function PMA_profilingCheckbox($sql_query)
 }
 
 /**
- * Displays the results of SHOW PROFILE
- *
- * @param    array   the results
- * @param    boolean show chart
- * @access  public
- *
- */
-function PMA_profilingResults($profiling_results, $show_chart = false)
-{
-    echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
-    echo '<div style="float: left;">';
-    echo '<table>' . "\n";
-    echo ' <tr>' .  "\n";
-    echo '  <th>' . __('Status') . '</th>' . "\n";
-    echo '  <th>' . __('Time') . '</th>' . "\n";
-    echo ' </tr>' .  "\n";
-
-    foreach($profiling_results as $one_result) {
-        echo ' <tr>' .  "\n";
-        echo '<td>' . $one_result['Status'] . '</td>' .  "\n";
-        echo '<td>' . $one_result['Duration'] . '</td>' .  "\n";
-    }
-
-    echo '</table>' . "\n";
-    echo '</div>';
-
-    if ($show_chart) {
-        require_once './libraries/chart.lib.php';
-        echo '<div style="float: left;">';
-        PMA_chart_profiling($profiling_results);
-        echo '</div>';
-    }
-
-    echo '</fieldset>' . "\n";
-}
-
-/**
  * Formats $value to byte view
  *
  * @param double $value  the value to format
