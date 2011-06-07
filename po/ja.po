@@ -7612,7 +7612,7 @@ msgstr "データのインポート、エクスポートを許可する"
 #: server_privileges.php:47 server_privileges.php:554
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "特権テーブルのリロードなしのユーザ・特権の追加を許可する"
+msgstr "特権テーブルの再読み込みなしのユーザ・特権の追加を許可する"
 
 #: server_privileges.php:48 server_privileges.php:201
 #: server_privileges.php:530
