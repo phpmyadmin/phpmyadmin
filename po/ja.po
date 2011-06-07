@@ -9193,7 +9193,7 @@ msgstr "読み込む"
 
 #: setup/frames/index.inc.php:239
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin のホームページ"
+msgstr "phpMyAdmin のオフィシャルサイト"
 
 #: setup/frames/index.inc.php:240
 msgid "Donate"
