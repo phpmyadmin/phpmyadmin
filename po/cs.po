@@ -1796,10 +1796,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Enter login options for signon authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Zadejte parametry pro autentizaci signon"
+msgstr "Nepodařilo se nalézt autentizační skript pro signon:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
