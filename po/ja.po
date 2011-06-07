@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-06 11:35+0200\n"
-"PO-Revision-Date: 2011-06-07 12:11+0200\n"
+"PO-Revision-Date: 2011-06-07 12:12+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2839,7 +2839,7 @@ msgstr "外部キー制限"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr "閲覧モード"
+msgstr "表示モード"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
