@@ -2579,10 +2579,9 @@ msgstr ""
 "the selected tables of a database."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Table maintenance"
+msgstr "Disable multi table maintenance"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
