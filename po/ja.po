@@ -7812,7 +7812,7 @@ msgstr "選択したユーザを正しく削除しました"
 
 #: server_privileges.php:1326
 msgid "The privileges were reloaded successfully."
-msgstr "特権を正常にリロードしました"
+msgstr "特権を正常に再読み込みしました"
 
 #: server_privileges.php:1337 server_privileges.php:1729
 msgid "Edit Privileges"
