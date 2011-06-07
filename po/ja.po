@@ -3228,7 +3228,7 @@ msgstr "金額は単位を取り除く（例：$5.00 を 5.00）"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "パーセントは適切な小数に変換する（例えば、12.00% を .12）"
+msgstr "パーセントは適切な小数に変換する（例：12.00% を .12）"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
