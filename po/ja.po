@@ -165,7 +165,7 @@ msgstr "種別"
 #: tbl_printview.php:142 tbl_structure.php:202 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Null"
-msgstr "ヌル(NULL)"
+msgstr "NULL"
 
 #: db_datadict.php:171 db_structure.php:460 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:374 libraries/export/odt.php:310
