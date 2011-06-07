@@ -8079,13 +8079,8 @@ msgstr "passepartout"
 
 #: server_privileges.php:2295
 #| msgid "View %s has been dropped"
-<<<<<<< HEAD
 msgid "User has been added."
 msgstr "La vue %s a été supprimée"
-=======
-msgid "New user has been added."
-msgstr "Un utilisateur a été ajouté"
->>>>>>> pootle/master
 
 #: server_processlist.php:29
 #, php-format
