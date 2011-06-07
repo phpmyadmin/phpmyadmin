@@ -5695,9 +5695,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"全ての <code>INSERT</code> コマンドにカラム名を含める <br /> &nbsp; &nbsp; "
-"&nbsp; 例: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</"
-"code>"
+"全ての <code>INSERT</code> 文にカラム名を含める <br /> &nbsp; &nbsp; &nbsp; 例: "
+"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:257
 msgid ""
