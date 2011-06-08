@@ -1082,10 +1082,9 @@ msgid "Create Table"
 msgstr "建立資料表"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "使用表"
+msgstr "插入資料表"
 
 #: js/messages.php:85
 msgid "Searching"
