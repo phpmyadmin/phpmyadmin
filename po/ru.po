@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-09 00:23+0200\n"
+"PO-Revision-Date: 2011-06-09 00:24+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3545,7 +3545,7 @@ msgstr "Это ссылки Редактировать, Редактироват
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Где вывести ссылки строки таблицы"
 
 #: libraries/config/messages.inc.php:321
 msgid "Use natural order for sorting table and database names"
