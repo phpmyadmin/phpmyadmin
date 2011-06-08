@@ -393,7 +393,7 @@ function Swekey_GetFastHalfRndToken()
         	// we unlink the file so no possible tempfile race attack
         	unlink($cachefile);
 	   		$file = fopen($cachefile , "x");
-	   		if ($file != FALSE)
+	   		if ($file != false)
 	   		{
 	   	    	@fwrite($file, $res);
     			@fclose($file);

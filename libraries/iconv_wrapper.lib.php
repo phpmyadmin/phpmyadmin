@@ -44,7 +44,7 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * @param   string   output character set
  * @param   string   the string to convert
  *
- * @return  mixed    converted string or FALSE on failure
+ * @return  mixed    converted string or false on failure
  *
  * @access  public
  *
@@ -55,7 +55,7 @@ function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str) {
 
     // Check for transliteration argument at the end of output character set name
     $translit_search = strpos(strtolower($out_charset), '//translit');
-    $using_translit = (!($translit_search === FALSE));
+    $using_translit = (!($translit_search === false));
 
     // Extract "plain" output character set name (without any transliteration argument)
     $out_charset_plain = ($using_translit ? substr($out_charset, 0, $translit_search) : $out_charset);

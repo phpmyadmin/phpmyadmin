@@ -263,7 +263,7 @@ function PMA_exportDBHeader($db) {
     }
     else
     {
-        return TRUE;
+        return true;
     }
 }
 
@@ -285,7 +285,7 @@ function PMA_exportDBFooter($db) {
     }
     else
     {
-        return TRUE;
+        return true;
     }
 }
 
@@ -299,7 +299,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 
@@ -330,7 +330,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
         $buffer      = '        <!-- ' . __('Table') . ' ' . $table . ' -->' . $crlf;
         if (!PMA_exportOutputHandler($buffer)) {
-            return FALSE;
+            return false;
         }
 
         while ($record = PMA_DBI_fetch_row($result)) {
@@ -346,13 +346,13 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             $buffer         .= '        </table>' . $crlf;
 
             if (!PMA_exportOutputHandler($buffer)) {
-                return FALSE;
+                return false;
             }
         }
         PMA_DBI_free_result($result);
     }
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_getTableXML()' function
 }
 }

@@ -34,7 +34,7 @@ if (class_exists('SOAPClient')) {
         $GLOBALS['sqlvalidator_error'] = false;
     } else {
         $GLOBALS['sqlvalidator_soap'] = 'NONE';
-        $GLOBALS['sqlvalidator_error'] = TRUE;
+        $GLOBALS['sqlvalidator_error'] = true;
         PMA_warnMissingExtension('soap');
     }
 }
@@ -84,7 +84,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
             if ($GLOBALS['sqlvalidator_soap'] == 'PHP') {
                 $obj = new SOAPClient($url);
             } else {
-                $obj = new SOAP_Client($url, TRUE);
+                $obj = new SOAP_Client($url, true);
             }
             return $obj;
         } // end of the "openService()" function
@@ -431,7 +431,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
 
     //add an extra check to ensure that the class was defined without errors
     if (!class_exists('PMA_SQLValidator')) {
-        $GLOBALS['sqlvalidator_error'] = TRUE;
+        $GLOBALS['sqlvalidator_error'] = true;
     }
 
 } // end else
