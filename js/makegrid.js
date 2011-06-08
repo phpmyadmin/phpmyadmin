@@ -155,6 +155,7 @@
                         this.colMov.n = this.colMov.newn;
                         // send request to server to remember the column order
                         this.sendColOrder();
+                        this.refreshRestoreButton();
                     }
                     
                     // animate new column position
@@ -285,6 +286,7 @@
                 }
                 // send request to server to remember the column order
                 this.sendColOrder();
+                this.refreshRestoreButton();
             },
             
             /**
@@ -299,6 +301,29 @@
                     set_col_order: true,
                     col_order: this.colOrder
                 });
+            },
+            
+            /**
+             * Refresh restore button state.
+             * Make restore button disabled if the table is similar with initial state.
+             */
+            refreshRestoreButton: function() {
+                // check if table state is as initial state
+                var isInitial = true;
+                for (var i = 0; i < this.colOrder.length; i++) {
+                    if (this.colOrder[i] != i) {
+                        isInitial = false;
+                        break;
+                    }
+                }
+                // enable or disable restore button
+                if (isInitial) {
+                    $('#restore_table').attr('disabled', 'disabled');
+                    $('#restore_table').fadeTo('fast', 0.5);
+                } else {
+                    $('#restore_table').removeAttr('disabled');
+                    $('#restore_table').fadeTo('fast', 1.0);
+                }
             }
         }
         
@@ -392,6 +417,7 @@
         $(g.gDiv).append(g.cPointer);
 
         // some adjustment
+        g.refreshRestoreButton();
         g.cRsz.className = 'cRsz';
         $(t).removeClass('data');
         $(g.gDiv).addClass('data');
