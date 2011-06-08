@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 12:17+0200\n"
+"PO-Revision-Date: 2011-06-08 12:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6218,7 +6218,7 @@ msgstr "永続的な『最近使用したテーブル』"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr "永続的なテーブルのユーザ設定"
+msgstr "永続的な『テーブルのユーザ設定』"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
