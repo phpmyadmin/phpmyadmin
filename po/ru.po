@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-09 00:22+0200\n"
+"PO-Revision-Date: 2011-06-09 00:23+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -2607,10 +2607,9 @@ msgstr ""
 "восстановление выбранных таблиц базы данных."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Обслуживание таблицы"
+msgstr "Отключить операции обслуживания таблиц"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
