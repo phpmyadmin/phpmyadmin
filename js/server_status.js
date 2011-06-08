@@ -52,6 +52,9 @@ $(function() {
     
     // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
+	// Holds the current chart instances for each tab
+	var tabChart = new Object();
+	
     // Add tabs
     $('#serverStatusTabs').tabs({
         // Tab persistence
@@ -177,9 +180,9 @@ $(function() {
                         
             tab.find('.tabInnerContent')
                 .hide()
-                .after('<div style="width:700px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
+                .after('<div style="clear:both; min-width:500px; height:400px; padding-bottom:80px;" id="'+tab.attr('id')+'_chart_cnt"></div>');
             tabStatus[tab.attr('id')]='realtime';            
-            PMA_createChart(settings);
+            tabChart[tab.attr('id')]=PMA_createChart(settings);
             $(this).html(PMA_messages['strStaticData']);
             tab.find('.statuslinks a:nth-child(1)').hide();
         } else {
@@ -188,6 +191,7 @@ $(function() {
             tab.find('.tabInnerContent').show();
             tab.find('div#'+tab.attr('id')+'_chart_cnt').remove();
             tabStatus[tab.attr('id')]='data';
+			tabChart[tab.attr('id')].destroy();
             $(this).html(PMA_messages['strRealtimeChart']);
             tab.find('.statuslinks a:nth-child(1)').show();
         }

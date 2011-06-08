@@ -1164,11 +1164,12 @@ $(document).ready(function() {
     if($('#profilingchart').length==0) return;
     
     var cdata = new Array();
-    var i=1;
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
         cdata.push([key,parseFloat(value)]);
-        i++;
     });
+    
+    // Prevent the user from seeing the JSON code
+    $('div#profilingchart').html('').show();
 
     PMA_createChart({
         chart: { 
@@ -1193,11 +1194,12 @@ $(document).ready(function() {
                    }
                 }
             }
-        },		
+        },
         tooltip: {
             formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+this.y+'s<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
         }
     });
-});    
+});
+
 
 /**#@- */

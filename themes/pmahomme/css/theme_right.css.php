@@ -284,12 +284,14 @@ table{border-collapse:collapse;}
 th{border-right:1px solid #fff; text-align:left;}
 
 
-img,
-input,
-select,
-button {
+img, button {
     vertical-align:     middle;
 }
+
+input[type="checkbox"],input[type="radio"] {
+	vertical-align: -11%;
+}
+
 
 select{
     -moz-border-radius:2px;
@@ -1239,6 +1241,26 @@ div#querywindowcontainer fieldset {
 }
 /* END querywindow */
 
+/* profiling */
+
+div#profilingchart {
+	width:550px;
+	height:370px;
+	float:left;
+}
+
+/* END profiling */
+
+/* table charting */
+
+#resizer {
+    border: 1px solid silver;   
+}
+#inner-resizer { /* make room for the resize handle */
+    padding: 10px;
+}
+
+/* END table charting */
 
 /* querybox */
 
