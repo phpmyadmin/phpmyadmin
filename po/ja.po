@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 12:05+0200\n"
+"PO-Revision-Date: 2011-06-08 12:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1790,10 +1790,9 @@ msgstr ""
 "ユーザ名ないしパスワードが間違っています。<br />アクセスは拒否されました"
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Config 認証"
+msgstr "サインオン認証スクリプトが見つかりません："
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
