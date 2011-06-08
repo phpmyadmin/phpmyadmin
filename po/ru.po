@@ -2229,7 +2229,7 @@ msgstr "Нигде"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Налево"
 
 #: libraries/config.values.php:47
 #, fuzzy
