@@ -1155,14 +1155,14 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     /**
      * Handle a request to create/edit a routine
      */
-    $query_html = '';
+    $sql_query = '';
     $routine_query = createQueryFromRequest();
     if (! count($routine_errors)) { // set by createQueryFromRequest()
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
             // Backup the old routine, in case something goes wrong
             $create_routine = PMA_DBI_get_definition($db, $_REQUEST['routine_original_type'], $_REQUEST['routine_original_name']);
-            $drop_routine = "DROP {$_REQUEST['routine_original_type']} " . PMA_backquote($_REQUEST['routine_original_name']);
+            $drop_routine = "DROP {$_REQUEST['routine_original_type']} " . PMA_backquote($_REQUEST['routine_original_name']) . ";\n";
             $result = PMA_DBI_try_query($drop_routine);
             if (! $result) {
                 $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
@@ -1186,11 +1186,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 } else {
                     $message = PMA_Message::success(__('Routine %1$s has been modified.'));
                     $message->addParam(PMA_backquote($_REQUEST['routine_name']));
-                    $query_html = '<code class="sql">'
-                                . PMA_SQP_formatHtml(PMA_SQP_parse($drop_routine))
-                                . '<br /><br />'
-                                . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
-                                . '</code>';
+                    $sql_query = $drop_routine . $routine_query;
                 }
             }
         } else {
@@ -1202,9 +1198,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             } else {
                 $message = PMA_Message::success(__('Routine %1$s has been created.'));
                 $message->addParam(PMA_backquote($_REQUEST['routine_name']));
-                $query_html = '<code class="sql">'
-                            . PMA_SQP_formatHtml(PMA_SQP_parse($routine_query))
-                            . '</code>';
+                $sql_query = $routine_query;
             }
         }
     }
@@ -1218,20 +1212,21 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         $message->addString('</ul>');
     }
 
+    $output = PMA_showMessage($message, $sql_query);
     if ($GLOBALS['is_ajax_request']) {
         $extra_data = array();
-        if (isset($query_html)) {
+        if ($message->isSuccess()) {
             $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
             $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . "'";
             $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
-
             $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
             $extra_data['new_row']   = routineMakeRowForList($routine);
-            $extra_data['sql_query'] = $query_html;
+            $extra_data['sql_query'] = $output;
+            $response = PMA_message::success();
+        } else {
+            $response = $message;
         }
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-    } else {
-        echo $message->getDisplay() . $query_html;
+        PMA_ajaxResponse($response, $message->isSuccess(), $extra_data);
     }
 }
 
