@@ -1432,15 +1432,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
         $sign = '';
     }
 
-    $dh = PMA_pow(10, $digits_right);
-    $li = PMA_pow(10, $digits_left);
+    // This gives us the right SI prefix already, but $digits_left parameter not included
+    $d = floor($log10 / 3);
     
-    $d=-8;
-    if($only_down || $value>=1) $d=0;
-    while($value / (PMA_pow(1000, $d, 'pow')) > $li && $d<8)
-        $d++;
+    // Lowering the SI prefix by 1 gives us an additional 3 zeros
+    // So if we have 3,6,9,12.. free zeros ($digits_left - $cur_digits) to use, then lower the SI prefix	
+    $cur_digits = log10($value / PMA_pow(1000, $d, 'pow'))+1;
+    if($digits_left > $cur_digits) {
+        $d-= floor(($digits_left - $cur_digits)/3);
+    }
     
-    //number_format is not multibyte safe, str_replace is safe
+    if($d<0 && $only_down) $d=0;
+    
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
     
@@ -1448,7 +1451,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     if($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
-        $value = PMA_localizeNumber(number_format($value, $digits_right));
+        $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
     
     if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
