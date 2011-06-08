@@ -509,7 +509,7 @@ function getFormInputFromRequest()
  * @uses    getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors) {
-    global $db, $table, $url_query, $param_directions, $param_sqldataaccess;
+    global $db, $table, $titles, $url_query, $param_directions, $param_sqldataaccess;
 
     // Handle some logic first
     if ($operation == 'change') {
@@ -609,7 +609,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
         $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
         $retval .= "            <td class='routine_param_remove hide' style='vertical-align: middle;'>\n";
         $retval .= "                <a href='#' class='routine_param_remove_anchor'>\n";
-        $retval .= "                    " . PMA_getIcon('b_drop.png') . "\n";
+        $retval .= "                    {$titles['Drop']}\n";
         $retval .= "                </a>\n";
         $retval .= "            </td>\n";
         $retval .= "        </tr>\n";
