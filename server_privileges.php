@@ -1676,7 +1676,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1" class="' . $conditional_class . '">' . "\n"
                    . PMA_getIcon('b_usradd.png')
-                   . '            ' . __('Add a new User') . '</a>' . "\n"
+                   . '            ' . __('Add user') . '</a>' . "\n"
                    . '    </fieldset>' . "\n"
                    . '    <fieldset id="fieldset_delete_user">'
                    . '        <legend>' . "\n"
@@ -1700,7 +1700,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 echo '    <fieldset id="fieldset_add_user">' . "\n"
                    . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1">' . "\n"
                    . PMA_getIcon('b_usradd.png')
-                   . '            ' . __('Add a new User') . '</a>' . "\n"
+                   . '            ' . __('Add user') . '</a>' . "\n"
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
 
@@ -2102,10 +2102,10 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     }
 } elseif (isset($_REQUEST['adduser'])) {
 
-    // Add a new user
+    // Add user
     $GLOBALS['url_query'] .= '&amp;adduser=1';
     echo '<h2>' . "\n"
-       . PMA_getIcon('b_usradd.png') . __('Add a new User') . "\n"
+       . PMA_getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n"
        . PMA_generate_common_hidden_inputs('', '');
@@ -2292,14 +2292,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
     if($GLOBALS['is_ajax_request'] == true){
         $extra_data['user_form'] = $user_form;
-        $message = PMA_Message::success(__('New user has been added.'));
+        $message = PMA_Message::success(__('User has been added.'));
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     }else{
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
            . '    <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs) .'" val="'.'checkprivs='.htmlspecialchars($checkprivs). '&'.$GLOBALS['url_query'] . '" class="'.$conditional_class.'" name="db_specific">' . "\n"
            . PMA_getIcon('b_usradd.png')
-           . '        ' . __('Add a new User') . '</a>' . "\n"
+           . '        ' . __('Add user') . '</a>' . "\n"
            . '</fieldset>' . "\n";
         echo $user_form ;
     }

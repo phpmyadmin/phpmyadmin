@@ -1145,14 +1145,14 @@ $(document).ready(function() {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $('.column_heading').live('hover', function() {
+    $('.column_heading.pointer').live('hover', function() {
         PMA_changeClassForColumn($(this), 'hover');
         });
 
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
-    $('.column_heading').live('click', function() {
+    $('.column_heading.marker').live('click', function() {
         PMA_changeClassForColumn($(this), 'marked');
         });
 })
