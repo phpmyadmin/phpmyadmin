@@ -1787,10 +1787,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Yanlış kullanıcı adı/parola girdiniz. Erişim engellendi."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Yapılandırma kimlik doğrulaması"
+msgstr "Oturum açma kimlik doğrulaması betiği bulunamıyor:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
