@@ -91,15 +91,14 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 
 if(isset($zoom_submit)) {
 
-    // Unlike tbl_search page this part builds two queries, Query1 for the search criteria on 1st column and Query2 for the other column. This has to be done because user can select two same columns having different criteria. 
-    $chart ='';
-    $cx = $cy = $w = array();
-    $sql_query = 'SELECT ';
+    $w = $data = array(); 
+
+    $sql_query = 'SELECT *';
 
     // Add the colums to be selected
-    $columns = $inputs;
-    $columns = PMA_backquote($columns);
-    $sql_query .= implode(', ', $columns);
+    //$columns = $inputs;
+    //$columns = PMA_backquote($columns);
+    //$sql_query .= implode(', ', $columns);
     
 
     //Add the table
@@ -123,57 +122,13 @@ if(isset($zoom_submit)) {
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }
+
+    $settings = array('xLabel' => $inputs[0], 'yLabel' => $inputs[1], 'dataLabel' => $dataLabel); 
     $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
     while ($row = PMA_DBI_fetch_assoc($result)) {
-        $cx[] = $row[$inputs[0]];
-	$cy[] = $row[$inputs[1]];
+        $data[] = $row;
     }
-
-    for($j = 0 ; $j < count($cx) ; $j++){
-	$cx[$j] = 20 + 500 * $cx[$j]/ max($cx);
-	$cy[$j] = 300 * $cy[$j]/ max($cy) -20 ;
-    }
-    $chart .= '
-            <div style="float: right">
-            <?xml version="1.0" standalone="no"?>
-            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
-            "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-            <svg width="540" height="325" version="1.1"
-            xmlns="http://www.w3.org/2000/svg">
-
-            <defs>
-            <marker id = "MidMarker" viewBox = "0 0 10 10" refX = "5" refY = "5" markerUnits = "strokeWidth" markerWidth = "3" markerHeight = "3" stroke = "lightblue" stroke-width = "2" fill = "none" orient = "auto">
-            <path d = "M 0 0 L 10 10 M 0 10 L 10 0"/>
-            </marker>
-            <path id="myTextPath1"
-              d="M10,180 L10,50"/>
-            <path id="myTextPath2"
-              d="M250,315 L370,315"/>
-            </defs>
-            <g id ="zoomplot" >
-            <text x="6" y="190"  style="font-family: Arial; font-size  : 54; stroke:none; fill:#000000;" >
-                <textPath xlink:href="#myTextPath1" >';
-    $chart .= $inputs[0];       
-    $chart .= '</textPath>
-            </text>
-            <text x="250" y="315"  style="font-family: Arial; font-size  : 54; stroke:none; fill:#000000;" >
-                <textPath xlink:href="#myTextPath2" >';
-    $chart .= $inputs[1];       
-    $chart .= '</textPath>
-            </text>
-
-            <line x1="20" y1="300" x2="520" y2="300" style="stroke: black" marker-end = "url(#MidMarker)"/>
-            <line x1="20" y1="300" x2="20" y2="0" style="stroke: black"/>';
-            
-            for($j = 0 ; $j < count($cx) ; $j++){
-          	 $chart .= '<circle cx="' . $cx[$j] .'" cy="' . $cy[$j] . '" r=".1"  fill="red" stroke="blue" />';
-            }
-
-    $chart .='</g>
-            </svg>
-            </div>';
-
+    $scatter_plot = PMA_SVG_scatter_plot($data,$settings); 
 ?>
 
 <?php
@@ -186,9 +141,13 @@ if(isset($zoom_submit)) {
 <input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
 
 <fieldset id="zoom_fieldset_table_qbe">
-<?php if(isset($zoom_submit)){ 
+<?php if(isset($zoom_submit)){ ?>
 
-	echo $chart; ?>
+    <legend><?php echo __('Display GIS Visualization'); ?></legend>
+    <div id="placeholder" style="width:<?php echo($settings['width'] + 20); ?>px;height:<?php echo($settings['height'] + 20); ?>px;border:1px solid #484;float:right">
+        <?php echo $scatter_plot; ?>
+    </div>
+
 	
 <?php } ?>
     <legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
@@ -270,18 +229,40 @@ if(isset($zoom_submit)) {
        </td><td></td>
 
         <?php } ?>
- 
-        <input type="hidden" name="types[<?php echo $i; ?>]"
-            value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
-        <input type="hidden" name="collations[<?php echo $i; ?>]"
-            value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
+
         </td>
     </tr>
+
+    <input type="hidden" name="types[<?php echo $i; ?>]"
+        value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
+    <input type="hidden" name="collations[<?php echo $i; ?>]"
+        value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
 
 <?php
     }
 ?>
     </table>
+
+    <table>
+    <tr><td><label for="label"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+    <td><select name="dataLabel" id='dataLabel' >
+        <option value = ''> <?php echo __('None');  ?> </option>
+        <?php
+        for ($j = 0 ; $j < $fields_cnt ; $j++){
+            if(isset($dataLabel) && $dataLabel == htmlspecialchars($fields_list[$j])){?>
+                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> Selected>  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        <?php
+            }
+            else{ ?>
+                <option value=<?php echo htmlspecialchars($fields_list[$j]);?> >  <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        <?php
+            }
+        } ?>
+    </select>
+    </td></tr>
+    </table>
+    
+
 </fieldset>
 <fieldset class="tblFooters">
     <input type="hidden" name="max_number_of_fields"

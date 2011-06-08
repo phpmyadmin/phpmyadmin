@@ -196,9 +196,9 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
 	<?php $str .= '<script type="text/javascript">';
         // <![CDATA[
 	$str .=  <<<EOT
-document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php? 
+<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php? 
 EOT;
-        $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>\');';
+        $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '">' . str_replace("'", "\'", $titles['Browse']) . '</a>';
         // ]]
         $str .= '</script>';
         } 
@@ -343,5 +343,42 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
 
     return $w;
 }
+
+/**
+ * Formats a SVG plot for the query results.
+ *
+ * @param array  $data                   Data for the status chart
+ * @param array  &$settings              Settings used to generate the chart
+ *
+ * @return string HTML and JS code for the SVG plot
+ */
+function PMA_SVG_scatter_plot($data, &$settings)
+{
+    require_once './libraries/svg_plot/pma_scatter_plot.php';
+
+    if (empty($data)) {
+        // empty data
+        return __('No data found for plot.');
+    } else {
+        $scatter_plot = new PMA_Scatter_Plot($data, $settings);
+
+        if ($settings != null) {
+            foreach ($scatter_plot->getSettings() as $setting => $val) {
+                if (! isset($settings[$setting])) {
+                    $settings[$setting] = $val;
+                }
+            }
+        }
+    }
+    return $scatter_plot->asSVG();
+}
+
+
+
+
+
+
+
+
 
 ?>
