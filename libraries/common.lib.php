@@ -1432,11 +1432,12 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
         $sign = '';
     }
 
-    // This gives us the right SI prefix already, but $digits_left parameter not included
-    $d = floor($log10 / 3);
+    $dh = PMA_pow(10, $digits_right);
     
+    // This gives us the right SI prefix already, but $digits_left parameter not included
+    $d = floor(log10($value) / 3);
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
-    // So if we have 3,6,9,12.. free zeros ($digits_left - $cur_digits) to use, then lower the SI prefix	
+    // So if we have 3,6,9,12.. free zeros ($digits_left - $cur_digits) to use, then lower the SI prefix
     $cur_digits = log10($value / PMA_pow(1000, $d, 'pow'))+1;
     if($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
