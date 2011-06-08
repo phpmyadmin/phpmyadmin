@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 11:39+0200\n"
+"PO-Revision-Date: 2011-06-08 11:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1025,10 +1025,9 @@ msgstr "パスワードが異なっています!"
 
 #: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "すべてのユーザ"
+msgstr "ユーザを追加する"
 
 #: js/messages.php:55
 msgid "Reloading Privileges"
