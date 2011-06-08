@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 05:25+0200\n"
+"PO-Revision-Date: 2011-06-08 05:26+0200\n"
 "Last-Translator:  <u1104003@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -3246,7 +3246,6 @@ msgid "Disable this if you want to see all databases at once"
 msgstr "如果想一次性瀏覽所有資料庫，則停用該選項"
 
 #: libraries/config/messages.inc.php:278
-#, fuzzy
 msgid "Use light version"
 msgstr "使用輕量級版本"
 
