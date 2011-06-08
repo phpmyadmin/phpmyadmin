@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 16:20+0200\n"
+"PO-Revision-Date: 2011-06-08 16:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8021,10 +8021,9 @@ msgid "wildcard"
 msgstr "joker"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "New user has been added."
 msgid "User has been added."
-msgstr "Yeni kullanıcı eklendi."
+msgstr "Kullanıcı eklendi."
 
 #: server_processlist.php:29
 #, php-format
