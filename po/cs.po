@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-03 11:59+0200\n"
+"PO-Revision-Date: 2011-06-07 13:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1030,10 +1030,9 @@ msgstr "Hesla nejsou stejná!"
 
 #: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Jakýkoliv uživatel"
+msgstr "Přidat uživatele"
 
 #: js/messages.php:55
 msgid "Reloading Privileges"
@@ -1105,10 +1104,9 @@ msgid "Create Table"
 msgstr "Vytvořit tabulku"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Použít tabulky"
+msgstr "Vložit tabulku"
 
 #: js/messages.php:85
 msgid "Searching"
@@ -1798,10 +1796,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Enter login options for signon authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Zadejte parametry pro autentizaci signon"
+msgstr "Nepodařilo se nalézt autentizační skript pro signon:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -2592,12 +2589,13 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Vypne hromadné operace pro údržbu tabulke jako optimalizaci nebo opravu "
+"vybraných tabulek z databáze."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Údržba tabulky"
+msgstr "Vypnout hromadné operace s tabulkami"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -7974,10 +7972,9 @@ msgid "wildcard"
 msgstr "maska"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Pohled %s byl odstraněn"
+msgstr "Uživatel byl přidán."
 
 #: server_processlist.php:29
 #, php-format
