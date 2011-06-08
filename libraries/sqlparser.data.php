@@ -426,6 +426,7 @@ $PMA_SQPdata_reserved_word = array (
     'DAY_HOUR',
     'DAY_MINUTE',
     'DAY_SECOND',
+    'DECLARE',
     'DEFINER',
     'DELAYED',
     'DELAY_KEY_WRITE',
