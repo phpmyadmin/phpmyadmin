@@ -1425,10 +1425,10 @@ function PMA_createChart(passedSettings) {
                             if(lastValue==null) lastValue = curValue;
                             
                             passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints)
-                                
+                            
                             lastValue = curValue;
                             numLoadedPoints++;
-                            chart_activeTimeouts[container] = setTimeout(addnewPoint, passedSettings.realtime.refreshRate || 5000);
+                            chart_activeTimeouts[container] = setTimeout(addnewPoint, thisChart.options.realtime.refreshRate || 5000);
                         });
                     }
                     

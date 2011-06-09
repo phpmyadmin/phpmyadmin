@@ -1012,7 +1012,7 @@ function printVariablesTable() {
             } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
                 echo PMA_formatNumber($value, 3, 1);
             } elseif (is_numeric($value) && $value == (int) $value) {
-                echo PMA_formatNumber($value, 4, 0);
+                echo PMA_formatNumber($value, 3, 0);
             } elseif (is_numeric($value)) {
                 echo PMA_formatNumber($value, 3, 1);
             } else {

@@ -44,17 +44,16 @@ $(function() {
     var categoryFilter='';
     var odd_row=false;
     var text=''; // Holds filter text
+    
     /* Chart configuration */
     // Amount of points the chart should hold
     var numMaxPoints=30;
-    // Time between each refresh 
-    var refreshRate=5000;
     
     // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
-	// Holds the current chart instances for each tab
-	var tabChart = new Object();
-	
+    // Holds the current chart instances for each tab
+    var tabChart = new Object();
+    
     // Add tabs
     $('#serverStatusTabs').tabs({
         // Tab persistence
@@ -110,14 +109,15 @@ $(function() {
     // Ajax refresh of variables (always the first link in each tab)
     $('.statuslinks a:nth-child(1)').click(function() { 
         // ui-tabs-panel class is added by the jquery tabs feature
-        var tab=$(element).parents('div.ui-tabs-panel');
-        
+        var tab=$(this).parents('div.ui-tabs-panel');
+        var that = this;
+		
         // Show ajax load icon
-        $(element).find('img').show();
+        $(this).find('img').show();
 
-        $.get($(element).attr('href'),{ajax_request:1},function(data) {
+        $.get($(this).attr('href'),{ajax_request:1},function(data) {
+			$(that).find('img').hide();
             initTab(tab,data);
-            $(element).find('img').hide();
         });
         
         tabStatus[tab.attr('id')]='data';
@@ -191,7 +191,7 @@ $(function() {
             tab.find('.tabInnerContent').show();
             tab.find('div#'+tab.attr('id')+'_chart_cnt').remove();
             tabStatus[tab.attr('id')]='data';
-			tabChart[tab.attr('id')].destroy();
+            tabChart[tab.attr('id')].destroy();
             $(this).html(PMA_messages['strRealtimeChart']);
             tab.find('.statuslinks a:nth-child(1)').show();
         }
