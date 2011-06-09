@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-09 22:34+0200\n"
+"PO-Revision-Date: 2011-06-09 22:35+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1605,10 +1605,9 @@ msgstr[0] "%1$d rad infogad."
 msgstr[1] "%1$d rader infogade."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Kunde inte spara konfigurationen"
+msgstr "Kunde inte spara den senaste tabellen"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
