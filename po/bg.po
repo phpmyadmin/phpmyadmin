@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-09 09:18+0200\n"
+"PO-Revision-Date: 2011-06-09 09:19+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5717,7 +5717,7 @@ msgstr "Традиционен китайски"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:414
 msgid "case-insensitive"
-msgstr "нечувствително към регистъра"
+msgstr "нечувствителен към регистъра"
 
 #: libraries/mysql_charsets.lib.php:231 libraries/mysql_charsets.lib.php:416
 msgid "case-sensitive"
