@@ -104,10 +104,12 @@ url_query = '<?php echo $url_query;?>';
         </span>
         <br>
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
-        <?php echo __('X-Axis:'); ?> <select name="chartXAxis">
+        <?php $keys = array_keys($data[0]);
+		if(count($keys)>1) {
+			echo __('X-Axis:'); ?> <select name="chartXAxis">
             <?php
             $yaxis=-1;
-            $keys = array_keys($data[0]);
+            
             foreach($keys as $idx=>$key) {
                 if($yaxis==-1 && ($idx==count($data[0])-1 || preg_match("/(date|time)/i",$key))) {
                     echo '<option value="'.$idx.'" selected>'.$key.'</option>';
@@ -119,6 +121,9 @@ url_query = '<?php echo $url_query;?>';
             
             ?>
         </select>
+		<?php
+		}
+		?>
     </div>
     <div style="float:left; padding-left:40px;">
         <?php echo __('X-Axis label:'); ?> <input style="margin-top:0;" type="text" name="xaxis_label" value="<?php echo $keys[$yaxis]; ?>"><br>

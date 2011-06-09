@@ -1,4 +1,4 @@
-var chart_xaxis_idx = 0;
+var chart_xaxis_idx = -1;
 
 
 $(document).ready(function() {
@@ -119,7 +119,7 @@ function PMA_queryChart(data,passedSettings) {
                     series[j].name = columnNames[i];
                     $.each(data,function(key,value) {
                         series[j].data.push(parseFloat(value[columnNames[i]]));
-                        if(j==0) 
+                        if(j==0 && chart_xaxis_idx!=-1 && !xaxis.categories[value[columnNames[chart_xaxis_idx]]]) 
                             xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                     });
                     j++;
@@ -172,8 +172,6 @@ function PMA_queryChart(data,passedSettings) {
             formatter: function() { return '<b>'+this.series.name+'</b><br/>'+this.y; }
         }
     };
-    
-    
 
     if(passedSettings.chart.type=='pie')
         settings.tooltip.formatter = function() { return '<b>'+columnNames[0]+'</b><br/>'+this.y; }
