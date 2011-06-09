@@ -124,37 +124,4 @@ function PMA_STR_isSqlIdentifier($c, $dot_is_valid = false)
         || ($dot_is_valid != false && $c == '.'));
 } // end of the "PMA_STR_isSqlIdentifier()" function
 
-
-/**
- * Binary search of a value in a sorted array
- *
- * $arr MUST be sorted, due to binary search
- *
- * @param   string   string to search for
- * @param   array    sorted array to search into
- * @param   integer  size of sorted array to search into
- *
- * @return  boolean  whether the string has been found or not
- */
-function PMA_STR_binarySearchInArr($str, $arr, $arrsize)
-{
-    $top    = $arrsize - 1;
-    $bottom = 0;
-    $found  = false;
-
-    while ($top >= $bottom && $found == false) {
-        $mid        = intval(($top + $bottom) / 2);
-        $res        = strcmp($str, $arr[$mid]);
-        if ($res == 0) {
-            $found  = true;
-        } elseif ($res < 0) {
-            $top    = $mid - 1;
-        } else {
-            $bottom = $mid + 1;
-        }
-    } // end while
-
-    return $found;
-} // end of the "PMA_STR_binarySearchInArr()" function
-
 ?>

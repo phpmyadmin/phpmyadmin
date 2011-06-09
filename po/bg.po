@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-07 08:14+0200\n"
+"PO-Revision-Date: 2011-06-08 08:42+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1025,10 +1025,9 @@ msgstr "Паролата не е същата!"
 
 #: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Всеки потребител"
+msgstr "Добавяне потребител"
 
 #: js/messages.php:55
 msgid "Reloading Privileges"
@@ -3558,10 +3557,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Преименуване на таблицата на"
+msgstr "Запомняне сортирането на таблицата"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -6734,7 +6732,7 @@ msgstr "Web сървър"
 
 #: main.php:187
 msgid "MySQL client version"
-msgstr "Версия на клиента за MySQL"
+msgstr "Версия на MySQL клиент"
 
 #: main.php:189
 msgid "PHP extension"
@@ -7645,10 +7643,9 @@ msgid "wildcard"
 msgstr "знак за заместване"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "New user has been added."
 msgid "User has been added."
-msgstr "Нов потребител беше създаден."
+msgstr "Потребител беше добавен."
 
 #: server_processlist.php:29
 #, php-format
