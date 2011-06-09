@@ -152,7 +152,6 @@ $(document).ready(function() {
      *                           dialog when a new parameter is added.
      */
     var param_template = '';
-    var $edit_row        = null;
     /**
      * @var    syntaxHiglighter    Reference to the codemirror editor.
      */
@@ -168,6 +167,12 @@ $(document).ready(function() {
      */
     $('.add_routine_anchor, .edit_routine_anchor').live('click', function(event) {
         event.preventDefault();
+        /**
+         * @var    $edit_row    jQuery object containing the reference to
+         *                      the row of the the routine being edited
+         *                      from the list of routines .
+         */
+        var $edit_row = null;
         if ($(this).hasClass('edit_routine_anchor')) {
             // Remeber the row of the routine being edited for later,
             // so that if the edit is successful, we can replace the
@@ -194,7 +199,7 @@ $(document).ready(function() {
                          * @var    data    Form data to be sent in the AJAX request.
                          */
                         var data = $('.rte_form').last().serialize() + "&routine_process_"+mode+"routine=1&ajax_request=true";
-                        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+                        $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
                         $.post('db_routines.php', data, function (data) {
                             if(data.success == true) {
                                 // Routine created successfully
@@ -388,8 +393,8 @@ $(document).ready(function() {
          * @var    index    Counter used for reindexing the input
          *                  fields in the routine parameters table.
          */
-        var index = -1; // Init at -1 because the first row is the table header.
-        $('.routine_params_table').last().find('tr').each(function() {
+        var index = 0;
+        $('.routine_params_table').last().find('tr').has('td').each(function() {
             $(this).find(':input').each(function() {
                 /**
                  * @var    inputname    The value of the name attribute of
@@ -419,8 +424,7 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-    $('select[name=routine_type]').live('change', function(event) {
-        event.preventDefault();
+    $('select[name=routine_type]').live('change', function() {
         $('.routine_return_row, .routine_direction_cell').toggle();
     }); // end $.live()
 
