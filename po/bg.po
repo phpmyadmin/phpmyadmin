@@ -7090,7 +7090,7 @@ msgstr "Тази функционалност не се поддържа от в
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Сливане с текущите настройки"
 
 #: prefs_manage.php:277
 #, php-format
