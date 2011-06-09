@@ -71,6 +71,53 @@ function validateRoutineEditor(syntaxHiglighter) {
 } // end validateRoutineEditor()
 
 /**
+ * Enable/disable the "options" dropdown for parameters and
+ * the return variable in the routine editor as necessary.
+ *
+ * @param    $type    a jQuery object containing the reference
+ *                    to the "Type" dropdown box
+ * @param    $text    a jQuery object containing the reference
+ *                    to the dropdown box with options for
+ *                    parameters of text type
+ * @param    $num     a jQuery object containing the reference
+ *                    to the dropdown box with options for
+ *                    parameters of numeric type
+ */
+function setOptionsForParameter($type, $text, $num) {
+    switch ($type.val()) {
+    case 'TINYINT':
+    case 'SMALLINT':
+    case 'MEDIUMINT':
+    case 'INT':
+    case 'BIGINT':
+    case 'DECIMAL':
+    case 'FLOAT':
+    case 'DOUBLE':
+    case 'REAL':
+        $text.parent().hide();
+        $num.parent().show();
+        break;
+    case 'TINYTEXT':
+    case 'TEXT':
+    case 'MEDIUMTEXT':
+    case 'LONGTEXT':
+    case 'CHAR':
+    case 'VARCHAR':
+    case 'SET':
+    case 'ENUM':
+        $text.parent().show();
+        $text.show();
+        $num.parent().hide();
+        break;
+    default:
+        $text.parent().show();
+        $text.hide();
+        $num.parent().hide();
+        break;
+    }
+}
+
+/**
  * Attach Ajax event handlers for the Routines Editor.
  *
  * @uses    PMA_ajaxShowMessage()
@@ -154,7 +201,7 @@ $(document).ready(function() {
                  * Display the dialog to the user
                  */
                 $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
-                                width: 650,  // TODO: make a better decision about the size
+                                width: 700,  // TODO: make a better decision about the size
                                 height: 550, // of the dialog based on the size of the viewport
                                 buttons: button_options,
                                 title: data.title,
@@ -188,6 +235,21 @@ $(document).ready(function() {
                 $('.routine_param_remove').show();
                 $('input[name=routine_removeparameter]').remove();
                 $('input[name=routine_addparameter]').css('width', '100%');
+                // Enable/disable the 'options' dropdowns for parameters as necessary
+                $('.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
+                $('.routine_params_table').last().find('tr').has('td').each(function() {
+                    setOptionsForParameter(
+                        $(this).find('select[name^=routine_param_type]'),
+                        $(this).find('select[name^=routine_param_opts_text]'),
+                        $(this).find('select[name^=routine_param_opts_num]')
+                    );
+                });
+                // Enable/disable the 'options' dropdowns for function return value as necessary
+                setOptionsForParameter(
+                    $('.rte_table').last().find('select[name=routine_returntype]'),
+                    $('.rte_table').last().find('select[name=routine_returnopts_text]'),
+                    $('.rte_table').last().find('select[name=routine_returnopts_num]')
+                );
                 // Attach syntax highlited editor to routine definition
                 var elm  = $('textarea[name=routine_definition]').last();
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
@@ -209,6 +271,16 @@ $(document).ready(function() {
             $('.routine_return_row').show();
             $('.routine_direction_cell').hide();
         }
+        /**
+         * @var    $newrow    jQuery object containing the reference to the newly
+         *                    inserted row in the routine parameters table.
+         */
+        var $newrow = $('.routine_params_table').last().find('tr').has('td').last();
+        setOptionsForParameter(
+            $newrow.find('select[name^=routine_param_type]'),
+            $newrow.find('select[name^=routine_param_opts_text]'),
+            $newrow.find('select[name^=routine_param_opts_num]')
+        );
     }); // end $.live()
 
     $('.routine_param_remove_anchor').live('click', function (event) {
@@ -228,6 +300,10 @@ $(document).ready(function() {
                     $(this).attr('name', inputname.substr(0, 18) + '[' + index + ']');
                 } else if (inputname.substr(0, 20) == 'routine_param_length') {
                     $(this).attr('name', inputname.substr(0, 20) + '[' + index + ']');
+                } else if (inputname.substr(0, 23) == 'routine_param_opts_text') {
+                    $(this).attr('name', inputname.substr(0, 23) + '[' + index + ']');
+                } else if (inputname.substr(0, 22) == 'routine_param_opts_num') {
+                    $(this).attr('name', inputname.substr(0, 22) + '[' + index + ']');
                 }
             });
             index++;
@@ -238,4 +314,36 @@ $(document).ready(function() {
         event.preventDefault();
         $('.routine_return_row, .routine_direction_cell').toggle();
     }); // end $.live()
+
+    /**
+     * Attach Ajax event handlers for the "Change parameter type" functionality.
+     *
+     * @see $cfg['AjaxEnable']
+     */
+    $('select[name^=routine_param_type]').live('change', function() {
+        /**
+         * @var    $row    jQuery object containing the reference to
+         *                 a row in the routine parameters table.
+         */
+        var $row = $(this).parents('tr').first();
+        setOptionsForParameter(
+            $row.find('select[name^=routine_param_type]'),
+            $row.find('select[name^=routine_param_opts_text]'),
+            $row.find('select[name^=routine_param_opts_num]')
+        );
+    });
+
+    /**
+     * Attach Ajax event handlers for the "Change the type of return
+     * variable of function" functionality.
+     *
+     * @see $cfg['AjaxEnable']
+     */
+    $('select[name=routine_returntype]').live('change', function() {
+        setOptionsForParameter(
+            $('.rte_table').find('select[name=routine_returntype]'),
+            $('.rte_table').find('select[name=routine_returnopts_text]'),
+            $('.rte_table').find('select[name=routine_returnopts_num]')
+        );
+    });
 }); // end of $(document).ready() for Routine Editor
