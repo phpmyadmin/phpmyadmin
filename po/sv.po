@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-09 22:59+0200\n"
+"PO-Revision-Date: 2011-06-09 23:01+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1789,10 +1789,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Felaktigt användarnamn/lösenord. Åtkomst nekad."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Config autentisering"
+msgstr "Kan du inte hitta scriptet för iverifiering av inloggning."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
