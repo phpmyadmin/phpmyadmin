@@ -9,6 +9,7 @@
             alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
             colOrder: new Array(),
+            tableCreateTime: null,
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -299,7 +300,8 @@
                     table: window.parent.table,
                     token: window.parent.token,
                     set_col_order: true,
-                    col_order: this.colOrder
+                    col_order: this.colOrder,
+                    table_create_time: this.tableCreateTime
                 });
             },
             
@@ -360,6 +362,9 @@
         } else {
             g.actionSpan = 0;
         }
+        
+        // assign table create time
+        g.tableCreateTime = $('#table_create_time').val();
         
         // initialize column order
         $col_order = $('#col_order');

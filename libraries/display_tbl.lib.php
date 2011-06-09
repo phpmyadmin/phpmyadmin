@@ -377,11 +377,15 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     <td>
         <input id="restore_table" type="submit" value="Restore table" />
         <?php
+        // generate the column order, if it is set
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
         if ($col_order) {
             echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
         }
+        // generate table create time
+        echo '<input id="table_create_time" type="hidden" value="' .
+             PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
         ?>
     </td>
 </tr>
