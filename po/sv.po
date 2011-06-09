@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-09 22:33+0200\n"
+"PO-Revision-Date: 2011-06-09 22:34+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1096,10 +1096,9 @@ msgid "Create Table"
 msgstr "Skapa tabell"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Använd tabeller"
+msgstr "Lägg till en tabell"
 
 #: js/messages.php:85
 msgid "Searching"
