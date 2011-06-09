@@ -1,10 +1,11 @@
 var chart_xaxis_idx = -1;
-
+var chart_series;
+var chart_series_index = -1;
 
 $(document).ready(function() {
     var currentChart=null;
     var chart_data = jQuery.parseJSON($('#querychart').html());
-    
+    chart_series = 'columns';
     chart_xaxis_idx = $('select[name="chartXAxis"]').attr('value');
     
     $('#resizer').resizable({
@@ -35,7 +36,10 @@ $(document).ready(function() {
         yAxis: {
             title: { text: $('input[name="yaxis_label"]').attr('value') }
         },
-        title: { text: $('input[name="chartTitle"]').attr('value'), margin:20 }
+        title: { text: $('input[name="chartTitle"]').attr('value'), margin:20 },
+        plotOptions: {
+            series: {}
+        }
     }
     
     $('#querychart').html('');
@@ -66,26 +70,34 @@ $(document).ready(function() {
     });
     
     $('select[name="chartXAxis"]').change(function() {
-        chart_xaxis_idx = $('select[name="chartXAxis"]').attr('value');
+        chart_xaxis_idx = this.value;
+        drawChart();
+    });
+    $('select[name="chartSeries"]').change(function() {
+        chart_series = this.value;
+        chart_series_index = this.selectedIndex;
         drawChart();
     });
     
     /* Sucks, we cannot just set axis labels, we have to redraw the chart completely */
     $('input[name="xaxis_label"]').keyup(function() {
         currentSettings.xAxis.title.text = $(this).attr('value');
-        drawChart();
+        drawChart(true);
     });
     $('input[name="yaxis_label"]').keyup(function() {
         currentSettings.yAxis.title.text = $(this).attr('value');
-        drawChart();
+        drawChart(true);
     });
     
-    function drawChart() {
+    function drawChart(noAnimation) {
         currentSettings.chart.width=$('#resizer').width()-20;
         currentSettings.chart.height=$('#resizer').height()-20;
         
         if(currentChart!=null) currentChart.destroy();
+        
+        if(noAnimation) currentSettings.plotOptions.series.animation = false;
         currentChart = PMA_queryChart(chart_data,currentSettings);
+        if(noAnimation) currentSettings.plotOptions.series.animation = true;
     }
     
     drawChart();
@@ -102,28 +114,58 @@ function PMA_queryChart(data,passedSettings) {
     
     $.each(data[0],function(index,element) {
         columnNames.push(index);
-    });
-    
+    });    
+        
     switch(passedSettings.chart.type) {
         case 'column':
         case 'spline':
         case 'line':
         case 'bar':
             xaxis.categories = new Array();
-            //xaxis.title = { text: columnNames[chart_xaxis_idx] };
-            var j=0;
-            for(var i=0; i<columnNames.length; i++) 
-                if(i!=chart_xaxis_idx) {
-                    series[j] = new Object();
-                    series[j].data = new Array();
-                    series[j].name = columnNames[i];
-                    $.each(data,function(key,value) {
-                        series[j].data.push(parseFloat(value[columnNames[i]]));
-                        if(j==0 && chart_xaxis_idx!=-1 && !xaxis.categories[value[columnNames[chart_xaxis_idx]]]) 
-                            xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
-                    });
-                    j++;
-                }
+            
+            if(chart_series=='columns') {
+                var j=0;
+                for(var i=0; i<columnNames.length; i++) 
+                    if(i!=chart_xaxis_idx) {
+                        series[j] = new Object();
+                        series[j].data = new Array();
+                        series[j].name = columnNames[i];
+                        $.each(data,function(key,value) {
+                            series[j].data.push(parseFloat(value[columnNames[i]]));
+                            if(j==0 && chart_xaxis_idx!=-1 && !xaxis.categories[value[columnNames[chart_xaxis_idx]]]) 
+                                xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+                        });
+                        j++;
+                    }
+            } else {
+                var j=0;
+                var seriesIndex = new Object();
+                // Get series types and build series object from the query data
+                $.each(data,function(index,element) {
+                    var contains=false;
+                    for(var i=0; i<series.length; i++)
+                        if(series[i].name == element[chart_series]) contains=true;
+                    
+                    if(!contains) {
+                        seriesIndex[element[chart_series]] = j;
+                        series[j] = new Object();
+                        series[j].data = new Array();
+                        series[j].name = element[chart_series]; // columnNames[i];
+                        j++;
+                    }
+                });
+                
+                var type;
+                // Get series points from query data
+                $.each(data,function(key,value) {
+                    type = value[chart_series];
+                    series[seriesIndex[type]].data.push(parseFloat(value[columnNames[0]]));
+                    xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+                });
+            }
+            
+                
+                
             if(columnNames.length==2)
                 yaxis.title = { text: columnNames[0] };
             break;
@@ -169,7 +211,10 @@ function PMA_queryChart(data,passedSettings) {
             enabled: true
         },		
         tooltip: {
-            formatter: function() { return '<b>'+this.series.name+'</b><br/>'+this.y; }
+            formatter: function() {
+                if(this.point.name) return '<b>'+this.series.name+'</b><br/>'+this.point.name+'<br/>'+this.y; 
+                return '<b>'+this.series.name+'</b><br/>'+this.y; 
+            }
         }
     };
 
@@ -178,6 +223,6 @@ function PMA_queryChart(data,passedSettings) {
         
     // Overwrite/Merge default settings with passedsettings
     $.extend(true,settings,passedSettings);
-
+        
     return new Highcharts.Chart(settings);
 }

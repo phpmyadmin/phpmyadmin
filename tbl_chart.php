@@ -105,8 +105,9 @@ url_query = '<?php echo $url_query;?>';
         <br>
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
         <?php $keys = array_keys($data[0]);
-		if(count($keys)>1) {
-			echo __('X-Axis:'); ?> <select name="chartXAxis">
+        if(count($keys)>1) {
+            echo '<br>';
+            echo __('X-Axis:'); ?> <select name="chartXAxis">
             <?php
             $yaxis=-1;
             
@@ -120,10 +121,20 @@ url_query = '<?php echo $url_query;?>';
             }
             
             ?>
+        </select><br>
+        <?php echo __('Series:'); ?>
+        <select name="chartSeries">
+            <option value="columns"><?php echo __('The remaining columns'); ?></option>
+            <?php
+            foreach($keys as $idx=>$key) {
+                echo '<option>'.$key.'</option>';
+            }
+        ?>
         </select>
-		<?php
-		}
-		?>
+        <?php
+        }
+        ?>
+        
     </div>
     <div style="float:left; padding-left:40px;">
         <?php echo __('X-Axis label:'); ?> <input style="margin-top:0;" type="text" name="xaxis_label" value="<?php echo $keys[$yaxis]; ?>"><br>
