@@ -2616,6 +2616,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Desactivar las operaciones masivas de mantenimiento en tablas como "
+"optimización y reparación de las tablas seleccionadas de una base de datos."
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
