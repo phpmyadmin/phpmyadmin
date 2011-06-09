@@ -6732,7 +6732,7 @@ msgstr "Web сървър"
 
 #: main.php:187
 msgid "MySQL client version"
-msgstr "Версия на MySQL клиент"
+msgstr "MySQL клиент"
 
 #: main.php:189
 msgid "PHP extension"
