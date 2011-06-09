@@ -8146,10 +8146,9 @@ msgid "wildcard"
 msgstr "comodín"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Se descartó el modo de visualización %s"
+msgstr "Se agregó el usuario."
 
 #: server_processlist.php:29
 #, php-format
