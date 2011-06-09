@@ -1,10 +1,28 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
-// Validate editor form fields
+/**
+ * Validate routine editor form fields.
+ *
+ * @param    syntaxHiglighter    an object containing the reference to the
+ *                               codemirror editor. This will be used to
+ *                               focus the form on the codemirror editor
+ *                               if it contains invalid data.
+ */
 function validateRoutineEditor(syntaxHiglighter) {
+    /**
+     * @var    inputname    Will contain the value of the name
+     *                      attribute of input fields being checked.
+     */
     var inputname = '';
-    var $elm      = null;
-    var isError   = false;
+    /**
+     * @var    $elm    a jQuery object containing the reference
+     *                 to an element that is being validated.
+     */
+    var $elm = null;
+    /**
+     * @var    isError    Stores the outcome of the validation.
+     */
+    var isError = false;
 
     $elm = $('.rte_table').last().find('input[name=routine_name]');
     if ($elm.val() == '') {
@@ -120,24 +138,46 @@ function setOptionsForParameter($type, $text, $num) {
 /**
  * Attach Ajax event handlers for the Routines Editor.
  *
- * @uses    PMA_ajaxShowMessage()
- * @uses    PMA_ajaxRemoveMessage()
- *
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    var $ajaxDialog      = null;
-    var param_template   = '';
+    /**
+     * @var    $ajaxDialog    jQuery object containing the reference to the
+     *                        dialog that contains the routine editor.
+     */
+    var $ajaxDialog = null;
+    /**
+     * @var    param_template    This variable contains the template for one row
+     *                           of the parameters table that is attached to the
+     *                           dialog when a new parameter is added.
+     */
+    var param_template = '';
     var $edit_row        = null;
+    /**
+     * @var    syntaxHiglighter    Reference to the codemirror editor.
+     */
     var syntaxHiglighter = null;
+
+    /**
+     * Attach Ajax event handlers for the Add/Edit routine functionality.
+     *
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    PMA_ajaxRemoveMessage()
+     *
+     * @see $cfg['AjaxEnable']
+     */
     $('.add_routine_anchor, .edit_routine_anchor').live('click', function(event) {
         event.preventDefault();
         if ($(this).hasClass('edit_routine_anchor')) {
-            // Remeber the row of the routine being edited for later, so that if the edit
-            // is successful, we can replace the row with info about the modified routine.
+            // Remeber the row of the routine being edited for later,
+            // so that if the edit is successful, we can replace the
+            // row with info about the modified routine.
             $edit_row = $(this).parents('tr');
         }
-
+        /**
+         * @var    $msg    jQuery object containing the reference to
+         *                 the AJAX message shown to the user.
+         */
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
             if(data.success == true) {
@@ -150,6 +190,9 @@ $(document).ready(function() {
                     syntaxHiglighter.save();
                     // Validate editor and submit request, if passed.
                     if (validateRoutineEditor(syntaxHiglighter)) {
+                        /**
+                         * @var    data    Form data to be sent in the AJAX request.
+                         */
                         var data = $('.rte_form').last().serialize() + "&routine_process_"+mode+"routine=1&ajax_request=true";
                         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
                         $.post('db_routines.php', data, function (data) {
@@ -163,7 +206,16 @@ $(document).ready(function() {
                                     $edit_row.remove();
                                 }
                                 // Insert the new row at the correct location in the list of routines
+                                /**
+                                 * @var    text    Contains the name of a routine from the list
+                                 *                 that is used in comparisons to find the correct
+                                 *                 location where to insert a new row.
+                                 */
                                 var text = '';
+                                /**
+                                 * @var    inserted    Whether a new has been inserted
+                                 *                     in the list of routines or not.
+                                 */
                                 var inserted = false;
                                 $('table.data').find('tr').each(function() {
                                     text = $(this).children('td').eq(0).find('strong').text().toUpperCase();
@@ -179,6 +231,9 @@ $(document).ready(function() {
                                 // Now we have inserted the row at the correct position, but surely
                                 // at least some row classes are wrong now. So we will itirate
                                 // throught all rows and assign correct classes to them.
+                                /**
+                                 * @var    ct    Count of processed rows.
+                                 */
                                 var ct = 0;
                                 $('table.data').find('tr').each(function() {
                                     if ($(this).has('th').length) {
@@ -193,7 +248,7 @@ $(document).ready(function() {
                             }
                         });
                     }
-                }
+                } // end of function that handles the submission of the Editor
                 button_options[PMA_messages['strClose']] = function() {
                     $(this).dialog("close");
                 }
@@ -210,7 +265,10 @@ $(document).ready(function() {
                                     $(this).remove();
                                 }
                         });
-               // Is this edit mode or add mode?
+                /**
+                 * @var    mode    Used to remeber whether the editor is in
+                 *                 "Edit Routine" or "Add Routine" mode.
+                 */
                 var mode = 'add';
                 if ($('input[name=routine_process_editroutine]').length > 0) {
                     mode = 'edit';
@@ -220,13 +278,26 @@ $(document).ready(function() {
                 // Cache the template for a parameter table row
                 param_template = data.param_template;
                 // Make adjustments in the dialog to make it AJAX compatible
+                /**
+                 * @var    is_procedure    Used to make the PROCEDURE dropdown option selected
+                 *                         if a procedure is being edited or created.
+                 */
                 var is_procedure = '';
+                /**
+                 * @var    is_function     Used to make the FUNCTION dropdown option selected
+                 *                         if a function is being edited or created.
+                 */
                 var is_function = '';
                 if (data.type == 'PROCEDURE') {
                     is_procedure = ' selected="selected"';
                 } else if (data.type == 'FUNCTION') {
                     is_function = ' selected="selected"';
                 }
+                /**
+                 * @var    new_type_cell    Contains HTML code that replaces the non-JS functionality
+                 *                          used to switch the routine editor from procedure to function
+                 *                          editing modes and back with a JS-aware dropdown.
+                 */
                 var new_type_cell = '<select name="routine_type">'
                                   + '<option value="PROCEDURE"' + is_procedure + '>PROCEDURE</option>'
                                   + '<option value="FUNCTION"' + is_function + '>FUNCTION</option>'
@@ -251,9 +322,16 @@ $(document).ready(function() {
                     $('.rte_table').last().find('select[name=routine_returnopts_num]')
                 );
                 // Attach syntax highlited editor to routine definition
-                var elm  = $('textarea[name=routine_definition]').last();
+                /**
+                 * @var    $elm    jQuery object containing the reference to
+                 *                 the "Routine Definition" textarea.
+                 */
+                var $elm = $('textarea[name=routine_definition]').last();
+                /**
+                 * @var    opts    Options to pass to the codemirror editor.
+                 */
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
-                syntaxHiglighter = CodeMirror.fromTextArea(elm[0], opts);
+                syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
                 // Hack to prevent the syntax highlighter from expanding beyond dialog boundries
                 $('.CodeMirror-scroll').find('div').first().css('width', '1px');
             } else {
@@ -262,9 +340,22 @@ $(document).ready(function() {
         }) // end $.get()
     }); // end $.live()
 
+    /**
+     * Attach Ajax event handlers for the "Add parameter to routine" functionality.
+     *
+     * @see $cfg['AjaxEnable']
+     */
     $('input[name=routine_addparameter]').live('click', function(event) {
         event.preventDefault();
+        /**
+         * @var    $routine_params_table    jQuery object containing the reference
+         *                                  to the routine parameters table.
+         */
         var $routine_params_table = $('.routine_params_table').last();
+        /**
+         * @var    $new_param_row    A string containing the HTML code for the
+         *                           new row for the routine paramaters table.
+         */
         var new_param_row = param_template.replace(/%s/g, $routine_params_table.find('tr').length-1);
         $routine_params_table.append(new_param_row);
         if ($('.rte_table').find('select[name=routine_type]').val() == 'FUNCTION') {
@@ -283,14 +374,27 @@ $(document).ready(function() {
         );
     }); // end $.live()
 
+    /**
+     * Attach Ajax event handlers for the "Remove parameter from routine" functionality.
+     *
+     * @see $cfg['AjaxEnable']
+     */
     $('.routine_param_remove_anchor').live('click', function (event) {
         event.preventDefault();
         $(this).parent().parent().remove();
         // After removing a parameter, the indices of the name attributes in
         // the input fields lose the correct order and need to be reordered.
+        /**
+         * @var    index    Counter used for reindexing the input
+         *                  fields in the routine parameters table.
+         */
         var index = -1; // Init at -1 because the first row is the table header.
         $('.routine_params_table').last().find('tr').each(function() {
             $(this).find(':input').each(function() {
+                /**
+                 * @var    inputname    The value of the name attribute of
+                 *                      the input field being reindexed.
+                 */
                 var inputname = $(this).attr('name');
                 if (inputname.substr(0, 17) == 'routine_param_dir') {
                     $(this).attr('name', inputname.substr(0, 17) + '[' + index + ']');
@@ -310,6 +414,11 @@ $(document).ready(function() {
         });
     }); // end $.live()
 
+    /**
+     * Attach Ajax event handlers for the "Change routine type" functionality.
+     *
+     * @see $cfg['AjaxEnable']
+     */
     $('select[name=routine_type]').live('change', function(event) {
         event.preventDefault();
         $('.routine_return_row, .routine_direction_cell').toggle();
