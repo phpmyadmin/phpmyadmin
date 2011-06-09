@@ -2207,7 +2207,7 @@ msgstr "Båda"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Ingenstans"
 
 #: libraries/config.values.php:47
 msgid "Left"
