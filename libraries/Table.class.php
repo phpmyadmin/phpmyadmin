@@ -1357,21 +1357,33 @@ class PMA_Table
      * Set a property from UI preferences.
      * If pmadb and table_uiprefs is set, it will save the UI preferences to
      * phpMyAdmin database.
+     * Available property:
+     * - PROP_SORTED_COLUMN
+     * - PROP_COLUMN_ORDER
      *
      * @param string $property
      * @param mixed $value
-     * @return true|PMA_Message
+     * @param string $table_create_time Needed for PROP_COLUMN_ORDER
+     * @return boolean|PMA_Message
      */
-    public function setUiProp($property, $value)
+    public function setUiProp($property, $value, $table_create_time = NULL)
     {
         if (! isset($this->uiprefs)) {
             $this->loadUiPrefs();
         }
-        $this->uiprefs[$property] = $value;
-        // also save the create time if the property is PROP_COLUMN_ORDER
+        // we want to save the create time if the property is PROP_COLUMN_ORDER
         if ($property == self::PROP_COLUMN_ORDER) {
-            $this->uiprefs['CREATE_TIME'] = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+            if (isset($table_create_time) &&
+                    $table_create_time < $curr_create_time) {
+                // supplied $table_create_time is older than current create time,
+                // so don't save
+                return false;
+            }
+            $this->uiprefs['CREATE_TIME'] = $curr_create_time;
         }
+        // save the value
+        $this->uiprefs[$property] = $value;
         // check if pmadb is set
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
                 && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])) {
