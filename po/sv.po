@@ -2214,10 +2214,9 @@ msgid "Left"
 msgstr "Vänster"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Höjd"
+msgstr "Höger"
 
 #: libraries/config.values.php:75
 msgid "Open"
