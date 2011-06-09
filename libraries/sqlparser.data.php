@@ -11,9 +11,6 @@
  * It has been extracted from the lex.h file in the MySQL BK tree
  * (around 4.0.2) as well as the MySQL documentation.
  *
- * Note: before adding a value in the arrays, ensure that you respect
- * proper sorting, especially with underscores.
- *
  * It's easier to use only uppercase for proper sorting. In case of
  * doubt, use the test case to verify.
  *

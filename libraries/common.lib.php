@@ -827,7 +827,7 @@ function PMA_backquote($a_name, $do_it = true)
     if (! $do_it) {
         global $PMA_SQPdata_forbidden_word;
 
-        if(! PMA_STR_binarySearchInArr(strtoupper($a_name), $PMA_SQPdata_forbidden_word, count($PMA_SQPdata_forbidden_word))) {
+        if(! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
             return $a_name;
         }
     }
