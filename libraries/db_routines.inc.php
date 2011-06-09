@@ -19,7 +19,12 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Some definitions
-$param_directions    = array('IN', 'OUT', 'INOUT');
+$param_directions    = array('IN',
+                             'OUT',
+                             'INOUT');
+$param_opts_num      = array('UNSIGNED',
+                             'ZEROFILL',
+                             'UNSIGNED ZEROFILL');
 $param_sqldataaccess = array('NO SQL',
                              'CONTAINS SQL',
                              'READS SQL DATA',
@@ -109,6 +114,123 @@ function getSupportedDatatypes($html = false, $selected = '')
 } // end getSupportedDatatypes()
 
 /**
+ * This function fetches as list of the charsets supported by the DB and
+ * either returns an array (useful for quickly checking if a charset is
+ * supported) or an HTML snippet that creates a drop-down list.
+ *
+ * @param   bool    $html       Whether to generate an html snippet or an array
+ * @param   string  $selected   The value to mark as selected in HTML mode
+ *
+ * @return  mixed   An HTML snippet or an array of charsets.
+ *
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_fetch_result()
+ * @uses    strtolower()
+ */
+function getSupportedCharsets($html = false, $selected = '')
+{
+    $charsets = array();
+    $result   = PMA_DBI_try_query("SHOW CHARSET");
+    if ($result) {
+        $charsets = PMA_DBI_fetch_result($result);
+    } else {
+        return false;
+    }
+    sort($charsets);
+    if ($html) {
+        // NOTE: the SELECT tag in not included in this snippet.
+        $retval = '';
+        foreach ($charsets as $key => $value) {
+            $value = strtolower($value['Charset']);
+            if ($value == $selected) {
+                $retval .= "<option selected='selected'>{$value}</option>";
+            } else {
+                $retval .= "<option>{$value}</option>";
+            }
+        }
+    } else {
+        $retval = array();
+        foreach ($charsets as $key => $value) {
+            $retval[] = strtolower($value['Charset']);
+        }
+    }
+
+    return $retval;
+} // end getSupportedCharsets()
+
+/**
+ * This function parses a string containing one parameter of a routine,
+ * as returned by getRoutineParameters() and returns an array containing
+ * the information about this parameter.
+ *
+ * @param   string  $value    A string containing one parameter of a routine
+ *
+ * @return  array             Parsed information about the input parameter
+ *
+ * @uses    PMA_SQP_parse()
+ * @uses    PMA_unquote()
+ * @uses    in_array()
+ * @uses    strtoupper()
+ * @uses    strtolower()
+ * @uses    htmlspecialchars()
+ * @uses    htmlentities()
+ * @uses    sort()
+ * @uses    implode()
+ */
+function parseOneParameter($value)
+{
+    global $param_directions;
+
+    $retval = array(0 => '',
+                    1 => '',
+                    2 => '',
+                    3 => '',
+                    4 => '');
+    $parsed_param = PMA_SQP_parse($value);
+    $pos = 0;
+    if (in_array(strtoupper($parsed_param[$pos]['data']), $param_directions)) {
+        $retval[0] = strtoupper($parsed_param[0]['data']);
+        $pos++;
+    }
+    if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
+        $retval[1] = htmlspecialchars(
+                                PMA_unQuote(
+                                    $parsed_param[$pos]['data']
+                                )
+                            );
+        $pos++;
+    }
+    $depth = 0;
+    $param_length = '';
+    $param_opts = array();
+    for ($i=$pos; $i<$parsed_param['len']; $i++) {
+        if (($parsed_param[$i]['type'] == 'alpha_columnType'
+           || $parsed_param[$i]['type'] == 'alpha_functionName') // "CHAR" seems to be mistaken for a function by the parser
+           && $depth == 0) {
+            $retval[2] = strtoupper($parsed_param[$i]['data']);
+        } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
+            $depth = 1;
+        } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round' && $depth == 1) {
+            $depth = 0;
+        } else if ($depth == 1) {
+            $param_length .= $parsed_param[$i]['data'];
+        } else if ($parsed_param[$i]['type'] == 'alpha_reservedWord' && strtoupper($parsed_param[$i]['data']) == 'CHARSET' && $depth == 0) {
+            if ($parsed_param[$i+1]['type'] == 'alpha_charset' || $parsed_param[$i+1]['type'] == 'alpha_identifier') {
+                $param_opts[] = strtolower($parsed_param[$i+1]['data']);
+            }
+        } else if ($parsed_param[$i]['type'] == 'alpha_columnAttrib' && $depth == 0) {
+            $param_opts[] = strtoupper($parsed_param[$i]['data']);
+        }
+    }
+    $retval[3] = htmlentities($param_length, ENT_QUOTES);
+    sort($param_opts);
+    $retval[4] = implode(' ', $param_opts);
+
+    return $retval;
+} // end parseOneParameter()
+
+
+/**
  * This function looks through the contents of a parsed
  * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
  * information about the routine's parameters.
@@ -163,43 +285,17 @@ function getRoutineParameters($parsed_query, $routine_type)
         $params[] = $buffer;
         $retval['num']++;
     }
-
     // Now parse each parameter individually
     foreach ($params as $key => $value) {
-        $parsed_param = PMA_SQP_parse($value);
-        $pos = 0;
-        if (in_array($parsed_param[$pos]['data'], $param_directions)) {
-            $retval['dir'][] = $parsed_param[0]['data'];
-            $pos++;
-        }
-        if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
-            $retval['name'][] = htmlspecialchars(
-                                    PMA_unQuote(
-                                        $parsed_param[$pos]['data']
-                                    )
-                                );
-            $pos++;
-        }
-        $depth = 0;
-        $param_length = '';
-        for ($i=$pos; $i<$parsed_param['len']; $i++) {
-            if ($parsed_param[$i]['type'] == 'alpha_columnType' && $depth == 0) {
-                $retval['type'][] = $parsed_param[$i]['data'];
-            } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
-                $depth = 1;
-            } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round' && $depth == 1) {
-                $depth = 0;
-            } else if ($depth == 1) {
-                $param_length .= $parsed_param[$i]['data'];
-            }
-        }
-        $retval['length'][] = htmlentities($param_length, ENT_QUOTES);
-        // FIXME: parameter attributes, such as 'UNSIGNED', are currenly ignored
+        list($retval['dir'][],
+             $retval['name'][],
+             $retval['type'][],
+             $retval['length'][],
+             $retval['opts'][]) = parseOneParameter($value);
     }
-
     // Since some indices of $retval may be still undefined, we fill
     // them each with an empty array to avoid E_ALL errors in PHP.
-    foreach (array('dir', 'name', 'type', 'length') as $key => $index) {
+    foreach (array('dir', 'name', 'type', 'length', 'opts') as $key => $index) {
         if (! isset($retval[$index])) {
             $retval[$index] = array();
         }
@@ -213,7 +309,7 @@ function getRoutineParameters($parsed_query, $routine_type)
  * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
  * information about the routine's definer.
  *
- * @param   array   $parsed_query  Parsed query, returned by by PMA_SQP_parse()
+ * @param   array   $parsed_query   Parsed query, returned by PMA_SQP_parse()
  *
  * @return  string  The definer of a routine.
  *
@@ -289,12 +385,15 @@ function getFormInputFromRoutineName($db, $name, $all = true)
                         )
                     );
     $params = getRoutineParameters($parsed_query, $routine['ROUTINE_TYPE']);
-    $retval['num_params']   = $params['num'];
-    $retval['param_dir']    = $params['dir'];
-    $retval['param_name']   = $params['name'];
-    $retval['param_type']   = $params['type'];
-    $retval['param_length'] = $params['length'];
+    $retval['num_params']      = $params['num'];
+    $retval['param_dir']       = $params['dir'];
+    $retval['param_name']      = $params['name'];
+    $retval['param_type']      = $params['type'];
+    $retval['param_length']    = $params['length'];
+    $retval['param_opts_num']  = $params['opts'];
+    $retval['param_opts_text'] = $params['opts'];
 
+    // Get extra data
     if ($all) {
         if ($retval['type'] == 'FUNCTION') {
             $retval['type_toggle'] = 'PROCEDURE';
@@ -303,32 +402,14 @@ function getFormInputFromRoutineName($db, $name, $all = true)
         }
         $retval['returntype']   = '';
         $retval['returnlength'] = '';
+        $retval['returnopts_num']  = '';
+        $retval['returnopts_text'] = '';
         if (! empty($routine['DTD_IDENTIFIER'])) {
-            $brac1_pos = strpos($routine['DTD_IDENTIFIER'], '(');
-            $brac2_pos = strrpos($routine['DTD_IDENTIFIER'], ')');
-            if ($brac1_pos !== false && $brac2_pos !== false) {
-                $retval['returntype']   = strtoupper(
-                                              trim(
-                                                  substr(
-                                                      $routine['DTD_IDENTIFIER'],
-                                                      0,
-                                                      $brac1_pos
-                                                  )
-                                              )
-                                          );
-                $retval['returnlength'] = htmlentities(
-                                              trim(
-                                                  substr(
-                                                      $routine['DTD_IDENTIFIER'],
-                                                      $brac1_pos+1,
-                                                      $brac2_pos-$brac1_pos-1
-                                                  )
-                                              ),
-                                              ENT_QUOTES
-                                          );
-            } else {
-                $retval['returntype'] = strtoupper($routine['DTD_IDENTIFIER']);
-            }
+            $returnparam = parseOneParameter($routine['DTD_IDENTIFIER']);
+            $retval['returntype']      = $returnparam[2];
+            $retval['returnopts_num']  = $returnparam[3];
+            $retval['returnopts_text'] = $returnparam[3];
+            $retval['returnlength']    = $returnparam[4];
         }
         $retval['definer']         = getRoutineDefiner($parsed_query);
         $retval['definition']      = $routine['ROUTINE_DEFINITION'];
@@ -388,17 +469,23 @@ function getFormInputFromRequest()
     if (isset($_REQUEST['routine_original_type']) && $_REQUEST['routine_original_type'] == 'FUNCTION') {
         $retval['original_type'] = 'FUNCTION';
     }
-    $retval['num_params']   = 0;
-    $retval['param_dir']    = array();
-    $retval['param_name']   = array();
-    $retval['param_type']   = array();
-    $retval['param_length'] = array();
+    $retval['num_params']      = 0;
+    $retval['param_dir']       = array();
+    $retval['param_name']      = array();
+    $retval['param_type']      = array();
+    $retval['param_length']    = array();
+    $retval['param_opts_num']  = array();
+    $retval['param_opts_text'] = array();
     if (isset($_REQUEST['routine_param_name'])
         && isset($_REQUEST['routine_param_type'])
         && isset($_REQUEST['routine_param_length'])
+        && isset($_REQUEST['routine_param_opts_num'])
+        && isset($_REQUEST['routine_param_opts_text'])
         && is_array($_REQUEST['routine_param_name'])
         && is_array($_REQUEST['routine_param_type'])
-        && is_array($_REQUEST['routine_param_length'])) {
+        && is_array($_REQUEST['routine_param_length'])
+        && is_array($_REQUEST['routine_param_opts_num'])
+        && is_array($_REQUEST['routine_param_opts_text'])) {
 
         if ($_REQUEST['routine_type'] == 'PROCEDURE') {
             $temp_num_params = 0;
@@ -442,6 +529,24 @@ function getFormInputFromRequest()
         if ($temp_num_params > $retval['num_params']) {
             $retval['num_params'] = $temp_num_params;
         }
+        $temp_num_params = 0;
+        $retval['param_opts_num'] = $_REQUEST['routine_param_opts_num'];
+        foreach ($retval['param_opts_num'] as $key => $value) {
+            $retval['param_opts_num'][$key] = htmlentities($value, ENT_QUOTES);
+            $temp_num_params++;
+        }
+        if ($temp_num_params > $retval['num_params']) {
+            $retval['num_params'] = $temp_num_params;
+        }
+        $temp_num_params = 0;
+        $retval['param_opts_text'] = $_REQUEST['routine_param_opts_text'];
+        foreach ($retval['param_opts_text'] as $key => $value) {
+            $retval['param_opts_text'][$key] = htmlentities($value, ENT_QUOTES);
+            $temp_num_params++;
+        }
+        if ($temp_num_params > $retval['num_params']) {
+            $retval['num_params'] = $temp_num_params;
+        }
     }
     $retval['returntype'] = '';
     if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], getSupportedDatatypes(), true)) {
@@ -450,6 +555,14 @@ function getFormInputFromRequest()
     $retval['returnlength'] = '';
     if (isset($_REQUEST['routine_returnlength'])) {
         $retval['returnlength'] = htmlentities($_REQUEST['routine_returnlength'], ENT_QUOTES);
+    }
+    $retval['returnopts_num'] = '';
+    if (isset($_REQUEST['routine_returnopts_num'])) {
+        $retval['returnopts_num'] = htmlentities($_REQUEST['routine_returnopts_num'], ENT_QUOTES);
+    }
+    $retval['returnopts_text'] = '';
+    if (isset($_REQUEST['routine_returnopts_text'])) {
+        $retval['returnopts_text'] = htmlentities($_REQUEST['routine_returnopts_text'], ENT_QUOTES);
     }
     $retval['definition'] = '';
     if (isset($_REQUEST['routine_definition'])) {
@@ -509,7 +622,7 @@ function getFormInputFromRequest()
  * @uses    getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors) {
-    global $db, $table, $titles, $url_query, $param_directions, $param_sqldataaccess;
+    global $db, $table, $titles, $url_query, $param_directions, $param_sqldataaccess, $param_opts_num;
 
     // Handle some logic first
     if ($operation == 'change') {
@@ -521,16 +634,20 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
             $routine['type_toggle'] = 'FUNCTION';
         }
     } else if ($operation == 'add' || ($routine['num_params'] == 0 && $mode == 'add' && ! $errors)) {
-        $routine['param_dir'][]  = '';
-        $routine['param_name'][] = '';
-        $routine['param_type'][] = '';
-        $routine['param_length'][] = '';
+        $routine['param_dir'][]       = '';
+        $routine['param_name'][]      = '';
+        $routine['param_type'][]      = '';
+        $routine['param_length'][]    = '';
+        $routine['param_opts_num'][]  = '';
+        $routine['param_opts_text'][] = '';
         $routine['num_params']++;
     } else if ($operation == 'remove') {
         unset($routine['param_dir'][$routine['num_params']-1]);
         unset($routine['param_name'][$routine['num_params']-1]);
         unset($routine['param_type'][$routine['num_params']-1]);
         unset($routine['param_length'][$routine['num_params']-1]);
+        unset($routine['param_opts_num'][$routine['num_params']-1]);
+        unset($routine['param_opts_text'][$routine['num_params']-1]);
         $routine['num_params']--;
     }
     $disable_remove_parameter = '';
@@ -587,6 +704,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "            <th>" . __('Name') . "</th>\n";
     $retval .= "            <th>" . __('Type') . "</th>\n";
     $retval .= "            <th>" . __('Length/Values') . "</th>\n";
+    $retval .= "            <th colspan='2'>" . __('Options') . "</th>\n";
     $retval .= "            <th class='routine_param_remove hide'>&nbsp;</th>\n";
     $retval .= "        </tr>";
     for ($i=0; $i<$routine['num_params']; $i++) { // each parameter
@@ -607,6 +725,20 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
         $retval .= "            </select></td>\n";
         $retval .= "            <td><input name='routine_param_length[$i]' type='text'\n";
         $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
+        $retval .= "            <td class='routine_param_opts_text'><select name='routine_param_opts_text[$i]'>\n";
+        $retval .= "                <option value=''>(CHARSET)</option>";
+        $retval .= getSupportedCharsets(true, $routine['param_opts_text'][$i]) . "\n";
+        $retval .= "            </select></td>\n";
+        $retval .= "            <td class='routine_param_opts_num'><select name='routine_param_opts_num[$i]'>\n";
+        $retval .= "                <option value=''></option>";
+        foreach ($param_opts_num as $key => $value) {
+            $selected = "";
+            if (! empty($routine['param_opts_num'][$i]) && $routine['param_opts_num'][$i] == $value) {
+                $selected = " selected='selected'";
+            }
+            $retval .= "<option$selected>$value</option>";
+        }
+        $retval .= "\n            </select></td>\n";
         $retval .= "            <td class='routine_param_remove hide' style='vertical-align: middle;'>\n";
         $retval .= "                <a href='#' class='routine_param_remove_anchor'>\n";
         $retval .= "                    {$titles['Drop']}\n";
@@ -639,6 +771,23 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "    <td>" . __('Return Length/Values') . "</td>\n";
     $retval .= "    <td><input type='text' name='routine_returnlength'\n";
     $retval .= "               value='{$routine['returnlength']}' /></td>\n";
+    $retval .= "</tr>\n";
+    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
+    $retval .= "    <td>" . __('Return Options') . "</td>\n";
+    $retval .= "    <td><div><select name='routine_returnopts_text'>\n";
+    $retval .= "        <option value=''>(CHARSET)</option>";
+    $retval .= getSupportedCharsets(true, $routine['returnopts_text']) . "\n";
+    $retval .= "    </select></div>\n";
+    $retval .= "    <div><select name='routine_returnopts_num'>\n";
+    $retval .= "        <option value=''></option>";
+    foreach ($param_opts_num as $key => $value) {
+        $selected = "";
+        if (! empty($routine['returnopts_num']) && $routine['returnopts_num'] == $value) {
+            $selected = " selected='selected'";
+        }
+        $retval .= "<option$selected>$value</option>";
+    }
+    $retval .= "\n    </select></div></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
@@ -704,7 +853,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
  * @uses    count()
  */
 function createQueryFromRequest() {
-    global $_REQUEST, $routine_errors, $param_sqldataaccess;
+    global $_REQUEST, $cfg, $routine_errors, $param_sqldataaccess;
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['routine_definer']) && strpos($_REQUEST['routine_definer'], '@') !== false) {
@@ -753,6 +902,22 @@ function createQueryFromRequest() {
                                              . 'parameters of type ENUM, SET, VARCHAR and VARBINARY.');
                     }
                 }
+                if (! empty($_REQUEST['routine_param_opts_text'][$i])) {
+                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_param_type'][$i])])) {
+                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_param_type'][$i])];
+                        if ($group == 'FUNC_CHAR') {
+                            $params .= ' CHARSET ' . strtolower($_REQUEST['routine_param_opts_text'][$i]);
+                        }
+                    }
+                }
+                if (! empty($_REQUEST['routine_param_opts_num'][$i])) {
+                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_param_type'][$i])])) {
+                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_param_type'][$i])];
+                        if ($group == 'FUNC_NUMBER') {
+                            $params .= ' ' . strtoupper($_REQUEST['routine_param_opts_num'][$i]);
+                        }
+                    }
+                }
                 if ($i != count($_REQUEST['routine_param_name'])-1) {
                     $params .= ", ";
                 }
@@ -776,6 +941,22 @@ function createQueryFromRequest() {
                 $warned_about_length = true;
                 $routine_errors[] = __('You must provide Length/Values for routine '
                                      . 'parameters of type ENUM, SET, VARCHAR and VARBINARY.');
+            }
+        }
+        if (! empty($_REQUEST['routine_returnopts_text'])) {
+            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_returntype'])])) {
+                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_returntype'])];
+                if ($group == 'FUNC_CHAR') {
+                    $query .= ' CHARSET ' . strtolower($_REQUEST['routine_returnopts_text']);
+                }
+            }
+        }
+        if (! empty($_REQUEST['routine_returnopts_num'])) {
+            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_returntype'])])) {
+                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_returntype'])];
+                if ($group == 'FUNC_NUMBER') {
+                    $query .= ' ' . strtoupper($_REQUEST['routine_returnopts_num']);
+                }
             }
         }
         $query .= ' ';
@@ -1287,9 +1468,19 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         $template .= "            </select></td>\n";
         $template .= "            <td><input name='routine_param_length[%s]' type='text'\n";
         $template .= "                       value='' /></td>\n";
+        $template .= "            <td><select name='routine_param_opts_text[%s]'>\n";
+        $template .= "                <option value=''>(CHARSET)</option>";
+        $template .= getSupportedCharsets(true) . "\n";
+        $template .= "            </select></td>\n";
+        $template .= "            <td><select name='routine_param_opts_num[%s]'>\n";
+        $template .= "                <option value=''></option>\n";
+        foreach ($param_opts_num as $key => $value) {
+            $template .= "                <option>$value</option>\n";
+        }
+        $template .= "\n            </select></td>\n";
         $template .= "            <td class='routine_param_remove' style='vertical-align: middle;'>\n";
         $template .= "                <a href='#' class='routine_param_remove_anchor'>\n";
-        $template .= "                    " . PMA_getIcon('b_drop.png') . "\n";
+        $template .= "                    {$titles['Drop']}\n";
         $template .= "                </a>\n";
         $template .= "            </td>\n";
         $template .= "        </tr>\n";
