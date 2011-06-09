@@ -103,6 +103,12 @@ $(document).ready(function() {
     drawChart();
 });
 
+function in_array(element,array) {
+	for(var i=0; i<array.length; i++)
+		if(array[i]==element) return true;
+	return false;
+}
+
 function PMA_queryChart(data,passedSettings) {
     if($('#querychart').length==0) return;
     
@@ -160,7 +166,8 @@ function PMA_queryChart(data,passedSettings) {
                 $.each(data,function(key,value) {
                     type = value[chart_series];
                     series[seriesIndex[type]].data.push(parseFloat(value[columnNames[0]]));
-                    xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+					if(!in_array(value[columnNames[chart_xaxis_idx]],xaxis.categories))
+						xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                 });
             }
             
