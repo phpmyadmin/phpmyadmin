@@ -7963,10 +7963,9 @@ msgid "wildcard"
 msgstr "wildcard"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "View %s has been dropped"
+msgstr "User has been added."
 
 #: server_processlist.php:29
 #, php-format
