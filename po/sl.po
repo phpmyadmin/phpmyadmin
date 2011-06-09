@@ -8010,10 +8010,9 @@ msgid "wildcard"
 msgstr "nadomestni znak"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Pogled %s je zavržen"
+msgstr "Uporabnik je dodan."
 
 #: server_processlist.php:29
 #, php-format
