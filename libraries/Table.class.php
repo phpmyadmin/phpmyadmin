@@ -1197,6 +1197,27 @@ class PMA_Table
     }
 
     /**
+     * Get all columns
+     *
+     * returns an array with all columns
+     *
+     * @param   boolean whether to quote name with backticks ``
+     * @return array
+     */
+    public function getColumns($backquoted = true)
+    {
+        $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
+        $indexed = PMA_DBI_fetch_result($sql, 'Field', 'Field');
+
+        $return = array();
+        foreach ($indexed as $column) {
+            $return[] = $this->getFullName($backquoted) . '.' . ($backquoted ? PMA_backquote($column) : $column);
+        }
+
+        return $return;
+    }
+
+    /**
      * Return UI preferences for this table from phpMyAdmin database.
      *
      * @uses PMA_query_as_controluser()
@@ -1277,25 +1298,11 @@ class PMA_Table
     }
 
     /**
-     * Get UI preferences array for this table.
-     * If pmadb and table_uiprefs is set, it will get the UI preferences from
-     * phpMyAdmin database.
-     *
-     * @return array
-     */
-    public function getUiPrefs()
-    {
-        if (! isset($this->uiprefs)) {
-            $this->loadUiPrefs();
-        }
-        return $this->uiprefs;
-    }
-
-    /**
      * Get a property from UI preferences.
      * Return false if the property is not found.
      * Available property:
      * - PROP_SORTED_COLUMN
+     * - PROP_COLUMN_ORDER
      *
      * @uses loadUiPrefs()
      *
@@ -1307,6 +1314,42 @@ class PMA_Table
         if (! isset($this->uiprefs)) {
             $this->loadUiPrefs();
         }
+        // do checking based on property
+        if ($property == self::PROP_SORTED_COLUMN) {
+            if (isset($this->uiprefs[$property])) {
+                // check if the column name is exist in this table
+                $tmp = explode(' ', $this->uiprefs[$property]);
+                $colname = $tmp[0];
+                $avail_columns = $this->getColumns();
+                foreach ($avail_columns as $each_col) {
+                    // check if $each_col ends with $colname
+                    if (substr_compare($each_col, $colname,
+                            strlen($each_col) - strlen($colname)) === 0) {
+                        return $this->uiprefs[$property];
+                    }
+                }
+                // remove the property, since it is not exist anymore in database
+                $this->removeUiProp(self::PROP_SORTED_COLUMN);
+                return false;
+            } else {
+                return false;
+            }
+        } else if ($property == self::PROP_COLUMN_ORDER) {
+            if (isset($this->uiprefs[$property])) {
+                // check if the table has not been modified
+                if (self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME') ==
+                        $this->uiprefs['CREATE_TIME']) {
+                    return $this->uiprefs[$property];
+                } else {
+                    // remove the property, since the table has been modified
+                    $this->removeUiProp(self::PROP_COLUMN_ORDER);
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        // default behaviour for other property:
         return isset($this->uiprefs[$property]) ? $this->uiprefs[$property] : false;
     }
 
@@ -1325,12 +1368,36 @@ class PMA_Table
             $this->loadUiPrefs();
         }
         $this->uiprefs[$property] = $value;
+        // also save the create time if the property is PROP_COLUMN_ORDER
+        if ($property == self::PROP_COLUMN_ORDER) {
+            $this->uiprefs['CREATE_TIME'] = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+        }
         // check if pmadb is set
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
                 && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])) {
             return $this->saveUiprefsToDb();
         }
         return true;
+    }
+
+    /**
+     * Remove a property from UI preferences.
+     *
+     * @param string $property
+     */
+    public function removeUiProp($property)
+    {
+        if (! isset($this->uiprefs)) {
+            $this->loadUiPrefs();
+        }
+        if (isset($this->uiprefs[$property])) {
+            unset($this->uiprefs[$property]);
+            // check if pmadb is set
+            if (strlen($GLOBALS['cfg']['Server']['pmadb'])
+                    && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])) {
+                return $this->saveUiprefsToDb();
+            }
+        }
     }
 }
 ?>
