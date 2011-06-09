@@ -3935,9 +3935,8 @@ msgstr ""
 "tabeller för alla sessioner i databasen, förslag: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 msgid "Recently used table"
-msgstr "Nuvarande anslutning"
+msgstr "Nyligen använd tabell"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
