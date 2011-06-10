@@ -1111,7 +1111,7 @@ function createQueryFromRequest() {
  * @uses    getFormInputFromRoutineName()
  * @uses    urlencode()
  */
-function routineMakeRowForList($routine, $ct = 0) {
+function getRowForListOfRoutines($routine, $ct = 0) {
     global $titles, $db, $url_query, $ajax_class;
 
     // Do the logic first
@@ -1176,7 +1176,99 @@ function routineMakeRowForList($routine, $ct = 0) {
     $retval .= "            <td>{$routine['DTD_IDENTIFIER']}</td>\n";
     $retval .= "        </tr>\n";
     return $retval;
-} // end routineMakeRowForList()
+} // end getRowForListOfRoutines()
+
+/**
+ * Creates a list of available routines for the specified database
+ *
+ * @return   string    An HTML snippet with the list of routines.
+ *
+ * @uses    PMA_sqlAddslashes()
+ * @uses    PMA_DBI_fetch_result()
+ * @uses    getRowForListOfRoutines()
+ */
+function getListOfRoutines()
+{
+    global $db;
+
+    /**
+     * Get the routines
+     */
+    $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
+    $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "'";
+    $routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
+
+    /**
+     * Generate output
+     */
+    $retval  = "";
+    $retval .= "\n\n<span id='js_query_display'></span>\n\n";
+    $retval .= "<!-- LIST OF ROUTINES START -->\n";
+    $retval .= "<fieldset>\n";
+    $retval .= "    <legend>" . __('Routines') . "</legend>\n";
+    if (! $routines) {
+        $retval .= "    " . __('There are no routines to display.') . "\n";
+    } else {
+        $retval .= "    <div class='hide' id='nothing2display'>\n";
+        $retval .= "      " . __('There are no routines to display.') . "\n";
+        $retval .= "    </div>\n";
+        $retval .= "    <table class='data'>\n";
+        $retval .= "        <!-- TABLE HEADERS -->\n";
+        $retval .= "        <tr>\n";
+        $retval .= "            <th>" . __('Name') . "</th>\n";
+        $retval .= "            <th>&nbsp;</th>\n";
+        $retval .= "            <th>&nbsp;</th>\n";
+        $retval .= "            <th>&nbsp;</th>\n";
+        $retval .= "            <th>&nbsp;</th>\n";
+        $retval .= "            <th>" . __('Type') . "</th>\n";
+        $retval .= "            <th>" . __('Return type') . "</th>\n";
+        $retval .= "        </tr>\n";
+        $retval .= "        <!-- TABLE DATA -->\n";
+        $ct = 0;
+        // Display each routine
+        foreach ($routines as $routine) {
+            $retval .= getRowForListOfRoutines($routine, $ct);
+            $ct++;
+        }
+        $retval .= "    </table>\n";
+    }
+    $retval .= "</fieldset>\n";
+    $retval .= "<!-- LIST OF ROUTINES END -->\n\n";
+
+    return $retval;
+} // end getListOfRoutines()
+
+/**
+ * Creates a fieldset for adding a new routine, if the user has the privileges.
+ *
+ * @return   string    An HTML snippet with the link to add a new routine.
+ *
+ * @uses    PMA_currentUserHasPrivilege()
+ * @uses    PMA_getIcon()
+ * @uses    PMA_showMySQLDocu()
+ */
+function getAddRoutineLink()
+{
+    global $db, $url_query, $ajax_class;
+
+    $retval  = "";
+    $retval .= "<!-- ADD ROUTINE FORM START -->\n";
+    $retval .= "<fieldset>\n";
+    if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
+        $retval .= "<a {$ajax_class['add']} href='db_routines.php";
+        $retval .= "?$url_query&amp;addroutine=1'>\n";
+        $retval .= PMA_getIcon('b_routine_add.png') . "\n";
+        $retval .= __('Add a new Routine') . "</a>\n";
+    } else {
+        $retval .= PMA_getIcon('b_routine_add.png') . "\n";
+        $retval .= __('You do not have the necessary privileges to create a new Routine') . "\n";
+    }
+    $retval .= PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
+    $retval .= "</fieldset>\n";
+    $retval .= "<!-- ADD ROUTINE FORM END -->\n\n";
+
+    return $retval;
+} // end getAddRoutineLink()
 
 /**
  *  ### MAIN ##########################################################################################################
@@ -1452,7 +1544,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . "'";
             $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
             $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
-            $extra_data['new_row']   = routineMakeRowForList($routine);
+            $extra_data['new_row']   = getRowForListOfRoutines($routine);
             $extra_data['sql_query'] = $output;
             $response = PMA_message::success();
         } else {
@@ -1509,6 +1601,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         // Show form
         $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors, $GLOBALS['is_ajax_request']);
         if ($GLOBALS['is_ajax_request']) {
+            // TODO: this needs to be refactored
             $template  = "        <tr>\n";
             $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";
             foreach ($param_directions as $key => $value) {
@@ -1548,67 +1641,18 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
 }
 
 /**
- * Get the routines.
- */
-$columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-$where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "'";
-$routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
-
-/**
  * Display a list of available routines
  */
-echo "\n\n<span id='js_query_display'></span>";
-echo "\n\n";
-echo "<!-- LIST OF ROUTINES START -->\n";
-echo "<fieldset>\n";
-echo "    <legend>" . __('Routines') . "</legend>\n";
-if (! $routines) {
-    echo "    " . __('There are no routines to display.') . "\n";
-} else {
-    echo "    <div class='hide' id='nothing2display'>\n";
-    echo "      " . __('There are no routines to display.') . "\n";
-    echo "    </div>\n";
-    echo "    <table class='data'>\n";
-    echo "        <!-- TABLE HEADERS -->\n";
-    echo "        <tr>\n";
-    echo "            <th>" . __('Name') . "</th>\n";
-    echo "            <th>&nbsp;</th>\n";
-    echo "            <th>&nbsp;</th>\n";
-    echo "            <th>&nbsp;</th>\n";
-    echo "            <th>&nbsp;</th>\n";
-    echo "            <th>" . __('Type') . "</th>\n";
-    echo "            <th>" . __('Return type') . "</th>\n";
-    echo "        </tr>\n";
-    echo "        <!-- TABLE DATA -->\n";
-    $ct = 0;
-    // Display each routine
-    foreach ($routines as $routine) {
-        echo routineMakeRowForList($routine, $ct);
-        $ct++;
-    }
-    echo "    </table>\n";
-}
-echo "</fieldset>\n";
-echo "<!-- LIST OF ROUTINES END -->\n\n";
+echo getListOfRoutines();
 
 /**
  * Display the form for adding a new routine, if the user has the privileges.
  */
-echo '<!-- ADD ROUTINE FORM START -->' . "\n";
-echo '<fieldset>' . "\n";
-if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
-    echo '<a href="db_routines.php?' . $url_query
-       . '&amp;addroutine=1" ' . $ajax_class['add'] . '>' . "\n"
-       . PMA_getIcon('b_routine_add.png') . "\n"
-       . __('Add a new Routine') . '</a>' . "\n";
-} else {
-    echo PMA_getIcon('b_routine_add.png') . "\n"
-       . __('You do not have the necessary privileges to create a new Routine') . "\n";
-}
-echo PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
-echo '</fieldset>' . "\n";
-echo '<!-- ADD ROUTINE FORM END -->' . "\n\n";
+echo getAddRoutineLink();
 
+/**
+ * Display a warning for users with PHP's old "mysql" extension.
+ */
 if ($GLOBALS['cfg']['Server']['extension'] !== 'mysqli') {
     trigger_error(__('You are using PHP\'s deprecated \'mysql\' extension, '
                    . 'which is not capable of handling multi queries. '
