@@ -46,8 +46,6 @@ $(function() {
     var text=''; // Holds filter text
     
     /* Chart configuration */
-    // Amount of points the chart should hold
-    var numMaxPoints=30;
     
     // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
@@ -111,12 +109,12 @@ $(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         var that = this;
-		
+        
         // Show ajax load icon
         $(this).find('img').show();
 
         $.get($(this).attr('href'),{ajax_request:1},function(data) {
-			$(that).find('img').hide();
+            $(that).find('img').hide();
             initTab(tab,data);
         });
         
@@ -142,13 +140,14 @@ $(function() {
                         realtime:{ url:'server_status.php?'+url_query,
                                    type: 'proc',
                                    callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
+                                       if(lastVal==null) return;
                                         chartObj.series[0].addPoint(
                                             { x:curVal.x, y:curVal.y_conn-lastVal.y_conn },
-                                            false, numLoadedPoints >= numMaxPoints
+                                            false, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                         );
                                         chartObj.series[1].addPoint(
                                             { x:curVal.x, y:curVal.y_proc },
-                                            true, numLoadedPoints >= numMaxPoints
+                                            true, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                         );                                            
                                     }
                                 }
@@ -162,9 +161,10 @@ $(function() {
                         realtime:{ url:'server_status.php?'+url_query,
                                   type: 'queries',
                                   callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
+                                      if(lastVal==null) return;
                                         chartObj.series[0].addPoint(
                                             { x:curVal.x,  y:curVal.y-lastVal.y, name:sortedQueriesPointInfo(curVal,lastVal) },
-                                            true, numLoadedPoints >= numMaxPoints
+                                            true, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                         );
                                     }
                                 }

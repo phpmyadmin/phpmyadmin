@@ -1413,7 +1413,7 @@ function PMA_createChart(passedSettings) {
                     var thisChart = this;
                     var lastValue=null, curValue=null;
                     var numLoadedPoints=0, otherSum=0;
-                    
+                    var diff;
                     // No realtime updates for graphs that are being exported, and disabled when no callback is set
                     if(thisChart.options.chart.forExport==true || !passedSettings.realtime || !passedSettings.realtime.callback) return;
                             
@@ -1422,13 +1422,19 @@ function PMA_createChart(passedSettings) {
                             if(chart_activeTimeouts[container]==null) return;
                             
                             curValue = jQuery.parseJSON(data);
-                            if(lastValue==null) lastValue = curValue;
+                            //if(lastValue==null) lastValue = curValue;
                             
-                            passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints)
+                            if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
+                            else diff = parseInt(curValue.x - lastValue.x);
+                            
+                            thisChart.xAxis[0].setExtremes(thisChart.xAxis[0].getExtremes().min+diff, thisChart.xAxis[0].getExtremes().max+diff, false);
+                            
+                            passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
                             
                             lastValue = curValue;
                             numLoadedPoints++;
-                            chart_activeTimeouts[container] = setTimeout(addnewPoint, thisChart.options.realtime.refreshRate || 5000);
+                            chart_activeTimeouts[container] = setTimeout(addnewPoint, thisChart.options.realtime.refreshRate);
+                            
                         });
                     }
                     
@@ -1441,7 +1447,6 @@ function PMA_createChart(passedSettings) {
         },
         xAxis: {
             type: 'datetime',
-            tickPixelInterval: 150
         },
         yAxis: {
             min: 0,
@@ -1467,6 +1472,18 @@ function PMA_createChart(passedSettings) {
         series: []
     }
     
+    /* Set/Get realtime chart default values */
+    if(passedSettings.realtime) {
+        if(!passedSettings.realtime.refreshRate) 
+            passedSettings.realtime.refreshRate = 4000;
+        
+        if(!passedSettings.realtime.numMaxPoints) 
+            passedSettings.realtime.numMaxPoints = 30;
+        
+        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate,
+        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate
+    }
+
     // Overwrite/Merge default settings with passedsettings
     $.extend(true,settings,passedSettings);
 
