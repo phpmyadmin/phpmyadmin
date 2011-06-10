@@ -7,36 +7,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// Some definitions
-$param_directions    = array('IN',
-                             'OUT',
-                             'INOUT');
-$param_opts_num      = array('UNSIGNED',
-                             'ZEROFILL',
-                             'UNSIGNED ZEROFILL');
-$param_sqldataaccess = array('NO SQL',
-                             'CONTAINS SQL',
-                             'READS SQL DATA',
-                             'MODIFIES SQL DATA');
-
-/**
- * Generate the conditional classes that will be used to attach jQuery events to links.
- */
-$ajax_class = array(
-                  'add'    => '',
-                  'edit'   => '',
-                  'exec'   => '',
-                  'drop'   => '',
-                  'export' => ''
-              );
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $ajax_class['add']    = 'class="add_routine_anchor"';
-    $ajax_class['edit']   = 'class="edit_routine_anchor"';
-    $ajax_class['exec']   = 'class="exec_routine_anchor"';
-    $ajax_class['drop']   = 'class="drop_routine_anchor"';
-    $ajax_class['export'] = 'class="export_routine_anchor"';
-}
-
 /**
  * This function processes the datatypes supported by the DB, as specified in
  * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
@@ -1213,6 +1183,36 @@ function routineMakeRowForList($routine, $ct = 0) {
  */
 
 // $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
+
+// Some definitions
+$param_directions    = array('IN',
+                             'OUT',
+                             'INOUT');
+$param_opts_num      = array('UNSIGNED',
+                             'ZEROFILL',
+                             'UNSIGNED ZEROFILL');
+$param_sqldataaccess = array('NO SQL',
+                             'CONTAINS SQL',
+                             'READS SQL DATA',
+                             'MODIFIES SQL DATA');
+
+/**
+ * Generate the conditional classes that will be used to attach jQuery events to links.
+ */
+$ajax_class = array(
+                  'add'    => '',
+                  'edit'   => '',
+                  'exec'   => '',
+                  'drop'   => '',
+                  'export' => ''
+              );
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $ajax_class['add']    = 'class="add_routine_anchor"';
+    $ajax_class['edit']   = 'class="edit_routine_anchor"';
+    $ajax_class['exec']   = 'class="exec_routine_anchor"';
+    $ajax_class['drop']   = 'class="drop_routine_anchor"';
+    $ajax_class['export'] = 'class="export_routine_anchor"';
+}
 
 /**
  * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
