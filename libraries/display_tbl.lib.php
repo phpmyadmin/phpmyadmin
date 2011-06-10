@@ -375,7 +375,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     } // end move toward
     ?>
     <td>
-        <input id="restore_column" type="submit" value="Restore column order" />
+        <input class="restore_column" type="submit" value="Restore column order" />
         <?php
         // generate the column order, if it is set
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
