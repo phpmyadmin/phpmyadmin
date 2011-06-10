@@ -58,7 +58,7 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @uses    function_exists()
  * @param   boolean|string  $query          query to display in the textarea
  *                                          or true to display last executed
- * @param   boolean|string  $display_tab    sql|files|history|full|FALSE
+ * @param   boolean|string  $display_tab    sql|files|history|full|false
  *                                          what part to display
  *                                          false if not inside querywindow
  * @param   string          $delimiter
@@ -495,7 +495,7 @@ function PMA_sqlQueryFormUpload(){
     echo PMA_generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
     echo '</div>';
 
-    if ($files === FALSE) {
+    if ($files === false) {
         $errors[] = PMA_Message::error( __('The directory you set for upload work cannot be reached'));
     } elseif (!empty($files)) {
         echo '<div class="formelement">';
@@ -514,7 +514,7 @@ function PMA_sqlQueryFormUpload(){
     echo '<fieldset id="" class="tblFooters">';
     echo __('Character set of the file:') . "\n";
     echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
-            'charset_of_file', null, 'utf8', FALSE);
+            'charset_of_file', null, 'utf8', false);
     echo '<input type="submit" name="SQL" value="' . __('Go')
         .'" />' . "\n";
     echo '<div class="clearfloat"></div>' . "\n";

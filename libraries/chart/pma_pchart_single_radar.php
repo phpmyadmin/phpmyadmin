@@ -46,7 +46,7 @@ class PMA_pChart_single_radar extends PMA_pChart_single
                 $this->getGraphAreaColor(RED),
                 $this->getGraphAreaColor(GREEN),
                 $this->getGraphAreaColor(BLUE),
-                FALSE
+                false
         );
         
         if($this->settings['gradientIntensity']>0)
@@ -88,7 +88,7 @@ class PMA_pChart_single_radar extends PMA_pChart_single
         $borderOffset += 40;
 
         $this->chart->drawRadarAxis($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 
-            TRUE, $borderOffset, 120, 120, 120, 230, 230, 230, -1, 2);
+            true, $borderOffset, 120, 120, 120, 230, 230, 230, -1, 2);
         $this->chart->drawFilledRadar($this->dataSet->GetData(), $this->dataSet->GetDataDescription(), 50, $borderOffset);
     }
 }

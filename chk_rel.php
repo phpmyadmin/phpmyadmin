@@ -15,7 +15,7 @@ require_once './libraries/header.inc.php';
 /**
  * Gets the relation settings
  */
-$cfgRelation = PMA_getRelationsParam(TRUE);
+$cfgRelation = PMA_getRelationsParam(true);
 
 
 /**

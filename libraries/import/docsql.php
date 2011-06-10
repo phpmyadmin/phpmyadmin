@@ -42,10 +42,10 @@ $buffer = '';
 /* Read whole buffer, we except it is small enough */
 while (!$finished && !$error && !$timeout_passed) {
     $data = PMA_importGetNextChunk();
-    if ($data === FALSE) {
+    if ($data === false) {
         // subtract data we didn't handle yet and stop processing
         break;
-    } elseif ($data === TRUE) {
+    } elseif ($data === true) {
         // nothing to read
         break;
     } else {
@@ -54,7 +54,7 @@ while (!$finished && !$error && !$timeout_passed) {
     }
 } // End of import loop
 /* Process the data */
-if ($data === TRUE && !$error && !$timeout_passed) {
+if ($data === true && !$error && !$timeout_passed) {
     $buffer = str_replace("\r\n", "\n", $buffer);
     $buffer = str_replace("\r", "\n", $buffer);
     $lines = explode("\n", $buffer);

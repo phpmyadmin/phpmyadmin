@@ -24,7 +24,7 @@ if ($is_create_db_priv) {
             <input type="text" name="new_db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="text_create_db"/>
     <?php
     require_once './libraries/mysql_charsets.lib.php';
-    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, TRUE, 5);
+    echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, true, 5);
 
     if (! empty($dbstats)) {
         echo '<input type="hidden" name="dbstats" value="1" />';

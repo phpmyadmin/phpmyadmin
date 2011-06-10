@@ -698,7 +698,7 @@ function PMA_linkURL($url) {
  * @return string HTML code for javascript inclusion.
  */
 function PMA_includeJS($url) {
-    if (strpos($url, '?') === FALSE) {
+    if (strpos($url, '?') === false) {
         return '<script src="./js/' . $url . '?ts=' . filemtime('./js/' . $url) . '" type="text/javascript"></script>' . "\n";
     } else {
         return '<script src="./js/' . $url . '" type="text/javascript"></script>' . "\n";

@@ -213,6 +213,13 @@ $cfg['Servers'][$i]['password'] = '';
 $cfg['Servers'][$i]['SignonSession'] = '';
 
 /**
+ * PHP script to use for 'signon' authentication method
+ *
+ * @global string $cfg['Servers'][$i]['SignonScript']
+ */
+$cfg['Servers'][$i]['SignonScript'] = '';
+
+/**
  * URL where to redirect user to login for 'signon' authentication method
  *
  * @global string $cfg['Servers'][$i]['SignonURL']
@@ -1309,7 +1316,7 @@ $cfg['Export']['texytext_structure_or_data'] = 'structure_and_data';
  *
  * @global boolean $cfg['Export']['texytext_columns']
  */
-$cfg['Export']['texytext_columns'] = FALSE;
+$cfg['Export']['texytext_columns'] = false;
 
 /**
  *
@@ -2620,6 +2627,13 @@ $cfg['CheckConfigurationPermissions'] = true;
  * This is required as some web servers (IIS) have problems with long URLs.
  */
 $cfg['LinkLengthLimit'] = 2000;
+
+/**
+ * Disable the table maintenance mass operations, like optimizing or
+ * repairing the selected tables of a database. An accidental execution
+ * of such a maintenance task can enormously slow down a bigger database.
+ */
+$cfg['DisableMultiTableMaintenance'] = false;
 
 /*******************************************************************************
  * SQL Parser Settings

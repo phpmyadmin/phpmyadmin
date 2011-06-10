@@ -43,7 +43,7 @@ require_once './libraries/PHPExcel/PHPExcel/Writer/Excel2007.php';
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -63,7 +63,7 @@ function PMA_exportFooter() {
     $workbookWriter->save($tmp_filename);
 
     if (!PMA_exportOutputHandler(file_get_contents($tmp_filename))) {
-        return FALSE;
+        return false;
     }
 
     unlink($tmp_filename);
@@ -71,7 +71,7 @@ function PMA_exportFooter() {
     unset($GLOBALS['workbook']);
     unset($GLOBALS['sheet_index']);
 
-    return TRUE;
+    return true;
 }
 
 /**
@@ -94,7 +94,7 @@ function PMA_exportHeader() {
     $workbook->getProperties()->setTitle($db);
     $workbook->getProperties()->setSubject('phpMyAdmin ' . PMA_VERSION . ' XLSX Dump');
 
-    return TRUE;
+    return true;
 }
 
 /**
@@ -109,7 +109,7 @@ function PMA_exportHeader() {
 function PMA_exportDBHeader($db) {
 
 
-    return TRUE;
+    return true;
 }
 
 /**
@@ -122,7 +122,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -135,7 +135,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -199,7 +199,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $sheet_index++;
     }
 
-    return TRUE;
+    return true;
 }
 
 }
