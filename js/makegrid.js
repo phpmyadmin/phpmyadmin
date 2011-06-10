@@ -405,7 +405,7 @@
         $(document).mouseup(function(e) {
             g.dragEnd(e);
         });
-        $('.restore_column').live('click', function() {
+        $('.restore_column').click(function() {
             g.restore();
         });
         
