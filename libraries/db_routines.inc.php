@@ -758,10 +758,10 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "    <td>\n";
     $retval .= "        <input style='width: 49%;' type='submit' \n";
     $retval .= "               name='routine_addparameter'\n";
-    $retval .= "               value='" . __('Add another parameter') . "'>\n";
+    $retval .= "               value='" . __('Add another parameter') . "' />\n";
     $retval .= "        <input style='width: 49%;$disable_remove_parameter' type='submit' \n";
     $retval .= "               name='routine_removeparameter'\n";
-    $retval .= "               value='" . __('Remove last parameter') . "'>\n";
+    $retval .= "               value='" . __('Remove last parameter') . "' />\n";
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     // parameter handling end
@@ -795,7 +795,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
-    $retval .= "    <td><textarea name='routine_definition'>{$routine['definition']}</textarea></td>\n";
+    $retval .= "    <td><textarea name='routine_definition' rows='15' cols='40'>{$routine['definition']}</textarea></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Is Deterministic') . "</td>\n";
