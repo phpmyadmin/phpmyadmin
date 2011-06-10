@@ -58,7 +58,7 @@ require_once './libraries/header_meta_style.inc.php';
                </a>
             </p>
              <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>" />
-             <input type="hidden" name="field" value="<?php echo $_GET['field']; ?>" />
+             <input type="hidden" name="field" value="<?php echo htmlspecialchars($_GET['field']); ?>" />
              <input type="hidden" name="num_fields" value="<?php echo $total_fields; ?>" />
              <input type="submit" value="<?php echo __('Go'); ?>" />
         </form>
