@@ -1374,7 +1374,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                                       . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($_GET['routine_name']) . "';");
     if (! empty($routine_type) && $create_proc = PMA_DBI_get_definition($db, $routine_type, $_GET['routine_name'])) {
         $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
-        if (! empty($_REQUEST['ajax_request'])) {
+        if ($GLOBALS['is_ajax_request']) {
             $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
             PMA_ajaxResponse($create_proc, true, $extra_data);
         } else {
@@ -1388,7 +1388,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                   . sprintf(__('No routine with name %s found in database %s'),
                             $routine_name, htmlspecialchars(PMA_backquote($db)));
         $response = PMA_message::error($response);
-        if (! empty($_REQUEST['ajax_request'])) {
+        if ($GLOBALS['is_ajax_request']) {
             PMA_ajaxResponse($response, false);
         } else {
             $response->display();
@@ -1518,8 +1518,8 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
     }
     if ($routine !== false) {
         // Show form
-        $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors, $_REQUEST['ajax_request']);
-        if (! empty($_REQUEST['ajax_request'])) {
+        $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors, $GLOBALS['is_ajax_request']);
+        if ($GLOBALS['is_ajax_request']) {
             $template  = "        <tr>\n";
             $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";
             foreach ($param_directions as $key => $value) {
