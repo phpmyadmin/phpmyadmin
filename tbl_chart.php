@@ -19,6 +19,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 require_once './libraries/common.inc.php';
 
+$GLOBALS['js_include'][] = 'tbl_chart.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
