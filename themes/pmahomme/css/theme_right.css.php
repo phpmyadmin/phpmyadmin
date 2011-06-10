@@ -289,7 +289,7 @@ img, button {
 }
 
 input[type="checkbox"],input[type="radio"] {
-	vertical-align: -11%;
+    vertical-align: -11%;
 }
 
 
@@ -1160,24 +1160,24 @@ text-shadow:0 1px 0 #000000;
 /* serverstatus */
 
 img.sortableIcon {
-	width:16px;
-	height:16px;
-	float:right;
-	background-repeat:no-repeat;
+    width:16px;
+    height:16px;
+    float:right;
+    background-repeat:no-repeat;
 }
 
 table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
-	background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
 }
 table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
-	background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
 }
 table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serverstatusvariables th.headerSortDown img.sortableIcon {
-	background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
 }
 
 .statuslinks {
-	float: <?php echo $right; ?>;
+    float: <?php echo $right; ?>;
 }
 
 /* Also used for the variables page */
@@ -1215,6 +1215,13 @@ table#serverstatusvariables .name {
 table#serverstatusvariables .value {
     width: 6em;
 }
+table#serverstatustraffic {
+    float: <?php echo $left; ?>;
+}
+table#serverstatusconnections {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $left; ?>: 30px;
+}
 
 div#serverstatus table tbody td.descr a,
 div#serverstatus table .tblFooters a {
@@ -1244,9 +1251,9 @@ div#querywindowcontainer fieldset {
 /* profiling */
 
 div#profilingchart {
-	width:550px;
-	height:370px;
-	float:left;
+    width:550px;
+    height:370px;
+    float:left;
 }
 
 /* END profiling */
@@ -1295,9 +1302,9 @@ div#profilingchart {
 #serverstatus h3
 {
     margin: 15px 0;
-	font-weight:normal;
-	color:#999;
-	font-size:1.7em;
+    font-weight:normal;
+    color:#999;
+    font-size:1.7em;
 }
 #sectionlinks{
     padding:16px;
@@ -1306,7 +1313,7 @@ div#profilingchart {
     border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-	box-shadow:0px 1px 1px #fff inset;
+    box-shadow:0px 1px 1px #fff inset;
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
 }
@@ -1315,18 +1322,18 @@ div#profilingchart {
     font-weight:bold;
     text-shadow: 0px 1px 0px #fff;
     line-height:35px;
-	margin-left:7px;
-	border: 1px solid #aaa;
-	padding: 5px 10px;
-	color: #111;
-	text-decoration: none;
-	background: #ddd;
+    margin-left:7px;
+    border: 1px solid #aaa;
+    padding: 5px 10px;
+    color: #111;
+    text-decoration: none;
+    background: #ddd;
     white-space: nowrap;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-	/*
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    /*
     -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0px 1px 0px;

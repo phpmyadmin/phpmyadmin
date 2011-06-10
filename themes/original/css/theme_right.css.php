@@ -974,6 +974,15 @@ div#serverstatus table#serverstatusqueriesdetails {
     float: <?php echo $left; ?>;
 }
 
+table#serverstatustraffic {
+    float: <?php echo $left; ?>;
+}
+table#serverstatusconnections {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $left; ?>: 30px;
+}
+
+
 .clearfloat {
     clear: both;
 }
