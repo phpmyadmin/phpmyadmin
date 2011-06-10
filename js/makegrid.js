@@ -320,9 +320,9 @@
                 }
                 // enable or disable restore button
                 if (isInitial) {
-                    $('#restore_column').hide();
+                    $('.restore_column').hide();
                 } else {
-                    $('#restore_column').show();
+                    $('.restore_column').show();
                 }
             }
         }
@@ -405,7 +405,7 @@
         $(document).mouseup(function(e) {
             g.dragEnd(e);
         });
-        $('#restore_column').live('click', function() {
+        $('.restore_column').live('click', function() {
             g.restore();
         });
         
