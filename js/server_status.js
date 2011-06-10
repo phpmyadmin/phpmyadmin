@@ -108,6 +108,8 @@ $(function() {
         var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
         chart.options.realtime.refreshRate = 1000*parseInt(this.value);
         chart.xAxis[0].setExtremes(new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate, chart.xAxis[0].getExtremes().max, true);
+        clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
+        chart_activeTimeouts[chart.options.chart.renderTo] = setTimeout(chart.options.realtime.timeoutCallBack, chart.options.realtime.refreshRate);
     });
     
     // Ajax refresh of variables (always the first link in each tab)

@@ -1417,7 +1417,7 @@ function PMA_createChart(passedSettings) {
                     // No realtime updates for graphs that are being exported, and disabled when no callback is set
                     if(thisChart.options.chart.forExport==true || !passedSettings.realtime || !passedSettings.realtime.callback) return;
                             
-                    var addnewPoint = function() {
+                    thisChart.options.realtime.timeoutCallBack = function() {
                         $.get(passedSettings.realtime.url,{ajax_request:1, chart_data:1, type:passedSettings.realtime.type},function(data) {
                             if(chart_activeTimeouts[container]==null) return;
                             
@@ -1433,12 +1433,12 @@ function PMA_createChart(passedSettings) {
                             
                             lastValue = curValue;
                             numLoadedPoints++;
-                            chart_activeTimeouts[container] = setTimeout(addnewPoint, thisChart.options.realtime.refreshRate);
+                            chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, thisChart.options.realtime.refreshRate);
                             
                         });
                     }
                     
-                    chart_activeTimeouts[container] = setTimeout(addnewPoint, 0);
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
                 }
             }
         },
