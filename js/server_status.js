@@ -104,8 +104,14 @@ $(function() {
     initTableSorter('statustabs_queries');
     initTableSorter('statustabs_allvars');
     
+    $('.statuslinks select').change(function() {
+        var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
+        chart.options.realtime.refreshRate = 1000*parseInt(this.value);
+        chart.xAxis[0].setExtremes(new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate, chart.xAxis[0].getExtremes().max, true);
+    });
+    
     // Ajax refresh of variables (always the first link in each tab)
-    $('.statuslinks a:nth-child(1)').click(function() { 
+    $('.statuslinks a:nth-child(2)').click(function() { 
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         var that = this;
@@ -124,7 +130,7 @@ $(function() {
     });
     
     /** Realtime charting of variables (always the second link) **/
-    $('.statuslinks a:nth-child(2)').click(function() {
+    $('.statuslinks a:nth-child(3)').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         
@@ -184,7 +190,8 @@ $(function() {
             tabStatus[tab.attr('id')]='realtime';            
             tabChart[tab.attr('id')]=PMA_createChart(settings);
             $(this).html(PMA_messages['strStaticData']);
-            tab.find('.statuslinks a:nth-child(1)').hide();
+            tab.find('.statuslinks a:nth-child(2)').hide();
+            $('.statuslinks select').show();
         } else {
             clearTimeout(chart_activeTimeouts[tab.attr('id')+"_chart_cnt"]);
             chart_activeTimeouts[tab.attr('id')+"_chart_cnt"]=null;
@@ -193,7 +200,8 @@ $(function() {
             tabStatus[tab.attr('id')]='data';
             tabChart[tab.attr('id')].destroy();
             $(this).html(PMA_messages['strRealtimeChart']);
-            tab.find('.statuslinks a:nth-child(1)').show();
+            tab.find('.statuslinks a:nth-child(2)').show();
+            $('.statuslinks select').hide();
         }
         return false; 
     });

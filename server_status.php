@@ -369,6 +369,19 @@ echo __('Runtime Information');
         
         <div id="statustabs_traffic">
             <div class="statuslinks">
+                <select name="trafficChartRefresh" style="display:none;">
+                    <option value="1">1 <?php echo __('second'); ?></option>
+                    <option value="2">2 <?php echo __('seconds'); ?></option>
+                    <option value="5" selected>5 <?php echo __('seconds'); ?></option>
+                    <option value="10">10 <?php echo __('seconds'); ?></option>
+                    <option value="20">20 <?php echo __('seconds'); ?></option>
+                    <option value="40">40 <?php echo __('seconds'); ?></option>
+                    <option value="60">1 <?php echo __('minutes'); ?></option>
+                    <option value="120">2 <?php echo __('minutes'); ?></option>
+                    <option value="300">5 <?php echo __('minutes'); ?></option>
+                    <option value="600">10 <?php echo __('minutes'); ?></option>
+                </select>
+                
                 <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
@@ -383,6 +396,18 @@ echo __('Runtime Information');
         </div>
         <div id="statustabs_queries">
             <div class="statuslinks">
+                <select name="queryChartRefresh" style="display:none;">
+                    <option value="1">1 <?php echo __('second'); ?></option>
+                    <option value="2">2 <?php echo __('seconds'); ?></option>
+                    <option value="5" selected>5 <?php echo __('seconds'); ?></option>
+                    <option value="10">10 <?php echo __('seconds'); ?></option>
+                    <option value="20">20 <?php echo __('seconds'); ?></option>
+                    <option value="40">40 <?php echo __('seconds'); ?></option>
+                    <option value="60">1 <?php echo __('minutes'); ?></option>
+                    <option value="120">2 <?php echo __('minutes'); ?></option>
+                    <option value="300">5 <?php echo __('minutes'); ?></option>
+                    <option value="600">10 <?php echo __('minutes'); ?></option>
+                </select>
                 <a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>

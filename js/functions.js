@@ -1475,7 +1475,7 @@ function PMA_createChart(passedSettings) {
     /* Set/Get realtime chart default values */
     if(passedSettings.realtime) {
         if(!passedSettings.realtime.refreshRate) 
-            passedSettings.realtime.refreshRate = 4000;
+            passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
