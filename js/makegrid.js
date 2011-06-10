@@ -425,6 +425,9 @@
         $(t).removeClass('data');
         $(g.gDiv).addClass('data');
         $(g.cRsz).css('height', $(t).height());
+        $(t).find('th a').bind('dragstart', function() {
+            return false;
+        });
     };
     
     // document ready checking
