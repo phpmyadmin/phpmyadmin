@@ -44,7 +44,7 @@ $(function() {
     var categoryFilter='';
     var odd_row=false;
     var text=''; // Holds filter text
-    
+    var queryPieChart = null;
     /* Chart configuration */
     
     // Defines what the tabs are currently displaying (realtime or data)
@@ -63,46 +63,8 @@ $(function() {
     // Fixes wrong tab height with floated elements. See also http://bugs.jqueryui.com/ticket/5601
     $(".ui-widget-content:not(.ui-tabs):not(.ui-helper-clearfix)").addClass("ui-helper-clearfix");
     
-    // Build query statistics chart
-    var cdata = new Array();
-    $.each(jQuery.parseJSON($('#serverstatusquerieschart').html()),function(key,value) {
-        cdata.push([key,parseInt(value)]);
-    });
-    
-    PMA_createChart({
-        chart: {
-            renderTo: 'serverstatusquerieschart'
-            
-        },
-        title: {
-            text:'',
-            margin:0
-        },
-        series: [{
-            type:'pie',
-            name: 'Query statistics',
-            data: cdata
-        }],
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                   formatter: function() {
-                      return '<b>'+ this.point.name +'</b><br> '+ Highcharts.numberFormat(this.percentage, 2) +' %';
-                   }
-                }
-            }
-        },		
-        tooltip: {
-            formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+Highcharts.numberFormat(this.y, 2)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
-        }
-    });
-    
-    // Table sorting
-    initTableSorter('statustabs_queries');
-    initTableSorter('statustabs_allvars');
+    // Initialize each tab
+	$('div.ui-tabs-panel').each(function() { initTab($(this),null); });
     
     $('.statuslinks select').change(function() {
         var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
@@ -231,15 +193,58 @@ $(function() {
     function initTab(tab,data) {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
-                tab.find('.tabInnerContent').html(data);
+                if(data!=null) tab.find('.tabInnerContent').html(data);
                 initTooltips();
                 break;
             case 'statustabs_queries':
-                tab.find('.tabInnerContent').html(data);
+				if(data!=null) {
+					queryPieChart.destroy();
+					tab.find('.tabInnerContent').html(data);
+				}
+
+				// Build query statistics chart
+				var cdata = new Array();
+				$.each(jQuery.parseJSON($('#serverstatusquerieschart').html()),function(key,value) {
+					cdata.push([key,parseInt(value)]);
+				});
+				
+				queryPieChart=PMA_createChart({
+					chart: {
+						renderTo: 'serverstatusquerieschart'
+						
+					},
+					title: {
+						text:'',
+						margin:0
+					},
+					series: [{
+						type:'pie',
+						name: 'Query statistics',
+						data: cdata
+					}],
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+							   formatter: function() {
+								  return '<b>'+ this.point.name +'</b><br> '+ Highcharts.numberFormat(this.percentage, 2) +' %';
+							   }
+							}
+						}
+					},		
+					tooltip: {
+						formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+Highcharts.numberFormat(this.y, 2)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
+					}
+				});
                 break;
+				
             case 'statustabs_allvars':
-                tab.find('.tabInnerContent').html(data);
-                filterVariables();
+                if(data!=null) {
+					tab.find('.tabInnerContent').html(data);
+					filterVariables();
+				}
                 break;
         }
         
