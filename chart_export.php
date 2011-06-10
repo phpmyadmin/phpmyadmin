@@ -25,6 +25,10 @@ if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     header("Content-Type: ".$_REQUEST['type']);
     header("Content-Transfer-Encoding: binary");
     
-    echo base64_decode(substr($_REQUEST['image'],strpos($_REQUEST['image'],',')+1));
+    if($allowed[$_REQUEST['type']]!='svg')
+        echo base64_decode(substr($_REQUEST['image'],strpos($_REQUEST['image'],',')+1));
+    else
+        echo $_REQUEST['image'];
+    
 } else exit('Invalid request');
 ?>

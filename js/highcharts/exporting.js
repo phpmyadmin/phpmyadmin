@@ -311,11 +311,7 @@ extend(Chart.prototype, {
         $('body').append(canvas);
         $(canvas).hide();
         
-        // Generate data uri and submit once done
-        canvg(canvas, chart.getSVG(chartOptions),{
-            ignoreAnimation:true,
-            ignoreMouse:true,
-            renderCallback:function() {
+        var submitData = function(chartData) {
                 // merge the options
                 options = merge(chart.options.exporting, options);
                 
@@ -336,8 +332,8 @@ extend(Chart.prototype, {
                             filename: options.filename || 'chart', 
                             type: options.type, 
                             width: options.width, 
-                            image: canvas.toDataURL(),
-							token: pma_token 
+                            image: chartData,
+                            token: pma_token 
                         }[name]
                     }, null, form);
                 });
@@ -347,8 +343,18 @@ extend(Chart.prototype, {
                 
                 // clean up
                 discardElement(form);
-            }
-        });
+        }
+        
+        if(options && options.type=='image/svg+xml') {
+            submitData(chart.getSVG(chartOptions));
+        } else {
+            // Generate data uri and submit once done
+            canvg(canvas, chart.getSVG(chartOptions),{
+                ignoreAnimation:true,
+                ignoreMouse:true,
+                renderCallback:function() { submitData(canvas.toDataURL()); }
+            });
+        }
     },
     
     /**

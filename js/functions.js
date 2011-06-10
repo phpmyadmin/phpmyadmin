@@ -1442,6 +1442,13 @@ function PMA_createChart(passedSettings) {
                 }
             }
         },
+        plotOptions: {
+            series: {
+                marker: {
+                    radius: 3
+                }
+            }
+        },
         credits: {
             enabled:false
         },
