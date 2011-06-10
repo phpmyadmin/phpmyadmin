@@ -459,4 +459,78 @@ $(document).ready(function() {
             $('.rte_table').find('select[name=routine_returnopts_num]')
         );
     });
-}); // end of $(document).ready() for Routine Editor
+}); // end of $(document).ready() for the Routine Editor
+
+/**
+ * Attach Ajax event handlers for the Routine Execution dialog.
+ *
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    /**
+     * Attach Ajax event handlers for the Execute routine functionality.
+     *
+     * @uses    PMA_ajaxShowMessage()
+     * @uses    PMA_ajaxRemoveMessage()
+     *
+     * @see $cfg['AjaxEnable']
+     */
+    $('.exec_routine_anchor').live('click', function(event) {
+        event.preventDefault();
+        /**
+         * @var    $msg    jQuery object containing the reference to
+         *                 the AJAX message shown to the user.
+         */
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+                if (data.dialog) {
+                    /**
+                     * @var button_options  Object containing options for jQueryUI dialog buttons
+                     */
+                    var button_options = {};
+                    button_options[PMA_messages['strGo']] = function() {
+                        /**
+                         * @var    data    Form data to be sent in the AJAX request.
+                         */
+                        var data = $('.rte_form').last().serialize();
+                        $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+                        $.post('db_routines.php', data, function (data) {
+                           if(data.success == true) {
+                                // Routine executed successfully
+                                PMA_ajaxShowMessage(data.message);
+                                $('#js_query_display').html('<div style="margin-top: 1em;">' + data.results + '</div>');
+                                $ajaxDialog.dialog('close');
+                            } else {
+                                PMA_ajaxShowMessage(data.error);
+                            }
+                        });
+                    }
+                    button_options[PMA_messages['strClose']] = function() {
+                        $(this).dialog("close");
+                    }
+                    /**
+                     * Display the dialog to the user
+                     */
+                    $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
+                                    width: 650,  // TODO: make a better decision about the size
+                                                 // of the dialog based on the size of the viewport
+                                    buttons: button_options,
+                                    title: data.title,
+                                    modal: true,
+                                    close: function () {
+                                        $(this).remove();
+                                    }
+                            });
+                } else {
+                    // Routine executed successfully
+                    PMA_ajaxShowMessage(data.message);
+                    $('#js_query_display').html('<div style="margin-top: 1em;">' + data.results + '</div>');
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    });
+}); // end of $(document).ready() for the Routine Execution dialog
