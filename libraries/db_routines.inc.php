@@ -615,6 +615,7 @@ function getFormInputFromRequest()
  * @param   array    $errors       If the editor was already invoked and there
  *                                 has been an error while processing the request
  *                                 this array will hold the errors.
+ * @param   bool     $is_ajax      True, if called from an ajax request
  *
  * @return  string   HTML code for the routine editor.
  *
@@ -625,8 +626,8 @@ function getFormInputFromRequest()
  * @uses    sprintf()
  * @uses    getSupportedDatatypes()
  */
-function displayRoutineEditor($mode, $operation, $routine, $errors) {
-    global $db, $table, $titles, $url_query, $param_directions, $param_sqldataaccess, $param_opts_num;
+function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
+    global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
 
     // Handle some logic first
     if ($operation == 'change') {
@@ -676,10 +677,10 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     // Create the output
     $retval  = "";
     $retval .= "<!-- START " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
-    $retval .= "<form class='rte_form' action='db_routines.php?$url_query' method='post'>\n";
+    $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
     $retval .= "<input name='{$mode}routine' type='hidden' value='1' />\n";
     $retval .= $original_routine;
-    $retval .= PMA_generate_common_hidden_inputs($db, $table) . "\n";
+    $retval .= PMA_generate_common_hidden_inputs($db) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table'>\n";
@@ -832,15 +833,20 @@ function displayRoutineEditor($mode, $operation, $routine, $errors) {
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
-    $retval .= "<fieldset class='tblFooters routineEditorSubmit'>\n";
-    $retval .= "    <input type='submit' name='routine_process_{$mode}routine'\n";
-    $retval .= "           value='" . __('Go') . "' />\n";
-    $retval .= "</fieldset>\n";
+    if ($is_ajax) {
+        $retval .= "<input type='hidden' name='routine_process_{$mode}routine' value='true' />\n";
+        $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
+    } else {
+        $retval .= "<fieldset class='tblFooters routineEditorSubmit'>\n";
+        $retval .= "    <input type='submit' name='routine_process_{$mode}routine'\n";
+        $retval .= "           value='" . __('Go') . "' />\n";
+        $retval .= "</fieldset>\n";
+    }
     $retval .= "</form>\n\n";
     $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
 
     return $retval;
-} // displayRoutineEditor()
+} // end displayRoutineEditor()
 
 /**
  * Creates the HTML code that shows the routine execution dialog.
@@ -1294,8 +1300,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         }
         $message = PMA_message::success($message);
 
-        // Pass the sql query through the "pretty printer"
-        // and display it.
+        // Pass the SQL queries through the "pretty printer"
         $output  = '<code class="sql" style="margin-bottom: 1em;">';
         $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
         $output .= '</code>';
@@ -1512,7 +1517,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
     }
     if ($routine !== false) {
         // Show form
-        $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors);
+        $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors, $_REQUEST['ajax_request']);
         if (! empty($_REQUEST['ajax_request'])) {
             $template  = "        <tr>\n";
             $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";

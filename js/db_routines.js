@@ -198,7 +198,7 @@ $(document).ready(function() {
                         /**
                          * @var    data    Form data to be sent in the AJAX request.
                          */
-                        var data = $('.rte_form').last().serialize() + "&routine_process_"+mode+"routine=1&ajax_request=true";
+                        var data = $('.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
                         $.post('db_routines.php', data, function (data) {
                             if(data.success == true) {
@@ -278,8 +278,6 @@ $(document).ready(function() {
                 if ($('input[name=routine_process_editroutine]').length > 0) {
                     mode = 'edit';
                 }
-                // No need for 2 submit buttons
-                $('fieldset.routineEditorSubmit').remove();
                 // Cache the template for a parameter table row
                 param_template = data.param_template;
                 // Make adjustments in the dialog to make it AJAX compatible
