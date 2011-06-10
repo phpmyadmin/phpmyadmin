@@ -240,11 +240,7 @@ function parseOneParameter($value)
  *
  * @return  array   Information about the parameteres of a routine.
  *
- * @uses    isset()
- * @uses    PMA_SQP_parse()
- * @uses    PMA_unQuote()
- * @uses    htmlspecialchars()
- * @uses    htmlentities()
+ * @uses    parseOneParameter()
  */
 function getRoutineParameters($parsed_query, $routine_type)
 {
@@ -347,17 +343,12 @@ function getRoutineDefiner($parsed_query)
  * @return  array    Data necessary to create the routine editor.
  *
  * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_fetch_result()
+ * @uses    PMA_DBI_fetch_single_row()
  * @uses    PMA_SQP_parse()
  * @uses    PMA_PMA_DBI_get_definition()
  * @uses    getRoutineParameters()
  * @uses    getRoutineDefiner()
- * @uses    strpos()
- * @uses    strrpos()
- * @uses    strtoupper()
- * @uses    trim()
- * @uses    substr()
- * @uses    htmlentities()
+ * @uses    parseOneParameter()
  */
 function getFormInputFromRoutineName($db, $name, $all = true)
 {
@@ -619,11 +610,8 @@ function getFormInputFromRequest()
  *
  * @return  string   HTML code for the routine editor.
  *
- * @uses    PMA_message
  * @uses    PMA_generate_common_hidden_inputs()
- * @uses    count()
  * @uses    strtoupper()
- * @uses    sprintf()
  * @uses    getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
@@ -856,6 +844,17 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
  * @param   bool     $is_ajax      True, if called from an ajax request
  *
  * @return  string   HTML code for the routine execution dialog.
+ *
+ * @uses    PMA_generate_common_hidden_inputs()
+ * @uses    PMA_unsupportedDatatypes()
+ * @uses    stristr()
+ * @uses    in_array()
+ * @uses    strtolower()
+ * @uses    strtoupper()
+ * @uses    isset()
+ * @uses    PMA_SQP_parse()
+ * @uses    html_entity_decode()
+ * @uses    PMA_unquote()
  */
 function displayRoutineExecuteForm($routine, $is_ajax)
 {
@@ -1006,6 +1005,8 @@ function displayRoutineExecuteForm($routine, $is_ajax)
  * @uses    is_array()
  * @uses    preg_match()
  * @uses    count()
+ * @uses    strtoupper()
+ * @uses    strtolower()
  */
 function createQueryFromRequest() {
     global $_REQUEST, $cfg, $routine_errors, $param_sqldataaccess;
