@@ -411,9 +411,9 @@ function getFormInputFromRoutineName($db, $name, $all = true)
         if (! empty($routine['DTD_IDENTIFIER'])) {
             $returnparam = parseOneParameter($routine['DTD_IDENTIFIER']);
             $retval['returntype']      = $returnparam[2];
-            $retval['returnopts_num']  = $returnparam[3];
-            $retval['returnopts_text'] = $returnparam[3];
-            $retval['returnlength']    = $returnparam[4];
+            $retval['returnlength']    = $returnparam[3];
+            $retval['returnopts_num']  = $returnparam[4];
+            $retval['returnopts_text'] = $returnparam[4];
         }
         $retval['definer']         = getRoutineDefiner($parsed_query);
         $retval['definition']      = $routine['ROUTINE_DEFINITION'];
