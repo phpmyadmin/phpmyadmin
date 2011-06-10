@@ -352,7 +352,7 @@ function getRoutineDefiner($parsed_query)
  */
 function getFormInputFromRoutineName($db, $name, $all = true)
 {
-    global $_REQUEST, $param_directions, $param_sqldataaccess;
+    global $param_directions, $param_sqldataaccess;
 
     $retval  = array();
 
