@@ -112,8 +112,8 @@ $(function() {
         chart_activeTimeouts[chart.options.chart.renderTo] = setTimeout(chart.options.realtime.timeoutCallBack, chart.options.realtime.refreshRate);
     });
     
-    // Ajax refresh of variables (always the first link in each tab)
-    $('.statuslinks a:nth-child(2)').click(function() { 
+    // Ajax refresh of variables (always the first element in each tab)
+    $('.statuslinks a:nth-child(1)').click(function() { 
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         var that = this;
@@ -131,7 +131,7 @@ $(function() {
         return false;
     });
     
-    /** Realtime charting of variables (always the second link) **/
+    /** Realtime charting of variables (always the third element) **/
     $('.statuslinks a:nth-child(3)').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');

@@ -369,6 +369,10 @@ echo __('Runtime Information');
         
         <div id="statustabs_traffic">
             <div class="statuslinks">
+                <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                    <?php echo __('Refresh'); ?>
+                </a>
                 <select name="trafficChartRefresh" style="display:none;">
                     <option value="5"><?php echo __('Refresh rate'); ?></option>
                     <option value="1">1 <?php echo __('second'); ?></option>
@@ -383,10 +387,6 @@ echo __('Runtime Information');
                     <option value="600">10 <?php echo __('minutes'); ?></option>
                 </select>
                 
-                <a href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-                    <?php echo __('Refresh'); ?>
-                </a>
                 <a href="#">
                     <?php echo __('Realtime chart'); ?>
                 </a>
@@ -397,6 +397,10 @@ echo __('Runtime Information');
         </div>
         <div id="statustabs_queries">
             <div class="statuslinks">
+                <a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
+                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
+                    <?php echo __('Refresh'); ?>
+                </a>
                 <select name="queryChartRefresh" style="display:none;">
                     <option value="5"><?php echo __('Refresh rate'); ?></option>
                     <option value="1">1 <?php echo __('second'); ?></option>
@@ -410,10 +414,6 @@ echo __('Runtime Information');
                     <option value="300">5 <?php echo __('minutes'); ?></option>
                     <option value="600">10 <?php echo __('minutes'); ?></option>
                 </select>
-                <a href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
-                    <?php echo __('Refresh'); ?>
-                </a>
                 <a href="#">
                     <?php echo __('Realtime chart'); ?>
                 </a>
@@ -712,7 +712,7 @@ function printServerTraffic() {
     <tr class="noclick even">
         <th class="name"><?php echo __('Failed attempts'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_connects'], 4, 0, true); ?></td>
+            PMA_formatNumber($server_status['Aborted_connects'], 4, 1, true); ?></td>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
                 4, 2, true); ?></td>
@@ -726,7 +726,7 @@ function printServerTraffic() {
     <tr class="noclick odd">
         <th class="name"><?php echo __('Aborted'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_clients'], 4, 0, true); ?></td>
+            PMA_formatNumber($server_status['Aborted_clients'], 4, 1, true); ?></td>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
                 4, 2, true); ?></td>
