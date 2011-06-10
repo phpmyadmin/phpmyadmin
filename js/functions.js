@@ -1988,7 +1988,7 @@ $(document).ready(function() {
         $(this).qtip({
             content: tooltip_text,
             show: { delay: 0 },
-            hide: { when: 'unfocus', delay: 0 },
+            hide: { delay: 1000 },
             style: { background: '#ffffcc' }
         });
     });
