@@ -2600,10 +2600,9 @@ msgstr ""
 "popravljanje izbranih tabel zbirke podatkov."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Vzdrževanje tabele"
+msgstr "Onemogoči množično vzdrževanje tabel"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
