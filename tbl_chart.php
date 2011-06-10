@@ -19,16 +19,11 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'tbl_chart.js';
-
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
-
-
-
 
 /**
  * Runs common work
@@ -36,11 +31,6 @@ $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 require './libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
 $url_params['back'] = 'sql.php';
-
-/*
- * Import chart functions
- */
-require_once './libraries/chart.lib.php';
 
 /*
  * Execute the query and return the result
