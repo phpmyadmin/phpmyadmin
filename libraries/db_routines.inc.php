@@ -374,6 +374,10 @@ function getFormInputFromRoutineName($db, $name, $all = true)
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
     $routine = PMA_DBI_fetch_single_row($query);
 
+    if (! $routine) {
+        return false;
+    }
+
     // Get required data
     $retval['name'] = $routine['SPECIFIC_NAME'];
     $retval['type'] = $routine['ROUTINE_TYPE'];
@@ -1021,18 +1025,20 @@ function routineMakeRowForList($routine, $ct = 0) {
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
         $routine_details = getFormInputFromRoutineName($db, $routine['SPECIFIC_NAME'], false);
-        $execute_action = 'execute_routine';
-        for ($i=0; $i<$routine_details['num_params']; $i++) {
-            if ($routine_details['type'] == 'PROCEDURE' && $routine_details['param_dir'][$i] == 'OUT') {
-                continue;
+        if ($routine !== false) {
+            $execute_action = 'execute_routine';
+            for ($i=0; $i<$routine_details['num_params']; $i++) {
+                if ($routine_details['type'] == 'PROCEDURE' && $routine_details['param_dir'][$i] == 'OUT') {
+                    continue;
+                }
+                $execute_action = 'execute_dialog';
+                break;
             }
-            $execute_action = 'execute_dialog';
-            break;
+            $execlink = '<a ' . $ajax_class['exec']. ' href="db_routines.php?' . $url_query
+                              . '&amp;' . $execute_action . '=1'
+                              . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                              . '">' . $titles['Execute'] . '</a>';
         }
-        $execlink = '<a ' . $ajax_class['exec']. ' href="db_routines.php?' . $url_query
-                          . '&amp;' . $execute_action . '=1'
-                          . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
-                          . '">' . $titles['Execute'] . '</a>';
     }
     if ($routine['ROUTINE_DEFINITION'] !== NULL) {
         $exprlink = '<a ' . $ajax_class['export'] . ' href="db_routines.php?' . $url_query
@@ -1078,106 +1084,108 @@ $routine_errors = array();
 if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name'])) {
     // Build the queries
     $routine   = getFormInputFromRoutineName($db, $_REQUEST['routine_name'], false);
-    $queries   = array();
-    $end_query = array();
-    $args      = array();
-    for ($i=0; $i<$routine['num_params']; $i++) {
-        if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
-            $value = $_REQUEST['params'][$routine['param_name'][$i]];
-            if (is_array($value)) { // is SET type
-                $value = implode(',', $value);
-            }
-            $value = PMA_sqladdslashes($value);
-            if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
-                  && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
-                $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
+    if ($routine !== false) {
+        $queries   = array();
+        $end_query = array();
+        $args      = array();
+        for ($i=0; $i<$routine['num_params']; $i++) {
+            if (isset($_REQUEST['params'][$routine['param_name'][$i]])) {
+                $value = $_REQUEST['params'][$routine['param_name'][$i]];
+                if (is_array($value)) { // is SET type
+                    $value = implode(',', $value);
+                }
+                $value = PMA_sqladdslashes($value);
+                if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
+                      && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
+                    $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
+                } else {
+                    $queries[] = "SET @p$i='$value';\n";
+                }
+                $args[] = "@p$i";
             } else {
-                $queries[] = "SET @p$i='$value';\n";
+                $args[] = "@p$i";
             }
-            $args[] = "@p$i";
-        } else {
-            $args[] = "@p$i";
+            if ($routine['type'] == 'PROCEDURE') {
+                if ($routine['param_dir'][$i] == 'OUT' || $routine['param_dir'][$i] == 'INOUT') {
+                    $end_query[] = "@p$i AS " . PMA_backquote($routine['param_name'][$i]);
+                }
+            }
         }
         if ($routine['type'] == 'PROCEDURE') {
-            if ($routine['param_dir'][$i] == 'OUT' || $routine['param_dir'][$i] == 'INOUT') {
-                $end_query[] = "@p$i AS " . PMA_backquote($routine['param_name'][$i]);
+            $queries[] = "CALL " . PMA_backquote($routine['name'])
+                       . "(" . implode(', ', $args) . ");\n";
+            if (count($end_query)) {
+                $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
+            }
+        } else {
+            $queries[] = "SELECT " . PMA_backquote($routine['name'])
+                       . "(" . implode(', ', $args) . ") "
+                       . "AS " . PMA_backquote($routine['name']) . ";\n";
+        }
+        // Execute the queries
+        $affected = 0;
+        $result = null;
+        foreach ($queries as $num => $query) {
+            $resource = PMA_DBI_query($query);
+            while (true) {
+                if(! PMA_DBI_more_results()) {
+                    break;
+                }
+                PMA_DBI_next_result();
+            }
+            if (substr($query, 0, 6) == 'SELECT') {
+                $result = $resource;
+            } else if (substr($query, 0, 4) == 'CALL') {
+                $affected = PMA_DBI_affected_rows() - PMA_DBI_num_rows($resource);
             }
         }
-    }
-    if ($routine['type'] == 'PROCEDURE') {
-        $queries[] = "CALL " . PMA_backquote($routine['name'])
-                   . "(" . implode(', ', $args) . ");\n";
-        if (count($end_query)) {
-            $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
+
+        // If any of the queries failed, we wouldn't have gotten
+        // this far, so we simply show a success message.
+        $message  = __('Your SQL query has been executed successfully');
+        if ($routine['type'] == 'PROCEDURE') {
+            $message .= '<br />';
+            $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
         }
-    } else {
-        $queries[] = "SELECT " . PMA_backquote($routine['name'])
-                   . "(" . implode(', ', $args) . ") "
-                   . "AS " . PMA_backquote($routine['name']) . ";\n";
-    }
-    // Execute the queries
-    $affected = 0;
-    $result = null;
-    foreach ($queries as $num => $query) {
-        $resource = PMA_DBI_query($query);
-        while (true) {
-            if(! PMA_DBI_more_results()) {
-                break;
+        $message = PMA_message::success($message);
+
+        // Pass the sql query through the "pretty printer"
+        // and display it.
+        $output  = '<code class="sql" style="margin-bottom: 1em;">';
+        $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
+        $output .= '</code>';
+
+        // Display results
+        if ($result) {
+            $output .= "<fieldset><legend>";
+            $output .= sprintf(__('Execution Results of Routine %s'),
+                               PMA_backquote(htmlspecialchars($routine['name'])));
+            $output .= "</legend>";
+            $output .= "<table><tr>";
+            foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
+                $output .= "<th>{$field->name}</th>";
             }
-            PMA_DBI_next_result();
-        }
-        if (substr($query, 0, 6) == 'SELECT') {
-            $result = $resource;
-        } else if (substr($query, 0, 4) == 'CALL') {
-            $affected = PMA_DBI_affected_rows() - PMA_DBI_num_rows($resource);
-        }
-    }
-
-    // If any of the queries failed, we wouldn't have gotten
-    // this far, so we simply show a success message.
-    $message  = __('Your SQL query has been executed successfully');
-    if ($routine['type'] == 'PROCEDURE') {
-        $message .= '<br />';
-        $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
-    }
-    $message = PMA_message::success($message);
-
-    // Pass the sql query through the "pretty printer"
-    // and display it.
-    $output  = '<code class="sql" style="margin-bottom: 1em;">';
-    $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
-    $output .= '</code>';
-
-    // Display results
-    if ($result) {
-        $output .= "<fieldset><legend>";
-        $output .= sprintf(__('Execution Results of Routine %s'),
-                           PMA_backquote(htmlspecialchars($routine['name'])));
-        $output .= "</legend>";
-        $output .= "<table><tr>";
-        foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
-            $output .= "<th>{$field->name}</th>";
-        }
-        $output .= "</tr>";
-        // Stored routines can only ever return ONE ROW.
-        $data = PMA_DBI_fetch_single_row($result);
-        foreach ($data as $key => $value) {
-            if ($value === null) {
-                $value = '<i>NULL</i>';
+            $output .= "</tr>";
+            // Stored routines can only ever return ONE ROW.
+            $data = PMA_DBI_fetch_single_row($result);
+            foreach ($data as $key => $value) {
+                if ($value === null) {
+                    $value = '<i>NULL</i>';
+                }
+                $output .= "<td class='odd'>$value</td>";
             }
-            $output .= "<td class='odd'>$value</td>";
+            $output .= "</table></fieldset>";
+        } else {
+            $notice = __('MySQL returned an empty result set (i.e. zero rows).');
+            $output .= PMA_message::notice($notice)->getDisplay();
         }
-        $output .= "</table></fieldset>";
-    } else {
-        $notice = __('MySQL returned an empty result set (i.e. zero rows).');
-        $output .= PMA_message::notice($notice)->getDisplay();
-    }
-    if ($GLOBALS['is_ajax_request']) {
-        // FIXME: STUB
-    } else {
-        echo $message->getDisplay() . $output;
-        unset($_POST);
-        // Now deliberately fall through to displaying the routines list
+        if ($GLOBALS['is_ajax_request']) {
+            // FIXME: STUB
+        } else {
+            echo $message->getDisplay() . $output;
+            unset($_POST);
+            // Now deliberately fall through to displaying the routines list
+        }
     }
 } else if (! empty($_GET['execute_dialog']) && ! empty($_GET['routine_name'])) {
     /**
@@ -1187,120 +1195,113 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         echo "\n\n<h2>" . __("Execute Routine") . "</h2>\n\n";
     }
     $routine = getFormInputFromRoutineName($db, $_GET['routine_name'], false);
-    echo "<form action='db_routines.php?$url_query' method='post'>\n"
-       . "<input type='hidden' name='routine_name' value='{$routine['name']}' />\n"
-       . PMA_generate_common_hidden_inputs($db, $table) . "\n";
-    echo '<fieldset>' . "\n"
-       . "<legend>{$routine['name']}</legend>\n";
-    echo "<table class='rte_table'>\n";
-    echo "<caption class='tblHeaders'>\n";
-    echo __('Routine Parameters');
-    echo "</caption>\n";
-    echo "<tr>\n";
-    echo "<th>" . __('Name')     . "</th>\n";
-    echo "<th>" . __('Type')     . "</th>\n";
-    if ($cfg['ShowFunctionFields']) {
-        echo "<th>" . __('Function') . "</th>\n";
-    }
-    echo "<th>" . __('Value')    . "</th>\n";
-    echo "</tr>\n<tr>\n";
-    $ct = 0;
-    for ($i=0; $i<$routine['num_params']; $i++) {
-        $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
-        if ($routine['type'] == 'PROCEDURE' && $routine['param_dir'][$i] == 'OUT') {
-            continue;
-        }
-        echo "\n<tr class='$rowclass'>\n";
-        echo "<td><strong>{$routine['param_name'][$i]}</strong></td>\n";
-        echo "<td>{$routine['param_type'][$i]}</td>\n";
+    if ($routine !== false) {
+        echo "<form action='db_routines.php?$url_query' method='post'>\n"
+           . "<input type='hidden' name='routine_name' value='{$routine['name']}' />\n"
+           . PMA_generate_common_hidden_inputs($db, $table) . "\n";
+        echo '<fieldset>' . "\n"
+           . "<legend>{$routine['name']}</legend>\n";
+        echo "<table class='rte_table'>\n";
+        echo "<caption class='tblHeaders'>\n";
+        echo __('Routine Parameters');
+        echo "</caption>\n";
+        echo "<tr>\n";
+        echo "<th>" . __('Name')     . "</th>\n";
+        echo "<th>" . __('Type')     . "</th>\n";
         if ($cfg['ShowFunctionFields']) {
-            echo "<td>\n";
-            // Get a list of data types that are not yet supported.
-            $no_support_types = PMA_unsupportedDatatypes();
-            if (stristr($routine['param_type'][$i], 'enum')
-                || stristr($routine['param_type'][$i], 'set')
-                || in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
-                echo "--\n";
-            } else {
-                $dropdown_built = array();
-                $op_spacing_needed = false;
-                // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
-                // or something similar. Then directly look up the entry in the RestrictFunctions array,
-                // which will then reveal the available dropdown options
-                if (isset($cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])])
-                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])]])) {
-                    $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])];
-                    $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
+            echo "<th>" . __('Function') . "</th>\n";
+        }
+        echo "<th>" . __('Value')    . "</th>\n";
+        echo "</tr>\n<tr>\n";
+        $ct = 0;
+        for ($i=0; $i<$routine['num_params']; $i++) {
+            $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
+            if ($routine['type'] == 'PROCEDURE' && $routine['param_dir'][$i] == 'OUT') {
+                continue;
+            }
+            echo "\n<tr class='$rowclass'>\n";
+            echo "<td><strong>{$routine['param_name'][$i]}</strong></td>\n";
+            echo "<td>{$routine['param_type'][$i]}</td>\n";
+            if ($cfg['ShowFunctionFields']) {
+                echo "<td>\n";
+                // Get a list of data types that are not yet supported.
+                $no_support_types = PMA_unsupportedDatatypes();
+                if (stristr($routine['param_type'][$i], 'enum')
+                    || stristr($routine['param_type'][$i], 'set')
+                    || in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
+                    echo "--\n";
                 } else {
-                    $dropdown = array();
-                }
-                // loop on the dropdown array and print all available options for that field.
-                echo "<select name=funcs[{$routine['param_name'][$i]}]>";
-                echo "<option></option>\n";
-                foreach ($dropdown as $each_dropdown){
-                    echo '<option>' . $each_dropdown . '</option>' . "\n";
-                    $dropdown_built[$each_dropdown] = 'true';
-                    $op_spacing_needed = true;
-                }
-                // For compatibility's sake, do not let out all other functions. Instead
-                // print a separator (blank) and then show ALL functions which weren't shown
-                // yet.
-                $cnt_functions = count($cfg['Functions']);
-                for ($j = 0; $j < $cnt_functions; $j++) {
-                    if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
-                        if ($op_spacing_needed == true) {
-                            echo '                ';
-                            echo '<option value="">--------</option>' . "\n";
-                            $op_spacing_needed = false;
-                        }
-                        echo '<option>' . $cfg['Functions'][$j] . '</option>' . "\n";
+                    $dropdown_built = array();
+                    $op_spacing_needed = false;
+                    // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
+                    // or something similar. Then directly look up the entry in the RestrictFunctions array,
+                    // which will then reveal the available dropdown options
+                    if (isset($cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])])
+                     && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])]])) {
+                        $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($routine['param_type'][$i])];
+                        $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
+                    } else {
+                        $dropdown = array();
                     }
-                } // end for
-                echo "</select>";
+                    // loop on the dropdown array and print all available options for that field.
+                    echo "<select name=funcs[{$routine['param_name'][$i]}]>";
+                    echo "<option></option>\n";
+                    foreach ($dropdown as $each_dropdown){
+                        echo '<option>' . $each_dropdown . '</option>' . "\n";
+                        $dropdown_built[$each_dropdown] = 'true';
+                        $op_spacing_needed = true;
+                    }
+                    // For compatibility's sake, do not let out all other functions. Instead
+                    // print a separator (blank) and then show ALL functions which weren't shown
+                    // yet.
+                    $cnt_functions = count($cfg['Functions']);
+                    for ($j = 0; $j < $cnt_functions; $j++) {
+                        if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
+                            if ($op_spacing_needed == true) {
+                                echo '                ';
+                                echo '<option value="">--------</option>' . "\n";
+                                $op_spacing_needed = false;
+                            }
+                            echo '<option>' . $cfg['Functions'][$j] . '</option>' . "\n";
+                        }
+                    } // end for
+                    echo "</select>";
+                }
+                echo "</td>\n";
+            }
+            // Append a class to date/time fields so that jQuery can attach a datepicker to them
+            $class = '';
+            if (in_array($routine['param_type'][$i], array('DATETIME', 'TIMESTAMP'))) {
+                $class = 'datetimefield';
+            } else if ($routine['param_type'][$i] == 'DATE') {
+                $class = 'datefield';
+            }
+            echo "<td style='white-space: nowrap;'>\n";
+            if (in_array($routine['param_type'][$i], array('ENUM', 'SET'))) {
+                $tokens = PMA_SQP_parse(html_entity_decode($routine['param_length'][$i], ENT_QUOTES));
+                if ($routine['param_type'][$i] == 'ENUM') {
+                    $input_type = 'radio';
+                } else {
+                    $input_type = 'checkbox';
+                }
+                for ($j=0; $j<$tokens['len']; $j++) {
+                    if ($tokens[$j]['type'] != 'punct_listsep') {
+                        $tokens[$j]['data'] = htmlentities(PMA_unquote($tokens[$j]['data']), ENT_QUOTES);
+                        echo "<input name='params[{$routine['param_name'][$i]}][]' "
+                           . "value='{$tokens[$j]['data']}' type='$input_type' />"
+                           . "{$tokens[$j]['data']}<br />\n";
+                    }
+                }
+            } else if (in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
+                echo "\n";
+            } else {
+                echo "<input class='$class' type='text' name='params[{$routine['param_name'][$i]}]' />\n";
             }
             echo "</td>\n";
+            echo "</tr>\n";
+            $ct++;
         }
-        // Append a class to date/time fields so that jQuery can attach a datepicker to them
-        $class = '';
-        if (in_array($routine['param_type'][$i], array('DATETIME', 'TIMESTAMP'))) {
-            $class = 'datetimefield';
-        } else if ($routine['param_type'][$i] == 'DATE') {
-            $class = 'datefield';
-        }
-        echo "<td style='white-space: nowrap;'>\n";
-        if (in_array($routine['param_type'][$i], array('ENUM', 'SET'))) {
-            $tokens = PMA_SQP_parse(html_entity_decode($routine['param_length'][$i], ENT_QUOTES));
-            if ($routine['param_type'][$i] == 'ENUM') {
-                $input_type = 'radio';
-            } else {
-                $input_type = 'checkbox';
-            }
-            for ($j=0; $j<$tokens['len']; $j++) {
-                if ($tokens[$j]['type'] != 'punct_listsep') {
-                    $tokens[$j]['data'] = htmlentities(PMA_unquote($tokens[$j]['data']), ENT_QUOTES);
-                    echo "<input name='params[{$routine['param_name'][$i]}][]' "
-                       . "value='{$tokens[$j]['data']}' type='$input_type' />"
-                       . "{$tokens[$j]['data']}<br />\n";
-                }
-            }
-        } else if (in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
-            echo "\n";
-        } else {
-            echo "<input class='$class' type='text' name='params[{$routine['param_name'][$i]}]' />\n";
-        }
-        echo "</td>\n";
-        echo "</tr>\n";
-        $ct++;
     }
-    echo "\n</tr></table>\n";
-    echo "</fieldset>\n\n";
-    echo "<fieldset class='tblFooters'>\n"
-       . "    <input type='submit' name='execute_routine'\n"
-       . "           value='" . __('Go') . "' />\n"
-       . "</fieldset>\n"
-       . "</form>\n\n";
-    require './libraries/footer.inc.php';
-    // exit;
 } else if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
     /**
      * Display the export for a routine.
@@ -1445,51 +1446,55 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         }
         if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
             $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
-            $routine['original_name'] = $routine['name'];
-            $routine['original_type'] = $routine['type'];
+            if ($routine !== false) {
+                $routine['original_name'] = $routine['name'];
+                $routine['original_type'] = $routine['type'];
+            }
         } else {
             $routine = getFormInputFromRequest();
         }
         $mode = 'edit';
     }
-    // Show form
-    $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors);
-    if (! empty($_REQUEST['ajax_request'])) {
-        $template  = "        <tr>\n";
-        $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";
-        foreach ($param_directions as $key => $value) {
-            $template .= "                <option>$value</option>\n";
+    if ($routine !== false) {
+        // Show form
+        $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors);
+        if (! empty($_REQUEST['ajax_request'])) {
+            $template  = "        <tr>\n";
+            $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";
+            foreach ($param_directions as $key => $value) {
+                $template .= "                <option>$value</option>\n";
+            }
+            $template .= "            </select></td>\n";
+            $template .= "            <td><input name='routine_param_name[%s]' type='text'\n";
+            $template .= "                       value='' /></td>\n";
+            $template .= "            <td><select name='routine_param_type[%s]'>";
+            $template .= getSupportedDatatypes(true) . "\n";
+            $template .= "            </select></td>\n";
+            $template .= "            <td><input name='routine_param_length[%s]' type='text'\n";
+            $template .= "                       value='' /></td>\n";
+            $template .= "            <td><select name='routine_param_opts_text[%s]'>\n";
+            $template .= "                <option value=''>(CHARSET)</option>";
+            $template .= getSupportedCharsets(true) . "\n";
+            $template .= "            </select></td>\n";
+            $template .= "            <td><select name='routine_param_opts_num[%s]'>\n";
+            $template .= "                <option value=''></option>\n";
+            foreach ($param_opts_num as $key => $value) {
+                $template .= "                <option>$value</option>\n";
+            }
+            $template .= "\n            </select></td>\n";
+            $template .= "            <td class='routine_param_remove' style='vertical-align: middle;'>\n";
+            $template .= "                <a href='#' class='routine_param_remove_anchor'>\n";
+            $template .= "                    {$titles['Drop']}\n";
+            $template .= "                </a>\n";
+            $template .= "            </td>\n";
+            $template .= "        </tr>\n";
+            $extra_data = array('title' => $title, 'param_template' => $template, 'type' => $routine['type']);
+            PMA_ajaxResponse($editor, true, $extra_data);
         }
-        $template .= "            </select></td>\n";
-        $template .= "            <td><input name='routine_param_name[%s]' type='text'\n";
-        $template .= "                       value='' /></td>\n";
-        $template .= "            <td><select name='routine_param_type[%s]'>";
-        $template .= getSupportedDatatypes(true) . "\n";
-        $template .= "            </select></td>\n";
-        $template .= "            <td><input name='routine_param_length[%s]' type='text'\n";
-        $template .= "                       value='' /></td>\n";
-        $template .= "            <td><select name='routine_param_opts_text[%s]'>\n";
-        $template .= "                <option value=''>(CHARSET)</option>";
-        $template .= getSupportedCharsets(true) . "\n";
-        $template .= "            </select></td>\n";
-        $template .= "            <td><select name='routine_param_opts_num[%s]'>\n";
-        $template .= "                <option value=''></option>\n";
-        foreach ($param_opts_num as $key => $value) {
-            $template .= "                <option>$value</option>\n";
-        }
-        $template .= "\n            </select></td>\n";
-        $template .= "            <td class='routine_param_remove' style='vertical-align: middle;'>\n";
-        $template .= "                <a href='#' class='routine_param_remove_anchor'>\n";
-        $template .= "                    {$titles['Drop']}\n";
-        $template .= "                </a>\n";
-        $template .= "            </td>\n";
-        $template .= "        </tr>\n";
-        $extra_data = array('title' => $title, 'param_template' => $template, 'type' => $routine['type']);
-        PMA_ajaxResponse($editor, true, $extra_data);
+        echo $editor;
+        require './libraries/footer.inc.php';
+        // exit;
     }
-    echo $editor;
-    require './libraries/footer.inc.php';
-    // exit;
 }
 
 /**
