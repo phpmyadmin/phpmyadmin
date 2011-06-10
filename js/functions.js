@@ -1487,8 +1487,8 @@ function PMA_createChart(passedSettings) {
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
         
-        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate,
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate
+        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 2;
     }
 
     // Overwrite/Merge default settings with passedsettings

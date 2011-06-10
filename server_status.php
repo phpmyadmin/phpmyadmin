@@ -712,29 +712,29 @@ function printServerTraffic() {
     <tr class="noclick even">
         <th class="name"><?php echo __('Failed attempts'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_connects'], 4, 0); ?></td>
+            PMA_formatNumber($server_status['Aborted_connects'], 4, 0, true); ?></td>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_connects'] * $hour_factor,
-                4, 2); ?></td>
+                4, 2, true); ?></td>
         <td class="value"><?php echo
             $server_status['Connections'] > 0
           ? PMA_formatNumber(
                 $server_status['Aborted_connects'] * 100 / $server_status['Connections'],
-                0, 2) . '%'
+                0, 2, true) . '%'
           : '--- '; ?></td>
     </tr>
     <tr class="noclick odd">
         <th class="name"><?php echo __('Aborted'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_clients'], 4, 0); ?></td>
+            PMA_formatNumber($server_status['Aborted_clients'], 4, 0, true); ?></td>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_clients'] * $hour_factor,
-                4, 2); ?></td>
+                4, 2, true); ?></td>
         <td class="value"><?php echo
             $server_status['Connections'] > 0
           ? PMA_formatNumber(
                 $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
-                0, 2) . '%'
+                0, 2, true) . '%'
           : '--- '; ?></td>
     </tr>
     <tr class="noclick even">
