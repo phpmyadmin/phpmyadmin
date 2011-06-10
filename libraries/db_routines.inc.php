@@ -1171,7 +1171,7 @@ function routineMakeRowForList($routine, $ct = 0) {
                           . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
                           . '">' . $titles['Edit'] . '</a>';
     }
-    if (PMA_currentUserHasPrivilege('EXECUTE', $db)) {
+    if ($routine['ROUTINE_DEFINITION'] !== NULL && PMA_currentUserHasPrivilege('EXECUTE', $db)) {
         // Check if he routine has any input parameters. If it does,
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
