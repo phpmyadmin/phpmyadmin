@@ -1,17 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
- * @todo Support seeing the "results" of the called procedure or
- *       function. This needs further reseach because a procedure
- *       does not necessarily contain a SELECT statement that
- *       produces something to see. But it seems we could at least
- *       get the number of rows affected. We would have to
- *       use the CLIENT_MULTI_RESULTS flag to get the result set
- *       and also the call status. All this does not fit well with
- *       our current sql.php.
- *       Of course the interface would need a way to pass calling parameters.
- *       Also, support DEFINER (like we do in export).
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
