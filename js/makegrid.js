@@ -320,11 +320,9 @@
                 }
                 // enable or disable restore button
                 if (isInitial) {
-                    $('#restore_table').attr('disabled', 'disabled');
-                    $('#restore_table').fadeTo('fast', 0.5);
+                    $('#restore_column').hide();
                 } else {
-                    $('#restore_table').removeAttr('disabled');
-                    $('#restore_table').fadeTo('fast', 1.0);
+                    $('#restore_column').show();
                 }
             }
         }
@@ -407,7 +405,7 @@
         $(document).mouseup(function(e) {
             g.dragEnd(e);
         });
-        $('#restore_table').live('click', function() {
+        $('#restore_column').live('click', function() {
             g.restore();
         });
         
