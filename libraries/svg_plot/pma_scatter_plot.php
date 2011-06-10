@@ -122,6 +122,10 @@ class PMA_Scatter_Plot
 	        $this->_settings[$key] = $this->_userSpecifiedSettings[$key];	
  	    }
         }
+        if ($this->_settings['dataLabel'] == '') {
+        	$labels = array_keys($this->_data[0]);
+		$this->_settings['dataLabel'] = $labels[0];
+        }
     }
 
     /**
@@ -186,20 +190,45 @@ class PMA_Scatter_Plot
      */
     private function _scaleDataSet($data,$xField,$yField)
     {
+
         // Currently assuming only numeric fields are selected 
-        $cx = $cy = array();
+        $coordinates = array();
         foreach ($data as $row) {
-	    $cx[] = $row[$xField];
-	    $cy[] = $row[$yField];
+	    $coordinates[0][] = $row[$xField];
+	    $coordinates[1][] = $row[$yField];
 	}
-        $maxX = max($cx);
-        $maxY = max($cy);
-        for($i = 0; $i < count($cx) ; $i++){
-		$cx[$i] = 20 + 500 * $cx[$i] / $maxX;
-		$cy[$i] = 320 * (1 - $cy[$i] / $maxY) + 20;
-	
+        for ($i = 0 ; $i < 2 ; $i++) {
+
+            $maxC = ($i == 0) ? 500 : 320;          
+
+            if( !is_numeric($coordinates[$i][0])) {
+                $uniqueC = array_unique($coordinates[$i]);
+                $countC = count(array_unique($coordinates[$i]));
+	        $map = $tmp = array();
+                foreach ($uniqueC as $uc) {
+			$tmp[] = $uc;
+		}
+                for ($j = 0 ; $j < $countC ; $j++) {
+                    $map[$tmp[$j]] = 20 + $j * $maxC / $countC;
+	        }
+		for($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
+     		        $coordinates[$i][$j] = $map[$coordinates[$i][$j]];
+		}
+
+	    }
+            elseif (is_numeric($coordinates[$i][0])) {
+		
+        	$maxC = max($coordinates[$i]);
+		for($j = 0 ; $j < count($coordinates[$i]) ; $j++) {
+		
+		    if ($i == 0)
+     		        $coordinates[$i][$j] = 20 + 500 * $coordinates[$i][$j] / $maxC;
+		    else
+     		        $coordinates[$i][$j] = 20 + 320 * (1 - $coordinates[$i][$j] / $maxC);
+		}
+	    }
 	}
-        return array($cx,$cy); 
+	return $coordinates;
     }
 
     /**

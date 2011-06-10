@@ -140,15 +140,16 @@ if(isset($zoom_submit)) {
 <input type="hidden" name="back" value="tbl_select.php" />
 <input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
 
-<fieldset id="zoom_fieldset_table_qbe">
-<?php if(isset($zoom_submit)){ ?>
 
-    <legend><?php echo __('Display GIS Visualization'); ?></legend>
+<fieldset id="zoom_fieldset_table_qbe">
+<?php if(isset($zoom_submit) && !empty($scatter_plot)){ ?>
+
+    <legend><?php echo __('Display Plot'); ?></legend>
     <div id="placeholder" style="width:<?php echo($settings['width'] + 20); ?>px;height:<?php echo($settings['height'] + 20); ?>px;border:1px solid #484;float:right">
         <?php echo $scatter_plot; ?>
     </div>
 
-	
+
 <?php } ?>
     <legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
     <table class="data">
@@ -184,29 +185,57 @@ if(isset($zoom_submit)) {
 
 	        if (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0) {
 	            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
-		        echo "\n" . '                        '
-		        . '<option value="' . htmlspecialchars($fc) . '">'
-		        . htmlspecialchars($fc) . '</option>';
+			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == htmlspecialchars($fc)){
+		            echo "\n" . '                        '
+		            . '<option value="' . htmlspecialchars($fc) . '" Selected>'
+		            . htmlspecialchars($fc) . '</option>';
+			}
+			else {
+		            echo "\n" . '                        '
+		            . '<option value="' . htmlspecialchars($fc) . '">'
+		            . htmlspecialchars($fc) . '</option>';
+			}
 		    }
 	        } elseif (preg_match('@char|blob|text|set@i', $tbl_fields_type[$i])) {
 	            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
-		        echo "\n" . '                        '
-		        . '<option value="' . htmlspecialchars($fc) . '">'
-		        . htmlspecialchars($fc) . '</option>';
+			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
+		            echo "\n" . '                        '
+		            . '<option value="' . htmlspecialchars($fc) . '" Selected>'
+		            . htmlspecialchars($fc) . '</option>';
+			}
+			else {
+		            echo "\n" . '                        '
+		            . '<option value="' . htmlspecialchars($fc) . '">'
+		            . htmlspecialchars($fc) . '</option>';
+			}
 		    }
 	    	} else {
 	            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
-		        echo "\n" . '                        '
-		    	. '<option value="' .  htmlspecialchars($fc) . '">'
-		    	. htmlspecialchars($fc) . '</option>';
+			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
+		            echo "\n" . '                        '
+		    	    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
+		    	    . htmlspecialchars($fc) . '</option>';
+			}
+			else {
+		            echo "\n" . '                        '
+		    	    . '<option value="' .  htmlspecialchars($fc) . '">'
+		    	    . htmlspecialchars($fc) . '</option>';
+			}
 		    }
 	        } // end if... else...
 	    
                 if ($tbl_fields_null[$i]) {
 	            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
-		        echo "\n" . '                        '
-		    	. '<option value="' .  htmlspecialchars($fc) . '">'
-		    	. htmlspecialchars($fc) . '</option>';
+			if(isset($zoomFunc[$i]) && $zoomFunc[$i] == $fc){
+		            echo "\n" . '                        '
+		    	    . '<option value="' .  htmlspecialchars($fc) . '" Selected>'
+		    	    . htmlspecialchars($fc) . '</option>';
+			}
+			else {
+		            echo "\n" . '                        '
+		    	    . '<option value="' .  htmlspecialchars($fc) . '">'
+		    	    . htmlspecialchars($fc) . '</option>';
+			}
 	            }
 	        }
             ?>
@@ -217,7 +246,6 @@ if(isset($zoom_submit)) {
 	    $field = $inputs[$i];
 	
             $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-
 	    if (isset($fields))
 	        echo PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i ,$db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $fields);
 	    else
@@ -262,6 +290,7 @@ if(isset($zoom_submit)) {
     </td></tr>
     </table>
     
+
 
 </fieldset>
 <fieldset class="tblFooters">

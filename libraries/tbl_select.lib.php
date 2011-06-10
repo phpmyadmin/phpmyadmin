@@ -174,7 +174,6 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
     $str = '';
 
     if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
-
         // f o r e i g n    k e y s
         $str .=  '            <select name="fields[' . $i . ']">' . "\n";
         // go back to first row
@@ -188,11 +187,17 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
         $str .= '            </select>' . "\n";
     } 
     elseif ($foreignData['foreign_link'] == true) {
-
-        $str .= '<input type="text" name="fields[' . $i . '] "';
-	        'id="field_' . md5($field) . '[' . $i .']" 
-		 class="textfield" />' ; ?>
-                        
+        if(isset($fields[$i]) && is_string($fields[$i])){
+ 	    $str .= '<input type="text" name="fields[' . $i . '] " value="' . $fields[$i] . '"';
+	            'id="field_' . md5($field) . '[' . $i .']" 
+		     class="textfield"/>' ; 
+        }
+        else{
+ 	    $str .= '<input type="text" name="fields[' . $i . '] "';
+	            'id="field_' . md5($field) . '[' . $i .']" 
+		     class="textfield" />' ; 
+        }
+ ?>
 	<?php $str .= '<script type="text/javascript">';
         // <![CDATA[
 	$str .=  <<<EOT
@@ -358,7 +363,7 @@ function PMA_SVG_scatter_plot($data, &$settings)
 
     if (empty($data)) {
         // empty data
-        return __('No data found for plot.');
+        return '';
     } else {
         $scatter_plot = new PMA_Scatter_Plot($data, $settings);
 
@@ -369,8 +374,9 @@ function PMA_SVG_scatter_plot($data, &$settings)
                 }
             }
         }
+        return $scatter_plot->asSVG();
     }
-    return $scatter_plot->asSVG();
+
 }
 
 
