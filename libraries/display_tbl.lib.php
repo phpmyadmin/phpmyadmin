@@ -386,6 +386,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         // generate table create time
         echo '<input id="table_create_time" type="hidden" value="' .
              PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
+        // generate text for draggable column hint
+        echo '<input id="col_order_hint" type="hidden" value="' . __('Click to drag') . '" />';
         ?>
     </td>
 </tr>
