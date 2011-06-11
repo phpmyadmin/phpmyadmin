@@ -118,7 +118,7 @@ function PMA_exportComment($text) {
  * @access  public
  */
 function PMA_exportFooter() {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -174,7 +174,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -187,7 +187,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -226,7 +226,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                    . '} \\label{' . PMA_expandUserString($GLOBALS['latex_data_label'], NULL, array('table' => $table, 'database' => $db)) . '} \\\\';
     }
     if (!PMA_exportOutputHandler($buffer)) {
-        return FALSE;
+        return false;
     }
 
     // show column names
@@ -238,17 +238,17 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
         $buffer = substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
         if (!PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
-            return FALSE;
+            return false;
         }
         if (isset($GLOBALS['latex_caption'])) {
-            if (!PMA_exportOutputHandler('\\caption{' . PMA_expandUserString($GLOBALS['latex_data_continued_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db)) . '} \\\\ ')) return FALSE;
+            if (!PMA_exportOutputHandler('\\caption{' . PMA_expandUserString($GLOBALS['latex_data_continued_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db)) . '} \\\\ ')) return false;
         }
         if (!PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
-            return FALSE;
+            return false;
         }
     } else {
         if (!PMA_exportOutputHandler('\\\\ \hline')) {
-            return FALSE;
+            return false;
         }
     }
 
@@ -274,17 +274,17 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
         $buffer .= ' \\\\ \\hline ' . $crlf;
         if (!PMA_exportOutputHandler($buffer)) {
-            return FALSE;
+            return false;
         }
     }
 
     $buffer = ' \\end{longtable}' . $crlf;
     if (!PMA_exportOutputHandler($buffer)) {
-        return FALSE;
+        return false;
     }
 
     PMA_DBI_free_result($result);
-    return TRUE;
+    return true;
 
 } // end getTableLaTeX
 
@@ -337,12 +337,12 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $res_rel = PMA_getForeigners($db, $table);
 
         if ($res_rel && count($res_rel) > 0) {
-            $have_rel = TRUE;
+            $have_rel = true;
         } else {
-            $have_rel = FALSE;
+            $have_rel = false;
         }
     } else {
-           $have_rel = FALSE;
+           $have_rel = false;
     } // end if
 
     /**
@@ -351,7 +351,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure') . ': ' . $table  . $crlf . '%' . $crlf
                  . ' \\begin{longtable}{';
     if (!PMA_exportOutputHandler($buffer)) {
-        return FALSE;
+        return false;
     }
 
     $columns_cnt = 4;
@@ -401,7 +401,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;
 
     if (!PMA_exportOutputHandler($buffer)) {
-        return FALSE;
+        return false;
     }
 
     while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -475,7 +475,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $buffer .= ' \\\\ \\hline ' . $crlf;
 
         if (!PMA_exportOutputHandler($buffer)) {
-            return FALSE;
+            return false;
         }
     } // end while
     PMA_DBI_free_result($result);

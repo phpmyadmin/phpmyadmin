@@ -103,14 +103,14 @@ function PMA_Bookmark_getList($db)
  * @param   string    the current database name
  * @param   mixed     the id of the bookmark to get
  * @param   string    which field to look up the $id
- * @param   boolean  TRUE: get all bookmarks regardless of the owning user
+ * @param   boolean  true: get all bookmarks regardless of the owning user
  * @param   boolean   whether to ignore bookmarks with no user
  *
  * @return  string    the sql query
  *
  * @access  public
  */
-function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = FALSE, $exact_user_match = FALSE)
+function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = false, $exact_user_match = false)
 {
     global $controllink;
 

@@ -36,7 +36,6 @@ class PMA_SQL_parser_data_test extends PHPUnit_Framework_TestCase
     private function assertParserData($name)
     {
         $this->assertSorted($GLOBALS[$name]);
-        $this->assertEquals(count($GLOBALS[$name]), $GLOBALS[$name . '_cnt']);
     }
 
     public function testPMA_SQPdata_function_name()

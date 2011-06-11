@@ -285,7 +285,7 @@ if(isset($_GET['sql_query'])) {
                         echo '<option value="' . $temp_charset . '"';
                         if(isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
                             echo '';
-                        } elseif ((empty($cfg['Export']['charset']) && $temp_charset == $charset)
+                        } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')
                           || $temp_charset == $cfg['Export']['charset']) {
                             echo ' selected="selected"';
                         }

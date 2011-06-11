@@ -22,7 +22,7 @@ $hidden           = "hidden";
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="pmd/images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="pmd/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="pmd/styles/<?php echo $GLOBALS['PMD']['STYLE'] ?>/style1.css" />

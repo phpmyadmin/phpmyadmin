@@ -826,9 +826,8 @@ function PMA_backquote($a_name, $do_it = true)
 
     if (! $do_it) {
         global $PMA_SQPdata_forbidden_word;
-        global $PMA_SQPdata_forbidden_word_cnt;
 
-        if(! PMA_STR_binarySearchInArr(strtoupper($a_name), $PMA_SQPdata_forbidden_word, $PMA_SQPdata_forbidden_word_cnt)) {
+        if(! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
             return $a_name;
         }
     }
@@ -2851,7 +2850,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
     }
 
     /* Fetch fields list if required */
-    if (strpos($string, '@FIELDS@') !== FALSE) {
+    if (strpos($string, '@FIELDS@') !== false) {
         $fields_list = PMA_DBI_fetch_result(
             'SHOW COLUMNS FROM ' . PMA_backquote($GLOBALS['db'])
             . '.' . PMA_backquote($GLOBALS['table']));
@@ -2954,7 +2953,7 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
     $matcher = '@\.(' . $extensions . ')(\.(' . PMA_supportedDecompressions() . '))?$@';
 
     $files = PMA_getFileSelectOptions(PMA_userDir($uploaddir), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
-    if ($files === FALSE) {
+    if ($files === false) {
         PMA_Message::error(__('The directory you set for upload work cannot be reached'))->display();
     } elseif (!empty($files)) {
         echo "\n";

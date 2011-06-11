@@ -759,13 +759,17 @@ since this link provides funding for phpMyAdmin.
             <li>'signon' authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'signon'</tt>)
                 as introduced in 2.10.0 allows you to log in from prepared PHP
-                session data. This is useful for implementing single signon
-                from another application. Sample way how to seed session is in
-                signon example: <code>scripts/signon.php</code>. There is also
-                alternative example using OpenID -
-                <code>scripts/openid.php</code>.  You need to
+                session data or using supplied PHP script. This is useful for implementing single signon
+                from another application.
+                
+                Sample way how to seed session is in signon example: <code>scripts/signon.php</code>. 
+                There is also alternative example using OpenID - <code>scripts/openid.php</code> and 
+                example for scripts based solution - <code>scripts/signon-script.php</code>.
+                
+                You need to
                 configure <a href="#cfg_Servers_SignonSession"
-                class="configrule">session name</a> and <a
+                class="configrule">session name</a> or <a href="#cfg_Servers_SignonScript"
+                class="configrule">script to be executed</a> and <a
                 href="#cfg_Servers_SignonURL" class="configrule">signon
                 URL</a> to use this authentication method.</li>
         </ul>
@@ -1320,10 +1324,20 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt><span id="cfg_Servers_CountTables">$cfg['Servers'][$i]['CountTables']</span> boolean</dt>
     <dd>Whether to count the number of tables for each database when preparing the list of databases for the navigation frame.
     </dd>
+    <dt><span id="cfg_Servers_SignonScript">$cfg['Servers'][$i]['SignonScript']</span> string</dt>
+    <dd>Name of PHP script to be sourced and executed to obtain 
+    login credentials. This is alternative approach to session based single 
+    signon. The script needs to provide function
+    <code>get_login_credentials</code> which returns list of username and
+    password, accepting single parameter of existing username (can be empty).
+    See <code>scripts/signon-script.php</code> for an example.
+    </dd>
     <dt><span id="cfg_Servers_SignonSession">$cfg['Servers'][$i]['SignonSession']</span> string</dt>
     <dd>Name of session which will be used for signon authentication method.
     You should use something different than <code>phpMyAdmin</code>, because
-    this is session which phpMyAdmin uses internally.
+    this is session which phpMyAdmin uses internally. Takes effect only if 
+    <a href="#cfg_Servers_SignonScript" class="configrule">SignonScript</a>
+    is not configured.
     </dd>
     <dt><span id="cfg_Servers_SignonURL">$cfg['Servers'][$i]['SignonURL']</span> string</dt>
     <dd>URL where user will be redirected to log in for signon authentication method. Should be absolute including protocol.
@@ -1843,6 +1857,15 @@ $cfg['TrustedProxies'] =
     is replaced by form with button.
     This is required as some web servers (IIS) have problems with long URLs.
     Default is <code>1000</code>.
+    </dd>
+
+    <dt
+    id="cfg_DisableMultiTableMaintenance">$cfg['DisableMultiTableMaintenance'] boolean</dt>
+    <dd>
+    In the database Structure page, it's possible to mark some tables then
+    choose an operation like optimizing for many tables. This can slow down
+    a server; therefore, setting this to <code>true</code> prevents this kind
+    of multiple maintenance operation. Default is <code>false</code>.
     </dd>
 
     <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
@@ -3510,7 +3533,7 @@ have either the <a href="http://pecl.php.net/package/APC">APC</a> extension
 <h4 id="faq3_18">
     <a href="#faq3_18">3.18 When I import a CSV file that contains multiple tables, they are lumped together into a single table.</a></h4>
 <p>
-    There is no reliable way to differetiate tables in CSV format. For the time being, you will have to break apart CSV files containing multiple tables.
+    There is no reliable way to differentiate tables in CSV format. For the time being, you will have to break apart CSV files containing multiple tables.
 </p>
 
 <!-- End: CSV import limitations -->

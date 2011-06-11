@@ -40,7 +40,7 @@ if (isset($plugin_list)) {
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -51,7 +51,7 @@ function PMA_exportComment($text) {
  * @access  public
  */
 function PMA_exportFooter() {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -98,7 +98,7 @@ function PMA_exportHeader() {
         } // end if
         $csv_separator          = str_replace('\\t', "\011", $csv_separator);
     }
-    return TRUE;
+    return true;
 }
 
 /**
@@ -111,7 +111,7 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -124,7 +124,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -137,7 +137,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -179,7 +179,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         } // end for
         $schema_insert  =trim(substr($schema_insert, 0, -1));
         if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
-            return FALSE;
+            return false;
         }
     } // end if
 
@@ -223,12 +223,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         } // end for
 
         if (!PMA_exportOutputHandler($schema_insert . $csv_terminated)) {
-            return FALSE;
+            return false;
         }
     } // end while
     PMA_DBI_free_result($result);
 
-    return TRUE;
+    return true;
 } // end of the 'PMA_getTableCsv()' function
 
 }

@@ -33,8 +33,6 @@ if (isset($match) && ! empty($match[1])) {
     define('PMA_PHP_INT_VERSION', 0);
 }
 
-$GLOBALS['charset'] = 'UTF-8';
-
 require_once './libraries/string.lib.php';
 
 /**

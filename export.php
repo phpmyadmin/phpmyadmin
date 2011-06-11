@@ -147,7 +147,7 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
+                    $dump_buffer = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $dump_buffer);
                 }
                 // as bzipped
                 if ($GLOBALS['compression'] == 'bzip'  && @function_exists('bzcompress')) {
@@ -181,7 +181,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $line);
+                $line = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $line);
             }
             if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
@@ -218,7 +218,7 @@ $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xl
 
 // Do we need to convert charset?
 $output_charset_conversion = $asfile && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
-    && isset($charset_of_file) && $charset_of_file != $charset
+    && isset($charset_of_file) && $charset_of_file != 'utf-8'
     && $type != 'xls';
 
 // Use on the fly compression?
@@ -273,7 +273,7 @@ if ($asfile) {
     $filename = PMA_expandUserString($filename_template);
 
     // convert filename to iso-8859-1, it is safer
-    $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
+    $filename = PMA_convert_string('utf-8', 'iso-8859-1', $filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
@@ -637,7 +637,7 @@ if ($save_on_server && isset($message)) {
 if (!empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
+        $dump_buffer = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $dump_buffer);
     }
 
     // Do the compression

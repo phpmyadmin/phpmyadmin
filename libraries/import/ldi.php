@@ -18,13 +18,13 @@ if ($plugin_param !== 'table') {
 
 if (isset($plugin_list)) {
     if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {
-        $GLOBALS['cfg']['Import']['ldi_local_option'] = FALSE;
+        $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
         $result = PMA_DBI_try_query('SHOW VARIABLES LIKE \'local\\_infile\';');
-        if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
+        if ($result != false && PMA_DBI_num_rows($result) > 0) {
             $tmp = PMA_DBI_fetch_row($result);
             if ($tmp[1] == 'ON') {
-                $GLOBALS['cfg']['Import']['ldi_local_option'] = TRUE;
+                $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
             }
         }
         PMA_DBI_free_result($result);
@@ -54,7 +54,7 @@ if (isset($plugin_list)) {
 if ($import_file == 'none' || $compression != 'none' || $charset_conversion) {
     // We handle only some kind of data!
     $message = PMA_Message::error(__('This plugin does not support compressed imports!'));
-    $error = TRUE;
+    $error = true;
     return;
 }
 
@@ -105,5 +105,5 @@ if (strlen($ldi_columns) > 0) {
 
 PMA_importRunQuery($sql, $sql);
 PMA_importRunQuery();
-$finished = TRUE;
+$finished = true;
 ?>

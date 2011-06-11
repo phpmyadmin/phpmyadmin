@@ -283,7 +283,7 @@ class PMA_Theme_Manager
             $select_box .=  PMA_generate_common_hidden_inputs();
         }
 
-        $theme_selected = FALSE;
+        $theme_selected = false;
         $theme_preview_path= './themes.php';
         $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
                             . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
