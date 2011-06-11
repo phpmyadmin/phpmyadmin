@@ -2231,9 +2231,18 @@ span.mysql-number {
 .cCpy {
     background: #333;
     color: #FFF;
+    font-weight: bold;
     margin: 0.1em;
     padding: 0.3em;
     position: absolute;
+    text-shadow: -1px -1px #000;
+
+    -moz-box-shadow: 0 0 8px #000;
+    -webkit-box-shadow: 0 0 8px #000;
+    box-shadow: 0 0 8px #000;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .cPointer {
@@ -2251,4 +2260,21 @@ span.mysql-number {
     margin-top: -5px;   /* must be minus half of its height */
     position: absolute;
     width: 20px;
+}
+
+.dHint {
+    background: #333;
+    border:1px solid #000;
+    color: #FFF;
+    font-size: 8pt;
+    font-weight: bold;
+    height: 14px;
+    opacity: 0.8;
+    overflow: hidden;
+    padding: 5px 10px;
+    position: absolute;
+    text-shadow: -1px -1px #000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }

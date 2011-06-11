@@ -10,6 +10,7 @@
             actionSpan: 5,
             colOrder: new Array(),
             tableCreateTime: null,
+            hintShown: false,
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -68,6 +69,7 @@
                     objLeft: objPos.left
                 };
                 $('body').css('cursor', 'move');
+                this.hideDraggableHint();
                 $('body').noSelect();
             },
             
@@ -324,6 +326,49 @@
                 } else {
                     $('.restore_column').show();
                 }
+            },
+            
+            /**
+             * Show draggable hint.
+             */
+            showDraggableHint: function() {
+                if (!this.colMov) {     // if not dragging
+                    $(this.dHint)
+                        .stop(true, true)
+                        .animate({
+                            width: 'show',
+                            height: 'show'
+                        }, 200, 'swing');
+                    this.hintShown = true;
+                }
+            },
+            
+            /**
+             * Hide draggable hint.
+             */
+            hideDraggableHint: function() {
+                if (this.hintShown) {
+                    $(this.dHint)
+                        .stop(true, true)
+                        .animate({
+                            width: 'hide',
+                            height: 'hide'
+                        }, 150, 'swing', function() {
+                            g.hintShown = false;
+                        });
+                }
+            },
+            
+            /**
+             * Update the draggable hint position.
+             */
+            updateDraggableHint: function(e) {
+                if (this.hintShown) {
+                    $(this.dHint).css({
+                        top: e.pageY - 10,
+                        left: e.pageX + 15
+                    });
+                }
             }
         }
         
@@ -331,6 +376,7 @@
         g.cRsz = document.createElement('div');     // column resizer
         g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
         g.cPointer = document.createElement('div'); // column pointer, used when reordering column
+        g.dHint = document.createElement('div');    // draggable hint
         
         // assign the table alignment
         g.alignment = $("#top_direction_dropdown").val();
@@ -342,6 +388,11 @@
         // adjust g.cPoint
         g.cPointer.className = g.alignment != 'vertical' ? 'cPointer' : 'cPointerVer';
         $(g.cPointer).hide();
+        
+        // adjust g.dHint
+        g.dHint.className = 'dHint';
+        $(g.dHint).html($('#col_order_hint').val());
+        $(g.dHint).hide();
         
         // chain table and grid together
         t.grid = g;
@@ -396,11 +447,20 @@
             .wrapInner('<span />');
         
         // register events
-        $(t).find('th.draggable').mousedown(function(e) {
-            g.dragStartMove(e, this);
-        });
+        $(t).find('th.draggable')
+            .mousedown(function(e) {
+                g.dragStartMove(e, this);
+            })
+            // show/hide draggable column
+            .mouseenter(function(e) {
+                g.showDraggableHint();
+            })
+            .mouseleave(function(e) {
+                g.hideDraggableHint();
+            });
         $(document).mousemove(function(e) {
             g.dragMove(e);
+            g.updateDraggableHint(e);
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);
@@ -418,6 +478,7 @@
         $(g.gDiv).prepend(g.cRsz);
         $(g.gDiv).append(g.cCpy);
         $(g.gDiv).append(g.cPointer);
+        $(g.gDiv).append(g.dHint);
 
         // some adjustment
         g.refreshRestoreButton();
