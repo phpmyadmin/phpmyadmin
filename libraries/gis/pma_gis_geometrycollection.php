@@ -165,6 +165,35 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     }
 
     /**
+     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     *
+     * @param string $spatial GIS GEOMETRYCOLLECTION object
+     * @param int    $srid    Spatial reference ID
+     * @param string $label   Label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color   Color for the GIS GEOMETRYCOLLECTION object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsOl($spatial, $srid, $label, $color)
+    {
+        $row = '';
+
+        // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
+        $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
+        // Split the geometry collection object to get its constituents.
+        $sub_parts = $this->_explodeGeomCol($goem_col);
+
+        foreach ($sub_parts as $sub_part) {
+            $type_pos = stripos($sub_part, '(');
+            $type = substr($sub_part, 0, $type_pos);
+
+            $gis_obj = PMA_GIS_Factory::factory($type);
+            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color);
+        }
+        return $row;
+    }
+
+    /**
      * Split the GEOMETRYCOLLECTION object and get its constituents.
      *
      * @param string $goem_col Geometry collection string

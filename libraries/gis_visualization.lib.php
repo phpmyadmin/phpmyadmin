@@ -51,8 +51,11 @@ function PMA_GIS_modify_query($sql_query, $visualizationSettings)
         $is_spatial_alias = false;
         foreach ($analyzed_query[0]['select_expr'] as $select) {
             if ($select['alias'] == $visualizationSettings['spatialColumn']) {
-                $modified_query .= 'ASTEXT(' . sanitize($select) . ') AS `'
-                . $select['alias'] . '` ';
+                $sanitized = sanitize($select);
+                $modified_query .= 'ASTEXT(' . $sanitized . ') AS `'
+                . $select['alias'] . '`, ';
+                // Get the SRID
+                $modified_query .= 'SRID(' . $sanitized . ') AS `srid` ';
                 $is_spatial_alias = true;
                 break;
             }
@@ -61,8 +64,11 @@ function PMA_GIS_modify_query($sql_query, $visualizationSettings)
         if (! $is_spatial_alias) {
             foreach ($analyzed_query[0]['select_expr'] as $select) {
                 if ($select['column'] == $visualizationSettings['spatialColumn']) {
-                    $modified_query .= 'ASTEXT(' . sanitize($select)
-                        . ') AS `' . $select['column'] . '` ';
+                    $sanitized = sanitize($select);
+                    $modified_query .= 'ASTEXT(' . $sanitized
+                        . ') AS `' . $select['column'] . '`, ';
+                    // Get the SRID
+                    $modified_query .= 'SRID(' . $sanitized . ') AS `srid` ';
                 }
             }
         }
@@ -75,7 +81,10 @@ function PMA_GIS_modify_query($sql_query, $visualizationSettings)
 
         // Wrap the spatial column with 'ASTEXT()' function and add it
         $modified_query .= 'ASTEXT(`' . $visualizationSettings['spatialColumn']
-            . '`) AS `' . $visualizationSettings['spatialColumn'] . '` ';
+            . '`) AS `' . $visualizationSettings['spatialColumn'] . '`, ';
+
+        // Get the SRID
+        $modified_query .= 'SRID(`' . $visualizationSettings['spatialColumn'] . '`) AS `srid` ';
     }
 
     // Append the rest of the query
@@ -131,6 +140,8 @@ function PMA_GIS_visualization_results($data, &$visualizationSettings, $format)
             return $visualization->asSvg();
         } elseif ($format == 'png') {
             return $visualization->asPng();
+        } elseif ($format == 'ol') {
+            return $visualization->asOl();
         }
     }
 }

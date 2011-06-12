@@ -152,5 +152,41 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
 
         return $row;
     }
+
+    /**
+     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     *
+     * @param string $spatial    GIS LINESTRING object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS LINESTRING object
+     * @param string $line_color Color for the GIS LINESTRING object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsOl($spatial, $srid, $label, $line_color)
+    {
+        $style_options = array(
+            'strokeColor' => $line_color,
+            'strokeWidth' => 2,
+        );
+        if ($srid == 0) {
+            $srid = 4326;
+        }
+        // Trim to remove leading 'LINESTRING(' and trailing ')'
+        $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
+        $points_arr = $this->extractPoints($linesrting, null);
+
+        $row = 'new Array(';
+        foreach ($points_arr as $point) {
+            $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+        }
+        $row = substr($row, 0, strlen($row) - 2);
+        $row .= ')';
+
+        return 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+            . 'new OpenLayers.Geometry.LineString(' . $row . '), null, '
+            . json_encode($style_options) . '));';
+    }
 }
 ?>

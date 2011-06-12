@@ -2171,6 +2171,10 @@ fieldset .disabled-field td {
    text-align: <?php echo $right; ?>;
 }
 
+.gis_table .choice {
+    display: none;
+}
+
 .CodeMirror {
   line-height: 1em;
   font-family: monospace;

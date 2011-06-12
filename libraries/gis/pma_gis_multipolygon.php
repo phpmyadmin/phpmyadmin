@@ -223,6 +223,69 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
     }
 
     /**
+     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     *
+     * @param string $spatial    GIS MULTIPOLYGON object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS MULTIPOLYGON object
+     * @param string $fill_color Color for the GIS MULTIPOLYGON object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsOl($spatial, $srid, $label, $fill_color)
+    {
+        $style_options = array(
+            'strokeColor' => '#000000',
+            'strokeWidth' => 0.5,
+            'fillColor'   => $fill_color,
+            'fillOpacity' => 0.8,
+        );
+        if ($srid == 0) {
+            $srid = 4326;
+        }
+        // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
+        $multipolygon = substr($spatial, 15, (strlen($spatial) - 18));
+        // Seperate each polygon
+        $polygons = explode(")),((", $multipolygon);
+
+        $row = 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+            . 'new OpenLayers.Geometry.MultiPolygon(new Array(';
+
+        foreach ($polygons as $polygon) {
+            $row .= 'new OpenLayers.Geometry.Polygon(new Array(';
+            // If the polygon doesnt have an inner polygon
+            if (strpos($polygon, "),(") === false) {
+                $points_arr = $this->extractPoints($polygon, null);
+                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+                foreach ($points_arr as $point) {
+                    $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                        . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                }
+                $row = substr($row, 0, strlen($row) - 2);
+                $row .= '))';
+            } else {
+                // Seperate outer and inner polygons
+                $parts = explode("),(", $polygon);
+                foreach ($parts as $ring) {
+                    $points_arr = $this->extractPoints($ring, null);
+                    $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+                    foreach ($points_arr as $point) {
+                        $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                            . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                    }
+                    $row = substr($row, 0, strlen($row) - 2);
+                    $row .= ')), ';
+                }
+                $row = substr($row, 0, strlen($row) - 2);
+            }
+            $row .= ')), ';
+        }
+        $row = substr($row, 0, strlen($row) - 2);
+        $row .= ')), null, ' . json_encode($style_options) . '));';
+        return $row;
+    }
+
+    /**
      * Draws a ring of the polygon using SVG path element.
      *
      * @param string $polygon    The ring

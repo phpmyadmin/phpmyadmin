@@ -95,8 +95,14 @@ abstract class PMA_GIS_Geometry
             // Extract cordinates of the point
             $cordinates = explode(" ", $point);
 
-            $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
-            $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+            if ($scale_data != null) {
+                $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
+                $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+            } else {
+                $x = $cordinates[0];
+                $y = $cordinates[1];
+            }
+
             if (! $linear) {
                 $points_arr[] = array($x, $y);
             } else {

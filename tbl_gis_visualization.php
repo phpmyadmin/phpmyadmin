@@ -98,14 +98,14 @@ $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $f
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display GIS Visualization'); ?></legend>
-    <div id="placeholder" style="width:<?php echo($visualizationSettings['width']); ?>px;height:<?php echo($visualizationSettings['height']); ?>px;border:1px solid #484;float:right">
+    <div id="placeholder" style="width:<?php echo($visualizationSettings['width']); ?>px;height:<?php echo($visualizationSettings['height']); ?>px;border:1px solid #aaa;float:right">
         <?php echo $visualization; ?>
     </div>
+    <div id="openlayersmap"></div>
 <?php
 if ($format == 'svg') {
 ?>
     <script language="javascript" type="text/javascript">
-
     $(document).ready(function(){
         var $placeholder = $('#placeholder');
         // add zoom out button
@@ -116,7 +116,38 @@ if ($format == 'svg') {
         $('<img class="button" id="up_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>arrow-up.gif">').appendTo($placeholder);
         $('<img class="button" id="down_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>arrow-down.gif">').appendTo($placeholder);
     });
+    </script>
 
+    <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+    <script language="javascript" type="text/javascript">
+        function drawOpenLayers() {
+            var options = {
+                projection: new OpenLayers.Projection("EPSG:900913"),
+                displayProjection: new OpenLayers.Projection("EPSG:4326"),
+                units: "m",
+                numZoomLevels: 18,
+                maxResolution: 156543.0339,
+                maxExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508),
+                restrictedExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508)
+            };
+            var map = new OpenLayers.Map('openlayersmap', options);
+
+            // create OSM layer
+            var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+            var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
+            var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
+            map.addLayers([layerMapnik, layerOsmarender, layerCycleMap]);
+
+            // create a vector layer
+            var vectorLayer = new OpenLayers.Layer.Vector("Data");
+            <?php echo (PMA_GIS_visualization_results($data, $visualizationSettings, 'ol')); ?>
+            map.addLayer(vectorLayer);
+
+            map.setCenter(new OpenLayers.LonLat(0, 0), 2);
+            map.addControl(new OpenLayers.Control.LayerSwitcher());
+            map.addControl(new OpenLayers.Control.MousePosition());
+        }
     </script>
 <?php
 }
@@ -132,7 +163,7 @@ if ($format == 'svg') {
         <td><input type="text" name="visualizationSettings[height]" id="height" value="<?php echo (isset($visualizationSettings['height']) ? htmlspecialchars($visualizationSettings['height']) : ''); ?>" /></td>
     </tr>
 
-    <tr><td><label for="labelColumn"><?php echo __("Label Column"); ?></label></td>
+    <tr><td><label for="labelColumn"><?php echo __("Label column"); ?></label></td>
         <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
         <?php
             foreach ($labelCandidates as $labelCandidate) {
@@ -146,7 +177,7 @@ if ($format == 'svg') {
         </select></td>
     </tr>
 
-    <tr><td><label for="spatial Column"><?php echo __("Spatial Column"); ?></label></td>
+    <tr><td><label for="spatial Column"><?php echo __("Spatial column"); ?></label></td>
         <td><select name="visualizationSettings[spatialColumn]" id="spatialColumn">
         <?php
             foreach ($spatialCandidates as $spatialCandidate) {
@@ -159,6 +190,16 @@ if ($format == 'svg') {
         ?>
         </select></td>
     </tr>
+    <tr><td class="choice">
+        <input type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"
+        <?php
+            if (isset($visualizationSettings['choice'])) {
+                echo(' checked="checked"');
+            }
+        ?>
+        />
+        <label for="choice"><?php echo __("Use base layer"); ?></label>
+    </td></tr>
     <tr><td></td>
         <td class="button"><input type="submit" name="displayVisualization" value="<?php echo __('Redraw'); ?>" /></td>
     </tr>

@@ -177,5 +177,46 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
 
         return $row;
     }
+
+    /**
+     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     *
+     * @param string $spatial    GIS MULTILINESTRING object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS MULTILINESTRING object
+     * @param string $line_color Color for the GIS MULTILINESTRING object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsOl($spatial, $srid, $label, $line_color)
+    {
+        $style_options = array(
+            'strokeColor' => $line_color,
+            'strokeWidth' => 2,
+        );
+        if ($srid == 0) {
+            $srid = 4326;
+        }
+        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
+        $multilinestirng = substr($spatial, 17, (strlen($spatial) - 19));
+        // Seperate each linestring
+        $linestirngs = explode("),(", $multilinestirng);
+
+        $row = 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+            . 'new OpenLayers.Geometry.MultiLineString(new Array(';
+        foreach ($linestirngs as $linestring) {
+            $points_arr = $this->extractPoints($linestring, null);
+            $row .= 'new OpenLayers.Geometry.LineString(new Array(';
+            foreach ($points_arr as $point) {
+                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+            $row .= ')), ';
+        }
+        $row = substr($row, 0, strlen($row) - 2);
+        $row .= ')), null, ' . json_encode($style_options) . '));';
+        return $row;
+    }
 }
 ?>

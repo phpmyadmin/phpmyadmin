@@ -244,6 +244,18 @@ class PMA_GIS_Visualization
     }
 
     /**
+     * Get the code for visualization with OpenLayers.
+     *
+     * @return the code for visualization with OpenLayers
+     */
+    public function asOl()
+    {
+        $this->init();
+        $output = $this->_prepareDataSet($this->_data, 0, null, 'ol', '');
+        return $output;
+    }
+
+    /**
      * Saves as a PDF to a file.
      *
      * @param string $file_name File name
@@ -392,6 +404,11 @@ class PMA_GIS_Visualization
                 $results = $gis_obj->prepareRowAsPdf(
                     $row[$this->_settings['spatialColumn']], $label,
                     $this->_settings['colors'][$index], $scale_data, $results
+                );
+            } elseif ($format == 'ol') {
+                $results .= $gis_obj->prepareRowAsOl(
+                    $row[$this->_settings['spatialColumn']], $row['srid'],
+                    $label, $this->_settings['colors'][$index]
                 );
             }
             $color_number++;

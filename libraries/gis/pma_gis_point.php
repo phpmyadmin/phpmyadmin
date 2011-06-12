@@ -134,5 +134,36 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
 
         return $row;
     }
+
+    /**
+     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     *
+     * @param string $spatial     GIS POINT object
+     * @param int    $srid        Spatial reference ID
+     * @param string $label       Label for the GIS POINT object
+     * @param string $point_color Color for the GIS POINT object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsOl($spatial, $srid, $label, $point_color)
+    {
+        $style_options = array(
+            'pointRadius' => 3,
+            'fillColor'   => '#ffffff',
+            'strokeColor' => $point_color,
+            'strokeWidth' => 2,
+        );
+        if ($srid == 0) {
+            $srid = 4326;
+        }
+        // Trim to remove leading 'POINT(' and trailing ')'
+        $point = substr($spatial, 6, (strlen($spatial) - 7));
+        $points_arr = $this->extractPoints($point, null);
+
+        return 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(('
+            . 'new OpenLayers.Geometry.Point(' . $points_arr[0][0] . ', ' . $points_arr[0][1] . ')'
+            . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject())),'
+            . ' null, ' . json_encode($style_options) . '));';
+    }
 }
 ?>

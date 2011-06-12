@@ -62,6 +62,35 @@ function zoomAndPan() {
  * Displaying tooltips for GIS objects.
  */
 $(document).ready(function() {
+    var $placeholder = $('#placeholder');
+    var $openlayersmap = $('#openlayersmap');
+
+   if ($('#choice').prop('checked') != true) {
+        $openlayersmap.hide();
+    } else {
+        $placeholder.hide();
+    }
+
+    var cssObj = {
+        'border' : '1px solid #aaa',
+        'width' : $placeholder.width(),
+        'height' : $placeholder.height(),
+        'float' : 'right'
+    };
+    $openlayersmap.css(cssObj);
+    drawOpenLayers();
+
+    $('.choice').show();
+    $('#choice').bind('click', function() {
+        if ($(this).prop('checked') == false) {
+            $placeholder.show();
+            $openlayersmap.hide();
+        } else {
+            $placeholder.hide();
+            $openlayersmap.show();
+        }
+    });
+
     $('#placeholder').svg({
         onLoad: function(svg_ref) {
             svg = svg_ref;

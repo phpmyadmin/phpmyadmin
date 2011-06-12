@@ -165,7 +165,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public function prepareRowAsSvg($spatial, $label, $fill_color, $scale_data)
     {
-        $group_name = 'g';
         $polygon_options = array(
             'name'        => $label,
             'id'          => $label . rand(),
@@ -203,6 +202,61 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             $row .= ' ' . $option . '="' . trim($val) . '"';
         }
         $row .= '/>';
+        return $row;
+    }
+
+    /**
+     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     *
+     * @param string $spatial    GIS POLYGON object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS POLYGON object
+     * @param string $fill_color Color for the GIS POLYGON object
+     *
+     * @return the code related to a row in the GIS dataset
+     */
+    public function prepareRowAsOl($spatial, $srid, $label, $fill_color)
+    {
+        $style_options = array(
+            'strokeColor' => '#000000',
+            'strokeWidth' => 0.5,
+            'fillColor'   => $fill_color,
+            'fillOpacity' => 0.8,
+        );
+        if ($srid == 0) {
+            $srid = 4326;
+        }
+        // Trim to remove leading 'POLYGON((' and trailing '))'
+        $polygon = substr($spatial, 9, (strlen($spatial) - 11));
+
+        $row = 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+            . 'new OpenLayers.Geometry.Polygon(new Array(';
+        // If the polygon doesnt have an inner polygon
+        if (strpos($polygon, "),(") === false) {
+            $points_arr = $this->extractPoints($polygon, null);
+            $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+            foreach ($points_arr as $point) {
+                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+            $row .= '))';
+        } else {
+            // Seperate outer and inner polygons
+            $parts = explode("),(", $polygon);
+            foreach ($parts as $ring) {
+                $points_arr = $this->extractPoints($ring, null);
+                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+                foreach ($points_arr as $point) {
+                    $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                        . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                }
+                $row = substr($row, 0, strlen($row) - 2);
+                $row .= ')), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+        }
+        $row .= ')), null, ' . json_encode($style_options) . '));';
         return $row;
     }
 
