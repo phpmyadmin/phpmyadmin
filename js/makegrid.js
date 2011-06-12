@@ -333,10 +333,14 @@
             /**
              * Show draggable hint.
              */
-            showDraggableHint: function() {
+            showDraggableHint: function(e) {
                 if (!this.colMov) {     // if not dragging
                     $(this.dHint)
                         .stop(true, true)
+                        .css({
+                            top: e.pageY - 10,
+                            left: e.pageX + 15
+                        })
                         .show('fast');
                     this.hintShown = true;
                 }
@@ -449,7 +453,7 @@
             })
             // show/hide draggable column
             .mouseenter(function(e) {
-                g.showDraggableHint();
+                g.showDraggableHint(e);
             })
             .mouseleave(function(e) {
                 g.hideDraggableHint();
