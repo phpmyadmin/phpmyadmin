@@ -57,8 +57,10 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $("td.insert_table a.ajax").live('click',function(event){
+    var currrent_insert_table;
+    $("td.insert_table a.ajax").click(function(event){
         event.preventDefault();
+        currrent_insert_table = $(this);
         var url = $(this).attr("href");
         if (url.substring(0, 15) == "tbl_change.php?") {
              url = url.substring(15);
@@ -105,13 +107,15 @@ $(document).ready(function() {
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
+                $(".insertRowTable").addClass("ajax");
+                $("#buttonYes").addClass("ajax");
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
 
     });
 
-    $("#insertForm .insertRowTable input[value=Go], #buttonYes ").live('click', function(event) {
+    $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
         event.preventDefault();
         /**
          *  @var    the_form    object referring to the insert form
@@ -131,6 +135,38 @@ $(document).ready(function() {
             }
         }) // end $.post()
     }) // end insert table button "Go"
+
+    $("#buttonYes.ajax").live('click', function(event){
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the insert form
+         */
+        var $form = $("#insertForm");
+        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").attr('value');
+        var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").attr('value');
+        $("#result_query").remove();
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() , function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                if (selected_submit_type == "showinsert") {
+                    $(data.sql_query).insertAfter("#topmenucontainer");
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
+                }
+                if (selected_after_insert == "new_insert") {
+                    currrent_insert_table.trigger('click');
+                }
+
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+            if ($("#insert_table_dialog").length > 0) {
+                $("#insert_table_dialog").parent().dialog("close").remove();
+            }
+        }) // end $.post()
+    });
 
     /**
      * Ajax Event handler for 'Truncate Table'
