@@ -335,10 +335,7 @@
                 if (!this.colMov) {     // if not dragging
                     $(this.dHint)
                         .stop(true, true)
-                        .animate({
-                            width: 'show',
-                            height: 'show'
-                        }, 200, 'swing');
+                        .show('fast');
                     this.hintShown = true;
                 }
             },
@@ -350,10 +347,7 @@
                 if (this.hintShown) {
                     $(this.dHint)
                         .stop(true, true)
-                        .animate({
-                            width: 'hide',
-                            height: 'hide'
-                        }, 150, 'swing', function() {
+                        .hide(150, function() {
                             g.hintShown = false;
                         });
                 }
