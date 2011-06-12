@@ -2171,7 +2171,7 @@ msgstr "全部"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "全部皆否"
 
 #: libraries/config.values.php:47
 msgid "Left"
