@@ -10,8 +10,8 @@
  * Do not include full common.
  * @ignore
  */
-define('PMA_MINIMUM_COMMON', TRUE);
-define('PMA_SETUP', TRUE);
+define('PMA_MINIMUM_COMMON', true);
+define('PMA_SETUP', true);
 chdir('..');
 
 if (!file_exists('./libraries/common.inc.php')) {

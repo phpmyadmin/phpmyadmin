@@ -944,9 +944,14 @@ $(document).ready(function() {
 
         //Remove the last ',' appended in the above loop
         sql_query = sql_query.replace(/,\s$/, '');
+        //Fix non-escaped backslashes
+        sql_query = sql_query.replace(/\\/g, '\\\\');
         new_clause = new_clause.substring(0, new_clause.length-5);
         new_clause = PMA_urlencode(new_clause);
         sql_query += ' WHERE ' + PMA_urldecode(where_clause);
+        // Avoid updating more than one row in case there is no primary key
+        // (happened only for duplicate rows)
+        sql_query += ' LIMIT 1';
         /**
          * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
          */
@@ -1140,14 +1145,14 @@ $(document).ready(function() {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $('.column_heading').live('hover', function() {
+    $('.column_heading.pointer').live('hover', function() {
         PMA_changeClassForColumn($(this), 'hover');
         });
 
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
-    $('.column_heading').live('click', function() {
+    $('.column_heading.marker').live('click', function() {
         PMA_changeClassForColumn($(this), 'marked');
         });
 })

@@ -29,15 +29,15 @@ function PMA_checkTimeout()
 {
     global $timestamp, $maximum_time, $timeout_passed;
     if ($maximum_time == 0) {
-        return FALSE;
+        return false;
     } elseif ($timeout_passed) {
-        return TRUE;
+        return true;
     /* 5 in next row might be too much */
     } elseif ((time() - $timestamp) > ($maximum_time - 5)) {
-        $timeout_passed = TRUE;
-        return TRUE;
+        $timeout_passed = true;
+        return true;
     } else {
-        return FALSE;
+        return false;
     }
 }
 
@@ -52,7 +52,7 @@ function PMA_detectCompression($filepath)
 {
     $file = @fopen($filepath, 'rb');
     if (!$file) {
-        return FALSE;
+        return false;
     }
     $test = fread($file, 4);
     $len = strlen($test);
@@ -101,14 +101,14 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                  && !$is_superuser
                  && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])) {
                     $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
-                    $error = TRUE;
+                    $error = true;
                 } else {
                     $executed_queries++;
                     if ($run_query && $GLOBALS['finished'] && empty($sql) && !$error && (
                             (!empty($import_run_buffer['sql']) && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql'])) ||
                             ($executed_queries == 1)
                             )) {
-                        $go_sql = TRUE;
+                        $go_sql = true;
                         if (!$sql_query_disabled) {
                             $complete_query = $sql_query;
                             $display_query = $sql_query;
@@ -126,7 +126,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $result = PMA_DBI_try_query($import_run_buffer['sql']);
                         }
                         $msg = '# ';
-                        if ($result === FALSE) { // execution failed
+                        if ($result === false) { // execution failed
                             if (! isset($my_die)) {
                                 $my_die = array();
                             }
@@ -137,7 +137,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             }
 
                             if (!$cfg['IgnoreMultiSubmitErrors']) {
-                                $error = TRUE;
+                                $error = true;
                                 return;
                             }
                         } elseif ($cfg['VerboseMultiSubmit']) {
@@ -158,12 +158,12 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         }
 
                         // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
-                        if ($result != FALSE) {
+                        if ($result != false) {
                             list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
                         }
 
-                        if ($result != FALSE && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
-                            $reload = TRUE;
+                        if ($result != false && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])) {
+                            $reload = true;
                         }
                     } // end run query
                 } // end if not DROP DATABASE
@@ -185,12 +185,12 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                 if ($cfg['VerboseMultiSubmit'] && ! empty($sql_query)) {
                     if (strlen($sql_query) > 50000 || $executed_queries > 50 || $max_sql_len > 1000) {
                         $sql_query = '';
-                        $sql_query_disabled = TRUE;
+                        $sql_query_disabled = true;
                     }
                 } else {
                     if (strlen($sql_query) > 10000 || $executed_queries > 10 || $max_sql_len > 500) {
                         $sql_query = '';
-                        $sql_query_disabled = TRUE;
+                        $sql_query_disabled = true;
                     }
                 }
             }
@@ -219,7 +219,7 @@ function PMA_lookForUse($buffer, $db, $reload)
     if (preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $buffer, $match)) {
         $db = trim($match[1]);
         $db = trim($db,';'); // for example, USE abc;
-        $reload = TRUE;
+        $reload = true;
     }
     return(array($db, $reload));
 }
@@ -257,16 +257,16 @@ function PMA_importGetNextChunk($size = 32768)
     }
 
     if (PMA_checkTimeout()) {
-        return FALSE;
+        return false;
     }
     if ($GLOBALS['finished']) {
-        return TRUE;
+        return true;
     }
 
     if ($GLOBALS['import_file'] == 'none') {
         // Well this is not yet supported and tested, but should return content of textarea
         if (strlen($GLOBALS['import_text']) < $size) {
-            $GLOBALS['finished'] = TRUE;
+            $GLOBALS['finished'] = true;
             return $GLOBALS['import_text'];
         } else {
             $r = substr($GLOBALS['import_text'], 0, $size);

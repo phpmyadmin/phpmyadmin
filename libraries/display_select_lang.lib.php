@@ -26,7 +26,7 @@ function PMA_language_cmp(&$a, &$b) {
  *
  * @access  public
  */
-function PMA_select_language($use_fieldset = FALSE, $show_doc = TRUE) {
+function PMA_select_language($use_fieldset = false, $show_doc = true) {
     global $cfg, $lang;
     ?>
 

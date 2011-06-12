@@ -32,7 +32,7 @@ if (isset($plugin_list)) {
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -43,7 +43,7 @@ function PMA_exportComment($text) {
  * @access  public
  */
 function PMA_exportFooter() {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -54,7 +54,7 @@ function PMA_exportFooter() {
  * @access  public
  */
 function PMA_exportHeader() {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -67,7 +67,7 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -80,7 +80,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    return TRUE;
+    return true;
 }
 
 /**
@@ -93,7 +93,7 @@ function PMA_exportDBFooter($db) {
  * @access  public
  */
 function PMA_exportDBCreate($db) {
-    return TRUE;
+    return true;
 }
 
 /**

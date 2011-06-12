@@ -51,8 +51,7 @@ $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
 $js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!');
-$js_messages['strAddNewUser'] = __('Add a New User');
-$js_messages['strCreateUser'] = __('Create User');
+$js_messages['strAddUser'] = __('Add user');
 $js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
@@ -78,6 +77,9 @@ $js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have at least 
 $js_messages['strCreateTable'] = __('Create Table');
 $js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
+
+/* For db_stucture.js */
+$js_messages['strInsertTable'] = __('Insert Table');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');

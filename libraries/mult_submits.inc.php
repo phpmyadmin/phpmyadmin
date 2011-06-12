@@ -307,8 +307,8 @@ elseif ($mult_btn == __('Yes')) {
         $sql_query_views = '';
     }
     $selected_cnt   = count($selected);
-    $run_parts      = FALSE; // whether to run query after each pass
-    $use_sql        = FALSE; // whether to include sql.php at the end (to display results)
+    $run_parts      = false; // whether to run query after each pass
+    $use_sql        = false; // whether to include sql.php at the end (to display results)
 
     if ($query_type == 'primary_fld') {
         // Gets table primary key
@@ -330,7 +330,7 @@ elseif ($mult_btn == __('Yes')) {
         switch ($query_type) {
             case 'row_delete':
                 $a_query = $selected[$i];
-                $run_parts = TRUE;
+                $run_parts = true;
                 break;
 
             case 'drop_db':
@@ -338,7 +338,7 @@ elseif ($mult_btn == __('Yes')) {
                 $a_query   = 'DROP DATABASE '
                            . PMA_backquote($selected[$i]);
                 $reload    = 1;
-                $run_parts = TRUE;
+                $run_parts = true;
                 $rebuild_database_list = true;
                 break;
 
@@ -358,31 +358,31 @@ elseif ($mult_btn == __('Yes')) {
             case 'check_tbl':
                 $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
                            . PMA_backquote($selected[$i]);
-                $use_sql    = TRUE;
+                $use_sql    = true;
                 break;
 
             case 'optimize_tbl':
                 $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
                            . PMA_backquote($selected[$i]);
-                $use_sql    = TRUE;
+                $use_sql    = true;
                 break;
 
             case 'analyze_tbl':
                 $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
                            . PMA_backquote($selected[$i]);
-                $use_sql    = TRUE;
+                $use_sql    = true;
                 break;
 
             case 'repair_tbl':
                 $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
                            . PMA_backquote($selected[$i]);
-                $use_sql    = TRUE;
+                $use_sql    = true;
                 break;
 
             case 'empty_tbl':
                 $a_query = 'TRUNCATE ';
                 $a_query .= PMA_backquote($selected[$i]);
-                $run_parts = TRUE;
+                $run_parts = true;
                 break;
 
             case 'drop_fld':
