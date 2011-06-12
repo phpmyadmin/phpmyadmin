@@ -40,8 +40,7 @@
                         width: $(obj).width()
                     });
                     $(this.cPointer).css({
-                        top: objPos.top - 10,
-                        left: objPos.left
+                        top: objPos.top,
                     });
                 } else {    // vertical alignment
                     $(this.cCpy).css({
@@ -52,7 +51,6 @@
                     });
                     $(this.cPointer).css({
                         top: objPos.top,
-                        left: objPos.left
                     });
                 }
                 
@@ -105,19 +103,23 @@
                                               colPos.left :
                                               colPos.left + $(hoveredCol).outerWidth();
                                 $(this.cPointer)
-                                    .css('left', newleft)
-                                    .show();
+                                    .css({
+                                        left: newleft,
+                                        visibility: 'visible'
+                                    });
                             } else {    // vertical alignment
                                 var newtop = newn < this.colMov.n ?
                                               colPos.top :
                                               colPos.top + $(hoveredCol).outerHeight();
                                 $(this.cPointer)
-                                    .css('top', newtop)
-                                    .show();
+                                    .css({
+                                        top: newtop,
+                                        visibility: 'visible'
+                                    });
                             }
                         } else {
                             // no movement to other column, hide the column pointer
-                            $(this.cPointer).hide();
+                            $(this.cPointer).css('visibility', 'hidden');
                         }
                     }
                 }
@@ -168,7 +170,7 @@
                             left: g.colMov.objLeft
                         }, 'fast')
                         .fadeOut();
-                    $(this.cPointer).stop(true, true).hide();
+                    $(this.cPointer).css('visibility', 'hidden');
 
                     this.colMov = false;
                 }
@@ -331,14 +333,15 @@
             /**
              * Show draggable hint.
              */
-            showDraggableHint: function() {
+            showDraggableHint: function(e) {
                 if (!this.colMov) {     // if not dragging
                     $(this.dHint)
                         .stop(true, true)
-                        .animate({
-                            width: 'show',
-                            height: 'show'
-                        }, 200, 'swing');
+                        .css({
+                            top: e.pageY - 10,
+                            left: e.pageX + 15
+                        })
+                        .show('fast');
                     this.hintShown = true;
                 }
             },
@@ -350,10 +353,7 @@
                 if (this.hintShown) {
                     $(this.dHint)
                         .stop(true, true)
-                        .animate({
-                            width: 'hide',
-                            height: 'hide'
-                        }, 150, 'swing', function() {
+                        .hide(150, function() {
                             g.hintShown = false;
                         });
                 }
@@ -387,7 +387,7 @@
         
         // adjust g.cPoint
         g.cPointer.className = g.alignment != 'vertical' ? 'cPointer' : 'cPointerVer';
-        $(g.cPointer).hide();
+        $(g.cPointer).css('visibility', 'hidden');
         
         // adjust g.dHint
         g.dHint.className = 'dHint';
@@ -453,7 +453,7 @@
             })
             // show/hide draggable column
             .mouseenter(function(e) {
-                g.showDraggableHint();
+                g.showDraggableHint(e);
             })
             .mouseleave(function(e) {
                 g.hideDraggableHint();

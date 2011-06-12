@@ -1897,6 +1897,7 @@ span.mysql-number {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
     height: 20px;
     margin-left: -5px;  /* must be minus half of its width */
+    margin-top: -10px;
     position: absolute;
     width: 10px;
 }
