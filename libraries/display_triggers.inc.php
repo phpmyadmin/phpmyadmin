@@ -57,6 +57,7 @@ if (! empty($_GET['exporttrigger']) && ! empty($_GET['triggername'])) {
 /**
  * Display a list of available triggers
  */
+echo "\n\n<span id='js_query_display'></span>\n\n";
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Triggers') . '</legend>' . "\n";
 if (! $triggers) {

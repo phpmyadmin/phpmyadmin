@@ -240,10 +240,7 @@ $(document).ready(function() {
                                  * @var    ct    Count of processed rows.
                                  */
                                 var ct = 0;
-                                $('table.data').find('tr').each(function() {
-                                    if ($(this).has('th').length) {
-                                        return true;
-                                    }
+                                $('table.data').find('tr').has('td').each(function() {
                                     rowclass = (ct % 2 == 0) ? 'even' : 'odd';
                                     $(this).removeClass().addClass(rowclass);
                                     ct++;

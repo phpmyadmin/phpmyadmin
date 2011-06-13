@@ -51,6 +51,7 @@ if (! empty($_GET['exportevent']) && ! empty($_GET['eventname'])) {
 /**
  * Display a list of available events
  */
+echo "\n\n<span id='js_query_display'></span>\n\n";
 echo '<fieldset>' . "\n";
 echo ' <legend>' . __('Events') . '</legend>' . "\n";
 if (! $events) {

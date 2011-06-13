@@ -2362,8 +2362,22 @@ $(document).ready(function() {
                     } else {
                         $curr_row.hide("slow", function () {
                             $(this).remove();
+                            // Now we have removed the row from the list, but maybe
+                            // some row classes are wrong now. So we will itirate
+                            // throught all rows and assign correct classes to them.
+                            /**
+                             * @var    ct    Count of processed rows.
+                             */
+                            var ct = 0;
+                            $table.find('tr').has('td').each(function() {
+                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
+                                $(this).removeClass().addClass(rowclass);
+                                ct++;
+                            });
                         });
                     }
+                    // Show the query that we just executed
+                    $('#js_query_display').html(data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
