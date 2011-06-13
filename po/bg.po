@@ -4051,7 +4051,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:461
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Показване на SQL заявките"
 
 #: libraries/config/messages.inc.php:462
 msgid "Allow to display database and table statistics (eg. space usage)"
