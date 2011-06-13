@@ -3360,7 +3360,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Двойни текстови полета за колони тип LONGTEXT"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
