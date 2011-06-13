@@ -126,7 +126,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * AJAX scripts for server_privileges page.
  *
  * Actions ajaxified here:
- * Add a new user
+ * Add user
  * Revoke a user
  * Edit privileges
  * Export privileges
@@ -169,7 +169,7 @@ $(document).ready(function() {
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
         var button_options = {};
-        button_options[PMA_messages['strCreateUser']] = function() {
+        button_options[PMA_messages['strAddUser']] = function() {
 
             /**
              * @var $form    stores reference to current form
@@ -252,7 +252,7 @@ $(document).ready(function() {
             .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
             .end()
             .dialog({
-                title: PMA_messages['strAddNewUser'],
+                title: PMA_messages['strAddUser'],
                 width: 800,
                 // height is a workaround for this Chrome problem:
                 // http://bugs.jqueryui.com/ticket/4671

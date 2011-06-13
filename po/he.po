@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-06 11:35+0200\n"
+"POT-Creation-Date: 2011-06-07 06:41-0400\n"
 "PO-Revision-Date: 2011-03-02 20:17+0200\n"
 "Last-Translator: <zippoxer@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
-"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -44,7 +44,7 @@ msgstr "חיפוש"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358
-#: db_structure.php:535 enum_editor.php:63 js/messages.php:61
+#: db_structure.php:535 enum_editor.php:63 js/messages.php:60
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1300
 #: libraries/common.lib.php:2274 libraries/core.lib.php:557
@@ -193,7 +193,7 @@ msgstr "קישורים אל"
 msgid "Comments"
 msgstr "הערות"
 
-#: db_datadict.php:260 js/messages.php:80 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -209,7 +209,7 @@ msgstr "הערות"
 msgid "No"
 msgstr "לא"
 
-#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -378,27 +378,27 @@ msgstr "שורות"
 msgid "Size"
 msgstr "גודל"
 
-#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:747
-#: libraries/export/sql.php:1078
+#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:749
+#: libraries/export/sql.php:1076
 msgid "in use"
 msgstr "בשימוש"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:702
+#: libraries/export/sql.php:704
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
 msgstr "יצירה"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:707
+#: libraries/export/sql.php:709
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
 msgstr "עדכון אחרון"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:712
+#: libraries/export/sql.php:714
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
@@ -506,7 +506,7 @@ msgstr "שליחת שאילתה"
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:224
+#: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "גישה נדתחה"
 
@@ -628,8 +628,8 @@ msgstr ""
 #: db_structure.php:379 libraries/display_tbl.lib.php:2073
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:152
@@ -747,7 +747,7 @@ msgstr ""
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
-#: libraries/export/sql.php:564 libraries/export/texytext.php:77
+#: libraries/export/sql.php:568 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
@@ -873,8 +873,8 @@ msgstr "הוצאה נשמרה אל קובץ %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
@@ -1037,159 +1037,155 @@ msgstr "הסיסמא ריקה!"
 msgid "The passwords aren't the same!"
 msgstr "הסיסמאות אינן זהות!"
 
-#: js/messages.php:54
+#: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
+#: server_privileges.php:2108 server_privileges.php:2302
 #, fuzzy
-#| msgid "Add a new User"
-msgid "Add a New User"
-msgstr "הוספת משתמש חדש"
+#| msgid "Any user"
+msgid "Add user"
+msgstr "כל משתמש"
 
 #: js/messages.php:55
-#, fuzzy
-msgid "Create User"
-msgstr "גרסת שרת"
-
-#: js/messages.php:56
 #, fuzzy
 msgid "Reloading Privileges"
 msgstr "הרשאות גלובליות"
 
-#: js/messages.php:57
+#: js/messages.php:56
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "הסרת משתמשים שנבחרו"
 
-#: js/messages.php:58 libraries/tbl_properties.inc.php:791
+#: js/messages.php:57 libraries/tbl_properties.inc.php:791
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
 msgstr ""
 
-#: js/messages.php:62 libraries/tbl_properties.inc.php:796 pmd_general.php:388
+#: js/messages.php:61 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr ""
 
-#: js/messages.php:65
+#: js/messages.php:64
 #, fuzzy
 msgid "Loading"
 msgstr "מקומי"
 
-#: js/messages.php:66
+#: js/messages.php:65
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "תהליכים"
 
-#: js/messages.php:67 libraries/import/ods.php:80
+#: js/messages.php:66 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:68
+#: js/messages.php:67
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:69
+#: js/messages.php:68
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:70 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:69 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "אישור"
 
-#: js/messages.php:73
+#: js/messages.php:72
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "שינוי שם מאגר נתונים אל"
 
-#: js/messages.php:74
+#: js/messages.php:73
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "שינוי שם מאגר נתונים אל"
 
-#: js/messages.php:75
+#: js/messages.php:74
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "העתקת מאגר נתונים אל"
 
-#: js/messages.php:76
+#: js/messages.php:75
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "קידוד"
 
-#: js/messages.php:77
+#: js/messages.php:76
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "טבלה חייבית להכיל לפחות שדה אחד."
 
-#: js/messages.php:78
+#: js/messages.php:77
 #, fuzzy
 msgid "Create Table"
 msgstr "יצירת עמוד חדש"
 
-#: js/messages.php:83
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "השתמש בטבלאות"
 
-#: js/messages.php:86
+#: js/messages.php:85
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "חיפוש"
 
-#: js/messages.php:87
+#: js/messages.php:86
 #, fuzzy
 msgid "Hide search results"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:88
+#: js/messages.php:87
 #, fuzzy
 msgid "Show search results"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:89
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "עיון"
 
-#: js/messages.php:90
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "מוחק %s"
 
-#: js/messages.php:93
+#: js/messages.php:92
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:96
+#: js/messages.php:95
 #, fuzzy
 msgid "Hide query box"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:97
+#: js/messages.php:96
 #, fuzzy
 msgid "Show query box"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:98
+#: js/messages.php:97
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "מנועים"
 
-#: js/messages.php:99 libraries/Index.class.php:465
+#: js/messages.php:98 libraries/Index.class.php:465
 #: libraries/common.lib.php:594 libraries/common.lib.php:1129
 #: libraries/common.lib.php:2989 libraries/config/messages.inc.php:471
 #: libraries/display_tbl.lib.php:1205 libraries/import.lib.php:1150
@@ -1198,7 +1194,7 @@ msgstr "מנועים"
 msgid "Edit"
 msgstr "עריכה"
 
-#: js/messages.php:100 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:785 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1206,77 +1202,77 @@ msgstr "עריכה"
 msgid "Save"
 msgstr "שמירה"
 
-#: js/messages.php:101 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:100 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr ""
 
-#: js/messages.php:104
+#: js/messages.php:103
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:105
+#: js/messages.php:104
 #, fuzzy
 msgid "Show search criteria"
 msgstr "שאילתת SQL"
 
-#: js/messages.php:108 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:107 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: js/messages.php:111
+#: js/messages.php:110
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:112
+#: js/messages.php:111
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:113
+#: js/messages.php:112
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:114 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:113 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "בחירת שדה להצגה"
 
-#: js/messages.php:115
+#: js/messages.php:114
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:118
+#: js/messages.php:117
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:121
+#: js/messages.php:120
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "ייצור סיסמא"
 
-#: js/messages.php:122 libraries/replication_gui.lib.php:365
+#: js/messages.php:121 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "ייצור"
 
-#: js/messages.php:123
+#: js/messages.php:122
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "שינוי סיסמא"
 
-#: js/messages.php:126 tbl_structure.php:471
+#: js/messages.php:125 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "יום שני"
 
-#: js/messages.php:129 setup/lib/index.lib.php:158
+#: js/messages.php:128 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1284,31 +1280,31 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:131
+#: js/messages.php:130
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:131
 #, fuzzy
 msgid "up to date"
 msgstr "אין מאגרי נתונים"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:150
+#: js/messages.php:149
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "ללא"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:152
+#: js/messages.php:151
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "הקודם"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:154 libraries/common.lib.php:2337
+#: js/messages.php:153 libraries/common.lib.php:2337
 #: libraries/common.lib.php:2340 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
@@ -1316,96 +1312,96 @@ msgid "Next"
 msgstr "הבא"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:156
+#: js/messages.php:155
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "סה\"כ"
 
-#: js/messages.php:159
+#: js/messages.php:158
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "בינארי"
 
-#: js/messages.php:160
+#: js/messages.php:159
 msgid "February"
 msgstr ""
 
-#: js/messages.php:161
+#: js/messages.php:160
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "מרץ"
 
-#: js/messages.php:162
+#: js/messages.php:161
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "אפריל"
 
-#: js/messages.php:163
+#: js/messages.php:162
 msgid "May"
 msgstr "מאי"
 
-#: js/messages.php:164
+#: js/messages.php:163
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "יוני"
 
-#: js/messages.php:165
+#: js/messages.php:164
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "יולי"
 
-#: js/messages.php:166
+#: js/messages.php:165
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "אוגוסט"
 
-#: js/messages.php:167
+#: js/messages.php:166
 msgid "September"
 msgstr ""
 
-#: js/messages.php:168
+#: js/messages.php:167
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "אוקטובר"
 
-#: js/messages.php:169
+#: js/messages.php:168
 msgid "November"
 msgstr ""
 
-#: js/messages.php:170
+#: js/messages.php:169
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1540
+#: js/messages.php:173 libraries/common.lib.php:1540
 msgid "Jan"
 msgstr "ינואר"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1542
+#: js/messages.php:175 libraries/common.lib.php:1542
 msgid "Feb"
 msgstr "פברואר"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1544
+#: js/messages.php:177 libraries/common.lib.php:1544
 msgid "Mar"
 msgstr "מרץ"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1546
+#: js/messages.php:179 libraries/common.lib.php:1546
 msgid "Apr"
 msgstr "אפריל"
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1548
+#: js/messages.php:181 libraries/common.lib.php:1548
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1413,176 +1409,176 @@ msgid "May"
 msgstr "מאי"
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1550
+#: js/messages.php:183 libraries/common.lib.php:1550
 msgid "Jun"
 msgstr "יוני"
 
 #. l10n: Short month name
-#: js/messages.php:186 libraries/common.lib.php:1552
+#: js/messages.php:185 libraries/common.lib.php:1552
 msgid "Jul"
 msgstr "יולי"
 
 #. l10n: Short month name
-#: js/messages.php:188 libraries/common.lib.php:1554
+#: js/messages.php:187 libraries/common.lib.php:1554
 msgid "Aug"
 msgstr "אוגוסט"
 
 #. l10n: Short month name
-#: js/messages.php:190 libraries/common.lib.php:1556
+#: js/messages.php:189 libraries/common.lib.php:1556
 msgid "Sep"
 msgstr "ספטמבר"
 
 #. l10n: Short month name
-#: js/messages.php:192 libraries/common.lib.php:1558
+#: js/messages.php:191 libraries/common.lib.php:1558
 msgid "Oct"
 msgstr "אוקטובר"
 
 #. l10n: Short month name
-#: js/messages.php:194 libraries/common.lib.php:1560
+#: js/messages.php:193 libraries/common.lib.php:1560
 msgid "Nov"
 msgstr "נובמבר"
 
 #. l10n: Short month name
-#: js/messages.php:196 libraries/common.lib.php:1562
+#: js/messages.php:195 libraries/common.lib.php:1562
 msgid "Dec"
 msgstr "דצמבר"
 
-#: js/messages.php:199
+#: js/messages.php:198
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "יום ראשון"
 
-#: js/messages.php:200
+#: js/messages.php:199
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "יום שני"
 
-#: js/messages.php:201
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "יום שלישי"
 
-#: js/messages.php:202
+#: js/messages.php:201
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:203
+#: js/messages.php:202
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:204
+#: js/messages.php:203
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "יום שישי"
 
-#: js/messages.php:205
+#: js/messages.php:204
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1565
+#: js/messages.php:208 libraries/common.lib.php:1565
 msgid "Sun"
 msgstr "יום ראשון"
 
 #. l10n: Short week day name
-#: js/messages.php:211 libraries/common.lib.php:1567
+#: js/messages.php:210 libraries/common.lib.php:1567
 msgid "Mon"
 msgstr "יום שני"
 
 #. l10n: Short week day name
-#: js/messages.php:213 libraries/common.lib.php:1569
+#: js/messages.php:212 libraries/common.lib.php:1569
 msgid "Tue"
 msgstr "יום שלישי"
 
 #. l10n: Short week day name
-#: js/messages.php:215 libraries/common.lib.php:1571
+#: js/messages.php:214 libraries/common.lib.php:1571
 msgid "Wed"
 msgstr "יום רביעי"
 
 #. l10n: Short week day name
-#: js/messages.php:217 libraries/common.lib.php:1573
+#: js/messages.php:216 libraries/common.lib.php:1573
 msgid "Thu"
 msgstr "יום חמישי"
 
 #. l10n: Short week day name
-#: js/messages.php:219 libraries/common.lib.php:1575
+#: js/messages.php:218 libraries/common.lib.php:1575
 msgid "Fri"
 msgstr "יום שישי"
 
 #. l10n: Short week day name
-#: js/messages.php:221 libraries/common.lib.php:1577
+#: js/messages.php:220 libraries/common.lib.php:1577
 msgid "Sat"
 msgstr "שבת"
 
 #. l10n: Minimal week day name
-#: js/messages.php:225
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "יום ראשון"
 
 #. l10n: Minimal week day name
-#: js/messages.php:227
+#: js/messages.php:226
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "יום שני"
 
 #. l10n: Minimal week day name
-#: js/messages.php:229
+#: js/messages.php:228
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "יום שלישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:231
+#: js/messages.php:230
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "יום רביעי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:233
+#: js/messages.php:232
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "יום חמישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:235
+#: js/messages.php:234
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "יום שישי"
 
 #. l10n: Minimal week day name
-#: js/messages.php:237
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "שבת"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:239
+#: js/messages.php:238
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:241
+#: js/messages.php:240
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:242
+#: js/messages.php:241
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "בשימוש"
 
-#: js/messages.php:243
+#: js/messages.php:242
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1811,8 +1807,8 @@ msgstr "ברוך הבא אל %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -1863,26 +1859,30 @@ msgid "Cookies must be enabled past this point."
 msgstr "עוגיות (Cookies) חייבות לפעול מנקודה זאת."
 
 #: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/signon.auth.lib.php:222
+#: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:647
-#: libraries/auth/signon.auth.lib.php:226
+#: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
-#: libraries/auth/signon.auth.lib.php:232
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "נכשל בכניסה לשרת MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
 msgstr "שם משתמש/סיסמה שגויים. הגישה נדחתה."
+
+#: libraries/auth/signon.auth.lib.php:87
+msgid "Can not find signon authentication script:"
+msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1958,7 +1958,7 @@ msgstr "טבלאות"
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
-#: libraries/export/latex.php:215 libraries/export/sql.php:1056
+#: libraries/export/latex.php:215 libraries/export/sql.php:1057
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:759
 msgid "Data"
@@ -4590,7 +4590,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
-#: libraries/export/sql.php:604
+#: libraries/export/sql.php:608
 msgid "Events"
 msgstr ""
 
@@ -4643,16 +4643,16 @@ msgstr "יכול להיות הערכה. ראה FAQ 3.11"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
-#: libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysql.dbi.lib.php:313
+#: libraries/dbi/mysqli.dbi.lib.php:357
 msgid "The server is not responding"
 msgstr "השרת אינו מגיב"
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysqli.dbi.lib.php:357
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:370
+#: libraries/dbi/mysql.dbi.lib.php:320
 msgid "Details..."
 msgstr ""
 
@@ -4819,8 +4819,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -4839,7 +4839,7 @@ msgid "Compression:"
 msgstr "דחיסה"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:517
-#: libraries/export/sql.php:1056 libraries/tbl_properties.inc.php:578
+#: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
 msgstr "ללא"
@@ -5504,8 +5504,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5567,12 +5567,12 @@ msgid "Data dump options"
 msgstr "אפשרויות ייצוא מאגר נתונים"
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
-#: libraries/export/sql.php:1154 libraries/export/texytext.php:123
+#: libraries/export/sql.php:1152 libraries/export/texytext.php:123
 msgid "Dumping data for table"
 msgstr "הוצאת מידע עבור טבלה"
 
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
-#: libraries/export/sql.php:973 libraries/export/texytext.php:170
+#: libraries/export/sql.php:975 libraries/export/texytext.php:170
 msgid "Table structure for table"
 msgstr "מבנה טבלה עבור טבלה"
 
@@ -5633,17 +5633,17 @@ msgstr "סוגי MIME זמינים"
 msgid "Host"
 msgstr "מארח"
 
-#: libraries/export/latex.php:144 libraries/export/sql.php:453
+#: libraries/export/latex.php:144 libraries/export/sql.php:457
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "זמן ייצור"
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:455
+#: libraries/export/latex.php:145 libraries/export/sql.php:459
 #: libraries/export/xml.php:111 main.php:162
 msgid "Server version"
 msgstr "גרסת שרת"
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:456
+#: libraries/export/latex.php:146 libraries/export/sql.php:460
 #: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr "גרסת PHP"
@@ -5780,33 +5780,33 @@ msgstr "תהליכים"
 msgid "Functions"
 msgstr "פונקציה"
 
-#: libraries/export/sql.php:806
+#: libraries/export/sql.php:808
 msgid "Constraints for dumped tables"
 msgstr "הגבלות לטבלאות שהוצאו"
 
-#: libraries/export/sql.php:815
+#: libraries/export/sql.php:817
 msgid "Constraints for table"
 msgstr "הגבלות לטבלה"
 
-#: libraries/export/sql.php:915
+#: libraries/export/sql.php:917
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:927
+#: libraries/export/sql.php:929
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:984 libraries/export/xml.php:38
+#: libraries/export/sql.php:986 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
 msgstr ""
 
-#: libraries/export/sql.php:996
+#: libraries/export/sql.php:998
 #, fuzzy
 msgid "Structure for view"
 msgstr "מבנה בלבד"
 
-#: libraries/export/sql.php:1005
+#: libraries/export/sql.php:1007
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -7879,11 +7879,6 @@ msgstr "סקירת משתמשים"
 msgid "Grant"
 msgstr "הענקה"
 
-#: server_privileges.php:1679 server_privileges.php:1703
-#: server_privileges.php:2108 server_privileges.php:2302
-msgid "Add a new User"
-msgstr "הוספת משתמש חדש"
-
 #: server_privileges.php:1684
 msgid "Remove selected users"
 msgstr "הסרת משתמשים שנבחרו"
@@ -7902,8 +7897,8 @@ msgstr "הסרת מאגרי נתונים שיש להם שמות דומים כמ�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "הערה: phpMyAdmin מקבל הרשאות משתמש ישירות מטבלאות הרשאות של MySQL. התוכן של "
 "הטבלאות האלו יכול להיות שונה מההרשאות שהשרת משתמש בהן, אם הן שונו באופן "
@@ -7999,7 +7994,7 @@ msgstr "תו כללי"
 
 #: server_privileges.php:2295
 #, fuzzy
-msgid "New user has been added."
+msgid "User has been added."
 msgstr "שדה %s נמחק"
 
 #: server_processlist.php:29
@@ -10058,6 +10053,18 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "שינוי שם טבלה אל"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add a New User"
+#~ msgstr "הוספת משתמש חדש"
+
+#, fuzzy
+#~ msgid "Create User"
+#~ msgstr "גרסת שרת"
+
+#~ msgid "Add a new User"
+#~ msgstr "הוספת משתמש חדש"
 
 #~ msgid "Delete the matches for the "
 #~ msgstr "הוצאת מידע עבור טבלה"

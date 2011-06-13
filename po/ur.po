@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-06 11:35+0200\n"
+"POT-Creation-Date: 2011-06-07 06:41-0400\n"
 "PO-Revision-Date: 2011-04-23 08:37+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
-"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -49,7 +49,7 @@ msgstr "تلاش"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358
-#: db_structure.php:535 enum_editor.php:63 js/messages.php:61
+#: db_structure.php:535 enum_editor.php:63 js/messages.php:60
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1300
 #: libraries/common.lib.php:2274 libraries/core.lib.php:557
@@ -201,7 +201,7 @@ msgstr "ربط بطرف"
 msgid "Comments"
 msgstr "تبصرہ"
 
-#: db_datadict.php:260 js/messages.php:80 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -217,7 +217,7 @@ msgstr "تبصرہ"
 msgid "No"
 msgstr "نہیں"
 
-#: db_datadict.php:260 js/messages.php:79 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:78 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -380,27 +380,27 @@ msgstr "صفیں"
 msgid "Size"
 msgstr "ناپ"
 
-#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:747
-#: libraries/export/sql.php:1078
+#: db_printview.php:160 db_structure.php:416 libraries/export/sql.php:749
+#: libraries/export/sql.php:1076
 msgid "in use"
 msgstr "استعمال میں ہے"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:702
+#: libraries/export/sql.php:704
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
 #: tbl_structure.php:903
 msgid "Creation"
 msgstr "بنائیں"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:707
+#: libraries/export/sql.php:709
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
 #: tbl_structure.php:911
 msgid "Last update"
 msgstr "آخری دفعہ کی تازہ کاری"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:712
+#: libraries/export/sql.php:714
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
@@ -503,7 +503,7 @@ msgstr "طلب بھیجیں"
 #: db_search.php:52 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
-#: libraries/auth/signon.auth.lib.php:224
+#: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "‏‏رسائی نہیں دی گئی"
 
@@ -619,8 +619,8 @@ msgstr "کھوج غیر فعال ہے۔"
 #: db_structure.php:379 libraries/display_tbl.lib.php:2073
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "اس جدول نقل میں اتنے کم از کم صفیں ہیں۔ حوالہ کے لیے %sdocumentation%s."
 
@@ -738,7 +738,7 @@ msgstr "کھوج شدہ جداول"
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
 #: libraries/export/htmlword.php:89 libraries/export/latex.php:162
 #: libraries/export/odt.php:120 libraries/export/pdf.php:100
-#: libraries/export/sql.php:564 libraries/export/texytext.php:77
+#: libraries/export/sql.php:568 libraries/export/texytext.php:77
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
@@ -861,11 +861,11 @@ msgstr "ڈمپ اس مسل %s میں محفوظ ہوچکی ہے۔"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے "
-"%sdocumentation%s دیکھیں۔"
+"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے %"
+"sdocumentation%s دیکھیں۔"
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1036,135 +1036,134 @@ msgstr "پاس ورڈ خالی ہے"
 msgid "The passwords aren't the same!"
 msgstr "پاس ورڈ ایک جیسے نہیں ہیں"
 
-#: js/messages.php:54
-msgid "Add a New User"
-msgstr "نیا صارف اضافہ کریں"
+#: js/messages.php:54 server_privileges.php:1679 server_privileges.php:1703
+#: server_privileges.php:2108 server_privileges.php:2302
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add user"
+msgstr "اضافہ کریں %s"
 
 #: js/messages.php:55
-msgid "Create User"
-msgstr "صارف بنائیں"
-
-#: js/messages.php:56
 msgid "Reloading Privileges"
 msgstr "استحقاق پھر لوڈ کرتے ہوئے"
 
-#: js/messages.php:57
+#: js/messages.php:56
 msgid "Removing Selected Users"
 msgstr "منتخب صارفین ہٹائے جارہے ہیں"
 
-#: js/messages.php:58 libraries/tbl_properties.inc.php:791
+#: js/messages.php:57 libraries/tbl_properties.inc.php:791
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
 msgstr "بند کریں"
 
-#: js/messages.php:62 libraries/tbl_properties.inc.php:796 pmd_general.php:388
+#: js/messages.php:61 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr "منسوخ کریں"
 
-#: js/messages.php:65
+#: js/messages.php:64
 msgid "Loading"
 msgstr "لوڈ کررہا ہے"
 
-#: js/messages.php:66
+#: js/messages.php:65
 msgid "Processing Request"
 msgstr "فرمایش عمل کرتے ہوئے"
 
-#: js/messages.php:67 libraries/import/ods.php:80
+#: js/messages.php:66 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr "فرمایش عمل کرتے ہوئے نقص ہے"
 
-#: js/messages.php:68
+#: js/messages.php:67
 msgid "Dropping Column"
 msgstr "کالم چھوڑا جارہا ہے"
 
-#: js/messages.php:69
+#: js/messages.php:68
 msgid "Adding Primary Key"
 msgstr "بنیادی کلید شامل کررہا ہے"
 
-#: js/messages.php:70 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:69 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "ٹھیک ہے"
 
-#: js/messages.php:73
+#: js/messages.php:72
 msgid "Renaming Databases"
 msgstr "کوائفیہ نام بدلا جارہا ہے"
 
-#: js/messages.php:74
+#: js/messages.php:73
 msgid "Reload Database"
 msgstr "کوائفیہ پھر لوڈ کریں"
 
-#: js/messages.php:75
+#: js/messages.php:74
 msgid "Copying Database"
 msgstr "کوائفیہ نقل کیا جارہا ہے"
 
-#: js/messages.php:76
+#: js/messages.php:75
 msgid "Changing Charset"
 msgstr "کریکٹر سیٹ تبدیل کیا جارہا ہے"
 
-#: js/messages.php:77
+#: js/messages.php:76
 msgid "Table must have at least one column"
 msgstr "جدول میں کم از کم ایک کالم ہو"
 
-#: js/messages.php:78
+#: js/messages.php:77
 msgid "Create Table"
 msgstr "جدول بنائیں"
 
-#: js/messages.php:83
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "جداول استعمال کریں"
 
-#: js/messages.php:86
+#: js/messages.php:85
 msgid "Searching"
 msgstr "تلاش کر رہا ہے"
 
-#: js/messages.php:87
+#: js/messages.php:86
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
 msgstr "تلاش کسوٹی چھپائیں"
 
-#: js/messages.php:88
+#: js/messages.php:87
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
 msgstr "تلاش کسوٹی دکھائیں"
 
-#: js/messages.php:89
+#: js/messages.php:88
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "براؤز"
 
-#: js/messages.php:90
+#: js/messages.php:89
 #, fuzzy
 #| msgid "Delete"
 msgid "Deleting"
 msgstr "حذف"
 
-#: js/messages.php:93
+#: js/messages.php:92
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:96
+#: js/messages.php:95
 msgid "Hide query box"
 msgstr "طلب خانہ چھپائیں"
 
-#: js/messages.php:97
+#: js/messages.php:96
 msgid "Show query box"
 msgstr "طلب خانہ دکھائیں"
 
-#: js/messages.php:98
+#: js/messages.php:97
 msgid "Inline Edit"
 msgstr "ان لائن تدوین"
 
-#: js/messages.php:99 libraries/Index.class.php:465
+#: js/messages.php:98 libraries/Index.class.php:465
 #: libraries/common.lib.php:594 libraries/common.lib.php:1129
 #: libraries/common.lib.php:2989 libraries/config/messages.inc.php:471
 #: libraries/display_tbl.lib.php:1205 libraries/import.lib.php:1150
@@ -1173,7 +1172,7 @@ msgstr "ان لائن تدوین"
 msgid "Edit"
 msgstr "تدوین"
 
-#: js/messages.php:100 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:99 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:785 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1181,98 +1180,98 @@ msgstr "تدوین"
 msgid "Save"
 msgstr ""
 
-#: js/messages.php:101 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:100 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr ""
 
-#: js/messages.php:104
+#: js/messages.php:103
 msgid "Hide search criteria"
 msgstr "تلاش کسوٹی چھپائیں"
 
-#: js/messages.php:105
+#: js/messages.php:104
 msgid "Show search criteria"
 msgstr "تلاش کسوٹی دکھائیں"
 
-#: js/messages.php:108 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:107 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "نظر انداز کریں"
 
-#: js/messages.php:111
+#: js/messages.php:110
 msgid "Select referenced key"
 msgstr "محولہ کلید منتخب کریں"
 
-#: js/messages.php:112
+#: js/messages.php:111
 msgid "Select Foreign Key"
 msgstr "فارن کلید منتخب کریں"
 
-#: js/messages.php:113
+#: js/messages.php:112
 msgid "Please select the primary key or a unique key"
 msgstr "ایک بنیادی یا منفرد کلید منتخب کریں"
 
-#: js/messages.php:114 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:113 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "کالم دکھانے کے لیے انتخاب کریں"
 
-#: js/messages.php:115
+#: js/messages.php:114
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:118
+#: js/messages.php:117
 msgid "Add an option for column "
 msgstr "کالم کے لیے ایک اختیار اضافہ کریں"
 
-#: js/messages.php:121
+#: js/messages.php:120
 msgid "Generate password"
 msgstr "پاس ورڈ بنائیں"
 
-#: js/messages.php:122 libraries/replication_gui.lib.php:365
+#: js/messages.php:121 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "بنائیں"
 
-#: js/messages.php:123
+#: js/messages.php:122
 msgid "Change Password"
 msgstr "پاس ورڈ تبدیل کریں"
 
-#: js/messages.php:126 tbl_structure.php:471
+#: js/messages.php:125 tbl_structure.php:471
 msgid "More"
 msgstr "مزید"
 
-#: js/messages.php:129 setup/lib/index.lib.php:158
+#: js/messages.php:128 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ "
-"%s, جاری کیا گیا %s."
+"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ %"
+"s, جاری کیا گیا %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:131
+#: js/messages.php:130
 msgid ", latest stable version:"
 msgstr ", حالیہ مستحکم نسخہ:"
 
-#: js/messages.php:132
+#: js/messages.php:131
 #, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
 msgstr "کوائفیہ جائیں"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:150
+#: js/messages.php:149
 msgid "Done"
 msgstr "ہوچکا"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:152
+#: js/messages.php:151
 msgid "Prev"
 msgstr "پچھلا"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:154 libraries/common.lib.php:2337
+#: js/messages.php:153 libraries/common.lib.php:2337
 #: libraries/common.lib.php:2340 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
@@ -1280,231 +1279,231 @@ msgid "Next"
 msgstr "اگلا"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:156
+#: js/messages.php:155
 msgid "Today"
 msgstr "آج"
 
-#: js/messages.php:159
+#: js/messages.php:158
 msgid "January"
 msgstr "جنوری"
 
-#: js/messages.php:160
+#: js/messages.php:159
 msgid "February"
 msgstr "فروری"
 
-#: js/messages.php:161
+#: js/messages.php:160
 msgid "March"
 msgstr "مارچ"
 
-#: js/messages.php:162
+#: js/messages.php:161
 msgid "April"
 msgstr "اپریل"
 
-#: js/messages.php:163
+#: js/messages.php:162
 msgid "May"
 msgstr "مئی"
 
-#: js/messages.php:164
+#: js/messages.php:163
 msgid "June"
 msgstr "جون"
 
-#: js/messages.php:165
+#: js/messages.php:164
 msgid "July"
 msgstr "جولائی"
 
-#: js/messages.php:166
+#: js/messages.php:165
 msgid "August"
 msgstr "اگست"
 
-#: js/messages.php:167
+#: js/messages.php:166
 msgid "September"
 msgstr "ستمبر"
 
-#: js/messages.php:168
+#: js/messages.php:167
 msgid "October"
 msgstr "اکتوبر"
 
-#: js/messages.php:169
+#: js/messages.php:168
 msgid "November"
 msgstr "نومبر"
 
-#: js/messages.php:170
+#: js/messages.php:169
 msgid "December"
 msgstr "دسمبر"
 
 #. l10n: Short month name
-#: js/messages.php:174 libraries/common.lib.php:1540
+#: js/messages.php:173 libraries/common.lib.php:1540
 msgid "Jan"
 msgstr "جنوری"
 
 #. l10n: Short month name
-#: js/messages.php:176 libraries/common.lib.php:1542
+#: js/messages.php:175 libraries/common.lib.php:1542
 msgid "Feb"
 msgstr "فروری"
 
 #. l10n: Short month name
-#: js/messages.php:178 libraries/common.lib.php:1544
+#: js/messages.php:177 libraries/common.lib.php:1544
 msgid "Mar"
 msgstr "مارچ"
 
 #. l10n: Short month name
-#: js/messages.php:180 libraries/common.lib.php:1546
+#: js/messages.php:179 libraries/common.lib.php:1546
 msgid "Apr"
 msgstr "اپریل"
 
 #. l10n: Short month name
-#: js/messages.php:182 libraries/common.lib.php:1548
+#: js/messages.php:181 libraries/common.lib.php:1548
 msgctxt "Short month name"
 msgid "May"
 msgstr "مئی"
 
 #. l10n: Short month name
-#: js/messages.php:184 libraries/common.lib.php:1550
+#: js/messages.php:183 libraries/common.lib.php:1550
 msgid "Jun"
 msgstr "جون"
 
 #. l10n: Short month name
-#: js/messages.php:186 libraries/common.lib.php:1552
+#: js/messages.php:185 libraries/common.lib.php:1552
 msgid "Jul"
 msgstr "جولائی"
 
 #. l10n: Short month name
-#: js/messages.php:188 libraries/common.lib.php:1554
+#: js/messages.php:187 libraries/common.lib.php:1554
 msgid "Aug"
 msgstr "اگست"
 
 #. l10n: Short month name
-#: js/messages.php:190 libraries/common.lib.php:1556
+#: js/messages.php:189 libraries/common.lib.php:1556
 msgid "Sep"
 msgstr "ستمبر"
 
 #. l10n: Short month name
-#: js/messages.php:192 libraries/common.lib.php:1558
+#: js/messages.php:191 libraries/common.lib.php:1558
 msgid "Oct"
 msgstr "اکتوبر"
 
 #. l10n: Short month name
-#: js/messages.php:194 libraries/common.lib.php:1560
+#: js/messages.php:193 libraries/common.lib.php:1560
 msgid "Nov"
 msgstr "نومبر"
 
 #. l10n: Short month name
-#: js/messages.php:196 libraries/common.lib.php:1562
+#: js/messages.php:195 libraries/common.lib.php:1562
 msgid "Dec"
 msgstr "دسمبر"
 
-#: js/messages.php:199
+#: js/messages.php:198
 msgid "Sunday"
 msgstr "اتوار"
 
-#: js/messages.php:200
+#: js/messages.php:199
 msgid "Monday"
 msgstr "پیر"
 
-#: js/messages.php:201
+#: js/messages.php:200
 msgid "Tuesday"
 msgstr "منگل"
 
-#: js/messages.php:202
+#: js/messages.php:201
 msgid "Wednesday"
 msgstr "بدھ"
 
-#: js/messages.php:203
+#: js/messages.php:202
 msgid "Thursday"
 msgstr "جمعرات"
 
-#: js/messages.php:204
+#: js/messages.php:203
 msgid "Friday"
 msgstr "جمعہ"
 
-#: js/messages.php:205
+#: js/messages.php:204
 msgid "Saturday"
 msgstr "ہفتہ"
 
 #. l10n: Short week day name
-#: js/messages.php:209 libraries/common.lib.php:1565
+#: js/messages.php:208 libraries/common.lib.php:1565
 msgid "Sun"
 msgstr "اتوار"
 
 #. l10n: Short week day name
-#: js/messages.php:211 libraries/common.lib.php:1567
+#: js/messages.php:210 libraries/common.lib.php:1567
 msgid "Mon"
 msgstr "پیر"
 
 #. l10n: Short week day name
-#: js/messages.php:213 libraries/common.lib.php:1569
+#: js/messages.php:212 libraries/common.lib.php:1569
 msgid "Tue"
 msgstr "منگل"
 
 #. l10n: Short week day name
-#: js/messages.php:215 libraries/common.lib.php:1571
+#: js/messages.php:214 libraries/common.lib.php:1571
 msgid "Wed"
 msgstr "بدھ"
 
 #. l10n: Short week day name
-#: js/messages.php:217 libraries/common.lib.php:1573
+#: js/messages.php:216 libraries/common.lib.php:1573
 msgid "Thu"
 msgstr "جمعرات"
 
 #. l10n: Short week day name
-#: js/messages.php:219 libraries/common.lib.php:1575
+#: js/messages.php:218 libraries/common.lib.php:1575
 msgid "Fri"
 msgstr "جمعہ"
 
 #. l10n: Short week day name
-#: js/messages.php:221 libraries/common.lib.php:1577
+#: js/messages.php:220 libraries/common.lib.php:1577
 msgid "Sat"
 msgstr "ہفتہ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:225
+#: js/messages.php:224
 msgid "Su"
 msgstr "اتوار"
 
 #. l10n: Minimal week day name
-#: js/messages.php:227
+#: js/messages.php:226
 msgid "Mo"
 msgstr "پیر"
 
 #. l10n: Minimal week day name
-#: js/messages.php:229
+#: js/messages.php:228
 msgid "Tu"
 msgstr "منگل"
 
 #. l10n: Minimal week day name
-#: js/messages.php:231
+#: js/messages.php:230
 msgid "We"
 msgstr "بدھ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:233
+#: js/messages.php:232
 msgid "Th"
 msgstr "جمعرات"
 
 #. l10n: Minimal week day name
-#: js/messages.php:235
+#: js/messages.php:234
 msgid "Fr"
 msgstr "جمعہ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:237
+#: js/messages.php:236
 msgid "Sa"
 msgstr "ہفتہ"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:239
+#: js/messages.php:238
 msgid "Wk"
 msgstr "ہفتہ وار"
 
-#: js/messages.php:241
+#: js/messages.php:240
 msgid "Hour"
 msgstr "گھنٹہ"
 
-#: js/messages.php:242
+#: js/messages.php:241
 msgid "Minute"
 msgstr "منٹ"
 
-#: js/messages.php:243
+#: js/messages.php:242
 msgid "Second"
 msgstr "سیکنڈ"
 
@@ -1737,8 +1736,8 @@ msgstr "%s میں خوش آمدید"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "آپ نے شاید تشکیل مسل نہیں بنایا۔ آپ ہوسکتا ہے کہ  %1$ssetup script%2$s کو "
 "استعمال کرتے ہوئے بنانا چاہتے ہیں۔"
@@ -1791,26 +1790,30 @@ msgid "Cookies must be enabled past this point."
 msgstr "اس جگہ کوکی لازمی اہل ہوں۔"
 
 #: libraries/auth/cookie.auth.lib.php:643
-#: libraries/auth/signon.auth.lib.php:222
+#: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "پاس ورڈ کے بغیر لاگ ان تشکیل میں ممنوع ہے (دیکھیں AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:647
-#: libraries/auth/signon.auth.lib.php:226
+#: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s  سیکنڈ میں کوئی سرگرمی نہیں ہوئی، دوبارہ لاگ ان کریں۔"
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
-#: libraries/auth/signon.auth.lib.php:232
+#: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL سرور میں لاگ ان نہیں کرسکتا"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
 msgstr "غلط صارف نام/پاس ورڈ۔ ‏‏رسائی نہیں دی گئی۔"
+
+#: libraries/auth/signon.auth.lib.php:87
+msgid "Can not find signon authentication script:"
+msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -1884,7 +1887,7 @@ msgstr "جداول"
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
-#: libraries/export/latex.php:215 libraries/export/sql.php:1056
+#: libraries/export/latex.php:215 libraries/export/sql.php:1057
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:759
 msgid "Data"
@@ -1958,8 +1961,8 @@ msgstr ""
 "phpMyAdmin آپ کی تشکیل مسل مطالعہ نہیں کرسکا!<br />یہ اس لیے بھی ہوسکتا ہے "
 "اگر PHP کو کوئی تجزیاتی نقص ملا یا PHP کو مسل نہیں ملا۔<br />نیچے دیے گئے "
 "ربط سے تشکیل مسل کوبراہ راست استعمال کریں اور  وصول ہونے والے PHP نقص "
-"پیغامات کا مطالعہ کریں۔ عام طور پر ایک کوٹ یا سیمی کولن ہی کہیں غائب ہوتا ہے۔"
-"<br />اگر آپ کو ایک خالی صفحہ ملے تو سب ٹھیک ہے۔"
+"پیغامات کا مطالعہ کریں۔ عام طور پر ایک کوٹ یا سیمی کولن ہی کہیں غائب ہوتا "
+"ہے۔<br />اگر آپ کو ایک خالی صفحہ ملے تو سب ٹھیک ہے۔"
 
 #: libraries/common.inc.php:586
 #, php-format
@@ -4506,7 +4509,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
-#: libraries/export/sql.php:604
+#: libraries/export/sql.php:608
 msgid "Events"
 msgstr ""
 
@@ -4559,16 +4562,16 @@ msgstr ""
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysql.dbi.lib.php:363
-#: libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysql.dbi.lib.php:313
+#: libraries/dbi/mysqli.dbi.lib.php:357
 msgid "The server is not responding"
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:361 libraries/dbi/mysqli.dbi.lib.php:417
+#: libraries/dbi/mysql.dbi.lib.php:311 libraries/dbi/mysqli.dbi.lib.php:357
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:370
+#: libraries/dbi/mysql.dbi.lib.php:320
 msgid "Details..."
 msgstr ""
 
@@ -4722,8 +4725,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -4740,7 +4743,7 @@ msgid "Compression:"
 msgstr ""
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:517
-#: libraries/export/sql.php:1056 libraries/tbl_properties.inc.php:578
+#: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:578
 #: pmd_general.php:510 server_privileges.php:1955 server_processlist.php:96
 msgid "None"
 msgstr ""
@@ -5381,8 +5384,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5431,12 +5434,12 @@ msgid "Data dump options"
 msgstr ""
 
 #: libraries/export/htmlword.php:135 libraries/export/odt.php:175
-#: libraries/export/sql.php:1154 libraries/export/texytext.php:123
+#: libraries/export/sql.php:1152 libraries/export/texytext.php:123
 msgid "Dumping data for table"
 msgstr ""
 
 #: libraries/export/htmlword.php:188 libraries/export/odt.php:245
-#: libraries/export/sql.php:973 libraries/export/texytext.php:170
+#: libraries/export/sql.php:975 libraries/export/texytext.php:170
 msgid "Table structure for table"
 msgstr ""
 
@@ -5490,17 +5493,17 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-#: libraries/export/latex.php:144 libraries/export/sql.php:453
+#: libraries/export/latex.php:144 libraries/export/sql.php:457
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr ""
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:455
+#: libraries/export/latex.php:145 libraries/export/sql.php:459
 #: libraries/export/xml.php:111 main.php:162
 msgid "Server version"
 msgstr ""
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:456
+#: libraries/export/latex.php:146 libraries/export/sql.php:460
 #: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr ""
@@ -5630,32 +5633,32 @@ msgstr ""
 msgid "Functions"
 msgstr ""
 
-#: libraries/export/sql.php:806
+#: libraries/export/sql.php:808
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/export/sql.php:815
+#: libraries/export/sql.php:817
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/export/sql.php:915
+#: libraries/export/sql.php:917
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:927
+#: libraries/export/sql.php:929
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:984 libraries/export/xml.php:38
+#: libraries/export/sql.php:986 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
 msgstr ""
 
-#: libraries/export/sql.php:996
+#: libraries/export/sql.php:998
 msgid "Structure for view"
 msgstr ""
 
-#: libraries/export/sql.php:1005
+#: libraries/export/sql.php:1007
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -7647,11 +7650,6 @@ msgstr ""
 msgid "Grant"
 msgstr ""
 
-#: server_privileges.php:1679 server_privileges.php:1703
-#: server_privileges.php:2108 server_privileges.php:2302
-msgid "Add a new User"
-msgstr ""
-
 #: server_privileges.php:1684
 msgid "Remove selected users"
 msgstr ""
@@ -7670,8 +7668,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1764
@@ -7763,7 +7761,7 @@ msgstr ""
 #: server_privileges.php:2295
 #, fuzzy
 #| msgid "View %s has been dropped"
-msgid "New user has been added."
+msgid "User has been added."
 msgstr "جدول نقل %s چھوڑا جاچکا ہے۔"
 
 #: server_processlist.php:29
@@ -9772,6 +9770,12 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
+
+#~ msgid "Add a New User"
+#~ msgstr "نیا صارف اضافہ کریں"
+
+#~ msgid "Create User"
+#~ msgstr "صارف بنائیں"
 
 #~ msgid "Show table row links on left side"
 #~ msgstr "جدول صف روابط کو بائیں طرف دکھائیں"
