@@ -248,6 +248,13 @@ $(document).ready(function() {
                                     $(this).removeClass().addClass(rowclass);
                                     ct++;
                                 });
+                                // If this is the first routine being added, remove the
+                                // "No routines" message and show the list of routines.
+                                if ($('table.data').find('tr').has('td').length > 0 && $('#nothing2display').is(':visible')) {
+                                    $('#nothing2display').hide("slow", function () {
+                                        $('table.data').show("slow");
+                                    });
+                                }
                             } else {
                                 PMA_ajaxShowMessage(data.error);
                             }

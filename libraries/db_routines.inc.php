@@ -1197,6 +1197,15 @@ function getListOfRoutines()
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
     $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "'";
     $routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
+    /**
+     * Conditional classes switch the list on or off
+     */
+    $class1 = 'hide';
+    $class2 = '';
+    if (! $routines) {
+        $class1 = '';
+        $class2 = ' hide';
+    }
 
     /**
      * Generate output
@@ -1206,32 +1215,28 @@ function getListOfRoutines()
     $retval .= "<!-- LIST OF ROUTINES START -->\n";
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>" . __('Routines') . "</legend>\n";
-    if (! $routines) {
-        $retval .= "    " . __('There are no routines to display.') . "\n";
-    } else {
-        $retval .= "    <div class='hide' id='nothing2display'>\n";
-        $retval .= "      " . __('There are no routines to display.') . "\n";
-        $retval .= "    </div>\n";
-        $retval .= "    <table class='data'>\n";
-        $retval .= "        <!-- TABLE HEADERS -->\n";
-        $retval .= "        <tr>\n";
-        $retval .= "            <th>" . __('Name') . "</th>\n";
-        $retval .= "            <th>&nbsp;</th>\n";
-        $retval .= "            <th>&nbsp;</th>\n";
-        $retval .= "            <th>&nbsp;</th>\n";
-        $retval .= "            <th>&nbsp;</th>\n";
-        $retval .= "            <th>" . __('Type') . "</th>\n";
-        $retval .= "            <th>" . __('Return type') . "</th>\n";
-        $retval .= "        </tr>\n";
-        $retval .= "        <!-- TABLE DATA -->\n";
-        $ct = 0;
-        // Display each routine
-        foreach ($routines as $routine) {
-            $retval .= getRowForListOfRoutines($routine, $ct);
-            $ct++;
-        }
-        $retval .= "    </table>\n";
+    $retval .= "    <div class='$class1' id='nothing2display'>\n";
+    $retval .= "      " . __('There are no routines to display.') . "\n";
+    $retval .= "    </div>\n";
+    $retval .= "    <table class='data$class2'>\n";
+    $retval .= "        <!-- TABLE HEADERS -->\n";
+    $retval .= "        <tr>\n";
+    $retval .= "            <th>" . __('Name') . "</th>\n";
+    $retval .= "            <th>&nbsp;</th>\n";
+    $retval .= "            <th>&nbsp;</th>\n";
+    $retval .= "            <th>&nbsp;</th>\n";
+    $retval .= "            <th>&nbsp;</th>\n";
+    $retval .= "            <th>" . __('Type') . "</th>\n";
+    $retval .= "            <th>" . __('Return type') . "</th>\n";
+    $retval .= "        </tr>\n";
+    $retval .= "        <!-- TABLE DATA -->\n";
+    $ct = 0;
+    // Display each routine
+    foreach ($routines as $routine) {
+        $retval .= getRowForListOfRoutines($routine, $ct);
+        $ct++;
     }
+    $retval .= "    </table>\n";
     $retval .= "</fieldset>\n";
     $retval .= "<!-- LIST OF ROUTINES END -->\n\n";
 
