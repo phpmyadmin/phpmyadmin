@@ -1375,12 +1375,14 @@ class PMA_Table
         if ($property == self::PROP_COLUMN_ORDER) {
             $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
             if (isset($table_create_time) &&
-                    $table_create_time < $curr_create_time) {
+                    $table_create_time == $curr_create_time) {
+                $this->uiprefs['CREATE_TIME'] = $curr_create_time;
+            } else {
+                // there is no $table_create_time, or
                 // supplied $table_create_time is older than current create time,
                 // so don't save
                 return false;
             }
-            $this->uiprefs['CREATE_TIME'] = $curr_create_time;
         }
         // save the value
         $this->uiprefs[$property] = $value;

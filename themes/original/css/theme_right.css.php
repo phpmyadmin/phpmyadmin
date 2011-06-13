@@ -1915,15 +1915,14 @@ span.mysql-number {
     background: #333;
     border:1px solid #000;
     color: #FFF;
-    font-size: 8pt;
+    font-size: 0.8em;
     font-weight: bold;
-    height: 14px;
+    margin-top: -1em;
     opacity: 0.8;
-    overflow: hidden;
-    padding: 5px 10px;
+    padding: 0.5em 1em;
     position: absolute;
     text-shadow: -1px -1px #000;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
 }

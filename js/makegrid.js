@@ -8,9 +8,14 @@
             // variables, assigned with default value, changed later
             alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
-            colOrder: new Array(),
-            tableCreateTime: null,
-            hintShown: false,
+            colOrder: new Array(),      // array of column order
+            tableCreateTime: null,      // table creation time, only available in "Browse tab"
+            hintShown: false,           // true if hint balloon is shown, used by updateHint() method
+            reorderHint: '',            // string, hint for column reordering
+            sortHint: '',               // string, hint for column sorting
+            showReorderHint: false,     // boolean, used by showHint() method
+            showSortHint: false,        // boolean, used by showHint() method
+            hintIsHiding: false,        // true when hint is still shown, but hide() already called
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -67,7 +72,7 @@
                     objLeft: objPos.left
                 };
                 $('body').css('cursor', 'move');
-                this.hideDraggableHint();
+                this.hideHint();
                 $('body').noSelect();
             },
             
@@ -159,7 +164,9 @@
                         this.colMov.objLeft = objPos.left;
                         this.colMov.n = this.colMov.newn;
                         // send request to server to remember the column order
-                        this.sendColOrder();
+                        if (this.tableCreateTime) {
+                            this.sendColOrder();
+                        }
                         this.refreshRestoreButton();
                     }
                     
@@ -289,8 +296,10 @@
                         this.shiftCol(i, j + 1);
                     }
                 }
-                // send request to server to remember the column order
-                this.sendColOrder();
+                if (this.tableCreateTime) {
+                    // send request to server to remember the column order
+                    this.sendColOrder();
+                }
                 this.refreshRestoreButton();
             },
             
@@ -331,41 +340,62 @@
             },
             
             /**
-             * Show draggable hint.
+             * Show hint with the text supplied.
              */
-            showDraggableHint: function(e) {
-                if (!this.colMov) {     // if not dragging
-                    $(this.dHint)
-                        .stop(true, true)
-                        .css({
-                            top: e.pageY - 10,
-                            left: e.pageX + 15
-                        })
-                        .show('fast');
-                    this.hintShown = true;
+            showHint: function(e) {
+                if (!this.colRsz && !this.colMov) {     // if not resizing or dragging
+                    var text = '';
+                    if (this.showReorderHint) {
+                        text += this.reorderHint;
+                    }
+                    if (this.showSortHint) {
+                        text += this.showReorderHint ? '<br />' : '';
+                        text += this.sortHint;
+                    }
+                    
+                    // hide the hint if no text
+                    if (!text) {
+                        this.hideHint();
+                        return;
+                    }
+                    
+                    $(this.dHint).html(text);
+                    if (!this.hintShown || this.hintIsHiding) {
+                        $(this.dHint)
+                            .stop(true, true)
+                            .css({
+                                top: e.pageY,
+                                left: e.pageX + 15
+                            })
+                            .show('fast');
+                        this.hintShown = true;
+                        this.hintIsHiding = false;
+                    }
                 }
             },
             
             /**
-             * Hide draggable hint.
+             * Hide the hint.
              */
-            hideDraggableHint: function() {
+            hideHint: function() {
                 if (this.hintShown) {
                     $(this.dHint)
                         .stop(true, true)
-                        .hide(150, function() {
+                        .hide(300, function() {
                             g.hintShown = false;
+                            g.hintIsHiding = false;
                         });
+                    this.hintIsHiding = true;
                 }
             },
             
             /**
-             * Update the draggable hint position.
+             * Update hint position.
              */
-            updateDraggableHint: function(e) {
+            updateHint: function(e) {
                 if (this.hintShown) {
                     $(this.dHint).css({
-                        top: e.pageY - 10,
+                        top: e.pageY,
                         left: e.pageX + 15
                     });
                 }
@@ -391,7 +421,6 @@
         
         // adjust g.dHint
         g.dHint.className = 'dHint';
-        $(g.dHint).html($('#col_order_hint').val());
         $(g.dHint).hide();
         
         // chain table and grid together
@@ -413,7 +442,15 @@
         }
         
         // assign table create time
+        // #table_create_time will only available if we are in "Browse" tab
         g.tableCreateTime = $('#table_create_time').val();
+        
+        // assign column reorder & column sort hint
+        g.reorderHint = $('#col_order_hint').val();
+        g.sortHint = $('#sort_hint').val();
+        
+        // determine whether to show the column reordering hint or not
+        g.showReorderHint = $firstRowCols.length > 1;
         
         // initialize column order
         $col_order = $('#col_order');
@@ -447,20 +484,31 @@
             .wrapInner('<span />');
         
         // register events
-        $(t).find('th.draggable')
-            .mousedown(function(e) {
-                g.dragStartMove(e, this);
-            })
-            // show/hide draggable column
+        if ($firstRowCols.length > 1) {
+            $(t).find('th.draggable')
+                .mousedown(function(e) {
+                    g.dragStartMove(e, this);
+                })
+                // show/hide draggable column
+                .mouseenter(function(e) {
+                    g.showHint(e);
+                })
+                .mouseleave(function(e) {
+                    g.hideHint();
+                });
+        }
+        $(t).find('th.draggable a')
             .mouseenter(function(e) {
-                g.showDraggableHint(e);
+                g.showSortHint = true;
+                g.showHint(e);
             })
             .mouseleave(function(e) {
-                g.hideDraggableHint();
+                g.showSortHint = false;
+                g.showHint(e);
             });
         $(document).mousemove(function(e) {
             g.dragMove(e);
-            g.updateDraggableHint(e);
+            g.updateHint(e);
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);
