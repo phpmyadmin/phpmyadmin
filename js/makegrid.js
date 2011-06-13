@@ -338,7 +338,7 @@
                     $(this.dHint)
                         .stop(true, true)
                         .css({
-                            top: e.pageY - 10,
+                            top: e.pageY,
                             left: e.pageX + 15
                         })
                         .show('fast');
@@ -365,7 +365,7 @@
             updateDraggableHint: function(e) {
                 if (this.hintShown) {
                     $(this.dHint).css({
-                        top: e.pageY - 10,
+                        top: e.pageY,
                         left: e.pageX + 15
                     });
                 }
