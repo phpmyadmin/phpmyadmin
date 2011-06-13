@@ -1186,6 +1186,9 @@ if(!Array.indexOf){
 				pp.reset();
 
 				var bb = new svg.BoundingBox();
+				
+				if(this.attribute('visibility').value=='hidden') return;
+				
 				if (ctx != null) ctx.beginPath();
 				while (!pp.isEnd()) {
 					pp.nextCommand();
@@ -1720,8 +1723,11 @@ if(!Array.indexOf){
 			}
 			
 			this.renderChildren = function(ctx) {
+				if(this.attribute('visibility').value=='hidden') return;
+				
 				var x = this.attribute('x').Length.toPixels('x');
 				var y = this.attribute('y').Length.toPixels('y');
+				
 				for (var i=0; i<this.children.length; i++) {
 					var child = this.children[i];
 				
