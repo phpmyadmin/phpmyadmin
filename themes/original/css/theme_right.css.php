@@ -1055,6 +1055,15 @@ div#querywindowcontainer fieldset {
 }
 /* END querywindow */
 
+/* profiling */
+
+div#profilingchart {
+    width:550px;
+    height:370px;
+    float:left;
+}
+
+/* END profiling */
 
 /* querybox */
 

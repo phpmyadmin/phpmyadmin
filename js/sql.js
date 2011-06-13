@@ -1160,7 +1160,7 @@ $(document).ready(function() {
 /* 
  * Profiling Chart
  */
-$(document).ready(function() {
+function createProfilingChart() {
     if($('#profilingchart').length==0) return;
     
     var cdata = new Array();
@@ -1199,7 +1199,7 @@ $(document).ready(function() {
             formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+this.y+'s<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
         }
     });
-});
+}
 
 
 /**#@- */
