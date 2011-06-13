@@ -2946,7 +2946,7 @@ msgstr "Настройки, които не са за другаде"
 
 #: libraries/config/messages.inc.php:192
 msgid "Page titles"
-msgstr "Заглавия на страниците"
+msgstr "Заглавието в браузъра"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
