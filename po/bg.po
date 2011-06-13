@@ -3090,7 +3090,7 @@ msgstr "Текстови полета"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize text input fields"
-msgstr "Персонализиране на полета за писане"
+msgstr "Персонализиране на текстовите полета"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:17
 msgid "Texy! text"
