@@ -63,25 +63,6 @@ if (PMA_isValid($_REQUEST['chartSettings'], 'array')) {
     $chartSettings = $_REQUEST['chartSettings'];
 }
 
-<<<<<<< HEAD
-/**
- * Displays top menu links
- * We use db links because a chart is not necessarily on a single table
- */
-$num_tables = 0;
-require_once './libraries/db_links.inc.php';
-=======
-// get the chart and settings after chart generation
-$chart = PMA_chart_results($data, $chartSettings);
-
-if (!empty($chart)) {
-    $message = PMA_Message::success(__('Chart generated successfully.'));
-}
-else {
-    $message = PMA_Message::error(__('The result of this query can\'t be used for a chart. See [a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]'));
-}
->>>>>>> origin/master
-
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
 
