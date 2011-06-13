@@ -8,9 +8,13 @@
             // variables, assigned with default value, changed later
             alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
-            colOrder: new Array(),
-            tableCreateTime: null,
-            hintShown: false,
+            colOrder: new Array(),      // array of column order
+            tableCreateTime: null,      // table creation time
+            hintShown: false,           // true if hint balloon is shown, used by updateHint() method
+            reorderHint: '',            // string, hint for column reordering
+            sortHint: '',               // string, hint for column sorting
+            showSortHint: false,        // boolean, used by showHint() method
+            hintIsHiding: false,        // true when hint is still shown, but hide() already called
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -67,7 +71,7 @@
                     objLeft: objPos.left
                 };
                 $('body').css('cursor', 'move');
-                this.hideDraggableHint();
+                this.hideHint();
                 $('body').noSelect();
             },
             
@@ -331,38 +335,49 @@
             },
             
             /**
-             * Show draggable hint.
+             * Show hint with the text supplied.
              */
-            showDraggableHint: function(e) {
-                if (!this.colMov) {     // if not dragging
-                    $(this.dHint)
-                        .stop(true, true)
-                        .css({
-                            top: e.pageY,
-                            left: e.pageX + 15
-                        })
-                        .show('fast');
-                    this.hintShown = true;
+            showHint: function(e) {
+                if (!this.colRsz && !this.colMov) {     // if not resizing or dragging
+                    var text = this.reorderHint;
+                    if (this.showSortHint) {
+                        text += '<br />' + this.sortHint;
+                    }
+                    
+                    $(this.dHint).html(text);
+                    if (!this.hintShown || this.hintIsHiding) {
+                        $(this.dHint)
+                            .stop(true, true)
+                            .css({
+                                top: e.pageY,
+                                left: e.pageX + 15
+                            })
+                            .show('fast');
+                        this.hintShown = true;
+                        this.hintIsHiding = false;
+                    }
                 }
             },
             
             /**
-             * Hide draggable hint.
+             * Hide the hint.
              */
-            hideDraggableHint: function() {
+            hideHint: function() {
                 if (this.hintShown) {
                     $(this.dHint)
                         .stop(true, true)
-                        .hide(150, function() {
+                        .hide(300, function() {
                             g.hintShown = false;
+                            g.hintIsHiding = false;
                         });
+                    this.hintIsHiding = true;
                 }
             },
             
             /**
-             * Update the draggable hint position.
+             * Update hint position.
              */
-            updateDraggableHint: function(e) {
+            updateHint: function(e) {
                 if (this.hintShown) {
                     $(this.dHint).css({
                         top: e.pageY,
@@ -391,7 +406,6 @@
         
         // adjust g.dHint
         g.dHint.className = 'dHint';
-        $(g.dHint).html($('#col_order_hint').val());
         $(g.dHint).hide();
         
         // chain table and grid together
@@ -414,6 +428,10 @@
         
         // assign table create time
         g.tableCreateTime = $('#table_create_time').val();
+        
+        // assign column reorder & column sort hint
+        g.reorderHint = $('#col_order_hint').val();
+        g.sortHint = $('#sort_hint').val();
         
         // initialize column order
         $col_order = $('#col_order');
@@ -453,14 +471,23 @@
             })
             // show/hide draggable column
             .mouseenter(function(e) {
-                g.showDraggableHint(e);
+                g.showHint(e);
             })
             .mouseleave(function(e) {
-                g.hideDraggableHint();
+                g.hideHint();
+            });
+        $(t).find('th.draggable a')
+            .mouseenter(function(e) {
+                g.showSortHint = true;
+                g.showHint(e);
+            })
+            .mouseleave(function(e) {
+                g.showSortHint = false;
+                g.showHint(e);
             });
         $(document).mousemove(function(e) {
             g.dragMove(e);
-            g.updateDraggableHint(e);
+            g.updateHint(e);
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);

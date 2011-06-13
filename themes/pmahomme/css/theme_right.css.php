@@ -2269,10 +2269,8 @@ span.mysql-number {
     color: #FFF;
     font-size: 0.8em;
     font-weight: bold;
-    height: 1.2em;
     margin-top: -1em;
     opacity: 0.8;
-    overflow: hidden;
     padding: 0.5em 1em;
     position: absolute;
     text-shadow: -1px -1px #000;

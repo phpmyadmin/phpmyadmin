@@ -388,6 +388,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
              PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
         // generate text for draggable column hint
         echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
+        // generate text for sortable column hint
+        echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
         ?>
     </td>
 </tr>
@@ -884,7 +886,6 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
              && $GLOBALS['cfg']['HeaderFlipType'] == 'css') {
                 $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
             }
-            $order_link_params['title'] = __('Sort');
             $order_link_content = ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name));
             $order_link = PMA_linkOrButton($order_url, $order_link_content . $order_img, $order_link_params, false, true);
 
