@@ -2954,7 +2954,7 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
-"Настройте заглавието, показвано в браузъра. Прочетете "
+"Настройте заглавието в браузъра. Прочетете "
 "[a@Documentation.html#cfg_TitleTable]documentation[/a] за магическите низове "
 "и техните стойности."
 
