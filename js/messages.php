@@ -61,7 +61,10 @@ $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
 
 /* for server_status.js */
-$js_messages['strRealtimeChart'] = __('Realtime chart');
+$js_messages['strLiveTrafficChart'] = __('Live traffic chart');
+$js_messages['strLiveConnChart'] = __('Live conn./process chart');
+$js_messages['strLiveQueryChart'] = __('Live query chart');
+
 $js_messages['strStaticData'] = __('Static data');
 /* l10n: Total number of queries */
 $js_messages['strTotal'] = __('Total');
