@@ -2762,7 +2762,7 @@ msgstr "Общи"
 
 #: libraries/config/messages.inc.php:167
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Настройки на някои често използвани опции"
 
 #: libraries/config/messages.inc.php:168 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2845,6 +2845,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Настройте заглавието в браузъра. Прочетете [a@Documentation."
+"html#cfg_TitleTable]документацията[/a] за магическите низове и техните "
+"стойности."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation_header.inc.php:83
@@ -2941,11 +2944,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Персонализиране на връзките показвани след изпълнение на заявка"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL queries settings"
-msgstr ""
+msgstr "Настройки на SQL заявките"
 
 #: libraries/config/messages.inc.php:218
 msgid "SQL Validator"
@@ -2981,7 +2984,7 @@ msgstr "Текстови полета"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize text input fields"
-msgstr ""
+msgstr "Персонализиране на текстовите полета"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
@@ -2993,7 +2996,7 @@ msgstr "Предупреждения"
 
 #: libraries/config/messages.inc.php:229
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Скрива някои от предупрежденията, показвани от phpMyAdmin"
 
 #: libraries/config/messages.inc.php:230
 msgid ""
@@ -3243,11 +3246,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:298
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Двойни текстови полета за колони тип LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "По-голямо текстово поле за LONGTEXT"
 
 #: libraries/config/messages.inc.php:300
 msgid "Use icons on main page"
@@ -3909,7 +3912,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Показване на SQL заявките"
 
 #: libraries/config/messages.inc.php:453
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -4015,7 +4018,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:478
 msgid "Textarea columns"
-msgstr ""
+msgstr "Колони в текство поле"
 
 #: libraries/config/messages.inc.php:479
 msgid ""
@@ -4025,7 +4028,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:480
 msgid "Textarea rows"
-msgstr ""
+msgstr "Реда в текстово поле"
 
 #: libraries/config/messages.inc.php:481
 msgid "Title of browser window when a database is selected"
@@ -4102,7 +4105,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:500
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Позволява проверка за обновления на страницата на phpMyAdmin."
 
 #: libraries/config/messages.inc.php:501 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
@@ -4110,7 +4113,7 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "Проверка за обновления"
 
 #: libraries/config/messages.inc.php:502
 msgid ""
@@ -7006,6 +7009,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез "
+"%sскрипта за настройки%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7022,6 +7027,7 @@ msgstr "Съществуващи настройки ще бъдат презап
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Може да изчистите настройките си до техните стойностите по подразбиране."
 
 #: querywindow.php:93
 msgid "Import files"
@@ -8566,6 +8572,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Целевата БД ще бъде напълно синхронизирана с изходната. Изходната БД ще "
+"остане непроменена."
 
 #: server_variables.php:39
 msgid "Server variables and settings"
