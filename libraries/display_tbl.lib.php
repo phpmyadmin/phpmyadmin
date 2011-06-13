@@ -185,6 +185,20 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
 
 
 /**
+ * Return true if we are currently browsing a table from the browse tab
+ *
+ * @return boolean
+ */
+function PMA_isBrowsing()
+{
+    return basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
+        && ! ($is_count || $is_export || $is_func || $is_analyse)
+        && isset($analyzed_sql[0]['queryflags']['select_from'])
+        && count($analyzed_sql[0]['table_ref']) == 1;
+}
+
+
+/**
  * Displays a navigation button
  *
  * @uses    $GLOBALS['cfg']['NavigationBarIconic']
@@ -377,15 +391,17 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     <td>
         <input class="restore_column" type="submit" value="<?php echo __('Restore column order'); ?>" />
         <?php
-        // generate the column order, if it is set
-        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        if ($col_order) {
-            echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+        if (PMA_isBrowsing()) {
+            // generate the column order, if it is set
+            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+            if ($col_order) {
+                echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+            }
+            // generate table create time
+            echo '<input id="table_create_time" type="hidden" value="' .
+                 PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
         }
-        // generate table create time
-        echo '<input id="table_create_time" type="hidden" value="' .
-             PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
         // generate text for draggable column hint
         echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
         // generate text for sortable column hint
@@ -753,9 +769,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
     }
 
-    // prepare to get the column order, if there is
-    $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-    $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    if (PMA_isBrowsing()) {
+        // prepare to get the column order, if available
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
 
     for ($j = 0; $j < $fields_cnt; $j++) {
         // assign $i with appropriate column order
@@ -1315,9 +1335,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         // 2. Displays the rows' values
 
-        // prepare to get the column order, if there is
-        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        if (PMA_isBrowsing()) {
+            // prepare to get the column order, if available
+            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        } else {
+            $col_order = false;
+        }
 
         for ($j = 0; $j < $fields_cnt; ++$j) {
             // assign $i with appropriate column order
@@ -1689,9 +1713,13 @@ function PMA_displayVerticalTable()
         echo '</tr>' . "\n";
     } // end if
 
-    // prepare to get the column order, if there is
-    $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-    $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    if (PMA_isBrowsing()) {
+        // prepare to get the column order, if available
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
 
     // Displays data
     foreach ($vertical_display['desc'] AS $j => $val) {

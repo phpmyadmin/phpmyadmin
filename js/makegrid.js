@@ -9,7 +9,7 @@
             alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
             colOrder: new Array(),      // array of column order
-            tableCreateTime: null,      // table creation time
+            tableCreateTime: null,      // table creation time, only available in "Browse tab"
             hintShown: false,           // true if hint balloon is shown, used by updateHint() method
             reorderHint: '',            // string, hint for column reordering
             sortHint: '',               // string, hint for column sorting
@@ -163,7 +163,9 @@
                         this.colMov.objLeft = objPos.left;
                         this.colMov.n = this.colMov.newn;
                         // send request to server to remember the column order
-                        this.sendColOrder();
+                        if (this.tableCreateTime) {
+                            this.sendColOrder();
+                        }
                         this.refreshRestoreButton();
                     }
                     
@@ -293,8 +295,10 @@
                         this.shiftCol(i, j + 1);
                     }
                 }
-                // send request to server to remember the column order
-                this.sendColOrder();
+                if (this.tableCreateTime) {
+                    // send request to server to remember the column order
+                    this.sendColOrder();
+                }
                 this.refreshRestoreButton();
             },
             
@@ -427,6 +431,7 @@
         }
         
         // assign table create time
+        // #table_create_time will only available if we are in "Browse" tab
         g.tableCreateTime = $('#table_create_time').val();
         
         // assign column reorder & column sort hint
