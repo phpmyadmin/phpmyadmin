@@ -1166,9 +1166,6 @@ img.sortableIcon {
     background-repeat:no-repeat;
 }
 
-table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
-}
 table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
 }

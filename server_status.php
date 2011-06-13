@@ -555,7 +555,7 @@ function printQueryStatistics() {
     ?>
             <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
                 <th class="name"><?php echo htmlspecialchars($name); ?></th>
-                <td class="value"><?php echo PMA_formatNumber($value, 5, 0); ?></td>
+                <td class="value"><?php echo PMA_formatNumber($value, 5, 0, true); ?></td>
                 <td class="value"><?php echo 
                     PMA_formatNumber($value * $hour_factor, 4, 1, true); ?></td>
                 <td class="value"><?php echo 
