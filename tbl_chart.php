@@ -24,9 +24,23 @@ $GLOBALS['js_include'][] = 'pMap.js';
 /**
  * Runs common work
  */
-require './libraries/db_common.inc.php';
-$url_params['goto'] = $cfg['DefaultTabDatabase'];
-$url_params['back'] = 'sql.php';
+if (strlen($GLOBALS['table'])) {
+    $url_params['goto'] = $cfg['DefaultTabTable'];
+    $url_params['back'] = 'tbl_sql.php';
+    require './libraries/tbl_common.php';
+    require './libraries/tbl_info.inc.php';
+    require './libraries/tbl_links.inc.php';
+} elseif (strlen($GLOBALS['db'])) {
+    $url_params['goto'] = $cfg['DefaultTabDatabase'];
+    $url_params['back'] = 'sql.php';
+    require './libraries/db_common.inc.php';
+    require './libraries/db_info.inc.php';
+} else {
+    $url_params['goto'] = $cfg['DefaultTabServer'];
+    $url_params['back'] = 'sql.php';
+    require './libraries/server_common.inc.php';
+    require './libraries/server_links.inc.php';
+}
 
 /*
  * Import chart functions
@@ -58,13 +72,6 @@ if (!empty($chart)) {
 else {
     $message = PMA_Message::error(__('The result of this query can\'t be used for a chart. See [a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]'));
 }
-
-/**
- * Displays top menu links
- * We use db links because a chart is not necessarily on a single table
- */
-$num_tables = 0;
-require_once './libraries/db_links.inc.php';
 
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
