@@ -425,7 +425,7 @@ echo __('Runtime Information');
         <div id="statustabs_allvars">
             <fieldset id="tableFilter">
                 <div class="statuslinks">
-                    <a href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
+                    <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
                         <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                         <?php echo __('Refresh'); ?>
                     </a>
