@@ -429,6 +429,15 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
 
     $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
 
+    // If a stored procedure was called, there may be more results that are
+    // queued up and waiting to be flushed from the buffer. So let's do that.
+    while (true) {
+        if(! PMA_DBI_more_results()) {
+            break;
+        }
+        PMA_DBI_next_result();
+    }
+
     $querytime_after = array_sum(explode(' ', microtime()));
 
     $GLOBALS['querytime'] = $querytime_after - $querytime_before;
