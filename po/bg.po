@@ -1597,7 +1597,7 @@ msgstr "Прегледът не е достъпен."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr ""
+msgstr "взимам я"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
@@ -1636,6 +1636,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"Изглежда не се създали конфигурационен файл. Вероятно ще искате да "
+"използвате %1$sскрипта за настройки%2$s, за да го създадете"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2704,11 +2706,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:152
 msgid "Browse mode"
-msgstr ""
+msgstr "Преглеждане"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Персонализиране на преглеждането"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
@@ -2735,11 +2737,11 @@ msgstr "Настройки за разработчици на phpMyAdmin"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
-msgstr ""
+msgstr "Редактиране"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Персонализиране на редактирането"
 
 #: libraries/config/messages.inc.php:163
 msgid "Export defaults"
@@ -6980,11 +6982,11 @@ msgstr "Импортиране на файлове"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Импорт от хранилището на браузъра"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Настройки ще бъдат импортирани от локалното хранилище на браузъра."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
@@ -6996,7 +6998,7 @@ msgstr "Тази функционалност не се поддържа от в
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Сливане с текущите настройки"
 
 #: prefs_manage.php:277
 #, php-format
@@ -7007,7 +7009,7 @@ msgstr ""
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Запис в хранилището на браузъра"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
@@ -7015,7 +7017,7 @@ msgstr ""
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Съществуващи настройки ще бъдат презаписани!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
