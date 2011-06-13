@@ -13,6 +13,7 @@
             hintShown: false,           // true if hint balloon is shown, used by updateHint() method
             reorderHint: '',            // string, hint for column reordering
             sortHint: '',               // string, hint for column sorting
+            showReorderHint: false,     // boolean, used by showHint() method
             showSortHint: false,        // boolean, used by showHint() method
             hintIsHiding: false,        // true when hint is still shown, but hide() already called
             
@@ -343,9 +344,19 @@
              */
             showHint: function(e) {
                 if (!this.colRsz && !this.colMov) {     // if not resizing or dragging
-                    var text = this.reorderHint;
+                    var text = '';
+                    if (this.showReorderHint) {
+                        text += this.reorderHint;
+                    }
                     if (this.showSortHint) {
-                        text += '<br />' + this.sortHint;
+                        text += this.showReorderHint ? '<br />' : '';
+                        text += this.sortHint;
+                    }
+                    
+                    // hide the hint if no text
+                    if (!text) {
+                        this.hideHint();
+                        return;
                     }
                     
                     $(this.dHint).html(text);
@@ -438,6 +449,9 @@
         g.reorderHint = $('#col_order_hint').val();
         g.sortHint = $('#sort_hint').val();
         
+        // determine whether to show the column reordering hint or not
+        g.showReorderHint = $firstRowCols.length > 1;
+        
         // initialize column order
         $col_order = $('#col_order');
         if ($col_order.length > 0) {
@@ -470,17 +484,19 @@
             .wrapInner('<span />');
         
         // register events
-        $(t).find('th.draggable')
-            .mousedown(function(e) {
-                g.dragStartMove(e, this);
-            })
-            // show/hide draggable column
-            .mouseenter(function(e) {
-                g.showHint(e);
-            })
-            .mouseleave(function(e) {
-                g.hideHint();
-            });
+        if ($firstRowCols.length > 1) {
+            $(t).find('th.draggable')
+                .mousedown(function(e) {
+                    g.dragStartMove(e, this);
+                })
+                // show/hide draggable column
+                .mouseenter(function(e) {
+                    g.showHint(e);
+                })
+                .mouseleave(function(e) {
+                    g.hideHint();
+                });
+        }
         $(t).find('th.draggable a')
             .mouseenter(function(e) {
                 g.showSortHint = true;

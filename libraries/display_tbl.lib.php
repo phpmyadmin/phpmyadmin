@@ -191,6 +191,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
  */
 function PMA_isBrowsing()
 {
+    // global variables set from sql.php
+    global $is_count, $is_export, $is_func, $is_analyze;
+    global $analyzed_sql;
+    
     return basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
         && ! ($is_count || $is_export || $is_func || $is_analyse)
         && isset($analyzed_sql[0]['queryflags']['select_from'])
