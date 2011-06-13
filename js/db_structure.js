@@ -58,7 +58,7 @@ $(document).ready(function() {
      * @see     $cfg['AjaxEnable']
      */
     var currrent_insert_table;
-    $("td.insert_table a.ajax").click(function(event){
+    $("td.insert_table a.ajax").live('click', function(event){
         event.preventDefault();
         currrent_insert_table = $(this);
         var url = $(this).attr("href");
@@ -121,7 +121,7 @@ $(document).ready(function() {
          *  @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
-
+        $("#result_query").remove();
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() , function(data) {
@@ -133,6 +133,12 @@ $(document).ready(function() {
             if ($("#insert_table_dialog").length > 0) {
                 $("#insert_table_dialog").parent().dialog("close").remove();
             }
+            /**Getting the url of the databse from the serverinfo tab*/
+            var db_structure_url = $('#serverinfo a:nth-child(3)').attr("href");
+            $("#tablesForm").remove();
+            $("#tableslistcontainer")
+                /**load the updated tablesForm*/
+                .load(db_structure_url+ " #tablesForm", function(){});
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -142,6 +148,7 @@ $(document).ready(function() {
          *  @var    the_form    object referring to the insert form
          */
         var $form = $("#insertForm");
+        /**Get the submit type and the after insert type in the form*/
         var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").attr('value');
         var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").attr('value');
         $("#result_query").remove();
@@ -156,6 +163,7 @@ $(document).ready(function() {
                     $("#result_query").prepend((data.message));
                 }
                 if (selected_after_insert == "new_insert") {
+                    /**Trigger the insert dialog for new_insert option*/
                     currrent_insert_table.trigger('click');
                 }
 
@@ -165,6 +173,12 @@ $(document).ready(function() {
             if ($("#insert_table_dialog").length > 0) {
                 $("#insert_table_dialog").parent().dialog("close").remove();
             }
+            /**Getting the url of the databse from the serverinfo tab*/
+            var db_structure_url = $('#serverinfo a:nth-child(3)').attr("href");
+            $("#tablesForm").remove();
+            $("#tableslistcontainer")
+                /**load the updated tablesForm*/
+                .load(db_structure_url+ " #tablesForm", function(){});
         }) // end $.post()
     });
 
