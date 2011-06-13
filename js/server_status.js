@@ -75,7 +75,7 @@ $(function() {
     });
     
     // Ajax refresh of variables (always the first element in each tab)
-    $('.statuslinks a:nth-child(1)').click(function() { 
+    $('.statuslinks a.tabRefresh').click(function() { 
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         var that = this;
@@ -94,7 +94,7 @@ $(function() {
     });
     
     /** Realtime charting of variables (always the third element) **/
-    $('.statuslinks a:nth-child(3)').click(function() {
+    $('.statuslinks a.tabChart').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
         var tab=$(this).parents('div.ui-tabs-panel');
         
@@ -154,8 +154,8 @@ $(function() {
             tabStatus[tab.attr('id')]='realtime';            
             tabChart[tab.attr('id')]=PMA_createChart(settings);
             $(this).html(PMA_messages['strStaticData']);
-            tab.find('.statuslinks a:nth-child(2)').hide();
-            $('.statuslinks select').show();
+            tab.find('.statuslinks a.tabRefresh').hide();
+            tab.find('.statuslinks select').show();
         } else {
             clearTimeout(chart_activeTimeouts[tab.attr('id')+"_chart_cnt"]);
             chart_activeTimeouts[tab.attr('id')+"_chart_cnt"]=null;
@@ -164,8 +164,8 @@ $(function() {
             tabStatus[tab.attr('id')]='data';
             tabChart[tab.attr('id')].destroy();
             $(this).html(PMA_messages['strRealtimeChart']);
-            tab.find('.statuslinks a:nth-child(2)').show();
-            $('.statuslinks select').hide();
+            tab.find('.statuslinks a.tabRefresh').show();
+            tab.find('.statuslinks select').hide();
         }
         return false; 
     });

@@ -101,6 +101,7 @@ $(document).ready(function() {
     }
     
     drawChart();
+	$('#querychart').show();
 });
 
 function in_array(element,array) {
