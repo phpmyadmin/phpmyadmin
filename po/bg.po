@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 08:42+0200\n"
+"PO-Revision-Date: 2011-06-13 13:46+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -710,7 +710,7 @@ msgstr "Добавяне представка към таблица"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
 msgid "Replace table prefix"
-msgstr "Заменяне на представката за таблици"
+msgstr "Замяна на представката на таблица"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 msgid "Copy table with prefix"
@@ -1673,7 +1673,7 @@ msgstr "Прегледът не е достъпен."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr ""
+msgstr "взимам я"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
@@ -1712,6 +1712,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
 msgstr ""
+"Изглежда не се създали конфигурационен файл. Вероятно ще искате да "
+"използвате %1$sскрипта за настройки%2$s, за да го създадете"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2049,7 +2051,7 @@ msgstr "Пропусни Validate SQL"
 
 #: libraries/common.lib.php:1175 libraries/config/messages.inc.php:476
 msgid "Validate SQL"
-msgstr "Валидирай SQL-а"
+msgstr "Валидиране на SQL"
 
 #: libraries/common.lib.php:1230
 msgid "Inline edit of this query"
@@ -2570,7 +2572,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
-msgstr "редакция в прозорец"
+msgstr "Редакция в прозорец"
 
 #: libraries/config/messages.inc.php:64
 msgid "Display errors"
@@ -2813,11 +2815,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr ""
+msgstr "Преглеждане"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Персонализиране на преглеждането"
 
 #: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
@@ -2844,11 +2846,11 @@ msgstr "Настройки за разработчици на phpMyAdmin"
 
 #: libraries/config/messages.inc.php:162
 msgid "Edit mode"
-msgstr ""
+msgstr "Редактиране"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Персонализиране на редактирането"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
@@ -2869,7 +2871,7 @@ msgstr "Общи"
 
 #: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Настройки на някои често използвани опции"
 
 #: libraries/config/messages.inc.php:170 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:82
@@ -2944,7 +2946,7 @@ msgstr "Настройки, които не са за другаде"
 
 #: libraries/config/messages.inc.php:192
 msgid "Page titles"
-msgstr "Заглавия на страниците"
+msgstr "Заглавие в браузъра"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
@@ -2952,6 +2954,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Настройте заглавието в браузъра. Прочетете "
+"[a@Documentation.html#cfg_TitleTable]документацията[/a] за магическите "
+"низове и техните стойности."
 
 #: libraries/config/messages.inc.php:194
 #: libraries/navigation_header.inc.php:83
@@ -3040,7 +3045,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr "SQL заявкаи"
+msgstr "SQL заявки"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
@@ -3048,11 +3053,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Персонализиране на връзките показвани след изпълнение на заявка"
 
 #: libraries/config/messages.inc.php:219
 msgid "SQL queries settings"
-msgstr ""
+msgstr "Настройки на SQL заявките"
 
 #: libraries/config/messages.inc.php:220
 msgid "SQL Validator"
@@ -3076,7 +3081,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
-msgstr "Табулатори"
+msgstr "Подпрозорци"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
@@ -3088,7 +3093,7 @@ msgstr "Текстови полета"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize text input fields"
-msgstr ""
+msgstr "Персонализиране на текстовите полета"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:17
 msgid "Texy! text"
@@ -3100,7 +3105,7 @@ msgstr "Предупреждения"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Скрива някои от предупрежденията, показвани от phpMyAdmin"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
@@ -3358,11 +3363,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Двойни текстови полета за колони тип LONGTEXT"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "По-голямо текстово поле за LONGTEXT"
 
 #: libraries/config/messages.inc.php:304
 msgid "Use icons on main page"
@@ -4049,7 +4054,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:461
 msgid "Show SQL queries"
-msgstr ""
+msgstr "Показване на SQL заявките"
 
 #: libraries/config/messages.inc.php:462
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -4155,7 +4160,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:487
 msgid "Textarea columns"
-msgstr ""
+msgstr "Колони в текство поле"
 
 #: libraries/config/messages.inc.php:488
 msgid ""
@@ -4165,7 +4170,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:489
 msgid "Textarea rows"
-msgstr ""
+msgstr "Реда в текстово поле"
 
 #: libraries/config/messages.inc.php:490
 msgid "Title of browser window when a database is selected"
@@ -4242,7 +4247,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:509
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Позволява проверка за обновления на страницата на phpMyAdmin."
 
 #: libraries/config/messages.inc.php:510 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
@@ -4250,7 +4255,7 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "Проверка за обновления"
 
 #: libraries/config/messages.inc.php:511
 msgid ""
@@ -4857,7 +4862,7 @@ msgstr "Връзките не са намерени"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
-msgstr "Информация за весията"
+msgstr "Весия"
 
 #: libraries/engines/innodb.lib.php:22
 msgid "Data home directory"
@@ -5701,7 +5706,7 @@ msgstr "Знаков набор"
 #: libraries/mysql_charsets.lib.php:206 libraries/mysql_charsets.lib.php:407
 #: tbl_change.php:552
 msgid "Binary"
-msgstr "Двоично"
+msgstr "двоичен"
 
 #: libraries/mysql_charsets.lib.php:218
 msgid "Bulgarian"
@@ -5717,7 +5722,7 @@ msgstr "Традиционен китайски"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:414
 msgid "case-insensitive"
-msgstr "нечувствително към регистъра"
+msgstr "нечувствителен към регистъра"
 
 #: libraries/mysql_charsets.lib.php:231 libraries/mysql_charsets.lib.php:416
 msgid "case-sensitive"
@@ -6532,7 +6537,7 @@ msgstr "Трябва да добавите поне една колона."
 #: libraries/tbl_properties.inc.php:735 server_engines.php:56
 #: tbl_operations.php:370
 msgid "Storage Engine"
-msgstr "Хранилище на данни"
+msgstr "Хранилище"
 
 #: libraries/tbl_properties.inc.php:764
 msgid "PARTITION definition"
@@ -6732,7 +6737,7 @@ msgstr "Web сървър"
 
 #: main.php:187
 msgid "MySQL client version"
-msgstr "Версия на MySQL клиент"
+msgstr "MySQL клиент"
 
 #: main.php:189
 msgid "PHP extension"
@@ -7074,11 +7079,11 @@ msgstr "Импорт от файл"
 
 #: prefs_manage.php:245
 msgid "Import from browser's storage"
-msgstr ""
+msgstr "Импорт от хранилището на браузъра"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Настройки ще бъдат импортирани от локалното хранилище на браузъра."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
@@ -7090,7 +7095,7 @@ msgstr "Тази функционалност не се поддържа от в
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Сливане с текущите настройки"
 
 #: prefs_manage.php:277
 #, php-format
@@ -7098,10 +7103,12 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
+"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез %"
+"sскрипта за настройки%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Запис в хранилището на браузъра"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
@@ -7109,11 +7116,12 @@ msgstr ""
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Съществуващи настройки ще бъдат презаписани!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
+"Може да изчистите настройките си до техните стойностите по подразбиране."
 
 #: querywindow.php:93
 msgid "Import files"
@@ -7172,7 +7180,7 @@ msgstr "Информация"
 
 #: server_collations.php:39
 msgid "Character Sets and Collations"
-msgstr "Набори от знаци и колации"
+msgstr "Знакови набори и колации"
 
 #: server_databases.php:64
 msgid "No databases selected."
@@ -8635,6 +8643,8 @@ msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Целевата БД ще бъде напълно синхронизирана с изходната. Изходната БД ще "
+"остане непроменена."
 
 #: server_variables.php:39
 msgid "Server variables and settings"

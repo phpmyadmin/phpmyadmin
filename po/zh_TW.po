@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 05:26+0200\n"
-"Last-Translator:  <u1104003@gmail.com>\n"
+"PO-Revision-Date: 2011-06-12 05:41+0200\n"
+"Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -1633,7 +1633,7 @@ msgstr "已將資料表 %s 改名爲 %s"
 
 #: libraries/Table.class.php:1250
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "無法儲存表格介面使用者喜好設定"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1756,10 +1756,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "帳號/密碼錯誤。拒絕訪問"
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Config 認證"
+msgstr "無法找到對應的認證指令"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -2172,17 +2171,16 @@ msgstr "全部"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "全部皆否"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "左"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "高"
+msgstr "右"
 
 #: libraries/config.values.php:75
 msgid "Open"

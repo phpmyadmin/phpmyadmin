@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-07 06:41-0400\n"
-"PO-Revision-Date: 2011-06-08 16:25+0200\n"
+"PO-Revision-Date: 2011-06-08 16:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3978,11 +3978,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:416
 msgid "Signon session name"
-msgstr "Oturum açma oturumu adı"
+msgstr "Oturumu açma oturum adı"
 
 #: libraries/config/messages.inc.php:417
 msgid "Signon URL"
-msgstr "Oturum açma URL'si"
+msgstr "Oturumu açma URL'si"
 
 #: libraries/config/messages.inc.php:418
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -4474,7 +4474,7 @@ msgstr "HTTP kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr "Oturum kaydı kimlik doğrulaması"
+msgstr "Oturumu açma kimlik doğrulaması"
 
 #: libraries/config/setup.forms.php:244
 #: libraries/config/user_preferences.forms.php:146 libraries/import/ldi.php:34
@@ -4545,13 +4545,13 @@ msgstr "Yapılandırma kimlik doğrulaması yöntemi kullanırken kullanıcı ad
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
-"Oturum kaydı kimlik doğrulaması yöntemi kullanırken oturum kaydı oturumu adı "
+"Oturumu açma kimlik doğrulaması yöntemi kullanırken oturumu açma oturum adı "
 "boş"
 
 #: libraries/config/validate.lib.php:242
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
-"Oturum kaydı kimlik doğrulaması yöntemi kullanırken oturum kaydı URL'si boş"
+"Oturumu açma kimlik doğrulaması yöntemi kullanırken oturumu açma URL'si boş"
 
 #: libraries/config/validate.lib.php:276
 msgid "Empty phpMyAdmin control user while using pmadb"
