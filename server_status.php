@@ -767,7 +767,7 @@ function printServerTraffic() {
      * Displays the page
      */
     ?>
-    <table id="tableprocesslist" class="data">
+    <table id="tableprocesslist" class="data clearfloat">
     <thead>
     <tr>
         <th><?php echo __('Processes'); ?></th>
