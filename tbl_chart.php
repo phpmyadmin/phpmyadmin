@@ -92,7 +92,6 @@ url_query = '<?php echo $url_query;?>';
             echo __('X-Axis:'); ?> <select name="chartXAxis">
             <?php
             
-            
             foreach($keys as $idx=>$key) {
                 if($yaxis==-1 && ($idx==count($data[0])-1 || preg_match("/(date|time)/i",$key))) {
                     echo '<option value="'.$idx.'" selected>'.$key.'</option>';
@@ -125,7 +124,7 @@ url_query = '<?php echo $url_query;?>';
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
         <div id="inner-resizer">
-            <div id="querychart">
+            <div id="querychart" style="display:none;">
                 <?php echo json_encode($data); ?>
             </div>
         </div>
