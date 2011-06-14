@@ -13,8 +13,10 @@
             hintShown: false,           // true if hint balloon is shown, used by updateHint() method
             reorderHint: '',            // string, hint for column reordering
             sortHint: '',               // string, hint for column sorting
+            markHint: '',               // string, hint for column marking
             showReorderHint: false,     // boolean, used by showHint() method
             showSortHint: false,        // boolean, used by showHint() method
+            showMarkHint: false,
             hintIsHiding: false,        // true when hint is still shown, but hide() already called
             
             // functions
@@ -45,7 +47,7 @@
                         width: $(obj).width()
                     });
                     $(this.cPointer).css({
-                        top: objPos.top,
+                        top: objPos.top
                     });
                 } else {    // vertical alignment
                     $(this.cCpy).css({
@@ -55,7 +57,7 @@
                         width: $(obj).width()
                     });
                     $(this.cPointer).css({
-                        top: objPos.top,
+                        top: objPos.top
                     });
                 }
                 
@@ -349,8 +351,12 @@
                         text += this.reorderHint;
                     }
                     if (this.showSortHint) {
-                        text += this.showReorderHint ? '<br />' : '';
+                        text += text.length > 0 ? '<br />' : '';
                         text += this.sortHint;
+                    }
+                    if (this.showMarkHint) {
+                        text += text.length > 0 ? '<br />' : '';
+                        text += this.markHint;
                     }
                     
                     // hide the hint if no text
@@ -448,6 +454,7 @@
         // assign column reorder & column sort hint
         g.reorderHint = $('#col_order_hint').val();
         g.sortHint = $('#sort_hint').val();
+        g.markHint = $('#col_mark_hint').val();
         
         // determine whether to show the column reordering hint or not
         g.showReorderHint = $firstRowCols.length > 1;
@@ -488,22 +495,25 @@
             $(t).find('th.draggable')
                 .mousedown(function(e) {
                     g.dragStartMove(e, this);
-                })
-                // show/hide draggable column
-                .mouseenter(function(e) {
-                    g.showHint(e);
-                })
-                .mouseleave(function(e) {
-                    g.hideHint();
                 });
         }
+        $(t).find('th.draggable')
+            .mouseenter(function(e) {
+                g.showMarkHint = !g.showSortHint;
+                g.showHint(e);
+            })
+            .mouseleave(function(e) {
+                g.hideHint();
+            });
         $(t).find('th.draggable a')
             .mouseenter(function(e) {
                 g.showSortHint = true;
+                g.showMarkHint = false;
                 g.showHint(e);
             })
             .mouseleave(function(e) {
                 g.showSortHint = false;
+                g.showMarkHint = true;
                 g.showHint(e);
             });
         $(document).mousemove(function(e) {
