@@ -8,51 +8,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * This function fetches as list of the charsets supported by the DB and
- * either returns an array (useful for quickly checking if a charset is
- * supported) or an HTML snippet that creates a drop-down list.
- *
- * @param   bool    $html       Whether to generate an html snippet or an array
- * @param   string  $selected   The value to mark as selected in HTML mode
- *
- * @return  mixed   An HTML snippet or an array of charsets.
- *
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_fetch_result()
- * @uses    strtolower()
- */
-function getSupportedCharsets($html = false, $selected = '')
-{
-    $charsets = array();
-    $result   = PMA_DBI_try_query("SHOW CHARSET");
-    if ($result) {
-        $charsets = PMA_DBI_fetch_result($result);
-    } else {
-        return false;
-    }
-    sort($charsets);
-    if ($html) {
-        // NOTE: the SELECT tag in not included in this snippet.
-        $retval = '';
-        foreach ($charsets as $key => $value) {
-            $value = strtolower($value['Charset']);
-            if ($value == $selected) {
-                $retval .= "<option selected='selected'>{$value}</option>";
-            } else {
-                $retval .= "<option>{$value}</option>";
-            }
-        }
-    } else {
-        $retval = array();
-        foreach ($charsets as $key => $value) {
-            $retval[] = strtolower($value['Charset']);
-        }
-    }
-
-    return $retval;
-} // end getSupportedCharsets()
-
-/**
  * This function parses a string containing one parameter of a routine,
  * as returned by getRoutineParameters() and returns an array containing
  * the information about this parameter.
@@ -500,6 +455,7 @@ function getFormInputFromRequest()
  * @uses    PMA_generate_common_hidden_inputs()
  * @uses    strtoupper()
  * @uses    PMA_getSupportedDatatypes()
+ * @uses    PMA_getSupportedCharsets()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
@@ -635,7 +591,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
         $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
         $retval .= "            <td class='routine_param_opts_text'><select name='routine_param_opts_text[$i]'>\n";
         $retval .= "                <option value=''>(CHARSET)</option>";
-        $retval .= getSupportedCharsets(true, $routine['param_opts_text'][$i]) . "\n";
+        $retval .= PMA_getSupportedCharsets(true, $routine['param_opts_text'][$i]) . "\n";
         $retval .= "            </select></td>\n";
         $retval .= "            <td class='routine_param_opts_num'><select name='routine_param_opts_num[$i]'>\n";
         $retval .= "                <option value=''></option>";
@@ -684,7 +640,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "    <td>" . __('Return Options') . "</td>\n";
     $retval .= "    <td><div><select name='routine_returnopts_text'>\n";
     $retval .= "        <option value=''>(CHARSET)</option>";
-    $retval .= getSupportedCharsets(true, $routine['returnopts_text']) . "\n";
+    $retval .= PMA_getSupportedCharsets(true, $routine['returnopts_text']) . "\n";
     $retval .= "    </select></div>\n";
     $retval .= "    <div><select name='routine_returnopts_num'>\n";
     $retval .= "        <option value=''></option>";
@@ -1586,7 +1542,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
             $template .= "                       value='' /></td>\n";
             $template .= "            <td><select name='routine_param_opts_text[%s]'>\n";
             $template .= "                <option value=''>(CHARSET)</option>";
-            $template .= getSupportedCharsets(true) . "\n";
+            $template .= PMA_getSupportedCharsets(true) . "\n";
             $template .= "            </select></td>\n";
             $template .= "            <td><select name='routine_param_opts_num[%s]'>\n";
             $template .= "                <option value=''></option>\n";

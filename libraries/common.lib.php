@@ -2995,6 +2995,51 @@ function PMA_buildActionTitles() {
 }
 
 /**
+ * This function fetches as list of the charsets supported by the DB and
+ * either returns an array (useful for quickly checking if a charset is
+ * supported) or an HTML snippet that creates a drop-down list.
+ *
+ * @param   bool    $html       Whether to generate an html snippet or an array
+ * @param   string  $selected   The value to mark as selected in HTML mode
+ *
+ * @return  mixed   An HTML snippet or an array of charsets.
+ *
+ * @uses    PMA_DBI_try_query()
+ * @uses    PMA_DBI_fetch_result()
+ * @uses    strtolower()
+ */
+function PMA_getSupportedCharsets($html = false, $selected = '')
+{
+    $charsets = array();
+    $result   = PMA_DBI_try_query("SHOW CHARSET");
+    if ($result) {
+        $charsets = PMA_DBI_fetch_result($result);
+    } else {
+        return false;
+    }
+    sort($charsets);
+    if ($html) {
+        // NOTE: the SELECT tag in not included in this snippet.
+        $retval = '';
+        foreach ($charsets as $key => $value) {
+            $value = strtolower($value['Charset']);
+            if ($value == $selected) {
+                $retval .= "<option selected='selected'>{$value}</option>";
+            } else {
+                $retval .= "<option>{$value}</option>";
+            }
+        }
+    } else {
+        $retval = array();
+        foreach ($charsets as $key => $value) {
+            $retval[] = strtolower($value['Charset']);
+        }
+    }
+
+    return $retval;
+} // end PMA_getSupportedCharsets()
+
+/**
  * This function processes the datatypes supported by the DB, as specified in
  * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
  * if a datatype is supported) or an HTML snippet that creates a drop-down list.
