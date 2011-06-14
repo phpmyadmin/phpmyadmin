@@ -904,7 +904,7 @@ pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo isset($url_query)?$url_query:PMA_generate_common_url($db);?>';
 $(document).ready(createProfilingChart);
 </script>
-<?
+<?php
         echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
@@ -928,9 +928,9 @@ $(document).ready(createProfilingChart);
         //PMA_chart_profiling($profiling_results);
         echo json_encode($chart_json);
         echo '</div>';
-        echo '</fieldset>' . "\n";		
+        echo '</fieldset>' . "\n";
     }
-	
+
     // Displays the results in a table
     if (empty($disp_mode)) {
         // see the "PMA_setDisplayMode()" function in
