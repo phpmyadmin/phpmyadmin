@@ -155,10 +155,13 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     public function prepareRowAsOl($spatial, $srid, $label, $point_color)
     {
         $style_options = array(
-            'pointRadius' => 3,
-            'fillColor'   => '#ffffff',
-            'strokeColor' => $point_color,
-            'strokeWidth' => 2,
+            'pointRadius'  => 3,
+            'fillColor'    => '#ffffff',
+            'strokeColor'  => $point_color,
+            'strokeWidth'  => 2,
+            'label'        => $label,
+            'labelYOffset' => -8,
+            'fontSize'     => 10,
         );
         if ($srid == 0) {
             $srid = 4326;

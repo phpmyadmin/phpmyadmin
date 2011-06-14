@@ -193,6 +193,8 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         $style_options = array(
             'strokeColor' => $line_color,
             'strokeWidth' => 2,
+            'label'       => $label,
+            'fontSize'    => 10,
         );
         if ($srid == 0) {
             $srid = 4326;

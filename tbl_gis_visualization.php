@@ -54,7 +54,7 @@ if (PMA_isValid($_REQUEST['visualizationSettings'], 'array')) {
 
 // If label column is not set, use first non-geometric colum as label column
 if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
-    $visualizationSettings['labelColumn'] = $labelCandidates[0];
+    $visualizationSettings['labelColumn'] = '';
 }
 
 // If spatial column is not set, use first geometric colum as spatial column
@@ -119,7 +119,7 @@ if ($format == 'svg') {
     </script>
 
     <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
-    <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+    <script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
     <script language="javascript" type="text/javascript">
         function drawOpenLayers() {
             var options = {
@@ -134,10 +134,11 @@ if ($format == 'svg') {
             var map = new OpenLayers.Map('openlayersmap', options);
 
             // create OSM layer
+            var layerNone = new OpenLayers.Layer.Boxes("None", {isBaseLayer: true});
             var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
             var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
             var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
-            map.addLayers([layerMapnik, layerOsmarender, layerCycleMap]);
+            map.addLayers([layerMapnik, layerOsmarender, layerCycleMap, layerNone]);
 
             // create a vector layer
             var vectorLayer = new OpenLayers.Layer.Vector("Data");
@@ -165,6 +166,7 @@ if ($format == 'svg') {
 
     <tr><td><label for="labelColumn"><?php echo __("Label column"); ?></label></td>
         <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
+            <option value=""><?php echo __("-- None --"); ?></option>
         <?php
             foreach ($labelCandidates as $labelCandidate) {
                 echo('<option value="' . htmlspecialchars($labelCandidate) . '"');
@@ -190,7 +192,7 @@ if ($format == 'svg') {
         ?>
         </select></td>
     </tr>
-    <tr><td class="choice">
+    <tr><td class="choice" colspan="2">
         <input type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"
         <?php
             if (isset($visualizationSettings['choice'])) {
@@ -198,7 +200,7 @@ if ($format == 'svg') {
             }
         ?>
         />
-        <label for="choice"><?php echo __("Use base layer"); ?></label>
+        <label for="choice"><?php echo __("Use OpenStreetMaps as Base Layer"); ?></label>
     </td></tr>
     <tr><td></td>
         <td class="button"><input type="submit" name="displayVisualization" value="<?php echo __('Redraw'); ?>" /></td>

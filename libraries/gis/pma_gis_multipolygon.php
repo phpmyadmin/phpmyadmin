@@ -239,6 +239,8 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             'strokeWidth' => 0.5,
             'fillColor'   => $fill_color,
             'fillOpacity' => 0.8,
+            'label'       => $label,
+            'fontSize'    => 10,
         );
         if ($srid == 0) {
             $srid = 4326;

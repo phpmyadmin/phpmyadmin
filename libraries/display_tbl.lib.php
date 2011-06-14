@@ -2460,7 +2460,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         if ($geometry_found) {
             echo PMA_linkOrButton(
                 'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_chart.png', __('Visualize GIS data'), false, true),
+                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), false, true),
                 '', true, true, '') . "\n";
         }
     }

@@ -187,16 +187,18 @@ $(document).ready(function() {
             + '.geometrycollection').live('mousemove', function(event) {
         contents = $(this).attr('name');
         $("#tooltip").remove();
-        $('<div id="tooltip">' + contents + '</div>').css({
-            position : 'absolute',
-            display : 'none',
-            top : event.pageY + 10,
-            left : event.pageX + 10,
-            border : '1px solid #fdd',
-            padding : '2px',
-            'background-color' : '#fee',
-            opacity : 0.80
-        }).appendTo("body").fadeIn(200);
+        if (contents != '') {
+            $('<div id="tooltip">' + contents + '</div>').css({
+                position : 'absolute',
+                display : 'none',
+                top : event.pageY + 10,
+                left : event.pageX + 10,
+                border : '1px solid #fdd',
+                padding : '2px',
+                'background-color' : '#fee',
+                opacity : 0.80
+            }).appendTo("body").fadeIn(200);
+        }
     });
     
     /**
