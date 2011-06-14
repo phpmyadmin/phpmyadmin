@@ -285,31 +285,6 @@ $(document).ready(function() {
                 // Cache the template for a parameter table row
                 param_template = data.param_template;
                 // Make adjustments in the dialog to make it AJAX compatible
-                /**
-                 * @var    is_procedure    Used to make the PROCEDURE dropdown option selected
-                 *                         if a procedure is being edited or created.
-                 */
-                var is_procedure = '';
-                /**
-                 * @var    is_function     Used to make the FUNCTION dropdown option selected
-                 *                         if a function is being edited or created.
-                 */
-                var is_function = '';
-                if (data.type == 'PROCEDURE') {
-                    is_procedure = ' selected="selected"';
-                } else if (data.type == 'FUNCTION') {
-                    is_function = ' selected="selected"';
-                }
-                /**
-                 * @var    new_type_cell    Contains HTML code that replaces the non-JS functionality
-                 *                          used to switch the routine editor from procedure to function
-                 *                          editing modes and back with a JS-aware dropdown.
-                 */
-                var new_type_cell = '<select name="routine_type">'
-                                  + '<option value="PROCEDURE"' + is_procedure + '>PROCEDURE</option>'
-                                  + '<option value="FUNCTION"' + is_function + '>FUNCTION</option>'
-                                  + '</select>';
-                $('.routine_changetype_cell').html(new_type_cell);
                 $('.routine_param_remove').show();
                 $('input[name=routine_removeparameter]').remove();
                 $('input[name=routine_addparameter]').css('width', '100%');

@@ -623,12 +623,16 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
                           . "<input name='routine_original_type' "
                           . "type='hidden' value='{$routine['original_type']}'/>\n";
     }
-    $isfunction_class = '';
-    $isprocedure_class = '';
+    $isfunction_class   = '';
+    $isprocedure_class  = '';
+    $isfunction_select  = '';
+    $isprocedure_select = '';
     if ($routine['type'] == 'PROCEDURE') {
-        $isfunction_class = ' hide';
+        $isfunction_class   = ' hide';
+        $isprocedure_select = " selected='selected'";
     } else {
         $isprocedure_class = ' hide';
+        $isfunction_select = " selected='selected'";
     }
 
     // Create the output
@@ -647,14 +651,20 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Type') . "</td>\n";
-    // TODO: generate ajax dropdown here, not by js
-    $retval .= "    <td class='routine_changetype_cell'>\n";
-    $retval .= "        <input name='routine_type' type='hidden' value='{$routine['type']}' />\n";
-    $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
-    $retval .= "            {$routine['type']}\n";
-    $retval .= "        </div>\n";
-    $retval .= "        <input style='width: 49%;' type='submit' name='routine_changetype'\n";
-    $retval .= "               value='".sprintf(__('Change to %s'), $routine['type_toggle'])."' />\n";
+    $retval .= "    <td>\n";
+    if ($is_ajax) {
+        $retval .= "        <select name='routine_type'>\n";
+        $retval .= "            <option value='PROCEDURE'$isprocedure_select>PROCEDURE</option>\n";
+        $retval .= "            <option value='FUNCTION'$isfunction_select>FUNCTION</option>\n";
+        $retval .= "        </select>\n";
+    } else {
+        $retval .= "        <input name='routine_type' type='hidden' value='{$routine['type']}' />\n";
+        $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
+        $retval .= "            {$routine['type']}\n";
+        $retval .= "        </div>\n";
+        $retval .= "        <input style='width: 49%;' type='submit' name='routine_changetype'\n";
+        $retval .= "               value='".sprintf(__('Change to %s'), $routine['type_toggle'])."' />\n";
+    }
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
