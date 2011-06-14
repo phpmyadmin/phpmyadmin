@@ -308,6 +308,10 @@ extend(Chart.prototype, {
             chart = this,
             canvas=createElement('canvas');
         
+        if (typeof FlashCanvas != "undefined") {
+            FlashCanvas.initElement(canvas);
+        }
+        
         $('body').append(canvas);
         $(canvas).hide();
         
