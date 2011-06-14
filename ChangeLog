@@ -23,6 +23,7 @@
 - patch #3311539 [edit] Inline edit does not escape backslashes
 - bug #3313210 [interface] Columns class sometimes changed for nothing
 - patch #3313326 [interface] Some tooltips do not disappear
+- bug #3315720 [search] Fix search in non unicode tables
 
 3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
