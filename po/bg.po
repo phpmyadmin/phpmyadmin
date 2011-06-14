@@ -6547,6 +6547,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Вашите настройки ще бъдат пазени само за текущата сесия. За да ги използвате "
+"постоянно е необходимо %sконфигурационно хранилище%s."
 
 #: libraries/user_preferences.lib.php:142
 msgid "Could not save configuration"
