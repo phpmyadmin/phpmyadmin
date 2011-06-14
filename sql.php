@@ -358,8 +358,8 @@ if ($is_select) { // see line 141
 
 // Handle remembered sorting order, only for single table query
 if ($GLOBALS['cfg']['RememberSorting']
- && basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
  && ! ($is_count || $is_export || $is_func || $is_analyse)
+ && count($analyzed_sql[0]['select_expr']) == 0
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && count($analyzed_sql[0]['table_ref']) == 1
  ) {
