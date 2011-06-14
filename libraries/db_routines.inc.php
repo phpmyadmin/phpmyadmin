@@ -9,7 +9,7 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * This function parses a string containing one parameter of a routine,
- * as returned by getRoutineParameters() and returns an array containing
+ * as returned by PMA_RTN_parseAllParameters() and returns an array containing
  * the information about this parameter.
  *
  * @param   string  $value    A string containing one parameter of a routine
@@ -24,7 +24,7 @@ if (! defined('PHPMYADMIN')) {
  * @uses    sort()
  * @uses    implode()
  */
-function parseOneParameter($value)
+function PMA_RTN_parseOneParameter($value)
 {
     global $param_directions;
 
@@ -70,7 +70,7 @@ function parseOneParameter($value)
     $retval[4] = implode(' ', $param_opts);
 
     return $retval;
-} // end parseOneParameter()
+} // end PMA_RTN_parseOneParameter()
 
 
 /**
@@ -83,9 +83,9 @@ function parseOneParameter($value)
  *
  * @return  array   Information about the parameteres of a routine.
  *
- * @uses    parseOneParameter()
+ * @uses    PMA_RTN_parseOneParameter()
  */
-function getRoutineParameters($parsed_query, $routine_type)
+function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
 {
     global $param_directions;
 
@@ -130,7 +130,7 @@ function getRoutineParameters($parsed_query, $routine_type)
              $retval['name'][],
              $retval['type'][],
              $retval['length'][],
-             $retval['opts'][]) = parseOneParameter($value);
+             $retval['opts'][]) = PMA_RTN_parseOneParameter($value);
     }
     // Since some indices of $retval may be still undefined, we fill
     // them each with an empty array to avoid E_ALL errors in PHP.
@@ -141,7 +141,7 @@ function getRoutineParameters($parsed_query, $routine_type)
     }
 
     return $retval;
-} // end getRoutineParameters()
+} // end PMA_RTN_parseAllParameters()
 
 /**
  * This function looks through the contents of a parsed
@@ -155,7 +155,7 @@ function getRoutineParameters($parsed_query, $routine_type)
  * @uses    substr()
  * @uses    PMA_unQuote()
  */
-function getRoutineDefiner($parsed_query)
+function PMA_RTN_parseRoutineDefiner($parsed_query)
 {
     $retval = '';
     $fetching = false;
@@ -172,7 +172,7 @@ function getRoutineDefiner($parsed_query)
         }
     }
     return $retval;
-} // end getRoutineDefiner()
+} // end PMA_RTN_parseRoutineDefiner()
 
 /**
  * This function will generate the values that are required to complete
@@ -188,12 +188,12 @@ function getRoutineDefiner($parsed_query)
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_DBI_fetch_single_row()
  * @uses    PMA_SQP_parse()
- * @uses    PMA_PMA_DBI_get_definition()
- * @uses    getRoutineParameters()
- * @uses    getRoutineDefiner()
- * @uses    parseOneParameter()
+ * @uses    PMA_DBI_get_definition()
+ * @uses    PMA_RTN_parseAllParameters()
+ * @uses    PMA_RTN_parseRoutineDefiner()
+ * @uses    PMA_RTN_parseOneParameter()
  */
-function getFormInputFromRoutineName($db, $name, $all = true)
+function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
 {
     global $param_directions, $param_sqldataaccess;
 
@@ -222,7 +222,7 @@ function getFormInputFromRoutineName($db, $name, $all = true)
                             $routine['SPECIFIC_NAME']
                         )
                     );
-    $params = getRoutineParameters($parsed_query, $routine['ROUTINE_TYPE']);
+    $params = PMA_RTN_parseAllParameters($parsed_query, $routine['ROUTINE_TYPE']);
     $retval['num_params']      = $params['num'];
     $retval['param_dir']       = $params['dir'];
     $retval['param_name']      = $params['name'];
@@ -243,13 +243,13 @@ function getFormInputFromRoutineName($db, $name, $all = true)
         $retval['returnopts_num']  = '';
         $retval['returnopts_text'] = '';
         if (! empty($routine['DTD_IDENTIFIER'])) {
-            $returnparam = parseOneParameter($routine['DTD_IDENTIFIER']);
+            $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
             $retval['returntype']      = $returnparam[2];
             $retval['returnlength']    = $returnparam[3];
             $retval['returnopts_num']  = $returnparam[4];
             $retval['returnopts_text'] = $returnparam[4];
         }
-        $retval['definer']         = getRoutineDefiner($parsed_query);
+        $retval['definer']         = PMA_RTN_parseRoutineDefiner($parsed_query);
         $retval['definition']      = $routine['ROUTINE_DEFINITION'];
         $retval['isdeterministic'] = '';
         if ($routine['IS_DETERMINISTIC'] == 'YES') {
@@ -267,7 +267,7 @@ function getFormInputFromRoutineName($db, $name, $all = true)
     }
 
     return $retval;
-} // getFormInputFromRoutineName()
+} // PMA_RTN_getRoutineDataFromName()
 
 /**
  * This function will generate the values that are required to complete the "Add new routine" form
@@ -282,7 +282,7 @@ function getFormInputFromRoutineName($db, $name, $all = true)
  * @uses    strtolower()
  * @uses    PMA_getSupportedDatatypes()
  */
-function getFormInputFromRequest()
+function PMA_RTN_getRoutineDataFromRequest()
 {
     global $_REQUEST, $param_directions, $param_sqldataaccess;
 
@@ -431,7 +431,7 @@ function getFormInputFromRequest()
     }
 
     return $retval;
-} // end function getFormInputFromRequest()
+} // end function PMA_RTN_getRoutineDataFromRequest()
 
 /**
  * Displays a form used to add/edit a routine
@@ -442,8 +442,8 @@ function getFormInputFromRequest()
  *                                 JS turned off, this will hold the name of
  *                                 the current operation: 'add', remove', 'change'
  * @param   array    $routine      Data for the routine returned by
- *                                 getFormInputFromRequest() or
- *                                 getFormInputFromRoutineName()
+ *                                 PMA_RTN_getRoutineDataFromRequest() or
+ *                                 PMA_RTN_getRoutineDataFromName()
  * @param   array    $errors       If the editor was already invoked and there
  *                                 has been an error while processing the request
  *                                 this array will hold the errors.
@@ -457,7 +457,7 @@ function getFormInputFromRequest()
  * @uses    PMA_getSupportedDatatypes()
  * @uses    PMA_getSupportedCharsets()
  */
-function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
+function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
 
     // Escape special characters
@@ -705,13 +705,13 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
 
     return $retval;
-} // end displayRoutineEditor()
+} // end PMA_RTN_getEditorForm()
 
 /**
  * Creates the HTML code that shows the routine execution dialog.
  *
  * @param   array    $routine      Data for the routine returned by
- *                                 getFormInputFromRoutineName()
+ *                                 PMA_RTN_getRoutineDataFromName()
  * @param   bool     $is_ajax      True, if called from an ajax request
  *
  * @return  string   HTML code for the routine execution dialog.
@@ -727,7 +727,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
  * @uses    htmlentities()
  * @uses    PMA_unquote()
  */
-function displayRoutineExecuteForm($routine, $is_ajax)
+function PMA_RTN_getExecuteForm($routine, $is_ajax)
 {
     global $db, $cfg;
 
@@ -868,7 +868,7 @@ function displayRoutineExecuteForm($routine, $is_ajax)
     $retval .= "<!-- END ROUTINE EXECUTE FORM -->\n\n";
 
     return $retval;
-} // end displayRoutineExecuteForm()
+} // end PMA_RTN_getExecuteForm()
 
 /**
  * Composes the query necessary to create a routine from an HTTP request.
@@ -886,7 +886,7 @@ function displayRoutineExecuteForm($routine, $is_ajax)
  * @uses    strtoupper()
  * @uses    strtolower()
  */
-function createQueryFromRequest() {
+function PMA_RTN_getQueryFromRequest() {
     global $_REQUEST, $cfg, $routine_errors, $param_sqldataaccess;
 
     $query = 'CREATE ';
@@ -1017,7 +1017,7 @@ function createQueryFromRequest() {
         $routine_errors[] = __('You must provide a routine Definition.');
     }
     return $query;
-} // end createQueryFromRequest()
+} // end PMA_RTN_getQueryFromRequest()
 
 /**
  * Creates the HTML for a row of the routines list.
@@ -1027,11 +1027,11 @@ function createQueryFromRequest() {
  * @uses    sprintf()
  * @uses    PMA_currentUserHasPrivilege()
  * @uses    PMA_backquote
- * @uses    getFormInputFromRoutineName()
+ * @uses    PMA_RTN_getRoutineDataFromName()
  * @uses    htmlspecialchars()
  * @uses    urlencode()
  */
-function getRowForListOfRoutines($routine, $ct = 0) {
+function PMA_RTN_getRowForRoutinesList($routine, $ct = 0) {
     global $titles, $db, $url_query, $ajax_class;
 
     // Do the logic first
@@ -1055,7 +1055,7 @@ function getRowForListOfRoutines($routine, $ct = 0) {
         // Check if he routine has any input parameters. If it does,
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
-        $routine_details = getFormInputFromRoutineName($db, $routine['SPECIFIC_NAME'], false);
+        $routine_details = PMA_RTN_getRoutineDataFromName($db, $routine['SPECIFIC_NAME'], false);
         if ($routine !== false) {
             $execute_action = 'execute_routine';
             for ($i=0; $i<$routine_details['num_params']; $i++) {
@@ -1096,7 +1096,7 @@ function getRowForListOfRoutines($routine, $ct = 0) {
     $retval .= "            <td>" . htmlspecialchars($routine['DTD_IDENTIFIER']) . "</td>\n";
     $retval .= "        </tr>\n";
     return $retval;
-} // end getRowForListOfRoutines()
+} // end PMA_RTN_getRowForRoutinesList()
 
 /**
  * Creates a list of available routines for the specified database
@@ -1105,9 +1105,9 @@ function getRowForListOfRoutines($routine, $ct = 0) {
  *
  * @uses    PMA_sqlAddslashes()
  * @uses    PMA_DBI_fetch_result()
- * @uses    getRowForListOfRoutines()
+ * @uses    PMA_RTN_getRowForRoutinesList()
  */
-function getListOfRoutines()
+function PMA_RTN_getRoutinesList()
 {
     global $db;
 
@@ -1153,7 +1153,7 @@ function getListOfRoutines()
     $ct = 0;
     // Display each routine
     foreach ($routines as $routine) {
-        $retval .= getRowForListOfRoutines($routine, $ct);
+        $retval .= PMA_RTN_getRowForRoutinesList($routine, $ct);
         $ct++;
     }
     $retval .= "    </table>\n";
@@ -1161,7 +1161,7 @@ function getListOfRoutines()
     $retval .= "<!-- LIST OF ROUTINES END -->\n\n";
 
     return $retval;
-} // end getListOfRoutines()
+} // end PMA_RTN_getRoutinesList()
 
 /**
  * Creates a fieldset for adding a new routine, if the user has the privileges.
@@ -1172,7 +1172,7 @@ function getListOfRoutines()
  * @uses    PMA_getIcon()
  * @uses    PMA_showMySQLDocu()
  */
-function getAddRoutineLink()
+function PMA_RTN_getAddRoutineLink()
 {
     global $db, $url_query, $ajax_class;
 
@@ -1193,7 +1193,7 @@ function getAddRoutineLink()
     $retval .= "<!-- ADD ROUTINE FORM END -->\n\n";
 
     return $retval;
-} // end getAddRoutineLink()
+} // end PMA_RTN_getAddRoutineLink()
 
 /**
  *  ### MAIN ##########################################################################################################
@@ -1241,7 +1241,7 @@ $routine_errors = array();
  */
 if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name'])) {
     // Build the queries
-    $routine   = getFormInputFromRoutineName($db, $_REQUEST['routine_name'], false);
+    $routine   = PMA_RTN_getRoutineDataFromName($db, $_REQUEST['routine_name'], false);
     if ($routine !== false) {
         $queries   = array();
         $end_query = array();
@@ -1351,9 +1351,9 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     /**
      * Display the execute form for a routine.
      */
-    $routine = getFormInputFromRoutineName($db, $_GET['routine_name'], false);
+    $routine = PMA_RTN_getRoutineDataFromName($db, $_GET['routine_name'], false);
     if ($routine !== false) {
-        $form = displayRoutineExecuteForm($routine, $GLOBALS['is_ajax_request']);
+        $form = PMA_RTN_getExecuteForm($routine, $GLOBALS['is_ajax_request']);
         if ($GLOBALS['is_ajax_request'] == true) {
             $extra_data = array();
             $extra_data['dialog'] = true;
@@ -1405,8 +1405,8 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
      * Handle a request to create/edit a routine
      */
     $sql_query = '';
-    $routine_query = createQueryFromRequest();
-    if (! count($routine_errors)) { // set by createQueryFromRequest()
+    $routine_query = PMA_RTN_getQueryFromRequest();
+    if (! count($routine_errors)) { // set by PMA_RTN_getQueryFromRequest()
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
             // Backup the old routine, in case something goes wrong
@@ -1469,7 +1469,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . "'";
             $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
             $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
-            $extra_data['new_row']   = getRowForListOfRoutines($routine);
+            $extra_data['new_row']   = PMA_RTN_getRowForRoutinesList($routine);
             $extra_data['sql_query'] = $output;
             $response = PMA_message::success();
         } else {
@@ -1503,7 +1503,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         } else {
             $title = __("Create Routine");
         }
-        $routine = getFormInputFromRequest();
+        $routine = PMA_RTN_getRoutineDataFromRequest();
         $mode = 'add';
     } else if (! empty($_REQUEST['editroutine'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
@@ -1512,19 +1512,19 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
             $title = __("Edit Routine");
         }
         if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
-            $routine = getFormInputFromRoutineName($db, $_REQUEST['routine_name']);
+            $routine = PMA_RTN_getRoutineDataFromName($db, $_REQUEST['routine_name']);
             if ($routine !== false) {
                 $routine['original_name'] = $routine['name'];
                 $routine['original_type'] = $routine['type'];
             }
         } else {
-            $routine = getFormInputFromRequest();
+            $routine = PMA_RTN_getRoutineDataFromRequest();
         }
         $mode = 'edit';
     }
     if ($routine !== false) {
         // Show form
-        $editor = displayRoutineEditor($mode, $operation, $routine, $routine_errors, $GLOBALS['is_ajax_request']);
+        $editor = PMA_RTN_getEditorForm($mode, $operation, $routine, $routine_errors, $GLOBALS['is_ajax_request']);
         if ($GLOBALS['is_ajax_request']) {
             // TODO: this needs to be refactored
             $template  = "        <tr>\n";
@@ -1568,12 +1568,12 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
 /**
  * Display a list of available routines
  */
-echo getListOfRoutines();
+echo PMA_RTN_getRoutinesList();
 
 /**
  * Display the form for adding a new routine, if the user has the privileges.
  */
-echo getAddRoutineLink();
+echo PMA_RTN_getAddRoutineLink();
 
 /**
  * Display a warning for users with PHP's old "mysql" extension.
