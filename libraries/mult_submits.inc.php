@@ -29,7 +29,7 @@ if (! empty($submit_mult)
         } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
-               case 'add_prefix_tbl': 
+               case 'add_prefix_tbl':
                case 'replace_prefix_tbl':
                case 'copy_tbl_change_prefix':
                case 'drop_db':
@@ -254,7 +254,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 </table>
         </fieldset>
         <fieldset class="tblFooters">
-                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><? echo __('Submit'); ?></button>
+                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
         </fieldset>
     <?php
         }
@@ -268,7 +268,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 </table>
         </fieldset>
         <fieldset class="tblFooters">
-                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><? echo __('Submit'); ?></button>
+                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
         </fieldset>
     <?php
         }
@@ -410,7 +410,7 @@ elseif ($mult_btn == __('Yes')) {
                            . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
-	    
+
 	    case 'add_prefix_tbl':
                 $newtablename = $add_prefix . $selected[$i];
                 $a_query = 'ALTER TABLE ' . PMA_backquote($selected[$i]) . ' RENAME ' . PMA_backquote($newtablename) ; // ADD PREFIX TO TABLE NAME

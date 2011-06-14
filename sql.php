@@ -15,7 +15,14 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'pMap.js';
+
+if(isset($_SESSION['profiling'])) {
+    $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+    /* Files required for chart exporting */
+    $GLOBALS['js_include'][] = 'highcharts/exporting.js';
+    $GLOBALS['js_include'][] = 'canvg/canvg.js';
+    $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
+}
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -899,7 +906,38 @@ else {
     }
 
     if (isset($profiling_results)) {
-        PMA_profilingResults($profiling_results, true);
+		// pma_token/url_query needed for chart export
+?>
+<script type="text/javascript">
+pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
+url_query = '<?php echo isset($url_query)?$url_query:PMA_generate_common_url($db);?>';
+$(document).ready(createProfilingChart);
+</script>
+<?php
+        echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
+        echo '<div style="float: left;">';
+        echo '<table>' . "\n";
+        echo ' <tr>' .  "\n";
+        echo '  <th>' . __('Status') . '</th>' . "\n";
+        echo '  <th>' . __('Time') . '</th>' . "\n";
+        echo ' </tr>' .  "\n";
+
+        $chart_json = Array();
+        foreach($profiling_results as $one_result) {
+            echo ' <tr>' .  "\n";
+            echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
+            echo '<td align="right">' . (PMA_formatNumber($one_result['Duration'],3,1)) . 's</td>' .  "\n";
+            $chart_json[ucwords($one_result['Status'])] = $one_result['Duration'];
+        }
+
+        echo '</table>' . "\n";
+        echo '</div>';
+        //require_once './libraries/chart.lib.php';
+        echo '<div id="profilingchart" style="display:none;">';
+        //PMA_chart_profiling($profiling_results);
+        echo json_encode($chart_json);
+        echo '</div>';
+        echo '</fieldset>' . "\n";
     }
 
     // Displays the results in a table
