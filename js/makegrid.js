@@ -493,6 +493,7 @@
         // register events
         if ($firstRowCols.length > 1) {
             $(t).find('th.draggable')
+                .css('cursor', 'move')
                 .mousedown(function(e) {
                     g.dragStartMove(e, this);
                 });
@@ -506,6 +507,7 @@
                 g.hideHint();
             });
         $(t).find('th.draggable a')
+            .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
                 g.showSortHint = true;
                 g.showMarkHint = false;
