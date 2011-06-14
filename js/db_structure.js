@@ -133,12 +133,8 @@ $(document).ready(function() {
             if ($("#insert_table_dialog").length > 0) {
                 $("#insert_table_dialog").parent().dialog("close").remove();
             }
-            /**Getting the url of the databse from the serverinfo tab*/
-            var db_structure_url = $('#serverinfo a:nth-child(3)').attr("href");
-            $("#tablesForm").remove();
-            $("#tableslistcontainer")
-                /**load the updated tablesForm*/
-                .load(db_structure_url+ " #tablesForm", function(){});
+            /**Update the row count at the tableForm*/
+            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -173,12 +169,8 @@ $(document).ready(function() {
             if ($("#insert_table_dialog").length > 0) {
                 $("#insert_table_dialog").parent().dialog("close").remove();
             }
-            /**Getting the url of the databse from the serverinfo tab*/
-            var db_structure_url = $('#serverinfo a:nth-child(3)').attr("href");
-            $("#tablesForm").remove();
-            $("#tableslistcontainer")
-                /**load the updated tablesForm*/
-                .load(db_structure_url+ " #tablesForm", function(){});
+            /**Update the row count at the tableForm*/
+            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
         }) // end $.post()
     });
 
