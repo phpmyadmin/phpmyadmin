@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-14 13:54+0200\n"
+"POT-Creation-Date: 2011-06-14 17:22+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "Қидириш"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358
-#: db_structure.php:535 enum_editor.php:63 js/messages.php:76
+#: db_structure.php:535 enum_editor.php:63 js/messages.php:79
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1300
 #: libraries/common.lib.php:2230 libraries/core.lib.php:557
@@ -83,7 +83,7 @@ msgstr "Индекс номи"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:1009
+#: server_status.php:1014
 msgid "Description"
 msgstr "Тавсифи"
 
@@ -196,7 +196,7 @@ msgstr "Алоқалар"
 msgid "Comments"
 msgstr "Изоҳлар"
 
-#: db_datadict.php:260 js/messages.php:95 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:98 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -212,7 +212,7 @@ msgstr "Изоҳлар"
 msgid "No"
 msgstr "Йўқ"
 
-#: db_datadict.php:260 js/messages.php:94 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:97 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -272,7 +272,7 @@ msgstr "\"%s\" маълумотлар базасидан \"%s\" га нусха 
 msgid "Rename database to"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
-#: db_operations.php:409 server_status.php:778
+#: db_operations.php:409 server_status.php:783
 msgid "Command"
 msgstr "Буйруқ"
 
@@ -647,7 +647,7 @@ msgstr "Намойиш"
 
 #: db_structure.php:444 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:236
+#: server_replication.php:162 server_status.php:238
 msgid "Replication"
 msgstr "Репликация (захира нусха кўчириш)"
 
@@ -760,7 +760,7 @@ msgstr "Кузатилган жадваллар"
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
-#: server_privileges.php:2059 server_status.php:777
+#: server_privileges.php:2059 server_status.php:782
 #: server_synchronize.php:1190 server_synchronize.php:1194
 #: tbl_tracking.php:642 test/theme.php:63
 msgid "Database"
@@ -778,7 +778,7 @@ msgstr "Тузилди"
 msgid "Updated"
 msgstr "Янгиланди"
 
-#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:780
+#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:785
 #: sql.php:912 tbl_tracking.php:647 test/theme.php:99
 msgid "Status"
 msgstr "Ҳолат"
@@ -1096,169 +1096,181 @@ msgstr "Белгиланган фойдаланувчиларни ўчириш"
 msgid "Close"
 msgstr "Ёпиш"
 
-#: js/messages.php:64 server_status.php:391 server_status.php:418
-msgid "Realtime chart"
+#: js/messages.php:64 server_status.php:393
+#, fuzzy
+#| msgid "Server Choice"
+msgid "Live traffic chart"
+msgstr "Серверни танланг"
+
+#: js/messages.php:65 server_status.php:396
+msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:65
+#: js/messages.php:66 server_status.php:423
+#, fuzzy
+#| msgid "SQL Query box"
+msgid "Live query chart"
+msgstr "SQL сўровлари қутиси"
+
+#: js/messages.php:68
 msgid "Static data"
 msgstr ""
 
 #. l10n: Total number of queries
-#: js/messages.php:67 libraries/build_html_for_db.lib.php:45
+#: js/messages.php:70 libraries/build_html_for_db.lib.php:45
 #: libraries/engines/innodb.lib.php:168 server_databases.php:219
-#: server_status.php:680 server_status.php:741 tbl_printview.php:348
+#: server_status.php:685 server_status.php:746 tbl_printview.php:348
 #: tbl_structure.php:790
 msgid "Total"
 msgstr "Жами"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:69 server_status.php:581
+#: js/messages.php:72 server_status.php:586
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:71 libraries/common.lib.php:1359
+#: js/messages.php:74 libraries/common.lib.php:1359
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: js/messages.php:73 libraries/common.lib.php:1361
+#: js/messages.php:76 libraries/common.lib.php:1361
 msgid "."
 msgstr ","
 
-#: js/messages.php:77 libraries/tbl_properties.inc.php:796 pmd_general.php:388
+#: js/messages.php:80 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr "Бекор қилиш"
 
-#: js/messages.php:80
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Load"
 msgid "Loading"
 msgstr "Юклаш"
 
-#: js/messages.php:81
+#: js/messages.php:84
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Жараёнлар"
 
-#: js/messages.php:82 libraries/import/ods.php:80
+#: js/messages.php:85 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr ""
 
-#: js/messages.php:83
+#: js/messages.php:86
 msgid "Dropping Column"
 msgstr ""
 
-#: js/messages.php:84
+#: js/messages.php:87
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:85 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:88 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:88
+#: js/messages.php:91
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
-#: js/messages.php:89
+#: js/messages.php:92
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
-#: js/messages.php:90
+#: js/messages.php:93
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Маълумотлар базасидан қуйидагига нусха олиш"
 
-#: js/messages.php:91
+#: js/messages.php:94
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Кодировка"
 
-#: js/messages.php:92
+#: js/messages.php:95
 #, fuzzy
 #| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Жадвалда, ҳеч бўлмаганда, битта майдон бўлиши шарт."
 
-#: js/messages.php:93
+#: js/messages.php:96
 #, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "Жадвал тузиш"
 
-#: js/messages.php:98
+#: js/messages.php:101
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Жадвалларни ишлатиш"
 
-#: js/messages.php:101
+#: js/messages.php:104
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Қидириш"
 
-#: js/messages.php:102
+#: js/messages.php:105
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search results"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:103
+#: js/messages.php:106
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search results"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:104
+#: js/messages.php:107
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Кўриб чиқиш"
 
-#: js/messages.php:105
+#: js/messages.php:108
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "\"%s\" ўчирилмоқда"
 
-#: js/messages.php:108
+#: js/messages.php:111
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:111
+#: js/messages.php:114
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:112
+#: js/messages.php:115
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:113
+#: js/messages.php:116
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Жадвал турлари"
 
-#: js/messages.php:114 libraries/Index.class.php:465
+#: js/messages.php:117 libraries/Index.class.php:465
 #: libraries/common.lib.php:594 libraries/common.lib.php:1129
 #: libraries/common.lib.php:2945 libraries/config/messages.inc.php:471
 #: libraries/display_tbl.lib.php:1211 libraries/import.lib.php:1150
@@ -1267,7 +1279,7 @@ msgstr "Жадвал турлари"
 msgid "Edit"
 msgstr "Таҳрирлаш"
 
-#: js/messages.php:115 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:118 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:785 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1275,79 +1287,79 @@ msgstr "Таҳрирлаш"
 msgid "Save"
 msgstr "Сақлаш"
 
-#: js/messages.php:116 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:119 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "Яшириш"
 
-#: js/messages.php:119
+#: js/messages.php:122
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:120
+#: js/messages.php:123
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:123 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:126 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "Эътибор бермаслик"
 
-#: js/messages.php:126
+#: js/messages.php:129
 msgid "Select referenced key"
 msgstr "Боғлиқ калитни танланг"
 
-#: js/messages.php:127
+#: js/messages.php:130
 msgid "Select Foreign Key"
 msgstr "Ташқи калитни танланг"
 
-#: js/messages.php:128
+#: js/messages.php:131
 msgid "Please select the primary key or a unique key"
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
-#: js/messages.php:129 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:132 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Кўрсатиладиган майдонни танлаш"
 
-#: js/messages.php:130
+#: js/messages.php:133
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:133
+#: js/messages.php:136
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:136
+#: js/messages.php:139
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Парол ўрнатиш"
 
-#: js/messages.php:137 libraries/replication_gui.lib.php:365
+#: js/messages.php:140 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "Генерация қилиш"
 
-#: js/messages.php:138
+#: js/messages.php:141
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Паролни ўзгартириш"
 
-#: js/messages.php:141 tbl_structure.php:471
+#: js/messages.php:144 tbl_structure.php:471
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Душ"
 
-#: js/messages.php:144 setup/lib/index.lib.php:158
+#: js/messages.php:147 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1358,34 +1370,34 @@ msgstr ""
 "чиқарилган."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:146
+#: js/messages.php:149
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Охирги версияни текшириш"
 
-#: js/messages.php:147
+#: js/messages.php:150
 #, fuzzy
 #| msgid "Go to database"
 msgid "up to date"
 msgstr "Ушбу базага ўтиш"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:165
+#: js/messages.php:168
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Садақа"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:167
+#: js/messages.php:170
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Орқага"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:169 libraries/common.lib.php:2293
+#: js/messages.php:172 libraries/common.lib.php:2293
 #: libraries/common.lib.php:2296 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
@@ -1393,96 +1405,96 @@ msgid "Next"
 msgstr "Кейинги"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:171
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Жами"
 
-#: js/messages.php:174
+#: js/messages.php:177
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Иккилик"
 
-#: js/messages.php:175
+#: js/messages.php:178
 msgid "February"
 msgstr ""
 
-#: js/messages.php:176
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Мар"
 
-#: js/messages.php:177
+#: js/messages.php:180
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Апр"
 
-#: js/messages.php:178
+#: js/messages.php:181
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:179
+#: js/messages.php:182
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Июн"
 
-#: js/messages.php:180
+#: js/messages.php:183
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Июл"
 
-#: js/messages.php:181
+#: js/messages.php:184
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Авг"
 
-#: js/messages.php:182
+#: js/messages.php:185
 msgid "September"
 msgstr ""
 
-#: js/messages.php:183
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Окт"
 
-#: js/messages.php:184
+#: js/messages.php:187
 msgid "November"
 msgstr ""
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:189 libraries/common.lib.php:1496
+#: js/messages.php:192 libraries/common.lib.php:1496
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:191 libraries/common.lib.php:1498
+#: js/messages.php:194 libraries/common.lib.php:1498
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:193 libraries/common.lib.php:1500
+#: js/messages.php:196 libraries/common.lib.php:1500
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:195 libraries/common.lib.php:1502
+#: js/messages.php:198 libraries/common.lib.php:1502
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:197 libraries/common.lib.php:1504
+#: js/messages.php:200 libraries/common.lib.php:1504
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1490,178 +1502,178 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:199 libraries/common.lib.php:1506
+#: js/messages.php:202 libraries/common.lib.php:1506
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:201 libraries/common.lib.php:1508
+#: js/messages.php:204 libraries/common.lib.php:1508
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:203 libraries/common.lib.php:1510
+#: js/messages.php:206 libraries/common.lib.php:1510
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:205 libraries/common.lib.php:1512
+#: js/messages.php:208 libraries/common.lib.php:1512
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:207 libraries/common.lib.php:1514
+#: js/messages.php:210 libraries/common.lib.php:1514
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:209 libraries/common.lib.php:1516
+#: js/messages.php:212 libraries/common.lib.php:1516
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:211 libraries/common.lib.php:1518
+#: js/messages.php:214 libraries/common.lib.php:1518
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:214
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Якш"
 
-#: js/messages.php:215
+#: js/messages.php:218
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Душ"
 
-#: js/messages.php:216
+#: js/messages.php:219
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Сеш"
 
-#: js/messages.php:217
+#: js/messages.php:220
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:219
+#: js/messages.php:222
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Жум"
 
-#: js/messages.php:220
+#: js/messages.php:223
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:224 libraries/common.lib.php:1521
+#: js/messages.php:227 libraries/common.lib.php:1521
 msgid "Sun"
 msgstr "Якш"
 
 #. l10n: Short week day name
-#: js/messages.php:226 libraries/common.lib.php:1523
+#: js/messages.php:229 libraries/common.lib.php:1523
 msgid "Mon"
 msgstr "Душ"
 
 #. l10n: Short week day name
-#: js/messages.php:228 libraries/common.lib.php:1525
+#: js/messages.php:231 libraries/common.lib.php:1525
 msgid "Tue"
 msgstr "Сеш"
 
 #. l10n: Short week day name
-#: js/messages.php:230 libraries/common.lib.php:1527
+#: js/messages.php:233 libraries/common.lib.php:1527
 msgid "Wed"
 msgstr "Чор"
 
 #. l10n: Short week day name
-#: js/messages.php:232 libraries/common.lib.php:1529
+#: js/messages.php:235 libraries/common.lib.php:1529
 msgid "Thu"
 msgstr "Пай"
 
 #. l10n: Short week day name
-#: js/messages.php:234 libraries/common.lib.php:1531
+#: js/messages.php:237 libraries/common.lib.php:1531
 msgid "Fri"
 msgstr "Жум"
 
 #. l10n: Short week day name
-#: js/messages.php:236 libraries/common.lib.php:1533
+#: js/messages.php:239 libraries/common.lib.php:1533
 msgid "Sat"
 msgstr "Шан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:240
+#: js/messages.php:243
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Якш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:242
+#: js/messages.php:245
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Душ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:244
+#: js/messages.php:247
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Сеш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:246
+#: js/messages.php:249
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Чор"
 
 #. l10n: Minimal week day name
-#: js/messages.php:248
+#: js/messages.php:251
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пай"
 
 #. l10n: Minimal week day name
-#: js/messages.php:250
+#: js/messages.php:253
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Жум"
 
 #. l10n: Minimal week day name
-#: js/messages.php:252
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Шан"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:254
+#: js/messages.php:257
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Вики"
 
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:257
+#: js/messages.php:260
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "ишлатилмоқда"
 
-#: js/messages.php:258
+#: js/messages.php:261
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2048,7 +2060,7 @@ msgstr ""
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
-#: server_status.php:238
+#: server_status.php:240
 msgid "Tables"
 msgstr "Жадваллар"
 
@@ -2190,7 +2202,7 @@ msgid "Documentation"
 msgstr "Документация"
 
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
-#: server_status.php:225 server_status.php:782
+#: server_status.php:227 server_status.php:787
 msgid "SQL query"
 msgstr "SQL сўрови"
 
@@ -2221,7 +2233,7 @@ msgid "Create PHP Code"
 msgstr "PHP-код"
 
 #: libraries/common.lib.php:1163 libraries/config/messages.inc.php:473
-#: server_status.php:374 server_status.php:402 server_status.php:430
+#: server_status.php:376 server_status.php:407 server_status.php:435
 msgid "Refresh"
 msgstr "Янгилаш"
 
@@ -5161,7 +5173,7 @@ msgstr "Сиқиш"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:517
 #: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:510 server_privileges.php:1955 server_status.php:814
+#: pmd_general.php:510 server_privileges.php:1955 server_status.php:819
 msgid "None"
 msgstr "Йўқ"
 
@@ -5413,7 +5425,7 @@ msgid "The row has been deleted"
 msgstr "Ёзув ўчирилди"
 
 #: libraries/display_tbl.lib.php:1266 libraries/display_tbl.lib.php:2195
-#: server_status.php:810
+#: server_status.php:815
 msgid "Kill"
 msgstr "Тугатиш"
 
@@ -5507,7 +5519,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Буфер пули"
 
-#: libraries/engines/innodb.lib.php:135 server_status.php:285
+#: libraries/engines/innodb.lib.php:135 server_status.php:287
 msgid "InnoDB Status"
 msgstr "InnoDB аҳволи"
 
@@ -6029,7 +6041,7 @@ msgstr "Мавжуд MIME турлари"
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
 #: libraries/replication_gui.lib.php:331 server_privileges.php:713
 #: server_privileges.php:716 server_privileges.php:772
-#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:776
+#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:781
 msgid "Host"
 msgstr "Хост"
 
@@ -6752,13 +6764,13 @@ msgid "Slave status"
 msgstr "Тобе сервер статуси"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
-#: server_status.php:1007 server_variables.php:66
+#: server_status.php:1012 server_variables.php:66
 msgid "Variable"
 msgstr "Ўзгарувчи"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
-#: server_status.php:1008 tbl_change.php:325 tbl_printview.php:367
+#: server_status.php:1013 tbl_change.php:325 tbl_printview.php:367
 #: tbl_select.php:116 tbl_structure.php:823
 msgid "Value"
 msgstr "Қиймати"
@@ -7005,12 +7017,12 @@ msgid "Synchronize"
 msgstr "Синхронизация қилиш"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:231 test/theme.php:119
+#: server_status.php:233 test/theme.php:119
 msgid "Binary log"
 msgstr "Иккилик журнал"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:283 test/theme.php:103
+#: server_engines.php:129 server_status.php:285 test/theme.php:103
 msgid "Variables"
 msgstr "Ўзгарувчилар"
 
@@ -7307,7 +7319,7 @@ msgstr "Бўлакларни (PARTITIONS) белгилаш"
 msgid "+ Add a new value"
 msgstr "Янги фойдаланувчи қўшиш"
 
-#: libraries/tbl_triggers.inc.php:27 server_status.php:779 sql.php:913
+#: libraries/tbl_triggers.inc.php:27 server_status.php:784 sql.php:913
 msgid "Time"
 msgstr "Вақт"
 
@@ -7555,7 +7567,7 @@ msgid "Protocol version"
 msgstr "Протокол версияси"
 
 #: main.php:165 server_privileges.php:1452 server_privileges.php:1606
-#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:775
+#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:780
 msgid "User"
 msgstr "Фойдаланувчи"
 
@@ -8063,17 +8075,17 @@ msgstr "\"%s\" жадвали мавжуд эмас!"
 msgid "Select binary log to view"
 msgstr "Кўриш учун бинар журнални танланг"
 
-#: server_binlog.php:122 server_status.php:240
+#: server_binlog.php:122 server_status.php:242
 msgid "Files"
 msgstr "Файллар сони "
 
-#: server_binlog.php:169 server_binlog.php:171 server_status.php:785
-#: server_status.php:787
+#: server_binlog.php:169 server_binlog.php:171 server_status.php:790
+#: server_status.php:792
 msgid "Truncate Shown Queries"
 msgstr "Сўровларни қисқартириб кўрсатиш"
 
-#: server_binlog.php:177 server_binlog.php:179 server_status.php:785
-#: server_status.php:787
+#: server_binlog.php:177 server_binlog.php:179 server_status.php:790
+#: server_status.php:792
 msgid "Show Full Queries"
 msgstr "Сўровларнинг кенгайтирилган кўриниши"
 
@@ -8620,7 +8632,7 @@ msgstr "Бош репликация сервери қуйидагига ўзга
 msgid "This server is configured as master in a replication process."
 msgstr "Ушбу сервер репликация жараёнида \"бош\" деб конфигурация қилинган."
 
-#: server_replication.php:182 server_status.php:260
+#: server_replication.php:182 server_status.php:262
 msgid "Show master status"
 msgstr "Уланган бош серверларни кўрсатиш"
 
@@ -8781,179 +8793,179 @@ msgstr ""
 "Ушбу сервер репликация жараёнида \"тобе сервер\" деб конфигурация "
 "қилинмаган. Сиз уни <a href=\"%s\">конфигурация</a> қилмоқчимисиз?"
 
-#: server_status.php:99
+#: server_status.php:101
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr " \"%s\" жараёни муваффақиятли якунланди."
 
-#: server_status.php:101
+#: server_status.php:103
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "phpMyAdmin \"%s\" оқим ишини тугута олмади. Эҳтимол, у аллақачон ёпиқ."
 
-#: server_status.php:228
+#: server_status.php:230
 msgid "Handler"
 msgstr "Қайта ишловчи дастур"
 
-#: server_status.php:229
+#: server_status.php:231
 msgid "Query cache"
 msgstr "Сўровлар кеши"
 
-#: server_status.php:230
+#: server_status.php:232
 msgid "Threads"
 msgstr "Оқимлар"
 
-#: server_status.php:232
+#: server_status.php:234
 msgid "Temporary data"
 msgstr "Вақтинчалик маълумотлар"
 
-#: server_status.php:233
+#: server_status.php:235
 msgid "Delayed inserts"
 msgstr "Кечиктирилган қўйилмалар"
 
-#: server_status.php:234
+#: server_status.php:236
 msgid "Key cache"
 msgstr "Индекс кеши"
 
-#: server_status.php:235
+#: server_status.php:237
 msgid "Joins"
 msgstr "Бирлашишлар"
 
-#: server_status.php:237
+#: server_status.php:239
 msgid "Sorting"
 msgstr "Сортировка"
 
-#: server_status.php:239
+#: server_status.php:241
 msgid "Transaction coordinator"
 msgstr "Транзакциялар координатори"
 
-#: server_status.php:250
+#: server_status.php:252
 msgid "Flush (close) all tables"
 msgstr "Барча жадвалларни ёпиш"
 
-#: server_status.php:252
+#: server_status.php:254
 msgid "Show open tables"
 msgstr "Очиқ жадваллар рўйхати"
 
-#: server_status.php:257
+#: server_status.php:259
 msgid "Show slave hosts"
 msgstr "Тобе серверлар ҳақида маълумот"
 
-#: server_status.php:263
+#: server_status.php:265
 msgid "Show slave status"
 msgstr "Репликация сервери аҳволи ҳақида маълумот"
 
-#: server_status.php:268
+#: server_status.php:270
 msgid "Flush query cache"
 msgstr "Сўровлар кешини дефрагментация қилиш"
 
-#: server_status.php:360
+#: server_status.php:362
 msgid "Runtime Information"
 msgstr "MySQL-сервернинг ҳозирги ҳолати"
 
-#: server_status.php:365
+#: server_status.php:367
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
 msgstr "Серверни танланг"
 
-#: server_status.php:366
+#: server_status.php:368
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Query statistics"
 msgstr "Статискани кўрсатиш"
 
-#: server_status.php:367
+#: server_status.php:369
 #, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
 msgstr "Тобе сервер статуси жадвалини кўриш"
 
-#: server_status.php:377 server_status.php:405
+#: server_status.php:379 server_status.php:410
 #, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
 msgstr "Янгилаш"
 
-#: server_status.php:378 server_status.php:406
+#: server_status.php:380 server_status.php:411
 #, fuzzy
 #| msgid "per second"
 msgid "second"
 msgstr "секундига"
 
-#: server_status.php:379 server_status.php:380 server_status.php:381
-#: server_status.php:382 server_status.php:383 server_status.php:407
-#: server_status.php:408 server_status.php:409 server_status.php:410
-#: server_status.php:411
+#: server_status.php:381 server_status.php:382 server_status.php:383
+#: server_status.php:384 server_status.php:385 server_status.php:412
+#: server_status.php:413 server_status.php:414 server_status.php:415
+#: server_status.php:416
 #, fuzzy
 #| msgid "per second"
 msgid "seconds"
 msgstr "секундига"
 
-#: server_status.php:384 server_status.php:385 server_status.php:386
-#: server_status.php:387 server_status.php:412 server_status.php:413
-#: server_status.php:414 server_status.php:415
+#: server_status.php:386 server_status.php:387 server_status.php:388
+#: server_status.php:389 server_status.php:417 server_status.php:418
+#: server_status.php:419 server_status.php:420
 #, fuzzy
 #| msgid "in use"
 msgid "minutes"
 msgstr "ишлатилмоқда"
 
-#: server_status.php:435
+#: server_status.php:440
 #, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Паролни ўзгартирмаслик"
 
-#: server_status.php:440
+#: server_status.php:445
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Очиқ жадваллар рўйхати"
 
-#: server_status.php:444
+#: server_status.php:449
 msgid "Filter by category..."
 msgstr ""
 
-#: server_status.php:457
+#: server_status.php:462
 #, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
 msgstr "Алоқалар"
 
-#: server_status.php:502 server_status.php:534 server_status.php:655
-#: server_status.php:700
+#: server_status.php:507 server_status.php:539 server_status.php:660
+#: server_status.php:705
 msgid "per hour"
 msgstr "соатига"
 
-#: server_status.php:505
+#: server_status.php:510
 msgid "per minute"
 msgstr "минутига"
 
-#: server_status.php:510
+#: server_status.php:515
 msgid "per second"
 msgstr "секундига"
 
-#: server_status.php:529
+#: server_status.php:534
 msgid "Query type"
 msgstr "Сўров тури"
 
 #. l10n: # = Amount of queries
-#: server_status.php:532
+#: server_status.php:537
 msgid "#"
 msgstr ""
 
-#: server_status.php:604
+#: server_status.php:609
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:612
+#: server_status.php:617
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "MySQL-сервер \"%s\" давомида ишламоқда. Ишга туширилган вақт: \"%s\"."
 
-#: server_status.php:622
+#: server_status.php:627
 #, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid ""
@@ -8961,19 +8973,19 @@ msgid ""
 "b> process."
 msgstr "Ушбу сервер репликация жараёнида \"бош\" деб конфигурация қилинган."
 
-#: server_status.php:624
+#: server_status.php:629
 #, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr "Ушбу сервер репликация жараёнида \"бош\" деб конфигурация қилинган."
 
-#: server_status.php:626
+#: server_status.php:631
 #, fuzzy
 #| msgid "This server is configured as master in a replication process."
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "Ушбу сервер репликация жараёнида \"бош\" деб конфигурация қилинган."
 
-#: server_status.php:628
+#: server_status.php:633
 #, fuzzy
 #| msgid ""
 #| "This MySQL server works as %s in <b>replication</b> process. For further "
@@ -8987,15 +8999,15 @@ msgstr ""
 "сифатида ишлайди. Сервернинг репликация статуси ҳақида батафсил маълумот "
 "учун, &lt;a href=\"#replication\"&gt;репликация бўлими&lt;/a&gt;га киринг."
 
-#: server_status.php:638
+#: server_status.php:643
 msgid "Replication status"
 msgstr "Репликация статуси"
 
-#: server_status.php:654
+#: server_status.php:659
 msgid "Traffic"
 msgstr "Трафик"
 
-#: server_status.php:654
+#: server_status.php:659
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9003,45 +9015,45 @@ msgstr ""
 "Юқори юкламага эга бўлган серверларда ҳисоблагич тўлиб қолиши мумкин, шунинг "
 "учун, MySQL сервери берган статистик маълумотлар нотўғри бўлиши мумкин."
 
-#: server_status.php:660
+#: server_status.php:665
 msgid "Received"
 msgstr "Қабул қилинди"
 
-#: server_status.php:670
+#: server_status.php:675
 msgid "Sent"
 msgstr "Юборилди"
 
-#: server_status.php:699
+#: server_status.php:704
 msgid "Connections"
 msgstr "Уланишлар"
 
-#: server_status.php:706
+#: server_status.php:711
 msgid "max. concurrent connections"
 msgstr "Максимал уланишлар сони "
 
-#: server_status.php:713
+#: server_status.php:718
 msgid "Failed attempts"
 msgstr "Муваффақиятсиз уринишлар сони: "
 
-#: server_status.php:727
+#: server_status.php:732
 msgid "Aborted"
 msgstr "Узилди"
 
-#: server_status.php:773
+#: server_status.php:778
 msgid "Processes"
 msgstr "Жараёнлар"
 
-#: server_status.php:774
+#: server_status.php:779
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:835
+#: server_status.php:840
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL-серверга уланиб бўлмади"
 
-#: server_status.php:836
+#: server_status.php:841
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9050,16 +9062,16 @@ msgstr ""
 "Бинар журнали кешини ишлатиб, \"binlog_cache_size\" қийматидан ошиб, ўз "
 "ичига олган SQL-жумлалари вақтинчалик файлга сақланган транзакциялар сони."
 
-#: server_status.php:837
+#: server_status.php:842
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Бинар журнал кешини ишлатган транзакциялар сони."
 
-#: server_status.php:838
+#: server_status.php:843
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:839
+#: server_status.php:844
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9072,11 +9084,11 @@ msgstr ""
 "сақланишини таъминлаш мақсадида tmp_table_size ўзгарувчисининг қийматини "
 "ошириш тавсия этилади."
 
-#: server_status.php:840
+#: server_status.php:845
 msgid "How many temporary files mysqld has created."
 msgstr "MySQL сервери (mysqld) томонидан тузилган вақтинчалик файллар сони."
 
-#: server_status.php:841
+#: server_status.php:846
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9084,7 +9096,7 @@ msgstr ""
 "Сервер томонидан SQL-жумлалари бажарилаётган вақтда хотирада автоматик "
 "тузилган вақтинчалик жадваллар сони."
 
-#: server_status.php:842
+#: server_status.php:847
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9092,31 +9104,31 @@ msgstr ""
 "\"INSERT DELAYED\" сўровларини қайта ишлаш жараёнида юз берган хатолар "
 "(масалан, калитлар такрорланиши оқибатида) сони."
 
-#: server_status.php:843
+#: server_status.php:848
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr "Бажариладиган \"INSERT DELAYED\" сўровлар сони."
 
-#: server_status.php:844
+#: server_status.php:849
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 "Маълумотларни кечиктириб қўйиш (\"INSERT DELAYED\") режимида ёзилган "
 "қаторлар сони."
 
-#: server_status.php:845
+#: server_status.php:850
 msgid "The number of executed FLUSH statements."
 msgstr "Бажарилган \"FLUSH\" буйруқлар сони."
 
-#: server_status.php:846
+#: server_status.php:851
 msgid "The number of internal COMMIT statements."
 msgstr "Ички \"COMMIT\" буйруқлари сони."
 
-#: server_status.php:847
+#: server_status.php:852
 msgid "The number of times a row was deleted from a table."
 msgstr "Жадвалдал ёзувларни ўчириш бўйича сшровлар сони."
 
-#: server_status.php:848
+#: server_status.php:853
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9126,7 +9138,7 @@ msgstr ""
 "бериши мумкин. Бу жараён топиш деб номланади. Handler_discover - топилган "
 "жадваллар сони."
 
-#: server_status.php:849
+#: server_status.php:854
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9135,7 +9147,7 @@ msgstr ""
 "Индексдан биринчи ёзувни ўқишга бўлган сўровлар сони. Ўзгарувчининг қиймати "
 "катта бўлса, сервер бир неча маротиба индексни кўриб чиқади."
 
-#: server_status.php:850
+#: server_status.php:855
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9144,7 +9156,7 @@ msgstr ""
 "Ўзгарувчининг қиймати катталиги сўров ва жадваллар тўғри индексланганидан "
 "далолат беради."
 
-#: server_status.php:851
+#: server_status.php:856
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9154,7 +9166,7 @@ msgstr ""
 "Ҳажми чекланган индекс устунига бўлган сўров ёки индексни кўриб чиқиш "
 "вақтида ўзгарувчи қиймати ошади."
 
-#: server_status.php:852
+#: server_status.php:857
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9163,7 +9175,7 @@ msgstr ""
 "бўлган сўровлар сони. Одатда оптималлаштириш учун қўлланилади: ORDER BY ... "
 "DESC."
 
-#: server_status.php:853
+#: server_status.php:858
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9176,7 +9188,7 @@ msgstr ""
 "чиқишни талаб этадиган сўровларнинг тез-ез бажарилиши; индекслардан нотўғри "
 "фойдаланадиган бирлашмаларнинг мавжудлиги."
 
-#: server_status.php:854
+#: server_status.php:859
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9188,35 +9200,35 @@ msgstr ""
 "индексланганлигини ёки сўровлар индексларнинг афзалликларидан "
 "фойдаланмаётганлигини билдиради."
 
-#: server_status.php:855
+#: server_status.php:860
 msgid "The number of internal ROLLBACK statements."
 msgstr "ROLLBACK ички буйруқлар сони."
 
-#: server_status.php:856
+#: server_status.php:861
 msgid "The number of requests to update a row in a table."
 msgstr "Жадвалдаги ёзувларни янгилашга бўлган сўровлар сони."
 
-#: server_status.php:857
+#: server_status.php:862
 msgid "The number of requests to insert a row in a table."
 msgstr "Жадвалга ёзув қўйишга бўлган сўровлар сони."
 
-#: server_status.php:858
+#: server_status.php:863
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Маълумот мавжуд бўлган саҳифалар сони (\"кир\" ва \"тоза\")."
 
-#: server_status.php:859
+#: server_status.php:864
 msgid "The number of pages currently dirty."
 msgstr "\"Кир\" саҳифаларнинг жорий сони."
 
-#: server_status.php:860
+#: server_status.php:865
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Буфер пулидаги тозалаш жараёни (FLUSH) қўлланилган саҳифалар сони."
 
-#: server_status.php:861
+#: server_status.php:866
 msgid "The number of free pages."
 msgstr "Бўш саҳифалар сони."
 
-#: server_status.php:862
+#: server_status.php:867
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9226,7 +9238,7 @@ msgstr ""
 "устидан ўқиш ёки ёзиш жараёни бажарилмоқда, ёки уларни бошқа сабабларга кўра "
 "тозалаш ёки ўчириш имконияти йўқ."
 
-#: server_status.php:863
+#: server_status.php:868
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9238,11 +9250,11 @@ msgstr ""
 "\"Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data\"."
 
-#: server_status.php:864
+#: server_status.php:869
 msgid "Total size of buffer pool, in pages."
 msgstr "Буфер пулининг умумий ҳажми (саҳифаларда)."
 
-#: server_status.php:865
+#: server_status.php:870
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -9251,7 +9263,7 @@ msgstr ""
 "сони. Ушбу ҳол сўров жадвални тасодифий тартибда кўриб чиқаётганда рўй "
 "беради."
 
-#: server_status.php:866
+#: server_status.php:871
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -9260,12 +9272,12 @@ msgstr ""
 "сони. Ушбу ҳол InnoDB жадвални тўлалигича кетма-кет кўриб чиқаётганда рўй "
 "беради"
 
-#: server_status.php:867
+#: server_status.php:872
 msgid "The number of logical read requests InnoDB has done."
 msgstr ""
 "InnoDB томонидан амалга оширилган ўқишга бўлган кетма-кет сўровлар сони."
 
-#: server_status.php:868
+#: server_status.php:873
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -9273,7 +9285,7 @@ msgstr ""
 "InnoDB буфер пулидан бажар олмаган ва саҳифалаб ўқишдан фойдаланган ўқишга "
 "бўлган кетма-кет сўровлар сони."
 
-#: server_status.php:869
+#: server_status.php:874
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9286,51 +9298,51 @@ msgstr ""
 "Ушбу ҳисоблагич шундай кутишлар сонини билдиради. Агар буфер пулининг ҳажми "
 "тўғри белгиланган бўлса, унда кутишлар сони катта бўлмаслиги керак."
 
-#: server_status.php:870
+#: server_status.php:875
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB буфер пулига амалга оширилган ёзувлар сони."
 
-#: server_status.php:871
+#: server_status.php:876
 msgid "The number of fsync() operations so far."
 msgstr "Жорий вақтда амалга оширилган \"fsync()\" операциялари сони."
 
-#: server_status.php:872
+#: server_status.php:877
 msgid "The current number of pending fsync() operations."
 msgstr "Тугалланмаган \"fsync()\" операциялари сони."
 
-#: server_status.php:873
+#: server_status.php:878
 msgid "The current number of pending reads."
 msgstr "Тугалланмаган ўқиш операциялари сони."
 
-#: server_status.php:874
+#: server_status.php:879
 msgid "The current number of pending writes."
 msgstr "Тугалланмаган ёзиш операциялари сони."
 
-#: server_status.php:875
+#: server_status.php:880
 msgid "The amount of data read so far, in bytes."
 msgstr "Жорий вақтда ўқилган маълумотлар йиғиндиси (байтларда)."
 
-#: server_status.php:876
+#: server_status.php:881
 msgid "The total number of data reads."
 msgstr "Умумий маълумотларни ўқиш операциялари сони."
 
-#: server_status.php:877
+#: server_status.php:882
 msgid "The total number of data writes."
 msgstr "Умумий маълумотларни ёзиш операциялари сони."
 
-#: server_status.php:878
+#: server_status.php:883
 msgid "The amount of data written so far, in bytes."
 msgstr "Жорий вақтда ёзилган маълумотлар йиғиндиси (байтларда)."
 
-#: server_status.php:879
+#: server_status.php:884
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "\"doublewrite\" операциялари учун ёзилган саҳифалар сони."
 
-#: server_status.php:880
+#: server_status.php:885
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Бажарилган \"doublewrite\" операциялари сони."
 
-#: server_status.php:881
+#: server_status.php:886
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -9338,35 +9350,35 @@ msgstr ""
 "Журнал буферининг ҳажми кичик бўлганлиги сабабли, унинг тозаланиши кутаётган "
 "ёзувлар сони"
 
-#: server_status.php:882
+#: server_status.php:887
 msgid "The number of log write requests."
 msgstr "Журналга ёзишга бўлган сўровларсони."
 
-#: server_status.php:883
+#: server_status.php:888
 msgid "The number of physical writes to the log file."
 msgstr "Журнал файлидаги жисмоний ёзувлар сони."
 
-#: server_status.php:884
+#: server_status.php:889
 msgid "The number of fsync() writes done to the log file."
 msgstr "Журнал файлига \"fsync()\" ёрдамида амалга оширилган ёзувлар сони."
 
-#: server_status.php:885
+#: server_status.php:890
 msgid "The number of pending log file fsyncs."
 msgstr "\"fsync()\" ёрдамида амалга оширилиши кутилаётган ёзувлар сони."
 
-#: server_status.php:886
+#: server_status.php:891
 msgid "Pending log file writes."
 msgstr "Тугалланмаган журналга ёзиш сўровлари сони."
 
-#: server_status.php:887
+#: server_status.php:892
 msgid "The number of bytes written to the log file."
 msgstr "Журнал файлига ёзилган маълумотлар ҳажми (байтларда)."
 
-#: server_status.php:888
+#: server_status.php:893
 msgid "The number of pages created."
 msgstr "Тузилган саҳифалар сони."
 
-#: server_status.php:889
+#: server_status.php:894
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -9375,51 +9387,51 @@ msgstr ""
 "Кўпгина қийматлар саҳифаларда келтирилади, лекин саҳифа ҳажми билган ҳолда, "
 "уларни байтларга ўтказиш мумкин."
 
-#: server_status.php:890
+#: server_status.php:895
 msgid "The number of pages read."
 msgstr "Ўқилган саҳифалар сони."
 
-#: server_status.php:891
+#: server_status.php:896
 msgid "The number of pages written."
 msgstr "Ёзилган саҳифалар сони."
 
-#: server_status.php:892
+#: server_status.php:897
 msgid "The number of row locks currently being waited for."
 msgstr "Ҳозирда кутилаётган қатор блокировкалари сони."
 
-#: server_status.php:893
+#: server_status.php:898
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Қатор блокировкасини кутишнинг ўртача вақти (миллисекундларда)."
 
-#: server_status.php:894
+#: server_status.php:899
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Қатор блокировкасини кутишнинг умумий вақти (миллисекундларда)."
 
-#: server_status.php:895
+#: server_status.php:900
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Қатор блокировкасини кутишнинг максимал вақти (миллисекундларда)."
 
-#: server_status.php:896
+#: server_status.php:901
 msgid "The number of times a row lock had to be waited for."
 msgstr "Умумий кутилаётган қатор блокировкалари сони."
 
-#: server_status.php:897
+#: server_status.php:902
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB жадвалидан ўчирилган қаторлар сони."
 
-#: server_status.php:898
+#: server_status.php:903
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB жадвалига ёзилган қаторлар сони."
 
-#: server_status.php:899
+#: server_status.php:904
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB жадвалларидан ўқилган қаторлар сони."
 
-#: server_status.php:900
+#: server_status.php:905
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB жадвалларида янгиланган қаторлар сони."
 
-#: server_status.php:901
+#: server_status.php:906
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -9427,7 +9439,7 @@ msgstr ""
 "Индекс кешидаги ўзгартирилган, лекин ҳали дискка ёзилмаган блоклар сони. "
 "Ушбу параметр, шунингдек, \"Not_flushed_key_blocks\" номи билан ҳам маълум."
 
-#: server_status.php:902
+#: server_status.php:907
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -9435,7 +9447,7 @@ msgstr ""
 "Индекс кешидаги ишлатилмаётган блоклар сони. Ушбу параметр индекс кеши "
 "ишлатилиш даражасини белгилайди."
 
-#: server_status.php:903
+#: server_status.php:908
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -9444,11 +9456,11 @@ msgstr ""
 "Индекс кешидаги ишлатилаётган блоклар сони. Ушбу қиймат бир вақтнинг ўзида "
 "ишлатилиши мумкин бўлган блоклар сонини билдиради."
 
-#: server_status.php:904
+#: server_status.php:909
 msgid "The number of requests to read a key block from the cache."
 msgstr "Индекс кешидаги блокларни ўқишга бўлган сўровлар сони."
 
-#: server_status.php:905
+#: server_status.php:910
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -9459,15 +9471,15 @@ msgstr ""
 "қилиб белгиланган. Кешга бўлган муваффақиятсиз мурожаатлар коэффициенти "
 "қуйидагича ҳисобланди: Key_reads/Key_read_requests."
 
-#: server_status.php:906
+#: server_status.php:911
 msgid "The number of requests to write a key block to the cache."
 msgstr "Блокни индекс кешига ёзишга бўлган сўровлар сони."
 
-#: server_status.php:907
+#: server_status.php:912
 msgid "The number of physical writes of a key block to disk."
 msgstr "Дискдан индекс блокларини жисмоний ёзиш операциялари сони."
 
-#: server_status.php:908
+#: server_status.php:913
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -9478,19 +9490,19 @@ msgstr ""
 "эффективлигини таққослашда фойдали ҳисобланади. Асл ноль қиймат ҳали сўров "
 "компиляция жараёни бажарилмаганлигини билдиради."
 
-#: server_status.php:909
+#: server_status.php:914
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:910
+#: server_status.php:915
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Количество строк, ожидающих вставки в запросах \"INSERT DELAYED\" "
 "сўровларида қўйилишини кутаётган қаторлар сони."
 
-#: server_status.php:911
+#: server_status.php:916
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -9498,42 +9510,42 @@ msgstr ""
 "Очилаётган жадвалларнинг умумий сони. Агар ўзгарувчининг қиймати катта "
 "бўлса, жадвал кеши (table_cache) ҳажмини ошириш тавсия этилади."
 
-#: server_status.php:912
+#: server_status.php:917
 msgid "The number of files that are open."
 msgstr "Очиқ файллар сони."
 
-#: server_status.php:913
+#: server_status.php:918
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Очиқ оқимлар сони (журнал файлларида кўлланилади). <b>Оқим</b> деб \"fopen"
 "()\" функцияси ёрдамида очилган файлга айтилади."
 
-#: server_status.php:914
+#: server_status.php:919
 msgid "The number of tables that are open."
 msgstr "Очиқ жадваллар сони."
 
-#: server_status.php:915
+#: server_status.php:920
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:916
+#: server_status.php:921
 msgid "The amount of free memory for query cache."
 msgstr "Сўровлар кеши учун бўш хотира ҳажми"
 
-#: server_status.php:917
+#: server_status.php:922
 msgid "The number of cache hits."
 msgstr ""
 "Сўровлар кешига \"тушишлар\" сони, яъни кешда турган сўровлар томонидан "
 "қониқтирилган сўровлар сони."
 
-#: server_status.php:918
+#: server_status.php:923
 msgid "The number of queries added to the cache."
 msgstr "Сўровлар кешига қўшилган сўровлар сони."
 
-#: server_status.php:919
+#: server_status.php:924
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -9545,7 +9557,7 @@ msgstr ""
 "кешдан сўровларни ўчиришда \"LRU\" (Least Recently Used - энг олдинги "
 "ишлатилган) стратегиясидан фойдаланади"
 
-#: server_status.php:920
+#: server_status.php:925
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -9553,19 +9565,19 @@ msgstr ""
 "Кешлаб бўлмайдиган ёки кешлаш \"SQL_NO_CACHE\" калит сўзи ёрдамида "
 "сўндирилган сўровлар сони."
 
-#: server_status.php:921
+#: server_status.php:926
 msgid "The number of queries registered in the cache."
 msgstr "Кешда регистрация қилинган сўровлар сони."
 
-#: server_status.php:922
+#: server_status.php:927
 msgid "The total number of blocks in the query cache."
 msgstr "Сўровлар кешига ажратилган хотира блокларнинг умумий сони."
 
-#: server_status.php:923
+#: server_status.php:928
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Барқарор репликациялар сони (ҳали амалга оширилмаган)."
 
-#: server_status.php:924
+#: server_status.php:929
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -9573,13 +9585,13 @@ msgstr ""
 "Индекс ишлатмасдан бажарилган бирлашма сўровлар сони. Агар ўзгарувчи қиймати "
 "0 бўлмаса, жадвал индексларини текшириш тавсия этилади."
 
-#: server_status.php:925
+#: server_status.php:930
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Боғланиш мавжуд бўлган жадвалда диапазон бўйича қидирув ишлатган ҳолда "
 "бажарилган бирлашма сўровлар сони."
 
-#: server_status.php:926
+#: server_status.php:931
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -9588,7 +9600,7 @@ msgstr ""
 "ишлатган ҳолда бажарилган бирлашма сўровлар сони. Агар ўзгарувчи қиймати 0 "
 "бўлмаса, жадвал индексларини текшириш тавсия этилади."
 
-#: server_status.php:927
+#: server_status.php:932
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -9597,17 +9609,17 @@ msgstr ""
 "сўровлар сони. Одатда, ушбу ўзгарувчининг қиймати, ҳатто жуда катта бўлса "
 "ҳам, унчалик муҳим эмас."
 
-#: server_status.php:928
+#: server_status.php:933
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Биринчи жадвалга нисбатан тўлалигича қидирув ишлатган ҳолда бажарилган "
 "бирлашма сўровлар сони."
 
-#: server_status.php:929
+#: server_status.php:934
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Тобе оқим томонидан жорий вақтда очилган вақтинчалик жадваллар сони."
 
-#: server_status.php:930
+#: server_status.php:935
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -9615,13 +9627,13 @@ msgstr ""
 "Ишга туширилгандан буён репликациянинг тобе оқими томонидан бажарилган қайта "
 "транзакцияларнинг умумий сони."
 
-#: server_status.php:931
+#: server_status.php:936
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Агар ушбу сервер бош серверга уланган ҳолда тобе сервер сифатида ишлаётган "
 "бўлса, ушбу ўзгарувчига \"ON\" қиймати белгиланади."
 
-#: server_status.php:932
+#: server_status.php:937
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -9629,12 +9641,12 @@ msgstr ""
 "Тузилиши учун slow_launch_time секунддан кўпроқ вақт талаб этилган оқимлар "
 "сони."
 
-#: server_status.php:933
+#: server_status.php:938
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "long_query_time секунддан кўпроқ вақт бажарилган сўровлар сони."
 
-#: server_status.php:934
+#: server_status.php:939
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -9644,25 +9656,25 @@ msgstr ""
 "қиймати катта бўлса, \"sort_buffer_size\" ўзгарувчисининг қийматини ошириш "
 "зарур."
 
-#: server_status.php:935
+#: server_status.php:940
 msgid "The number of sorts that were done with ranges."
 msgstr "Диапазон ёрдамида бажарилган сортировка операциялари сони."
 
-#: server_status.php:936
+#: server_status.php:941
 msgid "The number of sorted rows."
 msgstr "Сортировка қилинган қаторлар сони"
 
-#: server_status.php:937
+#: server_status.php:942
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 "Жадвални тўлалигича кўриб чиқиш ёрдамида бажарилган сортировка операциялари "
 "сони."
 
-#: server_status.php:938
+#: server_status.php:943
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Дарҳол қониқтирилган жадвални блокировка қилишга бўлган сўровлар сони."
 
-#: server_status.php:939
+#: server_status.php:944
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -9674,7 +9686,7 @@ msgstr ""
 "пайдо бўлаётган бўлса, аввал сўровларни оптималлаштириш, сўнгра эса жадвал"
 "(лар)ни қисмларга бўлиш ёки репликация ишлатиш керак."
 
-#: server_status.php:940
+#: server_status.php:945
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -9685,11 +9697,11 @@ msgstr ""
 "ушбу қиймат қизил ранг билан белгиланган бўлса, унда \"thread_cache_size\" "
 "ўзгарувчисининг қийматини ошириш зарур."
 
-#: server_status.php:941
+#: server_status.php:946
 msgid "The number of currently open connections."
 msgstr "Очиқ жорий уланишлар сони."
 
-#: server_status.php:942
+#: server_status.php:947
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -9701,7 +9713,7 @@ msgstr ""
 "ўзгарувчисининг қийматини ошириш мумкин (лекин у унумдорликни унчалик ҳам "
 "оширмайди)."
 
-#: server_status.php:943
+#: server_status.php:948
 msgid "The number of threads that are not sleeping."
 msgstr "Фаол ҳолатда бўлган жараёнлар сони."
 
@@ -10993,11 +11005,6 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ msgstr ""
 #~ "Сўровлар статискаси: ишга туширилгандан вақтдан бошлаб серверга юборилган "
 #~ "сўровлар сони - \"%s\"."
-
-#, fuzzy
-#~| msgid "SQL Query box"
-#~ msgid "Show query chart"
-#~ msgstr "SQL сўровлари қутиси"
 
 #, fuzzy
 #~| msgid "The privileges were reloaded successfully."
