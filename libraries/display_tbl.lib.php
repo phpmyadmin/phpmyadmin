@@ -406,10 +406,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             echo '<input id="table_create_time" type="hidden" value="' .
                  PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
         }
-        // generate text for draggable column hint
+        // generate hints
         echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
-        // generate text for sortable column hint
         echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
+        echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
         ?>
     </td>
 </tr>
