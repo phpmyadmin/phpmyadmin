@@ -1303,43 +1303,6 @@ function PMA_profilingCheckbox($sql_query)
 }
 
 /**
- * Displays the results of SHOW PROFILE
- *
- * @param    array   the results
- * @param    boolean show chart
- * @access  public
- *
- */
-function PMA_profilingResults($profiling_results, $show_chart = false)
-{
-    echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
-    echo '<div style="float: left;">';
-    echo '<table>' . "\n";
-    echo ' <tr>' .  "\n";
-    echo '  <th>' . __('Status') . '</th>' . "\n";
-    echo '  <th>' . __('Time') . '</th>' . "\n";
-    echo ' </tr>' .  "\n";
-
-    foreach($profiling_results as $one_result) {
-        echo ' <tr>' .  "\n";
-        echo '<td>' . $one_result['Status'] . '</td>' .  "\n";
-        echo '<td>' . $one_result['Duration'] . '</td>' .  "\n";
-    }
-
-    echo '</table>' . "\n";
-    echo '</div>';
-
-    if ($show_chart) {
-        require_once './libraries/chart.lib.php';
-        echo '<div style="float: left;">';
-        PMA_chart_profiling($profiling_results);
-        echo '</div>';
-    }
-
-    echo '</fieldset>' . "\n";
-}
-
-/**
  * Formats $value to byte view
  *
  * @param double $value  the value to format
@@ -1402,7 +1365,6 @@ function PMA_localizeNumber($value)
 
 /**
  * Formats $value to the given length and appends SI prefixes
- * $comma is not substracted from the length
  * with a $length of 0 no truncation occurs, number is only formated
  * to the current locale
  *
@@ -1416,10 +1378,11 @@ function PMA_localizeNumber($value)
  * echo PMA_formatNumber(0, 6);             //       0
  *
  * </code>
- * @param   double   $value     the value to format
- * @param   integer  $length    the max length
- * @param   integer  $comma     the number of decimals to retain
- * @param   boolean  $only_down do not reformat numbers below 1
+ * @param   double   $value            the value to format
+ * @param   integer  $digits_left      number of digits left of the comma
+ * @param   integer  $digits_right     number of digits right of the comma
+ * @param   boolean  $only_down        do not reformat numbers below 1
+ * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
  *
  * @return  string   the formatted value and its unit
  *
@@ -1427,13 +1390,15 @@ function PMA_localizeNumber($value)
  *
  * @version 1.1.0 - 2005-10-27
  */
-function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
+function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
+    if($value==0) return '0';
+    
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
-    if ($length === 0) {
-        $value = number_format($value, $comma);
-        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$comma));
+    if ($digits_left === 0) {
+        $value = number_format($value, $digits_right);
+        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
         
         return PMA_localizeNumber($value);
     }
@@ -1459,11 +1424,6 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
         8 => 'Y'
     );
 
-    // we need at least 3 digits to be displayed
-    if (3 > $length + $comma) {
-        $length = 3 - $comma;
-    }
-
     // check for negative value to retain sign
     if ($value < 0) {
         $sign = '-';
@@ -1472,33 +1432,29 @@ function PMA_formatNumber($value, $length = 3, $comma = 0, $only_down = false)
         $sign = '';
     }
 
-    $dh = PMA_pow(10, $comma);
-    $li = PMA_pow(10, $length);
-    $unit = $units[0];
-
-    if ($value >= 1) {
-        for ($d = 8; $d >= 0; $d--) {
-            if (isset($units[$d]) && $value >= $li * PMA_pow(1000, $d-1)) {
-                $value = round($value / (PMA_pow(1000, $d) / $dh)) /$dh;
-                $unit = $units[$d];
-                break 1;
-            } // end if
-        } // end for
-    } elseif (!$only_down && (float) $value !== 0.0) {
-        for ($d = -8; $d <= 8; $d++) {
-            // force using pow() because of the negative exponent
-            if (isset($units[$d]) && $value <= $li * PMA_pow(1000, $d-1, 'pow')) {
-                $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
-                $unit = $units[$d];
-                break 1;
-            } // end if
-        } // end for
-    } // end if ($value >= 1) elseif (!$only_down && (float) $value !== 0.0)
-
-    //number_format is not multibyte safe, str_replace is safe
-    $value = PMA_localizeNumber(number_format($value, $comma));
+    $dh = PMA_pow(10, $digits_right);
     
-    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$comma)).' '.$unit;
+    // This gives us the right SI prefix already, but $digits_left parameter not incorporated
+    $d = floor(log10($value) / 3);
+    // Lowering the SI prefix by 1 gives us an additional 3 zeros
+    // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
+    $cur_digits = floor(log10($value / PMA_pow(1000, $d, 'pow'))+1);
+    if($digits_left > $cur_digits) {
+        $d-= floor(($digits_left - $cur_digits)/3);
+    }
+	
+    if($d<0 && $only_down) $d=0;
+    
+    $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
+    $unit = $units[$d];
+    
+    // If we dont want any zeros after the comma just add the thousand seperator
+    if($noTrailingZero)
+        $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
+    else
+        $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
+    
+    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function

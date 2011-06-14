@@ -2433,8 +2433,12 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
          * first table of this database, so that tbl_export.php and
          * the script it calls do not fail
          */
-        if (empty($_url_params['table'])) {
+        if (empty($_url_params['table']) && !empty($_url_params['db'])) {
             $_url_params['table'] = PMA_DBI_fetch_value("SHOW TABLES");
+            /* No result (probably no database selected) */
+            if ($_url_params['table'] === FALSE) {
+                unset($_url_params['table']);
+            }
         }
 
         echo PMA_linkOrButton(
