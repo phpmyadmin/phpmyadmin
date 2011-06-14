@@ -158,7 +158,8 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
  */
 if(isset($_REQUEST['set_col_order']) && $_REQUEST['set_col_order'] == true) {
     $pmatable = new PMA_Table($table, $db);
-    $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $_REQUEST['col_order'], $_REQUEST['table_create_time']);
+    $col_order = explode(',', $_REQUEST['col_order']);
+    $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
     PMA_ajaxResponse(NULL, ($retval == true));
 }
 

@@ -309,13 +309,13 @@
              * Send column order to the server.
              */
             sendColOrder: function() {
-                $.get('sql.php', {
+                $.post('sql.php', {
                     ajax_request: true,
                     db: window.parent.db,
                     table: window.parent.table,
                     token: window.parent.token,
                     set_col_order: true,
-                    col_order: this.colOrder,
+                    col_order: this.colOrder.toString(),
                     table_create_time: this.tableCreateTime
                 });
             },
