@@ -45,7 +45,7 @@
                         width: $(obj).width()
                     });
                     $(this.cPointer).css({
-                        top: objPos.top,
+                        top: objPos.top
                     });
                 } else {    // vertical alignment
                     $(this.cCpy).css({
@@ -55,7 +55,7 @@
                         width: $(obj).width()
                     });
                     $(this.cPointer).css({
-                        top: objPos.top,
+                        top: objPos.top
                     });
                 }
                 
