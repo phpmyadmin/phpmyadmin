@@ -131,8 +131,6 @@ function getSupportedCharsets($html = false, $selected = '')
  * @uses    in_array()
  * @uses    strtoupper()
  * @uses    strtolower()
- * @uses    htmlspecialchars()
- * @uses    htmlentities()
  * @uses    sort()
  * @uses    implode()
  */
@@ -152,11 +150,7 @@ function parseOneParameter($value)
         $pos++;
     }
     if ($parsed_param[$pos]['type'] == 'alpha_identifier' || $parsed_param[$pos]['type'] == 'quote_backtick') {
-        $retval[1] = htmlspecialchars(
-                                PMA_unQuote(
-                                    $parsed_param[$pos]['data']
-                                )
-                            );
+        $retval[1] = PMA_unQuote($parsed_param[$pos]['data']);
         $pos++;
     }
     $depth = 0;
@@ -181,7 +175,7 @@ function parseOneParameter($value)
             $param_opts[] = strtoupper($parsed_param[$i]['data']);
         }
     }
-    $retval[3] = htmlentities($param_length, ENT_QUOTES);
+    $retval[3] = $param_length;
     sort($param_opts);
     $retval[4] = implode(' ', $param_opts);
 
@@ -392,13 +386,11 @@ function getFormInputFromRoutineName($db, $name, $all = true)
  *
  * @return  array    Data necessary to create the routine editor.
  *
- * @uses    htmlspecialchars()
  * @uses    isset()
  * @uses    is_array()
  * @uses    in_array()
- * @uses    htmlentities()
- * @uses    htmlspecialchars()
  * @uses    strtolower()
+ * @uses    getSupportedDatatypes()
  */
 function getFormInputFromRequest()
 {
@@ -407,11 +399,11 @@ function getFormInputFromRequest()
     $retval = array();
     $retval['name'] = '';
     if (isset($_REQUEST['routine_name'])) {
-        $retval['name'] = htmlspecialchars($_REQUEST['routine_name']);
+        $retval['name'] = $_REQUEST['routine_name'];
     }
     $retval['original_name'] = '';
     if (isset($_REQUEST['routine_original_name'])) {
-         $retval['original_name'] = htmlspecialchars($_REQUEST['routine_original_name']);
+         $retval['original_name'] = $_REQUEST['routine_original_name'];
     }
     $retval['type']         = 'PROCEDURE';
     $retval['type_toggle']  = 'FUNCTION';
@@ -457,7 +449,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_name'] = $_REQUEST['routine_param_name'];
         foreach ($retval['param_name'] as $key => $value) {
-            $retval['param_name'][$key] = htmlentities($value, ENT_QUOTES);
+            $retval['param_name'][$key] = $value;
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -477,7 +469,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_length'] = $_REQUEST['routine_param_length'];
         foreach ($retval['param_length'] as $key => $value) {
-            $retval['param_length'][$key] = htmlentities($value, ENT_QUOTES);
+            $retval['param_length'][$key] = $value;
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -486,7 +478,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_opts_num'] = $_REQUEST['routine_param_opts_num'];
         foreach ($retval['param_opts_num'] as $key => $value) {
-            $retval['param_opts_num'][$key] = htmlentities($value, ENT_QUOTES);
+            $retval['param_opts_num'][$key] = $value;
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -495,7 +487,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_opts_text'] = $_REQUEST['routine_param_opts_text'];
         foreach ($retval['param_opts_text'] as $key => $value) {
-            $retval['param_opts_text'][$key] = htmlentities($value, ENT_QUOTES);
+            $retval['param_opts_text'][$key] = $value;
             $temp_num_params++;
         }
         if ($temp_num_params > $retval['num_params']) {
@@ -508,19 +500,19 @@ function getFormInputFromRequest()
     }
     $retval['returnlength'] = '';
     if (isset($_REQUEST['routine_returnlength'])) {
-        $retval['returnlength'] = htmlentities($_REQUEST['routine_returnlength'], ENT_QUOTES);
+        $retval['returnlength'] = $_REQUEST['routine_returnlength'];
     }
     $retval['returnopts_num'] = '';
     if (isset($_REQUEST['routine_returnopts_num'])) {
-        $retval['returnopts_num'] = htmlentities($_REQUEST['routine_returnopts_num'], ENT_QUOTES);
+        $retval['returnopts_num'] = $_REQUEST['routine_returnopts_num'];
     }
     $retval['returnopts_text'] = '';
     if (isset($_REQUEST['routine_returnopts_text'])) {
-        $retval['returnopts_text'] = htmlentities($_REQUEST['routine_returnopts_text'], ENT_QUOTES);
+        $retval['returnopts_text'] = $_REQUEST['routine_returnopts_text'];
     }
     $retval['definition'] = '';
     if (isset($_REQUEST['routine_definition'])) {
-        $retval['definition'] = htmlspecialchars($_REQUEST['routine_definition']);
+        $retval['definition'] = $_REQUEST['routine_definition'];
     }
     $retval['isdeterministic'] = '';
     if (isset($_REQUEST['routine_isdeterministic']) && strtolower($_REQUEST['routine_isdeterministic']) == 'on') {
@@ -528,7 +520,7 @@ function getFormInputFromRequest()
     }
     $retval['definer'] = '';
     if (isset($_REQUEST['routine_definer'])) {
-        $retval['definer'] = htmlentities($_REQUEST['routine_definer'], ENT_QUOTES);
+        $retval['definer'] = $_REQUEST['routine_definer'];
     }
     $retval['securitytype_definer'] = '';
     $retval['securitytype_invoker'] = '';
@@ -545,7 +537,7 @@ function getFormInputFromRequest()
     }
     $retval['comment'] = '';
     if (isset($_REQUEST['routine_comment'])) {
-        $retval['comment'] = htmlentities($_REQUEST['routine_comment'], ENT_QUOTES);
+        $retval['comment'] = $_REQUEST['routine_comment'];
     }
 
     return $retval;
@@ -569,12 +561,30 @@ function getFormInputFromRequest()
  *
  * @return  string   HTML code for the routine editor.
  *
+ * @uses    htmlentities()
  * @uses    PMA_generate_common_hidden_inputs()
  * @uses    strtoupper()
  * @uses    getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
+
+    // Escape special characters
+    $need_escape = array(
+                       'original_name',
+                       'name',
+                       'returnlength',
+                       'definition',
+                       'definer',
+                       'comment'
+                   );
+    foreach($need_escape as $key => $index) {
+        $routine[$index] = htmlentities($routine[$index], ENT_QUOTES);
+    }
+    for ($i=0; $i<$routine['num_params']; $i++) {
+        $routine['param_name'][$i]   = htmlentities($routine['param_name'][$i], ENT_QUOTES);
+        $routine['param_length'][$i] = htmlentities($routine['param_length'][$i], ENT_QUOTES);
+    }
 
     // Handle some logic first
     if ($operation == 'change') {
@@ -637,6 +647,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Type') . "</td>\n";
+    // TODO: generate ajax dropdown here, not by js
     $retval .= "    <td class='routine_changetype_cell'>\n";
     $retval .= "        <input name='routine_type' type='hidden' value='{$routine['type']}' />\n";
     $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
@@ -812,13 +823,20 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
  * @uses    strtoupper()
  * @uses    isset()
  * @uses    PMA_SQP_parse()
- * @uses    html_entity_decode()
+ * @uses    htmlentities()
  * @uses    PMA_unquote()
  */
 function displayRoutineExecuteForm($routine, $is_ajax)
 {
     global $db, $cfg;
 
+    // Escape special characters
+    $routine['name'] = htmlentities($routine['name'], ENT_QUOTES);
+    for ($i=0; $i<$routine['num_params']; $i++) {
+        $routine['param_name'][$i] = htmlentities($routine['param_name'][$i], ENT_QUOTES);
+    }
+
+    // Create the output
     $retval  = "";
     $retval .= "<!-- START ROUTINE EXECUTE FORM -->\n\n";
     $retval .= "<form action='db_routines.php' method='post' class='rte_form'>\n";
@@ -912,7 +930,7 @@ function displayRoutineExecuteForm($routine, $is_ajax)
         }
         $retval .= "<td style='white-space: nowrap;'>\n";
         if (in_array($routine['param_type'][$i], array('ENUM', 'SET'))) {
-            $tokens = PMA_SQP_parse(html_entity_decode($routine['param_length'][$i], ENT_QUOTES));
+            $tokens = PMA_SQP_parse($routine['param_length'][$i]);
             if ($routine['param_type'][$i] == 'ENUM') {
                 $input_type = 'radio';
             } else {
@@ -1109,6 +1127,7 @@ function createQueryFromRequest() {
  * @uses    PMA_currentUserHasPrivilege()
  * @uses    PMA_backquote
  * @uses    getFormInputFromRoutineName()
+ * @uses    htmlspecialchars()
  * @uses    urlencode()
  */
 function getRowForListOfRoutines($routine, $ct = 0) {
@@ -1166,14 +1185,14 @@ function getRowForListOfRoutines($routine, $ct = 0) {
     $retval  = "        <tr class='$rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
-    $retval .= "                <strong>{$routine['ROUTINE_NAME']}</strong>\n";
+    $retval .= "                <strong>" . htmlspecialchars($routine['ROUTINE_NAME']) . "</strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>$editlink</td>\n";
     $retval .= "            <td>$execlink</td>\n";
     $retval .= "            <td>$exprlink</td>\n";
     $retval .= "            <td>$droplink</td>\n";
     $retval .= "            <td>{$routine['ROUTINE_TYPE']}</td>\n";
-    $retval .= "            <td>{$routine['DTD_IDENTIFIER']}</td>\n";
+    $retval .= "            <td>" . htmlspecialchars($routine['DTD_IDENTIFIER']) . "</td>\n";
     $retval .= "        </tr>\n";
     return $retval;
 } // end getRowForListOfRoutines()
@@ -1400,7 +1419,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             $output .= "</legend>";
             $output .= "<table><tr>";
             foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
-                $output .= "<th>{$field->name}</th>";
+                $output .= "<th>" . htmlspecialchars($field->name) . "</th>";
             }
             $output .= "</tr>";
             // Stored routines can only ever return ONE ROW.
@@ -1409,7 +1428,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 if ($value === null) {
                     $value = '<i>NULL</i>';
                 }
-                $output .= "<td class='odd'>$value</td>";
+                $output .= "<td class='odd'>" . htmlspecialchars($value) . "</td>";
             }
             $output .= "</table></fieldset>";
         } else {
@@ -1459,7 +1478,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                                       . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
                                       . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($_GET['routine_name']) . "';");
     if (! empty($routine_type) && $create_proc = PMA_DBI_get_definition($db, $routine_type, $_GET['routine_name'])) {
-        $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_proc . '</textarea>';
+        $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . htmlspecialchars($create_proc) . '</textarea>';
         if ($GLOBALS['is_ajax_request']) {
             $extra_data = array('title' => sprintf(__('Export of routine %s'), $routine_name));
             PMA_ajaxResponse($create_proc, true, $extra_data);

@@ -2344,7 +2344,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $curr_row.children('td').children('.drop_sql').text();
+        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
