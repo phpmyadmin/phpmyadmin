@@ -1614,10 +1614,9 @@ msgid "Recent tables"
 msgstr "Отваряни таблици"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no recent tables"
-msgstr "Няма файлве за качване"
+msgstr "Няма наскоро отваряни таблици"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
