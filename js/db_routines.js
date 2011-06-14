@@ -89,11 +89,14 @@ function validateRoutineEditor(syntaxHiglighter) {
 } // end validateRoutineEditor()
 
 /**
- * Enable/disable the "options" dropdown for parameters and
- * the return variable in the routine editor as necessary.
+ * Enable/disable the "options" dropdown and "length" input for
+ * parameters and the return variable in the routine editor
+ * as necessary.
  *
  * @param    $type    a jQuery object containing the reference
  *                    to the "Type" dropdown box
+ * @param    $len     a jQuery object containing the reference
+ *                    to the "Length" input box
  * @param    $text    a jQuery object containing the reference
  *                    to the dropdown box with options for
  *                    parameters of text type
@@ -101,7 +104,8 @@ function validateRoutineEditor(syntaxHiglighter) {
  *                    to the dropdown box with options for
  *                    parameters of numeric type
  */
-function setOptionsForParameter($type, $text, $num) {
+function setOptionsForParameter($type, $len, $text, $num) {
+    // Process for parameter options
     switch ($type.val()) {
     case 'TINYINT':
     case 'SMALLINT':
@@ -131,6 +135,25 @@ function setOptionsForParameter($type, $text, $num) {
         $text.parent().show();
         $text.hide();
         $num.parent().hide();
+        break;
+    }
+    // Process for parameter length
+    switch ($type.val()) {
+    case 'DATE':
+    case 'DATETIME':
+    case 'TIME':
+    case 'TINYBLOB':
+    case 'TINYTEXT':
+    case 'BLOB':
+    case 'TEXT':
+    case 'MEDIUMBLOB':
+    case 'MEDIUMTEXT':
+    case 'LONGBLOB':
+    case 'LONGTEXT':
+        $len.hide();
+        break;
+    default:
+        $len.show();
         break;
     }
 }
@@ -293,6 +316,7 @@ $(document).ready(function() {
                 $('.routine_params_table').last().find('tr').has('td').each(function() {
                     setOptionsForParameter(
                         $(this).find('select[name^=routine_param_type]'),
+                        $(this).find('input[name^=routine_param_length]'),
                         $(this).find('select[name^=routine_param_opts_text]'),
                         $(this).find('select[name^=routine_param_opts_num]')
                     );
@@ -300,6 +324,7 @@ $(document).ready(function() {
                 // Enable/disable the 'options' dropdowns for function return value as necessary
                 setOptionsForParameter(
                     $('.rte_table').last().find('select[name=routine_returntype]'),
+                    $('.rte_table').last().find('input[name=routine_returnlength]'),
                     $('.rte_table').last().find('select[name=routine_returnopts_text]'),
                     $('.rte_table').last().find('select[name=routine_returnopts_num]')
                 );
@@ -351,6 +376,7 @@ $(document).ready(function() {
         var $newrow = $('.routine_params_table').last().find('tr').has('td').last();
         setOptionsForParameter(
             $newrow.find('select[name^=routine_param_type]'),
+            $newrow.find('input[name^=routine_param_length]'),
             $newrow.find('select[name^=routine_param_opts_text]'),
             $newrow.find('select[name^=routine_param_opts_num]')
         );
@@ -418,6 +444,7 @@ $(document).ready(function() {
         var $row = $(this).parents('tr').first();
         setOptionsForParameter(
             $row.find('select[name^=routine_param_type]'),
+            $row.find('input[name^=routine_param_length]'),
             $row.find('select[name^=routine_param_opts_text]'),
             $row.find('select[name^=routine_param_opts_num]')
         );
@@ -432,6 +459,7 @@ $(document).ready(function() {
     $('select[name=routine_returntype]').live('change', function() {
         setOptionsForParameter(
             $('.rte_table').find('select[name=routine_returntype]'),
+            $('.rte_table').find('input[name=routine_returnlength]'),
             $('.rte_table').find('select[name=routine_returnopts_text]'),
             $('.rte_table').find('select[name=routine_returnopts_num]')
         );
