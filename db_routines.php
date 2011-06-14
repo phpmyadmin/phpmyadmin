@@ -41,8 +41,6 @@ if ($GLOBALS['is_ajax_request'] != true) {
  * Process all requests
  */
 
-// $url_query .= '&amp;goto=db_routines.php' . rawurlencode("?db=$db"); // FIXME
-
 // Some definitions
 $param_directions    = array('IN',
                              'OUT',

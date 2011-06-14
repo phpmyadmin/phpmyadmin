@@ -1130,6 +1130,7 @@ function PMA_RTN_getRowForRoutinesList($routine, $ct = 0) {
     if (PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)) {
         $droplink = '<a ' . $ajax_class['drop']. ' href="sql.php?' . $url_query
                           . '&amp;sql_query=' . urlencode($sql_drop)
+                          . '&amp;goto=db_routines.php' . urlencode("?db=$db")
                           . '" >' . $titles['Drop'] . '</a>';
     }
     // Display a row of data
