@@ -2995,6 +2995,71 @@ function PMA_buildActionTitles() {
 }
 
 /**
+ * This function processes the datatypes supported by the DB, as specified in
+ * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
+ * if a datatype is supported) or an HTML snippet that creates a drop-down list.
+ *
+ * @param   bool    $html       Whether to generate an html snippet or an array
+ * @param   string  $selected   The value to mark as selected in HTML mode
+ *
+ * @return  mixed   An HTML snippet or an array of datatypes.
+ *
+ * @uses    htmlspecialchars()
+ * @uses    in_array()
+ */
+function PMA_getSupportedDatatypes($html = false, $selected = '')
+{
+    global $cfg;
+
+    if ($html) {
+        // NOTE: the SELECT tag in not included in this snippet.
+        $retval = '';
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
+            if (is_array($value)) {
+                $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
+                foreach ($value as $subkey => $subvalue) {
+                    if ($subvalue == $selected) {
+                        $retval .= "<option selected='selected'>";
+                        $retval .= $subvalue;
+                        $retval .= "</option>";
+                    } else if ($subvalue === '-') {
+                        $retval .= "<option disabled='disabled'>";
+                        $retval .= $subvalue;
+                        $retval .= "</option>";
+                    } else {
+                        $retval .= "<option>$subvalue</option>";
+                    }
+                }
+                $retval .= '</optgroup>';
+            } else {
+                if ($selected == $value) {
+                    $retval .= "<option selected='selected'>$value</option>";
+                } else {
+                    $retval .= "<option>$value</option>";
+                }
+            }
+        }
+    } else {
+        $retval = array();
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $subkey => $subvalue) {
+                    if ($subvalue !== '-') {
+                        $retval[] = $subvalue;
+                    }
+                }
+            } else {
+                if ($value !== '-') {
+                    $retval[] = $value;
+                }
+            }
+        }
+    }
+
+    return $retval;
+} // end PMA_getSupportedDatatypes()
+
+/**
  * Returns a list of datatypes that are not (yet) handled by PMA.
  * Used by: tbl_change.php and libraries/db_routines.inc.php
  *

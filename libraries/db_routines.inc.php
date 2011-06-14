@@ -8,71 +8,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * This function processes the datatypes supported by the DB, as specified in
- * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
- * if a datatype is supported) or an HTML snippet that creates a drop-down list.
- *
- * @param   bool    $html       Whether to generate an html snippet or an array
- * @param   string  $selected   The value to mark as selected in HTML mode
- *
- * @return  mixed   An HTML snippet or an array of datatypes.
- *
- * @uses    htmlspecialchars()
- * @uses    in_array()
- */
-function getSupportedDatatypes($html = false, $selected = '')
-{
-    global $cfg;
-
-    if ($html) {
-        // NOTE: the SELECT tag in not included in this snippet.
-        $retval = '';
-        foreach ($cfg['ColumnTypes'] as $key => $value) {
-            if (is_array($value)) {
-                $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
-                foreach ($value as $subkey => $subvalue) {
-                    if ($subvalue == $selected) {
-                        $retval .= "<option selected='selected'>";
-                        $retval .= $subvalue;
-                        $retval .= "</option>";
-                    } else if ($subvalue === '-') {
-                        $retval .= "<option disabled='disabled'>";
-                        $retval .= $subvalue;
-                        $retval .= "</option>";
-                    } else {
-                        $retval .= "<option>$subvalue</option>";
-                    }
-                }
-                $retval .= '</optgroup>';
-            } else {
-                if ($selected == $value) {
-                    $retval .= "<option selected='selected'>$value</option>";
-                } else {
-                    $retval .= "<option>$value</option>";
-                }
-            }
-        }
-    } else {
-        $retval = array();
-        foreach ($cfg['ColumnTypes'] as $key => $value) {
-            if (is_array($value)) {
-                foreach ($value as $subkey => $subvalue) {
-                    if ($subvalue !== '-') {
-                        $retval[] = $subvalue;
-                    }
-                }
-            } else {
-                if ($value !== '-') {
-                    $retval[] = $value;
-                }
-            }
-        }
-    }
-
-    return $retval;
-} // end getSupportedDatatypes()
-
-/**
  * This function fetches as list of the charsets supported by the DB and
  * either returns an array (useful for quickly checking if a charset is
  * supported) or an HTML snippet that creates a drop-down list.
@@ -390,7 +325,7 @@ function getFormInputFromRoutineName($db, $name, $all = true)
  * @uses    is_array()
  * @uses    in_array()
  * @uses    strtolower()
- * @uses    getSupportedDatatypes()
+ * @uses    PMA_getSupportedDatatypes()
  */
 function getFormInputFromRequest()
 {
@@ -458,7 +393,7 @@ function getFormInputFromRequest()
         $temp_num_params = 0;
         $retval['param_type'] = $_REQUEST['routine_param_type'];
         foreach ($retval['param_type'] as $key => $value) {
-            if (! in_array($value, getSupportedDatatypes(), true)) {
+            if (! in_array($value, PMA_getSupportedDatatypes(), true)) {
                 $retval['param_type'][$key] = '';
             }
             $temp_num_params++;
@@ -495,7 +430,7 @@ function getFormInputFromRequest()
         }
     }
     $retval['returntype'] = '';
-    if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], getSupportedDatatypes(), true)) {
+    if (isset($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], PMA_getSupportedDatatypes(), true)) {
         $retval['returntype'] = $_REQUEST['routine_returntype'];
     }
     $retval['returnlength'] = '';
@@ -564,7 +499,7 @@ function getFormInputFromRequest()
  * @uses    htmlentities()
  * @uses    PMA_generate_common_hidden_inputs()
  * @uses    strtoupper()
- * @uses    getSupportedDatatypes()
+ * @uses    PMA_getSupportedDatatypes()
  */
 function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
@@ -694,7 +629,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
         $retval .= "            <td><input name='routine_param_name[$i]' type='text'\n";
         $retval .= "                       value='{$routine['param_name'][$i]}' /></td>\n";
         $retval .= "            <td><select name='routine_param_type[$i]'>";
-        $retval .= getSupportedDatatypes(true, $routine['param_type'][$i]) . "\n";
+        $retval .= PMA_getSupportedDatatypes(true, $routine['param_type'][$i]) . "\n";
         $retval .= "            </select></td>\n";
         $retval .= "            <td><input name='routine_param_length[$i]' type='text'\n";
         $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
@@ -737,7 +672,7 @@ function displayRoutineEditor($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
     $retval .= "    <td>" . __('Return Type') . "</td>\n";
     $retval .= "    <td><select name='routine_returntype'>\n";
-    $retval .= getSupportedDatatypes(true, $routine['returntype']) . "\n";
+    $retval .= PMA_getSupportedDatatypes(true, $routine['returntype']) . "\n";
     $retval .= "    </select></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
@@ -1645,7 +1580,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
             $template .= "            <td><input name='routine_param_name[%s]' type='text'\n";
             $template .= "                       value='' /></td>\n";
             $template .= "            <td><select name='routine_param_type[%s]'>";
-            $template .= getSupportedDatatypes(true) . "\n";
+            $template .= PMA_getSupportedDatatypes(true) . "\n";
             $template .= "            </select></td>\n";
             $template .= "            <td><input name='routine_param_length[%s]' type='text'\n";
             $template .= "                       value='' /></td>\n";
