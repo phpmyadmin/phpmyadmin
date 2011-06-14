@@ -86,6 +86,9 @@ $js_messages['strShowSearchResults'] = __('Show search results');
 $js_messages['strBrowsing'] = __('Browsing');
 $js_messages['strDeleting'] = __('Deleting');
 
+/* For db_routines.js */
+$js_messages['MissingReturn'] = __('The definition of a stored function must contain a RETURN statement!');
+
 /* For import.js */
 $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
 

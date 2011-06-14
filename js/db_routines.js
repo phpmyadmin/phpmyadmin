@@ -80,6 +80,13 @@ function validateRoutineEditor(syntaxHiglighter) {
             isError = true;
         }
     }
+    if (! isError && $('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
+        if ($('.rte_table').find('textarea[name=routine_definition]').val().toLowerCase().indexOf('return') < 0) {
+            syntaxHiglighter.focus();
+            alert(PMA_messages['MissingReturn']);
+            return false;
+        }
+    }
     if (! isError) {
         return true;
     } else {
