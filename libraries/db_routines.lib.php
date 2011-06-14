@@ -434,6 +434,92 @@ function PMA_RTN_getRoutineDataFromRequest()
 } // end function PMA_RTN_getRoutineDataFromRequest()
 
 /**
+ * Creates one row for the parameter table used in the routine editor.
+ *
+ * @param   array    $routine    Data for the routine returned by
+ *                               PMA_RTN_getRoutineDataFromRequest() or
+ *                               PMA_RTN_getRoutineDataFromName()
+ * @param   mixed    $index      Either a numeric index of the row being processed
+ *                               or NULL to create a template row for AJAX request
+ * @param   string   $class      Class used to hide the direction column, if the
+ *                               row is for a stored function.
+ *
+ * @return    string    HTML code of one row of parameter table for the routine editor.
+ *
+ * @uses    PMA_getSupportedDatatypes()
+ * @uses    PMA_getSupportedCharsets()
+ */
+function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
+{
+    global $param_directions, $param_opts_num, $titles;
+
+    if ($index === null) {
+        // template row for AJAX request
+        $i = 0;
+        $index = '%s';
+        $drop_class = '';
+        $routine = array(
+                       'param_dir'       => array(0 => ''),
+                       'param_name'      => array(0 => ''),
+                       'param_type'      => array(0 => ''),
+                       'param_length'    => array(0 => ''),
+                       'param_opts_num'  => array(0 => ''),
+                       'param_opts_text' => array(0 => '')
+                   );
+    } else if (! empty($routine)) {
+        // regular row for routine editor
+        $drop_class = ' hide';
+        $i = $index;
+    } else {
+        // No input data. This shouldn't happen,
+        // but better be safe than sorry.
+        return '';
+    }
+
+    // Create the output
+    $retval  = "";
+    $retval .= "        <tr>\n";
+    $retval .= "            <td class='routine_direction_cell$class'><select name='routine_param_dir[$index]'>\n";
+    foreach ($param_directions as $key => $value) {
+        $selected = "";
+        if (! empty($routine['param_dir'][$i]) && $routine['param_dir'][$i] == $value) {
+            $selected = " selected='selected'";
+        }
+        $retval .= "                <option$selected>$value</option>\n";
+    }
+    $retval .= "            </select></td>\n";
+    $retval .= "            <td><input name='routine_param_name[$index]' type='text'\n";
+    $retval .= "                       value='{$routine['param_name'][$i]}' /></td>\n";
+    $retval .= "            <td><select name='routine_param_type[$index]'>";
+    $retval .= PMA_getSupportedDatatypes(true, $routine['param_type'][$i]) . "\n";
+    $retval .= "            </select></td>\n";
+    $retval .= "            <td><input name='routine_param_length[$index]' type='text'\n";
+    $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
+    $retval .= "            <td class='routine_param_opts_text'><select name='routine_param_opts_text[$index]'>\n";
+    $retval .= "                <option value=''>(CHARSET)</option>";
+    $retval .= PMA_getSupportedCharsets(true, $routine['param_opts_text'][$i]) . "\n";
+    $retval .= "            </select></td>\n";
+    $retval .= "            <td class='routine_param_opts_num'><select name='routine_param_opts_num[$index]'>\n";
+    $retval .= "                <option value=''></option>";
+    foreach ($param_opts_num as $key => $value) {
+        $selected = "";
+        if (! empty($routine['param_opts_num'][$i]) && $routine['param_opts_num'][$i] == $value) {
+            $selected = " selected='selected'";
+        }
+        $retval .= "<option$selected>$value</option>";
+    }
+    $retval .= "\n            </select></td>\n";
+    $retval .= "            <td class='routine_param_remove$drop_class' style='vertical-align: middle;'>\n";
+    $retval .= "                <a href='#' class='routine_param_remove_anchor'>\n";
+    $retval .= "                    {$titles['Drop']}\n";
+    $retval .= "                </a>\n";
+    $retval .= "            </td>\n";
+    $retval .= "        </tr>\n";
+
+    return $retval;
+} // end PMA_RTN_getParameterRow()
+
+/**
  * Displays a form used to add/edit a routine
  *
  * @param   string   $mode         If the editor will be used edit a routine
@@ -572,43 +658,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "            <th class='routine_param_remove hide'>&nbsp;</th>\n";
     $retval .= "        </tr>";
     for ($i=0; $i<$routine['num_params']; $i++) { // each parameter
-        $retval .= "        <tr>\n";
-        $retval .= "            <td class='routine_direction_cell$isprocedure_class'><select name='routine_param_dir[$i]'>\n";
-        foreach ($param_directions as $key => $value) {
-            $selected = "";
-            if (! empty($routine['param_dir']) && $routine['param_dir'][$i] == $value) {
-                $selected = " selected='selected'";
-            }
-            $retval .= "                <option$selected>$value</option>\n";
-        }
-        $retval .= "            </select></td>\n";
-        $retval .= "            <td><input name='routine_param_name[$i]' type='text'\n";
-        $retval .= "                       value='{$routine['param_name'][$i]}' /></td>\n";
-        $retval .= "            <td><select name='routine_param_type[$i]'>";
-        $retval .= PMA_getSupportedDatatypes(true, $routine['param_type'][$i]) . "\n";
-        $retval .= "            </select></td>\n";
-        $retval .= "            <td><input name='routine_param_length[$i]' type='text'\n";
-        $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
-        $retval .= "            <td class='routine_param_opts_text'><select name='routine_param_opts_text[$i]'>\n";
-        $retval .= "                <option value=''>(CHARSET)</option>";
-        $retval .= PMA_getSupportedCharsets(true, $routine['param_opts_text'][$i]) . "\n";
-        $retval .= "            </select></td>\n";
-        $retval .= "            <td class='routine_param_opts_num'><select name='routine_param_opts_num[$i]'>\n";
-        $retval .= "                <option value=''></option>";
-        foreach ($param_opts_num as $key => $value) {
-            $selected = "";
-            if (! empty($routine['param_opts_num'][$i]) && $routine['param_opts_num'][$i] == $value) {
-                $selected = " selected='selected'";
-            }
-            $retval .= "<option$selected>$value</option>";
-        }
-        $retval .= "\n            </select></td>\n";
-        $retval .= "            <td class='routine_param_remove hide' style='vertical-align: middle;'>\n";
-        $retval .= "                <a href='#' class='routine_param_remove_anchor'>\n";
-        $retval .= "                    {$titles['Drop']}\n";
-        $retval .= "                </a>\n";
-        $retval .= "            </td>\n";
-        $retval .= "        </tr>\n";
+        $retval .= PMA_RTN_getParameterRow($routine, $i, $isprocedure_class);
     }
     $retval .= "        </table>\n";
     $retval .= "    </td>\n";

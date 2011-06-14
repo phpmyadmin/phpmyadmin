@@ -368,36 +368,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         // Show form
         $editor = PMA_RTN_getEditorForm($mode, $operation, $routine, $routine_errors, $GLOBALS['is_ajax_request']);
         if ($GLOBALS['is_ajax_request']) {
-            // TODO: this needs to be refactored
-            $template  = "        <tr>\n";
-            $template .= "            <td class='routine_direction_cell'><select name='routine_param_dir[%s]'>\n";
-            foreach ($param_directions as $key => $value) {
-                $template .= "                <option>$value</option>\n";
-            }
-            $template .= "            </select></td>\n";
-            $template .= "            <td><input name='routine_param_name[%s]' type='text'\n";
-            $template .= "                       value='' /></td>\n";
-            $template .= "            <td><select name='routine_param_type[%s]'>";
-            $template .= PMA_getSupportedDatatypes(true) . "\n";
-            $template .= "            </select></td>\n";
-            $template .= "            <td><input name='routine_param_length[%s]' type='text'\n";
-            $template .= "                       value='' /></td>\n";
-            $template .= "            <td><select name='routine_param_opts_text[%s]'>\n";
-            $template .= "                <option value=''>(CHARSET)</option>";
-            $template .= PMA_getSupportedCharsets(true) . "\n";
-            $template .= "            </select></td>\n";
-            $template .= "            <td><select name='routine_param_opts_num[%s]'>\n";
-            $template .= "                <option value=''></option>\n";
-            foreach ($param_opts_num as $key => $value) {
-                $template .= "                <option>$value</option>\n";
-            }
-            $template .= "\n            </select></td>\n";
-            $template .= "            <td class='routine_param_remove' style='vertical-align: middle;'>\n";
-            $template .= "                <a href='#' class='routine_param_remove_anchor'>\n";
-            $template .= "                    {$titles['Drop']}\n";
-            $template .= "                </a>\n";
-            $template .= "            </td>\n";
-            $template .= "        </tr>\n";
+            $template   = PMA_RTN_getParameterRow();
             $extra_data = array('title' => $title, 'param_template' => $template, 'type' => $routine['type']);
             PMA_ajaxResponse($editor, true, $extra_data);
         }
