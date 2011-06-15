@@ -797,7 +797,7 @@ msgstr "Tabelas não monitoradas"
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:622
 #: tbl_structure.php:624
 msgid "Track table"
-msgstr "Rastrear tabela"
+msgstr "Monitorar tabela"
 
 #: db_tracking.php:229
 msgid "Database Log"
