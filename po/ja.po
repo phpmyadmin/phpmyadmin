@@ -9584,10 +9584,9 @@ msgid "The remaining columns"
 msgstr "textarea の 1 行の文字数"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "横軸のラベル"
+msgstr "横軸のラベル："
 
 #: tbl_chart.php:128
 #, fuzzy
