@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 12:20+0200\n"
+"PO-Revision-Date: 2011-06-15 12:22+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8362,10 +8362,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:840
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL サーバに接続するのに SSL を有効にするかどうか。"
+msgstr "MySQL サーバへの接続を試みて失敗した回数。"
 
 #: server_status.php:841
 msgid ""
