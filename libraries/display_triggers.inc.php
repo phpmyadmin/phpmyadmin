@@ -73,9 +73,7 @@ if (! $triggers) {
         // so we must specify which table each trigger belongs to
         echo "<th>" . __('Table') . "</th>\n";
     }
-    echo "<th>&nbsp;</th>\n";
-    echo "<th>&nbsp;</th>\n";
-    echo "<th>&nbsp;</th>\n";
+    echo "<th colspan='3'>" . __('Action') . "</th>\n";
     echo "<th>" . __('Time') . "</th>\n";
     echo "<th>" . __('Event') . "</th>\n";
     echo "</tr>";

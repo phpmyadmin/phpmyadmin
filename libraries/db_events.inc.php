@@ -61,12 +61,11 @@ if (! $events) {
     echo '<table class="data">';
     echo sprintf('<tr>
                       <th>%s</th>
-                      <th>&nbsp;</th>
-                      <th>&nbsp;</th>
-                      <th>&nbsp;</th>
+                      <th colspan="3">%s</th>
                       <th>%s</th>
                 </tr>',
           __('Name'),
+          __('Action'),
           __('Type'));
     $ct=0;
     $delimiter = '//';
@@ -124,8 +123,8 @@ $schedulerFieldset = '';
 $es_state = PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1);
 if ($es_state === 'ON' || $es_state === 'OFF') {
     $es_change = ($es_state == 'ON') ? 'OFF' : 'ON';
-    $tableStart = '<table style="width: 100%"><tr><td style="width: 50%;">';
-    $schedulerFieldset = '</td><td><fieldset>' . "\n"
+    $tableStart = '<table style="width: 100%;"><tr><td style="width: 50%;">';
+    $schedulerFieldset = '</td><td><fieldset style="margin: 1em 0;">' . "\n"
        . PMA_getIcon('b_events.png') . __('The event scheduler is ') . $es_state . ':'
        . '    <a href="db_events.php?' . $url_query . '&amp;toggle_scheduler=' . $es_change . '">'
        . __('Turn') . " $es_change\n" .  '</a>' . "\n"
@@ -135,7 +134,7 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
 /**
  * Display the form for adding a new event
  */
-echo $tableStart . '<fieldset>' . "\n"
+echo $tableStart . '<fieldset style="margin: 1em 0;">' . "\n"
    . '    <a href="db_events.php?' . $url_query . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
    . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
    . '</fieldset>' . "\n";

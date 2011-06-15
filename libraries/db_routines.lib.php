@@ -1193,10 +1193,7 @@ function PMA_RTN_getRoutinesList()
     $retval .= "        <!-- TABLE HEADERS -->\n";
     $retval .= "        <tr>\n";
     $retval .= "            <th>" . __('Name') . "</th>\n";
-    $retval .= "            <th>&nbsp;</th>\n";
-    $retval .= "            <th>&nbsp;</th>\n";
-    $retval .= "            <th>&nbsp;</th>\n";
-    $retval .= "            <th>&nbsp;</th>\n";
+    $retval .= "            <th colspan='4'>" . __('Action') . "</th>\n";
     $retval .= "            <th>" . __('Type') . "</th>\n";
     $retval .= "            <th>" . __('Return type') . "</th>\n";
     $retval .= "        </tr>\n";
