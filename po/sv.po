@@ -9662,7 +9662,7 @@ msgstr "Y-axel etikett"
 #: tbl_chart.php:129
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Y värde"
+msgstr "Y värden"
 
 #: tbl_create.php:56
 #, php-format
