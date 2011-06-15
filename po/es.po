@@ -9883,10 +9883,9 @@ msgid "Y-Axis label:"
 msgstr "Etiqueta del eje Y:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Valor"
+msgstr "Valores Y"
 
 #: tbl_create.php:56
 #, php-format
