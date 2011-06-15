@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-09 22:12+0200\n"
+"PO-Revision-Date: 2011-06-15 02:35+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1005,10 +1005,9 @@ msgstr "This is not a number!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Log file count"
+msgstr "Total count"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1045,24 +1044,22 @@ msgid "Close"
 msgstr "Close"
 
 #: js/messages.php:64 server_status.php:393
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Server Choice"
+msgstr "Live traffic chart"
 
 #: js/messages.php:65 server_status.php:396
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live conn./process chart"
 
 #: js/messages.php:66 server_status.php:423
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Show query chart"
+msgstr "Live query chart"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Static data"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1075,7 +1072,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:586
 msgid "Other"
-msgstr ""
+msgstr "Other"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1359
@@ -8212,71 +8209,62 @@ msgid "Runtime Information"
 msgstr "Runtime Information"
 
 #: server_status.php:367
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Server Choice"
+msgstr "Server traffic"
 
 #: server_status.php:368
 msgid "Query statistics"
 msgstr "Query statistics"
 
 #: server_status.php:369
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "See slave status table"
+msgstr "All status variables"
 
 #: server_status.php:379 server_status.php:410
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Refresh"
+msgstr "Refresh rate"
 
 #: server_status.php:380 server_status.php:411
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Second"
+msgstr "second"
 
 #: server_status.php:381 server_status.php:382 server_status.php:383
 #: server_status.php:384 server_status.php:385 server_status.php:412
 #: server_status.php:413 server_status.php:414 server_status.php:415
 #: server_status.php:416
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
-msgstr "Second"
+msgstr "seconds"
 
 #: server_status.php:386 server_status.php:387 server_status.php:388
 #: server_status.php:389 server_status.php:417 server_status.php:418
 #: server_status.php:419 server_status.php:420
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
-msgstr "Minute"
+msgstr "minutes"
 
 #: server_status.php:440
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Do not change the password"
+msgstr "Containing the word:"
 
 #: server_status.php:445
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Show open tables"
+msgstr "Show only alert values"
 
 #: server_status.php:449
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filter by category..."
 
 #: server_status.php:462
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Related Links"
+msgstr "Related links:"
 
 #: server_status.php:507 server_status.php:539 server_status.php:660
 #: server_status.php:705
@@ -8298,12 +8286,12 @@ msgstr "Query type"
 #. l10n: # = Amount of queries
 #: server_status.php:537
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:609
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Network traffic since startup: %s"
 
 #: server_status.php:617
 #, php-format
@@ -8384,10 +8372,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:840
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Whether to enable SSL for connection to MySQL server."
+msgstr "The number of failed attempts to connect to the MySQL server."
 
 #: server_status.php:841
 msgid ""
@@ -8407,6 +8394,7 @@ msgstr "The number of transactions that used the temporary binary log cache."
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
+"The number of connection attempts (successful or not) to the MySQL server."
 
 #: server_status.php:844
 msgid ""
@@ -8826,6 +8814,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"The maximum number of connections that have been in use simultaneously since "
+"the server started."
 
 #: server_status.php:915
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8857,6 +8847,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"The number of free memory blocks in query cache. High numbers can indicate "
+"fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
+"statement."
 
 #: server_status.php:921
 msgid "The amount of free memory for query cache."
@@ -9583,10 +9576,9 @@ msgid "Line"
 msgstr "Line"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "Inline"
+msgstr "Spline"
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -9597,50 +9589,43 @@ msgid "Stacked"
 msgstr "Stacked"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Report title:"
+msgstr "Chart title"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-Axis:"
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL queries"
+msgstr "Series:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Textarea columns"
+msgstr "The remaining columns"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X Axis label"
+msgstr "X-Axis label:"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Value"
+msgstr "X Values"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Y Axis label"
+msgstr "Y-Axis label:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Value"
+msgstr "Y Values"
 
 #: tbl_create.php:56
 #, php-format
