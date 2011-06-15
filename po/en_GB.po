@@ -4906,7 +4906,7 @@ msgstr "Restore column order"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Drag to reorder"
 
 #: libraries/display_tbl.lib.php:412
 #, fuzzy
