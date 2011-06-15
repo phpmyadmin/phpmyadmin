@@ -5036,7 +5036,7 @@ msgstr "グラフで表示する"
 
 #: libraries/display_tbl.lib.php:2396
 msgid "Create view"
-msgstr "ビューを作成"
+msgstr "ビューを作成する"
 
 #: libraries/display_tbl.lib.php:2511
 msgid "Link not found"
