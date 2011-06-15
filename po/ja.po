@@ -6265,8 +6265,8 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"念のため、設定ファイル (my.cnf) 内でサーバーIDがユニークであるか確認してくだ"
-"さい。もしそうでないならば、[mysqld] セクションに以下の行を追加してください。"
+"念のため、設定ファイル (my.cnf) 内でサーバ ID がユニークであるか確認してください。もしそうでないならば、[mysqld] "
+"セクションに以下の行を追加してください。"
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
