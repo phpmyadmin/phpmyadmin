@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-15 17:02+0200\n"
+"PO-Revision-Date: 2011-06-15 17:03+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9777,10 +9777,9 @@ msgid "X-Axis label:"
 msgstr "Étiquette pour l'axe des X"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Valeur"
+msgstr "Valeurs en X"
 
 #: tbl_chart.php:129
 #, fuzzy
