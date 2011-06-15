@@ -8236,10 +8236,9 @@ msgstr "second"
 #: server_status.php:384 server_status.php:385 server_status.php:412
 #: server_status.php:413 server_status.php:414 server_status.php:415
 #: server_status.php:416
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
-msgstr "Second"
+msgstr "seconds"
 
 #: server_status.php:386 server_status.php:387 server_status.php:388
 #: server_status.php:389 server_status.php:417 server_status.php:418
