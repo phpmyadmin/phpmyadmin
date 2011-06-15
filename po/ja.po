@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 12:44+0200\n"
+"PO-Revision-Date: 2011-06-15 12:47+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1047,10 +1047,9 @@ msgid "Close"
 msgstr "閉じる"
 
 #: js/messages.php:64 server_status.php:393
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "サーバの選択"
+msgstr "リアルタイムでのトラフィックグラフ"
 
 #: js/messages.php:65 server_status.php:396
 msgid "Live conn./process chart"
