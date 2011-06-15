@@ -159,6 +159,17 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $extra_data['select'] = $select;
     PMA_ajaxResponse(NULL, true, $extra_data);
 }
+
+/**
+ * Check ajax request to set the column order
+ */
+if(isset($_REQUEST['set_col_order']) && $_REQUEST['set_col_order'] == true) {
+    $pmatable = new PMA_Table($table, $db);
+    $col_order = explode(',', $_REQUEST['col_order']);
+    $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+    PMA_ajaxResponse(NULL, ($retval == true));
+}
+
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
@@ -363,10 +374,13 @@ if ($is_select) { // see line 141
     $is_maint    = true;
 }
 
+// assign default full_sql_query
+$full_sql_query = $sql_query;
+
 // Handle remembered sorting order, only for single table query
 if ($GLOBALS['cfg']['RememberSorting']
- && basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
  && ! ($is_count || $is_export || $is_func || $is_analyse)
+ && count($analyzed_sql[0]['select_expr']) == 0
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && count($analyzed_sql[0]['table_ref']) == 1
  ) {
@@ -376,7 +390,7 @@ if ($GLOBALS['cfg']['RememberSorting']
         if ($sorted_col) {
             // retrieve the remembered sorting order for current table
             $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-            $sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
+            $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
 
             // update the $analyzed_sql
             $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
@@ -412,9 +426,7 @@ if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
         }
     }
 
-} else {
-    $full_sql_query      = $sql_query;
-} // end if...else
+}
 
 if (strlen($db)) {
     PMA_DBI_select_db($db);
@@ -846,6 +858,7 @@ else {
     } else {
 
         $GLOBALS['js_include'][] = 'functions.js';
+        $GLOBALS['js_include'][] = 'makegrid.js';
         $GLOBALS['js_include'][] = 'sql.js';
 
         unset($message);
