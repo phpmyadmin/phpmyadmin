@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 12:03+0200\n"
+"PO-Revision-Date: 2011-06-15 12:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8196,10 +8196,9 @@ msgid "Runtime Information"
 msgstr "ランタイム情報"
 
 #: server_status.php:367
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "サーバの選択"
+msgstr "サーバのトラフィック"
 
 #: server_status.php:368
 msgid "Query statistics"
