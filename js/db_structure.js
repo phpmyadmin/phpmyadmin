@@ -82,7 +82,7 @@ $(document).ready(function() {
 
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get( target , url ,  function(data) {
+        $.get( target , url+"&ajax_request=true" ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
                 div
@@ -131,7 +131,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error);
             }
             if ($("#insert_table_dialog").length > 0) {
-                $("#insert_table_dialog").parent().dialog("close").remove();
+                $("#insert_table_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
             currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
@@ -167,7 +167,7 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error);
             }
             if ($("#insert_table_dialog").length > 0) {
-                $("#insert_table_dialog").parent().dialog("close").remove();
+                $("#insert_table_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
             currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);

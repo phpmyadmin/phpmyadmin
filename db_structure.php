@@ -12,6 +12,7 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
+$GLOBALS['js_include'][] = 'tbl_change.js';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
