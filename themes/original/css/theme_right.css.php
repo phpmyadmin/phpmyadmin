@@ -678,6 +678,7 @@ ul#topmenu ul {
     list-style-type:    none;
     display:            none;
     border:             1px #666 solid;
+    z-index:            2;
 }
 
 ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
@@ -951,17 +952,59 @@ div#tablestatistics table {
 
 
 /* serverstatus */
+
+img.sortableIcon {
+    width:16px;
+    height:16px;
+    float:right;
+    background-repeat:no-repeat;
+}
+
+table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
+}
+table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
+}
+table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serverstatusvariables th.headerSortDown img.sortableIcon {
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
+}
+
+.statuslinks {
+    float: <?php echo $right; ?>;
+    white-space: nowrap;
+}
+
+/* Also used for the variables page */
+fieldset#tableFilter {
+    margin-bottom:1em;
+}
+
+div#serverStatusTabs {
+    margin-top:1em;
+}
+
 div#serverstatus table caption a.top {
     float: <?php echo $right; ?>;
 }
 
-div#serverstatus div#serverstatusqueriesdetails table,
-div#serverstatus table#serverstatustraffic,
-div#serverstatus table#serverstatusconnections {
+div#serverstatusquerieschart {
+    float:<?php echo $right; ?>;
+}
+
+div#serverstatus table#serverstatusqueriesdetails {
     float: <?php echo $left; ?>;
 }
 
-#serverstatussection,
+table#serverstatustraffic {
+    float: <?php echo $left; ?>;
+}
+table#serverstatusconnections {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $left; ?>: 30px;
+}
+
+
 .clearfloat {
     clear: both;
 }
@@ -1013,6 +1056,15 @@ div#querywindowcontainer fieldset {
 }
 /* END querywindow */
 
+/* profiling */
+
+div#profilingchart {
+    width:550px;
+    height:370px;
+    float:left;
+}
+
+/* END profiling */
 
 /* querybox */
 
@@ -1423,12 +1475,12 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options li.subgroup {
-	display: inline-block;
-	margin-top: 0;
+    display: inline-block;
+    margin-top: 0;
 }
 
 .export_sub_options li {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 #quick_or_custom, #output_quick_export {
@@ -1604,7 +1656,7 @@ iframe.IE_hack {
     padding:    0;
     list-style: none;
     color:      #9A0000;
-	font-size:  small;
+    font-size:  small;
 }
 
 .config-form fieldset th {
@@ -1860,4 +1912,69 @@ span.mysql-separator {
 }
 span.mysql-number {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
+}
+
+.colborder {
+    border-right: solid 1px #FFFFFF;
+    cursor: col-resize;
+    height: 100%;
+    margin-left: -3px;
+    position: absolute;
+    width: 5px;
+}
+
+.pma_table th.draggable span, .pma_table tbody td span {
+    display: block;
+    overflow: hidden;
+}
+
+.cRsz {
+    position: absolute;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.cCpy {
+    background: #000;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0.1em;
+    padding: 0.3em;
+    position: absolute;
+}
+
+.cPointer {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
+    height: 20px;
+    margin-left: -5px;  /* must be minus half of its width */
+    margin-top: -10px;
+    position: absolute;
+    width: 10px;
+}
+
+.cPointerVer {  /* cPointer with vertical display mode */
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer_ver.png);
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;   /* must be minus half of its height */
+    position: absolute;
+    width: 20px;
+}
+
+.dHint {
+    background: #333;
+    border:1px solid #000;
+    color: #FFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: -1em;
+    opacity: 0.8;
+    padding: 0.5em 1em;
+    position: absolute;
+    text-shadow: -1px -1px #000;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
 }

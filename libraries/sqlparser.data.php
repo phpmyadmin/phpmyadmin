@@ -11,9 +11,6 @@
  * It has been extracted from the lex.h file in the MySQL BK tree
  * (around 4.0.2) as well as the MySQL documentation.
  *
- * Note: before adding a value in the arrays, ensure that you respect
- * proper sorting, especially with underscores.
- *
  * It's easier to use only uppercase for proper sorting. In case of
  * doubt, use the test case to verify.
  *
@@ -426,6 +423,7 @@ $PMA_SQPdata_reserved_word = array (
     'DAY_HOUR',
     'DAY_MINUTE',
     'DAY_SECOND',
+    'DECLARE',
     'DEFINER',
     'DELAYED',
     'DELAY_KEY_WRITE',
@@ -1316,6 +1314,7 @@ $PMA_SQPdata_functions_docs = array(
    'DAYOFMONTH' => array('link' => 'date-and-time-functions','anchor' => 'function_dayofmonth'),
    'DAYOFWEEK' => array('link' => 'date-and-time-functions','anchor' => 'function_dayofweek'),
    'DAYOFYEAR' => array('link' => 'date-and-time-functions','anchor' => 'function_dayofyear'),
+   'DECLARE' => array('link' => 'declare', 'anchor' => 'declare'),
    'DECODE' => array('link' => 'encryption-functions','anchor' => 'function_decode'),
    'DEFAULT' => array('link' => 'miscellaneous-functions','anchor' => 'function_default'),
    'DEGREES' => array('link' => 'mathematical-functions','anchor' => 'function_degrees'),
