@@ -21,15 +21,14 @@ require_once './libraries/common.inc.php';
  * Ajax request
  */
 
-// Prevent ajax requests from being cached
 if (isset($_REQUEST['ajax_request'])) {
-    header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-    header_remove('Last-Modified');
+    // Prevent ajax requests from being cached
+    header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
+    header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+    // Send correct charset
+    header('Content-Type: text/html; charset=UTF-8');
 
-    if (isset($_REQUEST["query_chart"])) {
-        exit(createQueryChart());
-    }
+    // real-time charting data
     if(isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
             case 'proc':
