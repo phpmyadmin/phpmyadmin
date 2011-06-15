@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 12:09+0200\n"
+"PO-Revision-Date: 2011-06-15 12:11+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8205,10 +8205,9 @@ msgid "Query statistics"
 msgstr "クエリの統計"
 
 #: server_status.php:369
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "スレーブのステータステーブルを閲覧する"
+msgstr "全ての状態変数"
 
 #: server_status.php:379 server_status.php:410
 #, fuzzy
