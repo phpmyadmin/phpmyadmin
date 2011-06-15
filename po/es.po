@@ -1057,10 +1057,9 @@ msgid "Close"
 msgstr "Cerrar"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Elección del servidor"
+msgstr "Gráfico de tráfico en vivo"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
