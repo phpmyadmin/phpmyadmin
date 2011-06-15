@@ -27,7 +27,7 @@ if (isset($_REQUEST['ajax_request'])) {
     header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
     header_remove('Last-Modified');
     // Send correct charset
-    header('Content-Type: text/javascript; charset=UTF-8');
+    header('Content-Type: text/html; charset=UTF-8');
 
     if (isset($_REQUEST["query_chart"])) {
         exit(createQueryChart());
