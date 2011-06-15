@@ -116,7 +116,7 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $point_options = array(
             'name'        => $label,
             'id'          => $label . rand(),
-            'class'       => 'point',
+            'class'       => 'point vector',
             'fill'        => 'white',
             'stroke'      => $point_color,
             'stroke-width'=> 2,

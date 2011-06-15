@@ -148,7 +148,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     {
         $line_options = array(
             'name'        => $label,
-            'class'       => 'linestring',
+            'class'       => 'linestring vector',
             'fill'        => 'none',
             'stroke'      => $line_color,
             'stroke-width'=> 2,

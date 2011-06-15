@@ -130,7 +130,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $line_options = array(
             'name'        => $label,
             'id'          => $label . rand(),
-            'class'       => 'linestring',
+            'class'       => 'linestring vector',
             'fill'        => 'none',
             'stroke'      => $line_color,
             'stroke-width'=> 2,

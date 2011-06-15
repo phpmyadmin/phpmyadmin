@@ -21,7 +21,7 @@ function zoomAndPan() {
     g.setAttribute('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
     var id;
     var circle;
-    $('circle').each(function() {
+    $('circle.vector').each(function() {
         id = $(this).attr('id');
         circle = svg.getElementById(id);
         svg.change(circle, {
@@ -31,7 +31,7 @@ function zoomAndPan() {
     });
 
     var line;
-    $('polyline').each(function() {
+    $('polyline.vector').each(function() {
         id = $(this).attr('id');
         line = svg.getElementById(id);
         svg.change(line, {
@@ -40,7 +40,7 @@ function zoomAndPan() {
     });
 
     var polygon;
-    $('path').each(function() {
+    $('path.vector').each(function() {
         id = $(this).attr('id');
         polygon = svg.getElementById(id);
         svg.change(polygon, {
@@ -143,6 +143,27 @@ $(document).ready(function() {
         zoomAndPan();
     });
 
+    $('#zoom_in').live('click', function(e) {
+        e.preventDefault();
+        //zoom in
+        scale *= 1.5;
+
+        width = $('#placeholder svg').attr('width');
+        height = $('#placeholder svg').attr('height');
+        // zooming in keeping the center unmoved.
+        x = width / 2 - (width / 2 - x) * 1.5;
+        y = height / 2 - (height / 2 - y) * 1.5;
+        zoomAndPan();
+    });
+    
+    $('#zoom_world').live('click', function(e) {
+        e.preventDefault();
+        scale = 1;
+        x = 0;
+        y = 0;
+        zoomAndPan();
+    });
+    
     $('#zoom_out').live('click', function(e) {
         e.preventDefault();
         //zoom out

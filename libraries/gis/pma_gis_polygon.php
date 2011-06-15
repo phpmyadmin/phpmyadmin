@@ -168,7 +168,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         $polygon_options = array(
             'name'        => $label,
             'id'          => $label . rand(),
-            'class'       => 'polygon',
+            'class'       => 'polygon vector',
             'stroke'      => 'black',
             'stroke-width'=> 0.5,
             'fill'        => $fill_color,

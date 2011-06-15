@@ -119,7 +119,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     {
         $point_options = array(
             'name'        => $label,
-            'class'       => 'multipoint',
+            'class'       => 'multipoint vector',
             'fill'        => 'white',
             'stroke'      => $point_color,
             'stroke-width'=> 2,

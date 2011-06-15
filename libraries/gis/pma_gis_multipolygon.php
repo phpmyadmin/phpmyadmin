@@ -178,7 +178,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
     {
         $polygon_options = array(
             'name'        => $label,
-            'class'       => 'multipolygon',
+            'class'       => 'multipolygon vector',
             'stroke'      => 'black',
             'stroke-width'=> 0.5,
             'fill'        => $fill_color,

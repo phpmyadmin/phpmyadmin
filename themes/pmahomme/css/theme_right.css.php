@@ -1258,7 +1258,7 @@ div#profilingchart {
 /* table charting */
 
 #resizer {
-    border: 1px solid silver;   
+    border: 1px solid silver;
 }
 #inner-resizer { /* make room for the resize handle */
     padding: 10px;
@@ -2190,28 +2190,38 @@ fieldset .disabled-field td {
 }
 
 #left_arrow {
-    right:35px;
-    top:40px;
+    left:8px;
+    top:26px;
 }
 
 #right_arrow {
-    right:5px;
-    top:40px;
+    left:26px;
+    top:26px;
 }
 
 #up_arrow {
-    right:20px;
-    top:25px;
+    left:17px;
+    top:8px;
 }
 
 #down_arrow {
-    right:20px;
-    top:55px;
+    left:17px;
+    top:44px;
+}
+
+#zoom_in {
+    left:17px;
+    top:67px;
+}
+
+#zoom_world {
+    left:17px;
+    top:85px;
 }
 
 #zoom_out {
-    right:5px;
-    top:5px;
+    left:17px;
+    top:103px;
 }
 
 .gis_table td {
