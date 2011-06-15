@@ -8470,10 +8470,9 @@ msgid "Filter by category..."
 msgstr "Filtrar por categoría..."
 
 #: server_status.php:468
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Enlaces relacionados"
+msgstr "Enlaces relacionados:"
 
 #: server_status.php:513 server_status.php:545 server_status.php:666
 #: server_status.php:711
