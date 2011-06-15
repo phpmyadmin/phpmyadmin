@@ -9787,10 +9787,9 @@ msgid "Y-Axis label:"
 msgstr "Étiquette pour l'axe des Y"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Valeur"
+msgstr "Valeurs en Y"
 
 #: tbl_create.php:56
 #, php-format
