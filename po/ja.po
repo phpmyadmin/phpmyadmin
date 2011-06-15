@@ -9569,7 +9569,7 @@ msgstr "グラフの題名"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X 軸"
 
 #: tbl_chart.php:113
 #, fuzzy
