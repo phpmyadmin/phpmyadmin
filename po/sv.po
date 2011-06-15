@@ -9632,7 +9632,7 @@ msgstr "Diagramtitel"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-axel:"
 
 #: tbl_chart.php:113
 #, fuzzy
