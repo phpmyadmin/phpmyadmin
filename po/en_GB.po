@@ -9618,10 +9618,9 @@ msgid "X Values"
 msgstr "X Values"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Y Axis label"
+msgstr "Y-Axis label:"
 
 #: tbl_chart.php:129
 #, fuzzy
