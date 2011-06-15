@@ -8436,10 +8436,9 @@ msgid "Refresh rate"
 msgstr "Velocidad de actualización"
 
 #: server_status.php:384 server_status.php:417
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Segundo"
+msgstr "segundo"
 
 #: server_status.php:385 server_status.php:386 server_status.php:387
 #: server_status.php:388 server_status.php:389 server_status.php:418
