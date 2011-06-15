@@ -16,6 +16,8 @@
 + Patch #3271804 for rfe #3177495, new DisableMultiTableMaintenance directive
 + [interface] Reorganised server status page.
 + [interface] Changed way of generating charts.
++ rfe #939233 [interface] Flexible column width
++ [interface] Mouse-based column reordering in query results
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
