@@ -8417,10 +8417,9 @@ msgid "Runtime Information"
 msgstr "Información acerca del tiempo de ejecución del proceso principal"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Elección del servidor"
+msgstr "Tráfico del servidor"
 
 #: server_status.php:372
 msgid "Query statistics"
