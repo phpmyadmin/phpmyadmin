@@ -62,8 +62,13 @@ if (isset($_REQUEST['ajax_request'])) {
 /**
  * Replication library
  */
-require './libraries/replication.inc.php';
-require_once './libraries/replication_gui.lib.php';
+if (PMA_DRIZZLE) {
+    $server_master_status = false;
+    $server_slave_status = false;
+} else {
+    require './libraries/replication.inc.php';
+    require_once './libraries/replication_gui.lib.php';
+}
 
 /**
  * JS Includes
@@ -116,6 +121,13 @@ if (!empty($_REQUEST['kill'])) {
  * get status from server
  */
 $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
+if (PMA_DRIZZLE) {
+    // Drizzle doesn't put query statistics into variables, add it
+    $sql = "SELECT 'Com_' || variable_name, variable_value
+        FROM data_dictionary.GLOBAL_STATEMENTS";
+    $statements = PMA_DBI_fetch_result($sql, 0, 1);
+    $server_status = array_merge($server_status, $statements);
+}
 
 /**
  * for some calculations we require also some server settings
@@ -294,7 +306,7 @@ $links['innodb'][__('InnoDB Status')]
 $links['innodb']['doc'] = 'innodb';
 
 
-// Variable to contain all com_ variables
+// Variable to contain all com_ variables (query statistics)
 $used_queries = Array();
 
 // Variable to map variable names to their respective section name (used for js category filtering)
@@ -820,7 +832,7 @@ function printServerTraffic() {
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
         <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
         <td class="value"><?php echo $process['Id']; ?></td>
-        <td><?php echo $process['User']; ?></td>
+        <td><?php echo PMA_DRIZZLE ? $process['Username'] : $process['User']; ?></td>
         <td><?php echo $process['Host']; ?></td>
         <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']); ?></td>
         <td><?php echo $process['Command']; ?></td>
@@ -988,20 +1000,20 @@ function printVariablesTable() {
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => $server_status['Qcache_total_blocks'] / 5,
+        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks']) ? $server_status['Qcache_total_blocks'] / 5 : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
         // normaly lower then 1:0.01
-        'Key_reads' => (0.01 * $server_status['Key_read_requests']),
+        'Key_reads' => isset($server_status['Key_read_requests']) ? (0.01 * $server_status['Key_read_requests']) : 0,
         // depends on Key_write_requests
         // normaly nearly 1:1
-        'Key_writes' => (0.9 * $server_status['Key_write_requests']),
+        'Key_writes' => isset($server_status['Key_write_requests']) ? (0.9 * $server_status['Key_write_requests']) : 0,
 
         'Key_buffer_fraction' => 0.5,
 
         // alert if more than 95% of thread cache is in use
-        'Threads_cached' => 0.95 * $server_variables['thread_cache_size']
+        'Threads_cached' => isset($server_variables['thread_cache_size']) ? 0.95 * $server_variables['thread_cache_size'] : 0
 
         // higher is better
         // variable => min value
