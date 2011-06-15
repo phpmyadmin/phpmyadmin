@@ -3053,9 +3053,7 @@ msgstr "変更追跡機能"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
-"データベースで行われた変更の追跡機能です。これには、 phpMyAdmin の設定保存場"
-"所が必要です。"
+msgstr "データベースで行われた変更の追跡機能です。これには、phpMyAdmin の設定保存場所が必要です。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
