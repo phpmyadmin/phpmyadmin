@@ -9608,10 +9608,9 @@ msgid "The remaining columns"
 msgstr "The remaining columns"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X Axis label"
+msgstr "X-Axis label:"
 
 #: tbl_chart.php:128
 #, fuzzy
