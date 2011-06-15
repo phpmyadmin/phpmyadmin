@@ -8286,7 +8286,7 @@ msgstr "Query type"
 #. l10n: # = Amount of queries
 #: server_status.php:537
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:609
 #, php-format
