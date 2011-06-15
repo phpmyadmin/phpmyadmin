@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 13:43+0200\n"
+"PO-Revision-Date: 2011-06-15 13:44+0200\n"
 "Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -713,10 +713,9 @@ msgid "Add prefix to table"
 msgstr "Sem bases"
 
 #: db_structure.php:523 libraries/mult_submits.inc.php:246
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Substituir os dados da tabela pelos do arquivo"
+msgstr "Substituir prefixo da tabela"
 
 #: db_structure.php:525 libraries/mult_submits.inc.php:246
 #, fuzzy
