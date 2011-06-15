@@ -3524,7 +3524,7 @@ msgstr "HTTP 転送の高速化のために GZip の出力バッファリング�
 
 #: libraries/config/messages.inc.php:326
 msgid "GZip output buffering"
-msgstr "GZipの出力バッファリング"
+msgstr "GZip の出力バッファリング"
 
 #: libraries/config/messages.inc.php:327
 msgid ""
