@@ -185,11 +185,12 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
 
 
 /**
- * Return true if we are currently browsing a table from the browse tab
+ * Return true if we are executing a query in the form of
+ * "SELECT * FROM <a table> ..."
  *
  * @return boolean
  */
-function PMA_isBrowsing()
+function PMA_isSelect()
 {
     // global variables set from sql.php
     global $is_count, $is_export, $is_func, $is_analyse;
@@ -393,9 +394,9 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     } // end move toward
     ?>
     <td>
-        <input class="restore_column" type="submit" value="<?php echo __('Restore column order'); ?>" />
+        <input class="restore_column hide" type="submit" value="<?php echo __('Restore column order'); ?>" />
         <?php
-        if (PMA_isBrowsing()) {
+        if (PMA_isSelect()) {
             // generate the column order, if it is set
             $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
             $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
@@ -773,7 +774,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
     }
 
-    if (PMA_isBrowsing()) {
+    if (PMA_isSelect()) {
         // prepare to get the column order, if available
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
@@ -910,6 +911,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
              && $GLOBALS['cfg']['HeaderFlipType'] == 'css') {
                 $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
             }
+            $order_link_params['title'] = __('Sort');
             $order_link_content = ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name));
             $order_link = PMA_linkOrButton($order_url, $order_link_content . $order_img, $order_link_params, false, true);
 
@@ -1339,7 +1341,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         // 2. Displays the rows' values
 
-        if (PMA_isBrowsing()) {
+        if (PMA_isSelect()) {
             // prepare to get the column order, if available
             $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
             $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
@@ -1717,7 +1719,7 @@ function PMA_displayVerticalTable()
         echo '</tr>' . "\n";
     } // end if
 
-    if (PMA_isBrowsing()) {
+    if (PMA_isSelect()) {
         // prepare to get the column order, if available
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);

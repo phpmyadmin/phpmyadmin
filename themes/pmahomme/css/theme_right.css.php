@@ -2288,10 +2288,6 @@ span.mysql-number {
     position: absolute;
 }
 
-.draggable {
-    cursor: move;
-}
-
 .cCpy {
     background: #333;
     color: #FFF;

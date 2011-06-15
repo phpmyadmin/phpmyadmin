@@ -309,13 +309,13 @@
              * Send column order to the server.
              */
             sendColOrder: function() {
-                $.get('sql.php', {
+                $.post('sql.php', {
                     ajax_request: true,
                     db: window.parent.db,
                     table: window.parent.table,
                     token: window.parent.token,
                     set_col_order: true,
-                    col_order: this.colOrder,
+                    col_order: this.colOrder.toString(),
                     table_create_time: this.tableCreateTime
                 });
             },
@@ -493,6 +493,7 @@
         // register events
         if ($firstRowCols.length > 1) {
             $(t).find('th.draggable')
+                .css('cursor', 'move')
                 .mousedown(function(e) {
                     g.dragStartMove(e, this);
                 });
@@ -506,6 +507,7 @@
                 g.hideHint();
             });
         $(t).find('th.draggable a')
+            .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
                 g.showSortHint = true;
                 g.showMarkHint = false;
