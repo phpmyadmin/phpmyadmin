@@ -8346,10 +8346,9 @@ msgid "Refresh rate"
 msgstr "Taux de rafraîchissement"
 
 #: server_status.php:380 server_status.php:411
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Seconde"
+msgstr "seconde"
 
 #: server_status.php:381 server_status.php:382 server_status.php:383
 #: server_status.php:384 server_status.php:385 server_status.php:412
