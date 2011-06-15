@@ -9767,10 +9767,9 @@ msgid "Series:"
 msgstr "Séries:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Taille horizontale pour une zone de texte"
+msgstr "Les colonnes restantes"
 
 #: tbl_chart.php:128
 #, fuzzy
