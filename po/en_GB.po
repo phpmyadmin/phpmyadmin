@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 02:32+0200\n"
+"PO-Revision-Date: 2011-06-15 02:33+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -8253,10 +8253,9 @@ msgid "Containing the word:"
 msgstr "Containing the word:"
 
 #: server_status.php:445
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Show open tables"
+msgstr "Show only alert values"
 
 #: server_status.php:449
 msgid "Filter by category..."
