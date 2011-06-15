@@ -5019,7 +5019,7 @@ msgstr "Pulsar para ordenar"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Pulsar para marcar/desmarcar"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
