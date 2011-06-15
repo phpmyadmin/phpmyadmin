@@ -4915,7 +4915,7 @@ msgstr "Click to sort"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Click to mark/unmark"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
