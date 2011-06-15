@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 14:26+0200\n"
+"PO-Revision-Date: 2011-06-15 14:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1063,7 +1063,7 @@ msgstr "Tableau du trafic en temps réel"
 
 #: js/messages.php:65 server_status.php:396
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Tableau des connexions et processus en temps réel"
 
 #: js/messages.php:66 server_status.php:423
 #, fuzzy
