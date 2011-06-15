@@ -8402,10 +8402,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Kunde inte ansluta till MySQL-server"
+msgstr "Antalet misslyckade försök att ansluta till MySQL-servern."
 
 #: server_status.php:847
 msgid ""
