@@ -4966,7 +4966,7 @@ msgstr "Restaurer l'ordre des colonnes"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr "Faites glisser pour réordonner"
+msgstr "Faire glisser pour réordonner"
 
 #: libraries/display_tbl.lib.php:412
 #| msgid "Click to select"
