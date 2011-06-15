@@ -8371,10 +8371,9 @@ msgid "Containing the word:"
 msgstr "Contenant le mot :"
 
 #: server_status.php:445
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Montrer les tables ouvertes"
+msgstr "Afficher uniquement les valeurs d'alerte"
 
 #: server_status.php:449
 msgid "Filter by category..."
