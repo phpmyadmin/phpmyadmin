@@ -4922,7 +4922,7 @@ msgstr "Klicka för att sortera"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klicka för att markera/avmarkera"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
