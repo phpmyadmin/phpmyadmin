@@ -8366,10 +8366,9 @@ msgid "minutes"
 msgstr "minutes"
 
 #: server_status.php:440
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Conserver le mot de passe"
+msgstr "Contenant le mot :"
 
 #: server_status.php:445
 #, fuzzy
