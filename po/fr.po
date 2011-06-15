@@ -8336,10 +8336,9 @@ msgid "Query statistics"
 msgstr "Statistiques sur les requêtes"
 
 #: server_status.php:369
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Montrer l'état de l'esclave"
+msgstr "Toutes les variables d'état"
 
 #: server_status.php:379 server_status.php:410
 #, fuzzy
