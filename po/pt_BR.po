@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-04-14 17:44+0200\n"
-"Last-Translator: <vitorpc.18@gmail.com>\n"
+"PO-Revision-Date: 2011-06-15 13:36+0200\n"
+"Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -489,7 +489,7 @@ msgstr "Usar tabelas"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Consulta no Banco de Dados <b>%s</b>:"
+msgstr "Consulta SQL ao Banco de Dados <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1153
 msgid "Submit Query"
