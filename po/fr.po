@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 14:31+0200\n"
+"PO-Revision-Date: 2011-06-15 14:32+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -8341,10 +8341,9 @@ msgid "All status variables"
 msgstr "Toutes les variables d'état"
 
 #: server_status.php:379 server_status.php:410
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Actualiser"
+msgstr "Taux de rafraîchissement"
 
 #: server_status.php:380 server_status.php:411
 #, fuzzy
