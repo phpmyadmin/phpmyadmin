@@ -8431,10 +8431,9 @@ msgid "All status variables"
 msgstr "Todas las variables de estado"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Actualizar"
+msgstr "Velocidad de actualización"
 
 #: server_status.php:384 server_status.php:417
 #, fuzzy
