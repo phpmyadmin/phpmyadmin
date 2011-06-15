@@ -1032,6 +1032,22 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // Analyze it
         if (isset($parsed_sql)) {
             $analyzed_display_query = PMA_SQP_analyze($parsed_sql);
+
+            // Same as below (append LIMIT), append the remembered ORDER BY
+            if ($GLOBALS['cfg']['RememberSorting']
+             && isset($analyzed_display_query[0]['queryflags']['select_from'])
+             && isset($GLOBALS['sql_order_to_append'])) {
+                $query_base = $analyzed_display_query[0]['section_before_limit']
+                    . "\n" . $GLOBALS['sql_order_to_append']
+                    . $analyzed_display_query[0]['section_after_limit'];
+
+                // Need to reparse query
+                $parsed_sql = PMA_SQP_parse($query_base);
+                // update the $analyzed_display_query
+                $analyzed_display_query[0]['section_before_limit'] .= $GLOBALS['sql_order_to_append'];
+                $analyzed_display_query[0]['order_by_clause'] = $GLOBALS['sorted_col'];
+            }
+
             // Here we append the LIMIT added for navigation, to
             // enable its display. Adding it higher in the code
             // to $sql_query would create a problem when
