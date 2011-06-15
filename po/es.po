@@ -1063,7 +1063,7 @@ msgstr "Gráfico de tráfico en vivo"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Gráfico de procesos/conexiones en vivo"
 
 #: js/messages.php:66 server_status.php:429
 #, fuzzy
