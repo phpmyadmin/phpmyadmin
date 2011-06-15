@@ -8209,10 +8209,9 @@ msgid "Runtime Information"
 msgstr "Runtime Information"
 
 #: server_status.php:367
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Server Choice"
+msgstr "Server traffic"
 
 #: server_status.php:368
 msgid "Query statistics"
