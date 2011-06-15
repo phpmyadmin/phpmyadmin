@@ -312,11 +312,15 @@ $used_queries = Array();
 // Variable to map variable names to their respective section name (used for js category filtering)
 $allocationMap = Array();
 
+// Variable to mark used sections
+$categoryUsed = Array();
+
 // sort vars into arrays
 foreach ($server_status as $name => $value) {
     foreach ($allocations as $filter => $section) {
         if (strpos($name, $filter) !== FALSE) {
             $allocationMap[$name] = $section;
+            $categoryUsed[$section] = true;
             if($section=='com' && $value>0) $used_queries[$name] = $value;
             break; // Only exits inner loop
         }
@@ -467,11 +471,12 @@ echo __('Runtime Information');
                         <option value=''><?php echo __('Filter by category...'); ?></option>
                 <?php
                         foreach($sections as $section_id=>$section_name) {
+                            if (isset($categoryUsed[$section_id])) {
                 ?>
-                            <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
+                                <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
                 <?php
+                            }
                         }
-
                 ?>
                     </select>
                 </div>
