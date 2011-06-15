@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-08 12:19+0200\n"
+"PO-Revision-Date: 2011-06-15 12:47+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1047,10 +1047,9 @@ msgid "Close"
 msgstr "閉じる"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "サーバの選択"
+msgstr "リアルタイムでのトラフィックグラフ"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
@@ -3053,9 +3052,7 @@ msgstr "変更追跡機能"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
-"データベースで行われた変更の追跡機能です。これには、 phpMyAdmin の設定保存場"
-"所が必要です。"
+msgstr "データベースで行われた変更の追跡機能です。これには、phpMyAdmin の設定保存場所が必要です。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -3336,7 +3333,7 @@ msgstr "ロゴリンクのターゲット"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
-msgstr "マウスカーソルの下のサーバー名を強調表示します。"
+msgstr "マウスカーソルの下のサーバ名を強調表示します。"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
@@ -3526,7 +3523,7 @@ msgstr "HTTP 転送の高速化のために GZip の出力バッファリング�
 
 #: libraries/config/messages.inc.php:326
 msgid "GZip output buffering"
-msgstr "GZipの出力バッファリング"
+msgstr "GZip の出力バッファリング"
 
 #: libraries/config/messages.inc.php:327
 msgid ""
@@ -4086,13 +4083,11 @@ msgstr "バージョンの自動作成"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_config[/kbd]"
-msgstr ""
-"データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_config[/"
-"kbd] としておくのがいいでしょう。"
+msgstr "データベースにユーザ環境設定を保存しない場合は空欄にします。[kbd]pma_config[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:441
 msgid "User preferences storage table"
-msgstr "ユーザ設定保存テーブル"
+msgstr "ユーザ環境設定保存テーブル"
 
 #: libraries/config/messages.inc.php:443
 msgid "User for config auth"
@@ -4945,7 +4940,7 @@ msgstr "水平"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal (rotated headers)"
-msgstr "水平 (ヘッダも回転)"
+msgstr "水平 (縦ヘッダ)"
 
 #: libraries/display_tbl.lib.php:438
 msgid "vertical"
@@ -5056,7 +5051,7 @@ msgstr "グラフで表示する"
 
 #: libraries/display_tbl.lib.php:2473
 msgid "Create view"
-msgstr "ビューを作成"
+msgstr "ビューを作成する"
 
 #: libraries/display_tbl.lib.php:2588
 msgid "Link not found"
@@ -6218,7 +6213,7 @@ msgstr "PDF の作成"
 
 #: libraries/relation.lib.php:121
 msgid "Displaying Column Comments"
-msgstr "列コメント表示機能"
+msgstr "カラムコメント表示機能"
 
 #: libraries/relation.lib.php:126
 msgid ""
@@ -6243,7 +6238,7 @@ msgstr "永続的な『テーブルのユーザ設定』"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
-msgstr "ユーザ設定"
+msgstr "ユーザ環境設定"
 
 #: libraries/relation.lib.php:159
 msgid "Quick steps to setup advanced features:"
@@ -6287,8 +6282,8 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"念のため、設定ファイル (my.cnf) 内でサーバーIDがユニークであるか確認してくだ"
-"さい。もしそうでないならば、[mysqld] セクションに以下の行を追加してください。"
+"念のため、設定ファイル (my.cnf) 内でサーバ ID がユニークであるか確認してください。もしそうでないならば、[mysqld] "
+"セクションに以下の行を追加してください。"
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
 #: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
@@ -8029,12 +8024,9 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
-"このサーバは、レプリケーションプロセスのマスタサーバーとして構成されていませ"
-"ん。以下のいずれかを選択できます。１つは、特定のデータベースを無視して残り全"
-"てのデータベースをレプリケーションするモード（データベースの大部分をレプリ"
-"ケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベース"
-"を無視して、特定のデータベースだけのレプリケーションを許可するモード。以下よ"
-"りいずれかのモードを選択してください。"
+"このサーバは、レプリケーションプロセスのマスタサーバとして構成されていません。以下のいずれかを選択できます。１つは、特定のデータベースを無視して残り全て"
+"のデータベースをレプリケーションするモード（データベースの大部分をレプリケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベースを無"
+"視して、特定のデータベースだけのレプリケーションを許可するモード。以下よりいずれかのモードを選択してください。"
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
@@ -8062,9 +8054,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL サーバが再起動したら、「実行する」ボタンをクリックしてください。その"
-"後、このサーバー<b>が</b>マスタとして設定されていることを知らせるメッセージが"
-"表示されます。"
+"MySQL サーバが再起動したら、「実行する」ボタンをクリックしてください。その後、このサーバ<b>が</b>マスタとして設定されていることを知らせるメ"
+"ッセージが表示されます。"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
@@ -8224,29 +8215,25 @@ msgid "Runtime Information"
 msgstr "ランタイム情報"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "サーバの選択"
+msgstr "サーバのトラフィック"
 
 #: server_status.php:372
 msgid "Query statistics"
 msgstr "クエリの統計"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "スレーブのステータステーブルを閲覧する"
+msgstr "全ての状態変数"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "再描画"
+msgstr "再描画間隔"
 
 #: server_status.php:384 server_status.php:417
-#, fuzzy
 #| msgid "Second"
 msgid "second"
 msgstr "秒"
@@ -8255,7 +8242,6 @@ msgstr "秒"
 #: server_status.php:388 server_status.php:389 server_status.php:418
 #: server_status.php:419 server_status.php:420 server_status.php:421
 #: server_status.php:422
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
 msgstr "秒"
@@ -8263,26 +8249,23 @@ msgstr "秒"
 #: server_status.php:390 server_status.php:391 server_status.php:392
 #: server_status.php:393 server_status.php:423 server_status.php:424
 #: server_status.php:425 server_status.php:426
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
 msgstr "分"
 
 #: server_status.php:446
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "パスワードは変更しない"
+msgstr "含まれている文字："
 
 #: server_status.php:451
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "開いているテーブルを表示する"
+msgstr "警告値のみ表示する"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "種別によるフィルタ..."
 
 #: server_status.php:468
 #, fuzzy
@@ -8315,7 +8298,7 @@ msgstr ""
 #: server_status.php:615
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "起動してからのネットワークトラフィック：%s"
 
 #: server_status.php:623
 #, php-format
@@ -8347,8 +8330,7 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
 msgstr ""
-"サーバー上のレプリケーションステータスの詳細については、<a href="
-"\"#replication\">レプリケーションの節</a>を参照してください。"
+"サーバ上のレプリケーションステータスの詳細については、<a href=\"#replication\">レプリケーションの節</a>を参照してください。"
 
 #: server_status.php:649
 msgid "Replication status"
@@ -8399,10 +8381,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL サーバに接続するのに SSL を有効にするかどうか。"
+msgstr "MySQL サーバへの接続を試みて失敗した回数。"
 
 #: server_status.php:847
 msgid ""
@@ -8420,7 +8401,7 @@ msgstr "一時バイナリログキャッシュを使用したトランザクシ
 #: server_status.php:849
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "MySQL サーバへの接続試行回数（成否に関わらず）。"
 
 #: server_status.php:850
 msgid ""
@@ -8832,7 +8813,7 @@ msgstr ""
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr ""
+msgstr "サーバが起動してからの同時接続の最大数。"
 
 #: server_status.php:921
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8864,6 +8845,8 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"クエリキャッシュ内の空きメモリのブロック数。この値が高い場合は 断片化が起こっていることを示しています。FLUSH QUERY CACHE "
+"文を発行することによって解決できるかもしれません。"
 
 #: server_status.php:927
 msgid "The amount of free memory for query cache."
@@ -9188,9 +9171,7 @@ msgstr ""
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
-msgstr ""
-"サーバーがHTTPS要求を受け入れるように構成されている場合、[a@%s]このリンク[/a]"
-"をたどり安全な接続を使用するようにしてください。"
+msgstr "サーバが HTTPS 要求を受け入れるように構成されている場合、[a@%s]このリンク[/a]をたどり安全な接続を使用するようにしてください。"
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
@@ -9368,8 +9349,7 @@ msgstr ""
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
-"Webサーバでサポートしている場合、この%sオプション%sを有効にするべきです。"
+msgstr "ウェブサーバでサポートしている場合、この%sオプション%sを有効にするべきです。"
 
 #: setup/lib/index.lib.php:258
 #, php-format
@@ -9601,14 +9581,13 @@ msgid "Stacked"
 msgstr "積み上げ形式"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "レポートのタイトル:"
+msgstr "グラフの題名"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "横軸："
 
 #: tbl_chart.php:113
 #, fuzzy
@@ -9623,28 +9602,24 @@ msgid "The remaining columns"
 msgstr "textarea の 1 行の文字数"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "横軸のラベル"
+msgstr "横軸のラベル："
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "値"
+msgstr "横軸の値"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "縦軸のラベル"
+msgstr "縦軸のラベル："
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "値"
+msgstr "縦軸の値"
 
 #: tbl_create.php:56
 #, php-format
@@ -9698,7 +9673,7 @@ msgstr ""
 #: tbl_indexes.php:249
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "インデックスに&nbsp;%s&nbsp; の列を追加しました"
+msgstr "インデックスに&nbsp;%s&nbsp;個のカラムを追加する"
 
 #: tbl_indexes.php:254 tbl_structure.php:684 tbl_structure.php:695
 msgid "Column count has to be larger than zero."
@@ -9736,7 +9711,7 @@ msgstr "(1 回)"
 
 #: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
-msgstr "テーブルの移動先(database<b>.</b>table):"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
 #: tbl_operations.php:351
 msgid "Table options"
