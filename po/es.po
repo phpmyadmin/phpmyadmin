@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-15 22:54+0200\n"
+"PO-Revision-Date: 2011-06-15 22:55+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -8426,10 +8426,9 @@ msgid "Query statistics"
 msgstr "Estadísticas de Consulta"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Ver la tabla de estado del esclavo"
+msgstr "Todas las variables de estado"
 
 #: server_status.php:383 server_status.php:416
 #, fuzzy
