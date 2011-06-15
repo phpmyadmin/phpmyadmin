@@ -3334,7 +3334,7 @@ msgstr "ロゴリンクのターゲット"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
-msgstr "マウスカーソルの下のサーバー名を強調表示します。"
+msgstr "マウスカーソルの下のサーバ名を強調表示します。"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
