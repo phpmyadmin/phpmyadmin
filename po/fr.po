@@ -9762,10 +9762,9 @@ msgid "X-Axis:"
 msgstr "Axe des X"
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "Requêtes SQL"
+msgstr "Séries:"
 
 #: tbl_chart.php:115
 #, fuzzy
