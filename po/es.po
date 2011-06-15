@@ -5010,7 +5010,7 @@ msgstr "Restaurar orden de las columnas"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Arrastrar para reordenar"
 
 #: libraries/display_tbl.lib.php:412
 #, fuzzy
