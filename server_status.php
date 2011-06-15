@@ -257,6 +257,7 @@ $sections = array(
     'tc'            => __('Transaction coordinator'),
     'files'         => __('Files'),
     'ssl'           => 'SSL',
+    'other'         => __('Other')
 );
 
 /**
@@ -317,13 +318,19 @@ $categoryUsed = Array();
 
 // sort vars into arrays
 foreach ($server_status as $name => $value) {
+    $section_found = false;
     foreach ($allocations as $filter => $section) {
         if (strpos($name, $filter) !== FALSE) {
             $allocationMap[$name] = $section;
             $categoryUsed[$section] = true;
+            $section_found = true;
             if($section=='com' && $value>0) $used_queries[$name] = $value;
             break; // Only exits inner loop
         }
+    }
+    if (!$section_found) {
+        $allocationMap[$name] = 'other';
+        $categoryUsed['other'] = true;
     }
 }
 
