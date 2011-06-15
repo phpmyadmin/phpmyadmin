@@ -1,4 +1,4 @@
-﻿phpMyAdmin - ChangeLog
+phpMyAdmin - ChangeLog
 ======================
 
 3.4.3.0 (not yet released)
@@ -10,6 +10,7 @@
 - bug #3313210 [interface] Columns class sometimes changed for nothing
 - patch #3313326 [interface] Some tooltips do not disappear
 - bug #3315720 [search] Fix search in non unicode tables
+- bug #3315741 [display] Inline query edit broken
 
 3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
