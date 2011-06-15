@@ -8467,7 +8467,7 @@ msgstr "Mostrar sólo valores de alerta"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrar por categoría..."
 
 #: server_status.php:468
 #, fuzzy
