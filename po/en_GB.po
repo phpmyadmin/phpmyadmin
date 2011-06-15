@@ -1072,7 +1072,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:586
 msgid "Other"
-msgstr ""
+msgstr "Other"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1359
