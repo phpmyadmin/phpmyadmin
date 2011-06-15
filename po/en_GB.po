@@ -9595,7 +9595,7 @@ msgstr "Chart title"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-Axis:"
 
 #: tbl_chart.php:113
 #, fuzzy
