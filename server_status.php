@@ -44,10 +44,12 @@ if (isset($_REQUEST['ajax_request'])) {
                 cleanDeprecated($queries);
                 // admin commands are not queries
                 unset($queries['Com_admin_commands']);
-
                 $sum=array_sum($queries);
-
-                $ret = Array('x'=>(microtime(true)*1000),'y'=>$sum,'pointInfo'=>$queries,'numQueries'=>count($queries));
+                $ret = Array('x'=>(microtime(true)*1000),'y'=>$sum,'pointInfo'=>$queries);
+                exit(json_encode($ret));
+            case 'traffic':
+                $traffic = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Bytes_received" OR Variable_name="Bytes_sent"', 0, 1);
+                $ret = Array('x'=>(microtime(true)*1000),'y_sent'=>$traffic['Bytes_sent'],'y_received'=>$traffic['Bytes_received']);
                 exit(json_encode($ret));
         }
     }
@@ -387,8 +389,11 @@ echo __('Runtime Information');
                     <option value="600">10 <?php echo __('minutes'); ?></option>
                 </select>
 
-                <a class="tabChart" href="#">
-                    <?php echo __('Realtime chart'); ?>
+                <a class="tabChart livetrafficLink" href="#">
+                    <?php echo __('Live traffic chart'); ?>
+                </a>
+                <a class="tabChart liveconnectionsLink" href="#">
+                    <?php echo __('Live conn./process chart'); ?>
                 </a>
             </div>
             <div class="tabInnerContent">
@@ -414,8 +419,8 @@ echo __('Runtime Information');
                     <option value="300">5 <?php echo __('minutes'); ?></option>
                     <option value="600">10 <?php echo __('minutes'); ?></option>
                 </select>
-                <a class="tabChart" href="#">
-                    <?php echo __('Realtime chart'); ?>
+                <a class="tabChart livequeriesLink" href="#">
+                    <?php echo __('Live query chart'); ?>
                 </a>
             </div>
             <div class="tabInnerContent">

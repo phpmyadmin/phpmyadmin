@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-14 13:54+0200\n"
+"POT-Creation-Date: 2011-06-14 17:22+0200\n"
 "PO-Revision-Date: 2011-06-08 12:19+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "検索"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358
-#: db_structure.php:535 enum_editor.php:63 js/messages.php:76
+#: db_structure.php:535 enum_editor.php:63 js/messages.php:79
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1300
 #: libraries/common.lib.php:2230 libraries/core.lib.php:557
@@ -84,7 +84,7 @@ msgstr "キー名"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:1009
+#: server_status.php:1014
 msgid "Description"
 msgstr "説明"
 
@@ -195,7 +195,7 @@ msgstr "リンク先"
 msgid "Comments"
 msgstr "コメント"
 
-#: db_datadict.php:260 js/messages.php:95 libraries/Index.class.php:358
+#: db_datadict.php:260 js/messages.php:98 libraries/Index.class.php:358
 #: libraries/Index.class.php:385 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -211,7 +211,7 @@ msgstr "コメント"
 msgid "No"
 msgstr "いいえ"
 
-#: db_datadict.php:260 js/messages.php:94 libraries/Index.class.php:359
+#: db_datadict.php:260 js/messages.php:97 libraries/Index.class.php:359
 #: libraries/Index.class.php:384 libraries/config.values.php:45
 #: libraries/config.values.php:51 libraries/config/FormDisplay.tpl.php:204
 #: libraries/export/htmlword.php:325 libraries/export/latex.php:444
@@ -271,7 +271,7 @@ msgstr "データベース %s を %s にコピーしました"
 msgid "Rename database to"
 msgstr "新しいデータベース名"
 
-#: db_operations.php:409 server_status.php:778
+#: db_operations.php:409 server_status.php:783
 msgid "Command"
 msgstr "コマンド"
 
@@ -620,7 +620,7 @@ msgstr "ビュー"
 
 #: db_structure.php:444 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:236
+#: server_replication.php:162 server_status.php:238
 msgid "Replication"
 msgstr "レプリケーション"
 
@@ -727,7 +727,7 @@ msgstr "SQL コマンドを追跡しているテーブル"
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
-#: server_privileges.php:2059 server_status.php:777
+#: server_privileges.php:2059 server_status.php:782
 #: server_synchronize.php:1190 server_synchronize.php:1194
 #: tbl_tracking.php:642 test/theme.php:63
 msgid "Database"
@@ -745,7 +745,7 @@ msgstr "作成日時"
 msgid "Updated"
 msgstr "更新日時"
 
-#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:780
+#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:785
 #: sql.php:912 tbl_tracking.php:647 test/theme.php:99
 msgid "Status"
 msgstr "状態"
@@ -1046,137 +1046,149 @@ msgstr "選択したユーザを削除する"
 msgid "Close"
 msgstr "閉じる"
 
-#: js/messages.php:64 server_status.php:391 server_status.php:418
-msgid "Realtime chart"
+#: js/messages.php:64 server_status.php:393
+#, fuzzy
+#| msgid "Server Choice"
+msgid "Live traffic chart"
+msgstr "サーバの選択"
+
+#: js/messages.php:65 server_status.php:396
+msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:65
+#: js/messages.php:66 server_status.php:423
+#, fuzzy
+#| msgid "Show query chart"
+msgid "Live query chart"
+msgstr "クエリをグラフで表示"
+
+#: js/messages.php:68
 msgid "Static data"
 msgstr ""
 
 #. l10n: Total number of queries
-#: js/messages.php:67 libraries/build_html_for_db.lib.php:45
+#: js/messages.php:70 libraries/build_html_for_db.lib.php:45
 #: libraries/engines/innodb.lib.php:168 server_databases.php:219
-#: server_status.php:680 server_status.php:741 tbl_printview.php:348
+#: server_status.php:685 server_status.php:746 tbl_printview.php:348
 #: tbl_structure.php:790
 msgid "Total"
 msgstr "合計"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:69 server_status.php:581
+#: js/messages.php:72 server_status.php:586
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:71 libraries/common.lib.php:1359
+#: js/messages.php:74 libraries/common.lib.php:1359
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:73 libraries/common.lib.php:1361
+#: js/messages.php:76 libraries/common.lib.php:1361
 msgid "."
 msgstr "."
 
-#: js/messages.php:77 libraries/tbl_properties.inc.php:796 pmd_general.php:388
+#: js/messages.php:80 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: js/messages.php:80
+#: js/messages.php:83
 msgid "Loading"
 msgstr "読み込み中"
 
-#: js/messages.php:81
+#: js/messages.php:84
 msgid "Processing Request"
 msgstr "要求を処理中"
 
-#: js/messages.php:82 libraries/import/ods.php:80
+#: js/messages.php:85 libraries/import/ods.php:80
 msgid "Error in Processing Request"
 msgstr "要求処理中でのエラー"
 
-#: js/messages.php:83
+#: js/messages.php:86
 msgid "Dropping Column"
 msgstr "カラムを削除中"
 
-#: js/messages.php:84
+#: js/messages.php:87
 msgid "Adding Primary Key"
 msgstr "主キーの追加中"
 
-#: js/messages.php:85 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:88 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:88
+#: js/messages.php:91
 msgid "Renaming Databases"
 msgstr "データベースのリネーム中"
 
-#: js/messages.php:89
+#: js/messages.php:92
 msgid "Reload Database"
 msgstr "データベースの再読み込み中"
 
-#: js/messages.php:90
+#: js/messages.php:93
 msgid "Copying Database"
 msgstr "データベースをコピー中"
 
-#: js/messages.php:91
+#: js/messages.php:94
 msgid "Changing Charset"
 msgstr "文字セットの変更中"
 
-#: js/messages.php:92
+#: js/messages.php:95
 msgid "Table must have at least one column"
 msgstr "テーブルには最低ひとつのカラムが必要です"
 
-#: js/messages.php:93
+#: js/messages.php:96
 msgid "Create Table"
 msgstr "テーブルを作成"
 
-#: js/messages.php:98
+#: js/messages.php:101
 msgid "Insert Table"
 msgstr "テーブルを挿入する"
 
-#: js/messages.php:101
+#: js/messages.php:104
 msgid "Searching"
 msgstr "検索中"
 
-#: js/messages.php:102
+#: js/messages.php:105
 msgid "Hide search results"
 msgstr "検索結果を隠す"
 
-#: js/messages.php:103
+#: js/messages.php:106
 msgid "Show search results"
 msgstr "検索結果を表示する"
 
-#: js/messages.php:104
+#: js/messages.php:107
 msgid "Browsing"
 msgstr "表示中"
 
-#: js/messages.php:105
+#: js/messages.php:108
 msgid "Deleting"
 msgstr "削除中"
 
-#: js/messages.php:108
+#: js/messages.php:111
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 "注意：ファイルに複数のテーブルが含まれている場合、それらは１つに統合されま"
 "す。"
 
-#: js/messages.php:111
+#: js/messages.php:114
 msgid "Hide query box"
 msgstr "クエリボックスを隠す"
 
-#: js/messages.php:112
+#: js/messages.php:115
 msgid "Show query box"
 msgstr "クエリボックスを表示"
 
-#: js/messages.php:113
+#: js/messages.php:116
 msgid "Inline Edit"
 msgstr "インライン編集"
 
-#: js/messages.php:114 libraries/Index.class.php:465
+#: js/messages.php:117 libraries/Index.class.php:465
 #: libraries/common.lib.php:594 libraries/common.lib.php:1129
 #: libraries/common.lib.php:2945 libraries/config/messages.inc.php:471
 #: libraries/display_tbl.lib.php:1211 libraries/import.lib.php:1150
@@ -1185,7 +1197,7 @@ msgstr "インライン編集"
 msgid "Edit"
 msgstr "編集"
 
-#: js/messages.php:115 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:118 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
 #: libraries/tbl_properties.inc.php:785 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:1054 tbl_indexes.php:246
@@ -1193,41 +1205,41 @@ msgstr "編集"
 msgid "Save"
 msgstr "保存する"
 
-#: js/messages.php:116 libraries/display_tbl.lib.php:598 pmd_general.php:158
+#: js/messages.php:119 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
 msgstr "隠す"
 
-#: js/messages.php:119
+#: js/messages.php:122
 msgid "Hide search criteria"
 msgstr "検索条件を隠す"
 
-#: js/messages.php:120
+#: js/messages.php:123
 msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
-#: js/messages.php:123 tbl_change.php:303 tbl_indexes.php:198
+#: js/messages.php:126 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
 msgid "Ignore"
 msgstr "無視"
 
-#: js/messages.php:126
+#: js/messages.php:129
 msgid "Select referenced key"
 msgstr "参照されているキーを選択"
 
-#: js/messages.php:127
+#: js/messages.php:130
 msgid "Select Foreign Key"
 msgstr "外部キーを選択してください"
 
-#: js/messages.php:128
+#: js/messages.php:131
 msgid "Please select the primary key or a unique key"
 msgstr "主キーまたはユニークキーを選択してください"
 
-#: js/messages.php:129 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:132 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "表示するカラムの選択"
 
-#: js/messages.php:130
+#: js/messages.php:133
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1235,27 +1247,27 @@ msgstr ""
 "レイアウトの変更を保存されていません。保存していない場合、それらは失われま"
 "す。このまま続けてもよろしいですか？"
 
-#: js/messages.php:133
+#: js/messages.php:136
 msgid "Add an option for column "
 msgstr "カラムに対するオプションを追加する"
 
-#: js/messages.php:136
+#: js/messages.php:139
 msgid "Generate password"
 msgstr "パスワードを生成する"
 
-#: js/messages.php:137 libraries/replication_gui.lib.php:365
+#: js/messages.php:140 libraries/replication_gui.lib.php:365
 msgid "Generate"
 msgstr "生成する"
 
-#: js/messages.php:138
+#: js/messages.php:141
 msgid "Change Password"
 msgstr "パスワードを変更する"
 
-#: js/messages.php:141 tbl_structure.php:471
+#: js/messages.php:144 tbl_structure.php:471
 msgid "More"
 msgstr "その他"
 
-#: js/messages.php:144 setup/lib/index.lib.php:158
+#: js/messages.php:147 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1265,26 +1277,26 @@ msgstr ""
 "します。最新バージョンは %s で、%s にリリースされています。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:146
+#: js/messages.php:149
 msgid ", latest stable version:"
 msgstr ", 最終安定バージョン:"
 
-#: js/messages.php:147
+#: js/messages.php:150
 msgid "up to date"
 msgstr "最新版"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:165
+#: js/messages.php:168
 msgid "Done"
 msgstr "決定"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:167
+#: js/messages.php:170
 msgid "Prev"
 msgstr "前へ"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:169 libraries/common.lib.php:2293
+#: js/messages.php:172 libraries/common.lib.php:2293
 #: libraries/common.lib.php:2296 libraries/display_tbl.lib.php:353
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:895
@@ -1292,231 +1304,231 @@ msgid "Next"
 msgstr "次へ"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:171
+#: js/messages.php:174
 msgid "Today"
 msgstr "今日"
 
-#: js/messages.php:174
+#: js/messages.php:177
 msgid "January"
 msgstr "1 月"
 
-#: js/messages.php:175
+#: js/messages.php:178
 msgid "February"
 msgstr "2 月"
 
-#: js/messages.php:176
+#: js/messages.php:179
 msgid "March"
 msgstr "3 月"
 
-#: js/messages.php:177
+#: js/messages.php:180
 msgid "April"
 msgstr "4 月"
 
-#: js/messages.php:178
+#: js/messages.php:181
 msgid "May"
 msgstr "5 月"
 
-#: js/messages.php:179
+#: js/messages.php:182
 msgid "June"
 msgstr "6 月"
 
-#: js/messages.php:180
+#: js/messages.php:183
 msgid "July"
 msgstr "7 月"
 
-#: js/messages.php:181
+#: js/messages.php:184
 msgid "August"
 msgstr "8 月"
 
-#: js/messages.php:182
+#: js/messages.php:185
 msgid "September"
 msgstr "9 月"
 
-#: js/messages.php:183
+#: js/messages.php:186
 msgid "October"
 msgstr "10 月"
 
-#: js/messages.php:184
+#: js/messages.php:187
 msgid "November"
 msgstr "11 月"
 
-#: js/messages.php:185
+#: js/messages.php:188
 msgid "December"
 msgstr "12 月"
 
 #. l10n: Short month name
-#: js/messages.php:189 libraries/common.lib.php:1496
+#: js/messages.php:192 libraries/common.lib.php:1496
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name
-#: js/messages.php:191 libraries/common.lib.php:1498
+#: js/messages.php:194 libraries/common.lib.php:1498
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name
-#: js/messages.php:193 libraries/common.lib.php:1500
+#: js/messages.php:196 libraries/common.lib.php:1500
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name
-#: js/messages.php:195 libraries/common.lib.php:1502
+#: js/messages.php:198 libraries/common.lib.php:1502
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name
-#: js/messages.php:197 libraries/common.lib.php:1504
+#: js/messages.php:200 libraries/common.lib.php:1504
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short month name
-#: js/messages.php:199 libraries/common.lib.php:1506
+#: js/messages.php:202 libraries/common.lib.php:1506
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name
-#: js/messages.php:201 libraries/common.lib.php:1508
+#: js/messages.php:204 libraries/common.lib.php:1508
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name
-#: js/messages.php:203 libraries/common.lib.php:1510
+#: js/messages.php:206 libraries/common.lib.php:1510
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name
-#: js/messages.php:205 libraries/common.lib.php:1512
+#: js/messages.php:208 libraries/common.lib.php:1512
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name
-#: js/messages.php:207 libraries/common.lib.php:1514
+#: js/messages.php:210 libraries/common.lib.php:1514
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name
-#: js/messages.php:209 libraries/common.lib.php:1516
+#: js/messages.php:212 libraries/common.lib.php:1516
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name
-#: js/messages.php:211 libraries/common.lib.php:1518
+#: js/messages.php:214 libraries/common.lib.php:1518
 msgid "Dec"
 msgstr "12 月"
 
-#: js/messages.php:214
+#: js/messages.php:217
 msgid "Sunday"
 msgstr "日"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid "Monday"
 msgstr "月"
 
-#: js/messages.php:216
+#: js/messages.php:219
 msgid "Tuesday"
 msgstr "火"
 
-#: js/messages.php:217
+#: js/messages.php:220
 msgid "Wednesday"
 msgstr "水"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Thursday"
 msgstr "木"
 
-#: js/messages.php:219
+#: js/messages.php:222
 msgid "Friday"
 msgstr "金"
 
-#: js/messages.php:220
+#: js/messages.php:223
 msgid "Saturday"
 msgstr "土"
 
 #. l10n: Short week day name
-#: js/messages.php:224 libraries/common.lib.php:1521
+#: js/messages.php:227 libraries/common.lib.php:1521
 msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:226 libraries/common.lib.php:1523
+#: js/messages.php:229 libraries/common.lib.php:1523
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:228 libraries/common.lib.php:1525
+#: js/messages.php:231 libraries/common.lib.php:1525
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:230 libraries/common.lib.php:1527
+#: js/messages.php:233 libraries/common.lib.php:1527
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:232 libraries/common.lib.php:1529
+#: js/messages.php:235 libraries/common.lib.php:1529
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:234 libraries/common.lib.php:1531
+#: js/messages.php:237 libraries/common.lib.php:1531
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:236 libraries/common.lib.php:1533
+#: js/messages.php:239 libraries/common.lib.php:1533
 msgid "Sat"
 msgstr "土"
 
 #. l10n: Minimal week day name
-#: js/messages.php:240
+#: js/messages.php:243
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:242
+#: js/messages.php:245
 msgid "Mo"
 msgstr "月"
 
 #. l10n: Minimal week day name
-#: js/messages.php:244
+#: js/messages.php:247
 msgid "Tu"
 msgstr "火"
 
 #. l10n: Minimal week day name
-#: js/messages.php:246
+#: js/messages.php:249
 msgid "We"
 msgstr "水"
 
 #. l10n: Minimal week day name
-#: js/messages.php:248
+#: js/messages.php:251
 msgid "Th"
 msgstr "木"
 
 #. l10n: Minimal week day name
-#: js/messages.php:250
+#: js/messages.php:253
 msgid "Fr"
 msgstr "金"
 
 #. l10n: Minimal week day name
-#: js/messages.php:252
+#: js/messages.php:255
 msgid "Sa"
 msgstr "土"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:254
+#: js/messages.php:257
 msgid "Wk"
 msgstr "週"
 
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Hour"
 msgstr "時"
 
-#: js/messages.php:257
+#: js/messages.php:260
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:258
+#: js/messages.php:261
 msgid "Second"
 msgstr "秒"
 
@@ -1885,7 +1897,7 @@ msgstr "共有"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
-#: server_status.php:238
+#: server_status.php:240
 msgid "Tables"
 msgstr "テーブル"
 
@@ -2015,7 +2027,7 @@ msgid "Documentation"
 msgstr "ドキュメント"
 
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
-#: server_status.php:225 server_status.php:782
+#: server_status.php:227 server_status.php:787
 msgid "SQL query"
 msgstr "実行した SQL"
 
@@ -2044,7 +2056,7 @@ msgid "Create PHP Code"
 msgstr "PHP コードの作成"
 
 #: libraries/common.lib.php:1163 libraries/config/messages.inc.php:473
-#: server_status.php:374 server_status.php:402 server_status.php:430
+#: server_status.php:376 server_status.php:407 server_status.php:435
 msgid "Refresh"
 msgstr "再描画"
 
@@ -4766,7 +4778,7 @@ msgstr "圧縮:"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:517
 #: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:578
-#: pmd_general.php:510 server_privileges.php:1955 server_status.php:814
+#: pmd_general.php:510 server_privileges.php:1955 server_status.php:819
 msgid "None"
 msgstr "なし"
 
@@ -4984,7 +4996,7 @@ msgid "The row has been deleted"
 msgstr "行を削除しました"
 
 #: libraries/display_tbl.lib.php:1266 libraries/display_tbl.lib.php:2195
-#: server_status.php:810
+#: server_status.php:815
 msgid "Kill"
 msgstr "停止"
 
@@ -5074,7 +5086,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "バッファプール"
 
-#: libraries/engines/innodb.lib.php:135 server_status.php:285
+#: libraries/engines/innodb.lib.php:135 server_status.php:287
 msgid "InnoDB Status"
 msgstr "InnoDB ステータス"
 
@@ -5571,7 +5583,7 @@ msgstr "MIME タイプの表示"
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
 #: libraries/replication_gui.lib.php:331 server_privileges.php:713
 #: server_privileges.php:716 server_privileges.php:772
-#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:776
+#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:781
 msgid "Host"
 msgstr "ホスト"
 
@@ -6275,13 +6287,13 @@ msgid "Slave status"
 msgstr "スレーブステータス"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
-#: server_status.php:1007 server_variables.php:66
+#: server_status.php:1012 server_variables.php:66
 msgid "Variable"
 msgstr "変数"
 
 #: libraries/replication_gui.lib.php:117 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
-#: server_status.php:1008 tbl_change.php:325 tbl_printview.php:367
+#: server_status.php:1013 tbl_change.php:325 tbl_printview.php:367
 #: tbl_select.php:116 tbl_structure.php:823
 msgid "Value"
 msgstr "値"
@@ -6510,12 +6522,12 @@ msgid "Synchronize"
 msgstr "同期"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:231 test/theme.php:119
+#: server_status.php:233 test/theme.php:119
 msgid "Binary log"
 msgstr "バイナリログ"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:283 test/theme.php:103
+#: server_engines.php:129 server_status.php:285 test/theme.php:103
 msgid "Variables"
 msgstr "変数"
 
@@ -6795,7 +6807,7 @@ msgstr "パーティションの定義"
 msgid "+ Add a new value"
 msgstr "+ 新しい値を追加する"
 
-#: libraries/tbl_triggers.inc.php:27 server_status.php:779 sql.php:913
+#: libraries/tbl_triggers.inc.php:27 server_status.php:784 sql.php:913
 msgid "Time"
 msgstr "時間"
 
@@ -6990,7 +7002,7 @@ msgid "Protocol version"
 msgstr "プロトコルバージョン"
 
 #: main.php:165 server_privileges.php:1452 server_privileges.php:1606
-#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:775
+#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:780
 msgid "User"
 msgstr "ユーザ"
 
@@ -7442,17 +7454,17 @@ msgstr "ファイルが存在しません"
 msgid "Select binary log to view"
 msgstr "表示するバイナリログを選択してください"
 
-#: server_binlog.php:122 server_status.php:240
+#: server_binlog.php:122 server_status.php:242
 msgid "Files"
 msgstr "ファイル"
 
-#: server_binlog.php:169 server_binlog.php:171 server_status.php:785
-#: server_status.php:787
+#: server_binlog.php:169 server_binlog.php:171 server_status.php:790
+#: server_status.php:792
 msgid "Truncate Shown Queries"
 msgstr "クエリの表示を切り詰める"
 
-#: server_binlog.php:177 server_binlog.php:179 server_status.php:785
-#: server_status.php:787
+#: server_binlog.php:177 server_binlog.php:179 server_status.php:790
+#: server_status.php:792
 msgid "Show Full Queries"
 msgstr "クエリ全体を表示"
 
@@ -7968,7 +7980,7 @@ msgstr "マスタサーバを %s へ切り替えるのに成功しました。"
 msgid "This server is configured as master in a replication process."
 msgstr "このサーバのレプリケーションプロセスに、マスタが設定されています。"
 
-#: server_replication.php:182 server_status.php:260
+#: server_replication.php:182 server_status.php:262
 msgid "Show master status"
 msgstr "マスタステータスの表示"
 
@@ -8120,177 +8132,177 @@ msgstr ""
 "このサーバのレプリケーションプロセスには、スレーブが設定されていません。<a "
 "href=\"%s\">設定</a>を行いますか？"
 
-#: server_status.php:99
+#: server_status.php:101
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "スレッド %s は正常終了しました"
 
-#: server_status.php:101
+#: server_status.php:103
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "スレッド %s の終了に失敗しました。すでに閉じているようです"
 
-#: server_status.php:228
+#: server_status.php:230
 msgid "Handler"
 msgstr "ハンドラ"
 
-#: server_status.php:229
+#: server_status.php:231
 msgid "Query cache"
 msgstr "クエリキャッシュ"
 
-#: server_status.php:230
+#: server_status.php:232
 msgid "Threads"
 msgstr "スレッド"
 
-#: server_status.php:232
+#: server_status.php:234
 msgid "Temporary data"
 msgstr "一時データ"
 
-#: server_status.php:233
+#: server_status.php:235
 msgid "Delayed inserts"
 msgstr "遅延インサート"
 
-#: server_status.php:234
+#: server_status.php:236
 msgid "Key cache"
 msgstr "キーキャッシュ"
 
-#: server_status.php:235
+#: server_status.php:237
 msgid "Joins"
 msgstr "結合"
 
-#: server_status.php:237
+#: server_status.php:239
 msgid "Sorting"
 msgstr "ソート中"
 
-#: server_status.php:239
+#: server_status.php:241
 msgid "Transaction coordinator"
 msgstr "トランザクションコーディネータ"
 
-#: server_status.php:250
+#: server_status.php:252
 msgid "Flush (close) all tables"
 msgstr "すべてのテーブルをフラッシュする(閉じる)"
 
-#: server_status.php:252
+#: server_status.php:254
 msgid "Show open tables"
 msgstr "開いているテーブルを表示する"
 
-#: server_status.php:257
+#: server_status.php:259
 msgid "Show slave hosts"
 msgstr "スレーブホストを表示する"
 
-#: server_status.php:263
+#: server_status.php:265
 msgid "Show slave status"
 msgstr "スレーブの状態を表示する"
 
-#: server_status.php:268
+#: server_status.php:270
 msgid "Flush query cache"
 msgstr "クエリキャッシュをフラッシュする"
 
-#: server_status.php:360
+#: server_status.php:362
 msgid "Runtime Information"
 msgstr "ランタイム情報"
 
-#: server_status.php:365
+#: server_status.php:367
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
 msgstr "サーバの選択"
 
-#: server_status.php:366
+#: server_status.php:368
 msgid "Query statistics"
 msgstr "クエリの統計"
 
-#: server_status.php:367
+#: server_status.php:369
 #, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
 msgstr "スレーブのステータステーブルを閲覧する"
 
-#: server_status.php:377 server_status.php:405
+#: server_status.php:379 server_status.php:410
 #, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
 msgstr "再描画"
 
-#: server_status.php:378 server_status.php:406
+#: server_status.php:380 server_status.php:411
 #, fuzzy
 #| msgid "Second"
 msgid "second"
 msgstr "秒"
 
-#: server_status.php:379 server_status.php:380 server_status.php:381
-#: server_status.php:382 server_status.php:383 server_status.php:407
-#: server_status.php:408 server_status.php:409 server_status.php:410
-#: server_status.php:411
+#: server_status.php:381 server_status.php:382 server_status.php:383
+#: server_status.php:384 server_status.php:385 server_status.php:412
+#: server_status.php:413 server_status.php:414 server_status.php:415
+#: server_status.php:416
 #, fuzzy
 #| msgid "Second"
 msgid "seconds"
 msgstr "秒"
 
-#: server_status.php:384 server_status.php:385 server_status.php:386
-#: server_status.php:387 server_status.php:412 server_status.php:413
-#: server_status.php:414 server_status.php:415
+#: server_status.php:386 server_status.php:387 server_status.php:388
+#: server_status.php:389 server_status.php:417 server_status.php:418
+#: server_status.php:419 server_status.php:420
 #, fuzzy
 #| msgid "Minute"
 msgid "minutes"
 msgstr "分"
 
-#: server_status.php:435
+#: server_status.php:440
 #, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "パスワードは変更しない"
 
-#: server_status.php:440
+#: server_status.php:445
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "開いているテーブルを表示する"
 
-#: server_status.php:444
+#: server_status.php:449
 msgid "Filter by category..."
 msgstr ""
 
-#: server_status.php:457
+#: server_status.php:462
 #, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
 msgstr "関連リンク"
 
-#: server_status.php:502 server_status.php:534 server_status.php:655
-#: server_status.php:700
+#: server_status.php:507 server_status.php:539 server_status.php:660
+#: server_status.php:705
 msgid "per hour"
 msgstr "/時"
 
-#: server_status.php:505
+#: server_status.php:510
 msgid "per minute"
 msgstr "/分"
 
-#: server_status.php:510
+#: server_status.php:515
 msgid "per second"
 msgstr "/秒"
 
-#: server_status.php:529
+#: server_status.php:534
 msgid "Query type"
 msgstr "クエリ種別"
 
 #. l10n: # = Amount of queries
-#: server_status.php:532
+#: server_status.php:537
 msgid "#"
 msgstr ""
 
-#: server_status.php:604
+#: server_status.php:609
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:612
+#: server_status.php:617
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "この MySQL サーバの稼働時間: %s (起動時刻: %s)"
 
-#: server_status.php:622
+#: server_status.php:627
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -8298,19 +8310,19 @@ msgstr ""
 "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>と<b>ス"
 "レーブ</b>として動作しています。"
 
-#: server_status.php:624
+#: server_status.php:629
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>として動作"
 "しています。"
 
-#: server_status.php:626
+#: server_status.php:631
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>スレーブ</b>として動"
 "作しています。"
 
-#: server_status.php:628
+#: server_status.php:633
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=#replication>replication section</a>."
@@ -8318,15 +8330,15 @@ msgstr ""
 "サーバー上のレプリケーションステータスの詳細については、<a href="
 "\"#replication\">レプリケーションの節</a>を参照してください。"
 
-#: server_status.php:638
+#: server_status.php:643
 msgid "Replication status"
 msgstr "レプリケーションステータス"
 
-#: server_status.php:654
+#: server_status.php:659
 msgid "Traffic"
 msgstr "トラフィック"
 
-#: server_status.php:654
+#: server_status.php:659
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -8334,45 +8346,45 @@ msgstr ""
 "処理が集中するサーバではバイトカウンタが超過することがあるため、MySQL サーバ"
 "が報告してくる統計は不正確なことがあります"
 
-#: server_status.php:660
+#: server_status.php:665
 msgid "Received"
 msgstr "受信済"
 
-#: server_status.php:670
+#: server_status.php:675
 msgid "Sent"
 msgstr "送信済"
 
-#: server_status.php:699
+#: server_status.php:704
 msgid "Connections"
 msgstr "接続"
 
-#: server_status.php:706
+#: server_status.php:711
 msgid "max. concurrent connections"
 msgstr "最大同時接続数"
 
-#: server_status.php:713
+#: server_status.php:718
 msgid "Failed attempts"
 msgstr "失敗回数"
 
-#: server_status.php:727
+#: server_status.php:732
 msgid "Aborted"
 msgstr "中断"
 
-#: server_status.php:773
+#: server_status.php:778
 msgid "Processes"
 msgstr "プロセス"
 
-#: server_status.php:774
+#: server_status.php:779
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:835
+#: server_status.php:840
 #, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL サーバに接続するのに SSL を有効にするかどうか。"
 
-#: server_status.php:836
+#: server_status.php:841
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -8381,16 +8393,16 @@ msgstr ""
 "一時バイナリログキャッシュを利用したものの binlog_cache_size の値を超過したた"
 "め一時ファイルにステートメントを保存したトランザクション数"
 
-#: server_status.php:837
+#: server_status.php:842
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "一時バイナリログキャッシュを使用したトランザクション数"
 
-#: server_status.php:838
+#: server_status.php:843
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:839
+#: server_status.php:844
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8401,24 +8413,24 @@ msgstr ""
 "Created_tmp_disk_tables の値が大きい場合は tmp_table_size の値を増やしてディ"
 "スク上ではなくメモリ上に一時テーブルを構築した方がよいかもしれません。"
 
-#: server_status.php:840
+#: server_status.php:845
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld が生成した一時ファイル数"
 
-#: server_status.php:841
+#: server_status.php:846
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr "ステートメント実行中にサーバが自動生成したメモリ上の一時テーブル数"
 
-#: server_status.php:842
+#: server_status.php:847
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
 "何らかのエラー (たぶんキーの重複) が発生したため INSERT DELAYED された行数"
 
-#: server_status.php:843
+#: server_status.php:848
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8426,23 +8438,23 @@ msgstr ""
 "使用中の INSERT DELAYED ハンドラのスレッド数。INSERT DELAYED を適用するテーブ"
 "ルの数だけ固有のスレッドが用意されます"
 
-#: server_status.php:844
+#: server_status.php:849
 msgid "The number of INSERT DELAYED rows written."
 msgstr "INSERT DELAYED で書き込まれた行数"
 
-#: server_status.php:845
+#: server_status.php:850
 msgid "The number of executed FLUSH statements."
 msgstr "FLUSH 文の実行回数"
 
-#: server_status.php:846
+#: server_status.php:851
 msgid "The number of internal COMMIT statements."
 msgstr "内部で COMMIT 文を実行した回数"
 
-#: server_status.php:847
+#: server_status.php:852
 msgid "The number of times a row was deleted from a table."
 msgstr "テーブルから行を削除した回数"
 
-#: server_status.php:848
+#: server_status.php:853
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -8452,7 +8464,7 @@ msgstr ""
 "ての情報を持っているか問い合わせることができます。これを開示と言いますが、"
 "Handler_discover はその開示されたタイムテーブルの数です"
 
-#: server_status.php:849
+#: server_status.php:854
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8462,7 +8474,7 @@ msgstr ""
 "もインデックスのフルスキャンを実行しているものと思われます。例えば SELECT "
 "col1 FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)"
 
-#: server_status.php:850
+#: server_status.php:855
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8470,7 +8482,7 @@ msgstr ""
 "キーに基づいて行を読み込んだリクエストの数。この値が高い場合はクエリとテーブ"
 "ルが適切にインデックスされているものと考えられます"
 
-#: server_status.php:851
+#: server_status.php:856
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8479,7 +8491,7 @@ msgstr ""
 "キーの順序通りに次の行を読み込んだリクエストの数。この値はインデックス列のク"
 "エリに範囲指定をしているか、インデックススキャンを行っているときに増加します"
 
-#: server_status.php:852
+#: server_status.php:857
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -8487,7 +8499,7 @@ msgstr ""
 "キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER "
 "BY ... DESC の最適化に利用されます"
 
-#: server_status.php:853
+#: server_status.php:858
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8499,7 +8511,7 @@ msgstr ""
 "キャンしなければならないクエリを大量に行っているか、結合の際のキーの使い方に"
 "不適切なところがあります"
 
-#: server_status.php:854
+#: server_status.php:859
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8510,36 +8522,36 @@ msgstr ""
 "キャンを大量に実行しているためです。一般にこれはテーブルのインデックスが不適"
 "切か、クエリがインデックスを利用するように書かれていないことを意味します"
 
-#: server_status.php:855
+#: server_status.php:860
 msgid "The number of internal ROLLBACK statements."
 msgstr "内部で ROLLBACK 文を実行した回数"
 
-#: server_status.php:856
+#: server_status.php:861
 msgid "The number of requests to update a row in a table."
 msgstr "テーブル内の行を更新したリクエストの数"
 
-#: server_status.php:857
+#: server_status.php:862
 msgid "The number of requests to insert a row in a table."
 msgstr "テーブル内に行を挿入したリクエストの数"
 
-#: server_status.php:858
+#: server_status.php:863
 msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 "データが含まれるページの数 (ダーティページ、クリーンページの別を問わず)"
 
-#: server_status.php:859
+#: server_status.php:864
 msgid "The number of pages currently dirty."
 msgstr "現在のダーティページの数"
 
-#: server_status.php:860
+#: server_status.php:865
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "フラッシュリクエストを受けたバッファプールのページ数"
 
-#: server_status.php:861
+#: server_status.php:866
 msgid "The number of free pages."
 msgstr "空きページ数"
 
-#: server_status.php:862
+#: server_status.php:867
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8549,7 +8561,7 @@ msgstr ""
 "るいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュしたり削除し"
 "たりできなくなっているページの数です"
 
-#: server_status.php:863
+#: server_status.php:868
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8561,11 +8573,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data という式でも計"
 "算できます"
 
-#: server_status.php:864
+#: server_status.php:869
 msgid "Total size of buffer pool, in pages."
 msgstr "ページのバッファプールサイズの合計"
 
-#: server_status.php:865
+#: server_status.php:870
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8573,7 +8585,7 @@ msgstr ""
 "InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をラン"
 "ダムな順番でスキャンするときに発生します"
 
-#: server_status.php:866
+#: server_status.php:871
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8581,11 +8593,11 @@ msgstr ""
 "InnoDB が開始したシーケンシャル読み込みの回数。これは InnoDB がシーケンシャル"
 "なフルテーブルスキャンを行うときに発生します"
 
-#: server_status.php:867
+#: server_status.php:872
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB が実行した論理読み込みリクエストの数"
 
-#: server_status.php:868
+#: server_status.php:873
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8593,7 +8605,7 @@ msgstr ""
 "InnoDB がバッファプールの内容を利用できず、シングルページ読み込みを行わなけれ"
 "ばならなかった論理読み込みの回数"
 
-#: server_status.php:869
+#: server_status.php:874
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8607,51 +8619,51 @@ msgstr ""
 "そのウェイトの回数をカウントするものです。バッファプールの値が適切に設定され"
 "ていれば、この値は小さいはずです"
 
-#: server_status.php:870
+#: server_status.php:875
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB バッファプールへの書き込み回数"
 
-#: server_status.php:871
+#: server_status.php:876
 msgid "The number of fsync() operations so far."
 msgstr "これまでに fsync() を実行した回数"
 
-#: server_status.php:872
+#: server_status.php:877
 msgid "The current number of pending fsync() operations."
 msgstr "現在保留されている fsync() の回数"
 
-#: server_status.php:873
+#: server_status.php:878
 msgid "The current number of pending reads."
 msgstr "現在保留されている読み込みの数"
 
-#: server_status.php:874
+#: server_status.php:879
 msgid "The current number of pending writes."
 msgstr "現在保留されている書き込みの数"
 
-#: server_status.php:875
+#: server_status.php:880
 msgid "The amount of data read so far, in bytes."
 msgstr "これまでのデータ読み込み量 (単位:バイト)"
 
-#: server_status.php:876
+#: server_status.php:881
 msgid "The total number of data reads."
 msgstr "データ読み込み回数の合計"
 
-#: server_status.php:877
+#: server_status.php:882
 msgid "The total number of data writes."
 msgstr "データ書き込み回数の合計"
 
-#: server_status.php:878
+#: server_status.php:883
 msgid "The amount of data written so far, in bytes."
 msgstr "これまでのデータの書き込み量 (単位:バイト)"
 
-#: server_status.php:879
+#: server_status.php:884
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数"
 
-#: server_status.php:880
+#: server_status.php:885
 msgid "The number of doublewrite operations that have been performed."
 msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数"
 
-#: server_status.php:881
+#: server_status.php:886
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -8659,35 +8671,35 @@ msgstr ""
 "ログバッファが小さすぎてフラッシュしないと作業を続行できなくなったために発生"
 "したウェイトの回数"
 
-#: server_status.php:882
+#: server_status.php:887
 msgid "The number of log write requests."
 msgstr "ログ書き込みリクエストの数"
 
-#: server_status.php:883
+#: server_status.php:888
 msgid "The number of physical writes to the log file."
 msgstr "ログファイルへの物理書き込みの回数"
 
-#: server_status.php:884
+#: server_status.php:889
 msgid "The number of fsync() writes done to the log file."
 msgstr "ログファイルへの fsync 書き込みの回数"
 
-#: server_status.php:885
+#: server_status.php:890
 msgid "The number of pending log file fsyncs."
 msgstr "保留中のログファイルへの fsync 回数"
 
-#: server_status.php:886
+#: server_status.php:891
 msgid "Pending log file writes."
 msgstr "保留中のログファイルへの書き込み回数"
 
-#: server_status.php:887
+#: server_status.php:892
 msgid "The number of bytes written to the log file."
 msgstr "ログファイルに書き込んだバイト数"
 
-#: server_status.php:888
+#: server_status.php:893
 msgid "The number of pages created."
 msgstr "作成されたページ数"
 
-#: server_status.php:889
+#: server_status.php:894
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -8695,51 +8707,51 @@ msgstr ""
 "コンパイル時の InnoDB のページサイズ (デフォルト:16KB)。多くの値がページ単位"
 "で計算されますが、この値を使えば簡単にバイト単位に変換できます"
 
-#: server_status.php:890
+#: server_status.php:895
 msgid "The number of pages read."
 msgstr "読み込んだページ数"
 
-#: server_status.php:891
+#: server_status.php:896
 msgid "The number of pages written."
 msgstr "書き込んだページ数"
 
-#: server_status.php:892
+#: server_status.php:897
 msgid "The number of row locks currently being waited for."
 msgstr "現在待機中の行ロックの数"
 
-#: server_status.php:893
+#: server_status.php:898
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "行ロック取得に要する平均時間 (単位:ミリ秒)"
 
-#: server_status.php:894
+#: server_status.php:899
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "行ロック取得に要した時間の合計 (単位:ミリ秒)"
 
-#: server_status.php:895
+#: server_status.php:900
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "行ロック取得に要した時間の最大値 (単位:ミリ秒)"
 
-#: server_status.php:896
+#: server_status.php:901
 msgid "The number of times a row lock had to be waited for."
 msgstr "行ロック取得時に待機した回数"
 
-#: server_status.php:897
+#: server_status.php:902
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB テーブルから削除した行数"
 
-#: server_status.php:898
+#: server_status.php:903
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB テーブルに挿入した行数"
 
-#: server_status.php:899
+#: server_status.php:904
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB テーブルから読み込んだ行数"
 
-#: server_status.php:900
+#: server_status.php:905
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB テーブルで更新された行数"
 
-#: server_status.php:901
+#: server_status.php:906
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -8747,7 +8759,7 @@ msgstr ""
 "変更されてからディスクにフラッシュされていないキーキャッシュのキーブロックの"
 "数。以前は Not_flushed_key_blocks でした"
 
-#: server_status.php:902
+#: server_status.php:907
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -8755,7 +8767,7 @@ msgstr ""
 "キーキャッシュの未使用ブロックの数。キーキャッシュの使用率を調べるときに使え"
 "ます"
 
-#: server_status.php:903
+#: server_status.php:908
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -8764,11 +8776,11 @@ msgstr ""
 "キーキャッシュの使用済みブロックの数。この値はこれまで一度に使用されたブロッ"
 "クの最大数です"
 
-#: server_status.php:904
+#: server_status.php:909
 msgid "The number of requests to read a key block from the cache."
 msgstr "キャッシュからキーブロックを読み込んだリクエストの数"
 
-#: server_status.php:905
+#: server_status.php:910
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8778,15 +8790,15 @@ msgstr ""
 "く key_buffer_size が小さすぎるためです。キャッシュミスの割合は Key_reads/"
 "Key_read_requests で計算できます"
 
-#: server_status.php:906
+#: server_status.php:911
 msgid "The number of requests to write a key block to the cache."
 msgstr "キャッシュにキーブロックを書き込んだリクエストの数"
 
-#: server_status.php:907
+#: server_status.php:912
 msgid "The number of physical writes of a key block to disk."
 msgstr "ディスクにキーブロックを物理書き込みした回数"
 
-#: server_status.php:908
+#: server_status.php:913
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -8796,17 +8808,17 @@ msgstr ""
 "クエリのプランを変えたときにコストがどう変わるか比較するときに便利です。デ"
 "フォルト値の 0 はまだ一度もクエリをコンパイルしていないという意味です"
 
-#: server_status.php:909
+#: server_status.php:914
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:910
+#: server_status.php:915
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている行数"
 
-#: server_status.php:911
+#: server_status.php:916
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -8814,38 +8826,38 @@ msgstr ""
 "開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッ"
 "シュの値が小さすぎます"
 
-#: server_status.php:912
+#: server_status.php:917
 msgid "The number of files that are open."
 msgstr "開いているファイルの数"
 
-#: server_status.php:913
+#: server_status.php:918
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "開いているストリームの数 (主にログの記録用です)"
 
-#: server_status.php:914
+#: server_status.php:919
 msgid "The number of tables that are open."
 msgstr "開いているテーブルの数"
 
-#: server_status.php:915
+#: server_status.php:920
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:916
+#: server_status.php:921
 msgid "The amount of free memory for query cache."
 msgstr "クエリキャッシュの空きメモリ量"
 
-#: server_status.php:917
+#: server_status.php:922
 msgid "The number of cache hits."
 msgstr "キャッシュのヒット数"
 
-#: server_status.php:918
+#: server_status.php:923
 msgid "The number of queries added to the cache."
 msgstr "キャッシュに追加されたクエリの数"
 
-#: server_status.php:919
+#: server_status.php:924
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8857,7 +8869,7 @@ msgstr ""
 "エリキャッシュは最後に使われた時刻が最も古いものから削除する(LRU)戦略に従って"
 "削除するクエリを決めます"
 
-#: server_status.php:920
+#: server_status.php:925
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8865,19 +8877,19 @@ msgstr ""
 "キャッシュされなかった (キャッシュできないか query_cache_type の設定でキャッ"
 "シュしないことになっている) クエリの数"
 
-#: server_status.php:921
+#: server_status.php:926
 msgid "The number of queries registered in the cache."
 msgstr "キャッシュに登録されているクエリの数"
 
-#: server_status.php:922
+#: server_status.php:927
 msgid "The total number of blocks in the query cache."
 msgstr "クエリキャッシュの総ブロック数"
 
-#: server_status.php:923
+#: server_status.php:928
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "フェイルセーフレプリケーションの状態 (未実装)"
 
-#: server_status.php:924
+#: server_status.php:929
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8885,11 +8897,11 @@ msgstr ""
 "インデックスを利用しなかった結合の数。この値が 0 でない場合はテーブルのイン"
 "デックスをよく確認してください"
 
-#: server_status.php:925
+#: server_status.php:930
 msgid "The number of joins that used a range search on a reference table."
 msgstr "参照テーブルで範囲検索をした結合の数"
 
-#: server_status.php:926
+#: server_status.php:931
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8897,7 +8909,7 @@ msgstr ""
 "キーが指定されていなかったため一行ずつキーが使われているか確認した結合の数"
 "（0 でない場合はテーブルのインデックスをよく確認してください）"
 
-#: server_status.php:927
+#: server_status.php:932
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8905,15 +8917,15 @@ msgstr ""
 "最初のテーブルで範囲指定された結合の数 (この値は大きくてもふつう問題ありませ"
 "ん)"
 
-#: server_status.php:928
+#: server_status.php:933
 msgid "The number of joins that did a full scan of the first table."
 msgstr "最初のテーブルをフルスキャンした結合の数"
 
-#: server_status.php:929
+#: server_status.php:934
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "スレーブの SQL スレッドが現在開いている一時テーブルの数"
 
-#: server_status.php:930
+#: server_status.php:935
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -8921,22 +8933,22 @@ msgstr ""
 "レプリケーションスレーブの SQL スレッドがトランザクションを再試行した回数(起"
 "動時からの合計)"
 
-#: server_status.php:931
+#: server_status.php:936
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "このサーバがマスタに接続するスレーブである場合は ON になります"
 
-#: server_status.php:932
+#: server_status.php:937
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr "slow_launch_time で指定された秒数以上に作成時間がかかったスレッドの数"
 
-#: server_status.php:933
+#: server_status.php:938
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "long_query_time で指定された秒数以上に時間のかかったクエリの数"
 
-#: server_status.php:934
+#: server_status.php:939
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -8945,23 +8957,23 @@ msgstr ""
 "ソートアルゴリズムが実行しなければならなかったマージの回数。この値が高い場合"
 "は sort_buffer_size システム変数の値を増やした方がよいでしょう"
 
-#: server_status.php:935
+#: server_status.php:940
 msgid "The number of sorts that were done with ranges."
 msgstr "範囲指定付きでソートが行われた回数"
 
-#: server_status.php:936
+#: server_status.php:941
 msgid "The number of sorted rows."
 msgstr "ソート済の行数"
 
-#: server_status.php:937
+#: server_status.php:942
 msgid "The number of sorts that were done by scanning the table."
 msgstr "テーブルをスキャンしたときに実行されたソートの回数"
 
-#: server_status.php:938
+#: server_status.php:943
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "テーブルロックをすぐに取得できた回数"
 
-#: server_status.php:939
+#: server_status.php:944
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8972,7 +8984,7 @@ msgstr ""
 "フォーマンスに問題が生じている場合は、まずクエリを最適化してください。それで"
 "もだめならテーブルを分割するか、レプリケーションを利用してください"
 
-#: server_status.php:940
+#: server_status.php:945
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8982,11 +8994,11 @@ msgstr ""
 "Connections で計算できます。この値が赤くなっている場合は thread_cache_size を"
 "大きくしてください"
 
-#: server_status.php:941
+#: server_status.php:946
 msgid "The number of currently open connections."
 msgstr "現在開いている接続の数"
 
-#: server_status.php:942
+#: server_status.php:947
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8997,7 +9009,7 @@ msgstr ""
 "thread_cache_size の値を増やした方がよいかもしれません (スレッドの実装に問題"
 "がない場合はふつうあまりパフォーマンスは向上しません)"
 
-#: server_status.php:943
+#: server_status.php:948
 msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数"
 
@@ -10195,9 +10207,6 @@ msgstr "リネーム後のビューの名前"
 #~ "the server."
 #~ msgstr ""
 #~ "<b>クエリ統計</b>: 起動時から数えて %s 個のクエリをサーバに送信しました"
-
-#~ msgid "Show query chart"
-#~ msgstr "クエリをグラフで表示"
 
 #~ msgid "Note: Generating the query chart can take a long time."
 #~ msgstr "注：クエリのグラフ作成には長い時間かかることがあります。"

@@ -1419,8 +1419,6 @@ function PMA_createChart(passedSettings) {
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
                         $.get(passedSettings.realtime.url,{ajax_request:1, chart_data:1, type:passedSettings.realtime.type},function(data) {
-                            if(chart_activeTimeouts[container]==null) return;
-                            
                             curValue = jQuery.parseJSON(data);
                             //if(lastValue==null) lastValue = curValue;
                             
@@ -1433,6 +1431,9 @@ function PMA_createChart(passedSettings) {
                             
                             lastValue = curValue;
                             numLoadedPoints++;
+                            
+                            // Timeout has been cleared => don't start a new timeout
+                            if(chart_activeTimeouts[container]==null) return;
                             chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, thisChart.options.realtime.refreshRate);
                             
                         });
