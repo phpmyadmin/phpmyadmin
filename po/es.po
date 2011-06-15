@@ -1072,7 +1072,7 @@ msgstr "Gráfico de consultas en vivo"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Datos estáticos"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
