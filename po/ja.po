@@ -6196,7 +6196,7 @@ msgstr "PDF の作成"
 
 #: libraries/relation.lib.php:121
 msgid "Displaying Column Comments"
-msgstr "列コメント表示機能"
+msgstr "カラムコメント表示機能"
 
 #: libraries/relation.lib.php:126
 msgid ""
