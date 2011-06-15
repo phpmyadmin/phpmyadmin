@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 13:53+0200\n"
+"PO-Revision-Date: 2011-06-15 13:54+0200\n"
 "Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -983,7 +983,7 @@ msgstr "Remoção de eventos"
 
 #: js/messages.php:35
 msgid "Dropping Procedure"
-msgstr "Remoção de Procedures"
+msgstr "Remoção de procedimentos"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
