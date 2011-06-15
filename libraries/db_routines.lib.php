@@ -829,44 +829,16 @@ function PMA_RTN_getExecuteForm($routine, $is_ajax)
                 || in_array(strtolower($routine['param_type'][$i]), $no_support_types)) {
                 $retval .= "--\n";
             } else {
-                $dropdown_built = array();
-                $op_spacing_needed = false;
-                // Find the current type in the RestrictColumnTypes. Will
-                // result in 'FUNC_CHAR' or something similar. Then directly
-                // look up the entry in the RestrictFunctions array, which
-                // will then reveal the available dropdown options.
-                $type = strtoupper($routine['param_type'][$i]);
-                if (isset($cfg['RestrictColumnTypes'][$type])
-                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][$type]])) {
-                    $current_func_type  = $cfg['RestrictColumnTypes'][$type];
-                    $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
-                } else {
-                    $dropdown = array();
-                }
-                // Loop on the dropdown array and print all available
-                // options for that field.
+                $field = array(
+                             'True_Type'       => strtolower($routine['param_type'][$i]),
+                             'Type'            => '',
+                             'Key'             => '',
+                             'Field'           => '',
+                             'Default'         => '',
+                             'first_timestamp' => false
+                         );
                 $retval .= "<select name='funcs[{$routine['param_name'][$i]}]'>";
-                $retval .= "<option></option>\n";
-                foreach ($dropdown as $each_dropdown){
-                    $retval .= '<option>' . $each_dropdown . '</option>' . "\n";
-                    $dropdown_built[$each_dropdown] = 'true';
-                    $op_spacing_needed = true;
-                }
-                // For compatibility's sake, do not let out all other functions.
-                // Instead print a separator (blank) and then show ALL functions
-                // which weren't shown yet.
-                $cnt_functions = count($cfg['Functions']);
-                for ($j = 0; $j < $cnt_functions; $j++) {
-                    if (! isset($dropdown_built[$cfg['Functions'][$j]])
-                        || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
-                        if ($op_spacing_needed == true) {
-                            $retval .= '                ';
-                            $retval .= '<option value="">--------</option>' . "\n";
-                            $op_spacing_needed = false;
-                        }
-                        $retval .= '<option>' . $cfg['Functions'][$j] . '</option>' . "\n";
-                    }
-                } // end for
+                $retval .= PMA_getFunctionsForField($field, false);
                 $retval .= "</select>";
             }
             $retval .= "</td>\n";

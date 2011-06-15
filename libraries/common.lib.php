@@ -3083,6 +3083,102 @@ function PMA_unsupportedDatatypes() {
 }
 
 /**
+ * Creates a dropdown box with MySQL functions for a particular column.
+ *
+ * @param    array    $field          Data about the column for which
+ *                                    to generate the dropdown
+ * @param    bool     $insert_mode    Whether the operation is 'insert'
+ *
+ * @global   array    $cfg            PMA configuration
+ * @global   array    $analyzed_sql   Analyzed SQL query
+ * @global   mixed    $data           (null/string) FIXME: what is this for?
+ *
+ * @return   string   An HTML snippet of a dropdown list with function
+ *                    names appropriate for the requested column.
+ */
+function PMA_getFunctionsForField($field, $insert_mode)
+{
+    global $cfg, $analyzed_sql, $data;
+
+    $selected = '';
+    // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
+    // or something similar. Then directly look up the entry in the RestrictFunctions array,
+    // which will then reveal the available dropdown options
+    if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
+     && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
+        $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
+        $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
+        $default_function   = $cfg['DefaultFunctions'][$current_func_type];
+    } else {
+        $dropdown = array();
+        $default_function   = '';
+    }
+    $dropdown_built = array();
+    $op_spacing_needed = false;
+    // what function defined as default?
+    // for the first timestamp we don't set the default function
+    // if there is a default value for the timestamp
+    // (not including CURRENT_TIMESTAMP)
+    // and the column does not have the
+    // ON UPDATE DEFAULT TIMESTAMP attribute.
+    if ($field['True_Type'] == 'timestamp'
+      && empty($field['Default'])
+      && empty($data)
+      && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])) {
+        $default_function = $cfg['DefaultFunctions']['first_timestamp'];
+    }
+    // For primary keys of type char(36) or varchar(36) UUID if the default function
+    // Only applies to insert mode, as it would silently trash data on updates.
+    if ($insert_mode
+        && $field['Key'] == 'PRI'
+        && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
+    ) {
+         $default_function = $cfg['DefaultFunctions']['pk_char36'];
+    }
+    // this is set only when appropriate and is always true
+    if (isset($field['display_binary_as_hex'])) {
+        $default_function = 'UNHEX';
+    }
+
+    // Create the output
+    $retval = '                <option></option>' . "\n";
+    // loop on the dropdown array and print all available options for that field.
+    foreach ($dropdown as $each_dropdown){
+        $retval .= '                ';
+        $retval .= '<option';
+        if ($default_function === $each_dropdown) {
+            $retval .= ' selected="selected"';
+        }
+        $retval .= '>' . $each_dropdown . '</option>' . "\n";
+        $dropdown_built[$each_dropdown] = 'true';
+        $op_spacing_needed = true;
+    }
+    // For compatibility's sake, do not let out all other functions. Instead
+    // print a separator (blank) and then show ALL functions which weren't shown
+    // yet.
+    $cnt_functions = count($cfg['Functions']);
+    for ($j = 0; $j < $cnt_functions; $j++) {
+        if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
+            // Is current function defined as default?
+            $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
+                        || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
+                      ? ' selected="selected"'
+                      : '';
+            if ($op_spacing_needed == true) {
+                $retval .= '                ';
+                $retval .= '<option value="">--------</option>' . "\n";
+                $op_spacing_needed = false;
+            }
+
+            $retval .= '                ';
+            $retval .= '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
+        }
+    } // end for
+
+    return $retval;
+} // end PMA_getFunctionsForField()
+
+/**
  * Checks if the current user has a specific privilege and returns true if the
  * user indeed has that privilege or false if (s)he doesn't. This function must
  * only be used for features that are available since MySQL 5, because it
