@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 13:54+0200\n"
+"PO-Revision-Date: 2011-06-15 13:55+0200\n"
 "Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -10336,7 +10336,7 @@ msgstr "Você não tem direitos suficientes para estar aqui agora!"
 
 #: user_password.php:110
 msgid "The profile has been updated."
-msgstr "A configuração foi atualizada."
+msgstr "O perfíl foi atualizado."
 
 #: view_create.php:141
 msgid "VIEW name"
