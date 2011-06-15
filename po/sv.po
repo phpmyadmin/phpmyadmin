@@ -4916,10 +4916,9 @@ msgid "Drag to reorder"
 msgstr "Dra för att ändra ordning"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Klicka för att markera"
+msgstr "Klicka för att sortera"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
