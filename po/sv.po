@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-15 23:39+0200\n"
+"PO-Revision-Date: 2011-06-15 23:41+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1043,10 +1043,9 @@ msgid "Close"
 msgstr "Stäng"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Välj server"
+msgstr "Live trafik diagram"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
