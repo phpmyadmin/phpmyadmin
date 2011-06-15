@@ -424,7 +424,8 @@ if (! empty($error_messages)) {
 unset($error_messages, $warning_messages, $total_affected_rows, $last_messages, $last_message);
 
 if($GLOBALS['is_ajax_request'] == true) {
-
+    /**Get the total row count of the table*/
+    $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'],$_REQUEST['table']);
     $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
     PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }
