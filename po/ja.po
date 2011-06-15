@@ -6219,7 +6219,7 @@ msgstr "永続的な『テーブルのユーザ設定』"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
-msgstr "ユーザ設定"
+msgstr "ユーザ環境設定"
 
 #: libraries/relation.lib.php:159
 msgid "Quick steps to setup advanced features:"
