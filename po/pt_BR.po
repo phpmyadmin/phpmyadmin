@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-15 13:37+0200\n"
+"PO-Revision-Date: 2011-06-15 13:41+0200\n"
 "Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -638,7 +638,7 @@ msgstr "Soma"
 #: db_structure.php:455 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s é o stored engine padrão neste servidor MySQL."
+msgstr "%s é o mecanismo de armazenamento padrão neste servidor MySQL."
 
 #: db_structure.php:483 db_structure.php:500 db_structure.php:501
 #: libraries/display_tbl.lib.php:2220 libraries/display_tbl.lib.php:2225
