@@ -1105,7 +1105,7 @@ msgstr "Annuler"
 
 #: js/messages.php:83
 msgid "Loading"
-msgstr "Chargement"
+msgstr "Chargement en cours"
 
 #: js/messages.php:84
 msgid "Processing Request"
