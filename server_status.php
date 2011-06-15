@@ -52,10 +52,10 @@ if (isset($_REQUEST['ajax_request'])) {
                 exit(json_encode($ret));
             case 'traffic':
                 $traffic = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Bytes_received" OR Variable_name="Bytes_sent"', 0, 1);
-                
+
                 $ret = Array('x'=>(microtime(true)*1000),'y_sent'=>$traffic['Bytes_sent'],'y_received'=>$traffic['Bytes_received']);
                 exit(json_encode($ret));
-                
+
         }
     }
 }
