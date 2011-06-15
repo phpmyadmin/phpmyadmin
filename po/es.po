@@ -8451,10 +8451,9 @@ msgstr "segundos"
 #: server_status.php:390 server_status.php:391 server_status.php:392
 #: server_status.php:393 server_status.php:423 server_status.php:424
 #: server_status.php:425 server_status.php:426
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
-msgstr "Minuto"
+msgstr "minutos"
 
 #: server_status.php:446
 #, fuzzy
