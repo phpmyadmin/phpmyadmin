@@ -8608,6 +8608,7 @@ msgstr ""
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
+"Cantidad de intentos de conexión al servidor MySQL (fallidos o exitosos)."
 
 #: server_status.php:850
 msgid ""
