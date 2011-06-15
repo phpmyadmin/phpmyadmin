@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 00:05+0200\n"
+"PO-Revision-Date: 2011-06-16 00:06+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9626,10 +9626,9 @@ msgid "Stacked"
 msgstr "Staplade"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Rapport titel:"
+msgstr "Diagramtitel"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
