@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-14 17:22+0200\n"
-"PO-Revision-Date: 2011-06-08 12:19+0200\n"
+"PO-Revision-Date: 2011-06-15 11:56+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9717,7 +9717,7 @@ msgstr "(1 回)"
 
 #: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
-msgstr "テーブルの移動先(database<b>.</b>table):"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
 #: tbl_operations.php:351
 msgid "Table options"
