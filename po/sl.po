@@ -9670,7 +9670,7 @@ msgstr "Naslov grafikona"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "Os x:"
 
 #: tbl_chart.php:113
 #, fuzzy
