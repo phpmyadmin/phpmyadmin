@@ -963,7 +963,7 @@ msgstr "Bütün bir tabloyu YOK ETMEK üzeresiniz!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Bütün bir  tabloyu KESMEK üzeresiniz!"
+msgstr "Bütün bir tabloyu KESMEK üzeresiniz!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
