@@ -9683,10 +9683,9 @@ msgid "The remaining columns"
 msgstr "Preostali stolpci"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "Oznaka osi X"
+msgstr "Oznaka osi x:"
 
 #: tbl_chart.php:128
 #, fuzzy
