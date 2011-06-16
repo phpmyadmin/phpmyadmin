@@ -15,7 +15,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request']==true)
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
 	$GLOBALS['is_header_sent'] = true;
 
 require_once './libraries/common.inc.php';
@@ -24,7 +24,7 @@ require_once './libraries/common.inc.php';
  * Ajax request
  */
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request']==true) {
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
 
@@ -467,7 +467,7 @@ echo __('Runtime Information');
                     <select id="filterCategory" name="filterCategory">
                         <option value=''><?php echo __('Filter by category...'); ?></option>
                 <?php
-                        foreach($sections as $section_id=>$section_name) {
+                        foreach($sections as $section_id => $section_name) {
                 ?>
                             <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
                 <?php
@@ -484,7 +484,7 @@ echo __('Runtime Information');
                     echo '<span class="status_'.$section_name.'"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
-                        if($i>0) echo ', ';
+                        if($i > 0) echo ', ';
                         if ('doc' == $link_name) {
                             echo PMA_showMySQLDocu($link_url, $link_url);
                         } else {
@@ -573,7 +573,7 @@ function printQueryStatistics() {
         // For the percentage column, use Questions - Connections, because
         // the number of connections is not an item of the Query types
         // but is included in Questions. Then the total of the percentages is 100.
-        $name = str_replace(Array('Com_','_'), Array('',' '), $name);
+        $name = str_replace(Array('Com_', '_'), Array('', ' '), $name);
 
         if($value < $query_sum * 0.02)
             $other_sum += $value;
