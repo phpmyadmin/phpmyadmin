@@ -1035,10 +1035,9 @@ msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Οποιοσδήποτε Χρήστης"
+msgstr "Προσθήκη χρήστη"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
