@@ -100,6 +100,19 @@ $(document).ready(function() {
     // Removes the second SVG element unnecessarily added due to the above command.
     $('#placeholder').find('svg:nth-child(2)').remove();
 
+    if ($("#placeholder svg").length > 0) {
+        var pmaThemeImage = $('#pmaThemeImage').attr('value');
+        // add panning arrows
+        $('<img class="button" id="left_arrow" src="' + pmaThemeImage + 'west-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="right_arrow" src="' + pmaThemeImage + 'east-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="up_arrow" src="' + pmaThemeImage + 'north-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="down_arrow" src="' + pmaThemeImage + 'south-mini.png">').appendTo($placeholder);
+        // add zooming controls
+        $('<img class="button" id="zoom_in" src="' + pmaThemeImage + 'zoom-plus-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="zoom_world" src="' + pmaThemeImage + 'zoom-world-mini.png">').appendTo($placeholder);
+        $('<img class="button" id="zoom_out" src="' + pmaThemeImage + 'zoom-minus-mini.png">').appendTo($placeholder);
+    }
+
     $('#placeholder').live('mousewheel', function(event, delta) {
         if (delta > 0) {
             //zoom in

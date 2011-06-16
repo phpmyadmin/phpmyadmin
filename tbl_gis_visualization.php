@@ -101,23 +101,7 @@ $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $f
         <?php echo $visualization; ?>
     </div>
     <div id="openlayersmap"></div>
-<?php
-if ($format == 'svg') {
-?>
-    <script language="javascript" type="text/javascript">
-    $(document).ready(function(){
-        var $placeholder = $('#placeholder');
-        // add panning arrows
-        $('<img class="button" id="left_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>west-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="right_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>east-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="up_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>north-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="down_arrow" src="<?php echo($GLOBALS['pmaThemeImage']); ?>south-mini.png">').appendTo($placeholder);
-        // add zooming controls
-        $('<img class="button" id="zoom_in" src="<?php echo($GLOBALS['pmaThemeImage']); ?>zoom-plus-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="zoom_world" src="<?php echo($GLOBALS['pmaThemeImage']); ?>zoom-world-mini.png">').appendTo($placeholder);
-        $('<img class="button" id="zoom_out" src="<?php echo($GLOBALS['pmaThemeImage']); ?>zoom-minus-mini.png">').appendTo($placeholder);
-    });
-    </script>
+    <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
 
     <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
@@ -155,9 +139,7 @@ if ($format == 'svg') {
             map.addControl(new OpenLayers.Control.MousePosition());
         }
     </script>
-<?php
-}
-?>
+
     <input type="hidden" name="sql_query" id="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 
     <table class="gis_table">
