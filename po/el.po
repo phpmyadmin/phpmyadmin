@@ -9826,10 +9826,9 @@ msgid "Series:"
 msgstr "Σειρές:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Στήλες περιοχής κειμένου (textarea)"
+msgstr "Οι απομένουσες στήλες"
 
 #: tbl_chart.php:128
 #, fuzzy
