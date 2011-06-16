@@ -964,6 +964,11 @@ img.sortableIcon {
     background-repeat:no-repeat;
 }
 
+h3#serverstatusqueries span {
+    font-size:60%;    
+    display:inline;
+}
+
 table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
 }
@@ -994,6 +999,8 @@ div#serverstatus table caption a.top {
 
 div#serverstatusquerieschart {
     float:<?php echo $right; ?>;
+    width:500px;
+    height:350px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
@@ -1039,6 +1046,14 @@ div#serverstatus table tbody td.descr a:after,
 div#serverstatus table .tblFooters a:after {
     content: ']';
 }
+
+div.liveChart {
+    clear:both; 
+    min-width:500px; 
+    height:400px; 
+    padding-bottom:80px;
+}
+
 /* end serverstatus */
 
 /* querywindow */
