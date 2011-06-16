@@ -258,6 +258,10 @@ td.null {
     text-align: <?php echo $right; ?>;
 }
 
+table .valueHeader {
+    text-align:         <?php echo $right; ?>;
+    white-space:        normal;
+}
 table .value {
     text-align:         <?php echo $right; ?>;
     white-space:        normal;
