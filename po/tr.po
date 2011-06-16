@@ -8297,10 +8297,9 @@ msgid "Query statistics"
 msgstr "Sorgu istatistikleri"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Slave durum tablosuna bak"
+msgstr "Tüm durum değişkenleri"
 
 #: server_status.php:383 server_status.php:416
 #, fuzzy
