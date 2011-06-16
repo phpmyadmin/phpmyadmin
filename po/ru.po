@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 22:10+0200\n"
+"PO-Revision-Date: 2011-06-16 22:11+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -8393,10 +8393,9 @@ msgid "Filter by category..."
 msgstr "Фильтр по категории..."
 
 #: server_status.php:468
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Дополнительные ссылки"
+msgstr "Связанные ссылки:"
 
 #: server_status.php:513 server_status.php:545 server_status.php:666
 #: server_status.php:711
