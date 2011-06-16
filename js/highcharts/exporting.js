@@ -309,8 +309,7 @@ extend(Chart.prototype, {
             canvas=createElement('canvas');
         
         $('body').append(canvas);
-        $(canvas).css('position','absolute');
-        $(canvas).css('left','-10000px');
+        $(canvas).hide();
         
         var submitData = function(chartData) {
                 // merge the options
@@ -349,19 +348,11 @@ extend(Chart.prototype, {
         if(options && options.type=='image/svg+xml') {
             submitData(chart.getSVG(chartOptions));
         } else {
-            if (typeof FlashCanvas != "undefined") {
-                FlashCanvas.initElement(canvas);
-            }
-            
             // Generate data uri and submit once done
             canvg(canvas, chart.getSVG(chartOptions),{
                 ignoreAnimation:true,
                 ignoreMouse:true,
-                renderCallback:function() { 
-                    // IE8 fix: flashcanvas doesn't update the canvas immediately, thus requiring setTimeout. 
-                    // See also http://groups.google.com/group/flashcanvas/browse_thread/thread/e36ff7a03e1bfb0a
-                    setTimeout(function() { submitData(canvas.toDataURL()); }, 100); 
-                }
+                renderCallback:function() { submitData(canvas.toDataURL()); }
             });
         }
     },

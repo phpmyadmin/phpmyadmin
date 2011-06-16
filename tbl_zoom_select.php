@@ -14,8 +14,13 @@ require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/tbl_select.lib.php';
 
-$GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'tbl_select.js';
+$GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
+$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+/* Files required for chart exporting */
+$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$GLOBALS['js_include'][] = 'canvg/canvg.js';
+$GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
@@ -128,6 +133,7 @@ if(isset($zoom_submit)) {
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $data[] = $row;
     }
+    $query_data = $data;
     $scatter_plot = PMA_SVG_scatter_plot($data,$settings); 
 ?>
 
@@ -143,10 +149,12 @@ if(isset($zoom_submit)) {
 
 <fieldset id="zoom_fieldset_table_qbe">
 <?php if(isset($zoom_submit) && !empty($scatter_plot)){ ?>
+    <div id='resizer' style="width:600px; height:400px;float:right">
+        <legend><?php echo __('Display Plot'); ?></legend>
+        <div id="querydata" style="display:none;">
+            <?php if(isset($data)) echo json_encode($data); ?>
+        </div>
 
-    <legend><?php echo __('Display Plot'); ?></legend>
-    <div id="placeholder" style="width:<?php echo($settings['width'] + 20); ?>px;height:<?php echo($settings['height'] + 20); ?>px;border:1px solid #484;float:right">
-        <?php echo $scatter_plot; ?>
     </div>
 
 
@@ -265,6 +273,8 @@ if(isset($zoom_submit)) {
         value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
     <input type="hidden" name="collations[<?php echo $i; ?>]"
         value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
+
+
 
 <?php
     }

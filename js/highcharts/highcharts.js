@@ -2210,7 +2210,7 @@ SVGRenderer.prototype = {
 						if (lineNo) {
 							// Webkit and opera sometimes return 'normal' as the line height. In that
 							// case, webkit uses offsetHeight, while Opera falls back to 18
-							if(window.getComputedStyle) lineHeight = pInt(window.getComputedStyle(lastLine, null).getPropertyValue('line-height'));
+							lineHeight = pInt(window.getComputedStyle(lastLine, null).getPropertyValue('line-height'));
 							if (isNaN(lineHeight)) {
 								lineHeight = textLineHeight || lastLine.offsetHeight || 18;
 							}
