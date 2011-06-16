@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 20:09+0200\n"
+"PO-Revision-Date: 2011-06-16 20:10+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8302,10 +8302,9 @@ msgid "All status variables"
 msgstr "Tüm durum değişkenleri"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Yenile"
+msgstr "Oranı yenile"
 
 #: server_status.php:384 server_status.php:417
 #, fuzzy
