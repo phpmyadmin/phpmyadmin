@@ -8288,10 +8288,9 @@ msgid "Runtime Information"
 msgstr "Çalışma Süresi Bilgisi"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Sunucu Seçimi"
+msgstr "Sunucu trafiği"
 
 #: server_status.php:372
 msgid "Query statistics"
