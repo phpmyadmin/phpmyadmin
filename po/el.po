@@ -9812,10 +9812,9 @@ msgid "Stacked"
 msgstr "Σταθεροποιημένο"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Τίτλος αναφοράς:"
+msgstr "Τίτλος διαγράμματος"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
