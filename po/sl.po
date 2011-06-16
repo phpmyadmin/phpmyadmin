@@ -8465,7 +8465,7 @@ msgstr ""
 #: server_status.php:849
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Število poskusov povezave (uspešnih ali ne) na strežnik MySQL."
 
 #: server_status.php:850
 msgid ""
