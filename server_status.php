@@ -1118,7 +1118,13 @@ function createQueryChart($com_vars=FALSE) {
     require_once './libraries/chart.lib.php';
 
     if(!$com_vars)
-        $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
+        if (PMA_DRIZZLE) {
+            $sql = "SELECT 'Com_' || variable_name, variable_value
+                FROM data_dictionary.GLOBAL_STATEMENTS";
+            $com_vars = PMA_DBI_fetch_result($sql, 0, 1);
+        } else {
+            $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
+        }
 
     // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
     unset($com_vars['Com_admin_commands']);
