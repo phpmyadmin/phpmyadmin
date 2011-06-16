@@ -4988,10 +4988,9 @@ msgid "Drag to reorder"
 msgstr "Изменить порядок перетаскиванием"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Выделение"
+msgstr "Кликнуть для сортировки"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
