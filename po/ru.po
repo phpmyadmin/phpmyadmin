@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 22:13+0200\n"
+"PO-Revision-Date: 2011-06-16 22:14+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -8524,7 +8524,7 @@ msgstr "Количество транзакций, использовавших 
 #: server_status.php:849
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Количество попыток соединения (успешных либо нет) к серверу MySQL."
 
 #: server_status.php:850
 msgid ""
