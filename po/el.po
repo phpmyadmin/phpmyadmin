@@ -8381,10 +8381,9 @@ msgid "All status variables"
 msgstr "Όλες οι μεταβλητές κατάστασης"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Ανανέωση"
+msgstr "Ρυθμός ανανέωσης"
 
 #: server_status.php:384 server_status.php:417
 #, fuzzy
