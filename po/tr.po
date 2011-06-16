@@ -9692,10 +9692,9 @@ msgid "Series:"
 msgstr "Dizi:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Metin alanı sütunları"
+msgstr "Kalan sütunlar"
 
 #: tbl_chart.php:128
 #, fuzzy
