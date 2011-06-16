@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 22:20+0200\n"
+"PO-Revision-Date: 2011-06-16 22:21+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -8277,10 +8277,9 @@ msgid "Runtime Information"
 msgstr "Podatki o izvajanju"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Izbira strežnika"
+msgstr "Promet strežnika"
 
 #: server_status.php:372
 msgid "Query statistics"
