@@ -8411,10 +8411,9 @@ msgid "Containing the word:"
 msgstr "Να περιλαμβάνει τη λέξη:"
 
 #: server_status.php:451
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Εμφάνιση ανοιχτών πινάκων"
+msgstr "Εμφάνιση μόνο τιμών ειδοποίησης"
 
 #: server_status.php:455
 msgid "Filter by category..."
