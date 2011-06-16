@@ -1,4 +1,8 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * @package phpMyAdmin
+ */
 
 /**
  * Include required files
@@ -20,21 +24,21 @@ $GLOBALS['js_include'][] = 'db_routines.js';
 $titles = PMA_buildActionTitles();
 
 if ($GLOBALS['is_ajax_request'] != true) {
-	/**
-	 * Displays the header
-	 */
-	require_once './libraries/db_common.inc.php';
-	/**
-	 * Displays the tabs
-	 */
-	require_once './libraries/db_info.inc.php';
+    /**
+     * Displays the header
+     */
+    require_once './libraries/db_common.inc.php';
+    /**
+     * Displays the tabs
+     */
+    require_once './libraries/db_info.inc.php';
 } else {
-	if (strlen($db)) {
-		PMA_DBI_select_db($db);
-		if (! isset($url_query)) {
-		    $url_query = PMA_generate_common_url($db);
-		}
-	}
+    if (strlen($db)) {
+        PMA_DBI_select_db($db);
+        if (! isset($url_query)) {
+            $url_query = PMA_generate_common_url($db);
+        }
+    }
 }
 
 /**
@@ -400,10 +404,10 @@ if ($GLOBALS['cfg']['Server']['extension'] !== 'mysqli') {
 }
 
 if ($GLOBALS['is_ajax_request'] != true) {
-	/**
-	 * Displays the footer
-	 */
-	require './libraries/footer.inc.php';
+    /**
+     * Displays the footer
+     */
+    require './libraries/footer.inc.php';
 }
 
 ?>
