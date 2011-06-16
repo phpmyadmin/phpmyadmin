@@ -1846,10 +1846,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Λανθασμένο όνομα χρήστη/κωδικός πρόσβασης. Άρνηση πρόσβασης."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Πιστοποίηση ρύθμισης"
+msgstr "Αδύνατη η εύρεση του κώδικα πιστοποίησης σύνδεσης:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
