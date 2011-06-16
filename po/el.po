@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 12:00+0200\n"
+"PO-Revision-Date: 2011-06-16 12:01+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8376,10 +8376,9 @@ msgid "Query statistics"
 msgstr "Στατιστικά ερωτήματος"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Δείτε τον πίνακα κατάστασης δευτερεύοντος"
+msgstr "Όλες οι μεταβλητές κατάστασης"
 
 #: server_status.php:383 server_status.php:416
 #, fuzzy
