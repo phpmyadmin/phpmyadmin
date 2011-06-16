@@ -127,10 +127,10 @@ $fields = (array) PMA_DBI_get_columns($db, $table, true);
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
 // but later, if the analyser returns more information, it
 // could be executed for any MySQL version and replace
-// the info given by SHOW FULL FIELDS FROM.
+// the info given by SHOW FULL COLUMNS FROM.
 //
 // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
-// SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+// SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
 // and SHOW CREATE TABLE says NOT NULL (tested
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
@@ -326,7 +326,7 @@ foreach ($fields as $row) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
 
-    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     if (!empty($analyzed_sql[0]['create_table_fields'][$row['Field']]['type']) && $analyzed_sql[0]['create_table_fields'][$row['Field']]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$row['Field']]['timestamp_not_null']) {

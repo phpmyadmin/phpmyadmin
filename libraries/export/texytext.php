@@ -188,7 +188,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      * Gets fields properties
      */
     PMA_DBI_select_db($db);
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+    $local_query = PMA_DBI_get_columns_sql($db, $table);
     $result      = PMA_DBI_query($local_query);
     $fields_cnt  = PMA_DBI_num_rows($result);
 

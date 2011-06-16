@@ -99,13 +99,13 @@ foreach ($the_tables as $key => $table) {
      * Gets fields properties
      */
     $result      = PMA_DBI_query(
-        'SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null,
+        PMA_DBI_get_columns_sql($db, $table), null,
         PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
 
 
 // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-// SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+// SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
 // and SHOW CREATE TABLE says NOT NULL (tested
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
@@ -198,7 +198,7 @@ foreach ($the_tables as $key => $table) {
         }
         $field_name = htmlspecialchars($row['Field']);
 
-        // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+        // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
         // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
         // the latter.
         /**

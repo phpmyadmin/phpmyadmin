@@ -223,7 +223,7 @@ for ($i = 0; $i < $num_fields; $i++) {
                 if ($row['Null'] == 'YES') {
                     $row['DefaultType']  = 'NULL';
                     $row['DefaultValue'] = '';
-    // SHOW FULL FIELDS does not report the case when there is a DEFAULT value
+    // SHOW FULL COLUMNS does not report the case when there is a DEFAULT value
     // which is empty so we need to use the results of SHOW CREATE TABLE
                 } elseif (isset($row) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_value'])) {
                     $row['DefaultType']  = 'USER_DEFINED';
@@ -458,7 +458,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         $attribute = $submit_attribute;
     }
 
-    // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+    // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
     // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
     // the latter.
     if (PMA_MYSQL_INT_VERSION < 50025

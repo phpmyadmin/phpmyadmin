@@ -308,9 +308,7 @@ function PMA__getRelationsParam()
         $cfgRelation['commwork']    = true;
 
         if ($GLOBALS['cfg']['Server']['verbose_check']) {
-            $mime_query  = 'SHOW FIELDS FROM '
-                . PMA_backquote($cfgRelation['db']) . '.'
-                . PMA_backquote($cfgRelation['column_info']);
+            $mime_query  = PMA_DBI_get_columns_sql($cfgRelation['db'], $cfgRelation['column_info']);
             $mime_rs     = PMA_query_as_controluser($mime_query, false);
 
             $mime_field_mimetype                = false;

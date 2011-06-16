@@ -60,7 +60,7 @@ if (! isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+    $result     = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table, null, true), null, PMA_DBI_QUERY_STORE);
     $fields_cnt = PMA_DBI_num_rows($result);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
     while ($row = PMA_DBI_fetch_assoc($result)) {

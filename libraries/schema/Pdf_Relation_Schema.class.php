@@ -1099,7 +1099,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetX(10);
             $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
             // $pdf->Ln(1);
-            $result = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
+            $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table));
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $pdf->SetX(20);
                 $field_name = $row['Field'];
@@ -1187,7 +1187,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets fields properties
              */
-            $result = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
+            $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table), null, PMA_DBI_QUERY_STORE);
             $fields_cnt = PMA_DBI_num_rows($result);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {

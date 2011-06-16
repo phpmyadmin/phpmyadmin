@@ -488,9 +488,7 @@ class PMA_User_Schema
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
                 $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-                $local_query = 'SHOW FIELDS FROM '
-                             .  PMA_backquote($temp_sh_page['table_name'])
-                             . ' FROM ' . PMA_backquote($db);
+                $local_query = PMA_DBI_get_columns_sql($db, $temp_sh_page['table_name']);
                 $fields_rs = PMA_DBI_query($local_query);
                 unset($local_query);
                 $fields_cnt = PMA_DBI_num_rows($fields_rs);

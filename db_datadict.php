@@ -125,7 +125,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
         // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-        // SHOW FULL FIELDS or INFORMATION_SCHEMA incorrectly says NULL
+        // SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
         // and SHOW CREATE TABLE says NOT NULL
         // http://bugs.mysql.com/20910.
 
@@ -233,7 +233,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
          && ! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
          && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
          && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
-            // here, we have a TIMESTAMP that SHOW FULL FIELDS reports as having the
+            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as having the
             // NULL attribute, but SHOW CREATE TABLE says the contrary. Believe
             // the latter.
             /**

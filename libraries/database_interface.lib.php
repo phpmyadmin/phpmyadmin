@@ -834,7 +834,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         // for PMA bc:
         // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
         if (PMA_DRIZZLE) {
-                    $sql = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME,
+            $sql = "SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME,
                 column_name        AS `Field`,
                 (CASE
                     WHEN character_maximum_length > 0
@@ -952,15 +952,15 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 }
 
 /**
- * array PMA_DBI_get_columns(string $database, string $table, bool $full = false, mysql db link $link = null)
+ * Returns SQL query for fetching columns for a table
  *
  * @param   string  $database   name of database
  * @param   string  $table      name of table to retrieve columns from
+ * @param   string  $column     name of column, null to show all columns
  * @param   boolean $full       whether to return full info or only column names
- * @param   mixed   $link       mysql link resource
  * @return  array   column names
  */
-function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
+function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
 {
     if (PMA_DRIZZLE) {
         // `Key` column isn't correctly calculated, the only value that works is PRI
@@ -987,18 +987,36 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
                 (CASE
                     WHEN is_auto_increment THEN 'auto_increment'
                     WHEN column_default_update THEN 'on update ' || column_default_update
-                    ELSE '' END)   AS `Extra`,
-                " . ($full ? "
+                    ELSE '' END)   AS `Extra`
+                " . ($full ? " ,
                 NULL               AS `Privileges`,
                 column_comment     AS `Comment`" : '') . "
             FROM data_dictionary.columns
             WHERE table_schema = '" . PMA_sqlAddslashes($database) . "'
                 AND table_name = '" . PMA_sqlAddslashes($table) . "'
-            ORDER BY ordinal_position";
+                " . ($column ? "
+                AND column_name = '" . PMA_sqlAddslashes($column) . "'" : '');
+        // ORDER BY ordinal_position
     } else {
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
-            FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
+            FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table)
+            . ($column ? "LIKE '" . PMA_sqlAddslashes($column) . "'" : '');
     }
+    return $sql;
+}
+
+/**
+ * array PMA_DBI_get_columns(string $database, string $table, bool $full = false, mysql db link $link = null)
+ *
+ * @param   string  $database   name of database
+ * @param   string  $table      name of table to retrieve columns from
+ * @param   boolean $full       whether to return full info or only column names
+ * @param   mixed   $link       mysql link resource
+ * @return  array   column names
+ */
+function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
+{
+    $sql = PMA_DBI_get_columns_sql($database, $table, $full);
     $fields = PMA_DBI_fetch_result($sql, 'Field', ($full ? null : 'Field'), $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
