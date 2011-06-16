@@ -8327,7 +8327,7 @@ msgstr "Prikaži samo opozorilne vrednosti"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtriraj po kategoriji ..."
 
 #: server_status.php:468
 #, fuzzy
