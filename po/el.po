@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 11:55+0200\n"
+"PO-Revision-Date: 2011-06-16 11:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1053,10 +1053,9 @@ msgid "Close"
 msgstr "Κλείσιμο"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Επιλογή Διακομιστή"
+msgstr "Διάγραμμα ζωντανής κυκλοφορίας"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
