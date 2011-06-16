@@ -15,10 +15,9 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
- * @var ajax_message_init   boolean boolean that stores status of
- *      notification for PMA_ajaxShowNotification
+ * @var   int   ajax_message_count   Number of AJAX messages shown since page load
  */
-var ajax_message_init = false;
+var ajax_message_count = 0;
 
 /**
  * @var codemirror_editor object containing CodeMirror editor
@@ -1244,83 +1243,64 @@ $(document).ready(function(){
  *                              optional, defaults to 'Loading...'
  * @param   var     timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000
- * @return  jQuery object       jQuery Element that holds the message div 
+ * @return  jQuery object       jQuery Element that holds the message div
  */
-
 function PMA_ajaxShowMessage(message, timeout) {
 
-    //Handle the case when a empty data.message is passed.  We don't want the empty message
-    if(message == '') {
+    //Handle the case when a empty data.message is passed. We don't want the empty message
+    if (message == '') {
         return true;
+    } else if (! message) {
+        // If the message is undefined, show the default
+        message = PMA_messages['strLoading'];
     }
 
     /**
-     * @var msg String containing the message that has to be displayed
-     * @default PMA_messages['strLoading']
-     */
-    if(!message) {
-        var msg = PMA_messages['strLoading'];
-    }
-    else {
-        var msg = message;
-    }
-
-    /**
-     * @var timeout Number of milliseconds for which {@link msg} will be visible
+     * @var timeout Number of milliseconds for which the message will be visible
      * @default 5000 ms
      */
-    if(!timeout) {
-        var to = 5000;
-    }
-    else {
-        var to = timeout;
+    if (! timeout) {
+        timeout = 5000;
     }
 
-    if( !ajax_message_init) {
-        //For the first time this function is called, append a new div
-        $(function(){
-            $('<div id="loading_parent"></div>')
-            .insertBefore("#serverinfo");
-
-            $('<span id="loading" class="ajax_notification"></span>')
-            .appendTo("#loading_parent")
-            .html(msg)
-            .fadeIn('medium')
-            .delay(to)
-            .fadeOut('medium', function(){
-                $(this)
-                .html("") //Clear the message
-                .hide();
-            });
-        }, 'top.frame_content');
-        ajax_message_init = true;
+    // Create a parent element for the AJAX messages, if necessary
+    if ($('#loading_parent').length == 0) {
+        $('<div id="loading_parent"></div>')
+        .insertBefore("#serverinfo");
     }
-    else {
-        //Otherwise, just show the div again after inserting the message
-        $("#loading")
-        .stop(true, true)
-        .html(msg)
+
+    // Update message count to create distinct message elements every time
+    ajax_message_count++;
+
+    // Remove all old messages, if any
+    $(".ajax_notification[id^=ajax_message_num]").remove();
+
+    /**
+     * @var    $retval    a jQuery object containing the reference
+     *                    to the created AJAX message
+     */
+    var $retval = $('<span class="ajax_notification" id="ajax_message_num_' + ajax_message_count + '"></span>')
+        .hide()
+        .appendTo("#loading_parent")
+        .html(message)
         .fadeIn('medium')
-        .delay(to)
+        .delay(timeout)
         .fadeOut('medium', function() {
-            $(this)
-            .html("")
-            .hide();
-        })
-    }
+            $(this).remove();
+        });
 
-    return $("#loading");
+    return $retval;
 }
 
 /**
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    $this_msgbox
-     .stop(true, true)
-     .fadeOut('medium', function() {
-        $this_msgbox.hide();
-     });
+    if ($this_msgbox != 'undefined' && $this_msgbox instanceof jQuery) {
+        $this_msgbox
+        .stop(true, true)
+        .fadeOut('medium');
+    }
 }
 
 /**
