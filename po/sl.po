@@ -8359,7 +8359,7 @@ msgstr "Št."
 #: server_status.php:615
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Promet omrežja od zagona: %s"
 
 #: server_status.php:623
 #, php-format
