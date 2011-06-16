@@ -9678,10 +9678,9 @@ msgid "Series:"
 msgstr "Serije:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Preostali stolpci"
 
 #: tbl_chart.php:128
 #, fuzzy
