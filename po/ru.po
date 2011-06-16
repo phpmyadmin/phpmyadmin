@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 22:02+0200\n"
+"PO-Revision-Date: 2011-06-16 22:03+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -1061,7 +1061,7 @@ msgstr "Графический вывод трафика"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Графический вывод соединений и процессов"
 
 #: js/messages.php:66 server_status.php:429
 #, fuzzy
