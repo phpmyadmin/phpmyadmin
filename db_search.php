@@ -38,6 +38,8 @@
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'db_search.js';
+$GLOBALS['js_include'][] = 'sql.js';
+$GLOBALS['js_include'][] = 'makegrid.js';
 
 /**
  * Gets some core libraries and send headers
@@ -178,7 +180,7 @@ if (isset($_REQUEST['submit_search'])) {
             $thefieldlikevalue = array();
             foreach ($tblfields as $tblfield) {
                 if (! isset($field) || strlen($field) == 0 || $tblfield == $field) {
-                    $thefieldlikevalue[] = PMA_backquote($tblfield)
+                    $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield) . ' USING utf8)'
                                          . ' ' . $like_or_regex . ' '
                                          . "'" . $automatic_wildcard
                                          . $search_word

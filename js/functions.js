@@ -26,6 +26,13 @@ var ajax_message_init = false;
 var codemirror_editor = false;
 
 /**
+ * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
+ */
+var chart_activeTimeouts = new Object();
+    
+
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -1144,7 +1151,7 @@ function changeMIMEType(db, table, reference, mime_type)
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
-    $(".inline_edit_sql").click( function(){
+    $(".inline_edit_sql").live('click', function(){
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1237,6 +1244,7 @@ $(document).ready(function(){
  *                              optional, defaults to 'Loading...'
  * @param   var     timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000
+ * @return  jQuery object       jQuery Element that holds the message div 
  */
 
 function PMA_ajaxShowMessage(message, timeout) {
@@ -1301,7 +1309,7 @@ function PMA_ajaxShowMessage(message, timeout) {
         })
     }
 
-	return $("#loading");
+    return $("#loading");
 }
 
 /**
@@ -1332,7 +1340,7 @@ function PMA_showNoticeForEnum(selectElement) {
 /**
  * Generates a dialog box to pop up the create_table form
  */
-function PMA_createTableDialog( div, url , target){
+function PMA_createTableDialog( div, url , target) {
      /**
      *  @var    button_options  Object that stores the options passed to jQueryUI
      *                          dialog
@@ -1374,6 +1382,120 @@ function PMA_createTableDialog( div, url , target){
          PMA_ajaxRemoveMessage($msgbox);
      }) // end $.get()
 
+}
+
+/**
+ * Creates a highcharts chart in the given container
+ *
+ * @param   var     settings    object with highcharts properties that should be applied. (See also http://www.highcharts.com/ref/)
+ *                              requires at least settings.chart.renderTo and settings.series to be set.
+ *                              In addition there may be an additional property object 'realtime' that allows for realtime charting:
+ *                              realtime: {
+ *                                  url: adress to get the data from (will always add token, ajax_request=1 and chart_data=1 to the GET request)
+ *                                  type: the GET request will also add type=[value of the type property] to the request
+ *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order: 
+ *                                      - the chart object
+ *                                      - the current response value of the GET request, JSON parsed
+ *                                      - the previous response value of the GET request, JSON parsed
+ *                                      - the number of added points
+ * 
+ * @return  object   The created highcharts instance
+ */
+function PMA_createChart(passedSettings) {
+    var container = passedSettings.chart.renderTo;
+    
+    var settings = {
+        chart: {
+            type: 'spline',
+            marginRight: 10,
+            events: {
+                load: function() {
+                    var thisChart = this;
+                    var lastValue=null, curValue=null;
+                    var numLoadedPoints=0, otherSum=0;
+                    var diff;
+                    // No realtime updates for graphs that are being exported, and disabled when no callback is set
+                    if(thisChart.options.chart.forExport==true || !passedSettings.realtime || !passedSettings.realtime.callback) return;
+                            
+                    thisChart.options.realtime.timeoutCallBack = function() {
+                        $.get(passedSettings.realtime.url,{ajax_request:1, chart_data:1, type:passedSettings.realtime.type},function(data) {
+                            curValue = jQuery.parseJSON(data);
+                            //if(lastValue==null) lastValue = curValue;
+                            
+                            if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
+                            else diff = parseInt(curValue.x - lastValue.x);
+                            
+                            thisChart.xAxis[0].setExtremes(thisChart.xAxis[0].getExtremes().min+diff, thisChart.xAxis[0].getExtremes().max+diff, false);
+                            
+                            passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                            
+                            lastValue = curValue;
+                            numLoadedPoints++;
+                            
+                            // Timeout has been cleared => don't start a new timeout
+                            if(chart_activeTimeouts[container]==null) return;
+                            chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, thisChart.options.realtime.refreshRate);
+                            
+                        });
+                    }
+                    
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
+                }
+            }
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    radius: 3
+                }
+            }
+        },
+        credits: {
+            enabled:false
+        },
+        xAxis: {
+            type: 'datetime',
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: PMA_messages['strTotalCount']
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+ 
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        },
+        exporting: {
+            enabled: true
+        },
+        series: []
+    }
+    
+    /* Set/Get realtime chart default values */
+    if(passedSettings.realtime) {
+        if(!passedSettings.realtime.refreshRate) 
+            passedSettings.realtime.refreshRate = 5000;
+        
+        if(!passedSettings.realtime.numMaxPoints) 
+            passedSettings.realtime.numMaxPoints = 32;
+        
+        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 2;
+    }
+
+    // Overwrite/Merge default settings with passedsettings
+    $.extend(true,settings,passedSettings);
+
+    return new Highcharts.Chart(settings);
 }
 
 /**
@@ -2006,8 +2128,10 @@ $(document).ready(function() {
     }
 });
 
+$(document).ready(initTooltips);
+
 /* Displays tooltips */
-$(document).ready(function() {
+function initTooltips() {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
     $(".footnotes").hide();
@@ -2029,11 +2153,11 @@ $(document).ready(function() {
         $(this).qtip({
             content: tooltip_text,
             show: { delay: 0 },
-            hide: { when: 'unfocus', delay: 0 },
+            hide: { delay: 1000 },
             style: { background: '#ffffcc' }
         });
     });
-});
+}
 
 function menuResize()
 {

@@ -46,6 +46,10 @@ $js_messages['strBLOBRepositoryDisableAreYouSure'] = sprintf(__('Are you sure yo
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strNotNumber'] = __('This is not a number!');
 
+/* Charts */
+/* l10n: Default description for the y-Axis of Charts */
+$js_messages['strTotalCount'] = __('Total count');
+
 /* For server_privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
@@ -55,6 +59,21 @@ $js_messages['strAddUser'] = __('Add user');
 $js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
+
+/* for server_status.js */
+$js_messages['strLiveTrafficChart'] = __('Live traffic chart');
+$js_messages['strLiveConnChart'] = __('Live conn./process chart');
+$js_messages['strLiveQueryChart'] = __('Live query chart');
+
+$js_messages['strStaticData'] = __('Static data');
+/* l10n: Total number of queries */
+$js_messages['strTotal'] = __('Total');
+/* l10n: Other, small valued, queries */
+$js_messages['strOther'] = __('Other');
+/* l10n: Thousands separator */
+$js_messages['strThousandsSeperator'] = __(',');
+/* l10n: Decimal separator */
+$js_messages['strDecimalSeperator'] = __('.');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');

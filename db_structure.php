@@ -12,6 +12,7 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
+$GLOBALS['js_include'][] = 'tbl_change.js';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
@@ -355,8 +356,8 @@ foreach ($tables as $keyname => $each_table) {
             <?php echo $titles['Structure']; ?></a></td>
     <td align="center"><?php echo $search_table; ?></td>
     <?php if (! $db_is_information_schema) { ?>
-    <td align="center">
-        <a href="tbl_change.php?<?php echo $tbl_url_query; ?>">
+    <td align="center" class="insert_table">
+        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : ''); ?> href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
     <td align="center"><?php echo $empty_table; ?></td>
     <td align="center">
