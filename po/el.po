@@ -9831,10 +9831,9 @@ msgid "The remaining columns"
 msgstr "Οι απομένουσες στήλες"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "Ετικέτα άξονα Χ"
+msgstr "Ετικέτα άξονα Χ:"
 
 #: tbl_chart.php:128
 #, fuzzy
