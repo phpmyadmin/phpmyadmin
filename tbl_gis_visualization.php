@@ -52,7 +52,6 @@ if (PMA_isValid($_REQUEST['visualizationSettings'], 'array')) {
     $visualizationSettings = $_REQUEST['visualizationSettings'];
 }
 
-// If label column is not set, use first non-geometric colum as label column
 if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
     $visualizationSettings['labelColumn'] = '';
 }
@@ -144,10 +143,14 @@ if ($format == 'svg') {
 
             // create a vector layer
             var vectorLayer = new OpenLayers.Layer.Vector("Data");
+            var bound;
             <?php echo (PMA_GIS_visualization_results($data, $visualizationSettings, 'ol')); ?>
             map.addLayer(vectorLayer);
 
-            map.setCenter(new OpenLayers.LonLat(0, 0), 2);
+            map.zoomToExtent(bound);
+            if (map.getZoom() < 2) {
+                map.zoomTo(2);
+            }
             map.addControl(new OpenLayers.Control.LayerSwitcher());
             map.addControl(new OpenLayers.Control.MousePosition());
         }

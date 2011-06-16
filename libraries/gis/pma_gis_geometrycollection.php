@@ -167,14 +167,15 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     /**
      * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
      *
-     * @param string $spatial GIS GEOMETRYCOLLECTION object
-     * @param int    $srid    Spatial reference ID
-     * @param string $label   Label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color   Color for the GIS GEOMETRYCOLLECTION object
+     * @param string $spatial    GIS GEOMETRYCOLLECTION object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS GEOMETRYCOLLECTION object
+     * @param string $color      Color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $color)
+    public function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data)
     {
         $row = '';
 
@@ -188,7 +189,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
-            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color);
+            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color, $scale_data);
         }
         return $row;
     }

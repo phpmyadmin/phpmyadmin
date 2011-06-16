@@ -142,10 +142,11 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * @param int    $srid        Spatial reference ID
      * @param string $label       Label for the GIS POINT object
      * @param string $point_color Color for the GIS POINT object
+     * @param array  $scale_data  Array containing data related to scaling
      *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $point_color)
+    public function prepareRowAsOl($spatial, $srid, $label, $point_color, $scale_data)
     {
         $style_options = array(
             'pointRadius'  => 3,
@@ -159,14 +160,17 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         if ($srid == 0) {
             $srid = 4326;
         }
+        $result = $this->getBoundsForOl($srid, $scale_data);
+
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = substr($spatial, 6, (strlen($spatial) - 7));
         $points_arr = $this->extractPoints($point, null);
 
-        return 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(('
+        $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(('
             . 'new OpenLayers.Geometry.Point(' . $points_arr[0][0] . ', ' . $points_arr[0][1] . ')'
             . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject())),'
             . ' null, ' . json_encode($style_options) . '));';
+        return $result;
     }
 }
 ?>

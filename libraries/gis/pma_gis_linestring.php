@@ -160,10 +160,11 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS LINESTRING object
      * @param string $line_color Color for the GIS LINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $line_color)
+    public function prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data)
     {
         $style_options = array(
             'strokeColor' => $line_color,
@@ -174,6 +175,8 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         if ($srid == 0) {
             $srid = 4326;
         }
+        $result = $this->getBoundsForOl($srid, $scale_data);
+
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
         $points_arr = $this->extractPoints($linesrting, null);
@@ -186,9 +189,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         $row = substr($row, 0, strlen($row) - 2);
         $row .= ')';
 
-        return 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.LineString(' . $row . '), null, '
             . json_encode($style_options) . '));';
+        return $result;
     }
 }
 ?>

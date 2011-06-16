@@ -251,7 +251,8 @@ class PMA_GIS_Visualization
     public function asOl()
     {
         $this->init();
-        $output = $this->_prepareDataSet($this->_data, 0, null, 'ol', '');
+        $scale_data = $this->_scaleDataSet($this->_data);
+        $output = $this->_prepareDataSet($this->_data, 0, $scale_data, 'ol', '');
         return $output;
     }
 
@@ -355,6 +356,10 @@ class PMA_GIS_Visualization
             'scale'  => $scale,
             'x'      => $x,
             'y'      => $y,
+            'minX'   => $min_max['minX'],
+            'maxX'   => $min_max['maxX'],
+            'minY'   => $min_max['minY'],
+            'maxY'   => $min_max['maxY'],
             'height' => $this->_settings['height'],
         );
     }
@@ -408,7 +413,7 @@ class PMA_GIS_Visualization
             } elseif ($format == 'ol') {
                 $results .= $gis_obj->prepareRowAsOl(
                     $row[$this->_settings['spatialColumn']], $row['srid'],
-                    $label, $this->_settings['colors'][$index]
+                    $label, $this->_settings['colors'][$index], $scale_data
                 );
             }
             $color_number++;

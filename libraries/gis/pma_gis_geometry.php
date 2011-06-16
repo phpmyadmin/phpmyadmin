@@ -41,6 +41,23 @@ abstract class PMA_GIS_Geometry
     public abstract function scaleRow($spatial);
 
     /**
+     * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
+     *
+     * @param string $srid       Spatial reference ID
+     * @param array  $scale_data Data related to scaling
+     *
+     * @return OpenLayers.Bounds object that correspond to the bounds of GIS data
+     */
+    protected function getBoundsForOl($srid, $scale_data)
+    {
+        return 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat('
+            . $scale_data['minX'] . ', ' . $scale_data['minY'] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $srid . '"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat('
+            . $scale_data['maxX'] . ', ' . $scale_data['maxY'] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $srid . '"), map.getProjectionObject()));';
+    }
+
+    /**
      * Update the min, max values with the given point set.
      *
      * @param string $point_set Point set

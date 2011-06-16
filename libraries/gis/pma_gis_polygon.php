@@ -212,10 +212,11 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS POLYGON object
      * @param string $fill_color Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return the code related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $fill_color)
+    public function prepareRowAsOl($spatial, $srid, $label, $fill_color, $scale_data)
     {
         $style_options = array(
             'strokeColor' => '#000000',
@@ -228,10 +229,12 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         if ($srid == 0) {
             $srid = 4326;
         }
+        $row = $this->getBoundsForOl($srid, $scale_data);
+
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
 
-        $row = 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
+        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
             . 'new OpenLayers.Geometry.Polygon(new Array(';
         // If the polygon doesnt have an inner polygon
         if (strpos($polygon, "),(") === false) {
