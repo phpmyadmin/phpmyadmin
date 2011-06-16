@@ -678,8 +678,10 @@ $(document).ready(function() {
             // and store the current value in a hidden span
             if($this_field.is(':not(.truncated, .transformed, .relation, .enum, .set, .null)')) {
                 // handle non-truncated, non-transformed, non-relation values
+
+                value = data_value.replace("<br>", "\n");
                 // We don't need to get any more data, just wrap the value
-                $this_field.append('<textarea>'+data_value+'</textarea>');
+                $this_field.append('<textarea>' + value + '</textarea>');
                 $this_field.data('original_data', data_value);
             }
             else if($this_field.is('.truncated, .transformed')) {
