@@ -9827,7 +9827,7 @@ msgstr "Τίτλος διαγράμματος"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "Άξονας Χ"
 
 #: tbl_chart.php:113
 #| msgid "SQL queries"
