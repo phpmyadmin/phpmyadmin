@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 22:19+0200\n"
+"PO-Revision-Date: 2011-06-16 22:20+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -4933,10 +4933,9 @@ msgid "Language"
 msgstr "Jezik"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Obnovi vrstni red stolpcev"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
