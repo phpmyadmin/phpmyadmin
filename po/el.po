@@ -8534,10 +8534,10 @@ msgid "ID"
 msgstr "Κωδικός"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Ενεργοποιεί/Απενεργοποιεί το SSL για σύνδεση στο διακομιστή MySQL."
+msgstr ""
+"Ο αριθμός των αποτυχημένων προσπαθειών για σύνδεση στο διακομιστή MySQL."
 
 #: server_status.php:847
 msgid ""
