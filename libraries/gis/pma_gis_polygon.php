@@ -72,7 +72,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param array  $scale_data Array containing data related to scaling
      * @param image  $image      Image object
      *
-     * @return the code related to a row in the GIS dataset
+     * @return the modified image object
      */
     public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
     {
@@ -109,15 +109,15 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     }
 
     /**
-     * Adds to the PDF object, the data related to a row in the GIS dataset.
+     * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
      * @param string $spatial    GIS POLYGON object
      * @param string $label      Label for the GIS POLYGON object
      * @param string $fill_color Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
-     * @param image  $pdf        Pdf object
+     * @param image  $pdf        TCPDF instance
      *
-     * @return the code related to a row in the GIS dataset
+     * @return the modified TCPDF instance
      */
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
@@ -206,7 +206,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares the code related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       Spatial reference ID
@@ -214,7 +214,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      * @param string $fill_color Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
-     * @return the code related to a row in the GIS dataset
+     * @return JavaScript related to a row in the GIS dataset
      */
     public function prepareRowAsOl($spatial, $srid, $label, $fill_color, $scale_data)
     {
