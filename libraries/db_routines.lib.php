@@ -1044,6 +1044,12 @@ function PMA_RTN_getQueryFromRequest() {
 /**
  * Creates the HTML for a row of the routines list.
  *
+ * @param    array    $routine    Data about the routine returned by a query
+ *                                from the INFORMATION_SCHEMA db.
+ * @param    int      $ct         Row count
+ * @param    bool     $is_ajax    Whether this function was called
+ *                                from within an AJAX request
+ *
  * @return  string    An HTML snippet containing a row for the routines list.
  *
  * @uses    sprintf()
@@ -1053,11 +1059,14 @@ function PMA_RTN_getQueryFromRequest() {
  * @uses    htmlspecialchars()
  * @uses    urlencode()
  */
-function PMA_RTN_getRowForRoutinesList($routine, $ct = 0) {
+function PMA_RTN_getRowForRoutinesList($routine, $ct = 0, $is_ajax = false) {
     global $titles, $db, $url_query, $ajax_class;
 
     // Do the logic first
     $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
+    if ($is_ajax) {
+        $rowclass .= ' ajaxInsert hide';
+    }
     $editlink = $titles['NoEdit'];
     $execlink = $titles['NoExecute'];
     $exprlink = $titles['NoExport'];

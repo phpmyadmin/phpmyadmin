@@ -263,6 +263,8 @@ $(document).ready(function() {
                                 if (! inserted) {
                                     $('table.data').append(data.new_row);
                                 }
+                                // Fade-in the new row
+                                $('.ajaxInsert').show('slow').removeClass('ajaxInsert');
                                 // Now we have inserted the row at the correct position, but surely
                                 // at least some row classes are wrong now. So we will itirate
                                 // throught all rows and assign correct classes to them.
