@@ -8106,10 +8106,9 @@ msgid "wildcard"
 msgstr "μπαλαντέρ"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Η προβολή %s διαγράφτηκε"
+msgstr "Ο χρήστης προστέθηκε."
 
 #: server_replication.php:49
 msgid "Unknown error"
