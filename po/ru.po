@@ -8390,7 +8390,7 @@ msgstr "Выводить только предупреждающие значе�
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Фильтр по категории..."
 
 #: server_status.php:468
 #, fuzzy
