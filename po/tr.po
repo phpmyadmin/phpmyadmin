@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 20:05+0200\n"
+"PO-Revision-Date: 2011-06-16 20:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4942,10 +4942,9 @@ msgid "Language"
 msgstr "Dil"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Metin alanı sütunları"
+msgstr "Sütun düzenini geri yükle"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
