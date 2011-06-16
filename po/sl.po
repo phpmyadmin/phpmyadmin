@@ -9698,10 +9698,9 @@ msgid "Y-Axis label:"
 msgstr "Oznaka osi y:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Vrednost"
+msgstr "Vrednosti y"
 
 #: tbl_create.php:56
 #, php-format
