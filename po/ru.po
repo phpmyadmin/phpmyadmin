@@ -9781,10 +9781,9 @@ msgid "Series:"
 msgstr "Серии:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Столбцов в текстовом поле"
+msgstr "Оставшиеся столбцы"
 
 #: tbl_chart.php:128
 #, fuzzy
