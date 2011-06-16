@@ -168,8 +168,10 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             foreach ($data as $key => $value) {
                 if ($value === null) {
                     $value = '<i>NULL</i>';
+                } else {
+                    $value = htmlspecialchars($value);
                 }
-                $output .= "<td class='odd'>" . htmlspecialchars($value) . "</td>";
+                $output .= "<td class='odd'>" . $value . "</td>";
             }
             $output .= "</table></fieldset>";
         } else {
