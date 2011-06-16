@@ -9846,10 +9846,9 @@ msgid "Y-Axis label:"
 msgstr "Ετικέτα άξονα Υ:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Τιμή"
+msgstr "Τιμές Υ"
 
 #: tbl_create.php:56
 #, php-format
