@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 11:59+0200\n"
+"PO-Revision-Date: 2011-06-16 12:00+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4994,10 +4994,9 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Πατήστε για επιλογή"
+msgstr "Πατήστε για ταξινόμηση"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
