@@ -8419,7 +8419,7 @@ msgstr "Εμφάνιση μόνο τιμών ειδοποίησης"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Φιλτράρισμα ανά κατηγορία..."
 
 #: server_status.php:468
 #| msgid "Related Links"
