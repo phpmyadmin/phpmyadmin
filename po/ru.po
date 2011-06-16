@@ -4979,10 +4979,9 @@ msgid "Language"
 msgstr "Язык"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Столбцов в текстовом поле"
+msgstr "Восстановить порядок столбцов"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
