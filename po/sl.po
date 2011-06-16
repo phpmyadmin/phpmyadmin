@@ -1062,10 +1062,9 @@ msgid "Live conn./process chart"
 msgstr "Grafikon povezav/procesov v živo"
 
 #: js/messages.php:66 server_status.php:429
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Prikaži graf poizvedbe"
+msgstr "Grafikon poizvedb v živo"
 
 #: js/messages.php:68
 msgid "Static data"
