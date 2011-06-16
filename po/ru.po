@@ -1064,10 +1064,9 @@ msgid "Live conn./process chart"
 msgstr "Графический вывод соединений и процессов"
 
 #: js/messages.php:66 server_status.php:429
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Вывести график запроса"
+msgstr "Графический вывод запросов"
 
 #: js/messages.php:68
 msgid "Static data"
