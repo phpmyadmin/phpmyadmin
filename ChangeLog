@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - patch #3313326 [interface] Some tooltips do not disappear
 - bug #3315720 [search] Fix search in non unicode tables
 - bug #3315741 [display] Inline query edit broken
+- patch #3317206 [privileges] Generate password option missing on new accounts
 
 3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
