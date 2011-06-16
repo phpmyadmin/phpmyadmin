@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 + rfe #939233 [interface] Flexible column width
 + [interface] Mouse-based column reordering in query results
 + AJAX for Insert to a table from database Structure page
+- Patch #3316969 PMA_ajaxShowMessage() does not respect timeout
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
