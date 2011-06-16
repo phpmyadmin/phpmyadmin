@@ -8446,7 +8446,7 @@ msgstr "Τύπος ερωτήματος"
 #. l10n: # = Amount of queries
 #: server_status.php:543
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:615
 #, php-format
