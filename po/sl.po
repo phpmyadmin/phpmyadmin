@@ -1068,7 +1068,7 @@ msgstr "Grafikon poizvedb v živo"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Statični podatki"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
