@@ -12,7 +12,6 @@ if(!window.console) {
 	window.console.dir = function(str) {};
 }
 
-// <3 IE
 if(!Array.indexOf){
 	Array.prototype.indexOf = function(obj){
 		for(var i=0; i<this.length; i++){
@@ -28,7 +27,7 @@ if(!Array.indexOf){
 	// canvg(target, s)
 	// empty parameters: replace all 'svg' elements on page with 'canvas' elements
 	// target: canvas element or the id of a canvas element
-	// s: svg string or url to svg file
+	// s: svg string, url to svg file, or xml document
 	// opts: optional hash of options
 	//		 ignoreMouse: true => ignore mouse events
 	//		 ignoreAnimation: true => ignore animations
@@ -75,7 +74,11 @@ if(!Array.indexOf){
 		svg.opts = opts;
 		
 		var ctx = target.getContext('2d');
-		if (s.substr(0,1) == '<') {
+		if (typeof(s.documentElement) != 'undefined') {
+			// load from xml doc
+			svg.loadXmlDoc(ctx, s);
+		}
+		else if (s.substr(0,1) == '<') {
 			// load from xml string
 			svg.loadXml(ctx, s);
 		}
@@ -89,6 +92,7 @@ if(!Array.indexOf){
 		var svg = { };
 		
 		svg.FRAMERATE = 30;
+		svg.MAX_VIRTUAL_PIXELS = 30000;
 		
 		// globals
 		svg.init = function(ctx) {
@@ -99,6 +103,7 @@ if(!Array.indexOf){
 			svg.ctx = ctx;
 			svg.ViewPort = new (function () {
 				this.viewPorts = [];
+				this.Clear = function() { this.viewPorts = []; }
 				this.SetCurrent = function(width, height) { this.viewPorts.push({ width: width, height: height }); }
 				this.RemoveCurrent = function() { this.viewPorts.pop(); }
 				this.Current = function() { return this.viewPorts[this.viewPorts.length - 1]; }
@@ -551,7 +556,7 @@ if(!Array.indexOf){
 				}
 			}
 			
-			var data = v.split(/\s(?=[a-z])/);
+			var data = svg.trim(svg.compressSpaces(v)).split(/\s(?=[a-z])/);
 			for (var i=0; i<data.length; i++) {
 				var type = data[i].split('(')[0];
 				var s = data[i].split('(')[1].replace(')','');
@@ -616,7 +621,7 @@ if(!Array.indexOf){
 				return a;
 			}
 			
-			// get or create style
+			// get or create style, crawls up node tree
 			this.style = function(name, createIfNotExists) {
 				var s = this.styles[name];
 				if (s != null) return s;
@@ -624,6 +629,14 @@ if(!Array.indexOf){
 				var a = this.attribute(name);
 				if (a != null && a.hasValue()) {
 					return a;
+				}
+				
+				var p = this.parent;
+				if (p != null) {
+					var ps = p.style(name);
+					if (ps != null && ps.hasValue()) {
+						return ps;
+					}
 				}
 					
 				s = new svg.Property(name, '');
@@ -635,6 +648,9 @@ if(!Array.indexOf){
 			this.render = function(ctx) {
 				// don't render display=none
 				if (this.attribute('display').value == 'none') return;
+				
+				// don't render visibility=hidden
+				if (this.attribute('visibility').value == 'hidden') return;
 			
 				ctx.save();
 				this.setContext(ctx);
@@ -681,7 +697,7 @@ if(!Array.indexOf){
 				}
 										
 				// add tag styles
-				var styles = svg.Styles[this.type];
+				var styles = svg.Styles[node.nodeName];
 				if (styles != null) {
 					for (var name in styles) {
 						this.styles[name] = styles[name];
@@ -693,6 +709,12 @@ if(!Array.indexOf){
 					var classes = svg.compressSpaces(this.attribute('class').value).split(' ');
 					for (var j=0; j<classes.length; j++) {
 						styles = svg.Styles['.'+classes[j]];
+						if (styles != null) {
+							for (var name in styles) {
+								this.styles[name] = styles[name];
+							}
+						}
+						styles = svg.Styles[node.nodeName+'.'+classes[j]];
 						if (styles != null) {
 							for (var name in styles) {
 								this.styles[name] = styles[name];
@@ -856,7 +878,7 @@ if(!Array.indexOf){
 				
 				var width = svg.ViewPort.width();
 				var height = svg.ViewPort.height();
-				if (this.attribute('width').hasValue() && this.attribute('height').hasValue()) {
+				if (typeof(this.root) == 'undefined' && this.attribute('width').hasValue() && this.attribute('height').hasValue()) {
 					width = this.attribute('width').Length.toPixels('x');
 					height = this.attribute('height').Length.toPixels('y');
 					
@@ -1186,9 +1208,6 @@ if(!Array.indexOf){
 				pp.reset();
 
 				var bb = new svg.BoundingBox();
-				
-				if(this.attribute('visibility').value=='hidden') return;
-				
 				if (ctx != null) ctx.beginPath();
 				while (!pp.isEnd()) {
 					pp.nextCommand();
@@ -1469,6 +1488,37 @@ if(!Array.indexOf){
 				for (var i=0; i<stopsContainer.stops.length; i++) {
 					g.addColorStop(stopsContainer.stops[i].offset, stopsContainer.stops[i].color);
 				}
+				
+				if (this.attribute('gradientTransform').hasValue()) {
+					// render as transformed pattern on temporary canvas
+					var rootView = svg.ViewPort.viewPorts[0];
+					
+					var rect = new svg.Element.rect();
+					rect.attributes['x'] = new svg.Property('x', -svg.MAX_VIRTUAL_PIXELS/3.0);
+					rect.attributes['y'] = new svg.Property('y', -svg.MAX_VIRTUAL_PIXELS/3.0);
+					rect.attributes['width'] = new svg.Property('width', svg.MAX_VIRTUAL_PIXELS);
+					rect.attributes['height'] = new svg.Property('height', svg.MAX_VIRTUAL_PIXELS);
+					
+					var group = new svg.Element.g();
+					group.attributes['transform'] = new svg.Property('transform', this.attribute('gradientTransform').value);
+					group.children = [ rect ];
+					
+					var tempSvg = new svg.Element.svg();
+					tempSvg.attributes['x'] = new svg.Property('x', 0);
+					tempSvg.attributes['y'] = new svg.Property('y', 0);
+					tempSvg.attributes['width'] = new svg.Property('width', rootView.width);
+					tempSvg.attributes['height'] = new svg.Property('height', rootView.height);
+					tempSvg.children = [ group ];
+					
+					var c = document.createElement('canvas');
+					c.width = rootView.width;
+					c.height = rootView.height;
+					var tempCtx = c.getContext('2d');
+					tempCtx.fillStyle = g;
+					tempSvg.render(tempCtx);		
+					return tempCtx.createPattern(c, 'no-repeat');
+				}
+				
 				return g;				
 			}
 		}
@@ -1494,16 +1544,8 @@ if(!Array.indexOf){
 				var y2 = (this.gradientUnits == 'objectBoundingBox' 
 					? bb.y() + bb.height() * this.attribute('y2').numValue()
 					: this.attribute('y2').Length.toPixels('y'));
-				
-				var p1 = new svg.Point(x1, y1);
-				var p2 = new svg.Point(x2, y2);
-				if (this.attribute('gradientTransform').hasValue()) { 
-					var transform = new svg.Transform(this.attribute('gradientTransform').value);
-					transform.applyToPoint(p1);
-					transform.applyToPoint(p2);
-				}
-				
-				return ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+
+				return ctx.createLinearGradient(x1, y1, x2, y2);
 			}
 		}
 		svg.Element.linearGradient.prototype = new svg.Element.GradientBase;
@@ -1540,22 +1582,7 @@ if(!Array.indexOf){
 					? (bb.width() + bb.height()) / 2.0 * this.attribute('r').numValue()
 					: this.attribute('r').Length.toPixels());
 				
-				var c = new svg.Point(cx, cy);
-				var f = new svg.Point(fx, fy);
-				if (this.attribute('gradientTransform').hasValue()) { 
-					var transform = new svg.Transform(this.attribute('gradientTransform').value);
-					transform.applyToPoint(c);
-					transform.applyToPoint(f);
-					
-					for (var i=0; i<transform.transforms.length; i++) {
-						// average the scaling part of the transform, apply to radius
-						var scale1 = transform.transforms[i].m[0];
-						var scale2 = transform.transforms[i].m[3];
-						r = r * ((scale1 + scale2) / 2.0);
-					}
-				}				
-				
-				return ctx.createRadialGradient(f.x, f.y, 0, c.x, c.y, r);
+				return ctx.createRadialGradient(fx, fy, 0, cx, cy, r);
 			}
 		}
 		svg.Element.radialGradient.prototype = new svg.Element.GradientBase;
@@ -1693,6 +1720,73 @@ if(!Array.indexOf){
 		}
 		svg.Element.animateTransform.prototype = new svg.Element.animate;
 		
+		// font element
+		svg.Element.font = function(node) {
+			this.base = svg.Element.ElementBase;
+			this.base(node);
+
+			this.horizAdvX = this.attribute('horiz-adv-x').numValue();			
+			
+			this.isRTL = false;
+			this.isArabic = false;
+			this.fontFace = null;
+			this.missingGlyph = null;
+			this.glyphs = [];			
+			for (var i=0; i<this.children.length; i++) {
+				var child = this.children[i];
+				if (child.type == 'font-face') {
+					this.fontFace = child;
+					if (child.style('font-family').hasValue()) {
+						svg.Definitions[child.style('font-family').value] = this;
+					}
+				}
+				else if (child.type == 'missing-glyph') this.missingGlyph = child;
+				else if (child.type == 'glyph') {
+					if (child.arabicForm != '') {
+						this.isRTL = true;
+						this.isArabic = true;
+						if (typeof(this.glyphs[child.unicode]) == 'undefined') this.glyphs[child.unicode] = [];
+						this.glyphs[child.unicode][child.arabicForm] = child;
+					}
+					else {
+						this.glyphs[child.unicode] = child;
+					}
+				}
+			}	
+		}
+		svg.Element.font.prototype = new svg.Element.ElementBase;
+		
+		// font-face element
+		svg.Element.fontface = function(node) {
+			this.base = svg.Element.ElementBase;
+			this.base(node);	
+			
+			this.ascent = this.attribute('ascent').value;
+			this.descent = this.attribute('descent').value;
+			this.unitsPerEm = this.attribute('units-per-em').numValue();				
+		}
+		svg.Element.fontface.prototype = new svg.Element.ElementBase;
+		
+		// missing-glyph element
+		svg.Element.missingglyph = function(node) {
+			this.base = svg.Element.path;
+			this.base(node);	
+			
+			this.horizAdvX = 0;
+		}
+		svg.Element.missingglyph.prototype = new svg.Element.path;
+		
+		// glyph element
+		svg.Element.glyph = function(node) {
+			this.base = svg.Element.path;
+			this.base(node);	
+			
+			this.horizAdvX = this.attribute('horiz-adv-x').numValue();
+			this.unicode = this.attribute('unicode').value;
+			this.arabicForm = this.attribute('arabic-form').value;
+		}
+		svg.Element.glyph.prototype = new svg.Element.path;
+		
 		// text element
 		svg.Element.text = function(node) {
 			this.base = svg.Element.RenderedElementBase;
@@ -1715,19 +1809,16 @@ if(!Array.indexOf){
 			this.baseSetContext = this.setContext;
 			this.setContext = function(ctx) {
 				this.baseSetContext(ctx);
-				if (this.attribute('text-anchor').hasValue()) {
-					var textAnchor = this.attribute('text-anchor').value;
+				if (this.style('text-anchor').hasValue()) {
+					var textAnchor = this.style('text-anchor').value;
 					ctx.textAlign = textAnchor == 'middle' ? 'center' : textAnchor;
 				}
 				if (this.attribute('alignment-baseline').hasValue()) ctx.textBaseline = this.attribute('alignment-baseline').value;
 			}
 			
 			this.renderChildren = function(ctx) {
-				if(this.attribute('visibility').value=='hidden') return;
-				
 				var x = this.attribute('x').Length.toPixels('x');
 				var y = this.attribute('y').Length.toPixels('y');
-				
 				for (var i=0; i<this.children.length; i++) {
 					var child = this.children[i];
 				
@@ -1759,8 +1850,63 @@ if(!Array.indexOf){
 			this.base = svg.Element.RenderedElementBase;
 			this.base(node);
 			
+			this.getGlyph = function(font, text, i) {
+				var c = text[i];
+				var glyph = null;
+				if (font.isArabic) {
+					var arabicForm = 'isolated';
+					if ((i==0 || text[i-1]==' ') && i<text.length-2 && text[i+1]!=' ') arabicForm = 'terminal'; 
+					if (i>0 && text[i-1]!=' ' && i<text.length-2 && text[i+1]!=' ') arabicForm = 'medial';
+					if (i>0 && text[i-1]!=' ' && (i == text.length-1 || text[i+1]==' ')) arabicForm = 'initial';
+					if (typeof(font.glyphs[c]) != 'undefined') {
+						glyph = font.glyphs[c][arabicForm];
+						if (glyph == null && font.glyphs[c].type == 'glyph') glyph = font.glyphs[c];
+					}
+				}
+				else {
+					glyph = font.glyphs[c];
+				}
+				if (glyph == null) glyph = font.missingGlyph;
+				return glyph;
+			}
+			
 			this.renderChildren = function(ctx) {
-				ctx.fillText(svg.compressSpaces(this.getText()), this.x, this.y);
+				var customFont = this.parent.style('font-family').Definition.getDefinition();
+				if (customFont != null) {
+					var fontSize = this.parent.style('font-size').numValueOrDefault(svg.Font.Parse(svg.ctx.font).fontSize);
+					var fontStyle = this.parent.style('font-style').valueOrDefault(svg.Font.Parse(svg.ctx.font).fontStyle);
+					var text = this.getText();
+					if (customFont.isRTL) text = text.split("").reverse().join("");
+					
+					if (this.parent.style('text-anchor').value == 'middle') {
+						this.x = this.x - this.measureText(ctx) / 2.0;
+					}
+					
+					var dx = svg.ToNumberArray(this.parent.attribute('dx').value);
+					for (var i=0; i<text.length; i++) {
+						var glyph = this.getGlyph(customFont, text, i);
+						var scale = fontSize / customFont.fontFace.unitsPerEm;
+						ctx.translate(this.x, this.y);
+						ctx.scale(scale, -scale);
+						var lw = ctx.lineWidth;
+						ctx.lineWidth = ctx.lineWidth * customFont.fontFace.unitsPerEm / fontSize;
+						if (fontStyle == 'italic') ctx.transform(1, 0, .4, 1, 0, 0);
+						glyph.render(ctx);
+						if (fontStyle == 'italic') ctx.transform(1, 0, -.4, 1, 0, 0);
+						ctx.lineWidth = lw;
+						ctx.scale(1/scale, -1/scale);
+						ctx.translate(-this.x, -this.y);	
+						
+						this.x += fontSize * (glyph.horizAdvX || customFont.horizAdvX) / customFont.fontFace.unitsPerEm;
+						if (typeof(dx[i]) != 'undefined' && !isNaN(dx[i])) {
+							this.x += dx[i];
+						}
+					}
+					return;
+				}
+			
+				if (ctx.strokeStyle != '') ctx.strokeText(svg.compressSpaces(this.getText()), this.x, this.y);
+				if (ctx.fillStyle != '') ctx.fillText(svg.compressSpaces(this.getText()), this.x, this.y);
 			}
 			
 			this.getText = function() {
@@ -1768,6 +1914,23 @@ if(!Array.indexOf){
 			}
 			
 			this.measureText = function(ctx) {
+				var customFont = this.parent.style('font-family').Definition.getDefinition();
+				if (customFont != null) {
+					var fontSize = this.parent.style('font-size').numValueOrDefault(svg.Font.Parse(svg.ctx.font).fontSize);
+					var measure = 0;
+					var text = this.getText();
+					if (customFont.isRTL) text = text.split("").reverse().join("");
+					var dx = svg.ToNumberArray(this.parent.attribute('dx').value);
+					for (var i=0; i<text.length; i++) {
+						var glyph = this.getGlyph(customFont, text, i);
+						measure += (glyph.horizAdvX || customFont.horizAdvX) * fontSize / customFont.fontFace.unitsPerEm;
+						if (typeof(dx[i]) != 'undefined' && !isNaN(dx[i])) {
+							measure += dx[i];
+						}
+					}
+					return measure;
+				}
+			
 				var textToMeasure = svg.compressSpaces(this.getText());
 				if (!ctx.measureText) return textToMeasure.length * 10;
 				return ctx.measureText(textToMeasure).width;
@@ -1780,8 +1943,9 @@ if(!Array.indexOf){
 			this.base = svg.Element.TextElementBase;
 			this.base(node);
 			
-			//								 TEXT			  ELEMENT
-			this.text = node.nodeType == 3 ? node.nodeValue : node.childNodes[0].nodeValue;
+			this.text = node.nodeType == 3 ? node.nodeValue : // text
+						node.childNodes.length > 0 ? node.childNodes[0].nodeValue : // element
+						node.text;
 			this.getText = function() {
 				return this.text;
 			}
@@ -1931,8 +2095,9 @@ if(!Array.indexOf){
 			this.base = svg.Element.ElementBase;
 			this.base(node);
 			
-			var css = node.childNodes[0].nodeValue;
-			css = css.replace(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(\/\/.*)/gm, ''); // remove comments
+			// text, or spaces then CDATA
+			var css = node.childNodes[0].nodeValue + (node.childNodes.length > 1 ? node.childNodes[1].nodeValue : '');
+			css = css.replace(/(\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\/)|(^[\s]*\/\/.*)/gm, ''); // remove comments
 			css = svg.compressSpaces(css); // replace whitespace
 			var cssDefs = css.split('}');
 			for (var i=0; i<cssDefs.length; i++) {
@@ -1945,14 +2110,31 @@ if(!Array.indexOf){
 						if (cssClass != '') {
 							var props = {};
 							for (var k=0; k<cssProps.length; k++) {
-								var prop = cssProps[k].split(':');
-								var name = prop[0];
-								var value = prop[1];
+								var prop = cssProps[k].indexOf(':');
+								var name = cssProps[k].substr(0, prop);
+								var value = cssProps[k].substr(prop + 1, cssProps[k].length - prop);
 								if (name != null && value != null) {
-									props[svg.trim(prop[0])] = new svg.Property(svg.trim(prop[0]), svg.trim(prop[1]));
+									props[svg.trim(name)] = new svg.Property(svg.trim(name), svg.trim(value));
 								}
 							}
 							svg.Styles[cssClass] = props;
+							if (cssClass == '@font-face') {
+								var fontFamily = props['font-family'].value.replace(/"/g,'');
+								var srcs = props['src'].value.split(',');
+								for (var s=0; s<srcs.length; s++) {
+									if (srcs[s].indexOf('format("svg")') > 0) {
+										var urlStart = srcs[s].indexOf('url');
+										var urlEnd = srcs[s].indexOf(')', urlStart);
+										var url = srcs[s].substr(urlStart + 5, urlEnd - urlStart - 6);
+										var doc = svg.parseXml(svg.ajax(url));
+										var fonts = doc.getElementsByTagName('font');
+										for (var f=0; f<fonts.length; f++) {
+											var font = svg.CreateElement(fonts[f]);
+											svg.Definitions[fontFamily] = font;
+										}
+									}
+								}
+							}
 						}
 					}
 				}
@@ -2004,6 +2186,10 @@ if(!Array.indexOf){
 					}
 				}
 			}
+			
+			this.render = function(ctx) {
+				// NO RENDER
+			}
 		}
 		svg.Element.clipPath.prototype = new svg.Element.ElementBase;
 
@@ -2024,7 +2210,8 @@ if(!Array.indexOf){
 		
 		// element factory
 		svg.CreateElement = function(node) {	
-			var className = node.nodeName.replace(/^[^:]+:/,'');
+			var className = node.nodeName.replace(/^[^:]+:/,''); // remove namespace
+			className = className.replace(/\-/g,''); // remove dashes
 			var e = null;
 			if (typeof(svg.Element[className]) != 'undefined') {
 				e = new svg.Element[className](node);
@@ -2044,6 +2231,10 @@ if(!Array.indexOf){
 		
 		// load from xml
 		svg.loadXml = function(ctx, xml) {
+			svg.loadXmlDoc(ctx, svg.parseXml(xml));
+		}
+		
+		svg.loadXmlDoc = function(ctx, dom) {
 			svg.init(ctx);
 			
 			var mapXY = function(p) {
@@ -2070,19 +2261,24 @@ if(!Array.indexOf){
 				};
 			}
 		
-			var dom = svg.parseXml(xml);
 			var e = svg.CreateElement(dom.documentElement);
+			e.root = true;
 					
 			// render loop
 			var isFirstRender = true;
 			var draw = function() {
+				svg.ViewPort.Clear();
+				if (ctx.canvas.parentNode) svg.ViewPort.SetCurrent(ctx.canvas.parentNode.clientWidth, ctx.canvas.parentNode.clientHeight);
+			
 				if (svg.opts == null || svg.opts['ignoreDimensions'] != true) {
 					// set canvas size
 					if (e.style('width').hasValue()) {
-						ctx.canvas.width = e.style('width').Length.toPixels(ctx.canvas.parentNode.clientWidth);
+						ctx.canvas.width = e.style('width').Length.toPixels('x');
+						ctx.canvas.style.width = ctx.canvas.width + 'px';
 					}
 					if (e.style('height').hasValue()) {
-						ctx.canvas.height = e.style('height').Length.toPixels(ctx.canvas.parentNode.clientHeight);
+						ctx.canvas.height = e.style('height').Length.toPixels('y');
+						ctx.canvas.style.height = ctx.canvas.height + 'px';
 					}
 				}
 				svg.ViewPort.SetCurrent(ctx.canvas.clientWidth, ctx.canvas.clientHeight);		

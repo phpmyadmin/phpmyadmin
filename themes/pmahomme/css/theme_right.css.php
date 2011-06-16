@@ -2349,3 +2349,71 @@ span.mysql-number {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
 }
 
+.colborder {
+    border-left: 1px solid #FFF;
+    cursor: col-resize;
+    height: 100%;
+    margin-left: -1px;
+    position: absolute;
+    width: 5px;
+}
+
+.pma_table th.draggable span, .pma_table tbody td span {
+    display: block;
+    overflow: hidden;
+}
+
+.cRsz {
+    position: absolute;
+}
+
+.cCpy {
+    background: #333;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0.1em;
+    padding: 0.3em;
+    position: absolute;
+    text-shadow: -1px -1px #000;
+
+    -moz-box-shadow: 0 0 0.7em #000;
+    -webkit-box-shadow: 0 0 0.7em #000;
+    box-shadow: 0 0 0.7em #000;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}
+
+.cPointer {
+    background: url(./themes/pmahomme/img/col_pointer.png);
+    height: 20px;
+    margin-left: -5px;  /* must be minus half of its width */
+    margin-top: -10px;
+    position: absolute;
+    width: 10px;
+}
+
+.cPointerVer {  /* cPointer with vertical display mode */
+    background: url(./themes/pmahomme/img/col_pointer_ver.png);
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;   /* must be minus half of its height */
+    position: absolute;
+    width: 20px;
+}
+
+.dHint {
+    background: #333;
+    border:1px solid #000;
+    color: #FFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: -1em;
+    opacity: 0.8;
+    padding: 0.5em 1em;
+    position: absolute;
+    text-shadow: -1px -1px #000;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}

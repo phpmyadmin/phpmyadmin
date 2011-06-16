@@ -185,6 +185,25 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
 
 
 /**
+ * Return true if we are executing a query in the form of
+ * "SELECT * FROM <a table> ..."
+ *
+ * @return boolean
+ */
+function PMA_isSelect()
+{
+    // global variables set from sql.php
+    global $is_count, $is_export, $is_func, $is_analyse;
+    global $analyzed_sql;
+
+    return ! ($is_count || $is_export || $is_func || $is_analyse)
+        && count($analyzed_sql[0]['select_expr']) == 0
+        && isset($analyzed_sql[0]['queryflags']['select_from'])
+        && count($analyzed_sql[0]['table_ref']) == 1;
+}
+
+
+/**
  * Displays a navigation button
  *
  * @uses    $GLOBALS['cfg']['NavigationBarIconic']
@@ -374,6 +393,26 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             );
     } // end move toward
     ?>
+    <td>
+        <input class="restore_column hide" type="submit" value="<?php echo __('Restore column order'); ?>" />
+        <?php
+        if (PMA_isSelect()) {
+            // generate the column order, if it is set
+            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+            if ($col_order) {
+                echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+            }
+            // generate table create time
+            echo '<input id="table_create_time" type="hidden" value="' .
+                 PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
+        }
+        // generate hints
+        echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
+        echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
+        echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
+        ?>
+    </td>
 </tr>
 </table>
 
@@ -704,7 +743,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     //     ... elseif display an empty column if the actions links are disabled to match the rest of the table
     elseif ($GLOBALS['cfg']['RowActionLinks'] == 'none' && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
-        echo '<td></td>';
+        echo '<th></th>';
     }
 
     // 2. Displays the fields' name
@@ -744,7 +783,17 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
     }
 
-    for ($i = 0; $i < $fields_cnt; $i++) {
+    if (PMA_isSelect()) {
+        // prepare to get the column order, if available
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
+
+    for ($j = 0; $j < $fields_cnt; $j++) {
+        // assign $i with appropriate column order
+        $i = $col_order ? $col_order[$j] : $j;
         //  See if this column should get highlight because it's used in the
         //  where-query.
         if (isset($highlight_columns[$fields_meta[$i]->name]) || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)])) {
@@ -879,6 +928,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo '<th';
                 $th_class = array();
+                $th_class[] = 'draggable';
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -897,7 +947,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '>' . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . ($condition_field ? ' class="condition"' : '') . '>' . "\n"
+                . 'class="draggable' . ($condition_field ? ' condition' : '') . '">' . "\n"
                 . $order_link . $comments . '    </th>' . "\n";
         } // end if (2.1)
 
@@ -906,9 +956,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
              || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                 echo '<th';
+                $th_class = array();
+                $th_class[] = 'draggable';
                 if ($condition_field) {
-                    echo ' class="condition"';
+                    $th_class[] = 'condition';
                 }
+                echo ' class="' . implode(' ', $th_class) . '"';
                 if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped') {
                     echo ' valign="bottom"';
                 }
@@ -926,7 +979,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo "\n" . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . ($condition_field ? ' class="condition"' : '') . '>' . "\n"
+                . 'class="draggable' . ($condition_field ? ' condition"' : '') . '">' . "\n"
                 . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                 . $comments . '    </th>';
         } // end else (2.2)
@@ -1159,6 +1212,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if ($vertical_display['emptypre'] > 0) {
                 echo '    <th colspan="' . $vertical_display['emptypre'] . '">' . "\n"
                     .'        &nbsp;</th>' . "\n";
+            } else if ($GLOBALS['cfg']['RowActionLinks'] == 'none') {
+                echo '    <th></th>' . "\n";
             }
 
             foreach ($vertical_display['desc'] as $val) {
@@ -1294,7 +1349,19 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         } // end if (1)
 
         // 2. Displays the rows' values
-        for ($i = 0; $i < $fields_cnt; ++$i) {
+
+        if (PMA_isSelect()) {
+            // prepare to get the column order, if available
+            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        } else {
+            $col_order = false;
+        }
+
+        for ($j = 0; $j < $fields_cnt; ++$j) {
+            // assign $i with appropriate column order
+            $i = $col_order ? $col_order[$j] : $j;
+
             $meta    = $fields_meta[$i];
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
@@ -1719,8 +1786,18 @@ function PMA_displayVerticalTable()
         echo '</tr>' . "\n";
     } // end if
 
+    if (PMA_isSelect()) {
+        // prepare to get the column order, if available
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
+
     // Displays data
-    foreach ($vertical_display['desc'] AS $key => $val) {
+    foreach ($vertical_display['desc'] AS $j => $val) {
+        // assign appropriate key with current column order
+        $key = $col_order ? $col_order[$j] : $j;
 
         echo '<tr>' . "\n";
         echo $val;
