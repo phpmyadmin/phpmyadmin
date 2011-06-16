@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-16 20:14+0200\n"
+"PO-Revision-Date: 2011-06-16 20:15+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9697,10 +9697,9 @@ msgid "The remaining columns"
 msgstr "Kalan sütunlar"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X Ekseni etiketi"
+msgstr "X-Ekseni etiketi:"
 
 #: tbl_chart.php:128
 #, fuzzy
