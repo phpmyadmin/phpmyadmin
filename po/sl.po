@@ -4939,7 +4939,7 @@ msgstr "Obnovi vrstni red stolpcev"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Povlecite za preureditev"
 
 #: libraries/display_tbl.lib.php:412
 #, fuzzy
