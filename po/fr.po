@@ -1109,7 +1109,7 @@ msgstr "Kio transmis depuis le dernier rafraîchissement"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Kio reçus depuis le dernier rafraîchissement"
 
 #: js/messages.php:82
 #, fuzzy
