@@ -403,7 +403,7 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "s% جدولs% جداول"
+msgstr[0] "%s جدول"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -526,7 +526,7 @@ msgstr "نتيجه جستجوي \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "s% عبارت همتا در جدول <i>%s</i>s% عبارت همتا در جدول <i>%s</i>"
+msgstr[0] "%s عبارت همتا در جدول <i>%s</i>"
 
 #: db_search.php:256 libraries/common.lib.php:2765
 #: libraries/common.lib.php:2950 libraries/common.lib.php:2951
