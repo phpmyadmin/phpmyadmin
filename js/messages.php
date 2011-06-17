@@ -61,6 +61,8 @@ $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
 
 /* for server_status.js */
+$js_messages['strEdit'] = __('Edit');
+
 $js_messages['strLiveTrafficChart'] = __('Live traffic chart');
 $js_messages['strLiveConnChart'] = __('Live conn./process chart');
 $js_messages['strLiveQueryChart'] = __('Live query chart');
@@ -74,6 +76,17 @@ $js_messages['strOther'] = __('Other');
 $js_messages['strThousandsSeperator'] = __(',');
 /* l10n: Decimal separator */
 $js_messages['strDecimalSeperator'] = __('.');
+
+$js_messages['strChartKBSent'] = __('kB sent since last refresh');
+$js_messages['strChartKBReceived'] = __('kB received since last refresh');
+$js_messages['strChartServerTraffic'] = __('Server traffic (in kB)');
+$js_messages['strChartConnections'] = __('Connections since last refresh');
+$js_messages['strChartProcesses'] = __('Processes');
+$js_messages['strChartConnectionsTitle'] = __('Connections / Processes');
+$js_messages['strChartIssuedQueries'] = __('Issued queries since last refresh');
+$js_messages['strChartIssuedQueriesTitle'] = __('Issued queries');
+
+$js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');

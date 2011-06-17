@@ -15,17 +15,17 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
     define('PMA_NO_VARIABLES_IMPORT', true);
 }
 
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
+	$GLOBALS['is_header_sent'] = true;
+
 require_once './libraries/common.inc.php';
 
 /**
  * Ajax request
  */
 
-if (isset($_REQUEST['ajax_request'])) {
-    // Prevent ajax requests from being cached
-    header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-    header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-    // Send correct charset
+if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+    // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
 
     // real-time charting data
@@ -36,7 +36,12 @@ if (isset($_REQUEST['ajax_request'])) {
                 $result = PMA_DBI_query('SHOW PROCESSLIST');
                 $num_procs = PMA_DBI_num_rows($result);
 
-                $ret = Array('x'=>(microtime(true)*1000),'y_proc'=>$num_procs,'y_conn'=>$c['Connections']);
+                $ret = array(
+                    'x'      => microtime(true)*1000,
+                    'y_proc' => $num_procs,
+                    'y_conn' => $c['Connections']
+                );
+
                 exit(json_encode($ret));
             case 'queries':
                 $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" AND Value>0', 0, 1);
@@ -45,12 +50,22 @@ if (isset($_REQUEST['ajax_request'])) {
                 unset($queries['Com_admin_commands']);
 
                 $sum=array_sum($queries);
-                $ret = Array('x'=>(microtime(true)*1000),'y'=>$sum,'pointInfo'=>$queries);
+                $ret = array(
+                    'x'         => microtime(true)*1000,
+                    'y'         => $sum,
+                    'pointInfo' => $queries
+                );
+
                 exit(json_encode($ret));
             case 'traffic':
                 $traffic = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Bytes_received" OR Variable_name="Bytes_sent"', 0, 1);
 
-                $ret = Array('x'=>(microtime(true)*1000),'y_sent'=>$traffic['Bytes_sent'],'y_received'=>$traffic['Bytes_received']);
+                $ret = array(
+                    'x'          => microtime(true)*1000,
+                    'y_sent'     => $traffic['Bytes_sent'],
+                    'y_received' => $traffic['Bytes_received']
+                );
+
                 exit(json_encode($ret));
 
         }
@@ -294,17 +309,17 @@ $links['innodb']['doc'] = 'innodb';
 
 
 // Variable to contain all com_ variables
-$used_queries = Array();
+$used_queries = array();
 
 // Variable to map variable names to their respective section name (used for js category filtering)
-$allocationMap = Array();
+$allocationMap = array();
 
 // sort vars into arrays
 foreach ($server_status as $name => $value) {
     foreach ($allocations as $filter => $section) {
         if (strpos($name, $filter) !== FALSE) {
             $allocationMap[$name] = $section;
-            if($section=='com' && $value>0) $used_queries[$name] = $value;
+            if($section == 'com' && $value > 0) $used_queries[$name] = $value;
             break; // Only exits inner loop
         }
     }
@@ -453,7 +468,7 @@ echo __('Runtime Information');
                     <select id="filterCategory" name="filterCategory">
                         <option value=''><?php echo __('Filter by category...'); ?></option>
                 <?php
-                        foreach($sections as $section_id=>$section_name) {
+                        foreach($sections as $section_id => $section_name) {
                 ?>
                             <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
                 <?php
@@ -470,7 +485,7 @@ echo __('Runtime Information');
                     echo '<span class="status_'.$section_name.'"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
-                        if($i>0) echo ', ';
+                        if($i > 0) echo ', ';
                         if ('doc' == $link_name) {
                             echo PMA_showMySQLDocu($link_url, $link_url);
                         } else {
@@ -496,30 +511,32 @@ echo __('Runtime Information');
 function printQueryStatistics() {
     global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 
-    $hour_factor    = 3600 / $server_status['Uptime'];
+    $hour_factor   = 3600 / $server_status['Uptime'];
 
     $total_queries = array_sum($used_queries);
 
     ?>
-    <h3 id="serverstatusqueries"><?php echo
-        //sprintf(__('<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.'),
-            //PMA_formatNumber($server_status['Questions'], 0));
-        sprintf('Queries since startup: %s',PMA_formatNumber($total_queries, 0));
-        //echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+    <h3 id="serverstatusqueries">
+        <?php
+        echo sprintf('Queries since startup: %s',PMA_formatNumber($total_queries, 0));
         ?>
-    <br>
-    <span style="font-size:60%; display:inline;">
-    &oslash; <?php echo __('per hour'); ?>:
-    <?php echo PMA_formatNumber($total_queries * $hour_factor, 0); ?><br>
+        <br>
+        <span>
+        <?php
+        echo '&oslash;'.__('per hour').':';
+        echo PMA_formatNumber($total_queries * $hour_factor, 0);
+        echo '<br>';
 
-    &oslash; <?php echo __('per minute'); ?>:
-    <?php echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); ?><br>
+        echo '&oslash;'.__('per minute').':';
+        echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
+        echo '<br>';
 
-    <?php if($total_queries / $server_status['Uptime'] >= 1) {
-    ?>
-    &oslash; <?php echo __('per second'); ?>:
-    <?php echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); ?><br>
-
+        if($total_queries / $server_status['Uptime'] >= 1) {
+            echo '&oslash;'.__('per second').':';
+            echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0);
+        ?>
+        </span><br>
+    </h3>
     <?php
     }
 
@@ -527,11 +544,11 @@ function printQueryStatistics() {
     arsort($used_queries);
 
     $odd_row        = true;
-    $count_displayed_rows      = 0;
-    $perc_factor    = 100 / $total_queries //(- $server_status['Connections']);
+    $count_displayed_rows = 0;
+    $perc_factor    = 100 / $total_queries; //(- $server_status['Connections']);
 
     ?>
-        </h3>
+
         <table id="serverstatusqueriesdetails" class="data sortable">
         <col class="namecol" />
         <col class="valuecol" span="3" />
@@ -548,7 +565,7 @@ function printQueryStatistics() {
         <tbody>
 
     <?php
-    $chart_json = Array();
+    $chart_json = array();
     $query_sum = array_sum($used_queries);
     $other_sum = 0;
     foreach ($used_queries as $name => $value) {
@@ -557,7 +574,7 @@ function printQueryStatistics() {
         // For the percentage column, use Questions - Connections, because
         // the number of connections is not an item of the Query types
         // but is included in Questions. Then the total of the percentages is 100.
-        $name = str_replace(Array('Com_','_'), Array('',' '), $name);
+        $name = str_replace(Array('Com_', '_'), Array('', ' '), $name);
 
         if($value < $query_sum * 0.02)
             $other_sum += $value;
@@ -577,21 +594,12 @@ function printQueryStatistics() {
         </tbody>
         </table>
 
-        <div id="serverstatusquerieschart" style="width:500px; height:350px; ">
+        <div id="serverstatusquerieschart">
         <?php
-            /*// Generate the graph if this is an ajax request
-            if(isset($_REQUEST['ajax_request'])) {
-                echo createQueryChart();
-            } else {
-                echo '<a href="'.$PMA_PHP_SELF.'?'.$url_query.'&amp;query_chart=1#serverstatusqueries"'
-                    .'title="' . __('Show query chart') . '">['.__('Show query chart').']</a>';
-            }*/
-
-            if($other_sum>0)
+            if($other_sum > 0)
                 $chart_json[__('Other')] = $other_sum;
 
             echo json_encode($chart_json);
-
         ?>
         </div>
         <?php
@@ -610,10 +618,11 @@ function printServerTraffic() {
         'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
 
     ?>
-    <h3><?php /* echo __('<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.');*/
-    echo sprintf(__('Network traffic since startup: %s'),
-            implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
-    );
+    <h3><?php
+    echo sprintf(
+        __('Network traffic since startup: %s'),
+        implode(' ', PMA_formatByteDown( $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
+        );
     ?>
     </h3>
 
@@ -790,7 +799,7 @@ function printServerTraffic() {
         <th><?php echo __('Status'); ?></th>
         <th><?php
             echo __('SQL query');
-            if (!PMA_DRIZZLE) { ?>
+            if (! PMA_DRIZZLE) { ?>
                 <a href="<?php echo $full_text_link; ?>"
                     title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
                     <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
@@ -841,7 +850,7 @@ function printVariablesTable() {
     /**
      * Messages are built using the message name
      */
-    $strShowStatus = Array(
+    $strShowStatus = array(
         'Aborted_connects' => __('The number of failed attempts to connect to the MySQL server.'),
         'Binlog_cache_disk_use' => __('The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.'),
         'Binlog_cache_use' => __('The number of transactions that used the temporary binary log cache.'),
@@ -1019,19 +1028,12 @@ function printVariablesTable() {
             <th><?php echo __('Description'); ?></th>
         </tr>
     </thead>
-    <!--<tfoot>
-        <tr class="tblFooters">
-            <th colspan="3" class="tblFooters">
-            </th>
-        </tr>
-    </tfoot>-->
     <tbody>
     <?php
 
     $odd_row = false;
     foreach ($server_status as $name => $value) {
             $odd_row = !$odd_row;
-            // $allocations
 ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_'.$allocationMap[$name]:''; ?>">
             <th class="name"><?php echo htmlspecialchars($name) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
@@ -1085,38 +1087,6 @@ function printVariablesTable() {
     </tbody>
     </table>
     <?php
-}
-
-function createQueryChart($com_vars=FALSE) {
-    /**
-     * Chart generation
-     */
-    require_once './libraries/chart.lib.php';
-
-    if(!$com_vars)
-        $com_vars = PMA_DBI_fetch_result("SHOW GLOBAL STATUS LIKE 'Com\_%'", 0, 1);
-
-    // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
-    unset($com_vars['Com_admin_commands']);
-
-    arsort($com_vars);
-
-    $merge_minimum = array_sum($com_vars) * 0.005;
-    $merged_value = 0;
-
-    // remove zero values from the end, as well as merge together every value that is below 0.5%
-    // variable empty for Drizzle
-    if ($com_vars) {
-        while (($last_element=end($com_vars)) <= $merge_minimum) {
-            array_pop($com_vars);
-            $merged_value += $last_element;
-        }
-
-        $com_vars['Other'] = $merged_value;
-        return PMA_chart_status($com_vars);
-    }
-
-    return '';
 }
 
 /**
