@@ -306,6 +306,7 @@ $(document).ready(function() {
                                     $(this).remove();
                                 }
                         });
+                $ajaxDialog.find('input[name=routine_name]').focus();
                 /**
                  * @var    mode    Used to remeber whether the editor is in
                  *                 "Edit Routine" or "Add Routine" mode.
@@ -537,6 +538,7 @@ $(document).ready(function() {
                                         $(this).remove();
                                     }
                             });
+                    $ajaxDialog.find('input[name^=params]').first().focus();
                 } else {
                     // Routine executed successfully
                     PMA_ajaxShowMessage(data.message);
