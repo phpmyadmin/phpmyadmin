@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:36+0200\n"
-"PO-Revision-Date: 2011-06-17 10:39+0200\n"
+"PO-Revision-Date: 2011-06-17 10:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8312,10 +8312,9 @@ msgid "Filter by category..."
 msgstr "Filtrovat podle kategorie..."
 
 #: server_status.php:477
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Související odkazy"
+msgstr "Související odkazy:"
 
 #: server_status.php:521 server_status.php:556 server_status.php:669
 #: server_status.php:714
