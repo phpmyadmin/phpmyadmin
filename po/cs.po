@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:36+0200\n"
-"PO-Revision-Date: 2011-06-17 10:28+0200\n"
+"PO-Revision-Date: 2011-06-17 10:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8199,13 +8199,13 @@ msgid "Refresh rate"
 msgstr "Obnovovací frekvence"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Minuty"
-msgstr[1] "Minuty"
-msgstr[2] "Minuty"
+msgstr[0] "%d minuta"
+msgstr[1] "%d minuty"
+msgstr[2] "%d minut"
 
 #: server_status.php:33
 #, fuzzy, php-format
