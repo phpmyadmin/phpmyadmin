@@ -28,6 +28,10 @@ function validateRoutineEditor(syntaxHiglighter) {
     if ($elm.val() == '') {
         $elm.focus();
         isError = true;
+    } else if ($elm.val().length > 64) {
+        alert(PMA_messages['strValueTooLong']);
+        $elm.focus().select();
+        return false;
     }
     if (! isError) {
         $elm = $('.rte_table').find('textarea[name=routine_definition]');
@@ -84,6 +88,14 @@ function validateRoutineEditor(syntaxHiglighter) {
         if ($('.rte_table').find('textarea[name=routine_definition]').val().toLowerCase().indexOf('return') < 0) {
             syntaxHiglighter.focus();
             alert(PMA_messages['MissingReturn']);
+            return false;
+        }
+    }
+    if (! isError) {
+        $elm = $('.rte_table').last().find('input[name=routine_comment]');
+        if ($elm.val().length > 64) {
+            alert(PMA_messages['strValueTooLong']);
+            $elm.focus().select();
             return false;
         }
     }
