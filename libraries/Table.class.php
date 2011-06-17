@@ -308,7 +308,8 @@ class PMA_Table
             return PMA_Table::$cache[$db][$table];
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table][$info])) {
+        // array_key_exists allows for null values
+        if (!array_key_exists($info, PMA_Table::$cache[$db][$table])) {
             if (! $disable_error) {
                 trigger_error('unknown table status: ' . $info, E_USER_WARNING);
             }

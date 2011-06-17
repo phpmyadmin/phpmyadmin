@@ -376,7 +376,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                     t.TABLE_COLLATION     AS `Collation`,
                     NULL                  AS `Checksum`, -- CHECKSUM
                     NULL                  AS `Create_options`, -- CREATE_OPTIONS
-                    coalesce(t.TABLE_COMMENT, '') AS `Comment`
+                    t.TABLE_COMMENT       AS `Comment`
                 FROM data_dictionary.TABLES t
                     LEFT JOIN data_dictionary.TABLE_CACHE tc ON tc.TABLE_SCHEMA = t.TABLE_SCHEMA AND tc.TABLE_NAME = t.TABLE_NAME
                     $stats_join
