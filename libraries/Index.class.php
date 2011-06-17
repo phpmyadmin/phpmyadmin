@@ -635,7 +635,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_cardinality = 0;
+    protected $_cardinality = null;
 
     public function __construct($params = array())
     {
