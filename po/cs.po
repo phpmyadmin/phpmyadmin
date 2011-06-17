@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:36+0200\n"
-"PO-Revision-Date: 2011-06-17 10:42+0200\n"
+"PO-Revision-Date: 2011-06-17 10:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1825,7 +1825,7 @@ msgstr "Dokumentace phpMyAdmina"
 #: libraries/auth/cookie.auth.lib.php:243
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "Můžete zadat jméno počítače (nebo IP adresu) a port oddělené mezerou."
+msgstr "Můžete zadat jméno počítače nebo IP adresu a port oddělené mezerou."
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
