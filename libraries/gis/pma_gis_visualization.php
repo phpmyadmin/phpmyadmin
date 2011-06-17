@@ -300,6 +300,10 @@ class PMA_GIS_Visualization
     private function _scaleDataSet($data)
     {
         $min_max = array();
+        $border = 15;
+        // effective width and height of the plot
+        $plot_width = $this->_settings['width'] - 2 * $border;
+        $plot_height = $this->_settings['height'] - 2 * $border;
 
         foreach ($data as $row) {
 
@@ -334,22 +338,22 @@ class PMA_GIS_Visualization
         }
 
         // scale the visualization
-        $x_ratio = ($min_max['maxX'] - $min_max['minX']) / $this->_settings['width'];
-        $y_ratio = ($min_max['maxY'] - $min_max['minY']) / $this->_settings['height'];
+        $x_ratio = ($min_max['maxX'] - $min_max['minX']) / $plot_width;
+        $y_ratio = ($min_max['maxY'] - $min_max['minY']) / $plot_height;
         $ratio = ($x_ratio > $y_ratio) ? $x_ratio : $y_ratio;
 
         $scale = ($ratio != 0) ? (1 / $ratio) : 1;
 
         if ($x_ratio < $y_ratio) {
             // center horizontally
-            $x = ($min_max['maxX'] + $min_max['minX'] - $this->_settings['width'] / $scale) / 2;
+            $x = ($min_max['maxX'] + $min_max['minX'] - $plot_width / $scale) / 2;
             // fit vertically
-            $y = $min_max['minY'];
+            $y = $min_max['minY'] - ($border / $scale);
         } else {
             // fit horizontally
-            $x = $min_max['minX'];
+            $x = $min_max['minX'] - ($border / $scale);
             // center vertically
-            $y =($min_max['maxY'] + $min_max['minY'] - $this->_settings['height'] / $scale) / 2;
+            $y =($min_max['maxY'] + $min_max['minY'] - $plot_height / $scale) / 2;
         }
 
         return array(
