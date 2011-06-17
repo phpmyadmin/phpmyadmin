@@ -504,7 +504,7 @@ class PMA_Index
                 $r .= '</td>';
                 $r .= '<td>' . htmlspecialchars($column->getCardinality()) . '</td>';
                 $r .= '<td>' . htmlspecialchars($column->getCollation()) . '</td>';
-                $r .= '<td>' . htmlspecialchars($column->getNull()) . '</td>';
+                $r .= '<td>' . htmlspecialchars($column->getNull(true)) . '</td>';
 
                 if ($column->getSeqInIndex() == 1) {
                     $r .= '<td ' . $row_span . '>'
@@ -635,7 +635,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_cardinality = 0;
+    protected $_cardinality = null;
 
     public function __construct($params = array())
     {
@@ -679,9 +679,11 @@ class PMA_Index_Column
         return $this->_cardinality;
     }
 
-    public function getNull()
+    public function getNull($as_text = false)
     {
-        return $this->_null;
+        return $as_text
+            ? (!$this->_null || $this->_null == 'NO' ? __('No') : __('Yes'))
+            : $this->_null;
     }
 
     public function getSeqInIndex()
