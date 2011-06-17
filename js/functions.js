@@ -30,7 +30,6 @@ var codemirror_editor = false;
 var chart_activeTimeouts = new Object();
     
 
-
 /**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
@@ -658,10 +657,10 @@ $(document).ready(function() {
  * so that it works also for pages reached via AJAX)
  */
 $(document).ready(function() {
-    $('tr.odd, tr.even').live('hover',function() {
+    $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
-        $tr.toggleClass('hover');
-        $tr.children().toggleClass('hover');
+        $tr.toggleClass('hover',event.type=='mouseover');
+        $tr.children().toggleClass('hover',event.type=='mouseover');
     });
 })
 
@@ -1391,31 +1390,41 @@ function PMA_createChart(passedSettings) {
             events: {
                 load: function() {
                     var thisChart = this;
-                    var lastValue=null, curValue=null;
-                    var numLoadedPoints=0, otherSum=0;
+                    var lastValue = null, curValue = null;
+                    var numLoadedPoints = 0, otherSum = 0;
                     var diff;
                     // No realtime updates for graphs that are being exported, and disabled when no callback is set
-                    if(thisChart.options.chart.forExport==true || !passedSettings.realtime || !passedSettings.realtime.callback) return;
+                    if(thisChart.options.chart.forExport == true || 
+                        ! passedSettings.realtime || 
+                        ! passedSettings.realtime.callback) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.get(passedSettings.realtime.url,{ajax_request:1, chart_data:1, type:passedSettings.realtime.type},function(data) {
-                            curValue = jQuery.parseJSON(data);
-                            //if(lastValue==null) lastValue = curValue;
-                            
-                            if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
-                            else diff = parseInt(curValue.x - lastValue.x);
-                            
-                            thisChart.xAxis[0].setExtremes(thisChart.xAxis[0].getExtremes().min+diff, thisChart.xAxis[0].getExtremes().max+diff, false);
-                            
-                            passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                            
-                            lastValue = curValue;
-                            numLoadedPoints++;
-                            
-                            // Timeout has been cleared => don't start a new timeout
-                            if(chart_activeTimeouts[container]==null) return;
-                            chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, thisChart.options.realtime.refreshRate);
-                            
+                        $.post(passedSettings.realtime.url,
+                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                            function(data) {
+                                curValue = jQuery.parseJSON(data);
+                                
+                                if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
+                                else diff = parseInt(curValue.x - lastValue.x);
+                                
+                                thisChart.xAxis[0].setExtremes(
+                                    thisChart.xAxis[0].getExtremes().min+diff, 
+                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    false
+                                );
+                                
+                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                
+                                lastValue = curValue;
+                                numLoadedPoints++;
+                                
+                                // Timeout has been cleared => don't start a new timeout
+                                if(chart_activeTimeouts[container]==null) return;
+                                
+                                chart_activeTimeouts[container] = setTimeout(
+                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.refreshRate
+                                ); 
                         });
                     }
                     
@@ -1449,8 +1458,8 @@ function PMA_createChart(passedSettings) {
         },
         tooltip: {
             formatter: function() {
-                    return '<b>'+ this.series.name +'</b><br/>'+
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+ 
+                    return '<b>' + this.series.name +'</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
                     Highcharts.numberFormat(this.y, 2);
             }
         },

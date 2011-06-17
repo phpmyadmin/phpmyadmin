@@ -86,8 +86,10 @@ foreach ($serverVars as $name => $value) {
     <th nowrap="nowrap">
         <?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
     <td class="value"><?php
-    if (strlen($value) < 16 && is_numeric($value)) {
-        echo PMA_formatNumber($value, 0);
+    if (is_numeric($value)) {
+		if(isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte')
+			echo '<abbr title="'.PMA_formatNumber($value, 0).'">'.implode(' ',PMA_formatByteDown($value,3,3)).'</abbr>';
+        else echo PMA_formatNumber($value, 0);
         $is_numeric = true;
     } else {
         echo htmlspecialchars($value);
