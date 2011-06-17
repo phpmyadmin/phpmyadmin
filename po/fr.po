@@ -1135,10 +1135,9 @@ msgid "Issued queries since last refresh"
 msgstr "Requêtes reçues depuis le dernier rafraîchissement"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "Requêtes SQL"
+msgstr "Requêtes reçues"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
