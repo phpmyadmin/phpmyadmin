@@ -41,7 +41,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 exit($varValue);
                 break;
             case 'setval':
-                if(PMA_DBI_query('SET GLOBAL '.mysql_real_escape_string($_REQUEST['varName']).' = '.mysql_real_escape_string($_REQUEST['varValue']).''))
+                if(PMA_DBI_query('SET GLOBAL '.mysql_real_escape_string($_REQUEST['varName']).' = \''.mysql_real_escape_string($_REQUEST['varValue']).'\''))
                     // Some values are rounded down etc.
                     $varValue = PMA_DBI_fetch_value('SHOW GLOBAL VARIABLES WHERE Variable_name="'.mysql_real_escape_string($_REQUEST['varName']).'";',0,1);
                     
