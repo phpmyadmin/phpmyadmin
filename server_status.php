@@ -365,7 +365,7 @@ require './libraries/server_links.inc.php';
 ?>
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-url_query = '<?php echo $url_query;?>';
+url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 </script>
 <div id="serverstatus">
@@ -606,7 +606,7 @@ function printQueryStatistics() {
 
 function printServerTraffic() {
     global $server_status,$PMA_PHP_SELF;
-    global $server_master_status, $server_slave_status;
+    global $server_master_status, $server_slave_status, $replication_types;
 
     $hour_factor    = 3600 / $server_status['Uptime'];
 
