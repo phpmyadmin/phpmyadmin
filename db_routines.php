@@ -255,33 +255,37 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     if (! count($routine_errors)) { // set by PMA_RTN_getQueryFromRequest()
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
-            // Backup the old routine, in case something goes wrong
-            $create_routine = PMA_DBI_get_definition($db, $_REQUEST['routine_original_type'], $_REQUEST['routine_original_name']);
-            $drop_routine = "DROP {$_REQUEST['routine_original_type']} " . PMA_backquote($_REQUEST['routine_original_name']) . ";\n";
-            $result = PMA_DBI_try_query($drop_routine);
-            if (! $result) {
-                $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
-                                  . __('MySQL said: ') . PMA_DBI_getError(null);
+            if (! in_array($_REQUEST['routine_original_type'], array('PROCEDURE', 'FUNCTION'))) {
+                $routine_errors[] = sprintf(__('Invalid Routine Type: "%s"'), htmlspecialchars($_REQUEST['routine_original_type']));
             } else {
-                $result = PMA_DBI_try_query($routine_query);
+                // Backup the old routine, in case something goes wrong
+                $create_routine = PMA_DBI_get_definition($db, $_REQUEST['routine_original_type'], $_REQUEST['routine_original_name']);
+                $drop_routine = "DROP {$_REQUEST['routine_original_type']} " . PMA_backquote($_REQUEST['routine_original_name']) . ";\n";
+                $result = PMA_DBI_try_query($drop_routine);
                 if (! $result) {
-                    $routine_errors[] = sprintf(__('Query "%s" failed'), $routine_query) . '<br />'
+                    $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
                                       . __('MySQL said: ') . PMA_DBI_getError(null);
-                    // We dropped the old routine, but were unable to create the new one
-                    // Try to restore the backup query
-                    $result = PMA_DBI_try_query($create_routine);
-                    if (! $result) {
-                        // OMG, this is really bad! We dropped the query, failed to create a new one
-                        // and now even the backup query does not execute!
-                        // This should not happen, but we better handle this just in case.
-                        $routine_errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br />'
-                                          . __('The backed up query was:') . "\"$create_routine\"" . '<br />'
-                                          . __('MySQL said: ') . PMA_DBI_getError(null);
-                    }
                 } else {
-                    $message = PMA_Message::success(__('Routine %1$s has been modified.'));
-                    $message->addParam(PMA_backquote($_REQUEST['routine_name']));
-                    $sql_query = $drop_routine . $routine_query;
+                    $result = PMA_DBI_try_query($routine_query);
+                    if (! $result) {
+                        $routine_errors[] = sprintf(__('Query "%s" failed'), $routine_query) . '<br />'
+                                          . __('MySQL said: ') . PMA_DBI_getError(null);
+                        // We dropped the old routine, but were unable to create the new one
+                        // Try to restore the backup query
+                        $result = PMA_DBI_try_query($create_routine);
+                        if (! $result) {
+                            // OMG, this is really bad! We dropped the query, failed to create a new one
+                            // and now even the backup query does not execute!
+                            // This should not happen, but we better handle this just in case.
+                            $routine_errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br />'
+                                              . __('The backed up query was:') . "\"$create_routine\"" . '<br />'
+                                              . __('MySQL said: ') . PMA_DBI_getError(null);
+                        }
+                    } else {
+                        $message = PMA_Message::success(__('Routine %1$s has been modified.'));
+                        $message->addParam(PMA_backquote($_REQUEST['routine_name']));
+                        $sql_query = $drop_routine . $routine_query;
+                    }
                 }
             }
         } else {
