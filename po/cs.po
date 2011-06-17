@@ -8341,7 +8341,7 @@ msgstr "#"
 #: server_status.php:618
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Síťový provoz od spuštění: %s"
 
 #: server_status.php:626
 #, php-format
