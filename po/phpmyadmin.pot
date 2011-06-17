@@ -8,11 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:58+0200\n"
+"POT-Creation-Date: 2011-06-17 08:16-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -609,8 +608,8 @@ msgstr ""
 #: db_structure.php:380 libraries/display_tbl.lib.php:2156
 #, possible-php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:394 db_structure.php:408 libraries/header.inc.php:152
@@ -843,8 +842,8 @@ msgstr ""
 #: import.php:58
 #, possible-php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
@@ -1074,15 +1073,15 @@ msgid "."
 msgstr ""
 
 #: js/messages.php:80
-msgid "kB sent since last refresh"
+msgid "KiB sent since last refresh"
 msgstr ""
 
 #: js/messages.php:81
-msgid "kB received since last refresh"
+msgid "KiB received since last refresh"
 msgstr ""
 
 #: js/messages.php:82
-msgid "Server traffic (in kB)"
+msgid "Server traffic (in KiB)"
 msgstr ""
 
 #: js/messages.php:83
@@ -1755,8 +1754,8 @@ msgstr ""
 #: libraries/auth/config.auth.lib.php:106
 #, possible-php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -4567,8 +4566,8 @@ msgstr ""
 #, possible-php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -5234,8 +5233,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, possible-php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7455,8 +7454,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1764
