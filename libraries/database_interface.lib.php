@@ -1016,7 +1016,7 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
  */
 function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
 {
-    $sql = PMA_DBI_get_columns_sql($database, $table, $full);
+    $sql = PMA_DBI_get_columns_sql($database, $table, null, $full);
     $fields = PMA_DBI_fetch_result($sql, 'Field', ($full ? null : 'Field'), $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
