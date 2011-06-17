@@ -8124,9 +8124,9 @@ msgstr "此 MySQL 伺服器正以<b>從</b>伺服器運行於<b>複製</b>程序
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"要取得更多關於此伺服器的複製狀態，請查看<a href=#replication>複製狀態資訊</a>"
+"要取得更多關於此伺服器的複製狀態，請查看<a href=\"#replication\">複製狀態資訊</a>"
 
 #: server_status.php:652
 msgid "Replication status"

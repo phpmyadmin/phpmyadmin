@@ -8474,7 +8474,7 @@ msgstr ""
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Для получения подробной информации о состоянии репликации сервера, "
 "пожалуйста, перейдите в <a href=\"#replication\">раздел репликации</a>."

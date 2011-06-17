@@ -8546,10 +8546,10 @@ msgstr ""
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Für weitere Informationen über den Replikations-Status auf dem Server siehe "
-"<a href=#replication>Abschnitt Replikation</a>."
+"<a href=\"#replication\">Abschnitt Replikation</a>."
 
 #: server_status.php:652
 msgid "Replication status"

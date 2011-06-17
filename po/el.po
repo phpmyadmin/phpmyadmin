@@ -8499,10 +8499,10 @@ msgstr ""
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Για περισσότερες πληροφορίες για την κατάσταση αναπαραγωγής στο διακομιστή, "
-"επισκεφτείτε τον <a href=#replication>τομέα αναπαραγωγής</a>."
+"επισκεφτείτε τον <a href=\"#replication\">τομέα αναπαραγωγής</a>."
 
 #: server_status.php:652
 msgid "Replication status"
