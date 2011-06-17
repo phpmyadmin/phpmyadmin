@@ -134,8 +134,13 @@ $(document).ready(function() {
 
     var dragX = 0; var dragY = 0;
     $('svg').live('dragstart', function(event, dd) {
+        $placeholder.addClass('placeholderDrag');
         dragX = Math.round(dd.offsetX);
         dragY = Math.round(dd.offsetY);
+    });
+
+    $('svg').live('mouseup', function(event) {
+        $placeholder.removeClass('placeholderDrag');
     });
 
     $('svg').live('drag', function(event, dd) {

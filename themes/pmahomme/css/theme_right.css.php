@@ -2189,6 +2189,10 @@ fieldset .disabled-field td {
     overflow: hidden;
 }
 
+.placeholderDrag {
+    cursor: move;
+}
+
 #placeholder .button {
     position: absolute;
 }
