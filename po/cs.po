@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:06+0200\n"
-"PO-Revision-Date: 2011-06-17 10:23+0200\n"
+"PO-Revision-Date: 2011-06-17 10:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1060,10 +1060,9 @@ msgid "Edit"
 msgstr "Upravit"
 
 #: js/messages.php:66 server_status.php:411
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Server"
+msgstr "Živý graf provozu"
 
 #: js/messages.php:67 server_status.php:414
 msgid "Live conn./process chart"
