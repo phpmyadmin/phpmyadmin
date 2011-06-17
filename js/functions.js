@@ -1131,7 +1131,12 @@ $(document).ready(function(){
         $(".btnSave").each(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
-                window.location.replace("import.php?db=" + db +"&table=" + table + "&sql_query=" + sql_query + "&show_query=1&token=" + token);
+                window.location.replace("import.php"
+                                      + "?db=" + encodeURIComponent(db)
+                                      + "&table=" + encodeURIComponent(table)
+                                      + "&sql_query=" + encodeURIComponent(sql_query)
+                                      + "&show_query=1"
+                                      + "&token=" + token);
             });
         });
         $(".btnDiscard").each(function(){
