@@ -1088,7 +1088,7 @@ msgstr "Celkem"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:600
 msgid "Other"
-msgstr ""
+msgstr "Ostatní"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1375
