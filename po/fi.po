@@ -1781,7 +1781,7 @@ msgstr "Tiedostoa ei voida avata: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "jaettu"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:181 libraries/export/xml.php:36
@@ -2131,11 +2131,11 @@ msgstr "Lähetettäviä tiedostoja ei ole"
 
 #: libraries/config.values.php:45 libraries/config.values.php:50
 msgid "Both"
-msgstr ""
+msgstr "Molemmat"
 
 #: libraries/config.values.php:74
 msgid "Open"
-msgstr ""
+msgstr "Avaa"
 
 #: libraries/config.values.php:74
 #, fuzzy
@@ -2801,11 +2801,11 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:158
 msgid "Developer"
-msgstr ""
+msgstr "Kehittäjä"
 
 #: libraries/config/messages.inc.php:159
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Asetukset phpMyAdmin-kehittäjille"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
@@ -3101,7 +3101,7 @@ msgstr "Varoitus"
 
 #: libraries/config/messages.inc.php:229
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Kytke osa phpMyAdminin näyttämistä varoituksista pois päältä"
 
 #: libraries/config/messages.inc.php:230
 msgid ""
@@ -3589,7 +3589,7 @@ msgstr "Oletusarvoinen kyselyikkunavälilehti"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Kyselyikkunan korkeus (pikseleissä)"
 
 #: libraries/config/messages.inc.php:342
 #, fuzzy
@@ -9310,7 +9310,7 @@ msgstr "Seuraavat kyselyt on suoritettu:"
 
 #: server_synchronize.php:1130
 msgid "Enter manually"
-msgstr ""
+msgstr "Syötä käsin"
 
 #: server_synchronize.php:1138
 #, fuzzy

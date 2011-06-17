@@ -421,7 +421,7 @@ msgstr "Морате да изберете барем една колона за
 
 #: db_qbe.php:186
 msgid "Switch to"
-msgstr ""
+msgstr "Префрли се во"
 
 #: db_qbe.php:186
 msgid "visual builder"
@@ -746,7 +746,7 @@ msgstr "База на податоци"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Последна Верзија"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 #, fuzzy
@@ -755,7 +755,7 @@ msgstr "Креирај"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "Ажурирано"
 
 #: db_tracking.php:89 libraries/common.lib.php:1354
 #: libraries/server_links.inc.php:50 server_processlist.php:71
@@ -772,7 +772,7 @@ msgstr "Акција"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Избришете го податоците за тракирање од табелава"
 
 #: db_tracking.php:119 tbl_tracking.php:542 tbl_tracking.php:600
 msgid "active"

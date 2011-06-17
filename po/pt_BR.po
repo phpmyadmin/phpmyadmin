@@ -1165,7 +1165,7 @@ msgstr "Escolha o campo para exibir"
 
 #: js/messages.php:107
 msgid "Add an option for column "
-msgstr ""
+msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:110
 #, fuzzy
@@ -1193,6 +1193,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Uma nova versão do phpMyAdmin está disponível e você deve fazer a "
+"atualização. A nova versão é %s, lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:120
@@ -1709,7 +1711,7 @@ msgstr "Documentação do phpMyAdmin "
 #: libraries/auth/cookie.auth.lib.php:244
 #: libraries/auth/cookie.auth.lib.php:245
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "Você pode digitar a url/IP e a porta separados por um espaço."
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
@@ -1758,7 +1760,7 @@ msgstr "Usuário ou senha incorreta. Acesso negado."
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "Arquivo %s não contém qualquer identificação da chave"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
@@ -1767,7 +1769,7 @@ msgstr "Falha na autenticação de hardware"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Nenhuma chave de autenticação válida foi conectada"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
@@ -1775,7 +1777,7 @@ msgstr "Autenticando..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Erro PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 #, fuzzy
@@ -1785,11 +1787,11 @@ msgstr "Collation de conexão do MySQL"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "o PBMS falhou na obtenção de informações BLOB:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "a obtenção do Tipo de conteúdo do BLOB falhou"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1810,7 +1812,7 @@ msgstr "Baixar arquivo"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Não foi possível abrir o arquivo: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
@@ -1853,7 +1855,7 @@ msgstr "Sem bases"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "Não aplicavel"
 
 #: libraries/build_html_for_db.lib.php:136
 #, fuzzy
@@ -1997,7 +1999,7 @@ msgstr "Mensagens do MySQL : "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Falha ao conectar ao validador SQL"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
@@ -2030,7 +2032,7 @@ msgstr "Validar SQL"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Na linha de edição da presente consulta"
 
 #: libraries/common.lib.php:1267
 #, fuzzy
@@ -2245,17 +2247,17 @@ msgstr "nenhuma das acima"
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr ""
+msgstr "Número não positivo"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Não é um número negativo"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Número de porta inválido"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
@@ -2272,7 +2274,7 @@ msgstr "O valor precisa ser igual ou menor que %s"
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "dado faltante para %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
@@ -2283,21 +2285,21 @@ msgstr "indisponível"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requer a extenção %s "
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "Importação não funcionou, função faltante (%s)"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "exportação não vai funcionar, faltando função (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Validador SQL desativado"
 
 #: libraries/config/FormDisplay.class.php:773
 msgid "SOAP extension not found"
@@ -2311,6 +2313,7 @@ msgstr "máximo %s"
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Essa configuração está desativada, não será aplicado à sua configuração"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2320,16 +2323,16 @@ msgstr "Desabilitado"
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Definir valor: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:351
 msgid "Restore default value"
-msgstr ""
+msgstr "Restaurar valor padrão"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permitir a todos os usuários alterar esse valor"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
@@ -2339,7 +2342,7 @@ msgstr "Restaurar"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Melhora a eficiência de atualização da tela"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -2349,6 +2352,8 @@ msgstr "Habilitar Ajax"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Se o usuário habilitado pode entrar em qualquer servidor MySQL em formulário "
+"de login por autenticação cookie"
 
 #: libraries/config/messages.inc.php:20
 #, fuzzy
@@ -2361,10 +2366,13 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Ativando essa opção permite uma página localizada em um domínio diferente "
+"para chamar phpMyAdmin dentro de um quadro, e é um potencial [strong] falha "
+"de segurança [/strong], que permite ataques de script cross-frame"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Permitir elaboração de terceiros"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"

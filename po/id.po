@@ -2285,7 +2285,7 @@ msgstr "Reset"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Meningkatkan efisiensi  refresh layar"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -2308,6 +2308,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Mengaktifkan ini memungkinkan halaman yang terletak pada domain yang berbeda "
+"untuk memanggil phpMyAdmin di dalam frame, dan merupakan [strong]lubang "
+"keamanan[/strong] potensial yang memungkinkan serangan scripting lintas-frame"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -9802,11 +9805,11 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Pilihan ini akan mengganti table dan data isi table"
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "Menjalankan SQL"
 
 #: tbl_tracking.php:515
 #, php-format
@@ -9815,7 +9818,7 @@ msgstr "Ekspor sebagai %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Tunjukkan Versi"
 
 #: tbl_tracking.php:587
 msgid "Version"
@@ -9867,7 +9870,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "Dapatkan tema lainnya"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"

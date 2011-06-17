@@ -29,7 +29,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
 #: libraries/schema/User_Schema.class.php:360
 msgid "Page number:"
-msgstr ""
+msgstr "ஓலை என்"
 
 #: browse_foreigners.php:133
 msgid ""
@@ -43,7 +43,7 @@ msgstr ""
 #: libraries/common.lib.php:3015 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:61
 msgid "Search"
-msgstr ""
+msgstr "தேடல்"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:358

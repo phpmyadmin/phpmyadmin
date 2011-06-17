@@ -4661,7 +4661,7 @@ msgstr "sor"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Néhány sor dumpolása"
 
 #: libraries/display_export.lib.php:159
 #, fuzzy
@@ -4675,7 +4675,7 @@ msgstr "Ettől a sortól kezdve:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr ""
+msgstr "Összes sor dumpolása"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
