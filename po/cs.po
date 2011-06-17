@@ -8303,10 +8303,9 @@ msgid "Containing the word:"
 msgstr "Obsahující slovo:"
 
 #: server_status.php:460
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Zobrazit otevřené tabulky"
+msgstr "Zobrazit jen hodnoty s upozorněním"
 
 #: server_status.php:464
 msgid "Filter by category..."
