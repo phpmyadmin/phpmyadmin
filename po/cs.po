@@ -1106,7 +1106,7 @@ msgstr "Odesláno kiB od posledního obnovení"
 
 #: js/messages.php:81
 msgid "kB received since last refresh"
-msgstr "Přijato kB od posledního obnovení"
+msgstr "Přijato kiB od posledního obnovení"
 
 #: js/messages.php:82
 #| msgid "Server Choice"
