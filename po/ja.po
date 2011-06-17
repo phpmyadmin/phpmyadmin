@@ -8873,9 +8873,8 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"クエリキャッシュ内の空きメモリのブロック数。この値が高い場合は 断片化が起こっ"
-"ていることを示しています。FLUSH QUERY CACHE 文を発行することによって解決でき"
-"るかもしれません。"
+"クエリキャッシュ内の空きメモリのブロック数。この値が高い場合は 断片化が起こっていることを示しています。FLUSH QUERY CACHE "
+"文を発行することによって解消されるかもしれません。"
 
 #: server_status.php:930
 msgid "The amount of free memory for query cache."
