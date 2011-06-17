@@ -9639,7 +9639,7 @@ msgstr "Název grafu"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "Osa X"
 
 #: tbl_chart.php:113
 #, fuzzy
