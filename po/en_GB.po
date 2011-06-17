@@ -8357,10 +8357,10 @@ msgstr "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 
 #: server_status.php:652
 msgid "Replication status"
