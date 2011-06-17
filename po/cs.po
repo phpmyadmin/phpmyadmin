@@ -1131,10 +1131,9 @@ msgid "Issued queries since last refresh"
 msgstr "Provedených dotazů od posledního obnovení"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL dotazy"
+msgstr "Provedené dotazy"
 
 #: js/messages.php:89 server_status.php:386
 msgid "Query statistics"
