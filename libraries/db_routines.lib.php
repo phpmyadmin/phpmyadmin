@@ -243,6 +243,39 @@ function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
         $retval['returnopts_num']  = '';
         $retval['returnopts_text'] = '';
         if (! empty($routine['DTD_IDENTIFIER'])) {
+            if (strlen($routine['DTD_IDENTIFIER']) > 63) {
+                // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
+                // at least 64 characters, then it may actually have been
+                // chopped because that column is a varchar(64), so we will
+                // parse the output of SHOW CREATE query to get accurate
+                // information about the return variable.
+                $dtd = '';
+                $fetching = false;
+                for ($i=0; $i<$parsed_query['len']; $i++) {
+                    if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+                    && strtoupper($parsed_query[$i]['data']) == 'RETURNS') {
+                        $fetching = true;
+                    } else if ($fetching == true
+                    && $parsed_query[$i]['type'] == 'alpha_reservedWord') {
+                        // We will not be looking for options such as UNSIGNED
+                        // or ZEROFILL because there is no way that a numeric
+                        // field's DTD_IDENTIFIER can be longer than 64
+                        // characters. We can safely assume that the return
+                        // datatype is either ENUM or SET, so we only look
+                        // for CHARSET.
+                        $word = strtoupper($parsed_query[$i]['data']);
+                        if ($word == 'CHARSET'
+                        && ($parsed_query[$i+1]['type'] == 'alpha_charset'
+                        || $parsed_query[$i+1]['type'] == 'alpha_identifier')) {
+                            $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
+                        }
+                        break;
+                    } else if ($fetching == true) {
+                        $dtd .= $parsed_query[$i]['data'] . ' ';
+                    }
+                }
+                $routine['DTD_IDENTIFIER'] = $dtd;
+            }
             $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
             $retval['returntype']      = $returnparam[2];
             $retval['returnlength']    = $returnparam[3];
