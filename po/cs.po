@@ -2086,7 +2086,7 @@ msgstr "Vysvětlit SQL"
 
 #: libraries/common.lib.php:1124
 msgid "Skip Explain SQL"
-msgstr "Bez vysvětlení (EXPLAIN) SQL"
+msgstr "Bez vysvětlení SQL"
 
 #: libraries/common.lib.php:1158
 msgid "Without PHP Code"
