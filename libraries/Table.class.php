@@ -1162,7 +1162,7 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true)
     {
-        $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Non_unique = 0';
+        $sql = PMA_DBI_get_table_indexes_sql($this->getDbName(), $this->getName(), 'Non_unique = 0');
         $uniques = PMA_DBI_fetch_result($sql, array('Key_name', null), 'Column_name');
 
         $return = array();
@@ -1188,7 +1188,7 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true)
     {
-        $sql = 'SHOW INDEX FROM ' . $this->getFullName(true) . ' WHERE Seq_in_index = 1';
+        $sql = PMA_DBI_get_table_indexes_sql($this->getDbName(), $this->getName(), 'Seq_in_index = 1');
         $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
 
         $return = array();

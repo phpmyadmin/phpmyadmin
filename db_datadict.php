@@ -76,7 +76,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
      */
 
     PMA_DBI_select_db($db);
-    $result       = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+    $result       = PMA_DBI_query(PMA_DBI_get_table_indexes_sql($db, $table));
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -96,7 +96,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
             $lastIndex = $row['Key_name'];
         }
         $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+        $indexes_info[$row['Key_name']]['Non_unique']      = PMA_DRIZZLE ? $row['Unique'] : $row['Non_unique'];
         if (isset($row['Cardinality'])) {
             $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
         }

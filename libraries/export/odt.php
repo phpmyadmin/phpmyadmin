@@ -247,7 +247,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /**
      * Get the unique keys in the table
      */
-    $keys_query     = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM '. PMA_backquote($db);
+    $keys_query     = PMA_DBI_get_table_indexes_sql($db, $table);
     $keys_result    = PMA_DBI_query($keys_query);
     $unique_keys    = array();
     while ($key = PMA_DBI_fetch_assoc($keys_result)) {

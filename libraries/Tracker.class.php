@@ -282,8 +282,7 @@ class PMA_Tracker
             $columns[] = $row;
         }
 
-        $sql_query = '
-        SHOW INDEX FROM ' . PMA_backquote($dbname) . '.' . PMA_backquote($tablename);
+        $sql_query = PMA_DBI_get_table_indexes_sql($dbname, $tablename);
 
         $sql_result = PMA_DBI_query($sql_query);
 

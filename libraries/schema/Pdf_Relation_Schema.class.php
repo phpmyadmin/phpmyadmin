@@ -1147,7 +1147,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $result = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+            $result = PMA_DBI_query(PMA_DBI_get_table_indexes_sql($db, $table));
             $primary = '';
             $indexes = array();
             $lastIndex = '';

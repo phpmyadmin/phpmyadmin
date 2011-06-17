@@ -1076,6 +1076,47 @@ function PMA_DBI_get_column_values($database, $table, $column, $link = null)
  }
 
 /**
+* Returns SQL for fetching informatin on table indexes (SHOW INDEXES)
+*
+* @param    string  $database   name of database
+* @param    string  $table      name of the table whose indexes are to be retreived
+* @param    string  $where      additional conditions for WHERE
+* @return   array   $indexes
+*/
+function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
+{
+    if (PMA_DRIZZLE) {
+        $sql = "SELECT
+                ip.table_name          AS `Table`,
+                (NOT ip.is_unique)     AS Non_unique,
+                ip.index_name          AS Key_name,
+                ip.sequence_in_index+1 AS Seq_in_index,
+                ip.column_name         AS Column_name,
+                (CASE
+                    WHEN i.index_type = 'BTREE' THEN 'A'
+                    ELSE NULL END)     AS Collation,
+                NULL                   AS Cardinality,
+                compare_length         AS Sub_part,
+                NULL                   AS Packed,
+                ip.is_nullable         AS `Null`,
+                i.index_type           AS Index_type,
+                NULL                   AS Comment,
+                i.index_comment        AS Index_comment
+            FROM data_dictionary.index_parts ip
+                LEFT JOIN data_dictionary.indexes i USING (table_schema, table_name, index_name)
+            WHERE table_schema = '" . PMA_sqlAddslashes($database) . "'
+                AND table_name = '" . PMA_sqlAddslashes($table) . "'
+        ";
+    } else {
+        $sql = 'SHOW INDEXES FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
+    }
+    if ($where) {
+        $sql .= (PMA_DRIZZLE ? ' AND (' : ' WHERE (') . $where . ')';
+    }
+    return $sql;
+}
+
+/**
 * array  PMA_DBI_get_table_indexes($database, $table, $link = null)
 *
 * @param    string  $database   name of database
@@ -1083,13 +1124,10 @@ function PMA_DBI_get_column_values($database, $table, $column, $link = null)
 * @param    mixed   $link       mysql link resource
 * @return   array   $indexes
 */
-
 function PMA_DBI_get_table_indexes($database, $table, $link = null)
 {
-
-    $indexes = PMA_DBI_fetch_result(
-              'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
-               null, null, $link);
+    $sql = PMA_DBI_get_table_indexes_sql($database, $table);
+    $indexes = PMA_DBI_fetch_result($sql, null, null, $link);
 
     if (! is_array($indexes) || count($indexes) < 1) {
         return false;
