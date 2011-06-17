@@ -8440,7 +8440,7 @@ msgstr "Počet transakcí, které využily dočasný binární log."
 #: server_status.php:852
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Celkový počet připojení (i chybných) k MySQL serveru."
 
 #: server_status.php:853
 msgid ""
