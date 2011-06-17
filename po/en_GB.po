@@ -8202,12 +8202,12 @@ msgstr[0] "%d minute"
 msgstr[1] "%d minutes"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "second"
-msgstr[1] "second"
+msgstr[0] "%d second"
+msgstr[1] "%d seconds"
 
 #: server_status.php:134
 #, php-format
