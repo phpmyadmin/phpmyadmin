@@ -8202,7 +8202,7 @@ msgid_plural "%d minutes"
 msgstr[0] "分"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
