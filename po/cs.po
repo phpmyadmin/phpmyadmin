@@ -1102,7 +1102,7 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "kB sent since last refresh"
-msgstr "Odesláno kB od posledního obnovení"
+msgstr "Odesláno kiB od posledního obnovení"
 
 #: js/messages.php:81
 msgid "kB received since last refresh"
