@@ -2184,6 +2184,9 @@ fieldset .disabled-field td {
 
 #placeholder {
     position: relative;
+    border: 1px solid #aaa;
+    float: right;
+    overflow: hidden;
 }
 
 #placeholder .button {
