@@ -623,7 +623,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Routine Name') . "</td>\n";
+    $retval .= "    <td>" . __('Routine name') . "</td>\n";
     $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
@@ -668,7 +668,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "    <td>\n";
     $retval .= "        <input style='width: 49%;' type='submit' \n";
     $retval .= "               name='routine_addparameter'\n";
-    $retval .= "               value='" . __('Add another parameter') . "' />\n";
+    $retval .= "               value='" . __('Add parameter') . "' />\n";
     $retval .= "        <input style='width: 49%;$disable_remove_parameter' type='submit' \n";
     $retval .= "               name='routine_removeparameter'\n";
     $retval .= "               value='" . __('Remove last parameter') . "' />\n";
@@ -676,18 +676,18 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "</tr>\n";
     // parameter handling end
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return Type') . "</td>\n";
+    $retval .= "    <td>" . __('Return type') . "</td>\n";
     $retval .= "    <td><select name='routine_returntype'>\n";
     $retval .= PMA_getSupportedDatatypes(true, $routine['returntype']) . "\n";
     $retval .= "    </select></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return Length/Values') . "</td>\n";
+    $retval .= "    <td>" . __('Return length/values') . "</td>\n";
     $retval .= "    <td><input type='text' name='routine_returnlength'\n";
     $retval .= "               value='{$routine['returnlength']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return Options') . "</td>\n";
+    $retval .= "    <td>" . __('Return options') . "</td>\n";
     $retval .= "    <td><div><select name='routine_returnopts_text'>\n";
     $retval .= "        <option value=''>(CHARSET)</option>";
     $retval .= PMA_getSupportedCharsets(true, $routine['returnopts_text']) . "\n";
@@ -708,7 +708,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "    <td><textarea name='routine_definition' rows='15' cols='40'>{$routine['definition']}</textarea></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Is Deterministic') . "</td>\n";
+    $retval .= "    <td>" . __('Is deterministic') . "</td>\n";
     $retval .= "    <td><input type='checkbox' name='routine_isdeterministic'{$routine['isdeterministic']} /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
@@ -717,14 +717,14 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "               value='{$routine['definer']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Security Type') . "</td>\n";
+    $retval .= "    <td>" . __('Security type') . "</td>\n";
     $retval .= "    <td><select name='routine_securitytype'>\n";
     $retval .= "        <option value='DEFINER'{$routine['securitytype_definer']}>DEFINER</option>\n";
     $retval .= "        <option value='INVOKER'{$routine['securitytype_invoker']}>INVOKER</option>\n";
     $retval .= "    </select></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('SQL Data Access') . "</td>\n";
+    $retval .= "    <td>" . __('SQL data access') . "</td>\n";
     $retval .= "    <td><select name='routine_sqldataaccess'>\n";
     foreach ($param_sqldataaccess as $key => $value) {
         $selected = "";
@@ -798,10 +798,10 @@ function PMA_RTN_getExecuteForm($routine, $is_ajax)
         $retval .= "<legend>{$routine['name']}</legend>\n";
         $retval .= "<table class='rte_table'>\n";
         $retval .= "<caption class='tblHeaders'>\n";
-        $retval .= __('Routine Parameters');
+        $retval .= __('Routine parameters');
         $retval .= "</caption>\n";
     } else {
-        $retval .= "<legend>" . __('Routine Parameters') . "</legend>\n";
+        $retval .= "<legend>" . __('Routine parameters') . "</legend>\n";
         $retval .= "<table class='rte_table' style='width: 100%;'>\n";
     }
     $retval .= "<tr>\n";
@@ -919,12 +919,12 @@ function PMA_RTN_getQueryFromRequest() {
     if ($_REQUEST['routine_type'] == 'FUNCTION' || $_REQUEST['routine_type'] == 'PROCEDURE') {
         $query .= $_REQUEST['routine_type'] . ' ';
     } else {
-        $routine_errors[] = sprintf(__('Invalid Routine Type: "%s"'), htmlspecialchars($_REQUEST['routine_type']));
+        $routine_errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['routine_type']));
     }
     if (! empty($_REQUEST['routine_name'])) {
         $query .= PMA_backquote($_REQUEST['routine_name']) . ' ';
     } else {
-        $routine_errors[] = __('You must provide a routine Name');
+        $routine_errors[] = __('You must provide a routine name');
     }
     $params = '';
     $warned_about_dir    = false;
@@ -943,7 +943,7 @@ function PMA_RTN_getQueryFromRequest() {
                     $params .= PMA_backquote($_REQUEST['routine_param_name'][$i]) . " " . $_REQUEST['routine_param_type'][$i];
                 } else if (! $warned_about_dir) {
                     $warned_about_dir = true;
-                    $routine_errors[] = sprintf(__('Invalid Direction "%s" given for a Parameter.'),
+                    $routine_errors[] = sprintf(__('Invalid direction "%s" given for parameter.'),
                                                 htmlspecialchars($_REQUEST['routine_param_dir'][$i]));
                 }
                 if ($_REQUEST['routine_param_length'][$i] != ''
@@ -954,7 +954,7 @@ function PMA_RTN_getQueryFromRequest() {
                            && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['routine_param_type'][$i])) {
                     if (! $warned_about_length) {
                         $warned_about_length = true;
-                        $routine_errors[] = __('You must provide Length/Values for routine '
+                        $routine_errors[] = __('You must provide length/values for routine '
                                              . 'parameters of type ENUM, SET, VARCHAR and VARBINARY.');
                     }
                 }
@@ -979,7 +979,7 @@ function PMA_RTN_getQueryFromRequest() {
                 }
             } else if (! $warned_about_name) {
                 $warned_about_name = true;
-                $routine_errors[] = __('You must provide a Name and a Type for each routine Parameter.');
+                $routine_errors[] = __('You must provide a name and a type for each routine parameter.');
                 break;
             }
         }
@@ -995,7 +995,7 @@ function PMA_RTN_getQueryFromRequest() {
             && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['routine_returntype'])) {
             if (! $warned_about_length) {
                 $warned_about_length = true;
-                $routine_errors[] = __('You must provide Length/Values for routine '
+                $routine_errors[] = __('You must provide length/values for routine '
                                      . 'parameters of type ENUM, SET, VARCHAR and VARBINARY.');
             }
         }
@@ -1036,7 +1036,7 @@ function PMA_RTN_getQueryFromRequest() {
     if (! empty($_REQUEST['routine_definition'])) {
         $query .= $_REQUEST['routine_definition'];
     } else {
-        $routine_errors[] = __('You must provide a routine Definition.');
+        $routine_errors[] = __('You must provide a routine definition.');
     }
     return $query;
 } // end PMA_RTN_getQueryFromRequest()
@@ -1212,10 +1212,10 @@ function PMA_RTN_getAddRoutineLink()
         $retval .= "<a {$ajax_class['add']} href='db_routines.php";
         $retval .= "?$url_query&amp;addroutine=1'>\n";
         $retval .= PMA_getIcon('b_routine_add.png') . "\n";
-        $retval .= __('Add a new Routine') . "</a>\n";
+        $retval .= __('Add routine') . "</a>\n";
     } else {
         $retval .= PMA_getIcon('b_routine_add.png') . "\n";
-        $retval .= __('You do not have the necessary privileges to create a new Routine') . "\n";
+        $retval .= __('You do not have the necessary privileges to create a new routine') . "\n";
     }
     $retval .= PMA_showMySQLDocu('SQL-Syntax', 'CREATE_PROCEDURE') . "\n";
     $retval .= "</fieldset>\n";

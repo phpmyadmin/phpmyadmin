@@ -159,7 +159,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         // Display results
         if ($result) {
             $output .= "<fieldset><legend>";
-            $output .= sprintf(__('Execution Results of Routine %s'),
+            $output .= sprintf(__('Execution results of routine %s'),
                                PMA_backquote(htmlspecialchars($routine['name'])));
             $output .= "</legend>";
             $output .= "<table><tr>";
@@ -203,11 +203,11 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         if ($GLOBALS['is_ajax_request'] == true) {
             $extra_data = array();
             $extra_data['dialog'] = true;
-            $extra_data['title']  = __("Execute Routine") . " ";
+            $extra_data['title']  = __("Execute routine") . " ";
             $extra_data['title'] .= PMA_backquote(htmlentities($_GET['routine_name'], ENT_QUOTES));
             PMA_ajaxResponse($form, true, $extra_data);
         } else {
-            echo "\n\n<h2>" . __("Execute Routine") . "</h2>\n\n";
+            echo "\n\n<h2>" . __("Execute routine") . "</h2>\n\n";
             echo $form;
             require './libraries/footer.inc.php';
             // exit;
@@ -236,7 +236,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                . '</fieldset>';
         }
     } else {
-        $response = __('Error in Processing Request') . ' : '
+        $response = __('Error in processing request') . ' : '
                   . sprintf(__('No routine with name %s found in database %s'),
                             $routine_name, htmlspecialchars(PMA_backquote($db)));
         $response = PMA_message::error($response);
@@ -256,7 +256,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         // Execute the created query
         if (! empty($_REQUEST['routine_process_editroutine'])) {
             if (! in_array($_REQUEST['routine_original_type'], array('PROCEDURE', 'FUNCTION'))) {
-                $routine_errors[] = sprintf(__('Invalid Routine Type: "%s"'), htmlspecialchars($_REQUEST['routine_original_type']));
+                $routine_errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['routine_original_type']));
             } else {
                 // Backup the old routine, in case something goes wrong
                 $create_routine = PMA_DBI_get_definition($db, $_REQUEST['routine_original_type'], $_REQUEST['routine_original_name']);
@@ -349,17 +349,17 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
     // Get the data for the form (if any)
     if (! empty($_REQUEST['addroutine'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
-            echo "\n\n<h2>" . __("Create Routine") . "</h2>\n\n";
+            echo "\n\n<h2>" . __("Create routine") . "</h2>\n\n";
         } else {
-            $title = __("Create Routine");
+            $title = __("Create routine");
         }
         $routine = PMA_RTN_getRoutineDataFromRequest();
         $mode = 'add';
     } else if (! empty($_REQUEST['editroutine'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
-            echo "\n\n<h2>" . __("Edit Routine") . "</h2>\n\n";
+            echo "\n\n<h2>" . __("Edit routine") . "</h2>\n\n";
         } else {
-            $title = __("Edit Routine");
+            $title = __("Edit routine");
         }
         if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
             $routine = PMA_RTN_getRoutineDataFromName($db, $_REQUEST['routine_name']);
@@ -402,7 +402,7 @@ echo PMA_RTN_getAddRoutineLink();
 if ($GLOBALS['cfg']['Server']['extension'] !== 'mysqli') {
     trigger_error(__('You are using PHP\'s deprecated \'mysql\' extension, '
                    . 'which is not capable of handling multi queries. '
-                   . '<b>The execution of some stored Routines may fail!</b> '
+                   . '<b>The execution of some stored routines may fail!</b> '
                    . 'Please use the improved \'mysqli\' extension to '
                    . 'avoid any problems.'), E_USER_WARNING);
 }
