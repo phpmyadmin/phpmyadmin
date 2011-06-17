@@ -1098,22 +1098,16 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "kB sent since last refresh"
 msgid "KiB sent since last refresh"
-msgstr "Odesláno kiB od posledního obnovení"
+msgstr "Odesláno KiB od posledního obnovení"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "kB received since last refresh"
 msgid "KiB received since last refresh"
-msgstr "Přijato kiB od posledního obnovení"
+msgstr "Přijato KiB od posledního obnovení"
 
 #: js/messages.php:82
-#, fuzzy
-#| msgid "Server traffic (in kB)"
 msgid "Server traffic (in KiB)"
-msgstr "Síťový provoz (v kiB)"
+msgstr "Síťový provoz (v KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
