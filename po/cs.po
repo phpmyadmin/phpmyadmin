@@ -2655,8 +2655,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
-"Zadejte počet sekund, po které může skript běžet, nebo ([kbd]0[/kbd] pro "
-"žádná omezení"
+"Zadejte počet sekund, po které může skript běžet ([kbd]0[/kbd] pro žádná "
+"omezení)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
