@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-17 14:51+0200\n"
+"PO-Revision-Date: 2011-06-17 15:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1776,7 +1776,7 @@ msgstr "Nebyla nalezena platná cesta k vzhledu %s!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Vzhled"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
