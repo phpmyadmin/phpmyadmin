@@ -77,9 +77,9 @@ $js_messages['strThousandsSeperator'] = __(',');
 /* l10n: Decimal separator */
 $js_messages['strDecimalSeperator'] = __('.');
 
-$js_messages['strChartKBSent'] = __('kB sent since last refresh');
-$js_messages['strChartKBReceived'] = __('kB received since last refresh');
-$js_messages['strChartServerTraffic'] = __('Server traffic (in kB)');
+$js_messages['strChartKBSent'] = __('KiB sent since last refresh');
+$js_messages['strChartKBReceived'] = __('KiB received since last refresh');
+$js_messages['strChartServerTraffic'] = __('Server traffic (in KiB)');
 $js_messages['strChartConnections'] = __('Connections since last refresh');
 $js_messages['strChartProcesses'] = __('Processes');
 $js_messages['strChartConnectionsTitle'] = __('Connections / Processes');
