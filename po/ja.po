@@ -3494,9 +3494,7 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr ""
-"結果セットの表示行数。結果セットの行数の方が多い場合は「前（Previous）／次"
-"（Next）」のリンクが表示されます。"
+msgstr "結果セットの表示行数。結果セットの行数の方が多い場合は「前へ／次へ」のリンクが表示されます。"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum number of rows to display"
