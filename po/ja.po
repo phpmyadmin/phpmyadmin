@@ -8289,7 +8289,7 @@ msgstr "全ての状態変数"
 
 #: server_status.php:455
 msgid "Containing the word:"
-msgstr "含まれている文字："
+msgstr "含まれている文字:"
 
 #: server_status.php:460
 msgid "Show only alert values"
