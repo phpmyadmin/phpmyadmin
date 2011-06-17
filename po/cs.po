@@ -8309,7 +8309,7 @@ msgstr "Zobrazit jen hodnoty s upozorněním"
 
 #: server_status.php:464
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrovat podle kategorie..."
 
 #: server_status.php:477
 #, fuzzy
