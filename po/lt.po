@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 14:57+0200\n"
+"POT-Creation-Date: 2011-06-17 15:03+0200\n"
 "PO-Revision-Date: 2011-04-05 15:52+0200\n"
 "Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
@@ -356,7 +356,7 @@ msgstr "Keisti arba eksportuoti ryšių schemą"
 #: libraries/header.inc.php:152 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
-#: server_synchronize.php:861 tbl_tracking.php:643 test/theme.php:73
+#: server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
 msgstr "Lentelė"
 
@@ -621,7 +621,7 @@ msgstr ""
 "%sdokumentacijoje%s."
 
 #: db_structure.php:394 db_structure.php:408 libraries/header.inc.php:152
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:72
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206
 msgid "View"
 msgstr "Rodinys"
 
@@ -742,7 +742,7 @@ msgstr "Sekamos lentelės"
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:791
 #: server_synchronize.php:1190 server_synchronize.php:1194
-#: tbl_tracking.php:642 test/theme.php:63
+#: tbl_tracking.php:642
 msgid "Database"
 msgstr "Duomenų bazė"
 
@@ -759,7 +759,7 @@ msgid "Updated"
 msgstr "Atnaujinta"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:794
-#: sql.php:925 tbl_tracking.php:647 test/theme.php:99
+#: sql.php:925 tbl_tracking.php:647
 msgid "Status"
 msgstr "Būsena"
 
@@ -1687,7 +1687,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740 test/theme.php:91
+#: server_privileges.php:1740
 msgid "Databases"
 msgstr "Duomenų bazės"
 
@@ -1810,8 +1810,7 @@ msgstr "Tema %s nerasta!"
 msgid "Theme path not found for theme %s!"
 msgstr "Kelias iki temos nerastas temai %s!"
 
-#: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
-#: themes.php:40
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
 msgstr ""
 
@@ -1821,7 +1820,6 @@ msgstr "Neįmanoma prisijungti: neteisingi duomenys."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
-#: test/theme.php:150
 #, php-format
 msgid "Welcome to %s"
 msgstr "Jūs naudojate %s"
@@ -2057,7 +2055,6 @@ msgstr "Blogas serverio %1$s hostname. Prašome peržiūrėti nustatymus."
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
-#: test/theme.php:55
 msgid "Server"
 msgstr "Serveris"
 
@@ -2241,7 +2238,7 @@ msgstr "Struktūra"
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:58
-#: querywindow.php:88 test/theme.php:95
+#: querywindow.php:88
 msgid "SQL"
 msgstr "SQL"
 
@@ -4626,7 +4623,7 @@ msgstr "Projektavimas"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:60
 #: server_privileges.php:119 server_privileges.php:1802
-#: server_privileges.php:2152 test/theme.php:115
+#: server_privileges.php:2152
 msgid "Privileges"
 msgstr "Privilegijos"
 
@@ -6569,20 +6566,20 @@ msgid "Synchronize"
 msgstr "Sinchronizuoti"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:266 test/theme.php:119
+#: server_status.php:266
 msgid "Binary log"
 msgstr "Dvejetainis log'as"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:318 test/theme.php:103
+#: server_engines.php:129 server_status.php:318
 msgid "Variables"
 msgstr "Kintamieji"
 
-#: libraries/server_links.inc.php:99 test/theme.php:107
+#: libraries/server_links.inc.php:99
 msgid "Charsets"
 msgstr "Koduotės"
 
-#: libraries/server_links.inc.php:103 test/theme.php:111
+#: libraries/server_links.inc.php:103
 msgid "Engines"
 msgstr "Varikliai"
 

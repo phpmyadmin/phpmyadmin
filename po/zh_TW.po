@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 14:57+0200\n"
+"POT-Creation-Date: 2011-06-17 15:03+0200\n"
 "PO-Revision-Date: 2011-06-12 05:41+0200\n"
 "Last-Translator: <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
@@ -352,7 +352,7 @@ msgstr "編輯或匯出關聯大綱"
 #: libraries/header.inc.php:152 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
-#: server_synchronize.php:861 tbl_tracking.php:643 test/theme.php:73
+#: server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
 msgstr "表"
 
@@ -609,7 +609,7 @@ msgid ""
 msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: db_structure.php:394 db_structure.php:408 libraries/header.inc.php:152
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:72
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206
 msgid "View"
 msgstr " view"
 
@@ -724,7 +724,7 @@ msgstr "已追蹤的表"
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:791
 #: server_synchronize.php:1190 server_synchronize.php:1194
-#: tbl_tracking.php:642 test/theme.php:63
+#: tbl_tracking.php:642
 msgid "Database"
 msgstr "資料庫"
 
@@ -741,7 +741,7 @@ msgid "Updated"
 msgstr "更新"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:794
-#: sql.php:925 tbl_tracking.php:647 test/theme.php:99
+#: sql.php:925 tbl_tracking.php:647
 msgid "Status"
 msgstr "狀態"
 
@@ -1641,7 +1641,7 @@ msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740 test/theme.php:91
+#: server_privileges.php:1740
 msgid "Databases"
 msgstr "資料庫"
 
@@ -1752,8 +1752,7 @@ msgstr "未找到主題 %s ！"
 msgid "Theme path not found for theme %s!"
 msgstr "找不到主題 %s 的路徑"
 
-#: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
-#: themes.php:40
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
 msgstr ""
 
@@ -1763,7 +1762,6 @@ msgstr "無法連線: 設定錯誤."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
-#: test/theme.php:150
 #, php-format
 msgid "Welcome to %s"
 msgstr "歡迎使用 %s"
@@ -1989,7 +1987,6 @@ msgstr "伺服器 %1$s 主機名稱錯誤, 請檢查設定檔案."
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
-#: test/theme.php:55
 msgid "Server"
 msgstr "伺服器"
 
@@ -2173,7 +2170,7 @@ msgstr "結構"
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:58
-#: querywindow.php:88 test/theme.php:95
+#: querywindow.php:88
 msgid "SQL"
 msgstr "SQL"
 
@@ -4497,7 +4494,7 @@ msgstr "設計器"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:60
 #: server_privileges.php:119 server_privileges.php:1802
-#: server_privileges.php:2152 test/theme.php:115
+#: server_privileges.php:2152
 msgid "Privileges"
 msgstr "權限"
 
@@ -6404,20 +6401,20 @@ msgid "Synchronize"
 msgstr "同步"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:266 test/theme.php:119
+#: server_status.php:266
 msgid "Binary log"
 msgstr "二進制日誌"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:318 test/theme.php:103
+#: server_engines.php:129 server_status.php:318
 msgid "Variables"
 msgstr "變數"
 
-#: libraries/server_links.inc.php:99 test/theme.php:107
+#: libraries/server_links.inc.php:99
 msgid "Charsets"
 msgstr "字集"
 
-#: libraries/server_links.inc.php:103 test/theme.php:111
+#: libraries/server_links.inc.php:103
 msgid "Engines"
 msgstr "引擎"
 
