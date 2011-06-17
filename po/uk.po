@@ -598,7 +598,7 @@ msgstr "Таблицю %s було очищено"
 #: db_structure.php:287 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "Вигляд %s знищено"
 
 #: db_structure.php:287 tbl_operations.php:705
 #, php-format
