@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:36+0200\n"
-"PO-Revision-Date: 2011-06-15 16:58+0200\n"
+"PO-Revision-Date: 2011-06-17 14:18+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1106,7 +1106,7 @@ msgstr "Server traffic"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Connections since last refresh"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
