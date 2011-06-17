@@ -70,6 +70,17 @@ while ($row = PMA_DBI_fetch_assoc($modified_result)) {
     $data[] = $row;
 }
 
+// If all the rows contain SRID, use OpenStreetMaps on the initial loading.
+if (! isset($_REQUEST['displayVisualization'])) {
+    $visualizationSettings['choice'] = 'useBaseLayer';
+    foreach ($data as $row) {
+        if ($row['srid'] == 0) {
+            unset($visualizationSettings['choice']);
+            break;
+        }
+    }
+}
+
 if (isset($_REQUEST['saveToFile'])) {
     $file_name = $_REQUEST['fileName'];
     if ($file_name == '') {
