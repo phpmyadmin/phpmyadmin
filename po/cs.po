@@ -2452,7 +2452,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr "Klíč pro šifrování cookies (blowfish_secret)"
+msgstr "Klíč pro šifrování cookies"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
