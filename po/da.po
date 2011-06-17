@@ -1614,7 +1614,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"Indeks %1$ ser ud til at være identisk med indeks %2$, så et af dem kan "
+"Indeks %1$s ser ud til at være identisk med indeks %2$s, så et af dem kan "
 "sikkert fjernes"
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:175
