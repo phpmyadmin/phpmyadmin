@@ -2452,6 +2452,60 @@ $(document).ready(function() {
 }); // end of $(document).ready() for Export of Routines, Triggers and Events.
 
 /**
+ * Creates a message inside an object with a sliding effect
+ *
+ * @param   $obj   a jQuery object containing the reference
+ *                 to the element where to put the message
+ * @param   msg    A string containing the text to display
+ *
+ * @return  bool   True on success, false on failure
+ */
+function PMA_slidingMessage($obj, msg) {
+    if ($obj != 'undefined' && $obj instanceof jQuery) {
+        if ($obj.has('div').length > 0) {
+            // If there already is a message inside the
+            // target object, we must get rid of it
+            $obj
+            .append('<div style="display: none;">' + msg + '</div>')
+            .find('div')
+            .first()
+            .fadeOut(function () {
+                $(this).remove();
+                $obj.animate({
+                    height: $obj.find('div').first().height()
+                });
+                $obj
+                .find('div')
+                .first()
+                .fadeIn();
+            });
+        } else {
+            // Object does not already have a message
+            // inside it, so we simply slide it down
+            $obj
+            .width('100%')
+            .html('<div style="display: none;">' + msg + '</div>')
+            .find('div')
+            .first()
+            .slideDown(function() {
+                // Set the height of the parent
+                // to the height of the child
+                $obj
+                .height(
+                    $obj
+                    .find('div')
+                    .first()
+                    .height()
+                );
+            });
+        }
+        return true;
+    } else {
+        return false;
+    }
+} // end PMA_slidingMessage()
+
+/**
  * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
  *
  * @uses    $.PMA_confirm()
