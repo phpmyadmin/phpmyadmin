@@ -2555,7 +2555,7 @@ $(document).ready(function() {
                         });
                     }
                     // Show the query that we just executed
-                    $('#js_query_display').html(data.sql_query);
+                    PMA_slidingMessage($('#js_query_display'), data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
