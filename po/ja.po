@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:58+0200\n"
-"PO-Revision-Date: 2011-06-15 12:47+0200\n"
+"PO-Revision-Date: 2011-06-17 12:46+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1061,17 +1061,16 @@ msgstr "リアルタイムでのトラフィックグラフ"
 
 #: js/messages.php:67 server_status.php:419
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "リアルタイムでの接続／プロセスグラフ"
 
 #: js/messages.php:68 server_status.php:438
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "クエリをグラフで表示"
+msgstr "リアルタイムでのクエリグラフ"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "統計データ"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
@@ -1105,10 +1104,9 @@ msgid "kB received since last refresh"
 msgstr ""
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server traffic"
 msgid "Server traffic (in kB)"
-msgstr "サーバのトラフィック"
+msgstr "サーバのトラフィック（単位：kB）"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
@@ -1119,10 +1117,9 @@ msgid "Processes"
 msgstr "プロセス"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "接続"
+msgstr "接続／プロセス"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
@@ -2169,7 +2166,7 @@ msgstr "先頭"
 #: libraries/display_tbl.lib.php:308 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
-msgstr "前"
+msgstr "前へ"
 
 #: libraries/common.lib.php:2310 libraries/common.lib.php:2313
 #: libraries/display_tbl.lib.php:387
@@ -3496,9 +3493,7 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr ""
-"結果セットの表示行数。結果セットの行数の方が多い場合は「前（Previous）／次"
-"（Next）」のリンクが表示されます。"
+msgstr "結果セットの表示行数。結果セットの行数の方が多い場合は「前へ／次へ」のリンクが表示されます。"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum number of rows to display"
@@ -8197,14 +8192,14 @@ msgid "Refresh rate"
 msgstr "再描画間隔"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "分"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
@@ -8291,7 +8286,7 @@ msgstr "全ての状態変数"
 
 #: server_status.php:455
 msgid "Containing the word:"
-msgstr "含まれている文字："
+msgstr "含まれている文字:"
 
 #: server_status.php:460
 msgid "Show only alert values"
@@ -8327,12 +8322,12 @@ msgstr "クエリ種別"
 #. l10n: # = Amount of queries
 #: server_status.php:554
 msgid "#"
-msgstr ""
+msgstr "クエリ数"
 
 #: server_status.php:618
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "起動してからのネットワークトラフィック：%s"
+msgstr "起動以後のネットワークトラフィック：%s"
 
 #: server_status.php:626
 #, php-format
@@ -8875,9 +8870,8 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"クエリキャッシュ内の空きメモリのブロック数。この値が高い場合は 断片化が起こっ"
-"ていることを示しています。FLUSH QUERY CACHE 文を発行することによって解決でき"
-"るかもしれません。"
+"クエリキャッシュ内の空きメモリのブロック数。この値が高い場合は 断片化が起こっていることを示しています。FLUSH QUERY CACHE "
+"文を発行することによって解消されるかもしれません。"
 
 #: server_status.php:930
 msgid "The amount of free memory for query cache."
