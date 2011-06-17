@@ -1069,10 +1069,9 @@ msgid "Live conn./process chart"
 msgstr "Živý graf připojení a procesů"
 
 #: js/messages.php:68 server_status.php:443
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Zobrazit graf dotazu"
+msgstr "Živý graf dotazů"
 
 #: js/messages.php:70
 msgid "Static data"
