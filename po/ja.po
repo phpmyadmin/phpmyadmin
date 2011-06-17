@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:36+0200\n"
-"PO-Revision-Date: 2011-06-17 12:28+0200\n"
+"PO-Revision-Date: 2011-06-17 12:29+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2167,7 +2167,7 @@ msgstr "先頭"
 #: libraries/display_tbl.lib.php:308 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
-msgstr "前"
+msgstr "前へ"
 
 #: libraries/common.lib.php:2310 libraries/common.lib.php:2313
 #: libraries/display_tbl.lib.php:387
