@@ -156,7 +156,7 @@ echo sprintf(__('Welcome to %s'),
 
 <form method="post" action="theme.php" target="_parent">
 <fieldset>
-    <legend><?php echo __('Theme / Style'); ?></legend>
+    <legend><?php echo __('Theme'); ?></legend>
 <?php
     echo $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox(false);
 ?>

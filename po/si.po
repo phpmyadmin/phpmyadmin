@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 08:16-0400\n"
+"POT-Creation-Date: 2011-06-17 14:57+0200\n"
 "PO-Revision-Date: 2011-06-04 15:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -609,8 +609,8 @@ msgstr "අවධානය අක්‍රීයයි."
 #: db_structure.php:380 libraries/display_tbl.lib.php:2156
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
@@ -846,11 +846,11 @@ msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකි
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1782,8 +1782,8 @@ msgstr "Theme path not found for theme %s!"
 
 #: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
 #: themes.php:40
-msgid "Theme / Style"
-msgstr "තේමාව / ශෛලිය"
+msgid "Theme"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1799,8 +1799,8 @@ msgstr "%s වෙත ආයුබෝවන්"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Probably reason of this is that you did not create configuration file. You "
 "might want to use %1$ssetup script%2$s to create one."
@@ -4682,12 +4682,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
@@ -5401,8 +5401,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6924,8 +6924,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා %"
-"sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
+"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා "
+"%sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
 
 #: libraries/user_preferences.lib.php:142
 msgid "Could not save configuration"
@@ -7812,8 +7812,8 @@ msgstr "භාවිතා කරන්නන් හා සමාන නම් �
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "සටහන: phpMyAdmin භාවිත කරන්නන්ගේ වරප්‍රසාද ලබාගනුයේ MySQL හි වරප්‍රසාද වගුවෙනි. "
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
@@ -8261,8 +8261,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a href=\"#replication\">අනුරූකරණ "
-"අංශය</a> වෙත යන්න"
+"සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a href=\"#replication"
+"\">අනුරූකරණ අංශය</a> වෙත යන්න"
 
 #: server_status.php:652
 msgid "Replication status"
@@ -10075,6 +10075,9 @@ msgstr "දසුනේ නම"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "දසුනේ නම වෙනස් කරන්න"
+
+#~ msgid "Theme / Style"
+#~ msgstr "තේමාව / ශෛලිය"
 
 #~ msgid "seconds"
 #~ msgstr "තත්පර"

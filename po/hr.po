@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 08:16-0400\n"
+"POT-Creation-Date: 2011-06-17 14:57+0200\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -635,8 +635,8 @@ msgstr ""
 #: db_structure.php:380 libraries/display_tbl.lib.php:2156
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Ovaj prikaz sadrži najmanje ovoliko redaka. Proučite %sdokumentaciju%s."
 
@@ -885,11 +885,11 @@ msgstr "Izbacivanje je spremljeno u datoteku %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte %"
-"sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
+"Vjerojatno ste pokušali s učitavanjem prevelike datoteke. Pogledajte "
+"%sdokumentaciju%s radi uputa o načinima rješavanja ovog ograničenja."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1922,8 +1922,8 @@ msgstr "Za temu %s nije pronađena putanje tema!"
 
 #: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
 #: themes.php:40
-msgid "Theme / Style"
-msgstr "Tema / Stil"
+msgid "Theme"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1939,8 +1939,8 @@ msgstr "Dobro došli u %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Vjerojatan razlog je nepostojeća konfiguracijska datoteka. Za izradu možete "
 "upotrijebiti naredbu %1$ssetup script%2$s"
@@ -4950,8 +4950,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrijednost se interpretira pomoću %1$sstrftime%2$s, pa možete upotrijebiti "
 "naredbe oblikovanja vremena. Dodatno se mogu dogoditi sljedeća "
@@ -5727,8 +5727,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8239,8 +8239,8 @@ msgstr "Ispusti baze podataka koje imaju iste nazive i korisnike."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin preuzima korisničke privilegije izravno iz MySQL "
 "tablica privilegija. U slučaju da su ručno mijenjane, sadržaj ovih tablica "
@@ -10547,6 +10547,9 @@ msgstr "Naziv prikaza"
 msgid "Rename view to"
 msgstr "Preimenuj prikaz u"
 
+#~ msgid "Theme / Style"
+#~ msgstr "Tema / Stil"
+
 #~ msgid "seconds"
 #~ msgstr "po sekundi"
 
@@ -10731,8 +10734,8 @@ msgstr "Preimenuj prikaz u"
 #~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation][em]%1"
-#~ "$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
+#~ "Nije moguće učitati proširenje [a@http://php.net/%1$s@Documentation]"
+#~ "[em]%1$s[/em][/a] . Provjerite svoju PHP konfiguraciju."
 
 #~ msgid ""
 #~ "Couldn't load the iconv or recode extension needed for charset "
