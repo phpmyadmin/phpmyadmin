@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 08:16-0400\n"
-"PO-Revision-Date: 2011-06-17 14:50+0200\n"
+"PO-Revision-Date: 2011-06-17 14:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1216,7 +1216,7 @@ msgstr "Odstraňuji"
 #: js/messages.php:124
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné."
+msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné"
 
 #: js/messages.php:127
 msgid "Hide query box"
