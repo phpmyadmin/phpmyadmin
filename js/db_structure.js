@@ -10,7 +10,7 @@
 
 /**
  * AJAX scripts for db_structure.php
- * 
+ *
  * Actions ajaxified here:
  * Drop Database
  * Truncate Table
@@ -33,7 +33,7 @@ function PMA_adjustTotals($this_anchor) {
     // (not really needed in case we are dropping the table)
     $rows_td.text('0');
     // set size to unknown (not sure how to get the exact
-    // value here, as an empty InnoDB table would have a size) 
+    // value here, as an empty InnoDB table would have a size)
     $size_td.text('-');
 
     // try to compute a new total row number
@@ -51,6 +51,128 @@ function PMA_adjustTotals($this_anchor) {
 }
 
 $(document).ready(function() {
+    /**
+     * Ajax Event handler for 'Insert Table'
+     *
+     * @uses    PMA_ajaxShowMessage()
+     * @see     $cfg['AjaxEnable']
+     */
+    var currrent_insert_table;
+    $("td.insert_table a.ajax").live('click', function(event){
+        event.preventDefault();
+        currrent_insert_table = $(this);
+        var url = $(this).attr("href");
+        if (url.substring(0, 15) == "tbl_change.php?") {
+             url = url.substring(15);
+        }
+
+       	var div = $('<div id="insert_table_dialog"></div>');
+       	var target = "tbl_change.php";
+
+        /**
+         *  @var    button_options  Object that stores the options passed to jQueryUI
+         *                          dialog
+         */
+        var button_options = {};
+        // in the following function we need to use $(this)
+        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+
+        var button_options_error = {};
+        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+
+        var $msgbox = PMA_ajaxShowMessage();
+
+        $.get( target , url+"&ajax_request=true" ,  function(data) {
+            //in the case of an error, show the error message returned.
+            if (data.success != undefined && data.success == false) {
+                div
+                .append(data.error)
+                .dialog({
+                    title: PMA_messages['strInsertTable'],
+                    height: 230,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options_error
+                })// end dialog options
+            } else {
+                div
+                .append(data)
+                .dialog({
+                    title: PMA_messages['strInsertTable'],
+                    height: 600,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options
+                })
+                //Remove the top menu container from the dialog
+                .find("#topmenucontainer").hide()
+                ; // end dialog options
+                $(".insertRowTable").addClass("ajax");
+                $("#buttonYes").addClass("ajax");
+            }
+            PMA_ajaxRemoveMessage($msgbox);
+        }) // end $.get()
+
+    });
+
+    $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the insert form
+         */
+        var $form = $("#insertForm");
+        $("#result_query").remove();
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() , function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+            if ($("#insert_table_dialog").length > 0) {
+                $("#insert_table_dialog").dialog("close").remove();
+            }
+            /**Update the row count at the tableForm*/
+            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+        }) // end $.post()
+    }) // end insert table button "Go"
+
+    $("#buttonYes.ajax").live('click', function(event){
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the insert form
+         */
+        var $form = $("#insertForm");
+        /**Get the submit type and the after insert type in the form*/
+        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").attr('value');
+        var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").attr('value');
+        $("#result_query").remove();
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() , function(data) {
+            if(data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                if (selected_submit_type == "showinsert") {
+                    $(data.sql_query).insertAfter("#topmenucontainer");
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
+                }
+                if (selected_after_insert == "new_insert") {
+                    /**Trigger the insert dialog for new_insert option*/
+                    currrent_insert_table.trigger('click');
+                }
+
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+            if ($("#insert_table_dialog").length > 0) {
+                $("#insert_table_dialog").dialog("close").remove();
+            }
+            /**Update the row count at the tableForm*/
+            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+        }) // end $.post()
+    });
 
     /**
      * Ajax Event handler for 'Truncate Table'
@@ -149,7 +271,7 @@ $(document).ready(function() {
 
     /**
      * Ajax Event handler for 'Drop tracking'
-     * 
+     *
      * @uses    $.PMA_confirm()
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
@@ -187,7 +309,7 @@ $(document).ready(function() {
     //Calculate Real End for InnoDB
     /**
      * Ajax Event handler for calculatig the real end for a InnoDB table
-     * 
+     *
      * @uses    $.PMA_confirm
      */
     $('#real_end_input').live('click', function(event) {

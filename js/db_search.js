@@ -26,7 +26,14 @@ function loadResult(result_path , table_name , link , ajaxEnable){
             /**  Load the browse results to the page */
             $("#table-info").show();
             $('#table-link').attr({"href" : 'sql.php?'+link }).text(table_name);
-            $('#browse-results').load(result_path + " '"+'#sqlqueryresults' + "'").show();
+            $('#browse-results').load(result_path + " '"+'#sqlqueryresults' + "'", null, function() {
+                // because under db_search, window.parent.table is not defined yet,
+                // we assign it manually from #table-link
+                window.parent.table = $('#table-link').text().trim();
+
+                appendInlineAnchor();
+                $('#table_results').makegrid();
+            }).show();
         }
         else
         {
@@ -173,7 +180,6 @@ $(document).ready(function() {
             if (typeof response == 'string') {
                 // found results
                 $("#searchresults").html(response);
-                $("#sqlqueryresults").trigger('appendAnchor');
 
                 $('#togglesearchresultlink')
                 // always start with the Show message

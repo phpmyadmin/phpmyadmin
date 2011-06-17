@@ -14,7 +14,7 @@ require_once './libraries/Message.class.php';
  *
  * @package phpMyAdmin
  */
-class RecentTable
+class PMA_RecentTable
 {
     /**
      * Defines the internal PMA table which contains recent tables.
@@ -33,9 +33,9 @@ class RecentTable
     public $tables;
 
     /**
-     * RecentTable instance.
+     * PMA_RecentTable instance.
      *
-     * @var RecentTable
+     * @var PMA_RecentTable
      */
     private static $_instance;
 
@@ -56,12 +56,12 @@ class RecentTable
     /**
      * Returns class instance.
      *
-     * @return RecentTable
+     * @return PMA_RecentTable
      */
     public static function getInstance()
     {
         if (is_null(self::$_instance)) {
-            self::$_instance = new RecentTable();
+            self::$_instance = new PMA_RecentTable();
         }
         return self::$_instance;
     }

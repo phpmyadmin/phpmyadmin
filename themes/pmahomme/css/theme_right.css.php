@@ -432,6 +432,10 @@ td.null {
     text-align: <?php echo $right; ?>;
 }
 
+table .valueHeader {
+    text-align:         <?php echo $right; ?>;
+    white-space:        normal;
+}
 table .value {
     text-align:         <?php echo $right; ?>;
     white-space:        normal;
@@ -1166,6 +1170,11 @@ img.sortableIcon {
     background-repeat:no-repeat;
 }
 
+h3#serverstatusqueries span {
+    font-size:60%;    
+    display:inline;
+}
+
 table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
 }
@@ -1175,7 +1184,7 @@ table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serve
 
 .statuslinks {
     float: <?php echo $right; ?>;
-	white-space: nowrap;
+    white-space: nowrap;
 }
 
 /* Also used for the variables page */
@@ -1193,6 +1202,8 @@ div#serverstatus table caption a.top {
 
 div#serverstatusquerieschart {
     float:<?php echo $right; ?>;
+    width:500px;
+    height:350px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
@@ -1225,7 +1236,27 @@ div#serverstatus table tbody td.descr a,
 div#serverstatus table .tblFooters a {
     white-space: nowrap;
 }
+
+div.liveChart {
+    clear:both; 
+    min-width:500px; 
+    height:400px; 
+    padding-bottom:80px;
+}
 /* end serverstatus */
+
+/* server variables */
+
+a.editIcon {
+    float: <?php echo $left; ?>;
+    font-family:sans-serif;
+}
+
+table#serverVariables td {
+    height:18px;
+}
+
+/* end server variables */
 
 /* querywindow */
 body#bodyquerywindow {
@@ -2281,4 +2312,73 @@ span.mysql-separator {
 }
 span.mysql-number {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
+}
+
+.colborder {
+    border-left: 1px solid #FFF;
+    cursor: col-resize;
+    height: 100%;
+    margin-left: -1px;
+    position: absolute;
+    width: 5px;
+}
+
+.pma_table th.draggable span, .pma_table tbody td span {
+    display: block;
+    overflow: hidden;
+}
+
+.cRsz {
+    position: absolute;
+}
+
+.cCpy {
+    background: #333;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0.1em;
+    padding: 0.3em;
+    position: absolute;
+    text-shadow: -1px -1px #000;
+
+    -moz-box-shadow: 0 0 0.7em #000;
+    -webkit-box-shadow: 0 0 0.7em #000;
+    box-shadow: 0 0 0.7em #000;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}
+
+.cPointer {
+    background: url(./themes/pmahomme/img/col_pointer.png);
+    height: 20px;
+    margin-left: -5px;  /* must be minus half of its width */
+    margin-top: -10px;
+    position: absolute;
+    width: 10px;
+}
+
+.cPointerVer {  /* cPointer with vertical display mode */
+    background: url(./themes/pmahomme/img/col_pointer_ver.png);
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;   /* must be minus half of its height */
+    position: absolute;
+    width: 20px;
+}
+
+.dHint {
+    background: #333;
+    border:1px solid #000;
+    color: #FFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: -1em;
+    opacity: 0.8;
+    padding: 0.5em 1em;
+    position: absolute;
+    text-shadow: -1px -1px #000;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
 }
