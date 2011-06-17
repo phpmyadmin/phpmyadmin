@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-06-17 10:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -2447,8 +2447,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Tajné heslo používané pro šifrování cookies při přihlašování pomocí "
-"[kbd]cookie[/kbd]"
+"Tajné heslo používané pro šifrování cookies při přihlašování pomocí [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -4464,8 +4464,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%"
-"29]ZIP[/a] kompresi pro import a export"
+"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%29]"
+"ZIP[/a] kompresi pro import a export"
 
 #: libraries/config/messages.inc.php:512
 msgid "ZIP"
@@ -8201,7 +8201,6 @@ msgstr "Obnovovací frekvence"
 
 #: server_status.php:31
 #, php-format
-#| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuta"
@@ -8210,7 +8209,6 @@ msgstr[2] "%d minut"
 
 #: server_status.php:33
 #, php-format
-#| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekunda"
@@ -8299,12 +8297,10 @@ msgid "All status variables"
 msgstr "Všechny stavové proměnné"
 
 #: server_status.php:455
-#| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Obsahující slovo:"
 
 #: server_status.php:460
-#| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Zobrazit jen hodnoty s upozorněním"
 
@@ -8313,7 +8309,6 @@ msgid "Filter by category..."
 msgstr "Filtrovat podle kategorie..."
 
 #: server_status.php:477
-#| msgid "Related Links"
 msgid "Related links:"
 msgstr "Související odkazy:"
 
@@ -8420,7 +8415,6 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:849
-#| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Počet chybných připojení k MySQL serveru."
 
@@ -9620,7 +9614,6 @@ msgid "Line"
 msgstr "Čára"
 
 #: tbl_chart.php:88
-#| msgid "Inline"
 msgid "Spline"
 msgstr "Křivka"
 
@@ -9633,7 +9626,6 @@ msgid "Stacked"
 msgstr "Skládané"
 
 #: tbl_chart.php:94
-#| msgid "Report title:"
 msgid "Chart title"
 msgstr "Název grafu"
 
@@ -9642,32 +9634,26 @@ msgid "X-Axis:"
 msgstr "Osa X:"
 
 #: tbl_chart.php:113
-#| msgid "SQL queries"
 msgid "Series:"
 msgstr "Série:"
 
 #: tbl_chart.php:115
-#| msgid "Textarea columns"
 msgid "The remaining columns"
 msgstr "Zbývající sloupce"
 
 #: tbl_chart.php:128
-#| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "Popis osy X:"
 
 #: tbl_chart.php:128
-#| msgid "Value"
 msgid "X Values"
 msgstr "Hodnoty X"
 
 #: tbl_chart.php:129
-#| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "Popis osy Y:"
 
 #: tbl_chart.php:129
-#| msgid "Value"
 msgid "Y Values"
 msgstr "Hodnoty Y"
 
@@ -10203,8 +10189,6 @@ msgstr "Jméno pohledu"
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Sekundy"
 

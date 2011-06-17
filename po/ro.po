@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-07-22 02:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -10545,13 +10545,9 @@ msgstr "Denumire VIZIUNE"
 msgid "Rename view to"
 msgstr "Redenumire tabel la"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "pe secundă"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Operațiuni asupra rezultatelor interogării"
 
@@ -10565,8 +10561,6 @@ msgstr "Redenumire tabel la"
 #~ msgid "Show processes"
 #~ msgstr "Afișează procesele"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Resetare"
@@ -10585,31 +10579,20 @@ msgstr "Redenumire tabel la"
 #~ "<b>Statistică interogări</b>: De la început, s-au trimis %s interogări la "
 #~ "server."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Drepturile au fost reîncarcate cu succes."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Poate fi aproximativ. Vezi FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Tip interogare"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Adaugă un utilizator nou"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Creare relație"
 

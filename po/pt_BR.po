@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-06-15 13:55+0200\n"
 "Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -1037,10 +1037,8 @@ msgstr "As senhas não são iguais!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user"
-msgstr "Qualquer usuário"
+msgstr "Adicionar usuário"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1145,9 +1143,8 @@ msgid "Issued queries"
 msgstr "Consultas SQL"
 
 #: js/messages.php:89 server_status.php:401
-#, fuzzy
 msgid "Query statistics"
-msgstr "Estatísticas do registros"
+msgstr "Estatísticas de Query"
 
 #: js/messages.php:93 libraries/tbl_properties.inc.php:796 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
@@ -1198,57 +1195,41 @@ msgid "Changing Charset"
 msgstr "Modificando charset"
 
 #: js/messages.php:108
-#, fuzzy
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
-msgstr "Tabela deve ter pelo menos um campo."
+msgstr "A tabela deve ter pelo menos uma coluna"
 
 #: js/messages.php:109
-#, fuzzy
-#| msgid "Create table"
 msgid "Create Table"
-msgstr "Criar tabela"
+msgstr "Criar nova tabela"
 
 #: js/messages.php:114
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Usar tabelas"
+msgstr "Inserir tabela"
 
 #: js/messages.php:117
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
-msgstr "Procurar"
+msgstr "Buscando"
 
 #: js/messages.php:118
-#, fuzzy
-#| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Ocultar critério de pesquisa"
+msgstr "Ocultar resultados da pesquisa"
 
 #: js/messages.php:119
-#, fuzzy
-#| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Exibir critério de pesquisa"
+msgstr "Mostrar resultados da pesquisa"
 
 #: js/messages.php:120
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
-msgstr "Visualizar"
+msgstr "Navegação"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Eliminando %s"
+msgstr "Apagando %s"
 
 #: js/messages.php:124
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Nota: Se o arquivo contém várias tabelas, elas serão combinadas em uma"
 
 #: js/messages.php:127
 msgid "Hide query box"
@@ -1259,10 +1240,8 @@ msgid "Show query box"
 msgstr "Mostrar caixa de consulta"
 
 #: js/messages.php:129
-#, fuzzy
-#| msgid "Engines"
 msgid "Inline Edit"
-msgstr "Engines"
+msgstr "Editar linha"
 
 #: js/messages.php:131 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:317
@@ -1303,20 +1282,20 @@ msgid "Please select the primary key or a unique key"
 msgstr "Por favor, selecione uma chave primária ou uma chave única"
 
 #: js/messages.php:145 pmd_general.php:87 tbl_relation.php:545
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "Escolha o campo para exibir"
+msgstr "Marque a coluna para exibir"
 
 #: js/messages.php:146
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
+"Você não salvou as mudanças no layout. Eles serão perdidos se você não salva-"
+"los. Deseja continuar mesmo assim?"
 
 #: js/messages.php:149
 msgid "Add an option for column "
-msgstr ""
+msgstr "Adicionar uma opção para a coluna"
 
 #: js/messages.php:152
 #, fuzzy
@@ -1329,10 +1308,8 @@ msgid "Generate"
 msgstr "Gerar"
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "Change password"
 msgid "Change Password"
-msgstr "Alterar a senha"
+msgstr "Alterar senha"
 
 #: js/messages.php:157 tbl_structure.php:471
 msgid "More"
@@ -1344,6 +1321,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Uma nova versão do phpMyAdmin está disponível e você deve fazer a "
+"atualização. A nova versão é %s, lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:162
@@ -1351,9 +1330,8 @@ msgid ", latest stable version:"
 msgstr ". última versão estável:"
 
 #: js/messages.php:163
-#, fuzzy
 msgid "up to date"
-msgstr "Sem bases"
+msgstr "até à data"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:181
@@ -1723,45 +1701,37 @@ msgid "Error"
 msgstr "Erro"
 
 #: libraries/Message.class.php:260
-#, fuzzy, php-format
-#| msgid "%1$d row(s) affected."
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d linha(s) afetadas."
+msgstr[0] "%1$d linha afetada."
 msgstr[1] "%1$d linha(s) afetadas."
 
 #: libraries/Message.class.php:279
-#, fuzzy, php-format
-#| msgid "%1$d row(s) deleted."
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d linhas(s) excluídas."
+msgstr[0] "%1$d linhas excluída."
 msgstr[1] "%1$d linhas(s) excluídas."
 
 #: libraries/Message.class.php:298
-#, fuzzy, php-format
-#| msgid "%1$d row(s) inserted."
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d linha(s) inseridas."
+msgstr[0] "%1$d linha inserida."
 msgstr[1] "%1$d linha(s) inseridas."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table"
-msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
+msgstr "Não foi possível salvar a tabela recente"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 msgid "Recent tables"
-msgstr "Sem tabelas"
+msgstr "tabelas recentes"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
-#| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Não existem servidores configurados"
+msgstr "Não existem tabelas recentes"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1805,7 +1775,7 @@ msgstr "Tabela %s renomeada para %s"
 
 #: libraries/Table.class.php:1272
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Não foi possível salvar as preferências da tabela"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1886,7 +1856,7 @@ msgstr "Documentação do phpMyAdmin "
 #: libraries/auth/cookie.auth.lib.php:243
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "Você pode digitar a url/IP e a porta separados por um espaço."
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
@@ -1933,14 +1903,13 @@ msgid "Wrong username/password. Access denied."
 msgstr "Usuário ou senha incorreta. Acesso negado."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 msgid "Can not find signon authentication script:"
-msgstr "Falha na autenticação de hardware"
+msgstr "Não é possível encontrar o script de autenticação de logon"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "Arquivo %s não contém qualquer identificação da chave"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
@@ -1949,7 +1918,7 @@ msgstr "Falha na autenticação de hardware"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Nenhuma chave de autenticação válida foi conectada"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
@@ -1957,21 +1926,19 @@ msgstr "Autenticando..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Erro PBMS"
 
 #: libraries/blobstreaming.lib.php:267
-#, fuzzy
-#| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
-msgstr "Collation de conexão do MySQL"
+msgstr "Falha na conexão PBMS:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "o PBMS falhou na obtenção de informações BLOB:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "a obtenção do Tipo de conteúdo do BLOB falhou"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1992,7 +1959,7 @@ msgstr "Baixar arquivo"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "Não foi possível abrir o arquivo: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
@@ -2023,19 +1990,16 @@ msgid "Overhead"
 msgstr "Sobrecarga"
 
 #: libraries/build_html_for_db.lib.php:93
-#, fuzzy
 msgid "Jump to database"
-msgstr "Sem bases"
+msgstr "Ir para banco de dados"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "Não aplicavel"
 
 #: libraries/build_html_for_db.lib.php:136
-#, fuzzy
-#| msgid "Replication"
 msgid "Replicated"
-msgstr "Replicação"
+msgstr "Replicado"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -2146,7 +2110,7 @@ msgstr "Mensagens do MySQL : "
 
 #: libraries/common.lib.php:1079
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Falha ao conectar ao validador SQL"
 
 #: libraries/common.lib.php:1120 libraries/config/messages.inc.php:472
 msgid "Explain SQL"
@@ -2179,13 +2143,11 @@ msgstr "Validar SQL"
 
 #: libraries/common.lib.php:1246
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Na linha de edição da presente consulta"
 
 #: libraries/common.lib.php:1248
-#, fuzzy
-#| msgid "Engines"
 msgid "Inline"
-msgstr "Engines"
+msgstr "na linha"
 
 #: libraries/common.lib.php:1315 sql.php:921
 msgid "Profiling"
@@ -2316,17 +2278,15 @@ msgstr "Ambos"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Lugar nenhum"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Esquerda"
 
 #: libraries/config.values.php:47
-#, fuzzy
-#| msgid "Height"
 msgid "Right"
-msgstr "Altura"
+msgstr "Direita"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -2387,24 +2347,23 @@ msgid "both of the above"
 msgstr "ambos acima"
 
 #: libraries/config.values.php:123
-#, fuzzy
 msgid "neither of the above"
-msgstr "nenhuma das acima"
+msgstr "nenhuma das acima."
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
 msgid "Not a positive number"
-msgstr ""
+msgstr "Número não positivo"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:435
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "Não é um número negativo"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:409
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Número de porta inválido"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:574
@@ -2421,7 +2380,7 @@ msgstr "O valor precisa ser igual ou menor que %s"
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "dado faltante para %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
@@ -2432,21 +2391,21 @@ msgstr "indisponível"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" requer a extenção %s "
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "Importação não funcionou, função faltante (%s)"
 
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "exportação não vai funcionar, faltando função (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Validador SQL desativado"
 
 #: libraries/config/FormDisplay.class.php:773
 msgid "SOAP extension not found"
@@ -2460,6 +2419,7 @@ msgstr "máximo %s"
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Essa configuração está desativada, não será aplicado à sua configuração"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
@@ -2469,16 +2429,16 @@ msgstr "Desabilitado"
 #: libraries/config/FormDisplay.tpl.php:248
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Definir valor: %s"
 
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:356
 msgid "Restore default value"
-msgstr ""
+msgstr "Restaurar valor padrão"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Permitir a todos os usuários alterar esse valor"
 
 #: libraries/config/FormDisplay.tpl.php:333
 #: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
@@ -2488,7 +2448,7 @@ msgstr "Restaurar"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Melhora a eficiência de atualização da tela"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -2498,11 +2458,12 @@ msgstr "Habilitar Ajax"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Se o usuário habilitado pode entrar em qualquer servidor MySQL em formulário "
+"de login por autenticação cookie"
 
 #: libraries/config/messages.inc.php:20
-#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr "Não foi possível se logar no servidor MySQL"
+msgstr "Permitir login para qualquer servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -2510,10 +2471,13 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Ativando essa opção permite uma página localizada em um domínio diferente "
+"para chamar phpMyAdmin dentro de um quadro, e é um potencial [strong] falha "
+"de segurança [/strong], que permite ataques de script cross-frame"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Permitir elaboração de terceiros"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -10389,13 +10353,9 @@ msgstr "Nome da VISÃO"
 msgid "Rename view to"
 msgstr "Renomear a visão para "
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Segundo"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Operações resultantes das consultas"
 
@@ -10415,8 +10375,6 @@ msgstr "Renomear a visão para "
 #~ msgid "Show processes"
 #~ msgstr "Mostrar os Processos"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Restaurar"
@@ -10435,15 +10393,9 @@ msgstr "Renomear a visão para "
 #~ "<b>Estatísticas das consultas</b>: Desde o início, %s consultas foram "
 #~ "enviadas para o servidor."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Os privilégios foram recarregados com sucesso."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -10458,8 +10410,6 @@ msgstr "Renomear a visão para "
 #~ msgid "Title"
 #~ msgstr "Título"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Tipo de consulta"
 

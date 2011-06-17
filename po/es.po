@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-06-15 23:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -10517,7 +10517,6 @@ msgstr "Cambiar el nombre de la vista a"
 #~ msgid "Bar type"
 #~ msgstr "Tipo de barra"
 
-# It is the opposite of "stacked"
 #~ msgid "Multi"
 #~ msgstr "Separadas"
 
@@ -10557,7 +10556,6 @@ msgstr "Cambiar el nombre de la vista a"
 #~ msgid "Add a new User"
 #~ msgstr "Agregar un nuevo usuario"
 
-# Defines where row-related links are located
 #~ msgid "Show table row links on left side"
 #~ msgstr "Mostrar enlaces a la izquierda de filas de tabla"
 

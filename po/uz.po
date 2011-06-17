@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -11016,13 +11016,9 @@ msgstr "Ном кўриниши"
 msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "секундига"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Сўров натижаларини ишлатиш"
 
@@ -11036,8 +11032,6 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ msgid "Show processes"
 #~ msgstr "Жараёнлар рўйхати"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Тозалаш"
@@ -11056,15 +11050,9 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ "Сўровлар статискаси: ишга туширилгандан вақтдан бошлаб серверга юборилган "
 #~ "сўровлар сони - \"%s\"."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Привилегиялар муваффақиятли қайта юкланди."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -11072,31 +11060,21 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ "Тахминий бўлиши мумкин. [a@./Documentation."
 #~ "html#faq3_11@Documentation]\"FAQ 3.11\"[/a]га қаранг"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Сўров тури"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Янги фойдаланувчи қўшиш"
 
-#, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create User"
 #~ msgstr "Версиясини тузиш"
 
 #~ msgid "Add a new User"
 #~ msgstr "Янги фойдаланувчи қўшиш"
 
-#, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "Чап рамкада логотипни кўрсатиш"
 
-#, fuzzy
-#~| msgid "Delete tracking data for this table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
 

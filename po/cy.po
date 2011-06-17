@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-05-19 21:21+0200\n"
-"Last-Translator:  <ardavies@tiscali.co.uk>\n"
+"Last-Translator: <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
 "Language: cy\n"
 "MIME-Version: 1.0\n"
@@ -9962,28 +9962,18 @@ msgstr "Enw VIEW"
 msgid "Rename view to"
 msgstr "Ailenwch golwg i"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Eiliad"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Gweithrediadau canlyniadau ymholiad"
 
-#, fuzzy
-#~| msgid "Export"
 #~ msgid "Bar type"
 #~ msgstr "Allforio"
 
-#, fuzzy
-#~| msgid "Add a new server"
 #~ msgid "Add a New User"
 #~ msgstr "Ychwanegwch weinydd newydd"
 
-#, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create User"
 #~ msgstr "Crëwch fersiwn"
 

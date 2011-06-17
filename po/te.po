@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-04-07 17:06+0200\n"
 "Last-Translator: <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -9753,8 +9753,6 @@ msgstr "నామధేయమును చూపుము"
 msgid "Rename view to"
 msgstr ""
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "క్షణం"
 
@@ -9767,20 +9765,15 @@ msgstr ""
 #~ msgid "Title"
 #~ msgstr "శీర్షిక"
 
-#, fuzzy
-#~| msgid "Export type"
 #~ msgid "Bar type"
 #~ msgstr "ఎగుమతి రకం"
 
-# మొదటి అనువాదము
 #~ msgid "Add a New User"
 #~ msgstr "కొత్త వాడుకరిని చేర్చు"
 
-# మొదటి అనువాదము
 #~ msgid "Create User"
 #~ msgstr "వాడుకరిని సృష్టించు"
 
-# మొదటి అనువాదము
 #~ msgid "Add a new User"
 #~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
 

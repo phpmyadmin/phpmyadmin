@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-04-16 22:04+0200\n"
 "Last-Translator: <aris_feryanto@yahoo.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
@@ -403,7 +403,7 @@ msgstr "Pemeriksaan terakhir"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabel"
+msgstr[0] "Tunggal% s tabelJamak% s tabel"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -524,7 +524,9 @@ msgstr "Hasil pencarian untuk \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s cocok dalam tabel <i>%s</i>"
+msgstr[0] ""
+"Tunggal% s cocok dalam tabel% <i> s </ i>Jamaks% cocok dalam tabel% <i> s </ "
+"i>"
 
 #: db_search.php:256 libraries/common.lib.php:2765
 #: libraries/common.lib.php:2950 libraries/common.lib.php:2951
@@ -553,7 +555,9 @@ msgstr "Hapus"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
+msgstr[0] ""
+"Tunggal<b> Total: </ b>% <i> s </ i> cocokJamak<b> Total: </ b>% <i> s </ i> "
+"cocok"
 
 #: db_search.php:297
 msgid "Search in database"
@@ -2441,7 +2445,7 @@ msgstr "Reset"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Meningkatkan efisiensi  refresh layar"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
@@ -2464,6 +2468,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Mengaktifkan ini memungkinkan halaman yang terletak pada domain yang berbeda "
+"untuk memanggil phpMyAdmin di dalam frame, dan merupakan [strong]lubang "
+"keamanan[/strong] potensial yang memungkinkan serangan scripting lintas-frame"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -10103,11 +10110,11 @@ msgstr ""
 
 #: tbl_tracking.php:560
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Pilihan ini akan mengganti table dan data isi table"
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr ""
+msgstr "Menjalankan SQL"
 
 #: tbl_tracking.php:572
 #, php-format
@@ -10116,7 +10123,7 @@ msgstr "Ekspor sebagai %s"
 
 #: tbl_tracking.php:612
 msgid "Show versions"
-msgstr ""
+msgstr "Tunjukkan Versi"
 
 #: tbl_tracking.php:644
 msgid "Version"
@@ -10168,7 +10175,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "Dapatkan tema lainnya"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -10208,8 +10215,6 @@ msgstr "Nama VIEW"
 msgid "Rename view to"
 msgstr "Ubah nama tabel menjadi "
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Detik"
 
@@ -10228,7 +10233,6 @@ msgstr "Ubah nama tabel menjadi "
 #~ msgid "JSON encoder is needed for chart tooltips."
 #~ msgstr "JSON encoder diperlukan untuk tooltips pada diagram."
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "Reset"
@@ -10236,8 +10240,6 @@ msgstr "Ubah nama tabel menjadi "
 #~ msgid "Show processes"
 #~ msgstr "Tampilkan Proses"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Reset"
@@ -10256,15 +10258,9 @@ msgstr "Ubah nama tabel menjadi "
 #~ "<b>Informasi statistik</b>: Sejak dihidupkan, %s pencarian telah dikirim "
 #~ "kepada server."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Sukses reload Hak Istimewa (Privileges)."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -10272,8 +10268,6 @@ msgstr "Ubah nama tabel menjadi "
 #~ "Kemungkinan hanya perkiraan saja. Lihat [a@./Documentation."
 #~ "html#faq3_11@Dokumentasi]FAQ 3.11[/a]"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Tipe Pencarian"
 

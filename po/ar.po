@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-04-21 13:56+0200\n"
 "Last-Translator: <u4504712@anu.edu.au>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -10126,21 +10126,15 @@ msgstr ""
 msgid "Rename view to"
 msgstr "أعد تسمية العرض الـ"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "الثانية"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "ناتج استعلام SQL"
 
 #~ msgid "Show processes"
 #~ msgstr "عرض العمليات"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "إلغاء"
@@ -10157,23 +10151,15 @@ msgstr "أعد تسمية العرض الـ"
 #~ "the server."
 #~ msgstr "<b>إحصائيات الاستعلام</b>: %s استعلام أرسل إلى الخادم منذ تشغيله."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "نوع الاستعلام"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "أضف مستخدم جديد"
 
-#, fuzzy
-#~| msgid "Create"
 #~ msgid "Create User"
 #~ msgstr "تكوين"
 

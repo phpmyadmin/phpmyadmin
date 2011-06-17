@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-06-04 15:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -1015,10 +1015,8 @@ msgstr "Dit is geen cijfer!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
-#| msgid "Log file count"
 msgid "Total count"
-msgstr "Log file aantal"
+msgstr "Totaal aantal"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1038,10 +1036,8 @@ msgstr "De wachtwoorden zijn niet gelijk!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user"
-msgstr "Een willekeurige gebruiker"
+msgstr "Gebruiker toevoegen"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1083,7 +1079,7 @@ msgstr "Query grafiek tonen"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Statische data"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
@@ -1096,7 +1092,7 @@ msgstr "Totaal"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:595
 msgid "Other"
-msgstr ""
+msgstr "Andere"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1375
@@ -1207,10 +1203,8 @@ msgid "Create Table"
 msgstr "Maak tabel"
 
 #: js/messages.php:114
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Gebruik tabellen"
+msgstr "Tabel toevoegen"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -5025,24 +5019,20 @@ msgid "Language"
 msgstr "Taal"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
-#| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Textarea kolommen"
+msgstr "Herstel kolom volgorde"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Klik om te selecteren"
+msgstr "Klik om te sorteren"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klik om te markeren/demarkeren"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -8150,10 +8140,8 @@ msgid "wildcard"
 msgstr "jokerteken"
 
 #: server_privileges.php:2295
-#, fuzzy
-#| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "View %s is verwijderd"
+msgstr "Gebruiker is toegevoegd"
 
 #: server_replication.php:49
 msgid "Unknown error"
@@ -8430,16 +8418,12 @@ msgid "Runtime Information"
 msgstr "Runtime-informatie"
 
 #: server_status.php:400
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Serverkeuze"
+msgstr "Serververkeer"
 
 #: server_status.php:402
-#, fuzzy
-#| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Slave status tabel"
+msgstr "alle status variabelen"
 
 #: server_status.php:455
 #, fuzzy
@@ -10407,8 +10391,6 @@ msgstr "VIEW-naam"
 msgid "Rename view to"
 msgstr "Hernoem view naar"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Seconde"
 

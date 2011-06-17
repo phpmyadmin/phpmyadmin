@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-02-24 16:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
@@ -715,16 +715,12 @@ msgid "Analyze table"
 msgstr "Analizuj tabelę"
 
 #: db_structure.php:522
-#, fuzzy
-#| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Przejdź do tabeli"
+msgstr "Dodaj prefiks do tabeli"
 
 #: db_structure.php:524 libraries/mult_submits.inc.php:246
-#, fuzzy
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Zamiana danych tabeli z plikiem"
+msgstr "Zmień prefiks tabeli"
 
 #: db_structure.php:526 libraries/mult_submits.inc.php:246
 #, fuzzy
@@ -10773,8 +10769,6 @@ msgstr "Nazwa widoku"
 msgid "Rename view to"
 msgstr "Zmień nazwę perspektywy na"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Sekunda"
 
@@ -10803,8 +10797,6 @@ msgstr "Zmień nazwę perspektywy na"
 #~ msgid "Show processes"
 #~ msgstr "Pokaż procesy"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Resetuj"
@@ -10823,27 +10815,17 @@ msgstr "Zmień nazwę perspektywy na"
 #~ "<b>Statystyki zapytań</b>: Od rozpoczęcia jego pracy, do serwera zostało "
 #~ "wysłanych %s zapytań."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Uprawnienia zostały pomyślnie przeładowane."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Być może w przybliżeniu. Zobacz FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Rodzaj zapytania"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Dodaj nowego użytkownika"
 
@@ -10853,8 +10835,6 @@ msgstr "Zmień nazwę perspektywy na"
 #~ msgid "Add a new User"
 #~ msgstr "Dodaj nowego użytkownika"
 
-#, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "Pokaż logo w lewej ramce"
 

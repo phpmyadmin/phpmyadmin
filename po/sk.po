@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-06-03 14:53+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -1036,10 +1036,8 @@ msgstr "Heslá sa nezhodujú!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user"
-msgstr "Akýkoľvek používateľ"
+msgstr "Pridať používateľa"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1205,10 +1203,8 @@ msgid "Create Table"
 msgstr "Vytvoriť tabuľku"
 
 #: js/messages.php:114
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Použiť tabuľky"
+msgstr "Pridať tabuľku"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -1712,9 +1708,8 @@ msgstr[1] "Boli vložené %1$d riadky."
 msgstr[2] "Bolo vložených %1$d riadkov."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 msgid "Could not save recent table"
-msgstr "Slave replikácia"
+msgstr "Nepodarilo sa uložiť najnovšíu tabuľku"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
@@ -10110,8 +10105,6 @@ msgstr "Meno pohľadu"
 msgid "Rename view to"
 msgstr "Premenovať pohľad na"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Sekundy"
 
@@ -10189,8 +10182,6 @@ msgstr "Premenovať pohľad na"
 #~ msgid "Show table row links on right side"
 #~ msgstr "Zobrazí odkazy riadkov tabuľky na pravej strane"
 
-#, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Sťahujem dáta pre tabuľku"
 

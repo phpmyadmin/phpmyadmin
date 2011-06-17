@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-03-30 23:09+0200\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: belarusian_latin <be@latin@li.org>\n"
@@ -10551,13 +10551,9 @@ msgstr "Nazva prahladu"
 msgid "Rename view to"
 msgstr ""
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "u sekundu"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Dziejańni z vynikami zapytaŭ"
 
@@ -10571,8 +10567,6 @@ msgstr ""
 #~ msgid "Show processes"
 #~ msgstr "Pakazać pracesy"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Skinuć"
@@ -10591,32 +10585,20 @@ msgstr ""
 #~ "Statystyka zapytaŭ: Z momantu zapusku %s zapytaŭ było adpraŭlena na "
 #~ "server."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Značeńnie moža być prybliznym. Hł. FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Typ zapytu"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Dadać novaha karystalnika"
 
-#, fuzzy
-#~| msgid "Create"
 #~ msgid "Create User"
 #~ msgstr "Stvaryć"
 

@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-05-06 09:13+0200\n"
-"Last-Translator:  <manojonemail@gmail.com>\n"
+"Last-Translator: <manojonemail@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -1034,10 +1034,8 @@ msgstr "पासवर्ड मिलते झूलते नहीं ह�
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user"
-msgstr "कोई भी यूसर"
+msgstr "naya upyokta"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -9851,8 +9849,6 @@ msgstr "दृश्य का नाम"
 msgid "Rename view to"
 msgstr "दृश्य का नाम बदलो"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "सेकंड"
 

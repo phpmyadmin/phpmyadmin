@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-03-12 09:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -10848,13 +10848,9 @@ msgstr "VIEW name"
 msgid "Rename view to"
 msgstr "Rename table to"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "წამში"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Query results operations"
 
@@ -10868,8 +10864,6 @@ msgstr "Rename table to"
 #~ msgid "Show processes"
 #~ msgstr "პროცესების ჩვენება"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "დაბრუნება"
@@ -10888,15 +10882,9 @@ msgstr "Rename table to"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "The privileges were reloaded successfully."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -10904,25 +10892,18 @@ msgstr "Rename table to"
 #~ "შეიძლება იყოს მიახლოებითი. იხილეთ [a@./Documentation."
 #~ "html#faq3_11@Documentation]FAQ 3.11[/a]"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "მოთხოვნის ტიპი"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "ახალი მომხმარებლის დამატება"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Create relation"
 
 #~ msgid "Add a new User"
 #~ msgstr "ახალი მომხმარებლის დამატება"
 
-#, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "მარცხენა ჩარჩოში ლოგოს ჩვენება"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-07-22 02:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: tatarish <tt@li.org>\n"
@@ -10295,13 +10295,9 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Tüşämä adın üzgärtü"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "sekund sayın"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Soraw qaytarmasın eşkärtü"
 
@@ -10312,8 +10308,6 @@ msgstr "Tüşämä adın üzgärtü"
 #~ msgid "Show processes"
 #~ msgstr "Proseslär tezmäse"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Awdar"
@@ -10331,31 +10325,20 @@ msgstr "Tüşämä adın üzgärtü"
 #~ msgstr ""
 #~ "<b>Soraw nöfüse</b>: Bu server yöklännän birle, aña taba %s soraw kilgän."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Bu xoquqlarnı yökläw uñışlı uzdı."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Törle buluı bar. YBS 3.11 qarísı"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Soraw töre"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Yaña qullanuçı östäw"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Server söreme"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-03-26 03:23+0200\n"
 "Last-Translator: <efgpinto@gmail.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
@@ -113,6 +113,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"O ficheiro %s não está disponível no seu sistema, por favor visite www."
+"phpmyadmin.net para mais informações."
 
 #: db_create.php:58
 #, php-format
@@ -815,7 +817,7 @@ msgstr "Introduza cada valor num campo separado."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Reiniciar inserção e adicionar um novo valor"
 
 #: enum_editor.php:67
 msgid "Output"
@@ -823,7 +825,7 @@ msgstr ""
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Copie e cole os valores juntos para o campo \"Comprimento/Valores\""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
@@ -973,16 +975,12 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
 
 #: js/messages.php:32
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
+msgstr "Está prestes a DESTRUIR uma base de dados completa!"
 
 #: js/messages.php:33
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Estará prestes a DESTRUIR uma base de dados completa!"
+msgstr "Está prestes a TRUNCAR uma base de dados completa!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
@@ -1049,10 +1047,8 @@ msgstr ""
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user"
-msgstr "Qualquer utilizador"
+msgstr "Adicionar utilizador"
 
 #: js/messages.php:59
 #, fuzzy
@@ -1278,17 +1274,15 @@ msgstr "Guarda"
 #: js/messages.php:132 libraries/display_tbl.lib.php:637 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
-msgstr ""
+msgstr "Esconder"
 
 #: js/messages.php:135
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "Comando SQL"
+msgstr "Esconder critérios de buca"
 
 #: js/messages.php:136
-#, fuzzy
 msgid "Show search criteria"
-msgstr "Comando SQL"
+msgstr "Mostrar critérios de busca"
 
 #: js/messages.php:139 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1305,7 +1299,7 @@ msgstr "Seleccione Foreign Key"
 
 #: js/messages.php:144
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Por favor seleccione a chave primária ou a chave única "
 
 #: js/messages.php:145 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
@@ -10149,17 +10143,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Renomeia a vista para "
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "por segundo"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "Resultado SQL"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "Limpa"
@@ -10167,8 +10156,6 @@ msgstr "Renomeia a vista para "
 #~ msgid "Show processes"
 #~ msgstr "Mostra os Processos"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Limpa"
@@ -10187,13 +10174,9 @@ msgstr "Renomeia a vista para "
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "O privilégios foram recarregados com sucesso."
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Tipo de Query"
 

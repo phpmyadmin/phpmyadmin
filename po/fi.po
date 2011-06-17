@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-11-26 21:29+0200\n"
 "Last-Translator: <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
@@ -967,10 +967,8 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen tietokannan!"
 
 #: js/messages.php:32
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen tietokannan!"
+msgstr "Olet aikeissasi HÄVITTÄÄ kokonaisen taulun!"
 
 #: js/messages.php:33
 #, fuzzy
@@ -1041,10 +1039,8 @@ msgstr "Salasanat eivät ole samat!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
-#| msgid "Any user"
 msgid "Add user"
-msgstr "Kuka tahansa käyttäjä"
+msgstr "Lisää käyttäjä"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1274,16 +1270,12 @@ msgid "Hide"
 msgstr "Kätke"
 
 #: js/messages.php:135
-#, fuzzy
-#| msgid "Hide query box"
 msgid "Hide search criteria"
-msgstr "Piilota SQL-kyselykenttä"
+msgstr "Piilota hakusanat"
 
 #: js/messages.php:136
-#, fuzzy
-#| msgid "Show query box"
 msgid "Show search criteria"
-msgstr "Näytä kyselykenttä"
+msgstr "Näytä hakusanat"
 
 #: js/messages.php:139 tbl_change.php:303 tbl_indexes.php:198
 #: tbl_indexes.php:223
@@ -1343,10 +1335,8 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:162
-#, fuzzy
-#| msgid "Check for latest version"
 msgid ", latest stable version:"
-msgstr "Tarkista uusin versio"
+msgstr "Viimeisin vakaa versio"
 
 #: js/messages.php:163
 #, fuzzy
@@ -1976,7 +1966,7 @@ msgstr "Tiedostoa ei voida avata: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "jaettu"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
@@ -2282,29 +2272,27 @@ msgstr "Lähetettäviä tiedostoja ei ole"
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
 msgid "Both"
-msgstr ""
+msgstr "Molemmat"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Ei missään"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Vasen"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Oikea"
 
 #: libraries/config.values.php:75
 msgid "Open"
-msgstr ""
+msgstr "Avaa"
 
 #: libraries/config.values.php:75
-#, fuzzy
-#| msgid "Close"
 msgid "Closed"
-msgstr "Sulje"
+msgstr "Suljettu"
 
 #: libraries/config.values.php:96 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:41 libraries/export/odt.php:33
@@ -2453,10 +2441,8 @@ msgid "Improves efficiency of screen refresh"
 msgstr ""
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable Ajax"
-msgstr "Päällä"
+msgstr "Aktivoi Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
@@ -2980,11 +2966,11 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr ""
+msgstr "Kehittäjä"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Asetukset phpMyAdmin-kehittäjille"
 
 #: libraries/config/messages.inc.php:162
 msgid "Edit mode"
@@ -3273,14 +3259,12 @@ msgid "Texy! text"
 msgstr "Texy!-teksti"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
-#| msgid "Warning"
 msgid "Warnings"
-msgstr "Varoitus"
+msgstr "Varoitukset"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Kytke osa phpMyAdminin näyttämistä varoituksista pois päältä"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
@@ -3774,25 +3758,19 @@ msgstr "Oletusarvoinen kyselyikkunavälilehti"
 
 #: libraries/config/messages.inc.php:344
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Kyselyikkunan korkeus (pikseleissä)"
 
 #: libraries/config/messages.inc.php:345
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window height"
-msgstr "Kyselyikkuna"
+msgstr "Kyselyikkunan korkeus"
 
 #: libraries/config/messages.inc.php:346
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Kyselyikkuna"
+msgstr "Kyselyikkunan leveys (pikseleissä)"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
-#| msgid "Query window"
 msgid "Query window width"
-msgstr "Kyselyikkuna"
+msgstr "Kyselyikkunan leveys"
 
 #: libraries/config/messages.inc.php:348
 msgid "Select which functions will be used for character set conversion"
@@ -4857,10 +4835,8 @@ msgid "Password Hashing"
 msgstr "Salasanan salaus"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 -yhteensopiva"
+msgstr "MySQL 4.0 -yhteensopiva"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
@@ -5038,22 +5014,16 @@ msgid "None"
 msgstr "Ei mitään"
 
 #: libraries/display_export.lib.php:315
-#, fuzzy
-#| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zip-pakattu\""
+msgstr "zip-pakattu"
 
 #: libraries/display_export.lib.php:317
-#, fuzzy
-#| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzip-pakkaus\""
+msgstr "gzip-pakattu"
 
 #: libraries/display_export.lib.php:319
-#, fuzzy
-#| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzip-pakkaus\""
+msgstr "bzip-pakattu"
 
 #: libraries/display_export.lib.php:328
 #, fuzzy
@@ -5340,16 +5310,12 @@ msgid "Print view (with full texts)"
 msgstr "Tulostusversio (kokonaisin tekstein)"
 
 #: libraries/display_tbl.lib.php:2454 tbl_chart.php:83
-#, fuzzy
-#| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Näytä PDF-kaavio"
+msgstr "Näytä kaavio"
 
 #: libraries/display_tbl.lib.php:2473
-#, fuzzy
-#| msgid "Create User"
 msgid "Create view"
-msgstr "Luo käyttäjä"
+msgstr "Luo näkymä"
 
 #: libraries/display_tbl.lib.php:2588
 msgid "Link not found"
@@ -5910,10 +5876,8 @@ msgstr "Sarakkeiden kommentit näkyvissä"
 
 #: libraries/export/latex.php:62 libraries/export/odt.php:48
 #: libraries/export/sql.php:60
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Mahdolliset MIME-tyypit"
+msgstr "Näytä MIME-tyypit"
 
 #: libraries/export/latex.php:139 libraries/export/sql.php:452
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
@@ -5953,10 +5917,8 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Luo raportin, joka sisältää yhden taulun tiedot)"
 
 #: libraries/export/pdf.php:24
-#, fuzzy
-#| msgid "Report title"
 msgid "Report title:"
-msgstr "Raportin otsikko"
+msgstr "Raportin otsikko:"
 
 #: libraries/export/php_array.php:16
 msgid "PHP array"
@@ -6764,10 +6726,8 @@ msgid "Create a page"
 msgstr "Luo uusi sivu"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "Sivunumero:"
+msgstr "Sivun nimi"
 
 #: libraries/schema/User_Schema.class.php:103
 #, fuzzy
@@ -6836,10 +6796,8 @@ msgid "Portrait"
 msgstr "Pystytasossa"
 
 #: libraries/schema/User_Schema.class.php:394
-#, fuzzy
-#| msgid "Creation"
 msgid "Orientation"
-msgstr "Luotu"
+msgstr "Suunta"
 
 #: libraries/schema/User_Schema.class.php:407
 msgid "Paper size"
@@ -6875,10 +6833,8 @@ msgid "Current Server"
 msgstr "Nykyinen palvelin"
 
 #: libraries/server_links.inc.php:73
-#, fuzzy
-#| msgid "settings"
 msgid "Settings"
-msgstr "asetukset"
+msgstr "Asetukset"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1087
 #: server_synchronize.php:1095
@@ -6941,10 +6897,8 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 #: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "Sarakkeiden nimet"
+msgstr "Sarakkeet"
 
 #: libraries/sql_query_form.lib.php:336 sql.php:999 sql.php:1000 sql.php:1017
 msgid "Bookmark this SQL query"
@@ -7467,21 +7421,16 @@ msgid "Official Homepage"
 msgstr "phpMyAdminin kotisivut"
 
 #: main.php:217
-#, fuzzy
-#| msgid "Attributes"
 msgid "Contribute"
-msgstr "Attribuutit"
+msgstr "Osallistu"
 
 #: main.php:218
-#, fuzzy
 msgid "Get support"
-msgstr "Vienti"
+msgstr "Hanki tukea"
 
 #: main.php:219
-#, fuzzy
-#| msgid "No change"
 msgid "List of changes"
-msgstr "Ei muutoksia"
+msgstr "Muutoslista"
 
 #: main.php:243
 msgid ""
@@ -7718,10 +7667,8 @@ msgid "Rename to"
 msgstr "Nimeä taulu uudelleen"
 
 #: pmd_general.php:482 pmd_general.php:581
-#, fuzzy
-#| msgid "User name"
 msgid "New name"
-msgstr "Käyttäjänimi"
+msgstr "Uusi nimi"
 
 #: pmd_general.php:485 pmd_general.php:700
 #, fuzzy
@@ -7836,10 +7783,9 @@ msgid "Modifications have been saved"
 msgstr "Muutokset tallennettu"
 
 #: prefs_forms.php:78
-#, fuzzy
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Lähetetyssä lomakkeessa on virheitä"
+msgstr ""
+"Asetuksia ei voitu tallentaa, sillä lähetetyssä lomakkeessa on virheitä"
 
 #: prefs_manage.php:80
 #, fuzzy
@@ -8474,10 +8420,9 @@ msgid "Unable to change master"
 msgstr "Pääpalvelinta ei voitu vaihtaa"
 
 #: server_replication.php:72
-#, fuzzy, php-format
-#| msgid "Master server changed succesfully to %s"
+#, php-format
 msgid "Master server changed successfully to %s"
-msgstr "Isäntäpalvelimeksi on onnistuen vaihdettu %s"
+msgstr "%s on onnistuneesti vaihdettu isäntäpalvelimeksi"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
@@ -9634,13 +9579,11 @@ msgstr "Seuraavat kyselyt on suoritettu:"
 
 #: server_synchronize.php:1126
 msgid "Enter manually"
-msgstr ""
+msgstr "Syötä käsin"
 
 #: server_synchronize.php:1134
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Current connection"
-msgstr "Salaamaton yhteys"
+msgstr "Nykyinen yhteys"
 
 #: server_synchronize.php:1163
 #, fuzzy, php-format
@@ -9718,10 +9661,8 @@ msgid "Insecure connection"
 msgstr "Salaamaton yhteys"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configuration saved."
-msgstr "Asetustiedosto"
+msgstr "Asetukset tallennettiin"
 
 #: setup/frames/index.inc.php:93
 msgid ""
@@ -10804,8 +10745,6 @@ msgstr "VIEW-arvon nimi"
 msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Sekunti"
 
@@ -10834,8 +10773,6 @@ msgstr "Nimeä taulu uudelleen"
 #~ msgid "Show processes"
 #~ msgstr "Näytä prosessit"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Nollaa"
@@ -10854,22 +10791,14 @@ msgstr "Nimeä taulu uudelleen"
 #~ "<b>Kyselytilastot</b>: Tälle palvelimelle on lähetetty viime "
 #~ "käynnistyksestä lähtien %s kyselyä."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Saattaa olla summittainen. Katso FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Kyselyn tyyppi"
 
@@ -10882,8 +10811,6 @@ msgstr "Nimeä taulu uudelleen"
 #~ msgid "Add a new User"
 #~ msgstr "Lisää uusi käyttäjä"
 
-#, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "Näytä vasemmassa kehyksessä logo"
 

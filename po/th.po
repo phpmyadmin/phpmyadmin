@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: thai <th@li.org>\n"
@@ -10099,17 +10099,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "เปลี่ยนชื่อตารางเป็น"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "ต่อวินาที"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "ผลลัพธ์ SQL"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "เริ่มใหม่"
@@ -10117,8 +10112,6 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ msgid "Show processes"
 #~ msgstr "แสดงงานที่ทำอยู่ของ MySQL"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "เริ่มใหม่"
@@ -10135,22 +10128,15 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ "the server."
 #~ msgstr "<b>สถิติคำค้น</b>: มี %s คำค้น ถูกส่งไปที่เซิร์ฟเวอร์ นับตั้งแต่เริ่มระบบ."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "ชนิดคำค้น"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "เพิ่มผู้ใช้ใหม่"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "รุ่นของเซิร์ฟเวอร์"
 

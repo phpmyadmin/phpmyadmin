@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-05-27 18:52+0200\n"
-"Last-Translator:  <slygyor@gmail.com>\n"
+"Last-Translator: <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -4830,7 +4830,7 @@ msgstr "Sorok:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Néhány sor dumpolása"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
@@ -4842,7 +4842,7 @@ msgstr "Ettől a sortól kezdve:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr ""
+msgstr "Összes sor dumpolása"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
@@ -10586,8 +10586,6 @@ msgstr "NÉZET neve"
 msgid "Rename view to"
 msgstr "Nézet átnevezése"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "másodperc"
 
@@ -10616,8 +10614,6 @@ msgstr "Nézet átnevezése"
 #~ msgid "Show processes"
 #~ msgstr "Folyamatok megjelenítése"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Törlés"
@@ -10639,10 +10635,6 @@ msgstr "Nézet átnevezése"
 #~ msgid "Chart generated successfully."
 #~ msgstr "A grafikon generálása sikeres."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"

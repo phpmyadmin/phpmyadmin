@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-04-06 18:43+0200\n"
 "Last-Translator: <theranchcowboy@googlemail.com>\n"
 "Language-Team: serbian_cyrillic <sr@li.org>\n"
@@ -10472,13 +10472,9 @@ msgstr "назив за VIEW"
 msgid "Rename view to"
 msgstr "Промени име табеле у "
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "у секунди"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Операције на резултатима упита"
 
@@ -10492,8 +10488,6 @@ msgstr "Промени име табеле у "
 #~ msgid "Show processes"
 #~ msgstr "Прикажи листу процеса"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Поништи"
@@ -10512,31 +10506,20 @@ msgstr "Промени име табеле у "
 #~ "<b>Статистике упита</b>: %s упита је постављено серверу од његовог "
 #~ "покретања."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Привилегије су успешно поново учитане."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Може бити приближно. Видите FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Врста упита"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Додај новог корисника"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Направи релацију"
 

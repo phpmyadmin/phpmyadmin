@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-07-22 02:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_latin <uz@latin@li.org>\n"
@@ -11082,13 +11082,9 @@ msgstr "Nom ko‘rinishi"
 msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "sekundiga"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "So‘rov natijalarini ishlatish"
 
@@ -11102,8 +11098,6 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ msgid "Show processes"
 #~ msgstr "Jarayonlar ro‘yxati"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Tozalash"
@@ -11122,15 +11116,9 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ "So‘rovlar statiskasi: ishga tushirilgandan vaqtdan boshlab serverga "
 #~ "yuborilgan so‘rovlar soni - \"%s\"."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Privilegiyalar muvaffaqiyatli qayta yuklandi."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -11138,26 +11126,18 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ "Taxminiy bo‘lishi mumkin. [a@./Documentation."
 #~ "html#faq3_11@Documentation]\"FAQ 3.11\"[/a]ga qarang"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "So‘rov turi"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Yangi foydalanuvchi qo‘shish"
 
-#, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create User"
 #~ msgstr "Vеrsiyasini tuzish"
 
 #~ msgid "Add a new User"
 #~ msgstr "Yangi foydalanuvchi qo‘shish"
 
-#, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "Chap ramkada logotipni ko‘rsatish"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-12-28 22:26+0200\n"
 "Last-Translator: Olexiy Zagorskyi <zalex_ua@i.ua>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
@@ -9886,8 +9886,6 @@ msgstr ""
 msgid "Rename view to"
 msgstr ""
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Секунда"
 
@@ -9897,8 +9895,6 @@ msgstr ""
 #~ msgid "Show processes"
 #~ msgstr "Показати процеси"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Перевстановити"
@@ -9917,13 +9913,9 @@ msgstr ""
 #~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано "
 #~ "%s запитів."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Права успішно перезавантажено."
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Тип запиту"
 

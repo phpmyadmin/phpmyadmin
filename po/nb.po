@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-03-07 11:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
@@ -10484,8 +10484,6 @@ msgstr "VIEW navn"
 msgid "Rename view to"
 msgstr "Endre tabellens navn"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Sekund"
 
@@ -10532,22 +10530,14 @@ msgstr "Endre tabellens navn"
 #~ "<b>Spørrings statistikk</b>: Siden oppstart, har %s spørringer blitt "
 #~ "sendt til tjeneren."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Oppfriskingen av privilegiene lyktes."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Kan være unøyaktig. Se FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Spørringstype"
 
@@ -10560,7 +10550,5 @@ msgstr "Endre tabellens navn"
 #~ msgid "Add a new User"
 #~ msgstr "Legg til en ny bruker"
 
-#, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "Vis logo i venstre ramme"

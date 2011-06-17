@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator: <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -10018,17 +10018,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "초"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "SQL 결과"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "리세트"
@@ -10036,8 +10031,6 @@ msgstr "테이블 이름 바꾸기"
 #~ msgid "Show processes"
 #~ msgstr "MySQL 프로세스 보기"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "리세트"
@@ -10054,15 +10047,9 @@ msgstr "테이블 이름 바꾸기"
 #~ "the server."
 #~ msgstr "<b>SQL 질의 통계</b>: 이 서버에 %s 번의 질의가 보내졌습니다."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "권한을 다시 로딩했습니다."
 
-#, fuzzy
-#~| msgid ""
-#~| "Error moving the uploaded file, see [a@./Documentation."
-#~| "html#faq1_11@Documentation]FAQ 1.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -10070,17 +10057,12 @@ msgstr "테이블 이름 바꾸기"
 #~ "업로드된 파일을 이동시킬 수 없었습니다. [a@./Documentation."
 #~ "html#faq1_11@Documentation]FAQ 1.11[/a] 참조."
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "질의 종류"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "새 사용자 추가"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "서버 버전"
 

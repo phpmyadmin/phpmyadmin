@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-05-25 22:43+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -1715,10 +1715,8 @@ msgid "Could not save recent table"
 msgstr "Impossibile salvare la configurazione"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
-#| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Conta tabbelle"
+msgstr "Conta tabelle"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
@@ -10286,16 +10284,13 @@ msgid "Tracking data definition successfully deleted"
 msgstr "Le definizioni dei dati di monitoraggio eliminati con successo"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
-#| msgid "Gather errors"
 msgid "Query error"
-msgstr "Errore della query"
+msgstr "Errore nella query"
 
 #: tbl_tracking.php:399
-#, fuzzy
-#| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Le manipolazioni dei dati di monitoraggio eliminati con successo"
+msgstr ""
+"Le manipolazioni dei dati di monitoraggio sono stati cancellati con successo"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
@@ -10441,8 +10436,6 @@ msgstr "Nome VISTA"
 msgid "Rename view to"
 msgstr "Rinomina la vista in"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "Secondo"
 

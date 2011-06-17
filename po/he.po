@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-03-02 20:17+0200\n"
 "Last-Translator: <zippoxer@gmail.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
@@ -10117,17 +10117,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "שינוי שם טבלה אל"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "לשנייה"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "תוצאת SQL"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "איפוס"
@@ -10135,8 +10130,6 @@ msgstr "שינוי שם טבלה אל"
 #~ msgid "Show processes"
 #~ msgstr "ראיית תהליכים"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "איפוס"
@@ -10146,31 +10139,20 @@ msgstr "שינוי שם טבלה אל"
 #~ "the server."
 #~ msgstr "<b>סטטיטיקת שאילתות</b>: מאז ההפעלה, %s שאילתות נשלחו לשרת."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "ההרשאות נטענו מחדש בהצלחה."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "יכול להיות הערכה. ראה FAQ 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "סוג שאילתה"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "הוספת משתמש חדש"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "גרסת שרת"
 

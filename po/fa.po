@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator: <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -403,7 +403,7 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s جدول"
+msgstr[0] "s% جدولs% جداول"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -526,7 +526,7 @@ msgstr "نتيجه جستجوي \"<i>%s</i>\" %s:"
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s عبارت همتا در جدول <i>%s</i>"
+msgstr[0] "s% عبارت همتا در جدول <i>%s</i>s% عبارت همتا در جدول <i>%s</i>"
 
 #: db_search.php:256 libraries/common.lib.php:2765
 #: libraries/common.lib.php:2950 libraries/common.lib.php:2951
@@ -9983,17 +9983,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "بازناميدن جدول به"
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr " ثانیه"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "نتيجه SQL"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "Reset"
@@ -10001,23 +9996,16 @@ msgstr "بازناميدن جدول به"
 #~ msgid "Show processes"
 #~ msgstr "نمايش فرايندها"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Reset"
 
-#, fuzzy
-#~| msgid "Export"
 #~ msgid "Bar type"
 #~ msgstr "صدور"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "افزودن يك كاربر جديد"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "نسخه سرور"
 

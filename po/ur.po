@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2011-04-23 08:37+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -9846,8 +9846,6 @@ msgstr ""
 msgid "Rename view to"
 msgstr ""
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "سیکنڈ"
 
@@ -9866,8 +9864,6 @@ msgstr ""
 #~ msgid "JSON encoder is needed for chart tooltips."
 #~ msgstr "JSON ضابطہ کار اس چارٹ ٹول ٹّوٹکے کے لیے درکار ہے۔"
 
-#, fuzzy
-#~| msgid "Export"
 #~ msgid "Bar type"
 #~ msgstr "برآمد"
 

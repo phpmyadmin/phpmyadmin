@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-08-26 11:59+0200\n"
 "Last-Translator: <gheni@yahoo.cn>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -9849,15 +9849,9 @@ msgstr ""
 msgid "Rename view to"
 msgstr ""
 
-#, fuzzy
-#~| msgid "Second"
 #~ msgid "seconds"
 #~ msgstr "سېكنۇت"
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
@@ -9865,13 +9859,9 @@ msgstr ""
 #~ "ئېنىقسىزلىك بولۇشى مۇمكىن. [a@./Documentation.html#faq3_11@Documentation]"
 #~ "FAQ 3.11[/a] غا قاراڭ."
 
-#, fuzzy
-#~| msgid "Export"
 #~ msgid "Bar type"
 #~ msgstr "چىقىرىش"
 
-#, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create User"
 #~ msgstr "نەشىرنى قۇىماق"
 

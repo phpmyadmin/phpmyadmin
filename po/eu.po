@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-07-21 14:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -10211,17 +10211,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Taula berrizendatu izen honetara: "
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "segunduko"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "SQL emaitza"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "Reset egin"
@@ -10229,8 +10224,6 @@ msgstr "Taula berrizendatu izen honetara: "
 #~ msgid "Show processes"
 #~ msgstr "Erakutsi prozesuak"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Reset egin"
@@ -10249,22 +10242,15 @@ msgstr "Taula berrizendatu izen honetara: "
 #~ "<b>Kontsultaren estatistikak</b>: Bere hasieratik, %s kontsulta "
 #~ "zerbitzarira bidali dira."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Pribilegioak arrakastaz berkargatu dira."
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Kontsulta mota"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Erabiltzaile berria gehitu"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Zerbitzariaren bertsioa"
 

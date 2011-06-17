@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-07-21 14:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: croatian <hr@li.org>\n"
@@ -10547,13 +10547,9 @@ msgstr "Naziv prikaza"
 msgid "Rename view to"
 msgstr "Preimenuj prikaz u"
 
-#, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "po sekundi"
 
-#, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Operacije rezultata upita"
 
@@ -10567,8 +10563,6 @@ msgstr "Preimenuj prikaz u"
 #~ msgid "Show processes"
 #~ msgstr "Prikaži procese"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Povrat"
@@ -10586,31 +10580,20 @@ msgstr "Preimenuj prikaz u"
 #~ msgstr ""
 #~ "<b>Statistike upita</b>: Od pokretanja poslužitelju je upućeno %s upita."
 
-#, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Privilegije su uspješno učitane."
 
-#, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Može biti približno. Pogledajte ČPP 3.11"
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Vrsta upita"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Dodaj novog korisnika"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Izradi relaciju"
 

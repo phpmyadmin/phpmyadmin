@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 10:36+0200\n"
+"POT-Creation-Date: 2011-06-17 10:58+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: malay <ms@li.org>\n"
@@ -100,7 +100,7 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Gagal untuk membuka URL "
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -108,6 +108,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Fail %s tidak ada di dalam sistem, sila ke laman sesawang www.phpmyadmin.net "
+"untuk maklumat lanjut"
 
 #: db_create.php:58
 #, fuzzy, php-format
@@ -315,7 +317,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:135 tbl_operations.php:556
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Tambah %s"
 
 #: db_operations.php:511 libraries/config/messages.inc.php:119
 #: tbl_operations.php:314 tbl_operations.php:558
@@ -328,7 +330,7 @@ msgstr ""
 
 #: db_operations.php:528
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Tukar kepada pengkalan data yang di salin"
 
 #: db_operations.php:552 libraries/Index.class.php:447
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -405,7 +407,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:919
 msgid "Last check"
-msgstr ""
+msgstr "Semakan Terakhir"
 
 #: db_printview.php:220 db_structure.php:440
 #, fuzzy, php-format
@@ -10052,17 +10054,12 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Tukarnama jadual ke"
 
-#, fuzzy
-#~| msgid "Records"
 #~ msgid "seconds"
 #~ msgstr "Rekod"
 
-#, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "Hasil SQL"
 
-#, fuzzy
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
 #~ msgstr "Ulangtetap"
@@ -10070,8 +10067,6 @@ msgstr "Tukarnama jadual ke"
 #~ msgid "Show processes"
 #~ msgstr "Papar proses"
 
-#, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Ulangtetap"
@@ -10090,22 +10085,15 @@ msgstr "Tukarnama jadual ke"
 #~ "<b>Kueri Statistik</b>: Sejak ia dijalankan, %s kueri telah dihantar "
 #~ "kepada pelayan."
 
-#, fuzzy
-#~| msgid "Thread %s was successfully killed."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Bebenang %s telah berjaya dimatikan."
 
-#, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Jenis Kueri"
 
-#, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Tambah Pengguna Baru"
 
-#, fuzzy
 #~ msgid "Create User"
 #~ msgstr "Versi Pelayan"
 
