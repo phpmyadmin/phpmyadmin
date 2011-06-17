@@ -21,6 +21,21 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
 require_once './libraries/common.inc.php';
 
 /**
+ * Function to output refresh rate selection.
+ */
+function PMA_choose_refresh_rate() {
+    echo '<option value="5">' . __('Refresh rate') . '</option>';
+    foreach(array(1, 2, 5, 1, 20, 40, 60, 120, 300, 600) as $key => $rate) {
+        if ($rate % 60 == 0) {
+            $minrate = $rate / 60;
+            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d minute', '%d minutes', $minrate), $minrate) . '</option>';
+        } else {
+            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
+        }
+    }
+}
+
+/**
  * Ajax request
  */
 
@@ -394,17 +409,7 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <select name="trafficChartRefresh" style="display:none;">
-                    <option value="5"><?php echo __('Refresh rate'); ?></option>
-                    <option value="1">1 <?php echo __('second'); ?></option>
-                    <option value="2">2 <?php echo __('seconds'); ?></option>
-                    <option value="5">5 <?php echo __('seconds'); ?></option>
-                    <option value="10">10 <?php echo __('seconds'); ?></option>
-                    <option value="20">20 <?php echo __('seconds'); ?></option>
-                    <option value="40">40 <?php echo __('seconds'); ?></option>
-                    <option value="60">1 <?php echo __('minutes'); ?></option>
-                    <option value="120">2 <?php echo __('minutes'); ?></option>
-                    <option value="300">5 <?php echo __('minutes'); ?></option>
-                    <option value="600">10 <?php echo __('minutes'); ?></option>
+                    <?php PMA_choose_refresh_rate(); ?>
                 </select>
 
                 <a class="tabChart livetrafficLink" href="#">
@@ -427,17 +432,7 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <select name="queryChartRefresh" style="display:none;">
-                    <option value="5"><?php echo __('Refresh rate'); ?></option>
-                    <option value="1">1 <?php echo __('second'); ?></option>
-                    <option value="2">2 <?php echo __('seconds'); ?></option>
-                    <option value="5">5 <?php echo __('seconds'); ?></option>
-                    <option value="10">10 <?php echo __('seconds'); ?></option>
-                    <option value="20">20 <?php echo __('seconds'); ?></option>
-                    <option value="40">40 <?php echo __('seconds'); ?></option>
-                    <option value="60">1 <?php echo __('minutes'); ?></option>
-                    <option value="120">2 <?php echo __('minutes'); ?></option>
-                    <option value="300">5 <?php echo __('minutes'); ?></option>
-                    <option value="600">10 <?php echo __('minutes'); ?></option>
+                    <?php PMA_choose_refresh_rate(); ?>
                 </select>
                 <a class="tabChart livequeriesLink" href="#">
                     <?php echo __('Live query chart'); ?>
