@@ -1128,7 +1128,7 @@ msgstr "Připojení / Procesů"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Provedených dotazů od posledního obnovení"
 
 #: js/messages.php:87
 #, fuzzy
