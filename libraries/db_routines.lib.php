@@ -621,7 +621,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= PMA_generate_common_hidden_inputs($db) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
-    $retval .= "<table class='rte_table'>\n";
+    $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Routine Name') . "</td>\n";
     $retval .= "    <td><input type='text' name='routine_name' value='{$routine['name']}' /></td>\n";
