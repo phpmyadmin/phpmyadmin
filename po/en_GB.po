@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 08:16-0400\n"
-"PO-Revision-Date: 2011-06-15 16:58+0200\n"
+"PO-Revision-Date: 2011-06-17 14:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1106,27 +1106,25 @@ msgstr "Server traffic"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Connections since last refresh"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
 msgstr "Processes"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Connections"
+msgstr "Connections / Processes"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Issued queries since last refresh"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL queries"
+msgstr "Issued queries"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
@@ -8196,20 +8194,20 @@ msgid "Refresh rate"
 msgstr "Refresh rate"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "minutes"
-msgstr[1] "minutes"
+msgstr[0] "%d minute"
+msgstr[1] "%d minutes"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "second"
-msgstr[1] "second"
+msgstr[0] "%d second"
+msgstr[1] "%d seconds"
 
 #: server_status.php:134
 #, php-format
