@@ -1075,7 +1075,7 @@ msgstr "Živý graf dotazů"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Statická data"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
