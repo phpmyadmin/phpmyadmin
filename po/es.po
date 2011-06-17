@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-09 17:25+0200\n"
+"PO-Revision-Date: 2011-06-15 23:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1018,10 +1018,9 @@ msgstr "¡Ésto no es un número!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Cantidad de archivos de registro"
+msgstr "Cantidad total"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1058,24 +1057,22 @@ msgid "Close"
 msgstr "Cerrar"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Elección del servidor"
+msgstr "Gráfico de tráfico en vivo"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Gráfico de procesos/conexiones en vivo"
 
 #: js/messages.php:66 server_status.php:429
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Mostrar gráfico de consultas"
+msgstr "Gráfico de consultas en vivo"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Datos estáticos"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1088,7 +1085,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:592
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1375
@@ -5007,24 +5004,22 @@ msgid "Language"
 msgstr "Idioma"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Columnas para las áreas de texto"
+msgstr "Restaurar orden de las columnas"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Arrastrar para reordenar"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Clic para seleccionar"
+msgstr "Pulsar para ordenar"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Pulsar para marcar/desmarcar"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -8422,71 +8417,62 @@ msgid "Runtime Information"
 msgstr "Información acerca del tiempo de ejecución del proceso principal"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Elección del servidor"
+msgstr "Tráfico del servidor"
 
 #: server_status.php:372
 msgid "Query statistics"
 msgstr "Estadísticas de Consulta"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Ver la tabla de estado del esclavo"
+msgstr "Todas las variables de estado"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Actualizar"
+msgstr "Velocidad de actualización"
 
 #: server_status.php:384 server_status.php:417
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Segundo"
+msgstr "segundo"
 
 #: server_status.php:385 server_status.php:386 server_status.php:387
 #: server_status.php:388 server_status.php:389 server_status.php:418
 #: server_status.php:419 server_status.php:420 server_status.php:421
 #: server_status.php:422
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
-msgstr "Segundo"
+msgstr "segundos"
 
 #: server_status.php:390 server_status.php:391 server_status.php:392
 #: server_status.php:393 server_status.php:423 server_status.php:424
 #: server_status.php:425 server_status.php:426
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
-msgstr "Minuto"
+msgstr "minutos"
 
 #: server_status.php:446
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "No cambiar la contraseña"
+msgstr "Que contengan la palabra:"
 
 #: server_status.php:451
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Mostrar las tablas que están abiertas"
+msgstr "Mostrar sólo valores de alerta"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrar por categoría..."
 
 #: server_status.php:468
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Enlaces relacionados"
+msgstr "Enlaces relacionados:"
 
 #: server_status.php:513 server_status.php:545 server_status.php:666
 #: server_status.php:711
@@ -8508,12 +8494,12 @@ msgstr "Tipo de consulta"
 #. l10n: # = Amount of queries
 #: server_status.php:543
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:615
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Tráfico de red desde el inicio: %s"
 
 #: server_status.php:623
 #, php-format
@@ -8598,10 +8584,9 @@ msgid "ID"
 msgstr "Identificación"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Si habilitar SSL para la conexión al servidor MySQL o no."
+msgstr "Cantidad de intentos de conexión al servidor MySQL fallidos."
 
 #: server_status.php:847
 msgid ""
@@ -8623,6 +8608,7 @@ msgstr ""
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
+"Cantidad de intentos de conexión al servidor MySQL (fallidos o exitosos)."
 
 #: server_status.php:850
 msgid ""
@@ -9061,6 +9047,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"El máximo número de conexiones que han sido utilizadas simultáneamente desde "
+"que inició el servidor."
 
 #: server_status.php:921
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -9094,6 +9082,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Cantidad de bloques de memoria libre en la cache de consultas. Cantidades "
+"altas pueden indicar problemas de fragmentación que pueden ser solucionados "
+"ejecutando la consulta FLUSH QUERY CACHE."
 
 #: server_status.php:927
 msgid "The amount of free memory for query cache."
@@ -9845,10 +9836,9 @@ msgid "Line"
 msgstr "Línea"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "En línea"
+msgstr "Ranuras"
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -9859,50 +9849,43 @@ msgid "Stacked"
 msgstr "Apiladas"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Título del reporte:"
+msgstr "Título del gráfico"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "Eje X:"
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "Consultas SQL"
+msgstr "Series:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Columnas para las áreas de texto"
+msgstr "Columnas restantes"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "Etiqueta del eje X"
+msgstr "Etiqueta del eje X:"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Valor"
+msgstr "Valores X"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Etiqueta del eje Y"
+msgstr "Etiqueta del eje Y:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Valor"
+msgstr "Valores Y"
 
 #: tbl_create.php:56
 #, php-format

@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-09 23:29+0200\n"
+"PO-Revision-Date: 2011-06-16 00:11+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1004,10 +1004,9 @@ msgstr "Detta är inte ett nummer!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Antal loggfiler"
+msgstr "Totalt antal"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1044,24 +1043,22 @@ msgid "Close"
 msgstr "Stäng"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Välj server"
+msgstr "Live trafik diagram"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live anslutning/process diagram"
 
 #: js/messages.php:66 server_status.php:429
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Visa fråge diagram"
+msgstr "Live sökfrågediagram"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Statisk data"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1074,7 +1071,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:592
 msgid "Other"
-msgstr ""
+msgstr "Annan"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1375
@@ -4910,24 +4907,22 @@ msgid "Language"
 msgstr "Språk"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Textarea kolumner"
+msgstr "Återställ ordningen på kolumner"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Dra för att ändra ordning"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Klicka för att markera"
+msgstr "Klicka för att sortera"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klicka för att markera/avmarkera"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -8243,71 +8238,62 @@ msgid "Runtime Information"
 msgstr "Körningsinformation"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Välj server"
+msgstr "Server trafik"
 
 #: server_status.php:372
 msgid "Query statistics"
 msgstr "Visa statistik"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Se slavtabell status"
+msgstr "Alla statusvariabler"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Uppdatera"
+msgstr "Uppdateringsfrekvens"
 
 #: server_status.php:384 server_status.php:417
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Sekunder"
+msgstr "Sekund"
 
 #: server_status.php:385 server_status.php:386 server_status.php:387
 #: server_status.php:388 server_status.php:389 server_status.php:418
 #: server_status.php:419 server_status.php:420 server_status.php:421
 #: server_status.php:422
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
-msgstr "Sekunder"
+msgstr "sekunder"
 
 #: server_status.php:390 server_status.php:391 server_status.php:392
 #: server_status.php:393 server_status.php:423 server_status.php:424
 #: server_status.php:425 server_status.php:426
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
-msgstr "Minuter"
+msgstr "minuter"
 
 #: server_status.php:446
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Ändra inte lösenordet"
+msgstr "Innehåller ordet:"
 
 #: server_status.php:451
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Visa öppna tabeller"
+msgstr "Visa endast varnings värden"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrera efter kategori ..."
 
 #: server_status.php:468
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Liknande länkar"
+msgstr "Liknande länkar:"
 
 #: server_status.php:513 server_status.php:545 server_status.php:666
 #: server_status.php:711
@@ -8329,12 +8315,12 @@ msgstr "Fråge-typ"
 #. l10n: # = Amount of queries
 #: server_status.php:543
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:615
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Nätverkstrafik sedan start:%s"
 
 #: server_status.php:623
 #, php-format
@@ -8416,10 +8402,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Kunde inte ansluta till MySQL-server"
+msgstr "Antalet misslyckade försök att ansluta till MySQL-servern."
 
 #: server_status.php:847
 msgid ""
@@ -8438,7 +8423,7 @@ msgstr "Antalet transaktioner som använde den temporära binära loggcachen."
 #: server_status.php:849
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Antalet anslutningsförsök (lyckade eller inte) till MySQL-servern."
 
 #: server_status.php:850
 msgid ""
@@ -8858,6 +8843,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Det maximala antalet anslutningar som har använts samtidigt sedan servern "
+"startade."
 
 #: server_status.php:921
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8889,6 +8876,8 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Antalet fria minnesblock i frågecache. Högt antal kan tyda på fragmentering, "
+"vilket kan lösas genom att köra ett FLUSH QUERY CACHEN kommando."
 
 #: server_status.php:927
 msgid "The amount of free memory for query cache."
@@ -9624,10 +9613,9 @@ msgid "Line"
 msgstr "Linje"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "Infogad"
+msgstr "ISpårning"
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -9638,50 +9626,43 @@ msgid "Stacked"
 msgstr "Staplade"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Rapport titel:"
+msgstr "Diagramtitel"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-axel:"
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL-frågor"
+msgstr "Serie:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Textarea kolumner"
+msgstr "Återstående kolumner"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "X-axel etikett"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Värde"
+msgstr "X värde"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "Y-axel etikett"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Värde"
+msgstr "Y värden"
 
 #: tbl_create.php:56
 #, php-format
