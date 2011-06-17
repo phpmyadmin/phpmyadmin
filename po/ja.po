@@ -1064,10 +1064,9 @@ msgid "Live conn./process chart"
 msgstr "リアルタイムでの接続／プロセスグラフ"
 
 #: js/messages.php:68 server_status.php:438
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "クエリをグラフで表示"
+msgstr "リアルタイムでのクエリグラフ"
 
 #: js/messages.php:70
 msgid "Static data"
