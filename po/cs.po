@@ -9657,10 +9657,9 @@ msgid "X-Axis label:"
 msgstr "Popis osy X:"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Hodnota"
+msgstr "Hodnoty X"
 
 #: tbl_chart.php:129
 #, fuzzy
