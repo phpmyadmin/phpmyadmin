@@ -9633,10 +9633,9 @@ msgid "Stacked"
 msgstr "Skládané"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Název výpisu:"
+msgstr "Název grafu"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
