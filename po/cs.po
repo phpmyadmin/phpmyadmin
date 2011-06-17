@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:06+0200\n"
-"PO-Revision-Date: 2011-06-07 13:35+0200\n"
+"PO-Revision-Date: 2011-06-17 10:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1012,10 +1012,9 @@ msgstr "Nebylo zadáno číslo!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Počet souborů s logy"
+msgstr "Celkový počet"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1061,24 +1060,22 @@ msgid "Edit"
 msgstr "Upravit"
 
 #: js/messages.php:66 server_status.php:411
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Server"
+msgstr "Živý graf provozu"
 
 #: js/messages.php:67 server_status.php:414
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Živý graf připojení a procesů"
 
 #: js/messages.php:68 server_status.php:443
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Zobrazit graf dotazu"
+msgstr "Živý graf dotazů"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Statická data"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
@@ -1091,7 +1088,7 @@ msgstr "Celkem"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:600
 msgid "Other"
-msgstr ""
+msgstr "Ostatní"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1375
@@ -1105,41 +1102,38 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "kB sent since last refresh"
-msgstr ""
+msgstr "Odesláno kiB od posledního obnovení"
 
 #: js/messages.php:81
 msgid "kB received since last refresh"
-msgstr ""
+msgstr "Přijato kiB od posledního obnovení"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in kB)"
-msgstr "Server"
+msgstr "Síťový provoz (v kiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Spojení od posledního obnovaní"
 
 #: js/messages.php:84 server_status.php:792
 msgid "Processes"
 msgstr "Procesy"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Připojení"
+msgstr "Připojení / Procesů"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Provedených dotazů od posledního obnovení"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL dotazy"
+msgstr "Provedené dotazy"
 
 #: js/messages.php:89 server_status.php:386
 msgid "Query statistics"
@@ -4963,24 +4957,22 @@ msgid "Language"
 msgstr "Jazyk"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Sloupců v textové oblasti"
+msgstr "Obnovit pořadí sloupců"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Uspořádejte přetažením"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Klikněte pro vybrání"
+msgstr "Klikněte pro řazení"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klikněte pro označení"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -8284,22 +8276,19 @@ msgid "Runtime Information"
 msgstr "Stav serveru"
 
 #: server_status.php:385
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Server"
+msgstr "Síťový provoz serveru"
 
 #: server_status.php:387
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Zobrazit tabulku se stavem podřízených"
+msgstr "Všechny stavové proměnné"
 
 #: server_status.php:397 server_status.php:430
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Obnovit"
+msgstr "Obnovovací frekvence"
 
 #: server_status.php:398 server_status.php:431
 #, fuzzy
