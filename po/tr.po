@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-08 16:30+0200\n"
+"PO-Revision-Date: 2011-06-16 21:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -963,7 +963,7 @@ msgstr "Bütün bir tabloyu YOK ETMEK üzeresiniz!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Bütün bir  tabloyu KESMEK üzeresiniz!"
+msgstr "Bütün bir tabloyu KESMEK üzeresiniz!"
 
 #: js/messages.php:34
 msgid "Dropping Event"
@@ -1006,10 +1006,9 @@ msgstr "Bu bir sayı değil!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Günlük dosyası sayısı"
+msgstr "Toplam sayı"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1046,24 +1045,22 @@ msgid "Close"
 msgstr "Kapat"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Sunucu Seçimi"
+msgstr "Canlı trafik çizelgesi"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Canlı bağ./işlem çizelgesi"
 
 #: js/messages.php:66 server_status.php:429
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Sorgu çizelgesini göster"
+msgstr "Canlı sorgu çizelgesi"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Sabit veri"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1076,7 +1073,7 @@ msgstr "Toplam"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:592
 msgid "Other"
-msgstr ""
+msgstr "Diğer"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1375
@@ -4945,24 +4942,22 @@ msgid "Language"
 msgstr "Dil"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Metin alanı sütunları"
+msgstr "Sütun düzenini geri yükle"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Yen.düzenleme için sürükle"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Seçmek için tıklayın"
+msgstr "Sıralamak için tıklayın"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "İşaretlemek/işareti kaldırmak için tıklayın"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -8293,71 +8288,62 @@ msgid "Runtime Information"
 msgstr "Çalışma Süresi Bilgisi"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Sunucu Seçimi"
+msgstr "Sunucu trafiği"
 
 #: server_status.php:372
 msgid "Query statistics"
 msgstr "Sorgu istatistikleri"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Slave durum tablosuna bak"
+msgstr "Tüm durum değişkenleri"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Yenile"
+msgstr "Oranı yenile"
 
 #: server_status.php:384 server_status.php:417
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Saniye"
+msgstr "saniye"
 
 #: server_status.php:385 server_status.php:386 server_status.php:387
 #: server_status.php:388 server_status.php:389 server_status.php:418
 #: server_status.php:419 server_status.php:420 server_status.php:421
 #: server_status.php:422
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
-msgstr "Saniye"
+msgstr "saniye"
 
 #: server_status.php:390 server_status.php:391 server_status.php:392
 #: server_status.php:393 server_status.php:423 server_status.php:424
 #: server_status.php:425 server_status.php:426
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
-msgstr "Dakika"
+msgstr "dakika"
 
 #: server_status.php:446
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Parolayı değiştirme"
+msgstr "İçerdiği kelime:"
 
 #: server_status.php:451
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Açık tabloları göster"
+msgstr "Sadece uyarı değerlerini göster"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Kategoriye göre süz..."
 
 #: server_status.php:468
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "İlgili Bağlantılar"
+msgstr "İlgili bağlantılar:"
 
 #: server_status.php:513 server_status.php:545 server_status.php:666
 #: server_status.php:711
@@ -8379,12 +8365,12 @@ msgstr "Sorgu türü"
 #. l10n: # = Amount of queries
 #: server_status.php:543
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:615
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Başlangıçtan bu yana ağ trafiği: %s"
 
 #: server_status.php:623
 #, php-format
@@ -8468,10 +8454,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL sunucusuna bağlanmak için SSL etkinleştirmek."
+msgstr "MySQL sunucusuna bağlanmak için başarısız girişim sayısı."
 
 #: server_status.php:847
 msgid ""
@@ -8490,7 +8475,7 @@ msgstr "Geçici binari günlüğü önbelleğinde kullanılan işlemlerin sayıs
 #: server_status.php:849
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "MySQL sunucusuna bağlantı girişimi (başarılı ya da değil) sayısı."
 
 #: server_status.php:850
 msgid ""
@@ -8917,6 +8902,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Sunucunun başlatılmasından bu yana kullanımda olan eşzamanlı en fazla "
+"bağlantı sayısı."
 
 #: server_status.php:921
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8948,6 +8935,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Sorgu önbelleğinde boş bellek blokları sayısıdır. Yüksek sayılar,  FLUSH "
+"QUERY CACHE ifadesinin çıkmasıyla çözülebilen, parçalanma sorunlarını işaret "
+"edebilir."
 
 #: server_status.php:927
 msgid "The amount of free memory for query cache."
@@ -9680,10 +9670,9 @@ msgid "Line"
 msgstr "Satır"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "Sıralı"
+msgstr "Şerit"
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -9694,50 +9683,43 @@ msgid "Stacked"
 msgstr "İstiflendi"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Rapor başlığı:"
+msgstr "Çizelge başlığı"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-Ekseni:"
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL sorguları"
+msgstr "Dizi:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Metin alanı sütunları"
+msgstr "Kalan sütunlar"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "X Ekseni etiketi"
+msgstr "X-Ekseni etiketi:"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Değer"
+msgstr "X Değeri"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Y Ekseni etiketi"
+msgstr "Y-Ekseni etiketi:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Değer"
+msgstr "Y Değeri"
 
 #: tbl_create.php:56
 #, php-format

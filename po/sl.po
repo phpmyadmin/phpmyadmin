@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-15 08:36-0400\n"
-"PO-Revision-Date: 2011-06-10 22:40+0200\n"
+"PO-Revision-Date: 2011-06-16 22:33+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -1014,10 +1014,9 @@ msgstr "To ni število!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Število dnevniških datotek"
+msgstr "Skupno število"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1054,24 +1053,22 @@ msgid "Close"
 msgstr "Zapri"
 
 #: js/messages.php:64 server_status.php:397
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Izbira strežnika"
+msgstr "Grafikon prometa v živo"
 
 #: js/messages.php:65 server_status.php:400
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Grafikon povezav/procesov v živo"
 
 #: js/messages.php:66 server_status.php:429
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Prikaži graf poizvedbe"
+msgstr "Grafikon poizvedb v živo"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Statični podatki"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1084,7 +1081,7 @@ msgstr "Skupaj"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:592
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1375
@@ -4936,24 +4933,22 @@ msgid "Language"
 msgstr "Jezik"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Obnovi vrstni red stolpcev"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Povlecite za preureditev"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Kliknite za označitev"
+msgstr "Kliknite za razvrstitev"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Kliknite za označitev/opustitev"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -8282,71 +8277,62 @@ msgid "Runtime Information"
 msgstr "Podatki o izvajanju"
 
 #: server_status.php:371
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Izbira strežnika"
+msgstr "Promet strežnika"
 
 #: server_status.php:372
 msgid "Query statistics"
 msgstr "Statistika poizvedb"
 
 #: server_status.php:373
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Oglej si tabelo stanj podrejencev"
+msgstr "Vse spremenljivke stanja"
 
 #: server_status.php:383 server_status.php:416
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Osveži"
+msgstr "Hitrost osveževanja"
 
 #: server_status.php:384 server_status.php:417
-#, fuzzy
 #| msgid "Second"
 msgid "second"
-msgstr "Sekunda"
+msgstr "sekunda"
 
 #: server_status.php:385 server_status.php:386 server_status.php:387
 #: server_status.php:388 server_status.php:389 server_status.php:418
 #: server_status.php:419 server_status.php:420 server_status.php:421
 #: server_status.php:422
-#, fuzzy
 #| msgid "Second"
 msgid "seconds"
-msgstr "Sekunda"
+msgstr "sekund"
 
 #: server_status.php:390 server_status.php:391 server_status.php:392
 #: server_status.php:393 server_status.php:423 server_status.php:424
 #: server_status.php:425 server_status.php:426
-#, fuzzy
 #| msgid "Minute"
 msgid "minutes"
-msgstr "Minuta"
+msgstr "minut"
 
 #: server_status.php:446
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Ne spreminjaj gesla"
+msgstr "Vsebuje besedo:"
 
 #: server_status.php:451
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Pokaži odprte tabele"
+msgstr "Prikaži samo opozorilne vrednosti"
 
 #: server_status.php:455
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtriraj po kategoriji ..."
 
 #: server_status.php:468
-#, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
-msgstr "Sorodne povezave"
+msgstr "Sorodne povezave:"
 
 #: server_status.php:513 server_status.php:545 server_status.php:666
 #: server_status.php:711
@@ -8368,12 +8354,12 @@ msgstr "Vrsta poizvedbe"
 #. l10n: # = Amount of queries
 #: server_status.php:543
 msgid "#"
-msgstr ""
+msgstr "Št."
 
 #: server_status.php:615
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Promet omrežja od zagona: %s"
 
 #: server_status.php:623
 #, php-format
@@ -8456,10 +8442,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:846
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Ne morem se povezati s strežnikom MySQL"
+msgstr "Število spodletelih poskusov povezave s strežnikom MySQL."
 
 #: server_status.php:847
 msgid ""
@@ -8480,7 +8465,7 @@ msgstr ""
 #: server_status.php:849
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Število poskusov povezave (uspešnih ali ne) na strežnik MySQL."
 
 #: server_status.php:850
 msgid ""
@@ -8903,7 +8888,7 @@ msgstr ""
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
-msgstr ""
+msgstr "Največje število sočasno uporabljenih povezav od zagona strežnika."
 
 #: server_status.php:921
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -8935,6 +8920,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Število prostih pomnilniških blokov v predpomnilniku poizvedb. Visoko "
+"število lahko kaže na težave z razdrobljenostjo, kar lahko odpravite z "
+"izvedbo stavka FLUSH QUERY CACHE."
 
 #: server_status.php:927
 msgid "The amount of free memory for query cache."
@@ -9666,10 +9654,9 @@ msgid "Line"
 msgstr "Črtni"
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Inline"
 msgid "Spline"
-msgstr "V vrstici"
+msgstr "Zlepek"
 
 #: tbl_chart.php:89
 msgid "Pie"
@@ -9680,50 +9667,43 @@ msgid "Stacked"
 msgstr "Zloženi"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Naslov poročila:"
+msgstr "Naslov grafikona"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "Os x:"
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "Poizvedbe SQL"
+msgstr "Serije:"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Preostali stolpci"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
-msgstr "Oznaka osi X"
+msgstr "Oznaka osi x:"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Vrednost"
+msgstr "Vrednosti x"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Oznaka osi Y"
+msgstr "Oznaka osi y:"
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Vrednost"
+msgstr "Vrednosti y"
 
 #: tbl_create.php:56
 #, php-format
