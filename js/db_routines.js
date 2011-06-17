@@ -166,7 +166,7 @@ function setOptionsForParameter($type, $len, $text, $num) {
 }
 
 /**
- * Attach Ajax event handlers for the Routines Editor.
+ * Attach Ajax event handlers for the Routines functionalities.
  *
  * @see $cfg['AjaxEnable']
  */
@@ -186,6 +186,10 @@ $(document).ready(function() {
      * @var    syntaxHiglighter    Reference to the codemirror editor.
      */
     var syntaxHiglighter = null;
+    /**
+     * @var button_options  Object containing options for jQueryUI dialog buttons
+     */
+    var button_options = {};
 
     /**
      * Attach Ajax event handlers for the Add/Edit routine functionality.
@@ -217,10 +221,6 @@ $(document).ready(function() {
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
-                /**
-                 * @var button_options  Object containing options for jQueryUI dialog buttons
-                 */
-                var button_options = {};
                 button_options[PMA_messages['strGo']] = function() {
                     syntaxHiglighter.save();
                     // Validate editor and submit request, if passed.
@@ -474,14 +474,7 @@ $(document).ready(function() {
             $('.rte_table').find('select[name=routine_returnopts_num]')
         );
     });
-}); // end of $(document).ready() for the Routine Editor
 
-/**
- * Attach Ajax event handlers for the Routine Execution dialog.
- *
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
     /**
      * Attach Ajax event handlers for the Execute routine functionality.
      *
@@ -501,10 +494,6 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
                 if (data.dialog) {
-                    /**
-                     * @var button_options  Object containing options for jQueryUI dialog buttons
-                     */
-                    var button_options = {};
                     button_options[PMA_messages['strGo']] = function() {
                         /**
                          * @var    data    Form data to be sent in the AJAX request.
@@ -549,4 +538,20 @@ $(document).ready(function() {
             }
         });
     });
-}); // end of $(document).ready() for the Routine Execution dialog
+
+    /**
+     * Attach Ajax event handlers for input fields in the routines editor
+     * and the routine execution dialog used to submit the Ajax request
+     * when the ENTER key is pressed.
+     *
+     * @see $cfg['AjaxEnable']
+     */
+    $('input[name^=routine], input[name^=params]').live('keydown', function(e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            if (typeof button_options[PMA_messages['strGo']] == 'function') {
+                button_options[PMA_messages['strGo']].call();
+            }
+        }
+    });
+}); // end of $(document).ready() for the Routine Functionalities
