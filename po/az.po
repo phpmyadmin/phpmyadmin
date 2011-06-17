@@ -32,7 +32,7 @@ msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
-msgstr "alalal"
+msgstr ""
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2763
 #: libraries/common.lib.php:2770 libraries/common.lib.php:2952
@@ -87,7 +87,7 @@ msgstr "Haqqında"
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
 msgid "Use this value"
-msgstr "sex"
+msgstr ""
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
