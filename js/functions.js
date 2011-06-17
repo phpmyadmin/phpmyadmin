@@ -15,10 +15,9 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
- * @var ajax_message_init   boolean boolean that stores status of
- *      notification for PMA_ajaxShowNotification
+ * @var   int   ajax_message_count   Number of AJAX messages shown since page load
  */
-var ajax_message_init = false;
+var ajax_message_count = 0;
 
 /**
  * @var codemirror_editor object containing CodeMirror editor
@@ -30,7 +29,6 @@ var codemirror_editor = false;
  */
 var chart_activeTimeouts = new Object();
     
-
 
 /**
  * Add a hidden field to the form to indicate that this will be an
@@ -659,10 +657,10 @@ $(document).ready(function() {
  * so that it works also for pages reached via AJAX)
  */
 $(document).ready(function() {
-    $('tr.odd, tr.even').live('hover',function() {
+    $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
-        $tr.toggleClass('hover');
-        $tr.children().toggleClass('hover');
+        $tr.toggleClass('hover',event.type=='mouseover');
+        $tr.children().toggleClass('hover',event.type=='mouseover');
     });
 })
 
@@ -1151,7 +1149,7 @@ function changeMIMEType(db, table, reference, mime_type)
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
-    $(".inline_edit_sql").click( function(){
+    $(".inline_edit_sql").live('click', function(){
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1244,83 +1242,64 @@ $(document).ready(function(){
  *                              optional, defaults to 'Loading...'
  * @param   var     timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000
- * @return  jQuery object       jQuery Element that holds the message div 
+ * @return  jQuery object       jQuery Element that holds the message div
  */
-
 function PMA_ajaxShowMessage(message, timeout) {
 
-    //Handle the case when a empty data.message is passed.  We don't want the empty message
-    if(message == '') {
+    //Handle the case when a empty data.message is passed. We don't want the empty message
+    if (message == '') {
         return true;
+    } else if (! message) {
+        // If the message is undefined, show the default
+        message = PMA_messages['strLoading'];
     }
 
     /**
-     * @var msg String containing the message that has to be displayed
-     * @default PMA_messages['strLoading']
-     */
-    if(!message) {
-        var msg = PMA_messages['strLoading'];
-    }
-    else {
-        var msg = message;
-    }
-
-    /**
-     * @var timeout Number of milliseconds for which {@link msg} will be visible
+     * @var timeout Number of milliseconds for which the message will be visible
      * @default 5000 ms
      */
-    if(!timeout) {
-        var to = 5000;
-    }
-    else {
-        var to = timeout;
+    if (! timeout) {
+        timeout = 5000;
     }
 
-    if( !ajax_message_init) {
-        //For the first time this function is called, append a new div
-        $(function(){
-            $('<div id="loading_parent"></div>')
-            .insertBefore("#serverinfo");
-
-            $('<span id="loading" class="ajax_notification"></span>')
-            .appendTo("#loading_parent")
-            .html(msg)
-            .fadeIn('medium')
-            .delay(to)
-            .fadeOut('medium', function(){
-                $(this)
-                .html("") //Clear the message
-                .hide();
-            });
-        }, 'top.frame_content');
-        ajax_message_init = true;
+    // Create a parent element for the AJAX messages, if necessary
+    if ($('#loading_parent').length == 0) {
+        $('<div id="loading_parent"></div>')
+        .insertBefore("#serverinfo");
     }
-    else {
-        //Otherwise, just show the div again after inserting the message
-        $("#loading")
-        .stop(true, true)
-        .html(msg)
+
+    // Update message count to create distinct message elements every time
+    ajax_message_count++;
+
+    // Remove all old messages, if any
+    $(".ajax_notification[id^=ajax_message_num]").remove();
+
+    /**
+     * @var    $retval    a jQuery object containing the reference
+     *                    to the created AJAX message
+     */
+    var $retval = $('<span class="ajax_notification" id="ajax_message_num_' + ajax_message_count + '"></span>')
+        .hide()
+        .appendTo("#loading_parent")
+        .html(message)
         .fadeIn('medium')
-        .delay(to)
+        .delay(timeout)
         .fadeOut('medium', function() {
-            $(this)
-            .html("")
-            .hide();
-        })
-    }
+            $(this).remove();
+        });
 
-    return $("#loading");
+    return $retval;
 }
 
 /**
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    $this_msgbox
-     .stop(true, true)
-     .fadeOut('medium', function() {
-        $this_msgbox.hide();
-     });
+    if ($this_msgbox != 'undefined' && $this_msgbox instanceof jQuery) {
+        $this_msgbox
+        .stop(true, true)
+        .fadeOut('medium');
+    }
 }
 
 /**
@@ -1411,31 +1390,41 @@ function PMA_createChart(passedSettings) {
             events: {
                 load: function() {
                     var thisChart = this;
-                    var lastValue=null, curValue=null;
-                    var numLoadedPoints=0, otherSum=0;
+                    var lastValue = null, curValue = null;
+                    var numLoadedPoints = 0, otherSum = 0;
                     var diff;
                     // No realtime updates for graphs that are being exported, and disabled when no callback is set
-                    if(thisChart.options.chart.forExport==true || !passedSettings.realtime || !passedSettings.realtime.callback) return;
+                    if(thisChart.options.chart.forExport == true || 
+                        ! passedSettings.realtime || 
+                        ! passedSettings.realtime.callback) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.get(passedSettings.realtime.url,{ajax_request:1, chart_data:1, type:passedSettings.realtime.type},function(data) {
-                            curValue = jQuery.parseJSON(data);
-                            //if(lastValue==null) lastValue = curValue;
-                            
-                            if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
-                            else diff = parseInt(curValue.x - lastValue.x);
-                            
-                            thisChart.xAxis[0].setExtremes(thisChart.xAxis[0].getExtremes().min+diff, thisChart.xAxis[0].getExtremes().max+diff, false);
-                            
-                            passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                            
-                            lastValue = curValue;
-                            numLoadedPoints++;
-                            
-                            // Timeout has been cleared => don't start a new timeout
-                            if(chart_activeTimeouts[container]==null) return;
-                            chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, thisChart.options.realtime.refreshRate);
-                            
+                        $.post(passedSettings.realtime.url,
+                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                            function(data) {
+                                curValue = jQuery.parseJSON(data);
+                                
+                                if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
+                                else diff = parseInt(curValue.x - lastValue.x);
+                                
+                                thisChart.xAxis[0].setExtremes(
+                                    thisChart.xAxis[0].getExtremes().min+diff, 
+                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    false
+                                );
+                                
+                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                
+                                lastValue = curValue;
+                                numLoadedPoints++;
+                                
+                                // Timeout has been cleared => don't start a new timeout
+                                if(chart_activeTimeouts[container]==null) return;
+                                
+                                chart_activeTimeouts[container] = setTimeout(
+                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.refreshRate
+                                ); 
                         });
                     }
                     
@@ -1469,8 +1458,8 @@ function PMA_createChart(passedSettings) {
         },
         tooltip: {
             formatter: function() {
-                    return '<b>'+ this.series.name +'</b><br/>'+
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+ 
+                    return '<b>' + this.series.name +'</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
                     Highcharts.numberFormat(this.y, 2);
             }
         },

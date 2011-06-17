@@ -38,6 +38,8 @@
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'db_search.js';
+$GLOBALS['js_include'][] = 'sql.js';
+$GLOBALS['js_include'][] = 'makegrid.js';
 
 /**
  * Gets some core libraries and send headers
