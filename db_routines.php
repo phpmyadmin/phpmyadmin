@@ -399,7 +399,7 @@ echo PMA_RTN_getAddRoutineLink();
 /**
  * Display a warning for users with PHP's old "mysql" extension.
  */
-if ($GLOBALS['cfg']['Server']['extension'] !== 'mysqli') {
+if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
     trigger_error(__('You are using PHP\'s deprecated \'mysql\' extension, '
                    . 'which is not capable of handling multi queries. '
                    . '<b>The execution of some stored routines may fail!</b> '
