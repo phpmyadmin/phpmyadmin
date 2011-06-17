@@ -8336,7 +8336,7 @@ msgstr "Typ dotazu"
 #. l10n: # = Amount of queries
 #: server_status.php:554
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:618
 #, php-format
