@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 08:16-0400\n"
+"POT-Creation-Date: 2011-06-17 15:03+0200\n"
 "PO-Revision-Date: 2011-05-19 21:21+0200\n"
 "Last-Translator: <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
+"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cy\n"
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -360,7 +360,7 @@ msgstr "Golygu neu allforio sgema perthynol"
 #: libraries/header.inc.php:152 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
-#: server_synchronize.php:861 tbl_tracking.php:643 test/theme.php:73
+#: server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
 msgstr "Tabl"
 
@@ -616,13 +616,13 @@ msgstr "Nid yw tracio'n weithredol"
 #: db_structure.php:380 libraries/display_tbl.lib.php:2156
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
 #: db_structure.php:394 db_structure.php:408 libraries/header.inc.php:152
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:72
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206
 msgid "View"
 msgstr "Dangos"
 
@@ -739,7 +739,7 @@ msgstr "Tablau a draciwyd"
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:791
 #: server_synchronize.php:1190 server_synchronize.php:1194
-#: tbl_tracking.php:642 test/theme.php:63
+#: tbl_tracking.php:642
 msgid "Database"
 msgstr "Cronfa ddata"
 
@@ -756,7 +756,7 @@ msgid "Updated"
 msgstr "Diweddarwyd"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:794
-#: sql.php:925 tbl_tracking.php:647 test/theme.php:99
+#: sql.php:925 tbl_tracking.php:647
 msgid "Status"
 msgstr "Statws"
 
@@ -855,8 +855,8 @@ msgstr "Dadlwythiad wedi'i gadw i'r ffeil %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %sdogfennaeth"
 "%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
@@ -1716,7 +1716,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740 test/theme.php:91
+#: server_privileges.php:1740
 msgid "Databases"
 msgstr "Cronfeydd Data"
 
@@ -1835,10 +1835,9 @@ msgstr "Heb ddarganfod thema ddiofyn %s!"
 msgid "Theme path not found for theme %s!"
 msgstr "Heb ddarganfod llwybr thema ar gyfer thema %s!"
 
-#: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
-#: themes.php:40
-msgid "Theme / Style"
-msgstr "Thema / Arddull"
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
+msgid "Theme"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1846,7 +1845,6 @@ msgstr "Methu â chysylltu: gosodiadau annilys"
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
-#: test/theme.php:150
 #, php-format
 msgid "Welcome to %s"
 msgstr "Croeso i %s"
@@ -1854,11 +1852,11 @@ msgstr "Croeso i %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %1"
-"$sgript gosod%2$s  er mwyn ei chreu."
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r "
+"%1$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2082,7 +2080,6 @@ msgstr ""
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
-#: test/theme.php:55
 msgid "Server"
 msgstr "Gweinydd"
 
@@ -2268,7 +2265,7 @@ msgstr "Strwythur"
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:58
-#: querywindow.php:88 test/theme.php:95
+#: querywindow.php:88
 msgid "SQL"
 msgstr "SQL"
 
@@ -4613,7 +4610,7 @@ msgstr "Dyluniwr"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:60
 #: server_privileges.php:119 server_privileges.php:1802
-#: server_privileges.php:2152 test/theme.php:115
+#: server_privileges.php:2152
 msgid "Privileges"
 msgstr "Breintiau"
 
@@ -4809,8 +4806,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -5518,8 +5515,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6569,20 +6566,20 @@ msgid "Synchronize"
 msgstr "Cydamseru"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:266 test/theme.php:119
+#: server_status.php:266
 msgid "Binary log"
 msgstr "Log deuaidd"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:318 test/theme.php:103
+#: server_engines.php:129 server_status.php:318
 msgid "Variables"
 msgstr "Newidynnau"
 
-#: libraries/server_links.inc.php:99 test/theme.php:107
+#: libraries/server_links.inc.php:99
 msgid "Charsets"
 msgstr "Setiau nod"
 
-#: libraries/server_links.inc.php:103 test/theme.php:111
+#: libraries/server_links.inc.php:103
 msgid "Engines"
 msgstr "Peiriannau"
 
@@ -7830,8 +7827,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1764
@@ -8262,7 +8259,7 @@ msgstr ""
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
 
 #: server_status.php:652
@@ -9961,6 +9958,9 @@ msgstr "Enw VIEW"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Ailenwch golwg i"
+
+#~ msgid "Theme / Style"
+#~ msgstr "Thema / Arddull"
 
 #~ msgid "seconds"
 #~ msgstr "Eiliad"

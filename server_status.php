@@ -639,7 +639,7 @@ function printServerTraffic() {
         } elseif ($server_slave_status) {
             echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
         }
-        echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
+        echo __('For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.');
         echo '</p>';
     }
 

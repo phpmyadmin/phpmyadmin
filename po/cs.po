@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 08:16-0400\n"
-"PO-Revision-Date: 2011-06-17 10:49+0200\n"
+"POT-Creation-Date: 2011-06-17 15:03+0200\n"
+"PO-Revision-Date: 2011-06-17 15:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -359,7 +359,7 @@ msgstr "Upravit nebo exportovat relační schéma"
 #: libraries/header.inc.php:152 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
-#: server_synchronize.php:861 tbl_tracking.php:643 test/theme.php:73
+#: server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
 msgstr "Tabulka"
 
@@ -617,13 +617,13 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:380 libraries/display_tbl.lib.php:2156
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
 #: db_structure.php:394 db_structure.php:408 libraries/header.inc.php:152
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:72
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206
 msgid "View"
 msgstr "Pohled"
 
@@ -738,7 +738,7 @@ msgstr "Sledované tabulky"
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:791
 #: server_synchronize.php:1190 server_synchronize.php:1194
-#: tbl_tracking.php:642 test/theme.php:63
+#: tbl_tracking.php:642
 msgid "Database"
 msgstr "Databáze"
 
@@ -755,7 +755,7 @@ msgid "Updated"
 msgstr "Aktualizováno"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:794
-#: sql.php:925 tbl_tracking.php:647 test/theme.php:99
+#: sql.php:925 tbl_tracking.php:647
 msgid "Status"
 msgstr "Stav"
 
@@ -854,8 +854,8 @@ msgstr "Výpis byl uložen do souboru %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1098,22 +1098,16 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "kB sent since last refresh"
 msgid "KiB sent since last refresh"
-msgstr "Odesláno kiB od posledního obnovení"
+msgstr "Odesláno KiB od posledního obnovení"
 
 #: js/messages.php:81
-#, fuzzy
-#| msgid "kB received since last refresh"
 msgid "KiB received since last refresh"
-msgstr "Přijato kiB od posledního obnovení"
+msgstr "Přijato KiB od posledního obnovení"
 
 #: js/messages.php:82
-#, fuzzy
-#| msgid "Server traffic (in kB)"
 msgid "Server traffic (in KiB)"
-msgstr "Síťový provoz (v kiB)"
+msgstr "Síťový provoz (v KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
@@ -1222,7 +1216,7 @@ msgstr "Odstraňuji"
 #: js/messages.php:124
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné."
+msgstr "Poznámka: Pokud soubor obsahuje více tabulek, budou sloučeny do jedné"
 
 #: js/messages.php:127
 msgid "Hide query box"
@@ -1663,7 +1657,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740 test/theme.php:91
+#: server_privileges.php:1740
 msgid "Databases"
 msgstr "Databáze"
 
@@ -1780,9 +1774,8 @@ msgstr "Vzhled %s nebyl nalezen!"
 msgid "Theme path not found for theme %s!"
 msgstr "Nebyla nalezena platná cesta k vzhledu %s!"
 
-#: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
-#: themes.php:40
-msgid "Theme / Style"
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
+msgid "Theme"
 msgstr "Vzhled"
 
 #: libraries/auth/config.auth.lib.php:76
@@ -1791,7 +1784,6 @@ msgstr "Nepodařilo se připojit: chybné nastavení."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
-#: test/theme.php:150
 #, php-format
 msgid "Welcome to %s"
 msgstr "Vítejte v %s"
@@ -1799,8 +1791,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -2026,7 +2018,6 @@ msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení.
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
-#: test/theme.php:55
 msgid "Server"
 msgstr "Server"
 
@@ -2210,7 +2201,7 @@ msgstr "Struktura"
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:58
-#: querywindow.php:88 test/theme.php:95
+#: querywindow.php:88
 msgid "SQL"
 msgstr "SQL"
 
@@ -4470,8 +4461,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_%28souborov%C3%BD_form%C3%A1t%29]"
-"ZIP[/a] kompresi pro import a export"
+"Povolí [a@http://cs.wikipedia.org/wiki/ZIP_(souborový_formát)]ZIP[/a] "
+"kompresi pro import a export"
 
 #: libraries/config/messages.inc.php:512
 msgid "ZIP"
@@ -4624,7 +4615,7 @@ msgstr "Návrhář"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:60
 #: server_privileges.php:119 server_privileges.php:1802
-#: server_privileges.php:2152 test/theme.php:115
+#: server_privileges.php:2152
 msgid "Privileges"
 msgstr "Oprávnění"
 
@@ -4801,8 +4792,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -5544,8 +5535,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -6596,20 +6587,20 @@ msgid "Synchronize"
 msgstr "Synchronizace"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:266 test/theme.php:119
+#: server_status.php:266
 msgid "Binary log"
 msgstr "Binární log"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:318 test/theme.php:103
+#: server_engines.php:129 server_status.php:318
 msgid "Variables"
 msgstr "Proměnné"
 
-#: libraries/server_links.inc.php:99 test/theme.php:107
+#: libraries/server_links.inc.php:99
 msgid "Charsets"
 msgstr "Znakové sady"
 
-#: libraries/server_links.inc.php:103 test/theme.php:111
+#: libraries/server_links.inc.php:103
 msgid "Engines"
 msgstr "Úložiště"
 
@@ -6806,8 +6797,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:143
 msgid "Transformation options"
@@ -6858,8 +6849,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/tbl_properties.inc.php:625 tbl_structure.php:636
 #, php-format
@@ -6934,13 +6925,13 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Zobrazí datum nebo čas (TIME, TIMESTAMP, DATETIME nebo unixový timestamp v "
-"numerickém poli). První parametr je posun (v hodinách), který bude přidán "
-"k času (výchozí je 0). Druhý parametr je formátovací řetězec. Třetí určuje "
-"jestli chcete zobrazit datum podle místního nastavení nebo UTC čas (použijte "
-"text „local“ nebo „utc“). Podle tohoto nastavení, formát má buďto syntaxi "
-"funkce strftime() pokud použijete „local“ nebo pro gmtime() pokud použijete "
-"„utc“."
+"Zobrazí formátovaně datum nebo čas z pole TIME, TIMESTAMP, DATETIME nebo "
+"unixový timestamp v numerickém poli. První parametr je posun (v hodinách), "
+"který bude přidán k času (výchozí je 0). Druhý parametr je formátovací "
+"řetězec. Třetí určuje jestli chcete zobrazit datum podle místního nastavení "
+"nebo UTC čas (použijte text „local“ nebo „utc“). Podle tohoto nastavení, "
+"formát má buďto syntaxi funkce strftime() pokud použijete „local“ nebo pro "
+"gmtime() pokud použijete „utc“."
 
 #: libraries/transformations/text_plain__external.inc.php:9
 msgid ""
@@ -7393,7 +7384,7 @@ msgstr "Vytvořit novou stránku a exportovat na ní"
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr "Název nové stránky:"
+msgstr "Název nové stránky: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -7481,8 +7472,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -7925,8 +7916,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -8371,7 +8362,7 @@ msgstr ""
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Pro více informací o stavu replikace se podívejte do <a href=\"#replication"
 "\">sekce replikace</a>."
@@ -9436,8 +9427,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:266
@@ -9448,8 +9439,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -10194,6 +10185,9 @@ msgstr "Jméno pohledu"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
+
+#~ msgid "Theme / Style"
+#~ msgstr "Vzhled"
 
 #~ msgid "seconds"
 #~ msgstr "Sekundy"

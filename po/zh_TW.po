@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-17 08:16-0400\n"
+"POT-Creation-Date: 2011-06-17 15:03+0200\n"
 "PO-Revision-Date: 2011-06-12 05:41+0200\n"
 "Last-Translator: <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -352,7 +352,7 @@ msgstr "編輯或匯出關聯大綱"
 #: libraries/header.inc.php:152 libraries/schema/User_Schema.class.php:237
 #: server_privileges.php:1745 server_privileges.php:1801
 #: server_privileges.php:2065 server_synchronize.php:418
-#: server_synchronize.php:861 tbl_tracking.php:643 test/theme.php:73
+#: server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
 msgstr "表"
 
@@ -604,12 +604,12 @@ msgstr "追蹤已停用"
 #: db_structure.php:380 libraries/display_tbl.lib.php:2156
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: db_structure.php:394 db_structure.php:408 libraries/header.inc.php:152
-#: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:72
+#: libraries/tbl_info.inc.php:60 tbl_structure.php:206
 msgid "View"
 msgstr " view"
 
@@ -724,7 +724,7 @@ msgstr "已追蹤的表"
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:791
 #: server_synchronize.php:1190 server_synchronize.php:1194
-#: tbl_tracking.php:642 test/theme.php:63
+#: tbl_tracking.php:642
 msgid "Database"
 msgstr "資料庫"
 
@@ -741,7 +741,7 @@ msgid "Updated"
 msgstr "更新"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:794
-#: sql.php:925 tbl_tracking.php:647 test/theme.php:99
+#: sql.php:925 tbl_tracking.php:647
 msgid "Status"
 msgstr "狀態"
 
@@ -838,8 +838,8 @@ msgstr "備份資料已儲存至檔案 %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr "您上傳的檔案過大, 請查看此 %s 文件 %s 了解如何解決此限制."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
@@ -1641,7 +1641,7 @@ msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740 test/theme.php:91
+#: server_privileges.php:1740
 msgid "Databases"
 msgstr "資料庫"
 
@@ -1752,10 +1752,9 @@ msgstr "未找到主題 %s ！"
 msgid "Theme path not found for theme %s!"
 msgstr "找不到主題 %s 的路徑"
 
-#: libraries/Theme_Manager.class.php:291 test/theme.php:159 themes.php:20
-#: themes.php:40
-msgid "Theme / Style"
-msgstr "佈景主題/風格"
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
+msgid "Theme"
+msgstr ""
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1763,7 +1762,6 @@ msgstr "無法連線: 設定錯誤."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
-#: test/theme.php:150
 #, php-format
 msgid "Welcome to %s"
 msgstr "歡迎使用 %s"
@@ -1771,8 +1769,8 @@ msgstr "歡迎使用 %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "您可能還沒有建立設定檔案。您可以使用 %1$s設定指令%2$s 來建立一個設定檔案"
 
@@ -1989,7 +1987,6 @@ msgstr "伺服器 %1$s 主機名稱錯誤, 請檢查設定檔案."
 
 #: libraries/common.inc.php:637 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
-#: test/theme.php:55
 msgid "Server"
 msgstr "伺服器"
 
@@ -2173,7 +2170,7 @@ msgstr "結構"
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:24 libraries/import/sql.php:17
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:58
-#: querywindow.php:88 test/theme.php:95
+#: querywindow.php:88
 msgid "SQL"
 msgstr "SQL"
 
@@ -4497,7 +4494,7 @@ msgstr "設計器"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:60
 #: server_privileges.php:119 server_privileges.php:1802
-#: server_privileges.php:2152 test/theme.php:115
+#: server_privileges.php:2152
 msgid "Privileges"
 msgstr "權限"
 
@@ -4673,8 +4670,8 @@ msgstr "，@TABLE@ 將變成資料資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "這個值是使用 %1$sstrftime%2$s 來解析的，所以您能用時間格式的字元串。另外，下"
 "列內容也將被轉換：%3$s。其他文字將保持原樣。參見%4$s常見問題 (FAQ)%5$s"
@@ -5376,8 +5373,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "關於 PBXT 的檔案和更多資訊請參見 %sPrimeBase XT 首頁%s"
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6404,20 +6401,20 @@ msgid "Synchronize"
 msgstr "同步"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:96
-#: server_status.php:266 test/theme.php:119
+#: server_status.php:266
 msgid "Binary log"
 msgstr "二進制日誌"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
-#: server_engines.php:129 server_status.php:318 test/theme.php:103
+#: server_engines.php:129 server_status.php:318
 msgid "Variables"
 msgstr "變數"
 
-#: libraries/server_links.inc.php:99 test/theme.php:107
+#: libraries/server_links.inc.php:99
 msgid "Charsets"
 msgstr "字集"
 
-#: libraries/server_links.inc.php:103 test/theme.php:111
+#: libraries/server_links.inc.php:103
 msgid "Engines"
 msgstr "引擎"
 
@@ -7682,8 +7679,8 @@ msgstr "刪除與使用者同名的資料庫"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 權限表取得使用者權限。如果使用者手動更改表，表"
 "內容將可能與伺服器使用的使用者權限有異。在這種情況下，您應在繼續前%s重新載入"
@@ -8124,9 +8121,10 @@ msgstr "此 MySQL 伺服器正以<b>從</b>伺服器運行於<b>複製</b>程序
 #: server_status.php:642
 msgid ""
 "For further information about replication status on the server, please visit "
-"the <a href=#replication>replication section</a>."
+"the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"要取得更多關於此伺服器的複製狀態，請查看<a href=#replication>複製狀態資訊</a>"
+"要取得更多關於此伺服器的複製狀態，請查看<a href=\"#replication\">複製狀態資訊"
+"</a>"
 
 #: server_status.php:652
 msgid "Replication status"
@@ -9892,6 +9890,9 @@ msgstr " view名"
 msgid "Rename view to"
 msgstr "將 view改名爲"
 
+#~ msgid "Theme / Style"
+#~ msgstr "佈景主題/風格"
+
 #~ msgid "seconds"
 #~ msgstr "秒"
 
@@ -9988,8 +9989,8 @@ msgstr "將 view改名爲"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6_29"
-#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
+#~ "html#faq6_29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Redraw"
 #~ msgstr "重繪"
