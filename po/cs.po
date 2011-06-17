@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 10:36+0200\n"
-"PO-Revision-Date: 2011-06-17 10:38+0200\n"
+"PO-Revision-Date: 2011-06-17 10:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -8298,10 +8298,9 @@ msgid "All status variables"
 msgstr "Všechny stavové proměnné"
 
 #: server_status.php:455
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Neměnit heslo"
+msgstr "Obsahující slovo:"
 
 #: server_status.php:460
 #, fuzzy
