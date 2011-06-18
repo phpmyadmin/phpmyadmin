@@ -1207,10 +1207,9 @@ msgid "Searching"
 msgstr "Pencarian"
 
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Sembunyikan kriteria pencarian"
+msgstr "Sembunyikan hasil pencarian"
 
 #: js/messages.php:119
 #, fuzzy
