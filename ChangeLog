@@ -1,4 +1,4 @@
-﻿phpMyAdmin - ChangeLog
+phpMyAdmin - ChangeLog
 ======================
 
 3.5.0.0 (not yet released)
@@ -16,6 +16,10 @@
 + Patch #3271804 for rfe #3177495, new DisableMultiTableMaintenance directive
 + [interface] Reorganised server status page.
 + [interface] Changed way of generating charts.
++ rfe #939233 [interface] Flexible column width
++ [interface] Mouse-based column reordering in query results
++ AJAX for Insert to a table from database Structure page
+- Patch #3316969 PMA_ajaxShowMessage() does not respect timeout
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
@@ -26,6 +30,10 @@
 - bug #3313210 [interface] Columns class sometimes changed for nothing
 - patch #3313326 [interface] Some tooltips do not disappear
 - bug #3315720 [search] Fix search in non unicode tables
+- bug #3315741 [display] Inline query edit broken
+- patch #3317206 [privileges] Generate password option missing on new accounts
+- bug #3317293 [edit] Inline edit places HTML line breaks in edit area
+- bug #3319466 [interface] Inline query edit does not escape special characters
 
 3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
