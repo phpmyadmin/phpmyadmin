@@ -1124,7 +1124,7 @@ msgstr "Son yenilemeden bu yana sonuçlanmış sorgular"
 #: js/messages.php:87
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "Sorunlu sorgular"
+msgstr "Sonuçlanmış sorgular"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
