@@ -611,7 +611,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // Start of form for multi-rows edit/delete/export
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
-        echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm" id="rowsDeleteForm">' . "\n";
+        echo '<form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm"';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo ' class="ajax" ';
+        }
+        echo '>' . "\n";
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
         echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }

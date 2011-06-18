@@ -117,6 +117,8 @@ $js_messages['strInlineEdit'] = __('Inline Edit');
 $js_messages['strEdit'] = __('Edit');
 $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');
+$js_messages['strNoRowSelected'] = __('No rows has selected. Please select rows to change');
+$js_messages['strChangeTbl'] = __('Change Table');
 
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
