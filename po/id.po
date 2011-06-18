@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:23+0200\n"
+"PO-Revision-Date: 2011-06-18 11:24+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1222,7 +1222,6 @@ msgid "Browsing"
 msgstr "Menjelajahi"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Menghapus %s"
