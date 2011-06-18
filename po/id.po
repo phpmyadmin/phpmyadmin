@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:06+0200\n"
+"PO-Revision-Date: 2011-06-18 11:07+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1070,7 +1070,7 @@ msgstr "Pilihan Server"
 
 #: js/messages.php:67 server_status.php:419
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live conn./process chart"
 
 #: js/messages.php:68 server_status.php:438
 #, fuzzy
