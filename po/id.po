@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:31+0200\n"
+"PO-Revision-Date: 2011-06-18 11:32+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1950,7 +1950,7 @@ msgstr "Tidak bisa membuka arsip: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "dibagi"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
