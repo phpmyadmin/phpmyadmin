@@ -1217,10 +1217,9 @@ msgid "Show search results"
 msgstr "Tampilkan hasil pencarian"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Browse"
+msgstr "Menjelajahi"
 
 #: js/messages.php:121
 #, fuzzy
