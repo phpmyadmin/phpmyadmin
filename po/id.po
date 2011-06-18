@@ -1134,9 +1134,8 @@ msgid "Issued queries since last refresh"
 msgstr ""
 
 #: js/messages.php:87
-#, fuzzy
 msgid "Issued queries"
-msgstr "Pencarian SQL"
+msgstr "Perintah di keluarkan"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
