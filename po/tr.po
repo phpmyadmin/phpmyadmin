@@ -1106,7 +1106,7 @@ msgstr "Sunucu trafiği (KiB olarak)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Son yenilemeden bu yana bağlantılar"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
