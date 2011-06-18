@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:29+0200\n"
+"PO-Revision-Date: 2011-06-18 11:30+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1713,9 +1713,8 @@ msgid "Could not save recent table"
 msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 msgid "Recent tables"
-msgstr "Tabel tidak ditemukan"
+msgstr "Tabel terakhir"
 
 #: libraries/RecentTable.class.php:154
 #, fuzzy
