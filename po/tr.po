@@ -1097,7 +1097,7 @@ msgstr "Son yenilemeden bu yana gönderilmiş KiB"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Son yenilemeden bu yana alınmış KiB"
 
 #: js/messages.php:82
 #| msgid "Server traffic"
