@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-04-16 22:04+0200\n"
-"Last-Translator: <aris_feryanto@yahoo.com>\n"
+"PO-Revision-Date: 2011-06-18 11:03+0200\n"
+"Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -704,7 +704,7 @@ msgstr "Analisa tabel"
 
 #: db_structure.php:522
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Tambah awalan ke tabel"
 
 #: db_structure.php:524 libraries/mult_submits.inc.php:246
 #, fuzzy
