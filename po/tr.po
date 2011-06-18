@@ -8259,11 +8259,11 @@ msgid_plural "%d minutes"
 msgstr[0] "%d dakika"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "saniye"
+msgstr[0] "%d saniye"
 
 #: server_status.php:134
 #, php-format
