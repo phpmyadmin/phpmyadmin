@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:30+0200\n"
+"PO-Revision-Date: 2011-06-18 11:31+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1762,7 +1762,7 @@ msgstr "Nama tabel %s telah diubah menjadi %s"
 
 #: libraries/Table.class.php:1272
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Tidak dapat menyimpan preferensi UI tabel"
 
 #: libraries/Theme.class.php:160
 #, php-format
