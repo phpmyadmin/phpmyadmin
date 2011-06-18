@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:28+0200\n"
+"PO-Revision-Date: 2011-06-18 11:29+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1708,10 +1708,9 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d baris disisipkan."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table"
-msgstr "Tidak dapat memuat konfigurasi default dari: \"%1$s\""
+msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
