@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-17 12:46+0200\n"
+"PO-Revision-Date: 2011-06-18 12:08+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1103,10 +1103,9 @@ msgid "KiB received since last refresh"
 msgstr ""
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server traffic (in kB)"
 msgid "Server traffic (in KiB)"
-msgstr "サーバのトラフィック（単位：kB）"
+msgstr "サーバのトラフィック（単位：KiB）"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
