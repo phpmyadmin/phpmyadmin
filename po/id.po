@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-18 11:27+0200\n"
+"PO-Revision-Date: 2011-06-18 11:28+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
@@ -1642,7 +1642,7 @@ msgstr "Unik"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:316
 msgid "Packed"
-msgstr ""
+msgstr "Dipadatkan"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:318
 msgid "Cardinality"
