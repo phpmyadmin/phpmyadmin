@@ -2266,7 +2266,7 @@ msgstr "Tempat"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Kiri"
 
 #: libraries/config.values.php:47
 msgid "Right"
