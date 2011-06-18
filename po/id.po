@@ -2262,7 +2262,7 @@ msgstr "Keduanya"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Tempat"
 
 #: libraries/config.values.php:47
 msgid "Left"
