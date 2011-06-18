@@ -1073,9 +1073,8 @@ msgid "Live conn./process chart"
 msgstr "Live conn./process chart"
 
 #: js/messages.php:68 server_status.php:438
-#, fuzzy
 msgid "Live query chart"
-msgstr "Pencarian SQL"
+msgstr "Perintah SQL"
 
 #: js/messages.php:70
 msgid "Static data"
