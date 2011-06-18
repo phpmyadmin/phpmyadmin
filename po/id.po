@@ -1036,10 +1036,9 @@ msgstr "Kata Sandi tidak sama!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Setiap pengguna"
+msgstr "Tambah pengguna"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
