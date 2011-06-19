@@ -1486,7 +1486,11 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
  */
 function PMA_isView($db, $view_name)
 {
-    $result = PMA_DBI_fetch_result("SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = '".$db."' and TABLE_NAME = '".$view_name."';");
+    $result = PMA_DBI_fetch_result(
+        "SELECT TABLE_NAME
+        FROM information_schema.VIEWS
+        WHERE TABLE_SCHEMA = '" . PMA_sqlAddslashes($db) . "'
+            AND TABLE_NAME = '" . PMA_sqlAddslashes($view_name) . "'");
 
     if ($result) {
         return true;
