@@ -1058,12 +1058,14 @@ rowsDeleteForm
         }
     }) // End After editing, clicking again should post data
 
-/** Ajax Event for table row change*/
+/**
+ * Ajax Event for table row change
+ * */
     $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function(event){
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
-        if($("#table_results tbody tr").hasClass("marked")){
+        if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
             var div = $('<div id="change_row_dialog"></div>');
 
             /**
@@ -1079,7 +1081,7 @@ rowsDeleteForm
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true&submit_mult=row_edit" ,  function(data) {
+            $.get( $form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
                 //in the case of an error, show the error message returned.
                 if (data.success != undefined && data.success == false) {
                     div
@@ -1114,6 +1116,9 @@ rowsDeleteForm
         }
     });
 
+/**
+ * Click action for "Go" button in ajax dialog insertForm -> insertRowTable 
+ */
     $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
         event.preventDefault();
         /**
@@ -1122,10 +1127,10 @@ rowsDeleteForm
         var $form = $("#insertForm");
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() , function(data) {
-            if(data.success == true) {
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                if($("#pageselector").length != 0) {
+                if ($("#pageselector").length != 0) {
                     $("#pageselector").trigger('change');
                 } else {
                     $("input[name=navig].ajax").trigger('click');
@@ -1133,9 +1138,12 @@ rowsDeleteForm
 
             } else {
                 PMA_ajaxShowMessage(data.error);
-                $("#table_results tbody tr.marked .multi_checkbox").prop("checked", false);
-                $("#table_results tbody tr.marked .multi_checkbox").removeClass("last_clicked");
-                $("#table_results tbody tr").removeClass("marked");
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
+                $("#table_results tbody tr" +
+                        ", #table_results tbody tr td").removeClass("marked");
             }
             if ($("#change_row_dialog").length > 0) {
                 $("#change_row_dialog").dialog("close").remove();
@@ -1148,6 +1156,9 @@ rowsDeleteForm
         }) // end $.post()
     }) // end insert table button "Go"
 
+/**
+ * Click action for #buttonYes button in ajax dialog insertForm
+ */
     $("#buttonYes.ajax").live('click', function(event){
         event.preventDefault();
         /**
@@ -1161,17 +1172,20 @@ rowsDeleteForm
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() , function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 if (selected_submit_type == "showinsert") {
                     $("#sqlqueryresults").prepend(data.sql_query);
                     $("#result_query .notice").remove();
                     $("#result_query").prepend(data.message);
-                    $("#table_results tbody tr.marked .multi_checkbox").prop("checked", false);
-                    $("#table_results tbody tr.marked .multi_checkbox").removeClass("last_clicked");
-                    $("#table_results tbody tr").removeClass("marked");
+                    $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
+                    $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
+                    $("#table_results tbody tr" +
+                        ", #table_results tbody tr td").removeClass("marked");
                 } else {
-                    if($("#pageselector").length != 0) {
+                    if ($("#pageselector").length != 0) {
                         $("#pageselector").trigger('change');
                     } else {
                         $("input[name=navig].ajax").trigger('click');
@@ -1183,9 +1197,12 @@ rowsDeleteForm
                 }
             } else {
                 PMA_ajaxShowMessage(data.error);
-                $("#table_results tbody tr.marked .multi_checkbox").prop("checked", false);
-                $("#table_results tbody tr.marked .multi_checkbox").removeClass("last_clicked");
-                $("#table_results tbody tr").removeClass("marked");
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                    ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                    ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
+                $("#table_results tbody tr" +
+                    ", #table_results tbody tr td").removeClass("marked");
             }
             if ($("#change_row_dialog").length > 0) {
                 $("#change_row_dialog").dialog("close").remove();
