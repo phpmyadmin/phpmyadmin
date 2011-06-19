@@ -1045,7 +1045,7 @@ msgstr "即時流量圖表"
 
 #: js/messages.php:67 server_status.php:419
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "即時連線圖表"
 
 #: js/messages.php:68 server_status.php:438
 #, fuzzy
