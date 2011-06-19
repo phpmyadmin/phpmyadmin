@@ -1094,7 +1094,7 @@ msgstr "伺服器流量(單位為KiB，即2^10)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "最後一次連線"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
