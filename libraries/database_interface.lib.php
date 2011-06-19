@@ -287,12 +287,8 @@ function PMA_usort_comparison_callback($a, $b)
  * @uses    PMA_DBI_fetch_result()
  * @uses    PMA_escape_mysql_wildcards()
  * @uses    PMA_backquote()
- * @uses    is_array()
- * @uses    addslashes()
- * @uses    strpos()
- * @uses    strtoupper()
- * @param   string          $databases      database
- * @param   string          $table          table
+ * @param   string          $database       database
+ * @param   string|false    $table          table
  * @param   boolean|string  $tbl_is_group   $table is a table group
  * @param   resource        $link           mysql link
  * @param   integer         $limit_offset   zero-based offset for the count
@@ -718,6 +714,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
  * @param   string  $table      name of table to retrieve columns from
  * @param   string  $column     name of specific column
  * @param   mixed   $link       mysql link resource
+ * @return array
  */
 function PMA_DBI_get_columns_full($database = null, $table = null,
     $column = null, $link = null)
@@ -1337,7 +1334,7 @@ function PMA_DBI_getCompatibilities()
  *
  * @uses    $GLOBALS['userlink']
  * @uses    PMA_DBI_fetch_result()
- * @param   resource mysql link  $link   mysql link resource
+ * @param   resource $link   mysql link resource
  * @return  array   warnings
  */
 function PMA_DBI_get_warnings($link = null)
@@ -1486,7 +1483,11 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
  */
 function PMA_isView($db, $view_name)
 {
-    $result = PMA_DBI_fetch_result("SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = '".$db."' and TABLE_NAME = '".$view_name."';");
+    $result = PMA_DBI_fetch_result(
+        "SELECT TABLE_NAME
+        FROM information_schema.VIEWS
+        WHERE TABLE_SCHEMA = '" . PMA_sqlAddslashes($db) . "'
+            AND TABLE_NAME = '" . PMA_sqlAddslashes($view_name) . "'");
 
     if ($result) {
         return true;
