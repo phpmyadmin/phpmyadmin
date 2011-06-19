@@ -96,7 +96,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
             $lastIndex = $row['Key_name'];
         }
         $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = PMA_DRIZZLE ? $row['Unique'] : $row['Non_unique'];
+        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
         if (isset($row['Cardinality'])) {
             $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
         }
