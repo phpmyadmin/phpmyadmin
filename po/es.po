@@ -1131,7 +1131,7 @@ msgstr "Conexiones / Procesos"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Consultas ejecutadas desde la última actualización"
 
 #: js/messages.php:87
 #, fuzzy
