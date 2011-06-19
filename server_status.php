@@ -60,7 +60,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 exit(json_encode($ret));
             case 'queries':
                 if (PMA_DRIZZLE) {
-                    $sql = "SELECT 'Com_' || variable_name, variable_value
+                    $sql = "SELECT concat('Com_', variable_name), variable_value
                         FROM data_dictionary.GLOBAL_STATEMENTS
                         WHERE variable_value > 0";
                     $queries = PMA_DBI_fetch_result($sql, 0, 1);
@@ -159,7 +159,7 @@ if (!empty($_REQUEST['kill'])) {
 $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
 if (PMA_DRIZZLE) {
     // Drizzle doesn't put query statistics into variables, add it
-    $sql = "SELECT 'Com_' || variable_name, variable_value
+    $sql = "SELECT concat('Com_', variable_name), variable_value
         FROM data_dictionary.GLOBAL_STATEMENTS";
     $statements = PMA_DBI_fetch_result($sql, 0, 1);
     $server_status = array_merge($server_status, $statements);
