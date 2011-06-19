@@ -1048,10 +1048,9 @@ msgid "Live conn./process chart"
 msgstr "即時連線圖表"
 
 #: js/messages.php:68 server_status.php:438
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "顯示查詢圖表"
+msgstr "即時查詢圖表"
 
 #: js/messages.php:70
 msgid "Static data"
