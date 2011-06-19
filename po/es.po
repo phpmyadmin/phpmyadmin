@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-15 23:05+0200\n"
+"PO-Revision-Date: 2011-06-19 20:35+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1105,7 +1105,7 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB enviados desde la última actualización"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
