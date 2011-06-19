@@ -8379,12 +8379,12 @@ msgid "Refresh rate"
 msgstr "Velocidad de actualización"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "minutos"
-msgstr[1] "minutos"
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutes"
 
 #: server_status.php:33
 #, fuzzy, php-format
