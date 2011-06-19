@@ -799,13 +799,29 @@ function printServerTraffic() {
 
     $url_params = array();
 
-    if (! empty($_REQUEST['full'])) {
-        $sql_query = 'SHOW FULL PROCESSLIST';
+    $show_full_sql = !empty($_REQUEST['full']);
+    if ($show_full_sql) {
         $url_params['full'] = 1;
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array(), 'html', '?');
     } else {
-        $sql_query = 'SHOW PROCESSLIST';
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array('full' => 1));
+    }
+    if (PMA_DRIZZLE) {
+        $sql_query = "SELECT
+                p.id       AS Id,
+                p.username AS User,
+                p.host     AS Host,
+                p.db       AS db,
+                p.command  AS Command,
+                p.time     AS Time,
+                p.state    AS State,
+                " . ($show_full_sql ? 's.query' : 'p.info') . " AS Info
+            FROM data_dictionary.PROCESSLIST p
+                " . ($show_full_sql ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' : '');
+    } else {
+        $sql_query = $show_full_sql
+            ? 'SHOW FULL PROCESSLIST'
+            : 'SHOW PROCESSLIST';
     }
     $result = PMA_DBI_query($sql_query);
 
@@ -824,15 +840,12 @@ function printServerTraffic() {
         <th><?php echo __('Command'); ?></th>
         <th><?php echo __('Time'); ?></th>
         <th><?php echo __('Status'); ?></th>
-        <th><?php
-            echo __('SQL query');
-            if (! PMA_DRIZZLE) { ?>
-                <a href="<?php echo $full_text_link; ?>"
-                    title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
-                    alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
-                </a>
-            <?php } ?>
+        <th><?php echo __('SQL query'); ?>
+            <a href="<?php echo $full_text_link; ?>"
+                title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
+                <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
+                alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
+            </a>
         </th>
     </tr>
     </thead>
@@ -840,22 +853,13 @@ function printServerTraffic() {
     <?php
     $odd_row = true;
     while ($process = PMA_DBI_fetch_assoc($result)) {
-        if (PMA_DRIZZLE) {
-            // Drizzle uses uppercase keys
-            foreach ($process as $k => $v) {
-                $k = $k !== 'DB'
-                    ? ucfirst(strtolower($k))
-                    : 'db';
-                $process[$k] = $v;
-            }
-        }
         $url_params['kill'] = $process['Id'];
         $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
         ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
         <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
         <td class="value"><?php echo $process['Id']; ?></td>
-        <td><?php echo PMA_DRIZZLE ? $process['Username'] : $process['User']; ?></td>
+        <td><?php echo $process['User']; ?></td>
         <td><?php echo $process['Host']; ?></td>
         <td><?php echo ((! isset($process['db']) || ! strlen($process['db'])) ? '<i>' . __('None') . '</i>' : $process['db']); ?></td>
         <td><?php echo $process['Command']; ?></td>
