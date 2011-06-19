@@ -1112,10 +1112,9 @@ msgid "KiB received since last refresh"
 msgstr "KiB recibidos desde la última actualización"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server traffic"
 msgid "Server traffic (in KiB)"
-msgstr "Tráfico del servidor"
+msgstr "Tráfico del servidor (en KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
