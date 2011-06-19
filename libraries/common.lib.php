@@ -2966,4 +2966,22 @@ function PMA_buildActionTitles() {
     $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
     return $titles;
 }
+
+/**
+ * Returns server type for current connection
+ *
+ * Known types are: Drizzle, MariaDB and MySQL (default)
+ *
+ * @return string
+ */
+function PMA_getServerType()
+{
+    $server_type = 'MySQL';
+    if (PMA_DRIZZLE) {
+        $server_type = 'Drizzle';
+    } else if (strpos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+        $server_type = 'MariaDB';
+    }
+    return $server_type;
+}
 ?>
