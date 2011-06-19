@@ -50,7 +50,7 @@ function setFieldValue(field, field_type, value) {
             field.attr('checked', (value != undefined ? value : field.attr('defaultChecked')));
             break;
         case 'select':
-            var options = field.attr('options');
+            var options = field.prop('options');
             var i, imax = options.length;
             if (value == undefined) {
                 for (i = 0; i < imax; i++) {

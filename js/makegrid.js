@@ -347,14 +347,16 @@
             showHint: function(e) {
                 if (!this.colRsz && !this.colMov) {     // if not resizing or dragging
                     var text = '';
-                    if (this.showReorderHint) {
+                    if (this.showReorderHint && this.reorderHint) {
                         text += this.reorderHint;
                     }
-                    if (this.showSortHint) {
+                    if (this.showSortHint && this.sortHint) {
                         text += text.length > 0 ? '<br />' : '';
                         text += this.sortHint;
                     }
-                    if (this.showMarkHint) {
+                    if (this.showMarkHint && this.markHint &&
+                        !this.showSortHint      // we do not show mark hint, when sort hint is shown
+                    ) {
                         text += text.length > 0 ? '<br />' : '';
                         text += this.markHint;
                     }
@@ -456,9 +458,6 @@
         g.sortHint = $('#sort_hint').val();
         g.markHint = $('#col_mark_hint').val();
         
-        // determine whether to show the column reordering hint or not
-        g.showReorderHint = $firstRowCols.length > 1;
-        
         // initialize column order
         $col_order = $('#col_order');
         if ($col_order.length > 0) {
@@ -491,31 +490,38 @@
             .wrapInner('<span />');
         
         // register events
-        if ($firstRowCols.length > 1) {
+        if ($firstRowCols.length > 1 && g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
                 .css('cursor', 'move')
                 .mousedown(function(e) {
                     g.dragStartMove(e, this);
+                })
+                .mouseenter(function(e) {
+                    g.showReorderHint = true;
+                    g.showHint(e);
+                })
+                .mouseleave(function(e) {
+                    g.showReorderHint = false;
+                    g.showHint(e);
                 });
         }
-        $(t).find('th.draggable')
-            .mouseenter(function(e) {
-                g.showMarkHint = !g.showSortHint;
-                g.showHint(e);
-            })
-            .mouseleave(function(e) {
-                g.hideHint();
-            });
         $(t).find('th.draggable a')
             .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
                 g.showSortHint = true;
-                g.showMarkHint = false;
                 g.showHint(e);
             })
             .mouseleave(function(e) {
                 g.showSortHint = false;
+                g.showHint(e);
+            });
+        $(t).find('th.marker')
+            .mouseenter(function(e) {
                 g.showMarkHint = true;
+                g.showHint(e);
+            })
+            .mouseleave(function(e) {
+                g.showMarkHint = false;
                 g.showHint(e);
             });
         $(document).mousemove(function(e) {
