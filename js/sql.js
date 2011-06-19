@@ -1079,7 +1079,7 @@ rowsDeleteForm
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
+            $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true&submit_mult=row_edit" ,  function(data) {
                 //in the case of an error, show the error message returned.
                 if (data.success != undefined && data.success == false) {
                     div
@@ -1137,9 +1137,10 @@ rowsDeleteForm
                 $("#change_row_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
-
             $("#result_query").remove();
             $("#sqlqueryresults").prepend(data.sql_query);
+            $("#result_query .notice").remove();
+            $("#result_query").prepend((data.message));
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -1169,6 +1170,8 @@ rowsDeleteForm
                     $("#pageselector").trigger('change');
                     $("#result_query").remove();
                     $("#sqlqueryresults").prepend(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
                 }
             } else {
                 PMA_ajaxShowMessage(data.error);
