@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-12 05:41+0200\n"
-"Last-Translator: <star@origin.club.tw>\n"
+"PO-Revision-Date: 2011-06-19 09:44+0200\n"
+"Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -991,10 +991,9 @@ msgstr "這不是一個數字！"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "日志檔案總數"
+msgstr "總數量"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
