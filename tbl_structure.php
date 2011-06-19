@@ -793,7 +793,7 @@ if ($cfg['ShowStats']) {
             <?php
         }
         // Optimize link if overhead
-        if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
+        if (isset($free_size) && !PMA_DRIZZLE && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA' || $tbl_type == 'BDB')) {
             ?>
     <tr class="tblFooters">
         <td colspan="3" align="center">

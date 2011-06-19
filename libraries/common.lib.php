@@ -969,7 +969,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     // @todo this is REALLY the wrong place to do this - very unexpected here
     if (strlen($GLOBALS['table'])
      && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
-        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024) {
+        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024 && !PMA_DRIZZLE) {
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }

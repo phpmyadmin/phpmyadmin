@@ -523,10 +523,12 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
          . __('Drop') . '</option>' . "\n";
     echo '    <option value="check_tbl" >'
          . __('Check table') . '</option>' . "\n";
-    echo '    <option value="optimize_tbl" >'
-         . __('Optimize table') . '</option>' . "\n";
-    echo '    <option value="repair_tbl" >'
-         . __('Repair table') . '</option>' . "\n";
+    if (!PMA_DRIZZLE) {
+        echo '    <option value="optimize_tbl" >'
+             . __('Optimize table') . '</option>' . "\n";
+        echo '    <option value="repair_tbl" >'
+             . __('Repair table') . '</option>' . "\n";
+    }
     echo '    <option value="analyze_tbl" >'
          . __('Analyze table') . '</option>' . "\n";
     echo '    <option value="add_prefix_tbl" >'
