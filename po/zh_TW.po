@@ -1088,10 +1088,9 @@ msgid "KiB received since last refresh"
 msgstr "最後一次接收的資料量(單位為KiB，即2^10)"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "選擇伺服器"
+msgstr "伺服器流量(單位為KiB，即2^10)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
