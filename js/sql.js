@@ -1125,7 +1125,11 @@ rowsDeleteForm
         $.post($form.attr('action'), $form.serialize() , function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("#pageselector").trigger('change');
+                if($("#pageselector").length != 0) {
+                    $("#pageselector").trigger('change');
+                } else {
+                    $("input[name=navig].ajax").trigger('click');
+                }
 
             } else {
                 PMA_ajaxShowMessage(data.error);
@@ -1167,7 +1171,11 @@ rowsDeleteForm
                     $("#table_results tbody tr.marked .multi_checkbox").removeClass("last_clicked");
                     $("#table_results tbody tr").removeClass("marked");
                 } else {
-                    $("#pageselector").trigger('change');
+                    if($("#pageselector").length != 0) {
+                        $("#pageselector").trigger('change');
+                    } else {
+                        $("input[name=navig].ajax").trigger('click');
+                    }
                     $("#result_query").remove();
                     $("#sqlqueryresults").prepend(data.sql_query);
                     $("#result_query .notice").remove();
