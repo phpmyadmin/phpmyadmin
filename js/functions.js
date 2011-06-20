@@ -1407,6 +1407,7 @@ function PMA_createChart(passedSettings) {
         chart: {
             type: 'spline',
             marginRight: 10,
+            backgroundColor: 'transparent',
             events: {
                 load: function() {
                     var thisChart = this;
