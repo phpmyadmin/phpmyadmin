@@ -3,6 +3,10 @@ var chart_series;
 var chart_series_index = -1;
 
 $(document).ready(function() {
+
+
+
+
     var currentChart=null;
 
     // Get query result 
@@ -12,11 +16,11 @@ $(document).ready(function() {
 
     var currentSettings = {
         chart: {
-            renderTo: 'resizer',
+            renderTo: 'querychart',
             defaultSeriesType: 'scatter',
 	    zoomType: 'xy',
-	    width:$('#resizer').width()-20,
-            height:$('#resizer').height()-20
+	    width:$('#resizer').width(),
+            height:$('#resizer').height()
 	},
 	xAxis: {
 	    title: { text: $('#tableid_0').val() },
@@ -24,13 +28,17 @@ $(document).ready(function() {
         yAxis: {
 	    title: { text: $('#tableid_1').val() },
 	},
-        title: { text: 'Scatter Plot' },
+        title: { text: 'Query Results' },
+	exporting: { enabled: false },
+	credits: {
+            enabled: false 
+        },
         label: { text: $('#dataLabel').val() },
     }
 
     function drawChart(noAnimation) {
 
-        currentSettings.chart.width=$('#resizer').width()-20;
+        currentSettings.chart.width=$('#resizer').width()-3;
         currentSettings.chart.height=$('#resizer').height()-20;
 
         if(currentChart!=null) currentChart.destroy();
@@ -39,8 +47,24 @@ $(document).ready(function() {
         currentChart = PMA_queryChart(chart_data,currentSettings);
         if(noAnimation) currentSettings.plotOptions.series.animation = true;
     }
+
+    $('#resizer').resizable({
+        resize: function() {
+            currentChart.setSize(
+                this.offsetWidth -3,
+                this.offsetHeight - 20,
+                false
+            );
+        }
+    });
+
     drawChart();
 });
+
+function displayHelp() {
+	alert("* Each point represents a data row.\n* Hovering over a point will show its label.\n* Drag and select an area in the plot to zoom into it.\n* Click reset zoom link to come back to original state.\n* Click data points to view the data row.\n* The plot can be resized by dragging it along the bottom right corner.");
+
+}
 
 function in_array(element,array) {
 	for(var i=0; i<array.length; i++)
@@ -117,7 +141,7 @@ function PMA_queryChart(data,passedSettings) {
 	    min: Array.min(xCord) - 2
         },
         yAxis: { 
-	    max: Array.max(yCord) + 2,
+	    max: Array.max(yCord) + 3,
 	    min: Array.min(yCord) - 2
         }
     };

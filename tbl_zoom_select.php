@@ -13,7 +13,10 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/tbl_select.lib.php';
+require_once './libraries/relation.lib.php';
 
+$GLOBALS['js_include'][] = 'makegrid.js';
+$GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
@@ -79,7 +82,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
 if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null')))
 {
     $flag = 2;
-    for($i = 0 ; $i < 2 ; $i++)
+    for($i = 0 ; $i < 4 ; $i++)
     {
         if($inputs[$i] != __('pma_null'))
         {
@@ -93,24 +96,18 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 
 }
 
-
 if(isset($zoom_submit)) {
 
     $w = $data = array(); 
 
     $sql_query = 'SELECT *';
 
-    // Add the colums to be selected
-    //$columns = $inputs;
-    //$columns = PMA_backquote($columns);
-    //$sql_query .= implode(', ', $columns);
-    
-
     //Add the table
 	
     $sql_query .= ' FROM ' . PMA_backquote($table);
-    for($i = 0 ; $i < 2 ; $i++){
-
+    for($i = 0 ; $i < 4 ; $i++){
+        if($inputs[$i] == __('pma_null'))
+	    continue;
         $tmp = array();
         // The where clause
         $charsets = array();
@@ -127,6 +124,11 @@ if(isset($zoom_submit)) {
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }
+	$sql_query .= ' LIMIT 500 ';
+
+    if ($dataLabel == '')
+	$dataLabel = PMA_getDisplayField($db,$table);
+
 
     $settings = array('xLabel' => $inputs[0], 'yLabel' => $inputs[1], 'dataLabel' => $dataLabel); 
     $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
@@ -150,23 +152,33 @@ if(isset($zoom_submit)) {
 <fieldset id="zoom_fieldset_table_qbe">
 <?php if(isset($zoom_submit) && !empty($scatter_plot)){ ?>
     <div id='resizer' style="width:600px; height:400px;float:right">
-        <legend><?php echo __('Display Plot'); ?></legend>
-        <div id="querydata" style="display:none;">
+	<?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
+        <div id="querydata" style="display:none">
             <?php if(isset($data)) echo json_encode($data); ?>
         </div>
+	<div id="querychart" style="float:right">
+	</div>
+            <?php //echo $scatter_plot; ?>
 
     </div>
 
 
 <?php } ?>
-    <legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
-    <table class="data">
-    <?php echo PMA_tbl_setTableHeader();?>
-    <tbody>
+<legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
+<table class="data">
+<?php echo PMA_tbl_setTableHeader();?>
+<tbody>
 <?php
     $odd_row = true;
    
-    for($i = 0 ; $i < 2 ; $i++){
+for($i = 0 ; $i < 4 ; $i++){
+    
+    if($i == 2){
+	echo "<tr><td>";
+        echo __("Additional search criteria");
+	echo "</td><tr>";
+    }               
+
 ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
         <th><select name="inputs[]" id=<?php echo 'tableid_' . $i?> >

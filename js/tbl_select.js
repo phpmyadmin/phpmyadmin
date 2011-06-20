@@ -32,6 +32,14 @@ $(document).ready(function() {
      $('#tableid_1').change(function() {
           $('#zoom_search_form').submit();
      })
+     
+     $('#tableid_2').change(function() {
+          $('#zoom_search_form').submit();
+     })
+     
+     $('#tableid_3').change(function() {
+          $('#zoom_search_form').submit();
+     })
 
 
     /**
@@ -79,7 +87,6 @@ $(document).ready(function() {
                 // found results
                 $("#sqlqueryresults").html(response);
                 $("#sqlqueryresults").trigger('appendAnchor');
-                $("#sqlqueryresults").trigger('makegrid');
                 $('#tbl_search_form')
                 // work around for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                  .slideToggle()	
