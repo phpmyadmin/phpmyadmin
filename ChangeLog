@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.4.0 (not yet released)
+
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
 - patch #3304473 [setup] Redefine a lable that was wrong
