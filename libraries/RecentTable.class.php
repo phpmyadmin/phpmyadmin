@@ -163,9 +163,9 @@ class PMA_RecentTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
+        $html  = '<input type="hidden" name="goto" id="LeftDefaultTabTable" value="' .
                          $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
-        $html .= '<select id="recentTable">';
+        $html .= '<select name="table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
         
