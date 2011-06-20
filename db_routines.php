@@ -128,8 +128,13 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         // Execute the queries
         $affected = 0;
         $result = null;
+        $outcome = true;
         foreach ($queries as $num => $query) {
-            $resource = PMA_DBI_query($query);
+            $resource = PMA_DBI_try_query($query);
+            if ($resource === false) {
+                $outcome = false;
+                break;
+            }
             while (true) {
                 if(! PMA_DBI_more_results()) {
                     break;
@@ -142,56 +147,76 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 $affected = PMA_DBI_affected_rows() - PMA_DBI_num_rows($resource);
             }
         }
-
-        // If any of the queries failed, we wouldn't have gotten
-        // this far, so we simply show a success message.
-        $message  = __('Your SQL query has been executed successfully');
-        if ($routine['type'] == 'PROCEDURE') {
-            $message .= '<br />';
-            $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
-        }
-        $message = PMA_message::success($message);
-
-        // Pass the SQL queries through the "pretty printer"
-        $output  = '<code class="sql" style="margin-bottom: 1em;">';
-        $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
-        $output .= '</code>';
-
-        // Display results
-        if ($result) {
-            $output .= "<fieldset><legend>";
-            $output .= sprintf(__('Execution results of routine %s'),
-                               PMA_backquote(htmlspecialchars($routine['name'])));
-            $output .= "</legend>";
-            $output .= "<table><tr>";
-            foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
-                $output .= "<th>" . htmlspecialchars($field->name) . "</th>";
+        // Generate output
+        if ($outcome) {
+            $message = __('Your SQL query has been executed successfully');
+            if ($routine['type'] == 'PROCEDURE') {
+                $message .= '<br />';
+                $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
             }
-            $output .= "</tr>";
-            // Stored routines can only ever return ONE ROW.
-            $data = PMA_DBI_fetch_single_row($result);
-            foreach ($data as $key => $value) {
-                if ($value === null) {
-                    $value = '<i>NULL</i>';
-                } else {
-                    $value = htmlspecialchars($value);
+            $message = PMA_message::success($message);
+            // Pass the SQL queries through the "pretty printer"
+            $output  = '<code class="sql" style="margin-bottom: 1em;">';
+            $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
+            $output .= '</code>';
+            // Display results
+            if ($result) {
+                $output .= "<fieldset><legend>";
+                $output .= sprintf(__('Execution results of routine %s'),
+                                   PMA_backquote(htmlspecialchars($routine['name'])));
+                $output .= "</legend>";
+                $output .= "<table><tr>";
+                foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
+                    $output .= "<th>" . htmlspecialchars($field->name) . "</th>";
                 }
-                $output .= "<td class='odd'>" . $value . "</td>";
+                $output .= "</tr>";
+                // Stored routines can only ever return ONE ROW.
+                $data = PMA_DBI_fetch_single_row($result);
+                foreach ($data as $key => $value) {
+                    if ($value === null) {
+                        $value = '<i>NULL</i>';
+                    } else {
+                        $value = htmlspecialchars($value);
+                    }
+                    $output .= "<td class='odd'>" . $value . "</td>";
+                }
+                $output .= "</table></fieldset>";
+            } else {
+                $notice = __('MySQL returned an empty result set (i.e. zero rows).');
+                $output .= PMA_message::notice($notice)->getDisplay();
             }
-            $output .= "</table></fieldset>";
         } else {
-            $notice = __('MySQL returned an empty result set (i.e. zero rows).');
-            $output .= PMA_message::notice($notice)->getDisplay();
+            $output = '';
+            $message = PMA_message::error(sprintf(__('Query "%s" failed'), $query) . '<br /><br />'
+                                                . __('MySQL said: ') . PMA_DBI_getError(null));
         }
+        // Print/send output
         if ($GLOBALS['is_ajax_request']) {
             $extra_data = array();
             $extra_data['dialog']  = false;
             $extra_data['results'] = $message->getDisplay() . $output;
-            PMA_ajaxResponse($message, true, $extra_data);
+            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
         } else {
             echo $message->getDisplay() . $output;
+            if ($message->isError()) {
+                // At least one query has failed, so shouldn't
+                // execute any more queries, so we quit.
+                exit;
+            }
             unset($_POST);
             // Now deliberately fall through to displaying the routines list
+        }
+    } else {
+        $message = __('Error in processing request') . ' : '
+                 . sprintf(__('No routine with name %s found in database %s'),
+                           htmlspecialchars(PMA_backquote($_REQUEST['routine_name'])),
+                           htmlspecialchars(PMA_backquote($db)));
+        $message = PMA_message::error($message);
+        if ($GLOBALS['is_ajax_request']) {
+            PMA_ajaxResponse($message, $message->isSuccess());
+        } else {
+            echo $message->getDisplay();
+            unset($_POST);
         }
     }
 } else if (! empty($_GET['execute_dialog']) && ! empty($_GET['routine_name'])) {
@@ -349,19 +374,11 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
     }
     // Get the data for the form (if any)
     if (! empty($_REQUEST['addroutine'])) {
-        if ($GLOBALS['is_ajax_request'] != true) {
-            echo "\n\n<h2>" . __("Create routine") . "</h2>\n\n";
-        } else {
-            $title = __("Create routine");
-        }
+        $title = __("Create routine");
         $routine = PMA_RTN_getRoutineDataFromRequest();
         $mode = 'add';
     } else if (! empty($_REQUEST['editroutine'])) {
-        if ($GLOBALS['is_ajax_request'] != true) {
-            echo "\n\n<h2>" . __("Edit routine") . "</h2>\n\n";
-        } else {
-            $title = __("Edit routine");
-        }
+        $title = __("Edit routine");
         if (! $operation && ! empty($_REQUEST['routine_name']) && empty($_REQUEST['routine_process_editroutine'])) {
             $routine = PMA_RTN_getRoutineDataFromName($db, $_REQUEST['routine_name']);
             if ($routine !== false) {
@@ -381,9 +398,20 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
             $extra_data = array('title' => $title, 'param_template' => $template, 'type' => $routine['type']);
             PMA_ajaxResponse($editor, true, $extra_data);
         }
-        echo $editor;
+        echo "\n\n<h2>$title</h2>\n\n$editor";
         require './libraries/footer.inc.php';
         // exit;
+    } else {
+        $message = __('Error in processing request') . ' : '
+                 . sprintf(__('No routine with name %s found in database %s'),
+                           htmlspecialchars(PMA_backquote($_REQUEST['routine_name'])),
+                           htmlspecialchars(PMA_backquote($db)));
+        $message = PMA_message::error($message);
+        if ($GLOBALS['is_ajax_request']) {
+            PMA_ajaxResponse($message, false);
+        } else {
+            $message->display();
+        }
     }
 }
 
