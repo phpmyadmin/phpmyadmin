@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-20 10:58+0200\n"
+"PO-Revision-Date: 2011-06-20 10:59+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1120,10 +1120,9 @@ msgid "Processes"
 msgstr "Διεργασίες"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Συνδέσεις"
+msgstr "Συνδέσεις / Διεργασίες"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
