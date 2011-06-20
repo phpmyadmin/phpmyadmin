@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - patch #3317206 [privileges] Generate password option missing on new accounts
 - bug #3317293 [edit] Inline edit places HTML line breaks in edit area
 - bug #3319466 [interface] Inline query edit does not escape special characters
+- minor XSS (require a valid token)
 
 3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label

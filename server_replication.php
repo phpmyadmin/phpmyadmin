@@ -53,7 +53,7 @@ if (isset($GLOBALS['sr_take_action'])) {
 
         if (! $link_to_master) {
             $_SESSION['replication']['sr_action_status'] = 'error';
-            $_SESSION['replication']['sr_action_info'] = sprintf(__('Unable to connect to master %s.'), $sr['hostname']);
+            $_SESSION['replication']['sr_action_info'] = sprintf(__('Unable to connect to master %s.'), htmlspecialchars($sr['hostname']));
         } else {
             // Read the current master position
             $position = PMA_replication_slave_bin_log_master($link_to_master);
@@ -69,7 +69,7 @@ if (isset($GLOBALS['sr_take_action'])) {
                     $_SESSION['replication']['sr_action_info'] = __('Unable to change master');
                 } else {
                     $_SESSION['replication']['sr_action_status'] = 'success';
-                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed successfully to %s'), $sr['hostname']);
+                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed successfully to %s'), htmlspecialchars($sr['hostname']));
                 }
             }
         }
