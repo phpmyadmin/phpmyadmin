@@ -97,7 +97,7 @@ function appendInlineAnchor() {
             $cloned_tr.insertAfter($this_tr);
         });
 
-        $('#rowsDeleteForm').find('tbody').find('th').each(function() {
+        $('#resultsForm').find('tbody').find('th').each(function() {
             var $this_th = $(this);
             if ($this_th.attr('rowspan') == 4) {
                 $this_th.attr('rowspan', '5');
@@ -149,7 +149,7 @@ function appendInlineAnchor() {
             $this_td.after($cloned_anchor);
         });
 
-        $('#rowsDeleteForm').find('thead, tbody').find('th').each(function() {
+        $('#resultsForm').find('thead, tbody').find('th').each(function() {
             var $this_th = $(this);
             if ($this_th.attr('colspan') == 4) {
                 $this_th.attr('colspan', '5');
@@ -981,7 +981,7 @@ $(document).ready(function() {
                 }
             }
         })
-rowsDeleteForm
+
         /*
          * update the where_clause, remove the last appended ' AND '
          * */
