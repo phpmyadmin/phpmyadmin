@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-15 23:05+0200\n"
+"PO-Revision-Date: 2011-06-19 20:37+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1105,41 +1105,38 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB enviados desde la última actualización"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB recibidos desde la última actualización"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server traffic"
 msgid "Server traffic (in KiB)"
-msgstr "Tráfico del servidor"
+msgstr "Tráfico del servidor (en KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Connexiones desde la última actualización"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
 msgstr "Procesos"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Conexiones"
+msgstr "Conexiones / Procesos"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Consultas ejecutadas desde la última actualización"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "Consultas SQL"
+msgstr "Consultas ejecutadas"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
@@ -1790,7 +1787,7 @@ msgstr "¡No se halló la ruta del tema %s!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -8382,20 +8379,20 @@ msgid "Refresh rate"
 msgstr "Velocidad de actualización"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "minutos"
-msgstr[1] "minutos"
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutes"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "segundo"
-msgstr[1] "segundo"
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
 
 #: server_status.php:134
 #, php-format

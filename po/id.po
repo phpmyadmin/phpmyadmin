@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-04-16 22:04+0200\n"
-"Last-Translator: <aris_feryanto@yahoo.com>\n"
+"PO-Revision-Date: 2011-06-18 11:34+0200\n"
+"Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -704,7 +704,7 @@ msgstr "Analisa tabel"
 
 #: db_structure.php:522
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Tambah awalan ke tabel"
 
 #: db_structure.php:524 libraries/mult_submits.inc.php:246
 #, fuzzy
@@ -970,10 +970,9 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "Anda akan MENGHAPUS SELURUH database!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Anda akan MENGHAPUS SELURUH database!"
+msgstr "Anda akan MENGOSONGKAN seluruh tabel"
 
 #: js/messages.php:34
 msgid "Dropping Event"
@@ -1015,7 +1014,6 @@ msgstr "Ini bukan angka!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "Jumlah"
@@ -1038,10 +1036,9 @@ msgstr "Kata Sandi tidak sama!"
 
 #: js/messages.php:58 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Setiap pengguna"
+msgstr "Tambah pengguna"
 
 #: js/messages.php:59
 msgid "Reloading Privileges"
@@ -1073,16 +1070,15 @@ msgstr "Pilihan Server"
 
 #: js/messages.php:67 server_status.php:419
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live conn./process chart"
 
 #: js/messages.php:68 server_status.php:438
-#, fuzzy
 msgid "Live query chart"
-msgstr "Pencarian SQL"
+msgstr "Perintah SQL"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Data statis"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
@@ -1095,7 +1091,7 @@ msgstr "Jumlah"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:595
 msgid "Other"
-msgstr ""
+msgstr "Lainnya"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1375
@@ -1109,40 +1105,37 @@ msgstr ","
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB terkirim sejak dibuka terakhir"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB diterima sejak dibuka terakhir"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Pilihan Server"
+msgstr "Lalulintas Server (dalam KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Koneksi sejak dibuka terakhir"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
 msgstr "Proses Aktif"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Koneksi"
+msgstr "Koneksi / Proses"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
 msgstr ""
 
 #: js/messages.php:87
-#, fuzzy
 msgid "Issued queries"
-msgstr "Pencarian SQL"
+msgstr "Perintah di keluarkan"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
@@ -1205,35 +1198,30 @@ msgid "Create Table"
 msgstr "Buat tabel"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Gunakan Tabel"
+msgstr "Sisipkan Tabel"
 
 #: js/messages.php:117
 msgid "Searching"
 msgstr "Pencarian"
 
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Sembunyikan kriteria pencarian"
+msgstr "Sembunyikan hasil pencarian"
 
 #: js/messages.php:119
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Tampilkan kriteria pencarian"
+msgstr "Tampilkan hasil pencarian"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Browse"
+msgstr "Menjelajahi"
 
 #: js/messages.php:121
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Menghapus %s"
@@ -1242,6 +1230,8 @@ msgstr "Menghapus %s"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabung menjadi "
+"satu"
 
 #: js/messages.php:127
 msgid "Hide query box"
@@ -1302,6 +1292,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
+"Anda belum menyimpan perubahan pada susunan. Mereka akan hilang jika Anda "
+"tidak menyimpannya. Apakah Anda ingin melanjutkan?"
 
 #: js/messages.php:149
 msgid "Add an option for column "
@@ -1338,10 +1330,9 @@ msgid ", latest stable version:"
 msgstr ", versi stabil terakhir:"
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Beralih ke database"
+msgstr "Mutakhir"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:181
@@ -1651,7 +1642,7 @@ msgstr "Unik"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:316
 msgid "Packed"
-msgstr ""
+msgstr "Dipadatkan"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:318
 msgid "Cardinality"
@@ -1717,21 +1708,18 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d baris disisipkan."
 
 #: libraries/RecentTable.class.php:113
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table"
-msgstr "Tidak dapat memuat konfigurasi default dari: \"%1$s\""
+msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 msgid "Recent tables"
-msgstr "Tabel tidak ditemukan"
+msgstr "Tabel terakhir"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no recent tables"
-msgstr "Tidak ada arsip untuk diunggah"
+msgstr "Tidak ada tabel terakhir"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
@@ -1774,7 +1762,7 @@ msgstr "Nama tabel %s telah diubah menjadi %s"
 
 #: libraries/Table.class.php:1272
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Tidak dapat menyimpan preferensi UI tabel"
 
 #: libraries/Theme.class.php:160
 #, php-format
@@ -1806,7 +1794,7 @@ msgstr "\"Path\" untuk tema tidak ditemukan untuk tema %s!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1962,7 +1950,7 @@ msgstr "Tidak bisa membuka arsip: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "dibagi"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
@@ -2274,15 +2262,15 @@ msgstr "Keduanya"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Tempat"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Kiri"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Kanan"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -2467,7 +2455,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Ijinkan pembingkaian pihak ketiga"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"

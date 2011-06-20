@@ -981,7 +981,7 @@ $(document).ready(function() {
                 }
             }
         })
-
+rowsDeleteForm
         /*
          * update the where_clause, remove the last appended ' AND '
          * */
@@ -1057,6 +1057,159 @@ $(document).ready(function() {
             PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, '', disp_mode);
         }
     }) // End After editing, clicking again should post data
+
+/**
+ * Ajax Event for table row change
+ * */
+    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function(event){
+        event.preventDefault();
+
+        /*Check whether atleast one row is selected for change*/
+        if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
+            var div = $('<div id="change_row_dialog"></div>');
+
+            /**
+             *  @var    button_options  Object that stores the options passed to jQueryUI
+             *                          dialog
+             */
+            var button_options = {};
+            // in the following function we need to use $(this)
+            button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+
+            var button_options_error = {};
+            button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+            var $form = $("#resultsForm");
+            var $msgbox = PMA_ajaxShowMessage();
+
+            $.get( $form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
+                //in the case of an error, show the error message returned.
+                if (data.success != undefined && data.success == false) {
+                    div
+                    .append(data.error)
+                    .dialog({
+                        title: PMA_messages['strChangeTbl'],
+                        height: 230,
+                        width: 900,
+                        open: PMA_verifyTypeOfAllColumns,
+                        buttons : button_options_error
+                    })// end dialog options
+                } else {
+                    div
+                    .append(data)
+                    .dialog({
+                        title: PMA_messages['strChangeTbl'],
+                        height: 600,
+                        width: 900,
+                        open: PMA_verifyTypeOfAllColumns,
+                        buttons : button_options
+                    })
+                    //Remove the top menu container from the dialog
+                    .find("#topmenucontainer").hide()
+                    ; // end dialog options
+                    $(".insertRowTable").addClass("ajax");
+                    $("#buttonYes").addClass("ajax");
+                }
+                PMA_ajaxRemoveMessage($msgbox);
+            }) // end $.get()
+        }  else {
+            PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
+        }
+    });
+
+/**
+ * Click action for "Go" button in ajax dialog insertForm -> insertRowTable 
+ */
+    $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the insert form
+         */
+        var $form = $("#insertForm");
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                if ($("#pageselector").length != 0) {
+                    $("#pageselector").trigger('change');
+                } else {
+                    $("input[name=navig].ajax").trigger('click');
+                }
+
+            } else {
+                PMA_ajaxShowMessage(data.error);
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
+                $("#table_results tbody tr" +
+                        ", #table_results tbody tr td").removeClass("marked");
+            }
+            if ($("#change_row_dialog").length > 0) {
+                $("#change_row_dialog").dialog("close").remove();
+            }
+            /**Update the row count at the tableForm*/
+            $("#result_query").remove();
+            $("#sqlqueryresults").prepend(data.sql_query);
+            $("#result_query .notice").remove();
+            $("#result_query").prepend((data.message));
+        }) // end $.post()
+    }) // end insert table button "Go"
+
+/**
+ * Click action for #buttonYes button in ajax dialog insertForm
+ */
+    $("#buttonYes.ajax").live('click', function(event){
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the insert form
+         */
+        var $form = $("#insertForm");
+        /**Get the submit type and the after insert type in the form*/
+        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").attr('value');
+        var selected_after_insert = $("#insertForm").find("#actions_panel select[name=after_insert] option:selected").attr('value');
+        $("#result_query").remove();
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() , function(data) {
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                if (selected_submit_type == "showinsert") {
+                    $("#sqlqueryresults").prepend(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend(data.message);
+                    $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
+                    $("#table_results tbody tr.marked .multi_checkbox " +
+                        ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
+                    $("#table_results tbody tr" +
+                        ", #table_results tbody tr td").removeClass("marked");
+                } else {
+                    if ($("#pageselector").length != 0) {
+                        $("#pageselector").trigger('change');
+                    } else {
+                        $("input[name=navig].ajax").trigger('click');
+                    }
+                    $("#result_query").remove();
+                    $("#sqlqueryresults").prepend(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error);
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                    ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
+                $("#table_results tbody tr.marked .multi_checkbox " +
+                    ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
+                $("#table_results tbody tr" +
+                    ", #table_results tbody tr td").removeClass("marked");
+            }
+            if ($("#change_row_dialog").length > 0) {
+                $("#change_row_dialog").dialog("close").remove();
+            }
+        }) // end $.post()
+    });
+
 }, 'top.frame_content') // end $(document).ready()
 
 

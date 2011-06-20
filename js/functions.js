@@ -1164,7 +1164,12 @@ $(document).ready(function(){
         $(".btnSave").each(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
-                window.location.replace("import.php?db=" + db +"&table=" + table + "&sql_query=" + sql_query + "&show_query=1&token=" + token);
+                window.location.replace("import.php"
+                                      + "?db=" + encodeURIComponent(db)
+                                      + "&table=" + encodeURIComponent(table)
+                                      + "&sql_query=" + encodeURIComponent(sql_query)
+                                      + "&show_query=1"
+                                      + "&token=" + token);
             });
         });
         $(".btnDiscard").each(function(){
@@ -1475,10 +1480,10 @@ function PMA_createChart(passedSettings) {
             passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
-            passedSettings.realtime.numMaxPoints = 32;
+            passedSettings.realtime.numMaxPoints = 30;
         
         settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 2;
+        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
     }
 
     // Overwrite/Merge default settings with passedsettings

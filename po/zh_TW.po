@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-12 05:41+0200\n"
-"Last-Translator: <star@origin.club.tw>\n"
+"PO-Revision-Date: 2011-06-19 09:59+0200\n"
+"Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -991,10 +991,9 @@ msgstr "這不是一個數字！"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "日志檔案總數"
+msgstr "總數量"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1040,24 +1039,22 @@ msgid "Edit"
 msgstr "編輯"
 
 #: js/messages.php:66 server_status.php:416
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "選擇伺服器"
+msgstr "即時流量圖表"
 
 #: js/messages.php:67 server_status.php:419
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "即時連線圖表"
 
 #: js/messages.php:68 server_status.php:438
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "顯示查詢圖表"
+msgstr "即時查詢圖表"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "靜態資料"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
@@ -1070,7 +1067,7 @@ msgstr "總計"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:595
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1375
@@ -1084,28 +1081,26 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "最後一次傳送的資料量(單位為KiB，即2^10)"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "最後一次接收的資料量(單位為KiB，即2^10)"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "選擇伺服器"
+msgstr "伺服器流量(單位為KiB，即2^10)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "最後一次連線"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
 msgstr "處理"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "連線"

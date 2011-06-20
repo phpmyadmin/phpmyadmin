@@ -1056,6 +1056,39 @@ div.liveChart {
 
 /* end serverstatus */
 
+/* server variables */
+
+a.editLink {
+    float: <?php echo $left; ?>;
+    font-family:sans-serif;
+}
+
+table.serverVariableEditTable {
+	border:0;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+table.serverVariableEditTable td {
+	border:0;
+	margin:0;
+	padding:0;
+}
+table.serverVariableEditTable td:first-child {
+	white-space:nowrap;
+	vertical-align:middle;
+}
+
+table.serverVariableEditTable input {
+	width:95%;
+}
+
+table#serverVariables td {
+    height:18px;
+}
+
+/* end server variables */
+
 /* querywindow */
 body#bodyquerywindow {
     margin: 0;

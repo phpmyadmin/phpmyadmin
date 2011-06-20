@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-16 21:00+0200\n"
+"PO-Revision-Date: 2011-06-18 11:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1093,41 +1093,38 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "Son yenilemeden bu yana gönderilmiş KiB"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Son yenilemeden bu yana alınmış KiB"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server traffic"
 msgid "Server traffic (in KiB)"
-msgstr "Sunucu trafiği"
+msgstr "Sunucu trafiği (KiB olarak)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Son yenilemeden bu yana bağlantılar"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
 msgstr "İşlemler"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Bağlantılar"
+msgstr "Bağlantılar / İşlemler"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Son yenilemeden bu yana sonuçlanmış sorgular"
 
 #: js/messages.php:87
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL sorguları"
+msgstr "Sonuçlanmış sorgular"
 
 #: js/messages.php:89 server_status.php:401
 msgid "Query statistics"
@@ -1772,7 +1769,7 @@ msgstr "%s teması için tema yolu bulunamadı!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -8255,18 +8252,18 @@ msgid "Refresh rate"
 msgstr "Oranı yenile"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "dakika"
+msgstr[0] "%d dakika"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "saniye"
+msgstr[0] "%d saniye"
 
 #: server_status.php:134
 #, php-format
@@ -8948,7 +8945,7 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"Sorgu önbelleğinde boş bellek blokları sayısıdır. Yüksek sayılar,  FLUSH "
+"Sorgu önbelleğinde boş bellek blokları sayısıdır. Yüksek sayılar, FLUSH "
 "QUERY CACHE ifadesinin çıkmasıyla çözülebilen, parçalanma sorunlarını işaret "
 "edebilir."
 

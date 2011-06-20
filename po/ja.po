@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-17 12:46+0200\n"
+"PO-Revision-Date: 2011-06-18 12:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1103,10 +1103,9 @@ msgid "KiB received since last refresh"
 msgstr ""
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server traffic (in kB)"
 msgid "Server traffic (in KiB)"
-msgstr "サーバのトラフィック（単位：kB）"
+msgstr "サーバのトラフィック（単位：KiB）"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
@@ -1773,7 +1772,7 @@ msgstr "テーマ %s のテーマパスが見つかりません!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "テーマ"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -8190,14 +8189,14 @@ msgid "Refresh rate"
 msgstr "再描画間隔"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"

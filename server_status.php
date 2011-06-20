@@ -25,7 +25,7 @@ require_once './libraries/common.inc.php';
  */
 function PMA_choose_refresh_rate() {
     echo '<option value="5">' . __('Refresh rate') . '</option>';
-    foreach(array(1, 2, 5, 1, 20, 40, 60, 120, 300, 600) as $key => $rate) {
+    foreach (array(1, 2, 5, 20, 40, 60, 120, 300, 600) as $rate) {
         if ($rate % 60 == 0) {
             $minrate = $rate / 60;
             echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d minute', '%d minutes', $minrate), $minrate) . '</option>';
@@ -44,7 +44,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     header('Content-Type: text/html; charset=UTF-8');
 
     // real-time charting data
-    if(isset($_REQUEST['chart_data'])) {
+    if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
             case 'proc':
                 $c = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Connections"', 0, 1);
@@ -64,7 +64,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 // admin commands are not queries
                 unset($queries['Com_admin_commands']);
 
-                $sum=array_sum($queries);
+                $sum = array_sum($queries);
                 $ret = array(
                     'x'         => microtime(true)*1000,
                     'y'         => $sum,
@@ -332,9 +332,9 @@ $allocationMap = array();
 // sort vars into arrays
 foreach ($server_status as $name => $value) {
     foreach ($allocations as $filter => $section) {
-        if (strpos($name, $filter) !== FALSE) {
+        if (strpos($name, $filter) !== false) {
             $allocationMap[$name] = $section;
-            if($section == 'com' && $value > 0) $used_queries[$name] = $value;
+            if ($section == 'com' && $value > 0) $used_queries[$name] = $value;
             break; // Only exits inner loop
         }
     }
@@ -344,7 +344,7 @@ foreach ($server_status as $name => $value) {
 unset($used_queries['Com_admin_commands']);
 
 /* Ajax request refresh */
-if(isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
+if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     switch($_REQUEST['show']) {
         case 'query_statistics':
             printQueryStatistics();
@@ -380,7 +380,7 @@ require './libraries/server_links.inc.php';
 ?>
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-url_query = '<?php echo $url_query;?>';
+url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 </script>
 <div id="serverstatus">
@@ -389,8 +389,9 @@ pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 /**
  * Displays the sub-page heading
  */
-if($GLOBALS['cfg']['MainPageIconic'])
+if ($GLOBALS['cfg']['MainPageIconic']) {
     echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
+}
 
 echo __('Runtime Information');
 
@@ -480,7 +481,7 @@ echo __('Runtime Information');
                     echo '<span class="status_'.$section_name.'"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
-                        if($i > 0) echo ', ';
+                        if ($i > 0) echo ', ';
                         if ('doc' == $link_name) {
                             echo PMA_showMySQLDocu($link_url, $link_url);
                         } else {
@@ -526,7 +527,7 @@ function printQueryStatistics() {
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
         echo '<br>';
 
-        if($total_queries / $server_status['Uptime'] >= 1) {
+        if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash;'.__('per second').':';
             echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0);
         ?>
@@ -569,9 +570,9 @@ function printQueryStatistics() {
         // For the percentage column, use Questions - Connections, because
         // the number of connections is not an item of the Query types
         // but is included in Questions. Then the total of the percentages is 100.
-        $name = str_replace(Array('Com_', '_'), Array('', ' '), $name);
+        $name = str_replace(array('Com_', '_'), array('', ' '), $name);
 
-        if($value < $query_sum * 0.02)
+        if ($value < $query_sum * 0.02)
             $other_sum += $value;
         else $chart_json[$name] = $value;
     ?>
@@ -591,7 +592,7 @@ function printQueryStatistics() {
 
         <div id="serverstatusquerieschart">
         <?php
-            if($other_sum > 0)
+            if ($other_sum > 0)
                 $chart_json[__('Other')] = $other_sum;
 
             echo json_encode($chart_json);
@@ -602,7 +603,7 @@ function printQueryStatistics() {
 
 function printServerTraffic() {
     global $server_status,$PMA_PHP_SELF;
-    global $server_master_status, $server_slave_status;
+    global $server_master_status, $server_slave_status, $replication_types;
 
     $hour_factor    = 3600 / $server_status['Uptime'];
 
@@ -807,12 +808,12 @@ function printServerTraffic() {
     <tbody>
     <?php
     $odd_row = true;
-    while($process = PMA_DBI_fetch_assoc($result)) {
+    while ($process = PMA_DBI_fetch_assoc($result)) {
         if (PMA_DRIZZLE) {
             // Drizzle uses uppercase keys
             foreach ($process as $k => $v) {
                 $k = $k !== 'DB'
-                    ? $k = ucfirst(strtolower($k))
+                    ? ucfirst(strtolower($k))
                     : 'db';
                 $process[$k] = $v;
             }
