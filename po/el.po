@@ -1104,7 +1104,7 @@ msgstr "σταλθέντα KB από την τελευταία ανανέωση"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "ληφθέντα KB από την τελευταία ανανέωση"
 
 #: js/messages.php:82
 #| msgid "Server traffic"
