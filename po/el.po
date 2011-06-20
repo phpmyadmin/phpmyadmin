@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-17 15:03+0200\n"
-"PO-Revision-Date: 2011-06-20 11:00+0200\n"
+"PO-Revision-Date: 2011-06-20 11:01+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1113,7 +1113,7 @@ msgstr "Κυκλοφορία Διακομιστή (σε KB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Συνδέσεις από την τελευταία ανανέωση"
 
 #: js/messages.php:84 server_status.php:787
 msgid "Processes"
