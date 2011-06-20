@@ -12,6 +12,7 @@
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once './libraries/common.inc.php';
+require_once './libraries/common.lib.php';
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
@@ -537,8 +538,8 @@ foreach ($rows as $row_id => $vrow) {
         $idindex  = ($o_rows * $fields_cnt) + $i + 1;
         $tabindex = $idindex;
 
-        // These GIS data types are not yet supported.
-        $no_support_types = array('geometry', 'point', 'linestring', 'polygon', 'multipoint', 'multilinestring', 'multipolygon', 'geometrycollection');
+        // Get a list of data types that are not yet supported.
+        $no_support_types = PMA_unsupportedDatatypes();
 
         // The function column
         // -------------------
@@ -556,88 +557,9 @@ foreach ($rows as $row_id => $vrow) {
                 ?>
             <td>
                 <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnullify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
-                    <option></option>
-                <?php
-                $selected     = '';
-
-                // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
-                // or something similar. Then directly look up the entry in the RestrictFunctions array,
-                // which will then reveal the available dropdown options
-                if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
-                 && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
-                    $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
-                    $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
-                    $default_function   = $cfg['DefaultFunctions'][$current_func_type];
-                } else {
-                    $dropdown = array();
-                    $default_function   = '';
-                }
-
-                $dropdown_built = array();
-                $op_spacing_needed = false;
-
-                // what function defined as default?
-                // for the first timestamp we don't set the default function
-                // if there is a default value for the timestamp
-                // (not including CURRENT_TIMESTAMP)
-                // and the column does not have the
-                // ON UPDATE DEFAULT TIMESTAMP attribute.
-
-                if ($field['True_Type'] == 'timestamp'
-                  && empty($field['Default'])
-                  && empty($data)
-                  && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])) {
-                    $default_function = $cfg['DefaultFunctions']['first_timestamp'];
-                }
-
-                // For primary keys of type char(36) or varchar(36) UUID if the default function
-                // Only applies to insert mode, as it would silently trash data on updates.
-                if ($insert_mode
-                    && $field['Key'] == 'PRI'
-                    && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
-                ) {
-                     $default_function = $cfg['DefaultFunctions']['pk_char36'];
-                }
-
-                // this is set only when appropriate and is always true
-                if (isset($field['display_binary_as_hex'])) {
-                    $default_function = 'UNHEX';
-                }
-
-                // loop on the dropdown array and print all available options for that field.
-                foreach ($dropdown as $each_dropdown){
-                    echo '<option';
-                    if ($default_function === $each_dropdown) {
-                        echo ' selected="selected"';
-                    }
-                    echo '>' . $each_dropdown . '</option>' . "\n";
-                    $dropdown_built[$each_dropdown] = 'true';
-                    $op_spacing_needed = true;
-                }
-
-                // For compatibility's sake, do not let out all other functions. Instead
-                // print a separator (blank) and then show ALL functions which weren't shown
-                // yet.
-                $cnt_functions = count($cfg['Functions']);
-                for ($j = 0; $j < $cnt_functions; $j++) {
-                    if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
-                        // Is current function defined as default?
-                        $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                                    || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
-                                  ? ' selected="selected"'
-                                  : '';
-                        if ($op_spacing_needed == true) {
-                            echo '                ';
-                            echo '<option value="">--------</option>' . "\n";
-                            $op_spacing_needed = false;
-                        }
-
-                        echo '                ';
-                        echo '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
-                    }
-                } // end for
-                unset($selected);
-                ?>
+<?php
+    echo PMA_getFunctionsForField($field, $insert_mode);
+?>
                 </select>
             </td>
                 <?php

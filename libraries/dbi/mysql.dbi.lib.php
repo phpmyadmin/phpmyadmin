@@ -208,6 +208,32 @@ function PMA_DBI_free_result()
 }
 
 /**
+ * Check if there are any more query results from a multi query
+ *
+ * @return  boolean         false
+ */
+function PMA_DBI_more_results() {
+    // N.B.: PHP's 'mysql' extension does not support
+    // multi_queries so this function will always
+    // return false. Use the 'mysqli' extension, if
+    // you need support for multi_queries.
+    return false;
+}
+
+/**
+ * Prepare next result from multi_query
+ *
+ * @return  boolean         false
+ */
+function PMA_DBI_next_result() {
+    // N.B.: PHP's 'mysql' extension does not support
+    // multi_queries so this function will always
+    // return false. Use the 'mysqli' extension, if
+    // you need support for multi_queries.
+    return false;
+}
+
+/**
  * Returns a string representing the type of connection used
  * @uses    mysql_get_host_info()
  * @uses    $GLOBALS['userlink']    as default for $link

@@ -932,8 +932,6 @@ if ($cfg['ShowStats']) {
 }
 // END - Calc Table Space
 
-require './libraries/tbl_triggers.inc.php';
-
 echo '<div class="clearfloat"></div>' . "\n";
 
 /**

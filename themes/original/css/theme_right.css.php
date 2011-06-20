@@ -258,6 +258,10 @@ td.null {
     text-align: <?php echo $right; ?>;
 }
 
+table .valueHeader {
+    text-align:         <?php echo $right; ?>;
+    white-space:        normal;
+}
 table .value {
     text-align:         <?php echo $right; ?>;
     white-space:        normal;
@@ -960,6 +964,11 @@ img.sortableIcon {
     background-repeat:no-repeat;
 }
 
+h3#serverstatusqueries span {
+    font-size:60%;    
+    display:inline;
+}
+
 table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
 }
@@ -990,6 +999,8 @@ div#serverstatus table caption a.top {
 
 div#serverstatusquerieschart {
     float:<?php echo $right; ?>;
+    width:500px;
+    height:350px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
@@ -1035,7 +1046,48 @@ div#serverstatus table tbody td.descr a:after,
 div#serverstatus table .tblFooters a:after {
     content: ']';
 }
+
+div.liveChart {
+    clear:both; 
+    min-width:500px; 
+    height:400px; 
+    padding-bottom:80px;
+}
+
 /* end serverstatus */
+
+/* server variables */
+
+a.editLink {
+    float: <?php echo $left; ?>;
+    font-family:sans-serif;
+}
+
+table.serverVariableEditTable {
+	border:0;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+table.serverVariableEditTable td {
+	border:0;
+	margin:0;
+	padding:0;
+}
+table.serverVariableEditTable td:first-child {
+	white-space:nowrap;
+	vertical-align:middle;
+}
+
+table.serverVariableEditTable input {
+	width:95%;
+}
+
+table#serverVariables td {
+    height:18px;
+}
+
+/* end server variables */
 
 /* querywindow */
 body#bodyquerywindow {
@@ -1804,6 +1856,19 @@ fieldset .disabled-field td {
 
 #prefs_autoload {
     margin-bottom: 0.5em;
+}
+
+.rte_table td {
+    vertical-align:     middle;
+}
+
+.rte_table input, .rte_table select, .rte_table textarea {
+    width:              100%;
+    margin:             0;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
 }
 
 #table_columns input, #table_columns select {

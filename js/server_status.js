@@ -21,9 +21,13 @@ $(function() {
             return /^[0-9]?[0-9,\.]*\s?(k|M|G|T|%)?$/.test(s);
         },
         format: function(s) {
-            var num = jQuery.tablesorter.formatFloat( s.replace(PMA_messages['strThousandsSeperator'],'').replace(PMA_messages['strDecimalSeperator'],'.') );
+            var num = jQuery.tablesorter.formatFloat( 
+                s.replace(PMA_messages['strThousandsSeperator'],'')
+                 .replace(PMA_messages['strDecimalSeperator'],'.') 
+            );
+            
             var factor = 1;
-            switch (s.charAt(s.length-1)) {
+            switch (s.charAt(s.length - 1)) {
                 case '%': factor = -2; break;
                 // Todo: Complete this list (as well as in the regexp a few lines up)
                 case 'k': factor = 3; break;
@@ -31,7 +35,8 @@ $(function() {
                 case 'G': factor = 9; break;
                 case 'T': factor = 12; break;
             }
-            return num*Math.pow(10,factor);
+            
+            return num * Math.pow(10,factor);
         },
         type: "numeric"
     });
@@ -45,12 +50,16 @@ $(function() {
     var odd_row=false;
     var text=''; // Holds filter text
     var queryPieChart = null;
-    /* Chart configuration */
     
+    /* Chart configuration */
     // Defines what the tabs are currently displaying (realtime or data)
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
+    
+    $.ajaxSetup({
+        cache:false
+    });
        
     // Add tabs
     $('#serverStatusTabs').tabs({
@@ -69,12 +78,23 @@ $(function() {
         tabStatus[$(this).attr('id')] = 'static';
     });
     
+    // Handles refresh rate changing
     $('.statuslinks select').change(function() {
         var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
         chart.options.realtime.refreshRate = 1000*parseInt(this.value);
-        chart.xAxis[0].setExtremes(new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate, chart.xAxis[0].getExtremes().max, true);
+        
+        chart.xAxis[0].setExtremes(
+            new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate,
+            new Date().getTime() + chart.options.realtime.refreshRate / 4,
+            true
+        );
+        
+        // Clear current timeout and set timeout with the new refresh rate
         clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
-        chart_activeTimeouts[chart.options.chart.renderTo] = setTimeout(chart.options.realtime.timeoutCallBack, chart.options.realtime.refreshRate);
+        chart_activeTimeouts[chart.options.chart.renderTo] = setTimeout(
+            chart.options.realtime.timeoutCallBack, 
+            chart.options.realtime.refreshRate
+        );
     });
     
     // Ajax refresh of variables (always the first element in each tab)
@@ -107,26 +127,32 @@ $(function() {
         
         if(tabstat=='static' || tabstat=='liveconnections') {
             var settings = {
-                series: [{name:'kB sent since last refresh',data:[]},{name:'kB received since last refresh',data:[]}],
-                title: {text:'Server traffic (in kB)'},
-                realtime:{ url:'server_status.php?'+url_query,
+                series: [
+                    { name: PMA_messages['strChartKBSent'], data: [] },
+                    { name: PMA_messages['strChartKBReceived'], data: [] }
+                ],
+                title: { text: PMA_messages['strChartServerTraffic'] },
+                realtime: { url:'server_status.php?' + url_query,
                            type: 'traffic',
-                           callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
+                           callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
                                if(lastVal==null) return;
                                 chartObj.series[0].addPoint(
-                                    { x:curVal.x, y:(curVal.y_sent-lastVal.y_sent)/1024},
-                                    false, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
+                                    { x: curVal.x, y: (curVal.y_sent - lastVal.y_sent) / 1024 },
+                                    false, 
+                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
                                 chartObj.series[1].addPoint(
-                                    { x:curVal.x, y:(curVal.y_received-lastVal.y_received)/1024},
-                                    true, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
+                                    { x: curVal.x, y: (curVal.y_received - lastVal.y_received) / 1024 },
+                                    true, 
+                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );                                            
                             }
-                        }
+                         }
             }
             
             setupLiveChart($tab,this,settings);
-            if(tabstat=='liveconnections') $tab.find('.statuslinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
+            if(tabstat == 'liveconnections') 
+                $tab.find('.statuslinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
             tabStatus[$tab.attr('id')]='livetraffic';
         } else {
             $(this).html(PMA_messages['strLiveTrafficChart']);
@@ -141,28 +167,34 @@ $(function() {
         var $tab=$(this).parents('div.ui-tabs-panel');
         var tabstat = tabStatus[$tab.attr('id')];
         
-        if(tabstat=='static' || tabstat=='livetraffic') {
+        if(tabstat == 'static' || tabstat == 'livetraffic') {
             var settings = {
-                series: [{name:'Connections since last refresh', data:[]},{name:'Processes', data:[]}],
-                title: {text:'Connections / Processes'},
-                realtime:{ url:'server_status.php?'+url_query,
+                series: [
+                    { name: PMA_messages['strChartConnections'], data: [] },
+                    { name: PMA_messages['strChartProcesses'], data: [] }
+                ],
+                title: { text: PMA_messages['strChartConnectionsTitle'] },
+                realtime: { url:'server_status.php?'+url_query,
                            type: 'proc',
                            callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
                                if(lastVal==null) return;
                                 chartObj.series[0].addPoint(
-                                    { x:curVal.x, y:curVal.y_conn-lastVal.y_conn },
-                                    false, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
+                                    { x: curVal.x, y: curVal.y_conn - lastVal.y_conn },
+                                    false, 
+                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
                                 chartObj.series[1].addPoint(
-                                    { x:curVal.x, y:curVal.y_proc },
-                                    true, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
+                                    { x: curVal.x, y: curVal.y_proc },
+                                    true, 
+                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );                                            
                             }
-                        }
+                         }
             };
             
             setupLiveChart($tab,this,settings);
-            if(tabstat=='livetraffic') $tab.find('.statuslinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
+            if(tabstat == 'livetraffic') 
+                $tab.find('.statuslinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
             tabStatus[$tab.attr('id')]='liveconnections';
         } else {
             $(this).html(PMA_messages['strLiveConnChart']);
@@ -172,62 +204,63 @@ $(function() {
         return false;
     });
 
-    // Live query charting
+    // Live query statistics
     $('.statuslinks a.livequeriesLink').click(function() {
-        var $tab=$(this).parents('div.ui-tabs-panel');
-        var settings=null; 
+        var $tab = $(this).parents('div.ui-tabs-panel');
+        var settings = null; 
         
-        if(tabStatus[$tab.attr('id')]=='static') {
+        if(tabStatus[$tab.attr('id')] == 'static') {
             settings = {
-                series: [{name:'Issued queries since last refresh', data:[]}],
-                title: {text:'Issued queries'},
+                series: [ { name: PMA_messages['strChartIssuedQueries'], data: [] } ],
+                title: { text: PMA_messages['strChartIssuedQueriesTitle'] },
                 tooltip: { formatter:function() { return this.point.name; } },
-                realtime:{ url:'server_status.php?'+url_query,
+                realtime: { url:'server_status.php?'+url_query,
                           type: 'queries',
                           callback: function(chartObj, curVal, lastVal,numLoadedPoints) {
-                              if(lastVal==null) return;
+                                if(lastVal == null) return;
                                 chartObj.series[0].addPoint(
-                                    { x:curVal.x,  y:curVal.y-lastVal.y, name:sortedQueriesPointInfo(curVal,lastVal) },
-                                    true, numLoadedPoints >= chartObj.options.realtime.numMaxPoints
+                                    { x: curVal.x,  y: curVal.y - lastVal.y, name: sortedQueriesPointInfo(curVal,lastVal) },
+                                    true, 
+                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
                             }
-                        }
+                         }
             };
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
         }
 
         setupLiveChart($tab,this,settings);
-        tabStatus[$tab.attr('id')]='livequeries';
+        tabStatus[$tab.attr('id')] = 'livequeries';
         return false; 
     });
     
     function setupLiveChart($tab,link,settings) {
-        if(settings!=null) {
+        if(settings != null) {
             // Loading a chart with existing chart => remove old chart first
-            if(tabStatus[$tab.attr('id')]!='static') {
-                clearTimeout(chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"]);
-                chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"]=null;
+            if(tabStatus[$tab.attr('id')] != 'static') {
+                clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
+                chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"] = null;
                 tabChart[$tab.attr('id')].destroy();
                 // Also reset the select list
-                $tab.find('.statuslinks select').get(0).selectedIndex=0;
+                $tab.find('.statuslinks select').get(0).selectedIndex = 0;
             }
 
-            if(!settings.chart) settings.chart = {};
-            settings.chart.renderTo=$tab.attr('id')+"_chart_cnt";
+            if(! settings.chart) settings.chart = {};
+            settings.chart.renderTo = $tab.attr('id') + "_chart_cnt";
                         
             $tab.find('.tabInnerContent')
                 .hide()
-                .after('<div style="clear:both; min-width:500px; height:400px; padding-bottom:80px;" id="'+$tab.attr('id')+'_chart_cnt"></div>');
-            tabChart[$tab.attr('id')]=PMA_createChart(settings);
+                .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
+            tabChart[$tab.attr('id')] = PMA_createChart(settings);
             $(link).html(PMA_messages['strStaticData']);
             $tab.find('.statuslinks a.tabRefresh').hide();
             $tab.find('.statuslinks select').show();
         } else {
-            clearTimeout(chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"]);
-            chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"]=null;
+            clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
+            chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]=null;
             $tab.find('.tabInnerContent').show();
-            $tab.find('div#'+$tab.attr('id')+'_chart_cnt').remove();
+            $tab.find('div#'+$tab.attr('id') + '_chart_cnt').remove();
             tabStatus[$tab.attr('id')]='static';
             tabChart[$tab.attr('id')].destroy();
             $tab.find('.statuslinks a.tabRefresh').show();
@@ -243,9 +276,10 @@ $(function() {
     });
     
     $('#filterText').keyup(function(e) {
-        if($(this).val().length==0) textFilter=null;
-        else textFilter = new RegExp("(^|_)"+$(this).val(),'i');
-        text=$(this).val();
+        if($(this).val().length == 0) textFilter = null;
+        else textFilter = new RegExp("(^|_)" + $(this).val(),'i');
+        
+        text = $(this).val();
         filterVariables();
     });
     
@@ -258,11 +292,11 @@ $(function() {
     function initTab(tab,data) {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
-                if(data!=null) tab.find('.tabInnerContent').html(data);
+                if(data != null) tab.find('.tabInnerContent').html(data);
                 initTooltips();
                 break;
             case 'statustabs_queries':
-                if(data!=null) {
+                if(data != null) {
                     queryPieChart.destroy();
                     tab.find('.tabInnerContent').html(data);
                 }
@@ -273,10 +307,9 @@ $(function() {
                     cdata.push([key,parseInt(value)]);
                 });
                 
-                queryPieChart=PMA_createChart({
+                queryPieChart = PMA_createChart({
                     chart: {
                         renderTo: 'serverstatusquerieschart'
-                        
                     },
                     title: {
                         text:'',
@@ -284,7 +317,7 @@ $(function() {
                     },
                     series: [{
                         type:'pie',
-                        name: 'Query statistics',
+                        name: PMA_messages['strChartQueryPie'],
                         data: cdata
                     }],
                     plotOptions: {
@@ -293,20 +326,22 @@ $(function() {
                             cursor: 'pointer',
                             dataLabels: {
                                 enabled: true,
-                               formatter: function() {
-                                  return '<b>'+ this.point.name +'</b><br> '+ Highcharts.numberFormat(this.percentage, 2) +' %';
+                                formatter: function() {
+                                    return '<b>'+ this.point.name +'</b><br/> ' + Highcharts.numberFormat(this.percentage, 2) + ' %';
                                }
                             }
                         }
                     },		
                     tooltip: {
-                        formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+Highcharts.numberFormat(this.y, 2)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
+                        formatter: function() { 
+                            return '<b>' + this.point.name + '</b><br/>' + Highcharts.numberFormat(this.y, 2) + '<br/>(' + Highcharts.numberFormat(this.percentage, 2) + ' %)'; 
+                        }
                     }
                 });
                 break;
                 
             case 'statustabs_allvars':
-                if(data!=null) {
+                if(data != null) {
                     tab.find('.tabInnerContent').html(data);
                     filterVariables();
                 }
@@ -329,7 +364,7 @@ $(function() {
                     });
                     
                 $('#serverstatusqueriesdetails tr:first th')
-                    .append('<img class="sortableIcon" src="'+pma_theme_image+'cleardot.gif" alt="">');
+                    .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
                     
                 break;
             
@@ -343,7 +378,7 @@ $(function() {
                     });
                     
                 $('#serverstatusvariables tr:first th')
-                    .append('<img class="sortableIcon" src="'+pma_theme_image+'cleardot.gif" alt="">');
+                    .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
                     
                 break;
         }
@@ -351,14 +386,14 @@ $(function() {
     
     /* Filters the status variables by name/category/alert in the variables tab */
     function filterVariables() {
-        var useful_links=0;
+        var useful_links = 0;
         var section = text;
         
-        if(categoryFilter.length>0) section = categoryFilter;
+        if(categoryFilter.length > 0) section = categoryFilter;
         
-        if(section.length>1) {
+        if(section.length > 1) {
             $('#linkSuggestions span').each(function() {
-                if($(this).attr('class').indexOf('status_'+section)!=-1) {
+                if($(this).attr('class').indexOf('status_'+section) != -1) {
                     useful_links++;
                     $(this).css('display','');
                 } else {
@@ -369,16 +404,16 @@ $(function() {
             });
         }
         
-        if(useful_links>0) 
+        if(useful_links > 0) 
             $('#linkSuggestions').css('display','');
         else $('#linkSuggestions').css('display','none');
         
         odd_row=false;
         $('#serverstatusvariables th.name').each(function() {
-            if((textFilter==null || textFilter.exec($(this).text()))
-                && (!alertFilter || $(this).next().find('span.attention').length>0)
-                && (categoryFilter.length==0 || $(this).parent().hasClass('s_'+categoryFilter))) {
-                odd_row = !odd_row;                    
+            if((textFilter == null || textFilter.exec($(this).text()))
+                && (! alertFilter || $(this).next().find('span.attention').length>0)
+                && (categoryFilter.length == 0 || $(this).parent().hasClass('s_'+categoryFilter))) {
+                odd_row = ! odd_row;                    
                 $(this).parent().css('display','');
                 if(odd_row) {
                     $(this).parent().addClass('odd');
@@ -406,22 +441,22 @@ $(function() {
             if(value-lastQueries.pointInfo[key] > 0) {
                 queryKeys.push(key);
                 queryValues.push(value-lastQueries.pointInfo[key]);
-                sumTotal+=value-lastQueries.pointInfo[key];
+                sumTotal += value-lastQueries.pointInfo[key];
             }
         });
         var numQueries = queryKeys.length;
         var pointInfo = '<b>' + PMA_messages['strTotal'] + ': ' + sumTotal + '</b><br>';
         
         while(queryKeys.length > 0) {
-            max=0;
-            for(var i=0; i<queryKeys.length; i++) {
+            max = 0;
+            for(var i=0; i < queryKeys.length; i++) {
                 if(queryValues[i] > max) {
                     max = queryValues[i];
                     maxIdx = i;
                 }
             }
-            if(numQueries > 8 && num>=6)
-                sumOther+=queryValues[maxIdx];
+            if(numQueries > 8 && num >= 6)
+                sumOther += queryValues[maxIdx];
             else pointInfo += queryKeys[maxIdx].substr(4).replace('_',' ') + ': ' + queryValues[maxIdx] + '<br>'; 
             
             queryKeys.splice(maxIdx,1);

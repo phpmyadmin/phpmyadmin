@@ -15,10 +15,9 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
- * @var ajax_message_init   boolean boolean that stores status of
- *      notification for PMA_ajaxShowNotification
+ * @var   int   ajax_message_count   Number of AJAX messages shown since page load
  */
-var ajax_message_init = false;
+var ajax_message_count = 0;
 
 /**
  * @var codemirror_editor object containing CodeMirror editor
@@ -30,7 +29,6 @@ var codemirror_editor = false;
  */
 var chart_activeTimeouts = new Object();
     
-
 
 /**
  * Add a hidden field to the form to indicate that this will be an
@@ -659,10 +657,10 @@ $(document).ready(function() {
  * so that it works also for pages reached via AJAX)
  */
 $(document).ready(function() {
-    $('tr.odd, tr.even').live('hover',function() {
+    $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
-        $tr.toggleClass('hover');
-        $tr.children().toggleClass('hover');
+        $tr.toggleClass('hover',event.type=='mouseover');
+        $tr.children().toggleClass('hover',event.type=='mouseover');
     });
 })
 
@@ -1166,7 +1164,12 @@ $(document).ready(function(){
         $(".btnSave").each(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
-                window.location.replace("import.php?db=" + db +"&table=" + table + "&sql_query=" + sql_query + "&show_query=1&token=" + token);
+                window.location.replace("import.php"
+                                      + "?db=" + encodeURIComponent(db)
+                                      + "&table=" + encodeURIComponent(table)
+                                      + "&sql_query=" + encodeURIComponent(sql_query)
+                                      + "&show_query=1"
+                                      + "&token=" + token);
             });
         });
         $(".btnDiscard").each(function(){
@@ -1244,83 +1247,64 @@ $(document).ready(function(){
  *                              optional, defaults to 'Loading...'
  * @param   var     timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000
- * @return  jQuery object       jQuery Element that holds the message div 
+ * @return  jQuery object       jQuery Element that holds the message div
  */
-
 function PMA_ajaxShowMessage(message, timeout) {
 
-    //Handle the case when a empty data.message is passed.  We don't want the empty message
-    if(message == '') {
+    //Handle the case when a empty data.message is passed. We don't want the empty message
+    if (message == '') {
         return true;
+    } else if (! message) {
+        // If the message is undefined, show the default
+        message = PMA_messages['strLoading'];
     }
 
     /**
-     * @var msg String containing the message that has to be displayed
-     * @default PMA_messages['strLoading']
-     */
-    if(!message) {
-        var msg = PMA_messages['strLoading'];
-    }
-    else {
-        var msg = message;
-    }
-
-    /**
-     * @var timeout Number of milliseconds for which {@link msg} will be visible
+     * @var timeout Number of milliseconds for which the message will be visible
      * @default 5000 ms
      */
-    if(!timeout) {
-        var to = 5000;
-    }
-    else {
-        var to = timeout;
+    if (! timeout) {
+        timeout = 5000;
     }
 
-    if( !ajax_message_init) {
-        //For the first time this function is called, append a new div
-        $(function(){
-            $('<div id="loading_parent"></div>')
-            .insertBefore("#serverinfo");
-
-            $('<span id="loading" class="ajax_notification"></span>')
-            .appendTo("#loading_parent")
-            .html(msg)
-            .fadeIn('medium')
-            .delay(to)
-            .fadeOut('medium', function(){
-                $(this)
-                .html("") //Clear the message
-                .hide();
-            });
-        }, 'top.frame_content');
-        ajax_message_init = true;
+    // Create a parent element for the AJAX messages, if necessary
+    if ($('#loading_parent').length == 0) {
+        $('<div id="loading_parent"></div>')
+        .insertBefore("#serverinfo");
     }
-    else {
-        //Otherwise, just show the div again after inserting the message
-        $("#loading")
-        .stop(true, true)
-        .html(msg)
+
+    // Update message count to create distinct message elements every time
+    ajax_message_count++;
+
+    // Remove all old messages, if any
+    $(".ajax_notification[id^=ajax_message_num]").remove();
+
+    /**
+     * @var    $retval    a jQuery object containing the reference
+     *                    to the created AJAX message
+     */
+    var $retval = $('<span class="ajax_notification" id="ajax_message_num_' + ajax_message_count + '"></span>')
+        .hide()
+        .appendTo("#loading_parent")
+        .html(message)
         .fadeIn('medium')
-        .delay(to)
+        .delay(timeout)
         .fadeOut('medium', function() {
-            $(this)
-            .html("")
-            .hide();
-        })
-    }
+            $(this).remove();
+        });
 
-    return $("#loading");
+    return $retval;
 }
 
 /**
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    $this_msgbox
-     .stop(true, true)
-     .fadeOut('medium', function() {
-        $this_msgbox.hide();
-     });
+    if ($this_msgbox != 'undefined' && $this_msgbox instanceof jQuery) {
+        $this_msgbox
+        .stop(true, true)
+        .fadeOut('medium');
+    }
 }
 
 /**
@@ -1411,31 +1395,41 @@ function PMA_createChart(passedSettings) {
             events: {
                 load: function() {
                     var thisChart = this;
-                    var lastValue=null, curValue=null;
-                    var numLoadedPoints=0, otherSum=0;
+                    var lastValue = null, curValue = null;
+                    var numLoadedPoints = 0, otherSum = 0;
                     var diff;
                     // No realtime updates for graphs that are being exported, and disabled when no callback is set
-                    if(thisChart.options.chart.forExport==true || !passedSettings.realtime || !passedSettings.realtime.callback) return;
+                    if(thisChart.options.chart.forExport == true || 
+                        ! passedSettings.realtime || 
+                        ! passedSettings.realtime.callback) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.get(passedSettings.realtime.url,{ajax_request:1, chart_data:1, type:passedSettings.realtime.type},function(data) {
-                            curValue = jQuery.parseJSON(data);
-                            //if(lastValue==null) lastValue = curValue;
-                            
-                            if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
-                            else diff = parseInt(curValue.x - lastValue.x);
-                            
-                            thisChart.xAxis[0].setExtremes(thisChart.xAxis[0].getExtremes().min+diff, thisChart.xAxis[0].getExtremes().max+diff, false);
-                            
-                            passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                            
-                            lastValue = curValue;
-                            numLoadedPoints++;
-                            
-                            // Timeout has been cleared => don't start a new timeout
-                            if(chart_activeTimeouts[container]==null) return;
-                            chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, thisChart.options.realtime.refreshRate);
-                            
+                        $.post(passedSettings.realtime.url,
+                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                            function(data) {
+                                curValue = jQuery.parseJSON(data);
+                                
+                                if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
+                                else diff = parseInt(curValue.x - lastValue.x);
+                                
+                                thisChart.xAxis[0].setExtremes(
+                                    thisChart.xAxis[0].getExtremes().min+diff, 
+                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    false
+                                );
+                                
+                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                
+                                lastValue = curValue;
+                                numLoadedPoints++;
+                                
+                                // Timeout has been cleared => don't start a new timeout
+                                if(chart_activeTimeouts[container]==null) return;
+                                
+                                chart_activeTimeouts[container] = setTimeout(
+                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.refreshRate
+                                ); 
                         });
                     }
                     
@@ -1469,8 +1463,8 @@ function PMA_createChart(passedSettings) {
         },
         tooltip: {
             formatter: function() {
-                    return '<b>'+ this.series.name +'</b><br/>'+
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+ 
+                    return '<b>' + this.series.name +'</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
                     Highcharts.numberFormat(this.y, 2);
             }
         },
@@ -1486,10 +1480,10 @@ function PMA_createChart(passedSettings) {
             passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
-            passedSettings.realtime.numMaxPoints = 32;
+            passedSettings.realtime.numMaxPoints = 30;
         
         settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 2;
+        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
     }
 
     // Overwrite/Merge default settings with passedsettings
@@ -1754,46 +1748,6 @@ $(document).ready(function() {
     }) // end create table form (add fields)
 
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
-
-/**
- * Attach Ajax event handlers for Drop Trigger.  Used on tbl_structure.php
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-
-    $(".drop_trigger_anchor").live('click', function(event) {
-        event.preventDefault();
-
-        $anchor = $(this);
-        /**
-         * @var curr_row    Object reference to the current trigger's <tr>
-         */
-        var $curr_row = $anchor.parents('tr');
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = 'DROP TRIGGER IF EXISTS `' + $curr_row.children('td:first').text() + '`';
-
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("#topmenucontainer")
-                    .next('div')
-                    .remove()
-                    .end()
-                    .after(data.sql_query);
-                    $curr_row.hide("medium").remove();
-                }
-                else {
-                    PMA_ajaxShowMessage(data.error);
-                }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }) // end $().live()
-}, 'top.frame_content'); //end $(document).ready() for Drop Trigger
 
 /**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
@@ -2452,6 +2406,161 @@ $(document).ready(function() {
     });
 
 }) // end of $(document).ready()
+
+/**
+ * Attach Ajax event handlers for Export of Routines, Triggers and Events.
+ *
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    PMA_ajaxRemoveMessage()
+ *
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $('.export_routine_anchor, .export_trigger_anchor, .export_event_anchor').live('click', function(event) {
+        event.preventDefault();
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+                /**
+                 * @var button_options  Object containing options for jQueryUI dialog buttons
+                 */
+                var button_options = {};
+                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
+                /**
+                 * Display the dialog to the user
+                 */
+                var $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
+                                      width: 500,
+                                      buttons: button_options,
+                                      title: data.title
+                                  });
+                // Attach syntax highlited editor to export dialog
+                var elm = $ajaxDialog.find('textarea');
+                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        }) // end $.get()
+    }); // end $.live()
+}); // end of $(document).ready() for Export of Routines, Triggers and Events.
+
+/**
+ * Creates a message inside an object with a sliding effect
+ *
+ * @param   $obj   a jQuery object containing the reference
+ *                 to the element where to put the message
+ * @param   msg    A string containing the text to display
+ *
+ * @return  bool   True on success, false on failure
+ */
+function PMA_slidingMessage($obj, msg) {
+    if ($obj != 'undefined' && $obj instanceof jQuery) {
+        if ($obj.has('div').length > 0) {
+            // If there already is a message inside the
+            // target object, we must get rid of it
+            $obj
+            .append('<div style="display: none;">' + msg + '</div>')
+            .find('div')
+            .first()
+            .fadeOut(function () {
+                $(this).remove();
+                $obj.animate({
+                    height: $obj.find('div').first().height()
+                });
+                $obj
+                .find('div')
+                .first()
+                .fadeIn();
+            });
+        } else {
+            // Object does not already have a message
+            // inside it, so we simply slide it down
+            $obj
+            .width('100%')
+            .html('<div style="display: none;">' + msg + '</div>')
+            .find('div')
+            .first()
+            .slideDown(function() {
+                // Set the height of the parent
+                // to the height of the child
+                $obj
+                .height(
+                    $obj
+                    .find('div')
+                    .first()
+                    .height()
+                );
+            });
+        }
+        return true;
+    } else {
+        return false;
+    }
+} // end PMA_slidingMessage()
+
+/**
+ * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @see     $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $('.drop_routine_anchor, .drop_trigger_anchor, .drop_event_anchor').live('click', function(event) {
+        event.preventDefault();
+        /**
+         * @var $curr_row    Object containing reference to the current row
+         */
+        var $curr_row = $(this).parents('tr');
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+            /**
+             * @var    $msg    jQuery object containing the reference to
+             *                 the AJAX message shown to the user.
+             */
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    /**
+                     * @var $table    Object containing reference to the main list of elements.
+                     */
+                    var $table = $curr_row.parent();
+                    if ($table.find('tr').length == 2) {
+                        $table.hide("slow", function () {
+                            $(this).find('tr.even, tr.odd').remove();
+                            $('#nothing2display').show("slow");
+                        });
+                    } else {
+                        $curr_row.hide("slow", function () {
+                            $(this).remove();
+                            // Now we have removed the row from the list, but maybe
+                            // some row classes are wrong now. So we will itirate
+                            // throught all rows and assign correct classes to them.
+                            /**
+                             * @var    ct    Count of processed rows.
+                             */
+                            var ct = 0;
+                            $table.find('tr').has('td').each(function() {
+                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
+                                $(this).removeClass().addClass(rowclass);
+                                ct++;
+                            });
+                        });
+                    }
+                    // Show the query that we just executed
+                    PMA_ajaxRemoveMessage($msg);
+                    PMA_slidingMessage($('#js_query_display'), data.sql_query);
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            }) // end $.get()
+        }) // end $.PMA_confirm()
+    }); // end $.live()
+}); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
 
 /**
  * Attach Ajax event handlers for Drop Table.

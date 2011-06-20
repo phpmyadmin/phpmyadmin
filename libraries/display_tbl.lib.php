@@ -650,7 +650,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // Start of form for multi-rows edit/delete/export
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
-        echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm" id="rowsDeleteForm">' . "\n";
+        echo '<form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm"';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo ' class="ajax" ';
+        }
+        echo '>' . "\n";
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
         echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }
@@ -2283,11 +2287,11 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical') {
-            $checkall_params['onclick'] = 'if (setCheckboxes(\'rowsDeleteForm\', true)) return false;';
-            $uncheckall_params['onclick'] = 'if (setCheckboxes(\'rowsDeleteForm\', false)) return false;';
+            $checkall_params['onclick'] = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
+            $uncheckall_params['onclick'] = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
         } else {
-            $checkall_params['onclick'] = 'if (markAllRows(\'rowsDeleteForm\')) return false;';
-            $uncheckall_params['onclick'] = 'if (unMarkAllRows(\'rowsDeleteForm\')) return false;';
+            $checkall_params['onclick'] = 'if (markAllRows(\'resultsForm\')) return false;';
+            $uncheckall_params['onclick'] = 'if (unMarkAllRows(\'resultsForm\')) return false;';
         }
         $checkall_link = PMA_linkOrButton($checkall_url, __('Check All'), $checkall_params, false);
         $uncheckall_link = PMA_linkOrButton($uncheckall_url, __('Uncheck All'), $uncheckall_params, false);
