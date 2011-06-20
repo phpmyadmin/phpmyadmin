@@ -2513,10 +2513,13 @@ $(document).ready(function() {
          */
         var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            /**
+             * @var    $msg    jQuery object containing the reference to
+             *                 the AJAX message shown to the user.
+             */
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
                     /**
                      * @var $table    Object containing reference to the main list of elements.
                      */
@@ -2544,6 +2547,7 @@ $(document).ready(function() {
                         });
                     }
                     // Show the query that we just executed
+                    PMA_ajaxRemoveMessage($msg);
                     PMA_slidingMessage($('#js_query_display'), data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);

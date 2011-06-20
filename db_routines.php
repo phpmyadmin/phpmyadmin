@@ -192,10 +192,8 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         }
         // Print/send output
         if ($GLOBALS['is_ajax_request']) {
-            $extra_data = array();
-            $extra_data['dialog']  = false;
-            $extra_data['results'] = $message->getDisplay() . $output;
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+            $extra_data = array('dialog' => false);
+            PMA_ajaxResponse($message->getDisplay() . $output, $message->isSuccess(), $extra_data);
         } else {
             echo $message->getDisplay() . $output;
             if ($message->isError()) {
@@ -346,8 +344,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
             $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
             $extra_data['new_row']   = PMA_RTN_getRowForRoutinesList($routine, 0, true);
-            $extra_data['sql_query'] = $output;
-            $response = PMA_message::success();
+            $response = $output;
         } else {
             $response = $message;
         }

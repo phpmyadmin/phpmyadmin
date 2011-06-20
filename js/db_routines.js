@@ -245,8 +245,8 @@ $(document).ready(function() {
                         $.post('db_routines.php', data, function (data) {
                             if(data.success == true) {
                                 // Routine created successfully
-                                PMA_ajaxShowMessage(data.message);
-                                PMA_slidingMessage($('#js_query_display'), data.sql_query);
+                                PMA_ajaxRemoveMessage($msg);
+                                PMA_slidingMessage($('#js_query_display'), data.message);
                                 $ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must remove the reference to the old row.
                                 if (mode == 'edit') {
@@ -515,8 +515,8 @@ $(document).ready(function() {
                         $.post('db_routines.php', data, function (data) {
                            if(data.success == true) {
                                 // Routine executed successfully
-                                PMA_ajaxShowMessage(data.message);
-                                PMA_slidingMessage($('#js_query_display'), data.results);
+                                PMA_ajaxRemoveMessage($msg);
+                                PMA_slidingMessage($('#js_query_display'), data.message);
                                 $ajaxDialog.dialog('close');
                             } else {
                                 PMA_ajaxShowMessage(data.error);
@@ -542,8 +542,7 @@ $(document).ready(function() {
                     $ajaxDialog.find('input[name^=params]').first().focus();
                 } else {
                     // Routine executed successfully
-                    PMA_ajaxShowMessage(data.message);
-                    PMA_slidingMessage($('#js_query_display'), data.results);
+                    PMA_slidingMessage($('#js_query_display'), data.message);
                 }
             } else {
                 PMA_ajaxShowMessage(data.error);
