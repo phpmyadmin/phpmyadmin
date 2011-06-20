@@ -1,11 +1,83 @@
-$(function() {
+function editVariable(link) {
+    var varName = $(link).parent().parent().find('th:first').first().text().replace(/ /g,'_');
+    var mySaveLink = $(saveLink);
+    var myCancelLink = $(cancelLink);
+    var $cell = $(link).parent();
+    
+    $cell.addClass('edit');
+    // remove edit link
+    $cell.find('a.editLink').remove();
+    
+    mySaveLink.click(function() {
+        $.get('server_variables.php?' + url_query,
+          { ajax_request: true, type: 'setval', varName: varName, varValue: $cell.find('input').attr('value') },
+          function(data) {
+            if(data.success) $cell.html(data.variable);
+            else {
+                PMA_ajaxShowMessage(data.error);
+                $cell.html($cell.find('span.oldContent').html());
+            }
+            $cell.removeClass('edit');
+          },
+          'json'
+        );
+        return false;
+    });
+    
+    myCancelLink.click(function() {
+        $cell.html($cell.find('span.oldContent').html());
+        $cell.removeClass('edit');
+        return false;
+    });
+          
+    
+    $.get('server_variables.php?' + url_query,
+          { ajax_request: true, type: 'getval', varName: varName },
+          function(data) {
+              // hide original content
+              $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
+              // put edit field and save/cancel link
+              $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;"><input type="text" value="' + data + '"/></td></tr</table>');
+              $cell.find('table td:first').append(mySaveLink);
+              $cell.find('table td:first').append(myCancelLink);
+          }
+    );
+          
+    return false;
+}
+
+$(function() {    
     var textFilter=null;
     var odd_row=false;
     var testString = 'abcdefghijklmnopqrstuvwxyz0123456789,ABCEFGHIJKLMOPQRSTUVWXYZ';
     var $tmpDiv;
     var charWidth;
+    
+    // Global vars
+    editLink = '<a href="#" class="editLink" onclick="return editVariable(this);"><img src="'+pma_theme_image+'b_edit.png" alt="" width="16" height="16"> '+PMA_messages['strEdit']+'</a>';
+    saveLink = '<a href="#" class="saveLink"><img src="'+pma_theme_image+'b_save.png" alt="" width="16" height="16"> '+PMA_messages['strSave']+'</a> ';
+    cancelLink = '<a href="#" class="cancelLink"><img src="'+pma_theme_image+'b_close.png" alt="" width="16" height="16"> '+PMA_messages['strCancel']+'</a> ';
 
-    /*** This code snippet takes care that the table stays readable. It cuts off long strings when the window is resized ***/
+
+    $.ajaxSetup({
+        cache:false
+    });
+    
+    /* Variable editing */
+    if(isSuperuser) {
+        $('table.data tbody tr td:nth-child(2)').hover(
+            function() {
+                // Only add edit element if it is the global value, not session value and not when the element is being edited
+                if($(this).parent().children('th').length > 0 && ! $(this).hasClass('edit'))
+                    $(this).prepend(editLink);
+            },
+            function() {
+                $(this).find('a.editLink').remove();
+            }
+        );
+    }
+    
+    /*** This code snippet takes care that the table stays readable. It cuts off long strings the table overlaps the window size ***/
     $('table.data').after($tmpDiv=$('<span>'+testString+'</span>'));
     charWidth = $tmpDiv.width() / testString.length;
     $tmpDiv.remove();

@@ -85,7 +85,7 @@ $(function() {
         
         chart.xAxis[0].setExtremes(
             new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate,
-            chart.xAxis[0].getExtremes().max, 
+            new Date().getTime() + chart.options.realtime.refreshRate / 4,
             true
         );
         
