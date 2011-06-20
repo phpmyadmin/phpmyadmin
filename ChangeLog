@@ -22,6 +22,8 @@ phpMyAdmin - ChangeLog
 - Patch #3316969 PMA_ajaxShowMessage() does not respect timeout
 + AJAX for Change on multiple rows in table Browse
 
+3.4.4.0 (not yet released)
+
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
 - patch #3304473 [setup] Redefine a lable that was wrong
