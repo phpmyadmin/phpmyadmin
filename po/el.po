@@ -1100,7 +1100,7 @@ msgstr ","
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "σταλθέντα KB από την τελευταία ανανέωση"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
