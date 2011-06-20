@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 + AJAX for Insert to a table from database Structure page
 - Patch #3316969 PMA_ajaxShowMessage() does not respect timeout
 + AJAX for Change on multiple rows in table Browse
++ [interface] Improved support for stored routines
 
 3.4.4.0 (not yet released)
 
