@@ -1488,7 +1488,7 @@ msgstr "Unik"
 
 #: libraries/Index.class.php:444 tbl_tracking.php:317
 msgid "Packed"
-msgstr ""
+msgstr "Dipadatkan"
 
 #: libraries/Index.class.php:446 tbl_tracking.php:319
 msgid "Cardinality"
@@ -1776,7 +1776,7 @@ msgstr "Tidak bisa membuka arsip: %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "dibagi"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:181 libraries/export/xml.php:36
@@ -2314,7 +2314,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Ijinkan pembingkaian pihak ketiga"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
