@@ -1126,7 +1126,7 @@ msgstr "Συνδέσεις / Διεργασίες"
 
 #: js/messages.php:86
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Δωθέντα ερωτήματα από την τελευταία ανανέωση"
 
 #: js/messages.php:87
 #| msgid "SQL queries"
