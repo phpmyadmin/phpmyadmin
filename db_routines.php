@@ -340,7 +340,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         $extra_data = array();
         if ($message->isSuccess()) {
             $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-            $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name'],true) . "'";
+            $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name']) . "'";
             $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
             $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
             $extra_data['new_row']   = PMA_RTN_getRowForRoutinesList($routine, 0, true);

@@ -203,9 +203,10 @@ function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "' "
-             . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name,true) . "'";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
+             . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
+
     $routine = PMA_DBI_fetch_single_row($query);
 
     if (! $routine) {
@@ -1184,7 +1185,7 @@ function PMA_RTN_getRoutinesList()
      * Get the routines
      */
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db,true) . "'";
+    $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "'";
     $routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
     /**
      * Conditional classes switch the list on or off
