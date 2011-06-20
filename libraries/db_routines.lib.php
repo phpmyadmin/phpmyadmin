@@ -528,10 +528,12 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            </select></td>\n";
     $retval .= "            <td><input name='routine_param_length[$index]' type='text'\n";
     $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
-    $retval .= "            <td class='routine_param_opts_text'><select name='routine_param_opts_text[$index]'>\n";
-    $retval .= "                <option value=''>(CHARSET)</option>";
-    $retval .= PMA_getSupportedCharsets(true, $routine['param_opts_text'][$i]) . "\n";
-    $retval .= "            </select></td>\n";
+    $retval .= "            <td class='routine_param_opts_text'>\n";
+    $retval .= PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
+                                              "routine_param_opts_text[$index]",
+                                              null,
+                                              $routine['param_opts_text'][$i]);
+    $retval .= "            </td>\n";
     $retval .= "            <td class='routine_param_opts_num'><select name='routine_param_opts_num[$index]'>\n";
     $retval .= "                <option value=''></option>";
     foreach ($param_opts_num as $key => $value) {
@@ -721,10 +723,12 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
     $retval .= "    <td>" . __('Return options') . "</td>\n";
-    $retval .= "    <td><div><select name='routine_returnopts_text'>\n";
-    $retval .= "        <option value=''>(CHARSET)</option>";
-    $retval .= PMA_getSupportedCharsets(true, $routine['returnopts_text']) . "\n";
-    $retval .= "    </select></div>\n";
+    $retval .= "    <td><div>\n";
+    $retval .= PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
+                                              "routine_returnopts_text",
+                                              null,
+                                              $routine['returnopts_text']) . "\n";
+    $retval .= "    </div>\n";
     $retval .= "    <div><select name='routine_returnopts_num'>\n";
     $retval .= "        <option value=''></option>";
     foreach ($param_opts_num as $key => $value) {

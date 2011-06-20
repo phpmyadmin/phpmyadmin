@@ -10,6 +10,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
 require_once './libraries/db_routines.lib.php';
+require_once './libraries/mysql_charsets.lib.php';
 
 /**
  * Include JavaScript libraries
