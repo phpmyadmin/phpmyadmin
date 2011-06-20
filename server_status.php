@@ -16,7 +16,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
-	$GLOBALS['is_header_sent'] = true;
+    $GLOBALS['is_header_sent'] = true;
 
 require_once './libraries/common.inc.php';
 
@@ -393,19 +393,21 @@ echo __('Runtime Information');
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
-                <select name="trafficChartRefresh" style="display:none;">
-                    <option value="5"><?php echo __('Refresh rate'); ?></option>
-                    <option value="1">1 <?php echo __('second'); ?></option>
-                    <option value="2">2 <?php echo __('seconds'); ?></option>
-                    <option value="5">5 <?php echo __('seconds'); ?></option>
-                    <option value="10">10 <?php echo __('seconds'); ?></option>
-                    <option value="20">20 <?php echo __('seconds'); ?></option>
-                    <option value="40">40 <?php echo __('seconds'); ?></option>
-                    <option value="60">1 <?php echo __('minutes'); ?></option>
-                    <option value="120">2 <?php echo __('minutes'); ?></option>
-                    <option value="300">5 <?php echo __('minutes'); ?></option>
-                    <option value="600">10 <?php echo __('minutes'); ?></option>
-                </select>
+                <span class="refreshList" style="display:none;">
+                    <label for="trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
+                    <select name="trafficChartRefresh">
+                        <option value="1">1 <?php echo __('second'); ?></option>
+                        <option value="2">2 <?php echo __('seconds'); ?></option>
+                        <option value="5" selected="selected">5 <?php echo __('seconds'); ?></option>
+                        <option value="10">10 <?php echo __('seconds'); ?></option>
+                        <option value="20">20 <?php echo __('seconds'); ?></option>
+                        <option value="40">40 <?php echo __('seconds'); ?></option>
+                        <option value="60">1 <?php echo __('minutes'); ?></option>
+                        <option value="120">2 <?php echo __('minutes'); ?></option>
+                        <option value="300">5 <?php echo __('minutes'); ?></option>
+                        <option value="600">10 <?php echo __('minutes'); ?></option>
+                    </select>
+                </span>
                 <a class="tabChart livetrafficLink" href="#">
                     <?php echo __('Live traffic chart'); ?>
                 </a>
@@ -425,19 +427,21 @@ echo __('Runtime Information');
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
-                <select name="queryChartRefresh" style="display:none;">
-                    <option value="5"><?php echo __('Refresh rate'); ?></option>
-                    <option value="1">1 <?php echo __('second'); ?></option>
-                    <option value="2">2 <?php echo __('seconds'); ?></option>
-                    <option value="5">5 <?php echo __('seconds'); ?></option>
-                    <option value="10">10 <?php echo __('seconds'); ?></option>
-                    <option value="20">20 <?php echo __('seconds'); ?></option>
-                    <option value="40">40 <?php echo __('seconds'); ?></option>
-                    <option value="60">1 <?php echo __('minutes'); ?></option>
-                    <option value="120">2 <?php echo __('minutes'); ?></option>
-                    <option value="300">5 <?php echo __('minutes'); ?></option>
-                    <option value="600">10 <?php echo __('minutes'); ?></option>
-                </select>
+                <span class="refreshList" style="display:none;">
+                    <label for="queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
+                    <select name="queryChartRefresh">
+                        <option value="1">1 <?php echo __('second'); ?></option>
+                        <option value="2">2 <?php echo __('seconds'); ?></option>
+                        <option value="5" selected="selected">5 <?php echo __('seconds'); ?></option>
+                        <option value="10">10 <?php echo __('seconds'); ?></option>
+                        <option value="20">20 <?php echo __('seconds'); ?></option>
+                        <option value="40">40 <?php echo __('seconds'); ?></option>
+                        <option value="60">1 <?php echo __('minutes'); ?></option>
+                        <option value="120">2 <?php echo __('minutes'); ?></option>
+                        <option value="300">5 <?php echo __('minutes'); ?></option>
+                        <option value="600">10 <?php echo __('minutes'); ?></option>
+                    </select>
+                </span>
                 <a class="tabChart livequeriesLink" href="#">
                     <?php echo __('Live query chart'); ?>
                 </a>
