@@ -3176,6 +3176,9 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     // Get the username for the current user in the format
     // required to use in the information schema database.
     $user = PMA_DBI_fetch_value("SELECT CURRENT_USER();");
+    if ($user === false) {
+        return false;
+    }
     $user = explode('@', $user);
     $username  = "''";
     $username .= str_replace("'", "''", $user[0]);
