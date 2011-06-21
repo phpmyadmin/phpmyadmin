@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:18+0200\n"
+"PO-Revision-Date: 2011-06-21 21:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4895,7 +4895,7 @@ msgstr "Güvenlik türü"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL veri erişimi"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
