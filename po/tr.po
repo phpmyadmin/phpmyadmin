@@ -4767,10 +4767,9 @@ msgid "Turn"
 msgstr ""
 
 #: libraries/db_events.inc.php:139
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Event"
-msgstr "Yeni sunucu ekle"
+msgstr "Yeni bir Olay ekle"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
