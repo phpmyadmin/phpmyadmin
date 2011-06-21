@@ -1448,7 +1448,7 @@ function PMA_createChart(passedSettings) {
             enabled:false
         },
         xAxis: {
-            type: 'datetime',
+            type: 'datetime'
         },
         yAxis: {
             min: 0,
