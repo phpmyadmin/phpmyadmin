@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 11:36+0200\n"
+"PO-Revision-Date: 2011-06-21 11:37+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10116,7 +10116,7 @@ msgstr "リネーム後のテーブル名"
 
 #: tbl_operations.php:531
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "テーブルを(database<b>.</b>table)にコピーする:"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする"
 
 #: tbl_operations.php:578
 msgid "Switch to copied table"
