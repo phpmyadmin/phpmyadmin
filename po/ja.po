@@ -584,7 +584,7 @@ msgstr ""
 #: db_routines.php:374
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "ルーチンを作成"
+msgstr "ルーチンを作成する"
 
 #: db_routines.php:378
 #| msgid "Edit mode"
