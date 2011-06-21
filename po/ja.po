@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-18 12:09+0200\n"
+"PO-Revision-Date: 2011-06-21 12:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -410,7 +410,7 @@ msgstr[0] "%s テーブル"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "最低ひとつは表示するカラムを選択してください"
+msgstr "最低 1 つは表示するカラムを選択してください"
 
 #: db_qbe.php:186
 msgid "Switch to"
@@ -508,10 +508,10 @@ msgid "%s row(s) affected by the last statement inside the procedure"
 msgstr ""
 
 #: db_routines.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "ストアドルーチンの実行を許可する"
+msgstr "ルーチン %s の実行結果"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -530,32 +530,31 @@ msgid "MySQL said: "
 msgstr "MySQLのメッセージ: "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "要求処理中でのエラー"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %s found in database %s"
-msgstr "このデータベースにはテーブルがありません"
+msgstr "データベース %2$s に %1$s という名前のルーチンはありません"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "ルーチンを実行する"
 
 #: db_routines.php:254 db_routines.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "エクスポートのデフォルト"
+msgstr "ルーチン %s のエクスポート"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
-msgstr "サーバのインデックスが不正です: \"%s\""
+msgstr "ルーチンタイプが不正です: \"%s\""
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
@@ -566,32 +565,30 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: db_routines.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "カラム %s を削除しました"
+msgstr "ルーチン %1$s を変更しました。"
 
 #: db_routines.php:322
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "テーブル %1$s を作成しました。"
+msgstr "ルーチン %1$s を作成しました。"
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: db_routines.php:374
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "リレーションを作成"
+msgstr "ルーチンを作成する"
 
 #: db_routines.php:378
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "編集モード"
+msgstr "ルーチンを編集する"
 
 #: db_routines.php:429
 msgid ""
@@ -1102,10 +1099,9 @@ msgstr "数値ではありません!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "ログファイル数"
+msgstr "数量"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
@@ -1191,19 +1187,19 @@ msgstr "."
 
 #: js/messages.php:78
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "更新間隔中の送信量 (単位：KiB)"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "更新間隔中の受信量 (単位：KiB)"
 
 #: js/messages.php:80
 msgid "Server traffic (in KiB)"
-msgstr "サーバのトラフィック（単位：KiB）"
+msgstr "サーバのトラフィック (単位：KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "更新間隔中の接続数"
 
 #: js/messages.php:82 server_status.php:788
 msgid "Processes"
@@ -1215,13 +1211,12 @@ msgstr "接続／プロセス"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "更新間隔中に発行されたクエリ数"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL クエリ"
+msgstr "発行されたクエリ数"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
@@ -1278,7 +1273,7 @@ msgstr "文字セットの変更中"
 
 #: js/messages.php:106
 msgid "Table must have at least one column"
-msgstr "テーブルには最低ひとつのカラムが必要です"
+msgstr "テーブルには最低 1 つのカラムが必要です"
 
 #: js/messages.php:107
 msgid "Create Table"
@@ -1313,10 +1308,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "フォームに入力されていない値があります!"
+msgstr "フォームに長すぎる値があります！"
 
 #: js/messages.php:126
 msgid ""
@@ -4780,16 +4774,14 @@ msgid "Triggers"
 msgstr "トリガ"
 
 #: libraries/db_routines.lib.php:659
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "詳細..."
+msgstr "詳細"
 
 #: libraries/db_routines.lib.php:662
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "ルーチン"
+msgstr "ルーチン名"
 
 #: libraries/db_routines.lib.php:679
 #, fuzzy, php-format
@@ -4799,7 +4791,7 @@ msgstr "変更"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
-msgstr ""
+msgstr "パラメータ"
 
 #: libraries/db_routines.lib.php:689
 #, fuzzy
@@ -4830,10 +4822,9 @@ msgid "Options"
 msgstr "オプション"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "追加する接頭辞"
+msgstr "パラメータを追加する"
 
 #: libraries/db_routines.lib.php:710
 #, fuzzy
@@ -4882,10 +4873,9 @@ msgid "SQL data access"
 msgstr ""
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "ルーチン"
+msgstr "ルーチンのパラメータ"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
@@ -4900,7 +4890,7 @@ msgstr "値"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "ルーチン名を入力する必要があります"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
@@ -4922,22 +4912,19 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/db_routines.lib.php:1209
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "アップロードファイルがありません"
+msgstr "表示できるルーチンがありません"
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "インデックスを追加する"
+msgstr "ルーチンを追加する"
 
 #: libraries/db_routines.lib.php:1256
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "特権不足でアクセスできません!"
+msgstr "ルーチンを作成する特権がありません"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:2121
 msgid ""
@@ -5404,27 +5391,26 @@ msgid "Link not found"
 msgstr "リンク先が見つかりません"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "内容をエクスポートする"
+msgstr "トリガ %s をエクスポートする"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
 msgid "Export of trigger \"%s\""
-msgstr ""
+msgstr "トリガ \"%s\" をエクスポートする"
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "テーマ %s の画像パスが無効です!"
+msgstr "%s という名前のトリガが見つかりません"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "アップロードファイルがありません"
+msgstr "表示できるトリガがありません"
 
 #: libraries/display_triggers.inc.php:77 server_status.php:794 sql.php:936
 msgid "Time"
@@ -5435,10 +5421,9 @@ msgid "Event"
 msgstr "イベント"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Trigger"
-msgstr "新しいサーバの追加"
+msgstr "新しいトリガを追加する"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -10106,7 +10091,7 @@ msgstr "(1 回)"
 
 #: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する"
 
 #: tbl_operations.php:351
 msgid "Table options"
@@ -10118,7 +10103,7 @@ msgstr "リネーム後のテーブル名"
 
 #: tbl_operations.php:531
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "テーブルを(database<b>.</b>table)にコピーする:"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする"
 
 #: tbl_operations.php:578
 msgid "Switch to copied table"
@@ -10139,7 +10124,7 @@ msgstr "テーブル %s をフラッシュしました"
 
 #: tbl_operations.php:668
 msgid "Flush the table (FLUSH)"
-msgstr "テーブルをフラッシュする(FLUSH)"
+msgstr "テーブルをフラッシュする (FLUSH)"
 
 #: tbl_operations.php:677
 msgid "Delete data or table"
@@ -10147,11 +10132,11 @@ msgstr "データまたはテーブルの削除"
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
-msgstr "テーブルを空にする(TRUNCATE)"
+msgstr "テーブルを空にする (TRUNCATE)"
 
 #: tbl_operations.php:712
 msgid "Delete the table (DROP)"
-msgstr "テーブルを削除する(DROP)"
+msgstr "テーブルを削除する (DROP)"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"
@@ -10274,7 +10259,7 @@ msgstr "表示順:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "空間"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
@@ -10293,10 +10278,9 @@ msgid "Add unique index"
 msgstr "ユニークインデックスを追加する"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "インデックスを追加する"
+msgstr "空間インデックスを追加する"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
