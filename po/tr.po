@@ -511,7 +511,7 @@ msgstr ""
 #, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "%s sıradan çalıştırma sonuçları"
+msgstr "%s yordamı çalıştırma sonuçları"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
