@@ -5445,10 +5445,9 @@ msgid "Event"
 msgstr "Olay"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Trigger"
-msgstr "Yeni sunucu ekle"
+msgstr "Yeni bir Tetikleyici ekle"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
