@@ -46,11 +46,14 @@ class PMA_RecentTable
             $this->pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                                PMA_backquote($GLOBALS['cfg']['Server']['recent']);
         }
-        if (! isset($_SESSION['tmp_user_values']['recent_tables'])) {
-            $_SESSION['tmp_user_values']['recent_tables'] =
+        $host = $GLOBALS['cfg']['Server']['host'] .
+                (empty($GLOBALS['cfg']['Server']['port']) ?
+                 '' : ':' . $GLOBALS['cfg']['Server']['port']);
+        if (! isset($_SESSION['tmp_user_values']['recent_tables'][$host])) {
+            $_SESSION['tmp_user_values']['recent_tables'][$host] =
                 isset($this->pma_table) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'];
+        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$host];
     }
 
     /**
