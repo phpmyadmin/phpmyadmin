@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 11:52+0200\n"
+"PO-Revision-Date: 2011-06-21 11:54+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -552,10 +552,10 @@ msgid "Export of routine %s"
 msgstr "エクスポートのデフォルト"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
-msgstr "サーバのインデックスが不正です: \"%s\""
+msgstr "ルーチンタイプが不正です: \"%s\""
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
