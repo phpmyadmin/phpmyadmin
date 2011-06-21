@@ -1,8 +1,9 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
  *
- * @version 0.2b (20090704)
+ * @package phpMyAdmin-Export-PHP
  */
 if (! defined('PHPMYADMIN')) {
     exit;

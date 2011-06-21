@@ -4,7 +4,6 @@
  * Set of functions used to build MediaWiki dumps of tables
  *
  * @package phpMyAdmin-Export-MediaWiki
- * @version $Id: mediawiki.php 12972 2009-09-14 06:21:04Z drummingds1 $
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -112,7 +111,7 @@ function PMA_exportDBCreate($db) {
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $mediawiki_export_struct;
     global $mediawiki_export_data;
-    
+
     $result  = PMA_DBI_fetch_result("SHOW COLUMNS FROM `" . $db . "`.`" . $table . "`");
     $row_cnt = count($result);
 
@@ -127,7 +126,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
     }
     $output .= "\n";
-    
+
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Type\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
@@ -137,7 +136,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
     }
     $output .= "\n";
-    
+
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Null\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
@@ -147,7 +146,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
     }
     $output .= "\n";
-    
+
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Default\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
@@ -157,7 +156,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
     }
     $output .= "\n";
-    
+
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Extra\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
@@ -167,7 +166,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         }
     }
     $output .= "\n";
-    
+
     $output .= "|}\n\n\n\n";
     return PMA_exportOutputHandler($output);
 }
