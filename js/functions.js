@@ -2463,7 +2463,7 @@ function PMA_slidingMessage(msg, $obj) {
         // Don't show an empty message
         return false;
     }
-    if ($obj == undefined || ! $obj instanceof jQuery) {
+    if ($obj == undefined || ! $obj instanceof jQuery || $obj.length == 0) {
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length == 0) {
