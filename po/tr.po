@@ -4805,10 +4805,9 @@ msgid "Triggers"
 msgstr "Tetikleyiciler"
 
 #: libraries/db_routines.lib.php:659
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Ayrıntılar..."
+msgstr "Ayrıntılar"
 
 #: libraries/db_routines.lib.php:662
 #| msgid "Routines"
