@@ -4,6 +4,7 @@
  * DocSQL import plugin for phpMyAdmin
  *
  * @package phpMyAdmin-Import
+ * @subpackage DocSQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;
