@@ -1214,7 +1214,7 @@ msgstr "接続／プロセス"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr "更新間隔中に発行されたクエリ"
+msgstr "更新間隔中に発行されたクエリ数"
 
 #: js/messages.php:85
 #, fuzzy
