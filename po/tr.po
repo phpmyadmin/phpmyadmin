@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:10+0200\n"
+"PO-Revision-Date: 2011-06-21 21:11+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4729,10 +4729,10 @@ msgid "Export of event %s"
 msgstr "%s olayını dışa aktarma"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "İçerikleri dışa aktar"
+msgstr "\"%s\" olayını dışa aktarma"
 
 #: libraries/db_events.inc.php:40
 #, fuzzy, php-format
