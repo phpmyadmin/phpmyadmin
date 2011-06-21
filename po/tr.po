@@ -551,10 +551,10 @@ msgid "Export of routine %s"
 msgstr "%s yordamını dışa aktarma"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Geçersiz sunucu indeksi: %s"
+msgstr "Geçersiz yordam türü: \"%s\""
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
