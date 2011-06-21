@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:33+0200\n"
+"PO-Revision-Date: 2011-06-21 21:34+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5432,10 +5432,9 @@ msgid "No trigger with name %s found"
 msgstr "%s adıyla bulunan tetikleyici yok"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Göndermek için hiç dosya yok"
+msgstr "Görüntülemek için tetikleyiciler yok."
 
 #: libraries/display_triggers.inc.php:77 server_status.php:794 sql.php:936
 msgid "Time"
