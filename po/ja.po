@@ -10104,7 +10104,7 @@ msgstr "(1 回)"
 
 #: tbl_operations.php:293
 msgid "Move table to (database<b>.</b>table):"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
+msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する"
 
 #: tbl_operations.php:351
 msgid "Table options"
