@@ -338,7 +338,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
                     if ($val === null) {
                         $sql .= 'NULL';
                     } else {
-                        $sql .= '\'' . addslashes($val) . '\'';
+                        $sql .= '\'' . PMA_sqlAddSlashes($val) . '\'';
                     }
 
                     $first = false;

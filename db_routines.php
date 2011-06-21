@@ -97,7 +97,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 if (is_array($value)) { // is SET type
                     $value = implode(',', $value);
                 }
-                $value = PMA_sqladdslashes($value);
+                $value = PMA_sqlAddSlashes($value);
                 if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
                       && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
                     $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
