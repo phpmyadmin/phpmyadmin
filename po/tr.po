@@ -4876,7 +4876,6 @@ msgid "Return options"
 msgstr "Dönüş seçenekleri"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
 msgstr "Açıklama"
