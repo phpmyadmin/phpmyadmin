@@ -4898,10 +4898,9 @@ msgid "SQL data access"
 msgstr "SQL veri erişimi"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Yordamlar"
+msgstr "Yordam parametreleri"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
