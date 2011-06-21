@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 12:35+0200\n"
+"PO-Revision-Date: 2011-06-21 12:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5410,7 +5410,7 @@ msgstr "%s という名前のトリガが見つかりません"
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "表示できるルーチンがありません"
+msgstr "表示できるトリガがありません"
 
 #: libraries/display_triggers.inc.php:77 server_status.php:794 sql.php:936
 msgid "Time"
