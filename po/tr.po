@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:32+0200\n"
+"PO-Revision-Date: 2011-06-21 21:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5426,10 +5426,10 @@ msgid "Export of trigger \"%s\""
 msgstr ""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "%s teması için geçerli resim yolu bulunamadı!"
+msgstr "%s adıyla bulunan tetikleyici yok"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
