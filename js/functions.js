@@ -2460,15 +2460,17 @@ function PMA_slidingMessage($obj, msg) {
             // If there already is a message inside the
             // target object, we must get rid of it
             $obj
-            .append('<div style="display: none;">' + msg + '</div>')
             .find('div')
             .first()
             .fadeOut(function () {
-                $(this).remove();
-                $obj.animate({
-                    height: $obj.find('div').first().height()
-                });
                 $obj
+                .children()
+                .remove();
+                $obj
+                .append('<div style="display: none;">' + msg + '</div>')
+                .animate({
+                    height: $obj.find('div').first().height()
+                })
                 .find('div')
                 .first()
                 .fadeIn();
