@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:36+0200\n"
+"PO-Revision-Date: 2011-06-21 21:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -10064,10 +10064,9 @@ msgid "-- None --"
 msgstr "-- Yok --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
-msgstr "Toplam sayı"
+msgstr "Uzamsal sütun"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
