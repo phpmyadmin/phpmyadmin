@@ -1194,7 +1194,7 @@ msgstr "更新間隔中の送信量 (単位：KiB)"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "更新間隔中の受信量 (単位：KiB)"
 
 #: js/messages.php:80
 msgid "Server traffic (in KiB)"
