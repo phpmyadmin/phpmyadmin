@@ -4942,10 +4942,9 @@ msgid "There are no routines to display."
 msgstr "Görüntülemek için yordamlar yok."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "İndeks ekle"
+msgstr "Yordam ekle"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
