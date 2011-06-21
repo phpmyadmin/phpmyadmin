@@ -108,7 +108,7 @@ if ($import_type == 'table') {
     }
     $err_url  = $goto
               . '?' . $common
-              . (preg_match('@^tbl_[a-z]*\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
+              . (preg_match('@^tbl_[a-z]*\.php$@', $goto) ? '&amp;table=' . htmlspecialchars($table) : '');
     $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
 
