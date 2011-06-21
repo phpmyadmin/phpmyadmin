@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 20:53+0200\n"
+"PO-Revision-Date: 2011-06-21 20:54+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -530,10 +530,9 @@ msgid "MySQL said: "
 msgstr "MySQL çıktısı: "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "İstek İşlemede Hata"
+msgstr "İstek işlemede hata"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
 #, fuzzy, php-format
