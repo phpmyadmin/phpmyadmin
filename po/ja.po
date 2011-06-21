@@ -10149,7 +10149,7 @@ msgstr "テーブルを空にする (TRUNCATE)"
 
 #: tbl_operations.php:712
 msgid "Delete the table (DROP)"
-msgstr "テーブルを削除する(DROP)"
+msgstr "テーブルを削除する (DROP)"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"
