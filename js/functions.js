@@ -2448,57 +2448,69 @@ $(document).ready(function() {
 /**
  * Creates a message inside an object with a sliding effect
  *
+ * @param   msg    A string containing the text to display
  * @param   $obj   a jQuery object containing the reference
  *                 to the element where to put the message
- * @param   msg    A string containing the text to display
+ *                 This is optional, if no element is
+ *                 provided, one will be created below the
+ *                 navigation links at the top of the page
  *
  * @return  bool   True on success, false on failure
  */
-function PMA_slidingMessage($obj, msg) {
-    if ($obj != 'undefined' && $obj instanceof jQuery) {
-        if ($obj.has('div').length > 0) {
-            // If there already is a message inside the
-            // target object, we must get rid of it
-            $obj
-            .find('div')
-            .first()
-            .fadeOut(function () {
-                $obj
-                .children()
-                .remove();
-                $obj
-                .append('<div style="display: none;">' + msg + '</div>')
-                .animate({
-                    height: $obj.find('div').first().height()
-                })
-                .find('div')
-                .first()
-                .fadeIn();
-            });
-        } else {
-            // Object does not already have a message
-            // inside it, so we simply slide it down
-            $obj
-            .width('100%')
-            .html('<div style="display: none;">' + msg + '</div>')
-            .find('div')
-            .first()
-            .slideDown(function() {
-                // Set the height of the parent
-                // to the height of the child
-                $obj
-                .height(
-                    $obj
-                    .find('div')
-                    .first()
-                    .height()
-                );
-            });
-        }
-        return true;
-    } else {
+function PMA_slidingMessage(msg, $obj) {
+    if (msg == undefined || msg.length == 0) {
+        // Don't show an empty message
         return false;
     }
+    if ($obj == undefined || ! $obj instanceof jQuery) {
+        // If the second argument was not supplied,
+        // we might have to create a new DOM node.
+        if ($('#PMA_slidingMessage').length == 0) {
+            $('#topmenucontainer')
+            .after('<span id="PMA_slidingMessage"></span>');
+        }
+        $obj = $('#PMA_slidingMessage');
+    }
+    if ($obj.has('div').length > 0) {
+        // If there already is a message inside the
+        // target object, we must get rid of it
+        $obj
+        .find('div')
+        .first()
+        .fadeOut(function () {
+            $obj
+            .children()
+            .remove();
+            $obj
+            .append('<div style="display: none;">' + msg + '</div>')
+            .animate({
+                height: $obj.find('div').first().height()
+            })
+            .find('div')
+            .first()
+            .fadeIn();
+        });
+    } else {
+        // Object does not already have a message
+        // inside it, so we simply slide it down
+        $obj
+        .width('100%')
+        .html('<div style="display: none;">' + msg + '</div>')
+        .find('div')
+        .first()
+        .slideDown(function() {
+            // Set the height of the parent
+            // to the height of the child
+            $obj
+            .height(
+                $obj
+                .find('div')
+                .first()
+                .height()
+            );
+        });
+    }
+    return true;
 } // end PMA_slidingMessage()
 
 /**
@@ -2555,7 +2567,7 @@ $(document).ready(function() {
                     }
                     // Show the query that we just executed
                     PMA_ajaxRemoveMessage($msg);
-                    PMA_slidingMessage($('#js_query_display'), data.sql_query);
+                    PMA_slidingMessage(data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
