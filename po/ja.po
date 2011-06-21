@@ -4824,10 +4824,9 @@ msgid "Options"
 msgstr "オプション"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "追加する接頭辞"
+msgstr "パラメータを追加する"
 
 #: libraries/db_routines.lib.php:710
 #, fuzzy
