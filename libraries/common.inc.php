@@ -509,10 +509,21 @@ if (PMA_isValid($_REQUEST['db'])) {
  */
 $GLOBALS['table'] = '';
 if (PMA_isValid($_REQUEST['table'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in table names for MySQL
-    $GLOBALS['table'] = $_REQUEST['table'];
-    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+    // check if specified table contain db name
+    if (strpos($_REQUEST['table'], '.')) {
+        $splitted = explode('.', $_REQUEST['table']);
+        if (count($splitted) == 2) {    // make sure the format is "db.table"
+            $GLOBALS['db'] = $splitted[0];
+            $GLOBALS['url_params']['db'] = $GLOBALS['db'];
+            $GLOBALS['table'] = $splitted[1];
+            $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+        }
+    } else {
+        // can we strip tags from this?
+        // only \ and / is not allowed in table names for MySQL
+        $GLOBALS['table'] = $_REQUEST['table'];
+        $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+    }
 }
 
 /**
