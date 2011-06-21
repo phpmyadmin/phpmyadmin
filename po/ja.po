@@ -4781,10 +4781,9 @@ msgid "Details"
 msgstr "詳細"
 
 #: libraries/db_routines.lib.php:662
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "ルーチン"
+msgstr "ルーチン名"
 
 #: libraries/db_routines.lib.php:679
 #, fuzzy, php-format
