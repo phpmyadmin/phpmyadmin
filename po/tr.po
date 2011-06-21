@@ -581,10 +581,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:</b>"
 
 #: db_routines.php:374
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Bağlantı oluştur"
+msgstr "Yordam oluştur"
 
 #: db_routines.php:378
 #, fuzzy
