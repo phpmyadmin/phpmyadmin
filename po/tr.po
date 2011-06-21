@@ -10059,10 +10059,9 @@ msgid "Label column"
 msgstr "Etiket sütunu"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- yok -"
+msgstr "-- Yok --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
