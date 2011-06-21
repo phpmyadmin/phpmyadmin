@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 20:56+0200\n"
+"PO-Revision-Date: 2011-06-21 20:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -545,10 +545,10 @@ msgid "Execute routine"
 msgstr ""
 
 #: db_routines.php:254 db_routines.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Dışa aktarma varsayılanları"
+msgstr "%s yordamını dışa aktarma"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
