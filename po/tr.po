@@ -4886,7 +4886,7 @@ msgstr "Belirleyici"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Tanımlayıcı"
 
 #: libraries/db_routines.lib.php:758
 #, fuzzy
