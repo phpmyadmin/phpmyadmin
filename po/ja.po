@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 12:21+0200\n"
+"PO-Revision-Date: 2011-06-21 12:23+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -410,7 +410,7 @@ msgstr[0] "%s テーブル"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "最低ひとつは表示するカラムを選択してください"
+msgstr "最低 1 つは表示するカラムを選択してください"
 
 #: db_qbe.php:186
 msgid "Switch to"
