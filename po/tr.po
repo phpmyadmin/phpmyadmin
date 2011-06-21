@@ -562,7 +562,7 @@ msgstr "Üzgünüm, kaldırılmış yordamı geri yükleme başarısız oldu."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Yedeklenmiş sorgu:"
 
 #: db_routines.php:309
 #, fuzzy, php-format
