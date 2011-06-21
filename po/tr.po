@@ -5415,10 +5415,10 @@ msgid "Link not found"
 msgstr "Bağlantı bulunamadı"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "İçerikleri dışa aktar"
+msgstr "%s tetikleyicisini dışa aktarma"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
