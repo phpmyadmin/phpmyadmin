@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:30+0200\n"
+"PO-Revision-Date: 2011-06-21 21:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7393,7 +7393,7 @@ msgstr ""
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
-msgstr "ZIP arşivi içinde hiç dosya bulunamadı!"
+msgstr "ZIP arşivi içinde bulunan dosya yok!"
 
 #: libraries/zip_extension.lib.php:48 libraries/zip_extension.lib.php:50
 #: libraries/zip_extension.lib.php:65
