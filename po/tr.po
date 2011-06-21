@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:34+0200\n"
+"PO-Revision-Date: 2011-06-21 21:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5423,7 +5423,7 @@ msgstr "%s tetikleyicisini dışa aktarma"
 #: libraries/display_triggers.inc.php:39
 #, php-format
 msgid "Export of trigger \"%s\""
-msgstr ""
+msgstr "\"%s\" tetikleyicisini dışa aktarma"
 
 #: libraries/display_triggers.inc.php:47
 #, php-format
