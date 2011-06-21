@@ -6,7 +6,6 @@
  * @package phpMyAdmin-Export
  * @subpackage JSON
  */
- */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
