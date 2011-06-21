@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:13+0200\n"
+"PO-Revision-Date: 2011-06-21 21:14+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3761,7 +3761,7 @@ msgstr "Sorgu geçmişi uzunluğu"
 
 #: libraries/config/messages.inc.php:342
 msgid "Tab displayed when opening a new query window"
-msgstr "Yeni sorgu penceresi açıldığında görüntülenen sekme"
+msgstr "Yeni bir sorgu penceresi açıldığında görüntülenen sekme"
 
 #: libraries/config/messages.inc.php:343
 msgid "Default query window tab"
