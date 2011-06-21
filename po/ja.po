@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 11:35+0200\n"
+"PO-Revision-Date: 2011-06-21 11:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1214,7 +1214,7 @@ msgstr "接続／プロセス"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "更新間隔中に発行されたクエリ"
 
 #: js/messages.php:85
 #, fuzzy
