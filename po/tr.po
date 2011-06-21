@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:20+0200\n"
+"PO-Revision-Date: 2011-06-21 21:21+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4920,7 +4920,7 @@ msgstr "Bir yordam adı vermek zorundasınız"
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Parametre için geçersiz yön \"%s\" verilmiş."
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
