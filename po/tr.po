@@ -4871,10 +4871,9 @@ msgid "Return length/values"
 msgstr "Dönüş uzunluğu/değerleri"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Tablo seçenekleri"
+msgstr "Dönüş seçenekleri"
 
 #: libraries/db_routines.lib.php:745
 #, fuzzy
