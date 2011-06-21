@@ -640,7 +640,7 @@ $(document).ready(function() {
                 $tr.removeClass('marked');
             }
         } else {
-            // normaln data table, just toggle class
+            // normal data table, just toggle class
             $tr.toggleClass('marked');
         }
     });
@@ -657,13 +657,13 @@ $(document).ready(function() {
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
     });
-})
+})*/
 
 /**
  * This array is used to remember mark status of rows in browse mode
@@ -1499,7 +1499,7 @@ function PMA_createChart(passedSettings) {
             passedSettings.realtime.numMaxPoints = 30;
         
         settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
+        settings.xAxis.max = new Date().getTime();
     }
 
     // Overwrite/Merge default settings with passedsettings
@@ -2367,10 +2367,10 @@ $(document).ready(function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
-        var $this_td = $(this);
-        var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle hover
-        $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
+            var $this_td = $(this);
+            var row_num = PMA_getRowNumber($this_td.attr('class'));
+            // for all td of the same vertical row, toggle hover
+            $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
 }) // end of $(document).ready() for vertical pointer
@@ -2380,11 +2380,35 @@ $(document).ready(function() {
      * Vertical marker
      */
     $('.vmarker').live('click', function(e) {
+        // do not trigger when clicked on anchor
+        if ($(e.target).is('a, img, a *')) {
+            return;
+        }
+
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle the marked class
-        $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
-        });
+
+        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+        var $tr = $(this);
+        var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
+        if ($checkbox.length) {
+            // checkbox in a row, add or remove class depending on checkbox state
+            var checked = $checkbox.attr('checked');
+            if (!$(e.target).is(':checkbox, label')) {
+                checked = !checked;
+                $checkbox.attr('checked', checked);
+            }
+            // for all td of the same vertical row, toggle the marked class
+            if (checked) {      
+                $('.vmarker').filter('.row_' + row_num).addClass('marked');
+            } else {
+                $('.vmarker').filter('.row_' + row_num).removeClass('marked');
+            }
+        } else {
+            // normaln data table, just toggle class
+            $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
+        }
+    });
 
     /**
      * Reveal visual builder anchor
