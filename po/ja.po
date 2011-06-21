@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 12:00+0200\n"
+"PO-Revision-Date: 2011-06-21 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4920,10 +4920,9 @@ msgid "There are no routines to display."
 msgstr "アップロードファイルがありません"
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "インデックスを追加する"
+msgstr "ルーチンを追加する"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
