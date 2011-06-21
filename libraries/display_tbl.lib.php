@@ -1180,6 +1180,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     // name of the class added to all inline editable elements
     $inline_edit_class = 'inline_edit';
 
+    // prepare to get the column order, if available
+    if (PMA_isSelect()) {
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
+
     // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
     // the phpMyAdmin GUI should support row delete/edit only for such
@@ -1340,14 +1348,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         } // end if (1)
 
         // 2. Displays the rows' values
-
-        if (PMA_isSelect()) {
-            // prepare to get the column order, if available
-            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        } else {
-            $col_order = false;
-        }
 
         for ($j = 0; $j < $fields_cnt; ++$j) {
             // assign $i with appropriate column order
