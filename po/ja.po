@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 11:38+0200\n"
+"PO-Revision-Date: 2011-06-21 11:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10272,7 +10272,7 @@ msgstr "表示順:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "空間"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
