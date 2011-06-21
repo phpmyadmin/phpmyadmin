@@ -586,10 +586,9 @@ msgid "Create routine"
 msgstr "Yordam oluştur"
 
 #: db_routines.php:378
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Düzenleme kipi"
+msgstr "Yordamı düzenle"
 
 #: db_routines.php:429
 msgid ""
