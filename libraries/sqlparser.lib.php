@@ -360,7 +360,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                                 $sql_array['raw'] = $sql;
                                 $pos = $pos_quote_separator;
                             }
-                            if (class_exists('PMA_Message')) {
+                            if (class_exists('PMA_Message') && $GLOBALS['is_ajax_request'] != true) {
                                 PMA_Message::notice(__('Automatically appended backtick to the end of query!'))->display();
                             }
                         }  else {
