@@ -1300,7 +1300,7 @@ function PMA_ajaxShowMessage(message, timeout) {
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    if ($this_msgbox != 'undefined' && $this_msgbox instanceof jQuery) {
+    if ($this_msgbox != undefined && $this_msgbox instanceof jQuery) {
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
