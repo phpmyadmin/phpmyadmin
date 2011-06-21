@@ -1202,7 +1202,7 @@ msgstr "サーバのトラフィック (単位：KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "更新間隔中の接続数"
 
 #: js/messages.php:82 server_status.php:788
 msgid "Processes"
