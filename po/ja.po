@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 11:54+0200\n"
+"PO-Revision-Date: 2011-06-21 11:55+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -566,10 +566,10 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: db_routines.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "カラム %s を削除しました"
+msgstr "ルーチン %1$s を変更しました。"
 
 #: db_routines.php:322
 #, fuzzy, php-format
