@@ -1217,10 +1217,9 @@ msgid "Issued queries since last refresh"
 msgstr "更新間隔中に発行されたクエリ数"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL クエリ"
+msgstr "発行されたクエリ数"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
