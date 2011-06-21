@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 12:04+0200\n"
+"PO-Revision-Date: 2011-06-21 12:05+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4925,10 +4925,9 @@ msgid "Add routine"
 msgstr "ルーチンを追加する"
 
 #: libraries/db_routines.lib.php:1256
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "特権不足でアクセスできません!"
+msgstr "ルーチンを作成する特権がありません"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:2121
 msgid ""
