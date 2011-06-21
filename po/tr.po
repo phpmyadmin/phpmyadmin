@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-21 09:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:15+0200\n"
+"PO-Revision-Date: 2011-06-21 21:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -4825,10 +4825,9 @@ msgid "Parameters"
 msgstr "Parametreler"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Doğrudan bağlantılar"
+msgstr "Yön"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
