@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build MediaWiki dumps of tables
  *
- * @package phpMyAdmin-Export-MediaWiki
+ * @package phpMyAdmin-Export
+ * @subpackage MediaWiki
  */
 if (! defined('PHPMYADMIN')) {
     exit;

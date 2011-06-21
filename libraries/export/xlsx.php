@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build dumps of tables as Excel 2007 files.
  *
- * @package phpMyAdmin-Export-XLSX
+ * @package phpMyAdmin-Export
+ * @subpackage XLSX
  */
 if (! defined('PHPMYADMIN')) {
     exit;

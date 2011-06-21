@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build LaTeX dumps of tables
  *
- * @package phpMyAdmin-Export-Latex
+ * @package phpMyAdmin-Export
+ * @subpackage Latex
  */
 if (! defined('PHPMYADMIN')) {
     exit;

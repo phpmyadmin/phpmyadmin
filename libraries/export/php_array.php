@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
  *
- * @package phpMyAdmin-Export-PHP
+ * @package phpMyAdmin-Export
+ * @subpackage PHP
  */
 if (! defined('PHPMYADMIN')) {
     exit;

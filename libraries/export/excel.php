@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build CSV dumps of tables for excel
  *
- * @package phpMyAdmin-Export-CSV-Excel
+ * @package phpMyAdmin-Export
+ * @subpackage CSV-Excel
  */
 if (! defined('PHPMYADMIN')) {
     exit;

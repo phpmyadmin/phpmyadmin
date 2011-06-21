@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build dumps of tables as JSON
  *
- * @package phpMyAdmin-Export-JSON
+ * @package phpMyAdmin-Export
+ * @subpackage JSON
  */
  */
 if (! defined('PHPMYADMIN')) {
