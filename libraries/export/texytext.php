@@ -3,7 +3,8 @@
 /**
  * Export to Texy! text.
  *
- * @package phpMyAdmin-Export-Texy
+ * @package phpMyAdmin-Export
+ * @subpackage Texy
  */
 if (! defined('PHPMYADMIN')) {
     exit;

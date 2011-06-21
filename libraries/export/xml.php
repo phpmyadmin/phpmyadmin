@@ -3,8 +3,8 @@
 /**
  * Set of functions used to build XML dumps of tables
  *
- * @todo
- * @package phpMyAdmin-Export-XML
+ * @package phpMyAdmin-Export
+ * @subpackage XML
  */
 if (! defined('PHPMYADMIN')) {
     exit;

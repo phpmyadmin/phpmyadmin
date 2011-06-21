@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build OpenDocument Spreadsheet dumps of tables
  *
- * @package phpMyAdmin-Export-ODS
+ * @package phpMyAdmin-Export
+ * @subpackage ODS
  */
 if (! defined('PHPMYADMIN')) {
     exit;

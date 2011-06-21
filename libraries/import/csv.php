@@ -5,6 +5,7 @@
  *
  * @todo    add an option for handling NULL values
  * @package phpMyAdmin-Import
+ * @subpackage CSV
  */
 if (! defined('PHPMYADMIN')) {
     exit;

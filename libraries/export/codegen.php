@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build NHibernate dumps of tables
  *
- * @package phpMyAdmin-Export-Codegen
+ * @package phpMyAdmin-Export
+ * @subpackage Codegen
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -148,7 +149,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
 /**
  *
- * @package phpMyAdmin-Export-Codegen
+ * @package phpMyAdmin-Export
+ * @subpackage Codegen
  */
 class TableProperty
 {
