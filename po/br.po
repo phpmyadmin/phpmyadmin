@@ -110,7 +110,7 @@ msgstr "Dibosupl tapout an talbennoù"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Dibosupl digeriñ an URL a-bell"
 
 #: changelog.php:32 license.php:28
 #, php-format
