@@ -663,7 +663,7 @@ msgstr[1] "<b>Hollad :</b> <i>%s</i> klotadenn"
 
 #: db_search.php:297
 msgid "Search in database"
-msgstr ""
+msgstr "Klask en diaz roadennoù"
 
 #: db_search.php:300
 msgid "Words or values to search for (wildcard: \"%\"):"
