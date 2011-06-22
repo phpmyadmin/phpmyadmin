@@ -4810,7 +4810,7 @@ msgstr "Změnit na %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
-msgstr ""
+msgstr "Parametry"
 
 #: libraries/db_routines.lib.php:689
 #, fuzzy
