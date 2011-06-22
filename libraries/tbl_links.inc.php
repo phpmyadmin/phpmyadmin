@@ -98,10 +98,9 @@ if(PMA_Tracker::isActive()) {
     $tabs['tracking']['link'] = 'tbl_tracking.php';
 }
 if (! $db_is_information_schema && PMA_MYSQL_INT_VERSION >= 50002 && ! PMA_DRIZZLE) {
-    // Temporarily hiding this unfinished feature
-    // $tabs['triggers']['link'] = 'tbl_triggers.php';
-    // $tabs['triggers']['text'] = __('Triggers');
-    // $tabs['triggers']['icon'] = 'b_triggers.png';
+    $tabs['triggers']['link'] = 'tbl_triggers.php';
+    $tabs['triggers']['text'] = __('Triggers');
+    $tabs['triggers']['icon'] = 'b_triggers.png';
 }
 
 /**
