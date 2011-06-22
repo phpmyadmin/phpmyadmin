@@ -570,10 +570,10 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: db_routines.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Η στήλη %s διεγράφη"
+msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
 
 #: db_routines.php:322
 #, fuzzy, php-format
