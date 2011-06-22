@@ -4870,7 +4870,7 @@ msgstr "Security type"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL data access"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
