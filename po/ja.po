@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:27+0200\n"
+"PO-Revision-Date: 2011-06-22 11:28+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5244,7 +5244,7 @@ msgstr "カラムの順番を元に戻す"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "ドラッグでカラムの入れ替え"
 
 #: libraries/display_tbl.lib.php:412
 #, fuzzy
