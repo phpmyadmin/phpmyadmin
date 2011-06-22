@@ -569,7 +569,7 @@ msgstr "Pedimos disculpas por no haber podido recuperar la rutina eliminada."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr ""
+msgstr "La consulta respaldada era:"
 
 #: db_routines.php:309
 #, fuzzy, php-format
