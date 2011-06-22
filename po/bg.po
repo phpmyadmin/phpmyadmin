@@ -687,10 +687,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Думите трябва да се разделят с интервал (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "В таблицата(ите):"
+msgstr "В таблици:"
 
 #: db_search.php:353
 msgid "Inside column:"
