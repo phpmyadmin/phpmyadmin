@@ -601,7 +601,7 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
-msgstr ""
+msgstr "Moned nac'het"
 
 #: db_search.php:66 db_search.php:309
 msgid "at least one of the words"
