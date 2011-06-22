@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-17 15:05+0200\n"
+"PO-Revision-Date: 2011-06-22 10:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -511,9 +511,9 @@ msgstr "Váš SQL-dotaz byl úspěšně vykonán"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Posledním příkazem v proceduře byla ovlivněna %d řádka"
+msgstr[1] "Posledním příkazem v proceduře byly ovlivněny %d řádky"
+msgstr[2] "Posledním příkazem v proceduře bylo ovlivněno %d řádek"
 
 #: db_routines.php:165
 #, fuzzy, php-format
@@ -530,7 +530,7 @@ msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 #: db_routines.php:319
 #, php-format
 msgid "Query \"%s\" failed"
-msgstr ""
+msgstr "Dotaz \"%s\" selhal"
 
 #: db_routines.php:191 db_routines.php:291 db_routines.php:296
 #: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
@@ -551,7 +551,7 @@ msgstr "V databázi nebyly nalezeny žádné tabulky"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Spustit rutinu"
 
 #: db_routines.php:254 db_routines.php:258
 #, fuzzy, php-format
@@ -567,11 +567,11 @@ msgstr "Chybný index serveru: „%s“"
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Bohužel se nepodařilo obnovit odstraněnou rutinu."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Záložní dotaz byl:"
 
 #: db_routines.php:309
 #, fuzzy, php-format
@@ -587,7 +587,7 @@ msgstr "Byla vytvořena tabulka %1$s."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Při zpracování požadavku došlo k několika chybám:</b>"
 
 #: db_routines.php:374
 #, fuzzy
@@ -1319,7 +1319,7 @@ msgstr "Odstraňuji"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definice uložené funkce musí obsahovat příkaz RETURN!"
 
 #: js/messages.php:123
 #, fuzzy
@@ -2113,6 +2113,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown bellow."
 msgstr ""
+"Obvykle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
+"chyby vypsané níže."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2354,7 +2356,7 @@ msgstr "Nebyl zvolen žádný soubor pro nahrání"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Spustit"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51

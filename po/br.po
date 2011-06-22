@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 10:08+0200\n"
+"PO-Revision-Date: 2011-06-22 10:13+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -429,84 +429,84 @@ msgstr "mod gwelet"
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:927
 msgid "Sort"
-msgstr ""
+msgstr "Urzhiañ"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:549 libraries/display_tbl.lib.php:888
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
 #: tbl_select.php:278
 msgid "Ascending"
-msgstr ""
+msgstr "War gresk"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:885
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
 #: tbl_select.php:279
 msgid "Descending"
-msgstr ""
+msgstr "War zigresk"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:429
 #: tbl_change.php:279 tbl_tracking.php:648
 msgid "Show"
-msgstr ""
+msgstr "Diskouez"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr ""
+msgstr "Dezverk"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr ""
+msgstr "Ensoc'hañ"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
-msgstr ""
+msgstr "Ha"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr ""
+msgstr "Diverk."
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:307 tbl_change.php:887 tbl_indexes.php:256
 #: tbl_select.php:252
 msgid "Or"
-msgstr ""
+msgstr "Pe"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr ""
+msgstr "Kemmañ"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "Ouzhpennañ/Diverkañ linennoù dezverkoù"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "Ouzhpennañ/Diverkañ bannoù"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr ""
+msgstr "Hizivaat ar reked"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr ""
+msgstr "Implijout taolennoù"
 
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1168
 msgid "Submit Query"
-msgstr ""
+msgstr "Kas ar reked"
 
 #: db_routines.php:152 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Sevenet eo bet ho reked SQL ervat"
 
 #: db_routines.php:155
 #, php-format
