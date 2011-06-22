@@ -4903,7 +4903,7 @@ msgstr "Hodnota"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Musíte zadat jméno rutiny"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
