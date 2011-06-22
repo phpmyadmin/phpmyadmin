@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 09:31+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2011-06-22 10:05+0200\n"
+"Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Translate Toolkit 1.9.0\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
 #: libraries/display_tbl.lib.php:360 server_privileges.php:1583
 msgid "Show all"
-msgstr ""
+msgstr "Diskouez pep tra"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2269
 #: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:135
@@ -30,7 +30,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1111
 #: libraries/schema/User_Schema.class.php:356
 msgid "Page number:"
-msgstr ""
+msgstr "Pajenn niv. :"
 
 #: browse_foreigners.php:133
 msgid ""
@@ -38,13 +38,16 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"N'haller ket freskaat ar prenestr goulennet gant ho merdeer. Marteze eo bet "
+"serret ar prenestr orin ganeoc'h pe stanket eo an hizivadurioù etre "
+"prenestroù gant ho merdeer evit abegoù surentez."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2762
 #: libraries/common.lib.php:2769 libraries/common.lib.php:2951
 #: libraries/common.lib.php:2952 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
-msgstr ""
+msgstr "Klask"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
@@ -78,36 +81,36 @@ msgstr ""
 #: tbl_structure.php:734 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr ""
+msgstr "Mont"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:444 tbl_tracking.php:313
 msgid "Keyname"
-msgstr ""
+msgstr "Anv ar meneger"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
 #: server_status.php:1030
 msgid "Description"
-msgstr ""
+msgstr "Deskrivadur"
 
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
 msgid "Use this value"
-msgstr ""
+msgstr "Ober gant an talvoud-mañ"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:331
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "N'eus bet kefluniet servijer blob streaming ebet !"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Dibosupl tapout an talbennoù"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Dibosupl digeriñ an URL a-bell"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -115,21 +118,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"N'eo ket hegerz ar restr %s er servijer-mañ. Kit da welet war "
+"www.phpmyadmin.net evit gouzout hiroc'h."
 
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Krouet eo bet an diaz roadennoù % 1$s."
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
-msgstr ""
+msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1210
 #: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
-msgstr ""
+msgstr "Evezhiadennoù diwar-benn an daolenn"
 
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:248 libraries/export/latex.php:375
@@ -140,7 +145,7 @@ msgstr ""
 #: tbl_indexes.php:188 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
-msgstr ""
+msgstr "Bann"
 
 #: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:445
 #: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
@@ -155,7 +160,7 @@ msgstr ""
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
 #: tbl_structure.php:795 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
-msgstr ""
+msgstr "Seurt"
 
 #: db_datadict.php:169 libraries/Index.class.php:451
 #: libraries/export/htmlword.php:250 libraries/export/latex.php:375
@@ -166,7 +171,7 @@ msgstr ""
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
 #: libraries/export/latex.php:375 libraries/export/odt.php:311
@@ -176,7 +181,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
-msgstr ""
+msgstr "Dre ziouer"
 
 #: db_datadict.php:174 libraries/export/htmlword.php:253
 #: libraries/export/latex.php:377 libraries/export/odt.php:315
@@ -184,7 +189,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263 tbl_printview.php:147
 msgid "Links to"
-msgstr ""
+msgstr "Liammet ouzh"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -195,7 +200,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
 msgid "Comments"
-msgstr ""
+msgstr "Evezhiadennoù"
 
 #: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
 #: libraries/Index.class.php:388 libraries/Index.class.php:688
@@ -211,7 +216,7 @@ msgstr ""
 #: server_privileges.php:2268 sql.php:257 sql.php:318 tbl_printview.php:226
 #: tbl_structure.php:380 tbl_tracking.php:330 tbl_tracking.php:335
 msgid "No"
-msgstr ""
+msgstr "Ket"
 
 #: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
 #: libraries/Index.class.php:387 libraries/Index.class.php:688
@@ -233,103 +238,103 @@ msgstr ""
 #: tbl_printview.php:226 tbl_structure.php:41 tbl_structure.php:380
 #: tbl_tracking.php:328 tbl_tracking.php:333
 msgid "Yes"
-msgstr ""
+msgstr "Ya"
 
 #: db_datadict.php:314 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
-msgstr ""
+msgstr "Moullañ"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Gwelet un ezporzhiadenn (chema) eus an diaz roadennoù"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:371 navigation.php:329
 msgid "No tables found in database."
-msgstr ""
+msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
 
 #: db_export.php:44 db_search.php:342 server_export.php:26
 msgid "Select All"
-msgstr ""
+msgstr "Diuzañ pep tra"
 
 #: db_export.php:46 db_search.php:345 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "Diziuzañ pep tra"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Goullo eo anv an diaz roadennoù !"
 
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr ""
+msgstr "Deuet eo anv an diaz roadennoù %s da vezañ %s"
 
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr ""
+msgstr "Eilet eo bet an diaz roadennoù %s war %s"
 
 #: db_operations.php:404
 msgid "Rename database to"
-msgstr ""
+msgstr "Cheñch anv an diaz roadennoù hag e envel"
 
 #: db_operations.php:409 server_status.php:799
 msgid "Command"
-msgstr ""
+msgstr "Urzhiad"
 
 #: db_operations.php:440
 msgid "Remove database"
-msgstr ""
+msgstr "Dilemel an diaz roadennoù"
 
 #: db_operations.php:452
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "Diverket eo bet an diaz roadennoù %s."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "Diverkañ an diaz roadennoù (DROP)"
 
 #: db_operations.php:487
 msgid "Copy database to"
-msgstr ""
+msgstr "Eilañ an diaz roadennoù war"
 
 #: db_operations.php:494 tbl_operations.php:548 tbl_tracking.php:418
 msgid "Structure only"
-msgstr ""
+msgstr "Ar framm hepken"
 
 #: db_operations.php:495 tbl_operations.php:549 tbl_tracking.php:420
 msgid "Structure and data"
-msgstr ""
+msgstr "Ar framm hag ar roadennoù ennañ"
 
 #: db_operations.php:496 tbl_operations.php:550 tbl_tracking.php:419
 msgid "Data only"
-msgstr ""
+msgstr "Ar roadennoù hepken"
 
 #: db_operations.php:504
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "KROUIÑ AN DIAZ ROADENNOÙ a-raok eilañ"
 
 #: db_operations.php:507 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
 #: libraries/config/messages.inc.php:135 tbl_operations.php:556
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Ouzhpennañ %s"
 
 #: db_operations.php:511 libraries/config/messages.inc.php:119
 #: tbl_operations.php:314 tbl_operations.php:558
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
 
 #: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
-msgstr ""
+msgstr "Ouzhpennañ ar strishadurioù"
 
 #: db_operations.php:528
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Mont d'an diaz roadennoù eilet"
 
 #: db_operations.php:552 libraries/Index.class.php:450
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
@@ -339,7 +344,7 @@ msgstr ""
 #: tbl_structure.php:206 tbl_structure.php:903 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
-msgstr ""
+msgstr "Etrerummadiñ"
 
 #: db_operations.php:565
 #, php-format
@@ -347,10 +352,12 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
+"Diweredekaet eo bet ar stokañ kefluniadurioù evit phpMyAdmin. Evit gouzout "
+"perak klikañ %samañ%s."
 
 #: db_operations.php:600
 msgid "Edit or export relational schema"
-msgstr ""
+msgstr "Embann pe ezporzhiañ ur chema kar"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:497 libraries/db_structure.lib.php:37
@@ -360,7 +367,7 @@ msgstr ""
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
-msgstr ""
+msgstr "Taolenn"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
@@ -368,37 +375,37 @@ msgstr ""
 #: tbl_printview.php:391 tbl_structure.php:395 tbl_structure.php:501
 #: tbl_structure.php:913
 msgid "Rows"
-msgstr ""
+msgstr "Linennoù"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:189
 msgid "Size"
-msgstr ""
+msgstr "Ment"
 
 #: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
 #: libraries/export/sql.php:1077
 msgid "in use"
-msgstr ""
+msgstr "en implij"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:705
 #: libraries/schema/Pdf_Relation_Schema.class.php:1215 tbl_printview.php:431
 #: tbl_structure.php:945
 msgid "Creation"
-msgstr ""
+msgstr "Krouiñ"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:710
 #: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:441
 #: tbl_structure.php:953
 msgid "Last update"
-msgstr ""
+msgstr "Hizivadenn ziwezhañ"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:715
 #: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:451
 #: tbl_structure.php:961
 msgid "Last check"
-msgstr ""
+msgstr "Gwiriadenn ziwezhañ"
 
 #: db_printview.php:220 db_structure.php:432
 #, php-format
