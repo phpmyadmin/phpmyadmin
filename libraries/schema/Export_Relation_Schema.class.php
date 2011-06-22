@@ -9,10 +9,6 @@
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
- *
- * @name Export Relation Schema
- * @copyright
- * @license
  */
 
 class PMA_Export_Relation_Schema

@@ -297,7 +297,7 @@ else {
     <legend><?php echo __('Search in database'); ?></legend>
 
     <table class="formlayout">
-    <tr><td><?php echo __('Word(s) or value(s) to search for (wildcard: "%"):'); ?></td>
+    <tr><td><?php echo __('Words or values to search for (wildcard: "%"):'); ?></td>
         <td><input type="text" name="search_str" size="60"
                 value="<?php echo $searched; ?>" /></td>
     </tr>
@@ -320,7 +320,7 @@ unset($choices);
             </td>
     </tr>
     <tr><td align="right" valign="top">
-            <?php echo __('Inside table(s):'); ?></td>
+            <?php echo __('Inside tables:'); ?></td>
         <td rowspan="2">
 <?php
 echo '            <select name="table_select[]" size="6" multiple="multiple">' . "\n";

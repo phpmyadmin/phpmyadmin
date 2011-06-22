@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 08:39+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -20,10 +20,10 @@ msgstr "Rādīt visu"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2269
 #: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:135
-#: libraries/schema/Pdf_Relation_Schema.class.php:243
-#: libraries/schema/Pdf_Relation_Schema.class.php:1098
-#: libraries/schema/Pdf_Relation_Schema.class.php:1114
-#: libraries/schema/User_Schema.class.php:360
+#: libraries/schema/Pdf_Relation_Schema.class.php:240
+#: libraries/schema/Pdf_Relation_Schema.class.php:1095
+#: libraries/schema/Pdf_Relation_Schema.class.php:1111
+#: libraries/schema/User_Schema.class.php:356
 msgid "Page number:"
 msgstr "Lapas numurs:"
 
@@ -56,10 +56,10 @@ msgstr "Meklēt"
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:653
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
-#: libraries/schema/User_Schema.class.php:124
-#: libraries/schema/User_Schema.class.php:176
-#: libraries/schema/User_Schema.class.php:410
-#: libraries/schema/User_Schema.class.php:449
+#: libraries/schema/User_Schema.class.php:120
+#: libraries/schema/User_Schema.class.php:172
+#: libraries/schema/User_Schema.class.php:406
+#: libraries/schema/User_Schema.class.php:445
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
@@ -123,7 +123,7 @@ msgstr "Datubāze %s tika izdzēsta."
 msgid "Database comment: "
 msgstr "Datubāzes komentārs: "
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1213
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1210
 #: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
@@ -132,8 +132,8 @@ msgstr "Komentārs tabulai"
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:248 libraries/export/latex.php:375
 #: libraries/export/odt.php:302 libraries/export/texytext.php:227
-#: libraries/schema/Pdf_Relation_Schema.class.php:1239
-#: libraries/schema/Pdf_Relation_Schema.class.php:1260
+#: libraries/schema/Pdf_Relation_Schema.class.php:1236
+#: libraries/schema/Pdf_Relation_Schema.class.php:1257
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
 #: tbl_indexes.php:188 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
@@ -148,8 +148,8 @@ msgstr "Kolonnu nosaukumi"
 #: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:375
 #: libraries/export/odt.php:305 libraries/export/texytext.php:228
-#: libraries/schema/Pdf_Relation_Schema.class.php:1240
-#: libraries/schema/Pdf_Relation_Schema.class.php:1261
+#: libraries/schema/Pdf_Relation_Schema.class.php:1237
+#: libraries/schema/Pdf_Relation_Schema.class.php:1258
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
 #: tbl_change.php:289 tbl_change.php:316 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
@@ -160,8 +160,8 @@ msgstr "Tips"
 #: db_datadict.php:169 libraries/Index.class.php:451
 #: libraries/export/htmlword.php:250 libraries/export/latex.php:375
 #: libraries/export/odt.php:308 libraries/export/texytext.php:229
-#: libraries/schema/Pdf_Relation_Schema.class.php:1242
-#: libraries/schema/Pdf_Relation_Schema.class.php:1263
+#: libraries/schema/Pdf_Relation_Schema.class.php:1239
+#: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
@@ -171,8 +171,8 @@ msgstr "Nulle"
 #: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
 #: libraries/export/latex.php:375 libraries/export/odt.php:311
 #: libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1243
-#: libraries/schema/Pdf_Relation_Schema.class.php:1264
+#: libraries/schema/Pdf_Relation_Schema.class.php:1240
+#: libraries/schema/Pdf_Relation_Schema.class.php:1261
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
@@ -181,8 +181,8 @@ msgstr "Noklusēts"
 #: db_datadict.php:174 libraries/export/htmlword.php:253
 #: libraries/export/latex.php:377 libraries/export/odt.php:315
 #: libraries/export/texytext.php:232
-#: libraries/schema/Pdf_Relation_Schema.class.php:1245
-#: libraries/schema/Pdf_Relation_Schema.class.php:1266 tbl_printview.php:147
+#: libraries/schema/Pdf_Relation_Schema.class.php:1242
+#: libraries/schema/Pdf_Relation_Schema.class.php:1263 tbl_printview.php:147
 msgid "Links to"
 msgstr "Linki uz"
 
@@ -191,8 +191,8 @@ msgstr "Linki uz"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
 #: libraries/export/latex.php:380 libraries/export/odt.php:320
 #: libraries/export/texytext.php:235
-#: libraries/schema/Pdf_Relation_Schema.class.php:1256
-#: libraries/schema/Pdf_Relation_Schema.class.php:1267
+#: libraries/schema/Pdf_Relation_Schema.class.php:1253
+#: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
 msgid "Comments"
 msgstr "Komentāri"
@@ -203,7 +203,7 @@ msgstr "Komentāri"
 #: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:445 libraries/export/odt.php:376
 #: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1321
+#: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
 #: server_privileges.php:1638 server_privileges.php:1649
@@ -224,7 +224,7 @@ msgstr "Nē"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1321
+#: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1378
 #: server_privileges.php:1389 server_privileges.php:1635
@@ -366,7 +366,7 @@ msgstr "Relāciju shēma"
 #: libraries/config/messages.inc.php:497 libraries/db_structure.lib.php:37
 #: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
 #: libraries/export/xml.php:331 libraries/header.inc.php:152
-#: libraries/schema/User_Schema.class.php:237 server_privileges.php:1745
+#: libraries/schema/User_Schema.class.php:233 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
@@ -391,21 +391,21 @@ msgstr "lietošanā"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:705
-#: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
+#: libraries/schema/Pdf_Relation_Schema.class.php:1215 tbl_printview.php:431
 #: tbl_structure.php:945
 msgid "Creation"
 msgstr "Izveidošana"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:710
-#: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
+#: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:441
 #: tbl_structure.php:953
 msgid "Last update"
 msgstr "Pēdējā atjaunošana"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:715
-#: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
+#: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:451
 #: tbl_structure.php:961
 msgid "Last check"
 msgstr "Pēdējā pārbaude"
@@ -518,8 +518,10 @@ msgstr "Jūsu SQL vaicājums tika veiksmīgi izpildīts"
 
 #: db_routines.php:155
 #, php-format
-msgid "%s row(s) affected by the last statement inside the procedure"
-msgstr ""
+msgid "%d row affected by the last statement inside the procedure"
+msgid_plural "%d rows affected by the last statement inside the procedure"
+msgstr[0] ""
+msgstr[1] ""
 
 #: db_routines.php:165
 #, php-format
@@ -657,10 +659,10 @@ msgstr "Dati tabulai"
 
 #: db_search.php:261 libraries/display_tbl.lib.php:1323
 #: libraries/display_tbl.lib.php:2351
-#: libraries/schema/User_Schema.class.php:169
-#: libraries/schema/User_Schema.class.php:238
-#: libraries/schema/User_Schema.class.php:273
-#: libraries/schema/User_Schema.class.php:303
+#: libraries/schema/User_Schema.class.php:165
+#: libraries/schema/User_Schema.class.php:234
+#: libraries/schema/User_Schema.class.php:269
+#: libraries/schema/User_Schema.class.php:299
 #: libraries/sql_query_form.lib.php:447 pmd_general.php:423
 #: setup/frames/index.inc.php:138 setup/frames/index.inc.php:229
 #: tbl_tracking.php:435 tbl_tracking.php:456 tbl_tracking.php:513
@@ -680,7 +682,9 @@ msgid "Search in database"
 msgstr "Meklēt datubāzē"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Vārdi vai vērtības meklēšanai (aizstājējzīme: \"%\"):"
 
 #: db_search.php:305
@@ -692,7 +696,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Vārdi ir atdalīti ar tukšumu (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "Tabulā(s):"
 
 #: db_search.php:353
@@ -842,7 +848,7 @@ msgstr "Aizvietot tabulas datus ar datiem no faila"
 msgid "Copy table with prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:387
+#: db_structure.php:560 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
 msgstr "Datu vārdnīca"
 
@@ -1041,7 +1047,7 @@ msgid ""
 msgstr ""
 
 #: import_status.php:30 libraries/common.lib.php:650
-#: libraries/schema/Export_Relation_Schema.class.php:207 user_password.php:123
+#: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:123
 msgid "Back"
 msgstr "Atpakaļ"
 
@@ -1167,7 +1173,7 @@ msgstr ""
 #: libraries/common.lib.php:2960 libraries/common.lib.php:2961
 #: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
-#: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:137
+#: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "Labot"
 
@@ -1390,7 +1396,7 @@ msgid "Inline Edit"
 msgstr ""
 
 #: js/messages.php:133 libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
+#: libraries/schema/User_Schema.class.php:313
 #: libraries/tbl_properties.inc.php:766 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:976
 #: tbl_gis_visualization.php:222 tbl_indexes.php:253 tbl_relation.php:563
@@ -2200,26 +2206,21 @@ msgid "Check Privileges"
 msgstr "Pārbaudīt privilēģijas"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
+msgid "Failed to to read configuration file"
 msgstr ""
-"phpMyAdmin nevar nolasīt konfigurācijas failu!<br />Tas var notikt, ja PHP "
-"atrod tajā kļūdu, vai arī nevar atrast so failu.<br />Mēginiet izsaukt "
-"konfigurācijas failu tieši, klikškinot linku zemāk un lasiet PHP pazinojumu "
-"par kļūdām. Vairākumā gadījumu kaut kur pietrukst pēdiņa vai semikols.<br /"
-">Ja redzat tukšu lapu, viss ir kārtībā."
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2227,26 +2228,26 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> direktīvai ir JĀBŪT nodefinētai Jūsu "
 "konfigurācijas failā!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Serveris"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Jums ir jāuzliek %s %s vai jaunāks."
@@ -2632,7 +2633,7 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1025
 msgid "Reset"
 msgstr "Atcelt"
@@ -6322,7 +6323,7 @@ msgstr ""
 msgid "Table name"
 msgstr ""
 
-#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:316
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:312
 #: view_create.php:147
 msgid "Column names"
 msgstr "Kolonnu nosaukumi"
@@ -6775,151 +6776,151 @@ msgstr ""
 msgid "Generate Password"
 msgstr ""
 
-#: libraries/schema/Dia_Relation_Schema.class.php:227
-#: libraries/schema/Eps_Relation_Schema.class.php:400
-#: libraries/schema/Pdf_Relation_Schema.class.php:489
-#: libraries/schema/Svg_Relation_Schema.class.php:369
-#: libraries/schema/Visio_Relation_Schema.class.php:213
+#: libraries/schema/Dia_Relation_Schema.class.php:224
+#: libraries/schema/Eps_Relation_Schema.class.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:486
+#: libraries/schema/Svg_Relation_Schema.class.php:366
+#: libraries/schema/Visio_Relation_Schema.class.php:210
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabula \"%s\" neeksistē!"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:253
-#: libraries/schema/Eps_Relation_Schema.class.php:441
-#: libraries/schema/Pdf_Relation_Schema.class.php:523
-#: libraries/schema/Svg_Relation_Schema.class.php:411
-#: libraries/schema/Visio_Relation_Schema.class.php:255
+#: libraries/schema/Dia_Relation_Schema.class.php:250
+#: libraries/schema/Eps_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:520
+#: libraries/schema/Svg_Relation_Schema.class.php:408
+#: libraries/schema/Visio_Relation_Schema.class.php:252
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Lūdzu konfigurējiet koordinātes tabulai %s"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:751
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Svg_Relation_Schema.class.php:737
-#: libraries/schema/Visio_Relation_Schema.class.php:502
+#: libraries/schema/Eps_Relation_Schema.class.php:748
+#: libraries/schema/Pdf_Relation_Schema.class.php:848
+#: libraries/schema/Svg_Relation_Schema.class.php:734
+#: libraries/schema/Visio_Relation_Schema.class.php:499
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Datubāzes \"%s\" shēma, %s. lapa"
 
-#: libraries/schema/Export_Relation_Schema.class.php:174
+#: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
 msgstr ""
 
-#: libraries/schema/Export_Relation_Schema.class.php:199
+#: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:877
-#: libraries/schema/Pdf_Relation_Schema.class.php:1116
+#: libraries/schema/Pdf_Relation_Schema.class.php:874
+#: libraries/schema/Pdf_Relation_Schema.class.php:1113
 msgid "Relational schema"
 msgstr "Relāciju shēma"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1091
+#: libraries/schema/Pdf_Relation_Schema.class.php:1088
 msgid "Table of contents"
 msgstr "Satura rādītājs"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1241
-#: libraries/schema/Pdf_Relation_Schema.class.php:1262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1238
+#: libraries/schema/Pdf_Relation_Schema.class.php:1259
 #: libraries/tbl_properties.inc.php:108 tbl_printview.php:141
 #: tbl_structure.php:207
 msgid "Attributes"
 msgstr "Atribūti"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1244
-#: libraries/schema/Pdf_Relation_Schema.class.php:1265 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1241
+#: libraries/schema/Pdf_Relation_Schema.class.php:1262 tbl_printview.php:144
 #: tbl_structure.php:210 tbl_tracking.php:271
 msgid "Extra"
 msgstr "Ekstras"
 
-#: libraries/schema/User_Schema.class.php:93
+#: libraries/schema/User_Schema.class.php:89
 msgid "Create a page"
 msgstr "Izveidot jaunu lapu"
 
-#: libraries/schema/User_Schema.class.php:99
+#: libraries/schema/User_Schema.class.php:95
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Lapas numurs:"
 
-#: libraries/schema/User_Schema.class.php:103
+#: libraries/schema/User_Schema.class.php:99
 #, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Automātiskais izvietojums"
 
-#: libraries/schema/User_Schema.class.php:106
+#: libraries/schema/User_Schema.class.php:102
 msgid "Internal relations"
 msgstr "Iekšējās relācijas"
 
-#: libraries/schema/User_Schema.class.php:116
+#: libraries/schema/User_Schema.class.php:112
 msgid "FOREIGN KEY"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:148
+#: libraries/schema/User_Schema.class.php:144
 msgid "Please choose a page to edit"
 msgstr "Izvēlieties lapu redigēšanai"
 
-#: libraries/schema/User_Schema.class.php:153
+#: libraries/schema/User_Schema.class.php:149
 #, fuzzy
 #| msgid "Select All"
 msgid "Select page"
 msgstr "Iezīmēt visu"
 
-#: libraries/schema/User_Schema.class.php:211
+#: libraries/schema/User_Schema.class.php:207
 msgid "Select Tables"
 msgstr "Izvēlieties tabulas"
 
-#: libraries/schema/User_Schema.class.php:346
+#: libraries/schema/User_Schema.class.php:342
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Relāciju shēma"
 
-#: libraries/schema/User_Schema.class.php:356
+#: libraries/schema/User_Schema.class.php:352
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:377
+#: libraries/schema/User_Schema.class.php:373
 msgid "Show grid"
 msgstr "Rādīt režģi"
 
-#: libraries/schema/User_Schema.class.php:379
+#: libraries/schema/User_Schema.class.php:375
 msgid "Show color"
 msgstr "Rādīt krāsas"
 
-#: libraries/schema/User_Schema.class.php:381
+#: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
 msgstr "Rādit tabulu izmērus"
 
-#: libraries/schema/User_Schema.class.php:384
+#: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
 msgstr "rādīt visas tabulas vienadā platumā?"
 
-#: libraries/schema/User_Schema.class.php:389
+#: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:391
+#: libraries/schema/User_Schema.class.php:387
 msgid "Landscape"
 msgstr "Ainava"
 
-#: libraries/schema/User_Schema.class.php:392
+#: libraries/schema/User_Schema.class.php:388
 msgid "Portrait"
 msgstr "Portrets"
 
-#: libraries/schema/User_Schema.class.php:394
+#: libraries/schema/User_Schema.class.php:390
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
 msgstr "Izveidošana"
 
-#: libraries/schema/User_Schema.class.php:407
+#: libraries/schema/User_Schema.class.php:403
 msgid "Paper size"
 msgstr "Papīra izmērs"
 
-#: libraries/schema/User_Schema.class.php:444
+#: libraries/schema/User_Schema.class.php:440
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -6927,7 +6928,7 @@ msgstr ""
 "Tekošajā lapā ir atsauces uz tabulām, kas vairs neeksistē. Vai Jūs gribat "
 "dzēst šīs atsauces?"
 
-#: libraries/schema/User_Schema.class.php:469
+#: libraries/schema/User_Schema.class.php:465
 msgid "Toggle scratchboard"
 msgstr "parādīt/noslēpt piezīmju tafeli"
 
@@ -10586,6 +10587,20 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Pārsaukt tabulu uz"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin nevar nolasīt konfigurācijas failu!<br />Tas var notikt, ja "
+#~ "PHP atrod tajā kļūdu, vai arī nevar atrast so failu.<br />Mēginiet "
+#~ "izsaukt konfigurācijas failu tieši, klikškinot linku zemāk un lasiet PHP "
+#~ "pazinojumu par kļūdām. Vairākumā gadījumu kaut kur pietrukst pēdiņa vai "
+#~ "semikols.<br />Ja redzat tukšu lapu, viss ir kārtībā."
 
 #, fuzzy
 #~ msgid "Dropping Procedure"

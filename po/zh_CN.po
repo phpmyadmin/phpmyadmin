@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 08:39+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2011-06-08 05:00+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -21,10 +21,10 @@ msgstr "全部显示"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2269
 #: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:135
-#: libraries/schema/Pdf_Relation_Schema.class.php:243
-#: libraries/schema/Pdf_Relation_Schema.class.php:1098
-#: libraries/schema/Pdf_Relation_Schema.class.php:1114
-#: libraries/schema/User_Schema.class.php:360
+#: libraries/schema/Pdf_Relation_Schema.class.php:240
+#: libraries/schema/Pdf_Relation_Schema.class.php:1095
+#: libraries/schema/Pdf_Relation_Schema.class.php:1111
+#: libraries/schema/User_Schema.class.php:356
 msgid "Page number:"
 msgstr "页码："
 
@@ -56,10 +56,10 @@ msgstr "搜索"
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:653
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
-#: libraries/schema/User_Schema.class.php:124
-#: libraries/schema/User_Schema.class.php:176
-#: libraries/schema/User_Schema.class.php:410
-#: libraries/schema/User_Schema.class.php:449
+#: libraries/schema/User_Schema.class.php:120
+#: libraries/schema/User_Schema.class.php:172
+#: libraries/schema/User_Schema.class.php:406
+#: libraries/schema/User_Schema.class.php:445
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
@@ -123,7 +123,7 @@ msgstr "创建数据库 %1$s 成功。"
 msgid "Database comment: "
 msgstr "数据库注释："
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1213
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1210
 #: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
@@ -132,8 +132,8 @@ msgstr "表注释"
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
 #: libraries/export/htmlword.php:248 libraries/export/latex.php:375
 #: libraries/export/odt.php:302 libraries/export/texytext.php:227
-#: libraries/schema/Pdf_Relation_Schema.class.php:1239
-#: libraries/schema/Pdf_Relation_Schema.class.php:1260
+#: libraries/schema/Pdf_Relation_Schema.class.php:1236
+#: libraries/schema/Pdf_Relation_Schema.class.php:1257
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
 #: tbl_indexes.php:188 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
@@ -146,8 +146,8 @@ msgstr "字段"
 #: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:375
 #: libraries/export/odt.php:305 libraries/export/texytext.php:228
-#: libraries/schema/Pdf_Relation_Schema.class.php:1240
-#: libraries/schema/Pdf_Relation_Schema.class.php:1261
+#: libraries/schema/Pdf_Relation_Schema.class.php:1237
+#: libraries/schema/Pdf_Relation_Schema.class.php:1258
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
 #: tbl_change.php:289 tbl_change.php:316 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
@@ -158,8 +158,8 @@ msgstr "类型"
 #: db_datadict.php:169 libraries/Index.class.php:451
 #: libraries/export/htmlword.php:250 libraries/export/latex.php:375
 #: libraries/export/odt.php:308 libraries/export/texytext.php:229
-#: libraries/schema/Pdf_Relation_Schema.class.php:1242
-#: libraries/schema/Pdf_Relation_Schema.class.php:1263
+#: libraries/schema/Pdf_Relation_Schema.class.php:1239
+#: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
@@ -169,8 +169,8 @@ msgstr "空"
 #: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
 #: libraries/export/latex.php:375 libraries/export/odt.php:311
 #: libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1243
-#: libraries/schema/Pdf_Relation_Schema.class.php:1264
+#: libraries/schema/Pdf_Relation_Schema.class.php:1240
+#: libraries/schema/Pdf_Relation_Schema.class.php:1261
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
@@ -179,8 +179,8 @@ msgstr "默认"
 #: db_datadict.php:174 libraries/export/htmlword.php:253
 #: libraries/export/latex.php:377 libraries/export/odt.php:315
 #: libraries/export/texytext.php:232
-#: libraries/schema/Pdf_Relation_Schema.class.php:1245
-#: libraries/schema/Pdf_Relation_Schema.class.php:1266 tbl_printview.php:147
+#: libraries/schema/Pdf_Relation_Schema.class.php:1242
+#: libraries/schema/Pdf_Relation_Schema.class.php:1263 tbl_printview.php:147
 msgid "Links to"
 msgstr "链接到"
 
@@ -189,8 +189,8 @@ msgstr "链接到"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
 #: libraries/export/latex.php:380 libraries/export/odt.php:320
 #: libraries/export/texytext.php:235
-#: libraries/schema/Pdf_Relation_Schema.class.php:1256
-#: libraries/schema/Pdf_Relation_Schema.class.php:1267
+#: libraries/schema/Pdf_Relation_Schema.class.php:1253
+#: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
 msgid "Comments"
 msgstr "注释"
@@ -201,7 +201,7 @@ msgstr "注释"
 #: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:445 libraries/export/odt.php:376
 #: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1321
+#: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
 #: server_privileges.php:1638 server_privileges.php:1649
@@ -222,7 +222,7 @@ msgstr "否"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1321
+#: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1378
 #: server_privileges.php:1389 server_privileges.php:1635
@@ -354,7 +354,7 @@ msgstr "编辑或导出关系大纲"
 #: libraries/config/messages.inc.php:497 libraries/db_structure.lib.php:37
 #: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
 #: libraries/export/xml.php:331 libraries/header.inc.php:152
-#: libraries/schema/User_Schema.class.php:237 server_privileges.php:1745
+#: libraries/schema/User_Schema.class.php:233 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
@@ -379,21 +379,21 @@ msgstr "使用中"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:705
-#: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
+#: libraries/schema/Pdf_Relation_Schema.class.php:1215 tbl_printview.php:431
 #: tbl_structure.php:945
 msgid "Creation"
 msgstr "创建时间"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
 #: libraries/export/sql.php:710
-#: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
+#: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:441
 #: tbl_structure.php:953
 msgid "Last update"
 msgstr "最后更新"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
 #: libraries/export/sql.php:715
-#: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
+#: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:451
 #: tbl_structure.php:961
 msgid "Last check"
 msgstr "最后检查"
@@ -500,8 +500,9 @@ msgstr "您的 SQL 语句已成功运行"
 
 #: db_routines.php:155
 #, php-format
-msgid "%s row(s) affected by the last statement inside the procedure"
-msgstr ""
+msgid "%d row affected by the last statement inside the procedure"
+msgid_plural "%d rows affected by the last statement inside the procedure"
+msgstr[0] ""
 
 #: db_routines.php:165
 #, fuzzy, php-format
@@ -643,10 +644,10 @@ msgstr "删除 %s 表中所有匹配的记录？"
 
 #: db_search.php:261 libraries/display_tbl.lib.php:1323
 #: libraries/display_tbl.lib.php:2351
-#: libraries/schema/User_Schema.class.php:169
-#: libraries/schema/User_Schema.class.php:238
-#: libraries/schema/User_Schema.class.php:273
-#: libraries/schema/User_Schema.class.php:303
+#: libraries/schema/User_Schema.class.php:165
+#: libraries/schema/User_Schema.class.php:234
+#: libraries/schema/User_Schema.class.php:269
+#: libraries/schema/User_Schema.class.php:299
 #: libraries/sql_query_form.lib.php:447 pmd_general.php:423
 #: setup/frames/index.inc.php:138 setup/frames/index.inc.php:229
 #: tbl_tracking.php:435 tbl_tracking.php:456 tbl_tracking.php:513
@@ -664,7 +665,9 @@ msgid "Search in database"
 msgstr "在数据库中搜索"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "要查找的文字或数值 (通配符：“%”)："
 
 #: db_search.php:305
@@ -676,7 +679,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "每个单词用空格 (“ ”) 分隔。"
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "于以下表："
 
 #: db_search.php:353
@@ -817,7 +822,7 @@ msgstr "修改表前缀"
 msgid "Copy table with prefix"
 msgstr "复制表为新前缀"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:387
+#: db_structure.php:560 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
 msgstr "数据字典"
 
@@ -1014,7 +1019,7 @@ msgstr ""
 "将无法完成导入操作。"
 
 #: import_status.php:30 libraries/common.lib.php:650
-#: libraries/schema/Export_Relation_Schema.class.php:207 user_password.php:123
+#: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:123
 msgid "Back"
 msgstr "返回"
 
@@ -1128,7 +1133,7 @@ msgstr "关闭"
 #: libraries/common.lib.php:2960 libraries/common.lib.php:2961
 #: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
-#: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:137
+#: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "编辑"
 
@@ -1328,7 +1333,7 @@ msgid "Inline Edit"
 msgstr "快速编辑"
 
 #: js/messages.php:133 libraries/config/FormDisplay.tpl.php:332
-#: libraries/schema/User_Schema.class.php:317
+#: libraries/schema/User_Schema.class.php:313
 #: libraries/tbl_properties.inc.php:766 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:976
 #: tbl_gis_visualization.php:222 tbl_indexes.php:253 tbl_relation.php:563
@@ -2076,50 +2081,48 @@ msgid "Check Privileges"
 msgstr "检查权限"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin 无法读取您的配置文件！<br />这可能是因为配置文件不存在或有语法错"
-"误。<br />请使用下面的链接直接访问配置文件，然后检查您收到的 PHP 错误信息。通"
-"常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，则代表没"
-"有任何问题。"
+#, fuzzy
+#| msgid "Could not save configuration"
+msgid "Failed to to read configuration file"
+msgstr "无法保存设置"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "无法加载默认配置: %1$s"
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引: %s"
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
@@ -2493,7 +2496,7 @@ msgid "Allow users to customize this value"
 msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:333
-#: libraries/schema/User_Schema.class.php:470 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1025
 msgid "Reset"
 msgstr "重置"
@@ -6144,7 +6147,7 @@ msgstr "DocSQL"
 msgid "Table name"
 msgstr "数据表名"
 
-#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:316
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:312
 #: view_create.php:147
 msgid "Column names"
 msgstr "字段名"
@@ -6592,145 +6595,145 @@ msgstr "使用主机表时，此处的数据会被主机表中的数据所替换
 msgid "Generate Password"
 msgstr "生成密码"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:227
-#: libraries/schema/Eps_Relation_Schema.class.php:400
-#: libraries/schema/Pdf_Relation_Schema.class.php:489
-#: libraries/schema/Svg_Relation_Schema.class.php:369
-#: libraries/schema/Visio_Relation_Schema.class.php:213
+#: libraries/schema/Dia_Relation_Schema.class.php:224
+#: libraries/schema/Eps_Relation_Schema.class.php:397
+#: libraries/schema/Pdf_Relation_Schema.class.php:486
+#: libraries/schema/Svg_Relation_Schema.class.php:366
+#: libraries/schema/Visio_Relation_Schema.class.php:210
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "数据表 %s 不存在！"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:253
-#: libraries/schema/Eps_Relation_Schema.class.php:441
-#: libraries/schema/Pdf_Relation_Schema.class.php:523
-#: libraries/schema/Svg_Relation_Schema.class.php:411
-#: libraries/schema/Visio_Relation_Schema.class.php:255
+#: libraries/schema/Dia_Relation_Schema.class.php:250
+#: libraries/schema/Eps_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:520
+#: libraries/schema/Svg_Relation_Schema.class.php:408
+#: libraries/schema/Visio_Relation_Schema.class.php:252
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "请配置表 %s 的并发"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:751
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Svg_Relation_Schema.class.php:737
-#: libraries/schema/Visio_Relation_Schema.class.php:502
+#: libraries/schema/Eps_Relation_Schema.class.php:748
+#: libraries/schema/Pdf_Relation_Schema.class.php:848
+#: libraries/schema/Svg_Relation_Schema.class.php:734
+#: libraries/schema/Visio_Relation_Schema.class.php:499
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "数据库 %s 的大纲 - 第 %s 页"
 
-#: libraries/schema/Export_Relation_Schema.class.php:174
+#: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
 msgstr "此页没有包含任何表！"
 
-#: libraries/schema/Export_Relation_Schema.class.php:199
+#: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
 msgstr "大纲错误: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:877
-#: libraries/schema/Pdf_Relation_Schema.class.php:1116
+#: libraries/schema/Pdf_Relation_Schema.class.php:874
+#: libraries/schema/Pdf_Relation_Schema.class.php:1113
 msgid "Relational schema"
 msgstr "关系大纲"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1091
+#: libraries/schema/Pdf_Relation_Schema.class.php:1088
 msgid "Table of contents"
 msgstr "目录"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1241
-#: libraries/schema/Pdf_Relation_Schema.class.php:1262
+#: libraries/schema/Pdf_Relation_Schema.class.php:1238
+#: libraries/schema/Pdf_Relation_Schema.class.php:1259
 #: libraries/tbl_properties.inc.php:108 tbl_printview.php:141
 #: tbl_structure.php:207
 msgid "Attributes"
 msgstr "属性"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1244
-#: libraries/schema/Pdf_Relation_Schema.class.php:1265 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1241
+#: libraries/schema/Pdf_Relation_Schema.class.php:1262 tbl_printview.php:144
 #: tbl_structure.php:210 tbl_tracking.php:271
 msgid "Extra"
 msgstr "额外"
 
-#: libraries/schema/User_Schema.class.php:93
+#: libraries/schema/User_Schema.class.php:89
 msgid "Create a page"
 msgstr "创建新页"
 
-#: libraries/schema/User_Schema.class.php:99
+#: libraries/schema/User_Schema.class.php:95
 msgid "Page name"
 msgstr "页面名称"
 
-#: libraries/schema/User_Schema.class.php:103
+#: libraries/schema/User_Schema.class.php:99
 msgid "Automatic layout based on"
 msgstr "自动排版，基于"
 
-#: libraries/schema/User_Schema.class.php:106
+#: libraries/schema/User_Schema.class.php:102
 msgid "Internal relations"
 msgstr "内联"
 
-#: libraries/schema/User_Schema.class.php:116
+#: libraries/schema/User_Schema.class.php:112
 msgid "FOREIGN KEY"
 msgstr "外键"
 
-#: libraries/schema/User_Schema.class.php:148
+#: libraries/schema/User_Schema.class.php:144
 msgid "Please choose a page to edit"
 msgstr "请选择需要编辑的页"
 
-#: libraries/schema/User_Schema.class.php:153
+#: libraries/schema/User_Schema.class.php:149
 msgid "Select page"
 msgstr "选择页"
 
-#: libraries/schema/User_Schema.class.php:211
+#: libraries/schema/User_Schema.class.php:207
 msgid "Select Tables"
 msgstr "选择表"
 
-#: libraries/schema/User_Schema.class.php:346
+#: libraries/schema/User_Schema.class.php:342
 msgid "Display relational schema"
 msgstr "显示关系大纲"
 
-#: libraries/schema/User_Schema.class.php:356
+#: libraries/schema/User_Schema.class.php:352
 msgid "Select Export Relational Type"
 msgstr "选择导出关系类型"
 
-#: libraries/schema/User_Schema.class.php:377
+#: libraries/schema/User_Schema.class.php:373
 msgid "Show grid"
 msgstr "显示网格"
 
-#: libraries/schema/User_Schema.class.php:379
+#: libraries/schema/User_Schema.class.php:375
 msgid "Show color"
 msgstr "显示颜色"
 
-#: libraries/schema/User_Schema.class.php:381
+#: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
 msgstr "显示表格大小"
 
-#: libraries/schema/User_Schema.class.php:384
+#: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
 msgstr "以相同宽度显示所有的表"
 
-#: libraries/schema/User_Schema.class.php:389
+#: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
 msgstr "仅显示键"
 
-#: libraries/schema/User_Schema.class.php:391
+#: libraries/schema/User_Schema.class.php:387
 msgid "Landscape"
 msgstr "横向"
 
-#: libraries/schema/User_Schema.class.php:392
+#: libraries/schema/User_Schema.class.php:388
 msgid "Portrait"
 msgstr "纵向"
 
-#: libraries/schema/User_Schema.class.php:394
+#: libraries/schema/User_Schema.class.php:390
 msgid "Orientation"
 msgstr "方向"
 
-#: libraries/schema/User_Schema.class.php:407
+#: libraries/schema/User_Schema.class.php:403
 msgid "Paper size"
 msgstr "纸张大小"
 
-#: libraries/schema/User_Schema.class.php:444
+#: libraries/schema/User_Schema.class.php:440
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr "当前页所引用的表不存在了。您是否想要删除这些引用？"
 
-#: libraries/schema/User_Schema.class.php:469
+#: libraries/schema/User_Schema.class.php:465
 msgid "Toggle scratchboard"
 msgstr "切换草稿板"
 
@@ -10293,6 +10296,19 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin 无法读取您的配置文件！<br />这可能是因为配置文件不存在或有语法"
+#~ "错误。<br />请使用下面的链接直接访问配置文件，然后检查您收到的 PHP 错误信"
+#~ "息。通常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，"
+#~ "则代表没有任何问题。"
 
 #~ msgid "Dropping Event"
 #~ msgstr "正在删除事件"

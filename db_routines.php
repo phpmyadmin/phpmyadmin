@@ -152,7 +152,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             $message = __('Your SQL query has been executed successfully');
             if ($routine['type'] == 'PROCEDURE') {
                 $message .= '<br />';
-                $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
+                $message .= sprintf(_ngettext('%d row affected by the last statement inside the procedure', '%d rows affected by the last statement inside the procedure', $affected), $affected);
             }
             $message = PMA_message::success($message);
             // Pass the SQL queries through the "pretty printer"
