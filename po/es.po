@@ -5015,10 +5015,9 @@ msgid "There are no routines to display."
 msgstr "No hay rutinas para mostrar."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Agregar índice"
+msgstr "Agregar rutina"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
