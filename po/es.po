@@ -4893,7 +4893,7 @@ msgstr "Cambiar a %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
-msgstr ""
+msgstr "Parámetros"
 
 #: libraries/db_routines.lib.php:689
 #, fuzzy
