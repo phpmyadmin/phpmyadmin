@@ -1325,6 +1325,7 @@ msgstr "Borrando"
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"¡La definición de una función almacenada debe contener una sentencia RETURN!"
 
 #: js/messages.php:123
 #, fuzzy
