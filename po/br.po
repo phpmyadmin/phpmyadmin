@@ -697,7 +697,7 @@ msgstr "Goullonderet eo bet an daolenn %s"
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "Diverket eo bet ar Gweled %s"
 
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
