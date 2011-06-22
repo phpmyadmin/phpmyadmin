@@ -674,10 +674,9 @@ msgid "Search in database"
 msgstr "Search in database"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "Words or values to search for (wildcard: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
