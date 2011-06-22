@@ -4859,10 +4859,9 @@ msgid "Return length/values"
 msgstr "Návratová délka/hodnoty"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Parametry tabulky"
+msgstr "Možnosti návratové hodnoty"
 
 #: libraries/db_routines.lib.php:745
 #, fuzzy
