@@ -4840,10 +4840,9 @@ msgid "Options"
 msgstr "Nastavení"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "Přidat předponu"
+msgstr "Přidat parametr"
 
 #: libraries/db_routines.lib.php:710
 #, fuzzy
