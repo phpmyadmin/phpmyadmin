@@ -8598,10 +8598,9 @@ msgid "All status variables"
 msgstr "All status variables"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Refresh rate"
+msgstr "Refresh rate:"
 
 #: server_status.php:462
 msgid "Containing the word:"
