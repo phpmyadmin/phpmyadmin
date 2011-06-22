@@ -538,7 +538,7 @@ msgstr "respontet eo bet gant MySQL : "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
 msgid "Error in processing request"
-msgstr ""
+msgstr "Fazi en ur seveniñ ar reked"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
 #, php-format
