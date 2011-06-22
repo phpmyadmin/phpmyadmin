@@ -452,7 +452,7 @@ msgstr "Diskouez"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr ""
+msgstr "Dezverk"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
