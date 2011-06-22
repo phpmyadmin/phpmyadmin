@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 12:13+0200\n"
+"PO-Revision-Date: 2011-06-22 12:31+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -589,6 +589,9 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"「mysql」拡張を使用されていますが、将来的に PHP "
+"で廃止予定になっています。この拡張はマルチクエリに対応できていません。<b>ストアドルーチンの実行が失敗する可能性があります！</b> "
+"問題を回避するためには、改良された「mysqli」拡張を使用するようにしてください。"
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
