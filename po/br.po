@@ -384,7 +384,7 @@ msgstr "Ment"
 #: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
 #: libraries/export/sql.php:1077
 msgid "in use"
-msgstr ""
+msgstr "en implij"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
 #: libraries/export/sql.php:705
