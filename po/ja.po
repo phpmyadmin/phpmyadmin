@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:19+0200\n"
+"PO-Revision-Date: 2011-06-22 11:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -10238,7 +10238,7 @@ msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
 
 #: tbl_select.php:234
 msgid "Select columns (at least one):"
-msgstr "カラムを選択してください(最低 1 つ):"
+msgstr "カラムを選択してください (最低 1 つ)"
 
 #: tbl_select.php:252
 msgid "Add search conditions (body of the \"where\" clause):"
