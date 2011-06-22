@@ -609,7 +609,7 @@ msgstr "unan eus ar gerioù da nebeutañ"
 
 #: db_search.php:67 db_search.php:310
 msgid "all words"
-msgstr ""
+msgstr "an holl c'herioù"
 
 #: db_search.php:68 db_search.php:311
 msgid "the exact phrase"
