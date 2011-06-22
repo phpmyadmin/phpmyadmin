@@ -5482,7 +5482,7 @@ msgstr "Mostrar gráfico"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualizar datos GIS"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
