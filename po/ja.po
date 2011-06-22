@@ -5247,10 +5247,9 @@ msgid "Drag to reorder"
 msgstr "ドラッグでカラムの入れ替え"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "クリックで選択"
+msgstr "クリックでソート"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
