@@ -4745,7 +4745,7 @@ msgstr "Název"
 
 #: libraries/db_events.inc.php:128
 msgid "The event scheduler is "
-msgstr ""
+msgstr "Plánovač úloh je "
 
 #: libraries/db_events.inc.php:130
 msgid "Turn"
