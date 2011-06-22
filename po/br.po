@@ -783,7 +783,7 @@ msgstr "Stumm da voullañ"
 #: db_structure.php:502 libraries/common.lib.php:2958
 #: libraries/common.lib.php:2959
 msgid "Empty"
-msgstr ""
+msgstr "Goullo"
 
 #: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:490
 #: libraries/common.lib.php:2956 libraries/common.lib.php:2957
