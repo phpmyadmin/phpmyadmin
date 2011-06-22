@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 08:39+0200\n"
-"PO-Revision-Date: 2011-06-22 09:51+0200\n"
+"PO-Revision-Date: 2011-06-22 09:52+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -128,7 +128,7 @@ msgstr "Krouet eo bet an diaz roadennoù % 1$s."
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
-msgstr ""
+msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1213
 #: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
