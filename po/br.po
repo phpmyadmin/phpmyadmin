@@ -30,7 +30,7 @@ msgstr "Diskouez pep tra"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
 #: libraries/schema/User_Schema.class.php:360
 msgid "Page number:"
-msgstr ""
+msgstr "Pajenn niv. :"
 
 #: browse_foreigners.php:133
 msgid ""
