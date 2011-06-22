@@ -4731,7 +4731,7 @@ msgstr "The event scheduler is enabled"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "The event scheduler is disabled"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
