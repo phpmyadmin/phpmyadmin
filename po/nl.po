@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-21 09:16+0200\n"
+"POT-Creation-Date: 2011-06-22 08:39+0200\n"
 "PO-Revision-Date: 2011-06-04 15:19+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: dutch <nl@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "Toon alles"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2269
-#: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:133
+#: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1098
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
@@ -63,17 +63,18 @@ msgstr "Zoeken"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
-#: main.php:109 navigation.php:234 pmd_pdf.php:124 prefs_manage.php:265
-#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:646
-#: server_privileges.php:1694 server_privileges.php:2051
-#: server_privileges.php:2098 server_privileges.php:2138
-#: server_replication.php:233 server_replication.php:316
-#: server_replication.php:347 server_synchronize.php:1220 tbl_change.php:332
-#: tbl_change.php:1024 tbl_change.php:1061 tbl_indexes.php:260
-#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
-#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:291
-#: tbl_structure.php:698 tbl_structure.php:734 tbl_tracking.php:425
-#: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
+#: main.php:109 navigation.php:202 navigation.php:240 pmd_pdf.php:124
+#: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:128
+#: server_privileges.php:646 server_privileges.php:1694
+#: server_privileges.php:2051 server_privileges.php:2098
+#: server_privileges.php:2138 server_replication.php:233
+#: server_replication.php:316 server_replication.php:347
+#: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
+#: tbl_change.php:1061 tbl_indexes.php:260 tbl_operations.php:280
+#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
+#: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
+#: tbl_structure.php:734 tbl_tracking.php:425 tbl_tracking.php:563
+#: view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Start"
 
@@ -84,7 +85,7 @@ msgstr "Sleutelnaam"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:1024
+#: server_status.php:1030
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -131,8 +132,8 @@ msgid "Table comments"
 msgstr "Tabelopmerkingen"
 
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
-#: libraries/export/htmlword.php:247 libraries/export/latex.php:374
-#: libraries/export/odt.php:301 libraries/export/texytext.php:226
+#: libraries/export/htmlword.php:248 libraries/export/latex.php:375
+#: libraries/export/odt.php:302 libraries/export/texytext.php:227
 #: libraries/schema/Pdf_Relation_Schema.class.php:1239
 #: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
@@ -145,8 +146,8 @@ msgstr "Kolom"
 #: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
 #: libraries/db_routines.lib.php:691 libraries/db_routines.lib.php:847
 #: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
-#: libraries/export/htmlword.php:248 libraries/export/latex.php:374
-#: libraries/export/odt.php:304 libraries/export/texytext.php:227
+#: libraries/export/htmlword.php:249 libraries/export/latex.php:375
+#: libraries/export/odt.php:305 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1240
 #: libraries/schema/Pdf_Relation_Schema.class.php:1261
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
@@ -157,8 +158,8 @@ msgid "Type"
 msgstr "Type"
 
 #: db_datadict.php:169 libraries/Index.class.php:451
-#: libraries/export/htmlword.php:249 libraries/export/latex.php:374
-#: libraries/export/odt.php:307 libraries/export/texytext.php:228
+#: libraries/export/htmlword.php:250 libraries/export/latex.php:375
+#: libraries/export/odt.php:308 libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
@@ -167,9 +168,9 @@ msgstr "Type"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:250
-#: libraries/export/latex.php:374 libraries/export/odt.php:310
-#: libraries/export/texytext.php:229
+#: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
+#: libraries/export/latex.php:375 libraries/export/odt.php:311
+#: libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
@@ -177,9 +178,9 @@ msgstr "Null"
 msgid "Default"
 msgstr "Standaardwaarde"
 
-#: db_datadict.php:174 libraries/export/htmlword.php:252
-#: libraries/export/latex.php:376 libraries/export/odt.php:314
-#: libraries/export/texytext.php:231
+#: db_datadict.php:174 libraries/export/htmlword.php:253
+#: libraries/export/latex.php:377 libraries/export/odt.php:315
+#: libraries/export/texytext.php:232
 #: libraries/schema/Pdf_Relation_Schema.class.php:1245
 #: libraries/schema/Pdf_Relation_Schema.class.php:1266 tbl_printview.php:147
 msgid "Links to"
@@ -187,9 +188,9 @@ msgstr "Verwijst naar"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:255
-#: libraries/export/latex.php:379 libraries/export/odt.php:319
-#: libraries/export/texytext.php:234
+#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
+#: libraries/export/latex.php:380 libraries/export/odt.php:320
+#: libraries/export/texytext.php:235
 #: libraries/schema/Pdf_Relation_Schema.class.php:1256
 #: libraries/schema/Pdf_Relation_Schema.class.php:1267
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
@@ -199,9 +200,9 @@ msgstr "Opmerkingen"
 #: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
 #: libraries/Index.class.php:388 libraries/Index.class.php:688
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:325
-#: libraries/export/latex.php:444 libraries/export/odt.php:375
-#: libraries/export/texytext.php:304 libraries/mult_submits.inc.php:287
+#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/export/latex.php:445 libraries/export/odt.php:376
+#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1321
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
@@ -215,9 +216,9 @@ msgstr "Nee"
 #: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
 #: libraries/Index.class.php:387 libraries/Index.class.php:688
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:325
-#: libraries/export/latex.php:444 libraries/export/odt.php:375
-#: libraries/export/texytext.php:304 libraries/mult_submits.inc.php:46
+#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/export/latex.php:445 libraries/export/odt.php:376
+#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
@@ -243,7 +244,7 @@ msgid "View dump (schema) of database"
 msgstr "Bekijk een dump (schema) van database"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:371 navigation.php:323
+#: export.php:371 navigation.php:329
 msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de database."
 
@@ -273,7 +274,7 @@ msgstr "Database %s is gekopieerd naar %s"
 msgid "Rename database to"
 msgstr "Hernoem database naar"
 
-#: db_operations.php:409 server_status.php:793
+#: db_operations.php:409 server_status.php:799
 msgid "Command"
 msgstr "Commando"
 
@@ -355,7 +356,7 @@ msgstr "Bewerk of exporteer relationeel schema"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:497 libraries/db_structure.lib.php:37
-#: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:100
+#: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
 #: libraries/export/xml.php:331 libraries/header.inc.php:152
 #: libraries/schema/User_Schema.class.php:237 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
@@ -365,7 +366,7 @@ msgstr "Tabel"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
-#: libraries/import.lib.php:147 navigation.php:642 navigation.php:664
+#: libraries/import.lib.php:147 navigation.php:648 navigation.php:670
 #: tbl_printview.php:391 tbl_structure.php:395 tbl_structure.php:501
 #: tbl_structure.php:913
 msgid "Rows"
@@ -375,27 +376,27 @@ msgstr "Rijen"
 msgid "Size"
 msgstr "Grootte"
 
-#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:749
-#: libraries/export/sql.php:1076
+#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
+#: libraries/export/sql.php:1077
 msgid "in use"
 msgstr "in gebruik"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:704
+#: libraries/export/sql.php:705
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
 #: tbl_structure.php:945
 msgid "Creation"
 msgstr "Gecreëerd"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:709
+#: libraries/export/sql.php:710
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
 #: tbl_structure.php:953
 msgid "Last update"
 msgstr "Laatst bijgewerkt"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:714
+#: libraries/export/sql.php:715
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:961
 msgid "Last check"
@@ -646,7 +647,7 @@ msgstr "Verkennen"
 msgid "Delete the matches for the %s table?"
 msgstr "Verwijder gevonden rijen voor de tabel %s?"
 
-#: db_search.php:261 libraries/display_tbl.lib.php:1315
+#: db_search.php:261 libraries/display_tbl.lib.php:1323
 #: libraries/display_tbl.lib.php:2351
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
@@ -833,13 +834,13 @@ msgid "Tracked tables"
 msgstr "Tabellen met tracker"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
-#: libraries/export/htmlword.php:89 libraries/export/latex.php:162
-#: libraries/export/odt.php:120 libraries/export/pdf.php:100
-#: libraries/export/sql.php:568 libraries/export/texytext.php:77
+#: libraries/export/htmlword.php:90 libraries/export/latex.php:163
+#: libraries/export/odt.php:121 libraries/export/pdf.php:102
+#: libraries/export/sql.php:569 libraries/export/texytext.php:78
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
-#: server_privileges.php:2059 server_status.php:792
+#: server_privileges.php:2059 server_status.php:798
 #: server_synchronize.php:1190 server_synchronize.php:1194
 #: tbl_tracking.php:642
 msgid "Database"
@@ -857,7 +858,7 @@ msgstr "Aangemaakt"
 msgid "Updated"
 msgstr "Bijgewerkt"
 
-#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:795
+#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
 #: sql.php:935 tbl_tracking.php:647
 msgid "Status"
 msgstr "Status"
@@ -1150,23 +1151,23 @@ msgstr "Sluiten"
 #: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
 #: libraries/common.lib.php:594 libraries/common.lib.php:1144
 #: libraries/common.lib.php:2960 libraries/common.lib.php:2961
-#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1279
+#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "Wijzig"
 
-#: js/messages.php:64 server_status.php:417
+#: js/messages.php:64 server_status.php:420
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "Serverkeuze"
 
-#: js/messages.php:65 server_status.php:420
+#: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:66 server_status.php:439
+#: js/messages.php:66 server_status.php:445
 #, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
@@ -1179,13 +1180,13 @@ msgstr "Statische data"
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
 #: libraries/engines/innodb.lib.php:168 server_databases.php:219
-#: server_status.php:695 server_status.php:756 tbl_printview.php:348
+#: server_status.php:701 server_status.php:762 tbl_printview.php:348
 #: tbl_structure.php:832
 msgid "Total"
 msgstr "Totaal"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:72 server_status.php:596
+#: js/messages.php:72 server_status.php:602
 msgid "Other"
 msgstr "Andere"
 
@@ -1217,7 +1218,7 @@ msgstr "Serverkeuze"
 msgid "Connections since last refresh"
 msgstr ""
 
-#: js/messages.php:82 server_status.php:788
+#: js/messages.php:82 server_status.php:794
 msgid "Processes"
 msgstr "Processen"
 
@@ -1824,15 +1825,15 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d rij toegevoegd."
 msgstr[1] "%1$d rijen toegevoegd."
 
-#: libraries/RecentTable.class.php:113
+#: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
 msgstr "Recente tabel kon niet opgeslagen worden"
 
-#: libraries/RecentTable.class.php:148
+#: libraries/RecentTable.class.php:149
 msgid "Recent tables"
 msgstr "Recente tabellen"
 
-#: libraries/RecentTable.class.php:154
+#: libraries/RecentTable.class.php:155
 msgid "There are no recent tables"
 msgstr "Er zijn geen recente tabellen"
 
@@ -2083,7 +2084,7 @@ msgstr "Tabellen"
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
-#: libraries/export/latex.php:215 libraries/export/sql.php:1057
+#: libraries/export/latex.php:216 libraries/export/sql.php:1058
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:801
 msgid "Data"
@@ -2115,7 +2116,7 @@ msgstr "Controleer privileges voor database &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Controleer privileges"
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:587
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -2132,12 +2133,12 @@ msgstr ""
 "blanco pagina wordt weergegeven zijn er geen problemen."
 
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:598
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: %1$s"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:603
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2145,26 +2146,26 @@ msgstr ""
 "De <tt>$cfg['PmaAbsoluteUri']</tt> richtlijn MOET gezet zijn in het "
 "configuratiebestand!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:633
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ongeldige serverindex: %s"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige machinenaam voor server %1$s. Controleer uw configuratie."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:821
+#: libraries/common.inc.php:832
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
-#: libraries/common.inc.php:924
+#: libraries/common.inc.php:935
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
@@ -2204,7 +2205,7 @@ msgid "Documentation"
 msgstr "Documentatie"
 
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
-#: server_status.php:260 server_status.php:797
+#: server_status.php:260 server_status.php:803
 msgid "SQL query"
 msgstr "SQL-query"
 
@@ -2229,7 +2230,7 @@ msgid "Create PHP Code"
 msgstr "Genereer PHP-Code"
 
 #: libraries/common.lib.php:1178 libraries/config/messages.inc.php:473
-#: server_status.php:410 server_status.php:433 server_status.php:451
+#: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
 msgstr "Vernieuw"
 
@@ -2327,7 +2328,7 @@ msgstr "De %s functionaliteit heeft last van een bekend probleem, zie %s"
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:266
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:352
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:623 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
@@ -2336,7 +2337,7 @@ msgstr "Structuur"
 
 #: libraries/common.lib.php:2761 libraries/common.lib.php:2768
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
-#: libraries/export/sql.php:24 libraries/import/sql.php:17
+#: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:88
 msgid "SQL"
@@ -2401,22 +2402,22 @@ msgstr "Open"
 msgid "Closed"
 msgstr "Gesloten"
 
-#: libraries/config.values.php:96 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:41 libraries/export/odt.php:33
-#: libraries/export/sql.php:121 libraries/export/texytext.php:23
+#: libraries/config.values.php:96 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:122 libraries/export/texytext.php:24
 #: libraries/import.lib.php:1172
 msgid "structure"
 msgstr "structuur"
 
-#: libraries/config.values.php:97 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:41 libraries/export/odt.php:33
-#: libraries/export/sql.php:122 libraries/export/texytext.php:23
+#: libraries/config.values.php:97 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:123 libraries/export/texytext.php:24
 msgid "data"
 msgstr "gegevens"
 
-#: libraries/config.values.php:98 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:41 libraries/export/odt.php:33
-#: libraries/export/sql.php:123 libraries/export/texytext.php:23
+#: libraries/config.values.php:98 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:124 libraries/export/texytext.php:24
 msgid "structure and data"
 msgstr "Structuur en gegevens"
 
@@ -2826,23 +2827,23 @@ msgstr "Compressie"
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
 #: libraries/config/messages.inc.php:106 libraries/config/messages.inc.php:108
 #: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:144
-#: libraries/config/messages.inc.php:146 libraries/export/csv.php:27
-#: libraries/export/excel.php:24 libraries/export/htmlword.php:29
-#: libraries/export/latex.php:71 libraries/export/ods.php:24
-#: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
+#: libraries/config/messages.inc.php:146 libraries/export/csv.php:30
+#: libraries/export/excel.php:25 libraries/export/htmlword.php:30
+#: libraries/export/latex.php:72 libraries/export/ods.php:25
+#: libraries/export/odt.php:58 libraries/export/texytext.php:28
+#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
 msgstr "Plaats veldnamen in de eerste rij"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
-#: libraries/config/messages.inc.php:248 libraries/import/csv.php:75
-#: libraries/import/ldi.php:41
+#: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
+#: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
 msgstr "Velden ingesloten door"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
-#: libraries/config/messages.inc.php:249 libraries/import/csv.php:80
-#: libraries/import/ldi.php:42
+#: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
+#: libraries/import/ldi.php:43
 msgid "Columns escaped by"
 msgstr "Velden ontweken door"
 
@@ -2850,7 +2851,7 @@ msgstr "Velden ontweken door"
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
 #: libraries/config/messages.inc.php:107 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
-#: libraries/config/messages.inc.php:147 libraries/export/texytext.php:26
+#: libraries/config/messages.inc.php:147 libraries/export/texytext.php:27
 msgid "Replace NULL by"
 msgstr "Vervang NULL door"
 
@@ -2859,13 +2860,13 @@ msgid "Remove CRLF characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
-#: libraries/config/messages.inc.php:253 libraries/import/csv.php:62
-#: libraries/import/ldi.php:40
+#: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
+#: libraries/import/ldi.php:41
 msgid "Columns terminated by"
 msgstr "Velden beëindigd door"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
-#: libraries/import/csv.php:85 libraries/import/ldi.php:43
+#: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
 msgstr "Regels beëindigd door"
 
@@ -2887,18 +2888,18 @@ msgstr "Tabel naam template"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
-#: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:23
-#: libraries/export/latex.php:39 libraries/export/odt.php:31
-#: libraries/export/sql.php:115 libraries/export/texytext.php:22
+#: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:24
+#: libraries/export/latex.php:40 libraries/export/odt.php:32
+#: libraries/export/sql.php:116 libraries/export/texytext.php:23
 msgid "Dump table"
 msgstr "Dump tabel"
 
-#: libraries/config/messages.inc.php:92 libraries/export/latex.php:31
+#: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
 msgstr "Voeg tabeltitel toe"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
-#: libraries/export/latex.php:49 libraries/export/latex.php:73
+#: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
 msgstr "Tabeltitel"
 
@@ -2907,12 +2908,12 @@ msgid "Continued table caption"
 msgstr "Vervolgde tabeltitel"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
-#: libraries/export/latex.php:53 libraries/export/latex.php:77
+#: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
 msgstr "Labelsleutel"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 libraries/export/odt.php:325
+#: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
 #: libraries/tbl_properties.inc.php:142
 msgid "MIME type"
 msgstr "MIME-type"
@@ -2948,7 +2949,7 @@ msgstr "Gebruik backticks (`) bij tabel- en kolomnamen"
 msgid "SQL compatibility mode"
 msgstr "SQL-compatibiliteits mode"
 
-#: libraries/config/messages.inc.php:122 libraries/export/sql.php:175
+#: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> opties:"
 
@@ -2960,7 +2961,7 @@ msgstr "Creatie/Update/Controleer datum"
 msgid "Use delayed inserts"
 msgstr "Gebruik vertraagde inserts"
 
-#: libraries/config/messages.inc.php:125 libraries/export/sql.php:78
+#: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
 msgstr "controle op vreemde sleutels uitschakelen"
 
@@ -2976,7 +2977,7 @@ msgstr "Gebruik 'INSERT IGNORE'"
 msgid "Syntax to use when inserting data"
 msgstr "Syntax voor insert opdrachten"
 
-#: libraries/config/messages.inc.php:133 libraries/export/sql.php:267
+#: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
 msgstr "Maximale lengte van de gemaakte query"
 
@@ -2984,7 +2985,7 @@ msgstr "Maximale lengte van de gemaakte query"
 msgid "Export type"
 msgstr "Export type"
 
-#: libraries/config/messages.inc.php:139 libraries/export/sql.php:70
+#: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
 msgstr "Sluit de export in een transactie"
 
@@ -3039,8 +3040,8 @@ msgstr "Aanpassen standaard opties"
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:236
 #: libraries/config/setup.forms.php:315
 #: libraries/config/user_preferences.forms.php:138
-#: libraries/config/user_preferences.forms.php:215 libraries/export/csv.php:16
-#: libraries/import/csv.php:21
+#: libraries/config/user_preferences.forms.php:215 libraries/export/csv.php:19
+#: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV gegevens"
 
@@ -3103,7 +3104,7 @@ msgstr "Importeer / exporteer"
 msgid "Set import and export directories and compression options"
 msgstr "Aanpassen importeer- en exporteer-directories en compressie-opties"
 
-#: libraries/config/messages.inc.php:175 libraries/export/latex.php:26
+#: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
 
@@ -3315,7 +3316,7 @@ msgstr "Tekstvelden"
 msgid "Customize text input fields"
 msgstr "Tekstvelden aanpassen"
 
-#: libraries/config/messages.inc.php:228 libraries/export/texytext.php:17
+#: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
 msgstr "Texy! tekst"
 
@@ -3370,12 +3371,12 @@ msgid "Partial import: allow interrupt"
 msgstr "Gedeeltelijke import: onderbreken toestaan"
 
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
-#: libraries/import/csv.php:26 libraries/import/ldi.php:39
+#: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
 msgstr "Breek een handeling niet af bij een INSERT-fout"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
-#: libraries/import/csv.php:25 libraries/import/ldi.php:38
+#: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
 msgstr "Vervang tabelgegevens door het bestand"
 
@@ -3391,7 +3392,7 @@ msgstr ""
 msgid "Format of imported file"
 msgstr "Formaat van het geïmporteerde bestand"
 
-#: libraries/config/messages.inc.php:251 libraries/import/ldi.php:45
+#: libraries/config/messages.inc.php:251 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
 msgstr "Gebruik het LOCAL sleutelwoord"
 
@@ -4661,27 +4662,27 @@ msgid "Signon authentication"
 msgstr "Signon authenticatie"
 
 #: libraries/config/setup.forms.php:244
-#: libraries/config/user_preferences.forms.php:146 libraries/import/ldi.php:34
+#: libraries/config/user_preferences.forms.php:146 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr "CSV met behulp van LOAD DATA"
 
 #: libraries/config/setup.forms.php:253 libraries/config/setup.forms.php:347
 #: libraries/config/user_preferences.forms.php:154
-#: libraries/config/user_preferences.forms.php:247 libraries/export/xls.php:17
-#: libraries/import/xls.php:20
+#: libraries/config/user_preferences.forms.php:247 libraries/export/xls.php:18
+#: libraries/import/xls.php:21
 msgid "Excel 97-2003 XLS Workbook"
 msgstr "Excel 97-2003 XLS Werkboek"
 
 #: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:351
 #: libraries/config/user_preferences.forms.php:157
 #: libraries/config/user_preferences.forms.php:251
-#: libraries/export/xlsx.php:17 libraries/import/xlsx.php:20
+#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX Werkboek"
 
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:260 libraries/export/ods.php:17
+#: libraries/config/user_preferences.forms.php:260 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Open Document rekenblad"
@@ -4703,18 +4704,18 @@ msgstr "Database export opties"
 
 #: libraries/config/setup.forms.php:324
 #: libraries/config/user_preferences.forms.php:224
-#: libraries/export/excel.php:17
+#: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV voor MS Excel data"
 
 #: libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:255
-#: libraries/export/htmlword.php:17
+#: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:364
-#: libraries/config/user_preferences.forms.php:264 libraries/export/odt.php:21
+#: libraries/config/user_preferences.forms.php:264 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Open Document Tekst"
 
@@ -4782,7 +4783,7 @@ msgid "No event with name %s found in database %s"
 msgstr "Geen tabellen gevonden in de database"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
-#: libraries/export/sql.php:608
+#: libraries/export/sql.php:609
 msgid "Events"
 msgstr "Gebeurtenissen"
 
@@ -4843,7 +4844,7 @@ msgid "Routines"
 msgstr "Routines"
 
 #: libraries/db_links.inc.php:105 libraries/display_triggers.inc.php:62
-#: libraries/export/sql.php:986 libraries/export/xml.php:38
+#: libraries/export/sql.php:987 libraries/export/xml.php:38
 msgid "Triggers"
 msgstr "Triggers"
 
@@ -4880,19 +4881,19 @@ msgid "Length/Values"
 msgstr "Lengte/Waardes*"
 
 #: libraries/db_routines.lib.php:693 libraries/display_tbl.lib.php:585
-#: libraries/export/codegen.php:40 libraries/export/csv.php:31
-#: libraries/export/excel.php:36 libraries/export/htmlword.php:32
-#: libraries/export/json.php:26 libraries/export/latex.php:34
-#: libraries/export/mediawiki.php:23 libraries/export/ods.php:28
-#: libraries/export/odt.php:26 libraries/export/pdf.php:28
-#: libraries/export/php_array.php:27 libraries/export/sql.php:82
-#: libraries/export/texytext.php:30 libraries/export/xls.php:28
-#: libraries/export/xlsx.php:28 libraries/export/xml.php:25
-#: libraries/export/yaml.php:29 libraries/import.lib.php:1145
-#: libraries/import.lib.php:1167 libraries/import/csv.php:32
-#: libraries/import/docsql.php:34 libraries/import/ldi.php:48
-#: libraries/import/ods.php:32 libraries/import/sql.php:19
-#: libraries/import/xls.php:27 libraries/import/xlsx.php:27
+#: libraries/export/codegen.php:41 libraries/export/csv.php:34
+#: libraries/export/excel.php:37 libraries/export/htmlword.php:33
+#: libraries/export/json.php:29 libraries/export/latex.php:35
+#: libraries/export/mediawiki.php:23 libraries/export/ods.php:29
+#: libraries/export/odt.php:27 libraries/export/pdf.php:29
+#: libraries/export/php_array.php:29 libraries/export/sql.php:83
+#: libraries/export/texytext.php:31 libraries/export/xls.php:29
+#: libraries/export/xlsx.php:29 libraries/export/xml.php:25
+#: libraries/export/yaml.php:30 libraries/import.lib.php:1145
+#: libraries/import.lib.php:1167 libraries/import/csv.php:33
+#: libraries/import/docsql.php:35 libraries/import/ldi.php:49
+#: libraries/import/ods.php:32 libraries/import/sql.php:20
+#: libraries/import/xls.php:28 libraries/import/xlsx.php:28
 #: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:889
 msgid "Options"
 msgstr "Opties"
@@ -4961,7 +4962,7 @@ msgstr "Functie"
 
 #: libraries/db_routines.lib.php:851 libraries/replication_gui.lib.php:117
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
-#: pmd_general.php:775 server_status.php:1023 tbl_change.php:326
+#: pmd_general.php:775 server_status.php:1029 tbl_change.php:326
 #: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:865
 msgid "Value"
 msgstr "Waarde"
@@ -5197,8 +5198,8 @@ msgid "Compression:"
 msgstr "Compressie:"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:556
-#: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:559
-#: pmd_general.php:510 server_privileges.php:1955 server_status.php:829
+#: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:559
+#: pmd_general.php:510 server_privileges.php:1955 server_status.php:835
 msgid "None"
 msgstr "Geen"
 
@@ -5219,7 +5220,7 @@ msgid "View output as text"
 msgstr "Bekijk output als tekst"
 
 #: libraries/display_export.lib.php:333 libraries/display_import.lib.php:244
-#: libraries/export/codegen.php:37
+#: libraries/export/codegen.php:38
 msgid "Format:"
 msgstr "Opmaak:"
 
@@ -5419,16 +5420,16 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1280
+#: libraries/display_tbl.lib.php:1288
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: libraries/display_tbl.lib.php:1295 libraries/display_tbl.lib.php:1307
+#: libraries/display_tbl.lib.php:1303 libraries/display_tbl.lib.php:1315
 msgid "The row has been deleted"
 msgstr "De rij is verwijderd"
 
-#: libraries/display_tbl.lib.php:1334 libraries/display_tbl.lib.php:2351
-#: server_status.php:825
+#: libraries/display_tbl.lib.php:1342 libraries/display_tbl.lib.php:2351
+#: server_status.php:831
 msgid "Kill"
 msgstr "stop proces"
 
@@ -5496,7 +5497,7 @@ msgstr "Geen geldig afbeeldingen pad voor thema %s gevonden!"
 msgid "There are no triggers to display."
 msgstr "Er zijn geen bestanden om te uploaden"
 
-#: libraries/display_triggers.inc.php:77 server_status.php:794 sql.php:936
+#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
 msgstr "Tijd"
 
@@ -5977,109 +5978,109 @@ msgstr "De PrimeBase XT Blog door Paul McCullagh"
 msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr "De PrimeBase Media Streaming (PBMS) home pagina"
 
-#: libraries/export/csv.php:21 libraries/import/csv.php:27
+#: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
 msgstr "Velden beëindigd door:"
 
-#: libraries/export/csv.php:22 libraries/import/csv.php:28
+#: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
 msgstr "Velden ingesloten door:"
 
-#: libraries/export/csv.php:23 libraries/import/csv.php:29
+#: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
 msgstr "Velden ontweken door:"
 
-#: libraries/export/csv.php:24 libraries/import/csv.php:30
+#: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
 msgstr "Regels beëindigd door:"
 
-#: libraries/export/csv.php:25 libraries/export/excel.php:22
-#: libraries/export/htmlword.php:28 libraries/export/latex.php:79
-#: libraries/export/ods.php:23 libraries/export/odt.php:59
-#: libraries/export/xls.php:23 libraries/export/xlsx.php:23
+#: libraries/export/csv.php:28 libraries/export/excel.php:23
+#: libraries/export/htmlword.php:29 libraries/export/latex.php:80
+#: libraries/export/ods.php:24 libraries/export/odt.php:60
+#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 msgid "Replace NULL with:"
 msgstr "Vervang NULL door:"
 
-#: libraries/export/csv.php:26 libraries/export/excel.php:23
+#: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Verwijder CRLF tekens uit veld-waarden"
 
-#: libraries/export/excel.php:32
+#: libraries/export/excel.php:33
 msgid "Excel edition:"
 msgstr "Excel editie:"
 
-#: libraries/export/htmlword.php:27 libraries/export/latex.php:69
-#: libraries/export/odt.php:55 libraries/export/sql.php:207
-#: libraries/export/texytext.php:25 libraries/export/xml.php:45
+#: libraries/export/htmlword.php:28 libraries/export/latex.php:70
+#: libraries/export/odt.php:56 libraries/export/sql.php:208
+#: libraries/export/texytext.php:26 libraries/export/xml.php:45
 msgid "Data dump options"
 msgstr "Data dump opties"
 
-#: libraries/export/htmlword.php:135 libraries/export/odt.php:175
-#: libraries/export/sql.php:1152 libraries/export/texytext.php:123
+#: libraries/export/htmlword.php:136 libraries/export/odt.php:176
+#: libraries/export/sql.php:1153 libraries/export/texytext.php:124
 msgid "Dumping data for table"
 msgstr "Gegevens worden uitgevoerd voor tabel"
 
-#: libraries/export/htmlword.php:188 libraries/export/odt.php:245
-#: libraries/export/sql.php:975 libraries/export/texytext.php:170
+#: libraries/export/htmlword.php:189 libraries/export/odt.php:246
+#: libraries/export/sql.php:976 libraries/export/texytext.php:171
 msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
-#: libraries/export/latex.php:13
+#: libraries/export/latex.php:14
 msgid "Content of table @TABLE@"
 msgstr "Inhoud van tabel @TABLE@"
 
-#: libraries/export/latex.php:14
+#: libraries/export/latex.php:15
 msgid "(continued)"
 msgstr "(vervolgd)"
 
-#: libraries/export/latex.php:15
+#: libraries/export/latex.php:16
 msgid "Structure of table @TABLE@"
 msgstr "Structuur van de tabel @TABLE@"
 
-#: libraries/export/latex.php:47 libraries/export/odt.php:39
-#: libraries/export/sql.php:134
+#: libraries/export/latex.php:48 libraries/export/odt.php:40
+#: libraries/export/sql.php:135
 msgid "Object creation options"
 msgstr "Object-aanmaakopties"
 
-#: libraries/export/latex.php:51 libraries/export/latex.php:75
+#: libraries/export/latex.php:52 libraries/export/latex.php:76
 msgid "Table caption (continued)"
 msgstr "Tabeltitel (vervolgd)"
 
-#: libraries/export/latex.php:56 libraries/export/odt.php:42
-#: libraries/export/sql.php:53
+#: libraries/export/latex.php:57 libraries/export/odt.php:43
+#: libraries/export/sql.php:54
 msgid "Display foreign key relationships"
 msgstr "Toon vreemde sleutel relaties"
 
-#: libraries/export/latex.php:59 libraries/export/odt.php:45
+#: libraries/export/latex.php:60 libraries/export/odt.php:46
 msgid "Display comments"
 msgstr "Toon kolom commentaar"
 
-#: libraries/export/latex.php:62 libraries/export/odt.php:48
-#: libraries/export/sql.php:60
+#: libraries/export/latex.php:63 libraries/export/odt.php:49
+#: libraries/export/sql.php:61
 msgid "Display MIME types"
 msgstr "Toon beschikbare MIME-types"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:452
+#: libraries/export/latex.php:140 libraries/export/sql.php:453
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
 #: libraries/replication_gui.lib.php:331 server_privileges.php:713
 #: server_privileges.php:716 server_privileges.php:772
-#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:791
+#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:797
 msgid "Host"
 msgstr "Machine"
 
-#: libraries/export/latex.php:144 libraries/export/sql.php:457
+#: libraries/export/latex.php:145 libraries/export/sql.php:458
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Genereertijd"
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:459
+#: libraries/export/latex.php:146 libraries/export/sql.php:460
 #: libraries/export/xml.php:111 main.php:162
 msgid "Server version"
 msgstr "Serverversie"
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:460
+#: libraries/export/latex.php:147 libraries/export/sql.php:461
 #: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr "PHP-Versie"
@@ -6088,23 +6089,23 @@ msgstr "PHP-Versie"
 msgid "MediaWiki Table"
 msgstr "MediaWiki tabel"
 
-#: libraries/export/pdf.php:17
+#: libraries/export/pdf.php:18
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/export/pdf.php:23
+#: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Genereert een rapport met de gegevens van een enkele tabel)"
 
-#: libraries/export/pdf.php:24
+#: libraries/export/pdf.php:25
 msgid "Report title:"
 msgstr "Report titel:"
 
-#: libraries/export/php_array.php:16
+#: libraries/export/php_array.php:18
 msgid "PHP array"
 msgstr "PHP-array"
 
-#: libraries/export/sql.php:37
+#: libraries/export/sql.php:38
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -6112,11 +6113,11 @@ msgstr ""
 "Commentaar weergeven <i>(bevat informatie zoals tijdstip van export, PHP "
 "versie en server versie)</i>"
 
-#: libraries/export/sql.php:42
+#: libraries/export/sql.php:43
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Voeg een commentaar toe in de header (\\n om regels af te breken):"
 
-#: libraries/export/sql.php:47
+#: libraries/export/sql.php:48
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -6124,24 +6125,24 @@ msgstr ""
 "Voeg een tijdstip toe waarop databases aangemaakt, laatst bijgewerkt en "
 "laatst bekeken werden"
 
-#: libraries/export/sql.php:94
+#: libraries/export/sql.php:95
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Database systeem of oudere MySQL server om uitvoer compabiliteit mee te "
 "maximaliseren:"
 
-#: libraries/export/sql.php:106 libraries/export/sql.php:161
-#: libraries/export/sql.php:166
+#: libraries/export/sql.php:107 libraries/export/sql.php:162
+#: libraries/export/sql.php:167
 #, php-format
 msgid "Add %s statement"
 msgstr "%s statement toevoegen"
 
-#: libraries/export/sql.php:144
+#: libraries/export/sql.php:145
 msgid "Add statements:"
 msgstr "Statements toevoegen:"
 
-#: libraries/export/sql.php:196
+#: libraries/export/sql.php:197
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
@@ -6149,27 +6150,27 @@ msgstr ""
 "Voeg aanhalingstekens toe aan tabel- en veldnamen <i>(Beschermt tabel- en "
 "veldnamen die speciale tekens en sleutelwoorden bevatten)</i>"
 
-#: libraries/export/sql.php:216
+#: libraries/export/sql.php:217
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "In plaats van <code>INSERT</code> opdrachten, gebruik:"
 
-#: libraries/export/sql.php:221
+#: libraries/export/sql.php:222
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> opdrachten"
 
-#: libraries/export/sql.php:227
+#: libraries/export/sql.php:228
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> opdrachten"
 
-#: libraries/export/sql.php:237
+#: libraries/export/sql.php:238
 msgid "Function to use when dumping data:"
 msgstr "Functie om te gebruiken bij het verwijderen van data:"
 
-#: libraries/export/sql.php:250
+#: libraries/export/sql.php:251
 msgid "Syntax to use when inserting data:"
 msgstr "Syntax om te gebruiken bij het toevoegen van data:"
 
-#: libraries/export/sql.php:256
+#: libraries/export/sql.php:257
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -6179,7 +6180,7 @@ msgstr ""
 "&nbsp; &nbsp; Voorbeeld: <code>INSERT INTO tbl_naam (kol_A,kol_B,kol_C) "
 "VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:257
+#: libraries/export/sql.php:258
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -6189,7 +6190,7 @@ msgstr ""
 "&nbsp; &nbsp; Voorbeeld: <code>INSERT INTO tbl_naam VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/export/sql.php:258
+#: libraries/export/sql.php:259
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -6197,7 +6198,7 @@ msgstr ""
 "beide van bovenstaande<br /> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT "
 "INTO tbl_naam (kol_A,kol_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/export/sql.php:259
+#: libraries/export/sql.php:260
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6205,7 +6206,7 @@ msgstr ""
 "geen van bovenstaande<br /> &nbsp; &nbsp; &nbsp; Voorbeeld: <code>INSERT "
 "INTO tbl_naam VALUES (1,2,3)</code>"
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -6213,7 +6214,7 @@ msgstr ""
 "Dump kolommen in binair formaat met hexadecimale notatie <i>(bijvoorbeeld, "
 "\"abc\" becomes 0x616263)</i>"
 
-#: libraries/export/sql.php:281
+#: libraries/export/sql.php:282
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -6222,35 +6223,35 @@ msgstr ""
 "gedumpt en opnieuw ingeladen kunnen worden in servers in verschillende "
 "tijdszones)</i>"
 
-#: libraries/export/sql.php:320 libraries/export/xml.php:34
+#: libraries/export/sql.php:321 libraries/export/xml.php:34
 msgid "Procedures"
 msgstr "Procedures"
 
-#: libraries/export/sql.php:334 libraries/export/xml.php:32
+#: libraries/export/sql.php:335 libraries/export/xml.php:32
 msgid "Functions"
 msgstr "Functies"
 
-#: libraries/export/sql.php:808
+#: libraries/export/sql.php:809
 msgid "Constraints for dumped tables"
 msgstr "Beperkingen voor gedumpte tabellen"
 
-#: libraries/export/sql.php:817
+#: libraries/export/sql.php:818
 msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
-#: libraries/export/sql.php:917
+#: libraries/export/sql.php:918
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES VOOR TABEL"
 
-#: libraries/export/sql.php:929
+#: libraries/export/sql.php:930
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
-#: libraries/export/sql.php:998
+#: libraries/export/sql.php:999
 msgid "Structure for view"
 msgstr "Structuur voor de view"
 
-#: libraries/export/sql.php:1007
+#: libraries/export/sql.php:1008
 msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
 
@@ -6323,8 +6324,8 @@ msgstr "Ga naar tabel"
 msgid "Go to view"
 msgstr "Ga naar view"
 
-#: libraries/import/csv.php:37 libraries/import/ods.php:26
-#: libraries/import/xls.php:24 libraries/import/xlsx.php:24
+#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -6332,7 +6333,7 @@ msgstr ""
 "De eerste regel van het bestand bevat kolomnamen <i>(als dit niet aangevinkt "
 "is, wordt de eerste regel beschouwd als data)</i>"
 
-#: libraries/import/csv.php:39
+#: libraries/import/csv.php:40
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -6343,17 +6344,17 @@ msgstr ""
 "Kolomnamen moeten gescheiden worden door komma's en mogen niet voorzien zijn "
 "van aanhalingstekens."
 
-#: libraries/import/csv.php:41
+#: libraries/import/csv.php:42
 msgid "Column names: "
 msgstr "Kolom namen: "
 
-#: libraries/import/csv.php:61 libraries/import/csv.php:74
-#: libraries/import/csv.php:79 libraries/import/csv.php:84
+#: libraries/import/csv.php:62 libraries/import/csv.php:75
+#: libraries/import/csv.php:80 libraries/import/csv.php:85
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ongeldige parameter voor CSV import: %s"
 
-#: libraries/import/csv.php:131
+#: libraries/import/csv.php:132
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -6362,31 +6363,31 @@ msgstr ""
 "Ongeldige kolom (%s) gespecifiëerd! Zorg ervoor dat de kolomnamen juist "
 "gespeld zijn, gescheiden door komma's en niet voorzien van aanhalingstekens."
 
-#: libraries/import/csv.php:189 libraries/import/csv.php:436
+#: libraries/import/csv.php:190 libraries/import/csv.php:437
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ongeldig formaat van CSV invoer op regel %d."
 
-#: libraries/import/csv.php:324
+#: libraries/import/csv.php:325
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Verkeerd aantal velden in CSV invoer op regel %d."
 
-#: libraries/import/docsql.php:27
+#: libraries/import/docsql.php:28
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:598
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:598
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Table name"
 msgstr "Tabelnaam"
 
-#: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
 msgid "Column names"
 msgstr "Kolom namen"
 
-#: libraries/import/ldi.php:56
+#: libraries/import/ldi.php:57
 msgid "This plugin does not support compressed imports!"
 msgstr "Deze plugin heeft geen ondersteuning voor gecomprimeerde imports!"
 
@@ -6398,11 +6399,11 @@ msgstr "Percentages als decimalen importeren <i>(12.00% naar ,12)</i>"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Valuta importeren <i>($5.00 naar 5.00)</i>"
 
-#: libraries/import/sql.php:32
+#: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
 msgstr "SQL-compatibiliteits mode:"
 
-#: libraries/import/sql.php:42
+#: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Gebruik geen <code>AUTO_INCREMENT</code> voor 0-waarden"
 
@@ -6782,7 +6783,7 @@ msgid "Slave status"
 msgstr "Slave status"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
-#: server_status.php:1022 server_variables.php:108
+#: server_status.php:1028 server_variables.php:108
 msgid "Variable"
 msgstr "Variabelen"
 
@@ -6986,12 +6987,12 @@ msgid "Toggle scratchboard"
 msgstr "Aan/uit voorbeeldkader"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:482
+#: libraries/select_lang.lib.php:484
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
-#: libraries/select_lang.lib.php:499
+#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
+#: libraries/select_lang.lib.php:501
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
@@ -7059,7 +7060,7 @@ msgstr "Voer SQL query/queries uit op de server %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Draai SQL query/queries op database %s"
 
-#: libraries/sql_query_form.lib.php:296 navigation.php:296
+#: libraries/sql_query_form.lib.php:296 navigation.php:302
 #: setup/frames/index.inc.php:231
 msgid "Clear"
 msgstr "Clear"
@@ -7487,7 +7488,7 @@ msgid "Protocol version"
 msgstr "Protocolversie"
 
 #: main.php:165 server_privileges.php:1452 server_privileges.php:1606
-#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:790
+#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:796
 msgid "User"
 msgstr "Gebruiker"
 
@@ -7638,24 +7639,24 @@ msgid ""
 msgstr ""
 "De server gebruikt Suhosin. Zie de %sdocumentatie%s voor mogelijke problemen."
 
-#: navigation.php:207 server_databases.php:281 server_synchronize.php:1202
+#: navigation.php:213 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
 msgstr "Geen databases"
 
-#: navigation.php:297
+#: navigation.php:303
 msgid "Filter"
 msgstr "Filter"
 
-#: navigation.php:297
+#: navigation.php:303
 msgid "filter tables by name"
 msgstr "Filter tabellen op naam"
 
-#: navigation.php:330 navigation.php:331
+#: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
 msgstr "Maak tabel"
 
-#: navigation.php:336 navigation.php:508
+#: navigation.php:342 navigation.php:514
 msgid "Please select a database"
 msgstr "Selecteer A.U.B. een database"
 
@@ -7947,13 +7948,13 @@ msgstr "Selecteer de te bekijken binaire log"
 msgid "Files"
 msgstr "Bestanden"
 
-#: server_binlog.php:169 server_binlog.php:171 server_status.php:800
-#: server_status.php:802
+#: server_binlog.php:169 server_binlog.php:171 server_status.php:806
+#: server_status.php:808
 msgid "Truncate Shown Queries"
 msgstr "Getoonde queries afkappen"
 
-#: server_binlog.php:177 server_binlog.php:179 server_status.php:800
-#: server_status.php:802
+#: server_binlog.php:177 server_binlog.php:179 server_status.php:806
+#: server_status.php:808
 msgid "Show Full Queries"
 msgstr "Toon volledige Queries"
 
@@ -8746,61 +8747,67 @@ msgstr "Serververkeer"
 msgid "All status variables"
 msgstr "alle status variabelen"
 
-#: server_status.php:456
+#: server_status.php:413 server_status.php:439
+#, fuzzy
+#| msgid "Refresh"
+msgid "Refresh rate:"
+msgstr "Vernieuw"
+
+#: server_status.php:462
 #, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Wijzig het wachtwoord niet"
 
-#: server_status.php:461
+#: server_status.php:467
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Toon open tabellen"
 
-#: server_status.php:465
+#: server_status.php:471
 msgid "Filter by category..."
 msgstr ""
 
-#: server_status.php:478
+#: server_status.php:484
 #, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
 msgstr "Gerelateerde links"
 
-#: server_status.php:522 server_status.php:557 server_status.php:670
-#: server_status.php:715
+#: server_status.php:528 server_status.php:563 server_status.php:676
+#: server_status.php:721
 msgid "per hour"
 msgstr "per uur"
 
-#: server_status.php:526
+#: server_status.php:532
 msgid "per minute"
 msgstr "per minuut"
 
-#: server_status.php:531
+#: server_status.php:537
 msgid "per second"
 msgstr "per seconde"
 
-#: server_status.php:552
+#: server_status.php:558
 msgid "Query type"
 msgstr "Query-type"
 
 #. l10n: # = Amount of queries
-#: server_status.php:555
+#: server_status.php:561
 msgid "#"
 msgstr ""
 
-#: server_status.php:619
+#: server_status.php:625
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:627
+#: server_status.php:633
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Deze MySQL-server draait inmiddels %s. Hij is gestart op %s."
 
-#: server_status.php:637
+#: server_status.php:643
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -8808,13 +8815,13 @@ msgstr ""
 "Deze MySQL server is ingesteld als <b>master</b> en <b>slave</b> in een "
 "<b>replicatie</b> proces."
 
-#: server_status.php:639
+#: server_status.php:645
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Deze MySQL server is ingesteld als <b>master</b> in een <b>replicatie</b> "
 "proces."
 
-#: server_status.php:641
+#: server_status.php:647
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Deze MySQL server is ingesteld als <b>slave</b> in een <b>replicatie</b> "
@@ -8823,7 +8830,7 @@ msgstr ""
 # Er moet een betere vertaling voor "replication" zijn. "Nadoen"?
 # "Deze MySQL-server functioneert als %s in een <b>replicatie</b> proces."
 # weggehaald.
-#: server_status.php:643
+#: server_status.php:649
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -8831,15 +8838,15 @@ msgstr ""
 "Kijk voor meer informatie over de replicatiestatus op deze server in de <a "
 "href=#replication>replicatiestatus sectie</a>."
 
-#: server_status.php:653
+#: server_status.php:659
 msgid "Replication status"
 msgstr "Replicatie status"
 
-#: server_status.php:669
+#: server_status.php:675
 msgid "Traffic"
 msgstr "Verkeer"
 
-#: server_status.php:669
+#: server_status.php:675
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -8847,41 +8854,41 @@ msgstr ""
 "Op drukke servers kunnen de byte-tellers over hun maximum heengaan. Hierdoor "
 "kunnen de gerapporteerde statistieken afwijken."
 
-#: server_status.php:675
+#: server_status.php:681
 msgid "Received"
 msgstr "Ontvangen"
 
-#: server_status.php:685
+#: server_status.php:691
 msgid "Sent"
 msgstr "Verzonden"
 
-#: server_status.php:714
+#: server_status.php:720
 msgid "Connections"
 msgstr "Connecties"
 
-#: server_status.php:721
+#: server_status.php:727
 msgid "max. concurrent connections"
 msgstr "Max. gelijktijdige verbindingen"
 
-#: server_status.php:728
+#: server_status.php:734
 msgid "Failed attempts"
 msgstr "Mislukte pogingen"
 
-#: server_status.php:742
+#: server_status.php:748
 msgid "Aborted"
 msgstr "Afgehaakte"
 
-#: server_status.php:789
+#: server_status.php:795
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:850
+#: server_status.php:856
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Er kan geen verbinding worden gemaakt met de server"
 
-#: server_status.php:851
+#: server_status.php:857
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -8892,18 +8899,18 @@ msgstr ""
 "hebben gemaakt van een tijdelijkbestand om opdrachten uit de transactie op "
 "te slaan."
 
-#: server_status.php:852
+#: server_status.php:858
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Het aantal transactie dat gebruik maakte van het tijdelijke binaire log "
 "cache."
 
-#: server_status.php:853
+#: server_status.php:859
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:854
+#: server_status.php:860
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8915,11 +8922,11 @@ msgstr ""
 "to increase the tmp_table_size value to cause temporary tables to be memory-"
 "based instead of disk-based."
 
-#: server_status.php:855
+#: server_status.php:861
 msgid "How many temporary files mysqld has created."
 msgstr "Het aantal tijdelijke bestanden dat door MySQL werd aangemaakt."
 
-#: server_status.php:856
+#: server_status.php:862
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -8927,7 +8934,7 @@ msgstr ""
 "Het aantal in het geheugen geplaatste tijdelijke tabellen dat automatisch "
 "door de server werd aangemaakt tijdens het uitvoeren van opdrachten."
 
-#: server_status.php:857
+#: server_status.php:863
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -8935,7 +8942,7 @@ msgstr ""
 "Het aantal met INSERT DELAYED opgeslagen rijen waarbij er een fout optrad "
 "(mogelijk een reeds bestaande sleutel)."
 
-#: server_status.php:858
+#: server_status.php:864
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8944,23 +8951,23 @@ msgstr ""
 "afzonderlijke tabel waarop INSERT DELAYED wordt toegepast krijgt een eigen "
 "thread."
 
-#: server_status.php:859
+#: server_status.php:865
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Het aantal met INSERT DELAYED opgeslagen rijen."
 
-#: server_status.php:860
+#: server_status.php:866
 msgid "The number of executed FLUSH statements."
 msgstr "Het aantal uitgevoerde FLUSH opdrachten."
 
-#: server_status.php:861
+#: server_status.php:867
 msgid "The number of internal COMMIT statements."
 msgstr "Het aantal interne COMMIT opdrachten."
 
-#: server_status.php:862
+#: server_status.php:868
 msgid "The number of times a row was deleted from a table."
 msgstr "Het aantal keer dat een rij werd verwijderd uit een tabel."
 
-#: server_status.php:863
+#: server_status.php:869
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -8970,7 +8977,7 @@ msgstr ""
 "met een bepaalde naam. Dit wordt discovery genoemd. Handler_discover geeft "
 "aan hoeveel tabellen met discovery werden opgezocht."
 
-#: server_status.php:864
+#: server_status.php:870
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8980,7 +8987,7 @@ msgstr ""
 "hoog geeft dit een indicatie dat de server veel scans doet op de volledige "
 "index; bijvoorbeeld SELECT kolom1 FROM foo, waarbij kolom1 is geïndexeerd."
 
-#: server_status.php:865
+#: server_status.php:871
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8989,7 +8996,7 @@ msgstr ""
 "hoog is dit een indicatie dat er goed gebruik wordt gemaakt van de aanwezige "
 "indexen."
 
-#: server_status.php:866
+#: server_status.php:872
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8999,7 +9006,7 @@ msgstr ""
 "wordt verhoogd wanneer u een index kolom raadpleegt met een bereik beperking "
 "of bij het doen van een index scan."
 
-#: server_status.php:867
+#: server_status.php:873
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9007,7 +9014,7 @@ msgstr ""
 "Het aantal leesopdrachten voor de voorgaande rij in de sleutel volgorde. Dit "
 "wordt hoofdzakelijk gebruikt voor het optimaliseren van ORDER BY ... DESC."
 
-#: server_status.php:868
+#: server_status.php:874
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9020,7 +9027,7 @@ msgstr ""
 "gehele tabel moet scannen of er worden joins toegepast die niet goed "
 "gebruikmaken van sleutels."
 
-#: server_status.php:869
+#: server_status.php:875
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9033,35 +9040,35 @@ msgstr ""
 "zijn voorzien of dat de toegepaste queries hier niet optimaal gebruik van "
 "maken."
 
-#: server_status.php:870
+#: server_status.php:876
 msgid "The number of internal ROLLBACK statements."
 msgstr "Het aantal interne ROLLBACK opdrachten."
 
-#: server_status.php:871
+#: server_status.php:877
 msgid "The number of requests to update a row in a table."
 msgstr "Het aantal update opdrachten voor een tabel rij."
 
-#: server_status.php:872
+#: server_status.php:878
 msgid "The number of requests to insert a row in a table."
 msgstr "Het aantal opdrachten om een rij aan een tabel toe te voegen."
 
-#: server_status.php:873
+#: server_status.php:879
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Het aantal pages dat data bevat (dirty en clean)."
 
-#: server_status.php:874
+#: server_status.php:880
 msgid "The number of pages currently dirty."
 msgstr "Het aantal pages dat momenteel dirty is."
 
-#: server_status.php:875
+#: server_status.php:881
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Het aantal buffer pool pages dat is geschoond."
 
-#: server_status.php:876
+#: server_status.php:882
 msgid "The number of free pages."
 msgstr "Het aantal vrije pages."
 
-#: server_status.php:877
+#: server_status.php:883
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -9071,7 +9078,7 @@ msgstr ""
 "momenteel wordt gelezen of geschreven, of die om een andere reden niet "
 "geschoond of verwijderd kunnen worden."
 
-#: server_status.php:878
+#: server_status.php:884
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9083,11 +9090,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
-#: server_status.php:879
+#: server_status.php:885
 msgid "Total size of buffer pool, in pages."
 msgstr "Totale formaat van de buffer pool, in pages."
 
-#: server_status.php:880
+#: server_status.php:886
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -9096,7 +9103,7 @@ msgstr ""
 "gebeurd wanneer een query een groot deel van een tabel laat scannen, maar in "
 "willekeurige volgorde."
 
-#: server_status.php:881
+#: server_status.php:887
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -9104,11 +9111,11 @@ msgstr ""
 "Het aantal sequentiele read-aheads dat door InnoDB werd geïnitieerd. Dit "
 "gebeurd wanneer er een volledige tabelscan wordt uitgevoerd."
 
-#: server_status.php:882
+#: server_status.php:888
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Het aantal logische read requests dat door InnoDB werd uitgevoerd."
 
-#: server_status.php:883
+#: server_status.php:889
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -9116,7 +9123,7 @@ msgstr ""
 "Het aantal logische lees operaties dat InnoDB niet kon doen vanuit de buffer "
 "pool maar waarvoor een extra page ingeladen moest worden."
 
-#: server_status.php:884
+#: server_status.php:890
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9130,86 +9137,86 @@ msgstr ""
 "geschoond. Deze teller houd bij hoe vaak dit voorkomt. Indien het buffer "
 "pool formaat goed is ingesteld hoort deze waarde laag te zijn."
 
-#: server_status.php:885
+#: server_status.php:891
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Het aantal schrijf operaties uitgevoerd op de InnoDB buffer pool."
 
-#: server_status.php:886
+#: server_status.php:892
 msgid "The number of fsync() operations so far."
 msgstr "Het aantal fsync() operaties."
 
-#: server_status.php:887
+#: server_status.php:893
 msgid "The current number of pending fsync() operations."
 msgstr "Het aantal momenteel openstaande fsync() operaties."
 
-#: server_status.php:888
+#: server_status.php:894
 msgid "The current number of pending reads."
 msgstr "Het aantal momenteel openstaande lees operaties."
 
-#: server_status.php:889
+#: server_status.php:895
 msgid "The current number of pending writes."
 msgstr "Het aantal momenteel openstaande schrijf operaties."
 
-#: server_status.php:890
+#: server_status.php:896
 msgid "The amount of data read so far, in bytes."
 msgstr "De hoeveelheid gelezen data, in bytes."
 
-#: server_status.php:891
+#: server_status.php:897
 msgid "The total number of data reads."
 msgstr "Het totale aantal data lees operaties."
 
-#: server_status.php:892
+#: server_status.php:898
 msgid "The total number of data writes."
 msgstr "Het totale aantal data schrijf operaties."
 
-#: server_status.php:893
+#: server_status.php:899
 msgid "The amount of data written so far, in bytes."
 msgstr "De hoeveelheid geschreven data, in bytes."
 
-#: server_status.php:894
+#: server_status.php:900
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Het aantal pagina's dat werd geschreven voor doublewrite operaties."
 
-#: server_status.php:895
+#: server_status.php:901
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Het aantal uitgevoerde doublewrite operaties."
 
-#: server_status.php:896
+#: server_status.php:902
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 "Het aantal keer dat er gewacht moest worden vanwege een volle log buffer."
 
-#: server_status.php:897
+#: server_status.php:903
 msgid "The number of log write requests."
 msgstr "Het aantal log schrijf opdrachten."
 
-#: server_status.php:898
+#: server_status.php:904
 msgid "The number of physical writes to the log file."
 msgstr "Het aantal fysieke schrijf operaties op het log bestand."
 
-#: server_status.php:899
+#: server_status.php:905
 msgid "The number of fsync() writes done to the log file."
 msgstr "Het aantal fsync() schrijf operaties uitgevoerd op het log bestand."
 
-#: server_status.php:900
+#: server_status.php:906
 msgid "The number of pending log file fsyncs."
 msgstr "Het aantal momenteel openstaande fsync operaties op het logbestand."
 
-#: server_status.php:901
+#: server_status.php:907
 msgid "Pending log file writes."
 msgstr "Het aantal momenteel openstaande schrijf operaties op het logbestand."
 
-#: server_status.php:902
+#: server_status.php:908
 msgid "The number of bytes written to the log file."
 msgstr "Het aantal bytes dat naar het logbestand werd geschreven."
 
-#: server_status.php:903
+#: server_status.php:909
 msgid "The number of pages created."
 msgstr "Het aantal pages dat werd aangemaakt."
 
-#: server_status.php:904
+#: server_status.php:910
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -9218,54 +9225,54 @@ msgstr ""
 "Veel waarden worden geteld in pages. Een vaste page grootte maakt het "
 "eenvoudig deze te converteren naar bytes."
 
-#: server_status.php:905
+#: server_status.php:911
 msgid "The number of pages read."
 msgstr "Het aantal gelezen pages."
 
-#: server_status.php:906
+#: server_status.php:912
 msgid "The number of pages written."
 msgstr "Het aantal geschreven pages."
 
-#: server_status.php:907
+#: server_status.php:913
 msgid "The number of row locks currently being waited for."
 msgstr "Het aantal gelockte rijen waar momenteel op wordt gewacht."
 
-#: server_status.php:908
+#: server_status.php:914
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 "De gemiddelde tijd nodig om een rij lock te verkrijgen, in milliseconden."
 
-#: server_status.php:909
+#: server_status.php:915
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "De totale tijd besteed aan het verkrijgen van rij locks, in milliseconden."
 
-#: server_status.php:910
+#: server_status.php:916
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 "De maximale tijd nodig om een rij lock te verkrijgen, in milliseconden."
 
-#: server_status.php:911
+#: server_status.php:917
 msgid "The number of times a row lock had to be waited for."
 msgstr "Het aantal keer dat er op een rij lock moest worden gewacht."
 
-#: server_status.php:912
+#: server_status.php:918
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Het aantal rijen dat werd verwijderd uit InnoDB tabellen."
 
-#: server_status.php:913
+#: server_status.php:919
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Het aantal rijen dat werd ingevoegd in InnoDB tabellen."
 
-#: server_status.php:914
+#: server_status.php:920
 msgid "The number of rows read from InnoDB tables."
 msgstr "Het aantal rijen dat werd gelezen uit InnoDB tabellen."
 
-#: server_status.php:915
+#: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Het aantal rijen dat werd bijgewerkt in InnoDB tabellen."
 
-#: server_status.php:916
+#: server_status.php:922
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -9274,13 +9281,13 @@ msgstr ""
 "niet naar disk zijn geschreven. Dit stond voorheen bekend als "
 "Not_flushed_key_blocks."
 
-#: server_status.php:917
+#: server_status.php:923
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr "Het aantal ongebruikte blokken in het sleutelcache."
 
-#: server_status.php:918
+#: server_status.php:924
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -9289,11 +9296,11 @@ msgstr ""
 "Het aantal gebruikte blokken in het sleutelcache. Dit is de maximaal "
 "behaalde waarde sinds het starten van de server."
 
-#: server_status.php:919
+#: server_status.php:925
 msgid "The number of requests to read a key block from the cache."
 msgstr "Het aantal leesopdrachten voor een sleutelblok uit het cache."
 
-#: server_status.php:920
+#: server_status.php:926
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -9303,15 +9310,15 @@ msgstr ""
 "key_reads groot is, is de waarde van key_buffer_size mogelijk te laag. De "
 "cache miss rate kan worden berekend met Key_reads / Key_read_requests."
 
-#: server_status.php:921
+#: server_status.php:927
 msgid "The number of requests to write a key block to the cache."
 msgstr "Het aantal schrijf opdrachten voor een sleutelblok naar het cache."
 
-#: server_status.php:922
+#: server_status.php:928
 msgid "The number of physical writes of a key block to disk."
 msgstr "Het aantal fysieke schrijf opdrachten voor een sleutelblok naar disk."
 
-#: server_status.php:923
+#: server_status.php:929
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -9322,19 +9329,19 @@ msgstr ""
 "verschillende query plans voor dezelfde query. De standaardwaarde 0 betekend "
 "dat er nog geen query is gecompiled."
 
-#: server_status.php:924
+#: server_status.php:930
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:925
+#: server_status.php:931
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Het aantal rijen dat klaar staan om te worden geschreven in INSERT DELAYED "
 "wachtrijen."
 
-#: server_status.php:926
+#: server_status.php:932
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -9342,39 +9349,39 @@ msgstr ""
 "Het aantal tabellen dat werd geopend. Indien hoog, is mogelijk de table "
 "cache waarde te laag."
 
-#: server_status.php:927
+#: server_status.php:933
 msgid "The number of files that are open."
 msgstr "Het totaal aantal geopende bestanden."
 
-#: server_status.php:928
+#: server_status.php:934
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Het aantal open streams (hoofdzakelijk gebruikt voor het schrijven van log)."
 
-#: server_status.php:929
+#: server_status.php:935
 msgid "The number of tables that are open."
 msgstr "Het totaal aantal open tabellen."
 
-#: server_status.php:930
+#: server_status.php:936
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:931
+#: server_status.php:937
 msgid "The amount of free memory for query cache."
 msgstr "De hoeveelheid vrij geheugen voor het query cache."
 
-#: server_status.php:932
+#: server_status.php:938
 msgid "The number of cache hits."
 msgstr "Het aantal cache hits."
 
-#: server_status.php:933
+#: server_status.php:939
 msgid "The number of queries added to the cache."
 msgstr "Het aantal queries dat aan het cache werd toegevoegd."
 
-#: server_status.php:934
+#: server_status.php:940
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -9387,7 +9394,7 @@ msgstr ""
 "recent gebruikt (least recently used, LRU) strategie om te bepalen welke "
 "queries worden verwijderd."
 
-#: server_status.php:935
+#: server_status.php:941
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -9395,19 +9402,19 @@ msgstr ""
 "Het aantal niet gecachte queries (niet cachebaar, danwel niet gecached "
 "vanwege de query_cache_type instelling)."
 
-#: server_status.php:936
+#: server_status.php:942
 msgid "The number of queries registered in the cache."
 msgstr "Het aantal queries dat in het cache staat."
 
-#: server_status.php:937
+#: server_status.php:943
 msgid "The total number of blocks in the query cache."
 msgstr "Het totaal aantal blokken in het query cache."
 
-#: server_status.php:938
+#: server_status.php:944
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "De status van failsafe replicatie (nog niet geïmplementeerd)."
 
-#: server_status.php:939
+#: server_status.php:945
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -9415,13 +9422,13 @@ msgstr ""
 "Het aantal joins dat geen gebruik maakt van een index. Indien dit geen 0 is, "
 "is het aan te raden om het gebruik van indexen te controleren."
 
-#: server_status.php:940
+#: server_status.php:946
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Het aantal joins dat een bereik beperking toepassen op een gerefereerde "
 "tabel."
 
-#: server_status.php:941
+#: server_status.php:947
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -9430,7 +9437,7 @@ msgstr ""
 "van een sleutel. (Indien dit geen 0 is, is het aan te raden om het gebruik "
 "van indexen te controleren.)"
 
-#: server_status.php:942
+#: server_status.php:948
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -9438,17 +9445,17 @@ msgstr ""
 "Het aantal joins dat een bereik beperking gebruikt op de eerste tabel. (Dit "
 "hoeft geen groot probleem te zijn, zelfs niet bij grote tabellen.)"
 
-#: server_status.php:943
+#: server_status.php:949
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Het aantal joins dat een volledige scan van de eerste tabel uitvoerde."
 
-#: server_status.php:944
+#: server_status.php:950
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Het aantal momenteel openstaande tijdelijke tabellen voor de slave SQL "
 "threas."
 
-#: server_status.php:945
+#: server_status.php:951
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -9456,13 +9463,13 @@ msgstr ""
 "Het totaal aantal transacties dat moest worden herhaald door de replicatie "
 "slave SQL thread (sinds het opstarten van de server)."
 
-#: server_status.php:946
+#: server_status.php:952
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Dit staat op 'ON' indien deze server als een replicatie slave verbonden is "
 "met een master server."
 
-#: server_status.php:947
+#: server_status.php:953
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -9470,14 +9477,14 @@ msgstr ""
 "Het aantal threads waarvoor het opstarten langer dan slow_launch_time "
 "seconden duurde."
 
-#: server_status.php:948
+#: server_status.php:954
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Het aantal queries waarvan het uitvoeren langer dan long_query_time seconden "
 "duurde."
 
-#: server_status.php:949
+#: server_status.php:955
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -9487,24 +9494,24 @@ msgstr ""
 "uitvoeren. Indien deze waarde hoog is, is het een optie om de systeem "
 "variabele sort_buffer_size te vergroten."
 
-#: server_status.php:950
+#: server_status.php:956
 msgid "The number of sorts that were done with ranges."
 msgstr "Het aantal sorteringen dat werd uitgevoerd met een bereikbeperking."
 
-#: server_status.php:951
+#: server_status.php:957
 msgid "The number of sorted rows."
 msgstr "Het aantal gesorteerde rijen."
 
-#: server_status.php:952
+#: server_status.php:958
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 "Het aantal sorteringen dat werd uitgevoerd door het scannen van de tabel."
 
-#: server_status.php:953
+#: server_status.php:959
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Het aantal keer dat een tabel lock direct kon worden verkregen."
 
-#: server_status.php:954
+#: server_status.php:960
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -9516,7 +9523,7 @@ msgstr ""
 "problemen, kunt u het beste eerst uw queries optimalizeren. Daarna kunt u "
 "nog kijken naar het splitsen van tabellen en het gebruik van replicatie."
 
-#: server_status.php:955
+#: server_status.php:961
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -9526,11 +9533,11 @@ msgstr ""
 "berekend met Threads_created/Connections. Indien deze waarde rood staat "
 "aangegeven is het aan te raden om thread_cache_size te vergroten."
 
-#: server_status.php:956
+#: server_status.php:962
 msgid "The number of currently open connections."
 msgstr "Het aantal momenteel openstaande verbindingen."
 
-#: server_status.php:957
+#: server_status.php:963
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -9542,7 +9549,7 @@ msgstr ""
 "verhogen. (Dit geeft echter in de meeste gevallen, bij gebruik van een goede "
 "thead implementatie, geen noemenswaardige prestatie verbetering.)"
 
-#: server_status.php:958
+#: server_status.php:964
 msgid "The number of threads that are not sleeping."
 msgstr "Het aantal threads dat actief bezig is."
 

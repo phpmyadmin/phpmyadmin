@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-21 09:16+0200\n"
+"POT-Creation-Date: 2011-06-22 08:39+0200\n"
 "PO-Revision-Date: 2011-06-03 14:53+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "Zobraziť všetko"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2269
-#: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:133
+#: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1098
 #: libraries/schema/Pdf_Relation_Schema.class.php:1114
@@ -64,17 +64,18 @@ msgstr "Hľadať"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
-#: main.php:109 navigation.php:234 pmd_pdf.php:124 prefs_manage.php:265
-#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:646
-#: server_privileges.php:1694 server_privileges.php:2051
-#: server_privileges.php:2098 server_privileges.php:2138
-#: server_replication.php:233 server_replication.php:316
-#: server_replication.php:347 server_synchronize.php:1220 tbl_change.php:332
-#: tbl_change.php:1024 tbl_change.php:1061 tbl_indexes.php:260
-#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
-#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:291
-#: tbl_structure.php:698 tbl_structure.php:734 tbl_tracking.php:425
-#: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
+#: main.php:109 navigation.php:202 navigation.php:240 pmd_pdf.php:124
+#: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:128
+#: server_privileges.php:646 server_privileges.php:1694
+#: server_privileges.php:2051 server_privileges.php:2098
+#: server_privileges.php:2138 server_replication.php:233
+#: server_replication.php:316 server_replication.php:347
+#: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
+#: tbl_change.php:1061 tbl_indexes.php:260 tbl_operations.php:280
+#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
+#: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
+#: tbl_structure.php:734 tbl_tracking.php:425 tbl_tracking.php:563
+#: view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Vykonaj"
 
@@ -85,7 +86,7 @@ msgstr "Kľúčový názov"
 
 #: browse_foreigners.php:170 browse_foreigners.php:172
 #: server_collations.php:54 server_collations.php:66 server_engines.php:57
-#: server_status.php:1024
+#: server_status.php:1030
 msgid "Description"
 msgstr "Popis"
 
@@ -132,8 +133,8 @@ msgid "Table comments"
 msgstr "Komentár k tabuľke"
 
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
-#: libraries/export/htmlword.php:247 libraries/export/latex.php:374
-#: libraries/export/odt.php:301 libraries/export/texytext.php:226
+#: libraries/export/htmlword.php:248 libraries/export/latex.php:375
+#: libraries/export/odt.php:302 libraries/export/texytext.php:227
 #: libraries/schema/Pdf_Relation_Schema.class.php:1239
 #: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
@@ -146,8 +147,8 @@ msgstr "Stĺpce"
 #: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
 #: libraries/db_routines.lib.php:691 libraries/db_routines.lib.php:847
 #: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
-#: libraries/export/htmlword.php:248 libraries/export/latex.php:374
-#: libraries/export/odt.php:304 libraries/export/texytext.php:227
+#: libraries/export/htmlword.php:249 libraries/export/latex.php:375
+#: libraries/export/odt.php:305 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1240
 #: libraries/schema/Pdf_Relation_Schema.class.php:1261
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
@@ -158,8 +159,8 @@ msgid "Type"
 msgstr "Typ"
 
 #: db_datadict.php:169 libraries/Index.class.php:451
-#: libraries/export/htmlword.php:249 libraries/export/latex.php:374
-#: libraries/export/odt.php:307 libraries/export/texytext.php:228
+#: libraries/export/htmlword.php:250 libraries/export/latex.php:375
+#: libraries/export/odt.php:308 libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1242
 #: libraries/schema/Pdf_Relation_Schema.class.php:1263
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
@@ -168,9 +169,9 @@ msgstr "Typ"
 msgid "Null"
 msgstr "Nulový"
 
-#: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:250
-#: libraries/export/latex.php:374 libraries/export/odt.php:310
-#: libraries/export/texytext.php:229
+#: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
+#: libraries/export/latex.php:375 libraries/export/odt.php:311
+#: libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1243
 #: libraries/schema/Pdf_Relation_Schema.class.php:1264
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
@@ -178,9 +179,9 @@ msgstr "Nulový"
 msgid "Default"
 msgstr "Predvolené"
 
-#: db_datadict.php:174 libraries/export/htmlword.php:252
-#: libraries/export/latex.php:376 libraries/export/odt.php:314
-#: libraries/export/texytext.php:231
+#: db_datadict.php:174 libraries/export/htmlword.php:253
+#: libraries/export/latex.php:377 libraries/export/odt.php:315
+#: libraries/export/texytext.php:232
 #: libraries/schema/Pdf_Relation_Schema.class.php:1245
 #: libraries/schema/Pdf_Relation_Schema.class.php:1266 tbl_printview.php:147
 msgid "Links to"
@@ -188,9 +189,9 @@ msgstr "Linkovať na"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:255
-#: libraries/export/latex.php:379 libraries/export/odt.php:319
-#: libraries/export/texytext.php:234
+#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
+#: libraries/export/latex.php:380 libraries/export/odt.php:320
+#: libraries/export/texytext.php:235
 #: libraries/schema/Pdf_Relation_Schema.class.php:1256
 #: libraries/schema/Pdf_Relation_Schema.class.php:1267
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
@@ -200,9 +201,9 @@ msgstr "Komentáre"
 #: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
 #: libraries/Index.class.php:388 libraries/Index.class.php:688
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:325
-#: libraries/export/latex.php:444 libraries/export/odt.php:375
-#: libraries/export/texytext.php:304 libraries/mult_submits.inc.php:287
+#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/export/latex.php:445 libraries/export/odt.php:376
+#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1321
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
@@ -216,9 +217,9 @@ msgstr "Nie"
 #: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
 #: libraries/Index.class.php:387 libraries/Index.class.php:688
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:325
-#: libraries/export/latex.php:444 libraries/export/odt.php:375
-#: libraries/export/texytext.php:304 libraries/mult_submits.inc.php:46
+#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/export/latex.php:445 libraries/export/odt.php:376
+#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
@@ -244,7 +245,7 @@ msgid "View dump (schema) of database"
 msgstr "Zobraziť dump (schému) databázy"
 
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:371 navigation.php:323
+#: export.php:371 navigation.php:329
 msgid "No tables found in database."
 msgstr "Neboli nájdené žiadne tabuľky v tejto datábaze."
 
@@ -274,7 +275,7 @@ msgstr "Databáza %s bola skopírovaná na %s"
 msgid "Rename database to"
 msgstr "Premenovať databázu na"
 
-#: db_operations.php:409 server_status.php:793
+#: db_operations.php:409 server_status.php:799
 msgid "Command"
 msgstr "Príkaz"
 
@@ -356,7 +357,7 @@ msgstr "Upraviť alebo exportovať relačnú schému"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:497 libraries/db_structure.lib.php:37
-#: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:100
+#: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
 #: libraries/export/xml.php:331 libraries/header.inc.php:152
 #: libraries/schema/User_Schema.class.php:237 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
@@ -366,7 +367,7 @@ msgstr "Tabuľka"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
-#: libraries/import.lib.php:147 navigation.php:642 navigation.php:664
+#: libraries/import.lib.php:147 navigation.php:648 navigation.php:670
 #: tbl_printview.php:391 tbl_structure.php:395 tbl_structure.php:501
 #: tbl_structure.php:913
 msgid "Rows"
@@ -376,27 +377,27 @@ msgstr "Riadkov"
 msgid "Size"
 msgstr "Veľkosť"
 
-#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:749
-#: libraries/export/sql.php:1076
+#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
+#: libraries/export/sql.php:1077
 msgid "in use"
 msgstr "práve sa používa"
 
 #: db_printview.php:185 libraries/db_info.inc.php:86
-#: libraries/export/sql.php:704
+#: libraries/export/sql.php:705
 #: libraries/schema/Pdf_Relation_Schema.class.php:1218 tbl_printview.php:431
 #: tbl_structure.php:945
 msgid "Creation"
 msgstr "Vytvorenie"
 
 #: db_printview.php:194 libraries/db_info.inc.php:91
-#: libraries/export/sql.php:709
+#: libraries/export/sql.php:710
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223 tbl_printview.php:441
 #: tbl_structure.php:953
 msgid "Last update"
 msgstr "Posledná zmena"
 
 #: db_printview.php:203 libraries/db_info.inc.php:96
-#: libraries/export/sql.php:714
+#: libraries/export/sql.php:715
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:961
 msgid "Last check"
@@ -649,7 +650,7 @@ msgstr "Prechádzať"
 msgid "Delete the matches for the %s table?"
 msgstr "Odstrániť nájdené záznamy z tabuľky %s?"
 
-#: db_search.php:261 libraries/display_tbl.lib.php:1315
+#: db_search.php:261 libraries/display_tbl.lib.php:1323
 #: libraries/display_tbl.lib.php:2351
 #: libraries/schema/User_Schema.class.php:169
 #: libraries/schema/User_Schema.class.php:238
@@ -838,13 +839,13 @@ msgid "Tracked tables"
 msgstr "Sledované tabuľky"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
-#: libraries/export/htmlword.php:89 libraries/export/latex.php:162
-#: libraries/export/odt.php:120 libraries/export/pdf.php:100
-#: libraries/export/sql.php:568 libraries/export/texytext.php:77
+#: libraries/export/htmlword.php:90 libraries/export/latex.php:163
+#: libraries/export/odt.php:121 libraries/export/pdf.php:102
+#: libraries/export/sql.php:569 libraries/export/texytext.php:78
 #: libraries/export/xml.php:258 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
-#: server_privileges.php:2059 server_status.php:792
+#: server_privileges.php:2059 server_status.php:798
 #: server_synchronize.php:1190 server_synchronize.php:1194
 #: tbl_tracking.php:642
 msgid "Database"
@@ -862,7 +863,7 @@ msgstr "Vytvorené"
 msgid "Updated"
 msgstr "Aktualizované"
 
-#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:795
+#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
 #: sql.php:935 tbl_tracking.php:647
 msgid "Status"
 msgstr "Stav"
@@ -1150,23 +1151,23 @@ msgstr "Zavrieť"
 #: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
 #: libraries/common.lib.php:594 libraries/common.lib.php:1144
 #: libraries/common.lib.php:2960 libraries/common.lib.php:2961
-#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1279
+#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:168 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "Upraviť"
 
-#: js/messages.php:64 server_status.php:417
+#: js/messages.php:64 server_status.php:420
 #, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "Voľba serveru"
 
-#: js/messages.php:65 server_status.php:420
+#: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:66 server_status.php:439
+#: js/messages.php:66 server_status.php:445
 #, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
@@ -1179,13 +1180,13 @@ msgstr ""
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
 #: libraries/engines/innodb.lib.php:168 server_databases.php:219
-#: server_status.php:695 server_status.php:756 tbl_printview.php:348
+#: server_status.php:701 server_status.php:762 tbl_printview.php:348
 #: tbl_structure.php:832
 msgid "Total"
 msgstr "Celkom"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:72 server_status.php:596
+#: js/messages.php:72 server_status.php:602
 msgid "Other"
 msgstr ""
 
@@ -1217,7 +1218,7 @@ msgstr "Voľba serveru"
 msgid "Connections since last refresh"
 msgstr ""
 
-#: js/messages.php:82 server_status.php:788
+#: js/messages.php:82 server_status.php:794
 msgid "Processes"
 msgstr "Procesy"
 
@@ -1824,17 +1825,17 @@ msgstr[0] "Bol vložený %1$d riadok."
 msgstr[1] "Boli vložené %1$d riadky."
 msgstr[2] "Bolo vložených %1$d riadkov."
 
-#: libraries/RecentTable.class.php:113
+#: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
 msgstr "Nepodarilo sa uložiť najnovšíu tabuľku"
 
-#: libraries/RecentTable.class.php:148
+#: libraries/RecentTable.class.php:149
 #, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
 msgstr "Počítať tabuľky"
 
-#: libraries/RecentTable.class.php:154
+#: libraries/RecentTable.class.php:155
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no recent tables"
@@ -2082,7 +2083,7 @@ msgstr "Tabuľky"
 #: libraries/config/user_preferences.forms.php:240
 #: libraries/config/user_preferences.forms.php:271
 #: libraries/config/user_preferences.forms.php:276
-#: libraries/export/latex.php:215 libraries/export/sql.php:1057
+#: libraries/export/latex.php:216 libraries/export/sql.php:1058
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:801
 msgid "Data"
@@ -2114,7 +2115,7 @@ msgstr "Skontrolovať oprávnenia pre databázu &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Skontrolovať oprávnenia"
 
-#: libraries/common.inc.php:576
+#: libraries/common.inc.php:587
 msgid ""
 "phpMyAdmin was unable to read your configuration file!<br />This might "
 "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
@@ -2130,12 +2131,12 @@ msgstr ""
 "chýbajúcu úvodzovku alebo bodkočiarku.<br />Ak dostanete iba prázdnu "
 "stránku, všetko je v poriadku."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:598
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodarilo sa načítať prednastavenú konfiguráciu zo súboru: \"%1$s\""
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:603
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2143,26 +2144,26 @@ msgstr ""
 "Direktíva <tt>$cfg['PmaAbsoluteUri']</tt> MUSÍ byť nastavená v konfiguračnom "
 "súbore!"
 
-#: libraries/common.inc.php:622
+#: libraries/common.inc.php:633
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybný index servera: %s"
 
-#: libraries/common.inc.php:629
+#: libraries/common.inc.php:640
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné meno servera %1$s. Prosím, skontrolujte konfiguráciu."
 
-#: libraries/common.inc.php:638 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:821
+#: libraries/common.inc.php:832
 msgid "Invalid authentication method set in configuration:"
 msgstr "V konfigurácii je nastavená nesprávna autentifikačná metóda:"
 
-#: libraries/common.inc.php:924
+#: libraries/common.inc.php:935
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Mali by ste aktualizovať %s na verziu %s alebo vyššiu."
@@ -2202,7 +2203,7 @@ msgid "Documentation"
 msgstr "Dokumentácia"
 
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
-#: server_status.php:260 server_status.php:797
+#: server_status.php:260 server_status.php:803
 msgid "SQL query"
 msgstr "SQL dopyt"
 
@@ -2227,7 +2228,7 @@ msgid "Create PHP Code"
 msgstr "Vytvoriť PHP kód"
 
 #: libraries/common.lib.php:1178 libraries/config/messages.inc.php:473
-#: server_status.php:410 server_status.php:433 server_status.php:451
+#: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
 msgstr "Obnoviť"
 
@@ -2323,7 +2324,7 @@ msgstr "Funkčnosť %s je ovplyvnená známou chybou, pozri %s"
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
 #: libraries/config/user_preferences.forms.php:266
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:351
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:352
 #: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:623 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
@@ -2332,7 +2333,7 @@ msgstr "Štruktúra"
 
 #: libraries/common.lib.php:2761 libraries/common.lib.php:2768
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
-#: libraries/export/sql.php:24 libraries/import/sql.php:17
+#: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:88
 msgid "SQL"
@@ -2397,22 +2398,22 @@ msgstr "Otvorené"
 msgid "Closed"
 msgstr "Zatvorené"
 
-#: libraries/config.values.php:96 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:41 libraries/export/odt.php:33
-#: libraries/export/sql.php:121 libraries/export/texytext.php:23
+#: libraries/config.values.php:96 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:122 libraries/export/texytext.php:24
 #: libraries/import.lib.php:1172
 msgid "structure"
 msgstr "štruktúra"
 
-#: libraries/config.values.php:97 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:41 libraries/export/odt.php:33
-#: libraries/export/sql.php:122 libraries/export/texytext.php:23
+#: libraries/config.values.php:97 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:123 libraries/export/texytext.php:24
 msgid "data"
 msgstr "dáta"
 
-#: libraries/config.values.php:98 libraries/export/htmlword.php:24
-#: libraries/export/latex.php:41 libraries/export/odt.php:33
-#: libraries/export/sql.php:123 libraries/export/texytext.php:23
+#: libraries/config.values.php:98 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:124 libraries/export/texytext.php:24
 msgid "structure and data"
 msgstr "štruktúra a dáta"
 
@@ -2815,23 +2816,23 @@ msgstr "Kompresia"
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
 #: libraries/config/messages.inc.php:106 libraries/config/messages.inc.php:108
 #: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:144
-#: libraries/config/messages.inc.php:146 libraries/export/csv.php:27
-#: libraries/export/excel.php:24 libraries/export/htmlword.php:29
-#: libraries/export/latex.php:71 libraries/export/ods.php:24
-#: libraries/export/odt.php:57 libraries/export/texytext.php:27
-#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
+#: libraries/config/messages.inc.php:146 libraries/export/csv.php:30
+#: libraries/export/excel.php:25 libraries/export/htmlword.php:30
+#: libraries/export/latex.php:72 libraries/export/ods.php:25
+#: libraries/export/odt.php:58 libraries/export/texytext.php:28
+#: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
 msgstr "Pridať názvy polí na prvý riadok"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
-#: libraries/config/messages.inc.php:248 libraries/import/csv.php:75
-#: libraries/import/ldi.php:41
+#: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
+#: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
 msgstr "Polia uzatvorené do"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
-#: libraries/config/messages.inc.php:249 libraries/import/csv.php:80
-#: libraries/import/ldi.php:42
+#: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
+#: libraries/import/ldi.php:43
 msgid "Columns escaped by"
 msgstr "Polia uvedené pomocou"
 
@@ -2839,7 +2840,7 @@ msgstr "Polia uvedené pomocou"
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
 #: libraries/config/messages.inc.php:107 libraries/config/messages.inc.php:111
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
-#: libraries/config/messages.inc.php:147 libraries/export/texytext.php:26
+#: libraries/config/messages.inc.php:147 libraries/export/texytext.php:27
 msgid "Replace NULL by"
 msgstr "Nahradiť NULL hodnoty pomocou"
 
@@ -2848,13 +2849,13 @@ msgid "Remove CRLF characters within columns"
 msgstr "Odstrániť konce riadkov (CRLF) z polí"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
-#: libraries/config/messages.inc.php:253 libraries/import/csv.php:62
-#: libraries/import/ldi.php:40
+#: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
+#: libraries/import/ldi.php:41
 msgid "Columns terminated by"
 msgstr "Riadky ukončené"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
-#: libraries/import/csv.php:85 libraries/import/ldi.php:43
+#: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
 msgstr "Riadky ukončené"
 
@@ -2876,18 +2877,18 @@ msgstr "Vzor pre názov tabuľky"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
-#: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:23
-#: libraries/export/latex.php:39 libraries/export/odt.php:31
-#: libraries/export/sql.php:115 libraries/export/texytext.php:22
+#: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:24
+#: libraries/export/latex.php:40 libraries/export/odt.php:32
+#: libraries/export/sql.php:116 libraries/export/texytext.php:23
 msgid "Dump table"
 msgstr "Vypísať tabuľku"
 
-#: libraries/config/messages.inc.php:92 libraries/export/latex.php:31
+#: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
 msgstr "Zahrnúť nadpis tabuľky"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
-#: libraries/export/latex.php:49 libraries/export/latex.php:73
+#: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
 msgstr "Nadpis tabuľky"
 
@@ -2896,12 +2897,12 @@ msgid "Continued table caption"
 msgstr "Nadpis pokračovania tabuľky"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
-#: libraries/export/latex.php:53 libraries/export/latex.php:77
+#: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
 msgstr "Návestie"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 libraries/export/odt.php:325
+#: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
 #: libraries/tbl_properties.inc.php:142
 msgid "MIME type"
 msgstr "MIME typ"
@@ -2937,7 +2938,7 @@ msgstr "Použiť opačný apostrof pri názvoch tabuliek a polí"
 msgid "SQL compatibility mode"
 msgstr "Režim kompatibility SQL"
 
-#: libraries/config/messages.inc.php:122 libraries/export/sql.php:175
+#: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
 
@@ -2949,7 +2950,7 @@ msgstr "Dátum vytvorenia, poslednej zmeny a kontroly"
 msgid "Use delayed inserts"
 msgstr "Použiť oneskorené vloženia"
 
-#: libraries/config/messages.inc.php:125 libraries/export/sql.php:78
+#: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
 msgstr "Vypnúť kontrolu cudzích kľúčov"
 
@@ -2965,7 +2966,7 @@ msgstr "Použiť IGNORE"
 msgid "Syntax to use when inserting data"
 msgstr "Akú syntax použiť pre vkladanie dát"
 
-#: libraries/config/messages.inc.php:133 libraries/export/sql.php:267
+#: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
 msgstr "Maximálna veľkosť vytvoreného príkazu"
 
@@ -2973,7 +2974,7 @@ msgstr "Maximálna veľkosť vytvoreného príkazu"
 msgid "Export type"
 msgstr "Typ exportu"
 
-#: libraries/config/messages.inc.php:139 libraries/export/sql.php:70
+#: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
 msgstr "Uzatvoriť príkazy v transakcii"
 
@@ -3027,8 +3028,8 @@ msgstr "Prispôsobenie východzích nastavení"
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:236
 #: libraries/config/setup.forms.php:315
 #: libraries/config/user_preferences.forms.php:138
-#: libraries/config/user_preferences.forms.php:215 libraries/export/csv.php:16
-#: libraries/import/csv.php:21
+#: libraries/config/user_preferences.forms.php:215 libraries/export/csv.php:19
+#: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "CSV dáta"
 
@@ -3091,7 +3092,7 @@ msgstr "Import / export"
 msgid "Set import and export directories and compression options"
 msgstr "Nastaví adresáre pre import a export a voľby kompresie"
 
-#: libraries/config/messages.inc.php:175 libraries/export/latex.php:26
+#: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
 
@@ -3304,7 +3305,7 @@ msgstr "Textové polia"
 msgid "Customize text input fields"
 msgstr "Prispôsobenie vstupných textových polí"
 
-#: libraries/config/messages.inc.php:228 libraries/export/texytext.php:17
+#: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
 msgstr "Texy! text"
 
@@ -3359,12 +3360,12 @@ msgid "Partial import: allow interrupt"
 msgstr "Čiastočný import: povoliť prerušenie"
 
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
-#: libraries/import/csv.php:26 libraries/import/ldi.php:39
+#: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
 msgstr "Neprerušovať pri chybe v príkaze INSERT"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
-#: libraries/import/csv.php:25 libraries/import/ldi.php:38
+#: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
 msgstr "Nahradiť dáta v tabuľke súborom"
 
@@ -3380,7 +3381,7 @@ msgstr ""
 msgid "Format of imported file"
 msgstr "Formát importovaného súboru"
 
-#: libraries/config/messages.inc.php:251 libraries/import/ldi.php:45
+#: libraries/config/messages.inc.php:251 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
 msgstr "Použiť kľúčové slovo LOCAL"
 
@@ -4617,27 +4618,27 @@ msgid "Signon authentication"
 msgstr ""
 
 #: libraries/config/setup.forms.php:244
-#: libraries/config/user_preferences.forms.php:146 libraries/import/ldi.php:34
+#: libraries/config/user_preferences.forms.php:146 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr "CSV pomocou LOAD DATA"
 
 #: libraries/config/setup.forms.php:253 libraries/config/setup.forms.php:347
 #: libraries/config/user_preferences.forms.php:154
-#: libraries/config/user_preferences.forms.php:247 libraries/export/xls.php:17
-#: libraries/import/xls.php:20
+#: libraries/config/user_preferences.forms.php:247 libraries/export/xls.php:18
+#: libraries/import/xls.php:21
 msgid "Excel 97-2003 XLS Workbook"
 msgstr "Excel 97-2003 XLS pracovný zošit"
 
 #: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:351
 #: libraries/config/user_preferences.forms.php:157
 #: libraries/config/user_preferences.forms.php:251
-#: libraries/export/xlsx.php:17 libraries/import/xlsx.php:20
+#: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
 msgid "Excel 2007 XLSX Workbook"
 msgstr "Excel 2007 XLSX pracovný zošit"
 
 #: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:360
 #: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:260 libraries/export/ods.php:17
+#: libraries/config/user_preferences.forms.php:260 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr "Tabuľkový procesor Open Document"
@@ -4659,18 +4660,18 @@ msgstr "Nastavenia exportu databáz"
 
 #: libraries/config/setup.forms.php:324
 #: libraries/config/user_preferences.forms.php:224
-#: libraries/export/excel.php:17
+#: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV pre MS Excel dáta"
 
 #: libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:255
-#: libraries/export/htmlword.php:17
+#: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:364
-#: libraries/config/user_preferences.forms.php:264 libraries/export/odt.php:21
+#: libraries/config/user_preferences.forms.php:264 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr "Open Document Text"
 
@@ -4733,7 +4734,7 @@ msgid "No event with name %s found in database %s"
 msgstr "V tejto databáze neboli nájdené žiadne tabuľky"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
-#: libraries/export/sql.php:608
+#: libraries/export/sql.php:609
 msgid "Events"
 msgstr "Udalosti"
 
@@ -4793,7 +4794,7 @@ msgid "Routines"
 msgstr ""
 
 #: libraries/db_links.inc.php:105 libraries/display_triggers.inc.php:62
-#: libraries/export/sql.php:986 libraries/export/xml.php:38
+#: libraries/export/sql.php:987 libraries/export/xml.php:38
 msgid "Triggers"
 msgstr ""
 
@@ -4830,19 +4831,19 @@ msgid "Length/Values"
 msgstr "Dĺžka/Nastaviť*"
 
 #: libraries/db_routines.lib.php:693 libraries/display_tbl.lib.php:585
-#: libraries/export/codegen.php:40 libraries/export/csv.php:31
-#: libraries/export/excel.php:36 libraries/export/htmlword.php:32
-#: libraries/export/json.php:26 libraries/export/latex.php:34
-#: libraries/export/mediawiki.php:23 libraries/export/ods.php:28
-#: libraries/export/odt.php:26 libraries/export/pdf.php:28
-#: libraries/export/php_array.php:27 libraries/export/sql.php:82
-#: libraries/export/texytext.php:30 libraries/export/xls.php:28
-#: libraries/export/xlsx.php:28 libraries/export/xml.php:25
-#: libraries/export/yaml.php:29 libraries/import.lib.php:1145
-#: libraries/import.lib.php:1167 libraries/import/csv.php:32
-#: libraries/import/docsql.php:34 libraries/import/ldi.php:48
-#: libraries/import/ods.php:32 libraries/import/sql.php:19
-#: libraries/import/xls.php:27 libraries/import/xlsx.php:27
+#: libraries/export/codegen.php:41 libraries/export/csv.php:34
+#: libraries/export/excel.php:37 libraries/export/htmlword.php:33
+#: libraries/export/json.php:29 libraries/export/latex.php:35
+#: libraries/export/mediawiki.php:23 libraries/export/ods.php:29
+#: libraries/export/odt.php:27 libraries/export/pdf.php:29
+#: libraries/export/php_array.php:29 libraries/export/sql.php:83
+#: libraries/export/texytext.php:31 libraries/export/xls.php:29
+#: libraries/export/xlsx.php:29 libraries/export/xml.php:25
+#: libraries/export/yaml.php:30 libraries/import.lib.php:1145
+#: libraries/import.lib.php:1167 libraries/import/csv.php:33
+#: libraries/import/docsql.php:35 libraries/import/ldi.php:49
+#: libraries/import/ods.php:32 libraries/import/sql.php:20
+#: libraries/import/xls.php:28 libraries/import/xlsx.php:28
 #: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:889
 msgid "Options"
 msgstr "Nastavenia"
@@ -4908,7 +4909,7 @@ msgstr "Funkcia"
 
 #: libraries/db_routines.lib.php:851 libraries/replication_gui.lib.php:117
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
-#: pmd_general.php:775 server_status.php:1023 tbl_change.php:326
+#: pmd_general.php:775 server_status.php:1029 tbl_change.php:326
 #: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:865
 msgid "Value"
 msgstr "Hodnota"
@@ -5140,8 +5141,8 @@ msgid "Compression:"
 msgstr "Kompresia:"
 
 #: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:556
-#: libraries/export/sql.php:1057 libraries/tbl_properties.inc.php:559
-#: pmd_general.php:510 server_privileges.php:1955 server_status.php:829
+#: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:559
+#: pmd_general.php:510 server_privileges.php:1955 server_status.php:835
 msgid "None"
 msgstr "Žiadny"
 
@@ -5162,7 +5163,7 @@ msgid "View output as text"
 msgstr "Zobraziť výstup ako text"
 
 #: libraries/display_export.lib.php:333 libraries/display_import.lib.php:244
-#: libraries/export/codegen.php:37
+#: libraries/export/codegen.php:38
 msgid "Format:"
 msgstr "Formát:"
 
@@ -5360,16 +5361,16 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1280
+#: libraries/display_tbl.lib.php:1288
 msgid "Copy"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1295 libraries/display_tbl.lib.php:1307
+#: libraries/display_tbl.lib.php:1303 libraries/display_tbl.lib.php:1315
 msgid "The row has been deleted"
 msgstr "Riadok bol zmazaný"
 
-#: libraries/display_tbl.lib.php:1334 libraries/display_tbl.lib.php:2351
-#: server_status.php:825
+#: libraries/display_tbl.lib.php:1342 libraries/display_tbl.lib.php:2351
+#: server_status.php:831
 msgid "Kill"
 msgstr "Zabiť"
 
@@ -5437,7 +5438,7 @@ msgstr "Nebola nájdená platná cesta k obrázkom pre vzhľad %s!"
 msgid "There are no triggers to display."
 msgstr "Žiadny súbor pre nahrávanie"
 
-#: libraries/display_triggers.inc.php:77 server_status.php:794 sql.php:936
+#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
 msgstr "Čas"
 
@@ -5862,110 +5863,110 @@ msgstr ""
 msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
-#: libraries/export/csv.php:21 libraries/import/csv.php:27
+#: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
 msgstr "Polia oddelené s:"
 
-#: libraries/export/csv.php:22 libraries/import/csv.php:28
+#: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
 msgstr "Polia uzatvorené do:"
 
-#: libraries/export/csv.php:23 libraries/import/csv.php:29
+#: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
 msgstr "Polia uvedené pomocou:"
 
-#: libraries/export/csv.php:24 libraries/import/csv.php:30
+#: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
 msgstr "Riadky ukončené:"
 
-#: libraries/export/csv.php:25 libraries/export/excel.php:22
-#: libraries/export/htmlword.php:28 libraries/export/latex.php:79
-#: libraries/export/ods.php:23 libraries/export/odt.php:59
-#: libraries/export/xls.php:23 libraries/export/xlsx.php:23
+#: libraries/export/csv.php:28 libraries/export/excel.php:23
+#: libraries/export/htmlword.php:29 libraries/export/latex.php:80
+#: libraries/export/ods.php:24 libraries/export/odt.php:60
+#: libraries/export/xls.php:24 libraries/export/xlsx.php:24
 msgid "Replace NULL with:"
 msgstr "Nahradiť NULL hodnoty:"
 
-#: libraries/export/csv.php:26 libraries/export/excel.php:23
+#: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
-#: libraries/export/excel.php:32
+#: libraries/export/excel.php:33
 msgid "Excel edition:"
 msgstr "Verzia Excelu:"
 
-#: libraries/export/htmlword.php:27 libraries/export/latex.php:69
-#: libraries/export/odt.php:55 libraries/export/sql.php:207
-#: libraries/export/texytext.php:25 libraries/export/xml.php:45
+#: libraries/export/htmlword.php:28 libraries/export/latex.php:70
+#: libraries/export/odt.php:56 libraries/export/sql.php:208
+#: libraries/export/texytext.php:26 libraries/export/xml.php:45
 #, fuzzy
 msgid "Data dump options"
 msgstr "Nastavenia exportu databáz"
 
-#: libraries/export/htmlword.php:135 libraries/export/odt.php:175
-#: libraries/export/sql.php:1152 libraries/export/texytext.php:123
+#: libraries/export/htmlword.php:136 libraries/export/odt.php:176
+#: libraries/export/sql.php:1153 libraries/export/texytext.php:124
 msgid "Dumping data for table"
 msgstr "Sťahujem dáta pre tabuľku"
 
-#: libraries/export/htmlword.php:188 libraries/export/odt.php:245
-#: libraries/export/sql.php:975 libraries/export/texytext.php:170
+#: libraries/export/htmlword.php:189 libraries/export/odt.php:246
+#: libraries/export/sql.php:976 libraries/export/texytext.php:171
 msgid "Table structure for table"
 msgstr "Štruktúra tabuľky pre tabuľku"
 
-#: libraries/export/latex.php:13
+#: libraries/export/latex.php:14
 msgid "Content of table @TABLE@"
 msgstr "Obsah tabuľky @TABLE@"
 
-#: libraries/export/latex.php:14
+#: libraries/export/latex.php:15
 msgid "(continued)"
 msgstr "(pokračovanie)"
 
-#: libraries/export/latex.php:15
+#: libraries/export/latex.php:16
 msgid "Structure of table @TABLE@"
 msgstr "Štruktúra tabuľky @TABLE@"
 
-#: libraries/export/latex.php:47 libraries/export/odt.php:39
-#: libraries/export/sql.php:134
+#: libraries/export/latex.php:48 libraries/export/odt.php:40
+#: libraries/export/sql.php:135
 msgid "Object creation options"
 msgstr "Možnosti vytvárania objektov"
 
-#: libraries/export/latex.php:51 libraries/export/latex.php:75
+#: libraries/export/latex.php:52 libraries/export/latex.php:76
 msgid "Table caption (continued)"
 msgstr "Nadpis tabuľky (pokračovanie)"
 
-#: libraries/export/latex.php:56 libraries/export/odt.php:42
-#: libraries/export/sql.php:53
+#: libraries/export/latex.php:57 libraries/export/odt.php:43
+#: libraries/export/sql.php:54
 msgid "Display foreign key relationships"
 msgstr "Zobraziť vzťahy cudzích kľúčov"
 
-#: libraries/export/latex.php:59 libraries/export/odt.php:45
+#: libraries/export/latex.php:60 libraries/export/odt.php:46
 msgid "Display comments"
 msgstr "Zobraziť komentáre"
 
-#: libraries/export/latex.php:62 libraries/export/odt.php:48
-#: libraries/export/sql.php:60
+#: libraries/export/latex.php:63 libraries/export/odt.php:49
+#: libraries/export/sql.php:61
 msgid "Display MIME types"
 msgstr "Zobraziť MIME typy"
 
-#: libraries/export/latex.php:139 libraries/export/sql.php:452
+#: libraries/export/latex.php:140 libraries/export/sql.php:453
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
 #: libraries/replication_gui.lib.php:331 server_privileges.php:713
 #: server_privileges.php:716 server_privileges.php:772
-#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:791
+#: server_privileges.php:1607 server_privileges.php:2150 server_status.php:797
 msgid "Host"
 msgstr "Hostiteľ"
 
-#: libraries/export/latex.php:144 libraries/export/sql.php:457
+#: libraries/export/latex.php:145 libraries/export/sql.php:458
 #: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Vygenerované"
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:459
+#: libraries/export/latex.php:146 libraries/export/sql.php:460
 #: libraries/export/xml.php:111 main.php:162
 msgid "Server version"
 msgstr "Verzia serveru"
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:460
+#: libraries/export/latex.php:147 libraries/export/sql.php:461
 #: libraries/export/xml.php:112
 msgid "PHP Version"
 msgstr "Verzia PHP"
@@ -5974,149 +5975,149 @@ msgstr "Verzia PHP"
 msgid "MediaWiki Table"
 msgstr ""
 
-#: libraries/export/pdf.php:17
+#: libraries/export/pdf.php:18
 msgid "PDF"
 msgstr "PDF"
 
-#: libraries/export/pdf.php:23
+#: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Generuje report obsahujúci dáta jednej tabuľky)"
 
-#: libraries/export/pdf.php:24
+#: libraries/export/pdf.php:25
 msgid "Report title:"
 msgstr "Názov výpisu:"
 
-#: libraries/export/php_array.php:16
+#: libraries/export/php_array.php:18
 msgid "PHP array"
 msgstr "PHP pole"
 
-#: libraries/export/sql.php:37
+#: libraries/export/sql.php:38
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:42
+#: libraries/export/sql.php:43
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Pridať vlastný komentár do hlavičky (\n"
 " oddeľuje riadky):"
 
-#: libraries/export/sql.php:47
+#: libraries/export/sql.php:48
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: libraries/export/sql.php:94
+#: libraries/export/sql.php:95
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/export/sql.php:106 libraries/export/sql.php:161
-#: libraries/export/sql.php:166
+#: libraries/export/sql.php:107 libraries/export/sql.php:162
+#: libraries/export/sql.php:167
 #, php-format
 msgid "Add %s statement"
 msgstr "Pridať údaj %s"
 
-#: libraries/export/sql.php:144
+#: libraries/export/sql.php:145
 msgid "Add statements:"
 msgstr "Pridať príkazy:"
 
-#: libraries/export/sql.php:196
+#: libraries/export/sql.php:197
 msgid ""
 "Enclose table and field names with backquotes <i>(Protects field and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:216
+#: libraries/export/sql.php:217
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/export/sql.php:221
+#: libraries/export/sql.php:222
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/export/sql.php:227
+#: libraries/export/sql.php:228
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/export/sql.php:237
+#: libraries/export/sql.php:238
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/export/sql.php:250
+#: libraries/export/sql.php:251
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/export/sql.php:256
+#: libraries/export/sql.php:257
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:257
+#: libraries/export/sql.php:258
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:258
+#: libraries/export/sql.php:259
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:259
+#: libraries/export/sql.php:260
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/export/sql.php:274
+#: libraries/export/sql.php:275
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:281
+#: libraries/export/sql.php:282
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:320 libraries/export/xml.php:34
+#: libraries/export/sql.php:321 libraries/export/xml.php:34
 msgid "Procedures"
 msgstr "Procedúry"
 
-#: libraries/export/sql.php:334 libraries/export/xml.php:32
+#: libraries/export/sql.php:335 libraries/export/xml.php:32
 msgid "Functions"
 msgstr "Funkcie"
 
-#: libraries/export/sql.php:808
+#: libraries/export/sql.php:809
 msgid "Constraints for dumped tables"
 msgstr "Obmedzenie pre exportované tabuľky"
 
-#: libraries/export/sql.php:817
+#: libraries/export/sql.php:818
 msgid "Constraints for table"
 msgstr "Obmedzenie pre tabuľku"
 
-#: libraries/export/sql.php:917
+#: libraries/export/sql.php:918
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPY PRE TABUĽKU"
 
-#: libraries/export/sql.php:929
+#: libraries/export/sql.php:930
 msgid "RELATIONS FOR TABLE"
 msgstr "PREPOJENIA PRE TABUĽKU"
 
-#: libraries/export/sql.php:998
+#: libraries/export/sql.php:999
 #, fuzzy
 msgid "Structure for view"
 msgstr "Iba štruktúru"
 
-#: libraries/export/sql.php:1007
+#: libraries/export/sql.php:1008
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -6189,62 +6190,62 @@ msgstr "Prejsť do tabuľky"
 msgid "Go to view"
 msgstr "Prejsť na Prejsť na pohľad"
 
-#: libraries/import/csv.php:37 libraries/import/ods.php:26
-#: libraries/import/xls.php:24 libraries/import/xlsx.php:24
+#: libraries/import/csv.php:38 libraries/import/ods.php:26
+#: libraries/import/xls.php:25 libraries/import/xlsx.php:25
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/import/csv.php:39
+#: libraries/import/csv.php:40
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/import/csv.php:41
+#: libraries/import/csv.php:42
 msgid "Column names: "
 msgstr "Názvy stĺpcov: "
 
-#: libraries/import/csv.php:61 libraries/import/csv.php:74
-#: libraries/import/csv.php:79 libraries/import/csv.php:84
+#: libraries/import/csv.php:62 libraries/import/csv.php:75
+#: libraries/import/csv.php:80 libraries/import/csv.php:85
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Chybný parameter pre CSV import: %s"
 
-#: libraries/import/csv.php:131
+#: libraries/import/csv.php:132
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/import/csv.php:189 libraries/import/csv.php:436
+#: libraries/import/csv.php:190 libraries/import/csv.php:437
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Chybný formát v CSV vstupe na riadku %d."
 
-#: libraries/import/csv.php:324
+#: libraries/import/csv.php:325
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Chybný počet položiek v CSV vstupe na riadku %d."
 
-#: libraries/import/docsql.php:27
+#: libraries/import/docsql.php:28
 msgid "DocSQL"
 msgstr ""
 
-#: libraries/import/docsql.php:31 libraries/tbl_properties.inc.php:598
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:598
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Table name"
 msgstr "Názov tabuľky"
 
-#: libraries/import/ldi.php:44 libraries/schema/User_Schema.class.php:316
+#: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:316
 #: view_create.php:147
 msgid "Column names"
 msgstr "Názvy stĺpcov"
 
-#: libraries/import/ldi.php:56
+#: libraries/import/ldi.php:57
 msgid "This plugin does not support compressed imports!"
 msgstr "Tento plug-in nepodporuje import komprimovaných súborov!"
 
@@ -6256,11 +6257,11 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: libraries/import/sql.php:32
+#: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
 msgstr "Režim kompatibility SQL:"
 
-#: libraries/import/sql.php:42
+#: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Nepoužívať <code>AUTO_INCREMENT</code> pre nulové hodnoty"
 
@@ -6634,7 +6635,7 @@ msgid "Slave status"
 msgstr "Zobraziť stav podriadených hostov"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
-#: server_status.php:1022 server_variables.php:108
+#: server_status.php:1028 server_variables.php:108
 msgid "Variable"
 msgstr "Premenná"
 
@@ -6836,12 +6837,12 @@ msgid "Toggle scratchboard"
 msgstr "zobraziť grafický návrh"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:482
+#: libraries/select_lang.lib.php:484
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:487 libraries/select_lang.lib.php:493
-#: libraries/select_lang.lib.php:499
+#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
+#: libraries/select_lang.lib.php:501
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Neznámy jazyk: %1$s."
@@ -6909,7 +6910,7 @@ msgstr "Spustiť SQL príkaz(y) na serveri %s"
 msgid "Run SQL query/queries on database %s"
 msgstr "Spustiť SQL dopyt/dopyty na databázu %s"
 
-#: libraries/sql_query_form.lib.php:296 navigation.php:296
+#: libraries/sql_query_form.lib.php:296 navigation.php:302
 #: setup/frames/index.inc.php:231
 msgid "Clear"
 msgstr "Vyčistiť"
@@ -7320,7 +7321,7 @@ msgid "Protocol version"
 msgstr "Verzia protokolu"
 
 #: main.php:165 server_privileges.php:1452 server_privileges.php:1606
-#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:790
+#: server_privileges.php:1730 server_privileges.php:2149 server_status.php:796
 msgid "User"
 msgstr "Používateľ"
 
@@ -7458,24 +7459,24 @@ msgid ""
 "issues."
 msgstr ""
 
-#: navigation.php:207 server_databases.php:281 server_synchronize.php:1202
+#: navigation.php:213 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
 msgstr "Žiadne databázy"
 
-#: navigation.php:297
+#: navigation.php:303
 msgid "Filter"
 msgstr "Filter"
 
-#: navigation.php:297
+#: navigation.php:303
 msgid "filter tables by name"
 msgstr "filtrovať tabuľky podľa mena"
 
-#: navigation.php:330 navigation.php:331
+#: navigation.php:336 navigation.php:337
 msgctxt "short form"
 msgid "Create table"
 msgstr "Vytvoriť tabuľku"
 
-#: navigation.php:336 navigation.php:508
+#: navigation.php:342 navigation.php:514
 msgid "Please select a database"
 msgstr "Prosím vyberte si databázu"
 
@@ -7763,13 +7764,13 @@ msgstr "Vyberte binárny log na zobrazenie"
 msgid "Files"
 msgstr "Súbory"
 
-#: server_binlog.php:169 server_binlog.php:171 server_status.php:800
-#: server_status.php:802
+#: server_binlog.php:169 server_binlog.php:171 server_status.php:806
+#: server_status.php:808
 msgid "Truncate Shown Queries"
 msgstr "Zobraziť skrátene dopyty"
 
-#: server_binlog.php:177 server_binlog.php:179 server_status.php:800
-#: server_status.php:802
+#: server_binlog.php:177 server_binlog.php:179 server_status.php:806
+#: server_status.php:808
 msgid "Show Full Queries"
 msgstr "Zobraziť kompletné dopyty"
 
@@ -8541,61 +8542,67 @@ msgstr "Voľba serveru"
 msgid "All status variables"
 msgstr ""
 
-#: server_status.php:456
+#: server_status.php:413 server_status.php:439
+#, fuzzy
+#| msgid "Refresh"
+msgid "Refresh rate:"
+msgstr "Obnoviť"
+
+#: server_status.php:462
 #, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Nezmeniť heslo"
 
-#: server_status.php:461
+#: server_status.php:467
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Zobraziť otvorené tabuľky"
 
-#: server_status.php:465
+#: server_status.php:471
 msgid "Filter by category..."
 msgstr ""
 
-#: server_status.php:478
+#: server_status.php:484
 #, fuzzy
 #| msgid "Related Links"
 msgid "Related links:"
 msgstr "Súvisiace odkazy"
 
-#: server_status.php:522 server_status.php:557 server_status.php:670
-#: server_status.php:715
+#: server_status.php:528 server_status.php:563 server_status.php:676
+#: server_status.php:721
 msgid "per hour"
 msgstr "za hodinu"
 
-#: server_status.php:526
+#: server_status.php:532
 msgid "per minute"
 msgstr "za minútu"
 
-#: server_status.php:531
+#: server_status.php:537
 msgid "per second"
 msgstr "za sekundu"
 
-#: server_status.php:552
+#: server_status.php:558
 msgid "Query type"
 msgstr "Typ dopytu"
 
 #. l10n: # = Amount of queries
-#: server_status.php:555
+#: server_status.php:561
 msgid "#"
 msgstr ""
 
-#: server_status.php:619
+#: server_status.php:625
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:627
+#: server_status.php:633
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
 msgstr "Tento server beží %s. Bol spustený %s."
 
-#: server_status.php:637
+#: server_status.php:643
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -8603,18 +8610,18 @@ msgstr ""
 "Tento server je nakonfigurovaný ako <b>master</b> a <b>slave</b> v "
 "<b>replikačnom</b> procese."
 
-#: server_status.php:639
+#: server_status.php:645
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Tento MYSQL server je nakonfigurovaný ako <b>master</b> v <b>replikačnom</b> "
 "procese."
 
-#: server_status.php:641
+#: server_status.php:647
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Tento MYSQL server pracuje ako <b>slave</b> v <b>replikačnom</b> procese."
 
-#: server_status.php:643
+#: server_status.php:649
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -8622,15 +8629,15 @@ msgstr ""
 "Pre viac informácií o stave replikácie na tomto serveri navštívte prosím <a "
 "href=#replication>sekciu replikácie</a>."
 
-#: server_status.php:653
+#: server_status.php:659
 msgid "Replication status"
 msgstr "Stav replikácie"
 
-#: server_status.php:669
+#: server_status.php:675
 msgid "Traffic"
 msgstr "Vyťaženie"
 
-#: server_status.php:669
+#: server_status.php:675
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -8638,41 +8645,41 @@ msgstr ""
 "Na vyťaženom serveri môže dôjsť k pretečeniu počítadiel, takže štatistiky "
 "servera môžu byť nepresné."
 
-#: server_status.php:675
+#: server_status.php:681
 msgid "Received"
 msgstr "Prijaté"
 
-#: server_status.php:685
+#: server_status.php:691
 msgid "Sent"
 msgstr "Odoslané"
 
-#: server_status.php:714
+#: server_status.php:720
 msgid "Connections"
 msgstr "Spojenia"
 
-#: server_status.php:721
+#: server_status.php:727
 msgid "max. concurrent connections"
 msgstr "max. súčasných pripojení"
 
-#: server_status.php:728
+#: server_status.php:734
 msgid "Failed attempts"
 msgstr "Nepodarených pokusov"
 
-#: server_status.php:742
+#: server_status.php:748
 msgid "Aborted"
 msgstr "Prerušené"
 
-#: server_status.php:789
+#: server_status.php:795
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:850
+#: server_status.php:856
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Nepodarilo sa pripojiť k MySQL serveru"
 
-#: server_status.php:851
+#: server_status.php:857
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -8682,16 +8689,16 @@ msgstr ""
 "ale zároveň prekročili hodnotu binlog_cache_size a museli tak použiť dočasný "
 "súbor na uloženie príkazov transakcie."
 
-#: server_status.php:852
+#: server_status.php:858
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Počet transakcií, ktoré využili vyrovnávaciu pamäť binárneho logu."
 
-#: server_status.php:853
+#: server_status.php:859
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:854
+#: server_status.php:860
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8703,11 +8710,11 @@ msgstr ""
 "hodnotu tmp_table_size  aby boli dočasné tabuľky ukladané do pamäte a nie na "
 "disk."
 
-#: server_status.php:855
+#: server_status.php:861
 msgid "How many temporary files mysqld has created."
 msgstr "Počet dočasných súborov vytvorených servrom mysqld."
 
-#: server_status.php:856
+#: server_status.php:862
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -8715,7 +8722,7 @@ msgstr ""
 "Počet dočasných, v pamäti uložených tabuliek, vytvorených servrom pri "
 "vykonávaní príkazov."
 
-#: server_status.php:857
+#: server_status.php:863
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -8723,7 +8730,7 @@ msgstr ""
 "Počet riadkov pridaných príkazom INSERT DELAYED, pri ktorých sa vyskytla "
 "chyba (pravdepodobne opakujúci sa kľúč)."
 
-#: server_status.php:858
+#: server_status.php:864
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8731,23 +8738,23 @@ msgstr ""
 "Počet vlákien používaných príkazmi INSERT DELAYED. Každá samostatná tabuľka, "
 "na ktorú je použitý príkaz INSERT DELAYED, ma svoje vlastné vlákno."
 
-#: server_status.php:859
+#: server_status.php:865
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Počet riadkov vložených príkazom INSERT DELAYED."
 
-#: server_status.php:860
+#: server_status.php:866
 msgid "The number of executed FLUSH statements."
 msgstr "Počet vykonaných príkazov FLUSH."
 
-#: server_status.php:861
+#: server_status.php:867
 msgid "The number of internal COMMIT statements."
 msgstr "Počet interných príkazov COMMIT."
 
-#: server_status.php:862
+#: server_status.php:868
 msgid "The number of times a row was deleted from a table."
 msgstr "Koľkokrát bol z tabuľky odstránený riadok."
 
-#: server_status.php:863
+#: server_status.php:869
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -8757,7 +8764,7 @@ msgstr ""
 "tabuľky s daným menom. Tento proces sa nazýva objavovanie. Handler_discover "
 "zobrazuje počet doposiaľ objavených tabuliek."
 
-#: server_status.php:864
+#: server_status.php:870
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8767,7 +8774,7 @@ msgstr ""
 "znamená to že server vykonáva príliš veľa kompletných prechádzaní indexov; "
 "napríklad, SELECT col1 FROM foo, za predpokladu že col1 je indexovaný."
 
-#: server_status.php:865
+#: server_status.php:871
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8775,7 +8782,7 @@ msgstr ""
 "Počet požiadavkov na načítanie riadku podľa kľúča. Ak je táto hodnota "
 "vysoká, je to dobrým znamením že sú príkazy a tabuľky správne indexované."
 
-#: server_status.php:866
+#: server_status.php:872
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8785,7 +8792,7 @@ msgstr ""
 "Táto hodnota sa zvyšuje ak sa načítava indexovaný stĺpec v danom rozsahu "
 "alebo ak sa vykonáva prehľadávanie indexu."
 
-#: server_status.php:867
+#: server_status.php:873
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -8794,7 +8801,7 @@ msgstr ""
 "čítacia metóda sa použiva hlavne na optimalizáciu príkazov typu ORDER BY ... "
 "DESC."
 
-#: server_status.php:868
+#: server_status.php:874
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8807,7 +8814,7 @@ msgstr ""
 "kompletne prehľadávať tabuľky, alebo sa používajú zjednotenia, ktoré správne "
 "nevyužívajú kľúče."
 
-#: server_status.php:869
+#: server_status.php:875
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8819,35 +8826,35 @@ msgstr ""
 "tabuľky nie sú správne indexované alebo príkazy nedostatočne využívajú "
 "dostupné indexy."
 
-#: server_status.php:870
+#: server_status.php:876
 msgid "The number of internal ROLLBACK statements."
 msgstr "Počet interných príkazov ROLLBACK."
 
-#: server_status.php:871
+#: server_status.php:877
 msgid "The number of requests to update a row in a table."
 msgstr "Počet požiadavkov na zmenu záznamu (riadku) v tabuľke."
 
-#: server_status.php:872
+#: server_status.php:878
 msgid "The number of requests to insert a row in a table."
 msgstr "Počet požiadavkov na vloženie nového záznamu (riadku) do tabuľky."
 
-#: server_status.php:873
+#: server_status.php:879
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Počet stránok obsahujúcich dáta (nečistých aj čistých)."
 
-#: server_status.php:874
+#: server_status.php:880
 msgid "The number of pages currently dirty."
 msgstr "Počet nečistých stránok."
 
-#: server_status.php:875
+#: server_status.php:881
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Počet stránok, na ktoré je požiadavka na vyprázdnenie."
 
-#: server_status.php:876
+#: server_status.php:882
 msgid "The number of free pages."
 msgstr "Počet voľných stránok."
 
-#: server_status.php:877
+#: server_status.php:883
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8857,7 +8864,7 @@ msgstr ""
 "momentálne číta alebo zapisuje, prípadne nemôžu byť vyprázdnené ani "
 "odstránené z nejakého iného dôvodu."
 
-#: server_status.php:878
+#: server_status.php:884
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8869,11 +8876,11 @@ msgstr ""
 "hodnota sa tiež môže vypočítať ako Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status.php:879
+#: server_status.php:885
 msgid "Total size of buffer pool, in pages."
 msgstr "Celkový počet stránok vo vyrovnávacej pamäti InnoDB."
 
-#: server_status.php:880
+#: server_status.php:886
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8881,7 +8888,7 @@ msgstr ""
 "Počet \"náhodných\" predčítaní vykonaných InnoDB. Táto situácia nastáva pri "
 "príkazoch, ktoré prehľadávajú veľkú časť tabuľky, ale v náhodnom poradí."
 
-#: server_status.php:881
+#: server_status.php:887
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8889,11 +8896,11 @@ msgstr ""
 "Počet sekvenčných predčítaní vykonaných InnoDB. Táto situácia nastáva pri "
 "vykonávaní sekvenčného prehľadávania celej tabuľky."
 
-#: server_status.php:882
+#: server_status.php:888
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Počet požiadavkov na logické načítavanie."
 
-#: server_status.php:883
+#: server_status.php:889
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8901,7 +8908,7 @@ msgstr ""
 "Počet logických načítaní, ktoré sa nemohli vykonať z vyrovnávacej pamäte a "
 "namiesto toho bolo vykonané načítanie celej jednej stránky."
 
-#: server_status.php:884
+#: server_status.php:890
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8915,88 +8922,88 @@ msgstr ""
 "počet týchto čakaní a ak bola správne nastavená veľkosť vyrovnávacej pamäte, "
 "mala by byť nízka."
 
-#: server_status.php:885
+#: server_status.php:891
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Počet zápisov do vyrovnávacej pamäte InnoDB."
 
-#: server_status.php:886
+#: server_status.php:892
 msgid "The number of fsync() operations so far."
 msgstr "Počet vykonaných fsync() operácií."
 
-#: server_status.php:887
+#: server_status.php:893
 msgid "The current number of pending fsync() operations."
 msgstr "Aktuálny počet prebiehajúcich fsync() operácií."
 
-#: server_status.php:888
+#: server_status.php:894
 msgid "The current number of pending reads."
 msgstr "Počet aktuálne prebiehajúcich načítavaní."
 
-#: server_status.php:889
+#: server_status.php:895
 msgid "The current number of pending writes."
 msgstr "Počet aktuálne prebiehajúcich zápisov."
 
-#: server_status.php:890
+#: server_status.php:896
 msgid "The amount of data read so far, in bytes."
 msgstr "Množstvo už načítaných dát, v bajtoch."
 
-#: server_status.php:891
+#: server_status.php:897
 msgid "The total number of data reads."
 msgstr "Celkový počet načítaní dát."
 
-#: server_status.php:892
+#: server_status.php:898
 msgid "The total number of data writes."
 msgstr "Celkový počet zápisov dát."
 
-#: server_status.php:893
+#: server_status.php:899
 msgid "The amount of data written so far, in bytes."
 msgstr "Množstvo už zapísaných dát, v bajtoch."
 
-#: server_status.php:894
+#: server_status.php:900
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Počet vykonaných dvojitých zápisov a počet stránok zapísaných pre tento účel."
 
-#: server_status.php:895
+#: server_status.php:901
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Počet vykonaných dvojitých zápisov a počet stránok zapísaných pre tento účel."
 
-#: server_status.php:896
+#: server_status.php:902
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 "Počet čakaní na vyprázdnenie vyrovnávacej pamäte logu z dôvodu jej zaplnenia."
 
-#: server_status.php:897
+#: server_status.php:903
 msgid "The number of log write requests."
 msgstr "Počet požiadaviek na zápis do logovacieho súboru."
 
-#: server_status.php:898
+#: server_status.php:904
 msgid "The number of physical writes to the log file."
 msgstr "Počet fyzických zápisov do logovacieho súboru."
 
-#: server_status.php:899
+#: server_status.php:905
 msgid "The number of fsync() writes done to the log file."
 msgstr "Počet fsync() zápisov vykonaných do logovacieho súboru."
 
-#: server_status.php:900
+#: server_status.php:906
 msgid "The number of pending log file fsyncs."
 msgstr "Počet prebiehajúcich synchronizácií logovacieho súboru."
 
-#: server_status.php:901
+#: server_status.php:907
 msgid "Pending log file writes."
 msgstr "Počet prebiehajúcich zápisov do logovacieho súboru."
 
-#: server_status.php:902
+#: server_status.php:908
 msgid "The number of bytes written to the log file."
 msgstr "Množstvo bajtov zapísaných do logovacieho súboru."
 
-#: server_status.php:903
+#: server_status.php:909
 msgid "The number of pages created."
 msgstr "Počet vytvorených stránok."
 
-#: server_status.php:904
+#: server_status.php:910
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -9005,51 +9012,51 @@ msgstr ""
 "hodnôt sa udáva v stránkach; pomocou veľkosti stránky je možné ich premeniť "
 "na bajty."
 
-#: server_status.php:905
+#: server_status.php:911
 msgid "The number of pages read."
 msgstr "Počet načítaných stránok."
 
-#: server_status.php:906
+#: server_status.php:912
 msgid "The number of pages written."
 msgstr "Počet zapísaných stránok."
 
-#: server_status.php:907
+#: server_status.php:913
 msgid "The number of row locks currently being waited for."
 msgstr "Počet zámkov na riadky, na ktoré sa čaká."
 
-#: server_status.php:908
+#: server_status.php:914
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Priemerný čas potrebný na získanie zámku na riadok, v milisekundách."
 
-#: server_status.php:909
+#: server_status.php:915
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Celkový čas potrebný na získanie zámku na riadok, v milisekundách."
 
-#: server_status.php:910
+#: server_status.php:916
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maximálny čas potrebný na získanie zámku na riadok, v milisekundách."
 
-#: server_status.php:911
+#: server_status.php:917
 msgid "The number of times a row lock had to be waited for."
 msgstr "Koľkokrát sa muselo čakať na zámok na riadok."
 
-#: server_status.php:912
+#: server_status.php:918
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Počet záznamov (riadkov) odstránených z InnoDB tabuliek."
 
-#: server_status.php:913
+#: server_status.php:919
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Počet záznamov (riadkov) vložených do InnoDB tabuliek."
 
-#: server_status.php:914
+#: server_status.php:920
 msgid "The number of rows read from InnoDB tables."
 msgstr "Počet načítaných záznamov (riadkov) z InnoDB tabuliek."
 
-#: server_status.php:915
+#: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Počet upravených záznamov (riadkov) v InnoDB tabuľkách."
 
-#: server_status.php:916
+#: server_status.php:922
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -9058,7 +9065,7 @@ msgstr ""
 "neboli zapísané na disk. Predtým sa táto hodnota nazývala "
 "Not_flushed_key_blocks."
 
-#: server_status.php:917
+#: server_status.php:923
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -9066,7 +9073,7 @@ msgstr ""
 "Počet nevyužitých blokov vo vyrovnávacej pamäti kľúčov. Z tejto hodnoty "
 "môžete zistiť koľko vyrovnávacej pamäte sa práve používa."
 
-#: server_status.php:918
+#: server_status.php:924
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -9075,11 +9082,11 @@ msgstr ""
 "Počet využitých blokov vo vyrovnávacej pamäti kľúčov. Táto hodnota určuje "
 "najväčšie množstvo blokov, ktoré kedy naraz použité."
 
-#: server_status.php:919
+#: server_status.php:925
 msgid "The number of requests to read a key block from the cache."
 msgstr "Počet požiadavkov na načítanie kľúčového bloku z vyrovnávacej pamäti."
 
-#: server_status.php:920
+#: server_status.php:926
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -9090,15 +9097,15 @@ msgstr ""
 "je príliš malá. Úspešnosť vyrovnávacej pamäte si môžte vypočítať zo vzťahu "
 "Key_reads/Key_read_requests."
 
-#: server_status.php:921
+#: server_status.php:927
 msgid "The number of requests to write a key block to the cache."
 msgstr "Počet požiadavkov na zápis kľúčového bloku do vyrovnávacej pamäti."
 
-#: server_status.php:922
+#: server_status.php:928
 msgid "The number of physical writes of a key block to disk."
 msgstr "Počet fyzických zápisov kľúčového bloku na disk."
 
-#: server_status.php:923
+#: server_status.php:929
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -9109,17 +9116,17 @@ msgstr ""
 "požiadavku. Prednastavená hodnota 0 znamená, že doposiaľ neboli skompilované "
 "žiadne príkazy."
 
-#: server_status.php:924
+#: server_status.php:930
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:925
+#: server_status.php:931
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Počet riadkov čakajúcich na zápis cez INSERT DELAYED."
 
-#: server_status.php:926
+#: server_status.php:932
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -9127,38 +9134,38 @@ msgstr ""
 "Počet doposiaľ otvorených tabuliek. Ak je táto hodnota príliš vysoká, "
 "pravdepodobne je vyrovnávacia pamäť pre tabuľky príliš malá."
 
-#: server_status.php:927
+#: server_status.php:933
 msgid "The number of files that are open."
 msgstr "Počet otvorených súborov."
 
-#: server_status.php:928
+#: server_status.php:934
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Počet otvorených streamov (väčšinou využívané na logovanie)."
 
-#: server_status.php:929
+#: server_status.php:935
 msgid "The number of tables that are open."
 msgstr "Počet práve otvorených tabuliek."
 
-#: server_status.php:930
+#: server_status.php:936
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:931
+#: server_status.php:937
 msgid "The amount of free memory for query cache."
 msgstr "Veľkosť voľnej pamäti pre vyrovnávaciu pamäť príkazov."
 
-#: server_status.php:932
+#: server_status.php:938
 msgid "The number of cache hits."
 msgstr "Počet zásahov vyrovnávacej pamäti."
 
-#: server_status.php:933
+#: server_status.php:939
 msgid "The number of queries added to the cache."
 msgstr "Počet príkazov pridaných do vyrovnávacej pamäti."
 
-#: server_status.php:934
+#: server_status.php:940
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -9170,7 +9177,7 @@ msgstr ""
 "veľkosti vyrovnávacej pamäte príkazov. Vyrovnávacia pamäť príkazov používa "
 "stratégiu (LRU), odstránenie najdlhšie nepoužitých príkazov ako prvých."
 
-#: server_status.php:935
+#: server_status.php:941
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -9178,19 +9185,19 @@ msgstr ""
 "Počet príkazov neumiestnených do vyrovnávacej pamäti (nie sú cachovateľné "
 "alebo nevyhovujú nastaveniu query_cache_type)."
 
-#: server_status.php:936
+#: server_status.php:942
 msgid "The number of queries registered in the cache."
 msgstr "Počet príkazov registrovaných vo vyrovnávacej pamäti."
 
-#: server_status.php:937
+#: server_status.php:943
 msgid "The total number of blocks in the query cache."
 msgstr "Celkové množstvo blokov vo vyrovnávacej pamäti príkazov."
 
-#: server_status.php:938
+#: server_status.php:944
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Stav failsafe replikácie (zatiaľ neimplementované)."
 
-#: server_status.php:939
+#: server_status.php:945
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -9198,12 +9205,12 @@ msgstr ""
 "Počet spojení, ktoré nevyužívajú indexy. Ak sa táto hodnota nerovná 0, mali "
 "by ste starostlivo skontrolovať indexy vašich tabuliek."
 
-#: server_status.php:940
+#: server_status.php:946
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Počet spojení, ktoré na referenčnej tabuľke využili intervalové vyhľadávanie."
 
-#: server_status.php:941
+#: server_status.php:947
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -9212,7 +9219,7 @@ msgstr ""
 "(ak táto hodnota nie je 0, mali by ste starostlivo skontrolovať indexy "
 "vašich tabuliek.)"
 
-#: server_status.php:942
+#: server_status.php:948
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -9220,15 +9227,15 @@ msgstr ""
 "Počet spojení, ktoré na prvej tabuľke využili intervalové vyhľadávanie (táto "
 "hodnota nie je kritická ani v prípade, že je vysoká.)"
 
-#: server_status.php:943
+#: server_status.php:949
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Počet spojení, ktoré vykonali kompletné prehľadanie prvej tabuľky."
 
-#: server_status.php:944
+#: server_status.php:950
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Počet dočasných tabuliek, otvorených podriadeným SQL vláknom."
 
-#: server_status.php:945
+#: server_status.php:951
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -9236,13 +9243,13 @@ msgstr ""
 "Celkový počet (od spustenia) pokusov replikačného podriadeného SQL vlákna o "
 "znovuobnovenie transakcie."
 
-#: server_status.php:946
+#: server_status.php:952
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Táto položka obsahuje hodnotu ON ak je tento server podriadeným a je "
 "pripojený k prislúchajúcemu nadriadenému servru."
 
-#: server_status.php:947
+#: server_status.php:953
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -9250,14 +9257,14 @@ msgstr ""
 "Počet vlákien, ktorých vytvorenie zabralo viac ako je hodnota "
 "slow_launch_time."
 
-#: server_status.php:948
+#: server_status.php:954
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Počet príkazov, ktorých vykonanie zabralo viac ako je hodnota "
 "long_query_time."
 
-#: server_status.php:949
+#: server_status.php:955
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -9267,23 +9274,23 @@ msgstr ""
 "je táto hodnota prílis veľká, mali by ste pouvažovať nad zvýšením hodnoty "
 "systémového nastavania sort_buffer_size."
 
-#: server_status.php:950
+#: server_status.php:956
 msgid "The number of sorts that were done with ranges."
 msgstr "Počet rozsahom obmedzených zoraďovaní."
 
-#: server_status.php:951
+#: server_status.php:957
 msgid "The number of sorted rows."
 msgstr "Počet zoradených riadkov."
 
-#: server_status.php:952
+#: server_status.php:958
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Počet zoradení uskutočnených prehľadávaním tabuľky."
 
-#: server_status.php:953
+#: server_status.php:959
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Počet zámkov tabuliek, ktoré boli získané okamžite."
 
-#: server_status.php:954
+#: server_status.php:960
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -9295,7 +9302,7 @@ msgstr ""
 "najprv optimalizovať vaše príkazy a potom buď rozdeliť tabuľku/tabuľky alebo "
 "použiť replikáciu."
 
-#: server_status.php:955
+#: server_status.php:961
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -9305,11 +9312,11 @@ msgstr ""
 "dá vypočítať zo vzťahu Threads_created/Connections. Ak je táto hodnota v "
 "červenom, mali by ste zvýšiť hodnotu thread_cache_size."
 
-#: server_status.php:956
+#: server_status.php:962
 msgid "The number of currently open connections."
 msgstr "Počet momentálne otvorených spojení."
 
-#: server_status.php:957
+#: server_status.php:963
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -9320,7 +9327,7 @@ msgstr ""
 "Threads_created vysoká, mohli by ste zvýšiť hodnotu thread_cache_size (to "
 "však nespôsobí žiadnu citeľnú zmenu ak máte vlákna dobre implementované.)"
 
-#: server_status.php:958
+#: server_status.php:964
 msgid "The number of threads that are not sleeping."
 msgstr "Počet aktívnych (nespiacich) vlákien."
 
