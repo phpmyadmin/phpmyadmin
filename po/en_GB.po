@@ -4739,7 +4739,7 @@ msgstr "Turn it on"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Turn it off"
 
 #: libraries/db_events.inc.php:141
 #, fuzzy
