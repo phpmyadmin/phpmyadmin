@@ -486,7 +486,7 @@ msgstr "Ouzhpennañ/Diverkañ bannoù"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
-msgstr ""
+msgstr "Hizivaat ar reked"
 
 #: db_qbe.php:639
 msgid "Use Tables"
