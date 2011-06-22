@@ -27,6 +27,8 @@ phpMyAdmin - ChangeLog
 + [display] GIS data visualization
 
 3.4.4.0 (not yet released)
+- bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
+- bug #3323101 [parser] Invalid escape sequence in SQL parser
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize
@@ -42,8 +44,6 @@ phpMyAdmin - ChangeLog
 - bug #3317293 [edit] Inline edit places HTML line breaks in edit area
 - bug #3319466 [interface] Inline query edit does not escape special characters
 - minor XSS (require a valid token)
-- bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
-- bug #3323101 [parser] Invalid escape sequence in SQL parser
 
 3.4.2.0 (2011-06-07)
 - bug #3301249 [interface] Iconic table operations does not remove inline edit label
