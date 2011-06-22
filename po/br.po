@@ -189,7 +189,7 @@ msgstr "Dre ziouer"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1245
 #: libraries/schema/Pdf_Relation_Schema.class.php:1266 tbl_printview.php:147
 msgid "Links to"
-msgstr ""
+msgstr "Liammet ouzh"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
