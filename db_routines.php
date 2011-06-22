@@ -97,7 +97,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 if (is_array($value)) { // is SET type
                     $value = implode(',', $value);
                 }
-                $value = PMA_sqladdslashes($value);
+                $value = PMA_sqlAddSlashes($value);
                 if (! empty($_REQUEST['funcs'][$routine['param_name'][$i]])
                       && in_array($_REQUEST['funcs'][$routine['param_name'][$i]], $cfg['Functions'])) {
                     $queries[] = "SET @p$i={$_REQUEST['funcs'][$routine['param_name'][$i]]}('$value');\n";
@@ -152,7 +152,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             $message = __('Your SQL query has been executed successfully');
             if ($routine['type'] == 'PROCEDURE') {
                 $message .= '<br />';
-                $message .= sprintf(__('%s row(s) affected by the last statement inside the procedure'), $affected);
+                $message .= sprintf(_ngettext('%d row affected by the last statement inside the procedure', '%d rows affected by the last statement inside the procedure', $affected), $affected);
             }
             $message = PMA_message::success($message);
             // Pass the SQL queries through the "pretty printer"

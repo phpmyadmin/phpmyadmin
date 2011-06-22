@@ -21,8 +21,14 @@ phpMyAdmin - ChangeLog
 + AJAX for Insert to a table from database Structure page
 - Patch #3316969 PMA_ajaxShowMessage() does not respect timeout
 + AJAX for Change on multiple rows in table Browse
++ [interface] Improved support for stored routines
++ [display] More options for browsing GIS data
++ [interface] Support for spatial indexes
++ [display] GIS data visualization
 
 3.4.4.0 (not yet released)
+- bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
+- bug #3323101 [parser] Invalid escape sequence in SQL parser
 
 3.4.3.0 (not yet released)
 - bug #3311170 [sync] Missing helper icons in Synchronize

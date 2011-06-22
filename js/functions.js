@@ -1300,7 +1300,7 @@ function PMA_ajaxShowMessage(message, timeout) {
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    if ($this_msgbox != 'undefined' && $this_msgbox instanceof jQuery) {
+    if ($this_msgbox != undefined && $this_msgbox instanceof jQuery) {
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
@@ -1448,7 +1448,7 @@ function PMA_createChart(passedSettings) {
             enabled:false
         },
         xAxis: {
-            type: 'datetime',
+            type: 'datetime'
         },
         yAxis: {
             min: 0,
@@ -2022,6 +2022,7 @@ $(document).ready(function() {
         $table.find("td[class='unique']").remove();
         $table.find("td[class='index']").remove();
         $table.find("td[class='fulltext']").remove();
+        $table.find("td[class='spatial']").remove();
         $table.find("th[class='action']").attr("colspan", 3);
 
         // Display the "more" text
@@ -2467,7 +2468,8 @@ function PMA_slidingMessage(msg, $obj) {
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length == 0) {
             $('#topmenucontainer')
-            .after('<span id="PMA_slidingMessage"></span>');
+            .after('<span id="PMA_slidingMessage" '
+                 + 'style="display: inline-block;"></span>');
         }
         $obj = $('#PMA_slidingMessage');
     }
@@ -2493,12 +2495,20 @@ function PMA_slidingMessage(msg, $obj) {
     } else {
         // Object does not already have a message
         // inside it, so we simply slide it down
+        var h = $obj
+                .width('100%')
+                .html('<div style="display: none;">' + msg + '</div>')
+                .find('div')
+                .first()
+                .height();
         $obj
-        .width('100%')
-        .html('<div style="display: none;">' + msg + '</div>')
         .find('div')
         .first()
-        .slideDown(function() {
+        .css('height', 0)
+        .show()
+        .animate({
+                height: h
+            }, function() {
             // Set the height of the parent
             // to the height of the child
             $obj
