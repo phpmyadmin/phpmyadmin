@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 08:39+0200\n"
-"PO-Revision-Date: 2011-06-22 09:56+0200\n"
+"PO-Revision-Date: 2011-06-22 09:57+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -277,7 +277,7 @@ msgstr "Eilet eo bet an diaz roadennoù %s war %s"
 
 #: db_operations.php:404
 msgid "Rename database to"
-msgstr ""
+msgstr "Cheñch anv an diaz roadennoù hag e envel"
 
 #: db_operations.php:409 server_status.php:799
 msgid "Command"
