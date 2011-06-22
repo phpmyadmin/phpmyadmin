@@ -549,7 +549,7 @@ msgstr "No se encontró rutina con nombre %s en la base de datos %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Ejecutar rutina"
 
 #: db_routines.php:254 db_routines.php:258
 #, fuzzy, php-format
