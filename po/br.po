@@ -652,7 +652,7 @@ msgstr "Diverkañ ar c'hlotadennoù a-ziouzh an daolenn %s ?"
 #: setup/frames/index.inc.php:138 setup/frames/index.inc.php:229
 #: tbl_tracking.php:435 tbl_tracking.php:456 tbl_tracking.php:513
 msgid "Delete"
-msgstr ""
+msgstr "Diverkañ"
 
 #: db_search.php:274
 #, php-format
