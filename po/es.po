@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 22:16+0200\n"
+"PO-Revision-Date: 2011-06-22 22:17+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4934,7 +4934,7 @@ msgstr "Eliminar último parámetro"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
-msgstr "Muestre el tipo"
+msgstr "Retornar el tipo"
 
 #: libraries/db_routines.lib.php:721
 #, fuzzy
