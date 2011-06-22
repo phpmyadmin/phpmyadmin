@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 20:49+0200\n"
+"PO-Revision-Date: 2011-06-22 20:50+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -739,7 +739,7 @@ msgstr "Sammad"
 #: db_structure.php:448 libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "War ar servijer MySQL-mañ ez eo %s ar c'heflusker stokañ dre ziouer."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
 #: libraries/display_tbl.lib.php:2376 libraries/display_tbl.lib.php:2381
