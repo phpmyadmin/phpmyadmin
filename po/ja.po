@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:26+0200\n"
+"PO-Revision-Date: 2011-06-22 11:27+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5238,10 +5238,9 @@ msgid "Language"
 msgstr "言語"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "textarea の 1 行の文字数"
+msgstr "カラムの順番を元に戻す"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
