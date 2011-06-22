@@ -1229,10 +1229,9 @@ msgid "Issued queries since last refresh"
 msgstr ""
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL заявки"
+msgstr "Подадени заявки"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
