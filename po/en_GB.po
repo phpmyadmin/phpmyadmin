@@ -4790,10 +4790,10 @@ msgid "Routine name"
 msgstr "Routine name"
 
 #: libraries/db_routines.lib.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Change"
+msgstr "Change to %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
