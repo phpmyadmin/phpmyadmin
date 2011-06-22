@@ -242,7 +242,7 @@ msgstr "Ya"
 
 #: db_datadict.php:314 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
-msgstr ""
+msgstr "Moullañ"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
