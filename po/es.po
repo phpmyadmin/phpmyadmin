@@ -5504,10 +5504,10 @@ msgid "Export of trigger \"%s\""
 msgstr "Exportar disparador \"%s\""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "¡No se halló la ruta de imágenes para el tema %s!"
+msgstr "No se encontró disparador con nombre %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
