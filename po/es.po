@@ -5510,10 +5510,9 @@ msgid "No trigger with name %s found"
 msgstr "No se encontró disparador con nombre %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "No hay archivos para subir"
+msgstr "No hay disparadores para mostrar"
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
