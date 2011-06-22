@@ -4923,10 +4923,9 @@ msgid "Options"
 msgstr "Opciones"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "Agregar prefijo"
+msgstr "Agregar parámetro"
 
 #: libraries/db_routines.lib.php:710
 #, fuzzy
