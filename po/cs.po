@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 10:13+0200\n"
+"PO-Revision-Date: 2011-06-22 10:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -680,7 +680,6 @@ msgid "Search in database"
 msgstr "Vyhledávání v databázi"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Slova nebo hodnoty, které chcete vyhledat (zástupný znak: „%“):"
@@ -694,7 +693,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Slova jsou oddělena mezerou („ “)."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "V tabulkách:"
@@ -1322,10 +1320,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definice uložené funkce musí obsahovat příkaz RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Chybějící hodnota ve formuláři!"
+msgstr "Hodnota ve formuláři je příliš dlouhá!"
 
 #: js/messages.php:126
 msgid ""
@@ -2103,10 +2100,9 @@ msgid "Check Privileges"
 msgstr "Zkontrolovat oprávnění"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to to read configuration file"
-msgstr "Nepodařilo se uložit nastavení"
+msgstr "Nepodařilo se načíst konfigurační soubor"
 
 #: libraries/common.inc.php:588
 msgid ""
@@ -4707,22 +4703,22 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Exportovat obsah"
+msgstr "Exportovat událost %s"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "Exportovat obsah"
+msgstr "Export události „%s“"
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "V databázi nebyly nalezeny žádné tabulky"
+msgstr "V databázi %2$s nebyla nalezen událost se jménem %1$s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
@@ -4730,10 +4726,9 @@ msgid "Events"
 msgstr "Události"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Nebyl zvolen žádný soubor pro nahrání"
+msgstr "Nejsou zde žádné události k zobrazení."
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:690
 #: libraries/db_routines.lib.php:846 libraries/db_routines.lib.php:1214
@@ -4745,25 +4740,24 @@ msgstr "Název"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Plánovač událostí je zapnutý"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Plánovač událostí je vypnutý"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Zapnout"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Vypnout"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Event"
-msgstr "Přidat nový server"
+msgstr "Přidat novou událost"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4799,32 +4793,29 @@ msgid "Triggers"
 msgstr "Spouště"
 
 #: libraries/db_routines.lib.php:659
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Podrobnosti..."
+msgstr "Podrobnosti"
 
 #: libraries/db_routines.lib.php:662
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "Rutiny"
+msgstr "Jméno rutiny"
 
 #: libraries/db_routines.lib.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Změnit"
+msgstr "Změnit na %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
-msgstr ""
+msgstr "Parametry"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Přímé spoje"
+msgstr "Směr"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4849,62 +4840,55 @@ msgid "Options"
 msgstr "Nastavení"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "Přidat předponu"
+msgstr "Přidat parametr"
 
 #: libraries/db_routines.lib.php:710
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Odstranit databázi"
+msgstr "Odstranit poslední parametr"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
 msgstr "Návratový typ"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Délka/Množina"
+msgstr "Návratová délka/hodnoty"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Parametry tabulky"
+msgstr "Možnosti návratové hodnoty"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Popis"
+msgstr "Definice"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
-msgstr ""
+msgstr "je deterministická"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Zadavatel"
 
 #: libraries/db_routines.lib.php:758
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Zabezpeční"
+msgstr "Typ zabezpečení"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "Přístup k SQL datům"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Rutiny"
+msgstr "Parametry rutiny"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
@@ -4919,12 +4903,12 @@ msgstr "Hodnota"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Musíte zadat jméno rutiny"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "„%s“  je chybný směr parametru."
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
