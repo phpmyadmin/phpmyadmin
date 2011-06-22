@@ -1201,9 +1201,10 @@ div#serverstatus table caption a.top {
 }
 
 div#serverstatusquerieschart {
-    float:<?php echo $right; ?>;
+    float:<?php echo $left; ?>;
     width:500px;
     height:350px;
+    padding-<?php echo $left; ?>: 30px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
