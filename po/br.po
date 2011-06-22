@@ -200,7 +200,7 @@ msgstr "Liammet ouzh"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1267
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
 msgid "Comments"
-msgstr ""
+msgstr "Evezhiadennoù"
 
 #: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
 #: libraries/Index.class.php:388 libraries/Index.class.php:688
