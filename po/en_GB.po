@@ -562,7 +562,7 @@ msgstr "Invalid routine type: \"%s\""
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Sorry, we failed to restore the dropped routine."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
