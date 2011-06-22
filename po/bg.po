@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 16:48+0200\n"
+"PO-Revision-Date: 2011-06-22 16:49+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4538,10 +4538,10 @@ msgid "Export of event %s"
 msgstr "Експорт като %s"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export as %s"
 msgid "Export of event \"%s\""
-msgstr "Експорт като %s"
+msgstr "Експорт на събитието \"%s\""
 
 #: libraries/db_events.inc.php:40
 #, fuzzy, php-format
