@@ -2371,7 +2371,7 @@ msgstr "No hay archivos para subir"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Ejecutar"
 
 # Used for
 # http://www.phpmyadmin.net/documentation/Documentation.html#cfg_NavigationBarIconic
