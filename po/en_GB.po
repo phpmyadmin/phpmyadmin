@@ -4696,10 +4696,10 @@ msgid "Export of event %s"
 msgstr "Export of event %s"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "Export contents"
+msgstr "Export of event \"%s\""
 
 #: libraries/db_events.inc.php:40
 #, fuzzy, php-format
