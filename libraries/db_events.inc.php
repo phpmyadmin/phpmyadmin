@@ -7,6 +7,72 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+/**
+ * TODO: comment
+ */
+function PMA_toggleButton($action, $select_name, $options, $callback)
+{
+    // Do the logic first
+    $link_on = "$action&amp;$select_name=" . urlencode($options[1]['value']);
+    $link_off = "$action&amp;$select_name=" . urlencode($options[0]['value']);
+    if ($options[1]['selected'] == true) {
+        $state = 'on';
+    } else if ($options[0]['selected'] == true) {
+        $state = 'off';
+    } else {
+        $state = 'on';
+    }
+    $selected1 = '';
+    $selected0 = '';
+    if ($options[1]['selected'] == true) {
+        $selected1 = " selected='selected'";
+    } else if ($options[0]['selected'] == true) {
+        $selected0 = " selected='selected'";
+    }
+    // Generate output
+    $retval  = "<noscript>\n";
+    $retval .= "<div class='wrapper'>\n";
+    $retval .= "    <form action='$action' method='post'>\n";
+    $retval .= "        <select name='$select_name'>\n";
+    $retval .= "            <option value='{$options[1]['value']}'$selected1>";
+    $retval .= "                {$options[1]['label']}\n";
+    $retval .= "            </option>\n";
+    $retval .= "            <option value='{$options[0]['value']}'$selected0>";
+    $retval .= "                {$options[0]['label']}\n";
+    $retval .= "            </option>\n";
+    $retval .= "        </select>\n";
+    $retval .= "        <input type='submit' value='" . __('Change') . "'/>\n";
+    $retval .= "    </form>\n";
+    $retval .= "</div>\n";
+    $retval .= "</noscript>\n";
+    $retval .= "<div class='wrapper toggleAjax hide'>\n";
+    $retval .= "    <div class='toggleButton'>\n";
+    $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
+    $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
+    $retval .= "                 alt='' />\n";
+    $retval .= "            <table cellspacing='0' cellpadding='0'><tr>\n";
+    $retval .= "                <tbody>\n";
+    $retval .= "                <td class='toggleOn'>\n";
+    $retval .= "                    <span class='hide'>$link_on</span>\n";
+    $retval .= "                    <div>";
+    $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "</div>\n";
+    $retval .= "                </td>\n";
+    $retval .= "                <td><div>&nbsp;</div></td>\n";
+    $retval .= "                <td class='toggleOff'>\n";
+    $retval .= "                    <span class='hide'>$link_off</span>\n";
+    $retval .= "                    <div>";
+    $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "</div>\n";
+    $retval .= "                    </div>\n";
+    $retval .= "                </tbody>\n";
+    $retval .= "            </tr></table>\n";
+    $retval .= "            <span class='hide callback'>$callback</span>\n";
+    $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
+    $retval .= "        </div>\n";
+    $retval .= "    </div>\n";
+    $retval .= "</div>\n";
+
+    return $retval;
+}
 
 $events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
 
@@ -105,46 +171,43 @@ if (! $events) {
 echo '</fieldset>' . "\n";
 
 /**
- * If there has been a request to change the state
- * of the event scheduler, process it now.
- */
-if (! empty($_GET['toggle_scheduler'])) {
-    $new_scheduler_state = $_GET['toggle_scheduler'];
-    if ($new_scheduler_state === 'ON' || $new_scheduler_state === 'OFF') {
-        PMA_DBI_query("SET GLOBAL event_scheduler='$new_scheduler_state'");
-    }
-}
-
-/**
- * Prepare to show the event scheduler fieldset, if necessary
- */
-$tableStart = '';
-$schedulerFieldset = '';
-$es_state = PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1);
-if ($es_state === 'ON' || $es_state === 'OFF') {
-    $es_change = ($es_state == 'ON') ? 'OFF' : 'ON';
-    $tableStart = '<table style="width: 100%;"><tr><td style="width: 50%;">';
-    $schedulerFieldset = '</td><td><fieldset style="margin: 1em 0;">' . "\n"
-       . PMA_getIcon('b_events.png')
-       . ($es_state === 'ON' ? __('The event scheduler is enabled') : __('The event scheduler is disabled')) . ':'
-       . '    <a href="db_events.php?' . $url_query . '&amp;toggle_scheduler=' . $es_change . '">'
-       . ($es_change === 'ON' ? __('Turn it on') : __('Turn it off'))
-       .  '</a>' . "\n"
-       . '</fieldset></td></tr></table>' . "\n";
-}
-
-/**
- * Display the form for adding a new event
- */
-echo $tableStart . '<fieldset style="margin: 1em 0;">' . "\n"
-   . '    <a href="db_events.php?' . $url_query . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
-   . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
-   . '</fieldset>' . "\n";
-
-/**
  * Display the state of the event scheduler
  * and offer an option to toggle it.
  */
-echo $schedulerFieldset;
+$es_state = strtolower(PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1));
+$options = array(
+                0 => array(
+                    'label' => __('OFF'),
+                    'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                    'selected' => ($es_state != 'on')
+                ),
+                1 => array(
+                    'label' => __('ON'),
+                    'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                    'selected' => ($es_state == 'on')
+                )
+           );
+$event_scheduler = PMA_toggleButton(
+                        "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+                        'sql_query',
+                        $options,
+                        'PMA_slidingMessage(data.sql_query);'
+                    );
+/**
+ * Display the form for adding a new event
+ * and toggling the event scheduler
+ */
+echo "<fieldset>\n"
+   . "<div class='operations_half_width'>\n"
+   . "    <a href='db_events.php?$url_query&amp;addevent=1'$conditional_class_add>\n"
+   . "    " . PMA_getIcon('b_event_add.png') . __('Add a new Event') . "</a>\n"
+   . "</div>\n"
+   . "<div class='operations_half_width'>\n"
+   . "    <div class='wrapper'>\n"
+   . "        &nbsp;&nbsp;" . __('Event scheduler') . " &nbsp;&nbsp;\n"
+   . "    </div>\n"
+   . $event_scheduler
+   . "</div>\n"
+   . "</fieldset>\n";
 
 ?>

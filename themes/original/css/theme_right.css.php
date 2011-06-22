@@ -1883,6 +1883,37 @@ fieldset .disabled-field td {
     padding: 2px;
 }
 
+.wrapper {
+    float: <?php echo $left; ?>;
+}
+.toggleButton {
+    position: relative;
+    cursor: pointer;
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 1.55em;
+    height: 1.55em;
+    overflow: hidden;
+    border-right: 0.1em solid #888;
+    border-left: 0.1em solid #888;
+}
+.toggleButton table,
+.toggleButton td,
+.toggleButton img {
+    padding: 0;
+    position: relative;
+}
+.toggleButton .container {
+    position: absolute;
+}
+.toggleButton .toggleOn {
+    color: white;
+    padding: 0 1em;
+}
+.toggleButton .toggleOff {
+    padding: 0 1em;
+}
+
 #table_columns input, #table_columns select {
     width:              14em;
     box-sizing:         border-box;
