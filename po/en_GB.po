@@ -9981,10 +9981,9 @@ msgid "View dump (schema) of table"
 msgstr "View dump (schema) of table"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Display servers selection"
+msgstr "Display GIS Visualisation"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
