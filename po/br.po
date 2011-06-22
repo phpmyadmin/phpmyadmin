@@ -778,7 +778,7 @@ msgstr "Ezporzhiañ"
 #: libraries/display_tbl.lib.php:2478 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
-msgstr ""
+msgstr "Stumm da voullañ"
 
 #: db_structure.php:502 libraries/common.lib.php:2958
 #: libraries/common.lib.php:2959
