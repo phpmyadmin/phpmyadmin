@@ -613,7 +613,7 @@ msgstr "an holl c'herioù"
 
 #: db_search.php:68 db_search.php:311
 msgid "the exact phrase"
-msgstr ""
+msgstr "ar frazenn-rik"
 
 #: db_search.php:69 db_search.php:312
 msgid "as regular expression"
