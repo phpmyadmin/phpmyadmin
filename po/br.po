@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 08:39+0200\n"
-"PO-Revision-Date: 2011-06-22 09:54+0200\n"
+"PO-Revision-Date: 2011-06-22 09:55+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -259,7 +259,7 @@ msgstr "Diuzañ pep tra"
 
 #: db_export.php:46 db_search.php:345 server_export.php:28
 msgid "Unselect All"
-msgstr ""
+msgstr "Diziuzañ pep tra"
 
 #: db_operations.php:41 tbl_create.php:48
 msgid "The database name is empty!"
