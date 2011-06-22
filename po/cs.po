@@ -1320,10 +1320,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definice uložené funkce musí obsahovat příkaz RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Chybějící hodnota ve formuláři!"
+msgstr "Hodnota ve formuláři je příliš dlouhá!"
 
 #: js/messages.php:126
 msgid ""
