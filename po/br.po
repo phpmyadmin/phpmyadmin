@@ -687,7 +687,7 @@ msgstr "Er bann : "
 
 #: db_structure.php:60
 msgid "No tables found in database"
-msgstr ""
+msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
 
 #: db_structure.php:270 tbl_operations.php:688
 #, php-format
