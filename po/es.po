@@ -514,10 +514,10 @@ msgstr[0] "%d fila afectada por la última sentencia del procedimiento"
 msgstr[1] "%d filas afectadas por la última sentencia del procedimiento"
 
 #: db_routines.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Permite ejecutar las rutinas almacenadas."
+msgstr "Resultados de la ejecución de la rutina %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
