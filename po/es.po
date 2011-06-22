@@ -5523,10 +5523,9 @@ msgid "Event"
 msgstr "Evento"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Trigger"
-msgstr "Añadir un nuevo servidor"
+msgstr "Agregar un nuevo disparador"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
