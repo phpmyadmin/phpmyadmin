@@ -695,7 +695,7 @@ msgstr "Las palabras están separadas por un espacio (\" \")."
 #: db_search.php:323
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "En las tablas:"
+msgstr "Dentro de las tablas:"
 
 #: db_search.php:353
 msgid "Inside column:"
