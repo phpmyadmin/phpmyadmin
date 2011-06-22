@@ -4838,10 +4838,9 @@ msgid "Turn it off"
 msgstr "Desactivarlo"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Event"
-msgstr "Añadir un nuevo servidor"
+msgstr "Añadir un nuevo Evento"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
