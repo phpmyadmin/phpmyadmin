@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:56+0200\n"
+"PO-Revision-Date: 2011-06-22 11:57+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4881,7 +4881,7 @@ msgstr "値"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr "ルーチン名を入力する必要があります"
+msgstr "ルーチン名は必須です"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
