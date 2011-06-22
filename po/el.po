@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-20 11:01+0200\n"
+"PO-Revision-Date: 2011-06-22 23:22+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -512,10 +512,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: db_routines.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
+msgstr "Αποτελέσματα εκτέλεσης της ρουτίνας %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
