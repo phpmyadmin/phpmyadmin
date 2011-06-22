@@ -2468,7 +2468,8 @@ function PMA_slidingMessage(msg, $obj) {
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length == 0) {
             $('#topmenucontainer')
-            .after('<span id="PMA_slidingMessage"></span>');
+            .after('<span id="PMA_slidingMessage" '
+                 + 'style="display: inline-block;"></span>');
         }
         $obj = $('#PMA_slidingMessage');
     }
@@ -2494,12 +2495,20 @@ function PMA_slidingMessage(msg, $obj) {
     } else {
         // Object does not already have a message
         // inside it, so we simply slide it down
+        var h = $obj
+                .width('100%')
+                .html('<div style="display: none;">' + msg + '</div>')
+                .find('div')
+                .first()
+                .height();
         $obj
-        .width('100%')
-        .html('<div style="display: none;">' + msg + '</div>')
         .find('div')
         .first()
-        .slideDown(function() {
+        .css('height', 0)
+        .show()
+        .animate({
+                height: h
+            }, function() {
             // Set the height of the parent
             // to the height of the child
             $obj
