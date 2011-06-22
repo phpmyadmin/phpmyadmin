@@ -1877,7 +1877,7 @@ msgstr "Прегледът не е достъпен."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr "взимам я"
+msgstr "тази ще е"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
