@@ -344,7 +344,7 @@ if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_valu
 /**
  * Warning about mcrypt.
  */
-if (!$GLOBALS['cfg']['McryptDisableWarning']) {
+if (!function_exists('mcrypt_encrypt') && !$GLOBALS['cfg']['McryptDisableWarning']) {
     PMA_warnMissingExtension('mcrypt');
 }
 
