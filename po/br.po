@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 08:39+0200\n"
-"PO-Revision-Date: 2011-06-22 09:57+0200\n"
+"PO-Revision-Date: 2011-06-22 09:58+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -285,7 +285,7 @@ msgstr "Urzhiad"
 
 #: db_operations.php:440
 msgid "Remove database"
-msgstr ""
+msgstr "Dilemel an diaz roadennoù"
 
 #: db_operations.php:452
 #, php-format
