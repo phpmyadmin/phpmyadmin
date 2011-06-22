@@ -499,7 +499,7 @@ msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1168
 msgid "Submit Query"
-msgstr ""
+msgstr "Kas ar reked"
 
 #: db_routines.php:152 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
