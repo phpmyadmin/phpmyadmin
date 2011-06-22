@@ -617,7 +617,7 @@ msgstr "ar frazenn-rik"
 
 #: db_search.php:69 db_search.php:312
 msgid "as regular expression"
-msgstr ""
+msgstr "evel un droienn reoliek"
 
 #: db_search.php:231
 #, php-format
