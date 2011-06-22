@@ -424,7 +424,7 @@ msgstr "Mont da"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "Mod gwelet"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:927
