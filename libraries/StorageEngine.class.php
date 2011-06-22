@@ -88,7 +88,8 @@ class PMA_StorageEngine
 
         foreach (PMA_StorageEngine::getStorageEngines() as $key => $details) {
             if (!$offerUnavailableEngines
-              && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
+                  && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
+                      || $details['Engine'] == 'PERFORMANCE_SCHEMA')) {
                 continue;
             }
 
