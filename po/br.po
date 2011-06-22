@@ -321,7 +321,7 @@ msgstr "KROUIÑ AN DIAZ ROADENNOÙ a-raok eilañ"
 #: libraries/config/messages.inc.php:135 tbl_operations.php:556
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Ouzhpennañ %s"
 
 #: db_operations.php:511 libraries/config/messages.inc.php:119
 #: tbl_operations.php:314 tbl_operations.php:558
