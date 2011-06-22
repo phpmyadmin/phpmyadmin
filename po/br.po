@@ -298,7 +298,7 @@ msgstr "Diverkañ an diaz roadennoù (DROP)"
 
 #: db_operations.php:487
 msgid "Copy database to"
-msgstr ""
+msgstr "Eilañ an diaz roadennoù war"
 
 #: db_operations.php:494 tbl_operations.php:548 tbl_tracking.php:418
 msgid "Structure only"
