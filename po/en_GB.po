@@ -5395,7 +5395,7 @@ msgstr "Export of trigger %s"
 #: libraries/display_triggers.inc.php:39
 #, php-format
 msgid "Export of trigger \"%s\""
-msgstr ""
+msgstr "Export of trigger \"%s\""
 
 #: libraries/display_triggers.inc.php:47
 #, fuzzy, php-format
