@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 08:39+0200\n"
-"PO-Revision-Date: 2011-06-22 10:01+0200\n"
+"PO-Revision-Date: 2011-06-22 10:02+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -334,7 +334,7 @@ msgstr "Ouzhpennañ ar strishadurioù"
 
 #: db_operations.php:528
 msgid "Switch to copied database"
-msgstr ""
+msgstr "Mont d'an diaz roadennoù eilet"
 
 #: db_operations.php:552 libraries/Index.class.php:450
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
