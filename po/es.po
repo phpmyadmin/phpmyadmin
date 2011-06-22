@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 22:06+0200\n"
+"PO-Revision-Date: 2011-06-22 22:07+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -542,10 +542,10 @@ msgid "Error in processing request"
 msgstr "Error al procesar la petición"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %s found in database %s"
-msgstr "No se han encontrado tablas en la base de datos."
+msgstr "No se encontró rutina con nombre %s en la base de datos %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
