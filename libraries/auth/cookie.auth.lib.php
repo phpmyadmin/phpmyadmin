@@ -75,9 +75,6 @@ if (function_exists('mcrypt_encrypt')) {
 
 } else {
     require_once './libraries/blowfish.php';
-    if (!$GLOBALS['cfg']['McryptDisableWarning']) {
-        PMA_warnMissingExtension('mcrypt');
-    }
 }
 
 /**
