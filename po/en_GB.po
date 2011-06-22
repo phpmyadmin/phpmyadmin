@@ -539,10 +539,10 @@ msgid "Error in processing request"
 msgstr "Error in processing request"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %s found in database %s"
-msgstr "No tables found in database."
+msgstr "No routine with name %s found in database %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
