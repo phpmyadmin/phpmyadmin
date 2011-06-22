@@ -379,7 +379,7 @@ msgstr "Linennoù"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:189
 msgid "Size"
-msgstr ""
+msgstr "Ment"
 
 #: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
 #: libraries/export/sql.php:1077
