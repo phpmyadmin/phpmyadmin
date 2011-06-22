@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 22:24+0200\n"
+"PO-Revision-Date: 2011-06-22 22:27+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10225,10 +10225,9 @@ msgid "View dump (schema) of table"
 msgstr "Mostrar volcado (esquema) de la tabla"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Mostrar la selección de servidores"
+msgstr "Mostrar visualización GIS"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
