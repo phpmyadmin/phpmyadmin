@@ -344,7 +344,7 @@ msgstr "Mont d'an diaz roadennoù eilet"
 #: tbl_structure.php:206 tbl_structure.php:903 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
-msgstr ""
+msgstr "Etrerummadiñ"
 
 #: db_operations.php:565
 #, php-format
