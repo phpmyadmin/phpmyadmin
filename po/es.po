@@ -4835,7 +4835,7 @@ msgstr "Prenderlo"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Apagarlo"
 
 #: libraries/db_events.inc.php:141
 #, fuzzy
