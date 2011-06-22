@@ -734,7 +734,7 @@ msgstr "Eilañ"
 
 #: db_structure.php:441
 msgid "Sum"
-msgstr ""
+msgstr "Sammad"
 
 #: db_structure.php:448 libraries/StorageEngine.class.php:351
 #, php-format
