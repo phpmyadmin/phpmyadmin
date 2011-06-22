@@ -4857,7 +4857,7 @@ msgstr "Definition"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
-msgstr ""
+msgstr "Is deterministic"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
