@@ -587,7 +587,7 @@ msgstr "Byla vytvořena tabulka %1$s."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Při zpracování požadavku došlo k několika chybám:</b>"
 
 #: db_routines.php:374
 #, fuzzy
