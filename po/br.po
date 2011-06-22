@@ -216,7 +216,7 @@ msgstr "Evezhiadennoù"
 #: server_privileges.php:2268 sql.php:257 sql.php:318 tbl_printview.php:226
 #: tbl_structure.php:380 tbl_tracking.php:330 tbl_tracking.php:335
 msgid "No"
-msgstr ""
+msgstr "Ket"
 
 #: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
 #: libraries/Index.class.php:387 libraries/Index.class.php:688
