@@ -443,7 +443,7 @@ msgstr "War gresk"
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
 #: tbl_select.php:279
 msgid "Descending"
-msgstr ""
+msgstr "War zigresk"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:429
 #: tbl_change.php:279 tbl_tracking.php:648
