@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 08:39+0200\n"
-"PO-Revision-Date: 2011-06-22 10:00+0200\n"
+"PO-Revision-Date: 2011-06-22 10:01+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -326,7 +326,7 @@ msgstr "Ouzhpennañ %s"
 #: db_operations.php:511 libraries/config/messages.inc.php:119
 #: tbl_operations.php:314 tbl_operations.php:558
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
 
 #: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
