@@ -367,7 +367,7 @@ msgstr "Embann pe ezporzhiañ ur chema kar"
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
-msgstr ""
+msgstr "Taolenn"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
