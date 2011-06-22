@@ -4643,10 +4643,9 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Creation"
 msgid "Direction"
-msgstr "Дата на създаване"
+msgstr "Посока"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
