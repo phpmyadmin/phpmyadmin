@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 12:33+0200\n"
+"PO-Revision-Date: 2011-06-22 12:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -573,7 +573,7 @@ msgstr "ルーチン %1$s を作成しました。"
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>リクエストの処理中に 1 つ以上のエラーが発生しました：</b>"
 
 #: db_routines.php:374
 msgid "Create routine"
