@@ -2099,6 +2099,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown bellow."
 msgstr ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
 
 #: libraries/common.inc.php:595
 #, php-format
