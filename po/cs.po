@@ -530,7 +530,7 @@ msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 #: db_routines.php:319
 #, php-format
 msgid "Query \"%s\" failed"
-msgstr "Dotaz \"%s\" selhal"
+msgstr "Dotaz „%s“ selhal"
 
 #: db_routines.php:191 db_routines.php:291 db_routines.php:296
 #: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
@@ -4077,7 +4077,7 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí \"trvalého\" ukládání nedávných tabulek, výchozí "
+"Nechte prázdné pro vypnutí „trvalého“ ukládání nedávných tabulek, výchozí "
 "nastavení: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:410
@@ -4165,7 +4165,7 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro \"trvalé\" ukládání nastavení "
+"Nechte prázdné pro vypnutí podpory pro „trvalé“ ukládání nastavení "
 "procházení tabulek, výchozí nastavení: [kbd]pma_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:427
