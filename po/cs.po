@@ -4854,10 +4854,9 @@ msgid "Return type"
 msgstr "Návratový typ"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Délka/Množina"
+msgstr "Návratová délka/hodnoty"
 
 #: libraries/db_routines.lib.php:726
 #, fuzzy
