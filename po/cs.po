@@ -4744,7 +4744,7 @@ msgstr "Plánovač událostí je zapnutý"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Plánovač událostí je vypnutý"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
