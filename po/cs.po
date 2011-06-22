@@ -4709,10 +4709,10 @@ msgid "Export of event %s"
 msgstr "Exportovat událost %s"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "Exportovat obsah"
+msgstr "Export události „%s“"
 
 #: libraries/db_events.inc.php:40
 #, fuzzy, php-format
