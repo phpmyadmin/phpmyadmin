@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 10:43+0200\n"
+"PO-Revision-Date: 2011-06-22 10:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4874,7 +4874,7 @@ msgstr "je deterministická"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Zadavatel"
 
 #: libraries/db_routines.lib.php:758
 #, fuzzy
