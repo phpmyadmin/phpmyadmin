@@ -526,7 +526,7 @@ msgstr "MySQL returned an empty result set (i.e. zero rows)."
 #: db_routines.php:319
 #, php-format
 msgid "Query \"%s\" failed"
-msgstr ""
+msgstr "Query \"%s\" failed"
 
 #: db_routines.php:191 db_routines.php:291 db_routines.php:296
 #: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
