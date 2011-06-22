@@ -436,7 +436,7 @@ msgstr "Urzhiañ"
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
 #: tbl_select.php:278
 msgid "Ascending"
-msgstr ""
+msgstr "War gresk"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
 #: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:885
