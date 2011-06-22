@@ -4902,7 +4902,7 @@ msgstr "Dirección"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
-msgstr "Longitud/Valores*"
+msgstr "Longitud/Valores"
 
 #: libraries/db_routines.lib.php:693 libraries/display_tbl.lib.php:585
 #: libraries/export/codegen.php:41 libraries/export/csv.php:34
