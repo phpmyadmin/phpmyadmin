@@ -4803,10 +4803,10 @@ msgid "Routine name"
 msgstr "Jméno rutiny"
 
 #: libraries/db_routines.lib.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Změnit"
+msgstr "Změnit na %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
