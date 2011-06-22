@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 20:38+0200\n"
+"PO-Revision-Date: 2011-06-22 20:39+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -534,7 +534,7 @@ msgstr "C'hwitet eo bet ar reked \"%s\""
 #: db_routines.php:191 db_routines.php:291 db_routines.php:296
 #: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
 msgid "MySQL said: "
-msgstr ""
+msgstr "respontet eo bet gant MySQL : "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
 msgid "Error in processing request"
