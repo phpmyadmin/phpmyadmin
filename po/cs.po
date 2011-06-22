@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 10:41+0200\n"
+"PO-Revision-Date: 2011-06-22 10:42+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4845,10 +4845,9 @@ msgid "Add parameter"
 msgstr "Přidat parametr"
 
 #: libraries/db_routines.lib.php:710
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Odstranit databázi"
+msgstr "Odstranit poslední parametr"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
