@@ -470,7 +470,7 @@ msgstr "Diverk."
 #: server_privileges.php:307 tbl_change.php:887 tbl_indexes.php:256
 #: tbl_select.php:252
 msgid "Or"
-msgstr ""
+msgstr "Pe"
 
 #: db_qbe.php:529
 msgid "Modify"
