@@ -10238,10 +10238,9 @@ msgid "Height"
 msgstr "Altura"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Columnas para las áreas de texto"
+msgstr "Etiqueta de columna"
 
 #: tbl_gis_visualization.php:167
 #, fuzzy
