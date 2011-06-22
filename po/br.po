@@ -281,7 +281,7 @@ msgstr "Cheñch anv an diaz roadennoù hag e envel"
 
 #: db_operations.php:409 server_status.php:799
 msgid "Command"
-msgstr ""
+msgstr "Urzhiad"
 
 #: db_operations.php:440
 msgid "Remove database"
