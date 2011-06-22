@@ -567,7 +567,7 @@ msgstr "Chybný index serveru: „%s“"
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Bohužel se nepodařilo obnovit odstraněnou rutinu."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
