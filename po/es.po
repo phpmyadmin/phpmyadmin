@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 22:19+0200\n"
+"PO-Revision-Date: 2011-06-22 22:20+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -5007,7 +5007,7 @@ msgstr "Debe proveer en nombre y tipo para cada parámetro de rutina."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Debe proveer una definición de rutina."
 
 #: libraries/db_routines.lib.php:1209
 #, fuzzy
