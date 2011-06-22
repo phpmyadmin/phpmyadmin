@@ -4694,10 +4694,10 @@ msgid "Export of event \"%s\""
 msgstr "イベント \"%s\" をエクスポートする"
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "このデータベースにはテーブルがありません"
+msgstr "データベース %2$s に %1$s という名前のイベントはありません"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
