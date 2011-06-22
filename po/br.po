@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 20:51+0200\n"
+"PO-Revision-Date: 2011-06-22 20:52+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -794,7 +794,7 @@ msgstr "Diverkañ"
 
 #: db_structure.php:506 tbl_operations.php:604
 msgid "Check table"
-msgstr ""
+msgstr "Gwiriañ an daolenn"
 
 #: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:845
 #: tbl_structure.php:847
