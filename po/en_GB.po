@@ -10010,7 +10010,7 @@ msgstr "Spatial column"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Use OpenStreetMaps as Base Layer"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
