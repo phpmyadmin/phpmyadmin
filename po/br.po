@@ -474,7 +474,7 @@ msgstr "Pe"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr ""
+msgstr "Kemmañ"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
