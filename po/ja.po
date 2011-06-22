@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:17+0200\n"
+"PO-Revision-Date: 2011-06-22 12:41+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -124,7 +124,7 @@ msgstr "データベース %1$s を作成しました。"
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
-msgstr "データベースのコメント:"
+msgstr "データベースのコメント"
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1210
 #: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
@@ -507,7 +507,7 @@ msgstr "SQL は正常に実行されました"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "プロシージャ内の最後のステートメントは %d 行の変更を行いました"
 
 #: db_routines.php:165
 #, php-format
@@ -573,7 +573,7 @@ msgstr "ルーチン %1$s を作成しました。"
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>リクエストの処理中に 1 つ以上のエラーが発生しました：</b>"
 
 #: db_routines.php:374
 msgid "Create routine"
@@ -589,6 +589,9 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"「mysql」拡張を使用されていますが、将来的に PHP "
+"で廃止予定になっています。この拡張はマルチクエリに対応できていません。<b>ストアドルーチンの実行が失敗する可能性があります！</b> "
+"問題を回避するためには、改良された「mysqli」拡張を使用するようにしてください。"
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -658,7 +661,6 @@ msgid "Search in database"
 msgstr "データベース内検索"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "検索する単語や値 (ワイルドカード: \"%\"):"
@@ -672,7 +674,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "各単語は空白文字(\" \")で区切ってください"
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "検索するテーブル:"
@@ -1169,7 +1170,7 @@ msgstr "合計"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:602
 msgid "Other"
-msgstr ""
+msgstr "その他"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1374
@@ -1722,7 +1723,7 @@ msgstr "インデックスが定義されていません!"
 #: libraries/Index.class.php:435 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:309
 msgid "Indexes"
-msgstr "インデックスサイズ"
+msgstr "インデックス"
 
 #: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
 #: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
@@ -2329,7 +2330,7 @@ msgstr "アップロードファイルがありません"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "実行"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -4682,22 +4683,22 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 拡張がありません。PHP の設定をチェックしてみてください。"
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "内容をエクスポートする"
+msgstr "イベント %s をエクスポートする"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "内容をエクスポートする"
+msgstr "イベント \"%s\" をエクスポートする"
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "このデータベースにはテーブルがありません"
+msgstr "データベース %2$s に %1$s という名前のイベントはありません"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
@@ -4705,10 +4706,9 @@ msgid "Events"
 msgstr "イベント"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "アップロードファイルがありません"
+msgstr "表示できるイベントがありません"
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:690
 #: libraries/db_routines.lib.php:846 libraries/db_routines.lib.php:1214
@@ -4735,10 +4735,9 @@ msgid "Turn it off"
 msgstr ""
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Event"
-msgstr "新しいサーバの追加"
+msgstr "新しいイベントを追加する"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4792,10 +4791,9 @@ msgid "Parameters"
 msgstr "パラメータ"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "直リンク"
+msgstr "入出力"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4846,10 +4844,9 @@ msgid "Return options"
 msgstr "テーブルオプション"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "説明"
+msgstr "定義"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
@@ -4886,26 +4883,26 @@ msgstr "値"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr "ルーチン名を入力する必要があります"
+msgstr "ルーチン名は必須です"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "パラメータに対して不正な入出力「%s」が与えられています。"
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr ""
+msgstr "ルーチンパラメータが ENUM、SET、VARCHAR、VARBINARY の場合、長さ/値は必須です。"
 
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "ルーチンの定義は必須です"
 
 #: libraries/db_routines.lib.php:1209
 msgid "There are no routines to display."
@@ -5239,20 +5236,18 @@ msgid "Language"
 msgstr "言語"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "textarea の 1 行の文字数"
+msgstr "カラムの順番を元に戻す"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "ドラッグでカラムの入れ替え"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "クリックで選択"
+msgstr "クリックでソート"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
@@ -10238,11 +10233,11 @@ msgstr "\"query by example\"を実行 (ワイルドカード: \"%\")"
 
 #: tbl_select.php:234
 msgid "Select columns (at least one):"
-msgstr "カラムを選択してください(最低 1 つ):"
+msgstr "カラムを選択してください (最低 1 つ)"
 
 #: tbl_select.php:252
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "検索条件(\"where\"節の内容)を追加してください:"
+msgstr "または 検索条件 (WHERE 節の内容) を追加してください"
 
 #: tbl_select.php:259
 msgid "Number of rows per page"
@@ -10250,7 +10245,7 @@ msgstr "ページあたりの行数"
 
 #: tbl_select.php:265
 msgid "Display order:"
-msgstr "表示順:"
+msgstr "表示順"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
