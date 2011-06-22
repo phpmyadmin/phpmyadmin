@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:31+0200\n"
+"POT-Creation-Date: 2011-06-22 10:16+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: malay <ms@li.org>\n"
@@ -4739,15 +4739,23 @@ msgstr ""
 msgid "Name"
 msgstr "Nama"
 
-#: libraries/db_events.inc.php:128
-msgid "The event scheduler is "
+#: libraries/db_events.inc.php:129
+msgid "The event scheduler is enabled"
 msgstr ""
 
-#: libraries/db_events.inc.php:130
-msgid "Turn"
+#: libraries/db_events.inc.php:129
+msgid "The event scheduler is disabled"
 msgstr ""
 
-#: libraries/db_events.inc.php:139
+#: libraries/db_events.inc.php:131
+msgid "Turn it on"
+msgstr ""
+
+#: libraries/db_events.inc.php:131
+msgid "Turn it off"
+msgstr ""
+
+#: libraries/db_events.inc.php:141
 #, fuzzy
 msgid "Add a new Event"
 msgstr "Tambah Pengguna Baru"

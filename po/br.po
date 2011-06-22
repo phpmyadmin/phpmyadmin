@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:31+0200\n"
+"POT-Creation-Date: 2011-06-22 10:16+0200\n"
 "PO-Revision-Date: 2011-06-22 10:08+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,8 +118,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"N'eo ket hegerz ar restr %s er servijer-mañ. Kit da welet war "
-"www.phpmyadmin.net evit gouzout hiroc'h."
+"N'eo ket hegerz ar restr %s er servijer-mañ. Kit da welet war www.phpmyadmin."
+"net evit gouzout hiroc'h."
 
 #: db_create.php:58
 #, php-format
@@ -4504,15 +4504,23 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: libraries/db_events.inc.php:128
-msgid "The event scheduler is "
+#: libraries/db_events.inc.php:129
+msgid "The event scheduler is enabled"
 msgstr ""
 
-#: libraries/db_events.inc.php:130
-msgid "Turn"
+#: libraries/db_events.inc.php:129
+msgid "The event scheduler is disabled"
 msgstr ""
 
-#: libraries/db_events.inc.php:139
+#: libraries/db_events.inc.php:131
+msgid "Turn it on"
+msgstr ""
+
+#: libraries/db_events.inc.php:131
+msgid "Turn it off"
+msgstr ""
+
+#: libraries/db_events.inc.php:141
 msgid "Add a new Event"
 msgstr ""
 
