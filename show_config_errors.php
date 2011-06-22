@@ -8,8 +8,6 @@
 
 require './libraries/vendor_config.php';
 
-echo "Starting to parse config file...\n";
-
 error_reporting(E_ALL);
 /**
  * Read config file.
