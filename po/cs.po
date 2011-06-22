@@ -551,7 +551,7 @@ msgstr "V databázi nebyly nalezeny žádné tabulky"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Spustit rutinu"
 
 #: db_routines.php:254 db_routines.php:258
 #, fuzzy, php-format
