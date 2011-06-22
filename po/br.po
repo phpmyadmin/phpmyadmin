@@ -730,7 +730,7 @@ msgstr "Gwelet"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:271
 msgid "Replication"
-msgstr ""
+msgstr "Eilañ"
 
 #: db_structure.php:441
 msgid "Sum"
