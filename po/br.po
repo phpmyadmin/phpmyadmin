@@ -302,7 +302,7 @@ msgstr "Eilañ an diaz roadennoù war"
 
 #: db_operations.php:494 tbl_operations.php:548 tbl_tracking.php:418
 msgid "Structure only"
-msgstr ""
+msgstr "Ar framm hepken"
 
 #: db_operations.php:495 tbl_operations.php:549 tbl_tracking.php:420
 msgid "Structure and data"
