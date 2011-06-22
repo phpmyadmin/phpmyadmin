@@ -635,7 +635,7 @@ msgstr[1] "%s klotadenn en daolenn <i>%s</i> "
 #: libraries/common.lib.php:2949 libraries/common.lib.php:2950
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:599
 msgid "Browse"
-msgstr ""
+msgstr "Furchal"
 
 #: db_search.php:261
 #, php-format
