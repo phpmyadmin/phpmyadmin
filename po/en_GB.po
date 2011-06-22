@@ -4890,7 +4890,7 @@ msgstr "Value"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "You must provide a routine name"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
