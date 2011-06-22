@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 23:55+0200\n"
+"PO-Revision-Date: 2011-06-22 23:56+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -590,10 +590,9 @@ msgid "Create routine"
 msgstr "Create routine"
 
 #: db_routines.php:378
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Edit mode"
+msgstr "Edit routine"
 
 #: db_routines.php:429
 msgid ""
