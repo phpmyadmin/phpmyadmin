@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 09:31+0200\n"
-"PO-Revision-Date: 2011-06-22 10:05+0200\n"
+"PO-Revision-Date: 2011-06-22 10:08+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -411,20 +411,20 @@ msgstr "Gwiriadenn ziwezhañ"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s daolenn"
+msgstr[1] "%s taolenn"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "Ret eo deoc'h dibab da nebeutañ ur bann da vezañ diskwelet"
 
 #: db_qbe.php:186
 msgid "Switch to"
-msgstr ""
+msgstr "Mont da"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "mod gwelet"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:927
