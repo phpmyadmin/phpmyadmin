@@ -4798,10 +4798,10 @@ msgid "Export of event \"%s\""
 msgstr "Exportar evento \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "No se han encontrado tablas en la base de datos."
+msgstr "No se encontró evento con nombre %s en la base de datos %s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
