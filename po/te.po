@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2011-04-07 17:06+0200\n"
 "Last-Translator: <veeven@gmail.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -676,7 +676,7 @@ msgid "Search in database"
 msgstr ""
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr ""
 
 # మొదటి అనువాదము
@@ -689,8 +689,10 @@ msgid "Words are separated by a space character (\" \")."
 msgstr ""
 
 #: db_search.php:323
-msgid "Inside table(s):"
-msgstr ""
+#, fuzzy
+#| msgid "Use Tables"
+msgid "Inside tables:"
+msgstr "పట్టికల్ని వాడు"
 
 #: db_search.php:353
 msgid "Inside column:"

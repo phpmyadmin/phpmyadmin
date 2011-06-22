@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -694,7 +694,9 @@ msgid "Search in database"
 msgstr "Procurar na base de datos"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palabras(s) ou valore(s) a procurar (o comodín é: \"%\"):"
 
 #: db_search.php:305
@@ -706,7 +708,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "As palabras divídense cun carácter de espazo (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "Dentro da(s) táboa(s):"
 
 #: db_search.php:353

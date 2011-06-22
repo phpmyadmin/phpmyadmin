@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2011-06-15 13:55+0200\n"
 "Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -675,7 +675,9 @@ msgid "Search in database"
 msgstr "Procurar no Banco de Dados"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palavra(s) ou valor(es) para procurar (coringa: \"%\"):"
 
 #: db_search.php:305
@@ -687,7 +689,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Palavras são separadas por um caracter de espaço (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "Dentro da(s) tabela(s):"
 
 #: db_search.php:353

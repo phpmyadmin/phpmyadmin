@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2010-07-21 14:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: albanian <sq@li.org>\n"
@@ -683,7 +683,9 @@ msgid "Search in database"
 msgstr "Kërko në databazë"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Fjala(ë) apo vlera(at) për t'u kërkuar (karakteri Jolly: \"%\"):"
 
 #: db_search.php:305
@@ -695,7 +697,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Fjalët veçohen me anë të një hapësirë bosh (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "Tek tabela(at):"
 
 #: db_search.php:353

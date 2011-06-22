@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2010-07-21 14:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -686,7 +686,9 @@ msgid "Search in database"
 msgstr "Datu-basean bilatu"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Bilaketa egiteko hitza(k) edo balioa(k) (komodina: \"%\"):"
 
 #: db_search.php:305
@@ -698,7 +700,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Hitzak \"zuriune\" karakterrarekin bereiztuta daude (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "Taul(ar)en barnean:"
 
 #: db_search.php:353

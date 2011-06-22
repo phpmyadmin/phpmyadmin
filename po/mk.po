@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2011-05-19 17:04+0200\n"
 "Last-Translator: <sjanevski@gmail.com>\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
@@ -683,7 +683,9 @@ msgid "Search in database"
 msgstr "Пребарување низ базата на податоци"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Зборови или вредности кои се бараат (џокер знак \"%\"):"
 
 #: db_search.php:305
@@ -695,7 +697,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Зборовите се одвојуваат со празно место (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "во табела(и):"
 
 #: db_search.php:353

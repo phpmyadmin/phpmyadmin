@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2011-05-27 18:52+0200\n"
 "Last-Translator: <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -674,7 +674,9 @@ msgid "Search in database"
 msgstr "Keresés az adatbázisban"
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#, fuzzy
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Keresendő szavak vagy értékek (karakterhelyettesítő: \"%\"):"
 
 #: db_search.php:305
@@ -686,7 +688,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "A szavak elválasztása szóköz karakterrel (\" \")."
 
 #: db_search.php:323
-msgid "Inside table(s):"
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr "Táblá(k)ban:"
 
 #: db_search.php:353

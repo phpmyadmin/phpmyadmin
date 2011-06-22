@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:09+0200\n"
+"POT-Creation-Date: 2011-06-22 09:14+0200\n"
 "PO-Revision-Date: 2010-04-16 10:43+0200\n"
 "Last-Translator: Sutharshan <sutharshan02@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -662,7 +662,7 @@ msgid "Search in database"
 msgstr ""
 
 #: db_search.php:300
-msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr ""
 
 #: db_search.php:305
@@ -674,7 +674,7 @@ msgid "Words are separated by a space character (\" \")."
 msgstr ""
 
 #: db_search.php:323
-msgid "Inside table(s):"
+msgid "Inside tables:"
 msgstr ""
 
 #: db_search.php:353
