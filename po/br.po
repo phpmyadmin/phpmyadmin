@@ -306,7 +306,7 @@ msgstr "Ar framm hepken"
 
 #: db_operations.php:495 tbl_operations.php:549 tbl_tracking.php:420
 msgid "Structure and data"
-msgstr ""
+msgstr "Ar framm hag ar roadennoù ennañ"
 
 #: db_operations.php:496 tbl_operations.php:550 tbl_tracking.php:419
 msgid "Data only"
