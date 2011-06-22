@@ -290,7 +290,7 @@ msgstr "Dilemel an diaz roadennoù"
 #: db_operations.php:452
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "Diverket eo bet an diaz roadennoù %s."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
