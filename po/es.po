@@ -10243,10 +10243,9 @@ msgid "Label column"
 msgstr "Etiqueta de columna"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- ninguno -"
+msgstr "-- ninguno --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
