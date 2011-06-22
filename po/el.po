@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 23:22+0200\n"
+"PO-Revision-Date: 2011-06-22 23:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -535,10 +535,9 @@ msgid "MySQL said: "
 msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Σφάλμα στην Προώθηση του Αιτημάτος"
+msgstr "Σφάλμα στην προώθηση αιτημάτος"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
 #, fuzzy, php-format
