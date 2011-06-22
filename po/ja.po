@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:23+0200\n"
+"PO-Revision-Date: 2011-06-22 11:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4682,10 +4682,10 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 拡張がありません。PHP の設定をチェックしてみてください。"
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "内容をエクスポートする"
+msgstr "イベント %s をエクスポートする"
 
 #: libraries/db_events.inc.php:34
 #, fuzzy, php-format
