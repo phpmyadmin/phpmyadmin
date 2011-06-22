@@ -255,7 +255,7 @@ msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
 
 #: db_export.php:44 db_search.php:342 server_export.php:26
 msgid "Select All"
-msgstr ""
+msgstr "Diuzañ pep tra"
 
 #: db_export.php:46 db_search.php:345 server_export.php:28
 msgid "Unselect All"
