@@ -4883,7 +4883,7 @@ msgstr "Typ zabezpečení"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "Přístup k SQL datům"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
