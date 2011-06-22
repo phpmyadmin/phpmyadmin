@@ -586,10 +586,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: db_routines.php:374
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Δημιουργία συσχέτισης"
+msgstr "Δημιουργία ρουτίνας"
 
 #: db_routines.php:378
 #, fuzzy
