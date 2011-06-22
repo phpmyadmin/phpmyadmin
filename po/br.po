@@ -145,7 +145,7 @@ msgstr "Evezhiadennoù diwar-benn an daolenn"
 #: tbl_indexes.php:188 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
-msgstr ""
+msgstr "Bann"
 
 #: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:445
 #: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
