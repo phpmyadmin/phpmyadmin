@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2011-06-08 05:00+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -2081,50 +2081,48 @@ msgid "Check Privileges"
 msgstr "检查权限"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin 无法读取您的配置文件！<br />这可能是因为配置文件不存在或有语法错"
-"误。<br />请使用下面的链接直接访问配置文件，然后检查您收到的 PHP 错误信息。通"
-"常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，则代表没"
-"有任何问题。"
+#, fuzzy
+#| msgid "Could not save configuration"
+msgid "Failed to to read configuration file"
+msgstr "无法保存设置"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "无法加载默认配置: %1$s"
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "必须在您的配置文件中设置 <tt>$cfg['PmaAbsoluteUri']</tt> ！"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "无效的服务器索引: %s"
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "无效的主机名 %1$s，请检查配置文件。"
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
@@ -10298,6 +10296,19 @@ msgstr "视图名"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "将视图改名为"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin 无法读取您的配置文件！<br />这可能是因为配置文件不存在或有语法"
+#~ "错误。<br />请使用下面的链接直接访问配置文件，然后检查您收到的 PHP 错误信"
+#~ "息。通常的错误都是因为某处漏了引号或分号。<br />如果您看到的是一个空白页，"
+#~ "则代表没有任何问题。"
 
 #~ msgid "Dropping Event"
 #~ msgstr "正在删除事件"

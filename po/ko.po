@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-06-16 18:18+0200\n"
 "Last-Translator: <cihar@nvyu.net>\n"
 "Language-Team: korean <ko@li.org>\n"
@@ -2141,51 +2141,46 @@ msgid "Check Privileges"
 msgstr "사용권한 보기"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
+msgid "Failed to to read configuration file"
 msgstr ""
-"phpMyAdmin이 환경설정 파일을 읽을 수 없습니다!<br />PHP에 에러가 있거나 실제"
-"로 그 파일이 없는 경우입니다.<br />아래 링크를 통해 환경설정 파일만 불러들여"
-"보십시오. 그리고 PHP 에러 메시지를 확인하십시오. 어딘가에 따옴표(quote)나 세"
-"미콜론(;)이 빠져있는 경우가 종종 있습니다.<br />만약 아무것도 보이지 않으면, "
-"정상적인 것입니다."
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr "환경설정 파일에서 <tt>$cfg['PmaAbsoluteUri']</tt> 주소를 기입하십시오!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "서버"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
@@ -10371,6 +10366,20 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin이 환경설정 파일을 읽을 수 없습니다!<br />PHP에 에러가 있거나 실"
+#~ "제로 그 파일이 없는 경우입니다.<br />아래 링크를 통해 환경설정 파일만 불러"
+#~ "들여보십시오. 그리고 PHP 에러 메시지를 확인하십시오. 어딘가에 따옴표"
+#~ "(quote)나 세미콜론(;)이 빠져있는 경우가 종종 있습니다.<br />만약 아무것도 "
+#~ "보이지 않으면, 정상적인 것입니다."
 
 #, fuzzy
 #~ msgid "Dropping Procedure"

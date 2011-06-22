@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-12-02 14:49+0200\n"
 "Last-Translator: Sasa Kostic <sasha.kostic@gmail.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -2229,28 +2229,24 @@ msgid "Check Privileges"
 msgstr "Proveri privilegije"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin nije mogao da pročita vašu konfiguracionu datoteku!<br />Ovo se "
-"može desiti ako PHP nađe grešku u procesiranju ili ne može da pronađe "
-"datoteku.<br />Pozovite konfiguracionu datoteku direktno koristeći donji "
-"link i pročitajte poruke o grešci koje dobijate. U većini slučajeve negde "
-"nedostaje navodnik ili tačka-zarez.<br />Ako dobijete praznu stranu, sve je "
-"u redu."
+#, fuzzy
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Failed to to read configuration file"
+msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2258,27 +2254,27 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> direktiva MORA biti podešena u "
 "konfiguracionoj datoteci!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Neispravan indeks servera: \"%s\""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Neispravan naziv servera %1$s. Molimo proverite svoju konfiguraciju."
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan metod autentikacije je zadat u konfiguraciji:"
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Trebalo bi da unapredite vaš %s server na verziju %s ili noviju."
@@ -10829,6 +10825,21 @@ msgstr "naziv za VIEW"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Promeni ime tabele u "
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin nije mogao da pročita vašu konfiguracionu datoteku!<br />Ovo "
+#~ "se može desiti ako PHP nađe grešku u procesiranju ili ne može da pronađe "
+#~ "datoteku.<br />Pozovite konfiguracionu datoteku direktno koristeći donji "
+#~ "link i pročitajte poruke o grešci koje dobijate. U većini slučajeve negde "
+#~ "nedostaje navodnik ili tačka-zarez.<br />Ako dobijete praznu stranu, sve "
+#~ "je u redu."
 
 #, fuzzy
 #~| msgid "Procedures"

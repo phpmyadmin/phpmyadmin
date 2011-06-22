@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-05-19 03:54+0200\n"
 "Last-Translator: <ahmad_usa2007@yahoo.com>\n"
 "Language-Team: persian <fa@li.org>\n"
@@ -2156,52 +2156,46 @@ msgid "Check Privileges"
 msgstr "ويرايش امتيازات"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
+msgid "Failed to to read configuration file"
 msgstr ""
-"phpMyAdmin قادر به خواندن پرونده تنظيمات نمي‌باشد!<br />اين ممكن است به خاطر "
-"وجود يك مشكل دستوري و يا پيدانشدن پرونده توسط php باشد.<br />لطفا پرونده "
-"تنظميات را مستقيما توسط پيوند زير صدا زده و پيغام(هاي) خطاي php كه دريافت "
-"مي‌كنيد را بخوانيد. در اكثر موارد يك علامت نقل قول (\" ' \") يا ويرگول‌نقطه "
-"(\" ; \") در جايي وجود ندارد.<br />اگر يك صفحه خالي دريافت كرديد ، همه چيز "
-"درست است."
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "سرور"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
@@ -10332,6 +10326,21 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "بازناميدن جدول به"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin قادر به خواندن پرونده تنظيمات نمي‌باشد!<br />اين ممكن است به "
+#~ "خاطر وجود يك مشكل دستوري و يا پيدانشدن پرونده توسط php باشد.<br />لطفا "
+#~ "پرونده تنظميات را مستقيما توسط پيوند زير صدا زده و پيغام(هاي) خطاي php كه "
+#~ "دريافت مي‌كنيد را بخوانيد. در اكثر موارد يك علامت نقل قول (\" ' \") يا "
+#~ "ويرگول‌نقطه (\" ; \") در جايي وجود ندارد.<br />اگر يك صفحه خالي دريافت "
+#~ "كرديد ، همه چيز درست است."
 
 #~ msgid "seconds"
 #~ msgstr " ثانیه"

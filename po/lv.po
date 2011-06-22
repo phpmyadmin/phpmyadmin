@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-03-12 09:16+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: latvian <lv@li.org>\n"
@@ -2206,26 +2206,21 @@ msgid "Check Privileges"
 msgstr "Pārbaudīt privilēģijas"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
+msgid "Failed to to read configuration file"
 msgstr ""
-"phpMyAdmin nevar nolasīt konfigurācijas failu!<br />Tas var notikt, ja PHP "
-"atrod tajā kļūdu, vai arī nevar atrast so failu.<br />Mēginiet izsaukt "
-"konfigurācijas failu tieši, klikškinot linku zemāk un lasiet PHP pazinojumu "
-"par kļūdām. Vairākumā gadījumu kaut kur pietrukst pēdiņa vai semikols.<br /"
-">Ja redzat tukšu lapu, viss ir kārtībā."
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2233,26 +2228,26 @@ msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> direktīvai ir JĀBŪT nodefinētai Jūsu "
 "konfigurācijas failā!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Serveris"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Jums ir jāuzliek %s %s vai jaunāks."
@@ -10592,6 +10587,20 @@ msgstr ""
 #, fuzzy
 msgid "Rename view to"
 msgstr "Pārsaukt tabulu uz"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin nevar nolasīt konfigurācijas failu!<br />Tas var notikt, ja "
+#~ "PHP atrod tajā kļūdu, vai arī nevar atrast so failu.<br />Mēginiet "
+#~ "izsaukt konfigurācijas failu tieši, klikškinot linku zemāk un lasiet PHP "
+#~ "pazinojumu par kļūdām. Vairākumā gadījumu kaut kur pietrukst pēdiņa vai "
+#~ "semikols.<br />Ja redzat tukšu lapu, viss ir kārtībā."
 
 #, fuzzy
 #~ msgid "Dropping Procedure"

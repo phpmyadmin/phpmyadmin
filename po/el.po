@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2011-06-20 11:01+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -2108,27 +2108,23 @@ msgid "Check Privileges"
 msgstr "Έλεγχος Δικαιωμάτων"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"Το phpMyAdmin δεν μπόρεσε να διαβάσει το αρχείο ρυθμίσεων!<br />Αυτό μπορεί "
-"να συμβεί εάν η php βρει κάποιο λάθος στο αρχείο ή εάν η php δεν μπορεί να "
-"βρει το αρχείο.<br />Τρέξτε το αρχείο ρυθμίσεων κατευθείαν χρησιμοποιώντας "
-"το ακόλουθο σύνδεσμο και διαβάστε τα μήνυματα λάθους που θα επιστρέψει η "
-"php. Στις περισσότερες περιπτώσεις κάπου λείπουν εισαγωγικά (\") ή "
-"ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή σελίδα, όλα είναι σωστά."
+#, fuzzy
+#| msgid "Could not save configuration"
+msgid "Failed to to read configuration file"
+msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2136,28 +2132,28 @@ msgstr ""
 "Η εντολή <tt>$cfg['PmaAbsoluteUri']</tt> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Μη έγκυρο ευρετήριο διακομιστή: %s"
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Μη έγκυρο όνομα διακομιστή για τον διακομιστή %1$s. Ξαναδείτε τις ρυθμίσεις "
 "σας."
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Διακομιστής"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ορίστηκε εσφαλμένη μέθοδος πιστοποίησης στη ρύθμιση:"
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
@@ -10788,6 +10784,22 @@ msgstr "ΠΡΟΒΟΛΗ ονόματος"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Μετονομασία πίνακα σε"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "Το phpMyAdmin δεν μπόρεσε να διαβάσει το αρχείο ρυθμίσεων!<br />Αυτό "
+#~ "μπορεί να συμβεί εάν η php βρει κάποιο λάθος στο αρχείο ή εάν η php δεν "
+#~ "μπορεί να βρει το αρχείο.<br />Τρέξτε το αρχείο ρυθμίσεων κατευθείαν "
+#~ "χρησιμοποιώντας το ακόλουθο σύνδεσμο και διαβάστε τα μήνυματα λάθους που "
+#~ "θα επιστρέψει η php. Στις περισσότερες περιπτώσεις κάπου λείπουν "
+#~ "εισαγωγικά (\") ή ερωτηματικά (;).<br />Εάν η php επιστρέψει μια λευκή "
+#~ "σελίδα, όλα είναι σωστά."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Συμβάν διαγραφής"

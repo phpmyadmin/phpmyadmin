@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2011-02-24 16:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
@@ -2178,28 +2178,24 @@ msgid "Check Privileges"
 msgstr "Sprawdź uprawnienia"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin nie zdołał odczytać Twojego pliku konfiguracji!<br />Może się to "
-"zdarzyć, jeśli PHP znajdzie w nim błąd składniowy lub nie może znaleźć tego "
-"pliku.<br />Proszę wywołać bezpośrednio plik konfiguracyjny używając "
-"poniższego linku i odczytać otrzymane komunikat(y) o błędach. W większości "
-"przypadków brakuje gdzieś cudzysłowu lub średnika.<br />Jeżeli otrzymasz "
-"pustą stronę, wszystko jest w porządku."
+#, fuzzy
+#| msgid "Cannot load or save configuration"
+msgid "Failed to to read configuration file"
+msgstr "Nie udało się załadować lub zapisać konfiguracji"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nie udało się załadować domyślnej konfiguracji z pliku: \"%1$s\""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2207,28 +2203,28 @@ msgstr ""
 "Dyrektywa <tt>$cfg['PmaAbsoluteUri']</tt> musi być ustawiona w pliku "
 "konfiguracyjnym!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Niewłaściwy numer serwera: \"%s\""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Niewłaściwa nazwa hosta serwera %1$s. Proszę przyjrzeć się konfiguracji."
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Serwer"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "W konfiguracji ustawiono błędną metodę uwierzytelniania:"
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Zaleca się aktualizację do %s w wersji %s lub nowszej."
@@ -11163,6 +11159,21 @@ msgstr "Nazwa widoku"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Zmień nazwę perspektywy na"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin nie zdołał odczytać Twojego pliku konfiguracji!<br />Może się "
+#~ "to zdarzyć, jeśli PHP znajdzie w nim błąd składniowy lub nie może znaleźć "
+#~ "tego pliku.<br />Proszę wywołać bezpośrednio plik konfiguracyjny używając "
+#~ "poniższego linku i odczytać otrzymane komunikat(y) o błędach. W "
+#~ "większości przypadków brakuje gdzieś cudzysłowu lub średnika.<br />Jeżeli "
+#~ "otrzymasz pustą stronę, wszystko jest w porządku."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Usuwanie Zdarzenia"

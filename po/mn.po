@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: mongolian <mn@li.org>\n"
@@ -2214,54 +2214,51 @@ msgid "Check Privileges"
 msgstr "Онцгой эрх шалгах"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin нь таны тохиргооны файлыг уншиж чадахгүй нь!<br />Задлан ялгалын "
-"алдаа эсвэл уг файл олдохгүй байна.<br />Тохиргооны (config.inc.php) файл "
-"дуудах холбоосыг зөв оруулж php-ийн танд ирсэн алдааны мэдээллийг унш. Энэ "
-"нь ихэвчлэн цэгтэй таслалын （;） алдаа байдаг. Хэрэв хоосон хуудас ирвэл – "
-"энэ нь зүгээр байна"
+#, fuzzy
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Failed to to read configuration file"
+msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\""
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> -ыг тохиргооны файлд тохируулах хэрэгтэй!"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Сервэрийн буруу индекс нь: \"%s\""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "%1$s сервэрийн хост буруу. Өөрийн тохиргоогоо нягтална уу."
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Сервэр"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "Тохиргоонд сонгогдсон буруу зөвшөөрлийн арга:"
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Та хувилбар %s -г %s -ээр сайжруулах хэрэгтэй эсвэл дараа."
@@ -10646,6 +10643,20 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin нь таны тохиргооны файлыг уншиж чадахгүй нь!<br />Задлан "
+#~ "ялгалын алдаа эсвэл уг файл олдохгүй байна.<br />Тохиргооны (config.inc."
+#~ "php) файл дуудах холбоосыг зөв оруулж php-ийн танд ирсэн алдааны "
+#~ "мэдээллийг унш. Энэ нь ихэвчлэн цэгтэй таслалын （;） алдаа байдаг. Хэрэв "
+#~ "хоосон хуудас ирвэл – энэ нь зүгээр байна"
 
 #, fuzzy
 #~| msgid "Procedures"

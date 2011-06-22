@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2011-05-06 09:13+0200\n"
 "Last-Translator: <manojonemail@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -2119,51 +2119,49 @@ msgid "Check Privileges"
 msgstr "प्रिविलेज  चेक करें"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin आपकि configuration फाइल पढऩे मै असमर्थ ै!<br />या तो फाइल मैं पार्स त्रुटि "
-"है , या फिर आपकी फाइल ढूँढने मैं असमर्थ है |<br/>कृपया फाइल को नीचे दिए हुए लिंक से खोलें "
-"और एर्रोर को पढ़ें | ज्यादातर एक 'या फिर एक ; गायब हो सकता है |<br /> अगर आप खाली "
-"पेज देखें तो सब सही है "
+#, fuzzy
+#| msgid "Could not save configuration"
+msgid "Failed to to read configuration file"
+msgstr "विन्यास सहेज नहीं सकते"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी |"
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
 "<tt>$cfg['PmaAbsoluteUri']</tt> निर्देश आपकी विन्यास फाइल मैं सेट होना आवश्यक है"
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "अवैध सर्वर सूचकांक: %s"
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "%1$s सर्वर के लिए होस्टनाम अवैध कृपया अपना विन्यास की समीक्षा करें"
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "सर्वर"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "विन्यास में अवैध प्रमाणीकरण विधि स्थापित"
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए"
@@ -10241,6 +10239,19 @@ msgstr "दृश्य का नाम"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "दृश्य का नाम बदलो"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin आपकि configuration फाइल पढऩे मै असमर्थ ै!<br />या तो फाइल मैं पार्स "
+#~ "त्रुटि है , या फिर आपकी फाइल ढूँढने मैं असमर्थ है |<br/>कृपया फाइल को नीचे दिए हुए लिंक "
+#~ "से खोलें और एर्रोर को पढ़ें | ज्यादातर एक 'या फिर एक ; गायब हो सकता है |<br /> अगर "
+#~ "आप खाली पेज देखें तो सब सही है "
 
 #~ msgid "Dropping Event"
 #~ msgstr "घटना छोड़ "

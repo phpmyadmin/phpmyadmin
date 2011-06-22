@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 09:14+0200\n"
+"POT-Creation-Date: 2011-06-22 09:31+0200\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
@@ -2275,28 +2275,24 @@ msgid "Check Privileges"
 msgstr "Comprobar os privilexios"
 
 #: libraries/common.inc.php:587
-msgid ""
-"phpMyAdmin was unable to read your configuration file!<br />This might "
-"happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
-">Please call the configuration file directly using the link below and read "
-"the PHP error message(s) that you receive. In most cases a quote or a "
-"semicolon is missing somewhere.<br />If you receive a blank page, everything "
-"is fine."
-msgstr ""
-"phpMyAdmin non puido ler o ficheiro de configuración<br/>Isto poderíase "
-"deber a que php atopou un erro nel ou a que php non puido atopar o ficheiro."
-"<br/>Invoque o ficheiro de configuración directamente mediante o vínculo que "
-"hai máis abaixo e lea a mensaxe de erro de php que reciba. Na maioría dos "
-"casos simplemente faltan unha aspa ou un ponto e vírcula <br/>Se recibe unha "
-"páxina en branco é que todo está ben."
+#, fuzzy
+#| msgid "Cannot load or save configuration"
+msgid "Failed to to read configuration file"
+msgstr "Non se puido cargar ou gravar a configuración"
 
-#: libraries/common.inc.php:598
+#: libraries/common.inc.php:588
+msgid ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
+msgstr ""
+
+#: libraries/common.inc.php:595
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Non se puido cargar a configuración desde: \"%1$s\""
 
-#: libraries/common.inc.php:603
+#: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2304,28 +2300,28 @@ msgstr ""
 "A directiva <tt>$cfg['PmaAbsoluteUri']</tt> DEBE estar asignada no seu "
 "ficheiro de configuración."
 
-#: libraries/common.inc.php:633
+#: libraries/common.inc.php:630
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "O índice do servidor non é válido: \"%s\""
 
-#: libraries/common.inc.php:640
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "O nome de servidor non é válido para o servidor %1$s. Revise a configuración."
 
-#: libraries/common.inc.php:649 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Servidor"
 
-#: libraries/common.inc.php:832
+#: libraries/common.inc.php:829
 msgid "Invalid authentication method set in configuration:"
 msgstr "Na configuración indicouse un método de autenticación que non válido::"
 
-#: libraries/common.inc.php:935
+#: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Debería actualizar a %s %s ou posterior."
@@ -11388,6 +11384,21 @@ msgstr "Nome da VISTA"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Mudar o nome da táboa para"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin non puido ler o ficheiro de configuración<br/>Isto poderíase "
+#~ "deber a que php atopou un erro nel ou a que php non puido atopar o "
+#~ "ficheiro.<br/>Invoque o ficheiro de configuración directamente mediante o "
+#~ "vínculo que hai máis abaixo e lea a mensaxe de erro de php que reciba. Na "
+#~ "maioría dos casos simplemente faltan unha aspa ou un ponto e vírcula <br/"
+#~ ">Se recibe unha páxina en branco é que todo está ben."
 
 #, fuzzy
 #~| msgid "Procedures"
