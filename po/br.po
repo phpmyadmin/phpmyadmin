@@ -411,8 +411,8 @@ msgstr "Gwiriadenn ziwezhañ"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] " %s daolenn"
-msgstr[1] " %s taolenn"
+msgstr[0] "%s daolenn"
+msgstr[1] "%s taolenn"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
