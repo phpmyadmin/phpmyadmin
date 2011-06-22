@@ -3151,7 +3151,7 @@ msgstr "Přizpůsobit nastavení okna dotazů"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
-msgstr "Zabezpeční"
+msgstr "Zabezpečení"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
