@@ -1328,10 +1328,9 @@ msgstr ""
 "¡La definición de una función almacenada debe contener una sentencia RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "¡Falta un valor en el formulario!"
+msgstr "¡Valor demasiado grande en el formulario!"
 
 #: js/messages.php:126
 msgid ""
