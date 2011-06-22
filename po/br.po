@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 20:47+0200\n"
+"PO-Revision-Date: 2011-06-22 20:48+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -710,7 +710,7 @@ msgstr "Oberiant eo an heuliañ."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "N'eo ket oberiant an heuliañ."
 
 #: db_structure.php:372 libraries/display_tbl.lib.php:2235
 #, php-format
