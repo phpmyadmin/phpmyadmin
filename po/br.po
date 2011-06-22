@@ -671,7 +671,7 @@ msgstr ""
 
 #: db_search.php:305
 msgid "Find:"
-msgstr ""
+msgstr "Kavout :"
 
 #: db_search.php:309 db_search.php:310
 msgid "Words are separated by a space character (\" \")."
