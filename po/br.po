@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 20:39+0200\n"
+"PO-Revision-Date: 2011-06-22 20:40+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -605,7 +605,7 @@ msgstr "Moned nac'het"
 
 #: db_search.php:66 db_search.php:309
 msgid "at least one of the words"
-msgstr ""
+msgstr "unan eus ar gerioù da nebeutañ"
 
 #: db_search.php:67 db_search.php:310
 msgid "all words"
