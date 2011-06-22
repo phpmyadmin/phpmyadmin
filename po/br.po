@@ -683,7 +683,7 @@ msgstr ""
 
 #: db_search.php:353
 msgid "Inside column:"
-msgstr ""
+msgstr "Er bann : "
 
 #: db_structure.php:60
 msgid "No tables found in database"
