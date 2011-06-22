@@ -482,7 +482,7 @@ msgstr "Ouzhpennañ/Diverkañ linennoù dezverkoù"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "Ouzhpennañ/Diverkañ bannoù"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
