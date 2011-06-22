@@ -47,7 +47,7 @@ msgstr ""
 #: libraries/common.lib.php:2952 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
-msgstr ""
+msgstr "Klask"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
