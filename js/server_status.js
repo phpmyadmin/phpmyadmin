@@ -89,6 +89,11 @@ $(function() {
     // Handles refresh rate changing
     $('.statuslinks select').change(function() {
         var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
+
+        // Clear current timeout and set timeout with the new refresh rate
+        clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
+        chart.options.realtime.postRequest.abort();
+        
         chart.options.realtime.refreshRate = 1000*parseInt(this.value);
         
         chart.xAxis[0].setExtremes(
@@ -96,9 +101,7 @@ $(function() {
             new Date().getTime() - server_time_diff,
             true
         );
-        
-        // Clear current timeout and set timeout with the new refresh rate
-        clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
+       
         chart_activeTimeouts[chart.options.chart.renderTo] = setTimeout(
             chart.options.realtime.timeoutCallBack, 
             chart.options.realtime.refreshRate

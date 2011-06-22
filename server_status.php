@@ -399,16 +399,19 @@ echo __('Runtime Information');
                 <span class="refreshList" style="display:none;">
                     <label for="trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <select name="trafficChartRefresh">
-                        <option value="1">1 <?php echo __('second'); ?></option>
-                        <option value="2">2 <?php echo __('seconds'); ?></option>
-                        <option value="5" selected="selected">5 <?php echo __('seconds'); ?></option>
-                        <option value="10">10 <?php echo __('seconds'); ?></option>
-                        <option value="20">20 <?php echo __('seconds'); ?></option>
-                        <option value="40">40 <?php echo __('seconds'); ?></option>
-                        <option value="60">1 <?php echo __('minutes'); ?></option>
-                        <option value="120">2 <?php echo __('minutes'); ?></option>
-                        <option value="300">5 <?php echo __('minutes'); ?></option>
-                        <option value="600">10 <?php echo __('minutes'); ?></option>
+                        <?php
+                            $defaultRate = 5;
+                            $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600);
+                            
+                            foreach($refreshRates as $rate) {
+                                $selected = ($rate == $defaultRate)?' selected="selected"':'';
+                                
+                                if($rate<60)
+                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
+                                else
+                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';
+                            }
+                        ?>
                     </select>
                 </span>
                 <a class="tabChart livetrafficLink" href="#">
@@ -433,16 +436,19 @@ echo __('Runtime Information');
                 <span class="refreshList" style="display:none;">
                     <label for="queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <select name="queryChartRefresh">
-                        <option value="1">1 <?php echo __('second'); ?></option>
-                        <option value="2">2 <?php echo __('seconds'); ?></option>
-                        <option value="5" selected="selected">5 <?php echo __('seconds'); ?></option>
-                        <option value="10">10 <?php echo __('seconds'); ?></option>
-                        <option value="20">20 <?php echo __('seconds'); ?></option>
-                        <option value="40">40 <?php echo __('seconds'); ?></option>
-                        <option value="60">1 <?php echo __('minutes'); ?></option>
-                        <option value="120">2 <?php echo __('minutes'); ?></option>
-                        <option value="300">5 <?php echo __('minutes'); ?></option>
-                        <option value="600">10 <?php echo __('minutes'); ?></option>
+                        <?php
+                            $defaultRate = 5;
+                            $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600);
+                            
+                            foreach($refreshRates as $rate) {
+                                $selected = ($rate == $defaultRate)?' selected="selected"':'';
+                                
+                                if($rate<60)
+                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
+                                else
+                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';
+                            }
+                        ?>
                     </select>
                 </span>
                 <a class="tabChart livequeriesLink" href="#">
@@ -637,7 +643,7 @@ function printServerTraffic() {
 
     <p>
     <?php
-    echo sprintf(__('This MySQL server has been running for %s. It started up on %s.'),
+    echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
         PMA_timespanFormat($server_status['Uptime']),
         PMA_localisedDate($start_time)) . "\n";
     ?>
