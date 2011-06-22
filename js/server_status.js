@@ -56,6 +56,14 @@ $(function() {
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
+
+    // Tell highcarts not to use UTC dates (global setting)    
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
+
     
     $.ajaxSetup({
         cache:false
@@ -84,8 +92,8 @@ $(function() {
         chart.options.realtime.refreshRate = 1000*parseInt(this.value);
         
         chart.xAxis[0].setExtremes(
-            new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate,
-            new Date().getTime() + chart.options.realtime.refreshRate / 4,
+            new Date().getTime() - server_time_diff - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate,
+            new Date().getTime() - server_time_diff,
             true
         );
         

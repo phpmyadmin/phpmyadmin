@@ -44,7 +44,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $value = $_REQUEST['varValue'];
                 if(!is_numeric($value)) $value="'".$value."'";
                 
-                if(PMA_DBI_query('SET GLOBAL '.PMA_backquote($_REQUEST['varName']).' = '.$value))
+                if(PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value))
                     // Some values are rounded down etc.
                     $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.$_REQUEST['varName'].'";','NUM');
                     

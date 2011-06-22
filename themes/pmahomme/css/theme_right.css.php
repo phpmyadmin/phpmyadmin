@@ -1207,8 +1207,12 @@ div#serverstatusquerieschart {
     padding-<?php echo $left; ?>: 30px;
 }
 
-div#serverstatus table#serverstatusqueriesdetails {
+table#serverstatusqueriesdetails, table#serverstatustraffic {
     float: <?php echo $left; ?>;
+}
+
+table#serverstatusqueriesdetails th {
+    min-width: 35px;
 }
 
 .clearfloat {
@@ -1224,9 +1228,6 @@ table#serverstatusvariables .name {
 }
 table#serverstatusvariables .value {
     width: 6em;
-}
-table#serverstatustraffic {
-    float: <?php echo $left; ?>;
 }
 table#serverstatusconnections {
     float: <?php echo $left; ?>;

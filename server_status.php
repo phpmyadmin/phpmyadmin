@@ -44,15 +44,17 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 
                 exit(json_encode($ret));
             case 'queries':
-                $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" AND Value>0', 0, 1);
+                $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" OR Variable_name="Questions" AND Value>0', 0, 1);
                 cleanDeprecated($queries);
                 // admin commands are not queries
                 unset($queries['Com_admin_commands']);
+                $questions = $queries['Questions'];
+                unset($queries['Questions']);
 
-                $sum=array_sum($queries);
+                //$sum=array_sum($queries);
                 $ret = array(
                     'x'         => microtime(true)*1000,
-                    'y'         => $sum,
+                    'y'         => $questions,
                     'pointInfo' => $queries
                 );
 
@@ -367,6 +369,7 @@ require './libraries/server_links.inc.php';
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
+server_time_diff = new Date().getTime() - <?php echo microtime(true)*1000; ?>;
 </script>
 <div id="serverstatus">
     <h2><?php
@@ -521,7 +524,9 @@ function printQueryStatistics() {
     ?>
     <h3 id="serverstatusqueries">
         <?php 
-        echo sprintf('Queries since startup: %s',PMA_formatNumber($total_queries, 0));
+        /* l10n: Questions is the name of a MySQL Status variable */
+        echo sprintf(__('Questions since startup: %s'),PMA_formatNumber($total_queries, 0)) . ' ';
+        echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
         ?>
         <br>
         <span>
@@ -537,11 +542,11 @@ function printQueryStatistics() {
         if($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash;'.__('per second').':';
             echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); 
+        }
         ?>
-        </span><br>
+        </span>
     </h3>
     <?php
-    }
 
     // reverse sort by value to show most used statements first
     arsort($used_queries);
@@ -556,7 +561,7 @@ function printQueryStatistics() {
         <col class="namecol" />
         <col class="valuecol" span="3" />
         <thead>
-            <tr><th><?php echo __('Query type'); ?></th>
+            <tr><th><?php echo __('Statements'); ?></th>
                 <th><?php
                     /* l10n: # = Amount of queries */
                     echo __('#');
@@ -579,7 +584,8 @@ function printQueryStatistics() {
         // but is included in Questions. Then the total of the percentages is 100.
         $name = str_replace(Array('Com_', '_'), Array('', ' '), $name);
 
-        if($value < $query_sum * 0.02)
+        // Group together values that make out less than 2% into "Other", but only if we have more than 6 fractions already
+        if($value < $query_sum * 0.02 && count($chart_json)>6)
             $other_sum += $value;
         else $chart_json[$name] = $value;
     ?>

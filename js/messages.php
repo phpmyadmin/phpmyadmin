@@ -83,8 +83,10 @@ $js_messages['strChartServerTraffic'] = __('Server traffic (in kB)');
 $js_messages['strChartConnections'] = __('Connections since last refresh');
 $js_messages['strChartProcesses'] = __('Processes');
 $js_messages['strChartConnectionsTitle'] = __('Connections / Processes');
-$js_messages['strChartIssuedQueries'] = __('Issued queries since last refresh');
-$js_messages['strChartIssuedQueriesTitle'] = __('Issued queries');
+/* l10n: Questions is the name of a MySQL Status variable */
+$js_messages['strChartIssuedQueries'] = __('Questions since last refresh');
+/* l10n: Questions is the name of a MySQL Status variable */
+$js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements by the server)');
 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 

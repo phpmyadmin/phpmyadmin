@@ -1414,10 +1414,13 @@ function PMA_createChart(passedSettings) {
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    // No realtime updates for graphs that are being exported, and disabled when no callback is set
+                    
+                    // No realtime updates for graphs that are being exported, and disabled when realtime is not set
+                    // Also don't do live charting if we don't have the server time
                     if(thisChart.options.chart.forExport == true || 
                         ! passedSettings.realtime || 
-                        ! passedSettings.realtime.callback) return;
+                        ! passedSettings.realtime.callback ||
+                        ! server_time_diff) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
                         $.post(passedSettings.realtime.url,
@@ -1449,7 +1452,7 @@ function PMA_createChart(passedSettings) {
                         });
                     }
                     
-                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
         },
@@ -1498,8 +1501,10 @@ function PMA_createChart(passedSettings) {
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
         
-        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime();
+        if(server_time_diff) {
+            settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+            settings.xAxis.max = new Date().getTime() - server_time_diff;
+        }
     }
 
     // Overwrite/Merge default settings with passedsettings
