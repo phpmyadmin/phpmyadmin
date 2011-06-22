@@ -506,7 +506,7 @@ msgstr "Kas ar reked"
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Sevenet eo bet ho reked SQL ervat"
 
 #: db_routines.php:155
 #, php-format
