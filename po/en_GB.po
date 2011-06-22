@@ -512,10 +512,10 @@ msgstr[0] "%d row affected by the last statement inside the procedure"
 msgstr[1] "%d rows affected by the last statement inside the procedure"
 
 #: db_routines.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Allows executing stored routines."
+msgstr "Execution results of routine %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
