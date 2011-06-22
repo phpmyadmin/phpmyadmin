@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 11:35+0200\n"
+"PO-Revision-Date: 2011-06-22 11:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4791,10 +4791,9 @@ msgid "Parameters"
 msgstr "パラメータ"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "直リンク"
+msgstr "入出力"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
