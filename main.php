@@ -79,23 +79,21 @@ if ($server > 0
     /**
      * Displays the mysql server related links
      */
-    if ($server > 0) {
+    if ($server > 0 && !PMA_DRIZZLE) {
         require_once './libraries/check_user_privileges.lib.php';
 
-        if (!PMA_DRIZZLE) {
-            // Logout for advanced authentication
-            if ($cfg['Server']['auth_type'] != 'config') {
-                if ($cfg['ShowChgPassword']) {
-                    if ($GLOBALS['cfg']['AjaxEnable']) {
-                        $conditional_class = 'ajax';
-                    } else {
-                        $conditional_class = null;
-                    }
-                    PMA_printListItem(__('Change password'), 'li_change_password',
-                        './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
+        // Logout for advanced authentication
+        if ($cfg['Server']['auth_type'] != 'config') {
+            if ($cfg['ShowChgPassword']) {
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $conditional_class = 'ajax';
+                } else {
+                    $conditional_class = null;
                 }
-            } // end if
-        } // not Drizzle
+                PMA_printListItem(__('Change password'), 'li_change_password',
+                    './user_password.php?' . $common_url_query, null, null, 'change_password_anchor', null, $conditional_class);
+            }
+        } // end if
         echo '    <li id="li_select_mysql_collation">';
         echo '        <form method="post" action="index.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
@@ -109,7 +107,7 @@ if ($server > 0
            . '            <noscript><input type="submit" value="' . __('Go') . '" /></noscript>' . "\n"
            . '        </form>' . "\n"
            . '    </li>' . "\n";
-    } // end of if ($server > 0)
+    } // end of if ($server > 0 && !PMA_DRIZZLE)
     echo '</ul>';
     echo '</div>';
 }
