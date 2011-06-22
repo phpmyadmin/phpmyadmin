@@ -582,7 +582,7 @@ msgstr "Routine %1$s has been created."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>One or more errors have occurred while processing your request:</b>"
 
 #: db_routines.php:374
 #, fuzzy
