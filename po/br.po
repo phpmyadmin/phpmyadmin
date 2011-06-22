@@ -405,7 +405,7 @@ msgstr "Hizivadenn ziwezhañ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1228 tbl_printview.php:451
 #: tbl_structure.php:961
 msgid "Last check"
-msgstr ""
+msgstr "Gwiriadenn ziwezhañ"
 
 #: db_printview.php:220 db_structure.php:432
 #, php-format
