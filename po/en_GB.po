@@ -10017,10 +10017,9 @@ msgid "Redraw"
 msgstr "Redraw"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Save as file"
+msgstr "Save to file"
 
 #: tbl_gis_visualization.php:207
 #, fuzzy
