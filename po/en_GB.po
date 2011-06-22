@@ -4841,10 +4841,9 @@ msgid "Return type"
 msgstr "Return type"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Length/Values"
+msgstr "Return length/values"
 
 #: libraries/db_routines.lib.php:726
 #, fuzzy
