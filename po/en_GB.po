@@ -566,7 +566,7 @@ msgstr "Sorry, we failed to restore the dropped routine."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr ""
+msgstr "The backed up query was:"
 
 #: db_routines.php:309
 #, fuzzy, php-format
