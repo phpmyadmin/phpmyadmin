@@ -1312,10 +1312,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "The definition of a stored function must contain a RETURN statement!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Missing value in the form!"
+msgstr "Value too long in the form!"
 
 #: js/messages.php:126
 msgid ""
