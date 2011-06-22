@@ -58,11 +58,11 @@ class PMA_StorageEngine
     {
         static $storage_engines = null;
 
-        if (null !== $storage_engines) {
-            return $storage_engines;
+        if (null == $storage_engines) {
+            $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
         }
 
-        return PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+        return $storage_engines;
     }
 
     /**
