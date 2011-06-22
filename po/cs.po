@@ -2113,7 +2113,7 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown bellow."
 msgstr ""
-"Obvyhle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
+"Obvykle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
 "chyby vypsané níže."
 
 #: libraries/common.inc.php:595
