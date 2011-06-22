@@ -4957,7 +4957,7 @@ msgstr "Es determinístico"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Definidor"
 
 #: libraries/db_routines.lib.php:758
 #, fuzzy
