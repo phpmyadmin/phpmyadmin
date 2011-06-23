@@ -547,7 +547,7 @@ msgstr "N'eus bet kavet argerzh ebet gantañ an anv a %s en diaz roadennoù %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Seveniñ an argerzh"
 
 #: db_routines.php:254 db_routines.php:258
 #, php-format
