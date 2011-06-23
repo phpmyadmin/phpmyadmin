@@ -675,10 +675,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tablo içindeki(ler):"
+msgstr "Tablo içindekiler:"
 
 #: db_search.php:353
 msgid "Inside column:"
