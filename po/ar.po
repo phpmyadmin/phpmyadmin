@@ -562,7 +562,7 @@ msgstr "لا يوجد جدول بالإسم %s  في قاعدة البيانات
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr "تنفيذ الإجراء"
+msgstr "تنفيذ"
 
 #: db_routines.php:254 db_routines.php:258
 #, php-format
