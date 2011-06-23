@@ -1327,10 +1327,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Opredelitev shranjene funkcije mora vsebovati izjavo RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "V obliki manjka vrednost!"
+msgstr "Vrednost je predolga v obrazcu!"
 
 #: js/messages.php:126
 msgid ""
