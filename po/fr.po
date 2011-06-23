@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 12:58+0200\n"
+"PO-Revision-Date: 2011-06-23 15:09+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -2111,10 +2111,9 @@ msgid "Check Privileges"
 msgstr "Vérifier les privilèges"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to to read configuration file"
-msgstr "Impossible de sauvegarder la configuration"
+msgstr "Impossible de lire le fichier de configuration"
 
 #: libraries/common.inc.php:588
 msgid ""
