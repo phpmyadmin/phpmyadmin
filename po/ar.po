@@ -747,7 +747,7 @@ msgstr "التتبع نشط."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
-msgstr ""
+msgstr "التتبع غير نشط."
 
 #: db_structure.php:372 libraries/display_tbl.lib.php:2235
 #, php-format
