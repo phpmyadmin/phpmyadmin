@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 20:09+0200\n"
+"PO-Revision-Date: 2011-06-23 20:10+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -543,7 +543,7 @@ msgstr "Fazi en ur seveniñ ar reked"
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
 #, php-format
 msgid "No routine with name %s found in database %s"
-msgstr ""
+msgstr "N'eus bet kavet argerzh ebet gantañ an anv a %s en diaz roadennoù %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
