@@ -976,7 +976,7 @@ msgstr "لا توجد مساحة كافية لحفظ الملف %s."
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
-msgstr "المف %s موجود على الخادم بالفعل , غير الاسم أو حدد خيار الكتابة عليه."
+msgstr "الملف %s موجود على الخادم بالفعل , غير الاسم أو حدد خيار الكتابة عليه."
 
 #: export.php:311 export.php:315
 #, php-format
