@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 23:18+0200\n"
+"PO-Revision-Date: 2011-06-23 23:20+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -743,7 +743,7 @@ msgstr "تم إزالة الجدول %s"
 
 #: db_structure.php:286 tbl_create.php:295
 msgid "Tracking is active."
-msgstr ""
+msgstr "التتبع نشط."
 
 #: db_structure.php:288 tbl_create.php:297
 msgid "Tracking is not active."
