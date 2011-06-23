@@ -312,7 +312,7 @@ msgstr "بيانات فقط"
 
 #: db_operations.php:504
 msgid "CREATE DATABASE before copying"
-msgstr "إنشاء قاعدة البيانات قبل النسخ"
+msgstr "إنشاء قاعدة البيانات قبل عملية النسخ"
 
 #: db_operations.php:507 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
