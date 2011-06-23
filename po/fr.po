@@ -569,7 +569,7 @@ msgstr "Désolé, il a été impossible de restaurer la procédure."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr ""
+msgstr "La requête restaurée est :"
 
 #: db_routines.php:309
 #, fuzzy, php-format
