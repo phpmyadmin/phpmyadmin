@@ -410,12 +410,16 @@ msgid "Last check"
 msgstr "التحقق الأخير"
 
 #: db_printview.php:220 db_structure.php:432
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s  جدول (جداول)"
 msgstr[1] "%s  جدول (جداول)"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
