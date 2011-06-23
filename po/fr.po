@@ -4961,7 +4961,7 @@ msgstr ""
 
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Vous devez fournir un nom et un type pour chacun des paramètres."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
