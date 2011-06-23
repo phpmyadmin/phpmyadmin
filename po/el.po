@@ -563,7 +563,7 @@ msgstr "Μη έγκυρος τύπος ρουτίνας: «%s»"
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
