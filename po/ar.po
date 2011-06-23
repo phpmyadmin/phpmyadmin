@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 23:06+0200\n"
+"PO-Revision-Date: 2011-06-23 23:09+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -614,6 +614,9 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"انت تستخدم ملحق PHP مهمل 'mysql'، وهو ليس قادر على التعامل مع الإستعلامات "
+"المتعددة. <B> فتنفيذ بعض الإجراءات المخزنة قد تفشل! </ B> الرجاء استخدام "
+"ملحق 'mysqli' لتجنب أي مشاكل."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
