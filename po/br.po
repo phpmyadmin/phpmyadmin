@@ -831,7 +831,7 @@ msgstr "Geriadur roadennoù"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Taolennoù heuliet-pizh"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
 #: libraries/export/htmlword.php:90 libraries/export/latex.php:163
