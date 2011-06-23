@@ -542,7 +542,7 @@ msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 #: db_routines.php:319
 #, php-format
 msgid "Query \"%s\" failed"
-msgstr ""
+msgstr "فشل الإستعلام \"%s\""
 
 #: db_routines.php:191 db_routines.php:291 db_routines.php:296
 #: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
