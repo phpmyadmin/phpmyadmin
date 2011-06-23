@@ -523,7 +523,7 @@ msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
 #: db_routines.php:319
 #, php-format
 msgid "Query \"%s\" failed"
-msgstr ""
+msgstr "Sorgu \"%s\" başarısız oldu"
 
 #: db_routines.php:191 db_routines.php:291 db_routines.php:296
 #: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
