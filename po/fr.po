@@ -4968,10 +4968,9 @@ msgid "You must provide a routine definition."
 msgstr "Vous devez fournir une définition pour la procédure."
 
 #: libraries/db_routines.lib.php:1209
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Aucun fichier n'est disponible pour le transfert"
+msgstr "Il n'y a aucune procédure à afficher."
 
 #: libraries/db_routines.lib.php:1253
 #, fuzzy
