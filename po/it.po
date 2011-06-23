@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 11:52+0200\n"
+"PO-Revision-Date: 2011-06-23 11:54+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1922,7 +1922,7 @@ msgstr "Percorso per il tema non trovato %s!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
