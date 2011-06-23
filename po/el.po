@@ -4960,7 +4960,7 @@ msgstr "Παράμετροι ρουτίνας"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
-msgstr "Έλεγχος"
+msgstr "Συνάρτηση"
 
 #: libraries/db_routines.lib.php:851 libraries/replication_gui.lib.php:117
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
