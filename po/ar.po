@@ -179,7 +179,7 @@ msgstr "خالي"
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
-msgstr "افتراضي"
+msgstr "إفتراضي"
 
 #: db_datadict.php:174 libraries/export/htmlword.php:253
 #: libraries/export/latex.php:377 libraries/export/odt.php:315
