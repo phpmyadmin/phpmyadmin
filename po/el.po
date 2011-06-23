@@ -4823,10 +4823,9 @@ msgid "Turn it off"
 msgstr "Απενεργοποιήστε τον"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Event"
-msgstr "Προσθήκη ενός νέου διακομιστή"
+msgstr "Προσθήκη ενός νέου Συμβάντος"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
