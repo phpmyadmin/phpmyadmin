@@ -589,10 +589,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
 
 #: db_routines.php:374
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Ustvari razmerje"
+msgstr "Ustvari rutino"
 
 #: db_routines.php:378
 #, fuzzy
