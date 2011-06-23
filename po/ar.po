@@ -292,7 +292,7 @@ msgstr "تم حذف قاعدة البيانات %s ."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
-msgstr "إزاله قاعدة البيانات"
+msgstr "إزالة قاعدة البيانات"
 
 #: db_operations.php:487
 msgid "Copy database to"
