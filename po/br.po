@@ -852,7 +852,7 @@ msgstr "Stumm diwezhañ"
 
 #: db_tracking.php:87 tbl_tracking.php:645
 msgid "Created"
-msgstr ""
+msgstr "Krouet"
 
 #: db_tracking.php:88 tbl_tracking.php:646
 msgid "Updated"
