@@ -902,7 +902,7 @@ msgstr "Taolennoù n'int ket heuliet"
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:664
 #: tbl_structure.php:666
 msgid "Track table"
-msgstr ""
+msgstr "Heuliañ an daolenn"
 
 #: db_tracking.php:229
 msgid "Database Log"
