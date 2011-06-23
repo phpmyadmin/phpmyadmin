@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
+"POT-Creation-Date: 2011-06-23 06:34-0400\n"
 "PO-Revision-Date: 2011-04-23 08:37+0200\n"
 "Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
-"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -50,10 +50,10 @@ msgstr "تلاش"
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
-#: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2245 libraries/core.lib.php:557
-#: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
+#: libraries/common.lib.php:2245 libraries/Config.class.php:1220
+#: libraries/core.lib.php:557 libraries/db_routines.lib.php:789
+#: libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:267
@@ -66,18 +66,18 @@ msgstr "تلاش"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
-#: main.php:109 navigation.php:202 navigation.php:240 pmd_pdf.php:124
-#: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:128
-#: server_privileges.php:646 server_privileges.php:1694
-#: server_privileges.php:2051 server_privileges.php:2098
-#: server_privileges.php:2138 server_replication.php:233
-#: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
-#: tbl_change.php:1061 tbl_indexes.php:260 tbl_operations.php:280
-#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
-#: tbl_structure.php:734 tbl_tracking.php:425 tbl_tracking.php:563
-#: view_create.php:181 view_operations.php:99
+#: libraries/Theme_Manager.class.php:305 main.php:109 navigation.php:202
+#: navigation.php:240 pmd_pdf.php:124 prefs_manage.php:265
+#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:646
+#: server_privileges.php:1694 server_privileges.php:2051
+#: server_privileges.php:2098 server_privileges.php:2138
+#: server_replication.php:233 server_replication.php:316
+#: server_replication.php:347 server_synchronize.php:1220 tbl_change.php:332
+#: tbl_change.php:1024 tbl_change.php:1061 tbl_indexes.php:260
+#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
+#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:291
+#: tbl_structure.php:698 tbl_structure.php:734 tbl_tracking.php:425
+#: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "جائیں"
 
@@ -135,9 +135,9 @@ msgstr "کوائفیہ تبصرہ:"
 msgid "Table comments"
 msgstr "جدول تبصرے"
 
-#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
-#: libraries/export/htmlword.php:248 libraries/export/latex.php:375
-#: libraries/export/odt.php:302 libraries/export/texytext.php:227
+#: db_datadict.php:166 db_qbe.php:196 libraries/export/htmlword.php:248
+#: libraries/export/latex.php:375 libraries/export/odt.php:302
+#: libraries/export/texytext.php:227 libraries/Index.class.php:448
 #: libraries/schema/Pdf_Relation_Schema.class.php:1236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1257
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
@@ -148,12 +148,12 @@ msgstr "جدول تبصرے"
 msgid "Column"
 msgstr "کالم"
 
-#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:445
-#: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
-#: libraries/db_routines.lib.php:691 libraries/db_routines.lib.php:847
-#: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
-#: libraries/export/htmlword.php:249 libraries/export/latex.php:375
-#: libraries/export/odt.php:305 libraries/export/texytext.php:228
+#: db_datadict.php:167 db_printview.php:104 libraries/db_events.inc.php:69
+#: libraries/db_routines.lib.php:666 libraries/db_routines.lib.php:691
+#: libraries/db_routines.lib.php:847 libraries/db_routines.lib.php:1216
+#: libraries/db_structure.lib.php:51 libraries/export/htmlword.php:249
+#: libraries/export/latex.php:375 libraries/export/odt.php:305
+#: libraries/export/texytext.php:228 libraries/Index.class.php:445
 #: libraries/schema/Pdf_Relation_Schema.class.php:1237
 #: libraries/schema/Pdf_Relation_Schema.class.php:1258
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
@@ -163,9 +163,9 @@ msgstr "کالم"
 msgid "Type"
 msgstr "قِسم"
 
-#: db_datadict.php:169 libraries/Index.class.php:451
-#: libraries/export/htmlword.php:250 libraries/export/latex.php:375
-#: libraries/export/odt.php:308 libraries/export/texytext.php:229
+#: db_datadict.php:169 libraries/export/htmlword.php:250
+#: libraries/export/latex.php:375 libraries/export/odt.php:308
+#: libraries/export/texytext.php:229 libraries/Index.class.php:451
 #: libraries/schema/Pdf_Relation_Schema.class.php:1239
 #: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
@@ -203,12 +203,13 @@ msgstr "ربط بطرف"
 msgid "Comments"
 msgstr "تبصرہ"
 
-#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
-#: libraries/Index.class.php:388 libraries/Index.class.php:688
-#: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: db_datadict.php:259 js/messages.php:109
+#: libraries/config/FormDisplay.tpl.php:204 libraries/config.values.php:45
+#: libraries/config.values.php:51 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
+#: libraries/export/texytext.php:305 libraries/Index.class.php:361
+#: libraries/Index.class.php:388 libraries/Index.class.php:688
+#: libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
@@ -219,17 +220,17 @@ msgstr "تبصرہ"
 msgid "No"
 msgstr "نہیں"
 
-#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
-#: libraries/Index.class.php:387 libraries/Index.class.php:688
-#: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: db_datadict.php:259 js/messages.php:108
+#: libraries/config/FormDisplay.tpl.php:204 libraries/config.values.php:45
+#: libraries/config.values.php:51 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
-#: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
-#: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
-#: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
-#: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
-#: libraries/mult_submits.inc.php:299
+#: libraries/export/texytext.php:305 libraries/Index.class.php:362
+#: libraries/Index.class.php:387 libraries/Index.class.php:688
+#: libraries/mult_submits.inc.php:46 libraries/mult_submits.inc.php:78
+#: libraries/mult_submits.inc.php:87 libraries/mult_submits.inc.php:92
+#: libraries/mult_submits.inc.php:97 libraries/mult_submits.inc.php:102
+#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
+#: libraries/mult_submits.inc.php:286 libraries/mult_submits.inc.php:299
 #: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1378
@@ -337,8 +338,8 @@ msgstr "پابندیاں لگائیں"
 msgid "Switch to copied database"
 msgstr "نقل شدہ کوائفیہ پر جائیں"
 
-#: db_operations.php:552 libraries/Index.class.php:450
-#: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
+#: db_operations.php:552 libraries/build_html_for_db.lib.php:19
+#: libraries/db_structure.lib.php:53 libraries/Index.class.php:450
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:720 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
@@ -503,8 +504,8 @@ msgstr "کوائفیہ کے لیے <b>%s</b> SQL طلب"
 msgid "Submit Query"
 msgstr "طلب بھیجیں"
 
-#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
-#: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
+#: db_routines.php:152 import.php:453 libraries/display_tbl.lib.php:2272
+#: libraries/Message.class.php:185 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -611,7 +612,7 @@ msgstr ""
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "‏‏رسائی نہیں دی گئی"
@@ -732,8 +733,8 @@ msgstr "کھوج غیر فعال ہے۔"
 #: db_structure.php:372 libraries/display_tbl.lib.php:2235
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "اس جدول نقل میں اتنے کم از کم صفیں ہیں۔ حوالہ کے لیے %sdocumentation%s."
 
@@ -752,7 +753,7 @@ msgstr "چربہ کاری"
 msgid "Sum"
 msgstr "مجموعہ"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%sاس MySQL سرور میں طے شدہ ذخیرہ انجن ہے۔"
@@ -801,8 +802,8 @@ msgstr "چھپائی منظر"
 msgid "Empty"
 msgstr "خالی"
 
-#: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:490
-#: libraries/common.lib.php:2956 libraries/common.lib.php:2957
+#: db_structure.php:504 db_tracking.php:104 libraries/common.lib.php:2956
+#: libraries/common.lib.php:2957 libraries/Index.class.php:490
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
@@ -879,9 +880,9 @@ msgstr "تازہ کی گئی"
 msgid "Status"
 msgstr "حالت"
 
-#: db_tracking.php:90 libraries/Index.class.php:442
-#: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1215
-#: libraries/db_structure.lib.php:44 libraries/display_triggers.inc.php:76
+#: db_tracking.php:90 libraries/db_events.inc.php:68
+#: libraries/db_routines.lib.php:1215 libraries/db_structure.lib.php:44
+#: libraries/display_triggers.inc.php:76 libraries/Index.class.php:442
 #: server_databases.php:191 server_privileges.php:1612
 #: server_privileges.php:1805 server_privileges.php:2154 tbl_structure.php:214
 msgid "Action"
@@ -975,11 +976,11 @@ msgstr "ڈمپ اس مسل %s میں محفوظ ہوچکی ہے۔"
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے "
-"%sdocumentation%s دیکھیں۔"
+"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے %"
+"sdocumentation%s دیکھیں۔"
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1162,11 +1163,11 @@ msgstr "منتخب صارفین ہٹائے جارہے ہیں"
 msgid "Close"
 msgstr "بند کریں"
 
-#: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
-#: libraries/common.lib.php:594 libraries/common.lib.php:1144
-#: libraries/common.lib.php:2960 libraries/common.lib.php:2961
-#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+#: js/messages.php:62 js/messages.php:132 libraries/common.lib.php:594
+#: libraries/common.lib.php:1144 libraries/common.lib.php:2960
+#: libraries/common.lib.php:2961 libraries/config/messages.inc.php:471
+#: libraries/display_tbl.lib.php:1287 libraries/import.lib.php:1150
+#: libraries/import.lib.php:1174 libraries/Index.class.php:468
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "تدوین"
@@ -1458,8 +1459,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ "
-"%s, جاری کیا گیا %s."
+"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ %"
+"s, جاری کیا گیا %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:166
@@ -1719,227 +1720,12 @@ msgstr "منٹ"
 msgid "Second"
 msgstr "سیکنڈ"
 
-#: libraries/Config.class.php:1190
-msgid "Font size"
-msgstr "فانٹ سائز"
-
-#: libraries/File.class.php:310
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"اپ لوڈ مسل نے php.ini میں موجود upload_max_filesize ہدایات سے تجاوز کی۔"
-
-#: libraries/File.class.php:313
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr "اپ لوڈ مسل نے HTML فارم میں مخصوص MAX_FILE_SIZE ہدایات سے تجاوز کی۔"
-
-#: libraries/File.class.php:316
-msgid "The uploaded file was only partially uploaded."
-msgstr "اپ لوڈ کی گئی مسل صرف جزوی اپ لوڈ ہوا ہے۔"
-
-#: libraries/File.class.php:319
-msgid "Missing a temporary folder."
-msgstr "ایک عارضی پوشہ موجود نہیں ہے۔"
-
-#: libraries/File.class.php:322
-msgid "Failed to write file to disk."
-msgstr "ڈسک پر مسل تحریر ناکام ہوا۔"
-
-#: libraries/File.class.php:325
-msgid "File upload stopped by extension."
-msgstr "مسل قسم کی وجہ سے اپ لوڈ روکا گیا۔"
-
-#: libraries/File.class.php:328
-msgid "Unknown error in file upload."
-msgstr "اپ لوڈ مسل میں نامعلوم نقص ہے۔"
-
-#: libraries/File.class.php:559
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"اپ لوڈ مسل کو بڑھاتے ہوئے نقص ہے, دیکھیں [a@./Documentation."
-"html#faq1_11@Documentation]عمومی سوالات 1.11[/a]"
-
-#: libraries/Index.class.php:430 tbl_relation.php:526
-msgid "No index defined!"
-msgstr "کوئی اشاریہ موجود نہیں!"
-
-#: libraries/Index.class.php:435 libraries/build_html_for_db.lib.php:40
-#: tbl_tracking.php:309
-msgid "Indexes"
-msgstr "اشاریے"
-
-#: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
-#: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
-#: tbl_tracking.php:315
-msgid "Unique"
-msgstr "منفرد"
-
-#: libraries/Index.class.php:447 tbl_tracking.php:316
-msgid "Packed"
-msgstr "باندھنا"
-
-#: libraries/Index.class.php:449 tbl_tracking.php:318
-msgid "Cardinality"
-msgstr "درجہ تعلق داری"
-
-#: libraries/Index.class.php:452 libraries/db_routines.lib.php:777
-#: tbl_tracking.php:272 tbl_tracking.php:321
-msgid "Comment"
-msgstr "تبصرہ"
-
-#: libraries/Index.class.php:474
-msgid "The primary key has been dropped"
-msgstr "بنیادی کلید چھوڑ دیا گیا ہے"
-
-#: libraries/Index.class.php:478
-#, php-format
-msgid "Index %s has been dropped"
-msgstr "اشاریہ %s چھوڑ دیا گیا ہے"
-
-#: libraries/Index.class.php:582
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
-"اشاریے %1$s اور %2$s مساوی نظر آتے ہیں اور ان میں ایک ممکنہ طور پر ہٹا دیا "
-"جائے گا۔"
-
-#: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
-#: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740
-msgid "Databases"
-msgstr "کوائفیے"
-
-#: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
-#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:561
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:883
-#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
-msgid "Error"
-msgstr "نقص"
-
-#: libraries/Message.class.php:260
-#, php-format
-msgid "%1$d row affected."
-msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d صف مناثر ہوئے۔"
-msgstr[1] "%1$d صفیں متاثر ہوئیں۔"
-
-#: libraries/Message.class.php:279
-#, php-format
-msgid "%1$d row deleted."
-msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d صف حذف ہوئے۔"
-msgstr[1] "%1$d صفیں حذف ہوئیں۔"
-
-#: libraries/Message.class.php:298
-#, php-format
-msgid "%1$d row inserted."
-msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d صف داخل ہوئی۔"
-msgstr[1] "%1$d صفیں داخل ہوئیں۔"
-
-#: libraries/RecentTable.class.php:114
-#, fuzzy
-#| msgid "Could not open file: %s"
-msgid "Could not save recent table"
-msgstr "مسل نہیں کھول سکتا: %s"
-
-#: libraries/RecentTable.class.php:149
-#, fuzzy
-#| msgid "Count tables"
-msgid "Recent tables"
-msgstr "حداول کی گنتی کریں"
-
-#: libraries/RecentTable.class.php:155
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no recent tables"
-msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
-
-#: libraries/StorageEngine.class.php:194
-msgid ""
-"There is no detailed status information available for this storage engine."
-msgstr "اس ذخیرہ انجن کے متعلق تفصیلی معلومات موجود نہیں ہیں۔"
-
-#: libraries/StorageEngine.class.php:354
-#, php-format
-msgid "%s is available on this MySQL server."
-msgstr "%s اس MySQL سرور میں دستیاب ہے۔"
-
-#: libraries/StorageEngine.class.php:357
-#, php-format
-msgid "%s has been disabled for this MySQL server."
-msgstr "%s اس MySQL سرور کے لیے نااہل ہے۔"
-
-#: libraries/StorageEngine.class.php:361
-#, php-format
-msgid "This MySQL server does not support the %s storage engine."
-msgstr "یہMySQL سرور میں %s اس ذخیرہ انجن کی معاونت نہیں ہے۔"
-
-#: libraries/Table.class.php:1027
-msgid "Invalid database"
-msgstr "غلط کوائفیہ"
-
-#: libraries/Table.class.php:1041 tbl_get_field.php:25
-msgid "Invalid table name"
-msgstr "غلط جدول نام"
-
-#: libraries/Table.class.php:1056
-#, php-format
-msgid "Error renaming table %1$s to %2$s"
-msgstr "جدول %1$s کو %2$s نام تبدیل کرتے ہوئے نقص ہے"
-
-#: libraries/Table.class.php:1139
-#, php-format
-msgid "Table %s has been renamed to %s"
-msgstr "جدول%s نام %s میں تبدیل ہوچکا ہے"
-
-#: libraries/Table.class.php:1272
-msgid "Could not save table UI preferences"
-msgstr ""
-
-#: libraries/Theme.class.php:160
-#, php-format
-msgid "No valid image path for theme %s found!"
-msgstr "اس خیالیہ %s کے لیے درست راہ نہیں ملا!"
-
-#: libraries/Theme.class.php:380
-msgid "No preview available."
-msgstr "کوئی پیش منظر دستیاب نہیں ہے۔"
-
-#: libraries/Theme.class.php:383
-msgid "take it"
-msgstr "اسے لیں"
-
-#: libraries/Theme_Manager.class.php:109
-#, php-format
-msgid "Default theme %s not found!"
-msgstr "طے شدہ خیالیہ %s نہیں ملا!"
-
-#: libraries/Theme_Manager.class.php:147
-#, php-format
-msgid "Theme %s not found!"
-msgstr "خیالیہ %s نیہں ملا!"
-
-#: libraries/Theme_Manager.class.php:215
-#, php-format
-msgid "Theme path not found for theme %s!"
-msgstr "خیالیہ راہ اس خیالیہ %s کے لیے نہیں ملا!"
-
-#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
-msgid "Theme"
-msgstr ""
-
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
 msgstr "جڑ نہیں سکتا: غلط ترتیبات۔"
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s میں خوش آمدید"
@@ -1947,8 +1733,8 @@ msgstr "%s میں خوش آمدید"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "آپ نے شاید تشکیل مسل نہیں بنایا۔ آپ ہوسکتا ہے کہ  %1$ssetup script%2$s کو "
 "استعمال کرتے ہوئے بنانا چاہتے ہیں۔"
@@ -1964,56 +1750,56 @@ msgstr ""
 "ہوسٹ، صارف نام، پاس ورڈ کو اپنے تشکیل میں پڑتال کریں اور اثبات کریں کہ دی "
 "گئی معلومات  MySQL سرور منتظم نے دیے ہیں۔"
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "لاگ ان"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin دستاویز"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "آپ ہوسٹ نام یا IP پتا اور دہانہ وقفوں سے جدا کرکے داخل کرسکتے ہیں۔"
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "سرور:"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "صارف نام:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "پاس ورڈ:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "سرور انتخاب"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "اس جگہ کوکی لازمی اہل ہوں۔"
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "پاس ورڈ کے بغیر لاگ ان تشکیل میں ممنوع ہے (دیکھیں AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s  سیکنڈ میں کوئی سرگرمی نہیں ہوئی، دوبارہ لاگ ان کریں۔"
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL سرور میں لاگ ان نہیں کرسکتا"
@@ -2051,6 +1837,14 @@ msgstr "PBMS نقص"
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
 msgstr "PBMS جڑت ناکام ہوا:"
+
+#: libraries/blobstreaming.lib.php:308 libraries/blobstreaming.lib.php:314
+#: libraries/common.lib.php:561 libraries/core.lib.php:232
+#: libraries/import.lib.php:136 libraries/Message.class.php:205
+#: tbl_change.php:883 tbl_operations.php:228 tbl_relation.php:287
+#: view_operations.php:60
+msgid "Error"
+msgstr "نقص"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
@@ -2104,6 +1898,11 @@ msgstr "جداول"
 msgid "Data"
 msgstr "کوائف"
 
+#: libraries/build_html_for_db.lib.php:40 libraries/Index.class.php:435
+#: tbl_tracking.php:309
+msgid "Indexes"
+msgstr "اشاریے"
+
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:818
 msgid "Overhead"
@@ -2133,13 +1932,13 @@ msgstr "استحقاق پڑتال کریں"
 #: libraries/common.inc.php:587
 #, fuzzy
 #| msgid "Configuration file"
-msgid "Failed to to read configuration file"
+msgid "Failed to read configuration file"
 msgstr "تشکیلی مسل"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
 
 #: libraries/common.inc.php:595
@@ -2383,77 +2182,9 @@ msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
 msgid "Execute"
 msgstr ""
 
-#: libraries/config.values.php:45 libraries/config.values.php:47
-#: libraries/config.values.php:51
-msgid "Both"
-msgstr "دونوں"
-
-#: libraries/config.values.php:47
-msgid "Nowhere"
-msgstr ""
-
-#: libraries/config.values.php:47
-msgid "Left"
-msgstr ""
-
-#: libraries/config.values.php:47
-msgid "Right"
-msgstr ""
-
-#: libraries/config.values.php:75
-msgid "Open"
-msgstr "کھولیں"
-
-#: libraries/config.values.php:75
-msgid "Closed"
-msgstr "بند ہوا"
-
-#: libraries/config.values.php:96 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:122 libraries/export/texytext.php:24
-#: libraries/import.lib.php:1172
-msgid "structure"
-msgstr "ساخت"
-
-#: libraries/config.values.php:97 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:123 libraries/export/texytext.php:24
-msgid "data"
-msgstr "کوائف"
-
-#: libraries/config.values.php:98 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:124 libraries/export/texytext.php:24
-msgid "structure and data"
-msgstr "ساخت اور کوائف"
-
-#: libraries/config.values.php:100
-msgid "Quick - display only the minimal options to configure"
-msgstr "سریع - تشکیل کے کم سے کم اختیارات دکھائیں"
-
-#: libraries/config.values.php:101
-msgid "Custom - display all possible options to configure"
-msgstr "مخصوص - تشکیل کے تمام اختیارات دکھائیں"
-
-#: libraries/config.values.php:102
-msgid "Custom - like above, but without the quick/custom choice"
-msgstr "مخصوص - بالا ی طرح لیکن سریع/مخصوص انتخاب کے بغیر"
-
-#: libraries/config.values.php:120
-msgid "complete inserts"
-msgstr "داخل کرنا مکمل ہوا"
-
-#: libraries/config.values.php:121
-msgid "extended inserts"
-msgstr "توسیع شدہ داخلے"
-
-#: libraries/config.values.php:122
-msgid "both of the above"
-msgstr "دونوں بالا"
-
-#: libraries/config.values.php:123
-msgid "neither of the above"
-msgstr "بالا میں سے کوئی بھی نہیں"
+#: libraries/Config.class.php:1190
+msgid "Font size"
+msgstr "فانٹ سائز"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
@@ -3102,6 +2833,12 @@ msgstr "درآمد اور برآمد کے لیے پوشے اور سکڑاؤ اخ
 #: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
+
+#: libraries/config/messages.inc.php:177 libraries/List_Database.class.php:430
+#: libraries/server_links.inc.php:43 server_databases.php:100
+#: server_privileges.php:1740
+msgid "Databases"
+msgstr "کوائفیے"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
@@ -4659,6 +4396,78 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr ""
 
+#: libraries/config.values.php:45 libraries/config.values.php:47
+#: libraries/config.values.php:51
+msgid "Both"
+msgstr "دونوں"
+
+#: libraries/config.values.php:47
+msgid "Nowhere"
+msgstr ""
+
+#: libraries/config.values.php:47
+msgid "Left"
+msgstr ""
+
+#: libraries/config.values.php:47
+msgid "Right"
+msgstr ""
+
+#: libraries/config.values.php:75
+msgid "Open"
+msgstr "کھولیں"
+
+#: libraries/config.values.php:75
+msgid "Closed"
+msgstr "بند ہوا"
+
+#: libraries/config.values.php:96 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:122 libraries/export/texytext.php:24
+#: libraries/import.lib.php:1172
+msgid "structure"
+msgstr "ساخت"
+
+#: libraries/config.values.php:97 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:123 libraries/export/texytext.php:24
+msgid "data"
+msgstr "کوائف"
+
+#: libraries/config.values.php:98 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:124 libraries/export/texytext.php:24
+msgid "structure and data"
+msgstr "ساخت اور کوائف"
+
+#: libraries/config.values.php:100
+msgid "Quick - display only the minimal options to configure"
+msgstr "سریع - تشکیل کے کم سے کم اختیارات دکھائیں"
+
+#: libraries/config.values.php:101
+msgid "Custom - display all possible options to configure"
+msgstr "مخصوص - تشکیل کے تمام اختیارات دکھائیں"
+
+#: libraries/config.values.php:102
+msgid "Custom - like above, but without the quick/custom choice"
+msgstr "مخصوص - بالا ی طرح لیکن سریع/مخصوص انتخاب کے بغیر"
+
+#: libraries/config.values.php:120
+msgid "complete inserts"
+msgstr "داخل کرنا مکمل ہوا"
+
+#: libraries/config.values.php:121
+msgid "extended inserts"
+msgstr "توسیع شدہ داخلے"
+
+#: libraries/config.values.php:122
+msgid "both of the above"
+msgstr "دونوں بالا"
+
+#: libraries/config.values.php:123
+msgid "neither of the above"
+msgstr "بالا میں سے کوئی بھی نہیں"
+
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
 #: libraries/core.lib.php:264
 msgctxt "PHP documentation language"
@@ -4727,6 +4536,23 @@ msgstr ""
 #| msgid "Add a New User"
 msgid "Add a new Event"
 msgstr "نیا صارف اضافہ کریں"
+
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysql.dbi.lib.php:339
+#: libraries/dbi/mysqli.dbi.lib.php:395
+msgid "The server is not responding"
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysqli.dbi.lib.php:395
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+
+#: libraries/dbi/mysql.dbi.lib.php:346
+msgid "Details..."
+msgstr ""
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4799,9 +4625,9 @@ msgstr ""
 #: libraries/export/php_array.php:29 libraries/export/sql.php:83
 #: libraries/export/texytext.php:31 libraries/export/xls.php:29
 #: libraries/export/xlsx.php:29 libraries/export/xml.php:25
-#: libraries/export/yaml.php:30 libraries/import.lib.php:1145
-#: libraries/import.lib.php:1167 libraries/import/csv.php:33
+#: libraries/export/yaml.php:30 libraries/import/csv.php:33
 #: libraries/import/docsql.php:35 libraries/import/ldi.php:49
+#: libraries/import.lib.php:1145 libraries/import.lib.php:1167
 #: libraries/import/ods.php:32 libraries/import/sql.php:20
 #: libraries/import/xls.php:28 libraries/import/xlsx.php:28
 #: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:889
@@ -4855,6 +4681,11 @@ msgstr "سلامتی"
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
 msgstr ""
+
+#: libraries/db_routines.lib.php:777 libraries/Index.class.php:452
+#: tbl_tracking.php:272 tbl_tracking.php:321
+msgid "Comment"
+msgstr "تبصرہ"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 msgid "Routine parameters"
@@ -4914,23 +4745,6 @@ msgstr ""
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr ""
-
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-
-#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysql.dbi.lib.php:339
-#: libraries/dbi/mysqli.dbi.lib.php:395
-msgid "The server is not responding"
-msgstr ""
-
-#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysqli.dbi.lib.php:395
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-
-#: libraries/dbi/mysql.dbi.lib.php:346
-msgid "Details..."
 msgstr ""
 
 #: libraries/display_change_password.lib.php:29 main.php:94
@@ -5083,8 +4897,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:275
@@ -5791,8 +5605,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6081,6 +5895,45 @@ msgstr "ویو"
 msgid "Export contents"
 msgstr ""
 
+#: libraries/File.class.php:310
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"اپ لوڈ مسل نے php.ini میں موجود upload_max_filesize ہدایات سے تجاوز کی۔"
+
+#: libraries/File.class.php:313
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr "اپ لوڈ مسل نے HTML فارم میں مخصوص MAX_FILE_SIZE ہدایات سے تجاوز کی۔"
+
+#: libraries/File.class.php:316
+msgid "The uploaded file was only partially uploaded."
+msgstr "اپ لوڈ کی گئی مسل صرف جزوی اپ لوڈ ہوا ہے۔"
+
+#: libraries/File.class.php:319
+msgid "Missing a temporary folder."
+msgstr "ایک عارضی پوشہ موجود نہیں ہے۔"
+
+#: libraries/File.class.php:322
+msgid "Failed to write file to disk."
+msgstr "ڈسک پر مسل تحریر ناکام ہوا۔"
+
+#: libraries/File.class.php:325
+msgid "File upload stopped by extension."
+msgstr "مسل قسم کی وجہ سے اپ لوڈ روکا گیا۔"
+
+#: libraries/File.class.php:328
+msgid "Unknown error in file upload."
+msgstr "اپ لوڈ مسل میں نامعلوم نقص ہے۔"
+
+#: libraries/File.class.php:559
+msgid ""
+"Error moving the uploaded file, see [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr ""
+"اپ لوڈ مسل کو بڑھاتے ہوئے نقص ہے, دیکھیں [a@./Documentation."
+"html#faq1_11@Documentation]عمومی سوالات 1.11[/a]"
+
 #: libraries/footer.inc.php:188 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
 msgid "Open new phpMyAdmin window"
@@ -6098,40 +5951,6 @@ msgstr ""
 
 #: libraries/header_printview.inc.php:59
 msgid "Generated by"
-msgstr ""
-
-#: libraries/import.lib.php:1141
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr ""
-
-#: libraries/import.lib.php:1142
-msgid "View a structure`s contents by clicking on its name"
-msgstr ""
-
-#: libraries/import.lib.php:1143
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-
-#: libraries/import.lib.php:1144
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr ""
-
-#: libraries/import.lib.php:1147
-msgid "Go to database"
-msgstr ""
-
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
-msgid "settings"
-msgstr ""
-
-#: libraries/import.lib.php:1169
-msgid "Go to table"
-msgstr ""
-
-#: libraries/import.lib.php:1178
-msgid "Go to view"
 msgstr ""
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
@@ -6195,6 +6014,40 @@ msgstr ""
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
+#: libraries/import.lib.php:1141
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr ""
+
+#: libraries/import.lib.php:1142
+msgid "View a structure`s contents by clicking on its name"
+msgstr ""
+
+#: libraries/import.lib.php:1143
+msgid ""
+"Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+
+#: libraries/import.lib.php:1144
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr ""
+
+#: libraries/import.lib.php:1147
+msgid "Go to database"
+msgstr ""
+
+#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+msgid "settings"
+msgstr ""
+
+#: libraries/import.lib.php:1169
+msgid "Go to table"
+msgstr ""
+
+#: libraries/import.lib.php:1178
+msgid "Go to view"
+msgstr ""
+
 #: libraries/import/ods.php:28
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
@@ -6217,6 +6070,42 @@ msgid ""
 "the issue and try again."
 msgstr ""
 
+#: libraries/Index.class.php:430 tbl_relation.php:526
+msgid "No index defined!"
+msgstr "کوئی اشاریہ موجود نہیں!"
+
+#: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
+#: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
+#: tbl_tracking.php:315
+msgid "Unique"
+msgstr "منفرد"
+
+#: libraries/Index.class.php:447 tbl_tracking.php:316
+msgid "Packed"
+msgstr "باندھنا"
+
+#: libraries/Index.class.php:449 tbl_tracking.php:318
+msgid "Cardinality"
+msgstr "درجہ تعلق داری"
+
+#: libraries/Index.class.php:474
+msgid "The primary key has been dropped"
+msgstr "بنیادی کلید چھوڑ دیا گیا ہے"
+
+#: libraries/Index.class.php:478
+#, php-format
+msgid "Index %s has been dropped"
+msgstr "اشاریہ %s چھوڑ دیا گیا ہے"
+
+#: libraries/Index.class.php:582
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"اشاریے %1$s اور %2$s مساوی نظر آتے ہیں اور ان میں ایک ممکنہ طور پر ہٹا دیا "
+"جائے گا۔"
+
 #: libraries/kanji-encoding.lib.php:142
 msgctxt "None encoding conversion"
 msgid "None"
@@ -6226,6 +6115,27 @@ msgstr ""
 #: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
 msgstr ""
+
+#: libraries/Message.class.php:260
+#, php-format
+msgid "%1$d row affected."
+msgid_plural "%1$d rows affected."
+msgstr[0] "%1$d صف مناثر ہوئے۔"
+msgstr[1] "%1$d صفیں متاثر ہوئیں۔"
+
+#: libraries/Message.class.php:279
+#, php-format
+msgid "%1$d row deleted."
+msgid_plural "%1$d rows deleted."
+msgstr[0] "%1$d صف حذف ہوئے۔"
+msgstr[1] "%1$d صفیں حذف ہوئیں۔"
+
+#: libraries/Message.class.php:298
+#, php-format
+msgid "%1$d row inserted."
+msgid_plural "%1$d rows inserted."
+msgstr[0] "%1$d صف داخل ہوئی۔"
+msgstr[1] "%1$d صفیں داخل ہوئیں۔"
 
 #: libraries/mult_submits.inc.php:254
 #, fuzzy
@@ -6466,6 +6376,24 @@ msgstr ""
 #: libraries/plugin_interface.lib.php:336
 msgid "This format has no options"
 msgstr ""
+
+#: libraries/RecentTable.class.php:114
+#, fuzzy
+#| msgid "Could not open file: %s"
+msgid "Could not save recent table"
+msgstr "مسل نہیں کھول سکتا: %s"
+
+#: libraries/RecentTable.class.php:149
+#, fuzzy
+#| msgid "Count tables"
+msgid "Recent tables"
+msgstr "حداول کی گنتی کریں"
+
+#: libraries/RecentTable.class.php:155
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no recent tables"
+msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
 
 #: libraries/relation.lib.php:83
 msgid "not OK"
@@ -6848,6 +6776,57 @@ msgstr ""
 msgid "Target database"
 msgstr ""
 
+#: libraries/sqlparser.lib.php:132
+msgid ""
+"There seems to be an error in your SQL query. The MySQL server error output "
+"below, if there is any, may also help you in diagnosing the problem"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:167
+msgid ""
+"There is a chance that you may have found a bug in the SQL parser. Please "
+"examine your query closely, and check that the quotes are correct and not "
+"mis-matched. Other possible failure causes may be that you are uploading a "
+"file with binary outside of a quoted text area. You can also try your query "
+"on the MySQL command line interface. The MySQL server error output below, if "
+"there is any, may also help you in diagnosing the problem. If you still have "
+"problems or if the parser fails where the command line interface succeeds, "
+"please reduce your SQL query input to the single query that causes problems, "
+"and submit a bug report with the data chunk in the CUT section below:"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:169
+msgid "BEGIN CUT"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:171
+msgid "END CUT"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:173
+msgid "BEGIN RAW"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:177
+msgid "END RAW"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:363
+msgid "Automatically appended backtick to the end of query!"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:366
+msgid "Unclosed quote"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:518
+msgid "Invalid Identifer"
+msgstr ""
+
+#: libraries/sqlparser.lib.php:635
+msgid "Unknown Punctuation String"
+msgstr ""
+
 #: libraries/sql_query_form.lib.php:223
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -6905,62 +6884,53 @@ msgstr ""
 msgid "web server upload directory"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:132
-msgid ""
-"There seems to be an error in your SQL query. The MySQL server error output "
-"below, if there is any, may also help you in diagnosing the problem"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:167
-msgid ""
-"There is a chance that you may have found a bug in the SQL parser. Please "
-"examine your query closely, and check that the quotes are correct and not "
-"mis-matched. Other possible failure causes may be that you are uploading a "
-"file with binary outside of a quoted text area. You can also try your query "
-"on the MySQL command line interface. The MySQL server error output below, if "
-"there is any, may also help you in diagnosing the problem. If you still have "
-"problems or if the parser fails where the command line interface succeeds, "
-"please reduce your SQL query input to the single query that causes problems, "
-"and submit a bug report with the data chunk in the CUT section below:"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:169
-msgid "BEGIN CUT"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:171
-msgid "END CUT"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:173
-msgid "BEGIN RAW"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:177
-msgid "END RAW"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:363
-msgid "Automatically appended backtick to the end of query!"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:366
-msgid "Unclosed quote"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:518
-msgid "Invalid Identifer"
-msgstr ""
-
-#: libraries/sqlparser.lib.php:635
-msgid "Unknown Punctuation String"
-msgstr ""
-
 #: libraries/sqlvalidator.lib.php:67
 #, php-format
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
+msgstr ""
+
+#: libraries/StorageEngine.class.php:195
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr "اس ذخیرہ انجن کے متعلق تفصیلی معلومات موجود نہیں ہیں۔"
+
+#: libraries/StorageEngine.class.php:355
+#, php-format
+msgid "%s is available on this MySQL server."
+msgstr "%s اس MySQL سرور میں دستیاب ہے۔"
+
+#: libraries/StorageEngine.class.php:358
+#, php-format
+msgid "%s has been disabled for this MySQL server."
+msgstr "%s اس MySQL سرور کے لیے نااہل ہے۔"
+
+#: libraries/StorageEngine.class.php:362
+#, php-format
+msgid "This MySQL server does not support the %s storage engine."
+msgstr "یہMySQL سرور میں %s اس ذخیرہ انجن کی معاونت نہیں ہے۔"
+
+#: libraries/Table.class.php:1027
+msgid "Invalid database"
+msgstr "غلط کوائفیہ"
+
+#: libraries/Table.class.php:1041 tbl_get_field.php:25
+msgid "Invalid table name"
+msgstr "غلط جدول نام"
+
+#: libraries/Table.class.php:1056
+#, php-format
+msgid "Error renaming table %1$s to %2$s"
+msgstr "جدول %1$s کو %2$s نام تبدیل کرتے ہوئے نقص ہے"
+
+#: libraries/Table.class.php:1139
+#, php-format
+msgid "Table %s has been renamed to %s"
+msgstr "جدول%s نام %s میں تبدیل ہوچکا ہے"
+
+#: libraries/Table.class.php:1272
+msgid "Could not save table UI preferences"
 msgstr ""
 
 #: libraries/tbl_links.inc.php:117 libraries/tbl_links.inc.php:118
@@ -7067,6 +7037,38 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:776
 msgid "+ Add a new value"
+msgstr ""
+
+#: libraries/Theme.class.php:160
+#, php-format
+msgid "No valid image path for theme %s found!"
+msgstr "اس خیالیہ %s کے لیے درست راہ نہیں ملا!"
+
+#: libraries/Theme.class.php:380
+msgid "No preview available."
+msgstr "کوئی پیش منظر دستیاب نہیں ہے۔"
+
+#: libraries/Theme.class.php:383
+msgid "take it"
+msgstr "اسے لیں"
+
+#: libraries/Theme_Manager.class.php:109
+#, php-format
+msgid "Default theme %s not found!"
+msgstr "طے شدہ خیالیہ %s نہیں ملا!"
+
+#: libraries/Theme_Manager.class.php:147
+#, php-format
+msgid "Theme %s not found!"
+msgstr "خیالیہ %s نیہں ملا!"
+
+#: libraries/Theme_Manager.class.php:215
+#, php-format
+msgid "Theme path not found for theme %s!"
+msgstr "خیالیہ راہ اس خیالیہ %s کے لیے نہیں ملا!"
+
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
+msgid "Theme"
 msgstr ""
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
@@ -8050,8 +8052,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1764
