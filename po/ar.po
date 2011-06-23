@@ -581,7 +581,7 @@ msgstr "عفواً , فشل في إستعادة الإجراء المزال"
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr ""
+msgstr "الإستعلام الإحتياطي:"
 
 #: db_routines.php:309
 #, fuzzy, php-format
