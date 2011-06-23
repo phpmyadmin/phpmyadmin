@@ -10074,10 +10074,9 @@ msgid "-- None --"
 msgstr "-- Noben --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
-msgstr "Skupno število"
+msgstr "Prostorski stolpec"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
