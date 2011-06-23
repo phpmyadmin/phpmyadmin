@@ -4924,7 +4924,7 @@ msgstr "Τύπος επιστροφής"
 #: libraries/db_routines.lib.php:721
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Επιστροφή Μήκους/Τιμών"
+msgstr "Μήκος/Τιμές επιστροφής"
 
 #: libraries/db_routines.lib.php:726
 #, fuzzy
