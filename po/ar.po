@@ -515,7 +515,7 @@ msgstr "إرسال الإستعلام"
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "الخاص بك تم تنفيذه بنجاح SQL-استعلام"
+msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
 #: db_routines.php:155
 #, php-format
