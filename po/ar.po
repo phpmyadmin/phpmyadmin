@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 01:15+0200\n"
+"PO-Revision-Date: 2011-06-24 01:18+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -798,7 +798,7 @@ msgstr "إلغاء تحديد الكل"
 
 #: db_structure.php:488
 msgid "Check tables having overhead"
-msgstr "تحقق من overhead"
+msgstr "تحقق من الجداول التي تحمل عبء زائد"
 
 #: db_structure.php:496 libraries/common.lib.php:2962
 #: libraries/common.lib.php:2963 libraries/config/messages.inc.php:164
