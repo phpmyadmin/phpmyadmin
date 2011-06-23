@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 12:01+0200\n"
+"PO-Revision-Date: 2011-06-23 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9991,7 +9991,6 @@ msgid "Redraw"
 msgstr "再描画"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
 msgstr "ファイルに保存する"
