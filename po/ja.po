@@ -5317,7 +5317,7 @@ msgstr "空間データ"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "テキスト形式"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
