@@ -10358,10 +10358,9 @@ msgid "Add unique index"
 msgstr "Dodaj izvirno vrednost"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Dodaj indeks"
+msgstr "Dodaj indeks SPATIAL"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
