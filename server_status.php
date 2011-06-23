@@ -69,7 +69,39 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 );
                     
                 exit(json_encode($ret));
+            
+            case 'chartgrid':
+                $ret = json_decode($_REQUEST['requiredData']);
+                $statusVars = Array();
                 
+                foreach($ret as $chart_id=>$chartNodes) {
+                    foreach($chartNodes as $node_id=>$node) {
+                        switch($node->dataType) {
+                            case 'statusvar':
+                                $statusVars[] = $node->name;
+                                break;
+                            case 'other':
+                                if($node->name=='Processes') {
+                                    $result = PMA_DBI_query('SHOW PROCESSLIST');
+                                    $ret[$chart_id][$node_id]->y = PMA_DBI_num_rows($result);
+                                }
+                                break;
+                        }
+                    }
+                }
+
+                $vars = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="' . implode('" OR Variable_name="',$statusVars) . '"', 0, 1);
+
+                foreach($ret as $chart_id=>$chartNodes) {
+                    foreach($chartNodes as $node_id=>$node) {
+                        if($node->dataType == 'statusvar')
+                            $ret[$chart_id][$node_id]->y = $vars[$node->name];
+                    }
+                }
+                
+                $ret['x'] = microtime(true)*1000;
+                
+                exit(json_encode($ret));
         }
     }
 }
@@ -89,13 +121,14 @@ $GLOBALS['js_include'][] = 'server_status.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
+$GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
+// Charting
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
 $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
-
 
 /**
  * flush status variables if requested
@@ -388,6 +421,7 @@ echo __('Runtime Information');
             <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
+            <li><a href="#statustabs_charting"><?php echo __('Live charting'); ?></a></li>
         </ul>
 
         <div id="statustabs_traffic">
@@ -514,6 +548,12 @@ echo __('Runtime Information');
             <div class="tabInnerContent">
                 <?php printVariablesTable(); ?>
             </div>
+        </div>
+        
+        <div id="statustabs_charting">
+            <ul id="chartGrid">
+
+            </ul>
         </div>
     </div>
 </div>

@@ -1409,6 +1409,7 @@ function PMA_createChart(passedSettings) {
             marginRight: 10,
             backgroundColor: 'transparent',
             events: {
+                /* Live charting support */
                 load: function() {
                     var thisChart = this;
                     var lastValue = null, curValue = null;
@@ -1418,16 +1419,15 @@ function PMA_createChart(passedSettings) {
                     // No realtime updates for graphs that are being exported, and disabled when realtime is not set
                     // Also don't do live charting if we don't have the server time
                     if(thisChart.options.chart.forExport == true || 
-                        ! passedSettings.realtime || 
-                        ! passedSettings.realtime.callback ||
+                        ! thisChart.options.realtime || 
+                        ! thisChart.options.realtime.callback ||
                         ! server_time_diff) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
                         thisChart.options.realtime.postRequest = $.post(
-                            passedSettings.realtime.url,
-                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                            thisChart.options.realtime.url,
+                            postData,
                             function(data) {
-                                
                                 curValue = jQuery.parseJSON(data);
                                 
                                 if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
@@ -1439,7 +1439,7 @@ function PMA_createChart(passedSettings) {
                                     false
                                 );
                                 
-                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
                                 
                                 lastValue = curValue;
                                 numLoadedPoints++;
@@ -1496,12 +1496,15 @@ function PMA_createChart(passedSettings) {
     }
     
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {
+    if(passedSettings.realtime) {        
         if(!passedSettings.realtime.refreshRate) 
             passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
+        
+        // Allow custom POST vars to be added
+        $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
         
         if(server_time_diff) {
             settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;

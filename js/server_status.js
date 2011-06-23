@@ -480,5 +480,147 @@ $(function() {
 
         return pointInfo;
     }
+
+    /**** Table charting implementation ****/
+    var chartGrid;
+    /* Object that contains a list of required nodes that need to be retrieved from the server for chart updates */
+    var requiredData = [];
+    /* Refresh rate of all grids in ms */
+    var gridRefresh = 5000;
+    /* Saves the previous ajax response for differential values */
+    var oldChartData = null;
+    /* Stores the timeout handler so it can be cleared */
+    var refreshTimeout = null;
     
+    var maxPoints = 20;
+    
+    // Default setting
+    chartGrid = 
+    [{  title: 'Questions',
+        nodes: [{ dataType:'statusvar', name:'Questions', display: 'differential'}]
+     }, { 
+         title: 'Connections / Processes',
+         nodes: [ { dataType:'statusvar', name:'Connections', display: 'differential'},
+                  { dataType:'other', name:'Processes'}
+                ]
+     }, {
+         title: 'Traffic',
+         nodes: [
+            { dataType:'statusvar', name: 'Bytes_sent', display: 'differential'},
+            { dataType:'statusvar',name: 'Bytes_received', display: 'differential'}
+        ]
+     }
+    ];
+     
+    initGrid();
+    
+    function initGrid() {
+        var settings;
+        var series;
+        for(var i=0; i<chartGrid.length; i++) {
+            series = [];
+            for(var j=0; j<chartGrid[i].nodes.length; j++)
+                series.push(chartGrid[i].nodes[j]);
+            
+            settings = {
+                chart: {
+                    renderTo: 'gridchart'+i,
+                    width: 350,
+                    height: 350
+                },
+                series: series,
+                title: { text: chartGrid[i].title },
+            };
+            
+            if(chartGrid[i].settings)
+                $.extend(true,settings,chartGrid[i].settings);
+                    
+            if($('#'+settings.chart.renderTo).length==0) {
+                $('ul#chartGrid').append('<li class="ui-state-default" id="'+settings.chart.renderTo+'"></li>');
+            }
+            
+            chartGrid[i].chart = PMA_createChart(settings);
+            chartGrid[i].numPoints = 0;
+        }
+        
+        buildRequiredDataList();
+        refreshChartGrid();
+        
+        $( "#chartGrid" ).sortable();
+        $( "#chartGrid" ).disableSelection();
+    }
+    
+    function refreshChartGrid() {
+        /* Send to server */
+        $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(requiredData) },function(data) {
+            var chartData = $.parseJSON(data);
+                
+            /* Update values in each graph */
+            for(var i=0; i<chartGrid.length; i++) {
+                for(var j=0; j < chartGrid[i].nodes.length; j++) {
+                    if(chartGrid[i].nodes[j].display == 'differential') {
+                        if(oldChartData == null) continue;
+                        chartGrid[i].chart.series[j].addPoint(
+                            { x: chartData.x, y: chartData[i][j].y - oldChartData[i][j].y },
+                            j == chartGrid[i].nodes.length - 1, 
+                            chartGrid[i].numPoints >= maxPoints
+                        );
+                    } else {
+                        chartGrid[i].chart.series[j].addPoint(
+                            {  x: chartData.x, y: chartData[i][j].y },
+                            j == chartGrid[i].nodes.length - 1, 
+                            chartGrid[i].numPoints >= maxPoints
+                        );
+                    }
+                    
+                    chartGrid[i].numPoints++;
+                }
+            }
+            
+            oldChartData = chartData;
+            
+            refreshTimeout = setTimeout(refreshChartGrid, gridRefresh);
+        });
+    }
+    
+    /* Build list of nodes that need to be retrieved */
+    function buildRequiredDataList() {
+       /* requiredData = {
+            statusvars: [],
+            system: [],
+            other: []
+        };
+        var node;
+        for(var i=0; i<chartGrid.length; i++) {
+            for(var j=0; i<chartGrid[i].nodes.length; j++) {
+                node = chartGrid[i].nodes[j];
+                switch(node.type) {
+                    case 'statusvar':
+                        requiredData.statusvars.push(node.name);
+                        break;
+                    case 'other':
+                        requiredData.other.push(node.name);
+                        break;
+                }
+            });
+        }*/
+        for(var i=0; i<chartGrid.length; i++) {
+            requiredData.push(chartGrid[i].nodes);
+        }
+    }
 });
+
+/* Small version of tabbing */
+$(function () {
+    var tabContainers = $('div.tabs > div');
+    
+    $('div.tabs ul.tabNavigation a').click(function () {
+        tabContainers.hide().filter(this.hash).show();
+        
+        $('div.tabs ul.tabNavigation a').removeClass('selected');
+        $(this).addClass('selected');
+        
+        return false;
+    }).filter(':first').click();
+});
+
