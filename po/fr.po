@@ -558,10 +558,10 @@ msgid "Export of routine %s"
 msgstr "Exporter la procédure %s"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Indice de serveur invalide: %s"
+msgstr "Type de procédure invalide : «%s»"
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
