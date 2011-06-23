@@ -815,7 +815,7 @@ msgstr "Dielfennañ an daolenn"
 
 #: db_structure.php:514
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Ouzhpennañ ur rakger d'an daolenn"
 
 #: db_structure.php:516 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
