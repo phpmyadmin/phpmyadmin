@@ -4878,7 +4878,7 @@ msgstr "Αλλαγή σε %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
-msgstr ""
+msgstr "Παράμετροι"
 
 #: libraries/db_routines.lib.php:689
 #, fuzzy
