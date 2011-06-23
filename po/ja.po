@@ -5321,7 +5321,7 @@ msgstr "テキスト形式"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "バイナリ形式"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
