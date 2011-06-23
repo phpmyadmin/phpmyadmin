@@ -1000,7 +1000,7 @@ msgstr ""
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
 msgid "File could not be read"
-msgstr "لم يمكن قراءة الملف"
+msgstr "لا يمكن قراءة الملف"
 
 #: import.php:286 import.php:295 import.php:314 import.php:323
 #: libraries/File.class.php:681 libraries/File.class.php:689
