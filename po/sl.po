@@ -4734,10 +4734,10 @@ msgid "Export of event \"%s\""
 msgstr "Izvoz dogodka \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "V zbirki podatkov ni mogoče najti tabel"
+msgstr "Nobenega dogodka imenovanega %s ni mogoče najti v zbirki podatkov %s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
