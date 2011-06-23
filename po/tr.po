@@ -5340,7 +5340,7 @@ msgstr "Çok İyi Bilinen Metin"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Çok İyi Bilinen Binari"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
