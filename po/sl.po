@@ -586,7 +586,7 @@ msgstr "Rutina %1$s je bila ustvarjena."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
 
 #: db_routines.php:374
 #, fuzzy
