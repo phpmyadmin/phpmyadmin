@@ -5409,7 +5409,7 @@ msgstr "Μετατροπή περιηγητή"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Γεωμετρία"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
