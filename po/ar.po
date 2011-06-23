@@ -436,7 +436,7 @@ msgstr ""
 #: db_qbe.php:222 libraries/db_structure.lib.php:95
 #: libraries/display_tbl.lib.php:927
 msgid "Sort"
-msgstr "تصنيف"
+msgstr "ترتيب"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
 #: libraries/display_tbl.lib.php:549 libraries/display_tbl.lib.php:888
