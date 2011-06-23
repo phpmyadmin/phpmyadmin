@@ -249,7 +249,7 @@ msgstr "عرض بنية قاعدة البيانات"
 #: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:371 navigation.php:329
 msgid "No tables found in database."
-msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
+msgstr "لا توجد جداول في قاعدة البيانات هذه!."
 
 #: db_export.php:44 db_search.php:342 server_export.php:26
 msgid "Select All"
