@@ -8722,7 +8722,7 @@ msgstr "Toutes les variables d'état"
 #: server_status.php:413 server_status.php:439
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Taux de rafraîchissement"
+msgstr "Taux de rafraîchissement :"
 
 #: server_status.php:462
 msgid "Containing the word:"
