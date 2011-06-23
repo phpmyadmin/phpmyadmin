@@ -10225,7 +10225,7 @@ msgstr "Χωρική στήλη"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
