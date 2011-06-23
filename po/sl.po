@@ -4771,7 +4771,7 @@ msgstr "Vklopi ga"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Izklopi ga"
 
 #: libraries/db_events.inc.php:141
 #, fuzzy
