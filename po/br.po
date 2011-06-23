@@ -552,7 +552,7 @@ msgstr "Seveniñ an argerzh"
 #: db_routines.php:254 db_routines.php:258
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "Ezporzhiañ an argerzh %s"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
 #, php-format
