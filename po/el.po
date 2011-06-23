@@ -4816,7 +4816,7 @@ msgstr "Ο προγραμματισμός συμβάντων είναι απεν
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "ενεργοποιήστε τον"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
