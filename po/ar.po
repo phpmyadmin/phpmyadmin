@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 01:31+0200\n"
+"PO-Revision-Date: 2011-06-24 01:32+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -945,7 +945,7 @@ msgstr "سجل قاعدة البيانات"
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:773
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "قيم للعامود \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:774
 msgid "Enter each value in a separate field."
