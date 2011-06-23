@@ -10090,7 +10090,6 @@ msgid "Redraw"
 msgstr "Ponovno nariši"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
 msgstr "Shrani kot datoteko"
