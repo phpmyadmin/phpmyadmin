@@ -555,10 +555,10 @@ msgid "Error in processing request"
 msgstr "خطأ في معالجة الطلب"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %s found in database %s"
-msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
+msgstr "لا توجد جداول %s متوفره في قاعدة البيانات %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
