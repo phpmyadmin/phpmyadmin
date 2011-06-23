@@ -861,7 +861,7 @@ msgstr "Hizivaet"
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
 #: sql.php:935 tbl_tracking.php:647
 msgid "Status"
-msgstr ""
+msgstr "Statud"
 
 #: db_tracking.php:90 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1215
