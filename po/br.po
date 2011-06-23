@@ -575,7 +575,7 @@ msgstr "Kemmet eo bet an argerzh %1s."
 #: db_routines.php:322
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr ""
+msgstr "Krouet eo bet an argerzh %1s."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
