@@ -4763,7 +4763,7 @@ msgstr "Razporejevalnik dogodkov je omogočen"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Razporejevalnik dogodkov je onemogočen"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
