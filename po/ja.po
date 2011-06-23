@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 11:59+0200\n"
+"PO-Revision-Date: 2011-06-23 12:00+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5367,7 +5367,7 @@ msgstr "グラフで表示する"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr "ジオメトリ情報のデータを視覚化する"
+msgstr "空間情報のデータを視覚化する"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
