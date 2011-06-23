@@ -2110,10 +2110,9 @@ msgid "Check Privileges"
 msgstr "Έλεγχος Δικαιωμάτων"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to to read configuration file"
-msgstr "Αδύνατη η αποθήκευση ρυθμίσεων"
+msgstr "Αδύνατη η ανάγνωση του αρχείου ρυθμίσεων"
 
 #: libraries/common.inc.php:588
 msgid ""
