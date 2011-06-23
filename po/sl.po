@@ -5357,7 +5357,7 @@ msgstr "Pretvorba z brskalnikom"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrija"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
