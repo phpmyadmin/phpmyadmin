@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:10+0200\n"
+"PO-Revision-Date: 2011-06-23 10:11+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4932,10 +4932,9 @@ msgid "Return options"
 msgstr "Επιλογές επιστροφής"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Περιγραφή"
+msgstr "Προσδιορισμός"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
