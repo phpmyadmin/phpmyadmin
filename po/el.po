@@ -4881,10 +4881,9 @@ msgid "Parameters"
 msgstr "Παράμετροι"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Άμεσοι σύνδεσμοι"
+msgstr "Κατεύθυνση"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
