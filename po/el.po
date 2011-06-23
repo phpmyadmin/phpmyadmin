@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:14+0200\n"
+"PO-Revision-Date: 2011-06-23 10:15+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4989,6 +4989,7 @@ msgstr ""
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
+"Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
