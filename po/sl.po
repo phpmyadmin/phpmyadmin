@@ -2109,10 +2109,9 @@ msgid "Check Privileges"
 msgstr "Preveri privilegije"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to to read configuration file"
-msgstr "Ne morem shraniti konfiguracije"
+msgstr "Ne morem prebrati konfiguracijske datoteke"
 
 #: libraries/common.inc.php:588
 msgid ""
