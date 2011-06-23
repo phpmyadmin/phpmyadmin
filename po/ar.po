@@ -696,7 +696,7 @@ msgstr[5] "<b>المجموع:</b> <i>%s</i>تطابق"
 
 #: db_search.php:297
 msgid "Search in database"
-msgstr "ابحث في قاعدة البيانات"
+msgstr "بحث في قاعدة البيانات"
 
 #: db_search.php:300
 #, fuzzy
