@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 12:09+0200\n"
+"PO-Revision-Date: 2011-06-23 12:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -552,10 +552,10 @@ msgid "Execute routine"
 msgstr "Exécuter la procédure"
 
 #: db_routines.php:254 db_routines.php:258
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Valeurs par défaut pour exportation"
+msgstr "Exporter la procédure %s"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
