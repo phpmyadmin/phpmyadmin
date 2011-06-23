@@ -240,7 +240,7 @@ msgstr "نعم"
 
 #: db_datadict.php:314 db_printview.php:264 tbl_printview.php:495
 msgid "Print"
-msgstr "اطبع"
+msgstr "طباعة"
 
 #: db_export.php:30
 msgid "View dump (schema) of database"
