@@ -5458,10 +5458,10 @@ msgid "Export of trigger \"%s\""
 msgstr "Exporter le déclencheur «%s»"
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "Chemin des images inexistant pour le thème %s !"
+msgstr "Déclencheur %s non trouvé"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
