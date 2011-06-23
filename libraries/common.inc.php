@@ -585,7 +585,7 @@ require './libraries/select_lang.lib.php';
  */
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '<h1>' . __('Failed to read configuration file') . '</h1>'
-        . _('This usually means there is a syntax error in it, please check any errors shown bellow.')
+        . _('This usually means there is a syntax error in it, please check any errors shown below.')
         . '<br />'
         . '<br />'
         . '<iframe src="show_config_errors.php" />';
