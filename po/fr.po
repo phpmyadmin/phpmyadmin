@@ -5390,7 +5390,7 @@ msgstr "Well Known Text"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
