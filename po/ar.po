@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 19:48+0200\n"
+"PO-Revision-Date: 2011-06-23 19:49+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -369,7 +369,7 @@ msgstr "بناء الارتباطات"
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
 msgid "Table"
-msgstr "الجدول"
+msgstr "جدول"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
 #: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
