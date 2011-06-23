@@ -4855,10 +4855,9 @@ msgid "Parameters"
 msgstr "Paramètres"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Liens directs"
+msgstr "Direction"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
