@@ -10132,10 +10132,9 @@ msgid "View dump (schema) of table"
 msgstr "<b>Afficher le schéma</b> de la table"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Affiche la liste des serveurs"
+msgstr "Visualiser en GIS"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
