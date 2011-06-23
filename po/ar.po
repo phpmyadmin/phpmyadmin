@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 19:49+0200\n"
+"PO-Revision-Date: 2011-06-23 19:52+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -381,7 +381,7 @@ msgstr "صفوف"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:189
 msgid "Size"
-msgstr "الحجم"
+msgstr "حجم"
 
 #: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
 #: libraries/export/sql.php:1077
