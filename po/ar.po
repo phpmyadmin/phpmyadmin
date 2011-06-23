@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 01:19+0200\n"
+"PO-Revision-Date: 2011-06-24 01:20+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -818,7 +818,7 @@ msgstr "عرض نسخة للطباعة"
 #: db_structure.php:502 libraries/common.lib.php:2958
 #: libraries/common.lib.php:2959
 msgid "Empty"
-msgstr "فارغ"
+msgstr "إفراغ"
 
 #: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:490
 #: libraries/common.lib.php:2956 libraries/common.lib.php:2957
