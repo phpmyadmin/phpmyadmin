@@ -4927,10 +4927,9 @@ msgid "Return length/values"
 msgstr "Μήκος/Τιμές επιστροφής"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Επιλογές πίνακα"
+msgstr "Επιλογές επιστροφής"
 
 #: libraries/db_routines.lib.php:745
 #, fuzzy
