@@ -827,7 +827,7 @@ msgstr "Eilañ an daolenn enni ur rakger"
 
 #: db_structure.php:560 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Geriadur roadennoù"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
