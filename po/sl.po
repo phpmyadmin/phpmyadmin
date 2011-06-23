@@ -4954,10 +4954,9 @@ msgid "Add routine"
 msgstr "Dodaj rutino"
 
 #: libraries/db_routines.lib.php:1256
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Nimate dovolj pravic, da bi bili sedaj tukaj!"
+msgstr "Nimate zadostnih pravic za ustvarjanje nove rutine"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:2121
 msgid ""
