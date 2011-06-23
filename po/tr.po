@@ -4759,7 +4759,7 @@ msgstr "Aç"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Kapat"
 
 #: libraries/db_events.inc.php:141
 msgid "Add a new Event"
