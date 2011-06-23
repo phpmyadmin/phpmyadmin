@@ -538,7 +538,6 @@ msgid "MySQL said: "
 msgstr "MySQL je vrnil: "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Napaka v obdelovanju zahteve"
