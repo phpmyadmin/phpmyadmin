@@ -4820,7 +4820,7 @@ msgstr "Ενεργοποιήστε τον"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Απενεργοποιήστε τον"
 
 #: libraries/db_events.inc.php:141
 #, fuzzy
