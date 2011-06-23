@@ -4918,10 +4918,9 @@ msgid "Definer"
 msgstr "Créateur"
 
 #: libraries/db_routines.lib.php:758
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Sécurité"
+msgstr "Type de sécurité"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
