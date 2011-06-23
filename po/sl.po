@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 23:01+0200\n"
+"PO-Revision-Date: 2011-06-23 23:03+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -510,10 +510,10 @@ msgstr "Poizvedba SQL je bila uspešno izvedena"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Zadnja izjava znotraj procedure je spremenila %d vrstico"
+msgstr[1] "Zadnja izjava znotraj procedure je spremenila %d vrstici"
+msgstr[2] "Zadnja izjava znotraj procedure je spremenila %d vrstice"
+msgstr[3] "Zadnja izjava znotraj procedure je spremenila %d vrstic"
 
 #: db_routines.php:165
 #, php-format
