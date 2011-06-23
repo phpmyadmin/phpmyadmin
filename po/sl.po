@@ -573,10 +573,10 @@ msgid "The backed up query was:"
 msgstr "Varnostno kopirana poizvedba je bila:"
 
 #: db_routines.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Stolpec %s je zavržen"
+msgstr "Rutina %1$s je bila spremenjena."
 
 #: db_routines.php:322
 #, fuzzy, php-format
