@@ -4883,10 +4883,9 @@ msgid "Return options"
 msgstr "Vrnjene možnosti"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Opis"
+msgstr "Opredelitev"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
