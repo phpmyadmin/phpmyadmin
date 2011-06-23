@@ -2081,10 +2081,9 @@ msgid "Check Privileges"
 msgstr "Yetkileri kontrol et"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to to read configuration file"
-msgstr "Yapılandırma kaydedilemedi"
+msgstr "Yapılandırma dosyasını okuma başarısız"
 
 #: libraries/common.inc.php:588
 msgid ""
