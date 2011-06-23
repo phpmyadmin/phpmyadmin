@@ -906,7 +906,7 @@ msgstr "Heuliañ an daolenn"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr ""
+msgstr "Marilh an diaz roadennoù"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:773
 #, php-format
