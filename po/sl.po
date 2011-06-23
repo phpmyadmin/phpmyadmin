@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 22:54+0200\n"
+"PO-Revision-Date: 2011-06-23 22:55+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5433,10 +5433,10 @@ msgid "Export of trigger \"%s\""
 msgstr "Izvoz sprožilca \"%s\""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "Za temo %s ni bila najdena veljavna pot slik!"
+msgstr "Najti ni mogoče nobenega sprožilca z imenom %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #| msgid "There are no files to upload"
