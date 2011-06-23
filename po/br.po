@@ -877,7 +877,7 @@ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
 
 #: db_tracking.php:119 tbl_tracking.php:599 tbl_tracking.php:657
 msgid "active"
-msgstr "Oberiant"
+msgstr "oberiant"
 
 #: db_tracking.php:121 tbl_tracking.php:601 tbl_tracking.php:659
 msgid "not active"
