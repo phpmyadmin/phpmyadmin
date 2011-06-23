@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:04+0200\n"
+"PO-Revision-Date: 2011-06-23 10:05+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2365,7 +2365,7 @@ msgstr "Δεν υπάρχουν αρχεία προς αποστολή"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Εκτέλεση"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
