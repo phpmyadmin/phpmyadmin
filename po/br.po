@@ -561,7 +561,7 @@ msgstr "Seurt argerzh faziek : \"%s\""
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
