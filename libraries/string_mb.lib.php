@@ -47,22 +47,20 @@ function PMA_substr($string, $start, $length = 2147483647)
  * @param   int     $offset
  * @return  integer position of $needle in $haystack or false
  */
-function PMA_STR_pos($haystack, $needle, $offset = 0)
+function PMA_strpos($haystack, $needle, $offset = 0)
 {
     return mb_strpos($haystack, $needle, $offset);
 }
 
 /**
- * Returns right most postion of $needle in $haystack or false if not found
+ * Make a string lowercase
  *
- * @param   string  $haystack
- * @param   string  $needle
- * @param   int     $offset
- * @return  integer position of $needle in $haystack or false
+ * @param   string  $string
+ * @return  string
  */
-function PMA_STR_rPos($haystack, $needle, $offset = 0)
+function PMA_strtolower($string)
 {
-    return mb_strrpos($haystack, $needle, $offset);
+    return mb_strtolower($string);
 }
 
 ?>
