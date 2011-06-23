@@ -10083,7 +10083,7 @@ msgstr "Skupno število"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Uporabi OpenStreetMaps kot osnovni sloj"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
