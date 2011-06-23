@@ -699,7 +699,6 @@ msgid "Search in database"
 msgstr "بحث في قاعدة البيانات"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "الكلمات أو القيم المطلوب البحث عنها (wildcard: \"%\"):"
