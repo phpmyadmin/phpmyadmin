@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 23:01+0200\n"
+"PO-Revision-Date: 2011-06-23 23:02+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -590,10 +590,10 @@ msgid "Routine %1$s has been modified."
 msgstr "تم تعديل الإجراء %1$s"
 
 #: db_routines.php:322
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "تم إنشاء قاعدة بيانات %1$s."
+msgstr "تم إنشاء الإجراء %1$s."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
