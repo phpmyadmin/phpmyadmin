@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:02+0200\n"
+"PO-Revision-Date: 2011-06-23 10:03+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1326,10 +1326,9 @@ msgstr ""
 "RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Ελλειπής τιμή στο πεδίο !"
+msgstr "Η τιμή είναι πολύ επιμήκης στη φόρμα!"
 
 #: js/messages.php:126
 msgid ""
