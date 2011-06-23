@@ -4863,7 +4863,7 @@ msgstr "Dönüş seçenekleri"
 
 #: libraries/db_routines.lib.php:745
 msgid "Definition"
-msgstr "Açıklama"
+msgstr "Tanım"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
