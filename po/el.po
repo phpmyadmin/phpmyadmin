@@ -4951,7 +4951,7 @@ msgstr "Τύπος ασφάλειας"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "Πρόσβαση δεδομένων SQL"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
