@@ -4873,10 +4873,9 @@ msgid "Return type"
 msgstr "Vrnjena vrsta"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Dolžina/Vrednosti"
+msgstr "Vrnjena dolžina/vrednosti"
 
 #: libraries/db_routines.lib.php:726
 #, fuzzy
