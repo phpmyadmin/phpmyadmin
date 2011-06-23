@@ -47,7 +47,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // lower_case_table_names=1 `DB` becomes `db`
             $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
             if ($lower_case_table_names === '1') {
-                $newname = strtolower($newname);
+                $newname = PMA_strtolower($newname);
             }
 
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
