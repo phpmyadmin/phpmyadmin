@@ -6152,10 +6152,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "別ウィンドウで開く"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "グラフ用のデータが見つかりません。"
+msgstr "視覚化できるジオメトリ情報がありません。"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
