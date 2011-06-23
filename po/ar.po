@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 01:20+0200\n"
+"PO-Revision-Date: 2011-06-24 01:22+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -834,7 +834,7 @@ msgstr "التحقق من الجدول"
 #: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:845
 #: tbl_structure.php:847
 msgid "Optimize table"
-msgstr "ضغط الجدول"
+msgstr "تحسين الجدول"
 
 #: db_structure.php:510 tbl_operations.php:640
 msgid "Repair table"
