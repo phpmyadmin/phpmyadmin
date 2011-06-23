@@ -187,7 +187,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             }
         } else {
             $output = '';
-            $message = PMA_message::error(sprintf(__('Query "%s" failed'), $query) . '<br /><br />'
+            $message = PMA_message::error(sprintf(__('The following query has failed: "%s"'), $query) . '<br /><br />'
                                                 . __('MySQL said: ') . PMA_DBI_getError(null));
         }
         // Print/send output
@@ -206,7 +206,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         }
     } else {
         $message = __('Error in processing request') . ' : '
-                 . sprintf(__('No routine with name %s found in database %s'),
+                 . sprintf(__('No routine with name %1$s found in database %2$s'),
                            htmlspecialchars(PMA_backquote($_REQUEST['routine_name'])),
                            htmlspecialchars(PMA_backquote($db)));
         $message = PMA_message::error($message);
@@ -237,7 +237,12 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             // exit;
         }
     } else if (($GLOBALS['is_ajax_request'] == true)) {
-        PMA_ajaxResponse(PMA_message::error(), false);
+        $message = __('Error in processing request') . ' : '
+                 . sprintf(__('No routine with name %1$s found in database %2$s'),
+                           htmlspecialchars(PMA_backquote($_REQUEST['routine_name'])),
+                           htmlspecialchars(PMA_backquote($db)));
+        $message = PMA_message::error($message);
+        PMA_ajaxResponse($message, false);
     }
 } else if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
     /**
@@ -261,7 +266,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         }
     } else {
         $response = __('Error in processing request') . ' : '
-                  . sprintf(__('No routine with name %s found in database %s'),
+                  . sprintf(__('No routine with name %1$s found in database %2$s'),
                             $routine_name, htmlspecialchars(PMA_backquote($db)));
         $response = PMA_message::error($response);
         if ($GLOBALS['is_ajax_request']) {
@@ -287,12 +292,12 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
                 $drop_routine = "DROP {$_REQUEST['routine_original_type']} " . PMA_backquote($_REQUEST['routine_original_name']) . ";\n";
                 $result = PMA_DBI_try_query($drop_routine);
                 if (! $result) {
-                    $routine_errors[] = sprintf(__('Query "%s" failed'), $drop_routine) . '<br />'
+                    $routine_errors[] = sprintf(__('The following query has failed: "%s"'), $drop_routine) . '<br />'
                                       . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $result = PMA_DBI_try_query($routine_query);
                     if (! $result) {
-                        $routine_errors[] = sprintf(__('Query "%s" failed'), $routine_query) . '<br />'
+                        $routine_errors[] = sprintf(__('The following query has failed: "%s"'), $routine_query) . '<br />'
                                           . __('MySQL said: ') . PMA_DBI_getError(null);
                         // We dropped the old routine, but were unable to create the new one
                         // Try to restore the backup query
@@ -316,7 +321,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             // 'Add a new routine' mode
             $result = PMA_DBI_try_query($routine_query);
             if (! $result) {
-                $routine_errors[] = sprintf(__('Query "%s" failed'), $routine_query) . '<br /><br />'
+                $routine_errors[] = sprintf(__('The following query has failed: "%s"'), $routine_query) . '<br /><br />'
                                   . __('MySQL said: ') . PMA_DBI_getError(null);
             } else {
                 $message = PMA_Message::success(__('Routine %1$s has been created.'));
@@ -400,7 +405,7 @@ if (count($routine_errors) || ( empty($_REQUEST['routine_process_addroutine']) &
         // exit;
     } else {
         $message = __('Error in processing request') . ' : '
-                 . sprintf(__('No routine with name %s found in database %s'),
+                 . sprintf(__('No routine with name %1$s found in database %2$s'),
                            htmlspecialchars(PMA_backquote($_REQUEST['routine_name'])),
                            htmlspecialchars(PMA_backquote($db)));
         $message = PMA_message::error($message);

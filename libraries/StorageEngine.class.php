@@ -58,11 +58,11 @@ class PMA_StorageEngine
     {
         static $storage_engines = null;
 
-        if (null !== $storage_engines) {
-            return $storage_engines;
+        if (null == $storage_engines) {
+            $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
         }
 
-        return PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+        return $storage_engines;
     }
 
     /**
@@ -88,7 +88,8 @@ class PMA_StorageEngine
 
         foreach (PMA_StorageEngine::getStorageEngines() as $key => $details) {
             if (!$offerUnavailableEngines
-              && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
+                  && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
+                      || $details['Engine'] == 'PERFORMANCE_SCHEMA')) {
                 continue;
             }
 
