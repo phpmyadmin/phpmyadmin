@@ -5504,10 +5504,9 @@ msgid "Event"
 msgstr "Συμβάν"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Trigger"
-msgstr "Προσθήκη ενός νέου διακομιστή"
+msgstr "Προσθήκη μιας νέας Ενέργειας"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
