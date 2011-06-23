@@ -4747,7 +4747,7 @@ msgstr "Adı"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Olay zamanlayıcısı etkin"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
