@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 18:30+0200\n"
+"PO-Revision-Date: 2011-06-23 18:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -2090,6 +2090,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown bellow."
 msgstr ""
+"Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
+"gösterilen her hatayı kontrol edin."
 
 #: libraries/common.inc.php:595
 #, php-format
