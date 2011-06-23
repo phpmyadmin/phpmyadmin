@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 12:11+0200\n"
+"PO-Revision-Date: 2011-06-23 12:12+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -569,7 +569,7 @@ msgstr "Désolé, il a été impossible de restaurer la procédure."
 
 #: db_routines.php:305
 msgid "The backed up query was:"
-msgstr "La requête restaurée est :"
+msgstr "La requête conservée est :"
 
 #: db_routines.php:309
 #, fuzzy, php-format
