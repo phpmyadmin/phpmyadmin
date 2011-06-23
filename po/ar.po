@@ -550,10 +550,9 @@ msgid "MySQL said: "
 msgstr "MySQL قال: "
 
 #: db_routines.php:208 db_routines.php:263 db_routines.php:402
-#, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
-msgstr "معالَجات"
+msgstr "خطأ في معالجة الطلب"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
 #, fuzzy, php-format
