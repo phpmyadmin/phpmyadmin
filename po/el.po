@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 23:27+0200\n"
+"PO-Revision-Date: 2011-06-23 09:55+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -508,8 +508,8 @@ msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d εγγραφή επηρεάστηκε από την τελευταία δήλωση μέσα στη διαδικασία "
+msgstr[1] "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
 
 #: db_routines.php:165
 #, php-format
