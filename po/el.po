@@ -5413,7 +5413,7 @@ msgstr "Γεωμετρία"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "Καλά Γνωστό Κείμενο"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
