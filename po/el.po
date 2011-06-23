@@ -547,7 +547,7 @@ msgstr "Καμιά ρουτίνα με την ονομασία %s δεν βρέ�
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Εκτέλεση ρουτίνας"
 
 #: db_routines.php:254 db_routines.php:258
 #, php-format
