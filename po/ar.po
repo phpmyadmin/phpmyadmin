@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 23:00+0200\n"
+"PO-Revision-Date: 2011-06-23 23:01+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -584,10 +584,10 @@ msgid "The backed up query was:"
 msgstr "الإستعلام الإحتياطي:"
 
 #: db_routines.php:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "جدول %s حذفت"
+msgstr "تم تعديل الإجراء %1$s"
 
 #: db_routines.php:322
 #, fuzzy, php-format
