@@ -328,7 +328,7 @@ msgstr "أضف قيمة AUTO_INCREMENT"
 
 #: db_operations.php:515 tbl_operations.php:565
 msgid "Add constraints"
-msgstr "أضف قيودا"
+msgstr "أضف قيود"
 
 #: db_operations.php:528
 msgid "Switch to copied database"
