@@ -4887,10 +4887,9 @@ msgid "Add parameter"
 msgstr "Ajouter un paramètre"
 
 #: libraries/db_routines.lib.php:710
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Supprimer la base de données"
+msgstr "Supprimer le dernier paramètre"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
