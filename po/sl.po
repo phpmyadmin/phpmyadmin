@@ -5422,10 +5422,10 @@ msgid "Link not found"
 msgstr "Povezave ni mogoče najti"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Izvozi vsebine"
+msgstr "Izvoz sprožilca %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
