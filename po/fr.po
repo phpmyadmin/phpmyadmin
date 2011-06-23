@@ -4973,10 +4973,9 @@ msgid "There are no routines to display."
 msgstr "Il n'y a aucune procédure à afficher."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Ajouter un index"
+msgstr "Ajouter une procédure"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
