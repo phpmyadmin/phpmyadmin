@@ -357,7 +357,6 @@ msgstr ""
 "s."
 
 #: db_operations.php:600
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "بناء الارتباطات"
