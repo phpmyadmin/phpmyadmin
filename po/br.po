@@ -583,7 +583,7 @@ msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
 
 #: db_routines.php:374
 msgid "Create routine"
-msgstr ""
+msgstr "Krouiñ un argerzh"
 
 #: db_routines.php:378
 msgid "Edit routine"
