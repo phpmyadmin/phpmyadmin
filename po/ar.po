@@ -1022,7 +1022,7 @@ msgstr ""
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "لايمكن تحميل الإضافات المستوردة ,, فضلاً تحقق من عملية التنصيب ."
 
 #: import.php:396
 msgid "The bookmark has been deleted."
