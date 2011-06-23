@@ -2118,6 +2118,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown bellow."
 msgstr ""
+"To po navadi pomeni, da ima skladenjsko napako; prosimo, preverite vse "
+"spodaj prikazane napake."
 
 #: libraries/common.inc.php:595
 #, php-format
