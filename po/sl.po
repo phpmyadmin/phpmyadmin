@@ -1230,7 +1230,7 @@ msgstr "Povezave / Procesi"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Izdane poizvedbe od zadnje osvežitve"
 
 #: js/messages.php:85
 #| msgid "SQL queries"
