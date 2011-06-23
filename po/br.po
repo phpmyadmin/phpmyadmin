@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 20:08+0200\n"
+"PO-Revision-Date: 2011-06-23 20:09+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -518,7 +518,7 @@ msgstr[1] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
 #: db_routines.php:165
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "Disoc'hoù seveniñ an argerzh %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
