@@ -5447,10 +5447,10 @@ msgid "Link not found"
 msgstr "Lien absent"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Exporter le contenu"
+msgstr "Exporter le déclencheur %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
