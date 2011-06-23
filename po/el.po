@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:21+0200\n"
+"PO-Revision-Date: 2011-06-23 10:22+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10219,10 +10219,9 @@ msgid "-- None --"
 msgstr "-- Τίποτα --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
-msgstr "Συνολικό πλήθος"
+msgstr "Χωρική στήλη"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
