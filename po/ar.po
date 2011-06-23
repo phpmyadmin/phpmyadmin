@@ -754,8 +754,7 @@ msgstr "التتبع غير نشط."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr ""
-"هذا العرض له ما لا يقل عن هذا العدد من الصفوف يرجى الرجوع إلى %s الوثيقة %s"
+msgstr "هذا العرض له ما لا يقل عدد هذه الصفوف يرجى الرجوع إلى %s الوثيقة %s"
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
