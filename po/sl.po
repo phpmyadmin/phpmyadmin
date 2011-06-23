@@ -4878,10 +4878,9 @@ msgid "Return length/values"
 msgstr "Vrnjena dolžina/vrednosti"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Možnosti tabele"
+msgstr "Vrnjene možnosti"
 
 #: libraries/db_routines.lib.php:745
 #, fuzzy
