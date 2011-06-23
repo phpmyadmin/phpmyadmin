@@ -594,10 +594,9 @@ msgid "Create routine"
 msgstr "Ustvari rutino"
 
 #: db_routines.php:378
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Način urejanja"
+msgstr "Uredi rutino"
 
 #: db_routines.php:429
 msgid ""
