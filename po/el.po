@@ -4976,7 +4976,7 @@ msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Εσφαλμένη κατεύθυνση «%s» δόθηκε για την παράμετρο."
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
