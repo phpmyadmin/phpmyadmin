@@ -644,7 +644,7 @@ msgstr "كتعبير قياسي"
 #: db_search.php:231
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "ابحث في النتائج عن \"<i>%s</i>\" %s:"
+msgstr "نتائج البحث عن \"<i>%s</i>\" %s:"
 
 #: db_search.php:249
 #, fuzzy, php-format
