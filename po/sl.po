@@ -9552,7 +9552,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Nastavljanje spremenljivke je spodletelo"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
