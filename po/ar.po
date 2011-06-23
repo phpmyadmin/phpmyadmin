@@ -739,7 +739,7 @@ msgstr "تم إزالة %s  من العرض"
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "جدول %s حذفت"
+msgstr "تم إزالة الجدول %s"
 
 #: db_structure.php:286 tbl_create.php:295
 msgid "Tracking is active."
