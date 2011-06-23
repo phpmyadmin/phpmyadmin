@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 22:23+0200\n"
+"PO-Revision-Date: 2011-06-23 22:24+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -543,10 +543,10 @@ msgid "Error in processing request"
 msgstr "Napaka v obdelovanju zahteve"
 
 #: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %s found in database %s"
-msgstr "V zbirki podatkov ni mogoče najti tabel"
+msgstr "Rutine imenovane %s ni mogoče najti v zbirki podatkov %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
