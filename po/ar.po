@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 19:15+0200\n"
+"PO-Revision-Date: 2011-06-23 19:16+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -288,7 +288,7 @@ msgstr "حذف قاعدة البيانات"
 #: db_operations.php:452
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "قاعدة بيانات %s محذوفه."
+msgstr "تم حذف قاعدة بيانات %s ."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
