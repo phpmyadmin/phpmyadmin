@@ -722,10 +722,9 @@ msgid "Inside column:"
 msgstr "داخل العمود:"
 
 #: db_structure.php:60
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
+msgstr "لا توجد جداول في قاعدة البيانات هذه!."
 
 #: db_structure.php:270 tbl_operations.php:688
 #, php-format
