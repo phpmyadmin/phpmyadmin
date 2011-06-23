@@ -4812,7 +4812,7 @@ msgstr "Ο προγραμματισμός συμβάντων είναι ενερ
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Ο προγραμματισμός συμβάντων είναι απενεργοποιημένος"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
