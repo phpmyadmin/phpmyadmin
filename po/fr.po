@@ -10156,10 +10156,9 @@ msgid "-- None --"
 msgstr "- aucun -"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
-msgstr "Nombre total"
+msgstr "Colonne pour donnée spatiale"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
