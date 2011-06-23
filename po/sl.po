@@ -4926,7 +4926,7 @@ msgstr "Navesti morate ime rutine"
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Neveljavna smer \"%s\" podana za parameter."
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
