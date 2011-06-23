@@ -4993,7 +4993,7 @@ msgstr ""
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
 
 #: libraries/db_routines.lib.php:1209
 #, fuzzy
