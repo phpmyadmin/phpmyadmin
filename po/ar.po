@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 22:57+0200\n"
+"PO-Revision-Date: 2011-06-23 22:58+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -567,7 +567,7 @@ msgstr "تنفيذ"
 #: db_routines.php:254 db_routines.php:258
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "تصدير %s"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
