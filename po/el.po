@@ -678,10 +678,9 @@ msgid "Search in database"
 msgstr "Αναζήτηση στη βάση δεδπμένων"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Όροι ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
+msgstr "Λέξεις ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
 
 #: db_search.php:305
 msgid "Find:"
