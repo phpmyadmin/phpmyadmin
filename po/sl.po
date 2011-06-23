@@ -5452,10 +5452,9 @@ msgid "Event"
 msgstr "Dogodek"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a new Trigger"
-msgstr "Dodaj nov strežnik"
+msgstr "Dodaj nov sprožilec"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
