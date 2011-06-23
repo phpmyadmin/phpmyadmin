@@ -572,9 +572,9 @@ $(function() {
                             chartGrid[i].numPoints >= maxPoints
                         );
                     }
-                    
-                    chartGrid[i].numPoints++;
                 }
+                
+                chartGrid[i].numPoints++;
             }
             
             oldChartData = chartData;
