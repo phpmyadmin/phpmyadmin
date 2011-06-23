@@ -499,7 +499,7 @@ msgstr "تجديد الإستعلام"
 
 #: db_qbe.php:639
 msgid "Use Tables"
-msgstr "استخدم الجدول"
+msgstr "إستخدم الجداول"
 
 #: db_qbe.php:662
 #, php-format
