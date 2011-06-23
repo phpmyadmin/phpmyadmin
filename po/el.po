@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:20+0200\n"
+"PO-Revision-Date: 2011-06-23 10:21+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10196,10 +10196,9 @@ msgid "View dump (schema) of table"
 msgstr "Εμφάνιση σχήματος του πίνακα"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Προβολή επιλογής διακομιστών"
+msgstr "Εμφάνιση Οπτικοποίησης ΓΠΣ"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
