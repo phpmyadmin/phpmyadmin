@@ -579,10 +579,10 @@ msgid "Routine %1$s has been modified."
 msgstr "Rutina %1$s je bila spremenjena."
 
 #: db_routines.php:322
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "Tabela %1$s je ustvarjena."
+msgstr "Rutina %1$s je bila ustvarjena."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
