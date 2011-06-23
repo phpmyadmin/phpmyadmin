@@ -10071,10 +10071,9 @@ msgid "Label column"
 msgstr "Stolpcev besedilnega polja"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- noben -"
+msgstr "-- Noben --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
