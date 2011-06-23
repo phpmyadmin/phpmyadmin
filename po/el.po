@@ -4771,10 +4771,10 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Η επέκταση %s λείπει. Δείτε τις ρυθμίσεις της PHP."
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Εξαγωγή περιεχομένων"
+msgstr "Εξαγωγή του συμβάντος %s"
 
 #: libraries/db_events.inc.php:34
 #, fuzzy, php-format
