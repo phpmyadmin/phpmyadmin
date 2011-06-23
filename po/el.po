@@ -5491,10 +5491,9 @@ msgid "No trigger with name %s found"
 msgstr "Δεν βρέθηκε ενέργεια με το όνομα %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Δεν υπάρχουν αρχεία προς αποστολή"
+msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση"
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
