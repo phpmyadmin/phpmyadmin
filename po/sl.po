@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 22:41+0200\n"
+"PO-Revision-Date: 2011-06-23 22:42+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1324,7 +1324,7 @@ msgstr "Brisanje"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Opredelitev shranjene funkcije mora vsebovati izjavo RETURN!"
 
 #: js/messages.php:123
 #, fuzzy
