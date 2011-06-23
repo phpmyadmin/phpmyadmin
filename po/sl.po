@@ -4949,10 +4949,9 @@ msgid "There are no routines to display."
 msgstr "Ni rutin za prikaz."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Dodaj indeks"
+msgstr "Dodaj rutino"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
