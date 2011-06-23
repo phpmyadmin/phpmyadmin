@@ -823,7 +823,7 @@ msgstr "Erlec'hiañ rakger an daolenn"
 
 #: db_structure.php:518 libraries/mult_submits.inc.php:251
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "Eilañ an daolenn enni ur rakger"
 
 #: db_structure.php:560 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
