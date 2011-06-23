@@ -709,7 +709,7 @@ msgstr "ابحث:"
 
 #: db_search.php:309 db_search.php:310
 msgid "Words are separated by a space character (\" \")."
-msgstr "الكلمات مفصولة بحرف مسافة (\" \")."
+msgstr "الكلمات مفصولة بمسافة (\" \")."
 
 #: db_search.php:323
 #, fuzzy
