@@ -8741,10 +8741,9 @@ msgid "All status variables"
 msgstr "Όλες οι μεταβλητές κατάστασης"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Ρυθμός ανανέωσης"
+msgstr "Ρυθμός ανανέωσης:"
 
 #: server_status.php:462
 msgid "Containing the word:"
