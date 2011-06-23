@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 22:52+0200\n"
+"PO-Revision-Date: 2011-06-23 22:53+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -536,7 +536,7 @@ msgstr "نتائج تنفيذ الإجراء %s"
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL قام بإرجاع نتيجة إعداد فارغه (مثلا صف صفري)."
+msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 
 #: db_routines.php:190 db_routines.php:290 db_routines.php:295
 #: db_routines.php:319
