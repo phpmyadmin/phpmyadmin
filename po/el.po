@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:17+0200\n"
+"PO-Revision-Date: 2011-06-23 10:18+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5474,10 +5474,10 @@ msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Εξαγωγή περιεχομένων"
+msgstr "Εξαγωγή της ενέργειας %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
