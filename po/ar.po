@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 01:22+0200\n"
+"PO-Revision-Date: 2011-06-24 01:23+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -850,10 +850,9 @@ msgid "Add prefix to table"
 msgstr "إضافة بادئة للجدول"
 
 #: db_structure.php:516 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "استبدال بيانات الجدول بالملف"
+msgstr "استبدال بادئة الجدول"
 
 #: db_structure.php:518 libraries/mult_submits.inc.php:251
 #, fuzzy
