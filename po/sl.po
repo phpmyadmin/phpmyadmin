@@ -4759,7 +4759,7 @@ msgstr "Ime"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Razporejevalnik dogodkov je omogočen"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
