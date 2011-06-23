@@ -712,10 +712,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "الكلمات مفصولة بمسافة (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "داخل الجدول)الجداول(:"
+msgstr "داخل الجداول:"
 
 #: db_search.php:353
 #, fuzzy
