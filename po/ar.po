@@ -882,7 +882,7 @@ msgstr "قاعدة البيانات"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "آخر إصدار"
 
 #: db_tracking.php:87 tbl_tracking.php:645
 msgid "Created"
