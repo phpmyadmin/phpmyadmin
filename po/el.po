@@ -5417,7 +5417,7 @@ msgstr "Καλά Γνωστό Κείμενο"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Καλά Γνωστό Δυαδικό"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
