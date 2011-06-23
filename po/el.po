@@ -10209,10 +10209,9 @@ msgid "Height"
 msgstr "Ύψος"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Στήλες περιοχής κειμένου (textarea)"
+msgstr "Στήλη ετικέτας"
 
 #: tbl_gis_visualization.php:167
 #, fuzzy
