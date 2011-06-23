@@ -881,7 +881,7 @@ msgstr "Oberiant"
 
 #: db_tracking.php:121 tbl_tracking.php:601 tbl_tracking.php:659
 msgid "not active"
-msgstr ""
+msgstr "dizoberiant"
 
 #: db_tracking.php:134
 msgid "Versions"
