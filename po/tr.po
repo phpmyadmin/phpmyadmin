@@ -4755,7 +4755,7 @@ msgstr "Olay zamanlayıcısı etkisiz"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Aç"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
