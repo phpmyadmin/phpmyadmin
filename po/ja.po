@@ -9970,10 +9970,9 @@ msgid "Label column"
 msgstr "ラベルカラム"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- 無し -"
+msgstr "-- なし --"
 
 #: tbl_gis_visualization.php:180
 #| msgid "Log file count"
