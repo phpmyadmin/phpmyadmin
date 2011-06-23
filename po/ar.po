@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 23:15+0200\n"
+"PO-Revision-Date: 2011-06-23 23:18+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -734,7 +734,7 @@ msgstr "تم إفراغ محتويات الجدول %s"
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
-msgstr ""
+msgstr "تم إزالة %s  من العرض"
 
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
