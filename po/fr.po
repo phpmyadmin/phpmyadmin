@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 12:12+0200\n"
+"PO-Revision-Date: 2011-06-23 12:13+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -578,10 +578,10 @@ msgid "Routine %1$s has been modified."
 msgstr "La procédure %1$s a été modifiée."
 
 #: db_routines.php:322
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "La table %1$s a été créée."
+msgstr "La procédure %1$s a été créée."
 
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
