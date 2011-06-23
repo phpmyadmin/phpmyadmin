@@ -4789,7 +4789,7 @@ msgstr "Le planificateur d'évènements est désactivé"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "L'activer"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
