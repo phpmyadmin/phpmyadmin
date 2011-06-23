@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 22:40+0200\n"
+"PO-Revision-Date: 2011-06-23 22:41+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1233,10 +1233,9 @@ msgid "Issued queries since last refresh"
 msgstr ""
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "Poizvedbe SQL"
+msgstr "Izdane poizvedbe"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
