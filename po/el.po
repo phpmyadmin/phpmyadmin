@@ -584,6 +584,8 @@ msgstr "Η ρουτίνα %1$s έχει δημιουργηθεί."
 #: db_routines.php:330
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
+"<b>Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός "
+"σας:</b>"
 
 #: db_routines.php:374
 #| msgid "Create relation"
