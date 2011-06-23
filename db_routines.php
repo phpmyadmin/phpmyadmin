@@ -237,7 +237,12 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
             // exit;
         }
     } else if (($GLOBALS['is_ajax_request'] == true)) {
-        PMA_ajaxResponse(PMA_message::error(), false);
+        $message = __('Error in processing request') . ' : '
+                 . sprintf(__('No routine with name %1$s found in database %2$s'),
+                           htmlspecialchars(PMA_backquote($_REQUEST['routine_name'])),
+                           htmlspecialchars(PMA_backquote($db)));
+        $message = PMA_message::error($message);
+        PMA_ajaxResponse($message, false);
     }
 } else if (! empty($_GET['exportroutine']) && ! empty($_GET['routine_name'])) {
     /**
