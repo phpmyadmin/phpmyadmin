@@ -4938,7 +4938,7 @@ msgstr "Προσδιορισμός"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
-msgstr ""
+msgstr "Είναι προσδιοριστικό"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
