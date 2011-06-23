@@ -4902,7 +4902,7 @@ msgstr "Vrsta varnosti"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "Dostop do podatkov SQL"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
