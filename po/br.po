@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 20:27+0200\n"
+"PO-Revision-Date: 2011-06-23 20:28+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -671,7 +671,7 @@ msgstr "Klask en diaz roadennoù"
 
 #: db_search.php:300
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
