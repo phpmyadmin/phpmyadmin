@@ -570,10 +570,10 @@ msgid "Export of routine %s"
 msgstr "تصدير %s"
 
 #: db_routines.php:283 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "فهرس خادم غير صحيح: %s"
+msgstr "نوع الإجراء غير صحيح: %s"
 
 #: db_routines.php:304
 msgid "Sorry, we failed to restore the dropped routine."
