@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-23 10:01+0200\n"
+"PO-Revision-Date: 2011-06-23 10:02+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1322,6 +1322,8 @@ msgstr "Διαγραφή"
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση "
+"RETURN!"
 
 #: js/messages.php:123
 #, fuzzy
