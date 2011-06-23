@@ -4845,10 +4845,10 @@ msgid "Routine name"
 msgstr "Nom de la procédure"
 
 #: libraries/db_routines.lib.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Modifier"
+msgstr "Changer pour %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
