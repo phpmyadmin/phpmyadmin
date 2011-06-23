@@ -5001,10 +5001,9 @@ msgid "There are no routines to display."
 msgstr "Δεν υπάρχουν ρουτίνες για εμφάνιση."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Προσθήκη ευρετηρίου"
+msgstr "Προσθήκη ρουτίνας"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
