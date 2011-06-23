@@ -4892,7 +4892,7 @@ msgstr "Je deterministično"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Določevalec"
 
 #: libraries/db_routines.lib.php:758
 #| msgid "Security"
