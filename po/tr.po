@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:37+0200\n"
+"PO-Revision-Date: 2011-06-23 18:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -662,10 +662,9 @@ msgid "Search in database"
 msgstr "Veritabanında ara"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Aranacak kelime(ler) veya değer(ler) (joker: \"%\"):"
+msgstr "Aranacak kelimeler veya değerler (joker: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
