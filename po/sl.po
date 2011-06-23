@@ -8570,14 +8570,14 @@ msgstr[2] "%d minute"
 msgstr[3] "%d minut"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "sekunda"
-msgstr[1] "sekunda"
-msgstr[2] "sekunda"
-msgstr[3] "sekunda"
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekundi"
+msgstr[2] "%d sekunde"
+msgstr[3] "%d sekund"
 
 #: server_status.php:134
 #, php-format
