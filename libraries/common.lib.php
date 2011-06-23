@@ -841,7 +841,6 @@ function PMA_backquote($a_name, $do_it = true)
     }
 } // end of the 'PMA_backquote()' function
 
-
 /**
  * Defines the <CR><LF> value depending on the user OS.
  *
@@ -2964,7 +2963,275 @@ function PMA_buildActionTitles() {
     $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'), true);
     $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'), true);
     $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
+    $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'), true);
+    $titles['Export']     = PMA_getIcon('b_export.png', __('Export'), true);
+    $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'), true);
+    $titles['Execute']    = PMA_getIcon('b_nextpage.png', __('Execute'), true);
+    $titles['NoExecute']  = PMA_getIcon('bd_nextpage.png', __('Execute'), true);
     return $titles;
+}
+
+/**
+ * This function processes the datatypes supported by the DB, as specified in
+ * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
+ * if a datatype is supported) or an HTML snippet that creates a drop-down list.
+ *
+ * @param   bool    $html       Whether to generate an html snippet or an array
+ * @param   string  $selected   The value to mark as selected in HTML mode
+ *
+ * @return  mixed   An HTML snippet or an array of datatypes.
+ *
+ * @uses    htmlspecialchars()
+ * @uses    in_array()
+ */
+function PMA_getSupportedDatatypes($html = false, $selected = '')
+{
+    global $cfg;
+
+    if ($html) {
+        // NOTE: the SELECT tag in not included in this snippet.
+        $retval = '';
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
+            if (is_array($value)) {
+                $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
+                foreach ($value as $subkey => $subvalue) {
+                    if ($subvalue == $selected) {
+                        $retval .= "<option selected='selected'>";
+                        $retval .= $subvalue;
+                        $retval .= "</option>";
+                    } else if ($subvalue === '-') {
+                        $retval .= "<option disabled='disabled'>";
+                        $retval .= $subvalue;
+                        $retval .= "</option>";
+                    } else {
+                        $retval .= "<option>$subvalue</option>";
+                    }
+                }
+                $retval .= '</optgroup>';
+            } else {
+                if ($selected == $value) {
+                    $retval .= "<option selected='selected'>$value</option>";
+                } else {
+                    $retval .= "<option>$value</option>";
+                }
+            }
+        }
+    } else {
+        $retval = array();
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $subkey => $subvalue) {
+                    if ($subvalue !== '-') {
+                        $retval[] = $subvalue;
+                    }
+                }
+            } else {
+                if ($value !== '-') {
+                    $retval[] = $value;
+                }
+            }
+        }
+    }
+
+    return $retval;
+} // end PMA_getSupportedDatatypes()
+
+/**
+ * Returns a list of datatypes that are not (yet) handled by PMA.
+ * Used by: tbl_change.php and libraries/db_routines.inc.php
+ *
+ * @return   array   list of datatypes
+ */
+
+function PMA_unsupportedDatatypes() {
+    // These GIS data types are not yet supported.
+    $no_support_types = array('geometry',
+                              'point',
+                              'linestring',
+                              'polygon',
+                              'multipoint',
+                              'multilinestring',
+                              'multipolygon',
+                              'geometrycollection'
+                        );
+
+    return $no_support_types;
+}
+
+/**
+ * Creates a dropdown box with MySQL functions for a particular column.
+ *
+ * @param    array    $field          Data about the column for which
+ *                                    to generate the dropdown
+ * @param    bool     $insert_mode    Whether the operation is 'insert'
+ *
+ * @global   array    $cfg            PMA configuration
+ * @global   array    $analyzed_sql   Analyzed SQL query
+ * @global   mixed    $data           (null/string) FIXME: what is this for?
+ *
+ * @return   string   An HTML snippet of a dropdown list with function
+ *                    names appropriate for the requested column.
+ */
+function PMA_getFunctionsForField($field, $insert_mode)
+{
+    global $cfg, $analyzed_sql, $data;
+
+    $selected = '';
+    // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
+    // or something similar. Then directly look up the entry in the RestrictFunctions array,
+    // which will then reveal the available dropdown options
+    if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
+     && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
+        $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
+        $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
+        $default_function   = $cfg['DefaultFunctions'][$current_func_type];
+    } else {
+        $dropdown = array();
+        $default_function   = '';
+    }
+    $dropdown_built = array();
+    $op_spacing_needed = false;
+    // what function defined as default?
+    // for the first timestamp we don't set the default function
+    // if there is a default value for the timestamp
+    // (not including CURRENT_TIMESTAMP)
+    // and the column does not have the
+    // ON UPDATE DEFAULT TIMESTAMP attribute.
+    if ($field['True_Type'] == 'timestamp'
+      && empty($field['Default'])
+      && empty($data)
+      && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])) {
+        $default_function = $cfg['DefaultFunctions']['first_timestamp'];
+    }
+    // For primary keys of type char(36) or varchar(36) UUID if the default function
+    // Only applies to insert mode, as it would silently trash data on updates.
+    if ($insert_mode
+        && $field['Key'] == 'PRI'
+        && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
+    ) {
+         $default_function = $cfg['DefaultFunctions']['pk_char36'];
+    }
+    // this is set only when appropriate and is always true
+    if (isset($field['display_binary_as_hex'])) {
+        $default_function = 'UNHEX';
+    }
+
+    // Create the output
+    $retval = '                <option></option>' . "\n";
+    // loop on the dropdown array and print all available options for that field.
+    foreach ($dropdown as $each_dropdown){
+        $retval .= '                ';
+        $retval .= '<option';
+        if ($default_function === $each_dropdown) {
+            $retval .= ' selected="selected"';
+        }
+        $retval .= '>' . $each_dropdown . '</option>' . "\n";
+        $dropdown_built[$each_dropdown] = 'true';
+        $op_spacing_needed = true;
+    }
+    // For compatibility's sake, do not let out all other functions. Instead
+    // print a separator (blank) and then show ALL functions which weren't shown
+    // yet.
+    $cnt_functions = count($cfg['Functions']);
+    for ($j = 0; $j < $cnt_functions; $j++) {
+        if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
+            // Is current function defined as default?
+            $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
+                        || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
+                      ? ' selected="selected"'
+                      : '';
+            if ($op_spacing_needed == true) {
+                $retval .= '                ';
+                $retval .= '<option value="">--------</option>' . "\n";
+                $op_spacing_needed = false;
+            }
+
+            $retval .= '                ';
+            $retval .= '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
+        }
+    } // end for
+
+    return $retval;
+} // end PMA_getFunctionsForField()
+
+/**
+ * Checks if the current user has a specific privilege and returns true if the
+ * user indeed has that privilege or false if (s)he doesn't. This function must
+ * only be used for features that are available since MySQL 5, because it
+ * relies on the INFORMATION_SCHEMA database to be present.
+ *
+ * Example:   PMA_currentUserHasPrivilege('CREATE ROUTINE', 'mydb');
+ *            // Checks if the currently logged in user has the global
+ *            // 'CREATE ROUTINE' privilege or, if not, checks if the
+ *            // user has this privilege on database 'mydb'.
+ *
+ * @uses    PMA_DBI_fetch_value()
+ * @uses    explode()
+ * @uses    str_replace()
+ * @uses    sprintf()
+ *
+ * @param   string   $priv   The privilege to check
+ * @param   mixed    $db     null, to only check global privileges
+ *                           string, db name where to also check for privileges
+ * @param   mixed    $tbl    null, to only check global privileges
+ *                           string, db name where to also check for privileges
+ */
+function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
+{
+    // Get the username for the current user in the format
+    // required to use in the information schema database.
+    $user = PMA_DBI_fetch_value("SELECT CURRENT_USER();");
+    if ($user === false) {
+        return false;
+    }
+    $user = explode('@', $user);
+    $username  = "''";
+    $username .= str_replace("'", "''", $user[0]);
+    $username .= "''@''";
+    $username .= str_replace("'", "''", $user[1]);
+    $username .= "''";
+    // Prepage the query
+    $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
+           . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
+    // Check global privileges first.
+    if (PMA_DBI_fetch_value(sprintf($query,
+                                    'USER_PRIVILEGES',
+                                    $username,
+                                    $priv))) {
+        return true;
+    }
+    // If a database name was provided and user does not have the
+    // required global privilege, try database-wise permissions.
+    if ($db !== null) {
+        $query .= " AND TABLE_SCHEMA='%s'";
+        if (PMA_DBI_fetch_value(sprintf($query,
+                                        'SCHEMA_PRIVILEGES',
+                                        $username,
+                                        $priv,
+                                        PMA_sqlAddslashes($db)))) {
+            return true;
+        }
+    } else {
+        // There was no database name provided and the user
+        // does not have the correct global privilege.
+        return false;
+    }
+    // If a table name was also provided and we still didn't
+    // find any valid privileges, try table-wise privileges.
+    if ($tbl !== null) {
+        $query .= " AND TABLE_NAME='%s'";
+        if ($retval = PMA_DBI_fetch_value(sprintf($query,
+                                                  'TABLE_PRIVILEGES',
+                                                  $username,
+                                                  $priv,
+                                                  PMA_sqlAddslashes($db),
+                                                  PMA_sqlAddslashes($tbl)))) {
+            return true;
+        }
+    }
+    // If we reached this point, the user does not
+    // have even valid table-wise privileges.
+    return false;
 }
 
 /**
@@ -2984,4 +3251,5 @@ function PMA_getServerType()
     }
     return $server_type;
 }
+
 ?>

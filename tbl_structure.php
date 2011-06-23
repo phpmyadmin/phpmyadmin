@@ -30,6 +30,8 @@ if (isset($_REQUEST['submit_mult_change_x'])) {
     $submit_mult = 'index';
 } elseif (isset($_REQUEST['submit_mult_unique_x'])) {
     $submit_mult = 'unique';
+} elseif (isset($_REQUEST['submit_mult_spatial_x'])) {
+    $submit_mult = 'spatial';
 } elseif (isset($_REQUEST['submit_mult_fulltext_x'])) {
     $submit_mult = 'ftext';
 } elseif (isset($_REQUEST['submit_mult_browse_x'])) {
@@ -150,10 +152,12 @@ $titles['NoDrop']               = PMA_getIcon('b_drop.png', __('Drop'), true);
 $titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'), true);
 $titles['Index']                = PMA_getIcon('b_index.png', __('Index'), true);
 $titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'), true);
+$titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Spatial'), true);
 $titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'), true);
 $titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'), true);
 $titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'), true);
 $titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'), true);
+$titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Spatial'), true);
 $titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'), true);
 $titles['BrowseDistinctValues'] = PMA_getIcon('b_browse.png', __('Browse distinct values'), true);
 
@@ -166,6 +170,8 @@ $hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add inde
 $hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Add index'), false, true);
 $hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Add unique index'), false, true);
 $hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Add unique index'), false, true);
+$hidden_titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Add SPATIAL index'), false, true);
+$hidden_titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Add SPATIAL index'), false, true);
 $hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Add FULLTEXT index'), false, true);
 $hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FULLTEXT index'), false, true);
 
@@ -441,6 +447,26 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
+    <td align="center" class="spatial">
+        <?php
+        $spatial_types = array(
+            'geometry', 'point', 'linestring', 'polygon', 'multipoint',
+            'multilinestring', 'multipolygon', 'geomtrycollection'
+        );
+        if (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_type) {
+            echo $titles['NoSpatial'] . "\n";
+            $spatial_enabled = false;
+        } else {
+            echo "\n";
+            ?>
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+            <?php echo $titles['Spatial']; ?></a>
+            <?php
+            $spatial_enabled = true;
+        }
+        echo "\n";
+        ?>
+    </td>
     <?php
         if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')
             // FULLTEXT is possible on TEXT, CHAR and VARCHAR
@@ -512,7 +538,20 @@ foreach ($fields as $row) {
                      }
                   } ?>
             </div>
-            <?php if (!PMA_DRIZZLE) { ?>
+	    <?php if (!PMA_DRIZZLE) { ?>
+	    <div class="action_spatial">
+               <?php
+                if(isset($spatial_enabled)) {
+                     if($spatial_enabled) { ?>
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                             <?php echo $hidden_titles['Spatial']; ?>
+                         </a>
+                     <?php
+                     } else {
+                         echo $hidden_titles['NoSpatial'];
+                     }
+                  } ?>
+            </div>
             <div class="action_fulltext">
                 <?php
                 if(isset($fulltext_enabled)) {
@@ -567,6 +606,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', __('Index'), 'b_index.png', 'index');
     }
 
+    if (! empty($tbl_type) && $tbl_type == 'MYISAM') {
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_spatial', __('Spatial'), 'b_spatial.png', 'spatial');
+    }
     if (! empty($tbl_type) && ($tbl_type == 'MYISAM' || $tbl_type == 'ARIA' || $tbl_type == 'MARIA')) {
         PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', __('Fulltext'), 'b_ftext.png', 'ftext');
     }
@@ -930,10 +972,6 @@ if ($cfg['ShowStats']) {
     <?php
 }
 // END - Calc Table Space
-
-if (!PMA_DRIZZLE) {
-    require './libraries/tbl_triggers.inc.php';
-}
 
 echo '<div class="clearfloat"></div>' . "\n";
 

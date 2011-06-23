@@ -1,38 +1,37 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * The Cipher_blowfish:: class implements the Cipher interface enryption data
- * using the Blowfish algorithm.
+ * The Horde_Cipher_Blowfish:: class implements the Horde_Cipher interface
+ * encryption data using the Blowfish algorithm.
  *
- * $Horde: horde/lib/Cipher/blowfish.php,v 1.2.2.3 2003/01/03 13:23:22 jan Exp $
- *
- * Copyright 2002-2003 Mike Cochrane <mike@graftonhall.co.nz>
+ * Copyright 2002-2009 The Horde Project (http://www.horde.org/)
  *
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
- * @since   Horde 2.2
- * @package horde.cipher
- */
-
-// Change for phpMyAdmin
-//class Horde_Cipher_blowfish extends Horde_Cipher {
-/**
- * Horde Blowfish cipher class.
- * @package horde.cipher
+ * @author  Mike Cochrane <mike@graftonhall.co.nz>
+ * @package Horde_Cipher
  */
 class Horde_Cipher_blowfish
 {
-    /* Pi Array */
-    var $p = array(
+    /**
+     * Pi Array
+     *
+     * @var array
+     */
+    protected $p = array(
             0x243F6A88, 0x85A308D3, 0x13198A2E, 0x03707344,
             0xA4093822, 0x299F31D0, 0x082EFA98, 0xEC4E6C89,
             0x452821E6, 0x38D01377, 0xBE5466CF, 0x34E90C6C,
             0xC0AC29B7, 0xC97C50DD, 0x3F84D5B5, 0xB5470917,
             0x9216D5D9, 0x8979FB1B);
 
-    /* S Boxes */
-    var $s1 = array(
+    /**
+     * S Box (s1)
+     *
+     * @var array
+     */
+    protected $s1 = array(
             0xD1310BA6, 0x98DFB5AC, 0x2FFD72DB, 0xD01ADFB7,
             0xB8E1AFED, 0x6A267E96, 0xBA7C9045, 0xF12C7F99,
             0x24A19947, 0xB3916CF7, 0x0801F2E2, 0x858EFC16,
@@ -97,7 +96,13 @@ class Horde_Cipher_blowfish
             0x08BA6FB5, 0x571BE91F, 0xF296EC6B, 0x2A0DD915,
             0xB6636521, 0xE7B9F9B6, 0xFF34052E, 0xC5855664,
             0x53B02D5D, 0xA99F8FA1, 0x08BA4799, 0x6E85076A);
-    var $s2 = array(
+
+    /**
+     * S Box (s2)
+     *
+     * @var array
+     */
+    protected $s2 = array(
             0x4B7A70E9, 0xB5B32944, 0xDB75092E, 0xC4192623,
             0xAD6EA6B0, 0x49A7DF7D, 0x9CEE60B8, 0x8FEDB266,
             0xECAA8C71, 0x699A17FF, 0x5664526C, 0xC2B19EE1,
@@ -162,7 +167,13 @@ class Horde_Cipher_blowfish
             0xDB73DBD3, 0x105588CD, 0x675FDA79, 0xE3674340,
             0xC5C43465, 0x713E38D8, 0x3D28F89E, 0xF16DFF20,
             0x153E21E7, 0x8FB03D4A, 0xE6E39F2B, 0xDB83ADF7);
-    var $s3 = array(
+
+    /**
+     * S Box (s3)
+     *
+     * @var array
+     */
+    protected $s3 = array(
             0xE93D5A68, 0x948140F7, 0xF64C261C, 0x94692934,
             0x411520F7, 0x7602D4F7, 0xBCF46B2E, 0xD4A20068,
             0xD4082471, 0x3320F46A, 0x43B7D4B7, 0x500061AF,
@@ -227,7 +238,13 @@ class Horde_Cipher_blowfish
             0x1E50EF5E, 0xB161E6F8, 0xA28514D9, 0x6C51133C,
             0x6FD5C7E7, 0x56E14EC4, 0x362ABFCE, 0xDDC6C837,
             0xD79A3234, 0x92638212, 0x670EFA8E, 0x406000E0);
-    var $s4 = array(
+
+    /**
+     * S Box (s4)
+     *
+     * @var array
+     */
+    protected $s4 = array(
             0x3A39CE37, 0xD3FAF5CF, 0xABC27737, 0x5AC52D1B,
             0x5CB0679E, 0x4FA33742, 0xD3822740, 0x99BC9BBE,
             0xD5118E9D, 0xBF0F7315, 0xD62D1C7E, 0xC700C47B,
@@ -293,22 +310,28 @@ class Horde_Cipher_blowfish
             0x90D4F869, 0xA65CDEA0, 0x3F09252D, 0xC208E69F,
             0xB74E6132, 0xCE77E25B, 0x578FDFE3, 0x3AC372E6);
 
-    /* The number of rounds to do */
-    var $_rounds = 16;
+    /**
+     * The number of rounds to do
+     *
+     * @var integer
+     */
+    protected $_rounds = 16;
 
     /**
-     * Set the key to be used for en/decryption
+     * Set the key to be used for en/decryption.
      *
-     * @param String $key   The key to use
+     * @param string $key  The key to use.
      */
-    function setKey($key)
+    public function setKey($key)
     {
-        $key = $this->_formatKey($key);
-        $keyPos = $keyXor = 0;
-
-        $iMax = count($this->p);
+        $key = array_values(unpack('C*', $key));
         $keyLen = count($key);
-        for ($i = 0; $i < $iMax; $i++) {
+        if ($keyLen == 0) {
+            return false;
+        }
+
+        $keyPos = $keyXor = 0;
+        for ($i = 0, $iMax = count($this->p); $i < $iMax; ++$i) {
             for ($t = 0; $t < 4; $t++) {
                 $keyXor = ($keyXor << 8) | (($key[$keyPos]) & 0x0ff);
                 if (++$keyPos == $keyLen) {
@@ -352,18 +375,17 @@ class Horde_Cipher_blowfish
           $this->s4[$i] = $encZero['L'];
           $this->s4[$i + 1] = $encZero['R'];
         }
-
     }
 
     /**
-     * Encrypt a block on data.
+     * Encrypt a block of data.
      *
-     * @param String $block         The data to encrypt
-     * @param optional String $key  The key to use
+     * @param string $block      The data to encrypt.
+     * @param string $key        The key to use.
      *
-     * @return String the encrypted output
+     * @return string  The encrypted output.
      */
-    function encryptBlock($block, $key = null)
+    public function encryptBlock($block, $key = null)
     {
         if (!is_null($key)) {
             $this->setKey($key);
@@ -371,18 +393,19 @@ class Horde_Cipher_blowfish
 
         list($L, $R) = array_values(unpack('N*', $block));
         $parts = $this->_encryptBlock($L, $R);
-        return pack("NN", $parts['L'], $parts['R']);
+        return pack('NN', $parts['L'], $parts['R']);
     }
 
     /**
-     * Encrypt a block on data.
+     * Encrypt left and right halves of a block of data.
      *
-     * @param String $L  The data to encrypt.
-     * @param String $R  The data to encrypt.
+     * @param integer $L  Left half of the data.
+     * @param integer $R  Right half of the data.
      *
-     * @return String  The encrypted output.
+     * @return array  A hash, with keys 'L' and 'R', and the encrypted data as
+     *                the values.
      */
-    function _encryptBlock($L, $R)
+    protected function _encryptBlock($L, $R)
     {
         $L ^= $this->p[0];
         $R ^= ((($this->s1[($L >> 24) & 0xFF] + $this->s2[($L >> 16) & 0x0ff]) ^ $this->s3[($L >> 8) & 0x0ff]) + $this->s4[$L & 0x0ff]) ^ $this->p[1];
@@ -407,14 +430,14 @@ class Horde_Cipher_blowfish
     }
 
     /**
-     * Decrypt a block on data.
+     * Decrypt a block of data.
      *
-     * @param String $block         The data to decrypt
-     * @param optional String $key  The key to use
+     * @param string $block  The data to decrypt.
+     * @param string $key    The key to use.
      *
-     * @return String the decrypted output
+     * @return string  The decrypted output.
      */
-    function decryptBlock($block, $key = null)
+    public function decryptBlock($block, $key = null)
     {
         if (!is_null($key)) {
             $this->setKey($key);
@@ -451,18 +474,7 @@ class Horde_Cipher_blowfish
         $R ^= ((($this->s1[($L >> 24) & 0xFF] + $this->s2[($L >> 16) & 0x0ff]) ^ $this->s3[($L >> 8) & 0x0ff]) + $this->s4[$L & 0x0ff]) ^ $this->p[2];
         $L ^= ((($this->s1[($R >> 24) & 0xFF] + $this->s2[($R >> 16) & 0x0ff]) ^ $this->s3[($R >> 8) & 0x0ff]) + $this->s4[$R & 0x0ff]) ^ $this->p[1];
 
-        $decrypted = pack("NN", $R ^ $this->p[0], $L);
-        return $decrypted;
-    }
-
-    /**
-     * Converts a text key into an array.
-     *
-     * @return array  The key.
-     */
-    function _formatKey($key)
-    {
-        return array_values(unpack('C*', $key));
+        return pack("NN", $R ^ $this->p[0], $L);
     }
 
 }

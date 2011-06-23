@@ -63,16 +63,6 @@ $titles = PMA_buildActionTitles();
 if ($num_tables == 0) {
 	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
-    if (!PMA_DRIZZLE) {
-        // Routines
-        require './libraries/db_routines.inc.php';
-
-        // Events
-        if (PMA_MYSQL_INT_VERSION > 50100) {
-            require './libraries/db_events.inc.php';
-        }
-    }
-
 	if (empty($db_is_information_schema)) {
 		require './libraries/display_create_table.lib.php';
 	} // end if (Create Table dialog)
@@ -559,15 +549,6 @@ PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'fr
 <hr />
 
 <?php
-if (!PMA_DRIZZLE) {
-    // Routines
-    require './libraries/db_routines.inc.php';
-
-    // Events
-    if (PMA_MYSQL_INT_VERSION > 50100) {
-        require './libraries/db_events.inc.php';
-    }
-}
 
 /**
  * Work on the database

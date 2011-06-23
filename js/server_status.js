@@ -85,7 +85,7 @@ $(function() {
         
         chart.xAxis[0].setExtremes(
             new Date().getTime() - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate,
-            chart.xAxis[0].getExtremes().max, 
+            new Date().getTime() + chart.options.realtime.refreshRate / 4,
             true
         );
         
@@ -243,7 +243,7 @@ $(function() {
                 chart_activeTimeouts[$tab.attr('id')+"_chart_cnt"] = null;
                 tabChart[$tab.attr('id')].destroy();
                 // Also reset the select list
-                $tab.find('.statuslinks select').get(0).selectedIndex = 0;
+                $tab.find('.statuslinks select').get(0).selectedIndex = 2;
             }
 
             if(! settings.chart) settings.chart = {};
@@ -255,7 +255,7 @@ $(function() {
             tabChart[$tab.attr('id')] = PMA_createChart(settings);
             $(link).html(PMA_messages['strStaticData']);
             $tab.find('.statuslinks a.tabRefresh').hide();
-            $tab.find('.statuslinks select').show();
+            $tab.find('.statuslinks .refreshList').show();
         } else {
             clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
             chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]=null;
@@ -264,8 +264,8 @@ $(function() {
             tabStatus[$tab.attr('id')]='static';
             tabChart[$tab.attr('id')].destroy();
             $tab.find('.statuslinks a.tabRefresh').show();
-            $tab.find('.statuslinks select').get(0).selectedIndex=0;
-            $tab.find('.statuslinks select').hide();
+            $tab.find('.statuslinks select').get(0).selectedIndex=2;
+            $tab.find('.statuslinks .refreshList').hide();
         }
     }
 

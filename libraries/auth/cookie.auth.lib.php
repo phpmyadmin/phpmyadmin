@@ -28,13 +28,12 @@ if (function_exists('mcrypt_encrypt')) {
      * further decryption. I don't think necessary to have one iv
      * per server so I don't put the server number in the cookie name.
      */
-    if (empty($_COOKIE['pma_mcrypt_iv'])
-     || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
+    if (empty($_COOKIE['pma_mcrypt_iv']) || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
         srand((double) microtime() * 1000000);
-         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
-         if ($td === false) {
-            PMA_warnMissingExtension('mcrypt');
-         }
+        $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
+        if ($td === false) {
+            die('Failed to use Blowfish from mcrypt!');
+        }
         $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($iv));
     }
@@ -75,9 +74,6 @@ if (function_exists('mcrypt_encrypt')) {
 
 } else {
     require_once './libraries/blowfish.php';
-    if (!$GLOBALS['cfg']['McryptDisableWarning']) {
-        PMA_warnMissingExtension('mcrypt');
-    }
 }
 
 /**

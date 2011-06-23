@@ -257,7 +257,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $is_show_stats = $cfg['ShowStats'];
 
             $tbl_stats_result = PMA_DBI_query('SHOW TABLE STATUS FROM '
-                    . PMA_backquote($db) . ' LIKE \'' . addslashes($table) . '\';');
+                    . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table) . '\';');
             $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
             PMA_DBI_free_result($tbl_stats_result);
             unset($tbl_stats_result);

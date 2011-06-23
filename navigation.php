@@ -194,9 +194,15 @@ require './libraries/navigation_header.inc.php';
 
 // display recently used tables
 if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
-    echo '<div id="recentTableList">';
-    echo PMA_RecentTable::getInstance()->getHtmlSelect();
-    echo '</div>';
+    echo '<div id="recentTableList">' . "\n"
+        .'<form method="post" action="index.php" target="_parent">' . "\n"
+        .PMA_generate_common_hidden_inputs() . "\n"
+        .PMA_RecentTable::getInstance()->getHtmlSelect()
+        .'<noscript>' . "\n"
+        .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
+        .'</noscript>' . "\n"
+        .'</form>' . "\n"
+        .'</div>' . "\n";
 }
 
 if (! $GLOBALS['server']) {

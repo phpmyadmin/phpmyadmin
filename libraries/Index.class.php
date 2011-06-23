@@ -43,14 +43,14 @@ class PMA_Index
     protected $_columns = array();
 
     /**
-     * The index method used (BTREE, FULLTEXT, HASH, RTREE).
+     * The index method used (BTREE, SPATIAL, FULLTEXT, HASH, RTREE).
      *
      * @var string
      */
     protected $_type = '';
 
     /**
-     * The index choice (PRIMARY, UNIQUE, INDEX, FULLTEXT)
+     * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
      * @var string
      */
@@ -269,6 +269,8 @@ class PMA_Index
             $this->_choice = 'PRIMARY';
         } elseif ('FULLTEXT' == $this->_type) {
             $this->_choice = 'FULLTEXT';
+        } elseif ('SPATIAL' == $this->_type) {
+            $this->_choice = 'SPATIAL';
         } elseif ('0' == $this->_non_unique) {
             $this->_choice = 'UNIQUE';
         } else {
@@ -323,6 +325,7 @@ class PMA_Index
             'PRIMARY',
             'INDEX',
             'UNIQUE',
+            'SPATIAL',
             'FULLTEXT',
         );
     }

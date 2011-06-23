@@ -15,6 +15,7 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'tbl_change.js';
 
 if(isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
@@ -447,6 +448,15 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     $querytime_before = array_sum(explode(' ', microtime()));
 
     $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
+
+    // If a stored procedure was called, there may be more results that are
+    // queued up and waiting to be flushed from the buffer. So let's do that.
+    while (true) {
+        if(! PMA_DBI_more_results()) {
+            break;
+        }
+        PMA_DBI_next_result();
+    }
 
     $querytime_after = array_sum(explode(' ', microtime()));
 

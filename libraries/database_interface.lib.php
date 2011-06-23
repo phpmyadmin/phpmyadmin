@@ -317,12 +317,12 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                  . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
+                  . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } elseif ('comment' === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_COMMENT` LIKE \''
-                  . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
+                  . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } else {
-                $sql_where_table = 'AND t.`TABLE_NAME` = \'' . addslashes($table) . '\'';
+                $sql_where_table = 'AND t.`TABLE_NAME` = \'' . PMA_sqlAddSlashes($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -451,7 +451,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database)
-                    .' LIKE \'' . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
+                    .' LIKE \'' . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database);
@@ -643,7 +643,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
         // get table information from information_schema
         if ($database) {
             $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
-                . addslashes($database) . '\'';
+                . PMA_sqlAddSlashes($database) . '\'';
         } else {
             $sql_where_schema = '';
         }
@@ -813,17 +813,17 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 
         // get columns information from information_schema
         if (null !== $database) {
-            $sql_wheres[] = '`TABLE_SCHEMA` = \'' . addslashes($database) . '\' ';
+            $sql_wheres[] = '`TABLE_SCHEMA` = \'' . PMA_sqlAddSlashes($database) . '\' ';
         } else {
             $array_keys[] = 'TABLE_SCHEMA';
         }
         if (null !== $table) {
-            $sql_wheres[] = '`TABLE_NAME` = \'' . addslashes($table) . '\' ';
+            $sql_wheres[] = '`TABLE_NAME` = \'' . PMA_sqlAddSlashes($table) . '\' ';
         } else {
             $array_keys[] = 'TABLE_NAME';
         }
         if (null !== $column) {
-            $sql_wheres[] = '`COLUMN_NAME` = \'' . addslashes($column) . '\' ';
+            $sql_wheres[] = '`COLUMN_NAME` = \'' . PMA_sqlAddSlashes($column) . '\' ';
         } else {
             $array_keys[] = 'COLUMN_NAME';
         }
@@ -1647,7 +1647,7 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
 }
 
 /**
- * returns details about the TRIGGERs of a specific table
+ * returns details about the TRIGGERs for a specific table or database
  *
  * @uses    PMA_DBI_fetch_result()
  * @param   string              $db     db name
@@ -1656,20 +1656,25 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  *
  * @return  array               information about triggers (may be empty)
  */
-function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
+function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 {
     $result = array();
-
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-    // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
-    // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
-    // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
-        $triggers = PMA_DBI_fetch_result("SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "' and EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';");
+        // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
+        // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
+        // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
+        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "';";
+        if (! empty($table)) {
+            $query .= " AND EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';";
+        }
     } else {
-        $triggers = PMA_DBI_fetch_result("SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddslashes($db,true)) . " LIKE '" . PMA_sqlAddslashes($table, true) . "';");
+        $query = "SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddslashes($db,true));
+        if (! empty($table)) {
+            $query .= " LIKE '" . PMA_sqlAddslashes($table, true) . "';";
+        }
     }
 
-    if ($triggers) {
+    if ($triggers = PMA_DBI_fetch_result($query)) {
         foreach ($triggers as $trigger) {
             if ($GLOBALS['cfg']['Server']['DisableIS']) {
                 $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
@@ -1680,6 +1685,7 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
             }
             $one_result = array();
             $one_result['name'] = $trigger['TRIGGER_NAME'];
+            $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
             $one_result['action_timing'] = $trigger['ACTION_TIMING'];
             $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
 

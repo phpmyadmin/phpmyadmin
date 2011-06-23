@@ -53,12 +53,12 @@ require_once './libraries/header_meta_style.inc.php';
             ?>
             </div>
             <p>
-               <a href="enum_editor.php?token=<?php echo urlencode($_GET['token']); ?>&field=<?php echo urlencode($_GET['field']); ?>&extra_fields=<?php echo $_GET['extra_fields'] + 1; ?>&values=<?php echo urlencode(join(",", $values)); ?>">
+               <a href="enum_editor.php<?php echo PMA_generate_common_url(array('field' => $_GET['field'], 'extra_fields' => $_GET['extra_fields'] + 1, 'values' => join(',', $values))); ?>">
 <?php echo __('+ Restart insertion and add a new value'); ?>
                </a>
             </p>
-             <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>" />
-             <input type="hidden" name="field" value="<?php echo $_GET['field']; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs(); ?>
+             <input type="hidden" name="field" value="<?php echo htmlspecialchars($_GET['field']); ?>" />
              <input type="hidden" name="num_fields" value="<?php echo $total_fields; ?>" />
              <input type="submit" value="<?php echo __('Go'); ?>" />
         </form>
@@ -66,7 +66,7 @@ require_once './libraries/header_meta_style.inc.php';
         <div id="enum_editor_output">
         <h3><?php echo __('Output'); ?></h3>
         <p><?php echo __('Copy and paste the joined values into the "Length/Values" field'); ?></p>
-            <textarea id="joined_values" cols="95" rows="5"><?php echo join(",", $values); ?></textarea>
+            <textarea id="joined_values" cols="95" rows="5"><?php echo htmlspecialchars(join(",", $values)); ?></textarea>
         </div>
     </div>
 </body>

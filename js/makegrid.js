@@ -314,6 +314,7 @@
                     db: window.parent.db,
                     table: window.parent.table,
                     token: window.parent.token,
+                    server: window.parent.server,
                     set_col_order: true,
                     col_order: this.colOrder.toString(),
                     table_create_time: this.tableCreateTime

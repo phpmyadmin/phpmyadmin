@@ -19,9 +19,6 @@ require_once './libraries/tcpdf/tcpdf.php';
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
  *
- * @name PMA_PDF
- * @copyright
- * @license
  * @access public
  * @see TCPDF
  */

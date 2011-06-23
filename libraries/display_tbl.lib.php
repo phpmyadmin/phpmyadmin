@@ -637,6 +637,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         PMA_display_html_checkbox('hide_transformation', __('Hide') . ' ' . __('Browser transformation'), ! empty($_SESSION['tmp_user_values']['hide_transformation']), false);
         echo '</div>';
 
+        echo '<div class="formelement">';
+        $choices = array(
+            'GEOM'  => __('Geometry'),
+            'WKT'   => __('Well Known Text'),
+            'WKB'   => __('Well Known Binary')
+        );
+        PMA_display_html_radio('geometry_display', $choices, $_SESSION['tmp_user_values']['geometry_display']);
+        echo '</div>';
+
         echo '<div class="clearfloat"></div>';
         echo '</fieldset>';
 
@@ -650,7 +659,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // Start of form for multi-rows edit/delete/export
 
     if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
-        echo '<form method="post" action="tbl_row_action.php" name="rowsDeleteForm" id="rowsDeleteForm">' . "\n";
+        echo '<form method="post" action="tbl_row_action.php" name="resultsForm" id="resultsForm"';
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            echo ' class="ajax" ';
+        }
+        echo '>' . "\n";
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
         echo '<input type="hidden" name="goto"             value="sql.php" />' . "\n";
     }
@@ -1180,6 +1193,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     // name of the class added to all inline editable elements
     $inline_edit_class = 'inline_edit';
 
+    // prepare to get the column order, if available
+    if (PMA_isSelect()) {
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
+
     // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
     // the phpMyAdmin GUI should support row delete/edit only for such
@@ -1341,14 +1362,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         // 2. Displays the rows' values
 
-        if (PMA_isSelect()) {
-            // prepare to get the column order, if available
-            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        } else {
-            $col_order = false;
-        }
-
         for ($j = 0; $j < $fields_cnt; ++$j) {
             // assign $i with appropriate column order
             $i = $col_order ? $col_order[$j] : $j;
@@ -1484,12 +1497,70 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 }
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
-                $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
 
-                // remove 'inline_edit' from $class as we can't edit geometry data.
+                // Remove 'inline_edit' from $class as we do not allow to inline-edit geometry data.
                 $class = str_replace('inline_edit', '', $class);
-                $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $geometry_text);
-                unset($geometry_text);
+
+                // Display as [GEOMETRY - (size)]
+                if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
+                    $geometry_text = PMA_handle_non_printable_contents(
+                        'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function,
+                        $transform_options, $default_function, $meta
+                    );
+                    $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
+                        $class, $condition_field, $geometry_text
+                    );
+
+                // Display in Well Known Text(WKT) format.
+                } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
+                    // Convert to WKT format
+                    $wktsql     = "SELECT ASTEXT (GeomFromWKB(x'" . PMA_substr(bin2hex($row[$i]), 8) . "'))";
+                    $wktresult  = PMA_DBI_try_query($wktsql, null, PMA_DBI_QUERY_STORE);
+                    $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
+                    $wktval     = $wktarr[0];
+                    @PMA_DBI_free_result($wktresult);
+
+                    if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
+                        && $_SESSION['tmp_user_values']['display_text'] == 'P'
+                    ) {
+                        $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                        $is_field_truncated = true;
+                    }
+
+                    $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
+                        $class, $condition_field, $analyzed_sql, $meta, $map, $wktval, $transform_function,
+                        $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                    );
+
+                // Display in  Well Known Binary(WKB) format.
+                } else {
+                    if ($_SESSION['tmp_user_values']['display_binary']) {
+                        if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+                            && PMA_contains_nonprintable_ascii($row[$i])
+                        ) {
+                            $wkbval = PMA_substr(bin2hex($row[$i]), 8);
+                        } else {
+                            $wkbval = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
+                        }
+
+                        if (PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars']
+                            && $_SESSION['tmp_user_values']['display_text'] == 'P'
+                        ) {
+                            $wkbval = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                            $is_field_truncated = true;
+                        }
+
+                        $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
+                            $class, $condition_field, $analyzed_sql, $meta, $map, $wkbval, $transform_function,
+                            $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                        );
+                    } else {
+                        $wkbval = PMA_handle_non_printable_contents(
+                            'BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params
+                        );
+                        $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay($class, $condition_field, $wkbval);
+                    }
+                }
 
             // n o t   n u m e r i c   a n d   n o t   B L O B
             } else {
@@ -1907,6 +1978,13 @@ function PMA_displayTable_checkConfigParams()
         $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'] = 'K';
     }
 
+    if (PMA_isValid($_REQUEST['geometry_display'], array('WKT', 'WKB', 'GEOM'))) {
+        $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'] = $_REQUEST['geometry_display'];
+        unset($_REQUEST['geometry_display']);
+    } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'])) {
+        $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'] = 'GEOM';
+    }
+
     if (isset($_REQUEST['display_binary'])) {
         $_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary'] = true;
         unset($_REQUEST['display_binary']);
@@ -1965,6 +2043,7 @@ function PMA_displayTable_checkConfigParams()
     // populate query configuration
     $_SESSION['tmp_user_values']['display_text'] = $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text'];
     $_SESSION['tmp_user_values']['relational_display'] = $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'];
+    $_SESSION['tmp_user_values']['geometry_display'] = $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'];
     $_SESSION['tmp_user_values']['display_binary'] = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary']) ? true : false;
     $_SESSION['tmp_user_values']['display_binary_as_hex'] = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex']) ? true : false;
     $_SESSION['tmp_user_values']['display_blob'] = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob']) ? true : false;
@@ -2283,11 +2362,11 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical') {
-            $checkall_params['onclick'] = 'if (setCheckboxes(\'rowsDeleteForm\', true)) return false;';
-            $uncheckall_params['onclick'] = 'if (setCheckboxes(\'rowsDeleteForm\', false)) return false;';
+            $checkall_params['onclick'] = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
+            $uncheckall_params['onclick'] = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
         } else {
-            $checkall_params['onclick'] = 'if (markAllRows(\'rowsDeleteForm\')) return false;';
-            $uncheckall_params['onclick'] = 'if (unMarkAllRows(\'rowsDeleteForm\')) return false;';
+            $checkall_params['onclick'] = 'if (markAllRows(\'resultsForm\')) return false;';
+            $uncheckall_params['onclick'] = 'if (unMarkAllRows(\'resultsForm\')) return false;';
         }
         $checkall_link = PMA_linkOrButton($checkall_url, __('Check All'), $checkall_params, false);
         $uncheckall_link = PMA_linkOrButton($uncheckall_url, __('Uncheck All'), $uncheckall_params, false);
@@ -2372,7 +2451,7 @@ function default_function($buffer) {
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
  */
 function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
-    global $db, $table, $sql_query, $unlim_num_rows;
+    global $db, $table, $sql_query, $unlim_num_rows, $fields_meta;
 
     $header_shown = false;
     $header = '<fieldset><legend>' . __('Query results operations') . '</legend>';
@@ -2453,6 +2532,22 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_chart.png', __('Display chart'), false, true),
             '', true, true, '') . "\n";
+
+        // show GIS chart
+        $geometry_found = false;
+        // If atleast one geometry field is found
+        foreach ($fields_meta as $meta) {
+            if ($meta->type == 'geometry') {
+                $geometry_found = true;
+                break;
+            }
+        }
+        if ($geometry_found) {
+            echo PMA_linkOrButton(
+                'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
+                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), false, true),
+                '', true, true, '') . "\n";
+        }
     }
 
     // CREATE VIEW

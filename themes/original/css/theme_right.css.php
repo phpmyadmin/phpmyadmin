@@ -998,9 +998,10 @@ div#serverstatus table caption a.top {
 }
 
 div#serverstatusquerieschart {
-    float:<?php echo $right; ?>;
+    float:<?php echo $left; ?>;
     width:500px;
     height:350px;
+    padding-<?php echo $left; ?>: 30px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
@@ -1055,6 +1056,39 @@ div.liveChart {
 }
 
 /* end serverstatus */
+
+/* server variables */
+
+a.editLink {
+    float: <?php echo $left; ?>;
+    font-family:sans-serif;
+}
+
+table.serverVariableEditTable {
+	border:0;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+table.serverVariableEditTable td {
+	border:0;
+	margin:0;
+	padding:0;
+}
+table.serverVariableEditTable td:first-child {
+	white-space:nowrap;
+	vertical-align:middle;
+}
+
+table.serverVariableEditTable input {
+	width:95%;
+}
+
+table#serverVariables td {
+    height:18px;
+}
+
+/* end server variables */
 
 /* querywindow */
 body#bodyquerywindow {
@@ -1825,12 +1859,108 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
+.rte_table td {
+    vertical-align:     middle;
+}
+
+.rte_table input, .rte_table select, .rte_table textarea {
+    width:              100%;
+    margin:             0;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+#placeholder .button {
+    position: absolute;
+    cursor: pointer;
+}
+
+#placeholder div.button {
+    font-size: smaller;
+    color: #999;
+    background-color: #eee;
+    padding: 2px;
+}
+
 #table_columns input, #table_columns select {
     width:              14em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
+}
+
+#placeholder {
+    position: relative;
+    border: 1px solid #aaa;
+    float: right;
+    overflow: hidden;
+}
+
+.placeholderDrag {
+    cursor: move;
+}
+
+#placeholder .button {
+    position: absolute;
+}
+
+#left_arrow {
+    left:8px;
+    top:26px;
+}
+
+#right_arrow {
+    left:26px;
+    top:26px;
+}
+
+#up_arrow {
+    left:17px;
+    top:8px;
+}
+
+#down_arrow {
+    left:17px;
+    top:44px;
+}
+
+#zoom_in {
+    left:17px;
+    top:67px;
+}
+
+#zoom_world {
+    left:17px;
+    top:85px;
+}
+
+#zoom_out {
+    left:17px;
+    top:103px;
+}
+
+.gis_table td {
+    vertical-align: middle;
+}
+
+.gis_table select {
+    min-width: 151px;
+}
+
+.gis_table .save {
+    font-weight: bold;
+    vertical-align: bottom;
+    height: 100px;
+}
+
+.gis_table .button {
+   text-align: <?php echo $right; ?>;
+}
+
+.gis_table .choice {
+    display:none;
 }
 
 .CodeMirror {
