@@ -550,7 +550,7 @@ msgstr "Rutine imenovane %s ni mogoče najti v zbirki podatkov %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Izvedi rutino"
 
 #: db_routines.php:254 db_routines.php:258
 #, fuzzy, php-format
