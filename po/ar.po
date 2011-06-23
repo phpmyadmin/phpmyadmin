@@ -332,7 +332,7 @@ msgstr "أضف قيود"
 
 #: db_operations.php:528
 msgid "Switch to copied database"
-msgstr ""
+msgstr "التبديل إلى قاعدة البيانات المنسوخة"
 
 #: db_operations.php:552 libraries/Index.class.php:450
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
