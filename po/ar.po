@@ -729,7 +729,7 @@ msgstr "لا توجد جداول في قاعدة البيانات هذه!."
 #: db_structure.php:270 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "جدول %s أفرغت محتوياتها"
+msgstr "تم إفراغ محتويات الجدول %s"
 
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
