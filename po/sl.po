@@ -4922,7 +4922,7 @@ msgstr "Vrednost"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Navesti morate ime rutine"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
