@@ -288,7 +288,7 @@ msgstr "حذف قاعدة البيانات"
 #: db_operations.php:452
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "تم حذف قاعدة بيانات %s ."
+msgstr "تم حذف قاعدة البيانات %s ."
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
