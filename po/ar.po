@@ -1040,7 +1040,7 @@ msgstr "تم إنشاء العلامة المرجعية %s"
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه"
+msgstr "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
 
 #: import.php:423
 msgid ""
