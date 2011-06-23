@@ -4944,10 +4944,9 @@ msgid "You must provide a routine definition."
 msgstr "Navesti morate opredelitev rutine."
 
 #: libraries/db_routines.lib.php:1209
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Nobene datoteke ni za naložiti"
+msgstr "Ni rutin za prikaz."
 
 #: libraries/db_routines.lib.php:1253
 #, fuzzy
