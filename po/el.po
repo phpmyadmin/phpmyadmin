@@ -10214,10 +10214,9 @@ msgid "Label column"
 msgstr "Στήλη ετικέτας"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- καμία -"
+msgstr "-- Τίποτα --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
