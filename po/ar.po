@@ -2453,7 +2453,7 @@ msgstr "إغلاق"
 #: libraries/export/sql.php:122 libraries/export/texytext.php:24
 #: libraries/import.lib.php:1172
 msgid "structure"
-msgstr ""
+msgstr "بناء"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
