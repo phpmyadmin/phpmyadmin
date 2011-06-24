@@ -1121,7 +1121,7 @@ msgstr "Goullo eo anv an implijer !"
 
 #: js/messages.php:54 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr ""
+msgstr "Goullo eo ar ger-tremen !"
 
 #: js/messages.php:55 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
