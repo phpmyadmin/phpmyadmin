@@ -2294,7 +2294,7 @@ msgstr "تعديل سريع لهذا الإستعلام"
 
 #: libraries/common.lib.php:1247
 msgid "Inline"
-msgstr ""
+msgstr "مضمن"
 
 #: libraries/common.lib.php:1314 sql.php:931
 msgid "Profiling"
