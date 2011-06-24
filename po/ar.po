@@ -1236,7 +1236,7 @@ msgstr "ترافيك الخادم (بالكيلو بايت)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "الإتصالات منذ آخر تحديث"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
