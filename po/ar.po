@@ -1084,7 +1084,7 @@ msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:312
 msgid "Do you really want to "
-msgstr "هل تريد حقا أن"
+msgstr "هل تريد حقا"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:297
 msgid "You are about to DESTROY a complete database!"
