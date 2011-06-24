@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 12:04+0200\n"
+"PO-Revision-Date: 2011-06-24 12:38+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -936,7 +936,7 @@ msgstr "Ret eo enrollañ an diuzadenn ezporzhiañ en ur restr !"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "N'eus ket egor a-walc'h evit gallout enrollañ ar restr %s."
 
 #: export.php:307
 #, php-format
