@@ -1253,7 +1253,7 @@ msgstr "استعلامات صدرت منذ آخر تحديث"
 
 #: js/messages.php:85
 msgid "Issued queries"
-msgstr ""
+msgstr "إستعلامات صادرة"
 
 #: js/messages.php:87 server_status.php:402
 #, fuzzy
