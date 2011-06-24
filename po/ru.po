@@ -553,7 +553,7 @@ msgstr "В базе данных %2$s процедура с именем %1$s н
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Выполнить процедуру"
 
 #: db_routines.php:259 db_routines.php:263
 #, fuzzy, php-format
