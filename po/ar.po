@@ -2481,10 +2481,9 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "مخصص - مثل مافي الأعلى , لكن بدون الخيار سريع/مخصص"
 
 #: libraries/config.values.php:120
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "لقد اكتمل الإدخال"
+msgstr "إستكمال الإدخال"
 
 #: libraries/config.values.php:121
 #, fuzzy
