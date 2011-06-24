@@ -2102,7 +2102,6 @@ msgid "Failed to read configuration file"
 msgstr "Nepodařilo se načíst konfigurační soubor"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
 #| "shown bellow."
