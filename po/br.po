@@ -1356,7 +1356,7 @@ msgstr "N'eus bet diuzet linenn ebet"
 #: querywindow.php:118 querywindow.php:121 tbl_structure.php:152
 #: tbl_structure.php:602
 msgid "Change"
-msgstr ""
+msgstr "Kemmañ"
 
 #: js/messages.php:139
 msgid "Hide search criteria"
