@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 19:28+0200\n"
+"PO-Revision-Date: 2011-06-24 19:38+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1350,7 +1350,7 @@ msgstr "Kuzhat"
 
 #: js/messages.php:135 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "N'eus bet diuzet linenn ebet"
 
 #: js/messages.php:136 libraries/display_tbl.lib.php:2384 querywindow.php:114
 #: querywindow.php:118 querywindow.php:121 tbl_structure.php:152
