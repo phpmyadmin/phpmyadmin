@@ -1411,10 +1411,9 @@ msgid "Hide search criteria"
 msgstr "إخفاء معايير البحث"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "SQL query"
 msgid "Show search criteria"
-msgstr "استعلام-SQL"
+msgstr "إظهار معايير البحث"
 
 #: js/messages.php:143 tbl_change.php:304 tbl_indexes.php:203
 #: tbl_indexes.php:230
