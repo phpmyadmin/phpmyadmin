@@ -1053,7 +1053,7 @@ msgstr "Klikañ evit diuzañ"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Klikañ evit diziuzañ"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:214
 msgid "\"DROP DATABASE\" statements are disabled."
