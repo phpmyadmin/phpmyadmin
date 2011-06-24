@@ -2470,7 +2470,7 @@ msgstr "البنية والبيانات"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
-msgstr "سريع: عرض خيارات أقل للإعداد"
+msgstr "سريع - عرض خيارات أقل للإعداد"
 
 #: libraries/config.values.php:101
 msgid "Custom - display all possible options to configure"
