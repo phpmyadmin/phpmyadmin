@@ -1132,7 +1132,7 @@ msgstr "هذا ليس رقم!"
 #: js/messages.php:49
 #| msgid "Total"
 msgid "Total count"
-msgstr "العدد الكلي:"
+msgstr "العدد الكلي"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
