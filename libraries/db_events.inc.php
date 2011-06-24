@@ -30,7 +30,8 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
         $selected0 = " selected='selected'";
     }
     // Generate output
-    $retval  = "<noscript>\n";
+    $retval  = "\n<!-- TOGGLE START -->\n";
+    $retval .= "<noscript>\n";
     $retval .= "<div class='wrapper'>\n";
     $retval .= "    <form action='$action' method='post'>\n";
     $retval .= "        <select name='$select_name'>\n";
@@ -70,144 +71,163 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval .= "        </div>\n";
     $retval .= "    </div>\n";
     $retval .= "</div>\n";
+    $retval .= "<!-- TOGGLE END -->\n";
 
     return $retval;
-}
-
-$events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
-
-$conditional_class_add    = '';
-$conditional_class_drop   = '';
-$conditional_class_export = '';
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class_add    = 'class="add_event_anchor"';
-    $conditional_class_drop   = 'class="drop_event_anchor"';
-    $conditional_class_export = 'class="export_event_anchor"';
-}
+} // end PMA_toggleButton()
 
 /**
- * Display the export for a event. This is for when JS is disabled.
+ * Creates a fieldset for adding a new event, if the user has the privileges.
+ *
+ * @return   string    An HTML snippet with the link to add a new event.
  */
-if (! empty($_GET['exportevent']) && ! empty($_GET['eventname'])) {
-    $event_name = htmlspecialchars(PMA_backquote($_GET['eventname']));
-    if ($create_event = PMA_DBI_get_definition($db, 'EVENT', $_GET['eventname'])) {
-        $create_event = '<textarea cols="40" rows="15" style="width: 100%;">' . $create_event . '</textarea>';
-        if (! empty($_REQUEST['ajax_request'])) {
-            $extra_data = array('title' => sprintf(__('Export of event %s'), $event_name));
-            PMA_ajaxResponse($create_event, true, $extra_data);
-        } else {
-            echo '<fieldset>' . "\n"
-               . ' <legend>' . sprintf(__('Export of event "%s"'), $event_name) . '</legend>' . "\n"
-               . $create_event
-               . '</fieldset>';
-        }
+function PMA_EVN_getFooterLinks()
+{
+    global $db, $url_query, $ajax_class;
+    /**
+     * Create functionality for toggling the state of the event scheduler
+     */
+    $es_state = strtolower(PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1));
+    $options = array(
+                    0 => array(
+                        'label' => __('OFF'),
+                        'value' => "SET GLOBAL event_scheduler=\"OFF\"",
+                        'selected' => ($es_state != 'on')
+                    ),
+                    1 => array(
+                        'label' => __('ON'),
+                        'value' => "SET GLOBAL event_scheduler=\"ON\"",
+                        'selected' => ($es_state == 'on')
+                    )
+               );
+    $event_scheduler = PMA_toggleButton(
+                            "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+                            'sql_query',
+                            $options,
+                            'PMA_slidingMessage(data.sql_query);'
+                        );
+    // Generate output
+    $retval  = "<!-- ADD EVENT FORM START -->\n";
+    $retval .= "<div class='doubleFieldset'>";
+    $retval .= "    <fieldset class='left'>\n";
+    $retval .= "        <legend>" . __('New');
+    $retval .= PMA_showMySQLDocu('SQL-Syntax', 'CREATE_EVENT') . "</legend>\n";
+    $retval .= "        <div class='wrap'>\n";
+    if (PMA_currentUserHasPrivilege('EVENT', $db)) {
+        $retval .= "            <a {$ajax_class['add']} href='db_events.php";
+        $retval .= "?$url_query&amp;addroutine=1'>";
+        $retval .= PMA_getIcon('b_event_add.png');
+        $retval .= __('Add event') . "</a>\n";
     } else {
-        $response = __('Error in Processing Request') . ' : '
-                  . sprintf(__('No event with name %s found in database %s'),
-                            $event_name, htmlspecialchars(PMA_backquote($db)));
-        $response = PMA_message::error($response);
-        if (! empty($_REQUEST['ajax_request'])) {
-            PMA_ajaxResponse($response, false);
-        } else {
-            $response->display();
-        }
+        $retval .= PMA_getIcon('b_event_add.png');
+        $retval .= __('You do not have the necessary privileges to create a new routine') . "\n";
     }
-}
+    $retval .= "        </div>\n";
+    $retval .= "    </fieldset>\n";
+    $retval .= "    <fieldset class='right'>\n";
+    $retval .= "        <legend>" . __('Event scheduler status') . '</legend>' . "\n";
+    $retval .= "        <div class='wrap'>\n";
+    $retval .= $event_scheduler . "\n";
+    $retval .= "        </div>\n";
+    $retval .= "    </fieldset>\n";
+    $retval .= "    <div style='clear: both;'></div>\n";
+    $retval .= "</div>";
+    $retval .= "<!-- ADD EVENT FORM END -->\n\n";
+
+    return $retval;
+} // end PMA_EVN_getFooterLinks()
 
 /**
- * Display a list of available events
+ * TODO: comment
  */
-echo "\n\n<span id='js_query_display'></span>\n\n";
-echo '<fieldset>' . "\n";
-echo ' <legend>' . __('Events') . '</legend>' . "\n";
-if (! $events) {
-    echo __('There are no events to display.');
-} else {
-    echo '<div class="hide" id="nothing2display">' . __('There are no events to display.') . '</div>';
-    echo '<table class="data">';
-    echo sprintf('<tr>
-                      <th>%s</th>
-                      <th colspan="3">%s</th>
-                      <th>%s</th>
-                </tr>',
-          __('Name'),
-          __('Action'),
-          __('Type'));
+function PMA_RTN_getRowForEventsList($event, $ct = 0, $is_ajax = false)
+{
+    global $titles, $db, $url_query, $ajax_class;
+
+    // Do the logic first
+    $rowclass = ($ct % 2 == 0) ? 'even' : 'odd';
+    if ($is_ajax) {
+        $rowclass .= ' ajaxInsert hide';
+    }
+    $editlink = $titles['NoEdit']; // FIXME
+    $droplink = $titles['NoDrop'];
+    $sql_drop = sprintf('DROP EVENT IF EXISTS %s',
+                         PMA_backquote($event['EVENT_NAME']));
+    $exprlink = '<a ' . $ajax_class['export'] . ' href="db_events.php?' . $url_query
+                      . '&amp;exportevent=1'
+                      . '&amp;eventname=' . urlencode($event['EVENT_NAME'])
+                      . '">' . $titles['Export'] . '</a>';
+    if (PMA_currentUserHasPrivilege('EVENT', $db)) {
+        $droplink = '<a ' . $ajax_class['drop']. ' href="sql.php?' . $url_query
+                          . '&amp;sql_query=' . urlencode($sql_drop)
+                          . '&amp;goto=db_events.php' . urlencode("?db=$db")
+                          . '" >' . $titles['Drop'] . '</a>';
+    }
+    // Display a row of data
+    $retval  = "        <tr class='$rowclass'>\n";
+    $retval .= "            <td>\n";
+    $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
+    $retval .= "                <strong>" . htmlspecialchars($event['EVENT_NAME']) . "</strong>\n";
+    $retval .= "            </td>\n";
+    $retval .= "            <td>$editlink</td>\n";
+    $retval .= "            <td>$exprlink</td>\n";
+    $retval .= "            <td>$droplink</td>\n";
+    $retval .= "            <td>{$event['EVENT_TYPE']}</td>\n";
+    $retval .= "        </tr>\n";
+
+    return $retval;
+} // end PMA_RTN_getRowEventsList();
+
+/**
+ * TODO: comment
+ */
+function PMA_EVN_getEventsList()
+{
+    global $titles, $url_query, $db, $ajax_class;
+
+    /**
+     * Get the events
+     */
+    $columns = "`EVENT_NAME`, `EVENT_TYPE`";
+    $where   = "EVENT_SCHEMA='" . PMA_sqlAddslashes($db,true) . "'";
+    $events  = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;");
+    /**
+     * Conditional classes switch the list on or off
+     */
+    $class1 = 'hide';
+    $class2 = '';
+    if (! $events) {
+        $class1 = '';
+        $class2 = ' hide';
+    }
+    /**
+     * Generate output
+     */
+    $retval  = "<!-- LIST OF EVENTS START -->\n";
+    $retval .= "<fieldset>\n";
+    $retval .= " <legend>" . __('Events');
+    $retval .= PMA_showMySQLDocu('SQL-Syntax', 'EVENTS') . "</legend>\n";
+    $retval .= "    <div class='$class1' id='nothing2display'>\n";
+    $retval .= "      " . __('There are no events to display.') . "\n";
+    $retval .= "    </div>\n";
+    $retval .= "    <table class='data$class2'>\n";
+    $retval .= "        <!-- TABLE HEADERS -->\n";
+    $retval .= "        <tr>\n";
+    $retval .= "            <th>" . __('Name') . "</th>\n";
+    $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
+    $retval .= "            <th>" . __('Type') . "</th>\n";
+    $retval .= "        </tr>\n";
+    $retval .= "        <!-- TABLE DATA -->\n";
     $ct=0;
-    $delimiter = '//';
     foreach ($events as $event) {
-
-        // information_schema (at least in MySQL 5.1.22) does not return
-        // the full CREATE EVENT statement in a way that could be useful for us
-        // so we rely on PMA_DBI_get_definition() which uses SHOW CREATE EVENT
-
-        $create_event = PMA_DBI_get_definition($db, 'EVENT', $event['EVENT_NAME']);
-        $definition = 'DROP EVENT IF EXISTS ' . PMA_backquote($event['EVENT_NAME'])
-                    . $delimiter . "\n" . $create_event . "\n";
-
-        $sqlDrop = 'DROP EVENT ' . PMA_backquote($event['EVENT_NAME']);
-        echo sprintf('<tr class="%s">
-                          <td><span class="drop_sql" style="display:none;">%s</span><strong>%s</strong></td>
-                          <td>%s</td>
-                          <td><div class="create_sql" style="display: none;">%s</div>%s</td>
-                          <td>%s</td>
-                          <td>%s</td>
-                     </tr>',
-                     ($ct%2 == 0) ? 'even' : 'odd',
-                     $sqlDrop,
-                     $event['EVENT_NAME'],
-                     ! empty($definition) ? PMA_linkOrButton('db_sql.php?' . $url_query . '&amp;sql_query=' . urlencode($definition) . '&amp;show_query=1&amp;db_query_force=1&amp;delimiter=' . urlencode($delimiter), $titles['Edit']) : '&nbsp;',
-                     $create_event,
-                     '<a ' . $conditional_class_export . ' href="db_events.php?' . $url_query
-                           . '&amp;exportevent=1'
-                           . '&amp;eventname=' . urlencode($event['EVENT_NAME'])
-                           . '">' . $titles['Export'] . '</a>',
-                     '<a ' . $conditional_class_drop . ' href="sql.php?' . $url_query . '&amp;sql_query=' . urlencode($sqlDrop) . '" >' . $titles['Drop'] . '</a>',
-                     $event['EVENT_TYPE']);
+        $retval .= PMA_RTN_getRowForEventsList($event, $ct);
         $ct++;
     }
-    echo '</table>';
-}
-echo '</fieldset>' . "\n";
+    $retval .= "</table>";
+    $retval .= "</fieldset>\n";
+    $retval .= "<!-- LIST OF EVENTS END -->\n";
 
-/**
- * Display the state of the event scheduler
- * and offer an option to toggle it.
- */
-$es_state = strtolower(PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1));
-$options = array(
-                0 => array(
-                    'label' => __('OFF'),
-                    'value' => "SET GLOBAL event_scheduler=\"OFF\"",
-                    'selected' => ($es_state != 'on')
-                ),
-                1 => array(
-                    'label' => __('ON'),
-                    'value' => "SET GLOBAL event_scheduler=\"ON\"",
-                    'selected' => ($es_state == 'on')
-                )
-           );
-$event_scheduler = PMA_toggleButton(
-                        "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
-                        'sql_query',
-                        $options,
-                        'PMA_slidingMessage(data.sql_query);'
-                    );
-/**
- * Display the form for adding a new event
- * and toggling the event scheduler
- */
-echo "<fieldset>\n"
-   . "<div class='operations_half_width'>\n"
-   . "    <a href='db_events.php?$url_query&amp;addevent=1'$conditional_class_add>\n"
-   . "    " . PMA_getIcon('b_event_add.png') . __('Add a new Event') . "</a>\n"
-   . "</div>\n"
-   . "<div class='operations_half_width'>\n"
-   . "    <div class='wrapper'>\n"
-   . "        &nbsp;&nbsp;" . __('Event scheduler') . " &nbsp;&nbsp;\n"
-   . "    </div>\n"
-   . $event_scheduler
-   . "</div>\n"
-   . "</fieldset>\n";
+    return $retval;
+} // end PMA_EVN_getEventsList()
 
 ?>

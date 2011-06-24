@@ -1885,6 +1885,7 @@ fieldset .disabled-field td {
 
 .wrapper {
     float: <?php echo $left; ?>;
+    margin-bottom: 0.5em;
 }
 .toggleButton {
     position: relative;
@@ -1912,6 +1913,24 @@ fieldset .disabled-field td {
 }
 .toggleButton .toggleOff {
     padding: 0 1em;
+}
+
+.doubleFieldset fieldset {
+    width: 48%;
+    float: <?php echo $left; ?>;
+    padding: 0;
+}
+.doubleFieldset fieldset.left {
+    margin-<?php echo $right; ?>: 1%;
+}
+.doubleFieldset fieldset.right {
+    margin-<?php echo $left; ?>: 1%;
+}
+.doubleFieldset legend {
+    margin-<?php echo $left; ?>: 0.5em;
+}
+.doubleFieldset div.wrap {
+    padding: 0.5em;
 }
 
 #table_columns input, #table_columns select {
