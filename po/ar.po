@@ -1769,7 +1769,7 @@ msgstr "حجم الملف المرفوع يتجاوز حجم الملف المح
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr "تم رفع جزء من الملف."
+msgstr "تم رفع جزء من الملف فقط."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
