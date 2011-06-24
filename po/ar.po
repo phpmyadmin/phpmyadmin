@@ -2416,7 +2416,7 @@ msgstr "الدليل الذي حددته لتحميل عملك لا يمكن ا�
 
 #: libraries/common.lib.php:2936
 msgid "There are no files to upload"
-msgstr ""
+msgstr "لايوجد أي ملفات لرفعها"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
