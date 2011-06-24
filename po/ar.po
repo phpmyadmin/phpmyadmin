@@ -1256,10 +1256,9 @@ msgid "Issued queries"
 msgstr "إستعلامات صادرة"
 
 #: js/messages.php:87 server_status.php:402
-#, fuzzy
 #| msgid "Databases statistics"
 msgid "Query statistics"
-msgstr "إحصائيات قواعد البيانات"
+msgstr "إحصائيات الإستعلام"
 
 #: js/messages.php:91 libraries/tbl_properties.inc.php:777 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
