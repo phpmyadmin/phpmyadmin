@@ -5,7 +5,7 @@
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
-require_once './libraries/db_events.inc.php';
+require_once './libraries/db_events.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'db_events.js';
