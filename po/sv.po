@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 01:08+0200\n"
+"PO-Revision-Date: 2011-06-25 01:09+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5401,10 +5401,10 @@ msgid "Link not found"
 msgstr "Länken hittades inte"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Exportera innehåll"
+msgstr "Exportera trigger %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
