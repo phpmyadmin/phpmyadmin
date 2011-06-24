@@ -410,7 +410,7 @@ msgid "Last check"
 msgstr "التحقق الأخير"
 
 #: db_printview.php:220 db_structure.php:432
-#, php-format
+#, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
@@ -518,7 +518,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
 #: db_routines.php:155
-#, php-format
+#, fuzzy, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d تأثر بالإجراء الأخير"
@@ -1877,7 +1877,7 @@ msgstr[4] "%1$d صفوف حذفت"
 msgstr[5] "%1$d صفوف حذفت"
 
 #: libraries/Message.class.php:298
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d صف أضيف"
