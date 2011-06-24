@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 18:48+0200\n"
+"PO-Revision-Date: 2011-06-24 19:27+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1341,7 +1341,7 @@ msgstr ""
 #: setup/frames/index.inc.php:227 tbl_change.php:976
 #: tbl_gis_visualization.php:222 tbl_indexes.php:253 tbl_relation.php:563
 msgid "Save"
-msgstr ""
+msgstr "Enrollañ"
 
 #: js/messages.php:134 libraries/display_tbl.lib.php:637 pmd_general.php:158
 #: tbl_change.php:316 tbl_change.php:322
