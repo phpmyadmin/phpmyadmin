@@ -2642,7 +2642,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "توضيح الصفوف المختارة"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
