@@ -2026,7 +2026,7 @@ msgstr "اسم المستخدم:"
 
 #: libraries/auth/cookie.auth.lib.php:252
 msgid "Password:"
-msgstr "كلمة السر:"
+msgstr "كلمة المرور:"
 
 #: libraries/auth/cookie.auth.lib.php:259
 msgid "Server Choice"
