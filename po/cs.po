@@ -540,7 +540,6 @@ msgstr "MySQL hlásí: "
 
 #: db_routines.php:208 db_routines.php:240 db_routines.php:268
 #: db_routines.php:407
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Chyba při zpracování požadavku"
