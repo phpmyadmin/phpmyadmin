@@ -1109,7 +1109,7 @@ msgstr "حذف المفتاح الرئيسي مفتاح/فهرس"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "العملية قد تأخذ وقت طويل , متابعة على أي حال ؟"
+msgstr "هذه العملية قد تأخذ وقت طويل , متابعة على أي حال ؟"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
