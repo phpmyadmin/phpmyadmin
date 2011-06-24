@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-22 10:46+0200\n"
+"PO-Revision-Date: 2011-06-24 13:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -516,10 +516,10 @@ msgstr[1] "Posledním příkazem v proceduře byly ovlivněny %d řádky"
 msgstr[2] "Posledním příkazem v proceduře bylo ovlivněno %d řádek"
 
 #: db_routines.php:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Umožňuje spouštět uložené procedury."
+msgstr "Výsledek spuštění rutiny %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -528,10 +528,10 @@ msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
 #: db_routines.php:190 db_routines.php:295 db_routines.php:300
 #: db_routines.php:324
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Byly provedeny následující dotazy:"
+msgstr "Následující dotaz selhal: „%s“"
 
 #: db_routines.php:191 db_routines.php:296 db_routines.php:301
 #: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
@@ -540,33 +540,32 @@ msgstr "MySQL hlásí: "
 
 #: db_routines.php:208 db_routines.php:240 db_routines.php:268
 #: db_routines.php:407
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Chyba při zpracování požadavku"
 
 #: db_routines.php:209 db_routines.php:241 db_routines.php:269
 #: db_routines.php:408
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "V databázi nebyly nalezeny žádné tabulky"
+msgstr "V databázi  %2$s není žádná rutina se jménem %1$s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
 msgstr "Spustit rutinu"
 
 #: db_routines.php:259 db_routines.php:263
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Výchozí nastavení exportu"
+msgstr "Export rutiny %s"
 
 #: db_routines.php:288 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Chybný index serveru: „%s“"
+msgstr "Chybný typ rutiny: „%s“"
 
 #: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
@@ -577,32 +576,30 @@ msgid "The backed up query was:"
 msgstr "Záložní dotaz byl:"
 
 #: db_routines.php:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Pole %s byla odstraněno"
+msgstr "Byla změněna rutina %1$s."
 
 #: db_routines.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "Byla vytvořena tabulka %1$s."
+msgstr "Byla vytvořena rutina %1$s."
 
 #: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Při zpracování požadavku došlo k několika chybám:</b>"
 
 #: db_routines.php:379
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Vytvořit relaci"
+msgstr "Vytvořit rutinu"
 
 #: db_routines.php:383
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Režim úprav"
+msgstr "Upravit rutinu"
 
 #: db_routines.php:434
 msgid ""
@@ -2100,13 +2097,11 @@ msgid "Check Privileges"
 msgstr "Zkontrolovat oprávnění"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Failed to to read configuration file"
 msgid "Failed to read configuration file"
 msgstr "Nepodařilo se načíst konfigurační soubor"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
 #| "shown bellow."
@@ -4920,10 +4915,9 @@ msgid "There are no routines to display."
 msgstr "Nebyl zvolen žádný soubor pro nahrání"
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Přidat index"
+msgstr "Přidat rutinu"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
@@ -5329,7 +5323,7 @@ msgstr "Transformace při prohlížení"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
@@ -5383,7 +5377,7 @@ msgstr "Zobrazit graf"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Zobrazit data GIS"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
