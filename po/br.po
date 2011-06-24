@@ -1304,7 +1304,7 @@ msgstr "Diskouez disoc'hoù an enklask"
 
 #: js/messages.php:118
 msgid "Browsing"
-msgstr ""
+msgstr "O furchal"
 
 #: js/messages.php:119
 msgid "Deleting"
