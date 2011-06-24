@@ -4932,10 +4932,9 @@ msgid "There are no routines to display."
 msgstr "Det finns inga rutiner att visa."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Lägg till index"
+msgstr "Lägg till rutin."
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
