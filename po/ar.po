@@ -1732,7 +1732,6 @@ msgstr "الجمعة"
 
 #. l10n: Minimal week day name
 #: js/messages.php:272
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "السبت"
