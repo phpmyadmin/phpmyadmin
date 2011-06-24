@@ -1286,7 +1286,7 @@ msgstr "إزالة العمود"
 
 #: js/messages.php:98
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "إضافة مفتاح رئيسي"
 
 #: js/messages.php:99 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
