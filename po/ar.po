@@ -2654,7 +2654,7 @@ msgstr "توضيح الصفوف المشار إليها بمؤشر الفأرة"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "توضيح المؤشر"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
