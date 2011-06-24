@@ -1099,10 +1099,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "أنت على وشك إفراغ كامل الجدول!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "يسمح بإضافة واستبدال البيانات."
+msgstr "حذف بيانات التتبع"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
