@@ -949,7 +949,7 @@ msgstr ""
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "N'eo ket aotreet ar servijer web da enrollañ ar restr %s."
 
 #: export.php:673
 #, php-format
