@@ -1278,7 +1278,7 @@ msgstr "معالجة الطلب"
 #: js/messages.php:96 libraries/db_events.inc.php:39
 #: libraries/display_triggers.inc.php:46 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "خطأ في معالجة الطلب"
 
 #: js/messages.php:97
 msgid "Dropping Column"
