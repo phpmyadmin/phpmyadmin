@@ -2261,7 +2261,7 @@ msgstr "فشل الإتصال بمدقق SQL!"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:472
 msgid "Explain SQL"
-msgstr "اشرح SQL"
+msgstr "شرح SQL"
 
 #: libraries/common.lib.php:1123
 msgid "Skip Explain SQL"
