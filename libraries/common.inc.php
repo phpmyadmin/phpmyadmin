@@ -584,8 +584,8 @@ require './libraries/select_lang.lib.php';
  * this check is done here after loading language files to present errors in locale
  */
 if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = '<h1>' . __('Failed to to read configuration file') . '</h1>'
-        . _('This usually means there is a syntax error in it, please check any errors shown bellow.')
+    $error = '<h1>' . __('Failed to read configuration file') . '</h1>'
+        . _('This usually means there is a syntax error in it, please check any errors shown below.')
         . '<br />'
         . '<br />'
         . '<iframe src="show_config_errors.php" />';
@@ -784,10 +784,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (function_exists('mb_convert_encoding')
      && $lang == 'ja') {
         require_once './libraries/kanji-encoding.lib.php';
-        /**
-         * enable multibyte string support
-         */
-        define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
 
     /**

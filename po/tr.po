@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-21 21:37+0200\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
+"PO-Revision-Date: 2011-06-23 19:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -49,7 +49,7 @@ msgstr "Ara"
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2245 libraries/core.lib.php:557
 #: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
@@ -507,7 +507,7 @@ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi"
 
 #: db_routines.php:165
 #, php-format
@@ -519,71 +519,74 @@ msgstr "%s yordamı çalıştırma sonuçları"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
-#, php-format
-msgid "Query \"%s\" failed"
-msgstr ""
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
+#, fuzzy, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "Sorgu \"%s\" başarısız oldu"
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQL çıktısı: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 msgid "Error in processing request"
 msgstr "İstek işlemede hata"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, php-format
-msgid "No routine with name %s found in database %s"
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
+#, fuzzy, php-format
+#| msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
 msgstr "%s veritabanında %s adıyla yordam bulunamadı"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Yordamı çalıştır"
 
-#: db_routines.php:254 db_routines.php:258
+#: db_routines.php:259 db_routines.php:263
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s yordamını dışa aktarma"
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
+#: db_routines.php:288 libraries/db_routines.lib.php:960
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Geçersiz yordam türü: \"%s\""
 
-#: db_routines.php:304
+#: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Üzgünüm, kaldırılmış yordamı geri yükleme başarısız oldu."
 
-#: db_routines.php:305
+#: db_routines.php:310
 msgid "The backed up query was:"
 msgstr "Yedeklenmiş sorgu:"
 
-#: db_routines.php:309
+#: db_routines.php:314
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Yordam %1$s değiştirildi."
 
-#: db_routines.php:322
+#: db_routines.php:327
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Yordam %1$s oluşturuldu."
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:</b>"
 
-#: db_routines.php:374
+#: db_routines.php:379
 msgid "Create routine"
 msgstr "Yordam oluştur"
 
-#: db_routines.php:378
+#: db_routines.php:383
 msgid "Edit routine"
 msgstr "Yordamı düzenle"
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -596,7 +599,7 @@ msgstr ""
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "Erişim engellendi"
@@ -662,10 +665,9 @@ msgid "Search in database"
 msgstr "Veritabanında ara"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Aranacak kelime(ler) veya değer(ler) (joker: \"%\"):"
+msgstr "Aranacak kelimeler veya değerler (joker: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
@@ -676,10 +678,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tablo içindeki(ler):"
+msgstr "Tablo içindekiler:"
 
 #: db_search.php:353
 msgid "Inside column:"
@@ -735,7 +736,7 @@ msgstr "Kopya Etme"
 msgid "Sum"
 msgstr "Toplam"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s bu MySQL sunucusundaki varsayılan depolama motorudur."
@@ -1303,7 +1304,7 @@ msgstr "Siliniyor"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 
 #: js/messages.php:123
 msgid "Value too long in the form!"
@@ -1807,22 +1808,22 @@ msgstr "Son tablolar"
 msgid "There are no recent tables"
 msgstr "Son tablolar yok"
 
-#: libraries/StorageEngine.class.php:194
+#: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Bu depolama motoru için ayrıntılı durum bilgisi mevcut değil."
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s bu MySQL sunucusunda var."
 
-#: libraries/StorageEngine.class.php:357
+#: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s bu MySQL sunucusu için etkisizleştirildi."
 
-#: libraries/StorageEngine.class.php:361
+#: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bu MySQL sunucusu %s depolama motorunu desteklemez."
@@ -1886,7 +1887,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Bağlanamıyor: geçersiz ayarlar."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s'e Hoş Geldiniz"
@@ -1912,45 +1913,45 @@ msgstr ""
 "parolayı kontrol edin ve MySQL sunucusu yöneticisi tarafından verilen "
 "bilgiye uyduğundan emin olun."
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "Oturum aç"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin belgeleri"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Anamakine adı/IP adresi ve bağlantı noktasını boşluk bırakarak ayrı "
 "girebilirsiniz."
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "Sunucu:"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "Parola:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "Sunucu Seçimi"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Bu kısmı geçmek için tanımlama bilgileri (cookies) açık olmalıdır."
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1958,14 +1959,14 @@ msgstr ""
 "Yapılandırma tarafından parolasız oturum açma yasaktır (AllowNoPassword'a "
 "bakın)"
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s saniye içinde hiçbir işlem yapılmadı, lütfen yeniden oturum açın"
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL sunucusuna oturum açılamıyor"
@@ -2083,16 +2084,17 @@ msgid "Check Privileges"
 msgstr "Yetkileri kontrol et"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
-msgid "Failed to to read configuration file"
-msgstr "Yapılandırma kaydedilemedi"
+msgid "Failed to read configuration file"
+msgstr "Yapılandırma dosyasını okuma başarısız"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
+"Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
+"gösterilen her hatayı kontrol edin."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2124,11 +2126,11 @@ msgstr ""
 msgid "Server"
 msgstr "Sunucu"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulama yöntemi ayarı:"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
@@ -2336,7 +2338,7 @@ msgstr "Göndermek için dosyalar yok"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Çalıştır"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -4748,19 +4750,19 @@ msgstr "Adı"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Olay zamanlayıcısı etkin"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Olay zamanlayıcısı etkisiz"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Aç"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Kapat"
 
 #: libraries/db_events.inc.php:141
 msgid "Add a new Event"
@@ -4864,7 +4866,7 @@ msgstr "Dönüş seçenekleri"
 
 #: libraries/db_routines.lib.php:745
 msgid "Definition"
-msgstr "Açıklama"
+msgstr "Tanım"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
@@ -4911,14 +4913,16 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"ENUM, SET, VARCHAR ve VARBINARY türünün yordam parametreleri için "
+"uzunluk/değerler sağlamalısınız."
 
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Her yordam parametresi için bir ad ve bir tür sağlamalısınız."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Bir yordam tanımı sağlamalısınız."
 
 #: libraries/db_routines.lib.php:1209
 msgid "There are no routines to display."
@@ -5331,15 +5335,15 @@ msgstr "Tarayıcı dönüşümü"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "Çok İyi Bilinen Metin"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Çok İyi Bilinen Binari"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
@@ -5385,7 +5389,7 @@ msgstr "Çizelge göster"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS verisini görselleştir"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
@@ -6187,10 +6191,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Yeni phpMyAdmin penceresi aç"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Çizelge için bulunan veri yok."
+msgstr "GIS görselleştirmesi için bulunan veri yok."
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -8624,10 +8627,9 @@ msgid "All status variables"
 msgstr "Tüm durum değişkenleri"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Oranı yenile"
+msgstr "Yenileme oranı:"
 
 #: server_status.php:462
 msgid "Containing the word:"
@@ -9521,7 +9523,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Ayar değişkeni başarısız oldu"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
@@ -10023,10 +10025,9 @@ msgid "View dump (schema) of table"
 msgstr "Tablonun dökümünü (şemasını) göster"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Sunucu seçimlerini görüntüle"
+msgstr "GIS görselleştirmesini görüntüle"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -10050,7 +10051,7 @@ msgstr "Uzamsal sütun"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
@@ -10308,7 +10309,7 @@ msgstr "Görünüm düzeni:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "Uzaysal"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
@@ -10327,10 +10328,9 @@ msgid "Add unique index"
 msgstr "Benzersiz indeks ekle"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "İndeks ekle"
+msgstr "UZAYSAL indeks ekle"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"

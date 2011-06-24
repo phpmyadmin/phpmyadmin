@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: mongolian <mn@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "Хайх"
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2245 libraries/core.lib.php:557
 #: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
@@ -534,79 +534,81 @@ msgstr "Хадгалагдсан заншлыг ажиллуулахыг зөв�
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL хоосон үр дүн буцаалаа (тэг мөрүүд г.м.)."
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
 #, php-format
-msgid "Query \"%s\" failed"
+msgid "The following query has failed: \"%s\""
 msgstr ""
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQL хэлэх нь: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Процессууд"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
 #, fuzzy, php-format
 #| msgid "No tables found in database."
-msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
 msgstr "ӨС-д хүснэгт олдсонгүй."
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
 msgstr ""
 
-#: db_routines.php:254 db_routines.php:258
+#: db_routines.php:259 db_routines.php:263
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
+#: db_routines.php:288 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
 msgstr "Сервэрийн буруу индекс нь: \"%s\""
 
-#: db_routines.php:304
+#: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: db_routines.php:305
+#: db_routines.php:310
 msgid "The backed up query was:"
 msgstr ""
 
-#: db_routines.php:309
+#: db_routines.php:314
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: db_routines.php:322
+#: db_routines.php:327
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: db_routines.php:374
+#: db_routines.php:379
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
 msgstr "Холбоо үүсгэх"
 
-#: db_routines.php:378
+#: db_routines.php:383
 msgid "Edit routine"
 msgstr ""
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -615,7 +617,7 @@ msgstr ""
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "Хандах эрхгүй"
@@ -762,7 +764,7 @@ msgstr "Олшруулалт"
 msgid "Sum"
 msgstr "Нийт"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s нь уг MySQL сервэрийн анхдагч агуулах хөдөлгүүр байна."
@@ -1938,22 +1940,22 @@ msgstr "Хүснэгтүүд сонго"
 msgid "There are no recent tables"
 msgstr ""
 
-#: libraries/StorageEngine.class.php:194
+#: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Энд уг агуулах хөдөлгүүрийн дэлгэрэнгүй төлвийн мэдээлэл алга."
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s нь уг MySQL сервэрт идэвхтэй байна."
 
-#: libraries/StorageEngine.class.php:357
+#: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s нь уг MySQL сервэр дээр хаалттай байна."
 
-#: libraries/StorageEngine.class.php:361
+#: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Энэ MySQL сервэр нь %s агуулах хөдөлгүүрийг дэмжихгүй."
@@ -2017,7 +2019,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Холбогдсонгүй: тохируулга буруу."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s-д тавтай морилно уу"
@@ -2041,56 +2043,56 @@ msgstr ""
 "phpMyAdmin нь MySQL сервэр лүү холбогдох гэсэн ч, сервэр хүлээн авсангүй. "
 "config.inc.php дэх сервэр, хэрэглэгчийн нэр болон нууц үгээ шалга."
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "Нэвтрэх"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin баримтжилт"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "Сервэр"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "Нэвтрэгч:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "Нууц үг:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "Сервэр сонго"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Энэ газарт Cookies нээлттэй байх ёстой."
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s секунд ба түүнээс их идэвхгүй байжээ, дахин нэвтэрнэ үү"
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL руу нэвтэрч чадсангүй"
@@ -2216,13 +2218,13 @@ msgstr "Онцгой эрх шалгах"
 #: libraries/common.inc.php:587
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Failed to to read configuration file"
+msgid "Failed to read configuration file"
 msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\""
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
 
 #: libraries/common.inc.php:595
@@ -2254,11 +2256,11 @@ msgstr "%1$s сервэрийн хост буруу. Өөрийн тохирго
 msgid "Server"
 msgstr "Сервэр"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Тохиргоонд сонгогдсон буруу зөвшөөрлийн арга:"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Та хувилбар %s -г %s -ээр сайжруулах хэрэгтэй эсвэл дараа."

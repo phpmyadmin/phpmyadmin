@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "Пошук"
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2245 libraries/core.lib.php:557
 #: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
@@ -536,80 +536,82 @@ msgstr "Дазваляе выкананьне праграмаў, якія за�
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
 #, php-format
-msgid "Query \"%s\" failed"
+msgid "The following query has failed: \"%s\""
 msgstr ""
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "Адказ MySQL: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Працэсы"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
 #, fuzzy, php-format
 #| msgid "No tables found in database."
-msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
 msgstr "У базе дадзеных табліц ня выяўлена."
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
 msgstr ""
 
-#: db_routines.php:254 db_routines.php:258
+#: db_routines.php:259 db_routines.php:263
 #, fuzzy, php-format
 msgid "Export of routine %s"
 msgstr "Імпартаваць файлы"
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
+#: db_routines.php:288 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
 msgstr "Некарэктны індэкс сэрвэра: \"%s\""
 
-#: db_routines.php:304
+#: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: db_routines.php:305
+#: db_routines.php:310
 msgid "The backed up query was:"
 msgstr ""
 
-#: db_routines.php:309
+#: db_routines.php:314
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Табліца %s была выдаленая"
 
-#: db_routines.php:322
+#: db_routines.php:327
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "Табліца %1$s створаная."
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: db_routines.php:374
+#: db_routines.php:379
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
 msgstr "Стварыць сувязь"
 
-#: db_routines.php:378
+#: db_routines.php:383
 #, fuzzy
 msgid "Edit routine"
 msgstr "Вэб-сэрвэр"
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -618,7 +620,7 @@ msgstr ""
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "У доступе адмоўлена"
@@ -767,7 +769,7 @@ msgstr "Рэплікацыя"
 msgid "Sum"
 msgstr "Усяго"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
@@ -1972,23 +1974,23 @@ msgstr "Няма табліц"
 msgid "There are no recent tables"
 msgstr "Праверыць табліцу"
 
-#: libraries/StorageEngine.class.php:194
+#: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Для гэтай машыны захаваньня дадзеных дэтальная інфармацыя не даступная."
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s даступная на гэтым MySQL-сэрвэры."
 
-#: libraries/StorageEngine.class.php:357
+#: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s была адключаная для рэтага MySQL-сэрвэра."
 
-#: libraries/StorageEngine.class.php:361
+#: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Гэты сэрвэр MySQL не падтрымлівае машыну захаваньня дадзеных %s."
@@ -2052,7 +2054,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Немагчыма падлучыцца: няправільныя налады."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Запрашаем у %s"
@@ -2078,49 +2080,49 @@ msgstr ""
 "ўпэўніцеся, што яны адпавядаюць інфармацыі, якую даў адміністратар MySQL-"
 "сэрвэра."
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "Уваход у сыстэму"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "Дакумэнтацыя па phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "Сэрвэр"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "Імя карыстальніка:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "Пароль:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "Выбар сэрвэра"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies мусяць быць уключанымі пасьля гэтага месца."
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -2128,8 +2130,8 @@ msgstr ""
 "Не было аніякай актыўнасьці на працягу %s сэкундаў. Калі ласка, увайдзіце "
 "зноў"
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Немагчыма залагавацца на сэрвэр MySQL"
@@ -2255,13 +2257,13 @@ msgstr "Праверыць прывілеі"
 #: libraries/common.inc.php:587
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Failed to to read configuration file"
+msgid "Failed to read configuration file"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
 
 #: libraries/common.inc.php:595
@@ -2295,11 +2297,11 @@ msgstr ""
 msgid "Server"
 msgstr "Сэрвэр"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "У канфігурацыі вызначаны некарэктны мэтад аўтэнтыфікацыі:"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам трэба абнавіць %s да вэрсіі %s ці пазьнейшай."

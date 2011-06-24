@@ -18,11 +18,8 @@
 /**
  * Returns length of string depending on current charset.
  *
- * @uses    strlen()
  * @param   string   string to count
  * @return  int      string length
- * @access  public
- * @todo rename to PM_STR_len()
  */
 function PMA_strlen($string)
 {
@@ -32,13 +29,10 @@ function PMA_strlen($string)
 /**
  * Returns substring from string, works depending on current charset.
  *
- * @uses    substr()
- * @param   string   string to count
- * @param   int      start of substring
- * @param   int      length of substring
- * @return  int      substring
- * @access  public
- * @todo rename to PM_STR_sub()
+ * @param   string $string  string to count
+ * @param   int    $start   start of substring
+ * @param   int    $length  length of substring
+ * @return  string
  */
 function PMA_substr($string, $start, $length = 2147483647)
 {
@@ -46,29 +40,27 @@ function PMA_substr($string, $start, $length = 2147483647)
 }
 
 /**
- * returns postion of $needle in $haystack or false if not found
+ * Returns postion of $needle in $haystack or false if not found
  *
- * @uses    strpos()
- * @param   string  $needle
  * @param   string  $haystack
+ * @param   string  $needle
+ * @param   int     $offset
  * @return  integer position of $needle in $haystack or false
  */
-function PMA_STR_pos($haystack, $needle, $offset = 0)
+function PMA_strpos($haystack, $needle, $offset = 0)
 {
     return strpos($haystack, $needle, $offset);
 }
 
 /**
- * returns right most postion of $needle in $haystack or false if not found
+ * Make a string lowercase
  *
- * @uses    strrpos()
- * @param   string  $needle
- * @param   string  $haystack
- * @return  integer position of $needle in $haystack or false
+ * @param   string  $string
+ * @return  string
  */
-function PMA_STR_rPos($haystack, $needle, $offset = 0)
+function PMA_strtolower($string)
 {
-    return strrpos($haystack, $needle, $offset);
+    return strtolower($string);
 }
 
 ?>

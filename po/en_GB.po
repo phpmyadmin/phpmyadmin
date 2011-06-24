@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-17 17:08+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
+"PO-Revision-Date: 2011-06-23 00:01+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr "Search"
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2245 libraries/core.lib.php:557
 #: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
@@ -508,105 +508,100 @@ msgstr "Your SQL query has been executed successfully"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d row affected by the last statement inside the procedure"
+msgstr[1] "%d rows affected by the last statement inside the procedure"
 
 #: db_routines.php:165
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Allows executing stored routines."
+msgstr "Execution results of routine %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returned an empty result set (i.e. zero rows)."
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
-#, php-format
-msgid "Query \"%s\" failed"
-msgstr ""
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
+#, fuzzy, php-format
+#| msgid "The following queries have been executed:"
+msgid "The following query has failed: \"%s\""
+msgstr "The following queries have been executed:"
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQL said: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
-#, fuzzy
-#| msgid "Error in Processing Request"
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 msgid "Error in processing request"
-msgstr "Error in Processing Request"
+msgstr "Error in processing request"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
 #, fuzzy, php-format
-#| msgid "No tables found in database"
-msgid "No routine with name %s found in database %s"
-msgstr "No tables found in database."
+#| msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
+msgstr "No routine with name %s found in database %s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Execute routine"
 
-#: db_routines.php:254 db_routines.php:258
-#, fuzzy, php-format
-#| msgid "Export defaults"
+#: db_routines.php:259 db_routines.php:263
+#, php-format
 msgid "Export of routine %s"
-msgstr "Export defaults"
+msgstr "Export of routine %s"
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
-#| msgid "Invalid server index: %s"
+#: db_routines.php:288 libraries/db_routines.lib.php:960
+#, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Invalid server index: %s"
-
-#: db_routines.php:304
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
-
-#: db_routines.php:305
-msgid "The backed up query was:"
-msgstr ""
+msgstr "Invalid routine type: \"%s\""
 
 #: db_routines.php:309
-#, fuzzy, php-format
-#| msgid "Column %s has been dropped"
+msgid "Sorry, we failed to restore the dropped routine."
+msgstr "Sorry, we failed to restore the dropped routine."
+
+#: db_routines.php:310
+msgid "The backed up query was:"
+msgstr "The backed up query was:"
+
+#: db_routines.php:314
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Column %s has been dropped"
+msgstr "Routine %1$s has been modified."
 
-#: db_routines.php:322
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#: db_routines.php:327
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "Table %1$s has been created."
+msgstr "Routine %1$s has been created."
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>One or more errors have occurred while processing your request:</b>"
 
-#: db_routines.php:374
-#, fuzzy
-#| msgid "Create relation"
+#: db_routines.php:379
 msgid "Create routine"
-msgstr "Create relation"
+msgstr "Create routine"
 
-#: db_routines.php:378
-#, fuzzy
-#| msgid "Edit mode"
+#: db_routines.php:383
 msgid "Edit routine"
-msgstr "Edit mode"
+msgstr "Edit routine"
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"You are using PHP's deprecated 'mysql' extension, which is not capable of "
+"handling multi queries. <b>The execution of some stored routines may fail!</"
+"b> Please use the improved 'mysqli' extension to avoid any problems."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "Access denied"
@@ -674,10 +669,8 @@ msgid "Search in database"
 msgstr "Search in database"
 
 #: db_search.php:300
-#, fuzzy
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgstr "Words or values to search for (wildcard: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
@@ -688,10 +681,8 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Words are separated by a space character (\" \")."
 
 #: db_search.php:323
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Inside table(s):"
+msgstr "Inside tables:"
 
 #: db_search.php:353
 msgid "Inside column:"
@@ -748,7 +739,7 @@ msgstr "Replication"
 msgid "Sum"
 msgstr "Sum"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s is the default storage engine on this MySQL server."
@@ -1311,13 +1302,11 @@ msgstr "Deleting"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "The definition of a stored function must contain a RETURN statement!"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Missing value in the form!"
+msgstr "Value too long in the form!"
 
 #: js/messages.php:126
 msgid ""
@@ -1819,23 +1808,23 @@ msgstr "Recent tables"
 msgid "There are no recent tables"
 msgstr "There are no recent tables"
 
-#: libraries/StorageEngine.class.php:194
+#: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "There is no detailed status information available for this storage engine."
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s is available on this MySQL server."
 
-#: libraries/StorageEngine.class.php:357
+#: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s has been disabled for this MySQL server."
 
-#: libraries/StorageEngine.class.php:361
+#: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "This MySQL server does not support the %s storage engine."
@@ -1899,7 +1888,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Cannot connect: invalid settings."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Welcome to %s"
@@ -1925,57 +1914,57 @@ msgstr ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "Log in"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin documentation"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "You can enter hostname/IP address and port separated by space."
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "Server:"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "Username:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "Password:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "Server Choice"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies must be enabled past this point."
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "No activity within %s seconds; please log in again"
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Cannot log in to the MySQL server"
@@ -2094,15 +2083,21 @@ msgstr "Check Privileges"
 
 #: libraries/common.inc.php:587
 #, fuzzy
-#| msgid "Could not save configuration"
-msgid "Failed to to read configuration file"
-msgstr "Could not save configuration"
+#| msgid "Failed to to read configuration file"
+msgid "Failed to read configuration file"
+msgstr "Failed to to read configuration file"
 
 #: libraries/common.inc.php:588
+#, fuzzy
+#| msgid ""
+#| "This usually means there is a syntax error in it, please check any errors "
+#| "shown bellow."
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
+"This usually means there is a syntax error in it, please check any errors "
+"shown bellow."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2132,11 +2127,11 @@ msgstr "Invalid hostname for server %1$s. Please review your configuration."
 msgid "Server"
 msgstr "Server"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Invalid authentication method set in configuration:"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "You should upgrade to %s %s or later."
@@ -2344,7 +2339,7 @@ msgstr "There are no files to upload"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Execute"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -4692,22 +4687,19 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "The %s extension is missing. Please check your PHP configuration."
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
-#| msgid "Export contents"
+#, php-format
 msgid "Export of event %s"
-msgstr "Export contents"
+msgstr "Export of event %s"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
-#| msgid "Export contents"
+#, php-format
 msgid "Export of event \"%s\""
-msgstr "Export contents"
+msgstr "Export of event \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
-#| msgid "No tables found in database"
+#, php-format
 msgid "No event with name %s found in database %s"
-msgstr "No tables found in database."
+msgstr "No event with name %s found in database %s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
@@ -4715,10 +4707,8 @@ msgid "Events"
 msgstr "Events"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "There are no files to upload"
+msgstr "There are no events to display."
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:690
 #: libraries/db_routines.lib.php:846 libraries/db_routines.lib.php:1214
@@ -4730,25 +4720,23 @@ msgstr "Name"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "The event scheduler is enabled"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "The event scheduler is disabled"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Turn it on"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Turn it off"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
-#| msgid "Add a new server"
 msgid "Add a new Event"
-msgstr "Add a new server"
+msgstr "Add a new Event"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4784,32 +4772,25 @@ msgid "Triggers"
 msgstr "Triggers"
 
 #: libraries/db_routines.lib.php:659
-#, fuzzy
-#| msgid "Details..."
 msgid "Details"
-msgstr "Details..."
+msgstr "Details"
 
 #: libraries/db_routines.lib.php:662
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine name"
-msgstr "Routines"
+msgstr "Routine name"
 
 #: libraries/db_routines.lib.php:679
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "Change"
+msgstr "Change to %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
-msgstr ""
+msgstr "Parameters"
 
 #: libraries/db_routines.lib.php:689
-#, fuzzy
-#| msgid "Direct links"
 msgid "Direction"
-msgstr "Direct links"
+msgstr "Direction"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4834,62 +4815,48 @@ msgid "Options"
 msgstr "Options"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
-#| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "Add prefix"
+msgstr "Add parameter"
 
 #: libraries/db_routines.lib.php:710
-#, fuzzy
-#| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Remove database"
+msgstr "Remove last parameter"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
 msgstr "Return type"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Length/Values"
+msgstr "Return length/values"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
-#| msgid "Table options"
 msgid "Return options"
-msgstr "Table options"
+msgstr "Return options"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
-#| msgid "Description"
 msgid "Definition"
-msgstr "Description"
+msgstr "Definition"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
-msgstr ""
+msgstr "Is deterministic"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Definer"
 
 #: libraries/db_routines.lib.php:758
-#, fuzzy
-#| msgid "Security"
 msgid "Security type"
-msgstr "Security"
+msgstr "Security type"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL data access"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Routines"
+msgstr "Routine parameters"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
@@ -4904,44 +4871,40 @@ msgstr "Value"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "You must provide a routine name"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Invalid direction \"%s\" given for parameter."
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"You must provide length/values for routine parameters of type ENUM, SET, "
+"VARCHAR and VARBINARY."
 
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "You must provide a name and a type for each routine parameter."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "You must provide a routine definition."
 
 #: libraries/db_routines.lib.php:1209
-#, fuzzy
-#| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "There are no files to upload"
+msgstr "There are no routines to display."
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
-#| msgid "Add index"
 msgid "Add routine"
-msgstr "Add index"
+msgstr "Add routine"
 
 #: libraries/db_routines.lib.php:1256
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "You don't have sufficient privileges to be here right now!"
+msgstr "You do not have the necessary privileges to create a new routine"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:2121
 msgid ""
@@ -5337,15 +5300,15 @@ msgstr "Browser transformation"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Geometry"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "Well Known Text"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
@@ -5391,7 +5354,7 @@ msgstr "Display chart"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualize GIS data"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
@@ -5402,27 +5365,23 @@ msgid "Link not found"
 msgstr "Link not found"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export contents"
+#, php-format
 msgid "Export of trigger %s"
-msgstr "Export contents"
+msgstr "Export of trigger %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
 msgid "Export of trigger \"%s\""
-msgstr ""
+msgstr "Export of trigger \"%s\""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
+#, php-format
 msgid "No trigger with name %s found"
-msgstr "No valid image path for theme %s found!"
+msgstr "No trigger with name %s found"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "There are no files to upload"
+msgstr "There are no triggers to display."
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
@@ -5433,10 +5392,8 @@ msgid "Event"
 msgstr "Event"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
 msgid "Add a new Trigger"
-msgstr "Add a new server"
+msgstr "Add a new Trigger"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -6192,10 +6149,8 @@ msgid "Open new phpMyAdmin window"
 msgstr "Open new phpMyAdmin window"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
-#| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "No data found for the chart."
+msgstr "No data found for GIS visualisation."
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -8616,10 +8571,8 @@ msgid "All status variables"
 msgstr "All status variables"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
-#| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Refresh rate"
+msgstr "Refresh rate:"
 
 #: server_status.php:462
 msgid "Containing the word:"
@@ -9504,7 +9457,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Setting variable failed"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
@@ -10000,10 +9953,8 @@ msgid "View dump (schema) of table"
 msgstr "View dump (schema) of table"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Display servers selection"
+msgstr "Display GIS Visualisation"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -10014,42 +9965,32 @@ msgid "Height"
 msgstr "Height"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
-#| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Textarea columns"
+msgstr "Label column"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
-#| msgid "- none -"
 msgid "-- None --"
-msgstr "- none -"
+msgstr "-- None --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
-#| msgid "Total count"
 msgid "Spatial column"
-msgstr "Total count"
+msgstr "Spatial column"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Use OpenStreetMaps as Base Layer"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
 msgstr "Redraw"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save to file"
-msgstr "Save as file"
+msgstr "Save to file"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
-#| msgid "Table name"
 msgid "File name"
-msgstr "Table name"
+msgstr "File name"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -10293,7 +10234,7 @@ msgstr "Display order:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "Spatial"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
@@ -10312,10 +10253,8 @@ msgid "Add unique index"
 msgstr "Add unique index"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
-#| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Add index"
+msgstr "Add SPATIAL index"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
@@ -10578,6 +10517,9 @@ msgstr "VIEW name"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Rename view to"
+
+#~ msgid "Query \"%s\" failed"
+#~ msgstr "Query \"%s\" failed"
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "

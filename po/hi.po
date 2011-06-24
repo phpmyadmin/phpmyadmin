@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
 "PO-Revision-Date: 2011-05-06 09:13+0200\n"
 "Last-Translator: <manojonemail@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "खोजें"
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2245 libraries/core.lib.php:557
 #: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
@@ -521,82 +521,85 @@ msgstr "संग्रहीत दिनचर्या को क्रिय
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया"
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
-#, php-format
-msgid "Query \"%s\" failed"
-msgstr ""
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
+#, fuzzy, php-format
+#| msgid "The following queries have been executed:"
+msgid "The following query has failed: \"%s\""
+msgstr "निम्नलिखित क्वरीों क्रियान्वित किया गया है"
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQL ने कहा: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 #, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "याचिका प्रसंस्करणमें त्रुटि"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
 #, fuzzy, php-format
 #| msgid "No tables found in database"
-msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
 msgstr ""
 
-#: db_routines.php:254 db_routines.php:258
+#: db_routines.php:259 db_routines.php:263
 #, fuzzy, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
 msgstr "निर्यात डिफ़ॉल्ट"
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
+#: db_routines.php:288 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
 msgstr "अवैध सर्वर सूचकांक: %s"
 
-#: db_routines.php:304
+#: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: db_routines.php:305
+#: db_routines.php:310
 msgid "The backed up query was:"
 msgstr ""
 
-#: db_routines.php:309
+#: db_routines.php:314
 #, fuzzy, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr " टेबल %s को रद्द किया गया है."
 
-#: db_routines.php:322
+#: db_routines.php:327
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "%1$s टेबल बना दिया गया है"
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: db_routines.php:374
+#: db_routines.php:379
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
 msgstr "संबंध बनायें"
 
-#: db_routines.php:378
+#: db_routines.php:383
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "संपादन मोड"
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -605,7 +608,7 @@ msgstr ""
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "प्रवेश निषेध"
@@ -745,7 +748,7 @@ msgstr "प्रतिकृति"
 msgid "Sum"
 msgstr "जोड"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s इस MySQL सर्वर पर डिफ़ॉल्ट भंडारण इंजन है."
@@ -1846,22 +1849,22 @@ msgstr "टेबल गणना"
 msgid "There are no recent tables"
 msgstr "कोई कॉन्फ़िगर सर्वर मौजूद नहीं है"
 
-#: libraries/StorageEngine.class.php:194
+#: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "इस भंडारण इंजन स्थिति के लिए कोई विस्तृत जानकारी उपलब्ध नहीं है."
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s इस MySQL सर्वर पर उपलब्ध है."
 
-#: libraries/StorageEngine.class.php:357
+#: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s इस MySQL सर्वर के लिए निष्क्रिय कर दिया गया है."
 
-#: libraries/StorageEngine.class.php:361
+#: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "यह MySQL सर्वर %s भंडारण इंजन का समर्थन नहीं करता है."
@@ -1925,7 +1928,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं"
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr " %s मे स्वागत है"
@@ -1950,56 +1953,56 @@ msgstr ""
 "अपने मेजबान विन्यास में, यूसर नाम और पासवर्ड की जाँच करें और इत्मीनान कर ले की ये "
 "उपयोगकरता नाम और पासवर्ड MySQL सर्वर के व्यवस्थापक द्वारा दी गई जानकारी के अनुरूप हैं."
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "लोगिन"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin दस्तावेज़ीकरण"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "आप होस्टनाम / आईपी पता और पोर्ट स्पचे से अलग कर के दाल सकते हैं."
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "सर्वर:"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "उपयोक्तानाम:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "पासव्रड:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "सर्वर चुनिये"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "कुकीज़ इस बिंदु अतीत सक्षम होना चाहिए."
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "पासवर्ड के बिना लॉग इन विन्यास से मना किया गया है (AllowNoPassword देखें)."
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s सेकंड के भीतर कोई गतिविधि नहीं है. कृपया फिर से लोगिन करें."
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL सर्वर में प्रवेश नहीं कर सकते"
@@ -2121,13 +2124,13 @@ msgstr "प्रिविलेज  चेक करें"
 #: libraries/common.inc.php:587
 #, fuzzy
 #| msgid "Could not save configuration"
-msgid "Failed to to read configuration file"
+msgid "Failed to read configuration file"
 msgstr "विन्यास सहेज नहीं सकते"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
 
 #: libraries/common.inc.php:595
@@ -2157,11 +2160,11 @@ msgstr "%1$s सर्वर के लिए होस्टनाम अवै
 msgid "Server"
 msgstr "सर्वर"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "विन्यास में अवैध प्रमाणीकरण विधि स्थापित"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए"

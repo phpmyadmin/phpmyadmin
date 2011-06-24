@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-22 12:41+0200\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
+"PO-Revision-Date: 2011-06-23 12:13+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -49,7 +49,7 @@ msgstr "検索"
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:277 libraries/common.lib.php:1315
+#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
 #: libraries/common.lib.php:2245 libraries/core.lib.php:557
 #: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
@@ -519,83 +519,88 @@ msgstr "ルーチン %s の実行結果"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした(行数0)"
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
-#, php-format
-msgid "Query \"%s\" failed"
-msgstr ""
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
+#, fuzzy, php-format
+#| msgid "The following queries have been executed:"
+msgid "The following query has failed: \"%s\""
+msgstr "次のクエリが実行されます："
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQLのメッセージ: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 msgid "Error in processing request"
 msgstr "要求処理中でのエラー"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
-#, php-format
-msgid "No routine with name %s found in database %s"
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
+#, fuzzy, php-format
+#| msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
 msgstr "データベース %2$s に %1$s という名前のルーチンはありません"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
 msgstr "ルーチンを実行する"
 
-#: db_routines.php:254 db_routines.php:258
+#: db_routines.php:259 db_routines.php:263
 #, php-format
 msgid "Export of routine %s"
 msgstr "ルーチン %s のエクスポート"
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
+#: db_routines.php:288 libraries/db_routines.lib.php:960
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "ルーチンタイプが不正です: \"%s\""
 
-#: db_routines.php:304
+#: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: db_routines.php:305
+#: db_routines.php:310
 msgid "The backed up query was:"
 msgstr ""
 
-#: db_routines.php:309
+#: db_routines.php:314
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "ルーチン %1$s を変更しました。"
 
-#: db_routines.php:322
+#: db_routines.php:327
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "ルーチン %1$s を作成しました。"
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>リクエストの処理中に 1 つ以上のエラーが発生しました：</b>"
 
-#: db_routines.php:374
+#: db_routines.php:379
 msgid "Create routine"
 msgstr "ルーチンを作成する"
 
-#: db_routines.php:378
+#: db_routines.php:383
 msgid "Edit routine"
 msgstr "ルーチンを編集する"
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
-"「mysql」拡張を使用されていますが、将来的に PHP "
-"で廃止予定になっています。この拡張はマルチクエリに対応できていません。<b>ストアドルーチンの実行が失敗する可能性があります！</b> "
-"問題を回避するためには、改良された「mysqli」拡張を使用するようにしてください。"
+"「mysql」拡張を使用されていますが、将来的に PHP で廃止予定になっています。こ"
+"の拡張はマルチクエリに対応できていません。<b>ストアドルーチンの実行が失敗する"
+"可能性があります！</b> 問題を回避するためには、改良された「mysqli」拡張を使用"
+"するようにしてください。"
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:645 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "アクセスは拒否されました"
@@ -661,7 +666,6 @@ msgid "Search in database"
 msgstr "データベース内検索"
 
 #: db_search.php:300
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "検索する単語や値 (ワイルドカード: \"%\"):"
 
@@ -674,7 +678,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "各単語は空白文字(\" \")で区切ってください"
 
 #: db_search.php:323
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "検索するテーブル:"
 
@@ -731,7 +734,7 @@ msgstr "レプリケーション"
 msgid "Sum"
 msgstr "合計"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:351
+#: db_structure.php:448 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s はこの MySQL サーバのデフォルトストレージエンジンです"
@@ -1805,22 +1808,22 @@ msgstr "最近使用したテーブル"
 msgid "There are no recent tables"
 msgstr "最近使用したテーブルはありません"
 
-#: libraries/StorageEngine.class.php:194
+#: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "このストレージエンジンにはステータスの詳細情報はありません"
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s は有効になっています"
 
-#: libraries/StorageEngine.class.php:357
+#: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s は無効になっています"
 
-#: libraries/StorageEngine.class.php:361
+#: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "この MySQL サーバは %s ストレージエンジンをサポートしていません"
@@ -1884,7 +1887,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "接続できません: 設定が無効です"
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s へようこそ"
@@ -1909,58 +1912,58 @@ msgstr ""
 "ユーザ名、パスワードが MySQL サーバの管理者から与えられた情報と一致するか確認"
 "してください"
 
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
 msgstr "ログイン"
 
-#: libraries/auth/cookie.auth.lib.php:231
-#: libraries/auth/cookie.auth.lib.php:233
+#: libraries/auth/cookie.auth.lib.php:227
+#: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin のドキュメント"
 
-#: libraries/auth/cookie.auth.lib.php:243
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "「ホスト名/IPアドレス」と「ポート」を空白で区切って入力することができます。"
 
-#: libraries/auth/cookie.auth.lib.php:243
+#: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
 msgstr "サーバ"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
 msgstr "ユーザ名:"
 
-#: libraries/auth/cookie.auth.lib.php:252
+#: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
 msgstr "パスワード:"
 
-#: libraries/auth/cookie.auth.lib.php:259
+#: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
 msgstr "サーバの選択"
 
-#: libraries/auth/cookie.auth.lib.php:305 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "クッキーを有効にしてください"
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "パスワードなしログインは設定 (AllowNoPassword) によって禁止されています。"
 
-#: libraries/auth/cookie.auth.lib.php:647
+#: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s 秒以上操作をしませんでした。ログインしなおしてください"
 
-#: libraries/auth/cookie.auth.lib.php:657
-#: libraries/auth/cookie.auth.lib.php:659
+#: libraries/auth/cookie.auth.lib.php:653
+#: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL サーバにログインできません"
@@ -2081,13 +2084,13 @@ msgstr "特権をチェックする"
 #: libraries/common.inc.php:587
 #, fuzzy
 #| msgid "Could not save configuration"
-msgid "Failed to to read configuration file"
+msgid "Failed to read configuration file"
 msgstr "設定が保存できません"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 msgstr ""
 
 #: libraries/common.inc.php:595
@@ -2118,11 +2121,11 @@ msgstr "サーバ %1$s のホスト名が不正です。設定を確認してく
 msgid "Server"
 msgstr "サーバ"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください"
@@ -4684,19 +4687,16 @@ msgstr "%s 拡張がありません。PHP の設定をチェックしてみて�
 
 #: libraries/db_events.inc.php:30
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "イベント %s をエクスポートする"
 
 #: libraries/db_events.inc.php:34
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event \"%s\""
 msgstr "イベント \"%s\" をエクスポートする"
 
 #: libraries/db_events.inc.php:40
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
 msgstr "データベース %2$s に %1$s という名前のイベントはありません"
 
@@ -4706,7 +4706,6 @@ msgid "Events"
 msgstr "イベント"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "表示できるイベントがありません"
 
@@ -4735,7 +4734,6 @@ msgid "Turn it off"
 msgstr ""
 
 #: libraries/db_events.inc.php:141
-#| msgid "Add a new server"
 msgid "Add a new Event"
 msgstr "新しいイベントを追加する"
 
@@ -4791,7 +4789,6 @@ msgid "Parameters"
 msgstr "パラメータ"
 
 #: libraries/db_routines.lib.php:689
-#| msgid "Direct links"
 msgid "Direction"
 msgstr "入出力"
 
@@ -4844,27 +4841,25 @@ msgid "Return options"
 msgstr "テーブルオプション"
 
 #: libraries/db_routines.lib.php:745
-#| msgid "Description"
 msgid "Definition"
 msgstr "定義"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
-msgstr ""
+msgstr "DETERMINISTIC"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "DEFINER"
 
 #: libraries/db_routines.lib.php:758
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "セキュリティ"
+msgstr "SQL SECURITY"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "データ干渉方式"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 msgid "Routine parameters"
@@ -4894,7 +4889,9 @@ msgstr "パラメータに対して不正な入出力「%s」が与えられて�
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
-msgstr "ルーチンパラメータが ENUM、SET、VARCHAR、VARBINARY の場合、長さ/値は必須です。"
+msgstr ""
+"ルーチンパラメータが ENUM、SET、VARCHAR、VARBINARY の場合、長さ/値は必須で"
+"す。"
 
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
@@ -5236,7 +5233,6 @@ msgid "Language"
 msgstr "言語"
 
 #: libraries/display_tbl.lib.php:397
-#| msgid "Textarea columns"
 msgid "Restore column order"
 msgstr "カラムの順番を元に戻す"
 
@@ -5245,13 +5241,12 @@ msgid "Drag to reorder"
 msgstr "ドラッグでカラムの入れ替え"
 
 #: libraries/display_tbl.lib.php:412
-#| msgid "Click to select"
 msgid "Click to sort"
 msgstr "クリックでソート"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "クリックでカラムを反転/解除"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -5314,15 +5309,15 @@ msgstr "ブラウザ変換機能"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "空間データ"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "テキスト形式"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "バイナリ形式"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
@@ -5368,7 +5363,7 @@ msgstr "グラフで表示する"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "空間情報のデータを視覚化する"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
@@ -6152,10 +6147,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "別ウィンドウで開く"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "グラフ用のデータが見つかりません。"
+msgstr "視覚化できる空間情報がありません。"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -9954,10 +9948,9 @@ msgid "View dump (schema) of table"
 msgstr "テーブルのダンプ(スキーマ)表示"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "サーバ選択を表示する"
+msgstr "視覚化した空間情報"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -9968,42 +9961,37 @@ msgid "Height"
 msgstr "高さ"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "textarea の 1 行の文字数"
+msgstr "ラベルカラム"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- 無し -"
+msgstr "-- なし --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
-msgstr "ログファイル数"
+msgstr "空間情報カラム"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "ベースレイヤーに OpenStreetMap を使用する"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
 msgstr "再描画"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "ファイルに保存する"
+msgstr "ファイルに保存"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "テーブル名"
+msgstr "ファイル名"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
