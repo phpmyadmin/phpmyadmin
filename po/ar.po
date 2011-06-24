@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 02:42+0200\n"
+"PO-Revision-Date: 2011-06-24 02:43+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1300,10 +1300,9 @@ msgid "Renaming Databases"
 msgstr "أعادة تسمية قاعدة البيانات"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "أعد تسمية قاعدة البيانات ﺇﻠﻰ"
+msgstr "أعادة تحميل قاعدة البيانات"
 
 #: js/messages.php:104
 #, fuzzy
