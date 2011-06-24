@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 02:34+0200\n"
+"PO-Revision-Date: 2011-06-24 02:35+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1190,10 +1190,9 @@ msgid "Live conn./process chart"
 msgstr "خريطة conn./process المباشر"
 
 #: js/messages.php:66 server_status.php:445
-#, fuzzy
 #| msgid "SQL query"
 msgid "Live query chart"
-msgstr "استعلام-SQL"
+msgstr "خريطة الإستعلام المباشر"
 
 #: js/messages.php:68
 msgid "Static data"
