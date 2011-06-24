@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 18:36+0200\n"
+"PO-Revision-Date: 2011-06-24 18:37+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1138,7 +1138,7 @@ msgstr "Oc'h adkargañ an dreistgwirioù"
 
 #: js/messages.php:58
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "O lemel kuit an implijerien diuzet"
 
 #: js/messages.php:59 libraries/tbl_properties.inc.php:772
 #: tbl_tracking.php:244 tbl_tracking.php:409
