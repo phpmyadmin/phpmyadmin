@@ -1457,10 +1457,9 @@ msgid "Generate"
 msgstr "توليد"
 
 #: js/messages.php:158
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
-msgstr "تغيير كلمة السر"
+msgstr "تغيير كلمة المرور"
 
 #: js/messages.php:161 tbl_structure.php:497
 #, fuzzy
