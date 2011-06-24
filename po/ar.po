@@ -1332,7 +1332,7 @@ msgstr "إدخال الجدول"
 #: js/messages.php:115
 #| msgid "Search"
 msgid "Searching"
-msgstr "ابحث"
+msgstr "بحث"
 
 #: js/messages.php:116
 #, fuzzy
