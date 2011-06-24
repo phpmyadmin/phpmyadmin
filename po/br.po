@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 12:51+0200\n"
+"PO-Revision-Date: 2011-06-24 12:54+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1028,6 +1028,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Koulskoude n'eus ket bet dielfennet roadenn ebet er gasadenn ziwezhañ. "
+"Peurliesañ e talvez n'hallo ket PhpMyAdmin echuiñ da enporzhiañ an traoù ma "
+"ne vez ket kresket ganeoc'h bevenn amzer PHP."
 
 #: import_status.php:30 libraries/common.lib.php:650
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:123
