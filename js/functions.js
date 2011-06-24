@@ -2324,7 +2324,7 @@ var toggleButton = function ($obj) {
 	 */
 	var h = $obj.height();
 	$('img', $obj).height(h);
-	$('table', $obj).css('bottom', h);
+	$('table', $obj).css('bottom', h-1);
 	/**
 	 *  var  on   Width of the "ON" part of the toggle switch
 	 *  var  off  Width of the "OFF" part of the toggle switch
