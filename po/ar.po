@@ -1136,7 +1136,7 @@ msgstr "العدد الكلي"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
-msgstr "اسم المستضيف فارغ!"
+msgstr "إسم المستضيف فارغ!"
 
 #: js/messages.php:53
 msgid "The user name is empty!"
