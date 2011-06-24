@@ -1911,7 +1911,7 @@ msgstr "%s متوفر في خادم MySQL هذا."
 #: libraries/StorageEngine.class.php:357
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s معطل في خادم MySQL هذا."
 
 #: libraries/StorageEngine.class.php:361
 #, php-format
