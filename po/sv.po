@@ -4752,7 +4752,7 @@ msgstr "Slå på den"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Stäng av den"
 
 #: libraries/db_events.inc.php:141
 #, fuzzy
