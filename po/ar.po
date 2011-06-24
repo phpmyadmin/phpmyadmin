@@ -1966,7 +1966,7 @@ msgstr "المظهر %s غير موجود!"
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "مسار المظهر غير موجود للمظهر %s !"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
