@@ -1393,7 +1393,7 @@ msgstr "حفظ"
 #: js/messages.php:134 libraries/display_tbl.lib.php:637 pmd_general.php:158
 #: tbl_change.php:316 tbl_change.php:322
 msgid "Hide"
-msgstr "أخف"
+msgstr "أخفاء"
 
 #: js/messages.php:135 tbl_row_action.php:28
 msgid "No rows selected"
