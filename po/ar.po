@@ -1397,7 +1397,7 @@ msgstr "أخفاء"
 
 #: js/messages.php:135 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "لايوجد صفوف مختارة"
 
 #: js/messages.php:136 libraries/display_tbl.lib.php:2384 querywindow.php:114
 #: querywindow.php:118 querywindow.php:121 tbl_structure.php:152
