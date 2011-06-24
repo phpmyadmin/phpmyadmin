@@ -2048,7 +2048,7 @@ msgstr ""
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "لانشاط  من %s ثواني , الرجاء تسجيل الدخول من جديد"
+msgstr "لانشاط منذ %s ثواني , الرجاء تسجيل الدخول من جديد"
 
 #: libraries/auth/cookie.auth.lib.php:657
 #: libraries/auth/cookie.auth.lib.php:659
