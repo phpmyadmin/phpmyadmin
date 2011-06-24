@@ -1196,15 +1196,13 @@ function PMA_RTN_getRoutinesList()
         $class1 = '';
         $class2 = ' hide';
     }
-
     /**
      * Generate output
      */
-    $retval  = "";
-    $retval .= "\n\n<span id='js_query_display'></span>\n\n";
-    $retval .= "<!-- LIST OF ROUTINES START -->\n";
+    $retval  = "<!-- LIST OF ROUTINES START -->\n";
     $retval .= "<fieldset>\n";
-    $retval .= "    <legend>" . __('Routines') . "</legend>\n";
+    $retval .= "    <legend>" . __('Routines');
+    $retval .= PMA_showMySQLDocu('SQL-Syntax', 'STORED_ROUTINES') . "</legend>\n";
     $retval .= "    <div class='$class1' id='nothing2display'>\n";
     $retval .= "      " . __('There are no routines to display.') . "\n";
     $retval .= "    </div>\n";

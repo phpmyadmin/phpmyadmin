@@ -57,9 +57,10 @@ if (! empty($_GET['exporttrigger']) && ! empty($_GET['triggername'])) {
 /**
  * Display a list of available triggers
  */
-echo "\n\n<span id='js_query_display'></span>\n\n";
 echo '<fieldset>' . "\n";
-echo ' <legend>' . __('Triggers') . '</legend>' . "\n";
+echo ' <legend>' . __('Triggers')
+. PMA_showMySQLDocu('SQL-Syntax', 'TRIGGERS') . "\n" .
+ '</legend>' . "\n";
 if (! $triggers) {
     echo __('There are no triggers to display.');
 } else {
@@ -116,8 +117,11 @@ echo '</fieldset>';
  * Display the form for adding a new trigger
  */
 echo '<fieldset>' . "\n"
+   . "        <legend>" . __('New')
+   . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TRIGGER')
+   . "</legend>\n"
    . '    <a href="tbl_triggers.php?' . $url_query . '&amp;addtrigger=1" class="' . $conditional_class_add . '">' . "\n"
-   . PMA_getIcon('b_trigger_add.png') . __('Add a new Trigger') . '</a>' . "\n"
+   . PMA_getIcon('b_trigger_add.png') . __('Add trigger') . '</a>' . "\n"
    . '</fieldset>' . "\n";
 
 ?>
