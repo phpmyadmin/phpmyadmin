@@ -1462,10 +1462,9 @@ msgid "Change Password"
 msgstr "تغيير كلمة المرور"
 
 #: js/messages.php:161 tbl_structure.php:497
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "الإثنين"
+msgstr "أكثر"
 
 #: js/messages.php:164 setup/lib/index.lib.php:158
 #, php-format
