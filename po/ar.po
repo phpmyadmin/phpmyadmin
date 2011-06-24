@@ -2359,7 +2359,7 @@ msgstr "نهاية"
 #: libraries/common.lib.php:2384
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "إذهب إلى قاعدة بيانات &quot;%s&quot;."
+msgstr "الذهاب إلى قاعدة البيانات &quot;%s&quot;."
 
 #: libraries/common.lib.php:2403
 #, php-format
