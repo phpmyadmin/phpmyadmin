@@ -1176,7 +1176,7 @@ msgstr "Roadennoù stadegel"
 #: server_status.php:701 server_status.php:762 tbl_printview.php:348
 #: tbl_structure.php:832
 msgid "Total"
-msgstr ""
+msgstr "Hollad"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:602
