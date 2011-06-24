@@ -579,7 +579,7 @@ msgstr "Záložní dotaz byl:"
 #, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Byla změněna zutina %1$s."
+msgstr "Byla změněna rutina %1$s."
 
 #: db_routines.php:327
 #, php-format
