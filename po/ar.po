@@ -2540,7 +2540,7 @@ msgstr "غير متاح"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "%s يتطلب الإمتداد %s"
 
 #: libraries/config/FormDisplay.class.php:755
 #, php-format
