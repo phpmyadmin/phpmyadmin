@@ -2158,7 +2158,7 @@ msgstr "غير مستنسخة"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
-msgstr ""
+msgstr "مستنسخة"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
