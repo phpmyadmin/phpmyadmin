@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 01:05+0200\n"
+"PO-Revision-Date: 2011-06-25 01:06+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4927,10 +4927,9 @@ msgid "You must provide a routine definition."
 msgstr "Du måste ange en rutindefinition."
 
 #: libraries/db_routines.lib.php:1209
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Det finns inga filer att ladda upp"
+msgstr "Det finns inga rutiner att visa."
 
 #: libraries/db_routines.lib.php:1253
 #, fuzzy
