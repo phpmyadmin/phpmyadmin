@@ -1227,7 +1227,7 @@ msgstr "Rekedoù resevet"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
-msgstr ""
+msgstr "Stadegoù war ar rekedoù"
 
 #: js/messages.php:91 libraries/tbl_properties.inc.php:777 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
