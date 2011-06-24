@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 18:33+0200\n"
+"PO-Revision-Date: 2011-06-24 18:34+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1095,6 +1095,8 @@ msgstr "Emaoc'h war-nes DIWEREDEKAAT ur c'havlec'h BLOB !"
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"Ha sur oc'h e fell deoc'h diweredekaat an holl zaveennoù BLOB evit an diaz "
+"roadennoù %s ?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
