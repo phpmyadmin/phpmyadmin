@@ -1284,7 +1284,7 @@ msgstr "Ur bann a rank bezañ en daolenn, da nebeutañ"
 
 #: js/messages.php:107
 msgid "Create Table"
-msgstr ""
+msgstr "Krouiñ un daolenn"
 
 #: js/messages.php:112
 msgid "Insert Table"
