@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 04:48+0200\n"
+"PO-Revision-Date: 2011-06-24 04:49+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1812,7 +1812,7 @@ msgstr "فريد"
 
 #: libraries/Index.class.php:447 tbl_tracking.php:316
 msgid "Packed"
-msgstr ""
+msgstr "محزم"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:318
 msgid "Cardinality"
