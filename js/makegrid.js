@@ -450,7 +450,8 @@
                         pos = $(obj).position();
                         $(g.cHide).css({
                                 left: pos.left + $(obj).width(),
-                                top: pos.top
+                                top: pos.top,
+                                visibility: 'visible'
                             })
                             .show();
                         this.nHide = this.getHeaderIdx(obj);
@@ -613,7 +614,7 @@
         
         // adjust g.cHide
         g.cHide.className = 'cHide';
-        $(g.cHide).hide();
+        $(g.cHide).css('visibility', 'hidden'); // don't use .hide(), so the background image, will be prefetched in firefox
         
         // adjust g.cDrop
         g.cDrop.className = 'cDrop';
