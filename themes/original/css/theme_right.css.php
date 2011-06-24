@@ -2067,9 +2067,13 @@ span.mysql-number {
     border-right: solid 1px #FFFFFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -3px;
+    margin-left: -6px;
     position: absolute;
     width: 5px;
+}
+
+.pma_table td {
+    position: static;
 }
 
 .pma_table th.draggable span, .pma_table tbody td span {
@@ -2121,9 +2125,71 @@ span.mysql-number {
     margin-top: -1em;
     opacity: 0.8;
     padding: 0.5em 1em;
-    position: absolute;
+    position: fixed;
     text-shadow: -1px -1px #000;
     -moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
     border-radius: 0.3em;
+}
+
+.data {
+    position: relative;
+}
+
+.cHide {
+    background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
+    color: #CCC;
+    cursor: pointer;
+    height: 16px;
+    margin-left: -5px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.cHide:hover {
+    background-color: #AAA;
+}
+
+.cDrop {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.coldrop {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_drop.png);
+    cursor: pointer;
+    height: 16px;
+    margin-left: 8px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.coldrop:hover {
+    background-color: #AAA;
+}
+
+.cList {
+    background: #FFF;
+    position: absolute;
+}
+
+.cList table {
+    background: #EEE;
+    border: solid 1px #CCC;
+}
+
+.cList table td {
+    border-right: solid 1px #CCC;
+}
+
+.cList table tr:hover {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.cList table td input {
+    cursor: pointer;
 }
