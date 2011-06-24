@@ -1830,7 +1830,7 @@ msgstr "لقد تم حذف المفتاح الأساسي"
 #: libraries/Index.class.php:478
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "فهرسة محذوفة %s"
+msgstr "تم حذف الفهرس %s"
 
 #: libraries/Index.class.php:582
 #, php-format
