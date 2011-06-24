@@ -2286,7 +2286,7 @@ msgstr "تخطي تدقيق SQL"
 
 #: libraries/common.lib.php:1190 libraries/config/messages.inc.php:476
 msgid "Validate SQL"
-msgstr "التحقق من استعلام SQL"
+msgstr "التدقيق في استعلام SQL"
 
 #: libraries/common.lib.php:1245
 msgid "Inline edit of this query"
