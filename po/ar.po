@@ -2058,7 +2058,7 @@ msgstr "لا يمكن الدخول إلى خادم MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "خطأ اسم المستخدم/كلمة السر. الوصول ممنوع."
+msgstr "خطأ في اسم المستخدم أو كلمة السر. الوصول ممنوع."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
