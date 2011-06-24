@@ -1186,7 +1186,7 @@ msgstr "Udb all"
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1374
 msgid ","
-msgstr ""
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:76 libraries/common.lib.php:1376
