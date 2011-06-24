@@ -1008,7 +1008,7 @@ msgstr "O tiskouez ar sined"
 #: import.php:402 sql.php:970
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Krouet eo bet ar sined %s"
 
 #: import.php:408 import.php:414
 #, php-format
