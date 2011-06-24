@@ -2401,7 +2401,7 @@ msgstr "عمليات"
 
 #: libraries/common.lib.php:2900
 msgid "Browse your computer:"
-msgstr ""
+msgstr "تصفح كمبيوترك."
 
 #: libraries/common.lib.php:2916
 #, fuzzy, php-format
