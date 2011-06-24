@@ -1152,10 +1152,9 @@ msgstr "كلمتا المرور غير متشابهتان !"
 
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "أي مستخدم"
+msgstr "إضافة مستخدم"
 
 #: js/messages.php:57
 #, fuzzy
