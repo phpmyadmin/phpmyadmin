@@ -1777,7 +1777,7 @@ msgstr "المجلد المؤقت مفقود."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr "فشلت عملية كتابة الملف على القرص"
+msgstr "فشلت عملية كتابة الملف على القرص."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
