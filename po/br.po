@@ -1211,7 +1211,7 @@ msgstr "Kevreadennoù abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
-msgstr ""
+msgstr "Argerzhioù"
 
 #: js/messages.php:83
 msgid "Connections / Processes"
