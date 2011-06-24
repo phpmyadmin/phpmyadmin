@@ -2092,7 +2092,7 @@ msgstr "فشل إتصال PBMS:"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "فشل جلب معلومات PBMS  BLOB"
+msgstr "فشل جلب معلومات PBMS BLOB:"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
