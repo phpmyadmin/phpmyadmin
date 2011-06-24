@@ -1785,7 +1785,7 @@ msgstr "رفع الملف إستوقف من قبل الامتداد."
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "خطأ غير معروف عند رفع الملف."
 
 #: libraries/File.class.php:559
 msgid ""
