@@ -1035,7 +1035,7 @@ msgstr ""
 #: import_status.php:30 libraries/common.lib.php:650
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:123
 msgid "Back"
-msgstr ""
+msgstr "Distreiñ"
 
 #: index.php:183
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
