@@ -1943,7 +1943,7 @@ msgstr ""
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr "مسار الصورة للمظهر %s  غير صحيح!"
+msgstr "مسار الصورة للمظهر %s غير صحيح!"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
