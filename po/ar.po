@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 03:09+0200\n"
+"PO-Revision-Date: 2011-06-24 03:10+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1769,7 +1769,7 @@ msgstr "حجم الملف المرفوع يتجاوز حجم الملف المح
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "تم رفع جزء من الملف."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
