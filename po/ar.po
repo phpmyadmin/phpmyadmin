@@ -2441,7 +2441,7 @@ msgstr "يمين"
 
 #: libraries/config.values.php:75
 msgid "Open"
-msgstr ""
+msgstr "فتح"
 
 #: libraries/config.values.php:75
 #, fuzzy
