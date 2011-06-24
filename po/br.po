@@ -1260,7 +1260,7 @@ msgstr "Ouzhpennañ un alc'hwez kentidik"
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
-msgstr ""
+msgstr "Mat eo"
 
 #: js/messages.php:102
 msgid "Renaming Databases"
