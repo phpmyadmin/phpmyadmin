@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 02:31+0200\n"
+"PO-Revision-Date: 2011-06-24 02:32+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1144,7 +1144,7 @@ msgstr "إسم المستخدم فارغ!"
 
 #: js/messages.php:54 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr "كلمة السر فارغة !"
+msgstr "كلمة المرور فارغة !"
 
 #: js/messages.php:55 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
