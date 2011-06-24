@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 01:16+0200\n"
+"PO-Revision-Date: 2011-06-25 01:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10041,7 +10041,7 @@ msgstr "Spatial kolumn"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Använd OpenStreetMaps som baslager"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
