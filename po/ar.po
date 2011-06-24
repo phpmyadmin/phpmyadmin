@@ -1295,10 +1295,9 @@ msgid "OK"
 msgstr "موافق"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "أعد تسمية قاعدة البيانات ﺇﻠﻰ"
+msgstr "أعادة تسمية قاعدة البيانات"
 
 #: js/messages.php:103
 #, fuzzy
