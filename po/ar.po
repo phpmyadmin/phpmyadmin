@@ -2593,7 +2593,7 @@ msgstr "السماح للمستخدمين بتخصيص هذه القيمة"
 #: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1025
 msgid "Reset"
-msgstr "إلغاء"
+msgstr "إعادة تعيين"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
