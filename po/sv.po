@@ -5390,7 +5390,7 @@ msgstr "Visa diagram"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualisera GIS-data"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
