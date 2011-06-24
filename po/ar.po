@@ -1867,8 +1867,12 @@ msgstr[5] "%1$d صفوف تأثرت"
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d صف حذف"
+msgstr[1] "%1$d صف حذف"
+msgstr[2] "%1$d صفوف حذفت"
+msgstr[3] "%1$d صفوف حذفت"
+msgstr[4] "%1$d صفوف حذفت"
+msgstr[5] "%1$d صفوف حذفت"
 
 #: libraries/Message.class.php:298
 #, php-format
