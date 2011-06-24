@@ -2486,10 +2486,9 @@ msgid "complete inserts"
 msgstr "إدخال كامل"
 
 #: libraries/config.values.php:121
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "إدخال مدد"
+msgstr "إدخال ممدد"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
