@@ -2583,7 +2583,7 @@ msgstr "تعيين القيمة: %s"
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:356
 msgid "Restore default value"
-msgstr ""
+msgstr "إستعادة القيمة الإفتراضية"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
