@@ -1330,7 +1330,6 @@ msgid "Insert Table"
 msgstr "إدخال الجدول"
 
 #: js/messages.php:115
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "ابحث"
