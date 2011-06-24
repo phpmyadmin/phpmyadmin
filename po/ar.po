@@ -1493,7 +1493,6 @@ msgstr "إنتهى"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "سابق"
