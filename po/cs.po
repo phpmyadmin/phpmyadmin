@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 13:51+0200\n"
+"PO-Revision-Date: 2011-06-24 13:52+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -576,10 +576,10 @@ msgid "The backed up query was:"
 msgstr "Záložní dotaz byl:"
 
 #: db_routines.php:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Pole %s byla odstraněno"
+msgstr "Byla změněna zutina %1$s."
 
 #: db_routines.php:327
 #, fuzzy, php-format
