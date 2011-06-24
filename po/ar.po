@@ -2154,7 +2154,7 @@ msgstr "قفز لقاعدة البيانات"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "غير مستنسخة"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
