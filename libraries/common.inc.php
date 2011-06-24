@@ -785,10 +785,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (function_exists('mb_convert_encoding')
      && $lang == 'ja') {
         require_once './libraries/kanji-encoding.lib.php';
-        /**
-         * enable multibyte string support
-         */
-        define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
 
     /**
