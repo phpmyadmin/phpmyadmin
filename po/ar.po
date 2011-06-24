@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 03:10+0200\n"
+"PO-Revision-Date: 2011-06-24 03:11+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1777,7 +1777,7 @@ msgstr "المجلد المؤقت مفقود."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "فشلت عملية كتابة الملف على القرص"
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
