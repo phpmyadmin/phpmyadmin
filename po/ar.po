@@ -1268,7 +1268,7 @@ msgstr "ألغاء"
 
 #: js/messages.php:94
 msgid "Loading"
-msgstr ""
+msgstr "تحميل"
 
 #: js/messages.php:95
 #, fuzzy
