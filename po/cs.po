@@ -5323,7 +5323,7 @@ msgstr "Transformace při prohlížení"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
