@@ -1310,10 +1310,9 @@ msgid "Copying Database"
 msgstr "نسخ قاعدة البيانات "
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "مجموعة المحارف"
+msgstr "تغيير مجموعة المحارف"
 
 #: js/messages.php:106
 #, fuzzy
