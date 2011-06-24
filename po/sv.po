@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:43+0200\n"
+"PO-Revision-Date: 2011-06-25 00:44+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1317,6 +1317,7 @@ msgstr "Raderar"
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"Definitionen av en sparad funktion måste innehålla en RETURN-programsats!"
 
 #: js/messages.php:123
 #, fuzzy
