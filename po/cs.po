@@ -562,10 +562,10 @@ msgid "Export of routine %s"
 msgstr "Export rutiny %s"
 
 #: db_routines.php:288 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Chybný index serveru: „%s“"
+msgstr "Chybný typ rutiny: „%s“"
 
 #: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
