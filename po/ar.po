@@ -1325,10 +1325,9 @@ msgid "Create Table"
 msgstr "أنشئ الجدول"
 
 #: js/messages.php:112
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "استخدم الجدول"
+msgstr "إدخال الجدول"
 
 #: js/messages.php:115
 #, fuzzy
