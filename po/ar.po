@@ -1340,10 +1340,9 @@ msgid "Hide search results"
 msgstr "إخفاء نتائج البحث"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "SQL query"
 msgid "Show search results"
-msgstr "استعلام-SQL"
+msgstr "إظهار نتائج البحث"
 
 #: js/messages.php:118
 #, fuzzy
