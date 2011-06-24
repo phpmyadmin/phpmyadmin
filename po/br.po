@@ -923,7 +923,7 @@ msgstr "+ Adkregiñ gant an ensoc'hañ hag ouzhpennañ un talvoud nevez"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Disoc'h"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
