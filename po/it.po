@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-05-25 22:43+0200\n"
+"PO-Revision-Date: 2011-06-23 11:55+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1143,10 +1143,9 @@ msgstr "La password non coincide!"
 
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Qualsiasi utente"
+msgstr "Aggiungi utente"
 
 #: js/messages.php:57
 msgid "Reloading Privileges"
@@ -1201,7 +1200,7 @@ msgstr "Totale"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:602
 msgid "Other"
-msgstr ""
+msgstr "Altre"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1374
@@ -1926,7 +1925,7 @@ msgstr "Percorso per il tema non trovato %s!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -2131,10 +2130,9 @@ msgid "Check Privileges"
 msgstr "Controlla i privilegi"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Impossibile salvare la configurazione"
+msgstr "Lettura del file di configurazione fallita"
 
 #: libraries/common.inc.php:588
 msgid ""

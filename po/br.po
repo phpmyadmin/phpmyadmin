@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-22 20:52+0200\n"
+"PO-Revision-Date: 2011-06-24 11:46+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -512,13 +512,13 @@ msgstr "Sevenet eo bet ho reked SQL ervat"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
+msgstr[1] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
 
 #: db_routines.php:165
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "Disoc'hoù seveniñ an argerzh %s"
 
 #: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -543,54 +543,54 @@ msgstr "Fazi en ur seveniñ ar reked"
 
 #: db_routines.php:209 db_routines.php:241 db_routines.php:269
 #: db_routines.php:408
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
+msgstr "N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Seveniñ an argerzh"
 
 #: db_routines.php:259 db_routines.php:263
 #, php-format
 msgid "Export of routine %s"
-msgstr ""
+msgstr "Ezporzhiañ an argerzh %s"
 
 #: db_routines.php:288 libraries/db_routines.lib.php:960
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "Seurt argerzh faziek : \"%s\""
 
 #: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
 
 #: db_routines.php:310
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Setu amañ ar reked a oa bet miret :"
 
 #: db_routines.php:314
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr ""
+msgstr "Kemmet eo bet an argerzh %1s."
 
 #: db_routines.php:327
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr ""
+msgstr "Krouet eo bet an argerzh %1s."
 
 #: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
 
 #: db_routines.php:379
 msgid "Create routine"
-msgstr ""
+msgstr "Krouiñ un argerzh"
 
 #: db_routines.php:383
 msgid "Edit routine"
-msgstr ""
+msgstr "Kemmañ un argerzh"
 
 #: db_routines.php:434
 msgid ""
@@ -598,6 +598,10 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Emaoc'h oc'h implijout an astenn PHP 'mysql' a zo dispredet. N'hall ket "
+"merañ ar rekedoù lies. <b>Gallout a ra ar seveniñ argerzhioù stoket zo "
+"c'hwitañ !</b> Grit gant an astenn 'mysqli' gwellaet, kuit da gaout "
+"kudennoù."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -670,7 +674,7 @@ msgstr "Klask en diaz roadennoù"
 
 #: db_search.php:300
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
+msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
@@ -682,7 +686,7 @@ msgstr "Dispartiet e vez ar gerioù gant un esaouenn (\" \")."
 
 #: db_search.php:323
 msgid "Inside tables:"
-msgstr ""
+msgstr "E diabarzh an taolennoù"
 
 #: db_search.php:353
 msgid "Inside column:"
@@ -766,7 +770,7 @@ msgstr "Diaskañ pep tra"
 
 #: db_structure.php:488
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "Askañ an taolennoù gant dilerc'hioù"
 
 #: db_structure.php:496 libraries/common.lib.php:2962
 #: libraries/common.lib.php:2963 libraries/config/messages.inc.php:164
@@ -802,35 +806,35 @@ msgstr "Gwiriañ an daolenn"
 #: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:845
 #: tbl_structure.php:847
 msgid "Optimize table"
-msgstr ""
+msgstr "Lakaat an daolenn diouzh ar gwellañ"
 
 #: db_structure.php:510 tbl_operations.php:640
 msgid "Repair table"
-msgstr ""
+msgstr "Dresañ an daolenn"
 
 #: db_structure.php:512 tbl_operations.php:627
 msgid "Analyze table"
-msgstr ""
+msgstr "Dielfennañ an daolenn"
 
 #: db_structure.php:514
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Ouzhpennañ ur rakger d'an daolenn"
 
 #: db_structure.php:516 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
-msgstr ""
+msgstr "Erlec'hiañ rakger an daolenn"
 
 #: db_structure.php:518 libraries/mult_submits.inc.php:251
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "Eilañ an daolenn enni ur rakger"
 
 #: db_structure.php:560 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
-msgstr ""
+msgstr "Geriadur roadennoù"
 
 #: db_tracking.php:79
 msgid "Tracked tables"
-msgstr ""
+msgstr "Taolennoù heuliet-pizh"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:491
 #: libraries/export/htmlword.php:90 libraries/export/latex.php:163
@@ -843,24 +847,24 @@ msgstr ""
 #: server_synchronize.php:1190 server_synchronize.php:1194
 #: tbl_tracking.php:642
 msgid "Database"
-msgstr ""
+msgstr "Diaz roadennoù"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Stumm diwezhañ"
 
 #: db_tracking.php:87 tbl_tracking.php:645
 msgid "Created"
-msgstr ""
+msgstr "Krouet"
 
 #: db_tracking.php:88 tbl_tracking.php:646
 msgid "Updated"
-msgstr ""
+msgstr "Hizivaet"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
 #: sql.php:935 tbl_tracking.php:647
 msgid "Status"
-msgstr ""
+msgstr "Statud"
 
 #: db_tracking.php:90 libraries/Index.class.php:442
 #: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1215
@@ -868,53 +872,53 @@ msgstr ""
 #: server_databases.php:191 server_privileges.php:1612
 #: server_privileges.php:1805 server_privileges.php:2154 tbl_structure.php:214
 msgid "Action"
-msgstr ""
+msgstr "Oberiadenn"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
 
 #: db_tracking.php:119 tbl_tracking.php:599 tbl_tracking.php:657
 msgid "active"
-msgstr ""
+msgstr "oberiant"
 
 #: db_tracking.php:121 tbl_tracking.php:601 tbl_tracking.php:659
 msgid "not active"
-msgstr ""
+msgstr "dizoberiant"
 
 #: db_tracking.php:134
 msgid "Versions"
-msgstr ""
+msgstr "Stummoù"
 
 #: db_tracking.php:135 tbl_tracking.php:409 tbl_tracking.php:676
 msgid "Tracking report"
-msgstr ""
+msgstr "Danevell heuliañ"
 
 #: db_tracking.php:136 tbl_tracking.php:244 tbl_tracking.php:676
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Gwel prim eus ar framm"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
-msgstr ""
+msgstr "Taolennoù n'int ket heuliet"
 
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:664
 #: tbl_structure.php:666
 msgid "Track table"
-msgstr ""
+msgstr "Heuliañ an daolenn"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr ""
+msgstr "Marilh an diaz roadennoù"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:773
 #, php-format
 msgid "Values for the column \"%s\""
-msgstr ""
+msgstr "Talvoudoù evit ar bann \"%s\""
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:774
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "Merkañ pep talvoud en ur vaezienn a-ziforc'h."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"

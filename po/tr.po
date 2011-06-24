@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-21 21:37+0200\n"
+"PO-Revision-Date: 2011-06-23 19:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -507,7 +507,7 @@ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi"
 
 #: db_routines.php:165
 #, php-format
@@ -522,9 +522,8 @@ msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
 #: db_routines.php:190 db_routines.php:295 db_routines.php:300
 #: db_routines.php:324
 #, fuzzy, php-format
-#| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Aşağıdaki sorgular çalıştırıldı:"
+msgstr "Sorgu \"%s\" başarısız oldu"
 
 #: db_routines.php:191 db_routines.php:296 db_routines.php:301
 #: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
@@ -545,7 +544,7 @@ msgstr "%s veritabanında %s adıyla yordam bulunamadı"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
-msgstr ""
+msgstr "Yordamı çalıştır"
 
 #: db_routines.php:259 db_routines.php:263
 #, php-format
@@ -666,10 +665,9 @@ msgid "Search in database"
 msgstr "Veritabanında ara"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Aranacak kelime(ler) veya değer(ler) (joker: \"%\"):"
+msgstr "Aranacak kelimeler veya değerler (joker: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
@@ -680,10 +678,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tablo içindeki(ler):"
+msgstr "Tablo içindekiler:"
 
 #: db_search.php:353
 msgid "Inside column:"
@@ -1307,7 +1304,7 @@ msgstr "Siliniyor"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 
 #: js/messages.php:123
 msgid "Value too long in the form!"
@@ -2087,16 +2084,17 @@ msgid "Check Privileges"
 msgstr "Yetkileri kontrol et"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Yapılandırma kaydedilemedi"
+msgstr "Yapılandırma dosyasını okuma başarısız"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
+"gösterilen her hatayı kontrol edin."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2340,7 +2338,7 @@ msgstr "Göndermek için dosyalar yok"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Çalıştır"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -4752,19 +4750,19 @@ msgstr "Adı"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Olay zamanlayıcısı etkin"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Olay zamanlayıcısı etkisiz"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Aç"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Kapat"
 
 #: libraries/db_events.inc.php:141
 msgid "Add a new Event"
@@ -4868,7 +4866,7 @@ msgstr "Dönüş seçenekleri"
 
 #: libraries/db_routines.lib.php:745
 msgid "Definition"
-msgstr "Açıklama"
+msgstr "Tanım"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
@@ -4915,14 +4913,16 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"ENUM, SET, VARCHAR ve VARBINARY türünün yordam parametreleri için "
+"uzunluk/değerler sağlamalısınız."
 
 #: libraries/db_routines.lib.php:1020
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Her yordam parametresi için bir ad ve bir tür sağlamalısınız."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Bir yordam tanımı sağlamalısınız."
 
 #: libraries/db_routines.lib.php:1209
 msgid "There are no routines to display."
@@ -5335,15 +5335,15 @@ msgstr "Tarayıcı dönüşümü"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "Çok İyi Bilinen Metin"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Çok İyi Bilinen Binari"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
@@ -5389,7 +5389,7 @@ msgstr "Çizelge göster"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS verisini görselleştir"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
@@ -6191,10 +6191,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Yeni phpMyAdmin penceresi aç"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Çizelge için bulunan veri yok."
+msgstr "GIS görselleştirmesi için bulunan veri yok."
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -8628,10 +8627,9 @@ msgid "All status variables"
 msgstr "Tüm durum değişkenleri"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Oranı yenile"
+msgstr "Yenileme oranı:"
 
 #: server_status.php:462
 msgid "Containing the word:"
@@ -9525,7 +9523,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Ayar değişkeni başarısız oldu"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
@@ -10027,10 +10025,9 @@ msgid "View dump (schema) of table"
 msgstr "Tablonun dökümünü (şemasını) göster"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Sunucu seçimlerini görüntüle"
+msgstr "GIS görselleştirmesini görüntüle"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -10054,7 +10051,7 @@ msgstr "Uzamsal sütun"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
@@ -10312,7 +10309,7 @@ msgstr "Görünüm düzeni:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "Uzaysal"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
@@ -10331,10 +10328,9 @@ msgid "Add unique index"
 msgstr "Benzersiz indeks ekle"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "İndeks ekle"
+msgstr "UZAYSAL indeks ekle"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"

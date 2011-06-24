@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-22 12:41+0200\n"
+"PO-Revision-Date: 2011-06-23 12:13+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4846,21 +4846,20 @@ msgstr "定義"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
-msgstr ""
+msgstr "DETERMINISTIC"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "DEFINER"
 
 #: libraries/db_routines.lib.php:758
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "セキュリティ"
+msgstr "SQL SECURITY"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "データ干渉方式"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 msgid "Routine parameters"
@@ -5247,7 +5246,7 @@ msgstr "クリックでソート"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "クリックでカラムを反転/解除"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
@@ -5310,15 +5309,15 @@ msgstr "ブラウザ変換機能"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "空間データ"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "テキスト形式"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "バイナリ形式"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
@@ -5364,7 +5363,7 @@ msgstr "グラフで表示する"
 
 #: libraries/display_tbl.lib.php:2548
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "空間情報のデータを視覚化する"
 
 #: libraries/display_tbl.lib.php:2568
 msgid "Create view"
@@ -6148,10 +6147,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "別ウィンドウで開く"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "グラフ用のデータが見つかりません。"
+msgstr "視覚化できる空間情報がありません。"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -9950,10 +9948,9 @@ msgid "View dump (schema) of table"
 msgstr "テーブルのダンプ(スキーマ)表示"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "サーバ選択を表示する"
+msgstr "視覚化した空間情報"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -9964,42 +9961,37 @@ msgid "Height"
 msgstr "高さ"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "textarea の 1 行の文字数"
+msgstr "ラベルカラム"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- 無し -"
+msgstr "-- なし --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
-msgstr "ログファイル数"
+msgstr "空間情報カラム"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "ベースレイヤーに OpenStreetMap を使用する"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
 msgstr "再描画"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "ファイルに保存する"
+msgstr "ファイルに保存"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "テーブル名"
+msgstr "ファイル名"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
