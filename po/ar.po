@@ -2492,7 +2492,7 @@ msgstr "إدخال ممدد"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
-msgstr ""
+msgstr "كلاهما"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
