@@ -1765,7 +1765,7 @@ msgstr "حجم الملف المرفوع يتجاوز حجم الملف المس
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "حجم الملف المرفوع يتجاوز حجم الملف المحدد به في فورم HTML"
+msgstr "حجم الملف المرفوع يتجاوز حجم الملف المحدد به في نموذج HTML"
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
