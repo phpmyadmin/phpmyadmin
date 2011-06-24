@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:50+0200\n"
+"PO-Revision-Date: 2011-06-25 00:51+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4726,10 +4726,9 @@ msgid "Events"
 msgstr "Händelser"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Det finns inga filer att ladda upp"
+msgstr "Det finns inga händelser att visa."
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:690
 #: libraries/db_routines.lib.php:846 libraries/db_routines.lib.php:1214
