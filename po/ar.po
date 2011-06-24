@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 03:24+0200\n"
+"PO-Revision-Date: 2011-06-24 03:25+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1906,7 +1906,7 @@ msgstr "لايوجد معلومات تفصيلية لحالة محرك التخ�
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s  متوفر في خادم MySQL هذا."
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
