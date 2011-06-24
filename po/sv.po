@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:19+0200\n"
+"PO-Revision-Date: 2011-06-25 00:20+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -535,10 +535,9 @@ msgstr "MySQL sa: "
 
 #: db_routines.php:208 db_routines.php:240 db_routines.php:268
 #: db_routines.php:407
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Fel i processbegäran"
+msgstr "Fel i utförandebegäran"
 
 #: db_routines.php:209 db_routines.php:241 db_routines.php:269
 #: db_routines.php:408
