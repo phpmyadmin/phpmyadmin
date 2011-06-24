@@ -2097,7 +2097,6 @@ msgid "Check Privileges"
 msgstr "Zkontrolovat oprávnění"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Failed to to read configuration file"
 msgid "Failed to read configuration file"
 msgstr "Nepodařilo se načíst konfigurační soubor"
