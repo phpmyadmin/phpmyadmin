@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 13:50+0200\n"
+"PO-Revision-Date: 2011-06-24 13:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -546,10 +546,10 @@ msgstr "Chyba při zpracování požadavku"
 
 #: db_routines.php:209 db_routines.php:241 db_routines.php:269
 #: db_routines.php:408
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "V databázi nebyly nalezeny žádné tabulky"
+msgstr "V databázi  %2$s není žádná rutina se jménem %1$s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
