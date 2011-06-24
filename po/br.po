@@ -1199,7 +1199,7 @@ msgstr "Kio treuzkaset abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Kio resevet abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:80
 msgid "Server traffic (in KiB)"
