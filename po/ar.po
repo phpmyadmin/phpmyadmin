@@ -2214,7 +2214,7 @@ msgstr "اسلوب مصادقة غير صحيح في الإعدادات:"
 #: libraries/common.inc.php:932
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "عليك التحديث إلى %s %s أو لاحقا."
+msgstr "عليك الترقية إلى %s%s أو لاحقا."
 
 #: libraries/common.lib.php:134
 #, php-format
