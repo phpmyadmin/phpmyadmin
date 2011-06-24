@@ -2425,7 +2425,7 @@ msgstr "تنفيذ"
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
 msgid "Both"
-msgstr ""
+msgstr "كلا"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
