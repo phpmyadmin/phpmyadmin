@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-04-16 22:04+0200\n"
@@ -9294,8 +9294,10 @@ msgid "Width"
 msgstr ""
 
 #: tbl_chart.php:94
+#, fuzzy
+#| msgid "Right"
 msgid "Height"
-msgstr ""
+msgstr "Kanan"
 
 #: tbl_chart.php:98
 msgid "Title"

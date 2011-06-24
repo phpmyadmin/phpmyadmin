@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-03-22 12:51+0200\n"
@@ -4520,7 +4520,7 @@ msgstr ""
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "Файлът се качва, бъдете търпеливи. Не са налични повече подробности."
 
 #: libraries/display_import.lib.php:129
 msgid "Importing into the current server"
