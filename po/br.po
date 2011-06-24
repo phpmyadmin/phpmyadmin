@@ -1104,7 +1104,7 @@ msgstr "Furmskrid diglok !"
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr "N'eo ket un niver !"
+msgstr "N'eo ket hemañ un niver !"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
