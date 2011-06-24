@@ -1152,7 +1152,7 @@ msgstr "Serriñ"
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
-msgstr ""
+msgstr "Kemmañ"
 
 #: js/messages.php:64 server_status.php:420
 msgid "Live traffic chart"
