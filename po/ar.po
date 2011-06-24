@@ -1374,10 +1374,9 @@ msgid "Hide query box"
 msgstr "إخفاء صندوق الإستعلام"
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "SQL query"
 msgid "Show query box"
-msgstr "استعلام-SQL"
+msgstr "إظهار صندوق الإستعلام"
 
 #: js/messages.php:131
 msgid "Inline Edit"
