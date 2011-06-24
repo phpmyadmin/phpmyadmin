@@ -1215,7 +1215,7 @@ msgstr "Argerzhioù"
 
 #: js/messages.php:83
 msgid "Connections / Processes"
-msgstr ""
+msgstr "Kevreadennoù/Argerzhioù"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
