@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:18+0200\n"
+"PO-Revision-Date: 2011-06-25 00:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -523,10 +523,10 @@ msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
 #: db_routines.php:190 db_routines.php:295 db_routines.php:300
 #: db_routines.php:324
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Följande frågor har verkställts:"
+msgstr "Följande fråga har fallerat:  \"%s\""
 
 #: db_routines.php:191 db_routines.php:296 db_routines.php:301
 #: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
