@@ -1890,10 +1890,9 @@ msgid "Could not save recent table"
 msgstr "لايستطيع حفظ الجدول الأخير"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Recent tables"
-msgstr "اختر الجداول"
+msgstr "الجداول الأخيرة"
 
 #: libraries/RecentTable.class.php:155
 msgid "There are no recent tables"
