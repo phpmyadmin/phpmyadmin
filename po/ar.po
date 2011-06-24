@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 04:26+0200\n"
+"PO-Revision-Date: 2011-06-24 04:27+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2483,7 +2483,7 @@ msgstr "مخصص - مثل مافي الأعلى , لكن بدون الخيار �
 #: libraries/config.values.php:120
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "إستكمال الإدخال"
+msgstr "إدخال كامل"
 
 #: libraries/config.values.php:121
 #, fuzzy
