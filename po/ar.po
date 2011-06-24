@@ -1072,7 +1072,7 @@ msgstr "phpMyAdmin أكثر تفهما مع مستعرض <b>الإطارات</b>
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr "اضغط للاختيار"
+msgstr "إضغط للإختيار"
 
 #: js/messages.php:26
 msgid "Click to unselect"
