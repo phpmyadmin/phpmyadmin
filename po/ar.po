@@ -2041,7 +2041,8 @@ msgstr "يجب تفعيل دعم الكوكيز في هذه المرحلة."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"تم منع الدخول بدون كلمة مرور ممنوعفي الإعدادات  , إنظر (AllowNoPassword)"
+"تم منع الدخول بدون كلمة مرور ممنوع في الإعدادات , إنظر قيمة "
+"(AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:647
 #: libraries/auth/signon.auth.lib.php:238
