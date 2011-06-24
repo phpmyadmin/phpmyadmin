@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 03:34+0200\n"
+"PO-Revision-Date: 2011-06-24 03:35+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2014,7 +2014,7 @@ msgstr "مستندات وثائقية لـ phpMyAdmin (بالإنجليزية)"
 #: libraries/auth/cookie.auth.lib.php:243
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "يمكن أن تدخل عنوان المضيف والمنفذ مفصولان بالمسافة."
 
 #: libraries/auth/cookie.auth.lib.php:243
 msgid "Server:"
