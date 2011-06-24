@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 02:24+0200\n"
+"PO-Revision-Date: 2011-06-24 02:25+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1088,7 +1088,7 @@ msgstr "هل تريد حقا"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:297
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "أنت على وشك إزالة قاعدة البيانات كلها!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
