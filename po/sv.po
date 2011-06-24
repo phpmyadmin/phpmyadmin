@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:23+0200\n"
+"PO-Revision-Date: 2011-06-25 00:25+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -557,10 +557,10 @@ msgid "Export of routine %s"
 msgstr "Exportera rutin %s"
 
 #: db_routines.php:288 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Ogiltigt serverindex: %s"
+msgstr "Ogiltig rutintyp: \"%s\""
 
 #: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
