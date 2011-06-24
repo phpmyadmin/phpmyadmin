@@ -1156,7 +1156,7 @@ msgstr "Kemmañ"
 
 #: js/messages.php:64 server_status.php:420
 msgid "Live traffic chart"
-msgstr ""
+msgstr "Grafik an tremenerezh evel m'emañ diouzhtu"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
