@@ -1125,7 +1125,7 @@ msgstr "Goullo eo ar ger-tremen !"
 
 #: js/messages.php:55 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "Ne glot ket ar gerioù-tremen !"
 
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
