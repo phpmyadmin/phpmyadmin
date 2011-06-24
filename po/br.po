@@ -1369,7 +1369,7 @@ msgstr "Diskouez an dezverkoù enklask"
 #: js/messages.php:143 tbl_change.php:304 tbl_indexes.php:203
 #: tbl_indexes.php:230
 msgid "Ignore"
-msgstr ""
+msgstr "Na ober van"
 
 #: js/messages.php:146
 msgid "Select referenced key"
