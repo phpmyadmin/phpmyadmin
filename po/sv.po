@@ -4924,7 +4924,7 @@ msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Du måste ange en rutindefinition."
 
 #: libraries/db_routines.lib.php:1209
 #, fuzzy
