@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:27+0200\n"
+"PO-Revision-Date: 2011-06-25 00:28+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -568,7 +568,7 @@ msgstr "Tyvärr, vi lyckades inte återställa den slängda rutinen."
 
 #: db_routines.php:310
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Den säkerhetskopierade frågan var:"
 
 #: db_routines.php:314
 #, fuzzy, php-format
