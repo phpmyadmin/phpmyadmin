@@ -1250,7 +1250,7 @@ msgstr "Fazi en ur blediñ gant ar reked"
 
 #: js/messages.php:97
 msgid "Dropping Column"
-msgstr ""
+msgstr "Diverkañ ar bann"
 
 #: js/messages.php:98
 msgid "Adding Primary Key"
