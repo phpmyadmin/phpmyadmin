@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 18:47+0200\n"
+"PO-Revision-Date: 2011-06-24 18:48+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1316,7 +1316,7 @@ msgstr "Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket
 
 #: js/messages.php:123
 msgid "Value too long in the form!"
-msgstr ""
+msgstr "Talvoud re hir er furmskrid !"
 
 #: js/messages.php:126
 msgid ""
