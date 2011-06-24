@@ -1065,7 +1065,7 @@ msgstr "Ha sur oc'h e fell deoc'h "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:297
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Emaoc'h war-nes DISTRUJ un diaz roadennoù klok !"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
