@@ -1164,7 +1164,7 @@ msgstr "Grafik ar c'hevreadennoù hag argerzhioù evel m'emaint diouzhtu"
 
 #: js/messages.php:66 server_status.php:445
 msgid "Live query chart"
-msgstr ""
+msgstr "Grafik ar rekedoù evel m'emaint diouzhtu"
 
 #: js/messages.php:68
 msgid "Static data"
