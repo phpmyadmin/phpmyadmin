@@ -5418,10 +5418,9 @@ msgid "No trigger with name %s found"
 msgstr "Ingen trigger med namn %s hittad"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Det finns inga filer att ladda upp"
+msgstr "Det finns inga triggers att visa"
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
