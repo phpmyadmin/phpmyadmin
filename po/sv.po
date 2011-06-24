@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:30+0200\n"
+"PO-Revision-Date: 2011-06-25 00:31+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -585,6 +585,7 @@ msgstr "Rutinen %1$s har skapats."
 #: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
+"<b> Ett eller flera fel har inträffat under hanteringen av din begäran: </b>"
 
 #: db_routines.php:379
 #, fuzzy
