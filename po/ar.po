@@ -2253,7 +2253,7 @@ msgstr "مستندات وثائقية"
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
 #: server_status.php:260 server_status.php:803
 msgid "SQL query"
-msgstr "استعلام-SQL"
+msgstr "استعلام SQL"
 
 #: libraries/common.lib.php:1078
 msgid "Failed to connect to SQL validator!"
