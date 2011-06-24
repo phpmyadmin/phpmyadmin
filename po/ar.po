@@ -1974,7 +1974,7 @@ msgstr "مظهر"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "لايمكن الإتصال: إعدادات غير صحيحة."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:204 libraries/auth/http.auth.lib.php:64
