@@ -1143,7 +1143,7 @@ msgstr "O lemel kuit an implijerien diuzet"
 #: js/messages.php:59 libraries/tbl_properties.inc.php:772
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
-msgstr ""
+msgstr "Serriñ"
 
 #: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
 #: libraries/common.lib.php:594 libraries/common.lib.php:1144
