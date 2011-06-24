@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 11:46+0200\n"
+"PO-Revision-Date: 2011-06-24 12:54+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -922,40 +922,42 @@ msgstr "Merkañ pep talvoud en ur vaezienn a-ziforc'h."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Adkregiñ gant an ensoc'hañ hag ouzhpennañ un talvoud nevez"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Disoc'h"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Eilañ an talvoudoù ha pegañ anezho er vaezienn \"Ment/Talvoudoù\""
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Ret eo enrollañ an diuzadenn ezporzhiañ en ur restr !"
 
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "N'eus ket egor a-walc'h evit gallout enrollañ ar restr %s."
 
 #: export.php:307
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Emañ ar restr %s war ar servijer dija; cheñch an anv pe klikañ war al log "
+"frikañ ar restroù zo dija."
 
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "N'eo ket aotreet ar servijer web da enrollañ ar restr %s."
 
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "Enrollet eo bet ar restr ezporzhiañ e%s."
 
 #: import.php:58
 #, php-format
@@ -963,11 +965,13 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an %"
+"steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
 msgid "File could not be read"
-msgstr ""
+msgstr "N'haller ket lenn ar restr"
 
 #: import.php:286 import.php:295 import.php:314 import.php:323
 #: libraries/File.class.php:681 libraries/File.class.php:689
@@ -977,6 +981,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Klasket hoc'h eus enporzhiañ ur restr n'eo ket skoret ar mod m'eo bet "
+"gwasket (%s). Pe n'eo ket emplementet ar mod gwaskañ-se en ho kefluniadur, "
+"pe eo bet diweredekaet."
 
 #: import.php:336
 msgid ""
@@ -984,45 +991,54 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
+"N'eus bet resevet roadenn ebet da vezañ enporzhiet. Pe n'eus bet pourchaset "
+"anv restr ebet pe ez a ar vent anezhi dreist d'ar vent vrasañ aotreet gant "
+"ho kefluniadur PHP. Gwelet [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]."
 
 #: import.php:371 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "Dibosupl enporzhiañ an adveziantoù. Gwiriit ho staliadur !"
 
 #: import.php:396
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "Diverket eo bet ar sined."
 
 #: import.php:400
 msgid "Showing bookmark"
-msgstr ""
+msgstr "O tiskouez ar sined"
 
 #: import.php:402 sql.php:970
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Krouet eo bet ar sined %s"
 
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Enporzhiet eo bet an traoù ervat, %d reked zo bet kaset da benn."
 
 #: import.php:423
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Aet eur dreist d'ar vevenn amzer. Mar fell deoc'h kenderc'hel gant an "
+"enporzhiañ, adkasit ar restr hag e kendalc'ho an argerzh."
 
 #: import.php:425
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Koulskoude n'eus ket bet dielfennet roadenn ebet er gasadenn ziwezhañ. "
+"Peurliesañ e talvez n'hallo ket PhpMyAdmin echuiñ da enporzhiañ an traoù ma "
+"ne vez ket kresket ganeoc'h bevenn amzer PHP."
 
 #: import_status.php:30 libraries/common.lib.php:650
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:123
 msgid "Back"
-msgstr ""
+msgstr "Distreiñ"
 
 #: index.php:183
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
