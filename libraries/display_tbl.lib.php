@@ -395,6 +395,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     ?>
     <td>
         <input class="restore_column hide" type="submit" value="<?php echo __('Restore column order'); ?>" />
+        <input class="show_all_column hide" type="submit" value="<?php echo __('Show all columns'); ?>" />
         <?php
         if (PMA_isSelect()) {
             // generate the column order, if it is set
@@ -402,6 +403,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
             if ($col_order) {
                 echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+            }
+            $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+            if ($col_visib) {
+                echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
             }
             // generate table create time
             echo '<input id="table_create_time" type="hidden" value="' .
@@ -791,8 +796,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         // prepare to get the column order, if available
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
     } else {
         $col_order = false;
+        $col_visib = false;
     }
 
     for ($j = 0; $j < $fields_cnt; $j++) {
@@ -933,6 +940,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<th';
                 $th_class = array();
                 $th_class[] = 'draggable';
+                if ($col_visib && !$col_visib[$j]) {
+                    $th_class[] = 'hide';
+                }
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -951,7 +961,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '>' . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . 'class="draggable' . ($condition_field ? ' condition' : '') . '">' . "\n"
+                . 'class="draggable'
+                . ($condition_field ? ' condition' : '')
+                . '">' . "\n"
                 . $order_link . $comments . '    </th>' . "\n";
         } // end if (2.1)
 
@@ -962,6 +974,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<th';
                 $th_class = array();
                 $th_class[] = 'draggable';
+                if ($col_visib && !$col_visib[$j]) {
+                    $th_class[] = 'hide';
+                }
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -983,7 +998,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo "\n" . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . 'class="draggable' . ($condition_field ? ' condition"' : '') . '">' . "\n"
+                . 'class="draggable'
+                . ($condition_field ? ' condition"' : '')
+                . '">' . "\n"
                 . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                 . $comments . '    </th>';
         } // end else (2.2)
@@ -1197,8 +1214,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     if (PMA_isSelect()) {
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
     } else {
         $col_order = false;
+        $col_visib = false;
     }
 
     // Correction University of Virginia 19991216 in the while below
@@ -1369,11 +1388,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $meta    = $fields_meta[$i];
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
+            $hide_class = ($col_visib && !$col_visib[$j] &&
+                           // hide per <td> only if the display direction is not vertical
+                           $_SESSION['tmp_user_values']['disp_direction'] != 'vertical') ? 'hide' : '';
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class . ' ' . $hide_class;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1794,8 +1816,10 @@ function PMA_displayVerticalTable()
         // prepare to get the column order, if available
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
     } else {
         $col_order = false;
+        $col_visib = false;
     }
 
     // Displays data
@@ -1803,7 +1827,7 @@ function PMA_displayVerticalTable()
         // assign appropriate key with current column order
         $key = $col_order ? $col_order[$j] : $j;
 
-        echo '<tr>' . "\n";
+        echo '<tr' . (($col_visib && !$col_visib[$j]) ? ' class="hide"' : '') . '>' . "\n";
         echo $val;
 
         $foo_counter = 0;

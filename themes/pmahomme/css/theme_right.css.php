@@ -65,7 +65,7 @@ h2 a img{display:inline;}
 
 .data{
 margin: 0 0 12px 0;
-
+position: relative;
 }
 
 h3 {
@@ -2422,12 +2422,16 @@ span.mysql-number {
 }
 
 .colborder {
-    border-left: 1px solid #FFF;
+    border-right: 1px solid #FFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -1px;
+    margin-left: -6px;
     position: absolute;
     width: 5px;
+}
+
+.pma_table td {
+    position: static;
 }
 
 .pma_table th.draggable span, .pma_table tbody td span {
@@ -2483,9 +2487,67 @@ span.mysql-number {
     margin-top: -1em;
     opacity: 0.8;
     padding: 0.5em 1em;
-    position: absolute;
+    position: fixed;
     text-shadow: -1px -1px #000;
     -moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
     border-radius: 0.3em;
+}
+
+.cHide {
+    background: #EEE url(./themes/pmahomme/img/col_hide.png);
+    color: #CCC;
+    cursor: pointer;
+    height: 16px;
+    margin-left: -10px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.cHide:hover {
+    background-color: #AAA;
+}
+
+.cDrop {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.coldrop {
+    background: url(./themes/pmahomme/img/col_drop.png);
+    cursor: pointer;
+    height: 16px;
+    margin-left: 3px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.coldrop:hover {
+    background-color: #AAA;
+}
+
+.cList {
+    background: #FFF;
+    position: absolute;
+}
+
+.cList table {
+    background: #EEE;
+    border: solid 1px #CCC;
+}
+
+.cList table td {
+    border-right: solid 1px #CCC;
+}
+
+.cList table tr:hover {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.cList table td input {
+    cursor: pointer;
 }
