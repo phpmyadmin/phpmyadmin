@@ -2528,7 +2528,7 @@ msgstr "القيمة يجب أن تساوي أو أقل من %s"
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "بيانات مفقودة لـ %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
