@@ -2437,7 +2437,7 @@ msgstr "يسار"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "يمين"
 
 #: libraries/config.values.php:75
 msgid "Open"
