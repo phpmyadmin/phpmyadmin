@@ -1168,7 +1168,7 @@ msgstr "Grafik ar rekedoù evel m'emaint diouzhtu"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Roadennoù stadegel"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
