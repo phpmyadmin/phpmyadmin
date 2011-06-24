@@ -1320,7 +1320,6 @@ msgid "Table must have at least one column"
 msgstr "عليك اختيار عمود واحد على الأقل للعرض"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Create table"
 msgid "Create Table"
 msgstr "أنشئ الجدول"
