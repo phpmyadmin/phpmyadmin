@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 12:47+0200\n"
+"PO-Revision-Date: 2011-06-24 12:50+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1013,7 +1013,7 @@ msgstr "Krouet eo bet ar sined %s"
 #: import.php:408 import.php:414
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Enporzhiet eo bet an traoù ervat, %d reked zo bet kaset da benn."
 
 #: import.php:423
 msgid ""
