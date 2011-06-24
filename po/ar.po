@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 04:10+0200\n"
+"PO-Revision-Date: 2011-06-24 04:11+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2177,7 +2177,7 @@ msgstr "فشل قراءة ملف الإعدادات"
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown bellow."
-msgstr ""
+msgstr "يبدو أن هناك خطأ في بناء الجملة."
 
 #: libraries/common.inc.php:595
 #, php-format
