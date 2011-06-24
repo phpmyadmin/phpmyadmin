@@ -4864,10 +4864,9 @@ msgid "Return options"
 msgstr "Return alternativ"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Beskrivning"
+msgstr "Definition"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
