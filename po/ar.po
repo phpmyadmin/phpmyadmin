@@ -1906,7 +1906,7 @@ msgstr "لايوجد معلومات تفصيلية لحالة محرك التخ�
 #: libraries/StorageEngine.class.php:354
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "%s  متوفر في خادم MySQL هذا."
+msgstr "%s متوفر في خادم MySQL هذا."
 
 #: libraries/StorageEngine.class.php:357
 #, php-format
