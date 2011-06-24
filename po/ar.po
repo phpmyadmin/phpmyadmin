@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 03:58+0200\n"
+"PO-Revision-Date: 2011-06-24 03:59+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2058,7 +2058,7 @@ msgstr "لا يمكن الدخول إلى خادم MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "خطأ اسم المستخدم/كلمة السر. الدخول ممنوع."
+msgstr "خطأ اسم المستخدم/كلمة السر. الوصول ممنوع."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
