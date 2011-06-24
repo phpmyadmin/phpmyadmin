@@ -2072,7 +2072,7 @@ msgstr "الملف %s لايحتوي على أي مفتاح تعريف"
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "فشل التحقق المحسوس "
+msgstr "فشلت المصادقة المحسوسة"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
