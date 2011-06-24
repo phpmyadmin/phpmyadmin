@@ -1134,7 +1134,7 @@ msgstr "Ouzhpennañ un implijer"
 
 #: js/messages.php:57
 msgid "Reloading Privileges"
-msgstr ""
+msgstr "Oc'h adkargañ an dreistgwirioù"
 
 #: js/messages.php:58
 msgid "Removing Selected Users"
