@@ -2117,7 +2117,7 @@ msgstr "نزل الملف"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "لايمكن فتح الملف : %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
