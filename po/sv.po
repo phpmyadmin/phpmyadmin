@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 00:44+0200\n"
+"PO-Revision-Date: 2011-06-25 00:45+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1320,10 +1320,9 @@ msgstr ""
 "Definitionen av en sparad funktion måste innehålla en RETURN-programsats!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Värde saknas i formuläret!"
+msgstr "Värdet för långt i formuläret!"
 
 #: js/messages.php:126
 msgid ""
