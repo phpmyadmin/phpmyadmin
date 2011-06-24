@@ -1961,7 +1961,7 @@ msgstr "المظهر الإفتراضي %s غير موجود!"
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "المظهر %s غير موجود!"
 
 #: libraries/Theme_Manager.class.php:215
 #, php-format
