@@ -1003,7 +1003,7 @@ msgstr "Diverket eo bet ar sined."
 
 #: import.php:400
 msgid "Showing bookmark"
-msgstr ""
+msgstr "O tiskouez ar sined"
 
 #: import.php:402 sql.php:970
 #, php-format
