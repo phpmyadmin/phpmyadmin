@@ -1282,7 +1282,7 @@ msgstr "خطأ في معالجة الطلب"
 
 #: js/messages.php:97
 msgid "Dropping Column"
-msgstr ""
+msgstr "إزالة العمود"
 
 #: js/messages.php:98
 msgid "Adding Primary Key"
