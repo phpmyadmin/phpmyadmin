@@ -1280,7 +1280,7 @@ msgstr "O cheñch ar strobad arouezennoù"
 
 #: js/messages.php:106
 msgid "Table must have at least one column"
-msgstr ""
+msgstr "Ur bann a rank bezañ en daolenn, da nebeutañ"
 
 #: js/messages.php:107
 msgid "Create Table"
