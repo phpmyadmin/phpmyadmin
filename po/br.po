@@ -1219,7 +1219,7 @@ msgstr "Kevreadennoù/Argerzhioù"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Rekedoù resevet abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:85
 msgid "Issued queries"
