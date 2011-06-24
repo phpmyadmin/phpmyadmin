@@ -1481,10 +1481,9 @@ msgid ", latest stable version:"
 msgstr ", آخر إصدار مستقر:"
 
 #: js/messages.php:167
-#, fuzzy
 #| msgid "No databases"
 msgid "up to date"
-msgstr "لايوجد قواعد بيانات"
+msgstr "محدثة"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:185
