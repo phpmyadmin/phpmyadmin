@@ -1227,7 +1227,7 @@ msgstr "كيلوبايت أرسلت منذ آخر تحديث"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "كيلوبايت أستقبلت منذ آخر تحديث"
 
 #: js/messages.php:80
 #, fuzzy
