@@ -1448,10 +1448,9 @@ msgid "Add an option for column "
 msgstr "إضافة خيار للعمود"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
-msgstr "تغيير كلمة السر"
+msgstr "توليد كلمة مرور"
 
 #: js/messages.php:157 libraries/replication_gui.lib.php:365
 msgid "Generate"
