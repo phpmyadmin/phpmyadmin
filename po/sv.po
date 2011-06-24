@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 01:14+0200\n"
+"PO-Revision-Date: 2011-06-25 01:15+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10012,10 +10012,9 @@ msgid "View dump (schema) of table"
 msgstr "Visa SQL-satser för tabellen"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Visa serverval"
+msgstr "Visa GIS Visualisering"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
