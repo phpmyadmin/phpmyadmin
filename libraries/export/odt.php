@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build OpenDocument Text dumps of tables
  *
- * @package phpMyAdmin-Export-ODT
+ * @package phpMyAdmin-Export
+ * @subpackage ODT
  */
 if (! defined('PHPMYADMIN')) {
     exit;

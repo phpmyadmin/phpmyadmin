@@ -5,8 +5,8 @@
  *
  * @todo    Pretty much everything
  * @todo    Importing of accented characters seems to fail
- * @version 0.5-beta
  * @package phpMyAdmin-Import
+ * @subpackage ODS
  */
 
 if (! defined('PHPMYADMIN')) {

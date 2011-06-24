@@ -16,7 +16,7 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 }
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
-	$GLOBALS['is_header_sent'] = true;
+    $GLOBALS['is_header_sent'] = true;
 
 require_once './libraries/common.inc.php';
 
@@ -380,7 +380,7 @@ require './libraries/server_links.inc.php';
 ?>
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-url_query = '<?php echo $url_query;?>';
+url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 </script>
 <div id="serverstatus">
@@ -409,9 +409,12 @@ echo __('Runtime Information');
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
-                <select name="trafficChartRefresh" style="display:none;">
-                    <?php PMA_choose_refresh_rate(); ?>
-                </select>
+                <span class="refreshList" style="display:none;">
+                    <label for="trafficChartRefresh"><?php echo __('Refresh rate:'); ?></label>
+                    <select name="trafficChartRefresh" style="display:none;">
+                        <?php PMA_choose_refresh_rate(); ?>
+                    </select>
+                </span>
 
                 <a class="tabChart livetrafficLink" href="#">
                     <?php echo __('Live traffic chart'); ?>
@@ -432,9 +435,12 @@ echo __('Runtime Information');
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
-                <select name="queryChartRefresh" style="display:none;">
-                    <?php PMA_choose_refresh_rate(); ?>
-                </select>
+                <span class="refreshList" style="display:none;">
+                    <label for="queryChartRefresh"><?php echo __('Refresh rate:'); ?></label>
+                    <select name="queryChartRefresh" style="display:none;">
+                        <?php PMA_choose_refresh_rate(); ?>
+                    </select>
+                </span>
                 <a class="tabChart livequeriesLink" href="#">
                     <?php echo __('Live query chart'); ?>
                 </a>
@@ -603,7 +609,7 @@ function printQueryStatistics() {
 
 function printServerTraffic() {
     global $server_status,$PMA_PHP_SELF;
-    global $server_master_status, $server_slave_status;
+    global $server_master_status, $server_slave_status, $replication_types;
 
     $hour_factor    = 3600 / $server_status['Uptime'];
 

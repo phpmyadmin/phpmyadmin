@@ -1,9 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * CSV import plugin for phpMyAdmin
+ * CSV import plugin for phpMyAdmin using LOAD DATA
  *
  * @package phpMyAdmin-Import
+ * @subpackage LDI
  */
 if (! defined('PHPMYADMIN')) {
     exit;

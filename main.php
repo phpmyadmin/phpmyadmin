@@ -342,6 +342,13 @@ if ($cfg['SuhosinDisableWarning'] == false && @ini_get('suhosin.request.max_valu
     }
 
 /**
+ * Warning about mcrypt.
+ */
+if (!function_exists('mcrypt_encrypt') && !$GLOBALS['cfg']['McryptDisableWarning']) {
+    PMA_warnMissingExtension('mcrypt');
+}
+
+/**
  * Warning about incomplete translations.
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
