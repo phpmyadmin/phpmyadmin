@@ -588,10 +588,9 @@ msgstr ""
 "<b> Ett eller flera fel har inträffat under hanteringen av din begäran: </b>"
 
 #: db_routines.php:379
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Skapa relation"
+msgstr "Skapa rutin"
 
 #: db_routines.php:383
 #, fuzzy
