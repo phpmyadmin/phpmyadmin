@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 23:08+0200\n"
+"PO-Revision-Date: 2011-06-24 23:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2112,7 +2112,6 @@ msgid "Failed to read configuration file"
 msgstr "No se pudo leer el archivo de configuración"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
 #| "shown bellow."
