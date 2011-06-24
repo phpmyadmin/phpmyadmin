@@ -576,10 +576,10 @@ msgid "The backed up query was:"
 msgstr "Сохраненный запрос был:"
 
 #: db_routines.php:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Поле %s было удалено"
+msgstr "Была изменена процедура %1$s."
 
 #: db_routines.php:327
 #, fuzzy, php-format
