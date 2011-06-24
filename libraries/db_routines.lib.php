@@ -1244,6 +1244,7 @@ function PMA_RTN_getAddRoutineLink()
     $retval  = "";
     $retval .= "<!-- ADD ROUTINE FORM START -->\n";
     $retval .= "<fieldset>\n";
+    $retval .= "    <legend>" . __('New'). "</legend>\n";
     if (PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
         $retval .= "<a {$ajax_class['add']} href='db_routines.php";
         $retval .= "?$url_query&amp;addroutine=1'>\n";
