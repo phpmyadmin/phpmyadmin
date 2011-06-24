@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 18:42+0200\n"
+"PO-Revision-Date: 2011-06-24 18:43+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1246,7 +1246,7 @@ msgstr "O plediñ gant ar reked"
 #: js/messages.php:96 libraries/db_events.inc.php:39
 #: libraries/display_triggers.inc.php:46 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Fazi en ur blediñ gant ar reked"
 
 #: js/messages.php:97
 msgid "Dropping Column"
