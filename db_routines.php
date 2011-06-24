@@ -438,10 +438,10 @@ if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
                    . 'avoid any problems.'), E_USER_WARNING);
 }
 
+/**
+ * Display the footer, if necessary
+ */
 if ($GLOBALS['is_ajax_request'] != true) {
-    /**
-     * Displays the footer
-     */
     require './libraries/footer.inc.php';
 }
 

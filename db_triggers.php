@@ -30,9 +30,11 @@ require_once './libraries/db_info.inc.php';
 require_once './libraries/display_triggers.inc.php';
 
 /**
- * Displays the footer
+ * Display the footer, if necessary
  */
-require './libraries/footer.inc.php';
+if ($GLOBALS['is_ajax_request'] != true) {
+    require './libraries/footer.inc.php';
+}
 
 
 ?>
