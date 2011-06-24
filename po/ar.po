@@ -1162,10 +1162,9 @@ msgid "Reloading Privileges"
 msgstr "قيد إعادة قراءة الصلاحيات."
 
 #: js/messages.php:58
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "احذف المستخدمين المحددين"
+msgstr "حذف المستخدمين المحددين"
 
 #: js/messages.php:59 libraries/tbl_properties.inc.php:772
 #: tbl_tracking.php:244 tbl_tracking.php:409
