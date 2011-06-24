@@ -1426,7 +1426,7 @@ msgstr "إختيار المفتاح المرجع"
 
 #: js/messages.php:147
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "إختيار المفتاح الغريب"
 
 #: js/messages.php:148
 msgid "Please select the primary key or a unique key"
