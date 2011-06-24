@@ -1272,7 +1272,7 @@ msgstr "Adkargañ an diaz roadennoù"
 
 #: js/messages.php:104
 msgid "Copying Database"
-msgstr ""
+msgstr "Oc'h eilañ an diaz roadennoù"
 
 #: js/messages.php:105
 msgid "Changing Charset"
