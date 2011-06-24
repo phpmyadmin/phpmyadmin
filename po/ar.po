@@ -1157,7 +1157,6 @@ msgid "Add user"
 msgstr "إضافة مستخدم"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "قيد إعادة قراءة الصلاحيات."
