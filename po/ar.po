@@ -1507,10 +1507,9 @@ msgstr "التالي"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "مجموع كلي"
+msgstr "اليوم"
 
 #: js/messages.php:194
 msgid "January"
