@@ -1896,7 +1896,7 @@ msgstr "الجداول الأخيرة"
 
 #: libraries/RecentTable.class.php:155
 msgid "There are no recent tables"
-msgstr ""
+msgstr "لا يوجد جداول أخيرة"
 
 #: libraries/StorageEngine.class.php:194
 msgid ""
