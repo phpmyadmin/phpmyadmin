@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 04:12+0200\n"
+"PO-Revision-Date: 2011-06-24 04:13+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2200,7 +2200,7 @@ msgstr "فهرس خادم غير صحيح: %s"
 #: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "إسم المضيف غير صحيح للخادم %1$s."
 
 #: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
