@@ -1651,7 +1651,6 @@ msgid "Thursday"
 msgstr "الخميس"
 
 #: js/messages.php:239
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "الجمعة"
