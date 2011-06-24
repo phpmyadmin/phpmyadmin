@@ -1241,7 +1241,7 @@ msgstr "O kargañ"
 
 #: js/messages.php:95
 msgid "Processing Request"
-msgstr "Reked war ober"
+msgstr "O plediñ gant ar reked"
 
 #: js/messages.php:96 libraries/db_events.inc.php:39
 #: libraries/display_triggers.inc.php:46 libraries/import/ods.php:80
