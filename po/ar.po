@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-22 10:16+0200\n"
-"PO-Revision-Date: 2011-06-24 03:25+0200\n"
+"PO-Revision-Date: 2011-06-24 03:26+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1916,7 +1916,7 @@ msgstr "%s معطل في خادم MySQL هذا."
 #: libraries/StorageEngine.class.php:361
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "خادم MySQL هذا لايدعم محرك التخزين %s ."
 
 #: libraries/Table.class.php:1027
 msgid "Invalid database"
