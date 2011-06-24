@@ -2433,7 +2433,7 @@ msgstr "لامكان"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "يسار"
 
 #: libraries/config.values.php:47
 msgid "Right"
