@@ -1296,7 +1296,7 @@ msgstr "O klask"
 
 #: js/messages.php:116
 msgid "Hide search results"
-msgstr ""
+msgstr "Kuzhat disoc'hoù an enklask"
 
 #: js/messages.php:117
 msgid "Show search results"
