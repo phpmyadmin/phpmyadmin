@@ -2554,7 +2554,7 @@ msgstr "التصدير لن يتم , الدالة (%s) مفقودة"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "مدقق SQL معطل"
 
 #: libraries/config/FormDisplay.class.php:773
 #, fuzzy
