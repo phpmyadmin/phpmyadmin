@@ -1140,7 +1140,7 @@ msgstr "إسم المستضيف فارغ!"
 
 #: js/messages.php:53
 msgid "The user name is empty!"
-msgstr "اسم المستخدم فارغ!"
+msgstr "إسم المستخدم فارغ!"
 
 #: js/messages.php:54 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
