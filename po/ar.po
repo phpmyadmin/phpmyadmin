@@ -2874,7 +2874,6 @@ msgstr "الضغط"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "ضع أسماء الحقول في السطر الأول"
