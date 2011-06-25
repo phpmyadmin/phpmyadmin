@@ -1494,7 +1494,7 @@ msgstr "Gwengolo"
 
 #: js/messages.php:203
 msgid "October"
-msgstr ""
+msgstr "Here"
 
 #: js/messages.php:204
 msgid "November"
