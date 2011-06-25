@@ -1844,7 +1844,7 @@ msgstr "Diaz roadennoù direizh"
 
 #: libraries/Table.class.php:1041 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "Anv taolenn direizh"
 
 #: libraries/Table.class.php:1056
 #, php-format
