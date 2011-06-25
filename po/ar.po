@@ -2854,7 +2854,7 @@ msgstr "حفظ كملف"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:239
 msgid "Character set of the file"
-msgstr ""
+msgstr "مجموعة الأحرف للملف"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:873
