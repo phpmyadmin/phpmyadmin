@@ -1704,7 +1704,7 @@ msgstr "Hanter bellgarget eo bet ar restr nemetken."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Mankout a ra ur c'havlec'h padennek."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
