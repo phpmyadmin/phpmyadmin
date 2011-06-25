@@ -1812,7 +1812,7 @@ msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
 
 #: libraries/RecentTable.class.php:149
 msgid "Recent tables"
-msgstr ""
+msgstr "Taolennoù nevez"
 
 #: libraries/RecentTable.class.php:155
 msgid "There are no recent tables"
