@@ -1462,7 +1462,7 @@ msgstr "Genver"
 
 #: js/messages.php:195
 msgid "February"
-msgstr ""
+msgstr "C'hwevrer"
 
 #: js/messages.php:196
 msgid "March"
