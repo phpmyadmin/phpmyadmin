@@ -1441,7 +1441,7 @@ msgstr "Graet"
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:187
 msgid "Prev"
-msgstr ""
+msgstr "Kent"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:189 libraries/common.lib.php:2308
