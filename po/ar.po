@@ -3108,7 +3108,7 @@ msgstr "وضع التعديل"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr ""
+msgstr "تخصيص وضع التعديل"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
