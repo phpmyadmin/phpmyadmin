@@ -1712,7 +1712,7 @@ msgstr "Fazi en ur skrivañ ar restr war ar bladenn."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Stanket eo bet ar pellgargañ gant an astenn."
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
