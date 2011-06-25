@@ -3033,10 +3033,9 @@ msgid "Maximal length of created query"
 msgstr "أقصى طول للإستعلام المنشئ"
 
 #: libraries/config/messages.inc.php:138
-#, fuzzy
 #| msgid "Export"
 msgid "Export type"
-msgstr "تصدير"
+msgstr "نوع التصدير"
 
 #: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
