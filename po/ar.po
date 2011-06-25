@@ -2820,10 +2820,9 @@ msgid "Edit in window"
 msgstr "تعديل في نافذة"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "إظهار المزايا"
+msgstr "عرض الأخطاء"
 
 #: libraries/config/messages.inc.php:65
 #, fuzzy
