@@ -1077,7 +1077,7 @@ msgstr "Emaoc'h war-nes RIÑSAÑ un daolennad penn-da-benn !"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "O tiverkañ ar roadennoù heuliañ"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
