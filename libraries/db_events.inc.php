@@ -125,9 +125,11 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
     $es_change = ($es_state == 'ON') ? 'OFF' : 'ON';
     $tableStart = '<table style="width: 100%;"><tr><td style="width: 50%;">';
     $schedulerFieldset = '</td><td><fieldset style="margin: 1em 0;">' . "\n"
-       . PMA_getIcon('b_events.png') . __('The event scheduler is ') . $es_state . ':'
+       . PMA_getIcon('b_events.png')
+       . ($es_state === 'ON' ? __('The event scheduler is enabled') : __('The event scheduler is disabled')) . ':'
        . '    <a href="db_events.php?' . $url_query . '&amp;toggle_scheduler=' . $es_change . '">'
-       . __('Turn') . " $es_change\n" .  '</a>' . "\n"
+       . ($es_change === 'ON' ? __('Turn it on') : __('Turn it off'))
+       .  '</a>' . "\n"
        . '</fieldset></td></tr></table>' . "\n";
 }
 

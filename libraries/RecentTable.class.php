@@ -46,11 +46,12 @@ class PMA_RecentTable
             $this->pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                                PMA_backquote($GLOBALS['cfg']['Server']['recent']);
         }
-        if (! isset($_SESSION['tmp_user_values']['recent_tables'])) {
-            $_SESSION['tmp_user_values']['recent_tables'] =
+        $server_id = $GLOBALS['server'];
+        if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
+            $_SESSION['tmp_user_values']['recent_tables'][$server_id] =
                 isset($this->pma_table) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'];
+        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$server_id];
     }
 
     /**
@@ -163,9 +164,9 @@ class PMA_RecentTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
+        $html  = '<input type="hidden" name="goto" id="LeftDefaultTabTable" value="' .
                          $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
-        $html .= '<select id="recentTable">';
+        $html .= '<select name="table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
         

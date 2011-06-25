@@ -4,6 +4,7 @@
  * SQL import plugin for phpMyAdmin
  *
  * @package phpMyAdmin-Import
+ * @subpackage SQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -37,8 +38,8 @@ if (isset($plugin_list)) {
                 ),
             ),
             array(
-                'type' => 'bool', 
-                'name' => 'no_auto_value_on_zero', 
+                'type' => 'bool',
+                'name' => 'no_auto_value_on_zero',
                 'text' => __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
                 'doc'       => array(
                     'manual_MySQL_Database_Administration',
@@ -234,7 +235,7 @@ while (!($GLOBALS['finished'] && $i >= $len) && !$error && !$timeout_passed) {
             }
             // Skip the rest
             $start_of_comment = $i;
-            // do not use PHP_EOL here instead of "\n", because the export 
+            // do not use PHP_EOL here instead of "\n", because the export
             // file might have been produced on a different system
             $i = strpos($buffer, $ch == '/' ? '*/' : "\n", $i);
             // didn't we hit end of string?

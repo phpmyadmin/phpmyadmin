@@ -9,10 +9,6 @@
  * This Class interacts with the user to gather the information
  * about their tables for which they want to export the relational schema
  * export options are shown to user from they can choose
- *
- * @name User_Schema
- * @copyright
- * @license
  */
 
 class PMA_User_Schema
