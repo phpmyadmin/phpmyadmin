@@ -1373,7 +1373,7 @@ msgstr "Na ober van"
 
 #: js/messages.php:146
 msgid "Select referenced key"
-msgstr "Diuzit an alc'hwez menegeret"
+msgstr "Diuzit an alc'hwez daveet"
 
 #: js/messages.php:147
 msgid "Select Foreign Key"
