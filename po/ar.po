@@ -2907,7 +2907,6 @@ msgstr "حذف CRLF من الأعمدة"
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "خطوط مفصولة بـ"
