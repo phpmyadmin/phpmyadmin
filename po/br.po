@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 19:42+0200\n"
+"PO-Revision-Date: 2011-06-25 19:43+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1413,7 +1413,7 @@ msgstr "Cheñch ger-tremen"
 
 #: js/messages.php:161 tbl_structure.php:497
 msgid "More"
-msgstr ""
+msgstr "Muioc'h"
 
 #: js/messages.php:164 setup/lib/index.lib.php:158
 #, php-format
