@@ -1674,7 +1674,7 @@ msgstr "Eur"
 
 #: js/messages.php:277
 msgid "Minute"
-msgstr ""
+msgstr "Munut"
 
 #: js/messages.php:278
 msgid "Second"
