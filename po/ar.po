@@ -2753,7 +2753,7 @@ msgstr "عرض الإتجاه لـ تعديل/إنشاء الأعمدة"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "التبويب الذي يعرض عند دخول قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
