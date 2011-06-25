@@ -1454,7 +1454,7 @@ msgstr "War-lerc'h"
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:191
 msgid "Today"
-msgstr ""
+msgstr "Hiziv"
 
 #: js/messages.php:194
 msgid "January"
