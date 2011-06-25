@@ -3096,7 +3096,7 @@ msgstr "سي إس في"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr ""
+msgstr "مطور"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
