@@ -1670,7 +1670,7 @@ msgstr "Sizh."
 
 #: js/messages.php:276
 msgid "Hour"
-msgstr ""
+msgstr "Eur"
 
 #: js/messages.php:277
 msgid "Minute"
