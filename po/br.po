@@ -1579,7 +1579,7 @@ msgstr "Meurzh"
 
 #: js/messages.php:237
 msgid "Wednesday"
-msgstr ""
+msgstr "Merc'her"
 
 #: js/messages.php:238
 msgid "Thursday"
