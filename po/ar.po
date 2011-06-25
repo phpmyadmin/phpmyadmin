@@ -2917,7 +2917,6 @@ msgid "Lines terminated by"
 msgstr "أسطر تنتهي بـ"
 
 #: libraries/config/messages.inc.php:82
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "إصدارة إكسل"
