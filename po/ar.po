@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 11:24+0200\n"
+"PO-Revision-Date: 2011-06-25 11:25+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2757,7 +2757,7 @@ msgstr "التبويب الذي يعرض عند دخول قاعدة البيان
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "تبويب قاعدة البيانات الإفتراضي"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
