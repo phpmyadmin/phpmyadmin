@@ -1377,7 +1377,7 @@ msgstr "Diuzit an alc'hwez daveet"
 
 #: js/messages.php:147
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Diuzit an alc'hwez estren"
 
 #: js/messages.php:148
 msgid "Please select the primary key or a unique key"
