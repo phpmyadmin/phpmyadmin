@@ -2944,7 +2944,7 @@ msgstr "إفراغ الجدول"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
-msgstr "أضف عنوانا للجدول"
+msgstr "أضف عنواناً للجدول"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
