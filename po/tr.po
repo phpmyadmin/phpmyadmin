@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-23 19:35+0200\n"
+"PO-Revision-Date: 2011-06-25 13:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -521,9 +521,9 @@ msgstr "MySQL boş bir sonuç kümesi döndürdü (örn. sıfır satır)."
 
 #: db_routines.php:190 db_routines.php:295 db_routines.php:300
 #: db_routines.php:324
-#, fuzzy, php-format
+#, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Sorgu \"%s\" başarısız oldu"
+msgstr "Aşağıdaki sorgu başarısız oldu: \"%s\""
 
 #: db_routines.php:191 db_routines.php:296 db_routines.php:301
 #: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
