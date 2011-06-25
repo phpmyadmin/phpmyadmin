@@ -1747,7 +1747,7 @@ msgstr "Gwasket"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:318
 msgid "Cardinality"
-msgstr ""
+msgstr "Kardinalegezh"
 
 #: libraries/Index.class.php:452 libraries/db_routines.lib.php:777
 #: tbl_tracking.php:272 tbl_tracking.php:321
