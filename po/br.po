@@ -1502,7 +1502,7 @@ msgstr "Du"
 
 #: js/messages.php:205
 msgid "December"
-msgstr ""
+msgstr "Kerzu"
 
 #. l10n: Short month name
 #: js/messages.php:209 libraries/common.lib.php:1511
