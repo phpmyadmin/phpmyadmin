@@ -1796,8 +1796,8 @@ msgstr[1] "%1$d linenn tizhet."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linenn diverket."
+msgstr[1] "%1$d linenn diverket."
 
 #: libraries/Message.class.php:298
 #, php-format
