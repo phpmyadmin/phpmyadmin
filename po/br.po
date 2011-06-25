@@ -1431,7 +1431,7 @@ msgstr ", stumm stabil diwezhañ"
 
 #: js/messages.php:167
 msgid "up to date"
-msgstr ""
+msgstr "hizivaet"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:185
