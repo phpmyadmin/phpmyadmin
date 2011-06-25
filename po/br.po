@@ -1661,7 +1661,7 @@ msgstr "G"
 #. l10n: Minimal week day name
 #: js/messages.php:272
 msgid "Sa"
-msgstr ""
+msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:274
