@@ -1816,7 +1816,7 @@ msgstr "Taolennoù nevez"
 
 #: libraries/RecentTable.class.php:155
 msgid "There are no recent tables"
-msgstr ""
+msgstr "N'eus taolenn nevez ebet"
 
 #: libraries/StorageEngine.class.php:195
 msgid ""
