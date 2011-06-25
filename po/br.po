@@ -1538,7 +1538,7 @@ msgstr "Mezh"
 #. l10n: Short month name
 #: js/messages.php:221 libraries/common.lib.php:1523
 msgid "Jul"
-msgstr ""
+msgstr "Goue"
 
 #. l10n: Short month name
 #: js/messages.php:223 libraries/common.lib.php:1525
