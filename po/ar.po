@@ -3013,7 +3013,7 @@ msgstr "استخدم الإضافات المتأخرة"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "تعطيل التحقق من المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
