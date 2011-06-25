@@ -131,7 +131,8 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         if( $GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($message, $message->isSuccess());
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            PMA_ajaxResponse($message, $message->isSuccess(),$extra_data);
         }
 
         $active_page = 'tbl_structure.php';
