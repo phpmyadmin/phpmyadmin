@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 19:37+0200\n"
+"PO-Revision-Date: 2011-06-25 19:38+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1381,7 +1381,7 @@ msgstr "Diuzit an alc'hwez estren"
 
 #: js/messages.php:148
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
 
 #: js/messages.php:149 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
