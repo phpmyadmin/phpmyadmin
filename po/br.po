@@ -1486,7 +1486,7 @@ msgstr "Gouere"
 
 #: js/messages.php:201
 msgid "August"
-msgstr ""
+msgstr "Eost"
 
 #: js/messages.php:202
 msgid "September"
