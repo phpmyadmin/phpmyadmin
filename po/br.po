@@ -1498,7 +1498,7 @@ msgstr "Here"
 
 #: js/messages.php:204
 msgid "November"
-msgstr ""
+msgstr "Du"
 
 #: js/messages.php:205
 msgid "December"
