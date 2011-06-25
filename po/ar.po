@@ -3084,7 +3084,7 @@ msgstr "تخصيص وضع الإستعراض"
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
 #: libraries/config/messages.inc.php:229
 msgid "Customize default options"
-msgstr ""
+msgstr "تخصيص الخيارات الإفتراضية"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:236
 #: libraries/config/setup.forms.php:315
