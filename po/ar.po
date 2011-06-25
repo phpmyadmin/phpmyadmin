@@ -2972,7 +2972,6 @@ msgid "Relations"
 msgstr "العلاقات"
 
 #: libraries/config/messages.inc.php:105
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
 msgstr "نوع التصدير"
