@@ -2806,10 +2806,9 @@ msgid ""
 msgstr "تعطيل عمليات الصيانة , مثل تحسين وإصلاح جداول قاعدة البيانات."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "صيانة الجدول"
+msgstr "تعطيل صيانة الجداول المتعددة "
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
