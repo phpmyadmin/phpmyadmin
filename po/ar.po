@@ -3069,7 +3069,7 @@ msgstr "سيتم إستخدام القائمة المنسدلة إذا وجد ع
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr ""
+msgstr "حد المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
