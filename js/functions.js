@@ -1426,7 +1426,7 @@ function PMA_createChart(passedSettings) {
                     thisChart.options.realtime.timeoutCallBack = function() {
                         thisChart.options.realtime.postRequest = $.post(
                             thisChart.options.realtime.url,
-                            postData,
+                            thisChart.options.realtime.postData,
                             function(data) {
                                 curValue = jQuery.parseJSON(data);
                                 
@@ -1504,7 +1504,7 @@ function PMA_createChart(passedSettings) {
             passedSettings.realtime.numMaxPoints = 30;
         
         // Allow custom POST vars to be added
-        $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
+        passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
         
         if(server_time_diff) {
             settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;

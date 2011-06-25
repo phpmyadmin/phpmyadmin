@@ -1182,7 +1182,7 @@ table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serve
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
 }
 
-.statuslinks {
+.buttonlinks {
     float: <?php echo $right; ?>;
     white-space: nowrap;
 }
@@ -1248,7 +1248,17 @@ div.liveChart {
 
 ul#chartGrid { list-style-type: none; margin: 0; padding: 0; }
 ul#chartGrid li { margin: 3px 3px 3px 0; padding: 1px; float: left; font-size: 4em; text-align: center; }
-	
+
+#addChartDialog input[type="text"] {
+	margin:0px;
+	padding:3px;
+}
+
+div#seriesForms {
+	border:1px solid #ddd;
+	background-color:#E6E6E6;
+}
+
 /* end serverstatus */
 
 /* server variables */
@@ -1372,7 +1382,7 @@ div#profilingchart {
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
 }
-#sectionlinks a, .statuslinks a{
+#sectionlinks a, .buttonlinks a, a.button {
     font-size:0.88em;
     font-weight:bold;
     text-shadow: 0px 1px 0px #fff;
@@ -1400,7 +1410,7 @@ div#profilingchart {
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
-#sectionlinks a:hover, .statuslinks a:hover{
+#sectionlinks a:hover, .buttonlinks a:hover, a.button:hover {
     background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
     background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));

@@ -425,7 +425,7 @@ echo __('Runtime Information');
         </ul>
 
         <div id="statustabs_traffic">
-            <div class="statuslinks">
+            <div class="buttonlinks">
                 <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
@@ -462,7 +462,7 @@ echo __('Runtime Information');
             </div>
         </div>
         <div id="statustabs_queries">
-            <div class="statuslinks">
+            <div class="buttonlinks">
                 <a class="tabRefresh"  href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
@@ -495,7 +495,7 @@ echo __('Runtime Information');
         </div>
         <div id="statustabs_allvars">
             <fieldset id="tableFilter">
-                <div class="statuslinks">
+                <div class="buttonlinks">
                     <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
                         <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                         <?php echo __('Refresh'); ?>
@@ -551,9 +551,61 @@ echo __('Runtime Information');
         </div>
         
         <div id="statustabs_charting">
+            <div class="buttonlinks">
+                <a href="#addNewChart">Add chart</a></li>
+            </div>
+            <div id="addChartDialog" title="Add chart" style="display:none;">
+                <div id="tabGridVariables">
+                    <p><input type="text" name="chartTitle" value="Chart title" /></p>
+                    <div id="seriesForms">
+                        <label for="chartSeries">Select series:</label><br>
+                        <select id="chartSeries" name="varChartList" size="1">
+                            <option>Commonly monitored</option>
+                            <option>Processes</option>
+                            <option>CPU Usage</option>
+                            <option>Memory Usage</option>
+                            <option>Questions</option>
+                            <option>Connections</option>
+                            <option>Bytes_sent</option>
+                            <option>Bytes_received</option>
+                            <option>Threads_connected</option>
+                            <option>Created_tmp_disk_tables</option>
+                            <option>Handler_read_first</option>
+                            <option>Innodb_buffer_pool_wait_free</option>
+                            <option>Key_reads</option>
+                            <option>Open_tables</option>
+                            <option>Select_full_join</option>
+                            <option>Slow_queries</option>
+                            <option>Select_full_join</option>
+                        </select><br>
+                        <label for="variableInput">or type variable name: </label> <input type="text" name="variableInput" id="variableInput" />
+                        <p></p>
+                        <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> <label for="differentialValue"> Display as differential value</label><br>
+                        <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
+                        <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span>
+                    </div>
+                    <a href="#submitAddSeries">Add this serie</a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
+                    <p><b>Series in Chart:</b></p>
+                    <span id="seriesPreview">
+                    <i>None</i>
+                    </span>
+                </div>
+            </div>
+            
             <ul id="chartGrid">
-
+    
             </ul>
+            <script type="text/javascript">
+                variableNames = [ <?php
+                    $i=0;
+                    foreach($server_status as $name=>$value) {
+                        if(is_numeric($value)) {
+                            if($i++ > 0) echo ", ";
+                            echo "'".$name."'";
+                        }
+                    }
+                    ?> ];
+            </script>
         </div>
     </div>
 </div>
