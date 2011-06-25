@@ -2785,7 +2785,7 @@ msgstr "عرض البيانات الثنائية بالنظام الست عشر�
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr "إظهار قاعدة البيانات كقائمة بدلاً من القائمة المنسدلة"
+msgstr "إظهار قواعد البيانات كقائمة بدلاً من القائمة المنسدلة"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
