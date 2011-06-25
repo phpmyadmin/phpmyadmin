@@ -1528,7 +1528,7 @@ msgstr "Ebr"
 #: js/messages.php:217 libraries/common.lib.php:1519
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "Mae"
 
 #. l10n: Short month name
 #: js/messages.php:219 libraries/common.lib.php:1521
