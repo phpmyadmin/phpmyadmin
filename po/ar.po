@@ -2815,10 +2815,9 @@ msgid "Edit SQL queries in popup window"
 msgstr "تعديل إستعلام SQL في نافذة منبثقة"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "عدل الصف التالي"
+msgstr "تعديل في نافذة"
 
 #: libraries/config/messages.inc.php:64
 #, fuzzy
