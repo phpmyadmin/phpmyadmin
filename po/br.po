@@ -1490,7 +1490,7 @@ msgstr "Eost"
 
 #: js/messages.php:202
 msgid "September"
-msgstr ""
+msgstr "Gwengolo"
 
 #: js/messages.php:203
 msgid "October"
