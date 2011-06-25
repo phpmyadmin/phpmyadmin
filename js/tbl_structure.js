@@ -216,25 +216,33 @@ $(document).ready(function() {
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+            if ($("#sqlqueryresults").length != 0) {
+                $("#sqlqueryresults").remove();
+            } else if ($(".error").length != 0) {
+                $(".error").remove();
+            }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
+                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data.sql_query);
+                $("#result_query .notice").remove();
+                $("#result_query").prepend((data.message));
             } else {
-                PMA_ajaxShowMessage(data.error);
-
+                var temp_div = $("<div id='temp_div'><div>").append(data);
+                $(temp_div).find(".error").insertAfter("#topmenucontainer");
             }
             if ($("#change_column_dialog").length > 0) {
                 $("#change_column_dialog").dialog("close").remove();
             }
-            $("#sqlqueryresults").remove();
-            $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
-            $("#sqlqueryresults").html(data.sql_query);
-            $("#result_query .notice").remove();
-            $("#result_query").prepend((data.message));
 
             $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
                 $("#fieldsForm").remove();
                 var temp_div = $("<div id='temp_div'><div>").append(form_data);
-                $(temp_div).find("#fieldsForm").insertAfter("#sqlqueryresults");
+                if ($("#sqlqueryresults").length != 0) {
+                    $(temp_div).find("#fieldsForm").insertAfter("#sqlqueryresults");
+                } else {
+                    $(temp_div).find("#fieldsForm").insertAfter(".error");
+                }
                 /*Call the fucntion to display the more options in table*/
                 displayMoreTableOpts();
             });
