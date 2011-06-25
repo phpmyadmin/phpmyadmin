@@ -1601,7 +1601,7 @@ msgstr "Sul"
 #. l10n: Short week day name
 #: js/messages.php:246 libraries/common.lib.php:1538
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #. l10n: Short week day name
 #: js/messages.php:248 libraries/common.lib.php:1540
