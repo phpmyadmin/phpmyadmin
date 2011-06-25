@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 20:07+0200\n"
+"PO-Revision-Date: 2011-06-25 20:08+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1808,7 +1808,7 @@ msgstr[1] "%1$d linenn ensoc'het."
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
-msgstr ""
+msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
 
 #: libraries/RecentTable.class.php:149
 msgid "Recent tables"
