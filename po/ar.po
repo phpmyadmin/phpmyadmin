@@ -2793,7 +2793,7 @@ msgstr "إظهار قواعد البيانات كقائمة"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr "إظهار الخوادم  كقائمة بدلاً من القائمة المنسدلة"
+msgstr "إظهار الخوادم كقائمة بدلاً من القائمة المنسدلة"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
