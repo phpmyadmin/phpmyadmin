@@ -2834,10 +2834,9 @@ msgid "Show icons for warning, error and information messages"
 msgstr "عرض الأيقونات لرسائل التحذير, الخطأ والمعلومات"
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "errors."
 msgid "Iconic errors"
-msgstr "أخطاء."
+msgstr "أيقونة أخطاء"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
