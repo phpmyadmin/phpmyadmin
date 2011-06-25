@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 11:33+0200\n"
+"PO-Revision-Date: 2011-06-25 11:34+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -2831,7 +2831,7 @@ msgstr "جمع الأخطاء"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "عرض الأيقونات لرسائل التحذير, الخطأ والمعلومات"
 
 #: libraries/config/messages.inc.php:67
 #, fuzzy
