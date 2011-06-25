@@ -1567,7 +1567,7 @@ msgstr "Kzu"
 
 #: js/messages.php:234
 msgid "Sunday"
-msgstr ""
+msgstr "Sul"
 
 #: js/messages.php:235
 msgid "Monday"
