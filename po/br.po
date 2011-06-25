@@ -1678,7 +1678,7 @@ msgstr "Munut"
 
 #: js/messages.php:278
 msgid "Second"
-msgstr ""
+msgstr "Eilenn"
 
 #: libraries/Config.class.php:1190
 msgid "Font size"
