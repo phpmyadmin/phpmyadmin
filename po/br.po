@@ -1826,7 +1826,7 @@ msgstr "N'eus tamm titour dre ar munud ebet evit al lusker stokañ-mañ."
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "Hegerz eo %s war ar servijer MySQL-mañ."
 
 #: libraries/StorageEngine.class.php:358
 #, php-format
