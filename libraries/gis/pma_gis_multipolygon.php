@@ -311,5 +311,52 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
 
         return $row;
     }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array $gis_data GIS data
+     * @param int   $index    Index into the parameter object
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index)
+    {
+        $no_of_polygons = isset($gis_data[$index]['MULTIPOLYGON']['no_of_polygons'])
+            ? $gis_data[$index]['MULTIPOLYGON']['no_of_polygons'] : 1;
+        if ($no_of_polygons < 1) {
+            $no_of_polygons = 1;
+        }
+        $wkt = 'MULTIPOLYGON(';
+        for ($k = 0; $k < $no_of_polygons; $k++) {
+            $no_of_lines = isset($gis_data[$index]['MULTIPOLYGON'][$k]['no_of_lines'])
+                ? $gis_data[$index]['MULTIPOLYGON'][$k]['no_of_lines'] : 1;
+            if ($no_of_lines < 1) {
+                $no_of_lines = 1;
+            }
+            $wkt .= '(';
+            for ($i = 0; $i < $no_of_lines; $i++) {
+                $no_of_points = isset($gis_data[$index]['MULTIPOLYGON'][$k][$i]['no_of_points'])
+                    ? $gis_data[$index]['MULTIPOLYGON'][$k][$i]['no_of_points'] : 3;
+                if ($no_of_points < 3) {
+                    $no_of_points = 3;
+                }
+                $wkt .= '(';
+                for ($j = 0; $j < $no_of_points; $j++) {
+                    $wkt .= (isset($gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['x'])
+                        ? $gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['x'] : '')
+                        . ' ' . (isset($gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['y'])
+                        ? $gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['y'] : '') .',';
+                }
+                $wkt = substr($wkt, 0, strlen($wkt) - 1);
+                $wkt .= '),';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= '),';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
 }
 ?>

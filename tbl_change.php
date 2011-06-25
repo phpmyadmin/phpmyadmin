@@ -469,6 +469,9 @@ foreach ($rows as $row_id => $vrow) {
 
          <?php } //End if
 
+        // Get a list of GIS data types.
+        $gis_data_types = PMA_getGISDatatypes();
+
         // Prepares the field value
         $real_null_value = false;
         $special_chars_encoded = '';
@@ -481,6 +484,10 @@ foreach ($rows as $row_id => $vrow) {
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value($vrow[$field['Field']], $extracted_fieldspec['spec_in_brackets']);
+            } elseif (in_array($field['True_Type'], $gis_data_types)) {
+                // Convert gis data to Well Know Text format
+                $vrow[$field['Field']] = PMA_asWKT($vrow[$field['Field']], true);
+                $special_chars = htmlspecialchars($vrow[$field['Field']]);
             } else {
                 // special binary "characters"
                 if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
@@ -892,7 +899,6 @@ foreach ($rows as $row_id => $vrow) {
                 }
             } // end if (web-server upload directory)
         } // end elseif (binary or blob)
-
         elseif (in_array($field['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
         }
@@ -952,6 +958,17 @@ foreach ($rows as $row_id => $vrow) {
                     // in dateFormat, 'yy' means the year with 4 digits
                 }
             }
+        }
+        if (in_array($field['pma_type'], $gis_data_types)) {
+            echo('<span>');
+            $_url_params = array('field' => $field['Field_title']);
+            if ($field['pma_type'] != 'geometry') {
+                $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
+            }
+            $edit_url = 'gis_data_editor.php' . PMA_generate_common_url($_url_params);
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
+            echo('</span>');
         }
         ?>
             </td>

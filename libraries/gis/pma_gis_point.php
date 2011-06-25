@@ -172,5 +172,19 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             . ' null, ' . json_encode($style_options) . '));';
         return $result;
     }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array $gis_data GIS data
+     * @param int   $index    Index into the parameter object
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index)
+    {
+         return 'POINT(' . (isset($gis_data[$index]['POINT']['x']) ? $gis_data[$index]['POINT']['x'] : '')
+             . ' ' . (isset($gis_data[$index]['POINT']['y']) ? $gis_data[$index]['POINT']['y'] : '') . ')';
+    }
 }
 ?>

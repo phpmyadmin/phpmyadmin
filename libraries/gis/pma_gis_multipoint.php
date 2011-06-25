@@ -186,5 +186,32 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             . json_encode($style_options) . '));';
         return $result;
     }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array $gis_data GIS data
+     * @param int   $index    Index into the parameter object
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index)
+    {
+        $no_of_points = isset($gis_data[$index]['MULTIPOINT']['no_of_points'])
+            ? $gis_data[$index]['MULTIPOINT']['no_of_points'] : 1;
+        if ($no_of_points < 1) {
+            $no_of_points = 1;
+        }
+        $wkt = 'MULTIPOINT(';
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $wkt .= (isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
+                ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
+                . ' ' . (isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
+                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') .',';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
 }
 ?>

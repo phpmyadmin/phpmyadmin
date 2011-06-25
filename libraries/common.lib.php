@@ -1397,7 +1397,7 @@ function PMA_localizeNumber($value)
  * @param   integer  $digits_left      number of digits left of the comma
  * @param   integer  $digits_right     number of digits right of the comma
  * @param   boolean  $only_down        do not reformat numbers below 1
- * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
+ * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true)
  *
  * @return  string   the formatted value and its unit
  *
@@ -1408,13 +1408,13 @@ function PMA_localizeNumber($value)
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
     if($value==0) return '0';
-    
+
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
         if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
-        
+
         return PMA_localizeNumber($value);
     }
 
@@ -1448,7 +1448,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     }
 
     $dh = PMA_pow(10, $digits_right);
-    
+
     // This gives us the right SI prefix already, but $digits_left parameter not incorporated
     $d = floor(log10($value) / 3);
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
@@ -1457,18 +1457,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     if($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
     }
-	
+
     if($d<0 && $only_down) $d=0;
-    
+
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
-    
+
     // If we dont want any zeros after the comma just add the thousand seperator
     if($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
         $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
-    
+
     if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
@@ -2732,6 +2732,31 @@ function PMA_replace_binary_contents($content) {
 }
 
 /**
+ * Converts GIS data to Well Known Text format
+ *
+ * @param  $data     GIS data
+ * @param  $includeSRID  Add SRID to the WKT
+ * @return GIS data in Well Know Text format
+ */
+function PMA_asWKT($data, $includeSRID = false) {
+    // Convert to WKT format
+    $hex = bin2hex($data);
+    $wktsql     = "SELECT ASTEXT(x'" . $hex . "')";
+    if ($includeSRID) {
+        $wktsql .= ", SRID(x'" . $hex . "')";
+    }
+    $wktresult  = PMA_DBI_try_query($wktsql, null, PMA_DBI_QUERY_STORE);
+    $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
+    $wktval     = $wktarr[0];
+    if ($includeSRID) {
+        $srid = $wktarr[1];
+        $wktval = "'" . $wktval . "'," . $srid;
+    }
+    @PMA_DBI_free_result($wktresult);
+    return $wktval;
+}
+
+/**
  * If the string starts with a \r\n pair (0x0d0a) add an extra \n
  *
  * @param string $string
@@ -3039,20 +3064,23 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
  */
 
 function PMA_unsupportedDatatypes() {
-    // These GIS data types are not yet supported.
-    $no_support_types = array('geometry',
-                              'point',
-                              'linestring',
-                              'polygon',
-                              'multipoint',
-                              'multilinestring',
-                              'multipolygon',
-                              'geometrycollection'
-                        );
-
+    $no_support_types = array();
     return $no_support_types;
 }
 
+function PMA_getGISDatatypes() {
+    $gis_data_types = array('geometry',
+                            'point',
+                            'linestring',
+                            'polygon',
+                            'multipoint',
+                            'multilinestring',
+                            'multipolygon',
+                            'geometrycollection'
+                      );
+
+    return $gis_data_types;
+}
 /**
  * Creates a dropdown box with MySQL functions for a particular column.
  *

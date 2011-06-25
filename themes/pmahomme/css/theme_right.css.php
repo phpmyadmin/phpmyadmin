@@ -1171,7 +1171,7 @@ img.sortableIcon {
 }
 
 h3#serverstatusqueries span {
-    font-size:60%;    
+    font-size:60%;
     display:inline;
 }
 
@@ -1238,9 +1238,9 @@ div#serverstatus table .tblFooters a {
 }
 
 div.liveChart {
-    clear:both; 
-    min-width:500px; 
-    height:400px; 
+    clear:both;
+    min-width:500px;
+    height:400px;
     padding-bottom:80px;
 }
 /* end serverstatus */
@@ -2318,6 +2318,28 @@ fieldset .disabled-field td {
 
 .gis_table .choice {
     display: none;
+}
+
+#gis_data_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#gis_data_editor_no_js {
+   margin: auto auto;
+}
+
+#gis_data_editor, #gis_data_editor_no_js {
+    background: #D0DCE0;
+    padding: 15px;
+}
+
+#gis_data_textarea {
+    height: 6em;
 }
 
 .CodeMirror {

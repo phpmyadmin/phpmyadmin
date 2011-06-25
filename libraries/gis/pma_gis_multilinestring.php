@@ -223,5 +223,42 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         $row .= ')), null, ' . json_encode($style_options) . '));';
         return $row;
     }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array $gis_data GIS data
+     * @param int   $index    Index into the parameter object
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index)
+    {
+        $no_of_lines = isset($gis_data[$index]['MULTILINESTRING']['no_of_lines'])
+            ? $gis_data[$index]['MULTILINESTRING']['no_of_lines'] : 1;
+        if ($no_of_lines < 1) {
+            $no_of_lines = 1;
+        }
+        $wkt = 'MULTILINESTRING(';
+        for ($i = 0; $i < $no_of_lines; $i++) {
+            $no_of_points = isset($gis_data[$index]['MULTILINESTRING'][$i]['no_of_points'])
+                ? $gis_data[$index]['MULTILINESTRING'][$i]['no_of_points'] : 2;
+            if ($no_of_points < 2) {
+                $no_of_points = 2;
+            }
+            $wkt .= '(';
+            for ($j = 0; $j < $no_of_points; $j++) {
+                $wkt .= (isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['x'])
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['x'] : '')
+                    . ' ' . (isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['y'])
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['y'] : '') .',';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= '),';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
 }
 ?>

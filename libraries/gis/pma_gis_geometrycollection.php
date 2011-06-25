@@ -221,5 +221,32 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         }
         return $sub_parts;
     }
+
+    /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array $gis_data GIS data
+     * @param int   $index    Index into the parameter object
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public function generateWkt($gis_data, $index)
+    {
+        $geom_count = (isset($gis_data['GEOMETRYCOLLECTION']['geom_count']))
+            ? $gis_data['GEOMETRYCOLLECTION']['geom_count'] : 1;
+        $wkt = 'GEOMETRYCOLLECTION(';
+        for ($i = 0; $i < $geom_count; $i++) {
+            if (isset($gis_data[$i]['gis_type'])) {
+                $type = $gis_data[$i]['gis_type'];
+                $gis_obj = PMA_GIS_Factory::factory($type);
+                $wkt .= $gis_obj->generateWkt($gis_data, $i) . ',';
+            }
+        }
+        if (isset($gis_data[0]['gis_type'])) {
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        }
+        $wkt .= ')';
+        return $wkt;
+    }
 }
 ?>

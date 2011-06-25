@@ -171,6 +171,17 @@ $func_no_param = array(
     'CURRENT_USER',
 );
 
+$gis_from_text_functions = array(
+    'GeomFromText',
+    'GeomCollFromText',
+    'LineFromText',
+    'MLineFromText',
+    'PointFromText',
+    'MPointFromText',
+    'PolyFromText',
+    'MPolyFromText',
+);
+
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
@@ -260,6 +271,11 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $cur_value = "'" . $uuid . "'";
         } elseif (in_array($me_funcs[$key], $func_no_param)) {
             $cur_value = $me_funcs[$key] . '()';
+        } elseif (in_array($me_funcs[$key], $gis_from_text_functions) && substr($val, 0, 3) == "'''") {
+            // Converting $val of the form '''POINT(12 15)'',145' to 'POINT(12 15)',145
+            $val = str_replace("''", "'", $val);
+            $val = substr($val, 1, strlen($val) - 2);
+            $cur_value = $me_funcs[$key] . '(' . $val . ')';
         } else {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
         }

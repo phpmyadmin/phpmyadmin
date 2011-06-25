@@ -1514,11 +1514,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // Display in Well Known Text(WKT) format.
                 } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
                     // Convert to WKT format
-                    $wktsql     = "SELECT ASTEXT (GeomFromWKB(x'" . PMA_substr(bin2hex($row[$i]), 8) . "'))";
-                    $wktresult  = PMA_DBI_try_query($wktsql, null, PMA_DBI_QUERY_STORE);
-                    $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
-                    $wktval     = $wktarr[0];
-                    @PMA_DBI_free_result($wktresult);
+                    $wktval = PMA_asWKT($row[$i]);
 
                     if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
                         && $_SESSION['tmp_user_values']['display_text'] == 'P'
