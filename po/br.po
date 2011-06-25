@@ -1776,7 +1776,7 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:100
 #: server_privileges.php:1740
 msgid "Databases"
-msgstr ""
+msgstr "Diazoù roadennoù"
 
 #: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:561
