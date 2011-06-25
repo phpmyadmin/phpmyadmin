@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-23 06:34-0400\n"
+"POT-Creation-Date: 2011-06-24 12:07+0200\n"
 "PO-Revision-Date: 2010-07-21 14:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: galician <gl@li.org>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -49,10 +49,10 @@ msgstr "Procurar"
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:360
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
+#: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
 #: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2245 libraries/Config.class.php:1220
-#: libraries/core.lib.php:557 libraries/db_routines.lib.php:789
-#: libraries/db_routines.lib.php:921
+#: libraries/common.lib.php:2245 libraries/core.lib.php:557
+#: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:354 libraries/display_import.lib.php:267
@@ -65,18 +65,18 @@ msgstr "Procurar"
 #: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
 #: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
-#: libraries/Theme_Manager.class.php:305 main.php:109 navigation.php:202
-#: navigation.php:240 pmd_pdf.php:124 prefs_manage.php:265
-#: prefs_manage.php:316 server_binlog.php:128 server_privileges.php:646
-#: server_privileges.php:1694 server_privileges.php:2051
-#: server_privileges.php:2098 server_privileges.php:2138
-#: server_replication.php:233 server_replication.php:316
-#: server_replication.php:347 server_synchronize.php:1220 tbl_change.php:332
-#: tbl_change.php:1024 tbl_change.php:1061 tbl_indexes.php:260
-#: tbl_operations.php:280 tbl_operations.php:317 tbl_operations.php:519
-#: tbl_operations.php:581 tbl_operations.php:763 tbl_select.php:291
-#: tbl_structure.php:698 tbl_structure.php:734 tbl_tracking.php:425
-#: tbl_tracking.php:563 view_create.php:181 view_operations.php:99
+#: main.php:109 navigation.php:202 navigation.php:240 pmd_pdf.php:124
+#: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:128
+#: server_privileges.php:646 server_privileges.php:1694
+#: server_privileges.php:2051 server_privileges.php:2098
+#: server_privileges.php:2138 server_replication.php:233
+#: server_replication.php:316 server_replication.php:347
+#: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
+#: tbl_change.php:1061 tbl_indexes.php:260 tbl_operations.php:280
+#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
+#: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
+#: tbl_structure.php:734 tbl_tracking.php:425 tbl_tracking.php:563
+#: view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Executar"
 
@@ -133,9 +133,9 @@ msgstr "Comentario da base de datos: "
 msgid "Table comments"
 msgstr "Comentarios da táboa"
 
-#: db_datadict.php:166 db_qbe.php:196 libraries/export/htmlword.php:248
-#: libraries/export/latex.php:375 libraries/export/odt.php:302
-#: libraries/export/texytext.php:227 libraries/Index.class.php:448
+#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
+#: libraries/export/htmlword.php:248 libraries/export/latex.php:375
+#: libraries/export/odt.php:302 libraries/export/texytext.php:227
 #: libraries/schema/Pdf_Relation_Schema.class.php:1236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1257
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
@@ -146,12 +146,12 @@ msgstr "Comentarios da táboa"
 msgid "Column"
 msgstr "Nomes das columnas"
 
-#: db_datadict.php:167 db_printview.php:104 libraries/db_events.inc.php:69
-#: libraries/db_routines.lib.php:666 libraries/db_routines.lib.php:691
-#: libraries/db_routines.lib.php:847 libraries/db_routines.lib.php:1216
-#: libraries/db_structure.lib.php:51 libraries/export/htmlword.php:249
-#: libraries/export/latex.php:375 libraries/export/odt.php:305
-#: libraries/export/texytext.php:228 libraries/Index.class.php:445
+#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:445
+#: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
+#: libraries/db_routines.lib.php:691 libraries/db_routines.lib.php:847
+#: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
+#: libraries/export/htmlword.php:249 libraries/export/latex.php:375
+#: libraries/export/odt.php:305 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1237
 #: libraries/schema/Pdf_Relation_Schema.class.php:1258
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
@@ -161,9 +161,9 @@ msgstr "Nomes das columnas"
 msgid "Type"
 msgstr "Tipo"
 
-#: db_datadict.php:169 libraries/export/htmlword.php:250
-#: libraries/export/latex.php:375 libraries/export/odt.php:308
-#: libraries/export/texytext.php:229 libraries/Index.class.php:451
+#: db_datadict.php:169 libraries/Index.class.php:451
+#: libraries/export/htmlword.php:250 libraries/export/latex.php:375
+#: libraries/export/odt.php:308 libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1239
 #: libraries/schema/Pdf_Relation_Schema.class.php:1260
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
@@ -201,13 +201,12 @@ msgstr "Vincúlase con"
 msgid "Comments"
 msgstr "Comentarios"
 
-#: db_datadict.php:259 js/messages.php:109
-#: libraries/config/FormDisplay.tpl.php:204 libraries/config.values.php:45
-#: libraries/config.values.php:51 libraries/export/htmlword.php:326
-#: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/Index.class.php:361
+#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
 #: libraries/Index.class.php:388 libraries/Index.class.php:688
-#: libraries/mult_submits.inc.php:287
+#: libraries/config.values.php:45 libraries/config.values.php:51
+#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/export/latex.php:445 libraries/export/odt.php:376
+#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
@@ -218,17 +217,17 @@ msgstr "Comentarios"
 msgid "No"
 msgstr "Non"
 
-#: db_datadict.php:259 js/messages.php:108
-#: libraries/config/FormDisplay.tpl.php:204 libraries/config.values.php:45
-#: libraries/config.values.php:51 libraries/export/htmlword.php:326
-#: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/Index.class.php:362
+#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
 #: libraries/Index.class.php:387 libraries/Index.class.php:688
-#: libraries/mult_submits.inc.php:46 libraries/mult_submits.inc.php:78
-#: libraries/mult_submits.inc.php:87 libraries/mult_submits.inc.php:92
-#: libraries/mult_submits.inc.php:97 libraries/mult_submits.inc.php:102
-#: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/mult_submits.inc.php:286 libraries/mult_submits.inc.php:299
+#: libraries/config.values.php:45 libraries/config.values.php:51
+#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/export/latex.php:445 libraries/export/odt.php:376
+#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
+#: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
+#: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
+#: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
+#: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
+#: libraries/mult_submits.inc.php:299
 #: libraries/schema/Pdf_Relation_Schema.class.php:1318
 #: libraries/user_preferences.lib.php:311 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1378
@@ -340,8 +339,8 @@ msgstr "Engadir limitacións"
 msgid "Switch to copied database"
 msgstr "Pasar á base de datos copiada"
 
-#: db_operations.php:552 libraries/build_html_for_db.lib.php:19
-#: libraries/db_structure.lib.php:53 libraries/Index.class.php:450
+#: db_operations.php:552 libraries/Index.class.php:450
+#: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:720 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
@@ -515,8 +514,8 @@ msgstr "Procura tipo SQL na base de datos <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Enviar esta procura"
 
-#: db_routines.php:152 import.php:453 libraries/display_tbl.lib.php:2272
-#: libraries/Message.class.php:185 libraries/sql_query_form.lib.php:139
+#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
+#: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -540,82 +539,85 @@ msgstr "Permite executar rutinas almacenadas."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL retornou un conxunto vacío (ex. cero rexistros)."
 
-#: db_routines.php:190 db_routines.php:290 db_routines.php:295
-#: db_routines.php:319
-#, php-format
-msgid "Query \"%s\" failed"
-msgstr ""
+#: db_routines.php:190 db_routines.php:295 db_routines.php:300
+#: db_routines.php:324
+#, fuzzy, php-format
+#| msgid "The following queries have been executed:"
+msgid "The following query has failed: \"%s\""
+msgstr "Executáronse as procuras seguintes:"
 
-#: db_routines.php:191 db_routines.php:291 db_routines.php:296
-#: db_routines.php:306 db_routines.php:320 libraries/common.lib.php:609
+#: db_routines.php:191 db_routines.php:296 db_routines.php:301
+#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "Mensaxes do MySQL: "
 
-#: db_routines.php:208 db_routines.php:263 db_routines.php:402
+#: db_routines.php:208 db_routines.php:240 db_routines.php:268
+#: db_routines.php:407
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Procesos"
 
-#: db_routines.php:209 db_routines.php:264 db_routines.php:403
+#: db_routines.php:209 db_routines.php:241 db_routines.php:269
+#: db_routines.php:408
 #, fuzzy, php-format
 #| msgid "No tables found in database."
-msgid "No routine with name %s found in database %s"
+msgid "No routine with name %1$s found in database %2$s"
 msgstr "Non se achou ningunha táboa na base de datos"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
 msgstr ""
 
-#: db_routines.php:254 db_routines.php:258
+#: db_routines.php:259 db_routines.php:263
 #, fuzzy, php-format
 #| msgid "Export functions"
 msgid "Export of routine %s"
 msgstr "Exportar as funcións"
 
-#: db_routines.php:283 libraries/db_routines.lib.php:960
+#: db_routines.php:288 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
 msgstr "O índice do servidor non é válido: \"%s\""
 
-#: db_routines.php:304
+#: db_routines.php:309
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: db_routines.php:305
+#: db_routines.php:310
 msgid "The backed up query was:"
 msgstr ""
 
-#: db_routines.php:309
+#: db_routines.php:314
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Eliminouse a táboa %s"
 
-#: db_routines.php:322
+#: db_routines.php:327
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "Creouse a táboa %1$s."
 
-#: db_routines.php:330
+#: db_routines.php:335
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: db_routines.php:374
+#: db_routines.php:379
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
 msgstr "Crear relación"
 
-#: db_routines.php:378
+#: db_routines.php:383
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "Modo de edición"
 
-#: db_routines.php:429
+#: db_routines.php:434
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -752,11 +754,11 @@ msgstr "O seguemento non está activado."
 #: db_structure.php:372 libraries/display_tbl.lib.php:2235
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation%"
-"s."
+"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation"
+"%s."
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -822,8 +824,8 @@ msgstr "Visualización previa da impresión"
 msgid "Empty"
 msgstr "Borrar"
 
-#: db_structure.php:504 db_tracking.php:104 libraries/common.lib.php:2956
-#: libraries/common.lib.php:2957 libraries/Index.class.php:490
+#: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:490
+#: libraries/common.lib.php:2956 libraries/common.lib.php:2957
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
@@ -902,9 +904,9 @@ msgstr "Actualizada"
 msgid "Status"
 msgstr "Estado"
 
-#: db_tracking.php:90 libraries/db_events.inc.php:68
-#: libraries/db_routines.lib.php:1215 libraries/db_structure.lib.php:44
-#: libraries/display_triggers.inc.php:76 libraries/Index.class.php:442
+#: db_tracking.php:90 libraries/Index.class.php:442
+#: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1215
+#: libraries/db_structure.lib.php:44 libraries/display_triggers.inc.php:76
 #: server_databases.php:191 server_privileges.php:1612
 #: server_privileges.php:1805 server_privileges.php:2154 tbl_structure.php:214
 msgid "Action"
@@ -998,11 +1000,11 @@ msgstr "Gardouse o volcado no ficheiro %s."
 #: import.php:58
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
-"sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
+"%sdocumentación%s para averiguar como evitar este límite."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1193,11 +1195,11 @@ msgstr "Eliminar os usuarios seleccionados"
 msgid "Close"
 msgstr "Fechar"
 
-#: js/messages.php:62 js/messages.php:132 libraries/common.lib.php:594
-#: libraries/common.lib.php:1144 libraries/common.lib.php:2960
-#: libraries/common.lib.php:2961 libraries/config/messages.inc.php:471
-#: libraries/display_tbl.lib.php:1287 libraries/import.lib.php:1150
-#: libraries/import.lib.php:1174 libraries/Index.class.php:468
+#: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
+#: libraries/common.lib.php:594 libraries/common.lib.php:1144
+#: libraries/common.lib.php:2960 libraries/common.lib.php:2961
+#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
+#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "Modificar"
@@ -1840,6 +1842,227 @@ msgstr "en uso"
 msgid "Second"
 msgstr "por segundo"
 
+#: libraries/Config.class.php:1190
+msgid "Font size"
+msgstr "Tamaño da letra"
+
+#: libraries/File.class.php:310
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de php."
+"ini."
+
+#: libraries/File.class.php:313
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"O tamaño do ficheiro excede a directiva MAX_FILE_SIZE que se especificou no "
+"formulario HTML."
+
+#: libraries/File.class.php:316
+msgid "The uploaded file was only partially uploaded."
+msgstr "O ficheiro enviado só se recibiu parcialmente."
+
+#: libraries/File.class.php:319
+msgid "Missing a temporary folder."
+msgstr "Falta un directorio temporal."
+
+#: libraries/File.class.php:322
+msgid "Failed to write file to disk."
+msgstr "Non se puido escribir no disco."
+
+#: libraries/File.class.php:325
+msgid "File upload stopped by extension."
+msgstr "Detívose o envío do ficheiro por causa do engadido."
+
+#: libraries/File.class.php:328
+msgid "Unknown error in file upload."
+msgstr "Erro descoñecido ao enviar o ficheiro."
+
+#: libraries/File.class.php:559
+msgid ""
+"Error moving the uploaded file, see [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgstr "Erro ao mover o ficheiro enviado. Consulte FAQ 1.11"
+
+#: libraries/Index.class.php:430 tbl_relation.php:526
+msgid "No index defined!"
+msgstr "Non se definiu ningún índice"
+
+#: libraries/Index.class.php:435 libraries/build_html_for_db.lib.php:40
+#: tbl_tracking.php:309
+msgid "Indexes"
+msgstr "Índices"
+
+#: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
+#: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
+#: tbl_tracking.php:315
+msgid "Unique"
+msgstr "Único"
+
+#: libraries/Index.class.php:447 tbl_tracking.php:316
+msgid "Packed"
+msgstr "Empaquetado"
+
+#: libraries/Index.class.php:449 tbl_tracking.php:318
+msgid "Cardinality"
+msgstr "Cardinalidade"
+
+#: libraries/Index.class.php:452 libraries/db_routines.lib.php:777
+#: tbl_tracking.php:272 tbl_tracking.php:321
+msgid "Comment"
+msgstr "Comentario"
+
+#: libraries/Index.class.php:474
+msgid "The primary key has been dropped"
+msgstr "Eliminouse a chave primaria"
+
+#: libraries/Index.class.php:478
+#, php-format
+msgid "Index %s has been dropped"
+msgstr "Eliminouse o índice %s"
+
+#: libraries/Index.class.php:582
+#, php-format
+msgid ""
+"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
+"removed."
+msgstr ""
+"Parece que os índice %1$s e %2$s son iguais e posibelmente poderíase "
+"eliminar un deles"
+
+#: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
+#: libraries/server_links.inc.php:43 server_databases.php:100
+#: server_privileges.php:1740
+msgid "Databases"
+msgstr "Bases de datos"
+
+#: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
+#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:561
+#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:883
+#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
+msgid "Error"
+msgstr "Houbo un erro"
+
+#: libraries/Message.class.php:260
+#, fuzzy, php-format
+#| msgid "%1$d row(s) affected."
+msgid "%1$d row affected."
+msgid_plural "%1$d rows affected."
+msgstr[0] "%1$d fileira(s) afectada(s)."
+msgstr[1] "%1$d fileira(s) afectada(s)."
+
+#: libraries/Message.class.php:279
+#, fuzzy, php-format
+#| msgid "%1$d row(s) deleted."
+msgid "%1$d row deleted."
+msgid_plural "%1$d rows deleted."
+msgstr[0] "%1$d fileira(s) eliminada(s)."
+msgstr[1] "%1$d fileira(s) eliminada(s)."
+
+#: libraries/Message.class.php:298
+#, fuzzy, php-format
+#| msgid "%1$d row(s) inserted."
+msgid "%1$d row inserted."
+msgid_plural "%1$d rows inserted."
+msgstr[0] "%1$d fileira(s) inserida(s)."
+msgstr[1] "%1$d fileira(s) inserida(s)."
+
+#: libraries/RecentTable.class.php:114
+#, fuzzy
+#| msgid "Cannot load or save configuration"
+msgid "Could not save recent table"
+msgstr "Non se puido cargar ou gravar a configuración"
+
+#: libraries/RecentTable.class.php:149
+#, fuzzy
+#| msgid "Count tables"
+msgid "Recent tables"
+msgstr "Contar as táboas"
+
+#: libraries/RecentTable.class.php:155
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There are no recent tables"
+msgstr "Non hai ningún servidor configurado"
+
+#: libraries/StorageEngine.class.php:195
+msgid ""
+"There is no detailed status information available for this storage engine."
+msgstr ""
+"Non se conta con información de estado detallada sobre este motor de "
+"almacenamento."
+
+#: libraries/StorageEngine.class.php:355
+#, php-format
+msgid "%s is available on this MySQL server."
+msgstr "%s está dispoñíbel neste servidor de MySQL."
+
+#: libraries/StorageEngine.class.php:358
+#, php-format
+msgid "%s has been disabled for this MySQL server."
+msgstr "%s foi desactivado neste servidor de MySQL."
+
+#: libraries/StorageEngine.class.php:362
+#, php-format
+msgid "This MySQL server does not support the %s storage engine."
+msgstr "Este servidor de MySQL non acepta o motor de almacenamento %s."
+
+#: libraries/Table.class.php:1027
+msgid "Invalid database"
+msgstr "A base de datos non é válida"
+
+#: libraries/Table.class.php:1041 tbl_get_field.php:25
+msgid "Invalid table name"
+msgstr "Non se admite este nome de táboa."
+
+#: libraries/Table.class.php:1056
+#, php-format
+msgid "Error renaming table %1$s to %2$s"
+msgstr "Houbo un erro ao mudarlle o nome á táboa %1$s para %2$s"
+
+#: libraries/Table.class.php:1139
+#, php-format
+msgid "Table %s has been renamed to %s"
+msgstr "A táboa %s chámase agora %s"
+
+#: libraries/Table.class.php:1272
+msgid "Could not save table UI preferences"
+msgstr ""
+
+#: libraries/Theme.class.php:160
+#, php-format
+msgid "No valid image path for theme %s found!"
+msgstr "Non hai un camiño válido de imaxe para o tema %s!"
+
+#: libraries/Theme.class.php:380
+msgid "No preview available."
+msgstr "Non se dispón de previsualización."
+
+#: libraries/Theme.class.php:383
+msgid "take it"
+msgstr "cólleo"
+
+#: libraries/Theme_Manager.class.php:109
+#, php-format
+msgid "Default theme %s not found!"
+msgstr "Non se atopou o tema por omisión %s!"
+
+#: libraries/Theme_Manager.class.php:147
+#, php-format
+msgid "Theme %s not found!"
+msgstr "Non se atopou o tema %s!"
+
+#: libraries/Theme_Manager.class.php:215
+#, php-format
+msgid "Theme path not found for theme %s!"
+msgstr "Non se atopou o camiño do tema para o tema %s!"
+
+#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
+msgid "Theme"
+msgstr ""
+
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
 msgstr "Non se pode conectar: os axustes non son válidos."
@@ -1853,8 +2076,8 @@ msgstr "Reciba a benvida a %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Isto débese, posibelmente, a que non se creou un ficheiro de configuración. "
 "Tal vez queira utilizar %1$ssetup script%2$s para crear un."
@@ -1970,14 +2193,6 @@ msgstr ""
 msgid "PBMS connection failed:"
 msgstr "Codificación de caracteres (Collation) da conexión de MySQL"
 
-#: libraries/blobstreaming.lib.php:308 libraries/blobstreaming.lib.php:314
-#: libraries/common.lib.php:561 libraries/core.lib.php:232
-#: libraries/import.lib.php:136 libraries/Message.class.php:205
-#: tbl_change.php:883 tbl_operations.php:228 tbl_relation.php:287
-#: view_operations.php:60
-msgid "Error"
-msgstr "Houbo un erro"
-
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
 msgstr ""
@@ -2029,11 +2244,6 @@ msgstr "Táboas"
 #: tbl_structure.php:801
 msgid "Data"
 msgstr "Datos"
-
-#: libraries/build_html_for_db.lib.php:40 libraries/Index.class.php:435
-#: tbl_tracking.php:309
-msgid "Indexes"
-msgstr "Índices"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:818
@@ -2110,11 +2320,11 @@ msgstr ""
 msgid "Server"
 msgstr "Servidor"
 
-#: libraries/common.inc.php:829
+#: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
 msgstr "Na configuración indicouse un método de autenticación que non válido::"
 
-#: libraries/common.inc.php:932
+#: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Debería actualizar a %s %s ou posterior."
@@ -2329,9 +2539,85 @@ msgstr ""
 msgid "Execute"
 msgstr ""
 
-#: libraries/Config.class.php:1190
-msgid "Font size"
-msgstr "Tamaño da letra"
+#: libraries/config.values.php:45 libraries/config.values.php:47
+#: libraries/config.values.php:51
+msgid "Both"
+msgstr ""
+
+#: libraries/config.values.php:47
+msgid "Nowhere"
+msgstr ""
+
+#: libraries/config.values.php:47
+msgid "Left"
+msgstr ""
+
+#: libraries/config.values.php:47
+msgid "Right"
+msgstr ""
+
+#: libraries/config.values.php:75
+msgid "Open"
+msgstr ""
+
+#: libraries/config.values.php:75
+#, fuzzy
+#| msgid "Close"
+msgid "Closed"
+msgstr "Fechar"
+
+#: libraries/config.values.php:96 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:122 libraries/export/texytext.php:24
+#: libraries/import.lib.php:1172
+msgid "structure"
+msgstr "estrutura"
+
+#: libraries/config.values.php:97 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:123 libraries/export/texytext.php:24
+msgid "data"
+msgstr ""
+
+#: libraries/config.values.php:98 libraries/export/htmlword.php:25
+#: libraries/export/latex.php:42 libraries/export/odt.php:34
+#: libraries/export/sql.php:124 libraries/export/texytext.php:24
+#, fuzzy
+#| msgid "Structure and data"
+msgid "structure and data"
+msgstr "Estrutura e datos"
+
+#: libraries/config.values.php:100
+msgid "Quick - display only the minimal options to configure"
+msgstr ""
+
+#: libraries/config.values.php:101
+msgid "Custom - display all possible options to configure"
+msgstr ""
+
+#: libraries/config.values.php:102
+msgid "Custom - like above, but without the quick/custom choice"
+msgstr ""
+
+#: libraries/config.values.php:120
+#, fuzzy
+#| msgid "Complete inserts"
+msgid "complete inserts"
+msgstr "Insercións completas"
+
+#: libraries/config.values.php:121
+#, fuzzy
+#| msgid "Extended inserts"
+msgid "extended inserts"
+msgstr "Insercións estendidas"
+
+#: libraries/config.values.php:122
+msgid "both of the above"
+msgstr ""
+
+#: libraries/config.values.php:123
+msgid "neither of the above"
+msgstr ""
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
@@ -3041,12 +3327,6 @@ msgstr ""
 #: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
 msgstr "LaTeX"
-
-#: libraries/config/messages.inc.php:177 libraries/List_Database.class.php:430
-#: libraries/server_links.inc.php:43 server_databases.php:100
-#: server_privileges.php:1740
-msgid "Databases"
-msgstr "Bases de datos"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
@@ -4780,86 +5060,6 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo IP é incorrecto: %s"
 
-#: libraries/config.values.php:45 libraries/config.values.php:47
-#: libraries/config.values.php:51
-msgid "Both"
-msgstr ""
-
-#: libraries/config.values.php:47
-msgid "Nowhere"
-msgstr ""
-
-#: libraries/config.values.php:47
-msgid "Left"
-msgstr ""
-
-#: libraries/config.values.php:47
-msgid "Right"
-msgstr ""
-
-#: libraries/config.values.php:75
-msgid "Open"
-msgstr ""
-
-#: libraries/config.values.php:75
-#, fuzzy
-#| msgid "Close"
-msgid "Closed"
-msgstr "Fechar"
-
-#: libraries/config.values.php:96 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:122 libraries/export/texytext.php:24
-#: libraries/import.lib.php:1172
-msgid "structure"
-msgstr "estrutura"
-
-#: libraries/config.values.php:97 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:123 libraries/export/texytext.php:24
-msgid "data"
-msgstr ""
-
-#: libraries/config.values.php:98 libraries/export/htmlword.php:25
-#: libraries/export/latex.php:42 libraries/export/odt.php:34
-#: libraries/export/sql.php:124 libraries/export/texytext.php:24
-#, fuzzy
-#| msgid "Structure and data"
-msgid "structure and data"
-msgstr "Estrutura e datos"
-
-#: libraries/config.values.php:100
-msgid "Quick - display only the minimal options to configure"
-msgstr ""
-
-#: libraries/config.values.php:101
-msgid "Custom - display all possible options to configure"
-msgstr ""
-
-#: libraries/config.values.php:102
-msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
-
-#: libraries/config.values.php:120
-#, fuzzy
-#| msgid "Complete inserts"
-msgid "complete inserts"
-msgstr "Insercións completas"
-
-#: libraries/config.values.php:121
-#, fuzzy
-#| msgid "Extended inserts"
-msgid "extended inserts"
-msgstr "Insercións estendidas"
-
-#: libraries/config.values.php:122
-msgid "both of the above"
-msgstr ""
-
-#: libraries/config.values.php:123
-msgid "neither of the above"
-msgstr ""
-
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
 #: libraries/core.lib.php:264
 msgctxt "PHP documentation language"
@@ -4929,25 +5129,6 @@ msgstr ""
 #| msgid "Add a new server"
 msgid "Add a new Event"
 msgstr "Engadir un servidor novo"
-
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-"Fallou a conexión para controluser tal e como se define na súa configuración."
-
-#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysql.dbi.lib.php:339
-#: libraries/dbi/mysqli.dbi.lib.php:395
-msgid "The server is not responding"
-msgstr "O servidor non está a responder"
-
-#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysqli.dbi.lib.php:395
-msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr ""
-"(ou o socket local do servidor de MySQL non se configurou correctamente)"
-
-#: libraries/dbi/mysql.dbi.lib.php:346
-msgid "Details..."
-msgstr "Detalles..."
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5023,9 +5204,9 @@ msgstr "Tamaño/Definir*"
 #: libraries/export/php_array.php:29 libraries/export/sql.php:83
 #: libraries/export/texytext.php:31 libraries/export/xls.php:29
 #: libraries/export/xlsx.php:29 libraries/export/xml.php:25
-#: libraries/export/yaml.php:30 libraries/import/csv.php:33
+#: libraries/export/yaml.php:30 libraries/import.lib.php:1145
+#: libraries/import.lib.php:1167 libraries/import/csv.php:33
 #: libraries/import/docsql.php:35 libraries/import/ldi.php:49
-#: libraries/import.lib.php:1145 libraries/import.lib.php:1167
 #: libraries/import/ods.php:32 libraries/import/sql.php:20
 #: libraries/import/xls.php:28 libraries/import/xlsx.php:28
 #: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:889
@@ -5083,11 +5264,6 @@ msgstr "Seguranza"
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
 msgstr ""
-
-#: libraries/db_routines.lib.php:777 libraries/Index.class.php:452
-#: tbl_tracking.php:272 tbl_tracking.php:321
-msgid "Comment"
-msgstr "Comentario"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
@@ -5152,6 +5328,25 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr "Pode non ser exacto. Consulte a FAQ 3.11"
+
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+"Fallou a conexión para controluser tal e como se define na súa configuración."
+
+#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysql.dbi.lib.php:339
+#: libraries/dbi/mysqli.dbi.lib.php:395
+msgid "The server is not responding"
+msgstr "O servidor non está a responder"
+
+#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysqli.dbi.lib.php:395
+msgid "(or the local MySQL server's socket is not correctly configured)"
+msgstr ""
+"(ou o socket local do servidor de MySQL non se configurou correctamente)"
+
+#: libraries/dbi/mysql.dbi.lib.php:346
+msgid "Details..."
+msgstr "Detalles..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:119 user_password.php:137
@@ -5325,8 +5520,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
 "utilizar cadeas de formato de hora. Produciranse transformacións en "
@@ -6144,8 +6339,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6461,46 +6656,6 @@ msgstr "Vista"
 msgid "Export contents"
 msgstr "Exportar o contido"
 
-#: libraries/File.class.php:310
-msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr ""
-"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de php."
-"ini."
-
-#: libraries/File.class.php:313
-msgid ""
-"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
-"the HTML form."
-msgstr ""
-"O tamaño do ficheiro excede a directiva MAX_FILE_SIZE que se especificou no "
-"formulario HTML."
-
-#: libraries/File.class.php:316
-msgid "The uploaded file was only partially uploaded."
-msgstr "O ficheiro enviado só se recibiu parcialmente."
-
-#: libraries/File.class.php:319
-msgid "Missing a temporary folder."
-msgstr "Falta un directorio temporal."
-
-#: libraries/File.class.php:322
-msgid "Failed to write file to disk."
-msgstr "Non se puido escribir no disco."
-
-#: libraries/File.class.php:325
-msgid "File upload stopped by extension."
-msgstr "Detívose o envío do ficheiro por causa do engadido."
-
-#: libraries/File.class.php:328
-msgid "Unknown error in file upload."
-msgstr "Erro descoñecido ao enviar o ficheiro."
-
-#: libraries/File.class.php:559
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Erro ao mover o ficheiro enviado. Consulte FAQ 1.11"
-
 #: libraries/footer.inc.php:188 libraries/footer.inc.php:191
 #: libraries/footer.inc.php:194
 msgid "Open new phpMyAdmin window"
@@ -6517,6 +6672,41 @@ msgstr "Resultado SQL"
 #: libraries/header_printview.inc.php:59
 msgid "Generated by"
 msgstr "Xerado por"
+
+#: libraries/import.lib.php:1141
+msgid ""
+"The following structures have either been created or altered. Here you can:"
+msgstr "As estruturas seguintes foron creadas ou alteradas. Aquí pode:"
+
+#: libraries/import.lib.php:1142
+msgid "View a structure`s contents by clicking on its name"
+msgstr "Ver o contido dunha estrutura premendo o seu nome"
+
+#: libraries/import.lib.php:1143
+msgid ""
+"Change any of its settings by clicking the corresponding \"Options\" link"
+msgstr ""
+"Mude calqueraa destas opcións premendo a ligazón \"Opcións\" correspondente"
+
+#: libraries/import.lib.php:1144
+msgid "Edit its structure by following the \"Structure\" link"
+msgstr "Modificar a súa estrutura seguindo a ligazón \"Estrutura\""
+
+#: libraries/import.lib.php:1147
+msgid "Go to database"
+msgstr "Ir á base de datos"
+
+#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+msgid "settings"
+msgstr "opcións"
+
+#: libraries/import.lib.php:1169
+msgid "Go to table"
+msgstr "Ir á táboa"
+
+#: libraries/import.lib.php:1178
+msgid "Go to view"
+msgstr "Ir á vista"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
 #: libraries/import/xls.php:25 libraries/import/xlsx.php:25
@@ -6580,41 +6770,6 @@ msgstr "Nomes das columnas"
 msgid "This plugin does not support compressed imports!"
 msgstr "Este engadido non é capaz de realizar importacións comprimidas!"
 
-#: libraries/import.lib.php:1141
-msgid ""
-"The following structures have either been created or altered. Here you can:"
-msgstr "As estruturas seguintes foron creadas ou alteradas. Aquí pode:"
-
-#: libraries/import.lib.php:1142
-msgid "View a structure`s contents by clicking on its name"
-msgstr "Ver o contido dunha estrutura premendo o seu nome"
-
-#: libraries/import.lib.php:1143
-msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
-msgstr ""
-"Mude calqueraa destas opcións premendo a ligazón \"Opcións\" correspondente"
-
-#: libraries/import.lib.php:1144
-msgid "Edit its structure by following the \"Structure\" link"
-msgstr "Modificar a súa estrutura seguindo a ligazón \"Estrutura\""
-
-#: libraries/import.lib.php:1147
-msgid "Go to database"
-msgstr "Ir á base de datos"
-
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
-msgid "settings"
-msgstr "opcións"
-
-#: libraries/import.lib.php:1169
-msgid "Go to table"
-msgstr "Ir á táboa"
-
-#: libraries/import.lib.php:1178
-msgid "Go to view"
-msgstr "Ir á vista"
-
 #: libraries/import/ods.php:28
 #, fuzzy
 #| msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -6647,42 +6802,6 @@ msgstr ""
 "O ficheiro XML especificado estaba estragado ou incompleto. Corrixa o "
 "problema e ténteo de novo."
 
-#: libraries/Index.class.php:430 tbl_relation.php:526
-msgid "No index defined!"
-msgstr "Non se definiu ningún índice"
-
-#: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
-#: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
-#: tbl_tracking.php:315
-msgid "Unique"
-msgstr "Único"
-
-#: libraries/Index.class.php:447 tbl_tracking.php:316
-msgid "Packed"
-msgstr "Empaquetado"
-
-#: libraries/Index.class.php:449 tbl_tracking.php:318
-msgid "Cardinality"
-msgstr "Cardinalidade"
-
-#: libraries/Index.class.php:474
-msgid "The primary key has been dropped"
-msgstr "Eliminouse a chave primaria"
-
-#: libraries/Index.class.php:478
-#, php-format
-msgid "Index %s has been dropped"
-msgstr "Eliminouse o índice %s"
-
-#: libraries/Index.class.php:582
-#, php-format
-msgid ""
-"The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
-"removed."
-msgstr ""
-"Parece que os índice %1$s e %2$s son iguais e posibelmente poderíase "
-"eliminar un deles"
-
 #: libraries/kanji-encoding.lib.php:142
 #, fuzzy
 #| msgid "None"
@@ -6694,30 +6813,6 @@ msgstr "Ningunha"
 #: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
 msgstr ""
-
-#: libraries/Message.class.php:260
-#, fuzzy, php-format
-#| msgid "%1$d row(s) affected."
-msgid "%1$d row affected."
-msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d fileira(s) afectada(s)."
-msgstr[1] "%1$d fileira(s) afectada(s)."
-
-#: libraries/Message.class.php:279
-#, fuzzy, php-format
-#| msgid "%1$d row(s) deleted."
-msgid "%1$d row deleted."
-msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d fileira(s) eliminada(s)."
-msgstr[1] "%1$d fileira(s) eliminada(s)."
-
-#: libraries/Message.class.php:298
-#, fuzzy, php-format
-#| msgid "%1$d row(s) inserted."
-msgid "%1$d row inserted."
-msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d fileira(s) inserida(s)."
-msgstr[1] "%1$d fileira(s) inserida(s)."
 
 #: libraries/mult_submits.inc.php:254
 #, fuzzy
@@ -6963,24 +7058,6 @@ msgstr "Personalizar a moldura de navegación"
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Este formato non ten opcións"
-
-#: libraries/RecentTable.class.php:114
-#, fuzzy
-#| msgid "Cannot load or save configuration"
-msgid "Could not save recent table"
-msgstr "Non se puido cargar ou gravar a configuración"
-
-#: libraries/RecentTable.class.php:149
-#, fuzzy
-#| msgid "Count tables"
-msgid "Recent tables"
-msgstr "Contar as táboas"
-
-#: libraries/RecentTable.class.php:155
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no recent tables"
-msgstr "Non hai ningún servidor configurado"
 
 #: libraries/relation.lib.php:83
 msgid "not OK"
@@ -7381,6 +7458,63 @@ msgstr "Diferenza"
 msgid "Target database"
 msgstr "Base de datos de destino"
 
+#: libraries/sql_query_form.lib.php:223
+#, php-format
+msgid "Run SQL query/queries on server %s"
+msgstr "Executar procura/s SQL no servidor %s"
+
+#: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:264
+#, php-format
+msgid "Run SQL query/queries on database %s"
+msgstr "Efectuar unha procura SQL na base de datos %s"
+
+#: libraries/sql_query_form.lib.php:296 navigation.php:302
+#: setup/frames/index.inc.php:231
+msgid "Clear"
+msgstr "Limpar"
+
+#: libraries/sql_query_form.lib.php:301
+#, fuzzy
+#| msgid "Column names"
+msgid "Columns"
+msgstr "Nomes das columnas"
+
+#: libraries/sql_query_form.lib.php:336 sql.php:1009 sql.php:1010 sql.php:1027
+msgid "Bookmark this SQL query"
+msgstr "Gardar esta procura de SQL"
+
+#: libraries/sql_query_form.lib.php:343 sql.php:1021
+msgid "Let every user access this bookmark"
+msgstr "Permitir que calquera usuario poida acceder a este marcador"
+
+#: libraries/sql_query_form.lib.php:349
+msgid "Replace existing bookmark of same name"
+msgstr "Substituír un marcador xa existente que teña o mesmo nome"
+
+#: libraries/sql_query_form.lib.php:365
+msgid "Do not overwrite this query from outside the window"
+msgstr "Non escribir sobre esta procura desde fóra da xanela"
+
+#: libraries/sql_query_form.lib.php:372
+msgid "Delimiter"
+msgstr "Delimitador"
+
+#: libraries/sql_query_form.lib.php:380
+msgid " Show this query here again "
+msgstr " Mostrar esta procura aquí outra vez "
+
+#: libraries/sql_query_form.lib.php:443
+msgid "View only"
+msgstr "Só visualizar"
+
+#: libraries/sql_query_form.lib.php:490 prefs_manage.php:241
+msgid "Location of the text file"
+msgstr "Localización do arquivo de texto"
+
+#: libraries/sql_query_form.lib.php:502 tbl_change.php:887
+msgid "web server upload directory"
+msgstr "directorio de recepción do servidor web"
+
 #: libraries/sqlparser.lib.php:132
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
@@ -7445,63 +7579,6 @@ msgstr "O identificador non é válido"
 msgid "Unknown Punctuation String"
 msgstr "Hai unha secuencia de puntuación que resulta descoñecida"
 
-#: libraries/sql_query_form.lib.php:223
-#, php-format
-msgid "Run SQL query/queries on server %s"
-msgstr "Executar procura/s SQL no servidor %s"
-
-#: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:264
-#, php-format
-msgid "Run SQL query/queries on database %s"
-msgstr "Efectuar unha procura SQL na base de datos %s"
-
-#: libraries/sql_query_form.lib.php:296 navigation.php:302
-#: setup/frames/index.inc.php:231
-msgid "Clear"
-msgstr "Limpar"
-
-#: libraries/sql_query_form.lib.php:301
-#, fuzzy
-#| msgid "Column names"
-msgid "Columns"
-msgstr "Nomes das columnas"
-
-#: libraries/sql_query_form.lib.php:336 sql.php:1009 sql.php:1010 sql.php:1027
-msgid "Bookmark this SQL query"
-msgstr "Gardar esta procura de SQL"
-
-#: libraries/sql_query_form.lib.php:343 sql.php:1021
-msgid "Let every user access this bookmark"
-msgstr "Permitir que calquera usuario poida acceder a este marcador"
-
-#: libraries/sql_query_form.lib.php:349
-msgid "Replace existing bookmark of same name"
-msgstr "Substituír un marcador xa existente que teña o mesmo nome"
-
-#: libraries/sql_query_form.lib.php:365
-msgid "Do not overwrite this query from outside the window"
-msgstr "Non escribir sobre esta procura desde fóra da xanela"
-
-#: libraries/sql_query_form.lib.php:372
-msgid "Delimiter"
-msgstr "Delimitador"
-
-#: libraries/sql_query_form.lib.php:380
-msgid " Show this query here again "
-msgstr " Mostrar esta procura aquí outra vez "
-
-#: libraries/sql_query_form.lib.php:443
-msgid "View only"
-msgstr "Só visualizar"
-
-#: libraries/sql_query_form.lib.php:490 prefs_manage.php:241
-msgid "Location of the text file"
-msgstr "Localización do arquivo de texto"
-
-#: libraries/sql_query_form.lib.php:502 tbl_change.php:887
-msgid "web server upload directory"
-msgstr "directorio de recepción do servidor web"
-
 #: libraries/sqlvalidator.lib.php:67
 #, php-format
 msgid ""
@@ -7510,50 +7587,6 @@ msgid ""
 msgstr ""
 "Non foi posíbel iniciar o comprobador de SQL. Comprobe que ten instalados "
 "todos os engadidos de php tal e como se describe na %sdocumentación%s."
-
-#: libraries/StorageEngine.class.php:195
-msgid ""
-"There is no detailed status information available for this storage engine."
-msgstr ""
-"Non se conta con información de estado detallada sobre este motor de "
-"almacenamento."
-
-#: libraries/StorageEngine.class.php:355
-#, php-format
-msgid "%s is available on this MySQL server."
-msgstr "%s está dispoñíbel neste servidor de MySQL."
-
-#: libraries/StorageEngine.class.php:358
-#, php-format
-msgid "%s has been disabled for this MySQL server."
-msgstr "%s foi desactivado neste servidor de MySQL."
-
-#: libraries/StorageEngine.class.php:362
-#, php-format
-msgid "This MySQL server does not support the %s storage engine."
-msgstr "Este servidor de MySQL non acepta o motor de almacenamento %s."
-
-#: libraries/Table.class.php:1027
-msgid "Invalid database"
-msgstr "A base de datos non é válida"
-
-#: libraries/Table.class.php:1041 tbl_get_field.php:25
-msgid "Invalid table name"
-msgstr "Non se admite este nome de táboa."
-
-#: libraries/Table.class.php:1056
-#, php-format
-msgid "Error renaming table %1$s to %2$s"
-msgstr "Houbo un erro ao mudarlle o nome á táboa %1$s para %2$s"
-
-#: libraries/Table.class.php:1139
-#, php-format
-msgid "Table %s has been renamed to %s"
-msgstr "A táboa %s chámase agora %s"
-
-#: libraries/Table.class.php:1272
-msgid "Could not save table UI preferences"
-msgstr ""
 
 #: libraries/tbl_links.inc.php:117 libraries/tbl_links.inc.php:118
 msgid "Table seems to be empty!"
@@ -7685,38 +7718,6 @@ msgstr "Definición da PARTICIÓN"
 #| msgid "Add a new server"
 msgid "+ Add a new value"
 msgstr "Engadir un servidor novo"
-
-#: libraries/Theme.class.php:160
-#, php-format
-msgid "No valid image path for theme %s found!"
-msgstr "Non hai un camiño válido de imaxe para o tema %s!"
-
-#: libraries/Theme.class.php:380
-msgid "No preview available."
-msgstr "Non se dispón de previsualización."
-
-#: libraries/Theme.class.php:383
-msgid "take it"
-msgstr "cólleo"
-
-#: libraries/Theme_Manager.class.php:109
-#, php-format
-msgid "Default theme %s not found!"
-msgstr "Non se atopou o tema por omisión %s!"
-
-#: libraries/Theme_Manager.class.php:147
-#, php-format
-msgid "Theme %s not found!"
-msgstr "Non se atopou o tema %s!"
-
-#: libraries/Theme_Manager.class.php:215
-#, php-format
-msgid "Theme path not found for theme %s!"
-msgstr "Non se atopou o camiño do tema para o tema %s!"
-
-#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
-msgid "Theme"
-msgstr ""
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 #, fuzzy
@@ -8114,8 +8115,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor a executarse con Suhosin. Consulte os posíbeis problemas na %"
-"sdocumentation%s."
+"Servidor a executarse con Suhosin. Consulte os posíbeis problemas na "
+"%sdocumentation%s."
 
 #: navigation.php:213 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
@@ -8865,8 +8866,8 @@ msgstr "Eliminar as bases de datos que teñan os mesmos nomes que os usuarios."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das táboas "
 "de privilexios do MySQL. O contido destas táboas pode diferir dos "
@@ -10521,9 +10522,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
-#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
-#| "kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
+#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
+#| "[/kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
