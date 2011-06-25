@@ -2842,7 +2842,7 @@ msgstr "أيقونة أخطاء"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr "ضع الوقت المحدد لعمل البرامج ([kbd]0[/kbd]: لانهائي)"
+msgstr "ضع الوقت المحدد لعمل البرنامج ([kbd]0[/kbd]: لانهائي)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
