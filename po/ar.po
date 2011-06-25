@@ -3022,7 +3022,7 @@ msgstr "إستخدم النظام الست عشري لـ BLOB"
 #: libraries/config/messages.inc.php:130
 #| msgid "Use delayed inserts"
 msgid "Use ignore inserts"
-msgstr "استخدم الإضافات المتجاهلة"
+msgstr "إستخدم الإضافات المتجاهلة"
 
 #: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
