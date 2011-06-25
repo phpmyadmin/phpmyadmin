@@ -1783,7 +1783,7 @@ msgstr "Diazoù roadennoù"
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:883
 #: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
-msgstr ""
+msgstr "Fazi"
 
 #: libraries/Message.class.php:260
 #, php-format
