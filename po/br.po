@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 19:43+0200\n"
+"PO-Revision-Date: 2011-06-25 19:44+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1421,6 +1421,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Ur stumm nevesoc'h eus phpMyAdmin zo bremañ ha mat e vefe deoc'h soñjal "
+"hizivaat ho hini. Setu ar stumm nevesañ %s, embannet eo bet d'an %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:166
