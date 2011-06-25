@@ -2914,7 +2914,7 @@ msgstr "خطوط تنتهي بـ"
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "خطوط مفصولة بـ"
+msgstr "أسطر تنتهي بـ"
 
 #: libraries/config/messages.inc.php:82
 #, fuzzy
