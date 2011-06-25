@@ -1558,7 +1558,7 @@ msgstr "Here"
 #. l10n: Short month name
 #: js/messages.php:229 libraries/common.lib.php:1531
 msgid "Nov"
-msgstr ""
+msgstr "Du"
 
 #. l10n: Short month name
 #: js/messages.php:231 libraries/common.lib.php:1533
