@@ -1385,7 +1385,7 @@ msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
 
 #: js/messages.php:149 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr ""
+msgstr "Dibab ar bann da ziskouez"
 
 #: js/messages.php:150
 msgid ""
