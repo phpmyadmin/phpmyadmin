@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 20:10+0200\n"
+"PO-Revision-Date: 2011-06-25 20:11+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1840,7 +1840,7 @@ msgstr "N'eo ket skoret al lusker stokañ gant ar servijer MySQL-mañ."
 
 #: libraries/Table.class.php:1027
 msgid "Invalid database"
-msgstr ""
+msgstr "Diaz roadennoù direizh"
 
 #: libraries/Table.class.php:1041 tbl_get_field.php:25
 msgid "Invalid table name"
