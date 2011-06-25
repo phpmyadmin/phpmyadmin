@@ -1651,7 +1651,7 @@ msgstr "Mc"
 #. l10n: Minimal week day name
 #: js/messages.php:268
 msgid "Th"
-msgstr ""
+msgstr "Y"
 
 #. l10n: Minimal week day name
 #: js/messages.php:270
