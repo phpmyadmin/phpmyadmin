@@ -1836,7 +1836,7 @@ msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
 #: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "N'eo ket skoret al lusker stokañ gant ar servijer MySQL-mañ."
 
 #: libraries/Table.class.php:1027
 msgid "Invalid database"
