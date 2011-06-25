@@ -1458,7 +1458,7 @@ msgstr "Hiziv"
 
 #: js/messages.php:194
 msgid "January"
-msgstr ""
+msgstr "Genver"
 
 #: js/messages.php:195
 msgid "February"
