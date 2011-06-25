@@ -186,5 +186,30 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
          return 'POINT(' . (isset($gis_data[$index]['POINT']['x']) ? $gis_data[$index]['POINT']['x'] : '')
              . ' ' . (isset($gis_data[$index]['POINT']['y']) ? $gis_data[$index]['POINT']['y'] : '') . ')';
     }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the gis column.
+     *
+     * @param string $value of the gis column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the gis column
+     */
+    public function generateParams($value, $index = 0)
+    {
+        $params = array();
+        $lastComma = strripos($value, ",");
+        $params['srid'] = trim(substr($value, $lastComma + 1));
+        $wkt = trim(substr($value, 1, $lastComma - 2));
+
+        // Trim to remove leading 'POINT(' and trailing ')'
+        $point = substr($wkt, 6, (strlen($wkt) - 7));
+        $points_arr = $this->extractPoints($point, null);
+
+        $params[$index]['POINT']['x'] = $points_arr[0][0];
+        $params[$index]['POINT']['y'] = $points_arr[0][1];
+
+        return $params;
+    }
 }
 ?>

@@ -961,7 +961,10 @@ foreach ($rows as $row_id => $vrow) {
         }
         if (in_array($field['pma_type'], $gis_data_types)) {
             echo('<span>');
-            $_url_params = array('field' => $field['Field_title']);
+            $_url_params = array(
+                'field' => $field['Field_title'],
+                'value' => $vrow[$field['Field']],
+            );
             if ($field['pma_type'] != 'geometry') {
                 $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
             }

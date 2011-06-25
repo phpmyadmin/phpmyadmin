@@ -24,13 +24,20 @@ $gis_types = array(
 
 $no_visual = true;
 if (! isset($gis_data['gis_type'])) {
-    $gis_data['gis_type'] = $gis_types[0];
-    $no_visual = true;
+    if (isset($_REQUEST['value'])) {
+        $gis_data['gis_type'] = substr($_REQUEST['value'], 1, strpos($_REQUEST['value'], "(") - 1);
+    } else {
+        $gis_data['gis_type'] = $gis_types[0];
+        $no_visual = true;
+    }
 }
-
 $geom_type = $gis_data['gis_type'];
 
 $gis_obj = PMA_GIS_Factory::factory($geom_type);
+if (isset($_REQUEST['value'])) {
+    $gis_data = array_merge($gis_data, $gis_obj->generateParams($_REQUEST['value']));
+}
+
 $srid = isset($gis_data['srid']) ? htmlspecialchars($gis_data['srid']) : '';
 $wkt = $gis_obj->generateWkt($gis_data, 0);
 
