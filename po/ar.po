@@ -2732,7 +2732,7 @@ msgstr "تأكيد إستعلامات DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "تصحيح SQL"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
