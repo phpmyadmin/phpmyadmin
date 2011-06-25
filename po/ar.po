@@ -3030,7 +3030,7 @@ msgstr "بناء الجملة لإستخدامه عند إدخال البيان�
 
 #: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "أقصى طول للإستعلام المنشئ"
 
 #: libraries/config/messages.inc.php:138
 #, fuzzy
