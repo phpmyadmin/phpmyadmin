@@ -2931,7 +2931,7 @@ msgstr "إسم قالب الخادم"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "إسم قالب الجدول"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
