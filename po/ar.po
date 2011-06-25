@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 19:51+0200\n"
+"PO-Revision-Date: 2011-06-25 19:52+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3077,7 +3077,7 @@ msgstr "وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
-msgstr "وضع إستعراض مخصص"
+msgstr "تخصيص وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
