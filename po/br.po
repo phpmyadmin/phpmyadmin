@@ -1591,7 +1591,7 @@ msgstr "Gwener"
 
 #: js/messages.php:240
 msgid "Saturday"
-msgstr ""
+msgstr "Sadorn"
 
 #. l10n: Short week day name
 #: js/messages.php:244 libraries/common.lib.php:1536
