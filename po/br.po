@@ -1587,7 +1587,7 @@ msgstr "Yaou"
 
 #: js/messages.php:239
 msgid "Friday"
-msgstr ""
+msgstr "Gwener"
 
 #: js/messages.php:240
 msgid "Saturday"
