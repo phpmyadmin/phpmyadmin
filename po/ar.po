@@ -2694,7 +2694,7 @@ msgstr "أعمدة مربع النص لـ CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "عدد صفوف مربع النص لـCHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
