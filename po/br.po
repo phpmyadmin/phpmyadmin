@@ -1756,7 +1756,7 @@ msgstr "Evezhiadenn"
 
 #: libraries/Index.class.php:474
 msgid "The primary key has been dropped"
-msgstr ""
+msgstr "Diverket eo bet an alc'hwez kentidik"
 
 #: libraries/Index.class.php:478
 #, php-format
