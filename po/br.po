@@ -1397,7 +1397,7 @@ msgstr ""
 
 #: js/messages.php:153
 msgid "Add an option for column "
-msgstr ""
+msgstr "Ouzhpennañ un dibarzh evit ar bann "
 
 #: js/messages.php:156
 msgid "Generate password"
