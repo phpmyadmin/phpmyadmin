@@ -1626,7 +1626,7 @@ msgstr "Gwe"
 #. l10n: Short week day name
 #: js/messages.php:256 libraries/common.lib.php:1548
 msgid "Sat"
-msgstr ""
+msgstr "Sad"
 
 #. l10n: Minimal week day name
 #: js/messages.php:260
