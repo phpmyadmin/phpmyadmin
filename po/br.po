@@ -1405,7 +1405,7 @@ msgstr "Genel ur ger-tremen"
 
 #: js/messages.php:157 libraries/replication_gui.lib.php:365
 msgid "Generate"
-msgstr ""
+msgstr "Genel"
 
 #: js/messages.php:158
 msgid "Change Password"
