@@ -1401,7 +1401,7 @@ msgstr "Ouzhpennañ un dibarzh evit ar bann "
 
 #: js/messages.php:156
 msgid "Generate password"
-msgstr ""
+msgstr "Genel ur ger-tremen"
 
 #: js/messages.php:157 libraries/replication_gui.lib.php:365
 msgid "Generate"
