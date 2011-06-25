@@ -2983,7 +2983,7 @@ msgstr "حفظ في الخادم"
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 msgid "Overwrite existing file(s)"
-msgstr "خزن على الملفات الموجودة أصلا"
+msgstr "خزن على الملفات الموجودة"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
