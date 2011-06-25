@@ -3073,7 +3073,7 @@ msgstr "حد المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr ""
+msgstr "وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
