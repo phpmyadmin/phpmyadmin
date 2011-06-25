@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 23:30+0200\n"
+"PO-Revision-Date: 2011-06-25 23:31+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1057,7 +1057,7 @@ msgstr "Klikañ evit diziuzañ"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:214
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "Diweredekaet eo an urzhad ''DROP DATABASE'"
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:312
 msgid "Do you really want to "
