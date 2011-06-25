@@ -1482,7 +1482,7 @@ msgstr "Mezheven"
 
 #: js/messages.php:200
 msgid "July"
-msgstr ""
+msgstr "Gouere"
 
 #: js/messages.php:201
 msgid "August"
