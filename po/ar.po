@@ -3043,7 +3043,7 @@ msgstr "تضمين التصدير في العملية"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
-msgstr ""
+msgstr "وقت التصدير (بالتوقيت العالمي)"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
