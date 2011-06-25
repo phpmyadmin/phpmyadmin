@@ -2769,7 +2769,7 @@ msgstr "تبويب الخادم الإفتراضي"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى الجدول"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
