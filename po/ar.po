@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 19:54+0200\n"
+"PO-Revision-Date: 2011-06-25 19:55+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3121,7 +3121,7 @@ msgstr "تخصيص خيارات التصدير الإفتراضي"
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "مميزات"
 
 #: libraries/config/messages.inc.php:168
 #, fuzzy
