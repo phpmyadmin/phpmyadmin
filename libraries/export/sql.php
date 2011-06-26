@@ -782,6 +782,11 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
             $create_query     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
         }
 
+        // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded with quotes, which is not accepted by parser
+        if (PMA_DRIZZLE) {
+            $create_query = preg_replace('/ROW_FORMAT=\'(\S+)\'/', 'ROW_FORMAT=$1', $create_query);
+        }
+
         // are there any constraints to cut out?
         if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
 
