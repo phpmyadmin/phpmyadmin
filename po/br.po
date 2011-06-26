@@ -1085,7 +1085,7 @@ msgstr "O tistruj an Alc'hwez kentidik/Meneger"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Pell e c'hall padout an oberiadenn-mañ. Kenderc'hel memes tra ?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
