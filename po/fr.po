@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-26 13:30+0200\n"
+"PO-Revision-Date: 2011-06-26 13:35+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -10153,10 +10153,9 @@ msgid "Label column"
 msgstr "Colonne pour étiquette"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- aucun -"
+msgstr "-- Aucun --"
 
 #: tbl_gis_visualization.php:180
 #| msgid "Total count"
