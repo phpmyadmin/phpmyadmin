@@ -1329,7 +1329,7 @@ msgstr "Kuzhat ar voest rekedoù SQL"
 
 #: js/messages.php:130
 msgid "Show query box"
-msgstr ""
+msgstr "Diskouez ar voest rekedoù SQL"
 
 #: js/messages.php:131
 msgid "Inline Edit"
