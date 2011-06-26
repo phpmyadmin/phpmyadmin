@@ -1617,6 +1617,10 @@ function PMA_isSuperuser()
  */
 function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 {
+    if (PMA_DRIZZLE) {
+        // Drizzle doesn't support functions and procedures
+        return array();
+    }
     $shows = PMA_DBI_fetch_result('SHOW ' . $which . ' STATUS;', null, null, $link);
     $result = array();
     foreach ($shows as $one_show) {

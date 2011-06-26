@@ -42,12 +42,13 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
     } else {
         $sql_query = ''; // in case target db exists
         $_error = false;
-        if ($move ||
-         (isset($create_database_before_copying) && $create_database_before_copying)) {
+        if ($move || (isset($create_database_before_copying) && $create_database_before_copying)) {
             // lower_case_table_names=1 `DB` becomes `db`
-            $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
-            if ($lower_case_table_names === '1') {
-                $newname = PMA_strtolower($newname);
+            if (!PMA_DRIZZLE) {
+                $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
+                if ($lower_case_table_names === '1') {
+                    $newname = PMA_strtolower($newname);
+                }
             }
 
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
@@ -225,7 +226,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             unset($GLOBALS['sql_constraints_query_full_db'], $one_query);
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 50100) {
+        if (!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
