@@ -1894,7 +1894,7 @@ msgstr "Tem"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Dibosupl kevreañ : arventennoù direizh."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
