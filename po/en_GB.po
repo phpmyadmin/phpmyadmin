@@ -2082,10 +2082,9 @@ msgid "Check Privileges"
 msgstr "Check Privileges"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Failed to to read configuration file"
 msgid "Failed to read configuration file"
-msgstr "Failed to to read configuration file"
+msgstr "Failed to read configuration file"
 
 #: libraries/common.inc.php:588
 #, fuzzy
