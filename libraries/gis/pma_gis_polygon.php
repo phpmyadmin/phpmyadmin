@@ -323,5 +323,45 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         $wkt .= ')';
         return $wkt;
     }
+
+    /** Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $last_comma = strripos($value, ",");
+            $params['srid'] = trim(substr($value, $last_comma + 1));
+            $wkt = trim(substr($value, 1, $last_comma - 2));
+        } else {
+            $params[$index]['gis_type'] = 'POLYGON';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'POLYGON((' and trailing '))'
+        $polygon = substr($wkt, 9, (strlen($wkt) - 11));
+        // Seperate each linestring
+        $linerings = explode("),(", $polygon);
+        $params[$index]['POLYGON']['no_of_lines'] = count($linerings);
+
+        $j = 0;
+        foreach ($linerings as $linering) {
+            $points_arr = $this->extractPoints($linering, null);
+            $no_of_points = count($points_arr);
+            $params[$index]['POLYGON'][$j]['no_of_points'] = $no_of_points;
+            for ($i = 0; $i < $no_of_points; $i++) {
+                $params[$index]['POLYGON'][$j][$i]['x'] = $points_arr[$i][0];
+                $params[$index]['POLYGON'][$j][$i]['y'] = $points_arr[$i][1];
+            }
+            $j++;
+        }
+        return $params;
+    }
 }
 ?>

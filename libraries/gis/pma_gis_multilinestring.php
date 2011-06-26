@@ -260,5 +260,46 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         $wkt .= ')';
         return $wkt;
     }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $last_comma = strripos($value, ",");
+            $params['srid'] = trim(substr($value, $last_comma + 1));
+            $wkt = trim(substr($value, 1, $last_comma - 2));
+        } else {
+            $params[$index]['gis_type'] = 'MULTILINESTRING';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
+        $multilinestirng = substr($wkt, 17, (strlen($wkt) - 19));
+        // Seperate each linestring
+        $linestirngs = explode("),(", $multilinestirng);
+        $params[$index]['MULTILINESTRING']['no_of_lines'] = count($linestirngs);
+
+        $j = 0;
+        foreach ($linestirngs as $linestring) {
+            $points_arr = $this->extractPoints($linestring, null);
+            $no_of_points = count($points_arr);
+            $params[$index]['MULTILINESTRING'][$j]['no_of_points'] = $no_of_points;
+            for ($i = 0; $i < $no_of_points; $i++) {
+                $params[$index]['MULTILINESTRING'][$j][$i]['x'] = $points_arr[$i][0];
+                $params[$index]['MULTILINESTRING'][$j][$i]['y'] = $points_arr[$i][1];
+            }
+            $j++;
+        }
+        return $params;
+    }
 }
 ?>

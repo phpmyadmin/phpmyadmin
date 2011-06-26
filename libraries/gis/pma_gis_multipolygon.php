@@ -358,5 +358,64 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         $wkt .= ')';
         return $wkt;
     }
+
+    /** Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value, $index = -1)
+    {
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $last_comma = strripos($value, ",");
+            $params['srid'] = trim(substr($value, $last_comma + 1));
+            $wkt = trim(substr($value, 1, $last_comma - 2));
+        } else {
+            $params[$index]['gis_type'] = 'MULTIPOLYGON';
+            $wkt = $value;
+        }
+
+        // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
+        $multipolygon = substr($wkt, 15, (strlen($wkt) - 18));
+        // Seperate each polygon
+        $polygons = explode(")),((", $multipolygon);
+        $params[$index]['MULTIPOLYGON']['no_of_polygons'] = count($polygons);
+
+        $k = 0;
+        foreach ($polygons as $polygon) {
+            // If the polygon doesnt have an inner polygon
+            if (strpos($polygon, "),(") === false) {
+                $params[$index]['MULTIPOLYGON'][$k]['no_of_lines'] = 1;
+                $points_arr = $this->extractPoints($polygon, null);
+                $no_of_points = count($points_arr);
+                $params[$index]['MULTIPOLYGON'][$k][0]['no_of_points'] = $no_of_points;
+                for ($i = 0; $i < $no_of_points; $i++) {
+                    $params[$index]['MULTIPOLYGON'][$k][0][$i]['x'] = $points_arr[$i][0];
+                    $params[$index]['MULTIPOLYGON'][$k][0][$i]['y'] = $points_arr[$i][1];
+                }
+            } else {
+                // Seperate outer and inner polygons
+                $parts = explode("),(", $polygon);
+                $params[$index]['MULTIPOLYGON'][$k]['no_of_lines'] = count($parts);
+                $j = 0;
+                foreach ($parts as $ring) {
+                    $points_arr = $this->extractPoints($ring, null);
+                    $no_of_points = count($points_arr);
+                    $params[$index]['MULTIPOLYGON'][$k][$j]['no_of_points'] = $no_of_points;
+                    for ($i = 0; $i < $no_of_points; $i++) {
+                        $params[$index]['MULTIPOLYGON'][$k][$j][$i]['x'] = $points_arr[$i][0];
+                        $params[$index]['MULTIPOLYGON'][$k][$j][$i]['y'] = $points_arr[$i][1];
+                    }
+                    $j++;
+                }
+            }
+            $k++;
+        }
+        return $params;
+    }
 }
 ?>

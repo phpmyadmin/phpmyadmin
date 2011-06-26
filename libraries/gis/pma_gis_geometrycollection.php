@@ -248,5 +248,37 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         $wkt .= ')';
         return $wkt;
     }
+
+    /** Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value of the GIS column
+     * @param index  $index of the geometry
+     *
+     * @return  parameters for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams($value)
+    {
+        $params = array();
+        $last_comma = strripos($value, ",");
+        $params['srid'] = trim(substr($value, $last_comma + 1));
+        $wkt = trim(substr($value, 1, $last_comma - 2));
+
+        // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
+        $goem_col = substr($wkt, 19, (strlen($wkt) - 20));
+        // Split the geometry collection object to get its constituents.
+        $sub_parts = $this->_explodeGeomCol($goem_col);
+        $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);
+
+        $i = 0;
+        foreach ($sub_parts as $sub_part) {
+            $type_pos = stripos($sub_part, '(');
+            $type = substr($sub_part, 0, $type_pos);
+
+            $gis_obj = PMA_GIS_Factory::factory($type);
+            $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
+            $i++;
+        }
+        return $params;
+    }
 }
 ?>

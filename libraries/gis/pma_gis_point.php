@@ -188,19 +188,25 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the gis column.
+     * Generate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value of the gis column
+     * @param string $value of the GIS column
      * @param index  $index of the geometry
      *
-     * @return  parameters for the GIS data editor from the value of the gis column
+     * @return  parameters for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = 0)
+    public function generateParams($value, $index = -1)
     {
-        $params = array();
-        $lastComma = strripos($value, ",");
-        $params['srid'] = trim(substr($value, $lastComma + 1));
-        $wkt = trim(substr($value, 1, $lastComma - 2));
+        if ($index == -1) {
+            $index = 0;
+            $params = array();
+            $last_comma = strripos($value, ",");
+            $params['srid'] = trim(substr($value, $last_comma + 1));
+            $wkt = trim(substr($value, 1, $last_comma - 2));
+        } else {
+            $params[$index]['gis_type'] = 'POINT';
+            $wkt = $value;
+        }
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = substr($wkt, 6, (strlen($wkt) - 7));
