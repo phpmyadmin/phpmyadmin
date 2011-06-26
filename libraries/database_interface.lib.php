@@ -112,6 +112,9 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
             $_SESSION['debug']['queries'][$hash]['count']++;
         } else {
             $_SESSION['debug']['queries'][$hash] = array();
+            if ($r == false) {
+                $_SESSION['debug']['queries'][$hash]['error'] = '<b style="color:red">'.mysqli_error($link).'</b>';
+            }
             $_SESSION['debug']['queries'][$hash]['count'] = 1;
             $_SESSION['debug']['queries'][$hash]['query'] = $query;
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
