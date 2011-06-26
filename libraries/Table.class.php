@@ -678,15 +678,19 @@ class PMA_Table
                 }
             }
             unset($analyzed_sql);
-            $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
-            // ANSI_QUOTES might be a subset of sql_mode, for example
-            // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
-            if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
-                $table_delimiter = 'quote_double';
-            } else {
+            if (PMA_DRIZZLE) {
                 $table_delimiter = 'quote_backtick';
+            } else {
+                $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
+                // ANSI_QUOTES might be a subset of sql_mode, for example
+                // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
+                if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
+                    $table_delimiter = 'quote_double';
+                } else {
+                    $table_delimiter = 'quote_backtick';
+                }
+                unset($server_sql_mode);
             }
-            unset($server_sql_mode);
 
             /* Find table name in query and replace it */
             while ($parsed_sql[$i]['type'] != $table_delimiter) {
