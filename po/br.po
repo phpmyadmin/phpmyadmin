@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 23:32+0200\n"
+"PO-Revision-Date: 2011-06-26 14:29+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1081,7 +1081,7 @@ msgstr "O tiverkañ ar roadennoù heuliañ"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "O tistruj an Alc'hwez kentidik/Meneger"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
