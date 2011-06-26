@@ -138,7 +138,7 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
  */
 echo $tableStart . '<fieldset style="margin: 1em 0;">' . "\n"
    . '    <a href="db_events.php?' . $url_query . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
-   . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
+   . PMA_getIcon('b_event_add.png') . __('Add an event') . '</a>' . "\n"
    . '</fieldset>' . "\n";
 
 /**
