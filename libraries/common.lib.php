@@ -1993,7 +1993,7 @@ function PMA_checkParameters($params, $die = true, $request = true)
  * @param   boolean     $force_unique   generate condition only on pk or unique
  *
  * @access  public
- * @return  string     the calculated condition and whether condition is unique
+ * @return  array     the calculated condition and whether condition is unique
  */
 function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force_unique=false)
 {

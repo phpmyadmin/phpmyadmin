@@ -243,9 +243,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                     PMA_DBI_query($tmp_query);
                 }
             }
-    }
-    // go back to current db, just in case
-    PMA_DBI_select_db($db);
+        }
+
+        // go back to current db, just in case
+        PMA_DBI_select_db($db);
 
         // Duplicate the bookmarks for this db (done once for each db)
         if (! $_error && $db != $newname) {
