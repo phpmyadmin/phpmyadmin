@@ -2087,7 +2087,6 @@ msgid "Failed to read configuration file"
 msgstr "Failed to read configuration file"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
 #| "shown bellow."
@@ -2096,7 +2095,7 @@ msgid ""
 "shown below."
 msgstr ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 
 #: libraries/common.inc.php:595
 #, php-format
