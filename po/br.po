@@ -1925,7 +1925,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
-msgstr ""
+msgstr "Kevreañ"
 
 #: libraries/auth/cookie.auth.lib.php:227
 #: libraries/auth/cookie.auth.lib.php:229
