@@ -1900,7 +1900,7 @@ msgstr "Dibosupl kevreañ : arventennoù direizh."
 #: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Degemer mat e %s"
 
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
