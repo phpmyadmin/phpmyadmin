@@ -1849,7 +1849,7 @@ msgstr "Anv taolenn direizh"
 #: libraries/Table.class.php:1056
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Fazi en ur adenvel %1$s e %2$s"
 
 #: libraries/Table.class.php:1139
 #, php-format
