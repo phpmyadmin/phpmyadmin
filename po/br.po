@@ -1881,7 +1881,7 @@ msgstr "N'eo ket bet kavet an tem dre ziouer %s !"
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "N'eo ket bet kavet an tem %s !"
 
 #: libraries/Theme_Manager.class.php:215
 #, php-format
