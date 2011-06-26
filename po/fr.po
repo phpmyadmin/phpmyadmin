@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-23 15:36+0200\n"
+"PO-Revision-Date: 2011-06-26 13:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -525,7 +525,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
 #: db_routines.php:190 db_routines.php:295 db_routines.php:300
 #: db_routines.php:324
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "La requête «%s» a échoué"
