@@ -1871,7 +1871,7 @@ msgstr "N'haller ket rakwelet."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr ""
+msgstr "tapit-eñ"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
