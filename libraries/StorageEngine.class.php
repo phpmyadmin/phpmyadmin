@@ -59,7 +59,22 @@ class PMA_StorageEngine
         static $storage_engines = null;
 
         if (null == $storage_engines) {
-            $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+            if (PMA_DRIZZLE) {
+                $sql = "SELECT
+                        p.plugin_name            AS Engine,
+                        (CASE
+                            WHEN p.plugin_name = @@storage_engine THEN 'DEFAULT'
+                            WHEN p.is_active THEN 'YES'
+                            ELSE 'DISABLED' END) AS Support,
+                        m.module_description     AS Comment
+                    FROM data_dictionary.plugins p
+                        JOIN data_dictionary.modules m USING (module_name)
+                    WHERE p.plugin_type = 'StorageEngine'
+                        AND p.plugin_name NOT IN ('FunctionEngine', 'schema')";
+                $storage_engines = PMA_DBI_fetch_result($sql, 'Engine');
+            } else {
+                $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+            }
         }
 
         return $storage_engines;
