@@ -1325,7 +1325,7 @@ msgstr "Notenn : ma vez meur a daolenn er restr e vint unanet."
 
 #: js/messages.php:129
 msgid "Hide query box"
-msgstr ""
+msgstr "Kuzhat ar voest rekedoù SQL"
 
 #: js/messages.php:130
 msgid "Show query box"
