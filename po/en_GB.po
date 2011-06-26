@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-26 13:26+0200\n"
+"PO-Revision-Date: 2011-06-26 13:27+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -540,10 +540,10 @@ msgstr "Error in processing request"
 
 #: db_routines.php:209 db_routines.php:241 db_routines.php:269
 #: db_routines.php:408
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %s found in database %s"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "No routine with name %s found in database %s"
+msgstr "No routine with name %1$s found in database %2$s"
 
 #: db_routines.php:230 db_routines.php:234
 msgid "Execute routine"
