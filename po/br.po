@@ -1947,7 +1947,7 @@ msgstr "Servijer : "
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
-msgstr ""
+msgstr "Anv implijer : "
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
