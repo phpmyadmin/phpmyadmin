@@ -1955,7 +1955,7 @@ msgstr "Ger-tremen : "
 
 #: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
-msgstr ""
+msgstr "Dibab ar servijer"
 
 #: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
