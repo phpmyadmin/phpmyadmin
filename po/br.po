@@ -1867,7 +1867,7 @@ msgstr "N'eus ket eus un hent reizh evit skeudennoù an tem %s !"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "N'haller ket rakwelet."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
