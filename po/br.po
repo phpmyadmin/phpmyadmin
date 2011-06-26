@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-26 14:32+0200\n"
+"PO-Revision-Date: 2011-06-26 14:33+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1858,7 +1858,7 @@ msgstr "Anv an daolenn %s zo %s bremañ"
 
 #: libraries/Table.class.php:1272
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "N'eus ket bet gallet enrollañ dibaboù etrefas an taolennoù"
 
 #: libraries/Theme.class.php:160
 #, php-format
