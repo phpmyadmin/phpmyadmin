@@ -227,26 +227,26 @@ $(document).ready(function() {
                 $("#sqlqueryresults").html(data.sql_query);
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
+                if ($("#change_column_dialog").length > 0) {
+                    $("#change_column_dialog").dialog("close").remove();
+                }
+                /*Reload the field form*/
+                $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+                    $("#fieldsForm").remove();
+                    var temp_div = $("<div id='temp_div'><div>").append(form_data);
+                    if ($("#sqlqueryresults").length != 0) {
+                        $(temp_div).find("#fieldsForm").insertAfter("#sqlqueryresults");
+                    } else {
+                        $(temp_div).find("#fieldsForm").insertAfter(".error");
+                    }
+                    /*Call the fucntion to display the more options in table*/
+                    displayMoreTableOpts();
+                });
             } else {
                 var temp_div = $("<div id='temp_div'><div>").append(data);
-                $(temp_div).find(".error").insertAfter("#topmenucontainer");
+                var error = $(temp_div).find(".error code").addClass("error");
+                PMA_ajaxShowMessage(error);
             }
-            if ($("#change_column_dialog").length > 0) {
-                $("#change_column_dialog").dialog("close").remove();
-            }
-
-            $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-                $("#fieldsForm").remove();
-                var temp_div = $("<div id='temp_div'><div>").append(form_data);
-                if ($("#sqlqueryresults").length != 0) {
-                    $(temp_div).find("#fieldsForm").insertAfter("#sqlqueryresults");
-                } else {
-                    $(temp_div).find("#fieldsForm").insertAfter(".error");
-                }
-                /*Call the fucntion to display the more options in table*/
-                displayMoreTableOpts();
-            });
-
         }) // end $.post()
     }) // end insert table button "do_save_data"
 
