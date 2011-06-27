@@ -154,8 +154,6 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 
                         /**
                          * Displays table comment
-                         * @uses $show_comment from libraries/tbl_info.inc.php
-                         * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                          */
                         if (!empty($show_comment) && ! isset($GLOBALS['avoid_show_comment'])) {
                             if (strstr($show_comment, '; InnoDB free')) {

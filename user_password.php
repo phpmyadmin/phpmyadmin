@@ -4,20 +4,6 @@
  * displays and handles the form where the user can change his password
  * linked from main.php
  *
- * @uses    $GLOBALS['js_include']
- * @uses    $cfg['ShowChgPassword']
- * @uses    $cfg['Server']['auth_type']
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_getError()
- * @uses    PMA_sanitize()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_isValid()
- * @uses    PMA_mysqlDie()
- * @uses    $GLOBALS['PMA_Config']->setCookie()
- * @uses    PMA_blowfish_encrypt()
- * @uses    PMA_showMessage()
- * @uses    define()
  * @package phpMyAdmin
  */
 

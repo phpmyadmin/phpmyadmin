@@ -9,28 +9,6 @@
  *
  * speedup view on locked tables
  *
- * @uses    $cfg['ShowStats']
- * @uses    $cfg['ShowTooltip']
- * @uses    $cfg['ShowTooltipAliasTB']
- * @uses    $cfg['SkipLockedTables']
- * @uses    $GLOBALS['db']
- * @uses    PMA_fillTooltip()
- * @uses    PMA_checkParameters()
- * @uses    PMA_escape_mysql_wildcards()
- * @uses    PMA_DBI_query()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_fetch_assoc()
- * @uses    PMA_DBI_free_result()
- * @uses    PMA_DBI_get_tables_full()
- * @uses    PMA_isValid()
- * @uses    preg_match()
- * @uses    preg_quote()
- * @uses    uksort()
- * @uses    strnatcasecmp()
- * @uses    count()
- * @uses    PMA_sqlAddSlashes()
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -57,9 +35,6 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
 /**
  * fills given tooltip arrays
  *
- * @uses    $cfg['ShowTooltipAliasTB']
- * @uses    PMA_localisedDate()
- * @uses    strtotime()
  * @param   array   $tooltip_truename   tooltip data
  * @param   array   $tooltip_aliasname  tooltip data
  * @param   array   $table              tabledata

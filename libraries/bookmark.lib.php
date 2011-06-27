@@ -9,11 +9,6 @@
 /**
  * Defines the bookmark parameters for the current user
  *
- * @uses    $GLOBALS['server']
- * @uses    PMA_getRelationsParam()
- * @uses    $GLOBALS['cfg']['Server']['user']
- * @uses    $GLOBALS['cfg']['Server']['pmadb']
- * @uses    $GLOBALS['cfg']['Server']['bookmarktable']
  * @return  array    the bookmark parameters for the current user
  * @access  public
  */
@@ -44,11 +39,6 @@ function PMA_Bookmark_getParams()
 /**
  * Gets the list of bookmarks defined for the current database
  *
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_fetch_result()
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_Bookmark_getParams()
  * @global  resource  the controluser db connection handle
  *
  * @param   string    the current database name
@@ -94,10 +84,6 @@ function PMA_Bookmark_getList($db)
 /**
  * Gets the sql command from a bookmark
  *
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_fetch_value()
- * @uses    PMA_Bookmark_getParams()
  * @global  resource  the controluser db connection handle
  *
  * @param   string    the current database name
@@ -139,10 +125,6 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 /**
  * Adds a bookmark
  *
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_query()
- * @uses    PMA_Bookmark_getParams()
  * @global  resource  the controluser db connection handle
  *
  * @param   array     the properties of the bookmark to add; here,
@@ -172,10 +154,6 @@ function PMA_Bookmark_save($fields, $all_users = false)
 /**
  * Deletes a bookmark
  *
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_Bookmark_getParams()
  * @global  resource  the controluser db connection handle
  *
  * @param   string   the current database name

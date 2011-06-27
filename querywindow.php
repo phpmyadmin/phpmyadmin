@@ -4,30 +4,6 @@
  * this file is register_globals safe
  *
  * @todo    move JavaScript out of here into .js files
- * @uses    $cfg['QueryWindowDefTab']
- * @uses    $cfg['PropertiesIconic']
- * @uses    $cfg['QueryHistoryDB']
- * @uses    $cfg['Server']['user']
- * @uses    $cfg['AllowUserDropDatabase']
- * @uses    $cfg['Confirm']
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['table']
- * @uses    PMA_isSuperuser()
- * @uses    PMA_outBufferPre()
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_isValid()
- * @uses    PMA_ifSetOr()
- * @uses    PMA_getHistory()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_escapeJsString()
- * @uses    PMA_generate_html_tabs()
- * @uses    PMA_sqlQueryForm()
- * @uses    PMA_jsFormat()
- * @uses    in_array()
- * @uses    strlen()
- * @uses    preg_replace()
- * @uses    htmlspecialchars()
  * @package phpMyAdmin
  */
 
