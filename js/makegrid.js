@@ -15,11 +15,13 @@
             reorderHint: '',            // string, hint for column reordering
             sortHint: '',               // string, hint for column sorting
             markHint: '',               // string, hint for column marking
-            showReorderHint: false,     // boolean, used by showHint() method
-            showSortHint: false,        // boolean, used by showHint() method
+            colVisibHint: '',           // string, hint for column visibility drop-down
+            showAllColText: '',         // string, text for "show all" button under column visibility list
+            showReorderHint: false,
+            showSortHint: false,
             showMarkHint: false,
-            hintIsHiding: false,        // true when hint is still shown, but hide() already called
-            nHide: -1,                  // zero-based index of column to hide
+            showColVisibHint: false,
+            hintIsHiding: false,        // true when hint is still shown, but hideHint() already called
             visibleHeadersCount: 0,     // number of visible data headers
             
             // functions
@@ -36,7 +38,6 @@
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
-                $(g.cHide).hide();
             },
             
             dragStartMove: function(e, obj) {   // start column move
@@ -80,7 +81,6 @@
                 $('body').css('cursor', 'move');
                 this.hideHint();
                 $('body').noSelect();
-                $(g.cHide).hide();
             },
             
             dragMove: function(e) {
@@ -264,8 +264,6 @@
                 var tmp = this.colVisib[oldn];
                 this.colVisib.splice(oldn, 1);
                 this.colVisib.splice(newn, 0, tmp);
-                
-                $(g.cHide).hide();
             },
             
             /**
@@ -391,6 +389,10 @@
                         text += text.length > 0 ? '<br />' : '';
                         text += this.markHint;
                     }
+                    if (this.showColVisibHint && this.colVisibHint) {
+                        text += text.length > 0 ? '<br />' : '';
+                        text += this.colVisibHint;
+                    }
                     
                     // hide the hint if no text
                     if (!text) {
@@ -440,25 +442,6 @@
                 }
             },
 
-            /**
-             * Show button to hide column.
-             */
-            showHideBtn: function(obj) {
-                if (!this.colRsz && ! this.colMov) {
-                    // check if visible headers is more than one
-                    if (this.visibleHeadersCount > 1) {
-                        pos = $(obj).position();
-                        $(g.cHide).css({
-                                left: pos.left + $(obj).width(),
-                                top: pos.top,
-                                visibility: 'visible'
-                            })
-                            .show();
-                        this.nHide = this.getHeaderIdx(obj);
-                    }
-                }
-            },
-            
             /**
              * Toggle column's visibility.
              * After calling this function and it returns true, afterToggleCol() must be called.
@@ -513,7 +496,6 @@
                 // some adjustments after hiding column
                 this.reposRsz();
                 this.reposDrop();
-                $(g.cHide).hide();
                 this.sendColPrefs();
                 
                 // check visible first row headers count
@@ -521,7 +503,6 @@
                                            $(this.t).find('tr:first th.draggable:visible').length :
                                            $(this.t).find('th.draggable:nth-child(1):visible').length;
                 this.refreshRestoreButton();
-                this.refreshShowAllButton();
             },
             
             /**
@@ -540,7 +521,16 @@
                             top: pos.top + $(obj).outerHeight(true)
                         })
                         .show();
+                    $(obj).addClass('coldrop-hover');
                 }
+            },
+            
+            /**
+             * Hide columns' visibility list.
+             */
+            hideColList: function() {
+                $(this.cList).hide();
+                $(g.cDrop).find('.coldrop-hover').removeClass('coldrop-hover');
             },
             
             /**
@@ -559,18 +549,6 @@
             },
             
             /**
-             * Refresh "show all columns" button state.
-             * Make the button disabled if the table's columns are all shown.
-             */
-            refreshShowAllButton: function() {
-                if (this.visibleHeadersCount < this.colVisib.length) {
-                    $('.show_all_column').show();
-                } else {
-                    $('.show_all_column').hide();
-                }
-            },
-            
-            /**
              * Show all hidden columns.
              */
             showAllColumns: function() {
@@ -580,7 +558,6 @@
                     }
                 }
                 this.afterToggleCol();
-                this.refreshShowAllButton();
             }
         }
         
@@ -593,7 +570,6 @@
         g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
         g.cPointer = document.createElement('div'); // column pointer, used when reordering column
         g.dHint = document.createElement('div');    // draggable hint
-        g.cHide = document.createElement('div');    // column hide button
         g.cDrop = document.createElement('div');    // column drop-down arrows
         g.cList = document.createElement('div');    // column visibility list
         
@@ -611,10 +587,6 @@
         // adjust g.dHint
         g.dHint.className = 'dHint';
         $(g.dHint).hide();
-        
-        // adjust g.cHide
-        g.cHide.className = 'cHide';
-        $(g.cHide).css('visibility', 'hidden'); // don't use .hide(), so the background image, will be prefetched in firefox
         
         // adjust g.cDrop
         g.cDrop.className = 'cDrop';
@@ -657,6 +629,8 @@
         g.reorderHint = $('#col_order_hint').val();
         g.sortHint = $('#sort_hint').val();
         g.markHint = $('#col_mark_hint').val();
+        g.colVisibHint = $('#col_visib_hint').val();
+        g.showAllColText = $('#show_all_col_text').val();
         
         // initialize column order
         $col_order = $('#col_order');
@@ -700,7 +674,7 @@
                         if (g.cList.style.display == 'none') {
                             g.showColList(this);
                         } else {
-                            $(g.cList).hide();
+                            g.hideColList();
                         }
                     });
                 $(g.cDrop).append(cd);
@@ -720,6 +694,22 @@
                     if ( g.toggleCol($(this).index()) ) {
                         g.afterToggleCol();
                     }
+                });
+            }
+            // add "show all column" button
+            var showAll = document.createElement('div');
+            $(showAll).addClass('showAllColBtn')
+                .text(g.showAllColText);
+            $(g.cList).append(showAll);
+            $(showAll).click(function() {
+                g.showAllColumns();
+            });
+            // prepend "show all column" button at top if the list is too long
+            if ($firstRowHeaders.length > 10) {
+                var clone = showAll.cloneNode(true);
+                $(g.cList).prepend(clone);
+                $(clone).click(function() {
+                    g.showAllColumns();
                 });
             }
         }
@@ -748,7 +738,6 @@
                     if (g.visibleHeadersCount > 1) {
                         g.showReorderHint = true;
                         $(this).css('cursor', 'move');
-                        g.showHideBtn(this);
                     } else {
                         $(this).css('cursor', 'inherit');
                     }
@@ -759,6 +748,15 @@
                     g.showHint(e);
                 });
         }
+        $(t).find('th:not(.draggable)')
+            .mouseenter(function(e) {
+                g.showColVisibHint = true;
+                g.showHint(e);
+            })
+            .mouseleave(function(e) {
+                g.showColVisibHint = false;
+                g.showHint(e);
+            });
         $(t).find('th.draggable a')
             .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
@@ -788,22 +786,8 @@
         $('.restore_column').click(function() {
             g.restoreColOrder();
         });
-        $('.show_all_column').click(function() {
-            g.showAllColumns();
-        });
-        $(t).find('td, th').not('.draggable').mouseenter(function() {
-            $(g.cHide).hide();
-        });
         $(t).find('td, th.draggable').mouseenter(function() {
-            $(g.cList).hide();
-        });
-        $(g.cHide).click(function() {
-            if (g.toggleCol(g.nHide)) {
-                g.afterToggleCol();
-            }
-        });
-        $(g.cList).mouseleave(function() {
-            $(g.cList).hide();
+            g.hideColList();
         });
         
         // add table class
@@ -814,7 +798,6 @@
         $(g.gDiv).append(t);
         $(g.gDiv).prepend(g.cRsz);
         $(g.gDiv).append(g.cPointer);
-        $(g.gDiv).append(g.cHide);
         $(g.gDiv).append(g.cDrop);
         $(g.gDiv).append(g.cList);
         $(g.gDiv).append(g.dHint);
@@ -822,7 +805,6 @@
 
         // some adjustment
         g.refreshRestoreButton();
-        g.refreshShowAllButton();
         g.cRsz.className = 'cRsz';
         $(t).removeClass('data');
         $(g.gDiv).addClass('data');

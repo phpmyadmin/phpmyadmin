@@ -395,7 +395,6 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     ?>
     <td>
         <input class="restore_column hide" type="submit" value="<?php echo __('Restore column order'); ?>" />
-        <input class="show_all_column hide" type="submit" value="<?php echo __('Show all columns'); ?>" />
         <?php
         if (PMA_isSelect()) {
             // generate the column order, if it is set
@@ -416,6 +415,8 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
         echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
         echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
+        echo '<input id="col_visib_hint" type="hidden" value="' . __('Click the drop-down arrow<br />to toggle column\'s visibility') . '" />';
+        echo '<input id="show_all_col_text" type="hidden" value="' . __('Show all') . '" />';
         ?>
     </td>
 </tr>
@@ -1747,7 +1748,9 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
+                echo '<th' .
+                     ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '' .
+                     '></th>' . "\n";
             }
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
             $foo_counter++;
@@ -1762,14 +1765,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '    <th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1781,14 +1778,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['copy'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '    <th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1800,14 +1791,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1851,7 +1836,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
+                echo '<th rowspan="4"></th>' . "\n";
             }
 
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
@@ -1867,14 +1852,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1886,14 +1865,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['copy'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1905,14 +1878,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     }
