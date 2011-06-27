@@ -1338,7 +1338,7 @@ class PMA_Table
         } else if ($property == self::PROP_COLUMN_ORDER) {
             if (isset($this->uiprefs[$property])) {
                 // check if the table has not been modified
-                if (self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME') ==
+                if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') ==
                         $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
@@ -1374,7 +1374,7 @@ class PMA_Table
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if ($property == self::PROP_COLUMN_ORDER) {
-            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'Create_time');
             if (isset($table_create_time) &&
                     $table_create_time == $curr_create_time) {
                 $this->uiprefs['CREATE_TIME'] = $curr_create_time;
