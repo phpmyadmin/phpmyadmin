@@ -5372,10 +5372,10 @@ msgid "Link not found"
 msgstr "Odkaz nenalezen"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Exportovat obsah"
+msgstr "Exportovat spoušť %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
