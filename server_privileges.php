@@ -166,8 +166,8 @@ function PMA_RangeOfUsers($initial = '')
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
     if (!empty($initial)) {
-        $ret = " WHERE `User` LIKE '" . PMA_sqlAddSlashes($initial) . "%'"
-            . " OR `User` LIKE '" . PMA_sqlAddSlashes(strtolower($initial)) . "%'";
+        $ret = " WHERE `User` LIKE '" . PMA_sqlAddSlashes($initial, true) . "%'"
+            . " OR `User` LIKE '" . PMA_sqlAddSlashes(strtolower($initial), true) . "%'";
     } else {
         $ret = '';
     }
@@ -1888,7 +1888,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
                 $user_host_condition .=
                     ' AND `Db`'
-                    .' LIKE \'' . PMA_sqlAddSlashes($dbname) . "'";
+                    .' LIKE \'' . PMA_sqlAddSlashes($dbname, true) . "'";
 
                 $tables_to_search_for_users = array(
                     'columns_priv',
