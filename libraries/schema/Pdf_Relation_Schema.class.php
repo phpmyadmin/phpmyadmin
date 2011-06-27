@@ -438,7 +438,6 @@ class PMA_PDF extends TCPDF
  * and helps in drawing/generating the Tables in PDF document.
  *
  * @name Table_Stats
- * @copyright
  * @license
  * @see PMA_PDF
  */
@@ -652,7 +651,6 @@ class Table_Stats
  * in PDF document.
  *
  * @name Relation_Stats
- * @copyright
  * @license
  * @see PMA_PDF::SetDrawColor,PMA_PDF::PMA_PDF_setLineWidthScale,PMA_PDF::PMA_PDF_lineScale
  */
@@ -797,7 +795,6 @@ class Relation_Stats
  * to this class
  *
  * @name Pdf_Relation_Schema
- * @copyright
  * @license
  */
 class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema

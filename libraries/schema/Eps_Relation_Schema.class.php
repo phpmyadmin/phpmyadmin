@@ -347,7 +347,6 @@ class PMA_EPS
  * and helps in drawing/generating the Tables in EPS.
  *
  * @name Table_Stats
- * @copyright
  * @license
  * @see PMA_EPS
  */
@@ -550,7 +549,6 @@ class Table_Stats
  * in EPS document.
  *
  * @name Relation_Stats
- * @copyright
  * @license
  * @see PMA_EPS
  */
@@ -715,7 +713,6 @@ class Relation_Stats
  * to this class
  *
  * @name Eps_Relation_Schema
- * @copyright
  * @license
  */
 class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema

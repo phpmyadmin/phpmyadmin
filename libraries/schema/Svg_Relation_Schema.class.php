@@ -317,7 +317,6 @@ class PMA_SVG extends XMLWriter
  * and helps in drawing/generating the Tables in SVG XML document.
  *
  * @name Table_Stats
- * @copyright
  * @license
  * @see PMA_SVG
  */
@@ -527,7 +526,6 @@ class Table_Stats
  * in SVG XML document.
  *
  * @name Relation_Stats
- * @copyright
  * @license
  * @see PMA_SVG::printElementLine
  */
@@ -691,7 +689,6 @@ class Relation_Stats
  * to this class
  *
  * @name Svg_Relation_Schema
- * @copyright
  * @license
  */
 class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema

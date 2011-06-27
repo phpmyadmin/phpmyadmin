@@ -469,7 +469,6 @@ class Relation_Stats
  * to this class
  *
  * @name Visio_Relation_Schema
- * @copyright
  * @license
  */
 class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema

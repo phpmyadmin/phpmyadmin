@@ -184,7 +184,6 @@ class PMA_DIA extends XMLWriter
  * and helps in drawing/generating the Tables in dia XML document.
  *
  * @name Table_Stats
- * @copyright
  * @license
  * @see PMA_DIA
  */
@@ -435,7 +434,6 @@ class Table_Stats
  * in dia XML document.
  *
  * @name Relation_Stats
- * @copyright
  * @license
  * @see PMA_DIA
  */
@@ -636,7 +634,6 @@ class Relation_Stats
  * to this class
  *
  * @name Dia_Relation_Schema
- * @copyright
  * @license
  */
 class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
