@@ -5383,10 +5383,10 @@ msgid "Export of trigger \"%s\""
 msgstr "Export spouště „%s“"
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "Nebyla nalezena platná cesta k obrázkům pro vzhled %s!"
+msgstr "Spoušť se jménem %s nebyla nalezena"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
