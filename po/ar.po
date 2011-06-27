@@ -2470,30 +2470,32 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و  VARCHAR ,,[kbd]input[/kbd] - "
+"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في العمود. "
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "تعديل أعمدة CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "عدد أعمدة مربع النص لـCHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "أعمدة مربع النص لـ CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "عدد صفوف مربع النص لـCHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "صفوف مربع النص لـ CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "تحقق من أذونات ملف التكوين"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
@@ -2503,26 +2505,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "ضغط"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:153
 msgid "Configuration file"
-msgstr ""
+msgstr "ملف التكوين"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"التحذير (&quot; هل أنت متأكد &quot; ) يظهر عندما تكون على وشك فقدان بيانات"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "تأكيد إستعلامات DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "تصحيح SQL"
 
 #: libraries/config/messages.inc.php:45
 #, fuzzy
@@ -2535,62 +2538,64 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]أفقي[/kbd] , [kbd]رأسي[/kbd] أو عدد يشير إلى أكبر عدد من الأعمدة "
+"يستعمله النموذج"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "عرض الإتجاه لـ تعديل/إنشاء الأعمدة"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "تبويب قاعدة البيانات الإفتراضي"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى الخادم"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "تبويب الخادم الإفتراضي"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى الجدول"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "تبويب الجدول الإفتراضي"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "عرض البيانات الثنائية بالنظام الست عشري إفتراضياً"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:590
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "عرض البيانات الثنائية بالنظام الست عشري"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "إظهار قواعد البيانات كقائمة بدلاً من القائمة المنسدلة"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "إظهار قواعد البيانات كقائمة"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "إظهار الخوادم كقائمة بدلاً من القائمة المنسدلة"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "إظهار الخوادم كقائمة"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "تعديل إستعلام SQL في نافذة منبثقة"
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
@@ -2612,7 +2617,7 @@ msgstr "أخطاء."
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "عرض الأيقونات لرسائل التحذير, الخطأ والمعلومات"
 
 #: libraries/config/messages.inc.php:65
 #, fuzzy
@@ -2624,11 +2629,11 @@ msgstr "أخطاء."
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr ""
+msgstr "ضع الوقت المحدد لعمل البرنامج ([kbd]0[/kbd]: لانهائي)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "وقت التنفيذ الأقصى"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -2636,7 +2641,7 @@ msgstr "حفظ كملف"
 
 #: libraries/config/messages.inc.php:69 libraries/config/messages.inc.php:237
 msgid "Character set of the file"
-msgstr ""
+msgstr "مجموعة الأحرف للملف"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
 #: tbl_printview.php:373 tbl_structure.php:831
@@ -2687,7 +2692,7 @@ msgstr "استبدل NULL بـ"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "حذف CRLF من الأعمدة"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
@@ -2710,15 +2715,15 @@ msgstr "إصدارة إكسل"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
-msgstr ""
+msgstr "إسم قالب قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:84
 msgid "Server name template"
-msgstr ""
+msgstr "إسم قالب الخادم"
 
 #: libraries/config/messages.inc.php:85
 msgid "Table name template"
-msgstr ""
+msgstr "إسم قالب الجدول"
 
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:102
 #: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:135
@@ -2767,7 +2772,7 @@ msgstr "نوع التصدير"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "حفظ في الخادم"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -2776,7 +2781,7 @@ msgstr "خزن على الملفات الموجودة أصلا"
 
 #: libraries/config/messages.inc.php:116
 msgid "Remember file name template"
-msgstr ""
+msgstr "تذكر إسم قالب الملف"
 
 #: libraries/config/messages.inc.php:118
 #, fuzzy
@@ -2787,11 +2792,11 @@ msgstr "حماية أسماء الجداول و الحقول ب \"`\" "
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:258
 #: libraries/display_export.lib.php:353
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "وضع توافق SQL"
 
 #: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "بناء الجملة لإستخدامه عند إدخال البيانات"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -2803,11 +2808,11 @@ msgstr "استخدم الإضافات المتأخرة"
 
 #: libraries/config/messages.inc.php:123 libraries/export/sql.php:53
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "تعطيل التحقق من المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:126
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "إستخدم النظام الست عشري لـ BLOB"
 
 #: libraries/config/messages.inc.php:128
 #, fuzzy
@@ -2817,7 +2822,7 @@ msgstr "استخدم الإضافات المتأخرة"
 
 #: libraries/config/messages.inc.php:131 libraries/export/sql.php:163
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "أقصى طول للإستعلام المنشئ"
 
 #: libraries/config/messages.inc.php:136
 #, fuzzy
@@ -2827,19 +2832,19 @@ msgstr "تصدير"
 
 #: libraries/config/messages.inc.php:137 libraries/export/sql.php:50
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "تضمين التصدير في العملية"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export time in UTC"
-msgstr ""
+msgstr "وقت التصدير (بالتوقيت العالمي)"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "فرض الإتصال الآمن عند إستخدام phpMyAdmin"
 
 #: libraries/config/messages.inc.php:147
 msgid "Force SSL connection"
-msgstr ""
+msgstr "فرض إتصال SSL"
 
 #: libraries/config/messages.inc.php:148
 msgid ""
@@ -2849,30 +2854,30 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "قائمة منسدلة مرتبة بالمفتاح الغريب"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "سيتم إستخدام القائمة المنسدلة إذا وجد عدد أقل من العناصر"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key limit"
-msgstr ""
+msgstr "حد المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:152
 msgid "Browse mode"
-msgstr ""
+msgstr "وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr ""
+msgstr "تخصيص وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
 #: libraries/config/messages.inc.php:187 libraries/config/messages.inc.php:215
 #: libraries/config/messages.inc.php:227
 msgid "Customize default options"
-msgstr ""
+msgstr "تخصيص الخيارات الإفتراضية"
 
 #: libraries/config/messages.inc.php:156 libraries/config/setup.forms.php:232
 #: libraries/config/setup.forms.php:311
@@ -2884,32 +2889,32 @@ msgstr "سي إس في"
 
 #: libraries/config/messages.inc.php:158
 msgid "Developer"
-msgstr ""
+msgstr "مطور"
 
 #: libraries/config/messages.inc.php:159
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "إعدادات لمطوري phpMyAdmin"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
-msgstr ""
+msgstr "وضع التعديل"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize edit mode"
-msgstr ""
+msgstr "تخصيص وضع التعديل"
 
 #: libraries/config/messages.inc.php:163
 msgid "Export defaults"
-msgstr ""
+msgstr "إفتراضيات التصدير"
 
 #: libraries/config/messages.inc.php:164
 msgid "Customize default export options"
-msgstr ""
+msgstr "تخصيص خيارات التصدير الإفتراضي"
 
 #: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:207
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "مميزات"
 
 #: libraries/config/messages.inc.php:166
 #, fuzzy
@@ -2919,7 +2924,7 @@ msgstr "ولد"
 
 #: libraries/config/messages.inc.php:167
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "تعيين بعض الخيارات شائعة الإستخدام"
 
 #: libraries/config/messages.inc.php:168 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2929,19 +2934,19 @@ msgstr "استورد"
 
 #: libraries/config/messages.inc.php:169
 msgid "Import defaults"
-msgstr ""
+msgstr "إفتراضيات الإستيراد"
 
 #: libraries/config/messages.inc.php:170
 msgid "Customize default common import options"
-msgstr ""
+msgstr "تخصيص خيارات الإستيراد الإفتراضية"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import / export"
-msgstr ""
+msgstr "إستيراد / تصدير"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "حدد عناوين الإستيراد والتصدير و  خيارات الضغط"
 
 #: libraries/config/messages.inc.php:173 libraries/export/latex.php:26
 msgid "LaTeX"
@@ -2949,15 +2954,15 @@ msgstr "لاتكس"
 
 #: libraries/config/messages.inc.php:176
 msgid "Databases display options"
-msgstr ""
+msgstr "خيارات عرض قواعد البيانات"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "إطار التصفح"
 
 #: libraries/config/messages.inc.php:178
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "تخصيص مظهر إطار التصفح"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
@@ -2966,19 +2971,19 @@ msgstr "خوادم"
 
 #: libraries/config/messages.inc.php:180
 msgid "Servers display options"
-msgstr ""
+msgstr "خيارات عرض الخوادم"
 
 #: libraries/config/messages.inc.php:182
 msgid "Tables display options"
-msgstr ""
+msgstr "خيارات عرض الجداول"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
-msgstr ""
+msgstr "مايكروسوفت أوفيس"
 
 #: libraries/config/messages.inc.php:186
 #, fuzzy
@@ -2988,11 +2993,11 @@ msgstr "مستندات وثائقية"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
-msgstr ""
+msgstr "الإعدادات الرئيسية الأخرى"
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "الإعدادات التي لاتناسب في أي مكان آخر"
 
 #: libraries/config/messages.inc.php:190
 #, fuzzy
@@ -3016,21 +3021,22 @@ msgstr "نافذة الاستعلام"
 
 #: libraries/config/messages.inc.php:193
 msgid "Customize query window options"
-msgstr ""
+msgstr "تخصيص خيارات نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
-msgstr ""
+msgstr "الأمان"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"فضلاً , تذكر أن phpMyAdmin هي واجة إستخدام فقط ولا يمكن أن تتجاوز حدود MySQL"
 
 #: libraries/config/messages.inc.php:196
 msgid "Basic settings"
-msgstr ""
+msgstr "الإعدادات الأساسية"
 
 #: libraries/config/messages.inc.php:197
 #, fuzzy
@@ -3040,25 +3046,25 @@ msgstr "مستندات وثائقية"
 
 #: libraries/config/messages.inc.php:198
 msgid "Authentication settings"
-msgstr ""
+msgstr "خيارات المصادقة"
 
 #: libraries/config/messages.inc.php:199
 msgid "Server configuration"
-msgstr ""
+msgstr "إعداد الخادم"
 
 #: libraries/config/messages.inc.php:200
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
-msgstr ""
+msgstr "إعداد متقدم للخادم , لاتغير أي من هذه القيم حتى تعلم وظيفتها"
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "أدخل معلومات إتصال الخادم"
 
 #: libraries/config/messages.inc.php:202
 msgid "Configuration storage"
-msgstr ""
+msgstr "إعداد التخزين"
 
 #: libraries/config/messages.inc.php:203
 msgid ""
@@ -5547,7 +5553,7 @@ msgstr "أوامر"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "خيارات <code>CREATE TABLE</code> :"
 
 #: libraries/export/sql.php:123
 msgid ""
