@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-27 10:20+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
 "PO-Revision-Date: 2011-06-27 03:38+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
@@ -2590,8 +2590,7 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و  VARCHAR ,,[kbd]input[/kbd] - "
-"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في "
-"العمود. "
+"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في العمود. "
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2648,7 +2647,6 @@ msgid "Debug SQL"
 msgstr "تصحيح SQL"
 
 #: libraries/config/messages.inc.php:45
-#| msgid "Relational schema"
 msgid "Default display direction"
 msgstr "إتجاه العرض الإفتراضي"
 
@@ -2719,7 +2717,6 @@ msgid ""
 msgstr "تعطيل عمليات الصيانة , مثل تحسين وإصلاح جداول قاعدة البيانات."
 
 #: libraries/config/messages.inc.php:61
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "تعطيل صيانة الجداول المتعددة "
 
@@ -2728,17 +2725,14 @@ msgid "Edit SQL queries in popup window"
 msgstr "تعديل إستعلام SQL في نافذة منبثقة"
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "تعديل في نافذة"
 
 #: libraries/config/messages.inc.php:64
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "عرض الأخطاء"
 
 #: libraries/config/messages.inc.php:65
-#| msgid "errors."
 msgid "Gather errors"
 msgstr "جمع الأخطاء"
 
@@ -2747,7 +2741,6 @@ msgid "Show icons for warning, error and information messages"
 msgstr "عرض الأيقونات لرسائل التحذير, الخطأ والمعلومات"
 
 #: libraries/config/messages.inc.php:67
-#| msgid "errors."
 msgid "Iconic errors"
 msgstr "أيقونة أخطاء"
 
@@ -2787,21 +2780,18 @@ msgstr "الضغط"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "ضع أسماء الحقول في السطر الأول"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "حقل مضمن بـ"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "حقل متجاهل بـ"
 
@@ -2820,7 +2810,6 @@ msgstr "حذف CRLF من الأعمدة"
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "خطوط تنتهي بـ"
 
@@ -2830,7 +2819,6 @@ msgid "Lines terminated by"
 msgstr "أسطر تنتهي بـ"
 
 #: libraries/config/messages.inc.php:82
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "إصدارة إكسل"
 
@@ -2851,7 +2839,6 @@ msgstr "إسم قالب الجدول"
 #: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:116 libraries/export/texytext.php:23
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "إفراغ الجدول"
 
@@ -2885,7 +2872,6 @@ msgid "Relations"
 msgstr "العلاقات"
 
 #: libraries/config/messages.inc.php:105
-#| msgid "Export type"
 msgid "Export method"
 msgstr "نوع التصدير"
 
@@ -2903,7 +2889,6 @@ msgid "Remember file name template"
 msgstr "تذكر إسم قالب الملف"
 
 #: libraries/config/messages.inc.php:120
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "حماية أسماء الجداول و الحقول ب \"`\" "
 
@@ -2933,7 +2918,6 @@ msgid "Use hexadecimal for BLOB"
 msgstr "إستخدم النظام الست عشري لـ BLOB"
 
 #: libraries/config/messages.inc.php:130
-#| msgid "Use delayed inserts"
 msgid "Use ignore inserts"
 msgstr "إستخدم الإضافات المتجاهلة"
 
@@ -2946,7 +2930,6 @@ msgid "Maximal length of created query"
 msgstr "أقصى طول للإستعلام المنشئ"
 
 #: libraries/config/messages.inc.php:138
-#| msgid "Export"
 msgid "Export type"
 msgstr "نوع التصدير"
 
@@ -3037,7 +3020,6 @@ msgid "Features"
 msgstr "مميزات"
 
 #: libraries/config/messages.inc.php:168
-#| msgid "Generate"
 msgid "General"
 msgstr "عام"
 
@@ -3105,7 +3087,6 @@ msgid "Microsoft Office"
 msgstr "مايكروسوفت أوفيس"
 
 #: libraries/config/messages.inc.php:188
-#| msgid "Documentation"
 msgid "Open Document"
 msgstr "مستند مفتوح"
 
@@ -3118,7 +3099,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "الإعدادات التي لاتناسب في أي مكان آخر"
 
 #: libraries/config/messages.inc.php:192
-#| msgid "Page number:"
 msgid "Page titles"
 msgstr "عناوين الصفحة"
 
@@ -3156,7 +3136,6 @@ msgid "Basic settings"
 msgstr "الإعدادات الأساسية"
 
 #: libraries/config/messages.inc.php:199
-#| msgid "Documentation"
 msgid "Authentication"
 msgstr "المصادقة"
 

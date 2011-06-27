@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-27 10:20+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
 "PO-Revision-Date: 2011-06-25 01:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
@@ -512,7 +512,6 @@ msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren"
 
 #: db_routines.php:167
 #, php-format
-#| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Exekveringsresultat av rutin %s"
 
@@ -524,7 +523,6 @@ msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
 #, php-format
-#| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "Följande fråga har fallerat:  \"%s\""
 
@@ -535,14 +533,12 @@ msgstr "MySQL sa: "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Fel i utförandebegäran"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
 #, php-format
-#| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Ingen rutin med namnet %1$s finns i databasen %2$s"
 
@@ -552,13 +548,11 @@ msgstr "Utför rutin"
 
 #: db_routines.php:261 db_routines.php:265
 #, php-format
-#| msgid "Export defaults"
 msgid "Export of routine %s"
 msgstr "Exportera rutin %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:960
 #, php-format
-#| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
 msgstr "Ogiltig rutintyp: \"%s\""
 
@@ -572,13 +566,11 @@ msgstr "Den säkerhetskopierade frågan var:"
 
 #: db_routines.php:316
 #, php-format
-#| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Rutinen %1$s har modifierats."
 
 #: db_routines.php:329
 #, php-format
-#| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "Rutinen %1$s har skapats."
 
@@ -588,12 +580,10 @@ msgstr ""
 "<b> Ett eller flera fel har inträffat under hanteringen av din begäran: </b>"
 
 #: db_routines.php:381
-#| msgid "Create relation"
 msgid "Create routine"
 msgstr "Skapa rutin"
 
 #: db_routines.php:385
-#| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "Redigera rutin"
 
@@ -678,7 +668,6 @@ msgid "Search in database"
 msgstr "Sök i databas"
 
 #: db_search.php:300
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Ord eller värden att söka efter (jokertecken: \"%\"):"
 
@@ -691,7 +680,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Ord är  separerade med mellanslag (\" \")."
 
 #: db_search.php:323
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Inuti tabeller:"
 
@@ -1203,7 +1191,6 @@ msgid "KiB received since last refresh"
 msgstr "kb mottagna sedan den senaste uppdateringen"
 
 #: js/messages.php:80
-#| msgid "Server traffic"
 msgid "Server traffic (in KiB)"
 msgstr "Server trafik (i kb)"
 
@@ -1216,7 +1203,6 @@ msgid "Processes"
 msgstr "Processer"
 
 #: js/messages.php:83
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "Förbindelser / Processer"
 
@@ -1225,7 +1211,6 @@ msgid "Issued queries since last refresh"
 msgstr "Skapade frågor sedan föregående uppdateringen"
 
 #: js/messages.php:85
-#| msgid "SQL queries"
 msgid "Issued queries"
 msgstr "Skapade frågor"
 
@@ -1320,7 +1305,6 @@ msgstr ""
 "Definitionen av en sparad funktion måste innehålla en RETURN-programsats!"
 
 #: js/messages.php:123
-#| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
 msgstr "Värdet för långt i formuläret!"
 
@@ -2098,7 +2082,6 @@ msgid "Check Privileges"
 msgstr "Kontrollera privilegier"
 
 #: libraries/common.inc.php:587
-#| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
 msgstr "Kunde inte läsa konfigurationsfilen"
 
@@ -4704,19 +4687,16 @@ msgstr "%s tillägg saknas. Vänligen kontrollera din PHP konfiguration."
 
 #: libraries/db_events.inc.php:30
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "Exportera händelse %s"
 
 #: libraries/db_events.inc.php:34
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event \"%s\""
 msgstr "Exportera händelse \"%s\""
 
 #: libraries/db_events.inc.php:40
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
 msgstr "Ingen händelse med namnet %s finns i databasen %s"
 
@@ -4726,7 +4706,6 @@ msgid "Events"
 msgstr "Händelser"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "Det finns inga händelser att visa."
 
@@ -4755,7 +4734,6 @@ msgid "Turn it off"
 msgstr "Stäng av den"
 
 #: libraries/db_events.inc.php:141
-#| msgid "Add a new server"
 msgid "Add an event"
 msgstr "Lägg till en ny händelse"
 
@@ -4793,18 +4771,15 @@ msgid "Triggers"
 msgstr "Trigger"
 
 #: libraries/db_routines.lib.php:659
-#| msgid "Details..."
 msgid "Details"
 msgstr "Detaljer"
 
 #: libraries/db_routines.lib.php:662
-#| msgid "Routines"
 msgid "Routine name"
 msgstr "Rutinnamn"
 
 #: libraries/db_routines.lib.php:679
 #, php-format
-#| msgid "Change"
 msgid "Change to %s"
 msgstr "Ändra till %s"
 
@@ -4813,7 +4788,6 @@ msgid "Parameters"
 msgstr "Parametrar"
 
 #: libraries/db_routines.lib.php:689
-#| msgid "Direct links"
 msgid "Direction"
 msgstr "Riktning"
 
@@ -4840,12 +4814,10 @@ msgid "Options"
 msgstr "Alternativ"
 
 #: libraries/db_routines.lib.php:707
-#| msgid "Add prefix"
 msgid "Add parameter"
 msgstr "Lägg till parameter"
 
 #: libraries/db_routines.lib.php:710
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Ta bort senaste parametern"
 
@@ -4854,17 +4826,14 @@ msgid "Return type"
 msgstr "Returtyp"
 
 #: libraries/db_routines.lib.php:721
-#| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Returnera längd/värden"
 
 #: libraries/db_routines.lib.php:726
-#| msgid "Table options"
 msgid "Return options"
 msgstr "Return alternativ"
 
 #: libraries/db_routines.lib.php:745
-#| msgid "Description"
 msgid "Definition"
 msgstr "Definition"
 
@@ -4877,7 +4846,6 @@ msgid "Definer"
 msgstr "Definierare"
 
 #: libraries/db_routines.lib.php:758
-#| msgid "Security"
 msgid "Security type"
 msgstr "Säkerhetstyp"
 
@@ -4886,7 +4854,6 @@ msgid "SQL data access"
 msgstr "SQL dataaccess"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#| msgid "Routines"
 msgid "Routine parameters"
 msgstr "Rutinparametrar"
 
@@ -4927,17 +4894,14 @@ msgid "You must provide a routine definition."
 msgstr "Du måste ange en rutindefinition."
 
 #: libraries/db_routines.lib.php:1209
-#| msgid "There are no files to upload"
 msgid "There are no routines to display."
 msgstr "Det finns inga rutiner att visa."
 
 #: libraries/db_routines.lib.php:1253
-#| msgid "Add index"
 msgid "Add routine"
 msgstr "Lägg till rutin."
 
 #: libraries/db_routines.lib.php:1256
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
 msgstr "Du har inte tillräcklig behörighet för att skapa en ny rutin"
 
@@ -5402,7 +5366,6 @@ msgstr "Länken hittades inte"
 
 #: libraries/display_triggers.inc.php:35
 #, php-format
-#| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "Exportera trigger %s"
 
@@ -5413,12 +5376,10 @@ msgstr "Exportera trigger \"%s\""
 
 #: libraries/display_triggers.inc.php:47
 #, php-format
-#| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
 msgstr "Ingen trigger med namn %s hittad"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "Det finns inga triggers att visa"
 
@@ -5431,7 +5392,6 @@ msgid "Event"
 msgstr "Händelse"
 
 #: libraries/display_triggers.inc.php:120
-#| msgid "Add a new server"
 msgid "Add a trigger"
 msgstr "Lägg till en ny Trigger"
 
@@ -6186,7 +6146,6 @@ msgid "Open new phpMyAdmin window"
 msgstr "Öppna nytt phpMyAdmin-fönster"
 
 #: libraries/gis_visualization.lib.php:129
-#| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
 msgstr "Inga data finns för GIS visualisering."
 
@@ -8528,7 +8487,6 @@ msgstr "Uppdateringsfrekvens"
 
 #: server_status.php:31
 #, php-format
-#| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minut"
@@ -8536,7 +8494,6 @@ msgstr[1] "%d minuter"
 
 #: server_status.php:33
 #, php-format
-#| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekund"
@@ -8623,7 +8580,6 @@ msgid "All status variables"
 msgstr "Alla statusvariabler"
 
 #: server_status.php:413 server_status.php:439
-#| msgid "Refresh rate"
 msgid "Refresh rate:"
 msgstr "Uppdateringsfrekvens:"
 
@@ -10014,7 +9970,6 @@ msgid "View dump (schema) of table"
 msgstr "Visa SQL-satser för tabellen"
 
 #: tbl_gis_visualization.php:111
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "Visa GIS Visualisering"
 
@@ -10027,17 +9982,14 @@ msgid "Height"
 msgstr "Höjd"
 
 #: tbl_gis_visualization.php:165
-#| msgid "Textarea columns"
 msgid "Label column"
 msgstr "Etikett kolumn"
 
 #: tbl_gis_visualization.php:167
-#| msgid "- none -"
 msgid "-- None --"
 msgstr " - Inget -"
 
 #: tbl_gis_visualization.php:180
-#| msgid "Total count"
 msgid "Spatial column"
 msgstr "Spatial kolumn"
 
@@ -10050,12 +10002,10 @@ msgid "Redraw"
 msgstr "Rita om"
 
 #: tbl_gis_visualization.php:206
-#| msgid "Save as file"
 msgid "Save to file"
 msgstr "Spara till fil"
 
 #: tbl_gis_visualization.php:207
-#| msgid "Table name"
 msgid "File name"
 msgstr "Filnamn"
 
@@ -10321,7 +10271,6 @@ msgid "Add unique index"
 msgstr "Lägg till unikt index"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "Lägg till SPATIAL index"
 

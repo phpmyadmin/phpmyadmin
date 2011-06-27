@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-27 10:20+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
 "PO-Revision-Date: 2011-06-26 13:35+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
@@ -525,7 +525,6 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
 #, php-format
-#| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "La requête «%s» a échoué"
 
@@ -4782,7 +4781,6 @@ msgid "Turn it off"
 msgstr "Le désactiver"
 
 #: libraries/db_events.inc.php:141
-#| msgid "Add a new server"
 msgid "Add an event"
 msgstr "Ajouter un évènement."
 
@@ -5446,7 +5444,6 @@ msgid "Event"
 msgstr "Événement"
 
 #: libraries/display_triggers.inc.php:120
-#| msgid "Add a new server"
 msgid "Add a trigger"
 msgstr "Ajouter un déclencheur"
 
@@ -10116,7 +10113,6 @@ msgid "Label column"
 msgstr "Colonne pour étiquette"
 
 #: tbl_gis_visualization.php:167
-#| msgid "- none -"
 msgid "-- None --"
 msgstr "-- Aucun --"
 

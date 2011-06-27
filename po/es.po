@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-27 10:20+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
 "PO-Revision-Date: 2011-06-24 23:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
@@ -527,7 +527,6 @@ msgstr ""
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
 #, php-format
-#| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "Falló la siguiente consulta: \"%s\""
 
@@ -544,7 +543,6 @@ msgstr "Error al procesar la petición"
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
 #, php-format
-#| msgid "No routine with name %s found in database %s"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "No se encontró rutina con nombre %1$s en la base de datos %2$s"
 
@@ -2107,14 +2105,10 @@ msgid "Check Privileges"
 msgstr "Comprobar los privilegios"
 
 #: libraries/common.inc.php:587
-#| msgid "Failed to to read configuration file"
 msgid "Failed to read configuration file"
 msgstr "No se pudo leer el archivo de configuración"
 
 #: libraries/common.inc.php:588
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown bellow."
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
