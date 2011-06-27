@@ -3267,7 +3267,7 @@ msgstr "أدخل معلومات إتصال الخادم"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
-msgstr ""
+msgstr "إعداد التخزين"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
