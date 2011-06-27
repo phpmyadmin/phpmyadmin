@@ -233,19 +233,19 @@ $(document).ready(function() {
                 /*Reload the field form*/
                 $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
                     $("#fieldsForm").remove();
-                    var temp_div = $("<div id='temp_div'><div>").append(form_data);
+                    var $temp_div = $("<div id='temp_div'><div>").append(form_data);
                     if ($("#sqlqueryresults").length != 0) {
-                        $(temp_div).find("#fieldsForm").insertAfter("#sqlqueryresults");
+                        $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
                     } else {
-                        $(temp_div).find("#fieldsForm").insertAfter(".error");
+                        $temp_div.find("#fieldsForm").insertAfter(".error");
                     }
                     /*Call the function to display the more options in table*/
                     displayMoreTableOpts();
                 });
             } else {
-                var temp_div = $("<div id='temp_div'><div>").append(data);
-                var error = $(temp_div).find(".error code").addClass("error");
-                PMA_ajaxShowMessage(error);
+                var $temp_div = $("<div id='temp_div'><div>").append(data);
+                var $error = $temp_div.find(".error code").addClass("error");
+                PMA_ajaxShowMessage($error);
             }
         }) // end $.post()
     }) // end insert table button "do_save_data"
