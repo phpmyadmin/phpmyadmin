@@ -2519,28 +2519,26 @@ span.mysql-number {
     background: url(./themes/pmahomme/img/col_drop.png);
     cursor: pointer;
     height: 16px;
-    margin-left: 3px;
+    margin-left: 0.3em;
     margin-top: 0.3em;
     position: absolute;
     width: 16px;
 }
 
-.coldrop:hover {
-    background-color: #AAA;
+.coldrop:hover, .coldrop-hover {
+    background-color: #999;
 }
 
 .cList {
-    background: #FFF;
+    background: #EEE;
+    border: solid 1px #999;
     position: absolute;
+    -moz-box-shadow: 0 0.2em 0.5em #333;
+    -webkit-box-shadow: 0 0.2em 0.5em #333;
+    box-shadow: 0 0.2em 0.5em #333;
 }
 
 .cList table {
-    background: #EEE;
-    border: solid 1px #CCC;
-}
-
-.cList table td {
-    border-right: solid 1px #CCC;
 }
 
 .cList table tr:hover {
@@ -2550,4 +2548,18 @@ span.mysql-number {
 
 .cList table td input {
     cursor: pointer;
+}
+
+.showAllColBtn {
+    border-bottom: solid 1px #999;
+    border-top: solid 1px #999;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.35em 1em;
+    text-align: center;
+}
+
+.showAllColBtn:hover {
+    background: #DDD;
 }
