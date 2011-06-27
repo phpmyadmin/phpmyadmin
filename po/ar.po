@@ -3181,7 +3181,7 @@ msgstr "خيارات عرض الخوادم"
 
 #: libraries/config/messages.inc.php:184
 msgid "Tables display options"
-msgstr ""
+msgstr "خيارات عرض الجداول"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:19
 msgid "Main frame"
