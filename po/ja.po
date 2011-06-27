@@ -7150,10 +7150,9 @@ msgid "PARTITION definition"
 msgstr "パーティションの定義"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ 新しい値を追加する"
+msgstr "+ 値を追加する"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
