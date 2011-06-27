@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.4.3.0 (not yet released)
+3.4.3.0 (2011-06-27)
 - bug #3311170 [sync] Missing helper icons in Synchronize
 - patch #3304473 [setup] Redefine a lable that was wrong
 - bug #3304544 [parser] master is not a reserved word
