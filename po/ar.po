@@ -3164,7 +3164,7 @@ msgstr "خيارات عرض قواعد البيانات"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "إطار التصفح"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation frame"
