@@ -3243,10 +3243,9 @@ msgid "Basic settings"
 msgstr "الإعدادات الأساسية"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication"
-msgstr "مستندات وثائقية"
+msgstr "المصادقة"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
