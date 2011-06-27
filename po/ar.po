@@ -3168,7 +3168,7 @@ msgstr "إطار التصفح"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "تخصيص مظهر إطار التصفح"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:110
