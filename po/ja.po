@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-27 11:57+0200\n"
+"PO-Revision-Date: 2011-06-27 11:58+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4734,10 +4734,9 @@ msgid "Turn it off"
 msgstr ""
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new Event"
 msgid "Add an event"
-msgstr "新しいイベントを追加する"
+msgstr "イベントを追加する"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
