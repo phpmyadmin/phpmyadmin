@@ -47,6 +47,10 @@ function initPBMSDatabase()
 */
 function checkBLOBStreamingPlugins()
 {
+    if (PMA_cacheGet('skip_blobstreaming', true) === true) {
+        return false;
+    }
+
     // load PMA configuration
     $PMA_Config = $GLOBALS['PMA_Config'];
 
