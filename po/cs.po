@@ -4896,10 +4896,9 @@ msgid "You must provide a routine definition."
 msgstr "Musíte zadat definici rutiny."
 
 #: libraries/db_routines.lib.php:1209
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Nebyl zvolen žádný soubor pro nahrání"
+msgstr "Nebyly nalezeny žádné rutiny."
 
 #: libraries/db_routines.lib.php:1253
 msgid "Add routine"
