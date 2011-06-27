@@ -18,15 +18,6 @@
  * note: grab_globals has extracted the fields from _FILES or HTTP_POST_FILES
  *
  *
- * @uses $_REQUEST
- * @uses defined()
- * @uses define()
- * @uses bin2hex()
- * @uses strlen()
- * @uses md5()
- * @uses implode()
- * @uses PMA_NO_VARIABLES_IMPORT
- * @uses PMA_sqlAddslashes()
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

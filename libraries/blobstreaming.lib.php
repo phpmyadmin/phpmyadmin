@@ -43,12 +43,6 @@ function initPBMSDatabase()
  * checks whether the necessary plugins for BLOBStreaming exist
  *
  * @access  public
- * @uses    PMA_Config::get()
- * @uses    PMA_Config::settings()
- * @uses    PMA_Config::set()
- * @uses    PMA_BS_GetVariables()
- * @uses    PMA_cacheSet()
- * @uses    PMA_cacheGet()
  * @return  boolean
 */
 function checkBLOBStreamingPlugins()
@@ -205,9 +199,6 @@ function checkBLOBStreamingPlugins()
  * returns a list of BLOBStreaming variables used by MySQL
  *
  * @access  public
- * @uses    PMA_Config::get()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_assoc()
  * @return  array - list of BLOBStreaming variables
 */
 function PMA_BS_GetVariables()

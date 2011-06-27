@@ -5,30 +5,6 @@
  *
  * @todo    make use of UNION when searching multiple tables
  * @todo    display executed query, optional?
- * @uses    $cfg['UseDbSearch']
- * @uses    $GLOBALS['db']
- * @uses    PMA_DBI_get_tables()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_getSearchSqls()
- * @uses    PMA_DBI_fetch_value()
- * @uses    PMA_linkOrButton()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_showMySQLDocu()
- * @uses    $_REQUEST['search_str']
- * @uses    $_REQUEST['submit_search']
- * @uses    $_REQUEST['search_option']
- * @uses    $_REQUEST['table_select']
- * @uses    $_REQUEST['unselectall']
- * @uses    $_REQUEST['selectall']
- * @uses    $_REQUEST['field_str']
- * @uses    is_string()
- * @uses    htmlspecialchars()
- * @uses    array_key_exists()
- * @uses    is_array()
- * @uses    array_intersect()
- * @uses    sprintf()
- * @uses    in_array()
  * @package phpMyAdmin
  */
 
@@ -130,7 +106,6 @@ if (isset($_REQUEST['submit_search'])) {
      * Builds the SQL search query
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
-     * @uses    PMA_DBI_query
      * PMA_backquote
      * PMA_DBI_free_result
      * PMA_DBI_fetch_assoc

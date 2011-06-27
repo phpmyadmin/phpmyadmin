@@ -19,14 +19,6 @@
  * // }
  * </code>
  *
- * @uses    preg_split()
- * @uses    array_shift()
- * @uses    trim()
- * @uses    rtrim()
- * @uses    ltrim()
- * @uses    strlen()
- * @uses    substr()
- * @uses    stripslashes()
  * @param   string  $option_string  comma separated options
  * @return  array   options
  */
@@ -70,13 +62,6 @@ function PMA_transformation_getOptions($option_string)
  * Gets all available MIME-types
  *
  * @access  public
- * @uses    opendir()
- * @uses    readdir()
- * @uses    closedir()
- * @uses    sort()
- * @uses    preg_match()
- * @uses    explode()
- * @uses    str_replace()
  * @staticvar   array   mimetypes
  * @return  array    array[mimetype], array[transformation]
  */
@@ -132,11 +117,6 @@ function PMA_getAvailableMIMEtypes()
 /**
  * Gets the mimetypes for all columns of a table
  *
- * @uses    $GLOBALS['controllink']
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_fetch_result()
  * @access  public
  * @param   string   $db        the name of the db to check for
  * @param   string   $table     the name of the table to check for
@@ -168,15 +148,6 @@ function PMA_getMIME($db, $table, $strict = false)
 /**
  * Set a single mimetype to a certain value.
  *
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_query_as_controluser()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_fetch_assoc()
- * @uses    PMA_DBI_free_result()
- * @uses    strlen()
  * @access  public
  * @param   string   $db        the name of the db
  * @param   string   $table     the name of the table

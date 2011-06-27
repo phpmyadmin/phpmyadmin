@@ -13,11 +13,6 @@
  * This function is used to displays a javascript confirmation box for
  * "DROP/DELETE/ALTER" queries.
  *
- * @uses    PMA_escapeJsString()
- * @uses    PMA_backquote()
- * @uses    is_string()
- * @uses    htmlspecialchars()
- * @uses    str_replace()
  * @param   string   $a_string          the string to format
  * @param   boolean  $add_backquotes    whether to add backquotes to the string or not
  *
@@ -47,8 +42,6 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
  * We also remove NUL byte as some browsers (namely MSIE) ignore it and
  * inserting it anywhere inside </script would allow to bypass this check.
  *
- * @uses    strtr()
- * @uses    preg_replace()
  * @param   string  $string the string to be escaped
  * @return  string  the escaped string
  */
