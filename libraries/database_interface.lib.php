@@ -323,7 +323,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         // added BINARY in the WHERE clause to force a case sensitive
         // comparison (if we are looking for the db Aa we don't want
         // to find the db aa)
-        $this_databases = array_map('PMA_sqlAddslashes', $databases);
+        $this_databases = array_map('PMA_sqlAddSlashes', $databases);
 
         $sql = '
            SELECT *,
@@ -992,7 +992,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
-            PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
+            PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddSlashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
         } else {
             PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
         }
@@ -1373,14 +1373,14 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
         // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
         // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
         // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
-        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "';";
+        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddSlashes($db,true) . "';";
         if (! empty($table)) {
-            $query .= " AND EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';";
+            $query .= " AND EVENT_OBJECT_TABLE = '" . PMA_sqlAddSlashes($table, true) . "';";
         }
     } else {
-        $query = "SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddslashes($db,true));
+        $query = "SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddSlashes($db,true));
         if (! empty($table)) {
-            $query .= " LIKE '" . PMA_sqlAddslashes($table, true) . "';";
+            $query .= " LIKE '" . PMA_sqlAddSlashes($table, true) . "';";
         }
     }
 
@@ -1424,8 +1424,8 @@ function PMA_isView($db, $view_name)
     $result = PMA_DBI_fetch_result(
         "SELECT TABLE_NAME
         FROM information_schema.VIEWS
-        WHERE TABLE_SCHEMA = '" . PMA_sqlAddslashes($db) . "'
-            AND TABLE_NAME = '" . PMA_sqlAddslashes($view_name) . "'");
+        WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
+            AND TABLE_NAME = '" . PMA_sqlAddSlashes($view_name) . "'");
 
     if ($result) {
         return true;

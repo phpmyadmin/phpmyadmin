@@ -31,14 +31,14 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     public function testAddSlashes() {
         $string = "\'test''\''\'\r\t\n";
 
-        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", PMA_sqlAddslashes($string, true, true, true));
-        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", PMA_sqlAddslashes($string, true, true, false));
-        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", PMA_sqlAddslashes($string, true, false, true));
-        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n", PMA_sqlAddslashes($string, true, false, false));
-        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\\r\\t\\n", PMA_sqlAddslashes($string, false, true, true));
-        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\\r\\t\\n", PMA_sqlAddslashes($string, false, true, false));
-        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\r\t\n", PMA_sqlAddslashes($string, false, false, true));
-        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\r\t\n", PMA_sqlAddslashes($string, false, false, false));
+        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", PMA_sqlAddSlashes($string, true, true, true));
+        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", PMA_sqlAddSlashes($string, true, true, false));
+        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", PMA_sqlAddSlashes($string, true, false, true));
+        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n", PMA_sqlAddSlashes($string, true, false, false));
+        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\\r\\t\\n", PMA_sqlAddSlashes($string, false, true, true));
+        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\\r\\t\\n", PMA_sqlAddSlashes($string, false, true, false));
+        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\r\t\n", PMA_sqlAddSlashes($string, false, false, true));
+        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\r\t\n", PMA_sqlAddSlashes($string, false, false, false));
     }
 
     /**

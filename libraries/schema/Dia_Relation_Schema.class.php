@@ -240,8 +240,8 @@ class Table_Stats
 
         $sql = 'SELECT x, y FROM '
              . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-             . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-             . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+             . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {

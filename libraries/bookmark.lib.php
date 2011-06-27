@@ -58,13 +58,13 @@ function PMA_Bookmark_getList($db)
     }
 
     $query  = 'SELECT label, id FROM '. PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-            . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
-            . ' AND user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
+            . ' WHERE dbase = \'' . PMA_sqlAddSlashes($db) . '\''
+            . ' AND user = \'' . PMA_sqlAddSlashes($cfgBookmark['user']) . '\''
             . ' ORDER BY label';
     $per_user = PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
 
     $query  = 'SELECT label, id FROM '. PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-            . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
+            . ' WHERE dbase = \'' . PMA_sqlAddSlashes($db) . '\''
             . ' AND user = \'\''
             . ' ORDER BY label';
     $global = PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
@@ -107,10 +107,10 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
     }
 
     $query = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\'';
+        . ' WHERE dbase = \'' . PMA_sqlAddSlashes($db) . '\'';
 
     if (!$action_bookmark_all) {
-        $query .= ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\'';
+        $query .= ' AND (user = \'' . PMA_sqlAddSlashes($cfgBookmark['user']) . '\'';
         if (!$exact_user_match) {
             $query .= ' OR user = \'\'';
         }
@@ -146,7 +146,7 @@ function PMA_Bookmark_save($fields, $all_users = false)
     }
 
     $query = 'INSERT INTO ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-           . ' (id, dbase, user, query, label) VALUES (NULL, \'' . PMA_sqlAddslashes($fields['dbase']) . '\', \'' . ($all_users ? '' : PMA_sqlAddslashes($fields['user'])) . '\', \'' . PMA_sqlAddslashes(urldecode($fields['query'])) . '\', \'' . PMA_sqlAddslashes($fields['label']) . '\')';
+           . ' (id, dbase, user, query, label) VALUES (NULL, \'' . PMA_sqlAddSlashes($fields['dbase']) . '\', \'' . ($all_users ? '' : PMA_sqlAddSlashes($fields['user'])) . '\', \'' . PMA_sqlAddSlashes(urldecode($fields['query'])) . '\', \'' . PMA_sqlAddSlashes($fields['label']) . '\')';
     return PMA_DBI_query($query, $controllink);
 } // end of the 'PMA_Bookmark_save()' function
 
@@ -172,7 +172,7 @@ function PMA_Bookmark_delete($db, $id)
     }
 
     $query  = 'DELETE FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
-            . ' WHERE (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
+            . ' WHERE (user = \'' . PMA_sqlAddSlashes($cfgBookmark['user']) . '\''
             . '        OR user = \'\')'
             . ' AND id = ' . $id;
     return PMA_DBI_try_query($query, $controllink);

@@ -219,7 +219,7 @@ class PMA_PDF extends TCPDF
         global $cfgRelation, $db, $pdf_page_number, $with_doc;
         if ($with_doc) {
             $test_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-             . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
              . ' AND page_nr = \'' . $pdf_page_number . '\'';
             $test_rs = PMA_query_as_controluser($test_query);
             $pages = @PMA_DBI_fetch_assoc($test_rs);
@@ -510,8 +510,8 @@ class Table_Stats
         }
         $sql = 'SELECT x, y FROM '
              . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-             . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-             . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+             . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
