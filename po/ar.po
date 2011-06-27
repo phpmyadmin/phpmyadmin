@@ -3205,10 +3205,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "الإعدادات التي لاتناسب في أي مكان آخر"
 
 #: libraries/config/messages.inc.php:192
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "صفحة رقم:"
+msgstr "عناوين الصفحة"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
