@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-27 11:59+0200\n"
+"PO-Revision-Date: 2011-06-27 12:18+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -521,10 +521,10 @@ msgstr "返り値が空でした(行数0)"
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "次のクエリが実行されます："
+msgstr "クエリの実行に失敗しました：『%s』"
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
