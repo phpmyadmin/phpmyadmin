@@ -5389,10 +5389,9 @@ msgid "No trigger with name %s found"
 msgstr "Spoušť se jménem %s nebyla nalezena"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Nebyl zvolen žádný soubor pro nahrání"
+msgstr "Nebyly nalezeny žádné spouště."
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
