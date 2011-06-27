@@ -3156,7 +3156,7 @@ msgstr "حدد عناوين الإستيراد والتصدير و  خيارات
 
 #: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
-msgstr "لاتكس"
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
