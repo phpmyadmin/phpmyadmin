@@ -3229,7 +3229,7 @@ msgstr "تخصيص خيارات نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
-msgstr ""
+msgstr "الأمان"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
