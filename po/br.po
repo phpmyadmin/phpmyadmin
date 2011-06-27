@@ -1833,7 +1833,7 @@ msgid "%s has been disabled for this MySQL server."
 msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
 
 #: libraries/StorageEngine.class.php:362
-#, php-format
+#, fuzzy, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "N'eo ket skoret al lusker stokañ gant ar servijer MySQL-mañ."
 
