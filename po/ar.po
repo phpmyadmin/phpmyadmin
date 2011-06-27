@@ -3225,7 +3225,7 @@ msgstr "نافذة الاستعلام"
 
 #: libraries/config/messages.inc.php:195
 msgid "Customize query window options"
-msgstr ""
+msgstr "تخصيص خيارات نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
