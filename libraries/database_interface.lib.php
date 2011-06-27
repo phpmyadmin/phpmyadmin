@@ -383,7 +383,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database)
-                    .' LIKE \'' . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
+                    .' LIKE \'' . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table, true)) . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database);
