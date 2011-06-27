@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-27 11:58+0200\n"
+"PO-Revision-Date: 2011-06-27 11:59+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5401,10 +5401,9 @@ msgid "Event"
 msgstr "イベント"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "新しいトリガを追加する"
+msgstr "トリガを追加する"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
