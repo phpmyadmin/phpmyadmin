@@ -3240,7 +3240,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:198
 msgid "Basic settings"
-msgstr ""
+msgstr "الإعدادات الأساسية"
 
 #: libraries/config/messages.inc.php:199
 #, fuzzy
