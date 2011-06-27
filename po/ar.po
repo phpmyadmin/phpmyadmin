@@ -3249,7 +3249,7 @@ msgstr "المصادقة"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
-msgstr ""
+msgstr "خيارات المصادقة"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
