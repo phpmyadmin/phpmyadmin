@@ -92,7 +92,6 @@ class PMA_Table
     /**
      * sets table name
      *
-     * @uses    $this->name to set it
      * @param   string  $table_name new table name
      */
     function setName($table_name)
@@ -103,7 +102,6 @@ class PMA_Table
     /**
      * returns table name
      *
-     * @uses    $this->name as return value
      * @param   boolean whether to quote name with backticks ``
      * @return  string  table name
      */
@@ -118,7 +116,6 @@ class PMA_Table
     /**
      * sets database name for this table
      *
-     * @uses    $this->db_name  to set it
      * @param   string  $db_name
      */
     function setDbName($db_name)
@@ -129,7 +126,6 @@ class PMA_Table
     /**
      * returns database name for this table
      *
-     * @uses    $this->db_name  as return value
      * @param   boolean whether to quote name with backticks ``
      * @return  string  database name for this table
      */
@@ -167,7 +163,6 @@ class PMA_Table
     /**
      * sets given $value for given $param
      *
-     * @uses    $this->settings to add or change value
      * @param   string  param name
      * @param   mixed   param value
      */
@@ -179,7 +174,6 @@ class PMA_Table
     /**
      * returns value for given setting/param
      *
-     * @uses    $this->settings to return value
      * @param   string  name for value to return
      * @return  mixed   value for $param
      */
@@ -1220,9 +1214,6 @@ class PMA_Table
     /**
      * Return UI preferences for this table from phpMyAdmin database.
      *
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_array()
-     * @uses json_decode()
      *
      * @return array
      */
@@ -1249,9 +1240,6 @@ class PMA_Table
     /**
      * Save this table's UI preferences into phpMyAdmin database.
      *
-     * @uses PMA_DBI_try_query()
-     * @uses json_decode()
-     * @uses PMA_Message
      *
      * @return true|PMA_Message
      */
@@ -1282,7 +1270,6 @@ class PMA_Table
      * If pmadb and table_uiprefs is set, it will load the UI preferences from
      * phpMyAdmin database.
      *
-     * @uses getUiPrefsFromDb()
      */
     protected function loadUiPrefs()
     {
@@ -1305,7 +1292,6 @@ class PMA_Table
      * - PROP_SORTED_COLUMN
      * - PROP_COLUMN_ORDER
      *
-     * @uses loadUiPrefs()
      *
      * @param string $property
      * @return mixed
@@ -1338,7 +1324,7 @@ class PMA_Table
         } else if ($property == self::PROP_COLUMN_ORDER) {
             if (isset($this->uiprefs[$property])) {
                 // check if the table has not been modified
-                if (self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME') ==
+                if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') ==
                         $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
@@ -1374,7 +1360,7 @@ class PMA_Table
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if ($property == self::PROP_COLUMN_ORDER) {
-            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'Create_time');
             if (isset($table_create_time) &&
                     $table_create_time == $curr_create_time) {
                 $this->uiprefs['CREATE_TIME'] = $curr_create_time;

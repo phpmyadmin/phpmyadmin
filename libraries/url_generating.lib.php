@@ -10,7 +10,6 @@
  * Generates text with hidden inputs.
  *
  * @see     PMA_generate_common_url()
- * @uses    PMA_getHiddenFields
  * @param   string   optional database name
  *                   (can also be an array of parameters)
  * @param   string   optional table name
@@ -161,19 +160,6 @@ function PMA_getHiddenFields($values, $pre = '')
  * // script.php?server=1&amp;lang=en
  * </code>
  *
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['cfg']['ServerDefault']
- * @uses    $_COOKIE['pma_lang']
- * @uses    $GLOBALS['lang']
- * @uses    $_COOKIE['pma_collation_connection']
- * @uses    $GLOBALS['collation_connection']
- * @uses    $_SESSION[' PMA_token ']
- * @uses    PMA_get_arg_separator()
- * @uses    is_array()
- * @uses    strlen()
- * @uses    htmlentities()
- * @uses    urlencode()
- * @uses    implode()
  * @param   mixed    assoc. array with url params or optional string with database name
  *                   if first param is an array there is also an ? prefixed to the url
  *
@@ -270,9 +256,6 @@ function PMA_generate_common_url()
  * extracted from arg_separator.input as set in php.ini
  * we do not use arg_separator.output to avoid problems with &amp; and &
  *
- * @uses    ini_get()
- * @uses    strpos()
- * @uses    strlen()
  * @param   string  whether to encode separator or not, currently 'none' or 'html'
  * @return  string  character used for separating url parts usally ; or &
  * @access  public

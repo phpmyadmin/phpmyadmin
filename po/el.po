@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-24 12:07+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
 "PO-Revision-Date: 2011-06-23 10:24+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -497,102 +497,104 @@ msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
-#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
+#: db_routines.php:154 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 
-#: db_routines.php:155
+#: db_routines.php:157
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] "%d εγγραφή επηρεάστηκε από την τελευταία δήλωση μέσα στη διαδικασία "
-msgstr[1] "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
+msgstr[0] ""
+"%d εγγραφή επηρεάστηκε από την τελευταία δήλωση μέσα στη διαδικασία "
+msgstr[1] ""
+"%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
 
-#: db_routines.php:165
+#: db_routines.php:167
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Αποτελέσματα εκτέλεσης της ρουτίνας %s"
 
-#: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
+#: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
 
-#: db_routines.php:190 db_routines.php:295 db_routines.php:300
-#: db_routines.php:324
+#: db_routines.php:192 db_routines.php:297 db_routines.php:302
+#: db_routines.php:326
 #, fuzzy, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "Το ερώτημα «%s» απέτυχε"
 
-#: db_routines.php:191 db_routines.php:296 db_routines.php:301
-#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
+#: db_routines.php:193 db_routines.php:298 db_routines.php:303
+#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
-#: db_routines.php:208 db_routines.php:240 db_routines.php:268
-#: db_routines.php:407
+#: db_routines.php:210 db_routines.php:242 db_routines.php:270
+#: db_routines.php:409
 msgid "Error in processing request"
 msgstr "Σφάλμα στην προώθηση αιτημάτος"
 
-#: db_routines.php:209 db_routines.php:241 db_routines.php:269
-#: db_routines.php:408
+#: db_routines.php:211 db_routines.php:243 db_routines.php:271
+#: db_routines.php:410
 #, fuzzy, php-format
 #| msgid "No routine with name %s found in database %s"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Καμιά ρουτίνα με την ονομασία %s δεν βρέθηκε στη βάση δεδομένων %s"
 
-#: db_routines.php:230 db_routines.php:234
+#: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
 msgstr "Εκτέλεση ρουτίνας"
 
-#: db_routines.php:259 db_routines.php:263
+#: db_routines.php:261 db_routines.php:265
 #, php-format
 msgid "Export of routine %s"
 msgstr "Εξαγωγή της ρουτίνας %s"
 
-#: db_routines.php:288 libraries/db_routines.lib.php:960
+#: db_routines.php:290 libraries/db_routines.lib.php:960
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Μη έγκυρος τύπος ρουτίνας: «%s»"
 
-#: db_routines.php:309
+#: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
 
-#: db_routines.php:310
+#: db_routines.php:312
 msgid "The backed up query was:"
 msgstr "Το εφεδρικό ερώτημα ήταν:"
 
-#: db_routines.php:314
+#: db_routines.php:316
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
 
-#: db_routines.php:327
+#: db_routines.php:329
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Η ρουτίνα %1$s έχει δημιουργηθεί."
 
-#: db_routines.php:335
+#: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 "<b>Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός "
 "σας:</b>"
 
-#: db_routines.php:379
+#: db_routines.php:381
 msgid "Create routine"
 msgstr "Δημιουργία ρουτίνας"
 
-#: db_routines.php:383
+#: db_routines.php:385
 msgid "Edit routine"
 msgstr "Επεξεργασία ρουτίνας"
 
-#: db_routines.php:434
+#: db_routines.php:436
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -673,7 +675,6 @@ msgid "Search in database"
 msgstr "Αναζήτηση στη βάση δεδπμένων"
 
 #: db_search.php:300
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Λέξεις ή τιμές για αναζήτηση (μπαλαντέρ: «%»):"
 
@@ -686,7 +687,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Οι λέξεις χωρίζονται από τον χαρακτήρα διαστήματος (« »)."
 
 #: db_search.php:323
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Μέσα στους πίνακες:"
 
@@ -1317,11 +1317,9 @@ msgstr "Διαγραφή"
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
-"Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση "
-"RETURN!"
+"Ο ορισμός μιας αποθηκευμένης συνάρτησης πρέπει να περιέχει μια δήλωση RETURN!"
 
 #: js/messages.php:123
-#| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
 msgstr "Η τιμή είναι πολύ επιμήκης στη φόρμα!"
 
@@ -2105,7 +2103,6 @@ msgid "Check Privileges"
 msgstr "Έλεγχος Δικαιωμάτων"
 
 #: libraries/common.inc.php:587
-#| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
 msgstr "Αδύνατη η ανάγνωση του αρχείου ρυθμίσεων"
 
@@ -4767,19 +4764,16 @@ msgstr "Η επέκταση %s λείπει. Δείτε τις ρυθμίσει�
 
 #: libraries/db_events.inc.php:30
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "Εξαγωγή του συμβάντος %s"
 
 #: libraries/db_events.inc.php:34
 #, php-format
-#| msgid "Export contents"
 msgid "Export of event \"%s\""
 msgstr "Εξαγωγή του συμβάντος «%s»"
 
 #: libraries/db_events.inc.php:40
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
 msgstr "Κανένα συμβάν με ονομασία %s δεν βρέθηκε στη βάση δεδομένων %s"
 
@@ -4789,7 +4783,6 @@ msgid "Events"
 msgstr "Συμβάντα"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "Δεν υπάρχουν συμβάντα για εμφάνιση."
 
@@ -4818,8 +4811,9 @@ msgid "Turn it off"
 msgstr "Απενεργοποιήστε τον"
 
 #: libraries/db_events.inc.php:141
-#| msgid "Add a new server"
-msgid "Add a new Event"
+#, fuzzy
+#| msgid "Add a new Event"
+msgid "Add an event"
 msgstr "Προσθήκη ενός νέου Συμβάντος"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
@@ -4856,18 +4850,15 @@ msgid "Triggers"
 msgstr "Δείκτες"
 
 #: libraries/db_routines.lib.php:659
-#| msgid "Details..."
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
 #: libraries/db_routines.lib.php:662
-#| msgid "Routines"
 msgid "Routine name"
 msgstr "Όνομα ρουτίνας"
 
 #: libraries/db_routines.lib.php:679
 #, php-format
-#| msgid "Change"
 msgid "Change to %s"
 msgstr "Αλλαγή σε %s"
 
@@ -4876,7 +4867,6 @@ msgid "Parameters"
 msgstr "Παράμετροι"
 
 #: libraries/db_routines.lib.php:689
-#| msgid "Direct links"
 msgid "Direction"
 msgstr "Κατεύθυνση"
 
@@ -4903,12 +4893,10 @@ msgid "Options"
 msgstr "Επιλογές"
 
 #: libraries/db_routines.lib.php:707
-#| msgid "Add prefix"
 msgid "Add parameter"
 msgstr "Προσθήκη παραμέτρου"
 
 #: libraries/db_routines.lib.php:710
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Μετακίνηση τελευταίας παραμέτρου"
 
@@ -4917,17 +4905,14 @@ msgid "Return type"
 msgstr "Τύπος επιστροφής"
 
 #: libraries/db_routines.lib.php:721
-#| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Μήκος/Τιμές επιστροφής"
 
 #: libraries/db_routines.lib.php:726
-#| msgid "Table options"
 msgid "Return options"
 msgstr "Επιλογές επιστροφής"
 
 #: libraries/db_routines.lib.php:745
-#| msgid "Description"
 msgid "Definition"
 msgstr "Προσδιορισμός"
 
@@ -4940,7 +4925,6 @@ msgid "Definer"
 msgstr "Προσδιοριστής"
 
 #: libraries/db_routines.lib.php:758
-#| msgid "Security"
 msgid "Security type"
 msgstr "Τύπος ασφάλειας"
 
@@ -4949,7 +4933,6 @@ msgid "SQL data access"
 msgstr "Πρόσβαση δεδομένων SQL"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#| msgid "Routines"
 msgid "Routine parameters"
 msgstr "Παράμετροι ρουτίνας"
 
@@ -4991,19 +4974,17 @@ msgid "You must provide a routine definition."
 msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
 
 #: libraries/db_routines.lib.php:1209
-#| msgid "There are no files to upload"
 msgid "There are no routines to display."
 msgstr "Δεν υπάρχουν ρουτίνες για εμφάνιση."
 
 #: libraries/db_routines.lib.php:1253
-#| msgid "Add index"
 msgid "Add routine"
 msgstr "Προσθήκη ρουτίνας"
 
 #: libraries/db_routines.lib.php:1256
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr ""
+"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:2121
 msgid ""
@@ -5470,7 +5451,6 @@ msgstr "Δεν βρέθηκε η σύνδεση"
 
 #: libraries/display_triggers.inc.php:35
 #, php-format
-#| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "Εξαγωγή της ενέργειας %s"
 
@@ -5481,12 +5461,10 @@ msgstr "Εξαγωγή της ενέργειας «%s»"
 
 #: libraries/display_triggers.inc.php:47
 #, php-format
-#| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
 msgstr "Δεν βρέθηκε ενέργεια με το όνομα %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση"
 
@@ -5499,8 +5477,9 @@ msgid "Event"
 msgstr "Συμβάν"
 
 #: libraries/display_triggers.inc.php:120
-#| msgid "Add a new server"
-msgid "Add a new Trigger"
+#, fuzzy
+#| msgid "Add a new Trigger"
+msgid "Add a trigger"
 msgstr "Προσθήκη μιας νέας Ενέργειας"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
@@ -6272,7 +6251,6 @@ msgid "Open new phpMyAdmin window"
 msgstr "Άνοιγμα νέου παραθύρου phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:129
-#| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
 msgstr "Δεν βρέθηκαν δεδομένα για την οπτικοποίηση ΓΠΣ."
 
@@ -7284,7 +7262,9 @@ msgid "PARTITION definition"
 msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776
-msgid "+ Add a new value"
+#, fuzzy
+#| msgid "+ Add a new value"
+msgid "+ Add a value"
 msgstr "+ Προσθήκη νέας τιμής"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
@@ -8736,7 +8716,6 @@ msgid "All status variables"
 msgstr "Όλες οι μεταβλητές κατάστασης"
 
 #: server_status.php:413 server_status.php:439
-#| msgid "Refresh rate"
 msgid "Refresh rate:"
 msgstr "Ρυθμός ανανέωσης:"
 
@@ -10191,7 +10170,6 @@ msgid "View dump (schema) of table"
 msgstr "Εμφάνιση σχήματος του πίνακα"
 
 #: tbl_gis_visualization.php:111
-#| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "Εμφάνιση Οπτικοποίησης ΓΠΣ"
 
@@ -10204,17 +10182,14 @@ msgid "Height"
 msgstr "Ύψος"
 
 #: tbl_gis_visualization.php:165
-#| msgid "Textarea columns"
 msgid "Label column"
 msgstr "Στήλη ετικέτας"
 
 #: tbl_gis_visualization.php:167
-#| msgid "- none -"
 msgid "-- None --"
 msgstr "-- Τίποτα --"
 
 #: tbl_gis_visualization.php:180
-#| msgid "Total count"
 msgid "Spatial column"
 msgstr "Χωρική στήλη"
 
@@ -10227,12 +10202,10 @@ msgid "Redraw"
 msgstr "Επανασχεδίαση"
 
 #: tbl_gis_visualization.php:206
-#| msgid "Save as file"
 msgid "Save to file"
 msgstr "Αποθήκευση σε αρχείο"
 
 #: tbl_gis_visualization.php:207
-#| msgid "Table name"
 msgid "File name"
 msgstr "Ονομασία αρχείου"
 
@@ -10500,7 +10473,6 @@ msgid "Add unique index"
 msgstr "Προσθήκη μοναδικού ευρετηρίου"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "Προσθήκη ευρετηρίου SPATIAL"
 

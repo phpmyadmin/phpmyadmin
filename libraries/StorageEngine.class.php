@@ -51,7 +51,6 @@ class PMA_StorageEngine
      * @static
      * @staticvar array $storage_engines storage engines
      * @access  public
-     * @uses    PMA_DBI_fetch_result()
      * @return  array    of storage engines
      */
     static public function getStorageEngines()
@@ -69,9 +68,6 @@ class PMA_StorageEngine
      * returns HTML code for storage engine select box
      *
      * @static
-     * @uses    PMA_StorageEngine::getStorageEngines()
-     * @uses    strtolower()
-     * @uses    htmlspecialchars()
      * @param   string  $name       The name of the select form element
      * @param   string  $id         The ID of the form field
      * @param   string  $selected   The selected engine
@@ -110,9 +106,6 @@ class PMA_StorageEngine
      *
      * Loads the corresponding engine plugin, if available.
      *
-     * @uses    str_replace()
-     * @uses    file_exists()
-     * @uses    PMA_StorageEngine
      * @param   string  $engine   The engine ID
      * @return  object  The engine plugin
      */
@@ -134,7 +127,6 @@ class PMA_StorageEngine
      * return true if given engine name is supported/valid, otherwise false
      *
      * @static
-     * @uses    PMA_StorageEngine::getStorageEngines()
      * @param   string  $engine name of engine
      * @return  boolean whether $engine is valid or not
      */
@@ -150,13 +142,6 @@ class PMA_StorageEngine
     /**
      * returns as HTML table of the engine's server variables
      *
-     * @uses    PMA_ENGINE_DETAILS_TYPE_SIZE
-     * @uses    PMA_ENGINE_DETAILS_TYPE_NUMERIC
-     * @uses    PMA_StorageEngine::getVariablesStatus()
-     * @uses    PMA_showHint()
-     * @uses    PMA_formatByteDown()
-     * @uses    PMA_formatNumber()
-     * @uses    htmlspecialchars()
      * @return  string  The table that was generated based on the retrieved information
      */
     function getHtmlVariables()
@@ -219,12 +204,6 @@ class PMA_StorageEngine
     /**
      * returns array with detailed info about engine specific server variables
      *
-     * @uses    PMA_ENGINE_DETAILS_TYPE_PLAINTEXT
-     * @uses    PMA_StorageEngine::getVariables()
-     * @uses    PMA_StorageEngine::getVariablesLikePattern()
-     * @uses    PMA_DBI_query()
-     * @uses    PMA_DBI_fetch_assoc()
-     * @uses    PMA_DBI_free_result()
      * @return  array   with detailed info about specific engine server variables
      */
     function getVariablesStatus()
@@ -269,15 +248,6 @@ class PMA_StorageEngine
     /**
      * Constructor
      *
-     * @uses    PMA_StorageEngine::getStorageEngines()
-     * @uses    PMA_ENGINE_SUPPORT_DEFAULT
-     * @uses    PMA_ENGINE_SUPPORT_YES
-     * @uses    PMA_ENGINE_SUPPORT_DISABLED
-     * @uses    PMA_ENGINE_SUPPORT_NO
-     * @uses    $this->engine
-     * @uses    $this->title
-     * @uses    $this->comment
-     * @uses    $this->support
      * @param   string  $engine The engine ID
      */
     function __construct($engine)
@@ -313,7 +283,6 @@ class PMA_StorageEngine
      * public String getTitle()
      *
      * Reveals the engine's title
-     * @uses    $this->title
      * @return  string   The title
      */
     function getTitle()
@@ -325,7 +294,6 @@ class PMA_StorageEngine
      * public String getComment()
      *
      * Fetches the server's comment about this engine
-     * @uses    $this->comment
      * @return  string   The comment
      */
     function getComment()
@@ -336,13 +304,6 @@ class PMA_StorageEngine
     /**
      * public String getSupportInformationMessage()
      *
-     * @uses    PMA_ENGINE_SUPPORT_DEFAULT
-     * @uses    PMA_ENGINE_SUPPORT_YES
-     * @uses    PMA_ENGINE_SUPPORT_DISABLED
-     * @uses    PMA_ENGINE_SUPPORT_NO
-     * @uses    $this->support
-     * @uses    $this->title
-     * @uses    sprintf
      * @return  string   The localized message.
      */
     function getSupportInformationMessage()

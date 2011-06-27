@@ -70,10 +70,6 @@ class PMA_RecentTable
     /**
      * Returns recently used tables from phpMyAdmin database.
      *
-     * @uses $pma_table
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_array()
-     * @uses json_decode()
      *
      * @return array
      */
@@ -95,9 +91,6 @@ class PMA_RecentTable
     /**
      * Save recent tables into phpMyAdmin database.
      *
-     * @uses PMA_DBI_try_query()
-     * @uses json_decode()
-     * @uses PMA_Message
      * 
      * @return true|PMA_Message
      */

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-16 22:26+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
+"PO-Revision-Date: 2011-06-24 21:23+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -500,116 +500,107 @@ msgstr "SQL-запрос к базе данных <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Выполнить запрос"
 
-#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
+#: db_routines.php:154 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL-запрос был успешно выполнен"
 
-#: db_routines.php:155
+#: db_routines.php:157
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Последним выражением в процедуре была затронута %d строка"
+msgstr[1] "Последним выражением в процедуре были затронуты %d строки"
+msgstr[2] "Последним выражением в процедуре было затронуто %d строк"
 
-#: db_routines.php:165
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
+#: db_routines.php:167
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Разрешает выполнение хранимых процедур."
+msgstr "Результаты выполнения процедуры %s"
 
-#: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
+#: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
-#: db_routines.php:190 db_routines.php:295 db_routines.php:300
-#: db_routines.php:324
-#, fuzzy, php-format
-#| msgid "The following queries have been executed:"
+#: db_routines.php:192 db_routines.php:297 db_routines.php:302
+#: db_routines.php:326
+#, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Выполнены следующие запросы:"
+msgstr "Данный запрос не был выполнен: \"%s\""
 
-#: db_routines.php:191 db_routines.php:296 db_routines.php:301
-#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
+#: db_routines.php:193 db_routines.php:298 db_routines.php:303
+#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "Ответ MySQL: "
 
-#: db_routines.php:208 db_routines.php:240 db_routines.php:268
-#: db_routines.php:407
-#, fuzzy
-#| msgid "Error in Processing Request"
+#: db_routines.php:210 db_routines.php:242 db_routines.php:270
+#: db_routines.php:409
 msgid "Error in processing request"
 msgstr "Ошибка при обработке запроса"
 
-#: db_routines.php:209 db_routines.php:241 db_routines.php:269
-#: db_routines.php:408
-#, fuzzy, php-format
-#| msgid "No tables found in database"
+#: db_routines.php:211 db_routines.php:243 db_routines.php:271
+#: db_routines.php:410
+#, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Таблиц в базе данных не найдено"
+msgstr "В базе данных %2$s процедура с именем %1$s не найдена"
 
-#: db_routines.php:230 db_routines.php:234
+#: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Выполнить процедуру"
 
-#: db_routines.php:259 db_routines.php:263
-#, fuzzy, php-format
-#| msgid "Export defaults"
+#: db_routines.php:261 db_routines.php:265
+#, php-format
 msgid "Export of routine %s"
-msgstr "Экспорт"
+msgstr "Экспорт процедуры %s"
 
-#: db_routines.php:288 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
-#| msgid "Invalid server index: %s"
+#: db_routines.php:290 libraries/db_routines.lib.php:960
+#, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Неверный индекс сервера: %s"
+msgstr "Ошибочный тип процедуры: \"%s\""
 
-#: db_routines.php:309
+#: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Невозможно восстановить удаленную процедуру."
 
-#: db_routines.php:310
+#: db_routines.php:312
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Сохраненный запрос был:"
 
-#: db_routines.php:314
-#, fuzzy, php-format
-#| msgid "Column %s has been dropped"
+#: db_routines.php:316
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Поле %s было удалено"
+msgstr "Была изменена процедура %1$s."
 
-#: db_routines.php:327
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#: db_routines.php:329
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "Таблица %1$s была создана."
+msgstr "Была создана процедура %1$s."
 
-#: db_routines.php:335
+#: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>При обработке вашего запроса были обнаружены ошибки:</b>"
 
-#: db_routines.php:379
-#, fuzzy
-#| msgid "Create relation"
+#: db_routines.php:381
 msgid "Create routine"
-msgstr "Создать связь"
+msgstr "Создать процедуру"
 
-#: db_routines.php:383
-#, fuzzy
-#| msgid "Edit mode"
+#: db_routines.php:385
 msgid "Edit routine"
-msgstr "Редакция"
+msgstr "Изменить процедуру"
 
-#: db_routines.php:434
+#: db_routines.php:436
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Вы используете устаревшее 'mysql' расширение PHP, которое не позволяет "
+"выполнение множественных запросов. <b>Выполнение некоторых хранимых процедур "
+"может привести к ошибке!</b> Пожалуйста, для избежания проблем, используйте "
+"улучшенное 'mysqli' расширение."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -683,10 +674,8 @@ msgid "Search in database"
 msgstr "Поиск в базе данных"
 
 #: db_search.php:300
-#, fuzzy
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Слово(а) или значение(я) для поиска (групповой символ: \"%\"):"
+msgstr "Слова или значения для поиска (групповой символ: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
@@ -4828,7 +4817,7 @@ msgstr ""
 #: libraries/db_events.inc.php:141
 #, fuzzy
 #| msgid "Add a new server"
-msgid "Add a new Event"
+msgid "Add an event"
 msgstr "Добавить новый сервер"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
@@ -5521,7 +5510,7 @@ msgstr "Событие"
 #: libraries/display_triggers.inc.php:120
 #, fuzzy
 #| msgid "Add a new server"
-msgid "Add a new Trigger"
+msgid "Add a trigger"
 msgstr "Добавить новый сервер"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
@@ -7301,7 +7290,9 @@ msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776
-msgid "+ Add a new value"
+#, fuzzy
+#| msgid "+ Add a new value"
+msgid "+ Add a value"
 msgstr "+ Добавить новое значение"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9

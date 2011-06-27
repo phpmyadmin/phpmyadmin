@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 12:54+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
+"PO-Revision-Date: 2011-06-26 20:07+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -30,7 +30,7 @@ msgstr "Diskouez pep tra"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1111
 #: libraries/schema/User_Schema.class.php:356
 msgid "Page number:"
-msgstr "Pajenn niv. :"
+msgstr "Pajenn niv. : "
 
 #: browse_foreigners.php:133
 msgid ""
@@ -501,98 +501,98 @@ msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Kas ar reked"
 
-#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
+#: db_routines.php:154 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Sevenet eo bet ho reked SQL ervat"
 
-#: db_routines.php:155
+#: db_routines.php:157
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
 msgstr[1] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
 
-#: db_routines.php:165
+#: db_routines.php:167
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Disoc'hoù seveniñ an argerzh %s"
 
-#: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
+#: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)"
 
-#: db_routines.php:190 db_routines.php:295 db_routines.php:300
-#: db_routines.php:324
+#: db_routines.php:192 db_routines.php:297 db_routines.php:302
+#: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "C'hwitet eo bet ar reked da-heul : \"%s\""
 
-#: db_routines.php:191 db_routines.php:296 db_routines.php:301
-#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
+#: db_routines.php:193 db_routines.php:298 db_routines.php:303
+#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "respontet eo bet gant MySQL : "
 
-#: db_routines.php:208 db_routines.php:240 db_routines.php:268
-#: db_routines.php:407
+#: db_routines.php:210 db_routines.php:242 db_routines.php:270
+#: db_routines.php:409
 msgid "Error in processing request"
 msgstr "Fazi en ur seveniñ ar reked"
 
-#: db_routines.php:209 db_routines.php:241 db_routines.php:269
-#: db_routines.php:408
+#: db_routines.php:211 db_routines.php:243 db_routines.php:271
+#: db_routines.php:410
 #, php-format
-#| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+msgstr ""
+"N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
 
-#: db_routines.php:230 db_routines.php:234
+#: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
 msgstr "Seveniñ an argerzh"
 
-#: db_routines.php:259 db_routines.php:263
+#: db_routines.php:261 db_routines.php:265
 #, php-format
 msgid "Export of routine %s"
 msgstr "Ezporzhiañ an argerzh %s"
 
-#: db_routines.php:288 libraries/db_routines.lib.php:960
+#: db_routines.php:290 libraries/db_routines.lib.php:960
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Seurt argerzh faziek : \"%s\""
 
-#: db_routines.php:309
+#: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
 
-#: db_routines.php:310
+#: db_routines.php:312
 msgid "The backed up query was:"
 msgstr "Setu amañ ar reked a oa bet miret :"
 
-#: db_routines.php:314
+#: db_routines.php:316
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Kemmet eo bet an argerzh %1s."
 
-#: db_routines.php:327
+#: db_routines.php:329
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Krouet eo bet an argerzh %1s."
 
-#: db_routines.php:335
+#: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
 
-#: db_routines.php:379
+#: db_routines.php:381
 msgid "Create routine"
 msgstr "Krouiñ un argerzh"
 
-#: db_routines.php:383
+#: db_routines.php:385
 msgid "Edit routine"
 msgstr "Kemmañ un argerzh"
 
-#: db_routines.php:434
+#: db_routines.php:436
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -600,8 +600,7 @@ msgid ""
 msgstr ""
 "Emaoc'h oc'h implijout an astenn PHP 'mysql' a zo dispredet. N'hall ket "
 "merañ ar rekedoù lies. <b>Gallout a ra ar seveniñ argerzhioù stoket zo "
-"c'hwitañ !</b> Grit gant an astenn 'mysqli' gwellaet, kuit da gaout "
-"kudennoù."
+"c'hwitañ !</b> Grit gant an astenn 'mysqli' gwellaet, kuit da gaout kudennoù."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -965,8 +964,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an %"
-"steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
+"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an "
+"%steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
 
 #: import.php:278 import.php:331 libraries/File.class.php:501
 #: libraries/File.class.php:611
@@ -1043,105 +1042,108 @@ msgstr "Distreiñ"
 #: index.php:183
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
+"Un tamm aesoc'h eo phpMyAdmin gant ur merdeer a <b>skor ar frammoù</b>."
 
 #: js/messages.php:25 server_synchronize.php:340 server_synchronize.php:352
 #: server_synchronize.php:368 server_synchronize.php:375
 #: server_synchronize.php:734 server_synchronize.php:762
 #: server_synchronize.php:790 server_synchronize.php:802
 msgid "Click to select"
-msgstr ""
+msgstr "Klikañ evit diuzañ"
 
 #: js/messages.php:26
 msgid "Click to unselect"
-msgstr ""
+msgstr "Klikañ evit diziuzañ"
 
 #: js/messages.php:27 libraries/import.lib.php:103 sql.php:214
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "Diweredekaet eo an urzhad ''DROP DATABASE'"
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:312
 msgid "Do you really want to "
-msgstr ""
+msgstr "Ha sur oc'h e fell deoc'h "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:297
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "Emaoc'h war-nes DISTRUJ un diaz roadennoù klok !"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "Emaoc'h war-nes DISTRUJ un daolennad glok !"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr ""
+msgstr "Emaoc'h war-nes RIÑSAÑ un daolennad penn-da-benn !"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "O tiverkañ ar roadennoù heuliañ"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "O tistruj an Alc'hwez kentidik/Meneger"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Pell e c'hall padout an oberiadenn-mañ. Kenderc'hel memes tra ?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Emaoc'h war-nes DIWEREDEKAAT ur c'havlec'h BLOB !"
 
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"Ha sur oc'h e fell deoc'h diweredekaat an holl zaveennoù BLOB evit an diaz "
+"roadennoù %s ?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "Furmskrid diglok !"
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr ""
+msgstr "N'eo ket hemañ un niver !"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
 msgid "Total count"
-msgstr ""
+msgstr "Sammad hollek"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
-msgstr ""
+msgstr "Goullo eo anv ar servijer !"
 
 #: js/messages.php:53
 msgid "The user name is empty!"
-msgstr ""
+msgstr "Goullo eo anv an implijer !"
 
 #: js/messages.php:54 server_privileges.php:1221 user_password.php:64
 msgid "The password is empty!"
-msgstr ""
+msgstr "Goullo eo ar ger-tremen !"
 
 #: js/messages.php:55 server_privileges.php:1219 user_password.php:67
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "Ne glot ket ar gerioù-tremen !"
 
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
 msgid "Add user"
-msgstr ""
+msgstr "Ouzhpennañ un implijer"
 
 #: js/messages.php:57
 msgid "Reloading Privileges"
-msgstr ""
+msgstr "Oc'h adkargañ an dreistgwirioù"
 
 #: js/messages.php:58
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "O lemel kuit an implijerien diuzet"
 
 #: js/messages.php:59 libraries/tbl_properties.inc.php:772
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
-msgstr ""
+msgstr "Serriñ"
 
 #: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
 #: libraries/common.lib.php:594 libraries/common.lib.php:1144
@@ -1150,23 +1152,23 @@ msgstr ""
 #: libraries/import.lib.php:1150 libraries/import.lib.php:1174
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
-msgstr ""
+msgstr "Kemmañ"
 
 #: js/messages.php:64 server_status.php:420
 msgid "Live traffic chart"
-msgstr ""
+msgstr "Grafik an tremenerezh evel m'emañ diouzhtu"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Grafik ar c'hevreadennoù hag argerzhioù evel m'emaint diouzhtu"
 
 #: js/messages.php:66 server_status.php:445
 msgid "Live query chart"
-msgstr ""
+msgstr "Grafik ar rekedoù evel m'emaint diouzhtu"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Roadennoù stadegel"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1174,164 +1176,165 @@ msgstr ""
 #: server_status.php:701 server_status.php:762 tbl_printview.php:348
 #: tbl_structure.php:832
 msgid "Total"
-msgstr ""
+msgstr "Hollad"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:602
 msgid "Other"
-msgstr ""
+msgstr "Udb all"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1374
 msgid ","
-msgstr ""
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:76 libraries/common.lib.php:1376
 msgid "."
-msgstr ""
+msgstr "."
 
 #: js/messages.php:78
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "Kio treuzkaset abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Kio resevet abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:80
 msgid "Server traffic (in KiB)"
-msgstr ""
+msgstr "Tremenerezh war ar servijer (e Kio)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Kevreadennoù abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
-msgstr ""
+msgstr "Argerzhioù"
 
 #: js/messages.php:83
 msgid "Connections / Processes"
-msgstr ""
+msgstr "Kevreadennoù/Argerzhioù"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Rekedoù resevet abaoe ar freskadenn ziwezhañ"
 
 #: js/messages.php:85
 msgid "Issued queries"
-msgstr ""
+msgstr "Rekedoù resevet"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
-msgstr ""
+msgstr "Stadegoù war ar rekedoù"
 
 #: js/messages.php:91 libraries/tbl_properties.inc.php:777 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr ""
+msgstr "Nullañ"
 
 #: js/messages.php:94
 msgid "Loading"
-msgstr ""
+msgstr "O kargañ"
 
 #: js/messages.php:95
 msgid "Processing Request"
-msgstr ""
+msgstr "O plediñ gant ar reked"
 
 #: js/messages.php:96 libraries/db_events.inc.php:39
 #: libraries/display_triggers.inc.php:46 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Fazi en ur blediñ gant ar reked"
 
 #: js/messages.php:97
 msgid "Dropping Column"
-msgstr ""
+msgstr "Diverkañ ar bann"
 
 #: js/messages.php:98
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "Ouzhpennañ un alc'hwez kentidik"
 
 #: js/messages.php:99 libraries/relation.lib.php:87 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
-msgstr ""
+msgstr "Mat eo"
 
 #: js/messages.php:102
 msgid "Renaming Databases"
-msgstr ""
+msgstr "Oc'h adenvel an diaz roadennoù"
 
 #: js/messages.php:103
 msgid "Reload Database"
-msgstr ""
+msgstr "Adkargañ an diaz roadennoù"
 
 #: js/messages.php:104
 msgid "Copying Database"
-msgstr ""
+msgstr "Oc'h eilañ an diaz roadennoù"
 
 #: js/messages.php:105
 msgid "Changing Charset"
-msgstr ""
+msgstr "O cheñch ar strobad arouezennoù"
 
 #: js/messages.php:106
 msgid "Table must have at least one column"
-msgstr ""
+msgstr "Ur bann a rank bezañ en daolenn, da nebeutañ"
 
 #: js/messages.php:107
 msgid "Create Table"
-msgstr ""
+msgstr "Krouiñ un daolenn"
 
 #: js/messages.php:112
 msgid "Insert Table"
-msgstr ""
+msgstr "Ensoc'hañ un daolenn"
 
 #: js/messages.php:115
 msgid "Searching"
-msgstr ""
+msgstr "O klask"
 
 #: js/messages.php:116
 msgid "Hide search results"
-msgstr ""
+msgstr "Kuzhat disoc'hoù an enklask"
 
 #: js/messages.php:117
 msgid "Show search results"
-msgstr ""
+msgstr "Diskouez disoc'hoù an enklask"
 
 #: js/messages.php:118
 msgid "Browsing"
-msgstr ""
+msgstr "O furchal"
 
 #: js/messages.php:119
 msgid "Deleting"
-msgstr ""
+msgstr "O tiverkañ"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket"
 
 #: js/messages.php:123
 msgid "Value too long in the form!"
-msgstr ""
+msgstr "Talvoud re hir er furmskrid !"
 
 #: js/messages.php:126
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Notenn : ma vez meur a daolenn er restr e vint unanet."
 
 #: js/messages.php:129
 msgid "Hide query box"
-msgstr ""
+msgstr "Kuzhat ar voest rekedoù SQL"
 
 #: js/messages.php:130
 msgid "Show query box"
-msgstr ""
+msgstr "Diskouez ar voest rekedoù SQL"
 
 #: js/messages.php:131
 msgid "Inline Edit"
-msgstr ""
+msgstr "Kemmañ enlinenn"
 
 #: js/messages.php:133 libraries/config/FormDisplay.tpl.php:332
 #: libraries/schema/User_Schema.class.php:313
@@ -1339,77 +1342,79 @@ msgstr ""
 #: setup/frames/index.inc.php:227 tbl_change.php:976
 #: tbl_gis_visualization.php:222 tbl_indexes.php:253 tbl_relation.php:563
 msgid "Save"
-msgstr ""
+msgstr "Enrollañ"
 
 #: js/messages.php:134 libraries/display_tbl.lib.php:637 pmd_general.php:158
 #: tbl_change.php:316 tbl_change.php:322
 msgid "Hide"
-msgstr ""
+msgstr "Kuzhat"
 
 #: js/messages.php:135 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "N'eus bet diuzet linenn ebet"
 
 #: js/messages.php:136 libraries/display_tbl.lib.php:2384 querywindow.php:114
 #: querywindow.php:118 querywindow.php:121 tbl_structure.php:152
 #: tbl_structure.php:602
 msgid "Change"
-msgstr ""
+msgstr "Kemmañ"
 
 #: js/messages.php:139
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Kuzhat an dezverkoù klask"
 
 #: js/messages.php:140
 msgid "Show search criteria"
-msgstr ""
+msgstr "Diskouez an dezverkoù enklask"
 
 #: js/messages.php:143 tbl_change.php:304 tbl_indexes.php:203
 #: tbl_indexes.php:230
 msgid "Ignore"
-msgstr ""
+msgstr "Na ober van"
 
 #: js/messages.php:146
 msgid "Select referenced key"
-msgstr ""
+msgstr "Diuzit an alc'hwez daveet"
 
 #: js/messages.php:147
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Diuzit an alc'hwez estren"
 
 #: js/messages.php:148
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
 
 #: js/messages.php:149 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
-msgstr ""
+msgstr "Dibab ar bann da ziskouez"
 
 #: js/messages.php:150
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
+"N'eo ket bet enrollet ar c'hemmoù degaset d'an tres ganeoc'h. Kollet e vint "
+"ma n'o enrollit ket. Kenderc'hel memes tra ?"
 
 #: js/messages.php:153
 msgid "Add an option for column "
-msgstr ""
+msgstr "Ouzhpennañ un dibarzh evit ar bann "
 
 #: js/messages.php:156
 msgid "Generate password"
-msgstr ""
+msgstr "Genel ur ger-tremen"
 
 #: js/messages.php:157 libraries/replication_gui.lib.php:365
 msgid "Generate"
-msgstr ""
+msgstr "Genel"
 
 #: js/messages.php:158
 msgid "Change Password"
-msgstr ""
+msgstr "Cheñch ger-tremen"
 
 #: js/messages.php:161 tbl_structure.php:497
 msgid "More"
-msgstr ""
+msgstr "Muioc'h"
 
 #: js/messages.php:164 setup/lib/index.lib.php:158
 #, php-format
@@ -1417,25 +1422,27 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Ur stumm nevesoc'h eus phpMyAdmin zo bremañ ha mat e vefe deoc'h soñjal "
+"hizivaat ho hini. Setu ar stumm nevesañ %s, embannet eo bet d'an %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:166
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", stumm stabil diwezhañ"
 
 #: js/messages.php:167
 msgid "up to date"
-msgstr ""
+msgstr "hizivaet"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:185
 msgid "Done"
-msgstr ""
+msgstr "Graet"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:187
 msgid "Prev"
-msgstr ""
+msgstr "Kent"
 
 #. l10n: Display text for next month link in calendar
 #: js/messages.php:189 libraries/common.lib.php:2308
@@ -1443,313 +1450,319 @@ msgstr ""
 #: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
 #: tbl_structure.php:937
 msgid "Next"
-msgstr ""
+msgstr "War-lerc'h"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:191
 msgid "Today"
-msgstr ""
+msgstr "Hiziv"
 
 #: js/messages.php:194
 msgid "January"
-msgstr ""
+msgstr "Genver"
 
 #: js/messages.php:195
 msgid "February"
-msgstr ""
+msgstr "C'hwevrer"
 
 #: js/messages.php:196
 msgid "March"
-msgstr ""
+msgstr "Meurzh"
 
 #: js/messages.php:197
 msgid "April"
-msgstr ""
+msgstr "Ebrel"
 
 #: js/messages.php:198
 msgid "May"
-msgstr ""
+msgstr "Mae"
 
 #: js/messages.php:199
 msgid "June"
-msgstr ""
+msgstr "Mezheven"
 
 #: js/messages.php:200
 msgid "July"
-msgstr ""
+msgstr "Gouere"
 
 #: js/messages.php:201
 msgid "August"
-msgstr ""
+msgstr "Eost"
 
 #: js/messages.php:202
 msgid "September"
-msgstr ""
+msgstr "Gwengolo"
 
 #: js/messages.php:203
 msgid "October"
-msgstr ""
+msgstr "Here"
 
 #: js/messages.php:204
 msgid "November"
-msgstr ""
+msgstr "Du"
 
 #: js/messages.php:205
 msgid "December"
-msgstr ""
+msgstr "Kerzu"
 
 #. l10n: Short month name
 #: js/messages.php:209 libraries/common.lib.php:1511
 msgid "Jan"
-msgstr ""
+msgstr "Gen"
 
 #. l10n: Short month name
 #: js/messages.php:211 libraries/common.lib.php:1513
 msgid "Feb"
-msgstr ""
+msgstr "C'hwe"
 
 #. l10n: Short month name
 #: js/messages.php:213 libraries/common.lib.php:1515
 msgid "Mar"
-msgstr ""
+msgstr "Meu"
 
 #. l10n: Short month name
 #: js/messages.php:215 libraries/common.lib.php:1517
 msgid "Apr"
-msgstr ""
+msgstr "Ebr"
 
 #. l10n: Short month name
 #: js/messages.php:217 libraries/common.lib.php:1519
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "Mae"
 
 #. l10n: Short month name
 #: js/messages.php:219 libraries/common.lib.php:1521
 msgid "Jun"
-msgstr ""
+msgstr "Mezh"
 
 #. l10n: Short month name
 #: js/messages.php:221 libraries/common.lib.php:1523
 msgid "Jul"
-msgstr ""
+msgstr "Goue"
 
 #. l10n: Short month name
 #: js/messages.php:223 libraries/common.lib.php:1525
 msgid "Aug"
-msgstr ""
+msgstr "Eost"
 
 #. l10n: Short month name
 #: js/messages.php:225 libraries/common.lib.php:1527
 msgid "Sep"
-msgstr ""
+msgstr "Gwen"
 
 #. l10n: Short month name
 #: js/messages.php:227 libraries/common.lib.php:1529
 msgid "Oct"
-msgstr ""
+msgstr "Here"
 
 #. l10n: Short month name
 #: js/messages.php:229 libraries/common.lib.php:1531
 msgid "Nov"
-msgstr ""
+msgstr "Du"
 
 #. l10n: Short month name
 #: js/messages.php:231 libraries/common.lib.php:1533
 msgid "Dec"
-msgstr ""
+msgstr "Kzu"
 
 #: js/messages.php:234
 msgid "Sunday"
-msgstr ""
+msgstr "Sul"
 
 #: js/messages.php:235
 msgid "Monday"
-msgstr ""
+msgstr "Lun"
 
 #: js/messages.php:236
 msgid "Tuesday"
-msgstr ""
+msgstr "Meurzh"
 
 #: js/messages.php:237
 msgid "Wednesday"
-msgstr ""
+msgstr "Merc'her"
 
 #: js/messages.php:238
 msgid "Thursday"
-msgstr ""
+msgstr "Yaou"
 
 #: js/messages.php:239
 msgid "Friday"
-msgstr ""
+msgstr "Gwener"
 
 #: js/messages.php:240
 msgid "Saturday"
-msgstr ""
+msgstr "Sadorn"
 
 #. l10n: Short week day name
 #: js/messages.php:244 libraries/common.lib.php:1536
 msgid "Sun"
-msgstr ""
+msgstr "Sul"
 
 #. l10n: Short week day name
 #: js/messages.php:246 libraries/common.lib.php:1538
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #. l10n: Short week day name
 #: js/messages.php:248 libraries/common.lib.php:1540
 msgid "Tue"
-msgstr ""
+msgstr "Meu"
 
 #. l10n: Short week day name
 #: js/messages.php:250 libraries/common.lib.php:1542
 msgid "Wed"
-msgstr ""
+msgstr "Mer"
 
 #. l10n: Short week day name
 #: js/messages.php:252 libraries/common.lib.php:1544
 msgid "Thu"
-msgstr ""
+msgstr "Yaou"
 
 #. l10n: Short week day name
 #: js/messages.php:254 libraries/common.lib.php:1546
 msgid "Fri"
-msgstr ""
+msgstr "Gwe"
 
 #. l10n: Short week day name
 #: js/messages.php:256 libraries/common.lib.php:1548
 msgid "Sat"
-msgstr ""
+msgstr "Sad"
 
 #. l10n: Minimal week day name
 #: js/messages.php:260
 msgid "Su"
-msgstr ""
+msgstr "Su"
 
 #. l10n: Minimal week day name
 #: js/messages.php:262
 msgid "Mo"
-msgstr ""
+msgstr "L"
 
 #. l10n: Minimal week day name
 #: js/messages.php:264
 msgid "Tu"
-msgstr ""
+msgstr "Mz"
 
 #. l10n: Minimal week day name
 #: js/messages.php:266
 msgid "We"
-msgstr ""
+msgstr "Mc"
 
 #. l10n: Minimal week day name
 #: js/messages.php:268
 msgid "Th"
-msgstr ""
+msgstr "Y"
 
 #. l10n: Minimal week day name
 #: js/messages.php:270
 msgid "Fr"
-msgstr ""
+msgstr "G"
 
 #. l10n: Minimal week day name
 #: js/messages.php:272
 msgid "Sa"
-msgstr ""
+msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:274
 msgid "Wk"
-msgstr ""
+msgstr "Sizh."
 
 #: js/messages.php:276
 msgid "Hour"
-msgstr ""
+msgstr "Eur"
 
 #: js/messages.php:277
 msgid "Minute"
-msgstr ""
+msgstr "Munut"
 
 #: js/messages.php:278
 msgid "Second"
-msgstr ""
+msgstr "Eilenn"
 
 #: libraries/Config.class.php:1190
 msgid "Font size"
-msgstr ""
+msgstr "Ment an destenn"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"Brasoc'h eo ment ar restr pellgarget eget ar vevenn aotreet gant ar "
+"c'hemennad upload_max_filesize directive e php.ini."
 
 #: libraries/File.class.php:313
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Brasoc'h eo ment ar restr pellgarget eget ar vevenn aotreet gant ar "
+"c'hemennad MAX_FILE_SIZE spisaet er furmskrid HTML."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Hanter bellgarget eo bet ar restr nemetken."
 
 #: libraries/File.class.php:319
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Mankout a ra ur c'havlec'h padennek."
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Fazi en ur skrivañ ar restr war ar bladenn."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "Harzet eo bet ar pellgargañ gant an astenn."
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Fazi dianav en ur bellgargañ ar restr."
 
 #: libraries/File.class.php:559
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
+"Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:430 tbl_relation.php:526
 msgid "No index defined!"
-msgstr ""
+msgstr "N'eus bet termenet meneger ebet !"
 
 #: libraries/Index.class.php:435 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:309
 msgid "Indexes"
-msgstr ""
+msgstr "Menegerioù"
 
 #: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
 #: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
 #: tbl_tracking.php:315
 msgid "Unique"
-msgstr ""
+msgstr "Dibar"
 
 #: libraries/Index.class.php:447 tbl_tracking.php:316
 msgid "Packed"
-msgstr ""
+msgstr "Gwasket"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:318
 msgid "Cardinality"
-msgstr ""
+msgstr "Kardinalegezh"
 
 #: libraries/Index.class.php:452 libraries/db_routines.lib.php:777
 #: tbl_tracking.php:272 tbl_tracking.php:321
 msgid "Comment"
-msgstr ""
+msgstr "Evezhiadenn"
 
 #: libraries/Index.class.php:474
 msgid "The primary key has been dropped"
-msgstr ""
+msgstr "Diverket eo bet an alc'hwez kentidik"
 
 #: libraries/Index.class.php:478
 #, php-format
 msgid "Index %s has been dropped"
-msgstr ""
+msgstr "Diverket eo bet ar meneger %s."
 
 #: libraries/Index.class.php:582
 #, php-format
@@ -1757,136 +1770,138 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"Evit doare eo kevatal an menegerioù %1$s ha %2$s hag unan anezho a c'hallfe "
+"bezañ dilamet."
 
 #: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
 #: server_privileges.php:1740
 msgid "Databases"
-msgstr ""
+msgstr "Diazoù roadennoù"
 
 #: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
 #: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:561
 #: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:883
 #: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
-msgstr ""
+msgstr "Fazi"
 
 #: libraries/Message.class.php:260
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linenn tizhet."
+msgstr[1] "%1$d linenn tizhet."
 
 #: libraries/Message.class.php:279
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linenn diverket."
+msgstr[1] "%1$d linenn diverket."
 
 #: libraries/Message.class.php:298
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d linenn ensoc'het."
+msgstr[1] "%1$d linenn ensoc'het."
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
-msgstr ""
+msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
 
 #: libraries/RecentTable.class.php:149
 msgid "Recent tables"
-msgstr ""
+msgstr "Taolennoù nevez"
 
 #: libraries/RecentTable.class.php:155
 msgid "There are no recent tables"
-msgstr ""
+msgstr "N'eus taolenn nevez ebet"
 
 #: libraries/StorageEngine.class.php:195
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "N'eus tamm titour dre ar munud ebet evit al lusker stokañ-mañ."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "Hegerz eo %s war ar servijer MySQL-mañ."
 
 #: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
 
 #: libraries/StorageEngine.class.php:362
-#, php-format
+#, fuzzy, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "N'eo ket skoret al lusker stokañ gant ar servijer MySQL-mañ."
 
 #: libraries/Table.class.php:1027
 msgid "Invalid database"
-msgstr ""
+msgstr "Diaz roadennoù direizh"
 
 #: libraries/Table.class.php:1041 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "Anv taolenn direizh"
 
 #: libraries/Table.class.php:1056
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "Fazi en ur adenvel %1$s e %2$s"
 
 #: libraries/Table.class.php:1139
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr ""
+msgstr "Anv an daolenn %s zo %s bremañ"
 
 #: libraries/Table.class.php:1272
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "N'eus ket bet gallet enrollañ dibaboù etrefas an taolennoù"
 
 #: libraries/Theme.class.php:160
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "N'eus ket eus un hent reizh evit skeudennoù an tem %s !"
 
 #: libraries/Theme.class.php:380
 msgid "No preview available."
-msgstr ""
+msgstr "N'haller ket rakwelet."
 
 #: libraries/Theme.class.php:383
 msgid "take it"
-msgstr ""
+msgstr "tapit-eñ"
 
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "N'eo ket bet kavet an tem dre ziouer %s !"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "N'eo ket bet kavet an tem %s !"
 
 #: libraries/Theme_Manager.class.php:215
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "N'eo ket bet kavet an hent evit an tem  %s !"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tem"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "Dibosupl kevreañ : arventennoù direizh."
 
 #: libraries/auth/config.auth.lib.php:91
 #: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Degemer mat e %s"
 
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
@@ -1894,6 +1909,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar "
+"%1$sskript kefluniañ%2$s da sevel unan."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -1902,42 +1919,48 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"Klasket en deus phpMyAdmin kevreañ ouzh ar servijer MySQL ha nac'het eo bet "
+"ar gevreadenn gantañ. Gwiriit mat talvoudoù an ostiz, an anv implijer hag ar "
+"ger-tremen en ho kefluniadur ha bezit sur e klotont gant an titouroù "
+"pourchaset gant merour ar servijer MySQL."
 
 #: libraries/auth/cookie.auth.lib.php:225
 msgid "Log in"
-msgstr ""
+msgstr "Kevreañ"
 
 #: libraries/auth/cookie.auth.lib.php:227
 #: libraries/auth/cookie.auth.lib.php:229
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
-msgstr ""
+msgstr "Teuliadur phpMyAdmin"
 
 #: libraries/auth/cookie.auth.lib.php:239
 #: libraries/auth/cookie.auth.lib.php:240
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"Gallout a rit merkañ anv ar servijer pe e chomlec'h IP, gant ar porzh "
+"dispartiet dre un esaouenn."
 
 #: libraries/auth/cookie.auth.lib.php:239
 msgid "Server:"
-msgstr ""
+msgstr "Servijer : "
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Username:"
-msgstr ""
+msgstr "Anv implijer : "
 
 #: libraries/auth/cookie.auth.lib.php:248
 msgid "Password:"
-msgstr ""
+msgstr "Ger-tremen : "
 
 #: libraries/auth/cookie.auth.lib.php:255
 msgid "Server Choice"
-msgstr ""
+msgstr "Dibab ar servijer"
 
 #: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
-msgstr ""
+msgstr "Evit gallout kenderc'hel e rankit gweredekaat an toupinoù."
 
 #: libraries/auth/cookie.auth.lib.php:639
 #: libraries/auth/signon.auth.lib.php:234
@@ -4546,7 +4569,7 @@ msgid "Turn it off"
 msgstr ""
 
 #: libraries/db_events.inc.php:141
-msgid "Add a new Event"
+msgid "Add an event"
 msgstr ""
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
@@ -5183,7 +5206,7 @@ msgid "Event"
 msgstr ""
 
 #: libraries/display_triggers.inc.php:120
-msgid "Add a new Trigger"
+msgid "Add a trigger"
 msgstr ""
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
@@ -6812,7 +6835,7 @@ msgid "PARTITION definition"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:776
-msgid "+ Add a new value"
+msgid "+ Add a value"
 msgstr ""
 
 #: libraries/transformations/application_octetstream__download.inc.php:9

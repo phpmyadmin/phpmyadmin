@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-24 04:50+0200\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
+"PO-Revision-Date: 2011-06-27 03:38+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -141,7 +141,6 @@ msgstr "تعليقات الجدول"
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
 #: tbl_indexes.php:188 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
-#| msgid "Column names"
 msgid "Column"
 msgstr "عمود"
 
@@ -346,18 +345,14 @@ msgstr "Collation"
 
 #: db_operations.php:565
 #, php-format
-#| msgid ""
-#| "The additional features for working with linked tables have been "
-#| "deactivated. To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
-"s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
+"%s."
 
 #: db_operations.php:600
-#| msgid "Relational schema"
 msgid "Edit or export relational schema"
 msgstr "بناء الارتباطات"
 
@@ -484,12 +479,10 @@ msgid "Modify"
 msgstr "تعديل"
 
 #: db_qbe.php:606
-#| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "إضافه/حذف معايير الصفوف"
 
 #: db_qbe.php:618
-#| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "إضافه/حذف عمود"
 
@@ -510,14 +503,14 @@ msgstr "إستعلام SQL في قاعدة البيانات <b>%s</b>:"
 msgid "Submit Query"
 msgstr "إرسال الإستعلام"
 
-#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
+#: db_routines.php:154 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
-#: db_routines.php:155
+#: db_routines.php:157
 #, fuzzy, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -528,89 +521,83 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: db_routines.php:165
+#: db_routines.php:167
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "نتائج تنفيذ الإجراء %s"
 
-#: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
+#: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 
-#: db_routines.php:190 db_routines.php:295 db_routines.php:300
-#: db_routines.php:324
+#: db_routines.php:192 db_routines.php:297 db_routines.php:302
+#: db_routines.php:326
 #, fuzzy, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "فشل الإستعلام \"%s\""
 
-#: db_routines.php:191 db_routines.php:296 db_routines.php:301
-#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
+#: db_routines.php:193 db_routines.php:298 db_routines.php:303
+#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQL قال: "
 
-#: db_routines.php:208 db_routines.php:240 db_routines.php:268
-#: db_routines.php:407
-#| msgid "Processes"
+#: db_routines.php:210 db_routines.php:242 db_routines.php:270
+#: db_routines.php:409
 msgid "Error in processing request"
 msgstr "خطأ في معالجة الطلب"
 
-#: db_routines.php:209 db_routines.php:241 db_routines.php:269
-#: db_routines.php:408
+#: db_routines.php:211 db_routines.php:243 db_routines.php:271
+#: db_routines.php:410
 #, php-format
-#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "لا يوجد جدول بالإسم %1$s  في قاعدة البيانات %2$s"
 
-#: db_routines.php:230 db_routines.php:234
+#: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
 msgstr "تنفيذ"
 
-#: db_routines.php:259 db_routines.php:263
+#: db_routines.php:261 db_routines.php:265
 #, php-format
 msgid "Export of routine %s"
 msgstr "تصدير %s"
 
-#: db_routines.php:288 libraries/db_routines.lib.php:960
+#: db_routines.php:290 libraries/db_routines.lib.php:960
 #, php-format
-#| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
 msgstr "نوع الإجراء غير صحيح: %s"
 
-#: db_routines.php:309
+#: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "عفواً , فشل في إستعادة الإجراء المزال"
 
-#: db_routines.php:310
+#: db_routines.php:312
 msgid "The backed up query was:"
 msgstr "الإستعلام الإحتياطي:"
 
-#: db_routines.php:314
+#: db_routines.php:316
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "تم تعديل الإجراء %1$s"
 
-#: db_routines.php:327
+#: db_routines.php:329
 #, php-format
-#| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "تم إنشاء الإجراء %1$s."
 
-#: db_routines.php:335
+#: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>حصل خطأ أثناء معالجة طلبك: </b>"
 
-#: db_routines.php:379
-#| msgid "Create"
+#: db_routines.php:381
 msgid "Create routine"
 msgstr "إنشاء إجراء"
 
-#: db_routines.php:383
+#: db_routines.php:385
 msgid "Edit routine"
 msgstr "تعديل الإجراء"
 
-#: db_routines.php:434
+#: db_routines.php:436
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -650,7 +637,6 @@ msgstr "نتائج البحث عن \"<i>%s</i>\" %s:"
 
 #: db_search.php:249
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s مطابقة في الجدول <i>%s</i>"
@@ -668,7 +654,6 @@ msgstr "استعراض"
 
 #: db_search.php:261
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "حذف التشابهات لجدول %s ؟"
 
@@ -686,7 +671,6 @@ msgstr "حذف"
 
 #: db_search.php:274
 #, php-format
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>المجموع:</b> <i>%s</i>تطابق"
@@ -701,7 +685,6 @@ msgid "Search in database"
 msgstr "بحث في قاعدة البيانات"
 
 #: db_search.php:300
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "الكلمات أو القيم المطلوب البحث عنها (wildcard: \"%\"):"
 
@@ -714,17 +697,14 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "الكلمات مفصولة بمسافة (\" \")."
 
 #: db_search.php:323
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "داخل الجداول:"
 
 #: db_search.php:353
-#| msgid "Inside table(s):"
 msgid "Inside column:"
 msgstr "داخل العمود:"
 
 #: db_structure.php:60
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "لا توجد جداول في قاعدة البيانات هذه!."
 
@@ -847,17 +827,14 @@ msgid "Analyze table"
 msgstr "تحليل الجدول"
 
 #: db_structure.php:514
-#| msgid "Go to table"
 msgid "Add prefix to table"
 msgstr "إضافة بادئة للجدول"
 
 #: db_structure.php:516 libraries/mult_submits.inc.php:251
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "استبدال بادئة الجدول"
 
 #: db_structure.php:518 libraries/mult_submits.inc.php:251
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "نسخ الجدول مع البادئة"
 
@@ -1101,7 +1078,6 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "أنت على وشك إفراغ كامل الجدول!"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "حذف بيانات التتبع"
 
@@ -1132,7 +1108,6 @@ msgstr "هذا ليس رقم!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#| msgid "Total"
 msgid "Total count"
 msgstr "العدد الكلي"
 
@@ -1154,17 +1129,14 @@ msgstr "كلمتا المرور غير متشابهتان !"
 
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#| msgid "Any user"
 msgid "Add user"
 msgstr "إضافة مستخدم"
 
 #: js/messages.php:57
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "قيد إعادة قراءة الصلاحيات."
 
 #: js/messages.php:58
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "حذف المستخدمين المحددين"
 
@@ -1183,7 +1155,6 @@ msgid "Edit"
 msgstr "تعديل"
 
 #: js/messages.php:64 server_status.php:420
-#| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "خريطة التتبع المباشر"
 
@@ -1192,7 +1163,6 @@ msgid "Live conn./process chart"
 msgstr "خريطة conn./process المباشر"
 
 #: js/messages.php:66 server_status.php:445
-#| msgid "SQL query"
 msgid "Live query chart"
 msgstr "خريطة الإستعلام المباشر"
 
@@ -1232,7 +1202,6 @@ msgid "KiB received since last refresh"
 msgstr "كيلوبايت أستقبلت منذ آخر تحديث"
 
 #: js/messages.php:80
-#| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "ترافيك الخادم (بالكيلو بايت)"
 
@@ -1245,7 +1214,6 @@ msgid "Processes"
 msgstr "عمليات"
 
 #: js/messages.php:83
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "اتصالات / عمليات"
 
@@ -1258,7 +1226,6 @@ msgid "Issued queries"
 msgstr "إستعلامات صادرة"
 
 #: js/messages.php:87 server_status.php:402
-#| msgid "Databases statistics"
 msgid "Query statistics"
 msgstr "إحصائيات الإستعلام"
 
@@ -1273,7 +1240,6 @@ msgid "Loading"
 msgstr "تحميل"
 
 #: js/messages.php:95
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "معالجة الطلب"
 
@@ -1297,62 +1263,50 @@ msgid "OK"
 msgstr "موافق"
 
 #: js/messages.php:102
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "أعادة تسمية قاعدة البيانات"
 
 #: js/messages.php:103
-#| msgid "Rename database to"
 msgid "Reload Database"
 msgstr "أعادة تحميل قاعدة البيانات"
 
 #: js/messages.php:104
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "نسخ قاعدة البيانات "
 
 #: js/messages.php:105
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "تغيير مجموعة المحارف"
 
 #: js/messages.php:106
-#| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "عليك اختيار عمود واحد على الأقل للعرض"
 
 #: js/messages.php:107
-#| msgid "Create table"
 msgid "Create Table"
 msgstr "أنشئ الجدول"
 
 #: js/messages.php:112
-#| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "إدخال الجدول"
 
 #: js/messages.php:115
-#| msgid "Search"
 msgid "Searching"
 msgstr "بحث"
 
 #: js/messages.php:116
-#| msgid "in query"
 msgid "Hide search results"
 msgstr "إخفاء نتائج البحث"
 
 #: js/messages.php:117
-#| msgid "SQL query"
 msgid "Show search results"
 msgstr "إظهار نتائج البحث"
 
 #: js/messages.php:118
-#| msgid "Browse"
 msgid "Browsing"
 msgstr "استعراض"
 
 #: js/messages.php:119
-#| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "حذف"
 
@@ -1361,7 +1315,6 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "تعريف الدالة المخزنة يجب أن تحتوي جملة RETURN !"
 
 #: js/messages.php:123
-#| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
 msgstr "القيمة كبيرة جداً!"
 
@@ -1371,12 +1324,10 @@ msgid ""
 msgstr "ملاحظة: إذا كان الملف يحتوي على جداول متعددة , فإنها سوف تتجمع في واحد"
 
 #: js/messages.php:129
-#| msgid "in query"
 msgid "Hide query box"
 msgstr "إخفاء صندوق الإستعلام"
 
 #: js/messages.php:130
-#| msgid "SQL query"
 msgid "Show query box"
 msgstr "إظهار صندوق الإستعلام"
 
@@ -1408,12 +1359,10 @@ msgid "Change"
 msgstr "تغيير"
 
 #: js/messages.php:139
-#| msgid "in query"
 msgid "Hide search criteria"
 msgstr "إخفاء معايير البحث"
 
 #: js/messages.php:140
-#| msgid "SQL query"
 msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
@@ -1435,7 +1384,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "فضلاً أختر المفتاح الرئيسي أو المفتاح الفريد"
 
 #: js/messages.php:149 pmd_general.php:87 tbl_relation.php:545
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "اختر الحقل لإظهاره"
 
@@ -1450,7 +1398,6 @@ msgid "Add an option for column "
 msgstr "إضافة خيار للعمود"
 
 #: js/messages.php:156
-#| msgid "Change password"
 msgid "Generate password"
 msgstr "توليد كلمة مرور"
 
@@ -1459,12 +1406,10 @@ msgid "Generate"
 msgstr "توليد"
 
 #: js/messages.php:158
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "تغيير كلمة المرور"
 
 #: js/messages.php:161 tbl_structure.php:497
-#| msgid "Mon"
 msgid "More"
 msgstr "أكثر"
 
@@ -1474,8 +1419,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"يوجد إصدارأحدث من  phpMyAdmin  متوفر حالياً ,, ينبغى أن تعمل ترقية.أحدث "
-"إصدار هو %s, released on %s."
+"يوجد إصدارأحدث من  phpMyAdmin  متوفر حالياً ,, ينبغى أن تعمل ترقية.أحدث إصدار "
+"هو %s, released on %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:166
@@ -1483,19 +1428,16 @@ msgid ", latest stable version:"
 msgstr ", آخر إصدار مستقر:"
 
 #: js/messages.php:167
-#| msgid "No databases"
 msgid "up to date"
 msgstr "محدثة"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:185
-#| msgid "Donate"
 msgid "Done"
 msgstr "إنتهى"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:187
-#| msgid "Previous"
 msgid "Prev"
 msgstr "سابق"
 
@@ -1509,7 +1451,6 @@ msgstr "التالي"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:191
-#| msgid "Total"
 msgid "Today"
 msgstr "اليوم"
 
@@ -1522,12 +1463,10 @@ msgid "February"
 msgstr "فبراير"
 
 #: js/messages.php:196
-#| msgid "Mar"
 msgid "March"
 msgstr "مارس"
 
 #: js/messages.php:197
-#| msgid "Apr"
 msgid "April"
 msgstr "أبريل"
 
@@ -1536,17 +1475,14 @@ msgid "May"
 msgstr "مايو"
 
 #: js/messages.php:199
-#| msgid "Jun"
 msgid "June"
 msgstr "يونيو"
 
 #: js/messages.php:200
-#| msgid "Jul"
 msgid "July"
 msgstr "يوليو"
 
 #: js/messages.php:201
-#| msgid "Aug"
 msgid "August"
 msgstr "أغسطس"
 
@@ -1555,7 +1491,6 @@ msgid "September"
 msgstr "سبتمبر"
 
 #: js/messages.php:203
-#| msgid "Oct"
 msgid "October"
 msgstr "أكتوبر"
 
@@ -1589,7 +1524,6 @@ msgstr "أبريل"
 
 #. l10n: Short month name
 #: js/messages.php:217 libraries/common.lib.php:1519
-#| msgid "May"
 msgctxt "Short month name"
 msgid "May"
 msgstr "مايو"
@@ -1630,17 +1564,14 @@ msgid "Dec"
 msgstr "ديسمبر"
 
 #: js/messages.php:234
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "الأحد"
 
 #: js/messages.php:235
-#| msgid "Mon"
 msgid "Monday"
 msgstr "الإثنين"
 
 #: js/messages.php:236
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "الثلاثاء"
 
@@ -1653,7 +1584,6 @@ msgid "Thursday"
 msgstr "الخميس"
 
 #: js/messages.php:239
-#| msgid "Fri"
 msgid "Friday"
 msgstr "الجمعة"
 
@@ -1698,43 +1628,36 @@ msgstr "السبت"
 
 #. l10n: Minimal week day name
 #: js/messages.php:260
-#| msgid "Sun"
 msgid "Su"
 msgstr "الأحد"
 
 #. l10n: Minimal week day name
 #: js/messages.php:262
-#| msgid "Mon"
 msgid "Mo"
 msgstr "الإثنين"
 
 #. l10n: Minimal week day name
 #: js/messages.php:264
-#| msgid "Tue"
 msgid "Tu"
 msgstr "الثلاثاء"
 
 #. l10n: Minimal week day name
 #: js/messages.php:266
-#| msgid "Wed"
 msgid "We"
 msgstr "الأربعاء"
 
 #. l10n: Minimal week day name
 #: js/messages.php:268
-#| msgid "Thu"
 msgid "Th"
 msgstr "الخميس"
 
 #. l10n: Minimal week day name
 #: js/messages.php:270
-#| msgid "Fri"
 msgid "Fr"
 msgstr "الجمعة"
 
 #. l10n: Minimal week day name
 #: js/messages.php:272
-#| msgid "Sat"
 msgid "Sa"
 msgstr "السبت"
 
@@ -1794,8 +1717,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"خطأ عند نقل الملف المرفوع , إنظر "
-":[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"خطأ عند نقل الملف المرفوع , إنظر :[a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:430 tbl_relation.php:526
 msgid "No index defined!"
@@ -1892,7 +1815,6 @@ msgid "Could not save recent table"
 msgstr "لايستطيع حفظ الجدول الأخير"
 
 #: libraries/RecentTable.class.php:149
-#| msgid "Select Tables"
 msgid "Recent tables"
 msgstr "الجداول الأخيرة"
 
@@ -2043,8 +1965,7 @@ msgstr "يجب تفعيل دعم الكوكيز في هذه المرحلة."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"تم منع الدخول بدون كلمة مرور ممنوع في الإعدادات , إنظر قيمة "
-"(AllowNoPassword)"
+"تم منع الدخول بدون كلمة مرور ممنوع في الإعدادات , إنظر قيمة (AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
@@ -2150,7 +2071,6 @@ msgid "Overhead"
 msgstr "الحمل الزائد"
 
 #: libraries/build_html_for_db.lib.php:93
-#| msgid "No databases"
 msgid "Jump to database"
 msgstr "قفز لقاعدة البيانات"
 
@@ -2191,8 +2111,8 @@ msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"المتغير <span dir=\"ltr\"><tt>$cfg['PmaAbsoluteUri']</tt></span> يجب تعديله في "
-"ملف التعريف !"
+"المتغير <span dir=\"ltr\"><tt>$cfg['PmaAbsoluteUri']</tt></span> يجب تعديله "
+"في ملف التعريف !"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -2446,7 +2366,6 @@ msgid "Open"
 msgstr "فتح"
 
 #: libraries/config.values.php:75
-#| msgid "Close"
 msgid "Closed"
 msgstr "إغلاق"
 
@@ -2466,7 +2385,6 @@ msgstr "بيانات"
 #: libraries/config.values.php:98 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:124 libraries/export/texytext.php:24
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "البنية والبيانات"
 
@@ -2483,12 +2401,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "مخصص - مثل مافي الأعلى , لكن بدون الخيار سريع/مخصص"
 
 #: libraries/config.values.php:120
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "إدخال كامل"
 
 #: libraries/config.values.php:121
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "إدخال ممدد"
 
@@ -2534,7 +2450,6 @@ msgstr "بيانات مفقودة لـ %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "غير متاح"
 
@@ -2559,7 +2474,6 @@ msgid "SQL Validator is disabled"
 msgstr "مدقق SQL معطل"
 
 #: libraries/config/FormDisplay.class.php:773
-#| msgid "Link not found"
 msgid "SOAP extension not found"
 msgstr "الإمتداد SOAP غير موجود"
 
@@ -2602,7 +2516,6 @@ msgid "Improves efficiency of screen refresh"
 msgstr "تحسين كفاءة تحديث الشاشة"
 
 #: libraries/config/messages.inc.php:18
-#| msgid "Enable"
 msgid "Enable Ajax"
 msgstr "تفعيل الأجاكس"
 
@@ -2676,30 +2589,32 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و  VARCHAR ,,[kbd]input[/kbd] - "
+"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في العمود. "
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "تعديل أعمدة CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "عدد أعمدة مربع النص لـCHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "أعمدة مربع النص لـ CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "عدد صفوف مربع النص لـCHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "صفوف مربع النص لـ CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "تحقق من أذونات ملف التكوين"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
@@ -2709,144 +2624,135 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "ضغط"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:165
 msgid "Configuration file"
-msgstr ""
+msgstr "ملف التكوين"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"التحذير (&quot; هل أنت متأكد &quot; ) يظهر عندما تكون على وشك فقدان بيانات"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "تأكيد إستعلامات DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "تصحيح SQL"
 
 #: libraries/config/messages.inc.php:45
-#, fuzzy
-#| msgid "Relational schema"
 msgid "Default display direction"
-msgstr "بناء الارتباطات"
+msgstr "إتجاه العرض الإفتراضي"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]أفقي[/kbd] , [kbd]رأسي[/kbd] أو عدد يشير إلى أكبر عدد من الأعمدة "
+"يستعمله النموذج"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "عرض الإتجاه لـ تعديل/إنشاء الأعمدة"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "تبويب قاعدة البيانات الإفتراضي"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى الخادم"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "تبويب الخادم الإفتراضي"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "التبويب الذي يعرض عند الدخول إلى الجدول"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "تبويب الجدول الإفتراضي"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "عرض البيانات الثنائية بالنظام الست عشري إفتراضياً"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:629
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "عرض البيانات الثنائية بالنظام الست عشري"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "إظهار قواعد البيانات كقائمة بدلاً من القائمة المنسدلة"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "إظهار قواعد البيانات كقائمة"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "إظهار الخوادم كقائمة بدلاً من القائمة المنسدلة"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "إظهار الخوادم كقائمة"
 
 #: libraries/config/messages.inc.php:60
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "تعطيل عمليات الصيانة , مثل تحسين وإصلاح جداول قاعدة البيانات."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "صيانة الجدول"
+msgstr "تعطيل صيانة الجداول المتعددة "
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "تعديل إستعلام SQL في نافذة منبثقة"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
-#| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "عدل الصف التالي"
+msgstr "تعديل في نافذة"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display errors"
-msgstr "إظهار المزايا"
+msgstr "عرض الأخطاء"
 
 #: libraries/config/messages.inc.php:65
-#, fuzzy
-#| msgid "errors."
 msgid "Gather errors"
-msgstr "أخطاء."
+msgstr "جمع الأخطاء"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "عرض الأيقونات لرسائل التحذير, الخطأ والمعلومات"
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
-#| msgid "errors."
 msgid "Iconic errors"
-msgstr "أخطاء."
+msgstr "أيقونة أخطاء"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr ""
+msgstr "ضع الوقت المحدد لعمل البرنامج ([kbd]0[/kbd]: لانهائي)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
-msgstr ""
+msgstr "وقت التنفيذ الأقصى"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
@@ -2854,7 +2760,7 @@ msgstr "حفظ كملف"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:239
 msgid "Character set of the file"
-msgstr ""
+msgstr "مجموعة الأحرف للملف"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:873
@@ -2874,24 +2780,18 @@ msgstr "الضغط"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "ضع أسماء الحقول في السطر الأول"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "حقل مضمن بـ"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "حقل متجاهل بـ"
 
@@ -2905,52 +2805,46 @@ msgstr "استبدل NULL بـ"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "حذف CRLF من الأعمدة"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "خطوط مفصولة بـ"
+msgstr "خطوط تنتهي بـ"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "خطوط مفصولة بـ"
+msgstr "أسطر تنتهي بـ"
 
 #: libraries/config/messages.inc.php:82
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "إصدارة إكسل"
 
 #: libraries/config/messages.inc.php:85
 msgid "Database name template"
-msgstr ""
+msgstr "إسم قالب قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "إسم قالب الخادم"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "إسم قالب الجدول"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
 #: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:116 libraries/export/texytext.php:23
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s  جدول (جداول)"
+msgstr "إفراغ الجدول"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
-msgstr "أضف عنوانا للجدول"
+msgstr "أضف عنواناً للجدول"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
@@ -2975,41 +2869,37 @@ msgstr "نوع MIME"
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 tbl_relation.php:396
 msgid "Relations"
-msgstr "الروابط"
+msgstr "العلاقات"
 
 #: libraries/config/messages.inc.php:105
-#, fuzzy
-#| msgid "Export type"
 msgid "Export method"
 msgstr "نوع التصدير"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
-msgstr ""
+msgstr "حفظ في الخادم"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
 msgid "Overwrite existing file(s)"
-msgstr "خزن على الملفات الموجودة أصلا"
+msgstr "خزن على الملفات الموجودة"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr ""
+msgstr "تذكر إسم قالب الملف"
 
 #: libraries/config/messages.inc.php:120
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "حماية أسماء الجداول و الحقول ب \"`\" "
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:353
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "وضع توافق SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "خيارات <code>CREATE TABLE</code> :"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
@@ -3021,47 +2911,43 @@ msgstr "استخدم الإضافات المتأخرة"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "تعطيل التحقق من المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "إستخدم النظام الست عشري لـ BLOB"
 
 #: libraries/config/messages.inc.php:130
-#, fuzzy
-#| msgid "Use delayed inserts"
 msgid "Use ignore inserts"
-msgstr "استخدم الإضافات المتأخرة"
+msgstr "إستخدم الإضافات المتجاهلة"
 
 #: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "بناء الجملة لإستخدامه عند إدخال البيانات"
 
 #: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "أقصى طول للإستعلام المنشئ"
 
 #: libraries/config/messages.inc.php:138
-#, fuzzy
-#| msgid "Export"
 msgid "Export type"
-msgstr "تصدير"
+msgstr "نوع التصدير"
 
 #: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "تضمين التصدير في العملية"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
-msgstr ""
+msgstr "وقت التصدير (بالتوقيت العالمي)"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "فرض الإتصال الآمن عند إستخدام phpMyAdmin"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force SSL connection"
-msgstr ""
+msgstr "فرض إتصال SSL"
 
 #: libraries/config/messages.inc.php:150
 msgid ""
@@ -3071,30 +2957,30 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "قائمة منسدلة مرتبة بالمفتاح الغريب"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "سيتم إستخدام القائمة المنسدلة إذا وجد عدد أقل من العناصر"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr ""
+msgstr "حد المفتاح الغريب"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr ""
+msgstr "وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
-msgstr ""
+msgstr "تخصيص وضع الإستعراض"
 
 #: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
 #: libraries/config/messages.inc.php:229
 msgid "Customize default options"
-msgstr ""
+msgstr "تخصيص الخيارات الإفتراضية"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:236
 #: libraries/config/setup.forms.php:315
@@ -3106,80 +2992,78 @@ msgstr "سي إس في"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr ""
+msgstr "مطور"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "إعدادات لمطوري phpMyAdmin"
 
 #: libraries/config/messages.inc.php:162
 msgid "Edit mode"
-msgstr ""
+msgstr "وضع التعديل"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr ""
+msgstr "تخصيص وضع التعديل"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
-msgstr ""
+msgstr "إفتراضيات التصدير"
 
 #: libraries/config/messages.inc.php:166
 msgid "Customize default export options"
-msgstr ""
+msgstr "تخصيص خيارات التصدير الإفتراضي"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "مميزات"
 
 #: libraries/config/messages.inc.php:168
-#, fuzzy
-#| msgid "Generate"
 msgid "General"
-msgstr "ولد"
+msgstr "عام"
 
 #: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "تعيين بعض الخيارات شائعة الإستخدام"
 
 #: libraries/config/messages.inc.php:170 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "استورد"
+msgstr "استيراد"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import defaults"
-msgstr ""
+msgstr "إفتراضيات الإستيراد"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
-msgstr ""
+msgstr "تخصيص خيارات الإستيراد الإفتراضية"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr ""
+msgstr "إستيراد / تصدير"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "حدد عناوين الإستيراد والتصدير و  خيارات الضغط"
 
 #: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
-msgstr "لاتكس"
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
-msgstr ""
+msgstr "خيارات عرض قواعد البيانات"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "إطار التصفح"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "تخصيص مظهر إطار التصفح"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:110
@@ -3188,39 +3072,35 @@ msgstr "خوادم"
 
 #: libraries/config/messages.inc.php:182
 msgid "Servers display options"
-msgstr ""
+msgstr "خيارات عرض الخوادم"
 
 #: libraries/config/messages.inc.php:184
 msgid "Tables display options"
-msgstr ""
+msgstr "خيارات عرض الجداول"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
-msgstr ""
+msgstr "مايكروسوفت أوفيس"
 
 #: libraries/config/messages.inc.php:188
-#, fuzzy
-#| msgid "Documentation"
 msgid "Open Document"
-msgstr "مستندات وثائقية"
+msgstr "مستند مفتوح"
 
 #: libraries/config/messages.inc.php:190
 msgid "Other core settings"
-msgstr ""
+msgstr "الإعدادات الرئيسية الأخرى"
 
 #: libraries/config/messages.inc.php:191
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "الإعدادات التي لاتناسب في أي مكان آخر"
 
 #: libraries/config/messages.inc.php:192
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page titles"
-msgstr "صفحة رقم:"
+msgstr "عناوين الصفحة"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
@@ -3238,49 +3118,48 @@ msgstr "نافذة الاستعلام"
 
 #: libraries/config/messages.inc.php:195
 msgid "Customize query window options"
-msgstr ""
+msgstr "تخصيص خيارات نافذة الإستعلام"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
-msgstr ""
+msgstr "الأمان"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"فضلاً , تذكر أن phpMyAdmin هي واجة إستخدام فقط ولا يمكن أن تتجاوز حدود MySQL"
 
 #: libraries/config/messages.inc.php:198
 msgid "Basic settings"
-msgstr ""
+msgstr "الإعدادات الأساسية"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication"
-msgstr "مستندات وثائقية"
+msgstr "المصادقة"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
-msgstr ""
+msgstr "خيارات المصادقة"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
-msgstr ""
+msgstr "إعداد الخادم"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
-msgstr ""
+msgstr "إعداد متقدم للخادم , لاتغير أي من هذه القيم حتى تعلم وظيفتها"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "أدخل معلومات إتصال الخادم"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
-msgstr ""
+msgstr "إعداد التخزين"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
@@ -4745,7 +4624,7 @@ msgstr ""
 #: libraries/db_events.inc.php:141
 #, fuzzy
 #| msgid "Add a new User"
-msgid "Add a new Event"
+msgid "Add an event"
 msgstr "أضف مستخدم جديد"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
@@ -5464,7 +5343,7 @@ msgstr "حدث"
 #: libraries/display_triggers.inc.php:120
 #, fuzzy
 #| msgid "Add a new User"
-msgid "Add a new Trigger"
+msgid "Add a trigger"
 msgstr "أضف مستخدم جديد"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
@@ -7190,7 +7069,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:776
 #, fuzzy
 #| msgid "Add a new User"
-msgid "+ Add a new value"
+msgid "+ Add a value"
 msgstr "أضف مستخدم جديد"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9

@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-23 00:01+0200\n"
-"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"POT-Creation-Date: 2011-06-27 10:29+0200\n"
+"PO-Revision-Date: 2011-06-26 13:27+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
@@ -497,99 +497,97 @@ msgstr "SQL query on database <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Submit Query"
 
-#: db_routines.php:152 import.php:453 libraries/Message.class.php:185
+#: db_routines.php:154 import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Your SQL query has been executed successfully"
 
-#: db_routines.php:155
+#: db_routines.php:157
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d row affected by the last statement inside the procedure"
 msgstr[1] "%d rows affected by the last statement inside the procedure"
 
-#: db_routines.php:165
+#: db_routines.php:167
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Execution results of routine %s"
 
-#: db_routines.php:185 libraries/import.lib.php:153 sql.php:678
+#: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returned an empty result set (i.e. zero rows)."
 
-#: db_routines.php:190 db_routines.php:295 db_routines.php:300
-#: db_routines.php:324
-#, fuzzy, php-format
-#| msgid "The following queries have been executed:"
+#: db_routines.php:192 db_routines.php:297 db_routines.php:302
+#: db_routines.php:326
+#, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "The following queries have been executed:"
+msgstr "The following query has failed: \"%s\""
 
-#: db_routines.php:191 db_routines.php:296 db_routines.php:301
-#: db_routines.php:311 db_routines.php:325 libraries/common.lib.php:609
+#: db_routines.php:193 db_routines.php:298 db_routines.php:303
+#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
 msgid "MySQL said: "
 msgstr "MySQL said: "
 
-#: db_routines.php:208 db_routines.php:240 db_routines.php:268
-#: db_routines.php:407
+#: db_routines.php:210 db_routines.php:242 db_routines.php:270
+#: db_routines.php:409
 msgid "Error in processing request"
 msgstr "Error in processing request"
 
-#: db_routines.php:209 db_routines.php:241 db_routines.php:269
-#: db_routines.php:408
-#, fuzzy, php-format
-#| msgid "No routine with name %s found in database %s"
+#: db_routines.php:211 db_routines.php:243 db_routines.php:271
+#: db_routines.php:410
+#, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "No routine with name %s found in database %s"
+msgstr "No routine with name %1$s found in database %2$s"
 
-#: db_routines.php:230 db_routines.php:234
+#: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
 msgstr "Execute routine"
 
-#: db_routines.php:259 db_routines.php:263
+#: db_routines.php:261 db_routines.php:265
 #, php-format
 msgid "Export of routine %s"
 msgstr "Export of routine %s"
 
-#: db_routines.php:288 libraries/db_routines.lib.php:960
+#: db_routines.php:290 libraries/db_routines.lib.php:960
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Invalid routine type: \"%s\""
 
-#: db_routines.php:309
+#: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Sorry, we failed to restore the dropped routine."
 
-#: db_routines.php:310
+#: db_routines.php:312
 msgid "The backed up query was:"
 msgstr "The backed up query was:"
 
-#: db_routines.php:314
+#: db_routines.php:316
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Routine %1$s has been modified."
 
-#: db_routines.php:327
+#: db_routines.php:329
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Routine %1$s has been created."
 
-#: db_routines.php:335
+#: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>One or more errors have occurred while processing your request:</b>"
 
-#: db_routines.php:379
+#: db_routines.php:381
 msgid "Create routine"
 msgstr "Create routine"
 
-#: db_routines.php:383
+#: db_routines.php:385
 msgid "Edit routine"
 msgstr "Edit routine"
 
-#: db_routines.php:434
+#: db_routines.php:436
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -2082,22 +2080,16 @@ msgid "Check Privileges"
 msgstr "Check Privileges"
 
 #: libraries/common.inc.php:587
-#, fuzzy
-#| msgid "Failed to to read configuration file"
 msgid "Failed to read configuration file"
-msgstr "Failed to to read configuration file"
+msgstr "Failed to read configuration file"
 
 #: libraries/common.inc.php:588
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown bellow."
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 "This usually means there is a syntax error in it, please check any errors "
-"shown bellow."
+"shown below."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -4735,7 +4727,9 @@ msgid "Turn it off"
 msgstr "Turn it off"
 
 #: libraries/db_events.inc.php:141
-msgid "Add a new Event"
+#, fuzzy
+#| msgid "Add a new Event"
+msgid "Add an event"
 msgstr "Add a new Event"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
@@ -5392,7 +5386,9 @@ msgid "Event"
 msgstr "Event"
 
 #: libraries/display_triggers.inc.php:120
-msgid "Add a new Trigger"
+#, fuzzy
+#| msgid "Add a new Trigger"
+msgid "Add a trigger"
 msgstr "Add a new Trigger"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
@@ -7156,7 +7152,9 @@ msgid "PARTITION definition"
 msgstr "PARTITION definition"
 
 #: libraries/tbl_properties.inc.php:776
-msgid "+ Add a new value"
+#, fuzzy
+#| msgid "+ Add a new value"
+msgid "+ Add a value"
 msgstr "+ Add a new value"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9

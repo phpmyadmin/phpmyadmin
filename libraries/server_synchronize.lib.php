@@ -68,9 +68,6 @@ function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommo
  * If update is required, it is placed in $update_array
  * Otherwise that entry is placed in the $insert_array.
  * 
- * @uses     PMA_DBI_get_columns()
- * @uses     PMA_DBI_get_column_values()
- * @uses     PMA_DBI_fetch_result()
  * 
  * @param    $src_db    name of source database
  * @param    $trg_db    name of target database
@@ -297,9 +294,6 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 } 
 /**
 * PMA_findDeleteRowsFromTargetTables finds the rows which are to be deleted from target table.
-* @uses   sizeof()
-* @uses   PMA_DBI_get_column_values()
-* @uses   in_array()
 * 
 * @param  $delete_array          array containing rows that are to be deleted 
 * @param  $matching_table        array containing matching table names
@@ -376,7 +370,6 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $ma
 
 /**
 * PMA_dataDiffInUncommonTables() finds the data difference in  $source_tables_uncommon
-* @uses   PMA_DBI_fetch_result()
 * 
 * @param  $source_tables_uncommon  array of table names; containing table names that are in source db and not in target db
 * @param  $src_db                  name of source database
@@ -395,8 +388,6 @@ function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_lin
 /**
 * PMA_updateTargetTables() sets the updated field values to target table rows using $update_array[$matching_table_index]
 *
-* @uses    PMA_DBI_fetch_result()
-* @uses    PMA_backquote()
 *  
 * @param    $table                 Array containing matching tables' names 
 * @param    $update_array          A three dimensional array containing field
@@ -454,8 +445,6 @@ function PMA_updateTargetTables($table, $update_array, $src_db, $trg_db, $trg_li
 /**
 * PMA_insertIntoTargetTable() inserts missing rows in the target table using $array_insert[$matching_table_index]
 *  
-* @uses    PMA_DBI_fetch_result()
-* @uses    PMA_backquote()
 * 
 *                                              
 * @param  $matching_table         array containing matching table names
@@ -597,9 +586,6 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
 /**
 * PMA_createTargetTables() Create the missing table $uncommon_table in target database 
 * 
-* @uses    PMA_DBI_get_columns()
-* @uses    PMA_backquote()
-* @uses    PMA_DBI_fetch_result()
 *                                                                     
 * @param    $src_db                 name of source database 
 * @param    $trg_db                 name of target database
@@ -652,10 +638,6 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
 }
 /**
 * PMA_populateTargetTables() inserts data into uncommon tables after they have been created
-* @uses   PMA_DBI_fetch_result()
-* @uses  PMA_backquote()
-* @uses   sizeof()
-* @uses  PMA_DBI_try_query()
 * 
 * @param  $src_db                 name of source database
 * @param  $trg_db                 name of target database
@@ -695,9 +677,6 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncom
 }
 /**
 * PMA_deleteFromTargetTable() delete rows from target table 
-* @uses  sizeof()
-* @uses  PMA_backquote()
-* @uses  PMA_DBI_try_query()
 * 
 * 
 * @param  $trg_db                 name of target database
@@ -755,8 +734,6 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_
 * Keys for all the source tables that have a corresponding target table are placed  in $matching_tables_keys.
 * Keys for all the target tables that have a corresponding source table are placed  in $target_tables_keys. 
 * 
-* @uses    PMA_DBI_get_columns_full()
-* @uses    sizeof() 
 *                                                                     
 * @param    $src_db                name of source database 
 * @param    $trg_db                name of target database
@@ -820,13 +797,6 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matc
 }
 /**
 * PMA_addColumnsInTargetTable() adds column that are present in source table but not in target table
-* @uses    sizeof()
-* @uses    in_array()
-* @uses    array_keys()
-* @uses    PMA_checkForeignKeys()
-* @uses    PMA_createTargetTables()
-* @uses    PMA_DBI_try_query()
-* @uses    PMA_DBI_fetch_result()
 * 
 * @param   $src_db                 name of source database 
 * @param   $trg_db                 name of target database
@@ -924,10 +894,6 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
 }
 /**
 * PMA_checkForeignKeys() checks if the referenced table have foreign keys.
-* @uses   sizeof()
-* @uses   in_array()
-* @uses   array_keys()
-* @uses   PMA_checkForeignKeys()
 * uses    PMA_createTargetTables()
 * 
 * @param  $src_db                 name of source database
@@ -959,11 +925,6 @@ function PMA_checkForeignKeys($src_db, $src_link, $trg_db, $trg_link ,$reference
 }
 /**
 * PMA_alterTargetTableStructure() alters structure of the target table using $alter_str_array
-* @uses    sizeof()
-* @uses    PMA_DBI_fetch_result()
-* @uses    is_string()
-* @uses    is_numeric()
-* @uses    PMA_DBI_try_query()
 * 
 * 
 * @param   $trg_db                 name of target database
@@ -1099,9 +1060,6 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
 
 /**
 * PMA_removeColumnsFromTargetTable() removes the columns which are present in target table but not in source table.
-* @uses   sizeof()
-* @uses   PMA_DBI_try_query()
-* @uses   PMA_DBI_fetch_result() 
 * 
 * @param  $trg_db            name of target database
 * @param  $trg_link          connection established with target server
@@ -1222,8 +1180,6 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matchi
 
 /**
 * PMA_applyIndexesDiff() create indexes, alters indexes and remove indexes.  
-* @uses   sizeof()
-* @uses   PMA_DBI_try_query()
 * 
 * @param   $trg_db                 name of target database
 * @param   $trg_link               connection established with target server
@@ -1311,7 +1267,6 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
 /**
  * PMA_displayQuery() displays a query, taking the maximum display size
  * into account 
- * @uses   $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] 
  * 
  * @param   $query                 the query to display 
 */
@@ -1324,8 +1279,6 @@ function PMA_displayQuery($query) {
 
 /**
  * PMA_syncDisplayHeaderSource() shows the header for source database 
- * @uses   $_SESSION['src_type'] 
- * @uses   $_SESSION['src_server']['host'] 
  *
  * @param  string $src_db          source db name 
 */
@@ -1347,8 +1300,6 @@ function PMA_syncDisplayHeaderSource($src_db) {
 
 /**
  * PMA_syncDisplayHeaderTargetAndMatchingTables() shows the header for target database and the matching tables
- * @uses   $_SESSION['trg_type'] 
- * @uses   $_SESSION['trg_server']['host'] 
  * 
  * @param   string  $trg_db          target db name 
  * @param   array   $matching_tables

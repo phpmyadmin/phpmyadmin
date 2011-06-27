@@ -1,32 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @uses    $cfg['DefaultTabDatabase']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['db']
- * @uses    PMA_Table::generateFieldSpec()
- * @uses    PMA_checkParameters()
- * @uses    PMA_generateCharsetQueryPart()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_setMIME()
- * @uses    PMA_mysqlDie()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_DBI_get_columns()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    $_REQUEST['do_save_data']
- * @uses    $_REQUEST['submit_num_fields']
- * @uses    $_REQUEST['orig_num_fields']
- * @uses    $_REQUEST['added_fields']
- * @uses    $_REQUEST['num_fields']
- * @uses    preg_replace()
- * @uses    count()
- * @uses    is_array()
- * @uses    strlen()
- * @uses    sprintf()
- * @uses    htmlspecialchars()
  * @package phpMyAdmin
  */
 
