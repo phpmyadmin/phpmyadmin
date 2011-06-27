@@ -4828,10 +4828,9 @@ msgid "Return type"
 msgstr "返り値の種類"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "長さ/値"
+msgstr "返り値の長さ/値"
 
 #: libraries/db_routines.lib.php:726
 #| msgid "Table options"
