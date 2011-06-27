@@ -3189,7 +3189,7 @@ msgstr "الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
-msgstr ""
+msgstr "مايكروسوفت أوفيس"
 
 #: libraries/config/messages.inc.php:188
 #, fuzzy
