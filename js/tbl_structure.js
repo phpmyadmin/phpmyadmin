@@ -204,7 +204,7 @@ $(document).ready(function() {
     });
 
     /**
-     *Ajax action for submiting the column change form
+     *Ajax action for submitting the column change form
     **/
     $("#append_fields_form input[name=do_save_data].ajax").live('click', function(event) {
         event.preventDefault();
@@ -239,7 +239,7 @@ $(document).ready(function() {
                     } else {
                         $(temp_div).find("#fieldsForm").insertAfter(".error");
                     }
-                    /*Call the fucntion to display the more options in table*/
+                    /*Call the function to display the more options in table*/
                     displayMoreTableOpts();
                 });
             } else {
