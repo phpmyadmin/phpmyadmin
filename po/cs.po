@@ -10246,7 +10246,7 @@ msgstr "Seřadit podle:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "Prostorový"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
