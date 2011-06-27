@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-27 12:23+0200\n"
+"PO-Revision-Date: 2011-06-27 12:25+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2082,10 +2082,9 @@ msgid "Check Privileges"
 msgstr "特権をチェックする"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "設定が保存できません"
+msgstr "設定ファイルの読み込みに失敗しました"
 
 #: libraries/common.inc.php:588
 msgid ""
