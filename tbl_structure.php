@@ -182,16 +182,16 @@ $hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FUL
 // table header
 $i = 0;
 ?>
-<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm">
+<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table);
     echo '<input type="hidden" name="table_type" value=';
-	if($db_is_information_schema) {
-	     echo '"information_schema" />';
-	} else if ($tbl_is_view) {
-	     echo '"view" />';
-	} else {
-	     echo '"table" />';
-	} ?>
+    if($db_is_information_schema) {
+         echo '"information_schema" />';
+    } else if ($tbl_is_view) {
+         echo '"view" />';
+    } else {
+         echo '"table" />';
+    } ?>
 
 <table id="tablestructure" class="data">
 <thead>
@@ -255,7 +255,7 @@ foreach ($fields as $row) {
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
         if(strlen($type) > $GLOBALS['cfg']['LimitChars']) {
-            $type = '<abbr title="full text">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
+            $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
         }
 
         $type_nowrap  = '';

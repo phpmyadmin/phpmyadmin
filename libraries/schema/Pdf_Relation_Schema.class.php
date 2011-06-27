@@ -219,7 +219,7 @@ class PMA_PDF extends TCPDF
         global $cfgRelation, $db, $pdf_page_number, $with_doc;
         if ($with_doc) {
             $test_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-             . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
              . ' AND page_nr = \'' . $pdf_page_number . '\'';
             $test_rs = PMA_query_as_controluser($test_query);
             $pages = @PMA_DBI_fetch_assoc($test_rs);
@@ -438,8 +438,6 @@ class PMA_PDF extends TCPDF
  * and helps in drawing/generating the Tables in PDF document.
  *
  * @name Table_Stats
- * @copyright
- * @license
  * @see PMA_PDF
  */
 class Table_Stats
@@ -512,8 +510,8 @@ class Table_Stats
         }
         $sql = 'SELECT x, y FROM '
              . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-             . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-             . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+             . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
@@ -652,8 +650,6 @@ class Table_Stats
  * in PDF document.
  *
  * @name Relation_Stats
- * @copyright
- * @license
  * @see PMA_PDF::SetDrawColor,PMA_PDF::PMA_PDF_setLineWidthScale,PMA_PDF::PMA_PDF_lineScale
  */
 class Relation_Stats
@@ -797,8 +793,6 @@ class Relation_Stats
  * to this class
  *
  * @name Pdf_Relation_Schema
- * @copyright
- * @license
  */
 class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 {

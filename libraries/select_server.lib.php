@@ -9,12 +9,6 @@
 /**
  * display server selection in list or selectbox form, or option tags only
  *
- * @uses    $GLOBALS['cfg']['DisplayServersList']
- * @uses    $GLOBALS['cfg']['Servers']
- * @uses    implode()
- * @uses    htmlspecialchars()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_generate_common_url()
  * @param   boolean $not_only_options   whether to include form tags or not
  * @param   boolean $ommit_fieldset     whether to ommit fieldset tag or not
  */

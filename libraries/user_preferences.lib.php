@@ -9,12 +9,6 @@
 /**
  * Common initialization for user preferences modification pages
  *
- * @uses ConfigFile::getInstance()
- * @uses ConfigFile::resetConfigData()
- * @uses ConfigFile::setAllowedKeys()
- * @uses ConfigFile::setCfgUpdateReadMapping()
- * @uses ConfigFile::updateWithGlobalConfig()
- * @uses PMA_read_userprefs_fieldnames()
  */
 function PMA_userprefs_pageinit()
 {
@@ -36,14 +30,6 @@ function PMA_userprefs_pageinit()
  * * mtime - last modification time
  * * type - 'db' (config read from pmadb) or 'session' (read from user session)
  *
- * @uses $_SESSION['userconfig']
- * @uses $GLOBALS['controllink']
- * @uses PMA_array_merge_recursive
- * @uses PMA_backquote()
- * @uses PMA_DBI_fetch_single_row()
- * @uses PMA_getRelationsParam()
- * @uses PMA_sqlAddslashes()
- * @uses $GLOBALS['controllink']
  * @return array
  */
 function PMA_load_userprefs()
@@ -66,7 +52,7 @@ function PMA_load_userprefs()
     $query = '
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
         FROM ' . $query_table . '
-          WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+          WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
     $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
 
     return array(
@@ -78,22 +64,6 @@ function PMA_load_userprefs()
 /**
  * Saves user preferences
  *
- * @uses $_SESSION['cache'][...]['userprefs']
- * @uses $_SESSION['userconfig']
- * @uses $GLOBALS['cfg']['ServerDefault']
- * @uses $GLOBALS['controllink']
- * @uses $GLOBALS['server']
- * @uses ConfigFile::getConfigArray()
- * @uses ConfigFile::getInstance()
- * @uses PMA_backquote()
- * @uses PMA_DBI_fetch_value
- * @uses PMA_DBI_getError()
- * @uses PMA_DBI_try_query()
- * @uses PMA_Message::addMessage()
- * @uses PMA_Message::error()
- * @uses PMA_Message::rawError()
- * @uses PMA_sqlAddslashes()
- * @uses PMA_getRelationsParam()
  * @param array $config_data
  * @return true|PMA_Message
  */
@@ -120,20 +90,20 @@ function PMA_save_userprefs(array $config_array)
     $query = '
         SELECT `username`
         FROM ' . $query_table . '
-          WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+          WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
 
     $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = '
             UPDATE ' . $query_table . '
-            SET `config_data` = \'' . PMA_sqlAddslashes($config_data) . '\'
-            WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+            SET `config_data` = \'' . PMA_sqlAddSlashes($config_data) . '\'
+            WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
     } else {
         $query = '
             INSERT INTO ' . $query_table . ' (`username`, `config_data`)
-            VALUES (\'' . PMA_sqlAddslashes($cfgRelation['user']) . '\',
-                \'' . PMA_sqlAddslashes($config_data) . '\')';
+            VALUES (\'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\',
+                \'' . PMA_sqlAddSlashes($config_data) . '\')';
     }
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);
@@ -151,8 +121,6 @@ function PMA_save_userprefs(array $config_array)
  * Returns a user preferences array filtered by $cfg['UserprefsDisallow']
  * (blacklist) and keys from user preferences form (whitelist)
  *
- * @uses PMA_array_write()
- * @uses PMA_read_userprefs_fieldnames()
  * @param array $config_data path => value pairs
  * @return array
  */
@@ -217,8 +185,6 @@ function PMA_read_userprefs_fieldnames(array $forms = null)
  *
  * No validation is done!
  *
- * @uses PMA_load_userprefs()
- * @uses PMA_save_userprefs()
  * @param string $cfg_name
  * @param mixed $value
  * @return void
@@ -241,10 +207,6 @@ function PMA_persist_option($path, $value, $default_value)
 /**
  * Redirects after saving new user preferences
  *
- * @uses ConfigFile::getConfigArray()
- * @uses ConfigFile::getInstance()
- * @uses PMA_generate_common_url()
- * @uses PMA_sendHeaderLocation()
  * @param array  $forms
  * @param array  $old_settings
  * @param string $file_name
@@ -287,9 +249,6 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $
 /**
  * Shows form which allows to quickly load settings stored in browser's local storage
  *
- * @uses $_REQUEST['prefs_autoload']
- * @uses $_SESSION['userprefs_autoload']
- * @uses PMA_generate_common_hidden_inputs()
  */
 function PMA_userprefs_autoload_header()
 {

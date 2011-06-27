@@ -102,7 +102,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
     if (isset($_REQUEST['comment'])
       && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']) {
-        $table_alters[] = 'COMMENT = \'' . PMA_sqlAddslashes($_REQUEST['comment']) . '\'';
+        $table_alters[] = 'COMMENT = \'' . PMA_sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (! empty($_REQUEST['new_tbl_type'])
       && strtolower($_REQUEST['new_tbl_type']) !== strtolower($tbl_type)) {
@@ -156,13 +156,13 @@ if (isset($_REQUEST['submitoptions'])) {
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
       &&  ! empty($_REQUEST['new_auto_increment'])
       && (! isset($auto_increment) || $_REQUEST['new_auto_increment'] !== $auto_increment)) {
-        $table_alters[] = 'auto_increment = ' . PMA_sqlAddslashes($_REQUEST['new_auto_increment']);
+        $table_alters[] = 'auto_increment = ' . PMA_sqlAddSlashes($_REQUEST['new_auto_increment']);
     }
 
     if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
       &&  ! empty($_REQUEST['new_row_format'])
       && (! isset($row_format) || strtolower($_REQUEST['new_row_format']) !== strtolower($row_format))) {
-        $table_alters[] = 'ROW_FORMAT = ' . PMA_sqlAddslashes($_REQUEST['new_row_format']);
+        $table_alters[] = 'ROW_FORMAT = ' . PMA_sqlAddSlashes($_REQUEST['new_row_format']);
     }
 
     if (count($table_alters) > 0) {

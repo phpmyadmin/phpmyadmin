@@ -355,9 +355,9 @@ else {
                         $parens_open  = '';
                         $parens_close = '';
                     }
-                    $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
+                    $enum_where = '\'' . PMA_sqlAddSlashes($fields[$i][0]) . '\'';
                     for ($e = 1; $e < $enum_selected_count; $e++) {
-                        $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
+                        $enum_where .= ', \'' . PMA_sqlAddSlashes($fields[$i][$e]) . '\'';
                     }
 
                     $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
@@ -389,7 +389,7 @@ else {
                     // quote values one by one
                     $values = explode(',', $fields[$i]);
                     foreach ($values as &$value)
-                        $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
+                        $value = $quot . PMA_sqlAddSlashes(trim($value)) . $quot;
 
                     if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
                         $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
@@ -397,7 +397,7 @@ else {
                         $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
                 }
                 else {
-                    $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;;
+                    $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddSlashes($fields[$i]) . $quot;;
                 }
 
             } // end if

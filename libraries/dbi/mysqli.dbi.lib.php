@@ -36,16 +36,6 @@ if (! defined('MYSQLI_BINARY_FLAG')) {
 /**
  * connects to the database server
  *
- * @uses    $GLOBALS['cfg']['Server']
- * @uses    PMA_auth_fails()
- * @uses    PMA_DBI_postConnect()
- * @uses    MYSQLI_CLIENT_COMPRESS
- * @uses    MYSQLI_OPT_LOCAL_INFILE
- * @uses    strtolower()
- * @uses    mysqli_init()
- * @uses    mysqli_options()
- * @uses    mysqli_real_connect()
- * @uses    defined()
  * @param   string  $user           mysql user name
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
@@ -131,8 +121,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 /**
  * selects given database
  *
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_select_db()
  * @param   string          $dbname database name to select
  * @param   object mysqli   $link   the mysqli object
  * @return  boolean         true or false
@@ -152,11 +140,6 @@ function PMA_DBI_select_db($dbname, $link = null)
 /**
  * runs a query and returns the result
  *
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_DBI_QUERY_UNBUFFERED
- * @uses    MYSQLI_STORE_RESULT
- * @uses    MYSQLI_USE_RESULT
- * @uses    mysqli_query()
  * @param   string          $query      query to execute
  * @param   object mysqli   $link       mysqli object
  * @param   integer         $options
@@ -178,8 +161,6 @@ function PMA_DBI_real_query($query, $link, $options)
 /**
  * returns array of rows with associative and numeric keys from $result
  *
- * @uses    mysqli_fetch_array()
- * @uses    MYSQLI_BOTH
  * @param   object mysqli result    $result
  * @return  array                   result rows
  */
@@ -191,8 +172,6 @@ function PMA_DBI_fetch_array($result)
 /**
  * returns array of rows with associative keys from $result
  *
- * @uses    mysqli_fetch_array()
- * @uses    MYSQLI_ASSOC
  * @param   object mysqli result    $result
  * @return  array                   result rows
  */
@@ -204,8 +183,6 @@ function PMA_DBI_fetch_assoc($result)
 /**
  * returns array of rows with numeric keys from $result
  *
- * @uses    mysqli_fetch_array()
- * @uses    MYSQLI_NUM
  * @param   object mysqli result    $result
  * @return  array                   result rows
  */
@@ -217,7 +194,6 @@ function PMA_DBI_fetch_row($result)
 /*
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * @uses    mysqli_data_seek()
  * @param   $result
  * @param   $offset
  * @return  boolean true on success, false on failure
@@ -230,9 +206,6 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees the memory associated with the results
  *
- * @uses    mysqli_result
- * @uses    func_get_args()
- * @uses    mysqli_free_result()
  * @param   result  $result,...     one or more mysql result resources
  */
 function PMA_DBI_free_result()
@@ -247,8 +220,6 @@ function PMA_DBI_free_result()
 /**
  * Check if there are any more query results from a multi query
  *
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_more_results()
  * @param   object mysqli   $link   the mysqli object
  * @return  boolean         true or false
  */
@@ -266,8 +237,6 @@ function PMA_DBI_more_results($link = null) {
 /**
  * Prepare next result from multi_query
  *
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_next_result()
  * @param   object mysqli   $link   the mysqli object
  * @return  boolean         true or false
  */
@@ -284,8 +253,6 @@ function PMA_DBI_next_result($link = null) {
 
 /**
  * Returns a string representing the type of connection used
- * @uses    mysqli_get_host_info()
- * @uses    $GLOBALS['userlink']    as default for $link
  * @param   resource        $link   mysql link
  * @return  string          type of connection used
  */
@@ -303,8 +270,6 @@ function PMA_DBI_get_host_info($link = null)
 
 /**
  * Returns the version of the MySQL protocol used
- * @uses    mysqli_get_proto_info()
- * @uses    $GLOBALS['userlink']    as default for $link
  * @param   resource        $link   mysql link
  * @return  integer         version of the MySQL protocol used
  */
@@ -322,7 +287,6 @@ function PMA_DBI_get_proto_info($link = null)
 
 /**
  * returns a string that represents the client library version
- * @uses    mysqli_get_client_info()
  * @return  string          MySQL client library version
  */
 function PMA_DBI_get_client_info()
@@ -333,14 +297,6 @@ function PMA_DBI_get_client_info()
 /**
  * returns last error message or false if no errors occured
  *
- * @uses    PMA_DBI_convert_message()
- * @uses    $GLOBALS['errno']
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_errno()
- * @uses    mysqli_error()
- * @uses    mysqli_connect_errno()
- * @uses    mysqli_connect_error()
- * @uses    defined()
  * @param   resource        $link   mysql link
  * @return  string|boolean  $error or false
  */
@@ -406,8 +362,6 @@ function PMA_DBI_num_rows($result)
 /**
  * returns last inserted auto_increment id for given $link or $GLOBALS['userlink']
  *
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_insert_id()
  * @param   object mysqli   $link   the mysqli object
  * @return  string ineteger
  */
@@ -432,8 +386,6 @@ function PMA_DBI_insert_id($link = '')
 /**
  * returns the number of rows affected by last query
  *
- * @uses    $GLOBALS['userlink']
- * @uses    mysqli_affected_rows()
  * @param   object mysqli   $link   the mysqli object
  * @param   boolean         $get_from_cache
  * @return  string integer
@@ -458,20 +410,6 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
  * returns metainfo for fields in $result
  *
  * @todo preserve orignal flags value
- * @uses    PMA_DBI_field_flags()
- * @uses    MYSQLI_TYPE_*
- * @uses    MYSQLI_MULTIPLE_KEY_FLAG
- * @uses    MYSQLI_PRI_KEY_FLAG
- * @uses    MYSQLI_UNIQUE_KEY_FLAG
- * @uses    MYSQLI_NOT_NULL_FLAG
- * @uses    MYSQLI_UNSIGNED_FLAG
- * @uses    MYSQLI_ZEROFILL_FLAG
- * @uses    MYSQLI_NUM_FLAG
- * @uses    MYSQLI_TYPE_BLOB
- * @uses    MYSQLI_BLOB_FLAG
- * @uses    defined()
- * @uses    mysqli_fetch_fields()
- * @uses    is_array()
  * @param   object mysqli result    $result
  * @return  array                   meta info for fields in $result
  */
@@ -562,7 +500,6 @@ function PMA_DBI_num_fields($result)
 /**
  * returns the length of the given field $i in $result
  *
- * @uses    mysqli_fetch_field_direct()
  * @param   object mysqli result    $result
  * @param   integer                 $i      field
  * @return  integer                 length of field
@@ -575,7 +512,6 @@ function PMA_DBI_field_len($result, $i)
 /**
  * returns name of $i. field in $result
  *
- * @uses    mysqli_fetch_field_direct()
  * @param   object mysqli result    $result
  * @param   integer                 $i      field
  * @return  string                  name of $i. field in $result
@@ -588,26 +524,6 @@ function PMA_DBI_field_name($result, $i)
 /**
  * returns concatenated string of human readable field flags
  *
- * @uses    MYSQLI_UNIQUE_KEY_FLAG
- * @uses    MYSQLI_NUM_FLAG
- * @uses    MYSQLI_PART_KEY_FLAG
- * @uses    MYSQLI_TYPE_SET
- * @uses    MYSQLI_TIMESTAMP_FLAG
- * @uses    MYSQLI_AUTO_INCREMENT_FLAG
- * @uses    MYSQLI_TYPE_ENUM
- * @uses    MYSQLI_ZEROFILL_FLAG
- * @uses    MYSQLI_UNSIGNED_FLAG
- * @uses    MYSQLI_BLOB_FLAG
- * @uses    MYSQLI_MULTIPLE_KEY_FLAG
- * @uses    MYSQLI_UNIQUE_KEY_FLAG
- * @uses    MYSQLI_PRI_KEY_FLAG
- * @uses    MYSQLI_NOT_NULL_FLAG
- * @uses    MYSQLI_TYPE_BLOB
- * @uses    MYSQLI_TYPE_MEDIUM_BLOB
- * @uses    MYSQLI_TYPE_LONG_BLOB
- * @uses    MYSQLI_TYPE_VAR_STRING
- * @uses    MYSQLI_TYPE_STRING
- * @uses    mysqli_fetch_field_direct()
  * @param   object mysqli result    $result
  * @param   integer                 $i      field
  * @return  string                  field flags

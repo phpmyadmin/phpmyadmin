@@ -12,11 +12,6 @@
  *
  * The SQL Parser code relies heavily on these functions.
  *
- * @uses    extension_loaded()
- * @uses    substr()
- * @uses    function_exists()
- * @uses    mb_internal_encoding()
- * @uses    defined()
  * @todo a .lib filename should not have code in main(), split or rename file
  * @package phpMyAdmin
  */
@@ -62,10 +57,6 @@ if ($GLOBALS['PMA_allow_ctype']) {
 /**
  * Checks if a given character position in the string is escaped or not
  *
- * @uses    PMA_strlen()
- * @uses    PMA_substr()
- * @uses    max()
- * @uses    intval()
  * @param   string   string to check for
  * @param   integer  the character to check for
  * @param   integer  starting position in the string
@@ -110,7 +101,6 @@ function PMA_STR_numberInRangeInclusive($num, $lower, $upper)
 /**
  * Checks if a character is an SQL identifier
  *
- * @uses    PMA_STR_isAlnum()
  * @param   string   character to check for
  * @param   boolean  whether the dot character is valid or not
  * @return  boolean  whether the character is an SQL identifier or not
