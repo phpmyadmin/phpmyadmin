@@ -980,15 +980,15 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                 NULL               AS `Privileges`,
                 column_comment     AS `Comment`" : '') . "
             FROM data_dictionary.columns
-            WHERE table_schema = '" . PMA_sqlAddslashes($database) . "'
-                AND table_name = '" . PMA_sqlAddslashes($table) . "'
+            WHERE table_schema = '" . PMA_sqlAddSlashes($database) . "'
+                AND table_name = '" . PMA_sqlAddSlashes($table) . "'
                 " . ($column ? "
-                AND column_name = '" . PMA_sqlAddslashes($column) . "'" : '');
+                AND column_name = '" . PMA_sqlAddSlashes($column) . "'" : '');
         // ORDER BY ordinal_position
     } else {
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
             FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table)
-            . ($column ? "LIKE '" . PMA_sqlAddslashes($column) . "'" : '');
+            . ($column ? "LIKE '" . PMA_sqlAddSlashes($column, true) . "'" : '');
     }
     return $sql;
 }
@@ -1092,8 +1092,8 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
                 i.index_comment        AS Index_comment
             FROM data_dictionary.index_parts ip
                 LEFT JOIN data_dictionary.indexes i USING (table_schema, table_name, index_name)
-            WHERE table_schema = '" . PMA_sqlAddslashes($database) . "'
-                AND table_name = '" . PMA_sqlAddslashes($table) . "'
+            WHERE table_schema = '" . PMA_sqlAddSlashes($database) . "'
+                AND table_name = '" . PMA_sqlAddSlashes($table) . "'
         ";
     } else {
         $sql = 'SHOW INDEXES FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
