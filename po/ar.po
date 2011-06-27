@@ -3140,7 +3140,7 @@ msgstr "استيراد"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import defaults"
-msgstr ""
+msgstr "إفتراضيات الإستيراد"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
