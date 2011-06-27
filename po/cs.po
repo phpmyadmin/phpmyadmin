@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-27 10:54+0200\n"
+"PO-Revision-Date: 2011-06-27 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9979,10 +9979,9 @@ msgid "Label column"
 msgstr "Název sloupce"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- žádný -"
+msgstr "-- Žádný --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
