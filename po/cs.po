@@ -4889,7 +4889,7 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Musíte zadat parametr  „Délka/Hodnoty“ pro parametry typu ENUM, SET, VARCHAR "
+"Musíte zadat parametr „Délka/Hodnoty“ pro parametry typu ENUM, SET, VARCHAR "
 "nebo VARBINARY."
 
 #: libraries/db_routines.lib.php:1020
