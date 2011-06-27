@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-27 03:30+0200\n"
+"PO-Revision-Date: 2011-06-27 03:31+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3202,7 +3202,7 @@ msgstr "الإعدادات الرئيسية الأخرى"
 
 #: libraries/config/messages.inc.php:191
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "الإعدادات التي لاتناسب في أي مكان آخر"
 
 #: libraries/config/messages.inc.php:192
 #, fuzzy
