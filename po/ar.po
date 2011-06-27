@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-25 19:55+0200\n"
+"PO-Revision-Date: 2011-06-27 03:22+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3130,7 +3130,7 @@ msgstr "عام"
 
 #: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "تعيين بعض الخيارات شائعة الإستخدام"
 
 #: libraries/config/messages.inc.php:170 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
