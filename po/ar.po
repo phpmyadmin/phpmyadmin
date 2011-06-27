@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-24 12:07+0200\n"
-"PO-Revision-Date: 2011-06-27 03:23+0200\n"
+"PO-Revision-Date: 2011-06-27 03:24+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3144,7 +3144,7 @@ msgstr "إفتراضيات الإستيراد"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
-msgstr ""
+msgstr "تخصيص خيارات الإستيراد الإفتراضية"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
