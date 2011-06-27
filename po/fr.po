@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:20+0200\n"
-"PO-Revision-Date: 2011-06-23 15:36+0200\n"
+"PO-Revision-Date: 2011-06-26 13:35+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -524,7 +524,7 @@ msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
 msgstr "La requête «%s» a échoué"
@@ -2109,6 +2109,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Ceci indique habituellement qu'il y a une erreur de syntaxe, veuillez "
+"vérifier si une erreur s'affiche plus bas."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -4780,10 +4782,9 @@ msgid "Turn it off"
 msgstr "Le désactiver"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add an event"
-msgstr "Ajouter un serveur"
+msgstr "Ajouter un évènement."
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5445,10 +5446,9 @@ msgid "Event"
 msgstr "Événement"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a trigger"
-msgstr "Ajouter un serveur"
+msgstr "Ajouter un déclencheur"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -10116,10 +10116,9 @@ msgid "Label column"
 msgstr "Colonne pour étiquette"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- aucun -"
+msgstr "-- Aucun --"
 
 #: tbl_gis_visualization.php:180
 msgid "Spatial column"

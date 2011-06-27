@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:20+0200\n"
-"PO-Revision-Date: 2011-06-22 22:33+0200\n"
+"PO-Revision-Date: 2011-06-24 23:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -526,10 +526,10 @@ msgstr ""
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Se ejecutaron las siguentes consultas:"
+msgstr "Falló la siguiente consulta: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
@@ -543,10 +543,10 @@ msgstr "Error al procesar la petición"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %s found in database %s"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "No se encontró rutina con nombre %s en la base de datos %s"
+msgstr "No se encontró rutina con nombre %1$s en la base de datos %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
@@ -2107,13 +2107,11 @@ msgid "Check Privileges"
 msgstr "Comprobar los privilegios"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Failed to to read configuration file"
 msgid "Failed to read configuration file"
 msgstr "No se pudo leer el archivo de configuración"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
 #| "shown bellow."
