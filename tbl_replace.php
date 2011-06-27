@@ -218,7 +218,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
                 // if the most recent BLOB reference exists, set it as a field value
                 if (!is_null($bs_reference)) {
-                    $val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+                    $val = "'" . PMA_sqlAddSlashes($bs_reference) . "'";
                 }
             }
         }
@@ -256,7 +256,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
         } elseif (empty($me_funcs[$key])
          && isset($me_fields_prev[$key])
-         && ("'" . PMA_sqlAddslashes($me_fields_prev[$key]) . "'" == $val)) {
+         && ("'" . PMA_sqlAddSlashes($me_fields_prev[$key]) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
         } elseif (! empty($val)) {

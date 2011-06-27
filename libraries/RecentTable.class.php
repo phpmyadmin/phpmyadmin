@@ -99,7 +99,7 @@ class PMA_RecentTable
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query =
         " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
-        " VALUES ('" . $username . "', '" . PMA_sqlAddslashes(json_encode($this->tables)) . "')";
+        " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes(json_encode($this->tables)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 

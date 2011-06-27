@@ -423,7 +423,7 @@ require_once './libraries/List.class.php';
             SELECT DISTINCT `Db` FROM `mysql`.`db`
             WHERE `Select_priv` = 'Y'
             AND `User`
-            IN ('" . PMA_sqlAddslashes($GLOBALS['cfg']['Server']['user']) . "', '')";
+            IN ('" . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
         $tmp_mydbs = PMA_DBI_fetch_result($local_query, null, null,
             $GLOBALS['controllink']);
         if ($tmp_mydbs) {
@@ -471,7 +471,7 @@ require_once './libraries/List.class.php';
         } // end if
 
         // 2. get allowed dbs from the "mysql.tables_priv" table
-        $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($GLOBALS['cfg']['Server']['user']) . '\'';
+        $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {

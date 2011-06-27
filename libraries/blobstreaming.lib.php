@@ -387,7 +387,7 @@ function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
 
     // This information should be cached rather than selecting it each time.
     //$query = "SELECT count(*)  FROM information_schema.TABLES T, pbms.pbms_enabled E where T.table_schema = ". PMA_backquote($db_name) . " and T.table_name = ". PMA_backquote($tbl_name) . " and T.engine = E.name";
-    $query = "SELECT count(*)  FROM pbms.pbms_enabled E where E.name = '" . PMA_sqlAddslashes($tbl_type) . "'";
+    $query = "SELECT count(*)  FROM pbms.pbms_enabled E where E.name = '" . PMA_sqlAddSlashes($tbl_type) . "'";
     $result = PMA_DBI_query($query);
 
     $data = PMA_DBI_fetch_row($result);
@@ -439,7 +439,7 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
     // This is a really ugly way to do this but currently there is nothing better.
     // In a future version of PBMS the system tables will be redesigned to make this
     // more efficient.
-    $query = "SELECT Repository_id, Repo_blob_offset FROM pbms_reference  WHERE Blob_url='" . PMA_sqlAddslashes($blobReference) . "'";
+    $query = "SELECT Repository_id, Repo_blob_offset FROM pbms_reference  WHERE Blob_url='" . PMA_sqlAddSlashes($blobReference) . "'";
     //error_log(" PMA_BS_SetContentType: $query\n", 3, "/tmp/mylog");
     $result = PMA_DBI_query($query);
     //error_log(" $query\n", 3, "/tmp/mylog");
@@ -451,9 +451,9 @@ function PMA_BS_SetContentType($db_name, $bsTable, $blobReference, $contentType)
         $result = PMA_DBI_query($query);
 
         if (PMA_DBI_num_rows($result) == 0) {
-            $query = "INSERT into pbms_metadata Values( ". $data['Repository_id'] . ", " . $data['Repo_blob_offset']  . ", 'Content_type', '" . PMA_sqlAddslashes($contentType)  . "')";
+            $query = "INSERT into pbms_metadata Values( ". $data['Repository_id'] . ", " . $data['Repo_blob_offset']  . ", 'Content_type', '" . PMA_sqlAddSlashes($contentType)  . "')";
         } else {
-            $query = "UPDATE pbms_metadata SET name = 'Content_type', Value = '" . PMA_sqlAddslashes($contentType)  . "' $where";
+            $query = "UPDATE pbms_metadata SET name = 'Content_type', Value = '" . PMA_sqlAddSlashes($contentType)  . "' $where";
         }
 //error_log("$query\n", 3, "/tmp/mylog");
         PMA_DBI_query($query);

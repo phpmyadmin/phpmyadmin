@@ -161,7 +161,7 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  *
  * @access  public
  */
-function PMA_sqlAddslashes($a_string = '', $is_like = false, $crlf = false, $php_code = false)
+function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php_code = false)
 {
     if ($is_like) {
         $a_string = str_replace('\\', '\\\\\\\\', $a_string);
@@ -182,7 +182,7 @@ function PMA_sqlAddslashes($a_string = '', $is_like = false, $crlf = false, $php
     }
 
     return $a_string;
-} // end of the 'PMA_sqlAddslashes()' function
+} // end of the 'PMA_sqlAddSlashes()' function
 
 
 /**
@@ -1996,7 +1996,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
             } else {
                 $condition .= '= \''
-                    . PMA_sqlAddslashes($row[$i], false, true) . '\' AND';
+                    . PMA_sqlAddSlashes($row[$i], false, true) . '\' AND';
             }
         }
         if ($meta->primary_key > 0) {
@@ -3082,7 +3082,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                                         'SCHEMA_PRIVILEGES',
                                         $username,
                                         $priv,
-                                        PMA_sqlAddslashes($db)))) {
+                                        PMA_sqlAddSlashes($db)))) {
             return true;
         }
     } else {
@@ -3098,8 +3098,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                                                   'TABLE_PRIVILEGES',
                                                   $username,
                                                   $priv,
-                                                  PMA_sqlAddslashes($db),
-                                                  PMA_sqlAddslashes($tbl)))) {
+                                                  PMA_sqlAddSlashes($db),
+                                                  PMA_sqlAddSlashes($tbl)))) {
             return true;
         }
     }

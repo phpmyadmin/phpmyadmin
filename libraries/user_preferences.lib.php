@@ -52,7 +52,7 @@ function PMA_load_userprefs()
     $query = '
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
         FROM ' . $query_table . '
-          WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+          WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
     $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
 
     return array(
@@ -90,20 +90,20 @@ function PMA_save_userprefs(array $config_array)
     $query = '
         SELECT `username`
         FROM ' . $query_table . '
-          WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+          WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
 
     $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = '
             UPDATE ' . $query_table . '
-            SET `config_data` = \'' . PMA_sqlAddslashes($config_data) . '\'
-            WHERE `username` = \'' . PMA_sqlAddslashes($cfgRelation['user']) . '\'';
+            SET `config_data` = \'' . PMA_sqlAddSlashes($config_data) . '\'
+            WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
     } else {
         $query = '
             INSERT INTO ' . $query_table . ' (`username`, `config_data`)
-            VALUES (\'' . PMA_sqlAddslashes($cfgRelation['user']) . '\',
-                \'' . PMA_sqlAddslashes($config_data) . '\')';
+            VALUES (\'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\',
+                \'' . PMA_sqlAddSlashes($config_data) . '\')';
     }
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);
