@@ -2092,7 +2092,7 @@ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr ""
+msgstr "Gwiriañ ar gwirioù"
 
 #: libraries/common.inc.php:587
 msgid "Failed to read configuration file"
