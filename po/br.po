@@ -2030,7 +2030,7 @@ msgstr "Gwelet ar skeudenn"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Lenn ar son"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
