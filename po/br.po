@@ -1988,7 +1988,7 @@ msgstr "Ger-tremen/anv implijer fall. Moned nac'het."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "N'hall ket kavout ar skript dilesañ evit ar mod \"signon\" :"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
