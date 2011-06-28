@@ -2066,7 +2066,7 @@ msgstr "Taolennoù"
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:801
 msgid "Data"
-msgstr ""
+msgstr "Roadennoù"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:818
