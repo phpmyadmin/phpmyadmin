@@ -2033,9 +2033,9 @@ $(document).ready(function() {
             // Optimize DOM querying
             var $this_dropdown = $(this);
              // The top offset must be set for IE even if it didn't change
-            var cell_right_edge_offset = $this_dropdown.parent().offset().left + $this_dropdown.parent().innerWidth();
+            var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
             var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
-            var top_offset = $this_dropdown.parent().offset().top + $this_dropdown.parent().innerHeight();
+            var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
             $this_dropdown.offset({ top: top_offset, left: left_offset });
         });
 
