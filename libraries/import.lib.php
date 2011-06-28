@@ -73,7 +73,6 @@ function PMA_detectCompression($filepath)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @uses    $GLOBALS['finished'] read and write
  * @param  string query to run
  * @param  string query to display, this might be commented
  * @param  bool   whether to use control user for queries
@@ -228,11 +227,6 @@ function PMA_lookForUse($buffer, $db, $reload)
 /**
  * Returns next part of imported file/buffer
  *
- * @uses    $GLOBALS['offset'] read and write
- * @uses    $GLOBALS['import_file'] read only
- * @uses    $GLOBALS['import_text'] read and write
- * @uses    $GLOBALS['finished'] read and write
- * @uses    $GLOBALS['read_limit'] read only
  * @param  integer size of buffer to read (this is maximal size
  *                  function will return)
  * @return string part of file/buffer
@@ -338,7 +332,6 @@ function PMA_importGetNextChunk($size = 32768)
  *
  * @access  public
  *
- * @uses    chr()
  * @param   int $num
  * @return  string The column's "Excel" name
  */
@@ -386,9 +379,6 @@ function PMA_getColumnAlphaName($num)
  *
  * @access  public
  *
- * @uses    strtoupper()
- * @uses    strlen()
- * @uses    ord()
  * @param   string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
@@ -449,8 +439,6 @@ define("SIZES",     1);
  *
  * @access  public
  *
- * @uses    substr()
- * @uses    strpos()
  * @param   string $last_cumulative_size
  * @return  int Precision of the given decimal size notation
  */
@@ -464,9 +452,6 @@ function PMA_getM($last_cumulative_size) {
  *
  * @access  public
  *
- * @uses    substr()
- * @uses    strpos()
- * @uses    strlen()
  * @param   string $last_cumulative_size
  * @return  int Scale of the given decimal size notation
  */
@@ -480,8 +465,6 @@ function PMA_getD($last_cumulative_size) {
  *
  * @access  public
  *
- * @uses    strlen()
- * @uses    strpos()
  * @param   string &$cell
  * @return  array Contains the precision, scale, and full size representation of the given decimal cell
  */
@@ -504,19 +487,6 @@ function PMA_getDecimalSize(&$cell) {
  *
  * @access  public
  *
- * @uses    M
- * @uses    D
- * @uses    FULL
- * @uses    VARCHAR
- * @uses    DECIMAL
- * @uses    BIGINT
- * @uses    INT
- * @uses    NONE
- * @uses    strcmp()
- * @uses    strlen()
- * @uses    PMA_getM()
- * @uses    PMA_getD()
- * @uses    PMA_getDecimalSize()
  * @param   string $last_cumulative_size    Last cumulative column size
  * @param   int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT or BIGINT)
  * @param   int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
@@ -729,15 +699,6 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  *
  * @access  public
  *
- * @uses    DECIMAL
- * @uses    BIGINT
- * @uses    INT
- * @uses    VARCHAR
- * @uses    NONE
- * @uses    is_numeric()
- * @uses    strcmp()
- * @uses    strpos()
- * @uses    substr_count()
  * @param   int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  * @param   string &$cell                 String representation of the cell for which a best-fit type is to be determined
  * @return  int                           The MySQL type representation (VARCHAR or INT or BIGINT or DECIMAL or NONE)
@@ -779,18 +740,6 @@ function PMA_detectType($last_cumulative_type, &$cell) {
  *
  * @access  public
  *
- * @uses    TBL_NAME
- * @uses    COL_NAMES
- * @uses    ROWS
- * @uses    VARCHAR
- * @uses    DECIMAL
- * @uses    BIGINT
- * @uses    INT
- * @uses    NONE
- * @uses    count()
- * @uses    is_array()
- * @uses    PMA_detectType()
- * @uses    PMA_detectSize()
  * @param   &$table  array(string $table_name, array $col_names, array $rows)
  * @return  array    array(array $types, array $sizes)
  */
@@ -885,20 +834,6 @@ $import_notice = NULL;
  *
  * @access  public
  *
- * @uses    TBL_NAME
- * @uses    COL_NAMES
- * @uses    ROWS
- * @uses    TYPES
- * @uses    SIZES
- * @uses    strcmp()
- * @uses    count()
- * @uses    preg_match()
- * @uses    preg_replace()
- * @uses    PMA_isView()
- * @uses    PMA_backquote()
- * @uses    PMA_importRunQuery()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_Message::notice()
  * @param   string  $db_name                 Name of the database
  * @param   array   &$tables                 Array of tables for the specified database
  * @param   array   &$analyses = NULL        Analyses of the tables
@@ -1052,7 +987,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
                 }
 
                 $tempSQLStr .= (($is_varchar) ? "'" : "");
-				$tempSQLStr .= PMA_sqlAddslashes((string)$tables[$i][ROWS][$j][$k]);
+				$tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
 				$tempSQLStr .= (($is_varchar) ? "'" : "");
 
 				if ($k != ($num_cols - 1)) {

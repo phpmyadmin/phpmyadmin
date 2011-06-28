@@ -182,7 +182,7 @@ if(isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
-    $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddslashes($table) . '\'',
+    $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddSlashes($table) . '\'',
         'label', false, true);
 
     if (! empty($book_sql_query)) {

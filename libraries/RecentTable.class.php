@@ -70,10 +70,6 @@ class PMA_RecentTable
     /**
      * Returns recently used tables from phpMyAdmin database.
      *
-     * @uses $pma_table
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_array()
-     * @uses json_decode()
      *
      * @return array
      */
@@ -95,9 +91,6 @@ class PMA_RecentTable
     /**
      * Save recent tables into phpMyAdmin database.
      *
-     * @uses PMA_DBI_try_query()
-     * @uses json_decode()
-     * @uses PMA_Message
      * 
      * @return true|PMA_Message
      */
@@ -106,7 +99,7 @@ class PMA_RecentTable
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query =
         " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
-        " VALUES ('" . $username . "', '" . PMA_sqlAddslashes(json_encode($this->tables)) . "')";
+        " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes(json_encode($this->tables)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 

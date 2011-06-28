@@ -2077,6 +2077,10 @@ $(document).ready(function() {
      * Hides certain table structure actions, replacing them with the word "More". They are displayed
      * in a dropdown menu when the user hovers over the word "More."
      */
+    displayMoreTableOpts();
+});
+
+function displayMoreTableOpts() {
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if($("input[type='hidden'][name='table_type']").val() == "table") {
@@ -2145,8 +2149,7 @@ $(document).ready(function() {
                 }
             });
     }
-});
-
+}
 $(document).ready(initTooltips);
 
 /* Displays tooltips */

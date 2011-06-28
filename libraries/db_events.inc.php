@@ -8,7 +8,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+$events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
 
 $conditional_class_add    = '';
 $conditional_class_drop   = '';
@@ -138,7 +138,7 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
  */
 echo $tableStart . '<fieldset style="margin: 1em 0;">' . "\n"
    . '    <a href="db_events.php?' . $url_query . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
-   . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
+   . PMA_getIcon('b_event_add.png') . __('Add an event') . '</a>' . "\n"
    . '</fieldset>' . "\n";
 
 /**

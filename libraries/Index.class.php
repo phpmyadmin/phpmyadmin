@@ -86,7 +86,6 @@ class PMA_Index
     /**
      * Constructor
      *
-     * @uses    $this->set()
      * @param   array $params
      */
     public function __construct($params = array())
@@ -112,8 +111,6 @@ class PMA_Index
     /**
      * returns an array with all indexes from the given table
      *
-     * @uses    PMA_Index::_loadIndexes()
-     * @uses    PMA_Index::$_registry
      * @param   string $table
      * @param   string $schema
      * @return  array
@@ -132,8 +129,6 @@ class PMA_Index
     /**
      * return primary if set, false otherwise
      *
-     * @uses    PMA_Index::_loadIndexes()
-     * @uses    PMA_Index::$_registry
      * @param   string $table
      * @param   string $schema
      * @return  mixed primary index or false if no one exists
@@ -152,11 +147,6 @@ class PMA_Index
     /**
      * Load index data for table
      *
-     * @uses    PMA_Index::$_registry
-     * @uses    PMA_DBI_fetch_result()
-     * @uses    PMA_backquote()
-     * @uses    PMA_Index
-     * @uses    PMA_Index->addColumn()
      * @param   string $table
      * @param   string $schema
      * @return  boolean
@@ -186,8 +176,6 @@ class PMA_Index
     /**
      * Add column to index
      *
-     * @uses    $this->_columns
-     * @uses    PMA_Index_Column
      * @param   array $params column params
      */
     public function addColumn($params)
@@ -227,7 +215,6 @@ class PMA_Index
     /**
      * Returns true if $column indexed in this index
      *
-     * @uses    $this->_columns
      * @param   string $column
      * @return  boolean
      */
@@ -546,12 +533,6 @@ class PMA_Index
     /**
      * Function to check over array of indexes and look for common problems
      *
-     * @uses    is_string()
-     * @uses    is_array()
-     * @uses    count()
-     * @uses    array_pop()
-     * @uses    reset()
-     * @uses    current()
      * @access  public
      * @param   string      name of table
      * @return  string      Output HTML
