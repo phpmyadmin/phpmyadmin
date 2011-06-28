@@ -1725,15 +1725,15 @@ function PMA_displayVerticalTable()
             echo '<th></th>' . "\n";
         }
         echo $vertical_display['textbtn'];
-        $foo_counter = 0;
+        $cell_displayed = 0;
         foreach ($vertical_display['row_delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+            if (($cell_displayed != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo '<th' .
-                     ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '' .
+                     (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '') .
                      '></th>' . "\n";
             }
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
-            $foo_counter++;
+            $cell_displayed++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1795,14 +1795,14 @@ function PMA_displayVerticalTable()
         echo '<tr' . (($col_visib && !$col_visib[$j]) ? ' class="hide"' : '') . '>' . "\n";
         echo $val;
 
-        $foo_counter = 0;
+        $cell_displayed = 0;
         foreach ($vertical_display['rowdata'][$key] as $subval) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) and !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+            if (($cell_displayed != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) and !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo $val;
             }
 
             echo $subval;
-            $foo_counter++;
+            $cell_displayed++;
         } // end while
 
         echo '</tr>' . "\n";
@@ -1813,14 +1813,16 @@ function PMA_displayVerticalTable()
          && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         echo $vertical_display['textbtn'];
-        $foo_counter = 0;
+        $cell_displayed = 0;
         foreach ($vertical_display['row_delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th rowspan="4"></th>' . "\n";
+            if (($cell_displayed != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '<th' .
+                     (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '') .
+                     '></th>' . "\n";
             }
 
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
-            $foo_counter++;
+            $cell_displayed++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
