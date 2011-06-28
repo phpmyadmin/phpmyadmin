@@ -157,10 +157,6 @@ class PMA_Table
             return PMA_Table::_isView($db, $table);
         }
 
-        if (isset($this) && strpos($this->get('TABLE TYPE'), 'VIEW')) {
-            return true;
-        }
-
         return false;
     }
 
@@ -256,14 +252,10 @@ class PMA_Table
      */
     static public function isMerge($db = null, $table = null)
     {
+        $engine = null;
         // if called static, with parameters
         if (! empty($db) && ! empty($table)) {
             $engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE', null, true);
-        }
-        // if called as an object
-        // does not work yet, because $this->settings[] is not filled correctly
-        else if (! empty($this)) {
-            $engine = $this->get('ENGINE');
         }
 
         return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));
