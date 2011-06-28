@@ -2547,7 +2547,7 @@ $(document).ready(function() {
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    $('.export_routine_anchor, .export_trigger_anchor, .export_event_anchor').live('click', function(event) {
+    $('.ajax_export_anchor').live('click', function(event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
@@ -2661,7 +2661,7 @@ function PMA_slidingMessage(msg, $obj) {
  * @see     $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    $('.drop_routine_anchor, .drop_trigger_anchor, .drop_event_anchor').live('click', function(event) {
+    $('.ajax_drop_anchor').live('click', function(event) {
         event.preventDefault();
         /**
          * @var $curr_row    Object containing reference to the current row

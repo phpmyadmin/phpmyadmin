@@ -211,7 +211,7 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-    $('.add_routine_anchor, .edit_routine_anchor').live('click', function(event) {
+    $('.ajax_add_anchor, .ajax_edit_anchor').live('click', function(event) {
         event.preventDefault();
         /**
          * @var    $edit_row    jQuery object containing the reference to
@@ -219,7 +219,7 @@ $(document).ready(function() {
          *                      from the list of routines .
          */
         var $edit_row = null;
-        if ($(this).hasClass('edit_routine_anchor')) {
+        if ($(this).hasClass('ajax_edit_anchor')) {
             // Remeber the row of the routine being edited for later,
             // so that if the edit is successful, we can replace the
             // row with info about the modified routine.
@@ -495,7 +495,7 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-    $('.exec_routine_anchor').live('click', function(event) {
+    $('.ajax_exec_anchor').live('click', function(event) {
         event.preventDefault();
         /**
          * @var    $msg    jQuery object containing the reference to
