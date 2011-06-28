@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-28 20:38+0200\n"
+"PO-Revision-Date: 2011-06-28 20:39+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1984,7 +1984,7 @@ msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "Ger-tremen/anv implijer fall. Moned nac'het."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
