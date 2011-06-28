@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-26 20:07+0200\n"
+"PO-Revision-Date: 2011-06-28 20:36+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1835,9 +1835,9 @@ msgid "%s has been disabled for this MySQL server."
 msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
 
 #: libraries/StorageEngine.class.php:362
-#, fuzzy, php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "N'eo ket skoret al lusker stokañ gant ar servijer MySQL-mañ."
+msgstr "N'eo ket skoret al lusker stokañ %s gant ar servijer MySQL-mañ."
 
 #: libraries/Table.class.php:1027
 msgid "Invalid database"
