@@ -974,7 +974,7 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                 column_default     AS `Default`,
                 (CASE
                     WHEN is_auto_increment THEN 'auto_increment'
-                    WHEN column_default_update THEN 'on update ' || column_default_update
+                    WHEN column_default_update <> '' THEN 'on update ' || column_default_update
                     ELSE '' END)   AS `Extra`
                 " . ($full ? " ,
                 NULL               AS `Privileges`,
