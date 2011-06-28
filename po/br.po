@@ -2075,7 +2075,7 @@ msgstr "Dilerc'hioù"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
-msgstr ""
+msgstr "Mont d'an diaz roadennoù"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
