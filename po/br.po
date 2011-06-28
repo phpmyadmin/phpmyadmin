@@ -2006,7 +2006,7 @@ msgstr "N'eus bet luget alc'hwez dilesa reizh ebet"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "O tilesa..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
