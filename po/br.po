@@ -2043,7 +2043,7 @@ msgstr "Pellgargañ"
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
