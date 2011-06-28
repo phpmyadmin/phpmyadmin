@@ -1980,7 +1980,7 @@ msgstr "Tamm obererezh ebet abaoe %s eilenn; kevreit en-dro"
 #: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
