@@ -69,7 +69,7 @@ if (false !== $possibly_uploaded_val) {
     } elseif ($type == 'set') {
         if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
             $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
-            $val = "'" . PMA_sqlAddslashes($val) . "'";
+            $val = "'" . PMA_sqlAddSlashes($val) . "'";
         }
     } elseif ($type == 'protected') {
         // here we are in protected mode (asked in the config)
@@ -87,9 +87,9 @@ if (false !== $possibly_uploaded_val) {
             }
     } elseif ($type == 'bit') {
         $val = preg_replace('/[^01]/', '0', $val);
-        $val = "b'" . PMA_sqlAddslashes($val) . "'";
+        $val = "b'" . PMA_sqlAddSlashes($val) . "'";
     } elseif (! (($type == 'datetime' || $type == 'timestamp') && $val == 'CURRENT_TIMESTAMP')) {
-        $val = "'" . PMA_sqlAddslashes($val) . "'";
+        $val = "'" . PMA_sqlAddSlashes($val) . "'";
     }
 
     // Was the Null checkbox checked for this field?

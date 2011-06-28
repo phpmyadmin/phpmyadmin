@@ -82,8 +82,8 @@ function PMA_RTN_handleExport()
         $type = PMA_DBI_fetch_value(
                     "SELECT ROUTINE_TYPE "
                   . "FROM INFORMATION_SCHEMA.ROUTINES "
-                  . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
-                  . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($item_name) . "';"
+                  . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+                  . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($item_name) . "';"
                 );
         $export_data = PMA_DBI_get_definition($db, $type, $item_name);
         if ($export_data !== false) {

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-23 12:13+0200\n"
+"PO-Revision-Date: 2011-06-27 12:34+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -521,10 +521,10 @@ msgstr "返り値が空でした(行数0)"
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "次のクエリが実行されます："
+msgstr "クエリの実行に失敗しました：『%s』"
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
@@ -538,7 +538,7 @@ msgstr "要求処理中でのエラー"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %s found in database %s"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "データベース %2$s に %1$s という名前のルーチンはありません"
@@ -1304,7 +1304,7 @@ msgstr "削除中"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "ストアドファンクションの定義には、RETURN 文を含めなければなりません！"
 
 #: js/messages.php:123
 msgid "Value too long in the form!"
@@ -2082,10 +2082,9 @@ msgid "Check Privileges"
 msgstr "特権をチェックする"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "設定が保存できません"
+msgstr "設定ファイルの読み込みに失敗しました"
 
 #: libraries/common.inc.php:588
 msgid ""
@@ -4734,10 +4733,9 @@ msgid "Turn it off"
 msgstr ""
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new Event"
 msgid "Add an event"
-msgstr "新しいイベントを追加する"
+msgstr "イベントを追加する"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4821,26 +4819,23 @@ msgid "Add parameter"
 msgstr "パラメータを追加する"
 
 #: libraries/db_routines.lib.php:710
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "データベースの削除"
+msgstr "最後のパラメータを削除する"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
 msgstr "返り値の種類"
 
 #: libraries/db_routines.lib.php:721
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "長さ/値"
+msgstr "返り値の長さ/値"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "テーブルオプション"
+msgstr "返り値のオプション"
 
 #: libraries/db_routines.lib.php:745
 msgid "Definition"
@@ -5402,10 +5397,9 @@ msgid "Event"
 msgstr "イベント"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "新しいトリガを追加する"
+msgstr "トリガを追加する"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -7152,10 +7146,9 @@ msgid "PARTITION definition"
 msgstr "パーティションの定義"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ 新しい値を追加する"
+msgstr "+ 値を追加する"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
@@ -9446,7 +9439,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "変数の設定に失敗しました"
 
 #: server_variables.php:77
 msgid "Server variables and settings"

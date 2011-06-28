@@ -25,7 +25,7 @@ function PMA_RTN_main()
      */
     $human_name = __('routine');
     $columns = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "'";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
     $items   = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
     $cols    = array(array('label' => __('Name'),   'colspan' => 1, 'field'   => 'name'),
                      array('label' => __('Action'), 'colspan' => 4, 'field'   => 'edit'),
@@ -243,8 +243,8 @@ function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
-             . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name) . "'";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
     $routine = PMA_DBI_fetch_single_row($query);
@@ -417,7 +417,7 @@ function PMA_RTN_handleEditor()
             $extra_data = array();
             if ($message->isSuccess()) {
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-                $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name']) . "'";
+                $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['routine_name']) . "'";
                 $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
                 $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
                 $extra_data['new_row']   = PMA_RTE_getRowForList('routine', $routine, 0);
