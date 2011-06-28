@@ -643,14 +643,15 @@ $(document).ready(function() {
                 } else {
                     $tr.removeClass('marked');
                 }
+                last_click_checked = checked;
             } else {
                 // normaln data table, just toggle class
                 $tr.toggleClass('marked');
+                last_click_checked = false;
             }
             
             // remember the last clicked row
-            last_click_checked = checked;
-            last_clicked_row = $tr.index();
+            last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
@@ -665,7 +666,7 @@ $(document).ready(function() {
                     start = last_shift_clicked_row;
                     end = last_clicked_row;
                 }
-                $tr.parent().find('tr:not(.noclick)')
+                $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
                     .slice(start, end + 1)
                     .removeClass('marked')
                     .find(':checkbox')
@@ -673,7 +674,7 @@ $(document).ready(function() {
             }
             
             // handle new shift click
-            var curr_row = $tr.index();
+            var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
             if (curr_row >= last_clicked_row) {
                 start = last_clicked_row;
                 end = curr_row;
@@ -681,11 +682,11 @@ $(document).ready(function() {
                 start = curr_row;
                 end = last_clicked_row;
             }
-            $tr.parent().find('tr:not(.noclick)')
+            $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
                 .slice(start, end + 1)
-                .toggleClass('marked', last_click_checked)
+                .addClass('marked')
                 .find(':checkbox')
-                .attr('checked', last_click_checked);
+                .attr('checked', true);
             
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
