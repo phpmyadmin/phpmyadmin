@@ -2047,7 +2047,7 @@ msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "kenrannet"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
