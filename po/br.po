@@ -2018,7 +2018,7 @@ msgstr "C'hwitet eo bet ar gevreadenn PBMS :"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr "C'hwitet eo bet moned PBMS ouzh titouroù BLOB :"
+msgstr "C'hwitet eo bet moned PBMS ouzh an titouroù BLOB :"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
