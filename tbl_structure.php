@@ -644,15 +644,18 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         ?></a>
         <?php
     }
-    ?>
-<a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . __('Propose table structure') . '" />';
-    }
-    echo __('Propose table structure');
-    ?></a><?php
-    echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
 
+    if (!PMA_DRIZZLE) {
+        ?>
+<a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
+        if ($cfg['PropertiesIconic']) {
+            echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . __('Propose table structure') . '" />';
+        }
+        echo __('Propose table structure');
+        ?></a>
+        <?php
+        echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
+    }
 
     if(PMA_Tracker::isActive())
     {
