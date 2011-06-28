@@ -2053,7 +2053,7 @@ msgstr "kenrannet"
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
 #: server_status.php:273
 msgid "Tables"
-msgstr ""
+msgstr "Taolennoù"
 
 #: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:304
 #: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:371
