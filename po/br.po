@@ -2083,7 +2083,7 @@ msgstr "N'eo ket eilet"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
-msgstr ""
+msgstr "Eilet"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
