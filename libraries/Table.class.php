@@ -340,7 +340,7 @@ class PMA_Table
         &$field_primary, $index, $default_orig = false)
     {
 
-        $is_timestamp = strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1;
+        $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
         /**
          * @todo include db-name
