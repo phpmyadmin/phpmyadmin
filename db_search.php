@@ -153,16 +153,16 @@ if (isset($_REQUEST['submit_search'])) {
 
             $thefieldlikevalue = array();
             foreach ($tblfields as $tblfield) {
-                if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
+                if (! isset($field) || strlen($field) == 0 || $tblfield == $field) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
                     if (PMA_DRIZZLE) {
-                        $thefieldlikevalue[] = PMA_backquote($tblfield['Field'])
+                        $thefieldlikevalue[] = PMA_backquote($tblfield)
                                             . ' ' . $like_or_regex . ' '
                                             . "'" . $automatic_wildcard
                                             . $search_word
                                             . $automatic_wildcard . "'";
                     } else {
-                        $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
+                        $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield) . ' USING utf8)'
                                             . ' ' . $like_or_regex . ' '
                                             . "'" . $automatic_wildcard
                                             . $search_word
