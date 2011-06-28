@@ -892,7 +892,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
     }
-    $ordinal_position = 1;
+    $ordinal_position = 1;var_dump($columns);
     foreach ($columns as $column_name => $each_column) {
 
         // MySQL forward compatibility
@@ -994,22 +994,23 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
 }
 
 /**
- * array PMA_DBI_get_columns(string $database, string $table, bool $full = false, mysql db link $link = null)
+ * Returns descriptions of columns in given table (all or given by $column)
  *
  * @param   string  $database   name of database
  * @param   string  $table      name of table to retrieve columns from
+ * @param   string  $column     name of column, null to show all columns
  * @param   boolean $full       whether to return full info or only column names
  * @param   mixed   $link       mysql link resource
- * @return  array   column names
+ * @return  array   array indexed by column names or, if $column is given, flat array description
  */
-function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
+function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $link = null)
 {
-    $sql = PMA_DBI_get_columns_sql($database, $table, null, $full);
+    $sql = PMA_DBI_get_columns_sql($database, $table, $column, $full);
     $fields = PMA_DBI_fetch_result($sql, 'Field', ($full ? null : 'Field'), $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
     }
-    return $fields;
+    return $column ? array_pop($fields) : $fields;
 }
 
 /**
