@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-28 20:58+0200\n"
+"PO-Revision-Date: 2011-06-28 20:59+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2071,7 +2071,7 @@ msgstr "Roadennoù"
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:818
 msgid "Overhead"
-msgstr ""
+msgstr "Dilerc'hioù"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
