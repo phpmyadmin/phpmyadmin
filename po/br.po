@@ -2230,7 +2230,7 @@ msgstr "O profilañ"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1334
 msgid "B"
-msgstr ""
+msgstr "o"
 
 #: libraries/common.lib.php:1334
 msgid "KiB"
