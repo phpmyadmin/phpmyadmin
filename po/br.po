@@ -2265,7 +2265,7 @@ msgstr "%A %d %B %Y da %H:%M"
 #: libraries/common.lib.php:1867
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s deiz, %s eur, %s munut ha %s eilenn"
 
 #: libraries/common.lib.php:2278 libraries/common.lib.php:2281
 #: libraries/display_tbl.lib.php:307
