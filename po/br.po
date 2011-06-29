@@ -2286,7 +2286,7 @@ msgstr "Fin"
 #: libraries/common.lib.php:2384
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "Mont d'an diaz roadennoù &quot;%s&quot;."
 
 #: libraries/common.lib.php:2403
 #, php-format
