@@ -2312,7 +2312,7 @@ msgstr "Framm"
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:88
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2763 libraries/common.lib.php:2953
 #: libraries/common.lib.php:2954 libraries/sql_query_form.lib.php:318
