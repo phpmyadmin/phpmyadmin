@@ -2304,7 +2304,7 @@ msgstr "Direizhet eo an arc'hwel %s gant un draen anavezet, sellit ouzh %s"
 #: libraries/tbl_properties.inc.php:623 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
 msgid "Structure"
-msgstr ""
+msgstr "Framm"
 
 #: libraries/common.lib.php:2761 libraries/common.lib.php:2768
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
