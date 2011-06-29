@@ -2374,7 +2374,7 @@ msgstr "Nikde"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Vľavo"
 
 #: libraries/config.values.php:47
 msgid "Right"
