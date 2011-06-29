@@ -114,6 +114,7 @@ defaultOptions.exporting = {
             symbolFill: '#A8BF77',
             hoverSymbolFill: '#768F3E',
             _titleKey: 'exportButtonTitle',
+            menuName: 'export',
             menuItems: [{
                 textKey: 'downloadPNG',
                 onclick: function() {
@@ -574,7 +575,7 @@ extend(Chart.prototype, {
             onclick = function(e) {
                 revert();
                 var bBox = button.getBBox();
-                chart.contextMenu('export-menu', menuItems, bBox.x, bBox.y, buttonWidth, buttonHeight);
+                chart.contextMenu(btnOptions.menuName, menuItems, bBox.x, bBox.y, buttonWidth, buttonHeight);
             };
         }
         /*addEvent(button.element, 'click', function() {

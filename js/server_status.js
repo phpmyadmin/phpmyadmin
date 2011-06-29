@@ -501,6 +501,7 @@ $(function() {
         symbolFill: '#B5C9DF',
         hoverSymbolFill: '#779ABF',
         _titleKey: 'settings',
+        menuName: 'gridsettings',
         menuItems: [{
             textKey: 'editChart',
             onclick: function() {
@@ -672,7 +673,7 @@ $(function() {
             },
             xAxis: {
                 min: new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
-                max: new Date().getTime() - server_time_diff
+                max: new Date().getTime() - server_time_diff + gridRefresh
             },
             yAxis: {
                 title: {
