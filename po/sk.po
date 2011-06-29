@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 13:14+0200\n"
+"PO-Revision-Date: 2011-06-29 13:15+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -537,10 +537,9 @@ msgstr "MySQL hlási: "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Chyba pri spracovanie požiadavku"
+msgstr "Chyba pri spracovaní požiadavky"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
