@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 19:55+0200\n"
+"PO-Revision-Date: 2011-06-29 19:56+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2136,7 +2136,7 @@ msgstr "Servijer"
 
 #: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh."
 
 #: libraries/common.inc.php:928
 #, php-format
