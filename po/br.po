@@ -2342,7 +2342,7 @@ msgstr "Ar c'havlec'h treuzkas n'hall ket bezañ diraezet."
 
 #: libraries/common.lib.php:2936
 msgid "There are no files to upload"
-msgstr ""
+msgstr "N'eus restr ebet da enporzhiañ"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
