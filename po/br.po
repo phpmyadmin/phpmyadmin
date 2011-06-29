@@ -2221,7 +2221,7 @@ msgstr "Kemmañ ar reked-mañ enlinenn"
 
 #: libraries/common.lib.php:1247
 msgid "Inline"
-msgstr ""
+msgstr "Enlinenn"
 
 #: libraries/common.lib.php:1314 sql.php:931
 msgid "Profiling"
