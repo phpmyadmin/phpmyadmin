@@ -2384,7 +2384,7 @@ msgstr "Framm"
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:123 libraries/export/texytext.php:24
 msgid "data"
-msgstr "roadenn"
+msgstr "roadennoù"
 
 #: libraries/config.values.php:98 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
