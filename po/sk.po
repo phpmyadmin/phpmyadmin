@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 15:12+0200\n"
+"PO-Revision-Date: 2011-06-29 15:16+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3508,10 +3508,11 @@ msgid "Enable highlighting"
 msgstr "Povoliť zvýrazňovanie"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek"
+msgstr ""
+"Maximálny počet tabuliek v zozname nedávno zobrazených tabuliek; nastavte 0 "
+"pre vypnutie"
 
 #: libraries/config/messages.inc.php:289
 #, fuzzy
