@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 13:16+0200\n"
+"PO-Revision-Date: 2011-06-29 13:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -550,7 +550,7 @@ msgstr "V databáze  %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Spustiť rutinu"
 
 #: db_routines.php:261 db_routines.php:265
 #, fuzzy, php-format
