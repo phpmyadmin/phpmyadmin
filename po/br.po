@@ -2132,7 +2132,7 @@ msgstr "Anv ostiz direizh evit ar servijer %1$s. Gwiriit ar c'hefluniadur."
 #: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
-msgstr ""
+msgstr "Servijer"
 
 #: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
