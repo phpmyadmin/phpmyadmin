@@ -1212,10 +1212,9 @@ msgid "KiB received since last refresh"
 msgstr "Prijatých KiB od posledného obnovenia"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Voľba serveru"
+msgstr "Sieťová prevádzka (v KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
