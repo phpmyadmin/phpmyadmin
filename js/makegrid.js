@@ -686,8 +686,8 @@
             for (var i = 0; i < $firstRowHeaders.length; i++) {
                 var currHeader = $firstRowHeaders[i];
                 var tr = document.createElement('tr');
-                tr.innerHTML = '<td><input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/></td>' +
-                               '<td>' + $(currHeader).text() + '</td>';
+                $(tr).html('<td><input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/></td>' +
+                           '<td>' + $(currHeader).text() + '</td>');
                 $tbody.append(tr);
                 // add event on click
                 $(tr).click(function() {
