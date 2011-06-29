@@ -2200,7 +2200,7 @@ msgstr "Hep kod PHP"
 
 #: libraries/common.lib.php:1160 libraries/config/messages.inc.php:474
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Krouiñ kod PHP"
 
 #: libraries/common.lib.php:1178 libraries/config/messages.inc.php:473
 #: server_status.php:410 server_status.php:436 server_status.php:457
