@@ -2112,9 +2112,8 @@ msgid "Check Privileges"
 msgstr "Skontrolovať oprávnenia"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 msgid "Failed to read configuration file"
-msgstr "Slave replikácia"
+msgstr "Nepodarilo sa načítať konfiguračný súbor"
 
 #: libraries/common.inc.php:588
 msgid ""
