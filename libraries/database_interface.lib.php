@@ -892,7 +892,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
     }
-    $ordinal_position = 1;var_dump($columns);
+    $ordinal_position = 1;
     foreach ($columns as $column_name => $each_column) {
 
         // MySQL forward compatibility
@@ -942,6 +942,9 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 /**
  * Returns SQL query for fetching columns for a table
  *
+ * The 'Key' column is not calculated properly, use PMA_DBI_get_columns() to get correct values.
+ *
+ * @see PMA_DBI_get_columns()
  * @param   string  $database   name of database
  * @param   string  $table      name of table to retrieve columns from
  * @param   string  $column     name of column, null to show all columns
@@ -951,7 +954,11 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
 {
     if (PMA_DRIZZLE) {
-        // `Key` column isn't correctly calculated, the only value that works is PRI
+        // `Key` column:
+        // * used in primary key => PRI
+        // * unique one-column => UNI
+        // * indexed, one-column or first in multi-column => MUL
+        // Promotion of UNI to PRI in case no promary index exists is done after query is executed
         $sql = "SELECT
                 column_name        AS `Field`,
                 (CASE
@@ -970,6 +977,8 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                     ELSE 'NO' END) AS `Null`,
                 (CASE
                     WHEN is_used_in_primary THEN 'PRI'
+                    WHEN is_unique AND NOT is_multi THEN 'UNI'
+                    WHEN is_indexed AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
                     ELSE '' END)   AS `Key`,
                 column_default     AS `Default`,
                 (CASE
@@ -1006,10 +1015,40 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
 function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $link = null)
 {
     $sql = PMA_DBI_get_columns_sql($database, $table, $column, $full);
-    $fields = PMA_DBI_fetch_result($sql, 'Field', ($full ? null : 'Field'), $link);
+    $fields = PMA_DBI_fetch_result($sql, 'Field', null, $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
     }
+    if (PMA_DRIZZLE) {
+        // fix Key column, it's much simpler in PHP than in SQL
+        $has_pk = false;
+        $has_pk_candidates = false;
+        foreach ($fields as $f) {
+            if ($f['Key'] == 'PRI') {
+                $has_pk = true;
+                break;
+            } else if ($f['Null'] == 'NO' && ($f['Key'] == 'MUL' || $f['Key'] == 'UNI')) {
+                $has_pk_candidates = true;
+            }
+        }
+        if (!$has_pk && $has_pk_candidates) {
+            // check whether we can promote some unique index to PRI
+            $sql = "
+                SELECT i.index_name, p.column_name
+                FROM data_dictionary.indexes i
+                    JOIN data_dictionary.index_parts p USING (table_schema, table_name)
+                WHERE i.table_schema = '" . PMA_sqlAddSlashes($database) . "'
+                    AND i.table_name = '" . PMA_sqlAddSlashes($table) . "'
+                    AND i.is_unique
+                        AND NOT i.is_nullable";
+            $fs = PMA_DBI_fetch_result($sql, 'index_name', null, $link);
+            $fs = $fs ? array_shift($fs) : array();
+            foreach ($fs as $f) {
+                $fields[$f]['Key'] = 'PRI';
+            }
+        }
+    }
+
     return $column ? array_pop($fields) : $fields;
 }
 
