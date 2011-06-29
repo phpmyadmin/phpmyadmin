@@ -2378,7 +2378,7 @@ msgstr "Vľavo"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Vpravo"
 
 #: libraries/config.values.php:75
 msgid "Open"
