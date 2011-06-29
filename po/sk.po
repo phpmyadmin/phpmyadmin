@@ -546,7 +546,7 @@ msgstr "Chyba pri spracovaní požiadavky"
 #, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "V databáze  %2$s nebola nájdená žiadneatrutina s menom %1$s"
+msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
