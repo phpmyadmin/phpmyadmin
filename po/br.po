@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 20:11+0200\n"
+"PO-Revision-Date: 2011-06-29 20:12+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2394,7 +2394,7 @@ msgstr "Framm ha roadennoù"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Prim - na ziskouez nemet nebeudik-tre a zibarzhioù da gefluniañ"
 
 #: libraries/config.values.php:101
 msgid "Custom - display all possible options to configure"
