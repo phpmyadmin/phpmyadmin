@@ -2359,7 +2359,7 @@ msgstr "Neblec'h"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Kleiz"
 
 #: libraries/config.values.php:47
 msgid "Right"
