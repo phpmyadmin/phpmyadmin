@@ -2367,7 +2367,7 @@ msgstr "Dehou"
 
 #: libraries/config.values.php:75
 msgid "Open"
-msgstr ""
+msgstr "Digor"
 
 #: libraries/config.values.php:75
 msgid "Closed"
