@@ -1115,10 +1115,9 @@ msgstr "Toto nie je číslo!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "Celkom"
+msgstr "Celkový počet"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
