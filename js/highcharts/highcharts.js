@@ -1789,6 +1789,11 @@ SVGElement.prototype = {
 			translateX += wrapper.attr('width');
 			translateY += wrapper.attr('height');
 		}
+		
+		if(wrapper.imagesize) {
+			translateX -= wrapper.imagesize[0]/2;
+			translateY -= wrapper.imagesize[1]/2;
+		}
 			
 		// apply translate
 		if (translateX || translateY) {
@@ -2498,17 +2503,22 @@ SVGRenderer.prototype = {
 				onload: function() {
 					var img = this,
 						size = symbolSizes[img.src] || [img.width, img.height];
-					obj.attr({						
+					
+					obj.imagesize = size;
+
+					obj.attr({
 						width: size[0],
 						height: size[1]
 					}).translate(
-						-mathRound(size[0] / 2),
-						-mathRound(size[1] / 2)
+						obj.translateX /*- mathRound(size[0] / 2),*/,
+						obj.translateY /*- mathRound(size[1] / 2)*/
 					);
 				},
 				src: imageSrc
 			});
-				
+			
+			
+			
 		// default circles
 		} else {
 			obj = this.circle(x, y, radius);
