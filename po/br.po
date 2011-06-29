@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 12:52+0200\n"
+"PO-Revision-Date: 2011-06-29 12:54+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2103,6 +2103,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket ur "
+"fazi o tont war wel a-is."
 
 #: libraries/common.inc.php:595
 #, php-format
