@@ -2192,7 +2192,7 @@ msgstr "Displegañ SQL"
 
 #: libraries/common.lib.php:1123
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "N'eo ket dav displegañ SQL"
 
 #: libraries/common.lib.php:1157
 msgid "Without PHP Code"
