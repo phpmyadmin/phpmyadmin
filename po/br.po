@@ -523,7 +523,7 @@ msgstr "Disoc'hoù seveniñ an argerzh %s"
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)"
+msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
