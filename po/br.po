@@ -2213,7 +2213,7 @@ msgstr "N'eo ket dav kadarnaat SQL"
 
 #: libraries/common.lib.php:1190 libraries/config/messages.inc.php:476
 msgid "Validate SQL"
-msgstr ""
+msgstr "Kadarnaat SQL"
 
 #: libraries/common.lib.php:1245
 msgid "Inline edit of this query"
