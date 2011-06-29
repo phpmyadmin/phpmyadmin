@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 13:22+0200\n"
+"PO-Revision-Date: 2011-06-29 13:23+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -589,10 +589,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Pri zpracovaní požadavky došlo k niekoľkým chybám:</b>"
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Vytvoriť relaciu"
+msgstr "Vytvoriť rutinu"
 
 #: db_routines.php:385
 #, fuzzy
