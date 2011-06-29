@@ -693,10 +693,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Slová sú rozdelené medzerou (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "V tabuľke(ách):"
+msgstr "V tabuľkách:"
 
 #: db_search.php:353
 msgid "Inside column:"
