@@ -2122,7 +2122,7 @@ msgstr ""
 #: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Meneger servijer faziek : %s"
 
 #: libraries/common.inc.php:637
 #, php-format
