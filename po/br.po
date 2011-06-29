@@ -2324,7 +2324,7 @@ msgstr "Ensoc'hañ"
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:113
 #: view_operations.php:87
 msgid "Operations"
-msgstr ""
+msgstr "Oberiadennoù"
 
 #: libraries/common.lib.php:2900
 msgid "Browse your computer:"
