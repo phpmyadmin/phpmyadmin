@@ -1169,7 +1169,7 @@ msgstr "Živý graf prevádzky"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Živý graf spojení/procesov"
 
 #: js/messages.php:66 server_status.php:445
 #, fuzzy
