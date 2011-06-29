@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 15:18+0200\n"
+"PO-Revision-Date: 2011-06-29 15:21+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4560,7 +4560,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:507
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Podrobné viacprvkové dopyty"
 
 #: libraries/config/messages.inc.php:508 setup/frames/index.inc.php:241
 msgid "Check for latest version"
