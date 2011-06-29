@@ -680,11 +680,9 @@ msgid "Search in database"
 msgstr "Hľadať v databáze"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
-"Slovo(á) alebo hodnotu(y), ktoré chcete vyhľadať (nahradzujúci znak: \"%\"):"
+msgstr "Slová alebo hodnoty, ktoré chcete vyhľadať (nahradzujúci znak: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
