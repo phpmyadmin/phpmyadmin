@@ -2141,7 +2141,7 @@ msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh."
 #: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "Ret e vefe deoc'h ober gant ar stumm %s pe unan nevesoc'h c'hoazh."
+msgstr "Ret e vefe deoc'h ober gant ar stumm %s %s pe unan nevesoc'h c'hoazh."
 
 #: libraries/common.lib.php:134
 #, php-format
