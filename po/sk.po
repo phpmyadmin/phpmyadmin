@@ -566,7 +566,7 @@ msgstr "Chybný typ rutiny: \"%s\""
 
 #: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Bohužiaľ sa nepodarilo obnoviť odstránenú rutinu"
 
 #: db_routines.php:312
 msgid "The backed up query was:"
