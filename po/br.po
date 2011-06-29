@@ -2281,7 +2281,7 @@ msgstr "Kent"
 #: libraries/common.lib.php:2309 libraries/common.lib.php:2312
 #: libraries/display_tbl.lib.php:387
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #: libraries/common.lib.php:2384
 #, php-format
