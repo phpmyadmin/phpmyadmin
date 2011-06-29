@@ -2188,7 +2188,7 @@ msgstr "DIbosupl kevreañ d'ar c'hadarnataer SQL !"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:472
 msgid "Explain SQL"
-msgstr ""
+msgstr "Displegañ SQL"
 
 #: libraries/common.lib.php:1123
 msgid "Skip Explain SQL"
