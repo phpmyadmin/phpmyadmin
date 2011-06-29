@@ -2370,7 +2370,7 @@ msgstr "Obidva"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nikde"
 
 #: libraries/config.values.php:47
 msgid "Left"
