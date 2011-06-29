@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 13:13+0200\n"
+"PO-Revision-Date: 2011-06-29 13:14+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -514,10 +514,10 @@ msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky"
 msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov"
 
 #: db_routines.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Umožňuje spúšťať uložené procedúry."
+msgstr "Výsledky spustenia rutiny %s"
 
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
