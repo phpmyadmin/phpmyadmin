@@ -3515,10 +3515,9 @@ msgstr ""
 "pre vypnutie"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Nesledované tabuľky"
+msgstr "Nedávno použité tabuľky"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
