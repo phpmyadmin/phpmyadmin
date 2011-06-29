@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 19:57+0200\n"
+"PO-Revision-Date: 2011-06-29 19:58+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2184,7 +2184,7 @@ msgstr "Reked SQL"
 
 #: libraries/common.lib.php:1078
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "DIbosupl kevreañ d'ar c'hadarnataer SQL !"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:472
 msgid "Explain SQL"
