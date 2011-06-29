@@ -2328,7 +2328,7 @@ msgstr "Oberiadennoù"
 
 #: libraries/common.lib.php:2900
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Furchal en hoc'h urzhiataer"
 
 #: libraries/common.lib.php:2916
 #, php-format
