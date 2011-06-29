@@ -2175,7 +2175,7 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
 #: main.php:212 server_variables.php:114
 msgid "Documentation"
-msgstr ""
+msgstr "Teuliadur"
 
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
 #: server_status.php:260 server_status.php:803
