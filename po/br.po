@@ -2238,7 +2238,7 @@ msgstr "Kio"
 
 #: libraries/common.lib.php:1334
 msgid "MiB"
-msgstr ""
+msgstr "Mio"
 
 #: libraries/common.lib.php:1334
 msgid "GiB"
