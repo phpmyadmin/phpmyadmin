@@ -528,7 +528,7 @@ msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 #: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Nasledujúci dopyt zlyhal: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
