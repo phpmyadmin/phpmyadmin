@@ -2225,7 +2225,7 @@ msgstr "Enlinenn"
 
 #: libraries/common.lib.php:1314 sql.php:931
 msgid "Profiling"
-msgstr ""
+msgstr "O profilañ"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1334
