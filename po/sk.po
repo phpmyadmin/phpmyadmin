@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 14:56+0200\n"
+"PO-Revision-Date: 2011-06-29 14:58+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1328,10 +1328,9 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Chýbajúca položka vo formulári!"
+msgstr "Hodnota vo formulári je príliš dlhá!"
 
 #: js/messages.php:126
 msgid ""
