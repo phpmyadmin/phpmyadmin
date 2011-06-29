@@ -2250,7 +2250,7 @@ msgstr "Tio"
 
 #: libraries/common.lib.php:1334
 msgid "PiB"
-msgstr ""
+msgstr "Pio"
 
 #: libraries/common.lib.php:1334
 msgid "EiB"
