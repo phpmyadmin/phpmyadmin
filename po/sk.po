@@ -1829,10 +1829,9 @@ msgid "Could not save recent table"
 msgstr "Nepodarilo sa uložiť najnovšíu tabuľku"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Počítať tabuľky"
+msgstr "Nedávne tabuľky"
 
 #: libraries/RecentTable.class.php:155
 #, fuzzy
