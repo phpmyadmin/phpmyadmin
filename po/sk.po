@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-03 14:53+0200\n"
+"PO-Revision-Date: 2011-06-29 15:21+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -509,15 +509,15 @@ msgstr "SQL dopyt bol úspešne vykonaný"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok"
+msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky"
+msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov"
 
 #: db_routines.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Umožňuje spúšťať uložené procedúry."
+msgstr "Výsledky spustenia rutiny %s"
 
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -528,7 +528,7 @@ msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 #: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Nasledujúci dopyt zlyhal: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
@@ -537,69 +537,66 @@ msgstr "MySQL hlási: "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Chyba pri spracovanie požiadavku"
+msgstr "Chyba pri spracovaní požiadavky"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "V tejto databáze neboli nájdené žiadne tabuľky"
+msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Spustiť rutinu"
 
 #: db_routines.php:261 db_routines.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Východzie nastavenia exportu"
+msgstr "Export rutiny %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:960
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Chybný index servera: %s"
+msgstr "Chybný typ rutiny: \"%s\""
 
 #: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Bohužiaľ sa nepodarilo obnoviť odstránenú rutinu."
 
 #: db_routines.php:312
 msgid "The backed up query was:"
 msgstr ""
 
 #: db_routines.php:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Stĺpec %s bol odstránený"
+msgstr "Rutina %1$s bola zmenená."
 
 #: db_routines.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "Tabuľka %1$s bola vytvorená."
+msgstr "Rutina %1$s bola vytvorená."
 
 #: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Pri zpracovaní požadavky došlo k niekoľkým chybám:</b>"
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Vytvoriť relaciu"
+msgstr "Vytvoriť rutinu"
 
 #: db_routines.php:385
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Režim úprav"
+msgstr "Upraviť rutinu"
 
 #: db_routines.php:436
 msgid ""
@@ -607,13 +604,16 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Používate zastaralé \"mysql\" rozšírenie PHP, ktoré nedokáže pracovať so "
+"zloženými dopytmi. <b>Vykonanie niektorých uložených rutín môže zlyhať!</b> "
+"Aby ste sa vyhli týmto problémom, použite prosím nové rozšírenie \"mysqli\"."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
-msgstr "Prístup zamietnutý"
+msgstr "Prístup odmietnutý"
 
 #: db_search.php:66 db_search.php:309
 msgid "at least one of the words"
@@ -680,11 +680,9 @@ msgid "Search in database"
 msgstr "Hľadať v databáze"
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr ""
-"Slovo(á) alebo hodnotu(y), ktoré chcete vyhľadať (nahradzujúci znak: \"%\"):"
+msgstr "Slová alebo hodnoty, ktoré chcete vyhľadať (nahradzujúci znak: \"%\"):"
 
 #: db_search.php:305
 msgid "Find:"
@@ -695,10 +693,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Slová sú rozdelené medzerou (\" \")."
 
 #: db_search.php:323
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "V tabuľke(ách):"
+msgstr "V tabuľkách:"
 
 #: db_search.php:353
 msgid "Inside column:"
@@ -1118,10 +1115,9 @@ msgstr "Toto nie je číslo!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "Celkom"
+msgstr "Celkový počet"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
@@ -1167,24 +1163,22 @@ msgid "Edit"
 msgstr "Upraviť"
 
 #: js/messages.php:64 server_status.php:420
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Voľba serveru"
+msgstr "Živý graf prevádzky"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Živý graf spojení/procesov"
 
 #: js/messages.php:66 server_status.php:445
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Zobraziť graf dopytov"
+msgstr "Živý graf dopytov"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Statické data"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1197,7 +1191,7 @@ msgstr "Celkom"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:602
 msgid "Other"
-msgstr ""
+msgstr "Ostatné"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1374
@@ -1211,41 +1205,38 @@ msgstr ","
 
 #: js/messages.php:78
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "Odoslaných KiB od posledného obnovenia"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Prijatých KiB od posledného obnovenia"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Voľba serveru"
+msgstr "Sieťová prevádzka (v KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Spojení od posledného obnovenia"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
 msgstr "Procesy"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Spojenia"
+msgstr "Spojenia/Procesy"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Počet vykonaných dopytov od posledného obnovenia"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL dopyty"
+msgstr "Vykonaných dopytov"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
@@ -1334,13 +1325,12 @@ msgstr "Odstraňujem"
 
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Chýbajúca položka vo formulári!"
+msgstr "Hodnota vo formulári je príliš dlhá!"
 
 #: js/messages.php:126
 msgid ""
@@ -1839,16 +1829,14 @@ msgid "Could not save recent table"
 msgstr "Nepodarilo sa uložiť najnovšíu tabuľku"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Počítať tabuľky"
+msgstr "Nedávne tabuľky"
 
 #: libraries/RecentTable.class.php:155
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no recent tables"
-msgstr "Žiadny súbor pre nahrávanie"
+msgstr "Neboli nájdené žiadne nedávne tabuľky"
 
 #: libraries/StorageEngine.class.php:195
 msgid ""
@@ -1923,7 +1911,7 @@ msgstr "Nebola nájdená platná cesta ku vzhľadu %s!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Vzhľad"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -2015,10 +2003,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Zlé používateľské meno alebo heslo. Prístup zamietnutý."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Overenie konfigurácie"
+msgstr "Nepodarilo sa nájsť autorizačný skript pre prihlásenie."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -2125,9 +2112,8 @@ msgid "Check Privileges"
 msgstr "Skontrolovať oprávnenia"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 msgid "Failed to read configuration file"
-msgstr "Slave replikácia"
+msgstr "Nepodarilo sa načítať konfiguračný súbor"
 
 #: libraries/common.inc.php:588
 msgid ""
@@ -2375,7 +2361,7 @@ msgstr "Žiadny súbor pre nahrávanie"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Spustiť"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -2384,15 +2370,15 @@ msgstr "Obidva"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Nikde"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Vľavo"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Vpravo"
 
 #: libraries/config.values.php:75
 msgid "Open"
@@ -2760,10 +2746,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Údržba tabuľky"
+msgstr "Vypnúť hromadné operácie s tabuľkami"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -2944,7 +2929,7 @@ msgstr "Režim kompatibility SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Voľby <code>CREATE TABLE</code>:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
@@ -3523,16 +3508,16 @@ msgid "Enable highlighting"
 msgstr "Povoliť zvýrazňovanie"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maximálny počet tabuliek zobrazených v zozname tabuliek"
+msgstr ""
+"Maximálny počet tabuliek v zozname nedávno zobrazených tabuliek; nastavte 0 "
+"pre vypnutie"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Nesledované tabuľky"
+msgstr "Nedávno použité tabuľky"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
@@ -3820,10 +3805,9 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
 #: libraries/config/messages.inc.php:351
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Premenovať tabuľku na"
+msgstr "Pamätať si triedenie tabuľky"
 
 #: libraries/config/messages.inc.php:352
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -4112,10 +4096,9 @@ msgstr ""
 "databáze. Odporúčaná hodnota: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Pamätať si užívateľské meno"
+msgstr "Naposledy použitá tabuľka"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
@@ -4577,7 +4560,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:507
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Podrobné viacprvkové dopyty"
 
 #: libraries/config/messages.inc.php:508 setup/frames/index.inc.php:241
 msgid "Check for latest version"
