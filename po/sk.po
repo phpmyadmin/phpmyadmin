@@ -610,7 +610,7 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
-msgstr "Prístup zamietnutý"
+msgstr "Prístup odmietnutý"
 
 #: db_search.php:66 db_search.php:309
 msgid "at least one of the words"
