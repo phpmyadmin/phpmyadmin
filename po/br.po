@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 19:58+0200\n"
+"PO-Revision-Date: 2011-06-29 19:59+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2196,7 +2196,7 @@ msgstr "N'eo ket dav displegañ SQL"
 
 #: libraries/common.lib.php:1157
 msgid "Without PHP Code"
-msgstr ""
+msgstr "Hep kod PHP"
 
 #: libraries/common.lib.php:1160 libraries/config/messages.inc.php:474
 msgid "Create PHP Code"
