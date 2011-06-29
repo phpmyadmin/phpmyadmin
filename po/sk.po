@@ -553,10 +553,10 @@ msgid "Execute routine"
 msgstr "Spustiť rutinu"
 
 #: db_routines.php:261 db_routines.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Východzie nastavenia exportu"
+msgstr "Export rutiny %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
