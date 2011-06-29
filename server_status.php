@@ -71,19 +71,19 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 exit(json_encode($ret));
             
             case 'chartgrid':
-                $ret = json_decode($_REQUEST['requiredData']);
+                $ret = json_decode($_REQUEST['requiredData'],true);
                 $statusVars = Array();
                 
                 foreach($ret as $chart_id=>$chartNodes) {
                     foreach($chartNodes as $node_id=>$node) {
-                        switch($node->dataType) {
+                        switch($node['dataType']) {
                             case 'statusvar':
-                                $statusVars[] = $node->name;
+                                $statusVars[] = $node['name'];
                                 break;
                             case 'other':
-                                if($node->name=='Processes') {
+                                if($node['name']=='Processes') {
                                     $result = PMA_DBI_query('SHOW PROCESSLIST');
-                                    $ret[$chart_id][$node_id]->y = PMA_DBI_num_rows($result);
+                                    $ret[$chart_id][$node_id]['y'] = PMA_DBI_num_rows($result);
                                 }
                                 break;
                         }
@@ -94,8 +94,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
                 foreach($ret as $chart_id=>$chartNodes) {
                     foreach($chartNodes as $node_id=>$node) {
-                        if($node->dataType == 'statusvar')
-                            $ret[$chart_id][$node_id]->y = $vars[$node->name];
+                        if($node['dataType'] == 'statusvar')
+                            $ret[$chart_id][$node_id]['y'] = $vars[$node['name']];
                     }
                 }
                 
@@ -576,7 +576,6 @@ echo __('Runtime Information');
                             <option>Open_tables</option>
                             <option>Select_full_join</option>
                             <option>Slow_queries</option>
-                            <option>Select_full_join</option>
                         </select><br>
                         <label for="variableInput">or type variable name: </label> <input type="text" name="variableInput" id="variableInput" />
                         <p></p>
@@ -584,7 +583,7 @@ echo __('Runtime Information');
                         <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
                         <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span>
                     </div>
-                    <a href="#submitAddSeries">Add this serie</a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
+                    <a href="#submitAddSeries">Add this series</a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
                     <p><b>Series in Chart:</b></p>
                     <span id="seriesPreview">
                     <i>None</i>

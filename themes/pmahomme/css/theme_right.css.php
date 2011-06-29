@@ -1259,6 +1259,10 @@ div#seriesForms {
 	background-color:#E6E6E6;
 }
 
+ul#chartGrid li {
+	background: #EBEBEB;
+}
+
 /* end serverstatus */
 
 /* server variables */

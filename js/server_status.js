@@ -64,7 +64,6 @@ $(function() {
         }
     });
 
-    
     $.ajaxSetup({
         cache:false
     });
@@ -482,7 +481,40 @@ $(function() {
         return pointInfo;
     }
 
+    
+    
+    
     /**** Table charting implementation ****/
+    
+    Highcharts.setOptions({
+        lang: {
+            settings: 'Settings',
+            removeChart: 'Remove chart',
+            editChart: 'Edit labels and series'
+        }
+    });
+    
+    var gridbuttons = { cogButton: {
+        //enabled: true,
+        symbol:  'url(' + pma_theme_image  + 's_cog.png)',
+        x: -36,
+        symbolFill: '#B5C9DF',
+        hoverSymbolFill: '#779ABF',
+        _titleKey: 'settings',
+        menuItems: [{
+            textKey: 'editChart',
+            onclick: function() {
+                alert('tbi');
+            }
+        }, {
+            textKey: 'removeChart',
+            onclick: function() {
+                removeChart(this);
+            }
+        }]
+    } }
+    
+
     $('a[href="#addNewChart"]').click(function() {
         $('div#addChartDialog').dialog({
             width:'auto',
@@ -584,36 +616,41 @@ $(function() {
     /* Stores the timeout handler so it can be cleared */
     var refreshTimeout = null;
     
-    var maxPoints = 20;
+    var gridMaxPoints = 20;
     
     var newChart = null;
+    // Chart auto increment
+    var chartAI = 0;
     
     // Default setting
-    chartGrid = 
-    [{  title: 'Questions',
-        nodes: [{ dataType:'statusvar', name:'Questions', display: 'differential'}]
-     }, { 
-         title: 'Connections / Processes',
-         nodes: [ { dataType:'statusvar', name:'Connections', display: 'differential'},
-                  { dataType:'other', name:'Processes'}
-                ]
-     }, {
-         title: 'Traffic (in KiB)',
-         nodes: [
-            { dataType:'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024},
-            { dataType:'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024}
-        ]
-     }
-    ];
+    chartGrid = {
+        '0': {  title: 'Questions',
+                nodes: [{ dataType:'statusvar', name:'Questions', display: 'differential'}]
+            }, 
+         '1': {
+             title: 'Connections / Processes',
+             nodes: [ { dataType:'statusvar', name:'Connections', display: 'differential'},
+                      { dataType:'other', name:'Processes'}
+                    ]
+         },
+         '2': {
+             title: 'Traffic (in KiB)',
+             nodes: [
+                { dataType:'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024},
+                { dataType:'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024}
+            ]
+         }
+    };
      
     initGrid();
     
     function initGrid() {
         var settings;
         var series;
-        for(var i=0; i<chartGrid.length; i++) {
-            addChart(chartGrid[i],true);
-        }
+
+        $.each(chartGrid, function(key, value) {
+            addChart(value,true);
+        });
         
         buildRequiredDataList();
         refreshChartGrid();
@@ -629,11 +666,21 @@ $(function() {
         
         settings = {
             chart: {
-                renderTo: 'gridchart' + $('ul#chartGrid li').length,
+                renderTo: 'gridchart' + chartAI,
                 width: 350,
                 height: 350
             },
+            xAxis: {
+                min: new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
+                max: new Date().getTime() - server_time_diff
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                }
+            },
             series: series,
+            buttons: gridbuttons,
             title: { text: chartObj.title },
         };
         
@@ -648,10 +695,34 @@ $(function() {
         chartObj.numPoints = 0;
         
         if(initialize != true) {
-            chartGrid.push(chartObj);
+            chartGrid[chartAI] = chartObj;
             $("#chartGrid").sortable('refresh');
             buildRequiredDataList();
         }
+        
+        chartAI++;
+    }
+    
+    function removeChart(chartObj) {
+        var htmlnode = chartObj.options.chart.renderTo;
+        if(! htmlnode ) return;
+        
+        
+        $.each(chartGrid, function(key, value) {
+            if(value.chart.options.chart.renderTo == htmlnode) {
+                delete chartGrid[key];
+                return false;
+            }
+        });
+        
+        buildRequiredDataList();
+        
+        // Using settimeout() because clicking the remove link fires an onclick event 
+        // which throws an error when the chart is destroyed
+        setTimeout(function() {
+            chartObj.destroy();
+            $('li#' + htmlnode).remove();
+        },10);
     }
     
     function refreshChartGrid() {
@@ -659,26 +730,37 @@ $(function() {
         $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(requiredData) },function(data) {
             var chartData = $.parseJSON(data);
             var value;
+
             /* Update values in each graph */
-            for(var i=0; i<chartGrid.length; i++) {
-                for(var j=0; j < chartGrid[i].nodes.length; j++) {
-                    value = chartData[i][j].y;
-                    if(chartGrid[i].nodes[j].display == 'differential') {
-                        if(oldChartData == null || oldChartData[i] == null) continue;
-                        value -= oldChartData[i][j].y;
-                    }
-                    if(chartGrid[i].nodes[j].valueDivisor)
-                        value = value / chartGrid[i].nodes[j].valueDivisor;
+            $.each(chartGrid, function(key, elem) {
+                for(var j=0; j < elem.nodes.length; j++) {
+                    value = chartData[key][j].y;
+
+                    if(oldChartData==null) diff = chartData.x - elem.chart.xAxis[0].getExtremes().max;
+                    else diff = parseInt(chartData.x - oldChartData.x);
                     
-                    chartGrid[i].chart.series[j].addPoint(
+                    elem.chart.xAxis[0].setExtremes(
+                        elem.chart.xAxis[0].getExtremes().min+diff, 
+                        elem.chart.xAxis[0].getExtremes().max+diff, 
+                        false
+                    );
+                    
+                    if(elem.nodes[j].display == 'differential') {
+                        if(oldChartData == null || oldChartData[key] == null) continue;
+                        value -= oldChartData[key][j].y;
+                    }
+                    if(elem.nodes[j].valueDivisor)
+                        value = value / elem.nodes[j].valueDivisor;
+                    
+                    elem.chart.series[j].addPoint(
                         {  x: chartData.x, y: value },
-                        j == chartGrid[i].nodes.length - 1, 
-                        chartGrid[i].numPoints >= maxPoints
+                        j == elem.nodes.length - 1, 
+                        elem.numPoints >= gridMaxPoints
                     );
                 }
                 
-                chartGrid[i].numPoints++;
-            }
+                chartGrid[key].numPoints++;
+            });
             
             oldChartData = chartData;
             
@@ -688,9 +770,9 @@ $(function() {
     
     /* Build list of nodes that need to be retrieved */
     function buildRequiredDataList() {
-        requiredData = [];
-        for(var i=0; i<chartGrid.length; i++) {
-            requiredData.push(chartGrid[i].nodes);
-        }
+        requiredData = {};
+        $.each(chartGrid, function(key, chart) {
+            requiredData[key] = chart.nodes;
+        });
     }
 });
