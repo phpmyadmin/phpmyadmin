@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-29 13:23+0200\n"
+"PO-Revision-Date: 2011-06-29 14:47+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -604,6 +604,9 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Používate zastaralé \"mysql\" rozšírenie PHP, ktoré nedokáže pracovať so "
+"zloženými dopytmi. <b>Vykonanie niektorých uložených rutín môže zlyhať!</b> "
+"Aby ste sa vyhli týmto problémom, použite prosím nové rozšírenie \"mysqli\"."
 
 #: db_search.php:54 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
