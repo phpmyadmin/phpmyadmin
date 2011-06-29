@@ -1218,7 +1218,7 @@ msgstr "Sieťová prevádzka (v KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Spojení od posledného obnovenia"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
