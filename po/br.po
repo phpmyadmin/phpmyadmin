@@ -2254,7 +2254,7 @@ msgstr "Pio"
 
 #: libraries/common.lib.php:1334
 msgid "EiB"
-msgstr ""
+msgstr "Eio"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1552
