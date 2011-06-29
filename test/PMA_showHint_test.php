@@ -1,26 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for showHint function
+ * Test for PMA_showHint() function from common.lib.php
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_showHint_test.php
  */
 
 /**
- * Tests core.
- */
-require_once 'PHPUnit/Framework.php';
-
-/**
  * Include to test.
  */
-require_once './libraries/common.lib.php';
+require_once 'libraries/common.lib.php';
 
-/**
- * Test showHint function.
- *
- */
 class PMA_showHint_test extends PHPUnit_Framework_TestCase
 {
 
@@ -105,6 +96,7 @@ class PMA_showHint_test extends PHPUnit_Framework_TestCase
 
     /**
      * PMA_showHint with not defined GLOBALS formatted as BB
+     * @depends testShowHintSetting
      */
     public function testShowHintSettingBbFormat()
     {

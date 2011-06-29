@@ -20,6 +20,7 @@ phpmyadmin.wpj
 .buildpath
 .cache
 .idea
+.netbeans
 *.sw[op]
 # Locales
 /locale/
@@ -31,3 +32,8 @@ phpmyadmin.wpj
 /apidoc/
 # Demo server
 revision-info.php
+# PHPUnit
+phpunit.xml
+/test/bootstrap.php
+# Jenkins
+/build/
