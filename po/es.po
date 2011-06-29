@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-24 23:09+0200\n"
+"PO-Revision-Date: 2011-06-28 22:53+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4823,10 +4823,9 @@ msgid "Turn it off"
 msgstr "Desactivarlo"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new Event"
 msgid "Add an event"
-msgstr "Añadir un nuevo Evento"
+msgstr "Añadir un evento"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5492,10 +5491,9 @@ msgid "Event"
 msgstr "Evento"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "Agregar un nuevo disparador"
+msgstr "Agregar un disparador"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -7298,10 +7296,9 @@ msgid "PARTITION definition"
 msgstr "definición de la PARTICIÓN"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Agregar un nuevo valor"
+msgstr "+ Agregar un valor"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
