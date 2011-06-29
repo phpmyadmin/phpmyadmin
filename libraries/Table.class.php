@@ -73,7 +73,10 @@ class PMA_Table
     }
 
     /**
+     * returns table name
+     *
      * @see PMA_Table::getName()
+     * @return  string  table name
      */
     function __toString()
     {
@@ -103,7 +106,7 @@ class PMA_Table
     /**
      * returns table name
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param   boolean $backquoted whether to quote name with backticks ``
      * @return  string  table name
      */
     function getName($backquoted = false)
@@ -127,7 +130,7 @@ class PMA_Table
     /**
      * returns database name for this table
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param   boolean $backquoted whether to quote name with backticks ``
      * @return  string  database name for this table
      */
     function getDbName($backquoted = false)
@@ -141,7 +144,8 @@ class PMA_Table
     /**
      * returns full name for table, including database name
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param   boolean $backquoted whether to quote name with backticks ``
+     * @return string
      */
     function getFullName($backquoted = false)
     {
@@ -154,18 +158,14 @@ class PMA_Table
             return PMA_Table::_isView($db, $table);
         }
 
-        if (isset($this) && strpos($this->get('TABLE TYPE'), 'VIEW')) {
-            return true;
-        }
-
         return false;
     }
 
     /**
      * sets given $value for given $param
      *
-     * @param   string  param name
-     * @param   mixed   param value
+     * @param string $param name
+     * @param mixed  $value value
      */
     function set($param, $value)
     {
@@ -175,7 +175,7 @@ class PMA_Table
     /**
      * returns value for given setting/param
      *
-     * @param   string  name for value to return
+     * @param   string $param name for value to return
      * @return  mixed   value for $param
      */
     function get($param)
@@ -190,6 +190,8 @@ class PMA_Table
     /**
      * loads structure data
      * (this function is work in progress? not yet used)
+     *
+     * @return boolean
      */
     function loadStructure()
     {
@@ -216,6 +218,7 @@ class PMA_Table
                 $this->set($$each_create_option[0], $each_create_option[1]);
             }
         }
+        return true;
     }
 
     /**
@@ -223,12 +226,9 @@ class PMA_Table
      *
      * @deprecated
      * @todo see what we could do with the possible existence of $table_is_view
-     * @param   string   the database name
-     * @param   string   the table name
-     *
+     * @param   string $db  the database name
+     * @param   string $table  the table name
      * @return  boolean  whether this is a view
-     *
-     * @access  public
      */
     static protected function _isView($db, $table)
     {
@@ -247,21 +247,16 @@ class PMA_Table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias), this is a merge table.
      *
-     * @param   string   the database name
-     * @param   string   the table name
+     * @param   string  $db the database name
+     * @param   string  $table the table name
      * @return  boolean  true if it is a merge table
-     * @access  public
      */
     static public function isMerge($db = null, $table = null)
     {
+        $engine = null;
         // if called static, with parameters
         if (! empty($db) && ! empty($table)) {
             $engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE', null, true);
-        }
-        // if called as an object
-        // does not work yet, because $this->settings[] is not filled correctly
-        else if (! empty($this)) {
-            $engine = $this->get('ENGINE');
         }
 
         return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));
@@ -283,7 +278,7 @@ class PMA_Table
      * @param string $table
      * @param string $info
      * @param boolean $force_read
-     * @param boolean if true, disables error message
+     * @param boolean $disable_error if true, disables error message
      * @return mixed
      */
     static public function sGetStatusInfo($db, $table, $info = null, $force_read = false, $disable_error = false)
@@ -314,21 +309,19 @@ class PMA_Table
     }
 
     /**
-     * generates column/field specification for ALTER or CREATE TABLE syntax
+     * generates column specification for ALTER or CREATE TABLE syntax
      *
      * @todo    move into class PMA_Column
-     * @todo on the interface, some js to clear the default value when the default
-     * current_timestamp is checked
-     * @static
+     * @todo on the interface, some js to clear the default value when the default current_timestamp is checked
      * @param   string  $name       name
      * @param   string  $type       type ('INT', 'VARCHAR', 'BIT', ...)
      * @param   string  $length     length ('2', '5,2', '', ...)
      * @param   string  $attribute
      * @param   string  $collation
-     * @param   string  $null       with 'NULL' or 'NOT NULL'
+     * @param   bool|string $null with 'NULL' or 'NOT NULL'
      * @param   string  $default_type   whether default is CURRENT_TIMESTAMP,
      *                                  NULL, NONE, USER_DEFINED
-     * @param   boolean $default_value  default value for USER_DEFINED default type
+     * @param   string  $default_value  default value for USER_DEFINED default type
      * @param   string  $extra      'AUTO_INCREMENT'
      * @param   string  $comment    field comment
      * @param   array   &$field_primary list of fields for PRIMARY KEY
@@ -338,10 +331,10 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary, $index, $default_orig = false)
+        &$field_primary, $index)
     {
 
-        $is_timestamp = strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1;
+        $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
         /**
          * @todo include db-name
@@ -433,14 +426,13 @@ class PMA_Table
      * Revision 13 July 2001: Patch for limiting dump size from
      * vinay@sanisoft.com & girish@sanisoft.com
      *
-     * @param   string   the current database name
-     * @param   string   the current table name
-     * @param   boolean  whether to force an exact count
+     * @param   string   $db           the current database name
+     * @param   string   $table        the current table name
+     * @param   bool     $force_exact  whether to force an exact count
+     * @param   bool     $is_view
      *
      * @return  mixed    the number of records if "retain" param is true,
      *                   otherwise true
-     *
-     * @access  public
      */
     static public function countRecords($db, $table, $force_exact = false, $is_view = null)
     {
@@ -505,7 +497,25 @@ class PMA_Table
     } // end of the 'PMA_Table::countRecords()' function
 
     /**
+     * Generates column specification for ALTER syntax
+     *
      * @see PMA_Table::generateFieldSpec()
+     * @param   string  $oldcol     old column name
+     * @param   string  $newcol     new column name
+     * @param   string  $type       type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param   string  $length     length ('2', '5,2', '', ...)
+     * @param   string  $attribute
+     * @param   string  $collation
+     * @param   bool|string $null with 'NULL' or 'NOT NULL'
+     * @param   string  $default_type   whether default is CURRENT_TIMESTAMP,
+     *                                  NULL, NONE, USER_DEFINED
+     * @param   string  $default_value  default value for USER_DEFINED default type
+     * @param   string  $extra      'AUTO_INCREMENT'
+     * @param   string  $comment    field comment
+     * @param   array   &$field_primary list of fields for PRIMARY KEY
+     * @param   string  $index
+     * @param   mixed   $default_orig
+     * @return  string  field specification
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
@@ -520,19 +530,15 @@ class PMA_Table
     /**
      * Inserts existing entries in a PMA_* table by reading a value from an old entry
      *
-     * @param   string  The array index, which Relation feature to check
-     *                  ('relwork', 'commwork', ...)
-     * @param   string  The array index, which PMA-table to update
-     *                  ('bookmark', 'relation', ...)
-     * @param   array   Which fields will be SELECT'ed from the old entry
-     * @param   array   Which fields will be used for the WHERE query
-     *                  (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param   array   Which fields will be used as new VALUES. These are the important
-     *                  keys which differ from the old entry.
-     *                  (array('FIELDNAME' => 'NEW FIELDVALUE'))
-
-     * @global  string  relation variable
-     *
+     * @global relation variable
+     * @param   string  $work          The array index, which Relation feature to check ('relwork', 'commwork', ...)
+     * @param   string  $pma_table     The array index, which PMA-table to update ('bookmark', 'relation', ...)
+     * @param   array   $get_fields    Which fields will be SELECT'ed from the old entry
+     * @param   array   $where_fields  Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
+     * @param   array   $new_fields    Which fields will be used as new VALUES. These are the important
+     *                                 keys which differ from the old entry.
+     *                                 (array('FIELDNAME' => 'NEW FIELDVALUE'))
+     * @return int|true
      */
     static public function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
       $new_fields)
@@ -604,6 +610,14 @@ class PMA_Table
     /**
      * Copies or renames table
      *
+     * @param $source_db
+     * @param $source_table
+     * @param $target_db
+     * @param $target_table
+     * @param $what
+     * @param $move
+     * @param $mode
+     * @return bool
      */
     static public function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
     {
@@ -1009,10 +1023,10 @@ class PMA_Table
     /**
      * renames table
      *
-     * @param   string  new table name
-     * @param   string  new database name
-     * @param   boolean is this for a VIEW rename?
-     * @return  boolean success
+     * @param   string  $new_name  new table name
+     * @param   string  $new_db    new database name
+     * @param   bool    $is_view   is this for a VIEW rename?
+     * @return  bool success
      */
     function rename($new_name, $new_db = null, $is_view = false)
     {
@@ -1142,14 +1156,14 @@ class PMA_Table
      * returns an array with all columns with unqiue content, in fact these are
      * all columns being single indexed in PRIMARY or UNIQUE
      *
-     * f.e.
+     * e.g.
      *  - PRIMARY(id) // id
      *  - UNIQUE(name) // name
      *  - PRIMARY(fk_id1, fk_id2) // NONE
      *  - UNIQUE(x,y) // NONE
      *
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param  bool  $backquoted  whether to quote name with backticks ``
      * @return array
      */
     public function getUniqueColumns($backquoted = true)
@@ -1173,9 +1187,10 @@ class PMA_Table
      *
      * returns an array with all columns make use of an index, in fact only
      * first columns in an index
+     * 
+     * e.g. index(col1, col2) would only return col1
      *
-     * f.e. index(col1, col2) would only return col1
-     * @param   boolean whether to quote name with backticks ``
+     * @param  bool  $backquoted  whether to quote name with backticks ``
      * @return array
      */
     public function getIndexedColumns($backquoted = true)
@@ -1196,7 +1211,7 @@ class PMA_Table
      *
      * returns an array with all columns
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param   bool  $backquoted  whether to quote name with backticks ``
      * @return array
      */
     public function getColumns($backquoted = true)
@@ -1240,7 +1255,6 @@ class PMA_Table
 
     /**
      * Save this table's UI preferences into phpMyAdmin database.
-     *
      *
      * @return true|PMA_Message
      */
@@ -1391,6 +1405,7 @@ class PMA_Table
      * Remove a property from UI preferences.
      *
      * @param string $property
+     * @return true|PMA_Message
      */
     public function removeUiProp($property)
     {
@@ -1405,6 +1420,7 @@ class PMA_Table
                 return $this->saveUiprefsToDb();
             }
         }
+        return true;
     }
 }
 ?>
