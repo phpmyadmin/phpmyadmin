@@ -243,8 +243,8 @@ class Table_Stats
         // x and y
         $sql = 'SELECT x, y FROM '
          . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+         . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+         . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
@@ -469,8 +469,6 @@ class Relation_Stats
  * to this class
  *
  * @name Visio_Relation_Schema
- * @copyright
- * @license
  */
 class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
 {

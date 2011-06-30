@@ -317,8 +317,6 @@ class PMA_SVG extends XMLWriter
  * and helps in drawing/generating the Tables in SVG XML document.
  *
  * @name Table_Stats
- * @copyright
- * @license
  * @see PMA_SVG
  */
 class Table_Stats
@@ -399,8 +397,8 @@ class Table_Stats
         // x and y
         $sql = 'SELECT x, y FROM '
          . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+         . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+         . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
@@ -527,8 +525,6 @@ class Table_Stats
  * in SVG XML document.
  *
  * @name Relation_Stats
- * @copyright
- * @license
  * @see PMA_SVG::printElementLine
  */
 class Relation_Stats
@@ -691,8 +687,6 @@ class Relation_Stats
  * to this class
  *
  * @name Svg_Relation_Schema
- * @copyright
- * @license
  */
 class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 {

@@ -72,7 +72,10 @@ class PMA_Table
     }
 
     /**
+     * returns table name
+     *
      * @see PMA_Table::getName()
+     * @return  string  table name
      */
     function __toString()
     {
@@ -92,7 +95,6 @@ class PMA_Table
     /**
      * sets table name
      *
-     * @uses    $this->name to set it
      * @param   string  $table_name new table name
      */
     function setName($table_name)
@@ -103,8 +105,7 @@ class PMA_Table
     /**
      * returns table name
      *
-     * @uses    $this->name as return value
-     * @param   boolean whether to quote name with backticks ``
+     * @param   boolean $backquoted whether to quote name with backticks ``
      * @return  string  table name
      */
     function getName($backquoted = false)
@@ -118,7 +119,6 @@ class PMA_Table
     /**
      * sets database name for this table
      *
-     * @uses    $this->db_name  to set it
      * @param   string  $db_name
      */
     function setDbName($db_name)
@@ -129,8 +129,7 @@ class PMA_Table
     /**
      * returns database name for this table
      *
-     * @uses    $this->db_name  as return value
-     * @param   boolean whether to quote name with backticks ``
+     * @param   boolean $backquoted whether to quote name with backticks ``
      * @return  string  database name for this table
      */
     function getDbName($backquoted = false)
@@ -144,7 +143,8 @@ class PMA_Table
     /**
      * returns full name for table, including database name
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param   boolean $backquoted whether to quote name with backticks ``
+     * @return string
      */
     function getFullName($backquoted = false)
     {
@@ -157,19 +157,14 @@ class PMA_Table
             return PMA_Table::_isView($db, $table);
         }
 
-        if (isset($this) && strpos($this->get('TABLE TYPE'), 'VIEW')) {
-            return true;
-        }
-
         return false;
     }
 
     /**
      * sets given $value for given $param
      *
-     * @uses    $this->settings to add or change value
-     * @param   string  param name
-     * @param   mixed   param value
+     * @param string $param name
+     * @param mixed  $value value
      */
     function set($param, $value)
     {
@@ -179,8 +174,7 @@ class PMA_Table
     /**
      * returns value for given setting/param
      *
-     * @uses    $this->settings to return value
-     * @param   string  name for value to return
+     * @param   string $param name for value to return
      * @return  mixed   value for $param
      */
     function get($param)
@@ -195,6 +189,8 @@ class PMA_Table
     /**
      * loads structure data
      * (this function is work in progress? not yet used)
+     *
+     * @return boolean
      */
     function loadStructure()
     {
@@ -221,6 +217,7 @@ class PMA_Table
                 $this->set($$each_create_option[0], $each_create_option[1]);
             }
         }
+        return true;
     }
 
     /**
@@ -228,12 +225,9 @@ class PMA_Table
      *
      * @deprecated
      * @todo see what we could do with the possible existence of $table_is_view
-     * @param   string   the database name
-     * @param   string   the table name
-     *
+     * @param   string $db  the database name
+     * @param   string $table  the table name
      * @return  boolean  whether this is a view
-     *
-     * @access  public
      */
     static protected function _isView($db, $table)
     {
@@ -252,21 +246,16 @@ class PMA_Table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias), this is a merge table.
      *
-     * @param   string   the database name
-     * @param   string   the table name
+     * @param   string  $db the database name
+     * @param   string  $table the table name
      * @return  boolean  true if it is a merge table
-     * @access  public
      */
     static public function isMerge($db = null, $table = null)
     {
+        $engine = null;
         // if called static, with parameters
         if (! empty($db) && ! empty($table)) {
             $engine = PMA_Table::sGetStatusInfo($db, $table, 'ENGINE', null, true);
-        }
-        // if called as an object
-        // does not work yet, because $this->settings[] is not filled correctly
-        else if (! empty($this)) {
-            $engine = $this->get('ENGINE');
         }
 
         return (! empty($engine) && ((strtoupper($engine) == 'MERGE') || (strtoupper($engine) == 'MRG_MYISAM')));
@@ -288,7 +277,7 @@ class PMA_Table
      * @param string $table
      * @param string $info
      * @param boolean $force_read
-     * @param boolean if true, disables error message
+     * @param boolean $disable_error if true, disables error message
      * @return mixed
      */
     static public function sGetStatusInfo($db, $table, $info = null, $force_read = false, $disable_error = false)
@@ -319,21 +308,19 @@ class PMA_Table
     }
 
     /**
-     * generates column/field specification for ALTER or CREATE TABLE syntax
+     * generates column specification for ALTER or CREATE TABLE syntax
      *
      * @todo    move into class PMA_Column
-     * @todo on the interface, some js to clear the default value when the default
-     * current_timestamp is checked
-     * @static
+     * @todo on the interface, some js to clear the default value when the default current_timestamp is checked
      * @param   string  $name       name
      * @param   string  $type       type ('INT', 'VARCHAR', 'BIT', ...)
      * @param   string  $length     length ('2', '5,2', '', ...)
      * @param   string  $attribute
      * @param   string  $collation
-     * @param   string  $null       with 'NULL' or 'NOT NULL'
+     * @param   bool|string $null with 'NULL' or 'NOT NULL'
      * @param   string  $default_type   whether default is CURRENT_TIMESTAMP,
      *                                  NULL, NONE, USER_DEFINED
-     * @param   boolean $default_value  default value for USER_DEFINED default type
+     * @param   string  $default_value  default value for USER_DEFINED default type
      * @param   string  $extra      'AUTO_INCREMENT'
      * @param   string  $comment    field comment
      * @param   array   &$field_primary list of fields for PRIMARY KEY
@@ -343,10 +330,10 @@ class PMA_Table
     static function generateFieldSpec($name, $type, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary, $index, $default_orig = false)
+        &$field_primary, $index)
     {
 
-        $is_timestamp = strpos(' ' . strtoupper($type), 'TIMESTAMP') == 1;
+        $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
         /**
          * @todo include db-name
@@ -384,7 +371,7 @@ class PMA_Table
                 } elseif ($type == 'BIT') {
                     $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default_value) . '\'';
                 } else {
-                    $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default_value) . '\'';
+                    $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
                 }
                 break;
             case 'NULL' :
@@ -427,7 +414,7 @@ class PMA_Table
             } // end if (auto_increment)
         }
         if (!empty($comment)) {
-            $query .= " COMMENT '" . PMA_sqlAddslashes($comment) . "'";
+            $query .= " COMMENT '" . PMA_sqlAddSlashes($comment) . "'";
         }
         return $query;
     } // end function
@@ -438,14 +425,13 @@ class PMA_Table
      * Revision 13 July 2001: Patch for limiting dump size from
      * vinay@sanisoft.com & girish@sanisoft.com
      *
-     * @param   string   the current database name
-     * @param   string   the current table name
-     * @param   boolean  whether to force an exact count
+     * @param   string   $db           the current database name
+     * @param   string   $table        the current table name
+     * @param   bool     $force_exact  whether to force an exact count
+     * @param   bool     $is_view
      *
      * @return  mixed    the number of records if "retain" param is true,
      *                   otherwise true
-     *
-     * @access  public
      */
     static public function countRecords($db, $table, $force_exact = false, $is_view = null)
     {
@@ -510,7 +496,25 @@ class PMA_Table
     } // end of the 'PMA_Table::countRecords()' function
 
     /**
+     * Generates column specification for ALTER syntax
+     *
      * @see PMA_Table::generateFieldSpec()
+     * @param   string  $oldcol     old column name
+     * @param   string  $newcol     new column name
+     * @param   string  $type       type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param   string  $length     length ('2', '5,2', '', ...)
+     * @param   string  $attribute
+     * @param   string  $collation
+     * @param   bool|string $null with 'NULL' or 'NOT NULL'
+     * @param   string  $default_type   whether default is CURRENT_TIMESTAMP,
+     *                                  NULL, NONE, USER_DEFINED
+     * @param   string  $default_value  default value for USER_DEFINED default type
+     * @param   string  $extra      'AUTO_INCREMENT'
+     * @param   string  $comment    field comment
+     * @param   array   &$field_primary list of fields for PRIMARY KEY
+     * @param   string  $index
+     * @param   mixed   $default_orig
+     * @return  string  field specification
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
@@ -525,19 +529,15 @@ class PMA_Table
     /**
      * Inserts existing entries in a PMA_* table by reading a value from an old entry
      *
-     * @param   string  The array index, which Relation feature to check
-     *                  ('relwork', 'commwork', ...)
-     * @param   string  The array index, which PMA-table to update
-     *                  ('bookmark', 'relation', ...)
-     * @param   array   Which fields will be SELECT'ed from the old entry
-     * @param   array   Which fields will be used for the WHERE query
-     *                  (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param   array   Which fields will be used as new VALUES. These are the important
-     *                  keys which differ from the old entry.
-     *                  (array('FIELDNAME' => 'NEW FIELDVALUE'))
-
-     * @global  string  relation variable
-     *
+     * @global relation variable
+     * @param   string  $work          The array index, which Relation feature to check ('relwork', 'commwork', ...)
+     * @param   string  $pma_table     The array index, which PMA-table to update ('bookmark', 'relation', ...)
+     * @param   array   $get_fields    Which fields will be SELECT'ed from the old entry
+     * @param   array   $where_fields  Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
+     * @param   array   $new_fields    Which fields will be used as new VALUES. These are the important
+     *                                 keys which differ from the old entry.
+     *                                 (array('FIELDNAME' => 'NEW FIELDVALUE'))
+     * @return int|true
      */
     static public function duplicateInfo($work, $pma_table, $get_fields, $where_fields,
       $new_fields)
@@ -555,14 +555,14 @@ class PMA_Table
             $where_parts = array();
             foreach ($where_fields as $_where => $_value) {
                 $where_parts[] = PMA_backquote($_where) . ' = \''
-                    . PMA_sqlAddslashes($_value) . '\'';
+                    . PMA_sqlAddSlashes($_value) . '\'';
             }
 
             $new_parts = array();
             $new_value_parts = array();
             foreach ($new_fields as $_where => $_value) {
                 $new_parts[] = PMA_backquote($_where);
-                $new_value_parts[] = PMA_sqlAddslashes($_value);
+                $new_value_parts[] = PMA_sqlAddSlashes($_value);
             }
 
             $table_copy_query = '
@@ -580,7 +580,7 @@ class PMA_Table
                 $value_parts = array();
                 foreach ($table_copy_row as $_key => $_val) {
                     if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
-                        $value_parts[] = PMA_sqlAddslashes($_val);
+                        $value_parts[] = PMA_sqlAddSlashes($_val);
                     }
                 }
 
@@ -609,6 +609,14 @@ class PMA_Table
     /**
      * Copies or renames table
      *
+     * @param $source_db
+     * @param $source_table
+     * @param $target_db
+     * @param $target_table
+     * @param $what
+     * @param $move
+     * @param $mode
+     * @return bool
      */
     static public function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
     {
@@ -811,10 +819,10 @@ class PMA_Table
             // Move old entries from PMA-DBs to new table
             if ($GLOBALS['cfgRelation']['commwork']) {
                 $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
-                              . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\', '
-                              . '        db_name    = \'' . PMA_sqlAddslashes($target_db) . '\''
-                              . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                              . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                              . ' SET     table_name = \'' . PMA_sqlAddSlashes($target_table) . '\', '
+                              . '        db_name    = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                              . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                              . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                 PMA_query_as_controluser($remove_query);
                 unset($remove_query);
             }
@@ -824,28 +832,28 @@ class PMA_Table
 
             if ($GLOBALS['cfgRelation']['displaywork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info'])
-                                . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\', '
-                                . '         table_name = \'' . PMA_sqlAddslashes($target_table) . '\''
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                                . ' SET     db_name = \'' . PMA_sqlAddSlashes($target_db) . '\', '
+                                . '         table_name = \'' . PMA_sqlAddSlashes($target_table) . '\''
+                                . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                                . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
             }
 
             if ($GLOBALS['cfgRelation']['relwork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
-                                . ' SET     foreign_table = \'' . PMA_sqlAddslashes($target_table) . '\','
-                                . '         foreign_db = \'' . PMA_sqlAddslashes($target_db) . '\''
-                                . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                                . ' AND foreign_table = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                                . ' SET     foreign_table = \'' . PMA_sqlAddSlashes($target_table) . '\','
+                                . '         foreign_db = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                                . ' WHERE foreign_db  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                                . ' AND foreign_table = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
 
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
-                                . ' SET     master_table = \'' . PMA_sqlAddslashes($target_table) . '\','
-                                . '         master_db = \'' . PMA_sqlAddslashes($target_db) . '\''
-                                . ' WHERE master_db  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                                . ' AND master_table = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                                . ' SET     master_table = \'' . PMA_sqlAddSlashes($target_table) . '\','
+                                . '         master_db = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                                . ' WHERE master_db  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                                . ' AND master_table = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
             }
@@ -859,24 +867,24 @@ class PMA_Table
 
             if ($GLOBALS['cfgRelation']['pdfwork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
-                                . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\','
-                                . '         db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                                . ' SET     table_name = \'' . PMA_sqlAddSlashes($target_table) . '\','
+                                . '         db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                                . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                                . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
                 /*
                 $pdf_query = 'SELECT pdf_page_number '
                            . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
-                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($target_db) . '\''
-                           . ' AND table_name = \'' . PMA_sqlAddslashes($target_table) . '\'';
+                           . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                           . ' AND table_name = \'' . PMA_sqlAddSlashes($target_table) . '\'';
                 $pdf_rs = PMA_query_as_controluser($pdf_query);
 
                 while ($pdf_copy_row = PMA_DBI_fetch_assoc($pdf_rs)) {
                     $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                                    . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
-                                    . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                                    . ' AND page_nr = \'' . PMA_sqlAddslashes($pdf_copy_row['pdf_page_number']) . '\'';
+                                    . ' SET     db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                                    . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                                    . ' AND page_nr = \'' . PMA_sqlAddSlashes($pdf_copy_row['pdf_page_number']) . '\'';
                     $tb_rs    = PMA_query_as_controluser($table_query);
                     unset($table_query);
                     unset($tb_rs);
@@ -886,10 +894,10 @@ class PMA_Table
 
             if ($GLOBALS['cfgRelation']['designerwork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords'])
-                                . ' SET     table_name = \'' . PMA_sqlAddslashes($target_table) . '\','
-                                . '         db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($source_db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                                . ' SET     table_name = \'' . PMA_sqlAddSlashes($target_table) . '\','
+                                . '         db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                                . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                                . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
             }
@@ -906,8 +914,8 @@ class PMA_Table
                                                 column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
                                             FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
                                             WHERE
-                                                db_name = \'' . PMA_sqlAddslashes($source_db) . '\' AND
-                                                table_name = \'' . PMA_sqlAddslashes($source_table) . '\'';
+                                                db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
+                                                table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                     $comments_copy_rs    = PMA_query_as_controluser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
@@ -915,13 +923,13 @@ class PMA_Table
                         $new_comment_query = 'REPLACE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
                                     . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
-                                    . '\'' . PMA_sqlAddslashes($target_db) . '\','
-                                    . '\'' . PMA_sqlAddslashes($target_table) . '\','
-                                    . '\'' . PMA_sqlAddslashes($comments_copy_row['column_name']) . '\''
-                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
-                                            . '\'' . PMA_sqlAddslashes($comments_copy_row['mimetype']) . '\','
-                                            . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation']) . '\','
-                                            . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation_options']) . '\'' : '')
+                                    . '\'' . PMA_sqlAddSlashes($target_db) . '\','
+                                    . '\'' . PMA_sqlAddSlashes($target_table) . '\','
+                                    . '\'' . PMA_sqlAddSlashes($comments_copy_row['column_name']) . '\''
+                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_sqlAddSlashes($comments_copy_row['comment']) . '\','
+                                            . '\'' . PMA_sqlAddSlashes($comments_copy_row['mimetype']) . '\','
+                                            . '\'' . PMA_sqlAddSlashes($comments_copy_row['transformation']) . '\','
+                                            . '\'' . PMA_sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
                                     . ')';
                         PMA_query_as_controluser($new_comment_query);
                     } // end while
@@ -1014,10 +1022,10 @@ class PMA_Table
     /**
      * renames table
      *
-     * @param   string  new table name
-     * @param   string  new database name
-     * @param   boolean is this for a VIEW rename?
-     * @return  boolean success
+     * @param   string  $new_name  new table name
+     * @param   string  $new_db    new database name
+     * @param   bool    $is_view   is this for a VIEW rename?
+     * @return  bool success
      */
     function rename($new_name, $new_db = null, $is_view = false)
     {
@@ -1071,10 +1079,10 @@ class PMA_Table
             $remove_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
             PMA_query_as_controluser($remove_query);
             unset($remove_query);
         }
@@ -1083,10 +1091,10 @@ class PMA_Table
             $table_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['table_info']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
             PMA_query_as_controluser($table_query);
             unset($table_query);
         }
@@ -1095,19 +1103,19 @@ class PMA_Table
             $table_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
-                   SET `foreign_db`    = \'' . PMA_sqlAddslashes($new_db) . '\',
-                       `foreign_table` = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE `foreign_db`    = \'' . PMA_sqlAddslashes($old_db) . '\'
-                   AND `foreign_table` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                   SET `foreign_db`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
+                       `foreign_table` = \'' . PMA_sqlAddSlashes($new_name) . '\'
+                 WHERE `foreign_db`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
+                   AND `foreign_table` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
             PMA_query_as_controluser($table_query);
 
             $table_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
-                   SET `master_db`    = \'' . PMA_sqlAddslashes($new_db) . '\',
-                       `master_table` = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE `master_db`    = \'' . PMA_sqlAddslashes($old_db) . '\'
-                   AND `master_table` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                   SET `master_db`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
+                       `master_table` = \'' . PMA_sqlAddSlashes($new_name) . '\'
+                 WHERE `master_db`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
+                   AND `master_table` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
             PMA_query_as_controluser($table_query);
             unset($table_query);
         }
@@ -1116,10 +1124,10 @@ class PMA_Table
             $table_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['table_coords']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
             PMA_query_as_controluser($table_query);
             unset($table_query);
         }
@@ -1128,10 +1136,10 @@ class PMA_Table
             $table_query = '
                 UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
                     . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddslashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddslashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddslashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddslashes($old_name) . '\'';
+                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
+                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
+                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
+                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
             PMA_query_as_controluser($table_query);
             unset($table_query);
         }
@@ -1147,14 +1155,14 @@ class PMA_Table
      * returns an array with all columns with unqiue content, in fact these are
      * all columns being single indexed in PRIMARY or UNIQUE
      *
-     * f.e.
+     * e.g.
      *  - PRIMARY(id) // id
      *  - UNIQUE(name) // name
      *  - PRIMARY(fk_id1, fk_id2) // NONE
      *  - UNIQUE(x,y) // NONE
      *
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param  bool  $backquoted  whether to quote name with backticks ``
      * @return array
      */
     public function getUniqueColumns($backquoted = true)
@@ -1178,9 +1186,10 @@ class PMA_Table
      *
      * returns an array with all columns make use of an index, in fact only
      * first columns in an index
+     * 
+     * e.g. index(col1, col2) would only return col1
      *
-     * f.e. index(col1, col2) would only return col1
-     * @param   boolean whether to quote name with backticks ``
+     * @param  bool  $backquoted  whether to quote name with backticks ``
      * @return array
      */
     public function getIndexedColumns($backquoted = true)
@@ -1201,7 +1210,7 @@ class PMA_Table
      *
      * returns an array with all columns
      *
-     * @param   boolean whether to quote name with backticks ``
+     * @param   bool  $backquoted  whether to quote name with backticks ``
      * @return array
      */
     public function getColumns($backquoted = true)
@@ -1220,9 +1229,6 @@ class PMA_Table
     /**
      * Return UI preferences for this table from phpMyAdmin database.
      *
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_array()
-     * @uses json_decode()
      *
      * @return array
      */
@@ -1249,10 +1255,6 @@ class PMA_Table
     /**
      * Save this table's UI preferences into phpMyAdmin database.
      *
-     * @uses PMA_DBI_try_query()
-     * @uses json_decode()
-     * @uses PMA_Message
-     *
      * @return true|PMA_Message
      */
     protected function saveUiPrefsToDb()
@@ -1264,7 +1266,7 @@ class PMA_Table
         $sql_query =
         " REPLACE INTO " . $pma_table .
         " VALUES ('" . $username . "', '" . $this->db_name . "', '" .
-                       $this->name . "', '" . PMA_sqlAddslashes(json_encode($this->uiprefs)) . "')";
+                       $this->name . "', '" . PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -1282,7 +1284,6 @@ class PMA_Table
      * If pmadb and table_uiprefs is set, it will load the UI preferences from
      * phpMyAdmin database.
      *
-     * @uses getUiPrefsFromDb()
      */
     protected function loadUiPrefs()
     {
@@ -1305,7 +1306,6 @@ class PMA_Table
      * - PROP_SORTED_COLUMN
      * - PROP_COLUMN_ORDER
      *
-     * @uses loadUiPrefs()
      *
      * @param string $property
      * @return mixed
@@ -1338,7 +1338,7 @@ class PMA_Table
         } else if ($property == self::PROP_COLUMN_ORDER) {
             if (isset($this->uiprefs[$property])) {
                 // check if the table has not been modified
-                if (self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME') ==
+                if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') ==
                         $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
@@ -1374,7 +1374,7 @@ class PMA_Table
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if ($property == self::PROP_COLUMN_ORDER) {
-            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'Create_time');
             if (isset($table_create_time) &&
                     $table_create_time == $curr_create_time) {
                 $this->uiprefs['CREATE_TIME'] = $curr_create_time;
@@ -1399,6 +1399,7 @@ class PMA_Table
      * Remove a property from UI preferences.
      *
      * @param string $property
+     * @return true|PMA_Message
      */
     public function removeUiProp($property)
     {
@@ -1413,6 +1414,7 @@ class PMA_Table
                 return $this->saveUiprefsToDb();
             }
         }
+        return true;
     }
 }
 ?>

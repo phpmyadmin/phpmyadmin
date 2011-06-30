@@ -8,33 +8,6 @@
  *
  * @todo 'edit_next' tends to not work as expected if used ... at least there is no order by
  *       it needs the original query and the row number and than replace the LIMIT clause
- * @uses    PMA_checkParameters()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_get_fields_meta()
- * @uses    PMA_DBI_free_result()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_getError()
- * @uses    PMA_DBI_affected_rows()
- * @uses    PMA_DBI_insert_id()
- * @uses    PMA_backquote()
- * @uses    PMA_getUniqueCondition()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_securePath()
- * @uses    PMA_sendHeaderLocation()
- * @uses    str_replace()
- * @uses    count()
- * @uses    file_exists()
- * @uses    strlen()
- * @uses    str_replace()
- * @uses    preg_replace()
- * @uses    is_array()
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['goto']
- * @uses    $GLOBALS['sql_query']
- * @uses    PMA_File::getRecentBLOBReference()
  * @package phpMyAdmin
  */
 
@@ -267,7 +240,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
                 // if the most recent BLOB reference exists, set it as a field value
                 if (!is_null($bs_reference)) {
-                    $val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+                    $val = "'" . PMA_sqlAddSlashes($bs_reference) . "'";
                 }
             }
         }
@@ -314,7 +287,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
         } elseif (empty($me_funcs[$key])
          && isset($me_fields_prev[$key])
-         && ("'" . PMA_sqlAddslashes($me_fields_prev[$key]) . "'" == $val)) {
+         && ("'" . PMA_sqlAddSlashes($me_fields_prev[$key]) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
         } elseif (! empty($val)) {

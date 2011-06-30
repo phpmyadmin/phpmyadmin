@@ -23,16 +23,6 @@ $GLOBALS['script_display_field'] =
 /**
  * retrieves table info and stores it in $GLOBALS['PMD']
  *
- * @uses    $GLOBALS['script_display_field']
- * @uses    $GLOBALS['PMD'] to fill it
- * @uses    $GLOBALS['db']
- * @uses    PMA_DBI_get_tables_full()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_getDisplayField()
- * @uses    urlencode()
- * @uses    htmlspecialchars()
- * @uses    strtoupper()
- * @uses    urlencode()
  */
 function get_tabs()
 {
@@ -78,13 +68,6 @@ function get_tabs()
 /**
  * retrieves table column info
  *
- * @uses    $GLOBALS['db']
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_backquote()
- * @uses    count()
  * @return  array   table column nfo
  */
 function get_tab_info()
@@ -108,16 +91,6 @@ function get_tab_info()
 /**
  * returns JavaScript code for intializing vars
  *
- * @uses    $GLOBALS['db']
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_query()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_getForeigners()
- * @uses    urlencode()
- * @uses    count()
- * @uses    in_array()
  * @return string   JavaScript code
  */
 function get_script_contr()
@@ -184,7 +157,6 @@ function get_script_contr()
 }
 
 /**
- * @uses    get_all_keys()
  * @return  array unique or primary indizes
  */
 function get_pk_or_unique_keys()
@@ -195,10 +167,6 @@ function get_pk_or_unique_keys()
 /**
  * returns all indizes
  *
- * @uses    $GLOBALS['PMD']
- * @uses    PMA_Index::getFromTable()
- * @uses    PMA_Index->isUnique()
- * @uses    PMA_Index->getColumns()
  * @param   boolean whether to include ony unique ones
  * @return  array indizes
  */
@@ -227,9 +195,6 @@ function get_all_keys($unique_only = false)
 /**
  *
  *
- * @uses    $GLOBALS['PMD']
- * @uses    count()
- * @uses    in_array()
  * @return  array   ???
  */
 function get_script_tabs()
@@ -251,15 +216,6 @@ function get_script_tabs()
 }
 
 /**
- * @uses    $GLOBALS['controllink']
- * @uses    $cfgRelation['designerwork']
- * @uses    $cfgRelation['db']
- * @uses    $cfgRelation['designer_coords']
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_fetch_result()
- * @uses    count()
  * @return  array   table positions and sizes
  */
 function get_tab_pos()
@@ -284,9 +240,6 @@ function get_tab_pos()
 /**
  * returns  distinct values from $GLOBALS['PMD']['OWNER']
  *
- * @uses    array_values()
- * @uses    array_unique()
- * @uses    $GLOBALS['PMD']['OWNER']
  * @return  array   owner
  */
 function get_owners()

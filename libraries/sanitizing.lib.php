@@ -18,8 +18,6 @@
  *
  * <a title="<?php echo PMA_sanitize($foo, true); ?>">bar</a>
  *
- * @uses    preg_replace()
- * @uses    strtr()
  * @param   string   the message
  * @param   boolean  whether to escape html in result
  *

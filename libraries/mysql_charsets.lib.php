@@ -153,10 +153,6 @@ function PMA_generateCharsetQueryPart($collation) {
 /**
  * returns collation of given db
  *
- * @uses    PMA_DBI_fetch_value()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_sqlAddSlashes()
- * @uses    $GLOBALS['db']
  * @param   string  $db     name of db
  * @return  string  collation of $db
  */
@@ -183,7 +179,6 @@ function PMA_getDbCollation($db) {
 /**
  * returns default server collation from show variables
  *
- * @uses    PMA_DBI_fetch_value()
  * @return  string  $server_collation
  */
 function PMA_getServerCollation() {
@@ -194,9 +189,6 @@ function PMA_getServerCollation() {
 /**
  * returns description for given collation
  *
- * @uses    is_array()
- * @uses    explode()
- * @uses    count()
  *
  * @param   string  $collation  MySQL collation string
  * @return  string  collation description

@@ -44,12 +44,12 @@ if ($try_to_delete_internal_relation) {
     PMA_query_as_controluser('DELETE FROM '
               . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
               . $cfg['Server']['relation'].' WHERE '
-              . 'master_db = \'' . PMA_sqlAddslashes($DB2) . '\''
-              . ' AND master_table = \'' . PMA_sqlAddslashes($T2) . '\''
-              . ' AND master_field = \'' . PMA_sqlAddslashes($F2) . '\''
-              . ' AND foreign_db = \'' . PMA_sqlAddslashes($DB1) . '\''
-              . ' AND foreign_table = \'' . PMA_sqlAddslashes($T1) . '\''
-              . ' AND foreign_field = \'' . PMA_sqlAddslashes($F1) . '\''
+              . 'master_db = \'' . PMA_sqlAddSlashes($DB2) . '\''
+              . ' AND master_table = \'' . PMA_sqlAddSlashes($T2) . '\''
+              . ' AND master_field = \'' . PMA_sqlAddSlashes($F2) . '\''
+              . ' AND foreign_db = \'' . PMA_sqlAddSlashes($DB1) . '\''
+              . ' AND foreign_table = \'' . PMA_sqlAddSlashes($T1) . '\''
+              . ' AND foreign_field = \'' . PMA_sqlAddSlashes($F1) . '\''
               , false, PMA_DBI_QUERY_STORE);
 }
 PMD_return_upd(1, __('Relation deleted'));
