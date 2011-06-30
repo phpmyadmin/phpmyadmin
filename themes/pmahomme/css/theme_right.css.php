@@ -1263,6 +1263,34 @@ ul#chartGrid li {
 	background: #EBEBEB;
 }
 
+div#statustabs_charting div.popupMenu {
+	float:<?php echo $right; ?>;
+}
+
+.popupMenu {
+	position:relative;
+}
+
+.popupContent {
+	display: none;
+	position: absolute;
+	right: 0px;
+	border: 1px solid #CCC;
+	margin:0;
+	padding:3px;
+    -moz-box-shadow:    1px 1px 6px #ddd;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow:         2px 2px 3px #666;
+	background-color:white;
+}
+
+.popupContent li {
+	display: inline;
+	white-space: nowrap;
+	margin:0; 
+	list-style-type:none;
+}
+
 /* end serverstatus */
 
 /* server variables */

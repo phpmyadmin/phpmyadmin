@@ -432,21 +432,7 @@ echo __('Runtime Information');
                 </a>
                 <span class="refreshList" style="display:none;">
                     <label for="trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
-                    <select name="trafficChartRefresh">
-                        <?php
-                            $defaultRate = 5;
-                            $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600);
-                            
-                            foreach($refreshRates as $rate) {
-                                $selected = ($rate == $defaultRate)?' selected="selected"':'';
-                                
-                                if($rate<60)
-                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
-                                else
-                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';
-                            }
-                        ?>
-                    </select>
+                    <?php refreshList('trafficChartRefresh'); ?>
                 </span>
                 <a class="tabChart livetrafficLink" href="#">
                     <?php echo __('Live traffic chart'); ?>
@@ -469,21 +455,7 @@ echo __('Runtime Information');
                 </a>
                 <span class="refreshList" style="display:none;">
                     <label for="queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
-                    <select name="queryChartRefresh">
-                        <?php
-                            $defaultRate = 5;
-                            $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600);
-                            
-                            foreach($refreshRates as $rate) {
-                                $selected = ($rate == $defaultRate)?' selected="selected"':'';
-                                
-                                if($rate<60)
-                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
-                                else
-                                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';
-                            }
-                        ?>
-                    </select>
+                       <?php refreshList('queryChartRefresh'); ?>
                 </span>
                 <a class="tabChart livequeriesLink" href="#">
                     <?php echo __('Live query chart'); ?>
@@ -551,8 +523,18 @@ echo __('Runtime Information');
         </div>
         
         <div id="statustabs_charting">
-            <div class="buttonlinks">
-                <a href="#addNewChart">Add chart</a></li>
+            <div class="popupMenu">
+                <a href="#popupLink"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/></a>
+                <ul class="popupContent">
+                    <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
+                    <li>
+                        Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
+                    </li>
+                    <li> Chart size: <br>
+                    <input type="text" name="width" size="3" value="350"> x <input type="text" size="3" name="height" value="350"> 
+                    <input type="submit" name="setSize" value="Set">
+                    </li>
+                </ul>
             </div>
             <div id="addChartDialog" title="Add chart" style="display:none;">
                 <div id="tabGridVariables">
@@ -1193,6 +1175,23 @@ function printVariablesTable() {
     </tbody>
     </table>
     <?php
+}
+
+function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)) {
+?>
+    <select name="<?php echo $name; ?>">
+        <?php
+            foreach($refreshRates as $rate) {
+                $selected = ($rate == $defaultRate)?' selected="selected"':'';
+                
+                if($rate<60)
+                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
+                else
+                    echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';
+            }
+        ?>
+    </select>
+<?php
 }
 
 /**

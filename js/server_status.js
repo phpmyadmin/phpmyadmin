@@ -40,6 +40,22 @@ $(function() {
         },
         type: "numeric"
     });
+
+    
+    // Popup behaviour
+    $('div.popupMenu a[href="#popupLink"]').click( function() {
+        $(this).parent().find('.popupContent').show();
+        return false;
+    });
+    
+    $(document).click( function(event) {
+        var $cnt = $('div.popupMenu .popupContent');
+        var pos = $cnt.offset();
+        
+        // Hide if the mouseclick is outside the popupcontent
+        if(event.pageX < pos.left || event.pageY < pos.top || event.pageX > pos.left + $cnt.outerWidth() || event.pageY > pos.top + $cnt.outerHeight())
+            $cnt.hide();
+    });
 });
 
 $(function() {
@@ -484,7 +500,34 @@ $(function() {
     
     
     
-    /**** Table charting implementation ****/
+    /**** Grid/Table charting implementation ****/
+    
+    // global settings
+    $('div#statustabs_charting div.popupMenu input[name="setSize"]').click(function() {
+        chartSize = {
+            width: parseInt($('div#statustabs_charting div.popupMenu input[name="width"]').attr('value')) || 300,
+            height: parseInt($('div#statustabs_charting div.popupMenu input[name="height"]').attr('value')) || 300
+        };
+        
+        $.each(chartGrid, function(key, value) {
+            value.chart.setSize(chartSize.width, chartSize.height);
+        });
+    });
+    
+    $('div#statustabs_charting div.popupMenu select[name="gridChartRefresh"]').change(function() {
+        gridRefresh = this.value * 1000;
+        clearTimeout(refreshTimeout);
+        
+        $.each(chartGrid, function(key, value) {
+            value.chart.xAxis[0].setExtremes(
+                new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
+                new Date().getTime() - server_time_diff + gridRefresh,
+                true
+            );
+        });
+        
+        refreshTimeout = setTimeout(refreshChartGrid, gridRefresh);
+    });
     
     Highcharts.setOptions({
         lang: {
@@ -623,6 +666,8 @@ $(function() {
     // Chart auto increment
     var chartAI = 0;
     
+    var chartSize = { width: 300, height: 300 };
+    
     // Default setting
     chartGrid = {
         '0': {  title: 'Questions',
@@ -668,8 +713,8 @@ $(function() {
         settings = {
             chart: {
                 renderTo: 'gridchart' + chartAI,
-                width: 350,
-                height: 350
+                width: chartSize.width,
+                height: chartSize.height
             },
             xAxis: {
                 min: new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
