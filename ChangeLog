@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.3.1 (not yet released)
+- [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
+
 3.4.3.0 (2011-06-27)
 - bug #3311170 [sync] Missing helper icons in Synchronize
 - patch #3304473 [setup] Redefine a lable that was wrong
