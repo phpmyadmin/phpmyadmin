@@ -1049,7 +1049,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
         }
     }
 
-    return $column ? array_pop($fields) : $fields;
+    return $column ? array_shift($fields) : $fields;
 }
 
 /**
