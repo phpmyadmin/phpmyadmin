@@ -2202,3 +2202,43 @@ span.mysql-number {
 .showAllColBtn:hover {
     background: #DDD;
 }
+
+.navigation {
+    background: #E5E5E5;
+    border: 1px solid black;
+    margin: 0.8em 0;
+}
+
+.navigation td {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.navigation_separator {
+    color: #555;
+    display: inline-block;
+    text-align: center;
+    width: 1.2em;
+    text-shadow: 1px 0 #FFF;
+}
+
+.navigation input[type=submit] {
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0.3em 0.5em;
+    min-width: 2.5em;
+    font-weight: bold;
+}
+
+.navigation input[type=submit]:hover {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.navigation select {
+    margin: 0 0.8em;
+}

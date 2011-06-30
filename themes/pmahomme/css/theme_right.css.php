@@ -2563,3 +2563,64 @@ span.mysql-number {
 .showAllColBtn:hover {
     background: #DDD;
 }
+
+.navigation {
+    background: #E5E5E5;
+    margin: 0.8em 0;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    
+    background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
+    background-size: 100% 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
+    background: -moz-linear-gradient(top,  #eeeeee,  #cccccc);
+    background: -o-linear-gradient(top,  #eeeeee,  #cccccc);
+    <?php echo PMA_ieFilter('#eeeeee', '#cccccc'); ?>
+}
+
+.navigation td {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.navigation_separator {
+    color: #999;
+    display: inline-block;
+    font-size: 1.5em;
+    text-align: center;
+    height: 1.4em;
+    width: 1.2em;
+    text-shadow: 1px 0 #FFF;
+}
+
+.navigation input[type=submit] {
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0.8em 0.5em;
+    min-width: 2.5em;
+
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.navigation input[type=submit]:hover {
+    color: white;
+    cursor: pointer;
+    text-shadow: none;
+
+    background-image: url(./themes/svg_gradient.php?from=333333&to=555555);
+    background-size: 100% 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#555555));
+    background: -moz-linear-gradient(top,  #333333,  #555555);
+    background: -o-linear-gradient(top,  #333333,  #555555);
+}
+
+.navigation select {
+    margin: 0 0.8em;
+}

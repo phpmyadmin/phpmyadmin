@@ -293,8 +293,9 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     ?>
 
 <!-- Navigation bar -->
-<table border="0" cellpadding="2" cellspacing="0" class="navigation">
+<table border="0" cellpadding="0" cellspacing="0" class="navigation">
 <tr>
+    <td class="navigation_separator"></td>
     <?php
     // Move to the beginning or to the previous page
     if ($_SESSION['tmp_user_values']['pos'] && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
@@ -330,8 +331,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
                     5,
                     5,
                     20,
-                    10,
-                    __('Page number:')
+                    10
             );
         ?>
         </form>
@@ -344,16 +344,16 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     if ($GLOBALS['cfg']['ShowAll'] && ($num_rows < $unlim_num_rows)) {
         echo "\n";
         ?>
-<td>
-    <form action="sql.php" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="pos" value="0" />
-        <input type="hidden" name="session_max_rows" value="all" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo __('Show all'); ?>" />
-    </form>
-</td>
+    <td>
+        <form action="sql.php" method="post">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
+            <input type="hidden" name="pos" value="0" />
+            <input type="hidden" name="session_max_rows" value="all" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="submit" name="navig" value="<?php echo __('Show all'); ?>" />
+        </form>
+    </td>
         <?php
     } // end show all
 
@@ -386,9 +386,17 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             $onclick
             );
     } // end move toward
+
+    // show separator if pagination happen
+    if ($nbTotalPage > 1){
+        echo '<td><div class="navigation_separator">|</div></td>';
+    }
     ?>
     <td>
-        <input class="restore_column hide" type="submit" value="<?php echo __('Restore column order'); ?>" />
+        <div class="restore_column hide">
+            <input type="submit" value="<?php echo __('Restore column order'); ?>" />
+            <div class="navigation_separator">|</div>
+        </div>
         <?php
         if (PMA_isSelect()) {
             // generate the column order, if it is set
@@ -413,38 +421,40 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         echo '<input id="show_all_col_text" type="hidden" value="' . __('Show all') . '" />';
         ?>
     </td>
-</tr>
-</table>
 
 <?php // if displaying a VIEW, $unlim_num_rows could be zero because
       // of $cfg['MaxExactCountViews']; in this case, avoid passing
       // the 5th parameter to checkFormElementInRange()
       // (this means we can't validate the upper limit ?>
-<div>
-    <form action="sql.php" method="post"
-onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
-        <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
-        <?php echo __('row(s) starting from row #') . "\n"; ?>
-        <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
-    <?php
-    // Display mode (horizontal/vertical and repeat headers)
-    $choices = array(
-        'horizontal'        => __('horizontal'),
-        'horizontalflipped' => __('horizontal (rotated headers)'),
-        'vertical'          => __('vertical'));
-    $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
-    unset($choices);
+    <td class="navigation_goto">
+        <form action="sql.php" method="post"
+    onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
+            <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
+            <?php echo __('row(s) starting from row #') . "\n"; ?>
+            <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
+        <?php
+        // Display mode (horizontal/vertical and repeat headers)
+        $choices = array(
+            'horizontal'        => __('horizontal'),
+            'horizontalflipped' => __('horizontal (rotated headers)'),
+            'vertical'          => __('vertical'));
+        $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
+        unset($choices);
 
-    $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n"
-            . '           ';
-    echo '    ' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "\n";
-    ?>
-    </form>
-</div>
+        $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n"
+                . '           ';
+        echo '    ' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "\n";
+        ?>
+        </form>
+    </td>
+    <td class="navigation_separator"></td>
+</tr>
+</table>
+
     <?php
 } // end of the 'PMA_displayTableNavigation()' function
 
