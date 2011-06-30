@@ -10688,7 +10688,7 @@ msgstr "Criar versão %s de %s.%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
-msgstr "Rastrear estas declarações de definição de dados:"
+msgstr "Rastrear estas instruções de definição de dados:"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
