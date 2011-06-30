@@ -949,7 +949,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
  * @param   string  $table      name of table to retrieve columns from
  * @param   string  $column     name of column, null to show all columns
  * @param   boolean $full       whether to return full info or only column names
- * @return  array   column names
+ * @return  string
  */
 function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
 {
@@ -1010,7 +1010,7 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
  * @param   string  $column     name of column, null to show all columns
  * @param   boolean $full       whether to return full info or only column names
  * @param   mixed   $link       mysql link resource
- * @return  array   array indexed by column names or, if $column is given, flat array description
+ * @return  false|array   array indexed by column names or, if $column is given, flat array description
  */
 function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $link = null)
 {
