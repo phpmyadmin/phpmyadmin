@@ -23,8 +23,8 @@ function PMA_EVN_main()
     $items      = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;");
     $cols       = array(array('label'   => __('Name'),   'colspan' => 1, 'field'   => 'name'),
                         array('label'   => __('Action'), 'colspan' => 3, 'field'   => 'edit'),
-                        array(                           'colspan' => 1, 'field'   => 'export'),
-                        array(                           'colspan' => 1, 'field'   => 'drop'),
+                        array(                                           'field'   => 'export'),
+                        array(                                           'field'   => 'drop'),
                         array('label'   => __('Type'),   'colspan' => 1, 'field'   => 'type'));
     $header_arr = array('title'   => __('Events'),
                         'docu'    => 'EVENTS',

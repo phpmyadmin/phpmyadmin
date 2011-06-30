@@ -28,7 +28,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     if (PMA_currentUserHasPrivilege($priv, $db)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . strtolower($name) . "s.php";
-        $retval .= "?$url_query&amp;add" . strtolower($name) . "=1'>";
+        $retval .= "?$url_query&amp;add_item=1'>";
         $retval .= PMA_getIcon('b_' . strtolower($name) . '_add.png');
         $retval .= sprintf(__('Add %s'), $human_name) . "</a>\n";
     } else {

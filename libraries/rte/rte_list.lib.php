@@ -126,8 +126,8 @@ function PMA_RTN_getCellForList($field, $routine)
             && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
             && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
             $retval = '<a ' . $ajax_class['edit'] . ' href="db_routines.php?' . $url_query
-                            . '&amp;editroutine=1'
-                            . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                            . '&amp;edit_item=1'
+                            . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
                             . '">' . $titles['Edit'] . '</a>';
         }
         break;
@@ -136,7 +136,7 @@ function PMA_RTN_getCellForList($field, $routine)
             // Check if he routine has any input parameters. If it does,
             // we will show a dialog to get values for these parameters,
             // otherwise we can execute it directly.
-            $routine_details = PMA_RTN_getRoutineDataFromName($db, $routine['SPECIFIC_NAME'], false);
+            $routine_details = PMA_RTN_getRoutineDataFromName($routine['SPECIFIC_NAME'], false);
             if ($routine !== false) {
                 $execute_action = 'execute_routine';
                 for ($i=0; $i<$routine_details['num_params']; $i++) {
@@ -148,7 +148,7 @@ function PMA_RTN_getCellForList($field, $routine)
                 }
                 $retval = '<a ' . $ajax_class['exec']. ' href="db_routines.php?' . $url_query
                                 . '&amp;' . $execute_action . '=1'
-                                . '&amp;routine_name=' . urlencode($routine['SPECIFIC_NAME'])
+                                . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
                                 . '">' . $titles['Execute'] . '</a>';
             }
         }
@@ -190,7 +190,7 @@ function PMA_RTN_getCellForList($field, $routine)
  */
 function PMA_TRI_getCellForList($field, $trigger)
 {
-    global $ajax_class, $url_query, $db, $titles;
+    global $ajax_class, $url_query, $db, $table, $titles;
 
     switch ($field) {
     case 'name':
@@ -203,6 +203,12 @@ function PMA_TRI_getCellForList($field, $trigger)
         break;
     case 'edit':
         $retval = $titles['NoEdit'];
+        if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
+            $retval = '<a ' . $ajax_class['edit'] . ' href="db_triggers.php?' . $url_query
+                            . '&amp;edit_item=1'
+                            . '&amp;item_name=' . urlencode($trigger['name'])
+                            . '">' . $titles['Edit'] . '</a>';
+        }
         break;
     case 'export':
         $retval = '<a ' . $ajax_class['export'] . ' href="db_triggers.php?' . $url_query

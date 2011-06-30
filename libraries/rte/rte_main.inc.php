@@ -32,7 +32,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
     if (strlen($db)) {
         PMA_DBI_select_db($db);
         if (! isset($url_query)) {
-            $url_query = PMA_generate_common_url($db);
+            $url_query = PMA_generate_common_url($db, $table);
         }
     }
 }
@@ -54,10 +54,21 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
 }
 
 /**
+ * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
+ */
+$errors = array();
+
+/**
  * Check what main function to call by the constant set set earlier
  */
 switch (ITEM) {
 case 'triggers':
+    // Some definitions
+    $action_timings      = array('BEFORE',
+                                 'AFTER');
+    $event_manipulations = array('INSERT',
+                                 'UPDATE',
+                                 'DELETE');
 	PMA_TRI_main();
 	break;
 
