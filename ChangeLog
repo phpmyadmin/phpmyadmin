@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 3.4.3.1 (not yet released)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
 - [security] Fixed possible code injection incase session variables are compromised, see PMASA-2011-6
+- [security] Fixed regexp quoting issue in Synchronize code, see PMASA-2011-7
 
 3.4.3.0 (2011-06-27)
 - bug #3311170 [sync] Missing helper icons in Synchronize
