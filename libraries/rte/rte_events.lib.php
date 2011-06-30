@@ -20,7 +20,7 @@ function PMA_EVN_main()
     $human_name = __('event');
     $columns    = "`EVENT_NAME`, `EVENT_TYPE`";
     $where      = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
-    $items      = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;");
+    $items      = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where ORDER BY `EVENT_NAME` ASC;");
     $cols       = array(array('label'   => __('Name'),   'colspan' => 1, 'field'   => 'name'),
                         array('label'   => __('Action'), 'colspan' => 3, 'field'   => 'edit'),
                         array(                                           'field'   => 'export'),
