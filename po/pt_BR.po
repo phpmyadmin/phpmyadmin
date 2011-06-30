@@ -10687,6 +10687,7 @@ msgid "Create version %s of %s.%s"
 msgstr "Criar versão %s de %s.%s"
 
 #: tbl_tracking.php:724
+#, fuzzy
 msgid "Track these data definition statements:"
 msgstr "Rastrear estas instruções de definição de dados:"
 
