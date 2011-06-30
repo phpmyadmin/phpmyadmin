@@ -66,7 +66,7 @@ function PMA_TRI_handleEditor()
                 // Backup the old trigger, in case something goes wrong
                 $trigger = PMA_TRI_getDataFromName($_REQUEST['item_original_name']);
                 $create_item = $trigger['create'];
-                $drop_item = $trigger['drop'];
+                $drop_item = $trigger['drop'] . ';';
                 $result = PMA_DBI_try_query($drop_item);
                 if (! $result) {
                     $errors[] = sprintf(__('The following query has failed: "%s"'), $drop_item) . '<br />'
