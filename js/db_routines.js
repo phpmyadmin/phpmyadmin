@@ -332,6 +332,9 @@ $(document).ready(function() {
                                 }
                         });
                 $ajaxDialog.find('input[name=item_name]').focus();
+                $ajaxDialog.find('.datefield, .datetimefield').each(function() {
+                    PMA_addDatepicker($(this).css('width', '95%'));
+                });
                 /**
                  * @var    mode    Used to remeber whether the editor is in
                  *                 "Edit" or "Add" mode.
@@ -556,6 +559,9 @@ $(document).ready(function() {
                                     }
                             });
                     $ajaxDialog.find('input[name^=params]').first().focus();
+                    $ajaxDialog.find('.datefield, .datetimefield').each(function() {
+                        PMA_addDatepicker($(this).css('width', '95%'));
+                    });
                 } else {
                     // Routine executed successfully
                     PMA_slidingMessage(data.message);
