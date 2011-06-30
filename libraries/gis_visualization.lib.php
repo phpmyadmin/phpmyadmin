@@ -75,7 +75,9 @@ function PMA_GIS_modify_query($sql_query, $visualizationSettings)
         // If select cluase is *
     } else {
         // If label column is chosen add it to the query
-        if ($visualizationSettings['labelColumn'] != '') {
+        if (isset($visualizationSettings['labelColumn'])
+            && $visualizationSettings['labelColumn'] != ''
+        ) {
             $modified_query .= '`' . $visualizationSettings['labelColumn'] .'`, ';
         }
 
