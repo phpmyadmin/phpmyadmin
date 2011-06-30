@@ -10691,6 +10691,7 @@ msgid "Track these data definition statements:"
 msgstr "Rastrear estas instruções de definição de dados:"
 
 #: tbl_tracking.php:732
+#, fuzzy
 msgid "Track these data manipulation statements:"
 msgstr "Rastrear estas instruções de manipulação de dados:"
 
