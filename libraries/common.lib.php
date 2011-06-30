@@ -2433,7 +2433,9 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     }
     // Generate output
     $retval  = "<!-- TOGGLE START -->\n";
-    $retval .= "<noscript>\n";
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $retval .= "<noscript>\n";
+    }
     $retval .= "<div class='wrapper'>\n";
     $retval .= "    <form action='$action' method='post'>\n";
     $retval .= "        <select name='$select_name'>\n";
@@ -2447,32 +2449,34 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval .= "        <input type='submit' value='" . __('Change') . "'/>\n";
     $retval .= "    </form>\n";
     $retval .= "</div>\n";
-    $retval .= "</noscript>\n";
-    $retval .= "<div class='wrapper toggleAjax hide'>\n";
-    $retval .= "    <div class='toggleButton'>\n";
-    $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
-    $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
-    $retval .= "                 alt='' />\n";
-    $retval .= "            <table cellspacing='0' cellpadding='0'><tr>\n";
-    $retval .= "                <tbody>\n";
-    $retval .= "                <td class='toggleOn'>\n";
-    $retval .= "                    <span class='hide'>$link_on</span>\n";
-    $retval .= "                    <div>";
-    $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "</div>\n";
-    $retval .= "                </td>\n";
-    $retval .= "                <td><div>&nbsp;</div></td>\n";
-    $retval .= "                <td class='toggleOff'>\n";
-    $retval .= "                    <span class='hide'>$link_off</span>\n";
-    $retval .= "                    <div>";
-    $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "</div>\n";
-    $retval .= "                    </div>\n";
-    $retval .= "                </tbody>\n";
-    $retval .= "            </tr></table>\n";
-    $retval .= "            <span class='hide callback'>$callback</span>\n";
-    $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
-    $retval .= "        </div>\n";
-    $retval .= "    </div>\n";
-    $retval .= "</div>\n";
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $retval .= "</noscript>\n";
+        $retval .= "<div class='wrapper toggleAjax hide'>\n";
+        $retval .= "    <div class='toggleButton'>\n";
+        $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
+        $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
+        $retval .= "                 alt='' />\n";
+        $retval .= "            <table cellspacing='0' cellpadding='0'><tr>\n";
+        $retval .= "                <tbody>\n";
+        $retval .= "                <td class='toggleOn'>\n";
+        $retval .= "                    <span class='hide'>$link_on</span>\n";
+        $retval .= "                    <div>";
+        $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "</div>\n";
+        $retval .= "                </td>\n";
+        $retval .= "                <td><div>&nbsp;</div></td>\n";
+        $retval .= "                <td class='toggleOff'>\n";
+        $retval .= "                    <span class='hide'>$link_off</span>\n";
+        $retval .= "                    <div>";
+        $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "</div>\n";
+        $retval .= "                    </div>\n";
+        $retval .= "                </tbody>\n";
+        $retval .= "            </tr></table>\n";
+        $retval .= "            <span class='hide callback'>$callback</span>\n";
+        $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
+        $retval .= "        </div>\n";
+        $retval .= "    </div>\n";
+        $retval .= "</div>\n";
+    }
     $retval .= "<!-- TOGGLE END -->";
 
     return $retval;
