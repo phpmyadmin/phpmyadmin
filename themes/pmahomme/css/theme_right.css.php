@@ -2565,7 +2565,6 @@ span.mysql-number {
 }
 
 .navigation {
-    background: #E5E5E5;
     margin: 0.8em 0;
 
     border-radius: 5px;
@@ -2600,9 +2599,9 @@ span.mysql-number {
 .navigation input[type=submit] {
     background: none;
     border: 0;
+    filter: none;
     margin: 0;
     padding: 0.8em 0.5em;
-    min-width: 2.5em;
 
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -2619,6 +2618,7 @@ span.mysql-number {
     background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#555555));
     background: -moz-linear-gradient(top,  #333333,  #555555);
     background: -o-linear-gradient(top,  #333333,  #555555);
+    <?php echo PMA_ieFilter('#333333', '#555555'); ?>
 }
 
 .navigation select {

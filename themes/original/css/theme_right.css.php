@@ -2229,7 +2229,7 @@ span.mysql-number {
     border: 0;
     margin: 0;
     padding: 0.3em 0.5em;
-    min-width: 2.5em;
+    min-width: 1.5em;
     font-weight: bold;
 }
 
