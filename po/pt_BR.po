@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-30 23:37+0200\n"
+"PO-Revision-Date: 2011-06-30 23:48+0200\n"
 "Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -10513,10 +10513,9 @@ msgid "Propose table structure"
 msgstr "Propor estrutura da tabela"
 
 #: tbl_structure.php:676
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "Adicionar %s campo(s)"
+msgstr "Adicionar coluna"
 
 #: tbl_structure.php:690
 msgid "At End of Table"
