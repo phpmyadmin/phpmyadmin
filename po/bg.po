@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 10:30+0200\n"
+"PO-Revision-Date: 2011-07-01 10:32+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -508,8 +508,8 @@ msgstr "SQL заявката беше изпълнена успешно"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d повлиян ред от съхранена процедура при последната заявка"
+msgstr[1] "%d повлияни реда от съхранена процедура при последната заявка"
 
 #: db_routines.php:167
 #, fuzzy, php-format
