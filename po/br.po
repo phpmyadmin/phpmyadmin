@@ -2406,7 +2406,7 @@ msgstr "Personelaet - evel a-us nemet hep an dibaboù prim/personelaet"
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
-msgstr ""
+msgstr "Ensoc'hadennoù sevenet"
 
 #: libraries/config.values.php:121
 msgid "extended inserts"
