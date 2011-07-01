@@ -10620,7 +10620,7 @@ msgstr "Opret version %s af %s.%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Spor disse data definition udsagn"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
