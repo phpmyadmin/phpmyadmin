@@ -8282,10 +8282,9 @@ msgid "Refresh rate:"
 msgstr "Скорост на опресняване:"
 
 #: server_status.php:462
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Да не се сменя паролата"
+msgstr "Съдържащ думата:"
 
 #: server_status.php:467
 #, fuzzy
