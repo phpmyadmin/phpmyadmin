@@ -8193,8 +8193,8 @@ msgstr[1] "%d минути"
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "секунда"
-msgstr[1] "секунди"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
 
 #: server_status.php:134
 #, php-format
