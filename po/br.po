@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 12:27+0200\n"
+"PO-Revision-Date: 2011-07-01 17:46+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2402,7 +2402,7 @@ msgstr "Personelaet - diskouez an holl zibarzhioù kefluniañ posupl"
 
 #: libraries/config.values.php:102
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Personelaet - evel a-us nemet hep an dibaboù prim/personelaet"
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
