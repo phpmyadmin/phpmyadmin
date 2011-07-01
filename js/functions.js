@@ -613,21 +613,20 @@ function checkTransmitDump(theForm, theAction)
 } // end of the 'checkTransmitDump()' function
 
 $(document).ready(function() {
-    var $clickable_tr = $('tr.odd:not(.noclick), tr.even:not(.noclick)');
-    if ($clickable_tr.length > 0) {
-        $clickable_tr.parents('table').noSelect();
-    }
     /**
      * Row marking in horizontal mode (use "live" so that it works also for
      * next pages reached via AJAX); a tr may have the class noclick to remove
      * this behavior.
      */
-    $clickable_tr.live('click',function(e) {
+    $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
         // do not trigger when clicked on anchor
         if ($(e.target).is('a, img, a *')) {
             return;
         }
         var $tr = $(this);
+        
+        // make the table unselectable (to prevent default highlighting when shift+click)
+        $tr.parents('table').noSelect();
         
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
