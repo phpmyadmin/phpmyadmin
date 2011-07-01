@@ -1161,10 +1161,9 @@ msgid "Live conn./process chart"
 msgstr ""
 
 #: js/messages.php:66 server_status.php:445
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Live query chart"
-msgstr "Скриване формата за заявки"
+msgstr "Диаграма на заявки в реално време"
 
 #: js/messages.php:68
 msgid "Static data"
