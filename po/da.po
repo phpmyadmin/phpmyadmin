@@ -10489,7 +10489,7 @@ msgstr "Version %s er oprettet, sporing for %s.%s er aktiveret."
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Sporing for %s.%s, version %s er deaktiveret."
 
 #: tbl_tracking.php:198
 #, php-format
