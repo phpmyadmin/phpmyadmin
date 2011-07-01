@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 21:08+0200\n"
+"PO-Revision-Date: 2011-07-01 21:09+0200\n"
 "Last-Translator:  <Martin@maboni.dk>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10616,7 +10616,7 @@ msgstr "Aktiver nu"
 #: tbl_tracking.php:720
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Opret version %s af %s.%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
