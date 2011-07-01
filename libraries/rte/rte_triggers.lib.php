@@ -120,14 +120,15 @@ function PMA_TRI_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $extra_data = array();
             if ($message->isSuccess()) {
-                $triggers = PMA_DBI_get_triggers($db, $table);
-                foreach ($triggers as $key => $value) {
-                    if ($value['name'] == $_REQUEST['item_name']) {
-                        $trigger = $value;
-                    }
+                $trigger = PMA_TRI_getDataFromName($_REQUEST['item_name']);
+                $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
+                $extra_data['sameTable'] = false;
+                if (empty($table)) {
+                    $extra_data['sameTable'] = true;
+                } else if ($table == $trigger['table']) {
+                    $extra_data['sameTable'] = true;
                 }
-                $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['item_name']));
-                $extra_data['new_row']   = PMA_RTE_getRowForList('trigger', $trigger, 0);
+                $extra_data['new_row'] = PMA_RTE_getRowForList('trigger', $trigger, 0);
                 $response = $output;
             } else {
                 $response = $message;

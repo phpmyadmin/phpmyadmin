@@ -265,34 +265,41 @@ $(document).ready(function() {
                                 if (mode == 'edit') {
                                     $edit_row.remove();
                                 }
-                                // Insert the new row at the correct location in the list of routines
-                                /**
-                                 * @var    text    Contains the name of a routine from the list
-                                 *                 that is used in comparisons to find the correct
-                                 *                 location where to insert a new row.
-                                 */
-                                var text = '';
-                                /**
-                                 * @var    inserted    Whether a new has been inserted
-                                 *                     in the list of routines or not.
-                                 */
-                                var inserted = false;
-                                $('table.data').find('tr').each(function() {
-                                    text = $(this).children('td').eq(0).find('strong').text().toUpperCase();
-                                    if (text != '' && text > data.name) {
-                                        $(this).before(data.new_row);
-                                        inserted = true;
-                                        return false;
+
+                                if (editor != 'trigger' || data.sameTable == true) {
+                                    // Insert the new row at the correct location in the list of routines
+                                    /**
+                                     * @var    text    Contains the name of a routine from the list
+                                     *                 that is used in comparisons to find the correct
+                                     *                 location where to insert a new row.
+                                     */
+                                    var text = '';
+                                    /**
+                                     * @var    inserted    Whether a new has been inserted
+                                     *                     in the list of routines or not.
+                                     */
+                                    var inserted = false;
+                                    $('table.data').find('tr').each(function() {
+                                        text = $(this).children('td').eq(0).find('strong').text().toUpperCase();
+                                        if (text != '' && text > data.name) {
+                                            $(this).before(data.new_row);
+                                            inserted = true;
+                                            return false;
+                                        }
+                                    });
+                                    if (! inserted) {
+                                        $('table.data').append(data.new_row);
                                     }
-                                });
-                                if (! inserted) {
-                                    $('table.data').append(data.new_row);
+                                    // Fade-in the new row
+                                    $('.ajaxInsert').show('slow').removeClass('ajaxInsert');
+                                    // Now we have inserted the row at the correct position, but surely
+                                    // at least some row classes are wrong now. So we will itirate
+                                    // throught all rows and assign correct classes to them.
+                                } else if ($('table.data').find('tr').has('td').length == 0) {
+                                    $('table.data').hide("slow", function () {
+                                        $('#nothing2display').show("slow");
+                                    });
                                 }
-                                // Fade-in the new row
-                                $('.ajaxInsert').show('slow').removeClass('ajaxInsert');
-                                // Now we have inserted the row at the correct position, but surely
-                                // at least some row classes are wrong now. So we will itirate
-                                // throught all rows and assign correct classes to them.
                                 /**
                                  * @var    ct    Count of processed rows.
                                  */
