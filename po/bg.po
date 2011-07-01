@@ -4533,10 +4533,10 @@ msgid "Export of event \"%s\""
 msgstr "Експорт на събитието \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "В БД няма таблици"
+msgstr "Няма събитие с име %s в БД %s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
