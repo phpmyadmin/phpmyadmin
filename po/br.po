@@ -2418,7 +2418,7 @@ msgstr "Kement dibab zo a-us"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
-msgstr ""
+msgstr "Dibab ebet a-zouez ar re zo a-us"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:422
