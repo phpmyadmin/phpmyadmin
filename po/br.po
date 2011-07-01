@@ -2504,7 +2504,7 @@ msgstr "Lakaat an talvoud da %s"
 #: libraries/config/FormDisplay.tpl.php:253
 #: libraries/config/messages.inc.php:356
 msgid "Restore default value"
-msgstr ""
+msgstr "Adlakaat an talvoud dre ziouer"
 
 #: libraries/config/FormDisplay.tpl.php:269
 msgid "Allow users to customize this value"
