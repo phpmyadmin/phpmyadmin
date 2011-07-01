@@ -261,7 +261,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
                     "<body>\n" .
                     "<script type=\"text/javascript\">\n" .
                     "//<![CDATA[\n" .
-                    "document.write('<p><a href=\"" . $testUri_html . "\">" . 'test link' . "</a></p>');\n" .
+                    "document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');\n" .
                     "//]]>\n" .
                     "</script></body></html>\n";
 
