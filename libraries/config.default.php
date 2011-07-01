@@ -2864,8 +2864,6 @@ if ($cfg['ShowFunctionFields']) {
         'SOUNDEX',
         'SPACE',
         'SQRT',
-        'STDDEV_POP',
-        'STDDEV_SAMP',
         'TAN',
         'TIMESTAMP',
         'TIME_TO_SEC',
@@ -2878,8 +2876,6 @@ if ($cfg['ShowFunctionFields']) {
         'UTC_TIME',
         'UTC_TIMESTAMP',
         'UUID',
-        'VAR_POP',
-        'VAR_SAMP',
         'YEAR',
     );
 
@@ -3009,13 +3005,9 @@ if ($cfg['ShowFunctionFields']) {
             'RAND',
             'ROUND',
             'SQRT',
-            'STDDEV_POP',
-            'STDDEV_SAMP',
             'TAN',
             'TIME_TO_SEC',
             'UNIX_TIMESTAMP',
-            'VAR_POP',
-            'VAR_SAMP',
         ),
 
         'FUNC_SPATIAL' => array(
