@@ -10611,7 +10611,7 @@ msgstr ""
 
 #: tbl_tracking.php:707
 msgid "Activate now"
-msgstr ""
+msgstr "Aktiver nu"
 
 #: tbl_tracking.php:720
 #, php-format
