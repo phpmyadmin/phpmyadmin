@@ -71,7 +71,7 @@ class WINNT {
         $mem = Array();
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];
         $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
-       // $mem['setMemUsed'] = $mem['setMemTotal'] - $mem['setMemFree'];
+        $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'];
         
         $buffer = $this->_getWMI('Win32_PageFileUsage');
         
@@ -101,6 +101,10 @@ class Linux {
     function memory() {
         preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
         
-        return array_combine( $matches[1], $matches[2] );
+        $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
+        $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
+        
+        $mem = array_combine( $matches[1], $matches[2] );
+        return $mem;
     }
 }

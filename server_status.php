@@ -73,7 +73,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             case 'chartgrid':
                 $ret = json_decode($_REQUEST['requiredData'],true);
                 $statusVars = Array();
-                $sysinfo = $loadavg = $memory = 0;
+                $sysinfo = $cpuload = $memory = 0;
                 
                 foreach($ret as $chart_id=>$chartNodes) {
                     foreach($chartNodes as $node_id=>$node) {
@@ -92,10 +92,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                     require_once('libraries/sysinfo.lib.php');
                                     $sysinfo = getSysInfo();
                                 }
-                                if(! $loadavg) 
-                                    $loadavg  = $sysinfo->loadavg();
+                                if(! $cpuload) 
+                                    $cpuload = $sysinfo->loadavg();
                                 
-                                $ret[$chart_id][$node_id]['y'] = $loadavg[$node['name']];
+                                if(PHP_OS == 'Linux') {
+                                    $ret[$chart_id][$node_id]['idle'] = $cpuload['idle'];
+                                    $ret[$chart_id][$node_id]['busy'] = $cpuload['busy'];
+                                } else 
+                                    $ret[$chart_id][$node_id]['y'] = $cpuload['loadavg'];
+                                    
                                 break;
 
                             case 'memory':

@@ -687,7 +687,7 @@ $(function() {
             title: 'System memory (MiB)',
             nodes: [
                 { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024 }, 
-                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024  }, 
             ]
         },
         'swap-WINNT': {
@@ -714,19 +714,39 @@ $(function() {
         'memory-Linux': {
             title: 'System memory (in MiB)',
             nodes: [
-                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'MemCached', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024  }, 
-            ]
+                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'Cached', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024  },
+                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024  },
+            ],
+            settings: {
+                chart: {
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        stacking: 'percent'
+                    }
+                }
+            }
         },
         'swap-Linux': {
             title: 'System swap (in MiB)',
             nodes: [
-                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024  }, 
                 { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024  }, 
                 { dataType: 'memory', name: 'SwapFree', valueDivisor: 1024  }, 
-            ]
+            ],
+            settings: {
+                chart: {
+                    type: 'area'
+                },
+                plotOptions: {
+                    area: {
+                        stacking: 'percent'
+                    }
+                }
+            }
         }
     }
     
