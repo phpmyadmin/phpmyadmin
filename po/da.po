@@ -10519,7 +10519,7 @@ msgstr "SQL-sætninger eksporteres. Kopier venligst dump eller udfør den."
 #: tbl_tracking.php:255
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Version %s snapshot (SQL kode)"
 
 #: tbl_tracking.php:382
 msgid "Tracking data definition successfully deleted"
