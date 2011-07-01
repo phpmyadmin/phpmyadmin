@@ -567,6 +567,10 @@ $(function() {
                 'Add chart to grid': function() {
                     if(newChart.nodes.length == 0) return;
                     
+                    var type = $('input[name="chartType"]').find(':checked').val();
+                    if(type=='cpu' || type='memory');
+                        newChart = presetCharts[type + '-' + server_os];
+                    
                     newChart.title = $('input[name="chartTitle"]').attr('value');
                     // Add a cloned object to the chart grid
                     addChart($.extend(true, {}, newChart));
@@ -583,6 +587,10 @@ $(function() {
             }
         });
         return false;
+    });
+    
+    $('input[name="chartType"]').change(function() {
+        $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
     });
     
     $('input[name="useDivisor"]').change(function() {
@@ -626,6 +634,8 @@ $(function() {
             display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : '',
         };
         
+        if(serie.name = 'Processes') serie.dataType='proc';
+        
         if($('input[name="useDivisor"]').attr('checked')) 
             serie.valueDivisor = parseInt($('input[name="valueDivisor"]').attr('value'));
         
@@ -668,18 +678,72 @@ $(function() {
     
     var chartSize = { width: 300, height: 300 };
     
+    var presetCharts = {
+        'cpu-WINNT': {
+            title: 'System CPU Usage',
+            nodes: [{ dataType: 'cpu', name: 'loadavg'}]
+        },
+        'memory-WINNT': {
+            title: 'System memory (MiB)',
+            nodes: [
+                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024 }, 
+                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024  }, 
+            ]
+        },
+        'swap-WINNT': {
+            title: 'System swap (MiB)',
+            nodes: [
+                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024  }, 
+            ]
+        },
+        'cpu-Linux': {
+            title: 'System CPU Usage',
+            nodes: [
+                { dataType: 'cpu', 
+                  name: 'none', 
+                  transformFn: function(cur, prev) {
+                      var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
+                      var diff_idle = cur.idle - prev.idle;
+                      return 100*(diff_total - diff_idle) / diff_total;
+                  }
+                }
+            ]
+        },
+        'memory-Linux': {
+            title: 'System memory (in MiB)',
+            nodes: [
+                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'MemCached', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024  }, 
+            ]
+        },
+        'swap-Linux': {
+            title: 'System swap (in MiB)',
+            nodes: [
+                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'SwapFree', valueDivisor: 1024  }, 
+            ]
+        }
+    }
+    
     // Default setting
     chartGrid = {
-        '0': {  title: 'Questions',
+        '0': presetCharts['cpu-'+server_os],
+        '1': presetCharts['memory-'+server_os],
+        '2': presetCharts['swap-'+server_os],
+        '3': {  title: 'Questions',
                 nodes: [{ dataType:'statusvar', name:'Questions', display: 'differential'}]
             }, 
-         '1': {
+         '4': {
              title: 'Connections / Processes',
              nodes: [ { dataType:'statusvar', name:'Connections', display: 'differential'},
-                      { dataType:'other', name:'Processes'}
+                      { dataType:'proc', name:'Processes'}
                     ]
          },
-         '2': {
+         '5': {
              title: 'Traffic (in KiB)',
              nodes: [
                 { dataType:'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024},
@@ -797,6 +861,9 @@ $(function() {
                     }
                     if(elem.nodes[j].valueDivisor)
                         value = value / elem.nodes[j].valueDivisor;
+
+                    if(elem.nodes[j].transformFn)
+                        value = elem.nodes[j].transformFn(chartData[key][j],oldChartData[key][j],j);
                     
                     elem.chart.series[j].addPoint(
                         {  x: chartData.x, y: value },

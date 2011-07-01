@@ -73,6 +73,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             case 'chartgrid':
                 $ret = json_decode($_REQUEST['requiredData'],true);
                 $statusVars = Array();
+                $sysinfo = $loadavg = $memory = 0;
                 
                 foreach($ret as $chart_id=>$chartNodes) {
                     foreach($chartNodes as $node_id=>$node) {
@@ -80,11 +81,32 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                             case 'statusvar':
                                 $statusVars[] = $node['name'];
                                 break;
-                            case 'other':
-                                if($node['name']=='Processes') {
-                                    $result = PMA_DBI_query('SHOW PROCESSLIST');
-                                    $ret[$chart_id][$node_id]['y'] = PMA_DBI_num_rows($result);
+                                
+                            case 'proc':
+                                $result = PMA_DBI_query('SHOW PROCESSLIST');
+                                $ret[$chart_id][$node_id]['y'] = PMA_DBI_num_rows($result);
+                                break;
+                                
+                            case 'cpu':
+                                if(! $sysinfo) {
+                                    require_once('libraries/sysinfo.lib.php');
+                                    $sysinfo = getSysInfo();
                                 }
+                                if(! $loadavg) 
+                                    $loadavg  = $sysinfo->loadavg();
+                                
+                                $ret[$chart_id][$node_id]['y'] = $loadavg[$node['name']];
+                                break;
+
+                            case 'memory':
+                                if(! $sysinfo) {
+                                    require_once('libraries/sysinfo.lib.php');
+                                    $sysinfo = getSysInfo();
+                                }
+                                if(! $memory) 
+                                    $memory  = $sysinfo->memory();
+                            
+                                $ret[$chart_id][$node_id]['y'] = $memory[$node['name']];
                                 break;
                         }
                     }
@@ -403,6 +425,7 @@ pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 server_time_diff = new Date().getTime() - <?php echo microtime(true)*1000; ?>;
+server_os = '<?php echo PHP_OS; ?>';
 </script>
 <div id="serverstatus">
     <h2><?php
@@ -421,7 +444,7 @@ echo __('Runtime Information');
             <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
-            <li><a href="#statustabs_charting"><?php echo __('Live charting'); ?></a></li>
+            <li><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
         </ul>
 
         <div id="statustabs_traffic">
@@ -539,13 +562,15 @@ echo __('Runtime Information');
             <div id="addChartDialog" title="Add chart" style="display:none;">
                 <div id="tabGridVariables">
                     <p><input type="text" name="chartTitle" value="Chart title" /></p>
-                    <div id="seriesForms">
+                    
+                    <input type="radio" name="chartType" value="cpu"> CPU Usage<br>
+                    <input type="radio" name="chartType" value="memory"> Memory Usage<br>
+                    <input type="radio" name="chartType" value="variable" checked="checked"> Status variable(s) <br>
+                    <div id="chartVariableSettings">
                         <label for="chartSeries">Select series:</label><br>
                         <select id="chartSeries" name="varChartList" size="1">
                             <option>Commonly monitored</option>
                             <option>Processes</option>
-                            <option>CPU Usage</option>
-                            <option>Memory Usage</option>
                             <option>Questions</option>
                             <option>Connections</option>
                             <option>Bytes_sent</option>
@@ -564,12 +589,14 @@ echo __('Runtime Information');
                         <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> <label for="differentialValue"> Display as differential value</label><br>
                         <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
                         <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span>
+                        <p>
+                            <a href="#submitAddSeries"><b>Add this series</b></a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
+                        </p>
+                        Series in Chart:<br/>
+                        <span id="seriesPreview">
+                        <i>None</i>
+                        </span>
                     </div>
-                    <a href="#submitAddSeries">Add this series</a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
-                    <p><b>Series in Chart:</b></p>
-                    <span id="seriesPreview">
-                    <i>None</i>
-                    </span>
                 </div>
             </div>
             

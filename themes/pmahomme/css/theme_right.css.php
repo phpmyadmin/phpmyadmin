@@ -1254,9 +1254,10 @@ ul#chartGrid li { margin: 3px 3px 3px 0; padding: 1px; float: left; font-size: 4
 	padding:3px;
 }
 
-div#seriesForms {
+div#chartVariableSettings {
 	border:1px solid #ddd;
 	background-color:#E6E6E6;
+	margin-left:10px;
 }
 
 ul#chartGrid li {
@@ -1282,6 +1283,7 @@ div#statustabs_charting div.popupMenu {
     -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow:         2px 2px 3px #666;
 	background-color:white;
+	z-index: 2;
 }
 
 .popupContent li {
