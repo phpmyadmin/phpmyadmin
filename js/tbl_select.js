@@ -22,26 +22,6 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-     /**
-     *  Form submit on field change
-     */   
-     $('#tableid_0').change(function() {
-          $('#zoom_search_form').submit();
-     })
-
-     $('#tableid_1').change(function() {
-          $('#zoom_search_form').submit();
-     })
-     
-     $('#tableid_2').change(function() {
-          $('#zoom_search_form').submit();
-     })
-     
-     $('#tableid_3').change(function() {
-          $('#zoom_search_form').submit();
-     })
-
-
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed 
      * after a couple of clicks

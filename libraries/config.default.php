@@ -3140,4 +3140,9 @@ $cfg['UnaryOperators'] = array(
    "!= ''" => 1
 );
 
+/**
+ * Max rows retreived for zoom search
+ */
+$cfg['pmaMaxRowPlotLimit'] = 500;
+
 ?>

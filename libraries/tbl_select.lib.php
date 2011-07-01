@@ -175,7 +175,7 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
 
     if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
         // f o r e i g n    k e y s
-        $str .=  '            <select name="fields[' . $i . ']">' . "\n";
+        $str .=  '            <select name="fields[' . $i . ']" id="fieldID_' . $i .'">' . "\n";
         // go back to first row
         // here, the 4th parameter is empty because there is no current
         // value of data for the dropdown (the search page initial values
@@ -188,13 +188,13 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
     } 
     elseif ($foreignData['foreign_link'] == true) {
         if(isset($fields[$i]) && is_string($fields[$i])){
- 	    $str .= '<input type="text" name="fields[' . $i . '] " value="' . $fields[$i] . '"';
-	            'id="field_' . md5($field) . '[' . $i .']" 
+ 	    $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] " value="' . $fields[$i] . '"';
+		     'id="field_' . md5($field) . '[' . $i .']" 
 		     class="textfield"/>' ; 
         }
         else{
- 	    $str .= '<input type="text" name="fields[' . $i . '] "';
-	            'id="field_' . md5($field) . '[' . $i .']" 
+ 	    $str .= '<input type="text" id="fieldID_' . $i .'"name="fields[' . $i . '] "';
+		     'id="field_' . md5($field) . '[' . $i .']" 
 		     class="textfield" />' ; 
         }
  ?>
@@ -211,7 +211,7 @@ EOT;
         // e n u m s
         $enum_value=explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
         $cnt_enum_value = count($enum_value);
-        $str .= '<select name="fields[' . ($i) . '][]"'
+        $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
                  .' multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
                 for ($j = 0; $j < $cnt_enum_value; $j++) {
                     if(isset($fields[$i]) && is_array($fields[$i]) && in_array($enum_value[$j],$fields[$i])){
@@ -235,12 +235,12 @@ EOT;
             $the_class .= ' datetimefield';
         }
         if(isset($fields[$i]) && is_string($fields[$i])){
-            $str .= '            <input type="text" name="fields[' . $i . ']"'
-                    .' size="40" class="' . $the_class . '" id="field_' . $i . '" value = "' . $fields[$i] . '"/>' .  "\n";
+            $str .= '            <input type="text" name="fields[' . $i . ']" '
+                    .' size="40" class="' . $the_class . '" id="fieldID_' . $i .'" value = "' . $fields[$i] . '"/>' .  "\n";
         }
         else{
             $str .= '            <input type="text" name="fields[' . $i . ']"'
-                    .' size="40" class="' . $the_class . '" id="field_' . $i . '" />' .  "\n";
+                    .' size="40" class="' . $the_class . '" id="fieldID_' . $i .'" />' .  "\n";
         }
    };
    return $str;
