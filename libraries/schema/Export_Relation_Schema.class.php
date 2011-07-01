@@ -9,10 +9,6 @@
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
- *
- * @name Export Relation Schema
- * @copyright
- * @license
  */
 
 class PMA_Export_Relation_Schema
@@ -166,7 +162,7 @@ class PMA_Export_Relation_Schema
         global $cfgRelation;
          // Get All tables
         $tab_sql = 'SELECT table_name FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
                 . ' AND pdf_page_number = ' . $pageNumber;
 
         $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
@@ -174,7 +170,7 @@ class PMA_Export_Relation_Schema
             $this->dieSchema('',__('This page does not contain any tables!'));
         }
         while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
-            $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
+            $alltables[] = PMA_sqlAddSlashes($curr_table['table_name']);
         }
         return $alltables;
     }

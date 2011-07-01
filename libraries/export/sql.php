@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build SQL dumps of tables
  *
- * @package phpMyAdmin-Export-SQL
+ * @package phpMyAdmin-Export
+ * @subpackage SQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -594,7 +595,7 @@ function PMA_exportDBFooter($db)
         $delimiter = '$$';
 
         if (PMA_MYSQL_INT_VERSION > 50100) {
-            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
         } else {
             $event_names = array();
         }
@@ -689,7 +690,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     $new_crlf = $crlf;
 
     // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-    $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'', null, PMA_DBI_QUERY_STORE);
+    $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\'', null, PMA_DBI_QUERY_STORE);
     if ($result != false) {
         if (PMA_DBI_num_rows($result) > 0) {
             $tmpres        = PMA_DBI_fetch_assoc($result);
@@ -1183,10 +1184,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                     }
                 // detection of 'bit' works only on mysqli extension
                 } elseif ($fields_meta[$j]->type == 'bit') {
-                    $values[] = "b'" . PMA_sqlAddslashes(PMA_printable_bit_value($row[$j], $fields_meta[$j]->length)) . "'";
+                    $values[] = "b'" . PMA_sqlAddSlashes(PMA_printable_bit_value($row[$j], $fields_meta[$j]->length)) . "'";
                 // something else -> treat as a string
                 } else {
-                    $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
+                    $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddSlashes($row[$j])) . '\'';
                 } // end if
             } // end for
 

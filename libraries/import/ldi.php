@@ -1,9 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * CSV import plugin for phpMyAdmin
+ * CSV import plugin for phpMyAdmin using LOAD DATA
  *
  * @package phpMyAdmin-Import
+ * @subpackage LDI
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -62,7 +63,7 @@ $sql = 'LOAD DATA';
 if (isset($ldi_local_option)) {
     $sql .= ' LOCAL';
 }
-$sql .= ' INFILE \'' . PMA_sqlAddslashes($import_file) . '\'';
+$sql .= ' INFILE \'' . PMA_sqlAddSlashes($import_file) . '\'';
 if (isset($ldi_replace)) {
     $sql .= ' REPLACE';
 } elseif (isset($ldi_ignore)) {
@@ -74,10 +75,10 @@ if (strlen($ldi_terminated) > 0) {
     $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
 }
 if (strlen($ldi_enclosed) > 0) {
-    $sql .= ' ENCLOSED BY \'' . PMA_sqlAddslashes($ldi_enclosed) . '\'';
+    $sql .= ' ENCLOSED BY \'' . PMA_sqlAddSlashes($ldi_enclosed) . '\'';
 }
 if (strlen($ldi_escaped) > 0) {
-    $sql .= ' ESCAPED BY \'' . PMA_sqlAddslashes($ldi_escaped) . '\'';
+    $sql .= ' ESCAPED BY \'' . PMA_sqlAddSlashes($ldi_escaped) . '\'';
 }
 if (strlen($ldi_new_line) > 0){
     if ($ldi_new_line == 'auto') {

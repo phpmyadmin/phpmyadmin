@@ -3,7 +3,6 @@
 /**
  * theme test
  *
- * @uses    libraries/common.inc.php        global fnctions
  * @package phpMyAdmin-test
  */
 

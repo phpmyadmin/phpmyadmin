@@ -5,6 +5,7 @@
  *
  * @todo    Pretty much everything
  * @package phpMyAdmin-Import
+ * @subpackage XLS
  */
 
 if (! defined('PHPMYADMIN')) {
@@ -54,26 +55,26 @@ $col_names = array();
 
 for ($s = 0; $s < $num_sheets; ++$s) {
     $current_sheet = $objPHPExcel->getSheet($s);
-    
+
     $num_rows = $current_sheet->getHighestRow();
     $num_cols = PMA_getColumnNumberFromName($current_sheet->getHighestColumn());
-    
+
     if ($num_rows != 1 && $num_cols != 1) {
         for ($r = 1; $r <= $num_rows; ++$r) {
             for ($c = 0; $c < $num_cols; ++$c) {
                 $cell = $current_sheet->getCellByColumnAndRow($c, $r)->getCalculatedValue();
-                
+
                 if (! strcmp($cell, '')) {
                     $cell = 'NULL';
                 }
-                
+
                 $tempRow[] = $cell;
             }
-            
+
             $rows[] = $tempRow;
             $tempRow = array();
         }
-        
+
         if ($_REQUEST['xls_col_names']) {
             $col_names = array_splice($rows, 0, 1);
             $col_names = $col_names[0];
@@ -87,9 +88,9 @@ for ($s = 0; $s < $num_sheets; ++$s) {
                 $col_names[] = PMA_getColumnAlphaName($n + 1);
             }
         }
-        
+
         $tables[] = array($sheet_names[$s], $col_names, $rows);
-        
+
         $col_names = array();
         $rows = array();
     }

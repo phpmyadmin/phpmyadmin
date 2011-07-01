@@ -11,9 +11,6 @@ include_once("Export_Relation_Schema.class.php");
  * This Class is EPS Library and
  * helps in developing structure of EPS Schema Export
  *
- * @name PMA_EPS
- * @copyright
- * @license
  * @access public
  * @see http://php.net/manual/en/book.xmlwriter.php
  */
@@ -29,8 +26,8 @@ class PMA_EPS
      *
      * Upon instantiation This starts writing the EPS Document.
      * %!PS-Adobe-3.0 EPSF-3.0 This is the MUST first comment to include
-     * it shows/tells that the Post Script document is purely under 
-     * Document Structuring Convention [DSC] and is Compliant 
+     * it shows/tells that the Post Script document is purely under
+     * Document Structuring Convention [DSC] and is Compliant
      * Encapsulated Post Script Document
      *
      * @return void
@@ -147,13 +144,13 @@ class PMA_EPS
      * drawing the lines from x,y source to x,y destination and set the
      * width of the line. lines helps in showing relationships of tables
      *
-     * @param integer x_from The x_from attribute defines the start 
+     * @param integer x_from The x_from attribute defines the start
                              left position of the element
-     * @param integer y_from The y_from attribute defines the start 
+     * @param integer y_from The y_from attribute defines the start
                              right position of the element
-     * @param integer x_to The x_to attribute defines the end 
+     * @param integer x_to The x_to attribute defines the end
                              left position of the element
-     * @param integer y_to The y_to attribute defines the end 
+     * @param integer y_to The y_to attribute defines the end
                              right position of the element
      * @param integer lineWidth sets the width of the line e.g 2
      * @return void
@@ -173,13 +170,13 @@ class PMA_EPS
      * drawing the rectangle from x,y source to x,y destination and set the
      * width of the line. rectangles drawn around the text shown of fields
      *
-     * @param integer x_from The x_from attribute defines the start 
+     * @param integer x_from The x_from attribute defines the start
                              left position of the element
-     * @param integer y_from The y_from attribute defines the start 
+     * @param integer y_from The y_from attribute defines the start
                              right position of the element
-     * @param integer x_to The x_to attribute defines the end 
+     * @param integer x_to The x_to attribute defines the end
                              left position of the element
-     * @param integer y_to The y_to attribute defines the end 
+     * @param integer y_to The y_to attribute defines the end
                              right position of the element
      * @param integer lineWidth sets the width of the line e.g 2
      * @return void
@@ -204,9 +201,9 @@ class PMA_EPS
      * them as x and y coordinates to which to move. The coordinates
      * specified become the current point.
      *
-     * @param integer x The x attribute defines the 
+     * @param integer x The x attribute defines the
                              left position of the element
-     * @param integer y The y attribute defines the 
+     * @param integer y The y attribute defines the
                              right position of the element
      * @return void
      * @access public
@@ -232,9 +229,9 @@ class PMA_EPS
      * Output the text at specified co-ordinates
      *
      * @param string text  The string to be displayed
-     * @param integer x The x attribute defines the 
+     * @param integer x The x attribute defines the
                              left position of the element
-     * @param integer y The y attribute defines the 
+     * @param integer y The y attribute defines the
                              right position of the element
      * @return void
      * @access public
@@ -247,15 +244,15 @@ class PMA_EPS
 
     /**
      * get width of string/text
-     * 
+     *
      * EPS text width is calcualted depending on font name
      * and font size. It is very important to know the width of text
      * because rectangle is drawn around it.
-     * 
+     *
      * This is a bit hardcore method. I didn't found any other better than this.
      * if someone found better than this. would love to hear that method
      *
-     * @param string text string that width will be calculated 
+     * @param string text string that width will be calculated
      * @param integer font name of the font like Arial,sans-serif etc
      * @param integer fontSize size of font
      * @return integer width of the text
@@ -345,16 +342,14 @@ class PMA_EPS
 
 /**
  * Table preferences/statistics
- * 
- * This class preserves the table co-ordinates,fields 
+ *
+ * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
  * @name Table_Stats
- * @copyright
- * @license
  * @see PMA_EPS
  */
-class Table_Stats 
+class Table_Stats
 {
     /**
      * Defines properties
@@ -432,8 +427,8 @@ class Table_Stats
         // x and y
         $sql = 'SELECT x, y FROM '
          . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+         . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+         . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
@@ -489,7 +484,7 @@ class Table_Stats
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
-         */ 
+         */
         while ($this->width < $eps->getStringWidth($this->_getTitle(),$font,$fontSize)) {
             $this->width += 7;
         }
@@ -546,18 +541,16 @@ class Table_Stats
 
 /**
  * Relation preferences/statistics
- * 
+ *
  * This class fetches the table master and foreign fields positions
- * and helps in generating the Table references and then connects 
+ * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in EPS document.
  *
  * @name Relation_Stats
- * @copyright
- * @license
  * @see PMA_EPS
  */
-class Relation_Stats 
+class Relation_Stats
 {
     /**
      * Defines properties
@@ -701,7 +694,7 @@ class Relation_Stats
             1
             );
     }
-} 
+}
 /*
 * end of the "Relation_Stats" class
 */
@@ -711,21 +704,19 @@ class Relation_Stats
  *
  * Purpose of this class is to generate the EPS Document
  * which is used for representing the database diagrams.
- * This class uses post script commands and with 
+ * This class uses post script commands and with
  * the combination of these commands actually helps in preparing EPS Document.
  *
  * This class inherits Export_Relation_Schema class has common functionality added
  * to this class
- * 
+ *
  * @name Eps_Relation_Schema
- * @copyright
- * @license
  */
 class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 {
     private $tables = array();
     private $_relations = array();
-    
+
     /**
      * The "PMA_EPS_Relation_Schema" constructor
      *
@@ -753,9 +744,9 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $eps->setDate(date("j F Y, g:i a"));
         $eps->setOrientation($this->orientation);
         $eps->setFont('Verdana','10');
-        
-        
-        
+
+
+
         $alltables = $this->getAllTables($db,$this->pageNumber);
 
         foreach ($alltables AS $table) {
@@ -820,7 +811,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
     /**
      * Draws relation arrows and lines
-     * connects master table's master field to 
+     * connects master table's master field to
      * foreign table's forein field
      *
      * @param boolean changeColor Whether to use one color per relation or not

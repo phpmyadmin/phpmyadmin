@@ -8,7 +8,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+$events = PMA_DBI_fetch_result('SELECT EVENT_NAME, EVENT_TYPE FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
 
 $conditional_class_add    = '';
 $conditional_class_drop   = '';
@@ -125,9 +125,11 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
     $es_change = ($es_state == 'ON') ? 'OFF' : 'ON';
     $tableStart = '<table style="width: 100%;"><tr><td style="width: 50%;">';
     $schedulerFieldset = '</td><td><fieldset style="margin: 1em 0;">' . "\n"
-       . PMA_getIcon('b_events.png') . __('The event scheduler is ') . $es_state . ':'
+       . PMA_getIcon('b_events.png')
+       . ($es_state === 'ON' ? __('The event scheduler is enabled') : __('The event scheduler is disabled')) . ':'
        . '    <a href="db_events.php?' . $url_query . '&amp;toggle_scheduler=' . $es_change . '">'
-       . __('Turn') . " $es_change\n" .  '</a>' . "\n"
+       . ($es_change === 'ON' ? __('Turn it on') : __('Turn it off'))
+       .  '</a>' . "\n"
        . '</fieldset></td></tr></table>' . "\n";
 }
 
@@ -136,7 +138,7 @@ if ($es_state === 'ON' || $es_state === 'OFF') {
  */
 echo $tableStart . '<fieldset style="margin: 1em 0;">' . "\n"
    . '    <a href="db_events.php?' . $url_query . '&amp;addevent=1" ' . $conditional_class_add . '>' . "\n"
-   . PMA_getIcon('b_event_add.png') . __('Add a new Event') . '</a>' . "\n"
+   . PMA_getIcon('b_event_add.png') . __('Add an event') . '</a>' . "\n"
    . '</fieldset>' . "\n";
 
 /**

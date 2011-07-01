@@ -1,32 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @uses    $cfg['DefaultTabDatabase']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['db']
- * @uses    PMA_Table::generateFieldSpec()
- * @uses    PMA_checkParameters()
- * @uses    PMA_generateCharsetQueryPart()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_setMIME()
- * @uses    PMA_mysqlDie()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_DBI_get_columns()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_backquote()
- * @uses    $_REQUEST['do_save_data']
- * @uses    $_REQUEST['submit_num_fields']
- * @uses    $_REQUEST['orig_num_fields']
- * @uses    $_REQUEST['added_fields']
- * @uses    $_REQUEST['num_fields']
- * @uses    preg_replace()
- * @uses    count()
- * @uses    is_array()
- * @uses    strlen()
- * @uses    sprintf()
- * @uses    htmlspecialchars()
  * @package phpMyAdmin
  */
 
@@ -210,10 +184,10 @@ if (isset($_REQUEST['do_save_data'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
     if (!empty($_REQUEST['comment'])) {
-        $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($_REQUEST['comment']) . '\'';
+        $sql_query .= ' COMMENT = \'' . PMA_sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . PMA_sqlAddslashes($_REQUEST['partition_definition']);
+        $sql_query .= ' ' . PMA_sqlAddSlashes($_REQUEST['partition_definition']);
     }
     $sql_query .= ';';
 
@@ -257,7 +231,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $is_show_stats = $cfg['ShowStats'];
 
             $tbl_stats_result = PMA_DBI_query('SHOW TABLE STATUS FROM '
-                    . PMA_backquote($db) . ' LIKE \'' . addslashes($table) . '\';');
+                    . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\';');
             $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
             PMA_DBI_free_result($tbl_stats_result);
             unset($tbl_stats_result);

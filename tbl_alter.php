@@ -131,7 +131,8 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         if( $GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($message, $message->isSuccess());
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            PMA_ajaxResponse($message, $message->isSuccess(),$extra_data);
         }
 
         $active_page = 'tbl_structure.php';
@@ -169,7 +170,7 @@ if ($abort == false) {
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $_REQUEST['field'] = PMA_sqlAddslashes($selected[$i], true);
+        $_REQUEST['field'] = PMA_sqlAddSlashes($selected[$i], true);
         $result        = PMA_DRIZZLE
             ? PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' WHERE Field = \'' . $_REQUEST['field'] . '\';')
             : PMA_DBI_query('SHOW FULL COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' LIKE \'' . $_REQUEST['field'] . '\';');

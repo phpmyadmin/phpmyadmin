@@ -9,10 +9,6 @@
  * This Class interacts with the user to gather the information
  * about their tables for which they want to export the relational schema
  * export options are shown to user from they can choose
- *
- * @name User_Schema
- * @copyright
- * @license
  */
 
 class PMA_User_Schema
@@ -138,7 +134,7 @@ class PMA_User_Schema
     {
         global $db,$table,$query_default_option,$cfgRelation;
         $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
+                . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
         $page_rs    = PMA_query_as_controluser($page_query, false, $query_default_option);
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
@@ -211,8 +207,8 @@ class PMA_User_Schema
             <h2><?php echo __('Select Tables') ;?></h2>
             <?php
             $page_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                        . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                        . ' AND pdf_page_number = \'' . PMA_sqlAddslashes($this->chosenPage) . '\'';
+                        . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                        . ' AND pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
             $page_rs    = PMA_query_as_controluser($page_query, false, $query_default_option);
             $array_sh_page = array();
             while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
@@ -544,9 +540,9 @@ class PMA_User_Schema
     {
         foreach ($delrow as $current_row) {
                 $del_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' ' . "\n"
-                         .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'' . "\n"
-                         .   ' AND   table_name = \'' . PMA_sqlAddslashes($current_row) . '\'' . "\n"
-                         .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($chpage) . '\'';
+                         .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'' . "\n"
+                         .   ' AND   table_name = \'' . PMA_sqlAddSlashes($current_row) . '\'' . "\n"
+                         .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($chpage) . '\'';
                          echo $del_query;
                 PMA_query_as_controluser($del_query, false, $query_default_option);
         }
@@ -589,8 +585,8 @@ class PMA_User_Schema
     public function deleteCoordinates($db, $cfgRelation, $choosePage, $query_default_option)
     {
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                                .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                                .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($choosePage) . '\'';
+                                .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                                .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
         PMA_query_as_controluser($query, false, $query_default_option);
     }
 
@@ -606,8 +602,8 @@ class PMA_User_Schema
     public function deletePages($db, $cfgRelation, $choosePage, $query_default_option)
     {
         $query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                                .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                                .   ' AND   page_nr = \'' . PMA_sqlAddslashes($choosePage) . '\'';
+                                .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                                .   ' AND   page_nr = \'' . PMA_sqlAddSlashes($choosePage) . '\'';
         PMA_query_as_controluser($query, false, $query_default_option);
     }
 
@@ -738,7 +734,7 @@ class PMA_User_Schema
             */
             $insert_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
                           . '(db_name, table_name, pdf_page_number, x, y) '
-                          . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($current_table) . '\',' . $pageNumber . ',' . $pos_x . ',' . $pos_y . ')';
+                          . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($current_table) . '\',' . $pageNumber . ',' . $pos_x . ',' . $pos_y . ')';
             PMA_query_as_controluser($insert_query, false, $query_default_option);
 
             /*
@@ -791,28 +787,28 @@ class PMA_User_Schema
             }
             if (isset($arrvalue['name']) && $arrvalue['name'] != '--') {
                 $test_query = 'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                            .   ' WHERE db_name = \'' .  PMA_sqlAddslashes($db) . '\''
-                            .   ' AND   table_name = \'' . PMA_sqlAddslashes($arrvalue['name']) . '\''
-                            .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($this->chosenPage) . '\'';
+                            .   ' WHERE db_name = \'' .  PMA_sqlAddSlashes($db) . '\''
+                            .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
+                            .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
                 $test_rs    = PMA_query_as_controluser($test_query, false, $query_default_option);
                 //echo $test_query;
                 if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                         $ch_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-                                  .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                                  .   ' AND   table_name = \'' . PMA_sqlAddslashes($arrvalue['name']) . '\''
-                                  .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($this->chosenPage) . '\'';
+                                  .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                                  .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
+                                  .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
                     } else {
                         $ch_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
                                   . 'SET x = ' . $arrvalue['x'] . ', y= ' . $arrvalue['y']
-                                  .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                                  .   ' AND   table_name = \'' . PMA_sqlAddslashes($arrvalue['name']) . '\''
-                                  .   ' AND   pdf_page_number = \'' . PMA_sqlAddslashes($this->chosenPage) . '\'';
+                                  .   ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                                  .   ' AND   table_name = \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\''
+                                  .   ' AND   pdf_page_number = \'' . PMA_sqlAddSlashes($this->chosenPage) . '\'';
                     }
                 } else {
                     $ch_query     = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']) . ' '
                                   . '(db_name, table_name, pdf_page_number, x, y) '
-                                  . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($arrvalue['name']) . '\', \'' . PMA_sqlAddslashes($this->chosenPage) . '\',' . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
+                                  . 'VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($arrvalue['name']) . '\', \'' . PMA_sqlAddSlashes($this->chosenPage) . '\',' . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                 }
                 //echo $ch_query;
                 PMA_query_as_controluser($ch_query, false, $query_default_option);

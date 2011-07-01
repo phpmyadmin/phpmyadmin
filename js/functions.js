@@ -1300,7 +1300,7 @@ function PMA_ajaxShowMessage(message, timeout) {
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    if ($this_msgbox != 'undefined' && $this_msgbox instanceof jQuery) {
+    if ($this_msgbox != undefined && $this_msgbox instanceof jQuery) {
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
@@ -1448,7 +1448,7 @@ function PMA_createChart(passedSettings) {
             enabled:false
         },
         xAxis: {
-            type: 'datetime',
+            type: 'datetime'
         },
         yAxis: {
             min: 0,
@@ -2013,6 +2013,10 @@ $(document).ready(function() {
      * Hides certain table structure actions, replacing them with the word "More". They are displayed
      * in a dropdown menu when the user hovers over the word "More."
      */
+    displayMoreTableOpts();
+});
+
+function displayMoreTableOpts() {
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if($("input[type='hidden'][name='table_type']").val() == "table") {
@@ -2022,6 +2026,7 @@ $(document).ready(function() {
         $table.find("td[class='unique']").remove();
         $table.find("td[class='index']").remove();
         $table.find("td[class='fulltext']").remove();
+        $table.find("td[class='spatial']").remove();
         $table.find("th[class='action']").attr("colspan", 3);
 
         // Display the "more" text
@@ -2080,8 +2085,7 @@ $(document).ready(function() {
                 }
             });
     }
-});
-
+}
 $(document).ready(initTooltips);
 
 /* Displays tooltips */
@@ -2448,55 +2452,78 @@ $(document).ready(function() {
 /**
  * Creates a message inside an object with a sliding effect
  *
+ * @param   msg    A string containing the text to display
  * @param   $obj   a jQuery object containing the reference
  *                 to the element where to put the message
- * @param   msg    A string containing the text to display
+ *                 This is optional, if no element is
+ *                 provided, one will be created below the
+ *                 navigation links at the top of the page
  *
  * @return  bool   True on success, false on failure
  */
-function PMA_slidingMessage($obj, msg) {
-    if ($obj != 'undefined' && $obj instanceof jQuery) {
-        if ($obj.has('div').length > 0) {
-            // If there already is a message inside the
-            // target object, we must get rid of it
+function PMA_slidingMessage(msg, $obj) {
+    if (msg == undefined || msg.length == 0) {
+        // Don't show an empty message
+        return false;
+    }
+    if ($obj == undefined || ! $obj instanceof jQuery || $obj.length == 0) {
+        // If the second argument was not supplied,
+        // we might have to create a new DOM node.
+        if ($('#PMA_slidingMessage').length == 0) {
+            $('#topmenucontainer')
+            .after('<span id="PMA_slidingMessage" '
+                 + 'style="display: inline-block;"></span>');
+        }
+        $obj = $('#PMA_slidingMessage');
+    }
+    if ($obj.has('div').length > 0) {
+        // If there already is a message inside the
+        // target object, we must get rid of it
+        $obj
+        .find('div')
+        .first()
+        .fadeOut(function () {
+            $obj
+            .children()
+            .remove();
             $obj
             .append('<div style="display: none;">' + msg + '</div>')
+            .animate({
+                height: $obj.find('div').first().height()
+            })
             .find('div')
             .first()
-            .fadeOut(function () {
-                $(this).remove();
-                $obj.animate({
-                    height: $obj.find('div').first().height()
-                });
+            .fadeIn();
+        });
+    } else {
+        // Object does not already have a message
+        // inside it, so we simply slide it down
+        var h = $obj
+                .width('100%')
+                .html('<div style="display: none;">' + msg + '</div>')
+                .find('div')
+                .first()
+                .height();
+        $obj
+        .find('div')
+        .first()
+        .css('height', 0)
+        .show()
+        .animate({
+                height: h
+            }, function() {
+            // Set the height of the parent
+            // to the height of the child
+            $obj
+            .height(
                 $obj
                 .find('div')
                 .first()
-                .fadeIn();
-            });
-        } else {
-            // Object does not already have a message
-            // inside it, so we simply slide it down
-            $obj
-            .width('100%')
-            .html('<div style="display: none;">' + msg + '</div>')
-            .find('div')
-            .first()
-            .slideDown(function() {
-                // Set the height of the parent
-                // to the height of the child
-                $obj
-                .height(
-                    $obj
-                    .find('div')
-                    .first()
-                    .height()
-                );
-            });
-        }
-        return true;
-    } else {
-        return false;
+                .height()
+            );
+        });
     }
+    return true;
 } // end PMA_slidingMessage()
 
 /**
@@ -2553,7 +2580,7 @@ $(document).ready(function() {
                     }
                     // Show the query that we just executed
                     PMA_ajaxRemoveMessage($msg);
-                    PMA_slidingMessage($('#js_query_display'), data.sql_query);
+                    PMA_slidingMessage(data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }

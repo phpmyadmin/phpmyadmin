@@ -28,13 +28,12 @@ if (function_exists('mcrypt_encrypt')) {
      * further decryption. I don't think necessary to have one iv
      * per server so I don't put the server number in the cookie name.
      */
-    if (empty($_COOKIE['pma_mcrypt_iv'])
-     || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
+    if (empty($_COOKIE['pma_mcrypt_iv']) || false === ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))) {
         srand((double) microtime() * 1000000);
-         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
-         if ($td === false) {
-            PMA_warnMissingExtension('mcrypt');
-         }
+        $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
+        if ($td === false) {
+            die('Failed to use Blowfish from mcrypt!');
+        }
         $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($iv));
     }
@@ -75,15 +74,10 @@ if (function_exists('mcrypt_encrypt')) {
 
 } else {
     require_once './libraries/blowfish.php';
-    if (!$GLOBALS['cfg']['McryptDisableWarning']) {
-        PMA_warnMissingExtension('mcrypt');
-    }
 }
 
 /**
  * Returns blowfish secret or generates one if needed.
- * @uses    $cfg['blowfish_secret']
- * @uses    $_SESSION['auto_blowfish_secret']
  *
  * @access  public
  */
@@ -105,32 +99,6 @@ function PMA_get_blowfish_secret() {
  *
  * this function MUST exit/quit the application
  *
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['PHP_AUTH_USER']
- * @uses    $GLOBALS['pma_auth_server']
- * @uses    $GLOBALS['text_dir']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['target']
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $cfg['Servers']
- * @uses    $cfg['LoginCookieRecall']
- * @uses    $cfg['Lang']
- * @uses    $cfg['Server']
- * @uses    $cfg['ReplaceHelpImg']
- * @uses    $cfg['blowfish_secret']
- * @uses    $cfg['AllowArbitraryServer']
- * @uses    $_COOKIE
- * @uses    $_REQUEST['old_usr']
- * @uses    PMA_sendHeaderLocation()
- * @uses    PMA_select_language()
- * @uses    PMA_select_server()
- * @uses    file_exists()
- * @uses    sprintf()
- * @uses    count()
- * @uses    htmlspecialchars()
- * @uses    is_array()
  * @global  string    the last connection error
  *
  * @access  public
@@ -341,25 +309,6 @@ if (top != self) {
  * @todo    AllowArbitraryServer on does not imply that the user wants an
  *          arbitrary server, or? so we should also check if this is filled and
  *          not only if allowed
- * @uses    $GLOBALS['PHP_AUTH_USER']
- * @uses    $GLOBALS['PHP_AUTH_PW']
- * @uses    $GLOBALS['no_activity']
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['from_cookie']
- * @uses    $GLOBALS['pma_auth_server']
- * @uses    $cfg['AllowArbitraryServer']
- * @uses    $cfg['LoginCookieValidity']
- * @uses    $cfg['Servers']
- * @uses    $_REQUEST['old_usr'] from logout link
- * @uses    $_REQUEST['pma_username'] from login form
- * @uses    $_REQUEST['pma_password'] from login form
- * @uses    $_REQUEST['pma_servername'] from login form
- * @uses    $_COOKIE
- * @uses    $_SESSION['last_access_time']
- * @uses    $GLOBALS['PMA_Config']->removeCookie()
- * @uses    PMA_blowfish_decrypt()
- * @uses    PMA_auth_fails()
- * @uses    time()
  *
  * @return  boolean   whether we get authentication settings or not
  *
@@ -484,23 +433,6 @@ function PMA_auth_check()
 /**
  * Set the user and password after last checkings if required
  *
- * @uses    $GLOBALS['PHP_AUTH_USER']
- * @uses    $GLOBALS['PHP_AUTH_PW']
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['from_cookie']
- * @uses    $GLOBALS['pma_auth_server']
- * @uses    $cfg['Server']
- * @uses    $cfg['AllowArbitraryServer']
- * @uses    $cfg['LoginCookieStore']
- * @uses    $cfg['PmaAbsoluteUri']
- * @uses    $_SESSION['last_access_time']
- * @uses    PMA_COMING_FROM_COOKIE_LOGIN
- * @uses    $GLOBALS['PMA_Config']->setCookie()
- * @uses    PMA_blowfish_encrypt()
- * @uses    $GLOBALS['PMA_Config']->removeCookie()
- * @uses    PMA_sendHeaderLocation()
- * @uses    time()
- * @uses    define()
  * @return  boolean   always true
  *
  * @access  public
@@ -619,17 +551,6 @@ function PMA_auth_set_user()
  * this function MUST exit/quit the application,
  * currently doen by call to PMA_auth()
  *
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['allowDeny_forbidden']
- * @uses    $GLOBALS['no_activity']
- * @uses    $cfg['LoginCookieValidity']
- * @uses    $GLOBALS['PMA_Config']->removeCookie()
- * @uses    PMA_getenv()
- * @uses    PMA_DBI_getError()
- * @uses    PMA_sanitize()
- * @uses    PMA_auth()
- * @uses    sprintf()
- * @uses    basename()
  * @access  public
  */
 function PMA_auth_fails()

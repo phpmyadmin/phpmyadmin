@@ -26,18 +26,6 @@ function PMA_langName($tmplang) {
 /**
  * tries to find the language to use
  *
- * @uses    $GLOBALS['cfg']['lang']
- * @uses    $GLOBALS['cfg']['DefaultLang']
- * @uses    $GLOBALS['lang_failed_cfg']
- * @uses    $GLOBALS['lang_failed_cookie']
- * @uses    $GLOBALS['lang_failed_request']
- * @uses    $_REQUEST['lang']
- * @uses    $_COOKIE['pma_lang']
- * @uses    $_SERVER['HTTP_ACCEPT_LANGUAGE']
- * @uses    $_SERVER['HTTP_USER_AGENT']
- * @uses    PMA_langSet()
- * @uses    PMA_langDetect()
- * @uses    explode()
  * @return  bool    success if valid lang is found, otherwise false
  */
 function PMA_langCheck()
@@ -114,8 +102,6 @@ function PMA_langCheck()
  * checks given lang and sets it if valid
  * returns true on success, otherwise flase
  *
- * @uses    $GLOBALS['available_languages'] to check $lang
- * @uses    $GLOBALS['lang']                to set it
  * @param   string  $lang   language to set
  * @return  bool    success
  */
@@ -140,7 +126,6 @@ function PMA_langSet(&$lang)
  *
  * @return  bool    true on success, otherwise false
  *
- * @uses    $GLOBALS['available_languages'] to check $lang
  *
  * @access  private
  */
@@ -215,10 +200,12 @@ function PMA_langDetails($lang) {
             return array('bg|bulgarian', 'bg', '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;');
         case 'bs':
             return array('bs|bosnian', 'bs', 'Bosanski');
+        case 'br':
+            return array('br|breton', 'br', 'Brezhoneg');
         case 'ca':
             return array('ca|catalan', 'ca', 'Catal&agrave;');
         case 'cs':
-            return array('cs|czech', 'cs', '&#268;esky');
+            return array('cs|czech', 'cs', 'Čeština');
         case 'cy':
             return array('cy|welsh', 'cy', 'Cymraeg');
         case 'da':

@@ -46,11 +46,12 @@ class PMA_RecentTable
             $this->pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                                PMA_backquote($GLOBALS['cfg']['Server']['recent']);
         }
-        if (! isset($_SESSION['tmp_user_values']['recent_tables'])) {
-            $_SESSION['tmp_user_values']['recent_tables'] =
+        $server_id = $GLOBALS['server'];
+        if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
+            $_SESSION['tmp_user_values']['recent_tables'][$server_id] =
                 isset($this->pma_table) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'];
+        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$server_id];
     }
 
     /**
@@ -69,10 +70,6 @@ class PMA_RecentTable
     /**
      * Returns recently used tables from phpMyAdmin database.
      *
-     * @uses $pma_table
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_array()
-     * @uses json_decode()
      *
      * @return array
      */
@@ -94,9 +91,6 @@ class PMA_RecentTable
     /**
      * Save recent tables into phpMyAdmin database.
      *
-     * @uses PMA_DBI_try_query()
-     * @uses json_decode()
-     * @uses PMA_Message
      * 
      * @return true|PMA_Message
      */
@@ -105,7 +99,7 @@ class PMA_RecentTable
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query =
         " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
-        " VALUES ('" . $username . "', '" . PMA_sqlAddslashes(json_encode($this->tables)) . "')";
+        " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes(json_encode($this->tables)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -163,9 +157,9 @@ class PMA_RecentTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
+        $html  = '<input type="hidden" name="goto" id="LeftDefaultTabTable" value="' .
                          $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
-        $html .= '<select id="recentTable">';
+        $html .= '<select name="table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
         

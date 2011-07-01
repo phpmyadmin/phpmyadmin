@@ -8,7 +8,7 @@ set -e
 #
 # How many percent needs to be translated
 #
-THRESHOLD=50
+THRESHOLD=40
 
 #
 # Generated output file

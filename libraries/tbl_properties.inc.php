@@ -773,7 +773,7 @@ if ($action == 'tbl_create.php') {
 <h3><?php printf(__('Values for the column "%s"'), isset($row['Field']) ? htmlspecialchars($row['Field']) : ""); ?></h3>
 <p><?php echo __('Enter each value in a separate field.'); ?></p>
 <div id="values"></div>
-<p><a class="add_value"><?php echo __('+ Add a new value'); ?></a></p>
+<p><a class="add_value"><?php echo __('+ Add a value'); ?></a></p>
 <input type="submit" value="<?php echo __('Go'); ?>" /> <a class="cancel_enum_editor"><?php echo __('Cancel'); ?></a>
 </div>
 

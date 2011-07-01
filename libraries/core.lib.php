@@ -29,7 +29,6 @@
  * echo PMA_ifSetOr($cfg['ForceSSL'], false, 'boolean'); // true
  * </code>
  *
- * @uses    PMA_isValid()
  * @see     PMA_isValid()
  * @param   mixed   $var        param to check
  * @param   mixed   $default    default value
@@ -80,12 +79,6 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  *
  * @todo create some testsuites
  * @todo add some more var types like hex, bin, ...?
- * @uses    is_scalar()
- * @uses    is_numeric()
- * @uses    is_array()
- * @uses    in_array()
- * @uses    gettype()
- * @uses    strtolower()
  * @see     http://php.net/gettype
  * @param   mixed   $var        variable to check
  * @param   mixed   $type       var type or array of valid values to check against $var
@@ -199,21 +192,6 @@ function PMA_securePath($path)
  * loads language file if not loaded already
  *
  * @todo    use detected argument separator (PMA_Config)
- * @uses    $GLOBALS['session_name']
- * @uses    $GLOBALS['text_dir']
- * @uses    $GLOBALS['available_languages']
- * @uses    $GLOBALS['lang']
- * @uses    $GLOBALS['PMA_Config']->removeCookie()
- * @uses    select_lang.lib.php
- * @uses    $_COOKIE
- * @uses    substr()
- * @uses    header()
- * @uses    http_build_query()
- * @uses    is_string()
- * @uses    sprintf()
- * @uses    vsprintf()
- * @uses    strtr()
- * @uses    defined()
  * @param   string $error_message the error message or named error message
  * @param   string|array $message_args arguments applied to $error_message
  * @return  exit
@@ -290,11 +268,6 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 /**
  * returns count of tables in given db
  *
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_QUERY_STORE()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_free_result()
  * @param   string  $db database to count tables for
  * @return  integer count of tables in $db
  */
@@ -327,9 +300,6 @@ function PMA_getTableCount($db)
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
- * @uses    each()
- * @uses    strlen()
- * @uses    substr()
  * @param   string  $size
  * @return  integer $size
  */
@@ -365,10 +335,6 @@ function PMA_get_real_size($size = 0)
  *
  * @see     http://php.net/array_merge
  * @see     http://php.net/array_merge_recursive
- * @uses    func_num_args()
- * @uses    func_get_arg()
- * @uses    is_array()
- * @uses    call_user_func_array()
  * @param   array   array to merge
  * @param   array   array to merge
  * @param   array   ...
@@ -424,9 +390,6 @@ function PMA_array_merge_recursive()
  * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
  * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
  *
- * @uses    PMA_arrayWalkRecursive()
- * @uses    is_array()
- * @uses    is_string()
  * @param   array   $array      array to walk
  * @param   string  $function   function to call for every array element
  */
@@ -460,10 +423,6 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
  * checks given given $page against given $whitelist and returns true if valid
  * it ignores optionaly query paramters in $page (script.php?ignored)
  *
- * @uses    in_array()
- * @uses    urldecode()
- * @uses    substr()
- * @uses    strpos()
  * @param   string  &$page      page to check
  * @param   array   $whitelist  whitelist to check page against
  * @return  boolean whether $page is valid or not (in $whitelist or not)
@@ -493,11 +452,6 @@ function PMA_checkPageValidity(&$page, $whitelist)
  * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
  * in this order
  *
- * @uses    $_SERVER
- * @uses    $_ENV
- * @uses    getenv()
- * @uses    function_exists()
- * @uses    apache_getenv()
  * @param   string  $var_name   variable name
  * @return  string  value of $var or empty string
  */
@@ -519,19 +473,6 @@ function PMA_getenv($var_name) {
 /**
  * Send HTTP header, taking IIS limits into account (600 seems ok)
  *
- * @uses    PMA_IS_IIS
- * @uses    PMA_COMING_FROM_COOKIE_LOGIN
- * @uses    PMA_get_arg_separator()
- * @uses    SID
- * @uses    strlen()
- * @uses    strpos()
- * @uses    header()
- * @uses    session_write_close()
- * @uses    headers_sent()
- * @uses    function_exists()
- * @uses    debug_print_backtrace()
- * @uses    trigger_error()
- * @uses    defined()
  * @param   string   $uri the header to send
  * @return  boolean  always true
  */

@@ -1,6 +1,6 @@
 #!/bin/sh
 # vim: expandtab sw=4 ts=4 sts=4:
-export LANG=C
+export LC_ALL=C
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
 xgettext \
     -d phpmyadmin \

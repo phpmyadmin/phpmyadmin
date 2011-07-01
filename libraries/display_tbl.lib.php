@@ -206,8 +206,6 @@ function PMA_isSelect()
 /**
  * Displays a navigation button
  *
- * @uses    $GLOBALS['cfg']['NavigationBarIconic']
- * @uses    PMA_generate_common_hidden_inputs()
  *
  * @param   string   iconic caption for button
  * @param   string   text for button
@@ -256,10 +254,6 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
 /**
  * Displays a navigation bar to browse among the results of a SQL query
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_SESSION['tmp_user_values']['pos']
  * @param   integer  the offset for the "next" page
  * @param   integer  the offset for the "previous" page
  * @param   string   the URL-encoded query
@@ -405,7 +399,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             }
             // generate table create time
             echo '<input id="table_create_time" type="hidden" value="' .
-                 PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'CREATE_TIME') . '" />';
+                 PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
         }
         // generate hints
         echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
@@ -452,12 +446,6 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 /**
  * Displays the headers of the results table
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_SESSION['tmp_user_values']['display_text']
- * @uses    $_SESSION['tmp_user_values']['display_binary']
- * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
  * @param   array    which elements to display
  * @param   array    the list of fields properties
  * @param   integer  the total number of fields returned by the SQL query
@@ -635,6 +623,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         // the transformations.
         echo '<div class="formelement">';
         PMA_display_html_checkbox('hide_transformation', __('Hide') . ' ' . __('Browser transformation'), ! empty($_SESSION['tmp_user_values']['hide_transformation']), false);
+        echo '</div>';
+
+        echo '<div class="formelement">';
+        $choices = array(
+            'GEOM'  => __('Geometry'),
+            'WKT'   => __('Well Known Text'),
+            'WKB'   => __('Well Known Binary')
+        );
+        PMA_display_html_radio('geometry_display', $choices, $_SESSION['tmp_user_values']['geometry_display']);
         echo '</div>';
 
         echo '<div class="clearfloat"></div>';
@@ -879,7 +876,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="soimg' . $i . '" />';
             }
 
-            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3)) {
+            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3)) {
                 $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
             } else {
                 $sorted_sql_query = $unsorted_sql_query . $sort_order;
@@ -1116,13 +1113,6 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
 /**
  * Displays the body of the results table
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_SESSION['tmp_user_values']['display_text']
- * @uses    $_SESSION['tmp_user_values']['display_binary']
- * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
- * @uses    $_SESSION['tmp_user_values']['display_blob']
  * @param   integer  the link id associated to the query which results have
  *                   to be displayed
  * @param   array    which elements to display
@@ -1183,6 +1173,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     $vertical_display['row_delete'] = array();
     // name of the class added to all inline editable elements
     $inline_edit_class = 'inline_edit';
+
+    // prepare to get the column order, if available
+    if (PMA_isSelect()) {
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+    } else {
+        $col_order = false;
+    }
 
     // Correction University of Virginia 19991216 in the while below
     // Previous code assumed that all tables have keys, specifically that
@@ -1345,14 +1343,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
         // 2. Displays the rows' values
 
-        if (PMA_isSelect()) {
-            // prepare to get the column order, if available
-            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        } else {
-            $col_order = false;
-        }
-
         for ($j = 0; $j < $fields_cnt; ++$j) {
             // assign $i with appropriate column order
             $i = $col_order ? $col_order[$j] : $j;
@@ -1488,12 +1478,70 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 }
             // g e o m e t r y
             } elseif ($meta->type == 'geometry') {
-                $geometry_text = PMA_handle_non_printable_contents('GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function, $transform_options, $default_function, $meta);
 
-                // remove 'inline_edit' from $class as we can't edit geometry data.
+                // Remove 'inline_edit' from $class as we do not allow to inline-edit geometry data.
                 $class = str_replace('inline_edit', '', $class);
-                $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $geometry_text);
-                unset($geometry_text);
+
+                // Display as [GEOMETRY - (size)]
+                if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
+                    $geometry_text = PMA_handle_non_printable_contents(
+                        'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function,
+                        $transform_options, $default_function, $meta
+                    );
+                    $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
+                        $class, $condition_field, $geometry_text
+                    );
+
+                // Display in Well Known Text(WKT) format.
+                } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
+                    // Convert to WKT format
+                    $wktsql     = "SELECT ASTEXT (GeomFromWKB(x'" . PMA_substr(bin2hex($row[$i]), 8) . "'))";
+                    $wktresult  = PMA_DBI_try_query($wktsql, null, PMA_DBI_QUERY_STORE);
+                    $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
+                    $wktval     = $wktarr[0];
+                    @PMA_DBI_free_result($wktresult);
+
+                    if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
+                        && $_SESSION['tmp_user_values']['display_text'] == 'P'
+                    ) {
+                        $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                        $is_field_truncated = true;
+                    }
+
+                    $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
+                        $class, $condition_field, $analyzed_sql, $meta, $map, $wktval, $transform_function,
+                        $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                    );
+
+                // Display in  Well Known Binary(WKB) format.
+                } else {
+                    if ($_SESSION['tmp_user_values']['display_binary']) {
+                        if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+                            && PMA_contains_nonprintable_ascii($row[$i])
+                        ) {
+                            $wkbval = PMA_substr(bin2hex($row[$i]), 8);
+                        } else {
+                            $wkbval = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
+                        }
+
+                        if (PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars']
+                            && $_SESSION['tmp_user_values']['display_text'] == 'P'
+                        ) {
+                            $wkbval = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                            $is_field_truncated = true;
+                        }
+
+                        $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
+                            $class, $condition_field, $analyzed_sql, $meta, $map, $wkbval, $transform_function,
+                            $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                        );
+                    } else {
+                        $wkbval = PMA_handle_non_printable_contents(
+                            'BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params
+                        );
+                        $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay($class, $condition_field, $wkbval);
+                    }
+                }
 
             // n o t   n u m e r i c   a n d   n o t   B L O B
             } else {
@@ -1539,7 +1587,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     // do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
-                    $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
+                    $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i]) . '\'';
                     $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
 
                 } else {
@@ -1635,7 +1683,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
  *
  * @return  boolean  always true
  *
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
  * @global  array    $vertical_display the information to display
  *
  * @access  private
@@ -1831,29 +1878,6 @@ function PMA_displayVerticalTable()
 
 /**
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_REQUEST['disp_direction']
- * @uses    $GLOBALS['cfg']['DefaultDisplay']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_REQUEST['repeat_cells']
- * @uses    $GLOBALS['cfg']['RepeatCells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_REQUEST['session_max_rows']
- * @uses    $GLOBALS['cfg']['MaxRows']
- * @uses    $_SESSION['tmp_user_values']['pos']
- * @uses    $_REQUEST['pos']
- * @uses    $_SESSION['tmp_user_values']['display_text']
- * @uses    $_REQUEST['display_text']
- * @uses    $_SESSION['tmp_user_values']['relational_display']
- * @uses    $_REQUEST['relational_display']
- * @uses    $_SESSION['tmp_user_values']['display_binary']
- * @uses    $_REQUEST['display_binary']
- * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
- * @uses    $_REQUEST['display_binary_as_hex']
- * @uses    $_SESSION['tmp_user_values']['display_blob']
- * @uses    $_REQUEST['display_blob']
- * @uses    PMA_isValid()
- * @uses    $GLOBALS['sql_query']
  * @todo    make maximum remembered queries configurable
  * @todo    move/split into SQL class!?
  * @todo    currently this is called twice unnecessary
@@ -1909,6 +1933,13 @@ function PMA_displayTable_checkConfigParams()
         unset($_REQUEST['relational_display']);
     } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'])) {
         $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'] = 'K';
+    }
+
+    if (PMA_isValid($_REQUEST['geometry_display'], array('WKT', 'WKB', 'GEOM'))) {
+        $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'] = $_REQUEST['geometry_display'];
+        unset($_REQUEST['geometry_display']);
+    } elseif (empty($_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'])) {
+        $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'] = 'GEOM';
     }
 
     if (isset($_REQUEST['display_binary'])) {
@@ -1969,6 +2000,7 @@ function PMA_displayTable_checkConfigParams()
     // populate query configuration
     $_SESSION['tmp_user_values']['display_text'] = $_SESSION['tmp_user_values']['query'][$sql_md5]['display_text'];
     $_SESSION['tmp_user_values']['relational_display'] = $_SESSION['tmp_user_values']['query'][$sql_md5]['relational_display'];
+    $_SESSION['tmp_user_values']['geometry_display'] = $_SESSION['tmp_user_values']['query'][$sql_md5]['geometry_display'];
     $_SESSION['tmp_user_values']['display_binary'] = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary']) ? true : false;
     $_SESSION['tmp_user_values']['display_binary_as_hex'] = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_binary_as_hex']) ? true : false;
     $_SESSION['tmp_user_values']['display_blob'] = isset($_SESSION['tmp_user_values']['query'][$sql_md5]['display_blob']) ? true : false;
@@ -1995,7 +2027,6 @@ function PMA_displayTable_checkConfigParams()
  * @param   array   the display mode
  * @param   array   the analyzed query
  *
- * @uses    $_SESSION['tmp_user_values']['pos']
  * @global  string   $db                the database name
  * @global  string   $table             the table name
  * @global  string   $goto              the URL to go back in case of errors
@@ -2360,8 +2391,6 @@ function default_function($buffer) {
  * @param   array   the display mode
  * @param   array   the analyzed query
  *
- * @uses    $_SESSION['tmp_user_values']['pos']
- * @uses    $_SESSION['tmp_user_values']['display_text']
  * @global  string   $db                the database name
  * @global  string   $table             the table name
  * @global  string   $sql_query         the current SQL query
@@ -2376,7 +2405,7 @@ function default_function($buffer) {
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
  */
 function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
-    global $db, $table, $sql_query, $unlim_num_rows;
+    global $db, $table, $sql_query, $unlim_num_rows, $fields_meta;
 
     $header_shown = false;
     $header = '<fieldset><legend>' . __('Query results operations') . '</legend>';
@@ -2457,6 +2486,22 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
             PMA_getIcon('b_chart.png', __('Display chart'), false, true),
             '', true, true, '') . "\n";
+
+        // show GIS chart
+        $geometry_found = false;
+        // If atleast one geometry field is found
+        foreach ($fields_meta as $meta) {
+            if ($meta->type == 'geometry') {
+                $geometry_found = true;
+                break;
+            }
+        }
+        if ($geometry_found) {
+            echo PMA_linkOrButton(
+                'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
+                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), false, true),
+                '', true, true, '') . "\n";
+        }
     }
 
     // CREATE VIEW
@@ -2486,12 +2531,6 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * Verifies what to do with non-printable contents (binary or BLOB)
  * in Browse mode.
  *
- * @uses    is_null()
- * @uses    isset()
- * @uses    strlen()
- * @uses    PMA_formatByteDown()
- * @uses    strpos()
- * @uses    str_replace()
  * @param   string  $category BLOB|BINARY|GEOMETRY
  * @param   string  $content  the binary content
  * @param   string  $transform_function
@@ -2537,15 +2576,6 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * Prepares the displayable content of a data cell in Browse mode,
  * taking into account foreign key description field and transformations
  *
- * @uses    is_array()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_free_result()
- * @uses    $GLOBALS['printview']
- * @uses    htmlspecialchars()
- * @uses    PMA_generate_common_url()
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $analyzed_sql
@@ -2647,7 +2677,6 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @uses    htmlspecialchars
  * @param   string  $del_url
  * @param   array   $is_display
  * @param   string  $row_no
@@ -2677,7 +2706,6 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 /**
  * Generates an Edit link
  *
- * @uses    PMA_linkOrButton()
  * @param   string  $edit_url
  * @param   string  $class
  * @param   string  $edit_str
@@ -2705,7 +2733,6 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 /**
  * Generates an Copy link
  *
- * @uses    PMA_linkOrButton()
  * @param   string  $copy_url
  * @param   string  $copy_str
  * @param   string  $where_clause
@@ -2736,7 +2763,6 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 /**
  * Generates a Delete link
  *
- * @uses    PMA_linkOrButton()
  * @param   string  $del_url
  * @param   string  $del_str
  * @param   string  $js_conf
@@ -2761,10 +2787,6 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * Generates checkbox and links at some position (left or right)
  * (only called for horizontal mode)
  *
- * @uses    PMA_generateCheckboxForMulti()
- * @uses    PMA_generateEditLink()
- * @uses    PMA_generateDeleteLink()
- * @uses    PMA_generateCopyLink()
  * @param   string  $position
  * @param   string  $del_url
  * @param   array   $is_display

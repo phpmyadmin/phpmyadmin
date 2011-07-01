@@ -4,6 +4,7 @@
  * DocSQL import plugin for phpMyAdmin
  *
  * @package phpMyAdmin-Import
+ * @subpackage DocSQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -67,10 +68,10 @@ if ($data === true && !$error && !$timeout_passed) {
                         ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']) . '
                       (db_name, table_name, column_name, ' . PMA_backquote('comment') . ')
                  VALUES (
-                        \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\',
-                        \'' . PMA_sqlAddslashes(trim($tab)) . '\',
-                        \'' . PMA_sqlAddslashes(trim($inf[0])) . '\',
-                        \'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
+                        \'' . PMA_sqlAddSlashes($GLOBALS['db']) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($tab)) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($inf[0])) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($inf[1])) . '\')';
             PMA_importRunQuery($qry, $qry . '-- ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]), true);
         } // end inf[1] exists
         if (!empty($inf[2]) && strlen(trim($inf[2])) > 0) {
@@ -80,12 +81,12 @@ if ($data === true && !$error && !$timeout_passed) {
                         ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation']) . '
                       (master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)
                  VALUES (
-                        \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\',
-                        \'' . PMA_sqlAddslashes(trim($tab)) . '\',
-                        \'' . PMA_sqlAddslashes(trim($inf[0])) . '\',
-                        \'' . PMA_sqlAddslashes($GLOBALS['db']) . '\',
-                        \'' . PMA_sqlAddslashes(trim($for[0])) . '\',
-                        \'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
+                        \'' . PMA_sqlAddSlashes($GLOBALS['db']) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($tab)) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($inf[0])) . '\',
+                        \'' . PMA_sqlAddSlashes($GLOBALS['db']) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($for[0])) . '\',
+                        \'' . PMA_sqlAddSlashes(trim($for[1])) . '\')';
             PMA_importRunQuery($qry, $qry . '-- ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '(' . htmlspecialchars($inf[2]) . ')', true);
         } // end inf[2] exists
     } // End lines loop

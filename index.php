@@ -3,26 +3,7 @@
 /**
  * forms frameset
  *
- * @uses    $GLOBALS['cfg']['QueryHistoryDB']
- * @uses    $GLOBALS['cfg']['Server']['user']
- * @uses    $GLOBALS['cfg']['DefaultTabServer']     as src for the mainframe
- * @uses    $GLOBALS['cfg']['DefaultTabDatabase']   as src for the mainframe
- * @uses    $GLOBALS['cfg']['NaviWidth']            for navi frame width
- * @uses    $GLOBALS['collation_connection']    from $_REQUEST (grab_globals.lib.php)
  *                                              or common.inc.php
- * @uses    $GLOBALS['available_languages'] from common.inc.php (select_lang.lib.php)
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['lang']
- * @uses    $GLOBALS['text_dir']
- * @uses    $_ENV['HTTP_HOST']
- * @uses    PMA_getRelationsParam()
- * @uses    PMA_purgeHistory()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_VERSION
- * @uses    session_write_close()
- * @uses    time()
- * @uses    PMA_getenv()
- * @uses    header()                to send charset
  * @package phpMyAdmin
  */
 
@@ -73,7 +54,7 @@ if (! strlen($GLOBALS['db'])) {
 } else {
     $_GET['db'] = $GLOBALS['db'];
     $_GET['table'] = $GLOBALS['table'];
-    $main_target = $GLOBALS['cfg']['DefaultTabTable'];
+    $main_target = isset($GLOBALS['goto']) ? $GLOBALS['goto'] : $GLOBALS['cfg']['DefaultTabTable'];
 }
 
 $url_query = PMA_generate_common_url($_GET);
