@@ -79,7 +79,6 @@ class PMA_File
      * constructor
      *
      * @access  public
-     * @uses    PMA_File::setName()
      * @param   string  $name   file name
      */
     function __construct($name = false)
@@ -94,7 +93,6 @@ class PMA_File
      *
      * @see     PMA_File::cleanUp()
      * @access  public
-     * @uses    PMA_File::cleanUp()
      */
     function __destruct()
     {
@@ -105,8 +103,6 @@ class PMA_File
      * deletes file if it is temporary, usally from a moved upload file
      *
      * @access  public
-     * @uses    PMA_File::delet()
-     * @uses    PMA_File::isTemp()
      * @return  boolean success
      */
     function cleanUp()
@@ -122,8 +118,6 @@ class PMA_File
      * deletes the file
      *
      * @access  public
-     * @uses    PMA_File::getName()
-     * @uses    unlink()
      * @return  boolean success
      */
     function delete()
@@ -136,7 +130,6 @@ class PMA_File
      * file objects with temp flags are deleted with object destruction
      *
      * @access  public
-     * @uses    PMA_File::$_is_temp to set and read it
      * @param   boolean sets the temp flag
      * @return  boolean PMA_File::$_is_temp
      */
@@ -153,7 +146,6 @@ class PMA_File
      * accessor
      *
      * @access  public
-     * @uses    PMA_File::$_name
      * @param   string  $name   file name
      */
     function setName($name)
@@ -163,17 +155,6 @@ class PMA_File
 
     /**
      * @access  public
-     * @uses    PMA_File::getName()
-     * @uses    PMA_File::isUploaded()
-     * @uses    PMA_File::checkUploadedFile()
-     * @uses    PMA_File::isReadable()
-     * @uses    PMA_File::$_content
-     * @uses    function_exists()
-     * @uses    file_get_contents()
-     * @uses    filesize()
-     * @uses    fread()
-     * @uses    fopen()
-     * @uses    bin2hex()
      * @return  string  binary file content
      */
     function getContent($as_binary = true, $offset = 0, $length = null)
@@ -209,8 +190,6 @@ class PMA_File
 
     /**
      * @access  public
-     * @uses    PMA_File::getName()
-     * @uses    is_uploaded_file()
      */
     function isUploaded()
     {
@@ -221,7 +200,6 @@ class PMA_File
      * accessor
      *
      * @access  public
-     * @uses    PMA_File::$name as return value
      * @return  string  PMA_File::$_name
      */
     function getName()
@@ -232,9 +210,6 @@ class PMA_File
     /**
      * @todo replace error message with localized string
      * @access  public
-     * @uses    PMA_File::isUploaded()
-     * @uses    PMA_File::setName()
-     * @uses    PMA_File::$_error_message
      * @param   string  name of file uploaded
      * @return  boolean success
      */
@@ -253,12 +228,6 @@ class PMA_File
 
     /**
      * @access  public
-     * @uses    PMA_File::fetchUploadedFromTblChangeRequestMultiple()
-     * @uses    PMA_File::setUploadedFile()
-     * @uses    PMA_File::setRecentBLOBReference()
-     * @uses    curl_setopt_array()
-     * @uses    PMA_File::$_error_message
-     * @uses    $_FILES
      * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
@@ -375,9 +344,6 @@ class PMA_File
      * sets the name if the file to the one selected in the tbl_change form
      *
      * @access  public
-     * @uses    $_REQUEST
-     * @uses    PMA_File::setLocalSelectedFile()
-     * @uses    is_string()
      * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
@@ -437,7 +403,6 @@ class PMA_File
 
     /**
      * @access  public
-     * @uses    PMA_File->$_error_message as return value
      * @return  string  error message
      */
     function getError()
@@ -447,7 +412,6 @@ class PMA_File
 
     /**
      * @access  public
-     * @uses    PMA_File->$_error_message to check it
      * @return  boolean whether an error occured or not
      */
     function isError()
@@ -460,8 +424,6 @@ class PMA_File
      * and uses the submitted/selected file
      *
      * @access  public
-     * @uses    PMA_File::setUploadedFromTblChangeRequest()
-     * @uses    PMA_File::setSelectedFromTblChangeRequest()
      * @param   string  $key the md5 hash of the column name
      * @param   string  $rownumber
      * @return  boolean success
@@ -485,10 +447,6 @@ class PMA_File
     /**
      *
      * @access  public
-     * @uses    PMA_File::setName()
-     * @uses    PMA_securePath()
-     * @uses    PMA_userDir()
-     * @uses    $GLOBALS['cfg']['UploadDir']
      * @param   string  $name
      * @return  boolean success
      */
@@ -508,10 +466,6 @@ class PMA_File
 
     /**
      * @access  public
-     * @uses    PMA_File::getName()
-     * @uses    is_readable()
-     * @uses    ob_start()
-     * @uses    ob_end_clean()
      * @return  boolean whether the file is readable or not
      */
     function isReadable()
@@ -532,20 +486,6 @@ class PMA_File
      * @todo replace error message with localized string
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
-     * @uses    $cfg['TempDir']
-     * @uses    PMA_File::isReadable()
-     * @uses    PMA_File::getName()
-     * @uses    PMA_File::setName()
-     * @uses    PMA_File::isTemp()
-     * @uses    PMA_File::$_error_message
-     * @uses    is_dir()
-     * @uses    mkdir()
-     * @uses    chmod()
-     * @uses    is_writable()
-     * @uses    basename()
-     * @uses    move_uploaded_file()
-     * @uses    ob_start()
-     * @uses    ob_end_clean()
      * @return  boolean whether uploaded fiel is fine or not
      */
     function checkUploadedFile()
@@ -588,14 +528,6 @@ class PMA_File
      *
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
-     * @uses    PMA_File::$_compression to set it
-     * @uses    PMA_File::getName()
-     * @uses    fopen()
-     * @uses    fread()
-     * @uses    strlen()
-     * @uses    fclose()
-     * @uses    chr()
-     * @uses    substr()
      * @access  protected
      * @return  string MIME type of compression, none for none
      */
@@ -729,8 +661,6 @@ class PMA_File
     }
 
     /**
-     * @uses    PMA_File::$_compression as return value
-     * @uses    PMA_File::detectCompression()
      * @return  string MIME type of compression, none for none
      * @access  public
      */

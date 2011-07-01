@@ -206,8 +206,6 @@ function PMA_isSelect()
 /**
  * Displays a navigation button
  *
- * @uses    $GLOBALS['cfg']['NavigationBarIconic']
- * @uses    PMA_generate_common_hidden_inputs()
  *
  * @param   string   iconic caption for button
  * @param   string   text for button
@@ -256,10 +254,6 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
 /**
  * Displays a navigation bar to browse among the results of a SQL query
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_SESSION['tmp_user_values']['pos']
  * @param   integer  the offset for the "next" page
  * @param   integer  the offset for the "previous" page
  * @param   string   the URL-encoded query
@@ -452,12 +446,6 @@ onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo 
 /**
  * Displays the headers of the results table
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_SESSION['tmp_user_values']['display_text']
- * @uses    $_SESSION['tmp_user_values']['display_binary']
- * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
  * @param   array    which elements to display
  * @param   array    the list of fields properties
  * @param   integer  the total number of fields returned by the SQL query
@@ -888,7 +876,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="soimg' . $i . '" />';
             }
 
-            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3)) {
+            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3)) {
                 $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
             } else {
                 $sorted_sql_query = $unsorted_sql_query . $sort_order;
@@ -1125,13 +1113,6 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
 /**
  * Displays the body of the results table
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_SESSION['tmp_user_values']['display_text']
- * @uses    $_SESSION['tmp_user_values']['display_binary']
- * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
- * @uses    $_SESSION['tmp_user_values']['display_blob']
  * @param   integer  the link id associated to the query which results have
  *                   to be displayed
  * @param   array    which elements to display
@@ -1606,7 +1587,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                     // do not wrap if date field type
                     $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap' : '');
-                    $where_comparison = ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
+                    $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i]) . '\'';
                     $vertical_display['data'][$row_no][$i]     = '<td ' . PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $row[$i], $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated);
 
                 } else {
@@ -1702,7 +1683,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
  *
  * @return  boolean  always true
  *
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
  * @global  array    $vertical_display the information to display
  *
  * @access  private
@@ -1898,29 +1878,6 @@ function PMA_displayVerticalTable()
 
 /**
  *
- * @uses    $_SESSION['tmp_user_values']['disp_direction']
- * @uses    $_REQUEST['disp_direction']
- * @uses    $GLOBALS['cfg']['DefaultDisplay']
- * @uses    $_SESSION['tmp_user_values']['repeat_cells']
- * @uses    $_REQUEST['repeat_cells']
- * @uses    $GLOBALS['cfg']['RepeatCells']
- * @uses    $_SESSION['tmp_user_values']['max_rows']
- * @uses    $_REQUEST['session_max_rows']
- * @uses    $GLOBALS['cfg']['MaxRows']
- * @uses    $_SESSION['tmp_user_values']['pos']
- * @uses    $_REQUEST['pos']
- * @uses    $_SESSION['tmp_user_values']['display_text']
- * @uses    $_REQUEST['display_text']
- * @uses    $_SESSION['tmp_user_values']['relational_display']
- * @uses    $_REQUEST['relational_display']
- * @uses    $_SESSION['tmp_user_values']['display_binary']
- * @uses    $_REQUEST['display_binary']
- * @uses    $_SESSION['tmp_user_values']['display_binary_as_hex']
- * @uses    $_REQUEST['display_binary_as_hex']
- * @uses    $_SESSION['tmp_user_values']['display_blob']
- * @uses    $_REQUEST['display_blob']
- * @uses    PMA_isValid()
- * @uses    $GLOBALS['sql_query']
  * @todo    make maximum remembered queries configurable
  * @todo    move/split into SQL class!?
  * @todo    currently this is called twice unnecessary
@@ -2070,7 +2027,6 @@ function PMA_displayTable_checkConfigParams()
  * @param   array   the display mode
  * @param   array   the analyzed query
  *
- * @uses    $_SESSION['tmp_user_values']['pos']
  * @global  string   $db                the database name
  * @global  string   $table             the table name
  * @global  string   $goto              the URL to go back in case of errors
@@ -2435,8 +2391,6 @@ function default_function($buffer) {
  * @param   array   the display mode
  * @param   array   the analyzed query
  *
- * @uses    $_SESSION['tmp_user_values']['pos']
- * @uses    $_SESSION['tmp_user_values']['display_text']
  * @global  string   $db                the database name
  * @global  string   $table             the table name
  * @global  string   $sql_query         the current SQL query
@@ -2577,12 +2531,6 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * Verifies what to do with non-printable contents (binary or BLOB)
  * in Browse mode.
  *
- * @uses    is_null()
- * @uses    isset()
- * @uses    strlen()
- * @uses    PMA_formatByteDown()
- * @uses    strpos()
- * @uses    str_replace()
  * @param   string  $category BLOB|BINARY|GEOMETRY
  * @param   string  $content  the binary content
  * @param   string  $transform_function
@@ -2628,15 +2576,6 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * Prepares the displayable content of a data cell in Browse mode,
  * taking into account foreign key description field and transformations
  *
- * @uses    is_array()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_free_result()
- * @uses    $GLOBALS['printview']
- * @uses    htmlspecialchars()
- * @uses    PMA_generate_common_url()
  * @param   string  $class
  * @param   string  $condition_field
  * @param   string  $analyzed_sql
@@ -2738,7 +2677,6 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @uses    htmlspecialchars
  * @param   string  $del_url
  * @param   array   $is_display
  * @param   string  $row_no
@@ -2768,7 +2706,6 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 /**
  * Generates an Edit link
  *
- * @uses    PMA_linkOrButton()
  * @param   string  $edit_url
  * @param   string  $class
  * @param   string  $edit_str
@@ -2796,7 +2733,6 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 /**
  * Generates an Copy link
  *
- * @uses    PMA_linkOrButton()
  * @param   string  $copy_url
  * @param   string  $copy_str
  * @param   string  $where_clause
@@ -2827,7 +2763,6 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 /**
  * Generates a Delete link
  *
- * @uses    PMA_linkOrButton()
  * @param   string  $del_url
  * @param   string  $del_str
  * @param   string  $js_conf
@@ -2852,10 +2787,6 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * Generates checkbox and links at some position (left or right)
  * (only called for horizontal mode)
  *
- * @uses    PMA_generateCheckboxForMulti()
- * @uses    PMA_generateEditLink()
- * @uses    PMA_generateDeleteLink()
- * @uses    PMA_generateCopyLink()
  * @param   string  $position
  * @param   string  $del_url
  * @param   array   $is_display

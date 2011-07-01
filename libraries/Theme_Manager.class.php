@@ -187,11 +187,6 @@ class PMA_Theme_Manager
     /**
      * save theme in cookie
      *
-     * @uses    $GLOBALS['PMA_Config']->setCookie();
-     * @uses    PMA_Theme_Manager::getThemeCookieName()
-     * @uses    PMA_Theme_Manager::$theme
-     * @uses    PMA_Theme_Manager::$theme_default
-     * @uses    PMA_Theme::getId()
      */
     function setThemeCookie()
     {
@@ -331,8 +326,6 @@ class PMA_Theme_Manager
     /**
      * prints out preview for every theme
      *
-     * @uses    $this->themes
-     * @uses    PMA_Theme::printPreview()
      */
     function printPreviews()
     {

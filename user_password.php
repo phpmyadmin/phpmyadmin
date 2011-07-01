@@ -4,20 +4,6 @@
  * displays and handles the form where the user can change his password
  * linked from main.php
  *
- * @uses    $GLOBALS['js_include']
- * @uses    $cfg['ShowChgPassword']
- * @uses    $cfg['Server']['auth_type']
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_getError()
- * @uses    PMA_sanitize()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_isValid()
- * @uses    PMA_mysqlDie()
- * @uses    $GLOBALS['PMA_Config']->setCookie()
- * @uses    PMA_blowfish_encrypt()
- * @uses    PMA_showMessage()
- * @uses    define()
  * @package phpMyAdmin
  */
 
@@ -90,7 +76,7 @@ if (isset($_REQUEST['nopass'])) {
         }
 
         $sql_query        = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
-        $local_query      = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($password) . '\')');
+        $local_query      = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($password) . '\')');
         $result           = @PMA_DBI_try_query($local_query)
             or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
 

@@ -16,13 +16,6 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return  array             Parsed information about the input parameter
  *
- * @uses    PMA_SQP_parse()
- * @uses    PMA_unquote()
- * @uses    in_array()
- * @uses    strtoupper()
- * @uses    strtolower()
- * @uses    sort()
- * @uses    implode()
  */
 function PMA_RTN_parseOneParameter($value)
 {
@@ -83,7 +76,6 @@ function PMA_RTN_parseOneParameter($value)
  *
  * @return  array   Information about the parameteres of a routine.
  *
- * @uses    PMA_RTN_parseOneParameter()
  */
 function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
 {
@@ -152,8 +144,6 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
  *
  * @return  string  The definer of a routine.
  *
- * @uses    substr()
- * @uses    PMA_unQuote()
  */
 function PMA_RTN_parseRoutineDefiner($parsed_query)
 {
@@ -185,13 +175,6 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
  *
  * @return  array    Data necessary to create the routine editor.
  *
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_fetch_single_row()
- * @uses    PMA_SQP_parse()
- * @uses    PMA_DBI_get_definition()
- * @uses    PMA_RTN_parseAllParameters()
- * @uses    PMA_RTN_parseRoutineDefiner()
- * @uses    PMA_RTN_parseOneParameter()
  */
 function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
 {
@@ -203,8 +186,8 @@ function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
-             . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($name) . "'";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
     $routine = PMA_DBI_fetch_single_row($query);
@@ -310,11 +293,6 @@ function PMA_RTN_getRoutineDataFromName($db, $name, $all = true)
  *
  * @return  array    Data necessary to create the routine editor.
  *
- * @uses    isset()
- * @uses    is_array()
- * @uses    in_array()
- * @uses    strtolower()
- * @uses    PMA_getSupportedDatatypes()
  */
 function PMA_RTN_getRoutineDataFromRequest()
 {
@@ -480,8 +458,6 @@ function PMA_RTN_getRoutineDataFromRequest()
  *
  * @return    string    HTML code of one row of parameter table for the routine editor.
  *
- * @uses    PMA_getSupportedDatatypes()
- * @uses    PMA_getSupportedCharsets()
  */
 function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 {
@@ -573,11 +549,6 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
  *
  * @return  string   HTML code for the routine editor.
  *
- * @uses    htmlentities()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    strtoupper()
- * @uses    PMA_getSupportedDatatypes()
- * @uses    PMA_getSupportedCharsets()
  */
 function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
@@ -804,16 +775,6 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
  *
  * @return  string   HTML code for the routine execution dialog.
  *
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_unsupportedDatatypes()
- * @uses    stristr()
- * @uses    in_array()
- * @uses    strtolower()
- * @uses    strtoupper()
- * @uses    isset()
- * @uses    PMA_SQP_parse()
- * @uses    htmlentities()
- * @uses    PMA_unquote()
  */
 function PMA_RTN_getExecuteForm($routine, $is_ajax)
 {
@@ -935,16 +896,6 @@ function PMA_RTN_getExecuteForm($routine, $is_ajax)
  *
  * @return  string    The CREATE [ROUTINE | PROCEDURE] query.
  *
- * @uses    explode()
- * @uses    strpos()
- * @uses    PMA_backquote()
- * @uses    sprintf()
- * @uses    htmlspecialchars()
- * @uses    is_array()
- * @uses    preg_match()
- * @uses    count()
- * @uses    strtoupper()
- * @uses    strtolower()
  */
 function PMA_RTN_getQueryFromRequest() {
     global $_REQUEST, $cfg, $routine_errors, $param_sqldataaccess;
@@ -1090,12 +1041,6 @@ function PMA_RTN_getQueryFromRequest() {
  *
  * @return  string    An HTML snippet containing a row for the routines list.
  *
- * @uses    sprintf()
- * @uses    PMA_currentUserHasPrivilege()
- * @uses    PMA_backquote
- * @uses    PMA_RTN_getRoutineDataFromName()
- * @uses    htmlspecialchars()
- * @uses    urlencode()
  */
 function PMA_RTN_getRowForRoutinesList($routine, $ct = 0, $is_ajax = false) {
     global $titles, $db, $url_query, $ajax_class;
@@ -1173,9 +1118,6 @@ function PMA_RTN_getRowForRoutinesList($routine, $ct = 0, $is_ajax = false) {
  *
  * @return   string    An HTML snippet with the list of routines.
  *
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_DBI_fetch_result()
- * @uses    PMA_RTN_getRowForRoutinesList()
  */
 function PMA_RTN_getRoutinesList()
 {
@@ -1185,7 +1127,7 @@ function PMA_RTN_getRoutinesList()
      * Get the routines
      */
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "'";
+    $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
     $routines = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
     /**
      * Conditional classes switch the list on or off
@@ -1235,9 +1177,6 @@ function PMA_RTN_getRoutinesList()
  *
  * @return   string    An HTML snippet with the link to add a new routine.
  *
- * @uses    PMA_currentUserHasPrivilege()
- * @uses    PMA_getIcon()
- * @uses    PMA_showMySQLDocu()
  */
 function PMA_RTN_getAddRoutineLink()
 {

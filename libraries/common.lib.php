@@ -62,8 +62,6 @@ function PMA_pow($base, $exp, $use_function = false)
 /**
  * string PMA_getIcon(string $icon)
  *
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['cfg']['PropertiesIconic']
  * @param   string  $icon       name of icon file
  * @param   string  $alternate  alternate text
  * @param   boolean $container  include in container
@@ -120,7 +118,6 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @uses    PMA_formatByteDown()
  * @param   integer $max_upload_size  the size
  * @return  string   the message
  *
@@ -164,7 +161,7 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  *
  * @access  public
  */
-function PMA_sqlAddslashes($a_string = '', $is_like = false, $crlf = false, $php_code = false)
+function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php_code = false)
 {
     if ($is_like) {
         $a_string = str_replace('\\', '\\\\\\\\', $a_string);
@@ -185,7 +182,7 @@ function PMA_sqlAddslashes($a_string = '', $is_like = false, $crlf = false, $php
     }
 
     return $a_string;
-} // end of the 'PMA_sqlAddslashes()' function
+} // end of the 'PMA_sqlAddSlashes()' function
 
 
 /**
@@ -260,9 +257,6 @@ function PMA_unQuote($quoted_string, $quote = null)
  * format sql strings
  *
  * @todo    move into PMA_Sql
- * @uses    PMA_SQP_isError()
- * @uses    PMA_SQP_formatHtml()
- * @uses    PMA_SQP_formatNone()
  * @param  mixed   $parsed_sql    pre-parsed SQL structure
  * @param  string  $unparsed_sql
  * @return string  the formatted sql
@@ -320,11 +314,6 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 /**
  * Displays a link to the official MySQL documentation
  *
- * @uses    $cfg['MySQLManualType']
- * @uses    $cfg['MySQLManualBase']
- * @uses    $cfg['ReplaceHelpImg']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    PMA_MYSQL_INT_VERSION
  * @param string  $chapter    chapter of "HTML, one page per chapter" documentation
  * @param string  $link       contains name of page/anchor that is being linked
  * @param bool    $big_icon   whether to use big icon (like in left frame)
@@ -450,7 +439,6 @@ function PMA_showPHPDocu($target) {
 /**
  * returns HTML for a footnote marker and add the messsage to the footnotes
  *
- * @uses    $GLOBALS['footnotes']
  * @param   string  $message the error message
  * @param   bool    $bbcode
  * @param   string  $type
@@ -498,22 +486,6 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 /**
  * Displays a MySQL error message in the right frame.
  *
- * @uses    footer.inc.php
- * @uses    header.inc.php
- * @uses    $GLOBALS['sql_query']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['cfg']['PropertiesIconic']
- * @uses    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_getError()
- * @uses    PMA_formatSql()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_showMySQLDocu()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_SQP_isError()
- * @uses    PMA_SQP_parse()
- * @uses    PMA_SQP_getErrorString()
  * @param   string  $error_message   the error message
  * @param   string  $the_query       the sql query that failed
  * @param   bool    $is_modify_link  whether to show a "modify" link or not
@@ -664,16 +636,6 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
 /**
  * returns array with tables of given db with extended information and grouped
  *
- * @uses    $cfg['LeftFrameTableSeparator']
- * @uses    $cfg['LeftFrameTableLevel']
- * @uses    $cfg['ShowTooltipAliasTB']
- * @uses    $cfg['NaturalOrder']
- * @uses    PMA_backquote()
- * @uses    count()
- * @uses    array_merge
- * @uses    uksort()
- * @uses    strstr()
- * @uses    explode()
  * @param   string   $db     name of db
  * @param   string   $tables name of tables
  * @param   integer  $limit_offset   list offset
@@ -804,10 +766,6 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
  *
  * </code>
  *
- * @uses    PMA_backquote()
- * @uses    is_array()
- * @uses    strlen()
- * @uses    str_replace()
  * @param   mixed    $a_name    the database, table or field name to "backquote"
  *                              or array of it
  * @param   boolean  $do_it     a flag to bypass this function (used by dump
@@ -843,7 +801,6 @@ function PMA_backquote($a_name, $do_it = true)
 /**
  * Defines the <CR><LF> value depending on the user OS.
  *
- * @uses    PMA_USR_OS
  * @return  string   the <CR><LF> value to use
  *
  * @access  public
@@ -869,9 +826,6 @@ function PMA_whichCrlf()
  * Reloads navigation if needed.
  *
  * @param   $jsonly prints out pure JavaScript
- * @uses    $GLOBALS['reload']
- * @uses    $GLOBALS['db']
- * @uses    PMA_generate_common_url()
  * @global  array  configuration
  *
  * @access  public
@@ -916,7 +870,6 @@ if (!$jsonly)
  * @param   string  $type       the type (level) of the message
  * @param   boolean $is_view    is this a message after a VIEW operation?
  * @global  array   the configuration array
- * @uses    $cfg
  * @access  public
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
@@ -1270,11 +1223,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
 /**
  * Verifies if current MySQL server supports profiling
  *
- * @uses    $_SESSION['profiling_supported'] for caching
- * @uses    $GLOBALS['server']
- * @uses    PMA_DBI_fetch_value()
- * @uses    PMA_MYSQL_INT_VERSION
- * @uses    defined()
  * @access  public
  * @return  boolean whether profiling is supported
  *
@@ -1478,7 +1426,6 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
  * Returns the number of bytes when a formatted size is given
  *
  * @param   string  $formatted_size  the size expression (for example 8MB)
- * @uses    PMA_pow()
  * @return  integer  The numerical part of the expression (for example 8)
  */
 function PMA_extractValueFromFormattedSize($formatted_size)
@@ -1567,19 +1514,6 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * returns a tab for tabbed navigation.
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
- * @uses    $GLOBALS['PMA_PHP_SELF']
- * @uses    $GLOBALS['active_page']
- * @uses    $GLOBALS['url_query']
- * @uses    $cfg['MainPageIconic']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    PMA_generate_common_url()
- * @uses    E_USER_NOTICE
- * @uses    htmlentities()
- * @uses    urlencode()
- * @uses    sprintf()
- * @uses    trigger_error()
- * @uses    array_merge()
- * @uses    basename()
  * @param   array   $tab    array with all options
  * @param   array   $url_params
  * @return  string  html code for one tab, a link if valid otherwise a span
@@ -1679,8 +1613,6 @@ function PMA_generate_html_tab($tab, $url_params = array())
 /**
  * returns html-code for a tab navigation
  *
- * @uses    PMA_generate_html_tab()
- * @uses    htmlentities()
  * @param   array   $tabs   one element per tab
  * @param   string  $url_params
  * @return  string  html-code for tab-navigation
@@ -1844,8 +1776,6 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 /**
  * Returns a given timespan value in a readable format.
  *
- * @uses    sprintf()
- * @uses    floor()
  * @param  int  $seconds  the timespan
  *
  * @return string  the formatted value
@@ -1875,7 +1805,6 @@ function PMA_timespanFormat($seconds)
  * http://sf.net/tracker/?func=detail&aid=544361&group_id=23067&atid=377411
  *
  * @todo    add a multibyte safe function PMA_STR_split()
- * @uses    strlen
  * @param   string  $string     The string
  * @param   string  $Separator  The Separator (defaults to "<br />\n")
  *
@@ -1925,9 +1854,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  *
  * @todo    localize error message
  * @todo    use PMA_fatalError() if $die === true?
- * @uses    PMA_getenv()
- * @uses    header_meta_style.inc.php
- * @uses    $GLOBALS['PMA_PHP_SELF']
  * @param   array  $params  The names of the parameters needed by the calling script.
  * @param   bool   $die Stop the execution?
  *                  (Set this manually to false in the calling script
@@ -1978,14 +1904,6 @@ function PMA_checkParameters($params, $die = true, $request = true)
 /**
  * Function to generate unique condition for specified row.
  *
- * @uses    $GLOBALS['analyzed_sql'][0]
- * @uses    PMA_DBI_field_flags()
- * @uses    PMA_backquote()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_printable_bit_value()
- * @uses    stristr()
- * @uses    bin2hex()
- * @uses    preg_replace()
  * @param   resource    $handle         current query result
  * @param   integer     $fields_cnt     number of fields
  * @param   array       $fields_meta    meta information about fields
@@ -2078,7 +1996,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
             } else {
                 $condition .= '= \''
-                    . PMA_sqlAddslashes($row[$i], false, true) . '\' AND';
+                    . PMA_sqlAddSlashes($row[$i], false, true) . '\' AND';
             }
         }
         if ($meta->primary_key > 0) {
@@ -2109,9 +2027,6 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
 /**
  * Generate a button or image tag
  *
- * @uses    PMA_USR_BROWSER_AGENT
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['cfg']['PropertiesIconic']
  * @param   string  $button_name    name of button element
  * @param   string  $button_class   class of button element
  * @param   string  $image_name     name of image element
@@ -2252,7 +2167,6 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @uses    range()
  * @param   integer     number of elements in the list
  * @param   integer     current position in the list
  * @param   array       url parameters
@@ -2340,9 +2254,6 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
  * $user_dir = PMA_userDir('/var/pma_tmp/%u/'); // '/var/pma_tmp/root/'
  *
  * </code>
- * @uses    $cfg['Server']['user']
- * @uses    substr()
- * @uses    str_replace()
  * @param   string  $dir with wildcard for user
  * @return  string  per user directory
  */
@@ -2359,13 +2270,6 @@ function PMA_userDir($dir)
 /**
  * returns html code for db link to default db page
  *
- * @uses    $cfg['DefaultTabDatabase']
- * @uses    $GLOBALS['db']
- * @uses    PMA_generate_common_url()
- * @uses    PMA_unescape_mysql_wildcards()
- * @uses    strlen()
- * @uses    sprintf()
- * @uses    htmlspecialchars()
  * @param   string  $database
  * @return  string  html link to default db page
  */
@@ -2389,9 +2293,6 @@ function PMA_getDbLink($database = null)
  * Displays a lightbulb hint explaining a known external bug
  * that affects a functionality
  *
- * @uses    PMA_MYSQL_INT_VERSION
- * @uses    PMA_showHint()
- * @uses    sprintf()
  * @param   string  $functionality localized message explaining the func.
  * @param   string  $component  'mysql' (eventually, 'php')
  * @param   string  $minimum_version of this component
@@ -2420,7 +2321,6 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 /**
  * Generates and echoes a set of radio HTML fields
  *
- * @uses    htmlspecialchars()
  * @param   string  $html_field_name the radio HTML field
  * @param   array   $choices the choices values and labels
  * @param   string  $checked_choice the choice to check by default
@@ -2453,7 +2353,6 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
 /**
  * Generates and returns an HTML dropdown
  *
- * @uses    htmlspecialchars()
  * @param   string  $select_name
  * @param   array   $choices the choices values
  * @param   string  $active_choice the choice to select by default
@@ -2481,7 +2380,6 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
  * controlling the slider; you have to generate the </div> yourself
  * after the sliding section.
  *
- * @uses    $GLOBALS['cfg']['InitialSlidersState']
  * @param   string  $id the id of the <div> on which to apply the effect
  * @param   string  $message the message to show as a link
  */
@@ -2579,11 +2477,6 @@ function PMA_cacheUnset($var, $server = 0)
  * in MySQL a BIT field can be from 1 to 64 bits so we need this
  * function because in PHP, decbin() supports only 32 bits
  *
- * @uses    ceil()
- * @uses    decbin()
- * @uses    ord()
- * @uses    substr()
- * @uses    sprintf()
  * @param   numeric $value coming from a BIT field
  * @param   integer $length
  * @return  string  the printable value
@@ -2600,7 +2493,6 @@ function PMA_printable_bit_value($value, $length) {
 /**
  * Verifies whether the value contains a non-printable character
  *
- * @uses    preg_match()
  * @param   string $value
  * @return  boolean
  */
@@ -2612,7 +2504,6 @@ function PMA_contains_nonprintable_ascii($value) {
  * Converts a BIT type default value
  * for example, b'010' becomes 010
  *
- * @uses    strtr()
  * @param   string $bit_default_value
  * @return  string the converted value
  */
@@ -2623,9 +2514,6 @@ function PMA_convert_bit_default_value($bit_default_value) {
 /**
  * Extracts the various parts from a field type spec
  *
- * @uses    strpos()
- * @uses    chop()
- * @uses    substr()
  * @param   string $fieldspec
  * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
@@ -2702,7 +2590,6 @@ function PMA_extractFieldSpec($fieldspec) {
 /**
  * Verifies if this table's engine supports foreign keys
  *
- * @uses    strtoupper()
  * @param   string $engine
  * @return  boolean
  */
@@ -2718,7 +2605,6 @@ function PMA_foreignkey_supported($engine) {
 /**
  * Replaces some characters by a displayable equivalent
  *
- * @uses    str_replace()
  * @param   string $content
  * @return  string the content with characters replaced
  */
@@ -2941,7 +2827,6 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
  * Build titles and icons for action links
  *
  * @return   array   the action titles
- * @uses     PMA_getIcon()
  */
 function PMA_buildActionTitles() {
     $titles = array();
@@ -2976,8 +2861,6 @@ function PMA_buildActionTitles() {
  *
  * @return  mixed   An HTML snippet or an array of datatypes.
  *
- * @uses    htmlspecialchars()
- * @uses    in_array()
  */
 function PMA_getSupportedDatatypes($html = false, $selected = '')
 {
@@ -3160,10 +3043,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
  *            // 'CREATE ROUTINE' privilege or, if not, checks if the
  *            // user has this privilege on database 'mydb'.
  *
- * @uses    PMA_DBI_fetch_value()
- * @uses    explode()
- * @uses    str_replace()
- * @uses    sprintf()
  *
  * @param   string   $priv   The privilege to check
  * @param   mixed    $db     null, to only check global privileges
@@ -3203,7 +3082,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                                         'SCHEMA_PRIVILEGES',
                                         $username,
                                         $priv,
-                                        PMA_sqlAddslashes($db)))) {
+                                        PMA_sqlAddSlashes($db)))) {
             return true;
         }
     } else {
@@ -3219,8 +3098,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                                                   'TABLE_PRIVILEGES',
                                                   $username,
                                                   $priv,
-                                                  PMA_sqlAddslashes($db),
-                                                  PMA_sqlAddslashes($tbl)))) {
+                                                  PMA_sqlAddSlashes($db),
+                                                  PMA_sqlAddSlashes($tbl)))) {
             return true;
         }
     }

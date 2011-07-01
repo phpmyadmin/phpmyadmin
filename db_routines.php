@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Routines management.
+ *
  * @package phpMyAdmin
  */
 
@@ -251,8 +253,8 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
     $routine_name = htmlspecialchars(PMA_backquote($_GET['routine_name']));
     $routine_type = PMA_DBI_fetch_value("SELECT ROUTINE_TYPE "
                                       . "FROM INFORMATION_SCHEMA.ROUTINES "
-                                      . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' "
-                                      . "AND SPECIFIC_NAME='" . PMA_sqlAddslashes($_GET['routine_name']) . "';");
+                                      . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+                                      . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($_GET['routine_name']) . "';");
     if (! empty($routine_type) && $create_proc = PMA_DBI_get_definition($db, $routine_type, $_GET['routine_name'])) {
         $create_proc = '<textarea cols="40" rows="15" style="width: 100%;">' . htmlspecialchars($create_proc) . '</textarea>';
         if ($GLOBALS['is_ajax_request']) {
@@ -345,7 +347,7 @@ if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['routine_name']))
         $extra_data = array();
         if ($message->isSuccess()) {
             $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-            $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddslashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddslashes($_REQUEST['routine_name']) . "'";
+            $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['routine_name']) . "'";
             $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
             $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['routine_name']));
             $extra_data['new_row']   = PMA_RTN_getRowForRoutinesList($routine, 0, true);

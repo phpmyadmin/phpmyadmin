@@ -5,30 +5,6 @@
  *
  * @todo    make use of UNION when searching multiple tables
  * @todo    display executed query, optional?
- * @uses    $cfg['UseDbSearch']
- * @uses    $GLOBALS['db']
- * @uses    PMA_DBI_get_tables()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_getSearchSqls()
- * @uses    PMA_DBI_fetch_value()
- * @uses    PMA_linkOrButton()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_showMySQLDocu()
- * @uses    $_REQUEST['search_str']
- * @uses    $_REQUEST['submit_search']
- * @uses    $_REQUEST['search_option']
- * @uses    $_REQUEST['table_select']
- * @uses    $_REQUEST['unselectall']
- * @uses    $_REQUEST['selectall']
- * @uses    $_REQUEST['field_str']
- * @uses    is_string()
- * @uses    htmlspecialchars()
- * @uses    array_key_exists()
- * @uses    is_array()
- * @uses    array_intersect()
- * @uses    sprintf()
- * @uses    in_array()
  * @package phpMyAdmin
  */
 
@@ -85,11 +61,11 @@ if (empty($_REQUEST['search_str']) || ! is_string($_REQUEST['search_str'])) {
     $searched = htmlspecialchars($_REQUEST['search_str']);
     // For "as regular expression" (search option 4), we should not treat
     // this as an expression that contains a LIKE (second parameter of
-    // PMA_sqlAddslashes()).
+    // PMA_sqlAddSlashes()).
     //
     // Usage example: If user is seaching for a literal $ in a regexp search,
     // he should enter \$ as the value.
-    $search_str = PMA_sqlAddslashes($_REQUEST['search_str'], ($search_option == 4 ? false : true));
+    $search_str = PMA_sqlAddSlashes($_REQUEST['search_str'], ($search_option == 4 ? false : true));
 }
 
 $tables_selected = array();
@@ -108,7 +84,7 @@ if (isset($_REQUEST['selectall'])) {
 if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
     unset($field_str);
 } else {
-    $field_str = PMA_sqlAddslashes($_REQUEST['field_str'], true);
+    $field_str = PMA_sqlAddSlashes($_REQUEST['field_str'], true);
 }
 
 /**
@@ -130,7 +106,6 @@ if (isset($_REQUEST['submit_search'])) {
      * Builds the SQL search query
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
-     * @uses    PMA_DBI_query
      * PMA_backquote
      * PMA_DBI_free_result
      * PMA_DBI_fetch_assoc

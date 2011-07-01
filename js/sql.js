@@ -187,6 +187,13 @@ $(document).ready(function() {
         cache: 'false'
     });
 
+    /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
+    $('input#bkm_label').keyup(function() {
+        $('input#id_bkm_all_users, input#id_bkm_replace')
+            .parent()
+            .toggle($(this).attr('value').length > 0);
+    }).trigger('keyup');
+    
     /**
      * current value of the direction in which the table is displayed
      * @type    String

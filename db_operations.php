@@ -232,7 +232,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // to avoid selecting alternatively the current and new db
             // we would need to modify the CREATE definitions to qualify
             // the db name
-            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
             if ($event_names) {
                 foreach($event_names as $event_name) {
                     PMA_DBI_select_db($db);
@@ -586,7 +586,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     $test_query = '
          SELECT *
            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
+          WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
     $test_rs    = PMA_query_as_controluser($test_query, null, PMA_DBI_QUERY_STORE);
 
     /*
