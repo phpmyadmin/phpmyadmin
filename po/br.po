@@ -2518,7 +2518,7 @@ msgstr "Adderaouekaat"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Gwellaat a ra efeduster ar freskaat skrammoù"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
