@@ -512,10 +512,10 @@ msgstr[0] "%d повлиян ред от съхранена процедура �
 msgstr[1] "%d повлияни реда от съхранена процедура при последната заявка"
 
 #: db_routines.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Позволява стартиране на съхранени процедури."
+msgstr ""
 
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
