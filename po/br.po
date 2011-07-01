@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 19:54+0200\n"
+"PO-Revision-Date: 2011-07-01 19:55+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2514,7 +2514,7 @@ msgstr "Aotren an implijerien da bersonelaat an talvoud-mañ"
 #: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1025
 msgid "Reset"
-msgstr ""
+msgstr "Adderaouekaat"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
