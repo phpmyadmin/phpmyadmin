@@ -2475,7 +2475,7 @@ msgstr "Ne'z aio ket an ezporzhiañ en-dro, un arc'hwel a vank (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Diweredekaet eo kadarnataer SQL"
 
 #: libraries/config/FormDisplay.class.php:773
 msgid "SOAP extension not found"
