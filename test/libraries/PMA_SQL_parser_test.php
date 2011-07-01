@@ -130,7 +130,7 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
 
     public function testParse_4()
     {
-        $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['is_ajax_request'] = true;
         $this->assertParser('SELECT * from `aaa;', array (
           'raw' => 'SELECT * from `aaa`;',
           0 =>
