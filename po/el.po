@@ -7260,10 +7260,9 @@ msgid "PARTITION definition"
 msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Προσθήκη νέας τιμής"
+msgstr "+ Προσθήκη μιας τιμής"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
