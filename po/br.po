@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-26 20:07+0200\n"
+"PO-Revision-Date: 2011-06-29 20:12+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -523,7 +523,7 @@ msgstr "Disoc'hoù seveniñ an argerzh %s"
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)"
+msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
@@ -1835,9 +1835,9 @@ msgid "%s has been disabled for this MySQL server."
 msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
 
 #: libraries/StorageEngine.class.php:362
-#, fuzzy, php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "N'eo ket skoret al lusker stokañ gant ar servijer MySQL-mañ."
+msgstr "N'eo ket skoret al lusker stokañ %s gant ar servijer MySQL-mañ."
 
 #: libraries/Table.class.php:1027
 msgid "Invalid database"
@@ -1967,91 +1967,93 @@ msgstr "Evit gallout kenderc'hel e rankit gweredekaat an toupinoù."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
+"Berzet eo kevreañ hep ger-tremen gant ar c'hefluniadur (gwelet "
+"AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "Tamm obererezh ebet abaoe %s eilenn; kevreit en-dro"
 
 #: libraries/auth/cookie.auth.lib.php:653
 #: libraries/auth/cookie.auth.lib.php:655
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
-msgstr ""
+msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "Ger-tremen/anv implijer fall. Moned nac'het."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "N'hall ket kavout ar skript dilesa evit ar mod \"signon\" :"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "N'eus anaouder alc'hwez ebet er restr %s"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "C'hwitet eo bet dilesadur ar periant."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "N'eus bet luget alc'hwez dilesa reizh ebet"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "O tilesa..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
-msgstr ""
+msgstr "Fazi PBMS"
 
 #: libraries/blobstreaming.lib.php:267
 msgid "PBMS connection failed:"
-msgstr ""
+msgstr "C'hwitet eo bet ar gevreadenn PBMS :"
 
 #: libraries/blobstreaming.lib.php:312
 msgid "PBMS get BLOB info failed:"
-msgstr ""
+msgstr "C'hwitet eo bet moned PBMS ouzh an titouroù BLOB :"
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "C'hwitet eo bet ar moned ouzh Content-Type ar BLOB"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
-msgstr ""
+msgstr "Gwelet ar skeudenn"
 
 #: libraries/blobstreaming.lib.php:351
 msgid "Play audio"
-msgstr ""
+msgstr "Lenn ar son"
 
 #: libraries/blobstreaming.lib.php:356
 msgid "View video"
-msgstr ""
+msgstr "Lenn ar video"
 
 #: libraries/blobstreaming.lib.php:360
 msgid "Download file"
-msgstr ""
+msgstr "Pellgargañ"
 
 #: libraries/blobstreaming.lib.php:421
 #, php-format
 msgid "Could not open file: %s"
-msgstr ""
+msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "kenrannet"
 
 #: libraries/build_html_for_db.lib.php:25
 #: libraries/config/messages.inc.php:183 libraries/export/xml.php:36
 #: server_status.php:273
 msgid "Tables"
-msgstr ""
+msgstr "Taolennoù"
 
 #: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:304
 #: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:371
@@ -2064,83 +2066,87 @@ msgstr ""
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:801
 msgid "Data"
-msgstr ""
+msgstr "Roadennoù"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
 #: tbl_printview.php:333 tbl_structure.php:818
 msgid "Overhead"
-msgstr ""
+msgstr "Dilerc'hioù"
 
 #: libraries/build_html_for_db.lib.php:93
 msgid "Jump to database"
-msgstr ""
+msgstr "Mont d'an diaz roadennoù"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr ""
+msgstr "N'eo ket eilet"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
-msgstr ""
+msgstr "Eilet"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr ""
+msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr ""
+msgstr "Gwiriañ ar gwirioù"
 
 #: libraries/common.inc.php:587
 msgid "Failed to read configuration file"
-msgstr ""
+msgstr "Dibosupl lenn ar restr keluniañ"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket ur "
+"fazi o tont war wel a-is."
 
 #: libraries/common.inc.php:595
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "N'eus ket bet gallet kargañ ar c'hefluniadur dre ziouer adalek %1$s"
 
 #: libraries/common.inc.php:600
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
 msgstr ""
+"RET eo d'an arventenn <tt>$cfg['PmaAbsoluteUri']</tt> bezañ resisaet er "
+"restr kefluniañ."
 
 #: libraries/common.inc.php:630
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "Meneger servijer faziek : %s"
 
 #: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "Anv ostiz direizh evit ar servijer %1$s. Gwiriit ar c'hefluniadur."
 
 #: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
-msgstr ""
+msgstr "Servijer"
 
 #: libraries/common.inc.php:825
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh."
 
 #: libraries/common.inc.php:928
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "Ret e vefe deoc'h ober gant ar stumm %s %s pe unan nevesoc'h c'hoazh."
 
 #: libraries/common.lib.php:134
 #, php-format
 msgid "Max: %s%s"
-msgstr ""
+msgstr "Ment vrasañ : %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
 #: libraries/common.lib.php:386
@@ -2169,123 +2175,123 @@ msgstr "en"
 #: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
 #: main.php:212 server_variables.php:114
 msgid "Documentation"
-msgstr ""
+msgstr "Teuliadur"
 
 #: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
 #: server_status.php:260 server_status.php:803
 msgid "SQL query"
-msgstr ""
+msgstr "Reked SQL"
 
 #: libraries/common.lib.php:1078
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "DIbosupl kevreañ d'ar c'hadarnataer SQL !"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:472
 msgid "Explain SQL"
-msgstr ""
+msgstr "Displegañ SQL"
 
 #: libraries/common.lib.php:1123
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "N'eo ket dav displegañ SQL"
 
 #: libraries/common.lib.php:1157
 msgid "Without PHP Code"
-msgstr ""
+msgstr "Hep kod PHP"
 
 #: libraries/common.lib.php:1160 libraries/config/messages.inc.php:474
 msgid "Create PHP Code"
-msgstr ""
+msgstr "Krouiñ kod PHP"
 
 #: libraries/common.lib.php:1178 libraries/config/messages.inc.php:473
 #: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
-msgstr ""
+msgstr "Freskaat"
 
 #: libraries/common.lib.php:1187
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "N'eo ket dav kadarnaat SQL"
 
 #: libraries/common.lib.php:1190 libraries/config/messages.inc.php:476
 msgid "Validate SQL"
-msgstr ""
+msgstr "Kadarnaat SQL"
 
 #: libraries/common.lib.php:1245
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Kemmañ ar reked-mañ enlinenn"
 
 #: libraries/common.lib.php:1247
 msgid "Inline"
-msgstr ""
+msgstr "Enlinenn"
 
 #: libraries/common.lib.php:1314 sql.php:931
 msgid "Profiling"
-msgstr ""
+msgstr "O profilañ"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1334
 msgid "B"
-msgstr ""
+msgstr "o"
 
 #: libraries/common.lib.php:1334
 msgid "KiB"
-msgstr ""
+msgstr "Kio"
 
 #: libraries/common.lib.php:1334
 msgid "MiB"
-msgstr ""
+msgstr "Mio"
 
 #: libraries/common.lib.php:1334
 msgid "GiB"
-msgstr ""
+msgstr "Gio"
 
 #: libraries/common.lib.php:1334
 msgid "TiB"
-msgstr ""
+msgstr "Tio"
 
 #: libraries/common.lib.php:1334
 msgid "PiB"
-msgstr ""
+msgstr "Pio"
 
 #: libraries/common.lib.php:1334
 msgid "EiB"
-msgstr ""
+msgstr "Eio"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
 #: libraries/common.lib.php:1552
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
-msgstr ""
+msgstr "%A %d %B %Y da %H:%M"
 
 #: libraries/common.lib.php:1867
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr ""
+msgstr "%s deiz, %s eur, %s munut ha %s eilenn"
 
 #: libraries/common.lib.php:2278 libraries/common.lib.php:2281
 #: libraries/display_tbl.lib.php:307
 msgid "Begin"
-msgstr ""
+msgstr "Kregiñ"
 
 #: libraries/common.lib.php:2279 libraries/common.lib.php:2282
 #: libraries/display_tbl.lib.php:308 server_binlog.php:154
 #: server_binlog.php:156
 msgid "Previous"
-msgstr ""
+msgstr "Kent"
 
 #: libraries/common.lib.php:2309 libraries/common.lib.php:2312
 #: libraries/display_tbl.lib.php:387
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #: libraries/common.lib.php:2384
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "Mont d'an diaz roadennoù &quot;%s&quot;."
 
 #: libraries/common.lib.php:2403
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "Direizhet eo an arc'hwel %s gant un draen anavezet, sellit ouzh %s"
 
 #: libraries/common.lib.php:2760 libraries/common.lib.php:2767
 #: libraries/common.lib.php:2955 libraries/config/setup.forms.php:295
@@ -2298,7 +2304,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:623 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
 msgid "Structure"
-msgstr ""
+msgstr "Framm"
 
 #: libraries/common.lib.php:2761 libraries/common.lib.php:2768
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
@@ -2306,89 +2312,89 @@ msgstr ""
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
 #: querywindow.php:88
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/common.lib.php:2763 libraries/common.lib.php:2953
 #: libraries/common.lib.php:2954 libraries/sql_query_form.lib.php:318
 #: libraries/sql_query_form.lib.php:321 libraries/tbl_links.inc.php:74
 msgid "Insert"
-msgstr ""
+msgstr "Ensoc'hañ"
 
 #: libraries/common.lib.php:2770 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:113
 #: view_operations.php:87
 msgid "Operations"
-msgstr ""
+msgstr "Oberiadennoù"
 
 #: libraries/common.lib.php:2900
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Furchal en hoc'h urzhiataer"
 
 #: libraries/common.lib.php:2916
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
+msgstr "Diuzit e-mesk kavlec'h pellgargañ ar servijer web <b>%s</b> :"
 
 #: libraries/common.lib.php:2928 libraries/sql_query_form.lib.php:499
 #: tbl_change.php:884
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
+msgstr "Ar c'havlec'h treuzkas n'hall ket bezañ diraezet."
 
 #: libraries/common.lib.php:2936
 msgid "There are no files to upload"
-msgstr ""
+msgstr "N'eus restr ebet da enporzhiañ"
 
 #: libraries/common.lib.php:2964 libraries/common.lib.php:2965
 msgid "Execute"
-msgstr ""
+msgstr "Seveniñ"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
 msgid "Both"
-msgstr ""
+msgstr "An daou"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Neblec'h"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Kleiz"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Dehou"
 
 #: libraries/config.values.php:75
 msgid "Open"
-msgstr ""
+msgstr "Digor"
 
 #: libraries/config.values.php:75
 msgid "Closed"
-msgstr ""
+msgstr "Serr"
 
 #: libraries/config.values.php:96 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:122 libraries/export/texytext.php:24
 #: libraries/import.lib.php:1172
 msgid "structure"
-msgstr ""
+msgstr "Framm"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:123 libraries/export/texytext.php:24
 msgid "data"
-msgstr ""
+msgstr "roadennoù"
 
 #: libraries/config.values.php:98 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:124 libraries/export/texytext.php:24
 msgid "structure and data"
-msgstr ""
+msgstr "Framm ha roadennoù"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Prim - na ziskouez nemet nebeudik-tre a zibarzhioù da gefluniañ"
 
 #: libraries/config.values.php:101
 msgid "Custom - display all possible options to configure"
