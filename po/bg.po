@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 10:25+0200\n"
+"PO-Revision-Date: 2011-07-01 10:26+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8277,10 +8277,9 @@ msgid "All status variables"
 msgstr ""
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate:"
-msgstr "Презареждане"
+msgstr "Скорост на опресняване:"
 
 #: server_status.php:462
 #, fuzzy
