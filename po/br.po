@@ -2414,7 +2414,7 @@ msgstr "Ensoc'hadennoù astennet"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
-msgstr ""
+msgstr "Kement dibab zo a-us"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
