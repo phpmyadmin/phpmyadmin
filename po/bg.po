@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 10:27+0200\n"
+"PO-Revision-Date: 2011-07-01 10:28+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9473,10 +9473,9 @@ msgid "Series:"
 msgstr "SQL заявки"
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
-msgstr "Колони в текство поле"
+msgstr "Оставащите колони"
 
 #: tbl_chart.php:128
 #, fuzzy
