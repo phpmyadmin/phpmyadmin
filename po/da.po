@@ -10498,7 +10498,7 @@ msgstr "Sporing for %s.%s, version %s er aktiveret."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL-sætninger udført."
 
 #: tbl_tracking.php:214
 msgid ""
