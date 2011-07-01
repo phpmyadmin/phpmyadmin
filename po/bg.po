@@ -5073,10 +5073,9 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Щракване за избор"
+msgstr "Щракване за сортиране"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
