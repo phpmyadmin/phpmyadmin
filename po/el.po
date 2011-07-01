@@ -5476,10 +5476,9 @@ msgid "Event"
 msgstr "Συμβάν"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "Προσθήκη μιας νέας Ενέργειας"
+msgstr "Προσθήκη μιας ενέργειας"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
