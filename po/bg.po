@@ -8189,12 +8189,12 @@ msgstr[0] "минута"
 msgstr[1] "минути"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "секунда"
-msgstr[1] "секунда"
+msgstr[1] "секунди"
 
 #: server_status.php:134
 #, php-format
