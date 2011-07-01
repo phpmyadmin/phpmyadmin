@@ -8268,10 +8268,9 @@ msgid "Runtime Information"
 msgstr "Информация за състоянието на MySQL сървъра"
 
 #: server_status.php:401
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Избор на сървър"
+msgstr "Трафик сървър"
 
 #: server_status.php:403
 msgid "All status variables"
