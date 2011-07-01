@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-03-07 01:17+0200\n"
-"Last-Translator: <hjortholm@gmail.com>\n"
+"PO-Revision-Date: 2011-07-01 20:53+0200\n"
+"Last-Translator:  <Martin@maboni.dk>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -506,8 +506,8 @@ msgstr "Din SQL-forespørgsel blev udført korrekt"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "række påvirket af den sidste SQL-sætning inde i proceduren"
+msgstr[1] "rækker påvirket af den sidste SQL-sætning inde i proceduren"
 
 #: db_routines.php:167
 #, fuzzy, php-format
