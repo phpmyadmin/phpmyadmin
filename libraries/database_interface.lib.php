@@ -872,27 +872,6 @@ function PMA_DBI_get_column_values($database, $table, $column, $link = null)
     }
     return $field_values;
 }
-/**
- * array PMA_DBI_get_table_data (string $database, string $table, mysql db link $link = null)
- *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   mixed   $link       mysql link resource
- * @return  array   $result
- */
-
- function PMA_DBI_get_table_data($database, $table, $link = null)
- {
-
-    $result = PMA_DBI_fetch_result(
-        'SELECT * FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        null,null, $link);
-
-    if (! is_array($result) || count($result) < 1) {
-        return false;
-    }
-    return $result;
- }
 
 /**
 * array  PMA_DBI_get_table_indexes($database, $table, $link = null)
