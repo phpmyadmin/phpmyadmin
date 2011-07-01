@@ -10474,7 +10474,7 @@ msgstr "Opret et indeks på &nbsp;%s&nbsp; kolonner"
 
 #: tbl_structure.php:892
 msgid "partitioned"
-msgstr ""
+msgstr "partitioneret"
 
 #: tbl_tracking.php:109
 #, php-format
