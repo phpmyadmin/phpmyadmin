@@ -2488,7 +2488,7 @@ msgstr "%s d'ar muiañ"
 
 #: libraries/config/FormDisplay.tpl.php:173
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "Diweredekaet eo an arventenn; ne gloto ket gant ho kefluniadur"
 
 #: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
 #: libraries/relation.lib.php:96 pmd_relation_new.php:68
