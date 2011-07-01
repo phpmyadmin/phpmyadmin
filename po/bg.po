@@ -6907,10 +6907,9 @@ msgid "PARTITION definition"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Добавяне на нова стойност"
+msgstr "+ Добавяне на стойност"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
