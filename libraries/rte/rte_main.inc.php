@@ -88,6 +88,31 @@ case 'routines':
 	break;
 
 case 'events':
+    $event_status        = array(
+                               'query'   => array('ENABLE',
+                                                  'DISABLE',
+                                                  'DISABLE ON SLAVE'),
+                               'display' => array('ENABLED',
+                                                  'DISABLED',
+                                                  'SLAVESIDE_DISABLED')
+                           );
+    $event_type          = array('RECURRING',
+                                 'ONE TIME');
+    $event_interval      = array('YEAR',
+                                 'QUARTER',
+                                 'MONTH',
+                                 'DAY',
+                                 'HOUR',
+                                 'MINUTE',
+                                 'WEEK',
+                                 'SECOND',
+                                 'YEAR_MONTH',
+                                 'DAY_HOUR',
+                                 'DAY_MINUTE',
+                                 'DAY_SECOND',
+                                 'HOUR_MINUTE',
+                                 'HOUR_SECOND',
+                                 'MINUTE_SECOND');
 	PMA_EVN_main();
 	break;
 

@@ -16,7 +16,9 @@ require_once './libraries/common.lib.php';
  * Include JavaScript libraries
  */
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'db_events.js';
+$GLOBALS['js_include'][] = 'db_routines.js'; // FIXME
 
 /**
  * Include all other files

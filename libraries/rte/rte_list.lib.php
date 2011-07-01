@@ -257,8 +257,17 @@ function PMA_EVN_getCellForList($field, $event)
         $retval  = "<span class='drop_sql hide'>$sql_drop</span>"
                  . "<strong>" . htmlspecialchars($event['EVENT_NAME']) . "</strong>";
         break;
+    case 'status':
+        $retval = $event['STATUS'];
+        break;
     case 'edit':
         $retval = $titles['NoEdit'];
+        if (PMA_currentUserHasPrivilege('EVENT', $db)) {
+            $retval = '<a ' . $ajax_class['edit'] . ' href="db_events.php?' . $url_query
+                            . '&amp;edit_item=1'
+                            . '&amp;item_name=' . urlencode($event['EVENT_NAME'])
+                            . '">' . $titles['Edit'] . '</a>';
+        }
         break;
     case 'export':
         $retval = '<a ' . $ajax_class['export'] . ' href="db_events.php?' . $url_query

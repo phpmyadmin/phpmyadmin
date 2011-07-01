@@ -480,6 +480,16 @@ $(document).ready(function() {
     }); // end $.live()
 
     /**
+     * Attach Ajax event handlers for the "Change event type" functionality.
+     *
+     * @see $cfg['AjaxEnable']
+     * TODO: merge with above
+     */
+    $('select[name=item_type]').live('change', function() {
+        $('.recurring_event_row, .onetime_event_row').toggle();
+    }); // end $.live()
+
+    /**
      * Attach Ajax event handlers for the "Change parameter type" functionality.
      *
      * @see $cfg['AjaxEnable']

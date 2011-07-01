@@ -970,7 +970,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Routine name') . "</td>\n";
+    $retval .= "    <td style='width: 20%;'>" . __('Routine name') . "</td>\n";
     $retval .= "    <td><input type='text' name='item_name' value='{$routine['name']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";

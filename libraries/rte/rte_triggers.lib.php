@@ -272,7 +272,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Trigger name') . "</td>\n";
+    $retval .= "    <td style='width: 20%;'>" . __('Trigger name') . "</td>\n";
     $retval .= "    <td><input type='text' name='item_name' value='{$item['name']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
