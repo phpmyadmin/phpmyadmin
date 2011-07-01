@@ -4525,7 +4525,7 @@ msgstr ""
 #, php-format
 #| msgid "Export as %s"
 msgid "Export of event %s"
-msgstr "Експорт на събитието  %s"
+msgstr "Експорт на събитието %s"
 
 #: libraries/db_events.inc.php:34
 #, php-format
