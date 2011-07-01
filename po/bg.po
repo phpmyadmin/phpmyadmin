@@ -9529,10 +9529,9 @@ msgid "Label column"
 msgstr "Етикет на колона"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- никой -"
+msgstr "-- без --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
