@@ -9483,10 +9483,9 @@ msgid "X-Axis label:"
 msgstr "Етикет на оста X:"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Стойност"
+msgstr "Стойности на X"
 
 #: tbl_chart.php:129
 #, fuzzy
