@@ -2450,7 +2450,7 @@ msgstr "Rankout a ra an talvoud bezañ par da pe bihanoc'h eget %s"
 #: libraries/config/FormDisplay.class.php:538
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Roadennoù a vank evit %s"
 
 #: libraries/config/FormDisplay.class.php:736
 #: libraries/config/FormDisplay.class.php:740
