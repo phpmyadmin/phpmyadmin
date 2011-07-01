@@ -5210,7 +5210,7 @@ msgstr "Връзките не са намерени"
 #, php-format
 #| msgid "Export as %s"
 msgid "Export of trigger %s"
-msgstr "Експорт на тригер %s"
+msgstr "Експорт на спусък %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
