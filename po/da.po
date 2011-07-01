@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 20:53+0200\n"
+"PO-Revision-Date: 2011-07-01 20:55+0200\n"
 "Last-Translator:  <Martin@maboni.dk>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -524,7 +524,7 @@ msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 #: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Den følgende SQL-forespørgsel fejlede: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
