@@ -2471,7 +2471,7 @@ msgstr "Ne'z aio ket an enporzhiañ en-dro, un arc'hwel a vank (%s)"
 #: libraries/config/FormDisplay.class.php:759
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "Ne'z aio ket an ezporzhiañ en-dro, un arc'hwel a vank (%s)"
 
 #: libraries/config/FormDisplay.class.php:766
 msgid "SQL Validator is disabled"
