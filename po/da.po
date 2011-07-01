@@ -10593,7 +10593,7 @@ msgstr "Vis versioner"
 
 #: tbl_tracking.php:644
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: tbl_tracking.php:692
 #, php-format
