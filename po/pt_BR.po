@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-06-15 13:55+0200\n"
-"Last-Translator: Jose Ivan Bezerra Vilarouca Filho <joseivan@lavid.ufpb.br>\n"
+"PO-Revision-Date: 2011-06-30 23:48+0200\n"
+"Last-Translator:  <wiltave@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -412,7 +412,7 @@ msgstr[1] "%s tabelas"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "Deve escolher pelo menos uma coluna para exibir"
+msgstr "Você deve escolher pelo menos uma coluna para exibir"
 
 #: db_qbe.php:186
 msgid "Switch to"
@@ -514,10 +514,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: db_routines.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Permitir executar stored routines."
+msgstr "Resultados da execução da rotina %s"
 
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -7212,7 +7212,7 @@ msgstr "Nenhum"
 
 #: libraries/tbl_properties.inc.php:378
 msgid "As defined:"
-msgstr ""
+msgstr "Como definido:"
 
 #: libraries/tbl_properties.inc.php:497 tbl_structure.php:155
 #: tbl_structure.php:160 tbl_structure.php:605
@@ -7255,9 +7255,8 @@ msgid "PARTITION definition"
 msgstr "Definição da PARTIÇÃO"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 msgid "+ Add a value"
-msgstr "Adicionar novo usuário"
+msgstr "+ Adicionar um valor"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 #, fuzzy
@@ -10449,7 +10448,7 @@ msgstr ""
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
-msgstr "Navegador distingue valores"
+msgstr "Procurar valores distintos"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add primary key"
@@ -10514,10 +10513,9 @@ msgid "Propose table structure"
 msgstr "Propor estrutura da tabela"
 
 #: tbl_structure.php:676
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "Adicionar %s campo(s)"
+msgstr "Adicionar coluna"
 
 #: tbl_structure.php:690
 msgid "At End of Table"
@@ -10619,7 +10617,7 @@ msgstr "Excluir dados de monitoramento desta tabela"
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "Sem bases"
+msgstr "Não existem dados"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
@@ -10664,7 +10662,7 @@ msgid "Version"
 msgstr "Versão"
 
 #: tbl_tracking.php:692
-#, fuzzy, php-format
+#, php-format
 msgid "Deactivate tracking for %s.%s"
 msgstr "Desativar rastreamento para %s.%s"
 
@@ -10687,12 +10685,14 @@ msgid "Create version %s of %s.%s"
 msgstr "Criar versão %s de %s.%s"
 
 #: tbl_tracking.php:724
+#, fuzzy
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Rastrear estas instruções de definição de dados:"
 
 #: tbl_tracking.php:732
+#, fuzzy
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Rastrear estas instruções de manipulação de dados:"
 
 #: tbl_tracking.php:740
 msgid "Create version"

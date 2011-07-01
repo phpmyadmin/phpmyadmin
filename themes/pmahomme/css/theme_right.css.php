@@ -1729,7 +1729,7 @@ table#serverconnection_trg_local  {
   */
 input[type=text].invalid_value,
 .invalid_value {
-    background:#F00;
+    background:#FFCCCC;
 }
 
 /**
