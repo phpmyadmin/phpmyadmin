@@ -2522,7 +2522,7 @@ msgstr "Gwellaat a ra efeduster ar freskaat skrammoù"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
-msgstr ""
+msgstr "Gweredekaat Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
