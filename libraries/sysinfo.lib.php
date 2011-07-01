@@ -95,16 +95,16 @@ class Linux {
     function loadavg() {
         $buf = file_get_contents('/proc/stat');
         $nums=preg_split("/\s+/", substr($buf,0,strpos($buf,"\n")));
-        return Array('busy' => $nums[1]+$nums[2]+$num[3], 'idle' => $nums[4]);
+        return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => $nums[4]);
     }
     
     function memory() {
         preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
         
+        $mem = array_combine( $matches[1], $matches[2] );
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
         
-        $mem = array_combine( $matches[1], $matches[2] );
         return $mem;
     }
 }
