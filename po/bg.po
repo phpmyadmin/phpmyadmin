@@ -8185,8 +8185,8 @@ msgstr "Скорост на презареждане"
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "минута"
-msgstr[1] "минути"
+msgstr[0] "%d минута"
+msgstr[1] "%d минути"
 
 #: server_status.php:33
 #, php-format
