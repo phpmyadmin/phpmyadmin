@@ -703,6 +703,7 @@ $(function() {
                 { dataType: 'cpu', 
                   name: 'none', 
                   transformFn: function(cur, prev) {
+                      if(prev==null) return undefined;
                       var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
                       var diff_idle = cur.idle - prev.idle;
                       return 100*(diff_total - diff_idle) / diff_total;
@@ -863,13 +864,18 @@ $(function() {
                         value = value / elem.nodes[j].valueDivisor;
 
                     if(elem.nodes[j].transformFn)
-                        value = elem.nodes[j].transformFn(chartData[key][j],oldChartData[key][j],j);
+                        value = elem.nodes[j].transformFn(
+                            chartData[key][j],
+                            (oldChartData == null) ? null : oldChartData[key][j],
+                            j
+                        );
                     
-                    elem.chart.series[j].addPoint(
-                        {  x: chartData.x, y: value },
-                        j == elem.nodes.length - 1, 
-                        elem.numPoints >= gridMaxPoints
-                    );
+                    if(value != undefined)
+                        elem.chart.series[j].addPoint(
+                            {  x: chartData.x, y: value },
+                            j == elem.nodes.length - 1, 
+                            elem.numPoints >= gridMaxPoints
+                        );
                 }
                 
                 chartGrid[key].numPoints++;
