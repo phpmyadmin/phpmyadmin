@@ -2810,6 +2810,51 @@ $cfg['ColumnTypes'] = array(
 );
 
 /**
+ * Column types for Drizzle database;
+ * VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
+ *
+ * @global array $cfg['ColumnTypesDrizzle']
+ */
+$cfg['DrizzleColumnTypes'] = array(
+    // most used
+    'INTEGER',
+    'VARCHAR',
+    'TEXT',
+    'DATE',
+
+    // numeric
+    'NUMERIC' => array(
+        'INTEGER',
+        'BIGINT',
+        '-',
+        'DECIMAL',
+        'DOUBLE',
+        '-',
+        'BOOLEAN',
+        'SERIAL',
+        'UUID',
+    ),
+
+
+    // Date/Time
+    'DATE and TIME' => array(
+        'DATE',
+        'DATETIME',
+        'TIMESTAMP',
+        'TIME',
+    ),
+
+    // Text
+    'STRING' => array(
+        'VARCHAR',
+        'TEXT',
+        'VARBINARY',
+        'BLOB',
+        'ENUM',
+    ),
+);
+
+/**
  * Attributes
  *
  * @global array $cfg['AttributeTypes']
@@ -2822,6 +2867,15 @@ $cfg['AttributeTypes'] = array(
    'on update CURRENT_TIMESTAMP',
 );
 
+/**
+ * Attributes for Drizzle database
+ *
+ * @global array $cfg['AttributeTypesDrizzle']
+ */
+$cfg['DrizzleAttributeTypes'] = array(
+   '',
+   'on update CURRENT_TIMESTAMP',
+);
 
 if ($cfg['ShowFunctionFields']) {
     /**
@@ -2928,6 +2982,45 @@ if ($cfg['ShowFunctionFields']) {
     );
 
     /**
+     * MySQL functions that are unavailable in Drizzle
+     *
+     * @global array $cfg['DrizzleRemoveFunctions']
+     */
+    $cfg['DrizzleRemoveFunctions'] = array(
+        'BIT_LENGTH',
+        'DES_DECRYPT',
+        'DES_ENCRYPT',
+        'ENCRYPT',
+        'INET_ATON',
+        'INET_NTOA',
+        'OLD_PASSWORD',
+        'PASSWORD',
+        'SEC_TO_TIME',
+        'SHA1',
+        'SOUNDEX', // https://bugs.launchpad.net/drizzle/+bug/804566
+        'SYSDATE',
+        'TIME', // https://bugs.launchpad.net/drizzle/+bug/804571
+        'TIMESTAMP',
+        'TIME_TO_SEC',
+        'UTC_DATE',
+        'UTC_TIME',
+        'WEEK', // same as TIME
+        'WEEKOFYEAR',
+        'YEARWEEK',
+    );
+
+    /**
+     * Drizzle functions that are unavailable in MySQL
+     * This list will be verified by a lookup to data_dictionary.plugins
+     *
+     * @global array $cfg['DrizzleAddFunctions']
+     */
+    $cfg['DrizzleAddFunctions'] = array(
+        'MYSQL_PASSWORD' => 'FUNC_CHAR',
+        'ROT13' => 'FUNC_CHAR',
+    );
+
+    /**
      * Which column types will be mapped to which Group?
      *
      * @global array $cfg['RestrictColumnTypes']
@@ -2937,6 +3030,7 @@ if ($cfg['ShowFunctionFields']) {
         'SMALLINT'  => 'FUNC_NUMBER',
         'MEDIUMINT' => 'FUNC_NUMBER',
         'INT'       => 'FUNC_NUMBER',
+        'INTEGER'   => 'FUNC_NUMBER', // Drizzle
         'BIGINT'    => 'FUNC_NUMBER',
         'DECIMAL'   => 'FUNC_NUMBER',
         'FLOAT'     => 'FUNC_NUMBER',
@@ -2964,6 +3058,7 @@ if ($cfg['ShowFunctionFields']) {
         'MEDIUMBLOB' => 'FUNC_CHAR',
         'BLOB'       => 'FUNC_CHAR',
         'LONGBLOB'   => 'FUNC_CHAR',
+        'UUID'       => 'FUNC_UUID', // Drizzle
         'ENUM'       => '',
         'SET'        => '',
 
@@ -2975,7 +3070,6 @@ if ($cfg['ShowFunctionFields']) {
         'MULTILINESTRING'    => 'FUNC_SPATIAL',
         'MULTIPOLYGON'       => 'FUNC_SPATIAL',
         'GEOMETRYCOLLECTION' => 'FUNC_SPATIAL',
-
     );
 
     /**
@@ -3017,9 +3111,13 @@ if ($cfg['ShowFunctionFields']) {
             'UUID',
         ),
 
+        'FUNC_UUID' => array(
+            'UUID', // Drizzle
+        ),
+
         'FUNC_DATE' => array(
-            'CURDATE',
-            'CURTIME',
+            'CURRENT_DATE',
+            'CURRENT_TIME',
             'DATE',
             'FROM_DAYS',
             'FROM_UNIXTIME',
@@ -3119,7 +3217,7 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_DATE' => '',
         'FUNC_NUMBER' => '',
         'first_timestamp' => 'NOW',
-        'pk_char36' => 'UUID',
+        'FUNC_UUID' => 'UUID',
     );
 } // end if
 
