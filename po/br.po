@@ -2533,7 +2533,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "Aotren a ra kevreañ ouzh ne vern pe servijer MySQL"
+msgstr "Aotren kevreañ ouzh ne vern pe servijer MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
