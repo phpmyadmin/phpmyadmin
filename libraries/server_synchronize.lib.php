@@ -107,7 +107,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
         $fields_num[$matching_table_index] = sizeof($fld);
         $matching_tables_keys[$matching_table_index] = $is_key;
         
-        $source_result_set = PMA_DBI_get_column_values($src_db, $matching_table[$matching_table_index], $is_key, $src_link);      
+        $source_result_set = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $is_key, $src_link);      
         $source_size = sizeof($source_result_set);
         
         $trg_fld_results = PMA_DBI_get_columns($trg_db, $matching_table[$matching_table_index], true, $trg_link);
@@ -309,11 +309,11 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link,$src_db, $src_link)
 {
     if (isset($trg_keys[$matching_table_index])) {
-        $target_key_values = PMA_DBI_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);      
+        $target_key_values = PMA_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);      
         $target_row_size = sizeof($target_key_values);        
     }
     if (isset($src_keys[$matching_table_index])) {
-        $source_key_values = PMA_DBI_get_column_values($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);      
+        $source_key_values = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);      
         $source_size = sizeof($source_key_values);        
     }
     $all_keys_match = 1;
@@ -1115,7 +1115,7 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables, 
 *  indexes to be altered in $alter_indexes_array and indexes to be removed from target table in $remove_indexes_array.
 *  Only keyname and uniqueness characteristic of the indexes are altered.
 *  @uses  sizeof()
-*  @uses  PMA_DBI_get_table_indexes()
+*  @uses  PMA_get_table_indexes()
 * 
 * @param   $src_db                 name of source database 
 * @param   $trg_db                 name of target database
@@ -1133,8 +1133,8 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matchi
  &$alter_indexes_array, &$remove_indexes_array, $table_counter)
 {
     //Gets indexes information for source and target table
-    $source_indexes[$table_counter] = PMA_DBI_get_table_indexes($src_db, $matching_tables[$table_counter],$src_link);
-    $target_indexes[$table_counter] = PMA_DBI_get_table_indexes($trg_db, $matching_tables[$table_counter],$trg_link); 
+    $source_indexes[$table_counter] = PMA_get_table_indexes($src_db, $matching_tables[$table_counter],$src_link);
+    $target_indexes[$table_counter] = PMA_get_table_indexes($trg_db, $matching_tables[$table_counter],$trg_link); 
     for ($a = 0; $a < sizeof($source_indexes[$table_counter]); $a++) {
         $found = false;
         $z = 0;
@@ -1337,5 +1337,57 @@ function PMA_syncDisplayBeginTableRow($odd_row) {
     echo $odd_row ? 'odd' : 'even';
     echo '">';
     return $odd_row;
+}
+
+/**
+ * array PMA_get_column_values (string $database, string $table, string $column , mysql db link $link = null)
+ *
+ * @param   string  $database   name of database
+ * @param   string  $table      name of table to retrieve columns from
+ * @param   string  $column     name of the column to retrieve data from
+ * @param   mixed   $link       mysql link resource
+ * @return  array   $field_values
+ */
+
+function PMA_get_column_values($database, $table, $column, $link = null)
+{
+    $query = 'SELECT ';
+    for($i=0; $i< sizeof($column); $i++)
+    {
+        $query.= PMA_backquote($column[$i]);
+        if($i < (sizeof($column)-1))
+        {
+            $query.= ', ';
+        }
+    }
+    $query.= ' FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
+    $field_values = PMA_DBI_fetch_result($query, null, null, $link);
+
+    if (! is_array($field_values) || count($field_values) < 1) {
+        return false;
+    }
+    return $field_values;
+}
+
+/**
+* array  PMA_get_table_indexes($database, $table, $link = null)
+*
+* @param    string  $database   name of database
+* @param    string  $table      name of the table whose indexes are to be retreived
+* @param    mixed   $link       mysql link resource
+* @return   array   $indexes
+*/
+
+function PMA_get_table_indexes($database, $table, $link = null)
+{
+
+    $indexes = PMA_DBI_fetch_result(
+              'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
+               null, null, $link);
+
+    if (! is_array($indexes) || count($indexes) < 1) {
+        return false;
+    }
+    return $indexes;
 }
 ?>
