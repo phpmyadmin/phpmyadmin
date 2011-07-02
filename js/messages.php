@@ -110,6 +110,8 @@ $js_messages['strNo'] = __('No');
 
 /* For db_stucture.js */
 $js_messages['strInsertTable'] = __('Insert Table');
+$js_messages['strHideIndexTable'] = __('Hide index table');
+$js_messages['strShowIndexTable'] = __('Show index table');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');

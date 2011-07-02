@@ -699,6 +699,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 </form>
 <iframe class="IE_hack" scrolling="no"></iframe>
 <hr />
+<div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
     <?php
 }
 
@@ -720,7 +721,7 @@ if (! $tbl_is_view && ! $db_is_information_schema && 'ARCHIVE' !=  $tbl_type) {
      */
     echo PMA_Index::getView($table, $db);
     ?>
-<br />
+</div>
 <form action="./tbl_indexes.php" method="post"
     onsubmit="return checkFormElementInRange(this, 'idx_num_fields',
         '<?php echo str_replace('\'', '\\\'', __('Column count has to be larger than zero.')); ?>',
