@@ -377,14 +377,14 @@ $(document).ready(function() {
         /** Changing the displayed text according to the hide/show criteria in table index*/
 
         $('#toggletableindexlink')
-        .html(PMA_messages['strHideIndexTable'])
+        .html(PMA_messages['strHideIndexes'])
         .bind('click', function() {
              var $link = $(this);
              $('#index_div').slideToggle();
-             if ($link.text() == PMA_messages['strHideIndexTable']) {
-                 $link.text(PMA_messages['strShowIndexTable']);
+             if ($link.text() == PMA_messages['strHideIndexes']) {
+                 $link.text(PMA_messages['strShowIndexes']);
              } else {
-                 $link.text(PMA_messages['strHideIndexTable']);
+                 $link.text(PMA_messages['strHideIndexes']);
              }
              /** avoid default click action */
              return false;
