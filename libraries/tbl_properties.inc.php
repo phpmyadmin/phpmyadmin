@@ -515,11 +515,13 @@ for ($i = 0; $i < $num_fields; $i++) {
         }
         $content_cells[$i][$ci] .= '>INDEX</option>';
 
-        $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . __('Fulltext') . '"';
-        if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
-            $content_cells[$i][$ci] .= ' selected="selected"';
+        if (!PMA_DRIZZLE) {
+            $content_cells[$i][$ci] .= '<option value="fulltext_' . $i . '" title="' . __('Fulltext') . '"';
+            if (isset($row['Key']) && $row['Key'] == 'FULLTEXT') {
+                $content_cells[$i][$ci] .= ' selected="selected"';
+            }
+            $content_cells[$i][$ci] .= '>FULLTEXT</option>';
         }
-        $content_cells[$i][$ci] .= '>FULLTEXT</option>';
 
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
