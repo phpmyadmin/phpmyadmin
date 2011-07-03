@@ -867,7 +867,7 @@ msgstr "Створено"
 
 #: db_tracking.php:88 tbl_tracking.php:646
 msgid "Updated"
-msgstr ""
+msgstr "Оновлено"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
 #: sql.php:935 tbl_tracking.php:647
