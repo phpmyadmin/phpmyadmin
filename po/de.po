@@ -10526,10 +10526,9 @@ msgid "Add unique index"
 msgstr "Eindeutigen Index hinzufügen"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Index hinzufügen"
+msgstr "SPATIAL Index hinzufügen"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
