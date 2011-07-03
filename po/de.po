@@ -10652,10 +10652,9 @@ msgid "Query error"
 msgstr "Abfrage-Fehler"
 
 #: tbl_tracking.php:399
-#, fuzzy
 #| msgid "Track these data manipulation statements:"
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Verfolge diese Datenbearbeitungsbefehle (DML):"
+msgstr "Verfolge erfolgreich gelöschte Datenmanipulationen"
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
