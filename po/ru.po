@@ -4914,10 +4914,9 @@ msgid "Return length/values"
 msgstr "Вернуть длину/значения"
 
 #: libraries/db_routines.lib.php:726
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Параметры таблицы"
+msgstr "Вернуть параметры"
 
 #: libraries/db_routines.lib.php:745
 #, fuzzy
