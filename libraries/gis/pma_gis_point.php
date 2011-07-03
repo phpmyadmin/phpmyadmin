@@ -188,6 +188,18 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     }
 
     /**
+     * Generate the WKT for the data from ESRI shape files.
+     *
+     * @param array $row_data GIS data
+     *
+     * @return the WKT for the data from ESRI shape files
+     */
+    public function getShape($row_data) {
+        $gis_data = array(array('POINT' => array('x' => $row_data['x'], 'y' => $row_data['y'])));
+        return $this->generateWkt($gis_data, 0);
+    }
+
+    /**
      * Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column

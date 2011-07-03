@@ -251,7 +251,29 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
                 $wkt .= (isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['x'])
                     ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['x'] : '')
                     . ' ' . (isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['y'])
-                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['y'] : '') .',';
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['y'] : '') . ',';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= '),';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate the WKT for the data from ESRI shape files.
+     *
+     * @param array $row_data GIS data
+     *
+     * @return the WKT for the data from ESRI shape files
+     */
+    public function getShape($row_data) {
+        $wkt = 'MULTILINESTRING(';
+        for ($i = 0; $i < $row_data['numparts']; $i++) {
+            $wkt .= '(';
+            foreach($row_data['parts'][$i]['points'] as $point) {
+                $wkt .= $point['x'] . ' ' . $point['y'] . ',';
             }
             $wkt = substr($wkt, 0, strlen($wkt) - 1);
             $wkt .= '),';

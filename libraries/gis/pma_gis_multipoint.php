@@ -207,7 +207,24 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             $wkt .= (isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
                 ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
                 . ' ' . (isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
-                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') .',';
+                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+        $wkt .= ')';
+        return $wkt;
+    }
+
+    /**
+     * Generate the WKT for the data from ESRI shape files.
+     *
+     * @param array $row_data GIS data
+     *
+     * @return the WKT for the data from ESRI shape files
+     */
+    public function getShape($row_data) {
+        $wkt = 'MULTIPOINT(';
+        for ($i = 0; $i < $row_data['numpoints']; $i++) {
+            $wkt .= $row_data['points'][$i]['x'] . ' ' . $row_data['points'][$i]['y'] . ',';
         }
         $wkt = substr($wkt, 0, strlen($wkt) - 1);
         $wkt .= ')';
