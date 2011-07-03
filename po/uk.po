@@ -3137,7 +3137,7 @@ msgstr "Параметри аутентифікації"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
-msgstr ""
+msgstr "Конфігурація сервера"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
