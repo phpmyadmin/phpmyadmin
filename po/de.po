@@ -4793,7 +4793,7 @@ msgstr "Export des Ereignisses \"%s\""
 #, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "Es wurde kein Event mit dem Namen %s in Datenbank %s gefunden"
+msgstr "Es wurde kein Ereignis mit dem Namen %s in Datenbank %s gefunden"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
