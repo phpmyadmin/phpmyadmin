@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:55+0200\n"
+"PO-Revision-Date: 2011-07-03 19:56+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4131,7 +4131,6 @@ msgid "Server port"
 msgstr "Port"
 
 #: libraries/config/messages.inc.php:409
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4139,8 +4138,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma_recent[/kbd]"
 msgstr ""
-"Leer lassen, um die Benutzereinstellungen nicht in der Datenbank zu "
-"speichern, Vorschlag: [kbd]pma_config[/kbd]"
+"Leer lassen, um die kürzlich verwendeten Tabellen nicht in der Datenbank zu "
+"speichern, Vorschlag: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:410
 #| msgid "Recall user name"
