@@ -4919,10 +4919,9 @@ msgid "Return options"
 msgstr "Вернуть параметры"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Описание"
+msgstr "Определение"
 
 #: libraries/db_routines.lib.php:749
 msgid "Is deterministic"
