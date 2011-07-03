@@ -5068,7 +5068,7 @@ msgstr "Password-Verschlüsselung"
 
 #: libraries/display_change_password.lib.php:65
 msgid "MySQL 4.0 compatible"
-msgstr "MySQL&nbsp;4.0 kompatibel"
+msgstr "MySQL 4.0 kompatibel"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
