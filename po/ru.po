@@ -10181,10 +10181,9 @@ msgid "Save to file"
 msgstr "Сохранить в файл"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Имя таблицы"
+msgstr "Имя файла"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
