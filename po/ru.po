@@ -7267,10 +7267,9 @@ msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Добавить новое значение"
+msgstr "+ Добавить значение"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
