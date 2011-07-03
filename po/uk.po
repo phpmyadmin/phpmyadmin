@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 17:48+0200\n"
+"PO-Revision-Date: 2011-07-03 17:49+0200\n"
 "Last-Translator:  <vovka2008@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2870,7 +2870,7 @@ msgstr "Метод експорту"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
-msgstr ""
+msgstr "Зберегти на сервері"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
