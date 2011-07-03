@@ -5468,10 +5468,10 @@ msgid "Export of trigger \"%s\""
 msgstr "Экспорт триггера \"%s\""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "Не найден правильный путь к изображениям для темы %s!"
+msgstr "Не найден триггер с именем %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
