@@ -10165,7 +10165,6 @@ msgid "Stacked"
 msgstr "Gestapelt"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
 msgstr "Titel des Reports:"
