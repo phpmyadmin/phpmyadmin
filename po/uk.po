@@ -1592,7 +1592,7 @@ msgstr "Середа"
 
 #: js/messages.php:238
 msgid "Thursday"
-msgstr ""
+msgstr "Четвер"
 
 #: js/messages.php:239
 msgid "Friday"
