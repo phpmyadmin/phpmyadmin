@@ -1691,7 +1691,7 @@ msgstr "Секунда"
 
 #: libraries/Config.class.php:1190
 msgid "Font size"
-msgstr ""
+msgstr "Розмір шрифту"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
