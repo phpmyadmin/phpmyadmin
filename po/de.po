@@ -5955,7 +5955,7 @@ msgstr "Wachstum der Row-Pointer-Dateien (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
-msgstr "Log file Anzahl"
+msgstr "Log Dateien Anzahl"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid ""
