@@ -5265,7 +5265,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr "Bitte Geduld, die Datei wird abgearbeitet."
+msgstr "Bitte Geduld, die Datei wird verarbeitet."
 
 #: libraries/display_import.lib.php:98
 msgid ""
