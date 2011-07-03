@@ -5319,8 +5319,8 @@ msgstr "Teilweiser Import:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"Der vorherige Import-Vorgang wurde abgebrochen. Er wird nun bei Position %d "
-"fortgesetzt."
+"Der vorherige Import-Vorgang wurde durch eine Zeitüberschreitung "
+"abgebrochen. Er wird nun bei Position %d fortgesetzt."
 
 #: libraries/display_import.lib.php:221
 msgid ""
