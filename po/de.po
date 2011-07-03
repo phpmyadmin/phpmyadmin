@@ -8899,10 +8899,10 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:856
-#, fuzzy
 #| msgid "Whether to enable SSL for connection to MySQL server."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "SSL für die MySQL Serververbindung aktivieren."
+msgstr ""
+"Die maximale Nummer an Fehlversuchen um zu einem MySQL-Server zu verbinden."
 
 #: server_status.php:857
 msgid ""
