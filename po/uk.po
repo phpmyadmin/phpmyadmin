@@ -3263,7 +3263,7 @@ msgstr "GZip"
 
 #: libraries/config/messages.inc.php:234
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Додаткові параметри для iconv"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
