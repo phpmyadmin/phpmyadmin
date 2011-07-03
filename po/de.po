@@ -9362,6 +9362,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Die maximale Anzahl an Verbindungen die seit Serverstart gleichzeitig "
+"benutzt wurden."
 
 #: server_status.php:931
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
