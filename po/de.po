@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:54+0200\n"
+"PO-Revision-Date: 2011-07-03 19:55+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2777,6 +2777,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Deakivieren von Massen-Operationen der Tabellen-Instandhaltung, wie "
+"optimieren oder reparieren von ausgewählten Tabellen einer Datenbank."
 
 #: libraries/config/messages.inc.php:61
 #, fuzzy
