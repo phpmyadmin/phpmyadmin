@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:33+0200\n"
+"PO-Revision-Date: 2011-07-03 19:34+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5392,7 +5392,7 @@ msgstr "Преобразование"
 
 #: libraries/display_tbl.lib.php:642
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрия"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
