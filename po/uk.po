@@ -3115,7 +3115,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
-msgstr ""
+msgstr "Безпека"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
