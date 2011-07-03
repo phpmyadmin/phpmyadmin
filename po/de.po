@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:56+0200\n"
+"PO-Revision-Date: 2011-07-03 19:57+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6289,10 +6289,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Neues phpMyAdmin-Fenster"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Keine Daten für das Diagramm gefunden."
+msgstr "Keine Daten für die GIS-Darstellung gefunden."
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
