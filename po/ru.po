@@ -5396,7 +5396,7 @@ msgstr "Геометрия"
 
 #: libraries/display_tbl.lib.php:643
 msgid "Well Known Text"
-msgstr ""
+msgstr "Текст (WKT)"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
