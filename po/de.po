@@ -550,7 +550,7 @@ msgstr "Keine Routine namens %1$s in der Datenbank %2$s gefunden"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Führe Routine aus"
 
 #: db_routines.php:261 db_routines.php:265
 #, php-format
