@@ -569,7 +569,7 @@ msgstr "Das wiederherstellen der gelöschten Routine schlug fehl."
 
 #: db_routines.php:312
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Die gesicherte Abfrage war:"
 
 #: db_routines.php:316
 #, php-format
