@@ -5912,7 +5912,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
-msgstr "Müll-Grenzwert"
+msgstr "Speicherbereinigungs-Grenzwert"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid ""
