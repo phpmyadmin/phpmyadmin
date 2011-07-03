@@ -3337,7 +3337,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:261
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Не використовувати AUTO_INCREMENT для нульових значень"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
