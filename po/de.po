@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:03+0200\n"
+"PO-Revision-Date: 2011-07-03 18:04+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -512,10 +512,10 @@ msgstr[0] "%d Zeile betroffen aufgrund des letzten Befehls innerhalb der Prozedu
 msgstr[1] "%d Zeilen betroffen aufgrund des letzten Befehls innerhalb der Prozedur"
 
 #: db_routines.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Erlaubt das Ausführen von Routinen."
+msgstr "Ergebnisse der ausgeführten Routine %s"
 
 #: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
 #: tbl_change.php:180 tbl_get_field.php:34
