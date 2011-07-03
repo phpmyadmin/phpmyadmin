@@ -5507,10 +5507,9 @@ msgid "No trigger with name %s found"
 msgstr "Kein Trigger mit dem Namen %s gefunden"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Es sind keine Dateien zum Upload vorhanden"
+msgstr "Es sind keine Trigger zum Anzeigen vorhanden."
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
