@@ -5000,7 +5000,7 @@ msgstr ""
 
 #: libraries/db_routines.lib.php:1077
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Sie müssen die Definition der Routine angeben"
 
 #: libraries/db_routines.lib.php:1209
 #, fuzzy
