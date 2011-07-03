@@ -2102,10 +2102,9 @@ msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Не получилось сохранить настройки"
+msgstr "Ошибка при чтении конфигурационного файла"
 
 #: libraries/common.inc.php:588
 msgid ""
