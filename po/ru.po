@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:49+0200\n"
+"PO-Revision-Date: 2011-07-03 19:50+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -9155,7 +9155,7 @@ msgstr "Количество записей с помощью fsync(), сдел�
 #: server_status.php:906
 msgid "The number of pending log file fsyncs."
 msgstr ""
-"Количество незавершенных попыток синхронизации с помощью операции fsync()."
+"Количество незавершенных попыток синхронизации с помощью операции fsync."
 
 #: server_status.php:907
 msgid "Pending log file writes."
