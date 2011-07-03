@@ -3759,7 +3759,7 @@ msgstr "Дозволити авторизацію без паролю"
 
 #: libraries/config/messages.inc.php:364
 msgid "Allow root login"
-msgstr ""
+msgstr "Дозволити авторизацію для root"
 
 #: libraries/config/messages.inc.php:365
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
