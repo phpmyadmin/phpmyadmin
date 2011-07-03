@@ -4787,7 +4787,7 @@ msgstr "Export des Ereignisses %s"
 #, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "Export des Events \"%s\""
+msgstr "Export des Ereignisses \"%s\""
 
 #: libraries/db_events.inc.php:40
 #, php-format
