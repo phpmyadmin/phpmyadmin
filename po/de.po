@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:47+0200\n"
+"PO-Revision-Date: 2011-07-03 18:48+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4139,10 +4139,9 @@ msgstr ""
 "speichern, Vorschlag: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Benutzername wiederherstellen"
+msgstr "Kürzich verwendete Tabellen"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
