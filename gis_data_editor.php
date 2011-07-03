@@ -178,8 +178,8 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                     if ($type == 'MULTILINESTRING' && $no_of_points < 2) {
                         $no_of_points = 2;
                     }
-                    if ($type == 'POLYGON' && $no_of_points < 3) {
-                        $no_of_points = 3;
+                    if ($type == 'POLYGON' && $no_of_points < 4) {
+                        $no_of_points = 4;
                     }
                     if (isset($gis_data[$a][$type][$i]['add_point'])) {
                         $no_of_points++;
