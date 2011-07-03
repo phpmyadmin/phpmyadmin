@@ -4799,7 +4799,7 @@ msgstr "Включен планировщик событий"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Отключен планировщик событий"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
