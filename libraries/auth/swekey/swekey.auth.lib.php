@@ -263,11 +263,10 @@ function Swekey_login($input_name, $input_go)
 	}
 }
 
-if (strstr($_SERVER['QUERY_STRING'],'session_to_unset') != false)
+if (!empty($_GET['session_to_unset']))
 {
-    parse_str($_SERVER['QUERY_STRING']);
 	session_write_close();
-	session_id($session_to_unset);
+	session_id($_GET['session_to_unset']);
 	session_start();
 	$_SESSION = array();
 	session_write_close();
