@@ -4781,10 +4781,9 @@ msgid "Events"
 msgstr "События"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Файлы для загрузки отсутствуют"
+msgstr "Отсутствуют события для отображения."
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:690
 #: libraries/db_routines.lib.php:846 libraries/db_routines.lib.php:1214
