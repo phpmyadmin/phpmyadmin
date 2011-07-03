@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:48+0200\n"
+"PO-Revision-Date: 2011-07-03 18:49+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4781,7 +4781,7 @@ msgstr "Die Erweiterung %s fehlt. Bitte die PHP Konfiguration überprüfen."
 #, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Export des events %s"
+msgstr "Export des Events %s"
 
 #: libraries/db_events.inc.php:34
 #, fuzzy, php-format
