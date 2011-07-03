@@ -8698,7 +8698,7 @@ msgstr "Der Thread %s wurde erfolgreich abgebrochen."
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
-"phpMyAdmin konnte den Prozess %s nicht abbrechen. Er wurde wahrscheinlich "
+"phpMyAdmin konnte den Thread %s nicht abbrechen. Er wurde wahrscheinlich "
 "bereits geschlossen."
 
 #: server_status.php:263
