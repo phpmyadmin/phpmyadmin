@@ -4848,10 +4848,9 @@ msgid "Triggers"
 msgstr "Триггеры"
 
 #: libraries/db_routines.lib.php:659
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Детали..."
+msgstr "Детали"
 
 #: libraries/db_routines.lib.php:662
 #, fuzzy
