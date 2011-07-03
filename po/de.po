@@ -4958,7 +4958,7 @@ msgstr "Sicherheits-Typ"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
-msgstr ""
+msgstr "SQL-Daten Zugriff"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
 #, fuzzy
