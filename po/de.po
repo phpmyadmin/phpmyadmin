@@ -4232,10 +4232,9 @@ msgstr ""
 "speichern, Vorschlag: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Tabelle für Benutzereinstellungen"
+msgstr "Tabelle für Oberflächeneinstellungen"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
