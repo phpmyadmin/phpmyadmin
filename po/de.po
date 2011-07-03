@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:59+0200\n"
+"PO-Revision-Date: 2011-07-03 20:00+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -8681,12 +8681,12 @@ msgstr[0] "%d Minute"
 msgstr[1] "%d Minuten"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Sekunde"
-msgstr[1] "Sekunde"
+msgstr[0] "%d Sekunde"
+msgstr[1] "%d Sekunden"
 
 #: server_status.php:134
 #, php-format
