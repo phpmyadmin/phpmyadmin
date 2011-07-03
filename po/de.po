@@ -4983,7 +4983,7 @@ msgstr "Sie müssen einen Routinen-Namen angeben"
 #: libraries/db_routines.lib.php:984
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Ungültige Richtung \"%s\" für Parameter angegeben."
 
 #: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
 msgid ""
