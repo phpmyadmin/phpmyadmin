@@ -2406,10 +2406,9 @@ msgid "Left"
 msgstr "Links"
 
 #: libraries/config.values.php:47
-#, fuzzy
 #| msgid "Height"
 msgid "Right"
-msgstr "Höhe"
+msgstr "Rechts"
 
 #: libraries/config.values.php:75
 msgid "Open"
