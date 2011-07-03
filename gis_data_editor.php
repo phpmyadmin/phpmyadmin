@@ -228,8 +228,8 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                         }
 
                         $no_of_points = isset($gis_data[$a][$type][$k][$i]['no_of_points']) ? $gis_data[$a][$type][$k][$i]['no_of_points'] : 3;
-                        if ($no_of_points < 3) {
-                            $no_of_points = 3;
+                        if ($no_of_points < 4) {
+                            $no_of_points = 4;
                         }
                         if (isset($gis_data[$a][$type][$k][$i]['add_point'])) {
                             $no_of_points++;

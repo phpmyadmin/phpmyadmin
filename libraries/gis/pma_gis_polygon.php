@@ -306,8 +306,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         for ($i = 0; $i < $no_of_lines; $i++) {
             $no_of_points = isset($gis_data[$index]['POLYGON'][$i]['no_of_points'])
                 ? $gis_data[$index]['POLYGON'][$i]['no_of_points'] : 3;
-            if ($no_of_points < 3) {
-                $no_of_points = 3;
+            if ($no_of_points < 4) {
+                $no_of_points = 4;
             }
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
