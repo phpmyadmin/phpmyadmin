@@ -4846,7 +4846,7 @@ msgstr "Nachverfolgung"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
-msgstr "Abfrageeditor"
+msgstr "Abfrage"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:139
 msgid "Designer"
