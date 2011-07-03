@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 17:40+0200\n"
+"PO-Revision-Date: 2011-07-03 17:41+0200\n"
 "Last-Translator:  <vovka2008@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -2092,7 +2092,7 @@ msgstr "Перевірити права"
 
 #: libraries/common.inc.php:587
 msgid "Failed to read configuration file"
-msgstr ""
+msgstr "Неможливо прочитати конфігураційний файл."
 
 #: libraries/common.inc.php:588
 msgid ""
