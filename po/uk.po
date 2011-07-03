@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 17:30+0200\n"
+"PO-Revision-Date: 2011-07-03 17:31+0200\n"
 "Last-Translator:  <vovka2008@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1303,10 +1303,9 @@ msgid "Hide search results"
 msgstr "Сховати результати пошуку"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Показати критерії пошуку"
+msgstr "Показати результати пошуку"
 
 #: js/messages.php:118
 #, fuzzy
