@@ -10189,10 +10189,9 @@ msgid "X-Axis label:"
 msgstr "Beschriftung X-Achse"
 
 #: tbl_chart.php:128
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Wert"
+msgstr "X-Werte"
 
 #: tbl_chart.php:129
 #, fuzzy
