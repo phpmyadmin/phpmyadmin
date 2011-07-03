@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:36+0200\n"
+"PO-Revision-Date: 2011-07-03 18:37+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2025,10 +2025,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Falscher Benutzername/Passwort. Zugriff verweigert."
 
 #: libraries/auth/signon.auth.lib.php:87
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Config-Authentifizierung"
+msgstr "Konnte Anmelde-Authentifizierungs-Script nicht finden:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
