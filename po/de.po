@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:19+0200\n"
+"PO-Revision-Date: 2011-07-03 18:20+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1249,7 +1249,7 @@ msgstr "Ausgelöste SQL-Befehle"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
-msgstr "Statistiken abfragen"
+msgstr "Abfrage-Statistiken"
 
 #: js/messages.php:91 libraries/tbl_properties.inc.php:777 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
