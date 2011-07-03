@@ -4815,7 +4815,7 @@ msgstr "Name"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Der Ereignisplaner ist aktiviert"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
