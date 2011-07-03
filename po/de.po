@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:54+0200\n"
+"PO-Revision-Date: 2011-07-03 18:55+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4894,7 +4894,7 @@ msgstr "Richtung"
 
 #: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
-msgstr "Länge/Set"
+msgstr "Länge/Werte"
 
 #: libraries/db_routines.lib.php:693 libraries/display_tbl.lib.php:585
 #: libraries/export/codegen.php:41 libraries/export/csv.php:34
