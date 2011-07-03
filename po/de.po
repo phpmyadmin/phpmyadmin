@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:30+0200\n"
+"PO-Revision-Date: 2011-07-03 19:31+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5714,7 +5714,9 @@ msgstr "Grenzwert zur Speicherbereinigung"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr "Der Prozentsatz an Müll in einer Logdatei bevor sie komprimiert wird."
+msgstr ""
+"Der Prozentsatz an Speicherbereinigungswerten in einem Archiv bevor es "
+"komprimiert wird."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1174
