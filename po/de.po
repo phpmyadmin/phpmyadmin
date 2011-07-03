@@ -1174,7 +1174,7 @@ msgstr "Live Traffic Diagramm"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Live Verbindung/Prozess Diagramm"
 
 #: js/messages.php:66 server_status.php:445
 #, fuzzy
