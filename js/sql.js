@@ -1217,100 +1217,6 @@ $(document).ready(function() {
         }) // end $.post()
     });
 
-    /**
-     * Ajax Event for table row export
-     * */
-        $("#resultsForm.ajax .mult_submit[value=export]").live('click', function(event){
-            event.preventDefault();
-
-            /*Check whether atleast one row is selected for export*/
-            if($("#table_results tbody tr").hasClass("marked")){
-                var div = $('<div id="export_row_dialog"></div>');
-
-                /**
-                 *  @var    button_options  Object that stores the options passed to jQueryUI
-                 *                          dialog
-                 */
-                var button_options = {};
-                // in the following function we need to use $(this)
-                button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
-
-                var button_options_error = {};
-                button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
-                var $form = $("#resultsForm");
-                var $msgbox = PMA_ajaxShowMessage();
-
-                $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true&submit_mult=export" ,  function(data) {
-                    //in the case of an error, show the error message returned.
-                    if (data.success != undefined && data.success == false) {
-                        div
-                        .append(data.error)
-                        .dialog({
-                            title: PMA_messages['strExportTbl'],
-                            height: 230,
-                            width: 900,
-                            open: PMA_verifyTypeOfAllColumns,
-                            buttons : button_options_error
-                        })// end dialog options
-                    } else {
-                        div
-                        .append(data)
-                        .dialog({
-                            title: PMA_messages['strExportTbl'],
-                            height: 600,
-                            width: 900,
-                            open: PMA_verifyTypeOfAllColumns,
-                            buttons : button_options
-                        })
-                        //Remove the top menu container from the dialog
-                        .find("#topmenucontainer").hide()
-                        ; // end dialog options
-                        $("#quick_or_custom").show();
-                        toggle_quick_or_custom();
-                        $("form[name=dump]").addClass("ajax");
-                        $("#buttonGo").addClass("ajax");
-                    }
-                    PMA_ajaxRemoveMessage($msgbox);
-                }) // end $.get()
-            }  else {
-                PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
-            }
-        });
-
-        $("#buttonGo.ajax").live('click', function(event) {
-            event.preventDefault();
-            /**
-             *  @var    the_form    object referring to the export form
-             */
-            var $form = $("form[name=dump]");
-
-            PMA_prepareForAjaxRequest($form);
-            //User wants to submit the form
-            $.post($form.attr('action'), $form.serialize(), function(data) {
-                if (data.success == true) {
-                    PMA_ajaxShowMessage(data.success);
-                } else {
-                    PMA_ajaxShowMessage(data.error);
-
-                }
-                if ($("#export_row_dialog").length > 0) {
-                    $("#export_row_dialog").dialog("close").remove();
-                }
-                /**Update the row count at the tableForm*/
-                $("#result_query").remove();
-                $("#sqlqueryresults").prepend(data.sql_query);
-                $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
-
-                $("#table_results tbody tr.marked .multi_checkbox " +
-                    ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
-                $("#table_results tbody tr.marked .multi_checkbox " +
-                    ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
-                $("#table_results tbody tr" +
-                    ", #table_results tbody tr td").removeClass("marked");
-            }) // end $.post()
-        }) // end insert table button "buttonGo"
-
 }, 'top.frame_content') // end $(document).ready()
 
 
@@ -1464,22 +1370,22 @@ $(document).ready(function() {
     $("#sqlqueryresults").trigger('makegrid');
 });
 
-/* 
+/*
  * Profiling Chart
  */
 function createProfilingChart() {
     if($('#profilingchart').length==0) return;
-    
+
     var cdata = new Array();
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
         cdata.push([key,parseFloat(value)]);
     });
-    
+
     // Prevent the user from seeing the JSON code
     $('div#profilingchart').html('').show();
 
     PMA_createChart({
-        chart: { 
+        chart: {
             renderTo: 'profilingchart',
             backgroundColor: $('#sqlqueryresults fieldset').css('background-color')
         },
