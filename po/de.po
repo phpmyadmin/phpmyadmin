@@ -6729,7 +6729,7 @@ msgstr "Gespeicherte kürzlich verwendete Tabellen"
 
 #: libraries/relation.lib.php:147
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Gespeicherte Tabellen-Darstellungs-Optionen"
 
 #: libraries/relation.lib.php:155
 msgid "User preferences"
