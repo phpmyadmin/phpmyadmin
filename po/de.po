@@ -8703,7 +8703,7 @@ msgstr ""
 
 #: server_status.php:263
 msgid "Handler"
-msgstr "Handler"
+msgstr "Bezeichner"
 
 #: server_status.php:264
 msgid "Query cache"
