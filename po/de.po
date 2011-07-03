@@ -1891,7 +1891,7 @@ msgstr "Tabelle %s wurde umbenannt in %s."
 
 #: libraries/Table.class.php:1272
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Konnte die UI Einstellungen der Tabelle nicht speichern"
 
 #: libraries/Theme.class.php:160
 #, php-format
