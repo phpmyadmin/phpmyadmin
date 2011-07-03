@@ -1243,10 +1243,9 @@ msgid "Issued queries since last refresh"
 msgstr "Ausgelöste SQL-Befehle seit der letzten Aktualisierung"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL-Abfragen"
+msgstr "Ausgelöste SQL-Befehle"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
