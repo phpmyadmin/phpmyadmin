@@ -824,10 +824,9 @@ msgid "Analyze table"
 msgstr "Analysiere Tabelle"
 
 #: db_structure.php:514
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Gehe zur Tabelle"
+msgstr "Prefix der Tabelle voranstellen"
 
 #: db_structure.php:516 libraries/mult_submits.inc.php:251
 #, fuzzy
