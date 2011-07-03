@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:40+0200\n"
+"PO-Revision-Date: 2011-07-03 19:41+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10158,10 +10158,9 @@ msgid "Label column"
 msgstr "Название столбца"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- не выбран -"
+msgstr "-- Пусто --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
