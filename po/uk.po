@@ -3077,7 +3077,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:188
 msgid "Open Document"
