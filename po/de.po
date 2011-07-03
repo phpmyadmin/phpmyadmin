@@ -10236,10 +10236,9 @@ msgid "Label column"
 msgstr "Spaltenbeschriftung"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- kein -"
+msgstr "-- Kein --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
