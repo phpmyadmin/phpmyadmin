@@ -1298,10 +1298,9 @@ msgid "Searching"
 msgstr "Пошук"
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Сховати критерії пошуку"
+msgstr "Сховати результати пошуку"
 
 #: js/messages.php:117
 #, fuzzy
