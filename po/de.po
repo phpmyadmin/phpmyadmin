@@ -8788,7 +8788,7 @@ msgstr "Zeige nur Warn-Werte"
 
 #: server_status.php:471
 msgid "Filter by category..."
-msgstr ""
+msgstr "Nach Kategorie filtern..."
 
 #: server_status.php:484
 #, fuzzy
