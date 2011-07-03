@@ -2403,7 +2403,7 @@ msgstr "Nirgends"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: libraries/config.values.php:47
 #, fuzzy
