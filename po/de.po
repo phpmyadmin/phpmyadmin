@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:12+0200\n"
+"PO-Revision-Date: 2011-07-03 18:13+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -829,10 +829,9 @@ msgid "Add prefix to table"
 msgstr "Prefix der Tabelle voranstellen"
 
 #: db_structure.php:516 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Tabelleninhalt ersetzen"
+msgstr "Tabellenprefix ersetzen"
 
 #: db_structure.php:518 libraries/mult_submits.inc.php:251
 #, fuzzy
