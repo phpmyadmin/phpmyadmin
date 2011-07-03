@@ -1837,10 +1837,9 @@ msgstr[0] "%1$d Zeile eingefügt."
 msgstr[1] "%1$d Zeilen eingefügt."
 
 #: libraries/RecentTable.class.php:114
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Fehler beim Speichern der Konfiguration"
+msgstr "Konnte die aktuelle Tabelle nicht speichern"
 
 #: libraries/RecentTable.class.php:149
 #, fuzzy
