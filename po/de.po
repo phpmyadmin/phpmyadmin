@@ -8772,10 +8772,9 @@ msgid "All status variables"
 msgstr "Alle Status Variablen"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate:"
-msgstr "Aktualisieren"
+msgstr "Aktualisierungs-Intervall:"
 
 #: server_status.php:462
 #, fuzzy
