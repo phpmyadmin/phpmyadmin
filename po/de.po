@@ -10254,10 +10254,9 @@ msgid "Redraw"
 msgstr "Neu zeichnen"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Senden"
+msgstr "In Datei speichern"
 
 #: tbl_gis_visualization.php:207
 #, fuzzy
