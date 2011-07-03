@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:03+0200\n"
+"PO-Revision-Date: 2011-07-03 19:04+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5418,10 +5418,9 @@ msgid "Event"
 msgstr "Dogodek"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "Dodaj nov sprožilec"
+msgstr "Dodaj sprožilec"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
