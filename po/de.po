@@ -4961,10 +4961,9 @@ msgid "SQL data access"
 msgstr "SQL-Daten Zugriff"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Routinen"
+msgstr "Routinen Parameter"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
