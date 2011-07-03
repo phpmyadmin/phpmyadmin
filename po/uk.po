@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 17:36+0200\n"
+"PO-Revision-Date: 2011-07-03 17:37+0200\n"
 "Last-Translator:  <vovka2008@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1755,7 +1755,7 @@ msgstr "Кількість елементів"
 #: libraries/Index.class.php:452 libraries/db_routines.lib.php:777
 #: tbl_tracking.php:272 tbl_tracking.php:321
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: libraries/Index.class.php:474
 msgid "The primary key has been dropped"
