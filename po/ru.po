@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:43+0200\n"
+"PO-Revision-Date: 2011-07-03 19:44+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -10426,7 +10426,7 @@ msgstr "Сортировка:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "Пространственный"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
