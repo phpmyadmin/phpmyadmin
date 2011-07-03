@@ -2002,7 +2002,7 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "Авторизуємося..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
