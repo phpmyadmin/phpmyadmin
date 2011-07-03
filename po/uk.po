@@ -1361,7 +1361,7 @@ msgstr "Приховати"
 
 #: js/messages.php:135 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "Рядків не вибрано"
 
 #: js/messages.php:136 libraries/display_tbl.lib.php:2384 querywindow.php:114
 #: querywindow.php:118 querywindow.php:121 tbl_structure.php:152
