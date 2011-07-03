@@ -9309,7 +9309,7 @@ msgstr "Количество открытых файлов."
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Количество открытых потоков (применяется к файлам журналов). Потоком "
-"называется файл, открытый с помощью функции fopen()."
+"называется файл, открытый с помощью функции fopen."
 
 #: server_status.php:935
 msgid "The number of tables that are open."
