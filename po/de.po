@@ -6458,7 +6458,7 @@ msgstr "Abschicken"
 
 #: libraries/mult_submits.inc.php:268
 msgid "Add table prefix"
-msgstr ""
+msgstr "Tabellen-Prefix hinzufügen"
 
 #: libraries/mult_submits.inc.php:271
 #, fuzzy
