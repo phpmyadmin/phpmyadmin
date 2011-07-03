@@ -2993,7 +2993,7 @@ msgstr "Параметри для розробників phpMyAdmin"
 
 #: libraries/config/messages.inc.php:162
 msgid "Edit mode"
-msgstr ""
+msgstr "Режим редагування"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
