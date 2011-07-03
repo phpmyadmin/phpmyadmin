@@ -2989,7 +2989,7 @@ msgstr "Розробник"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Параметри для розробників phpMyAdmin"
 
 #: libraries/config/messages.inc.php:162
 msgid "Edit mode"
