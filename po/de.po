@@ -5352,7 +5352,7 @@ msgstr "Spalten-Anordnung wiederherstellen"
 
 #: libraries/display_tbl.lib.php:411
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Zur Umordnung ziehen."
 
 #: libraries/display_tbl.lib.php:412
 #, fuzzy
