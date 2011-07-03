@@ -591,10 +591,9 @@ msgstr ""
 "wurde:</b>"
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Erzeuge Verknüpfung"
+msgstr "Erzeuge Routine"
 
 #: db_routines.php:385
 #, fuzzy
