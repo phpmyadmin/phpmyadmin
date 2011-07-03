@@ -5112,7 +5112,7 @@ msgstr "Exportiere Tabellen der Datenbank \"%s\""
 #: libraries/display_export.lib.php:91
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Exportiere Zeilen aus Tabelle \"%s\""
+msgstr "Exportiere Datensätze aus Tabelle \"%s\""
 
 #: libraries/display_export.lib.php:97
 msgid "Export Method:"
