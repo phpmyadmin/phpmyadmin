@@ -1343,10 +1343,9 @@ msgstr ""
 "beinhalten!"
 
 #: js/messages.php:123
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Das Formular ist leer !"
+msgstr "Zu großer Wert im Formular!"
 
 #: js/messages.php:126
 msgid ""
