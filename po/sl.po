@@ -7192,10 +7192,9 @@ msgid "PARTITION definition"
 msgstr "Definicija PARTITION"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Dodaj novo vrednost"
+msgstr "+ Dodaj vrednost"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
