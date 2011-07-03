@@ -4807,7 +4807,7 @@ msgstr "Включить"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Выключить"
 
 #: libraries/db_events.inc.php:141
 #, fuzzy
