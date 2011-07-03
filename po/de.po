@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:41+0200\n"
+"PO-Revision-Date: 2011-07-03 19:42+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -527,7 +527,7 @@ msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen)."
 #, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Der folgende SQL-Befehl ist fehlgeschlagen: %s"
+msgstr "Die folgende Abfrage ist fehlgeschlagen:"
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
