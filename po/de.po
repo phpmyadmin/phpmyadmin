@@ -5097,7 +5097,8 @@ msgstr "Anzahl der Spalten"
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"Export-Plugins konnten nicht geladen werden, bitte Installation überprüfen!"
+"Export-Plugins konnten nicht geladen werden, bitte überprüfen Sie Ihre "
+"Installation!"
 
 #: libraries/display_export.lib.php:87
 msgid "Exporting databases from the current server"
