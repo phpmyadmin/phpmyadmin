@@ -16,6 +16,7 @@ class PMA_Table
      */
     const PROP_SORTED_COLUMN = 'sorted_col';
     const PROP_COLUMN_ORDER = 'col_order';
+    const PROP_COLUMN_VISIB = 'col_visib';
 
     static $cache = array();
 
@@ -1305,6 +1306,7 @@ class PMA_Table
      * Available property:
      * - PROP_SORTED_COLUMN
      * - PROP_COLUMN_ORDER
+     * - PROP_COLUMN_VISIB
      *
      *
      * @param string $property
@@ -1335,7 +1337,8 @@ class PMA_Table
             } else {
                 return false;
             }
-        } else if ($property == self::PROP_COLUMN_ORDER) {
+        } else if ($property == self::PROP_COLUMN_ORDER ||
+                   $property == self::PROP_COLUMN_VISIB) {
             if (isset($this->uiprefs[$property])) {
                 // check if the table has not been modified
                 if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') ==
@@ -1361,10 +1364,11 @@ class PMA_Table
      * Available property:
      * - PROP_SORTED_COLUMN
      * - PROP_COLUMN_ORDER
+     * - PROP_COLUMN_VISIB
      *
      * @param string $property
      * @param mixed $value
-     * @param string $table_create_time Needed for PROP_COLUMN_ORDER
+     * @param string $table_create_time Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
      * @return boolean|PMA_Message
      */
     public function setUiProp($property, $value, $table_create_time = NULL)
@@ -1373,8 +1377,10 @@ class PMA_Table
             $this->loadUiPrefs();
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if ($property == self::PROP_COLUMN_ORDER) {
-            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'Create_time');
+        if ($property == self::PROP_COLUMN_ORDER ||
+                $property == self::PROP_COLUMN_VISIB) {
+
+            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
             if (isset($table_create_time) &&
                     $table_create_time == $curr_create_time) {
                 $this->uiprefs['CREATE_TIME'] = $curr_create_time;

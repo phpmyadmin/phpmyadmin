@@ -2313,6 +2313,11 @@ $cfg['ShowBrowseComments'] = true;
 $cfg['ShowPropertyComments']= true;
 
 /**
+ * shows table display direction.
+ */
+$cfg['ShowDisplayDir'] = false;
+
+/**
  * repeat header names every X cells? (0 = deactivate)
  *
  * @global integer $cfg['RepeatCells']
