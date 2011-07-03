@@ -4842,7 +4842,7 @@ msgstr "Die Datenbank scheint leer zu sein!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:151
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr "Tracking"
+msgstr "Nachverfolgung"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
