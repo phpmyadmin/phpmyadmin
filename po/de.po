@@ -8670,7 +8670,7 @@ msgstr ""
 #: server_status.php:27
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Aktualisierungsrate"
+msgstr "Aktualisierungs-Intervall"
 
 #: server_status.php:31
 #, fuzzy, php-format
