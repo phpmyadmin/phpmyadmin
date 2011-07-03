@@ -4778,10 +4778,10 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Die Erweiterung %s fehlt. Bitte die PHP Konfiguration überprüfen."
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Export-Inhalte"
+msgstr "Export des events %s"
 
 #: libraries/db_events.inc.php:34
 #, fuzzy, php-format
