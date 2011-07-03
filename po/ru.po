@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:29+0200\n"
+"PO-Revision-Date: 2011-07-03 19:31+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5006,10 +5006,7 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-"Не удалось установить подключение для пользователя указанного в директиве "
-"controluser, с помощью параметров определенных в конфигурационном файле "
-"config.inc.php."
+msgstr "Ошибка при указании соединения для controluser в конфигурации."
 
 #: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysql.dbi.lib.php:339
 #: libraries/dbi/mysqli.dbi.lib.php:395
