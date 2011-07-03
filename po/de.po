@@ -10171,7 +10171,7 @@ msgstr "Titel des Reports:"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-Achse:"
 
 #: tbl_chart.php:113
 #, fuzzy
