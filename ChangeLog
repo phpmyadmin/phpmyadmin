@@ -7,6 +7,12 @@ phpMyAdmin - ChangeLog
 - bug #3348995 [config] $cfg['Export']['asfile'] set to false does not select asText option
 - bug #3340151 [export] Working SQL query exports error page
 
+3.4.3.1 (2011-07-02)
+- [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
+- [security] Fixed possible code injection incase session variables are compromised, see PMASA-2011-6
+- [security] Fixed regexp quoting issue in Synchronize code, see PMASA-2011-7
+- [security] Fixed filtering of a file path, which allowed for directory traversal, see PMASA-2011-8
+
 3.4.3.0 (2011-06-27)
 - bug #3311170 [sync] Missing helper icons in Synchronize
 - patch #3304473 [setup] Redefine a lable that was wrong
