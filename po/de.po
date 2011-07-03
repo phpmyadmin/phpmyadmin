@@ -5361,7 +5361,7 @@ msgstr "Zur Anordnung anklicken"
 
 #: libraries/display_tbl.lib.php:413
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klicken zum aus- bzw. abwählen"
 
 #: libraries/display_tbl.lib.php:425
 #, php-format
