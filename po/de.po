@@ -5550,7 +5550,7 @@ msgstr "Autoerweiterungs-Schrittgröße"
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr "Die Größe, um die ein Tablespace erweitert wird, wenn er voll ist."
+msgstr " Die Größe, um die ein Tablespace erweitert wird, wenn er voll ist."
 
 #: libraries/engines/innodb.lib.php:34
 msgid "Buffer pool size"
