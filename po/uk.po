@@ -1239,7 +1239,7 @@ msgstr "Скасувати"
 
 #: js/messages.php:94
 msgid "Loading"
-msgstr ""
+msgstr "Завантаження"
 
 #: js/messages.php:95
 msgid "Processing Request"
