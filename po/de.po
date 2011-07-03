@@ -8691,7 +8691,7 @@ msgstr[1] "%d Sekunden"
 #: server_status.php:134
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "Der Prozess %s wurde erfolgreich abgebrochen."
+msgstr "Der Thread %s wurde erfolgreich abgebrochen."
 
 #: server_status.php:136
 #, php-format
