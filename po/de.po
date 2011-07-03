@@ -5501,11 +5501,10 @@ msgid "Export of trigger \"%s\""
 msgstr "Export des Triggers \"%s\""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr ""
-"Keinen gültiges Pfad für Grafiken des Oberflächendesigns \"%s\" gefunden!"
+msgstr "Kein Trigger mit dem Namen %s gefunden"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
