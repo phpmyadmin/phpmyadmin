@@ -8668,10 +8668,9 @@ msgstr ""
 "Möchten Sie ihn <a href=\"%s\">konfigurieren</a> ?"
 
 #: server_status.php:27
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Aktualisieren"
+msgstr "Aktualisierungsrate"
 
 #: server_status.php:31
 #, fuzzy, php-format
