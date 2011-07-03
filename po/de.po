@@ -4223,7 +4223,6 @@ msgid "Display columns table"
 msgstr "Tabelle für Anzeigespalten"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_config[/kbd]"
@@ -4231,8 +4230,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Leer lassen, um die Benutzereinstellungen nicht in der Datenbank zu "
-"speichern, Vorschlag: [kbd]pma_config[/kbd]"
+"Leer lassen, um die Oberflächeneinstellungen nicht in der Datenbank zu "
+"speichern, Vorschlag: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:427
 #| msgid "User preferences storage table"
