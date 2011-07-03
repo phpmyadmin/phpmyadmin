@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:21+0200\n"
+"PO-Revision-Date: 2011-07-03 19:23+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -5459,10 +5459,11 @@ msgstr "Zeige Datensätze "
 msgid "total"
 msgstr "insgesamt"
 
+# (s is the abbreviation of "Sekunde", sec is it not (according to International System of Units), so we wrote the complete one.)
 #: libraries/display_tbl.lib.php:2261 sql.php:682
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "die Abfrage dauerte %01.4f sek."
+msgstr "die Abfrage dauerte %01.4f Sekunden."
 
 #: libraries/display_tbl.lib.php:2457
 msgid "Query results operations"
