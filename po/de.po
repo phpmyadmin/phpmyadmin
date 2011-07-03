@@ -2781,10 +2781,9 @@ msgstr ""
 "optimieren oder reparieren von ausgewählten Tabellen einer Datenbank."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Hilfsmittel"
+msgstr "Deaktivieren von Massen-Operationen zur Tabellen-Instandhaltung"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
