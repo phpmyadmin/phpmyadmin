@@ -4858,10 +4858,10 @@ msgid "Routine name"
 msgstr "Имя процедуры"
 
 #: libraries/db_routines.lib.php:679
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Изменить"
+msgstr "Изменить на %s"
 
 #: libraries/db_routines.lib.php:684
 msgid "Parameters"
