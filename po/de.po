@@ -5144,7 +5144,7 @@ msgstr "Einige Datensätze exportieren:"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
-msgstr "Anzahl der Zeilen:"
+msgstr "Anzahl der Datensätze:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
