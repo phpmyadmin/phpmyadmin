@@ -587,6 +587,8 @@ msgstr "Die Routine %1$s wurde erstellt."
 #: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
+"<b>Ein oder mehrere Fehler sind aufgetreten während Ihre Anfrage verarbeitet "
+"wurde:</b>"
 
 #: db_routines.php:381
 #, fuzzy
