@@ -8710,10 +8710,9 @@ msgid "All status variables"
 msgstr "Все переменные состояния"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Частота обновления"
+msgstr "Частота обновления:"
 
 #: server_status.php:462
 msgid "Containing the word:"
