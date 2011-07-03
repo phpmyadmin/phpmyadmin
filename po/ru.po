@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:21+0200\n"
+"PO-Revision-Date: 2011-07-03 19:22+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4941,10 +4941,9 @@ msgid "SQL data access"
 msgstr "Доступ к SQL данным"
 
 #: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Процедуры"
+msgstr "Параметры процедуры"
 
 #: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
