@@ -5378,7 +5378,7 @@ msgstr "untereinander"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal (rotated headers)"
-msgstr "horizontal (gedrehte Überschriften)"
+msgstr "horizontal (gedrehte Kopfzeilen)"
 
 #: libraries/display_tbl.lib.php:438
 msgid "vertical"
