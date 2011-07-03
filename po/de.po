@@ -524,10 +524,10 @@ msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen)."
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Die folgenden Abfragen wurden ausgeführt:"
+msgstr "Der folgende SQL-Befehl ist fehlgeschlagen: %s"
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
