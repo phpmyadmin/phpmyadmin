@@ -25,7 +25,9 @@ phpMyAdmin - ChangeLog
 + [display] More options for browsing GIS data
 + [interface] Support for spatial indexes
 + [display] GIS data visualization
-+ AJAX for table structure multiple-columns change
++ AJAX for table structure multiple-column change
++ AJAX for table structure index edit
++ Show/hide indexes in table structure
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
