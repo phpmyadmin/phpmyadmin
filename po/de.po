@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:14+0200\n"
+"PO-Revision-Date: 2011-07-03 18:15+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1187,7 +1187,7 @@ msgstr "Abfragediagramm anzeigen"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Statische Daten"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
