@@ -6124,7 +6124,7 @@ msgstr ""
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Individuelle Kommentare für den Kopfbereich (\n"
-" erzeugt einen Zeilenumbruch):"
+"  erzeugt einen Zeilenumbruch):"
 
 #: libraries/export/sql.php:48
 msgid ""
