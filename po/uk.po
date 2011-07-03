@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 17:31+0200\n"
+"PO-Revision-Date: 2011-07-03 17:32+0200\n"
 "Last-Translator:  <vovka2008@gmail.com>\n"
 "Language-Team: ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -1357,7 +1357,7 @@ msgstr "Зберегти"
 #: js/messages.php:134 libraries/display_tbl.lib.php:637 pmd_general.php:158
 #: tbl_change.php:316 tbl_change.php:322
 msgid "Hide"
-msgstr ""
+msgstr "Приховати"
 
 #: js/messages.php:135 tbl_row_action.php:28
 msgid "No rows selected"
