@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.4.3.1 (not yet released)
+3.4.3.1 (2011-07-02)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
 - [security] Fixed possible code injection incase session variables are compromised, see PMASA-2011-6
 - [security] Fixed regexp quoting issue in Synchronize code, see PMASA-2011-7
