@@ -4915,10 +4915,9 @@ msgid "Options"
 msgstr "Optionen"
 
 #: libraries/db_routines.lib.php:707
-#, fuzzy
 #| msgid "Add index"
 msgid "Add parameter"
-msgstr "Index hinzufügen"
+msgstr "Parameter hinzufügen"
 
 #: libraries/db_routines.lib.php:710
 #, fuzzy
