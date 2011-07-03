@@ -18,6 +18,9 @@ if (isset($plugin_list)) {
     );
 } else {
 
+    ini_set('memory_limit', '128M');
+    set_time_limit(120);
+
     // Append the bfShapeFiles directory to the include path variable
     set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/');
     require_once './libraries/bfShapeFiles/ShapeFile.lib.php';
