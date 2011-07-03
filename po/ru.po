@@ -4803,7 +4803,7 @@ msgstr "Отключен планировщик событий"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Включить"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
