@@ -30,8 +30,8 @@ if (isset($plugin_list)) {
     $eof = false;
 
     // Returns specified number of bytes from the buffer.
-    // Buffer automatically fetch next chunk of data when the buffer falls short.
-    // Sets $eof when $GLOBALS['finished'] is set and the buffer is falls short.
+    // Buffer automatically fetches next chunk of data when the buffer falls short.
+    // Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
     function readFromBuffer($length){
         global $buffer, $eof;
 
@@ -48,10 +48,10 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * This class extends from ShapeFile class to cater following phpMyAdmin specific requirements.
-     * 1) To loads data from .dbf file only when the dBase extension is availble.
+     * This class extends ShapeFile class to cater following phpMyAdmin specific requirements.
+     * 1) To load data from .dbf file only when the dBase extension is available.
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than reading directly from a file.
-     *    Using readFromBuffer() inplace of fread(). This makes it possible to use compressions.
+     *    Using readFromBuffer() in place of fread(). This makes it possible to use compressions.
      */
     class PMA_ShapeFile extends ShapeFile {
 
@@ -108,10 +108,10 @@ if (isset($plugin_list)) {
     }
 
     /**
-     * This class extends from ShapeRecord class to cater following phpMyAdmin specific requirements.
-     * 1) To loads data from .dbf file only when the dBase extension is availble.
+     * This class extends ShapeRecord class to cater following phpMyAdmin specific requirements.
+     * 1) To load data from .dbf file only when the dBase extension is available.
      * 2) To use PMA_importGetNextChunk() functionality to read data, rather than reading directly from a file.
-     *    Using readFromBuffer() inplace of fread(). This makes it possible to use compressions.
+     *    Using readFromBuffer() in place of fread(). This makes it possible to use compressions.
      */
     class PMA_ShapeRecord extends ShapeRecord {
 
@@ -237,33 +237,33 @@ if (isset($plugin_list)) {
 
     require_once './libraries/gis/pma_gis_geometry.php';
     switch ($shp->shapeType) {
-        // Esri Null Shape
+        // ESRI Null Shape
         case 0:
             $gis_obj = null;
             break;
-        // Esri Point
+        // ESRI Point
         case 1:
             require_once './libraries/gis/pma_gis_point.php';
             $gis_obj = PMA_GIS_Point::singleton();
             break;
-        // Esri PolyLine
+        // ESRI PolyLine
         case 3:
             require_once './libraries/gis/pma_gis_multilinestring.php';
             $gis_obj = PMA_GIS_Multilinestring::singleton();
             break;
-        // Esri Polygon
+        // ESRI Polygon
         case 5:
             require_once './libraries/gis/pma_gis_multipolygon.php';
             $gis_obj = PMA_GIS_Multipolygon::singleton();
             break;
-        // Esri MultiPoint
+        // ESRI MultiPoint
         case 8:
             require_once './libraries/gis/pma_gis_multipoint.php';
             $gis_obj = PMA_GIS_Multipoint::singleton();
             break;
         default:
             $error = true;
-            $err = PMA_Message::error(__('MySQL Spatial Extention does not support ESRI type "%s".'));
+            $err = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
             $param = isset($esri_types[$shp->shapeType]) ? $esri_types[$shp->shapeType] : __('Unkown Type');
             $err->addParam($param);
             PMA_mysqlDie($err->getMessage(), '', '', $err_url);
