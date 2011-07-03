@@ -5152,7 +5152,7 @@ msgstr "Anfangsdatensatz:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr "Alle Datensätze exportieren"
+msgstr "Alle Datensätze ausgeben"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
