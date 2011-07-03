@@ -8820,7 +8820,7 @@ msgstr "#"
 #: server_status.php:625
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Netzwerk-Datenverkehr seit Start: %s"
 
 #: server_status.php:633
 #, php-format
