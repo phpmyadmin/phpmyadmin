@@ -4823,7 +4823,7 @@ msgstr "Der Ereignisplaner ist deaktiviert"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Anschalten"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
