@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 18:49+0200\n"
+"PO-Revision-Date: 2011-07-03 18:50+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4790,10 +4790,10 @@ msgid "Export of event \"%s\""
 msgstr "Export des Events \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "Diese Datenbank enthält keine Tabellen."
+msgstr "Es wurde kein Event mit dem Namen %s in Datenbank %s gefunden"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
