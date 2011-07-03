@@ -5128,7 +5128,7 @@ msgstr "Angepasst – zeige alle möglichen Optionen an"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
-msgstr "Datenbanken:"
+msgstr "Datenbank(en):"
 
 #: libraries/display_export.lib.php:139
 msgid "Table(s):"
