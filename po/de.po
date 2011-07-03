@@ -1842,10 +1842,9 @@ msgid "Could not save recent table"
 msgstr "Konnte die aktuelle Tabelle nicht speichern"
 
 #: libraries/RecentTable.class.php:149
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Zähle Tabellen"
+msgstr "Aktuelle Tabellen"
 
 #: libraries/RecentTable.class.php:155
 #, fuzzy
