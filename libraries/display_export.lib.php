@@ -35,13 +35,6 @@ if (empty($export_list)) {
     PMA_Message::error( __('Could not load export plugins, please check your installation!'))->display();
     require './libraries/footer.inc.php';
 }
-
-// If the form data is being loaded from GET data, decode it
-foreach($_GET as $name => $value) {
-    if(is_string($value)) {
-        $_GET[urldecode($name)] = urldecode($value);
-    }
-}
 ?>
 
 <form method="post" action="export.php" name="dump">
@@ -73,7 +66,7 @@ echo '<input type="hidden" name="export_method" value="' . htmlspecialchars($cfg
 
 
 if(isset($_GET['sql_query'])) {
-    echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars(urldecode($_GET['sql_query'])) . '" />' . "\n";
+    echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
 } elseif (! empty($sql_query)) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
 }
@@ -325,7 +318,7 @@ if(isset($_GET['sql_query'])) {
                 <?php } ?>
              </ul>
         </li>
-        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" <?php echo isset($_GET['repopulate']) ? 'checked="checked"' : '' ?>/><label for="radio_view_as_text"><?php echo __('View output as text'); ?></label></li>
+        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" <?php echo (isset($_GET['repopulate']) || $GLOBALS['cfg']['Export']['asfile'] == false) ? 'checked="checked"' : '' ?>/><label for="radio_view_as_text"><?php echo __('View output as text'); ?></label></li>
     </ul>
  </div>
 

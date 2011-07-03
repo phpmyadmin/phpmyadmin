@@ -836,84 +836,11 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
     $fields = PMA_DBI_fetch_result(
         'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        'Field', ($full ? null : 'Field'), $link);
+        'Field', null, $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
     }
     return $fields;
-}
-
-/**
- * array PMA_DBI_get_column_values (string $database, string $table, string $column , mysql db link $link = null)
- *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   string  $column     name of the column to retrieve data from
- * @param   mixed   $link       mysql link resource
- * @return  array   $field_values
- */
-
-function PMA_DBI_get_column_values($database, $table, $column, $link = null)
-{
-    $query = 'SELECT ';
-    for($i=0; $i< sizeof($column); $i++)
-    {
-        $query.= PMA_backquote($column[$i]);
-        if($i < (sizeof($column)-1))
-        {
-            $query.= ', ';
-        }
-    }
-    $query.= ' FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
-    $field_values = PMA_DBI_fetch_result($query, null, null, $link);
-
-    if (! is_array($field_values) || count($field_values) < 1) {
-        return false;
-    }
-    return $field_values;
-}
-/**
- * array PMA_DBI_get_table_data (string $database, string $table, mysql db link $link = null)
- *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   mixed   $link       mysql link resource
- * @return  array   $result
- */
-
- function PMA_DBI_get_table_data($database, $table, $link = null)
- {
-
-    $result = PMA_DBI_fetch_result(
-        'SELECT * FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        null,null, $link);
-
-    if (! is_array($result) || count($result) < 1) {
-        return false;
-    }
-    return $result;
- }
-
-/**
-* array  PMA_DBI_get_table_indexes($database, $table, $link = null)
-*
-* @param    string  $database   name of database
-* @param    string  $table      name of the table whose indexes are to be retreived
-* @param    mixed   $link       mysql link resource
-* @return   array   $indexes
-*/
-
-function PMA_DBI_get_table_indexes($database, $table, $link = null)
-{
-
-    $indexes = PMA_DBI_fetch_result(
-              'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
-               null, null, $link);
-
-    if (! is_array($indexes) || count($indexes) < 1) {
-        return false;
-    }
-    return $indexes;
 }
 
  /**

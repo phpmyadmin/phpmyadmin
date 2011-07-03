@@ -623,24 +623,75 @@ $(document).ready(function() {
         if ($(e.target).is('a, img, a *')) {
             return;
         }
-        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
         var $tr = $(this);
-        var $checkbox = $tr.find(':checkbox');
-        if ($checkbox.length) {
-            // checkbox in a row, add or remove class depending on checkbox state
-            var checked = $checkbox.attr('checked');
-            if (!$(e.target).is(':checkbox, label')) {
-                checked = !checked;
-                $checkbox.attr('checked', checked);
-            }
-            if (checked) {
-                $tr.addClass('marked');
+        
+        // make the table unselectable (to prevent default highlighting when shift+click)
+        $tr.parents('table').noSelect();
+        
+        if (!e.shiftKey || last_clicked_row == -1) {
+            // usual click
+            
+            // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+            var $checkbox = $tr.find(':checkbox');
+            if ($checkbox.length) {
+                // checkbox in a row, add or remove class depending on checkbox state
+                var checked = $checkbox.attr('checked');
+                if (!$(e.target).is(':checkbox, label')) {
+                    checked = !checked;
+                    $checkbox.attr('checked', checked);
+                }
+                if (checked) {
+                    $tr.addClass('marked');
+                } else {
+                    $tr.removeClass('marked');
+                }
+                last_click_checked = checked;
             } else {
-                $tr.removeClass('marked');
+                // normaln data table, just toggle class
+                $tr.toggleClass('marked');
+                last_click_checked = false;
             }
+            
+            // remember the last clicked row
+            last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
+            last_shift_clicked_row = -1;
         } else {
-            // normaln data table, just toggle class
-            $tr.toggleClass('marked');
+            // handle the shift click
+            var start, end;
+            
+            // clear last shift click result
+            if (last_shift_clicked_row >= 0) {
+                if (last_shift_clicked_row >= last_clicked_row) {
+                    start = last_clicked_row;
+                    end = last_shift_clicked_row;
+                } else {
+                    start = last_shift_clicked_row;
+                    end = last_clicked_row;
+                }
+                $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+                    .slice(start, end + 1)
+                    .removeClass('marked')
+                    .find(':checkbox')
+                    .attr('checked', false);
+            }
+            
+            // handle new shift click
+            var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
+            if (curr_row >= last_clicked_row) {
+                start = last_clicked_row;
+                end = curr_row;
+            } else {
+                start = curr_row;
+                end = last_clicked_row;
+            }
+            $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+                .slice(start, end + 1)
+                .addClass('marked')
+                .find(':checkbox')
+                .attr('checked', true);
+            
+            // remember the last shift clicked row
+            last_shift_clicked_row = curr_row;
         }
     });
 
@@ -651,6 +702,22 @@ $(document).ready(function() {
         PMA_addDatepicker($(this));
         });
 })
+
+/**
+ * True if last click is to check a row.
+ */
+var last_click_checked = false;
+
+/**
+ * Zero-based index of last clicked row.
+ * Used to handle the shift + click event in the code above.
+ */
+var last_clicked_row = -1;
+
+/**
+ * Zero-based index of last shift clicked row.
+ */
+var last_shift_clicked_row = -1;
 
 /**
  * Row highlighting in horizontal mode (use "live"
@@ -2037,9 +2104,9 @@ function displayMoreTableOpts() {
             // Optimize DOM querying
             var $this_dropdown = $(this);
              // The top offset must be set for IE even if it didn't change
-            var cell_right_edge_offset = $this_dropdown.parent().offset().left + $this_dropdown.parent().innerWidth();
+            var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
             var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
-            var top_offset = $this_dropdown.parent().offset().top + $this_dropdown.parent().innerHeight();
+            var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
             $this_dropdown.offset({ top: top_offset, left: left_offset });
         });
 
@@ -2211,62 +2278,6 @@ $(function() {
     $(window).resize(menuResize);
     menuResize();
 });
-
-/**
- * For the checkboxes in browse mode, handles the shift/click (only works
- * in horizontal mode) and propagates the click to the "companion" checkbox
- * (in both horizontal and vertical). Works also for pages reached via AJAX.
- */
-$(document).ready(function() {
-    $('.multi_checkbox').live('click',function(e) {
-        var current_checkbox_id = this.id;
-        var left_checkbox_id = current_checkbox_id.replace('_right', '_left');
-        var right_checkbox_id = current_checkbox_id.replace('_left', '_right');
-        var other_checkbox_id = '';
-        if (current_checkbox_id == left_checkbox_id) {
-            other_checkbox_id = right_checkbox_id;
-        } else {
-            other_checkbox_id = left_checkbox_id;
-        }
-
-        var $current_checkbox = $('#' + current_checkbox_id);
-        var $other_checkbox = $('#' + other_checkbox_id);
-
-        if (e.shiftKey) {
-            var index_of_current_checkbox = $('.multi_checkbox').index($current_checkbox);
-            var $last_checkbox = $('.multi_checkbox').filter('.last_clicked');
-            var index_of_last_click = $('.multi_checkbox').index($last_checkbox);
-            $('.multi_checkbox')
-                .filter(function(index) {
-                    // the first clicked row can be on a row above or below the
-                    // shift-clicked row
-                    return (index_of_current_checkbox > index_of_last_click && index > index_of_last_click && index < index_of_current_checkbox)
-                     || (index_of_last_click > index_of_current_checkbox && index < index_of_last_click && index > index_of_current_checkbox);
-                })
-                .each(function(index) {
-                    var $intermediate_checkbox = $(this);
-                    if ($current_checkbox.is(':checked')) {
-                        $intermediate_checkbox.attr('checked', true);
-                    } else {
-                        $intermediate_checkbox.attr('checked', false);
-                    }
-                });
-        }
-
-        $('.multi_checkbox').removeClass('last_clicked');
-        $current_checkbox.addClass('last_clicked');
-
-        // When there is a checkbox on both ends of the row, propagate the
-        // click on one of them to the other one.
-        // (the default action has not been prevented so if we have
-        // just clicked, this "if" is true)
-        if ($current_checkbox.is(':checked')) {
-            $other_checkbox.attr('checked', true);
-        } else {
-            $other_checkbox.attr('checked', false);
-        }
-    });
-}) // end of $(document).ready() for multi checkbox
 
 /**
  * Get the row number from the classlist (for example, row_1)
@@ -2659,4 +2670,35 @@ $(document).ready(function() {
     if (elm.length > 0) {
         codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
     }
-})
+});
+
+/**
+ * jQuery plugin to cancel selection in HTML code.
+ */
+(function ($) {
+    $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
+        var prevent = (p == null) ? true : p;
+        if (prevent) {
+            return this.each(function () {
+                if ($.browser.msie || $.browser.safari) $(this).bind('selectstart', function () {
+                    return false;
+                });
+                else if ($.browser.mozilla) {
+                    $(this).css('MozUserSelect', 'none');
+                    $('body').trigger('focus');
+                } else if ($.browser.opera) $(this).bind('mousedown', function () {
+                    return false;
+                });
+                else $(this).attr('unselectable', 'on');
+            });
+        } else {
+            return this.each(function () {
+                if ($.browser.msie || $.browser.safari) $(this).unbind('selectstart');
+                else if ($.browser.mozilla) $(this).css('MozUserSelect', 'inherit');
+                else if ($.browser.opera) $(this).unbind('mousedown');
+                else $(this).removeAttr('unselectable', 'on');
+            });
+        }
+    }; //end noSelect    
+})(jQuery);
+

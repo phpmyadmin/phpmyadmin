@@ -1163,7 +1163,7 @@ $(document).ready(function() {
         }) // end $.post()
     }) // end insert table button "Go"
 
-/**
+/**$("#buttonYes.ajax").live('click'
  * Click action for #buttonYes button in ajax dialog insertForm
  */
     $("#buttonYes.ajax").live('click', function(event){
@@ -1370,22 +1370,22 @@ $(document).ready(function() {
     $("#sqlqueryresults").trigger('makegrid');
 });
 
-/* 
+/*
  * Profiling Chart
  */
 function createProfilingChart() {
     if($('#profilingchart').length==0) return;
-    
+
     var cdata = new Array();
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
         cdata.push([key,parseFloat(value)]);
     });
-    
+
     // Prevent the user from seeing the JSON code
     $('div#profilingchart').html('').show();
 
     PMA_createChart({
-        chart: { 
+        chart: {
             renderTo: 'profilingchart',
             backgroundColor: $('#sqlqueryresults fieldset').css('background-color')
         },

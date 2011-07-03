@@ -3,27 +3,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-06-27 10:29+0200\n"
+"POT-Creation-Date: 2011-07-03 07:35-0400\n"
 "PO-Revision-Date: 2011-06-18 11:34+0200\n"
 "Last-Translator:  <udin.mx@gmail.com>\n"
 "Language-Team: indonesian <id@li.org>\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
-#: libraries/display_tbl.lib.php:360 server_privileges.php:1583
+#: libraries/display_tbl.lib.php:354 libraries/display_tbl.lib.php:421
+#: server_privileges.php:1583
 msgid "Show all"
 msgstr "Tampilkan semua"
 
-#: browse_foreigners.php:70 libraries/common.lib.php:2269
-#: libraries/display_tbl.lib.php:340 libraries/export/pdf.php:135
+#: browse_foreigners.php:70 libraries/common.lib.php:2183
+#: libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:240
-#: libraries/schema/Pdf_Relation_Schema.class.php:1095
-#: libraries/schema/Pdf_Relation_Schema.class.php:1111
+#: libraries/schema/Pdf_Relation_Schema.class.php:1089
+#: libraries/schema/Pdf_Relation_Schema.class.php:1105
 #: libraries/schema/User_Schema.class.php:356
 msgid "Page number:"
 msgstr "Halaman no.:"
@@ -38,49 +39,49 @@ msgstr ""
 "induknya atau pilihan keamanan pada browser Anda melarang untuk mengupdate "
 "dengan cara Cross-Window"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2762
-#: libraries/common.lib.php:2769 libraries/common.lib.php:2951
-#: libraries/common.lib.php:2952 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:2648
+#: libraries/common.lib.php:2655 libraries/common.lib.php:2836
+#: libraries/common.lib.php:2837 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Cari"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
-#: db_operations.php:531 db_operations.php:559 db_search.php:360
+#: db_operations.php:531 db_operations.php:559 db_search.php:335
 #: db_structure.php:528 enum_editor.php:63 js/messages.php:90
-#: libraries/Config.class.php:1220 libraries/Theme_Manager.class.php:305
-#: libraries/auth/cookie.auth.lib.php:273 libraries/common.lib.php:1315
-#: libraries/common.lib.php:2245 libraries/core.lib.php:557
-#: libraries/db_routines.lib.php:789 libraries/db_routines.lib.php:921
+#: libraries/Config.class.php:1186 libraries/Theme_Manager.class.php:300
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1263
+#: libraries/common.lib.php:2160 libraries/core.lib.php:498
+#: libraries/db_routines.lib.php:760 libraries/db_routines.lib.php:882
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:354 libraries/display_import.lib.php:267
-#: libraries/display_tbl.lib.php:558 libraries/display_tbl.lib.php:653
-#: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:371
+#: libraries/display_export.lib.php:347 libraries/display_import.lib.php:267
+#: libraries/display_tbl.lib.php:566 libraries/display_tbl.lib.php:661
+#: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:370
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:406
 #: libraries/schema/User_Schema.class.php:445
-#: libraries/select_server.lib.php:100 libraries/sql_query_form.lib.php:384
-#: libraries/sql_query_form.lib.php:454 libraries/sql_query_form.lib.php:518
+#: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:350
+#: libraries/sql_query_form.lib.php:414 libraries/sql_query_form.lib.php:466
 #: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
-#: main.php:109 navigation.php:202 navigation.php:240 pmd_pdf.php:124
-#: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:128
+#: main.php:109 navigation.php:172 navigation.php:210 pmd_pdf.php:124
+#: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:109
 #: server_privileges.php:646 server_privileges.php:1694
 #: server_privileges.php:2051 server_privileges.php:2098
 #: server_privileges.php:2138 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
-#: tbl_change.php:1061 tbl_indexes.php:260 tbl_operations.php:280
+#: tbl_change.php:1061 tbl_indexes.php:266 tbl_operations.php:280
 #: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
 #: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
-#: tbl_structure.php:734 tbl_tracking.php:425 tbl_tracking.php:563
+#: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Go"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
-#: libraries/Index.class.php:444 tbl_tracking.php:313
+#: libraries/Index.class.php:431 tbl_tracking.php:313
 msgid "Keyname"
 msgstr "Nama Kunci"
 
@@ -96,7 +97,7 @@ msgid "Use this value"
 msgstr "Gunakan nilai ini"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
-#: libraries/blobstreaming.lib.php:331
+#: libraries/blobstreaming.lib.php:326
 msgid "No blob streaming server configured!"
 msgstr "Tidak ada blob server streaming yang dikonfigurasi!"
 
@@ -126,43 +127,43 @@ msgstr "Database %1$s telah dibuat."
 msgid "Database comment: "
 msgstr "Komentar Database: "
 
-#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1210
+#: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
 #: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Komentar tabel"
 
-#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:448
+#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:435
 #: libraries/export/htmlword.php:248 libraries/export/latex.php:375
 #: libraries/export/odt.php:302 libraries/export/texytext.php:227
-#: libraries/schema/Pdf_Relation_Schema.class.php:1236
-#: libraries/schema/Pdf_Relation_Schema.class.php:1257
+#: libraries/schema/Pdf_Relation_Schema.class.php:1230
+#: libraries/schema/Pdf_Relation_Schema.class.php:1251
 #: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
-#: tbl_indexes.php:188 tbl_printview.php:139 tbl_relation.php:399
+#: tbl_indexes.php:194 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
 msgstr "Kolom"
 
-#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:445
-#: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:666
-#: libraries/db_routines.lib.php:691 libraries/db_routines.lib.php:847
-#: libraries/db_routines.lib.php:1216 libraries/db_structure.lib.php:51
+#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:432
+#: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:637
+#: libraries/db_routines.lib.php:662 libraries/db_routines.lib.php:808
+#: libraries/db_routines.lib.php:1158 libraries/db_structure.lib.php:46
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:375
 #: libraries/export/odt.php:305 libraries/export/texytext.php:228
-#: libraries/schema/Pdf_Relation_Schema.class.php:1237
-#: libraries/schema/Pdf_Relation_Schema.class.php:1258
+#: libraries/schema/Pdf_Relation_Schema.class.php:1231
+#: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
 #: tbl_change.php:289 tbl_change.php:316 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
-#: tbl_structure.php:795 tbl_tracking.php:267 tbl_tracking.php:314
+#: tbl_structure.php:796 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "Jenis"
 
-#: db_datadict.php:169 libraries/Index.class.php:451
+#: db_datadict.php:169 libraries/Index.class.php:438
 #: libraries/export/htmlword.php:250 libraries/export/latex.php:375
 #: libraries/export/odt.php:308 libraries/export/texytext.php:229
-#: libraries/schema/Pdf_Relation_Schema.class.php:1239
-#: libraries/schema/Pdf_Relation_Schema.class.php:1260
+#: libraries/schema/Pdf_Relation_Schema.class.php:1233
+#: libraries/schema/Pdf_Relation_Schema.class.php:1254
 #: libraries/tbl_properties.inc.php:109 tbl_change.php:325
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
@@ -172,8 +173,8 @@ msgstr "Kosong"
 #: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
 #: libraries/export/latex.php:375 libraries/export/odt.php:311
 #: libraries/export/texytext.php:230
-#: libraries/schema/Pdf_Relation_Schema.class.php:1240
-#: libraries/schema/Pdf_Relation_Schema.class.php:1261
+#: libraries/schema/Pdf_Relation_Schema.class.php:1234
+#: libraries/schema/Pdf_Relation_Schema.class.php:1255
 #: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
@@ -182,8 +183,8 @@ msgstr "Default"
 #: db_datadict.php:174 libraries/export/htmlword.php:253
 #: libraries/export/latex.php:377 libraries/export/odt.php:315
 #: libraries/export/texytext.php:232
-#: libraries/schema/Pdf_Relation_Schema.class.php:1242
-#: libraries/schema/Pdf_Relation_Schema.class.php:1263 tbl_printview.php:147
+#: libraries/schema/Pdf_Relation_Schema.class.php:1236
+#: libraries/schema/Pdf_Relation_Schema.class.php:1257 tbl_printview.php:147
 msgid "Links to"
 msgstr "Link ke"
 
@@ -192,32 +193,32 @@ msgstr "Link ke"
 #: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
 #: libraries/export/latex.php:380 libraries/export/odt.php:320
 #: libraries/export/texytext.php:235
-#: libraries/schema/Pdf_Relation_Schema.class.php:1253
-#: libraries/schema/Pdf_Relation_Schema.class.php:1264
+#: libraries/schema/Pdf_Relation_Schema.class.php:1247
+#: libraries/schema/Pdf_Relation_Schema.class.php:1258
 #: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
 msgid "Comments"
 msgstr "Komentar"
 
-#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:361
-#: libraries/Index.class.php:388 libraries/Index.class.php:688
+#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:348
+#: libraries/Index.class.php:375 libraries/Index.class.php:673
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:445 libraries/export/odt.php:376
 #: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
-#: libraries/schema/Pdf_Relation_Schema.class.php:1318
-#: libraries/user_preferences.lib.php:311 prefs_manage.php:130
+#: libraries/schema/Pdf_Relation_Schema.class.php:1312
+#: libraries/user_preferences.lib.php:270 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
 #: server_privileges.php:1638 server_privileges.php:1649
 #: server_privileges.php:1969 server_privileges.php:1974
-#: server_privileges.php:2268 sql.php:257 sql.php:318 tbl_printview.php:226
+#: server_privileges.php:2268 sql.php:264 sql.php:325 tbl_printview.php:226
 #: tbl_structure.php:380 tbl_tracking.php:330 tbl_tracking.php:335
 msgid "No"
 msgstr "Tidak"
 
-#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:362
-#: libraries/Index.class.php:387 libraries/Index.class.php:688
+#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:349
+#: libraries/Index.class.php:374 libraries/Index.class.php:673
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:204 libraries/export/htmlword.php:326
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:326
 #: libraries/export/latex.php:445 libraries/export/odt.php:376
 #: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
@@ -225,12 +226,12 @@ msgstr "Tidak"
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:276 libraries/mult_submits.inc.php:286
 #: libraries/mult_submits.inc.php:299
-#: libraries/schema/Pdf_Relation_Schema.class.php:1318
-#: libraries/user_preferences.lib.php:311 prefs_manage.php:129
+#: libraries/schema/Pdf_Relation_Schema.class.php:1312
+#: libraries/user_preferences.lib.php:270 prefs_manage.php:129
 #: server_databases.php:76 server_privileges.php:1378
 #: server_privileges.php:1389 server_privileges.php:1635
 #: server_privileges.php:1649 server_privileges.php:1969
-#: server_privileges.php:1972 server_privileges.php:2268 sql.php:317
+#: server_privileges.php:1972 server_privileges.php:2268 sql.php:324
 #: tbl_printview.php:226 tbl_structure.php:41 tbl_structure.php:380
 #: tbl_tracking.php:328 tbl_tracking.php:333
 msgid "Yes"
@@ -240,24 +241,24 @@ msgstr "Ya"
 msgid "Print"
 msgstr "Cetak"
 
-#: db_export.php:30
+#: db_export.php:26
 msgid "View dump (schema) of database"
 msgstr "Tampilkan dump (skema) dari database"
 
-#: db_export.php:34 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:371 navigation.php:329
+#: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
+#: export.php:371 navigation.php:299
 msgid "No tables found in database."
 msgstr "Tidak ada tabel dalam database."
 
-#: db_export.php:44 db_search.php:342 server_export.php:26
+#: db_export.php:40 db_search.php:317 server_export.php:26
 msgid "Select All"
 msgstr "Pilih semua"
 
-#: db_export.php:46 db_search.php:345 server_export.php:28
+#: db_export.php:42 db_search.php:320 server_export.php:28
 msgid "Unselect All"
 msgstr "Unselect semua"
 
-#: db_operations.php:41 tbl_create.php:48
+#: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
 msgstr "Nama database kosong!"
 
@@ -332,12 +333,12 @@ msgstr "Menambahkan pembatas"
 msgid "Switch to copied database"
 msgstr "Pindah ke database yang disalin"
 
-#: db_operations.php:552 libraries/Index.class.php:450
-#: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:53
+#: db_operations.php:552 libraries/Index.class.php:437
+#: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:107
 #: libraries/tbl_properties.inc.php:720 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
-#: tbl_structure.php:206 tbl_structure.php:903 tbl_tracking.php:268
+#: tbl_structure.php:206 tbl_structure.php:904 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
 msgstr "Penyortiran"
@@ -356,7 +357,7 @@ msgid "Edit or export relational schema"
 msgstr "Edit atau ekspor skema relasional"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
-#: libraries/config/messages.inc.php:497 libraries/db_structure.lib.php:37
+#: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
 #: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
 #: libraries/export/xml.php:331 libraries/header.inc.php:152
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1745
@@ -366,14 +367,14 @@ msgid "Table"
 msgstr "Tabel"
 
 #: db_printview.php:103 libraries/build_html_for_db.lib.php:30
-#: libraries/db_structure.lib.php:47 libraries/header_printview.inc.php:62
-#: libraries/import.lib.php:147 navigation.php:648 navigation.php:670
+#: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:62
+#: libraries/import.lib.php:146 navigation.php:593 navigation.php:615
 #: tbl_printview.php:391 tbl_structure.php:395 tbl_structure.php:501
-#: tbl_structure.php:913
+#: tbl_structure.php:914
 msgid "Rows"
 msgstr "Baris"
 
-#: db_printview.php:107 libraries/db_structure.lib.php:58 tbl_indexes.php:189
+#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:195
 msgid "Size"
 msgstr "Ukuran"
 
@@ -382,24 +383,24 @@ msgstr "Ukuran"
 msgid "in use"
 msgstr "sedang digunakan"
 
-#: db_printview.php:185 libraries/db_info.inc.php:86
+#: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:705
-#: libraries/schema/Pdf_Relation_Schema.class.php:1215 tbl_printview.php:431
-#: tbl_structure.php:945
+#: libraries/schema/Pdf_Relation_Schema.class.php:1209 tbl_printview.php:431
+#: tbl_structure.php:946
 msgid "Creation"
 msgstr "Pembuatan"
 
-#: db_printview.php:194 libraries/db_info.inc.php:91
+#: db_printview.php:194 libraries/db_info.inc.php:66
 #: libraries/export/sql.php:710
-#: libraries/schema/Pdf_Relation_Schema.class.php:1220 tbl_printview.php:441
-#: tbl_structure.php:953
+#: libraries/schema/Pdf_Relation_Schema.class.php:1214 tbl_printview.php:441
+#: tbl_structure.php:954
 msgid "Last update"
 msgstr "Update terakhir"
 
-#: db_printview.php:203 libraries/db_info.inc.php:96
+#: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:715
-#: libraries/schema/Pdf_Relation_Schema.class.php:1225 tbl_printview.php:451
-#: tbl_structure.php:961
+#: libraries/schema/Pdf_Relation_Schema.class.php:1219 tbl_printview.php:451
+#: tbl_structure.php:962
 msgid "Last check"
 msgstr "Pemeriksaan terakhir"
 
@@ -421,26 +422,26 @@ msgstr "Beralih ke"
 msgid "visual builder"
 msgstr "pembangun visual"
 
-#: db_qbe.php:222 libraries/db_structure.lib.php:95
-#: libraries/display_tbl.lib.php:927
+#: db_qbe.php:222 libraries/db_structure.lib.php:90
+#: libraries/display_tbl.lib.php:937
 msgid "Sort"
 msgstr "Urutkan"
 
-#: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:102
-#: libraries/display_tbl.lib.php:549 libraries/display_tbl.lib.php:888
+#: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
+#: libraries/display_tbl.lib.php:557 libraries/display_tbl.lib.php:898
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
 #: tbl_select.php:278
 msgid "Ascending"
 msgstr "Urutan menaik"
 
-#: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:110
-#: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:885
+#: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
+#: libraries/display_tbl.lib.php:562 libraries/display_tbl.lib.php:895
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
 #: tbl_select.php:279
 msgid "Descending"
 msgstr "Urutan menurun"
 
-#: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:429
+#: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:435
 #: tbl_change.php:279 tbl_tracking.php:648
 msgid "Show"
 msgstr "Tampilkan"
@@ -462,7 +463,7 @@ msgid "Del"
 msgstr "Hapus"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:307 tbl_change.php:887 tbl_indexes.php:256
+#: server_privileges.php:307 tbl_change.php:887 tbl_indexes.php:262
 #: tbl_select.php:252
 msgid "Or"
 msgstr "Atau"
@@ -492,12 +493,12 @@ msgstr "Gunakan Tabel"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Pencarian SQL dalam database <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1168
+#: db_qbe.php:955 libraries/common.lib.php:1121
 msgid "Submit Query"
 msgstr "Jalankan Pencarian SQL"
 
-#: db_routines.php:154 import.php:453 libraries/Message.class.php:185
-#: libraries/display_tbl.lib.php:2272 libraries/sql_query_form.lib.php:139
+#: db_routines.php:154 import.php:452 libraries/Message.class.php:175
+#: libraries/display_tbl.lib.php:2235 libraries/sql_query_form.lib.php:113
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -515,7 +516,7 @@ msgstr[0] ""
 msgid "Execution results of routine %s"
 msgstr "Mengizinkan eksekusi Routines yang tersimpan."
 
-#: db_routines.php:187 libraries/import.lib.php:153 sql.php:678
+#: db_routines.php:187 libraries/import.lib.php:152 sql.php:685
 #: tbl_change.php:180 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL balikkan hasil kosong (a.k. baris yang kosong)."
@@ -527,7 +528,7 @@ msgid "The following query has failed: \"%s\""
 msgstr ""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
-#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
+#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
 msgid "MySQL said: "
 msgstr "MySQL menyatakan: "
 
@@ -555,7 +556,7 @@ msgstr ""
 msgid "Export of routine %s"
 msgstr "Ekspor isi"
 
-#: db_routines.php:290 libraries/db_routines.lib.php:960
+#: db_routines.php:290 libraries/db_routines.lib.php:911
 #, fuzzy, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
@@ -601,94 +602,94 @@ msgid ""
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
 
-#: db_search.php:54 libraries/auth/config.auth.lib.php:83
+#: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
-#: libraries/auth/cookie.auth.lib.php:641 libraries/auth/http.auth.lib.php:51
+#: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
 msgstr "Akses ditolak"
 
-#: db_search.php:66 db_search.php:309
+#: db_search.php:42 db_search.php:284
 msgid "at least one of the words"
 msgstr "sekurang-kurangnya salah satu kata"
 
-#: db_search.php:67 db_search.php:310
+#: db_search.php:43 db_search.php:285
 msgid "all words"
 msgstr "seluruh kata"
 
-#: db_search.php:68 db_search.php:311
+#: db_search.php:44 db_search.php:286
 msgid "the exact phrase"
 msgstr "kata-kata tepat"
 
-#: db_search.php:69 db_search.php:312
+#: db_search.php:45 db_search.php:287
 msgid "as regular expression"
 msgstr "sebagai regular expression"
 
-#: db_search.php:231
+#: db_search.php:206
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Hasil pencarian untuk \"<i>%s</i>\" %s:"
 
-#: db_search.php:249
+#: db_search.php:224
 #, php-format
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s cocok dalam tabel <i>%s</i>"
 
-#: db_search.php:256 libraries/common.lib.php:2764
-#: libraries/common.lib.php:2949 libraries/common.lib.php:2950
+#: db_search.php:231 libraries/common.lib.php:2650
+#: libraries/common.lib.php:2834 libraries/common.lib.php:2835
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:599
 msgid "Browse"
 msgstr "Browse"
 
-#: db_search.php:261
+#: db_search.php:236
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Hapus yang cocok untuk %s tabel?"
 
-#: db_search.php:261 libraries/display_tbl.lib.php:1323
-#: libraries/display_tbl.lib.php:2351
+#: db_search.php:236 libraries/display_tbl.lib.php:1338
+#: libraries/display_tbl.lib.php:2314
 #: libraries/schema/User_Schema.class.php:165
 #: libraries/schema/User_Schema.class.php:234
 #: libraries/schema/User_Schema.class.php:269
 #: libraries/schema/User_Schema.class.php:299
-#: libraries/sql_query_form.lib.php:447 pmd_general.php:423
+#: libraries/sql_query_form.lib.php:407 pmd_general.php:423
 #: setup/frames/index.inc.php:138 setup/frames/index.inc.php:229
 #: tbl_tracking.php:435 tbl_tracking.php:456 tbl_tracking.php:513
 msgid "Delete"
 msgstr "Hapus"
 
-#: db_search.php:274
+#: db_search.php:249
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
 
-#: db_search.php:297
+#: db_search.php:272
 msgid "Search in database"
 msgstr "Cari dalam database"
 
-#: db_search.php:300
+#: db_search.php:275
 #, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Kata atau nilai untuk dicari (wildcard: \"%\"):"
 
-#: db_search.php:305
+#: db_search.php:280
 msgid "Find:"
 msgstr "Cari:"
 
-#: db_search.php:309 db_search.php:310
+#: db_search.php:284 db_search.php:285
 msgid "Words are separated by a space character (\" \")."
 msgstr "Kata dipisahkan oleh karakter spasi (\" \")."
 
-#: db_search.php:323
+#: db_search.php:298
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Cari dalam tabel:"
 
-#: db_search.php:353
+#: db_search.php:328
 msgid "Inside column:"
 msgstr "Di dalam kolom:"
 
@@ -711,29 +712,29 @@ msgstr "Pandangan %s telah dibubarkan"
 msgid "Table %s has been dropped"
 msgstr "Tabel %s telah dihapus"
 
-#: db_structure.php:286 tbl_create.php:295
+#: db_structure.php:286 tbl_create.php:269
 msgid "Tracking is active."
 msgstr "Pelacakan aktif"
 
-#: db_structure.php:288 tbl_create.php:297
+#: db_structure.php:288 tbl_create.php:271
 msgid "Tracking is not active."
 msgstr "Pelacakan tidak aktif."
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:2235
+#: db_structure.php:372 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Silahkan lihat "
-"%sdokumentasi%s"
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Silahkan lihat %"
+"sdokumentasi%s"
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
 msgid "View"
 msgstr "Gambarkan"
 
-#: db_structure.php:437 libraries/db_structure.lib.php:40
+#: db_structure.php:437 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:271
 msgid "Replication"
@@ -743,26 +744,26 @@ msgstr "Tiruan"
 msgid "Sum"
 msgstr "Jumlah"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:352
+#: db_structure.php:448 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s adalah mesin penyimpan utama pada server MySQL ini."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
-#: libraries/display_tbl.lib.php:2376 libraries/display_tbl.lib.php:2381
+#: libraries/display_tbl.lib.php:2339 libraries/display_tbl.lib.php:2344
 #: libraries/mult_submits.inc.php:15 server_databases.php:260
 #: server_databases.php:265 server_privileges.php:1666 tbl_structure.php:587
 #: tbl_structure.php:596
 msgid "With selected:"
 msgstr "yang ditandai:"
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2371
+#: db_structure.php:479 libraries/display_tbl.lib.php:2334
 #: server_databases.php:262 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:590
 msgid "Check All"
 msgstr "Pilih semua"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2372
+#: db_structure.php:483 libraries/display_tbl.lib.php:2335
 #: libraries/replication_gui.lib.php:35 server_databases.php:264
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:594
 msgid "Uncheck All"
@@ -772,28 +773,28 @@ msgstr "Balik pilihan"
 msgid "Check tables having overhead"
 msgstr "Periksa Overheaded"
 
-#: db_structure.php:496 libraries/common.lib.php:2962
-#: libraries/common.lib.php:2963 libraries/config/messages.inc.php:164
-#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2389
-#: libraries/display_tbl.lib.php:2527 libraries/server_links.inc.php:65
+#: db_structure.php:496 libraries/common.lib.php:2847
+#: libraries/common.lib.php:2848 libraries/config/messages.inc.php:164
+#: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2352
+#: libraries/display_tbl.lib.php:2488 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:288
 #: server_privileges.php:1354 setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Ekspor"
 
 #: db_structure.php:498 db_structure.php:553
-#: libraries/display_tbl.lib.php:2478 tbl_structure.php:628
+#: libraries/display_tbl.lib.php:2439 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
 msgstr "Pandangan cetak"
 
-#: db_structure.php:502 libraries/common.lib.php:2958
-#: libraries/common.lib.php:2959
+#: db_structure.php:502 libraries/common.lib.php:2843
+#: libraries/common.lib.php:2844
 msgid "Empty"
 msgstr "Mengosongkan"
 
-#: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:490
-#: libraries/common.lib.php:2956 libraries/common.lib.php:2957
+#: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:481
+#: libraries/common.lib.php:2841 libraries/common.lib.php:2842
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
@@ -803,8 +804,8 @@ msgstr "Hapus"
 msgid "Check table"
 msgstr "Periksa tabel"
 
-#: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:845
-#: tbl_structure.php:847
+#: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:846
+#: tbl_structure.php:848
 msgid "Optimize table"
 msgstr "Optimasikan tabel"
 
@@ -840,7 +841,7 @@ msgstr "Kamus Data"
 msgid "Tracked tables"
 msgstr "Tabel-tabel yang dilacak"
 
-#: db_tracking.php:84 libraries/config/messages.inc.php:491
+#: db_tracking.php:84 libraries/config/messages.inc.php:493
 #: libraries/export/htmlword.php:90 libraries/export/latex.php:163
 #: libraries/export/odt.php:121 libraries/export/pdf.php:102
 #: libraries/export/sql.php:569 libraries/export/texytext.php:78
@@ -866,13 +867,13 @@ msgid "Updated"
 msgstr "Diperbarui"
 
 #: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
-#: sql.php:935 tbl_tracking.php:647
+#: sql.php:942 tbl_tracking.php:647
 msgid "Status"
 msgstr "Status"
 
-#: db_tracking.php:90 libraries/Index.class.php:442
-#: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1215
-#: libraries/db_structure.lib.php:44 libraries/display_triggers.inc.php:76
+#: db_tracking.php:90 libraries/Index.class.php:429
+#: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1157
+#: libraries/db_structure.lib.php:39 libraries/display_triggers.inc.php:76
 #: server_databases.php:191 server_privileges.php:1612
 #: server_privileges.php:1805 server_privileges.php:2154 tbl_structure.php:214
 msgid "Action"
@@ -963,23 +964,23 @@ msgstr "Webserver tidak memilik hak (permission) untuk menyimpan file %s."
 msgid "Dump has been saved to file %s."
 msgstr "Dump (Skema) disimpan pada file %s."
 
-#: import.php:58
+#: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Anda mungkin meng-upload file yang terlalu besar. Silahkan lihat "
-"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin meng-upload file yang terlalu besar. Silahkan lihat %"
+"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
-#: import.php:278 import.php:331 libraries/File.class.php:501
-#: libraries/File.class.php:611
+#: import.php:277 import.php:330 libraries/File.class.php:459
+#: libraries/File.class.php:543
 msgid "File could not be read"
 msgstr "Gagal membaca File"
 
-#: import.php:286 import.php:295 import.php:314 import.php:323
-#: libraries/File.class.php:681 libraries/File.class.php:689
-#: libraries/File.class.php:705 libraries/File.class.php:713
+#: import.php:285 import.php:294 import.php:313 import.php:322
+#: libraries/File.class.php:613 libraries/File.class.php:621
+#: libraries/File.class.php:637 libraries/File.class.php:645
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -988,7 +989,7 @@ msgstr ""
 "Anda mencoba untuk memuat file dengan kompresi yang tidak didukung (%s). "
 "Dukungan belum diimplementasi atau tidak aktif di dalam konfigurasi Anda."
 
-#: import.php:336
+#: import.php:335
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -998,29 +999,29 @@ msgstr ""
 "atau ukuran file melebihi ukuran maksimum yang diizinkan oleh konfigurasi "
 "PHP Anda. Lihat [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
-#: import.php:371 libraries/display_import.lib.php:23
+#: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin import, silahkan periksa instalasi Anda!"
 
-#: import.php:396
+#: import.php:395
 msgid "The bookmark has been deleted."
 msgstr "Penyimpanan telah dihapus."
 
-#: import.php:400
+#: import.php:399
 msgid "Showing bookmark"
 msgstr "Tampilkan bookmark"
 
-#: import.php:402 sql.php:970
+#: import.php:401 sql.php:977
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bookmark % s dibuat"
 
-#: import.php:408 import.php:414
+#: import.php:407 import.php:413
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Impor telah berhasil menyelesaikan,%d query dieksekusi."
 
-#: import.php:423
+#: import.php:422
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -1028,7 +1029,7 @@ msgstr ""
 "Script sudah melewati timeout, jika Anda ingin menyelesaikan proses impor, "
 "silakan kirim ulang arsip yang sama dan proses impor akan berlanjut."
 
-#: import.php:425
+#: import.php:424
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1037,12 +1038,12 @@ msgstr ""
 "phpMyAdmin tidak bisa menyelesaikan proses impor kecuali Anda menambah batas "
 "waktu eksekusi php."
 
-#: import_status.php:30 libraries/common.lib.php:650
-#: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:123
+#: import_status.php:30 libraries/common.lib.php:622
+#: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:109
 msgid "Back"
 msgstr "Kembali"
 
-#: index.php:183
+#: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "Lebih mudah untuk menggunakan phpMyAdmin dengan browser yang <b>mendukung "
@@ -1059,15 +1060,15 @@ msgstr "Klik untuk memilih"
 msgid "Click to unselect"
 msgstr "Klik untuk batal memilih"
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:214
+#: js/messages.php:27 libraries/import.lib.php:102 sql.php:221
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"HAPUS DATABASE\" dimatikan."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:312
+#: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:319
 msgid "Do you really want to "
 msgstr "Apakah anda ingin "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:297
+#: js/messages.php:31 libraries/mult_submits.inc.php:282 sql.php:304
 msgid "You are about to DESTROY a complete database!"
 msgstr "Anda akan MENGHAPUS SELURUH database!"
 
@@ -1124,11 +1125,11 @@ msgstr "Nama Host harus diisi!"
 msgid "The user name is empty!"
 msgstr "Nama pengguna masih kosong!"
 
-#: js/messages.php:54 server_privileges.php:1221 user_password.php:64
+#: js/messages.php:54 server_privileges.php:1221 user_password.php:50
 msgid "The password is empty!"
 msgstr "Kata Sandi kosong!"
 
-#: js/messages.php:55 server_privileges.php:1219 user_password.php:67
+#: js/messages.php:55 server_privileges.php:1219 user_password.php:53
 msgid "The passwords aren't the same!"
 msgstr "Kata Sandi tidak sama!"
 
@@ -1150,11 +1151,11 @@ msgstr "Hapus pengguna yang dipilih"
 msgid "Close"
 msgstr "Tutup"
 
-#: js/messages.php:62 js/messages.php:132 libraries/Index.class.php:468
-#: libraries/common.lib.php:594 libraries/common.lib.php:1144
-#: libraries/common.lib.php:2960 libraries/common.lib.php:2961
-#: libraries/config/messages.inc.php:471 libraries/display_tbl.lib.php:1287
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+#: js/messages.php:62 js/messages.php:134 libraries/Index.class.php:459
+#: libraries/common.lib.php:566 libraries/common.lib.php:1097
+#: libraries/common.lib.php:2845 libraries/common.lib.php:2846
+#: libraries/config/messages.inc.php:473 libraries/display_tbl.lib.php:1302
+#: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
 msgid "Edit"
 msgstr "Ubah"
@@ -1179,9 +1180,9 @@ msgstr "Data statis"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
-#: libraries/engines/innodb.lib.php:168 server_databases.php:219
+#: libraries/engines/innodb.lib.php:158 server_databases.php:219
 #: server_status.php:701 server_status.php:762 tbl_printview.php:348
-#: tbl_structure.php:832
+#: tbl_structure.php:833
 msgid "Total"
 msgstr "Jumlah"
 
@@ -1191,12 +1192,12 @@ msgid "Other"
 msgstr "Lainnya"
 
 #. l10n: Thousands separator
-#: js/messages.php:74 libraries/common.lib.php:1374
+#: js/messages.php:74 libraries/common.lib.php:1322
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: js/messages.php:76 libraries/common.lib.php:1376
+#: js/messages.php:76 libraries/common.lib.php:1324
 msgid "."
 msgstr ","
 
@@ -1263,7 +1264,7 @@ msgstr "Menghapus Kolom"
 msgid "Adding Primary Key"
 msgstr " Tambahkan Primary Key"
 
-#: js/messages.php:99 libraries/relation.lib.php:87 pmd_general.php:386
+#: js/messages.php:99 libraries/relation.lib.php:76 pmd_general.php:386
 #: pmd_general.php:543 pmd_general.php:591 pmd_general.php:667
 #: pmd_general.php:721 pmd_general.php:784
 msgid "OK"
@@ -1297,108 +1298,120 @@ msgstr "Buat tabel"
 msgid "Insert Table"
 msgstr "Sisipkan Tabel"
 
-#: js/messages.php:115
+#: js/messages.php:113
+#, fuzzy
+#| msgid "Indexes"
+msgid "Hide indexes"
+msgstr "Indeks"
+
+#: js/messages.php:114
+#, fuzzy
+#| msgid "Show grid"
+msgid "Show indexes"
+msgstr "Tampilkan garis"
+
+#: js/messages.php:117
 msgid "Searching"
 msgstr "Pencarian"
 
-#: js/messages.php:116
+#: js/messages.php:118
 msgid "Hide search results"
 msgstr "Sembunyikan hasil pencarian"
 
-#: js/messages.php:117
+#: js/messages.php:119
 msgid "Show search results"
 msgstr "Tampilkan hasil pencarian"
 
-#: js/messages.php:118
+#: js/messages.php:120
 msgid "Browsing"
 msgstr "Menjelajahi"
 
-#: js/messages.php:119
+#: js/messages.php:121
 msgid "Deleting"
 msgstr "Menghapus %s"
 
-#: js/messages.php:122
+#: js/messages.php:124
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:123
+#: js/messages.php:125
 #, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
 msgstr "Data dalam form kurang !"
 
-#: js/messages.php:126
+#: js/messages.php:128
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 "Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabung menjadi "
 "satu"
 
-#: js/messages.php:129
+#: js/messages.php:131
 msgid "Hide query box"
 msgstr "Sembunyikan kotak query"
 
-#: js/messages.php:130
+#: js/messages.php:132
 msgid "Show query box"
 msgstr "Tampilkan kotak query"
 
-#: js/messages.php:131
+#: js/messages.php:133
 msgid "Inline Edit"
 msgstr "Inline Edit"
 
-#: js/messages.php:133 libraries/config/FormDisplay.tpl.php:332
+#: js/messages.php:135 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
 #: libraries/tbl_properties.inc.php:766 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:976
-#: tbl_gis_visualization.php:222 tbl_indexes.php:253 tbl_relation.php:563
+#: tbl_gis_visualization.php:222 tbl_indexes.php:259 tbl_relation.php:563
 msgid "Save"
 msgstr "Simpan"
 
-#: js/messages.php:134 libraries/display_tbl.lib.php:637 pmd_general.php:158
+#: js/messages.php:136 libraries/display_tbl.lib.php:645 pmd_general.php:158
 #: tbl_change.php:316 tbl_change.php:322
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: js/messages.php:135 tbl_row_action.php:28
+#: js/messages.php:137 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Tidak ada baris yang dipilih"
 
-#: js/messages.php:136 libraries/display_tbl.lib.php:2384 querywindow.php:114
-#: querywindow.php:118 querywindow.php:121 tbl_structure.php:152
+#: js/messages.php:138 libraries/display_tbl.lib.php:2347 querywindow.php:90
+#: querywindow.php:94 querywindow.php:97 tbl_structure.php:152
 #: tbl_structure.php:602
 msgid "Change"
 msgstr "Ubah"
 
-#: js/messages.php:139
+#: js/messages.php:141
 msgid "Hide search criteria"
 msgstr "Sembunyikan kriteria pencarian"
 
-#: js/messages.php:140
+#: js/messages.php:142
 msgid "Show search criteria"
 msgstr "Tampilkan kriteria pencarian"
 
-#: js/messages.php:143 tbl_change.php:304 tbl_indexes.php:203
-#: tbl_indexes.php:230
+#: js/messages.php:145 tbl_change.php:304 tbl_indexes.php:209
+#: tbl_indexes.php:236
 msgid "Ignore"
 msgstr "Abaikan"
 
-#: js/messages.php:146
+#: js/messages.php:148
 msgid "Select referenced key"
 msgstr "Pilih kunci rujukan"
 
-#: js/messages.php:147
+#: js/messages.php:149
 msgid "Select Foreign Key"
 msgstr "Pilih Foreign Key"
 
-#: js/messages.php:148
+#: js/messages.php:150
 msgid "Please select the primary key or a unique key"
 msgstr "Silakan pilih primary key atau sebuah unique key"
 
-#: js/messages.php:149 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:151 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Pilih kolom untuk ditampilkan"
 
-#: js/messages.php:150
+#: js/messages.php:152
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1406,27 +1419,27 @@ msgstr ""
 "Anda belum menyimpan perubahan pada susunan. Mereka akan hilang jika Anda "
 "tidak menyimpannya. Apakah Anda ingin melanjutkan?"
 
-#: js/messages.php:153
+#: js/messages.php:155
 msgid "Add an option for column "
 msgstr "Tambahkan pilihan untuk kolom"
 
-#: js/messages.php:156
+#: js/messages.php:158
 msgid "Generate password"
 msgstr "Menghasilkan kata sandi"
 
-#: js/messages.php:157 libraries/replication_gui.lib.php:365
+#: js/messages.php:159 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Menghasilkan"
 
-#: js/messages.php:158
+#: js/messages.php:160
 msgid "Change Password"
 msgstr "Ubah Kata Sandi"
 
-#: js/messages.php:161 tbl_structure.php:497
+#: js/messages.php:163 tbl_structure.php:497
 msgid "More"
 msgstr "Selebihnya"
 
-#: js/messages.php:164 setup/lib/index.lib.php:158
+#: js/messages.php:166 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1436,298 +1449,298 @@ msgstr ""
 "untuk meng-upgrade. Versi terbaru adalah %s, dirilis pada %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:166
+#: js/messages.php:168
 msgid ", latest stable version:"
 msgstr ", versi stabil terakhir:"
 
-#: js/messages.php:167
+#: js/messages.php:169
 msgid "up to date"
 msgstr "Mutakhir"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:185
+#: js/messages.php:187
 msgid "Done"
 msgstr "Selesai"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:187
+#: js/messages.php:189
 msgid "Prev"
 msgstr "Sebelumnya"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:189 libraries/common.lib.php:2308
-#: libraries/common.lib.php:2311 libraries/display_tbl.lib.php:372
-#: server_binlog.php:189 server_binlog.php:191 tbl_printview.php:421
-#: tbl_structure.php:937
+#: js/messages.php:191 libraries/common.lib.php:2222
+#: libraries/common.lib.php:2225 libraries/display_tbl.lib.php:366
+#: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
+#: tbl_structure.php:938
 msgid "Next"
 msgstr "Berikutnya"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:191
+#: js/messages.php:193
 msgid "Today"
 msgstr "Hari ini"
 
-#: js/messages.php:194
+#: js/messages.php:196
 msgid "January"
 msgstr "Januari"
 
-#: js/messages.php:195
+#: js/messages.php:197
 msgid "February"
 msgstr "Februari"
 
-#: js/messages.php:196
+#: js/messages.php:198
 msgid "March"
 msgstr "Maret"
 
-#: js/messages.php:197
+#: js/messages.php:199
 msgid "April"
 msgstr "April"
 
-#: js/messages.php:198
+#: js/messages.php:200
 msgid "May"
 msgstr "Mei"
 
-#: js/messages.php:199
+#: js/messages.php:201
 msgid "June"
 msgstr "Juni"
 
-#: js/messages.php:200
+#: js/messages.php:202
 msgid "July"
 msgstr "Juli"
 
-#: js/messages.php:201
+#: js/messages.php:203
 msgid "August"
 msgstr "Agustus"
 
-#: js/messages.php:202
+#: js/messages.php:204
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:203
+#: js/messages.php:205
 msgid "October"
 msgstr "Oktober"
 
-#: js/messages.php:204
+#: js/messages.php:206
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:205
+#: js/messages.php:207
 msgid "December"
 msgstr "Desember"
 
 #. l10n: Short month name
-#: js/messages.php:209 libraries/common.lib.php:1511
+#: js/messages.php:211 libraries/common.lib.php:1458
 msgid "Jan"
 msgstr "Januari"
 
 #. l10n: Short month name
-#: js/messages.php:211 libraries/common.lib.php:1513
+#: js/messages.php:213 libraries/common.lib.php:1460
 msgid "Feb"
 msgstr "Februari"
 
 #. l10n: Short month name
-#: js/messages.php:213 libraries/common.lib.php:1515
+#: js/messages.php:215 libraries/common.lib.php:1462
 msgid "Mar"
 msgstr "Maret"
 
 #. l10n: Short month name
-#: js/messages.php:215 libraries/common.lib.php:1517
+#: js/messages.php:217 libraries/common.lib.php:1464
 msgid "Apr"
 msgstr "April"
 
 #. l10n: Short month name
-#: js/messages.php:217 libraries/common.lib.php:1519
+#: js/messages.php:219 libraries/common.lib.php:1466
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mei"
 
 #. l10n: Short month name
-#: js/messages.php:219 libraries/common.lib.php:1521
+#: js/messages.php:221 libraries/common.lib.php:1468
 msgid "Jun"
 msgstr "Juni"
 
 #. l10n: Short month name
-#: js/messages.php:221 libraries/common.lib.php:1523
+#: js/messages.php:223 libraries/common.lib.php:1470
 msgid "Jul"
 msgstr "Juli"
 
 #. l10n: Short month name
-#: js/messages.php:223 libraries/common.lib.php:1525
+#: js/messages.php:225 libraries/common.lib.php:1472
 msgid "Aug"
 msgstr "Agustus"
 
 #. l10n: Short month name
-#: js/messages.php:225 libraries/common.lib.php:1527
+#: js/messages.php:227 libraries/common.lib.php:1474
 msgid "Sep"
 msgstr "September"
 
 #. l10n: Short month name
-#: js/messages.php:227 libraries/common.lib.php:1529
+#: js/messages.php:229 libraries/common.lib.php:1476
 msgid "Oct"
 msgstr "Oktober"
 
 #. l10n: Short month name
-#: js/messages.php:229 libraries/common.lib.php:1531
+#: js/messages.php:231 libraries/common.lib.php:1478
 msgid "Nov"
 msgstr "Nopember"
 
 #. l10n: Short month name
-#: js/messages.php:231 libraries/common.lib.php:1533
+#: js/messages.php:233 libraries/common.lib.php:1480
 msgid "Dec"
 msgstr "Desember"
 
-#: js/messages.php:234
+#: js/messages.php:236
 msgid "Sunday"
 msgstr "Minggu"
 
-#: js/messages.php:235
+#: js/messages.php:237
 msgid "Monday"
 msgstr "Senin"
 
-#: js/messages.php:236
+#: js/messages.php:238
 msgid "Tuesday"
 msgstr "Selasa"
 
-#: js/messages.php:237
+#: js/messages.php:239
 msgid "Wednesday"
 msgstr "Rabu"
 
-#: js/messages.php:238
+#: js/messages.php:240
 msgid "Thursday"
 msgstr "Kamis"
 
-#: js/messages.php:239
+#: js/messages.php:241
 msgid "Friday"
 msgstr "Jumat"
 
-#: js/messages.php:240
+#: js/messages.php:242
 msgid "Saturday"
 msgstr "Sabtu"
 
 #. l10n: Short week day name
-#: js/messages.php:244 libraries/common.lib.php:1536
+#: js/messages.php:246 libraries/common.lib.php:1483
 msgid "Sun"
 msgstr "Minggu"
 
 #. l10n: Short week day name
-#: js/messages.php:246 libraries/common.lib.php:1538
+#: js/messages.php:248 libraries/common.lib.php:1485
 msgid "Mon"
 msgstr "Senin"
 
 #. l10n: Short week day name
-#: js/messages.php:248 libraries/common.lib.php:1540
+#: js/messages.php:250 libraries/common.lib.php:1487
 msgid "Tue"
 msgstr "Selasa"
 
 #. l10n: Short week day name
-#: js/messages.php:250 libraries/common.lib.php:1542
+#: js/messages.php:252 libraries/common.lib.php:1489
 msgid "Wed"
 msgstr "Rabu"
 
 #. l10n: Short week day name
-#: js/messages.php:252 libraries/common.lib.php:1544
+#: js/messages.php:254 libraries/common.lib.php:1491
 msgid "Thu"
 msgstr "Kamis"
 
 #. l10n: Short week day name
-#: js/messages.php:254 libraries/common.lib.php:1546
+#: js/messages.php:256 libraries/common.lib.php:1493
 msgid "Fri"
 msgstr "Jumat"
 
 #. l10n: Short week day name
-#: js/messages.php:256 libraries/common.lib.php:1548
+#: js/messages.php:258 libraries/common.lib.php:1495
 msgid "Sat"
 msgstr "Sabtu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:260
+#: js/messages.php:262
 msgid "Su"
 msgstr "Minggu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:262
+#: js/messages.php:264
 msgid "Mo"
 msgstr "Senin"
 
 #. l10n: Minimal week day name
-#: js/messages.php:264
+#: js/messages.php:266
 msgid "Tu"
 msgstr "Selasa"
 
 #. l10n: Minimal week day name
-#: js/messages.php:266
+#: js/messages.php:268
 msgid "We"
 msgstr "Rabu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:268
+#: js/messages.php:270
 msgid "Th"
 msgstr "Kamis"
 
 #. l10n: Minimal week day name
-#: js/messages.php:270
+#: js/messages.php:272
 msgid "Fr"
 msgstr "Jumat"
 
 #. l10n: Minimal week day name
-#: js/messages.php:272
+#: js/messages.php:274
 msgid "Sa"
 msgstr "Sabtu"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:274
+#: js/messages.php:276
 msgid "Wk"
 msgstr "Mingguan"
 
-#: js/messages.php:276
+#: js/messages.php:278
 msgid "Hour"
 msgstr "Jam"
 
-#: js/messages.php:277
+#: js/messages.php:279
 msgid "Minute"
 msgstr "Menit"
 
-#: js/messages.php:278
+#: js/messages.php:280
 msgid "Second"
 msgstr "Detik"
 
-#: libraries/Config.class.php:1190
+#: libraries/Config.class.php:1158
 msgid "Font size"
 msgstr "Ukuran huruf"
 
-#: libraries/File.class.php:310
+#: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "File yang di upload melewati ketentuan upload_max_filesize dalam php.ini."
 
-#: libraries/File.class.php:313
+#: libraries/File.class.php:282
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
 "File yang di upload melewati MAX_FILE_SIZE yang ditentukan dalam form HTML."
 
-#: libraries/File.class.php:316
+#: libraries/File.class.php:285
 msgid "The uploaded file was only partially uploaded."
 msgstr "File yang di upload hanya ter-upload sebagian."
 
-#: libraries/File.class.php:319
+#: libraries/File.class.php:288
 msgid "Missing a temporary folder."
 msgstr "Folder sementara tidak ditemukan."
 
-#: libraries/File.class.php:322
+#: libraries/File.class.php:291
 msgid "Failed to write file to disk."
 msgstr "Gagal menulis file ke diska."
 
-#: libraries/File.class.php:325
+#: libraries/File.class.php:294
 msgid "File upload stopped by extension."
 msgstr "Upload file dihentikan oleh ekstensi."
 
-#: libraries/File.class.php:328
+#: libraries/File.class.php:297
 msgid "Unknown error in file upload."
 msgstr "Kesalahan yang tidak diketahui dalam upload file."
 
-#: libraries/File.class.php:559
+#: libraries/File.class.php:499
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
@@ -1735,44 +1748,44 @@ msgstr ""
 "Kemungkinan hanya perkiraan saja. Lihat [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 3.11[/a]"
 
-#: libraries/Index.class.php:430 tbl_relation.php:526
+#: libraries/Index.class.php:417 tbl_relation.php:526
 msgid "No index defined!"
 msgstr "Indeks belum ditentukan!"
 
-#: libraries/Index.class.php:435 libraries/build_html_for_db.lib.php:40
+#: libraries/Index.class.php:422 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:309
 msgid "Indexes"
 msgstr "Indeks"
 
-#: libraries/Index.class.php:446 libraries/tbl_properties.inc.php:503
+#: libraries/Index.class.php:433 libraries/tbl_properties.inc.php:503
 #: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
 #: tbl_tracking.php:315
 msgid "Unique"
 msgstr "Unik"
 
-#: libraries/Index.class.php:447 tbl_tracking.php:316
+#: libraries/Index.class.php:434 tbl_tracking.php:316
 msgid "Packed"
 msgstr "Dipadatkan"
 
-#: libraries/Index.class.php:449 tbl_tracking.php:318
+#: libraries/Index.class.php:436 tbl_tracking.php:318
 msgid "Cardinality"
 msgstr "Bilangan Pokok"
 
-#: libraries/Index.class.php:452 libraries/db_routines.lib.php:777
+#: libraries/Index.class.php:439 libraries/db_routines.lib.php:748
 #: tbl_tracking.php:272 tbl_tracking.php:321
 msgid "Comment"
 msgstr "Komentar"
 
-#: libraries/Index.class.php:474
+#: libraries/Index.class.php:465
 msgid "The primary key has been dropped"
 msgstr "Kunci utama telah dihapus"
 
-#: libraries/Index.class.php:478
+#: libraries/Index.class.php:469
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "Indeks %s telah dihapus"
 
-#: libraries/Index.class.php:582
+#: libraries/Index.class.php:567
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -1781,22 +1794,22 @@ msgstr ""
 "Index %1$s dan %2$s sepertinya sama dan salah satu dari mereka memungkinkan "
 "untuk dibuang."
 
-#: libraries/List_Database.class.php:430 libraries/config/messages.inc.php:177
+#: libraries/List_Database.class.php:381 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
 #: server_privileges.php:1740
 msgid "Databases"
 msgstr "Basisdata"
 
-#: libraries/Message.class.php:205 libraries/blobstreaming.lib.php:308
-#: libraries/blobstreaming.lib.php:314 libraries/common.lib.php:561
-#: libraries/core.lib.php:232 libraries/import.lib.php:136 tbl_change.php:883
+#: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
+#: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:533
+#: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:883
 #: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Error"
 
 # No difference between singular and plural in this case for Indonesian
 # language.
-#: libraries/Message.class.php:260
+#: libraries/Message.class.php:241
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
@@ -1804,7 +1817,7 @@ msgstr[0] "%1$d baris terpengaruh."
 
 # No difference between singular and plural in this case for Indonesian
 # language.
-#: libraries/Message.class.php:279
+#: libraries/Message.class.php:257
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
@@ -1812,77 +1825,77 @@ msgstr[0] "%1$d baris telah dihapus."
 
 # No difference between singular and plural in this case for Indonesian
 # language.
-#: libraries/Message.class.php:298
+#: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d baris disisipkan."
 
-#: libraries/RecentTable.class.php:114
+#: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
 msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
 
-#: libraries/RecentTable.class.php:149
+#: libraries/RecentTable.class.php:142
 msgid "Recent tables"
 msgstr "Tabel terakhir"
 
-#: libraries/RecentTable.class.php:155
+#: libraries/RecentTable.class.php:148
 msgid "There are no recent tables"
 msgstr "Tidak ada tabel terakhir"
 
-#: libraries/StorageEngine.class.php:195
+#: libraries/StorageEngine.class.php:180
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Informasi secara rinci tentang keadaan mesin penyimpan ini tidak ditemukan."
 
-#: libraries/StorageEngine.class.php:355
+#: libraries/StorageEngine.class.php:316
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s siap untuk digunakan pada server MySQL ini."
 
-#: libraries/StorageEngine.class.php:358
+#: libraries/StorageEngine.class.php:319
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s dimatikan untuk server MySQL ini."
 
-#: libraries/StorageEngine.class.php:362
+#: libraries/StorageEngine.class.php:323
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Server MySQL ini tidak mendukung mesin penyimpan %s."
 
-#: libraries/Table.class.php:1027
+#: libraries/Table.class.php:1036
 msgid "Invalid database"
 msgstr "Basisdata tidak valid"
 
-#: libraries/Table.class.php:1041 tbl_get_field.php:25
+#: libraries/Table.class.php:1050 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Nama tabel tidak valid"
 
-#: libraries/Table.class.php:1056
+#: libraries/Table.class.php:1065
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Kesalahan mengganti nama table %1$s ke %2$s"
 
-#: libraries/Table.class.php:1139
+#: libraries/Table.class.php:1148
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Nama tabel %s telah diubah menjadi %s"
 
-#: libraries/Table.class.php:1272
+#: libraries/Table.class.php:1275
 msgid "Could not save table UI preferences"
 msgstr "Tidak dapat menyimpan preferensi UI tabel"
 
-#: libraries/Theme.class.php:160
+#: libraries/Theme.class.php:143
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Lokasi citra yang benar untuk tema %s tidak ditemukan!"
 
-#: libraries/Theme.class.php:380
+#: libraries/Theme.class.php:336
 msgid "No preview available."
 msgstr "Tidak ada preview yang tersedia."
 
-#: libraries/Theme.class.php:383
+#: libraries/Theme.class.php:339
 msgid "take it"
 msgstr "ambil ini"
 
@@ -1896,12 +1909,12 @@ msgstr "Tema %s bawaan tidak ditemukan!"
 msgid "Theme %s not found!"
 msgstr "Tema %s tidak ditemukan!"
 
-#: libraries/Theme_Manager.class.php:215
+#: libraries/Theme_Manager.class.php:210
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "\"Path\" untuk tema tidak ditemukan untuk tema %s!"
 
-#: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
+#: libraries/Theme_Manager.class.php:286 themes.php:20 themes.php:40
 msgid "Theme"
 msgstr "Tema"
 
@@ -1910,7 +1923,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Koneksi gagal: setelan tidak berlaku."
 
 #: libraries/auth/config.auth.lib.php:91
-#: libraries/auth/cookie.auth.lib.php:200 libraries/auth/http.auth.lib.php:64
+#: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Selamat Datang di %s"
@@ -1918,8 +1931,8 @@ msgstr "Selamat Datang di %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Anda mungkin belum membuat file konfigurasi. Anda bisa menggunakan %1$ssetup "
 "script%2$s untuk membuatnya."
@@ -1937,44 +1950,44 @@ msgstr ""
 "kecocokannya dengan informasi yang telah diberikan oleh administrator server "
 "MySQL."
 
-#: libraries/auth/cookie.auth.lib.php:225
+#: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
 msgstr "Login"
 
-#: libraries/auth/cookie.auth.lib.php:227
-#: libraries/auth/cookie.auth.lib.php:229
+#: libraries/auth/cookie.auth.lib.php:199
+#: libraries/auth/cookie.auth.lib.php:201
 #: libraries/navigation_header.inc.php:95
 #: libraries/navigation_header.inc.php:99
 msgid "phpMyAdmin documentation"
 msgstr "Dokumentasi phpMyAdmin"
 
-#: libraries/auth/cookie.auth.lib.php:239
-#: libraries/auth/cookie.auth.lib.php:240
+#: libraries/auth/cookie.auth.lib.php:211
+#: libraries/auth/cookie.auth.lib.php:212
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Anda bisa memasukkan hostname/alamat IP dan port dipisahkan dengan spasi."
 
-#: libraries/auth/cookie.auth.lib.php:239
+#: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
 msgstr "Server:"
 
-#: libraries/auth/cookie.auth.lib.php:244
+#: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
 msgstr "Nama Pengguna:"
 
-#: libraries/auth/cookie.auth.lib.php:248
+#: libraries/auth/cookie.auth.lib.php:220
 msgid "Password:"
 msgstr "Kata Sandi:"
 
-#: libraries/auth/cookie.auth.lib.php:255
+#: libraries/auth/cookie.auth.lib.php:227
 msgid "Server Choice"
 msgstr "Pilihan Server"
 
-#: libraries/auth/cookie.auth.lib.php:301 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:273 libraries/header.inc.php:86
 msgid "Cookies must be enabled past this point."
 msgstr "Mulai dari sini cookies harus diaktifkan."
 
-#: libraries/auth/cookie.auth.lib.php:639
+#: libraries/auth/cookie.auth.lib.php:564
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -1982,14 +1995,14 @@ msgstr ""
 "Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat "
 "AllowNoPassword)"
 
-#: libraries/auth/cookie.auth.lib.php:643
+#: libraries/auth/cookie.auth.lib.php:568
 #: libraries/auth/signon.auth.lib.php:238
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Tidak ada aktifitas selama %s detik atau lebih. Silakan login kembali"
 
-#: libraries/auth/cookie.auth.lib.php:653
-#: libraries/auth/cookie.auth.lib.php:655
+#: libraries/auth/cookie.auth.lib.php:578
+#: libraries/auth/cookie.auth.lib.php:580
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
 msgstr "Gagal login ke MySQL server"
@@ -2020,44 +2033,44 @@ msgstr "Tidak ada kunci autentikasi yang terpasang"
 msgid "Authenticating..."
 msgstr "Melakukan autentikasi..."
 
-#: libraries/blobstreaming.lib.php:241
+#: libraries/blobstreaming.lib.php:236
 msgid "PBMS error"
 msgstr "Kesalahan PBMS"
 
-#: libraries/blobstreaming.lib.php:267
+#: libraries/blobstreaming.lib.php:262
 msgid "PBMS connection failed:"
 msgstr "Koneksi PBMS gagal:"
 
-#: libraries/blobstreaming.lib.php:312
+#: libraries/blobstreaming.lib.php:307
 msgid "PBMS get BLOB info failed:"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:320
+#: libraries/blobstreaming.lib.php:315
 msgid "get BLOB Content-Type failed"
 msgstr "gagal mengambil BLOB Content-Type"
 
-#: libraries/blobstreaming.lib.php:347
+#: libraries/blobstreaming.lib.php:342
 msgid "View image"
 msgstr "Tampilan View"
 
-#: libraries/blobstreaming.lib.php:351
+#: libraries/blobstreaming.lib.php:346
 msgid "Play audio"
 msgstr "Memainkan file suara"
 
-#: libraries/blobstreaming.lib.php:356
+#: libraries/blobstreaming.lib.php:351
 msgid "View video"
 msgstr "Lihat video"
 
-#: libraries/blobstreaming.lib.php:360
+#: libraries/blobstreaming.lib.php:355
 msgid "Download file"
 msgstr "Unduh file"
 
-#: libraries/blobstreaming.lib.php:421
+#: libraries/blobstreaming.lib.php:416
 #, php-format
 msgid "Could not open file: %s"
 msgstr "Tidak bisa membuka arsip: %s"
 
-#: libraries/bookmark.lib.php:83
+#: libraries/bookmark.lib.php:73
 msgid "shared"
 msgstr "dibagi"
 
@@ -2067,21 +2080,21 @@ msgstr "dibagi"
 msgid "Tables"
 msgstr "Tabel"
 
-#: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:304
-#: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:371
-#: libraries/config/setup.forms.php:376
-#: libraries/config/user_preferences.forms.php:204
-#: libraries/config/user_preferences.forms.php:240
-#: libraries/config/user_preferences.forms.php:271
-#: libraries/config/user_preferences.forms.php:276
+#: libraries/build_html_for_db.lib.php:35 libraries/config/setup.forms.php:305
+#: libraries/config/setup.forms.php:341 libraries/config/setup.forms.php:372
+#: libraries/config/setup.forms.php:377
+#: libraries/config/user_preferences.forms.php:205
+#: libraries/config/user_preferences.forms.php:241
+#: libraries/config/user_preferences.forms.php:272
+#: libraries/config/user_preferences.forms.php:277
 #: libraries/export/latex.php:216 libraries/export/sql.php:1058
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
-#: tbl_structure.php:801
+#: tbl_structure.php:802
 msgid "Data"
 msgstr "Data"
 
-#: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:60
-#: tbl_printview.php:333 tbl_structure.php:818
+#: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:55
+#: tbl_printview.php:333 tbl_structure.php:819
 msgid "Overhead"
 msgstr "Kelebihan (Overhead)"
 
@@ -2141,7 +2154,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Hostname tidak sah untuk server %1$s. Silakan lihat kembali konfigurasi Anda."
 
-#: libraries/common.inc.php:646 libraries/config/messages.inc.php:495
+#: libraries/common.inc.php:646 libraries/config/messages.inc.php:497
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Server"
@@ -2155,208 +2168,208 @@ msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 msgid "You should upgrade to %s %s or later."
 msgstr "Disarankan untuk meng-update ke %s versi %s atau lebih baru."
 
-#: libraries/common.lib.php:134
+#: libraries/common.lib.php:131
 #, php-format
 msgid "Max: %s%s"
 msgstr "Batas ukuran: %s%s"
 
 #. l10n: Language to use for MySQL 5.5 documentation, please use only languages which do exist in official documentation.
-#: libraries/common.lib.php:386
+#: libraries/common.lib.php:375
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.
-#: libraries/common.lib.php:390
+#: libraries/common.lib.php:379
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation.
-#: libraries/common.lib.php:394
+#: libraries/common.lib.php:383
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/common.lib.php:407 libraries/common.lib.php:409
-#: libraries/common.lib.php:411 libraries/common.lib.php:426
-#: libraries/common.lib.php:428 libraries/common.lib.php:444
-#: libraries/common.lib.php:446 libraries/config/FormDisplay.tpl.php:168
-#: libraries/display_export.lib.php:239 libraries/engines/pbms.lib.php:71
-#: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:85
-#: libraries/sql_query_form.lib.php:428 libraries/sql_query_form.lib.php:431
+#: libraries/common.lib.php:396 libraries/common.lib.php:398
+#: libraries/common.lib.php:400 libraries/common.lib.php:415
+#: libraries/common.lib.php:417 libraries/common.lib.php:433
+#: libraries/common.lib.php:435 libraries/config/FormDisplay.tpl.php:162
+#: libraries/display_export.lib.php:232 libraries/engines/pbms.lib.php:71
+#: libraries/engines/pbxt.lib.php:106 libraries/relation.lib.php:74
+#: libraries/sql_query_form.lib.php:388 libraries/sql_query_form.lib.php:391
 #: main.php:212 server_variables.php:114
 msgid "Documentation"
 msgstr "Dokumentasi"
 
-#: libraries/common.lib.php:573 libraries/header_printview.inc.php:60
+#: libraries/common.lib.php:545 libraries/header_printview.inc.php:60
 #: server_status.php:260 server_status.php:803
 msgid "SQL query"
 msgstr "Pencarian SQL"
 
-#: libraries/common.lib.php:1078
+#: libraries/common.lib.php:1031
 msgid "Failed to connect to SQL validator!"
 msgstr "Gagal melakukan koneksi ke validator SQL!"
 
-#: libraries/common.lib.php:1119 libraries/config/messages.inc.php:472
+#: libraries/common.lib.php:1072 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
 msgstr "Terangkan SQL"
 
-#: libraries/common.lib.php:1123
+#: libraries/common.lib.php:1076
 msgid "Skip Explain SQL"
 msgstr "Melewati keterangan SQL"
 
-#: libraries/common.lib.php:1157
+#: libraries/common.lib.php:1110
 msgid "Without PHP Code"
 msgstr "Kode PHP tidak ditemukan"
 
-#: libraries/common.lib.php:1160 libraries/config/messages.inc.php:474
+#: libraries/common.lib.php:1113 libraries/config/messages.inc.php:476
 msgid "Create PHP Code"
 msgstr "Ciptakan kode PHP"
 
-#: libraries/common.lib.php:1178 libraries/config/messages.inc.php:473
+#: libraries/common.lib.php:1131 libraries/config/messages.inc.php:475
 #: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
 msgstr "Menyegarkan"
 
-#: libraries/common.lib.php:1187
+#: libraries/common.lib.php:1140
 msgid "Skip Validate SQL"
 msgstr "Melewati pengesahan (validation) SQL"
 
-#: libraries/common.lib.php:1190 libraries/config/messages.inc.php:476
+#: libraries/common.lib.php:1143 libraries/config/messages.inc.php:478
 msgid "Validate SQL"
 msgstr "Mengesahkan (validate) SQL"
 
-#: libraries/common.lib.php:1245
+#: libraries/common.lib.php:1198
 msgid "Inline edit of this query"
 msgstr "Inline edit untuk query ini"
 
-#: libraries/common.lib.php:1247
+#: libraries/common.lib.php:1200
 msgid "Inline"
 msgstr "Inline"
 
-#: libraries/common.lib.php:1314 sql.php:931
+#: libraries/common.lib.php:1262 sql.php:938
 msgid "Profiling"
 msgstr "Profiling"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "B"
 msgstr "Bytes"
 
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "KiB"
 msgstr "KB"
 
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "MiB"
 msgstr "MB"
 
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "GiB"
 msgstr "GB"
 
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "TiB"
 msgstr "TB"
 
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "PiB"
 msgstr "PB"
 
-#: libraries/common.lib.php:1334
+#: libraries/common.lib.php:1282
 msgid "EiB"
 msgstr "EB"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1552
+#: libraries/common.lib.php:1499
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d. %B %Y jam %H:%M"
 
-#: libraries/common.lib.php:1867
+#: libraries/common.lib.php:1797
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s hari, %s jam, %s menit dan %s detik"
 
-#: libraries/common.lib.php:2278 libraries/common.lib.php:2281
-#: libraries/display_tbl.lib.php:307
+#: libraries/common.lib.php:2192 libraries/common.lib.php:2195
+#: libraries/display_tbl.lib.php:302
 msgid "Begin"
 msgstr "Awal"
 
-#: libraries/common.lib.php:2279 libraries/common.lib.php:2282
-#: libraries/display_tbl.lib.php:308 server_binlog.php:154
-#: server_binlog.php:156
+#: libraries/common.lib.php:2193 libraries/common.lib.php:2196
+#: libraries/display_tbl.lib.php:303 server_binlog.php:135
+#: server_binlog.php:137
 msgid "Previous"
 msgstr "Sebelumnya"
 
-#: libraries/common.lib.php:2309 libraries/common.lib.php:2312
-#: libraries/display_tbl.lib.php:387
+#: libraries/common.lib.php:2223 libraries/common.lib.php:2226
+#: libraries/display_tbl.lib.php:381
 msgid "End"
 msgstr "Terakhir"
 
-#: libraries/common.lib.php:2384
+#: libraries/common.lib.php:2288
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Lompat langsung ke database &quot;%s&quot;."
 
-#: libraries/common.lib.php:2403
+#: libraries/common.lib.php:2304
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Fungsionalitas %s dipengaruhi oleh suatu bug, lihat %s"
 
-#: libraries/common.lib.php:2760 libraries/common.lib.php:2767
-#: libraries/common.lib.php:2955 libraries/config/setup.forms.php:295
-#: libraries/config/setup.forms.php:332 libraries/config/setup.forms.php:366
-#: libraries/config/user_preferences.forms.php:195
-#: libraries/config/user_preferences.forms.php:232
-#: libraries/config/user_preferences.forms.php:266
+#: libraries/common.lib.php:2646 libraries/common.lib.php:2653
+#: libraries/common.lib.php:2840 libraries/config/setup.forms.php:296
+#: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:367
+#: libraries/config/user_preferences.forms.php:196
+#: libraries/config/user_preferences.forms.php:233
+#: libraries/config/user_preferences.forms.php:267
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:352
-#: libraries/import.lib.php:1167 libraries/tbl_links.inc.php:61
+#: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:623 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
 msgid "Structure"
 msgstr "Struktur"
 
-#: libraries/common.lib.php:2761 libraries/common.lib.php:2768
+#: libraries/common.lib.php:2647 libraries/common.lib.php:2654
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
-#: querywindow.php:88
+#: querywindow.php:64
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2763 libraries/common.lib.php:2953
-#: libraries/common.lib.php:2954 libraries/sql_query_form.lib.php:318
-#: libraries/sql_query_form.lib.php:321 libraries/tbl_links.inc.php:74
+#: libraries/common.lib.php:2649 libraries/common.lib.php:2838
+#: libraries/common.lib.php:2839 libraries/sql_query_form.lib.php:284
+#: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Sisipkan"
 
-#: libraries/common.lib.php:2770 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2656 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:113
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operasi"
 
-#: libraries/common.lib.php:2900
+#: libraries/common.lib.php:2786
 msgid "Browse your computer:"
 msgstr "Telusuri komputer Anda:"
 
-#: libraries/common.lib.php:2916
+#: libraries/common.lib.php:2802
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Pilih dari direktori unggah <b>%s</b> pada web server:"
 
-#: libraries/common.lib.php:2928 libraries/sql_query_form.lib.php:499
+#: libraries/common.lib.php:2814 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:884
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi"
 
-#: libraries/common.lib.php:2936
+#: libraries/common.lib.php:2822
 msgid "There are no files to upload"
 msgstr "Tidak ada arsip untuk diunggah"
 
-#: libraries/common.lib.php:2964 libraries/common.lib.php:2965
+#: libraries/common.lib.php:2849 libraries/common.lib.php:2850
 msgid "Execute"
 msgstr ""
 
@@ -2388,7 +2401,7 @@ msgstr "Tutup"
 #: libraries/config.values.php:96 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:122 libraries/export/texytext.php:24
-#: libraries/import.lib.php:1172
+#: libraries/import.lib.php:1107
 msgid "structure"
 msgstr "struktur"
 
@@ -2433,97 +2446,97 @@ msgid "neither of the above"
 msgstr "tidak keduanya dari yang di atas"
 
 #: libraries/config/FormDisplay.class.php:83
-#: libraries/config/validate.lib.php:422
+#: libraries/config/validate.lib.php:412
 msgid "Not a positive number"
 msgstr "Bukan angka positif"
 
 #: libraries/config/FormDisplay.class.php:84
-#: libraries/config/validate.lib.php:435
+#: libraries/config/validate.lib.php:424
 msgid "Not a non-negative number"
 msgstr "Bukan angka non-negatif"
 
 #: libraries/config/FormDisplay.class.php:85
-#: libraries/config/validate.lib.php:409
+#: libraries/config/validate.lib.php:400
 msgid "Not a valid port number"
 msgstr "Bukan angka port yang sah"
 
 #: libraries/config/FormDisplay.class.php:86
-#: libraries/config/FormDisplay.class.php:574
-#: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
+#: libraries/config/FormDisplay.class.php:535
+#: libraries/config/validate.lib.php:352 libraries/config/validate.lib.php:439
 msgid "Incorrect value"
 msgstr "Nilai yang salah"
 
 #: libraries/config/FormDisplay.class.php:87
-#: libraries/config/validate.lib.php:464
+#: libraries/config/validate.lib.php:453
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr "Nilai harus sama dengan atau lebih kecil dari %s"
 
-#: libraries/config/FormDisplay.class.php:538
+#: libraries/config/FormDisplay.class.php:499
 #, php-format
 msgid "Missing data for %s"
 msgstr "Data hilang untuk %s"
 
-#: libraries/config/FormDisplay.class.php:736
-#: libraries/config/FormDisplay.class.php:740
+#: libraries/config/FormDisplay.class.php:696
+#: libraries/config/FormDisplay.class.php:700
 msgid "unavailable"
 msgstr "tidak tersedia"
 
-#: libraries/config/FormDisplay.class.php:737
-#: libraries/config/FormDisplay.class.php:741
+#: libraries/config/FormDisplay.class.php:697
+#: libraries/config/FormDisplay.class.php:701
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" memerlukan ekstensi %s"
 
-#: libraries/config/FormDisplay.class.php:755
+#: libraries/config/FormDisplay.class.php:715
 #, php-format
 msgid "import will not work, missing function (%s)"
 msgstr "proses impor tidak akan berjalan, fungsi (%s) tidak ditemukan"
 
-#: libraries/config/FormDisplay.class.php:759
+#: libraries/config/FormDisplay.class.php:719
 #, php-format
 msgid "export will not work, missing function (%s)"
 msgstr "proses ekspor tidak akan berjalan, fungsi (%s) tidak ditemukan"
 
-#: libraries/config/FormDisplay.class.php:766
+#: libraries/config/FormDisplay.class.php:726
 msgid "SQL Validator is disabled"
 msgstr "Validator SQL tidak diaktifkan"
 
-#: libraries/config/FormDisplay.class.php:773
+#: libraries/config/FormDisplay.class.php:733
 msgid "SOAP extension not found"
 msgstr "Ekstensi SOAP tidak ditemukan"
 
-#: libraries/config/FormDisplay.class.php:781
+#: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "maximum %s"
 msgstr "maksimum %s"
 
-#: libraries/config/FormDisplay.tpl.php:173
+#: libraries/config/FormDisplay.tpl.php:167
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
 "Pengaturan ini tidak diaktifkan, pengaturan tidak akan diterapkan pada "
 "konfigurasi anda"
 
-#: libraries/config/FormDisplay.tpl.php:173 libraries/relation.lib.php:89
-#: libraries/relation.lib.php:96 pmd_relation_new.php:68
+#: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
+#: libraries/relation.lib.php:85 pmd_relation_new.php:68
 msgid "Disabled"
 msgstr "Tidak aktif"
 
-#: libraries/config/FormDisplay.tpl.php:248
+#: libraries/config/FormDisplay.tpl.php:242
 #, php-format
 msgid "Set value: %s"
 msgstr "Tetapkan nilai: %s"
 
-#: libraries/config/FormDisplay.tpl.php:253
+#: libraries/config/FormDisplay.tpl.php:247
 #: libraries/config/messages.inc.php:356
 msgid "Restore default value"
 msgstr "Kembalikan nilai default"
 
-#: libraries/config/FormDisplay.tpl.php:269
+#: libraries/config/FormDisplay.tpl.php:263
 msgid "Allow users to customize this value"
 msgstr "Izinkan pengguna untuk mengubah nilai ini"
 
-#: libraries/config/FormDisplay.tpl.php:333
+#: libraries/config/FormDisplay.tpl.php:324
 #: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
 #: prefs_manage.php:325 tbl_change.php:1025
 msgid "Reset"
@@ -2706,7 +2719,7 @@ msgstr ""
 msgid "Show binary contents as HEX by default"
 msgstr ""
 
-#: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:629
+#: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:637
 msgid "Show binary contents as HEX"
 msgstr ""
 
@@ -2786,7 +2799,7 @@ msgid "Character set of the file"
 msgstr "Penyusunan karakter dalam file:"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:873
+#: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:874
 msgid "Format"
 msgstr "Format"
 
@@ -2920,7 +2933,7 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
-#: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
+#: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 msgid "Overwrite existing file(s)"
 msgstr "Timpahkan (Overwrite) file(s) yang ada"
 
@@ -2936,7 +2949,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Nama tabel dan nama field dalam tanda kutip biasa"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
-#: libraries/display_export.lib.php:353
+#: libraries/display_export.lib.php:346
 msgid "SQL compatibility mode"
 msgstr ""
 
@@ -3030,10 +3043,10 @@ msgstr ""
 msgid "Customize default options"
 msgstr "Pilihan cara untuk mengekspor Database"
 
-#: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:236
-#: libraries/config/setup.forms.php:315
-#: libraries/config/user_preferences.forms.php:138
-#: libraries/config/user_preferences.forms.php:215 libraries/export/csv.php:19
+#: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:237
+#: libraries/config/setup.forms.php:316
+#: libraries/config/user_preferences.forms.php:139
+#: libraries/config/user_preferences.forms.php:216 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
 msgstr "Data CSV"
@@ -3118,7 +3131,7 @@ msgstr ""
 msgid "Customize appearance of the navigation frame"
 msgstr ""
 
-#: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
+#: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:36
 #: setup/frames/index.inc.php:110
 #, fuzzy
 msgid "Servers"
@@ -4281,66 +4294,77 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:453
 msgid ""
-"Defines whether or not type fields should be initially displayed in edit/"
-"insert mode"
+"Defines whether or not type display direction option is shown when browsing "
+"a table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
 #, fuzzy
-msgid "Show field types"
-msgstr "Tampilkan tabel"
+msgid "Show display direction"
+msgstr "Pilihan cara untuk mengekspor Database"
 
 #: libraries/config/messages.inc.php:455
-msgid "Display the function fields in edit/insert mode"
+msgid ""
+"Defines whether or not type fields should be initially displayed in edit/"
+"insert mode"
 msgstr ""
 
 #: libraries/config/messages.inc.php:456
+#, fuzzy
+msgid "Show field types"
+msgstr "Tampilkan tabel"
+
+#: libraries/config/messages.inc.php:457
+msgid "Display the function fields in edit/insert mode"
+msgstr ""
+
+#: libraries/config/messages.inc.php:458
 msgid "Show function fields"
 msgstr ""
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:459
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 msgid "Show phpinfo() link"
 msgstr ""
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Show detailed MySQL server information"
 msgstr ""
 
-#: libraries/config/messages.inc.php:460
-msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
-msgstr ""
-
-#: libraries/config/messages.inc.php:461
-#, fuzzy
-msgid "Show SQL queries"
-msgstr "Tampilkan pencarian yang lengkap"
-
 #: libraries/config/messages.inc.php:462
-msgid "Allow to display database and table statistics (eg. space usage)"
+msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
 #, fuzzy
+msgid "Show SQL queries"
+msgstr "Tampilkan pencarian yang lengkap"
+
+#: libraries/config/messages.inc.php:464
+msgid "Allow to display database and table statistics (eg. space usage)"
+msgstr ""
+
+#: libraries/config/messages.inc.php:465
+#, fuzzy
 msgid "Show statistics"
 msgstr "Statistik Baris"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:466
 msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 msgid "Display database comment instead of its name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid ""
 "When setting this to [kbd]nested[/kbd], the alias of the table name is only "
 "used to split/nest the tables according to the $cfg"
@@ -4348,121 +4372,121 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 msgid "Display table comment instead of its name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 msgid "Display table comments in tooltips"
 msgstr ""
 
-#: libraries/config/messages.inc.php:469
+#: libraries/config/messages.inc.php:471
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 msgid "Skip locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:479
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:62
-#: libraries/replication_gui.lib.php:337 libraries/replication_gui.lib.php:341
-#: libraries/replication_gui.lib.php:351 server_privileges.php:778
+#: libraries/replication_gui.lib.php:336 libraries/replication_gui.lib.php:340
+#: libraries/replication_gui.lib.php:350 server_privileges.php:778
 #: server_privileges.php:782 server_privileges.php:793
 #: server_privileges.php:1608 server_synchronize.php:1186
 msgid "Password"
 msgstr "Kata Sandi"
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:480
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:481
 msgid "Enable SQL Validator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:482
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:481 tbl_tracking.php:454
+#: libraries/config/messages.inc.php:483 tbl_tracking.php:454
 #: tbl_tracking.php:511
 msgid "Username"
 msgstr "Nama Pengguna"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:484
 msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 msgid "Suggest new database name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:487
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:488
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:489
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Textarea columns"
 msgstr "Tambahkan/Hapus kolom"
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:490
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:489
+#: libraries/config/messages.inc.php:491
 msgid "Textarea rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:492
 msgid "Title of browser window when a database is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:492
+#: libraries/config/messages.inc.php:494
 msgid "Title of browser window when nothing is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 #, fuzzy
 #| msgid "Default"
 msgid "Default title"
 msgstr "Default"
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:496
 msgid "Title of browser window when a server is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:498
 msgid "Title of browser window when a table is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:498
+#: libraries/config/messages.inc.php:500
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -4470,56 +4494,56 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/config/messages.inc.php:500
+#: libraries/config/messages.inc.php:502
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:503
 msgid "Upload directory"
 msgstr ""
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:504
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:505
 msgid "Use database search"
 msgstr ""
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid ""
 "Show affected rows of each statement on multiple-statement queries. See "
 "libraries/import.lib.php for defaults on how many queries a statement may "
 "contain."
 msgstr ""
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 msgid "Verbose multiple statements"
 msgstr ""
 
-#: libraries/config/messages.inc.php:508 setup/frames/index.inc.php:241
+#: libraries/config/messages.inc.php:510 setup/frames/index.inc.php:241
 msgid "Check for latest version"
 msgstr ""
 
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:511
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:510 setup/lib/index.lib.php:118
+#: libraries/config/messages.inc.php:512 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
 #: setup/lib/index.lib.php:149 setup/lib/index.lib.php:157
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
@@ -4527,13 +4551,13 @@ msgstr ""
 msgid "Version check"
 msgstr ""
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:514
 msgid "ZIP"
 msgstr ""
 
@@ -4553,102 +4577,102 @@ msgstr ""
 msgid "Signon authentication"
 msgstr ""
 
-#: libraries/config/setup.forms.php:244
-#: libraries/config/user_preferences.forms.php:146 libraries/import/ldi.php:35
+#: libraries/config/setup.forms.php:245
+#: libraries/config/user_preferences.forms.php:147 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
 msgstr ""
 
-#: libraries/config/setup.forms.php:253 libraries/config/setup.forms.php:347
-#: libraries/config/user_preferences.forms.php:154
-#: libraries/config/user_preferences.forms.php:247 libraries/export/xls.php:18
+#: libraries/config/setup.forms.php:254 libraries/config/setup.forms.php:348
+#: libraries/config/user_preferences.forms.php:155
+#: libraries/config/user_preferences.forms.php:248 libraries/export/xls.php:18
 #: libraries/import/xls.php:21
 msgid "Excel 97-2003 XLS Workbook"
 msgstr ""
 
-#: libraries/config/setup.forms.php:256 libraries/config/setup.forms.php:351
-#: libraries/config/user_preferences.forms.php:157
-#: libraries/config/user_preferences.forms.php:251
+#: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:352
+#: libraries/config/user_preferences.forms.php:158
+#: libraries/config/user_preferences.forms.php:252
 #: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
 msgid "Excel 2007 XLSX Workbook"
 msgstr ""
 
-#: libraries/config/setup.forms.php:259 libraries/config/setup.forms.php:360
-#: libraries/config/user_preferences.forms.php:160
-#: libraries/config/user_preferences.forms.php:260 libraries/export/ods.php:18
+#: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:361
+#: libraries/config/user_preferences.forms.php:161
+#: libraries/config/user_preferences.forms.php:261 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
 msgstr ""
 
-#: libraries/config/setup.forms.php:266
-#: libraries/config/user_preferences.forms.php:167
+#: libraries/config/setup.forms.php:267
+#: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:270
-#: libraries/config/user_preferences.forms.php:171
+#: libraries/config/setup.forms.php:271
+#: libraries/config/user_preferences.forms.php:172
 #, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
 msgstr "Warna kustom"
 
-#: libraries/config/setup.forms.php:291
-#: libraries/config/user_preferences.forms.php:191
+#: libraries/config/setup.forms.php:292
+#: libraries/config/user_preferences.forms.php:192
 msgid "Database export options"
 msgstr "Pilihan cara untuk mengekspor Database"
 
-#: libraries/config/setup.forms.php:324
-#: libraries/config/user_preferences.forms.php:224
+#: libraries/config/setup.forms.php:325
+#: libraries/config/user_preferences.forms.php:225
 #: libraries/export/excel.php:18
 msgid "CSV for MS Excel"
 msgstr "CSV untuk data MS Excel"
 
-#: libraries/config/setup.forms.php:355
-#: libraries/config/user_preferences.forms.php:255
+#: libraries/config/setup.forms.php:356
+#: libraries/config/user_preferences.forms.php:256
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:364
-#: libraries/config/user_preferences.forms.php:264 libraries/export/odt.php:22
+#: libraries/config/setup.forms.php:365
+#: libraries/config/user_preferences.forms.php:265 libraries/export/odt.php:22
 msgid "Open Document Text"
 msgstr ""
 
-#: libraries/config/validate.lib.php:202 libraries/config/validate.lib.php:209
+#: libraries/config/validate.lib.php:197 libraries/config/validate.lib.php:204
 msgid "Could not connect to MySQL server"
 msgstr ""
 
-#: libraries/config/validate.lib.php:234
+#: libraries/config/validate.lib.php:228
 msgid "Empty username while using config authentication method"
 msgstr ""
 
-#: libraries/config/validate.lib.php:238
+#: libraries/config/validate.lib.php:232
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 
-#: libraries/config/validate.lib.php:242
+#: libraries/config/validate.lib.php:236
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
 
-#: libraries/config/validate.lib.php:276
+#: libraries/config/validate.lib.php:269
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr ""
 
-#: libraries/config/validate.lib.php:280
+#: libraries/config/validate.lib.php:273
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
-#: libraries/config/validate.lib.php:367
+#: libraries/config/validate.lib.php:359
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
-#: libraries/core.lib.php:264
+#: libraries/core.lib.php:242
 msgctxt "PHP documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/core.lib.php:278
+#: libraries/core.lib.php:256
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -4682,8 +4706,8 @@ msgstr "Kejadian"
 msgid "There are no events to display."
 msgstr "Tidak ada arsip untuk diunggah"
 
-#: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:690
-#: libraries/db_routines.lib.php:846 libraries/db_routines.lib.php:1214
+#: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
+#: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
 #: libraries/display_create_table.lib.php:51
 #: libraries/display_triggers.inc.php:70 libraries/tbl_properties.inc.php:99
 #: setup/frames/index.inc.php:125 tbl_structure.php:204
@@ -4716,7 +4740,7 @@ msgstr "Menambahkan pengguna baru"
 msgid "Database seems to be empty!"
 msgstr "Database kelihatannya kosong"
 
-#: libraries/db_links.inc.php:66 libraries/relation.lib.php:151
+#: libraries/db_links.inc.php:66 libraries/relation.lib.php:140
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
 msgstr "Pelacakan"
@@ -4725,7 +4749,7 @@ msgstr "Pelacakan"
 msgid "Query"
 msgstr "Cari berdasarkan data contoh"
 
-#: libraries/db_links.inc.php:76 libraries/relation.lib.php:139
+#: libraries/db_links.inc.php:76 libraries/relation.lib.php:128
 msgid "Designer"
 msgstr "Perancang"
 
@@ -4735,7 +4759,7 @@ msgstr "Perancang"
 msgid "Privileges"
 msgstr "Hak Akses"
 
-#: libraries/db_links.inc.php:97 libraries/db_routines.lib.php:1207
+#: libraries/db_links.inc.php:97 libraries/db_routines.lib.php:1149
 msgid "Routines"
 msgstr ""
 
@@ -4744,39 +4768,39 @@ msgstr ""
 msgid "Triggers"
 msgstr "Trigger"
 
-#: libraries/db_routines.lib.php:659
+#: libraries/db_routines.lib.php:630
 #, fuzzy
 #| msgid "Details..."
 msgid "Details"
 msgstr "Rincian..."
 
-#: libraries/db_routines.lib.php:662
+#: libraries/db_routines.lib.php:633
 #, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
 msgstr "Nama kolom"
 
-#: libraries/db_routines.lib.php:679
+#: libraries/db_routines.lib.php:650
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
 msgstr "Ubah"
 
-#: libraries/db_routines.lib.php:684
+#: libraries/db_routines.lib.php:655
 msgid "Parameters"
 msgstr ""
 
-#: libraries/db_routines.lib.php:689
+#: libraries/db_routines.lib.php:660
 #, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
 msgstr "Link langsung"
 
-#: libraries/db_routines.lib.php:692 libraries/tbl_properties.inc.php:105
+#: libraries/db_routines.lib.php:663 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
 msgstr "Ukuran Panjang/Nilai*"
 
-#: libraries/db_routines.lib.php:693 libraries/display_tbl.lib.php:585
+#: libraries/db_routines.lib.php:664 libraries/display_tbl.lib.php:593
 #: libraries/export/codegen.php:41 libraries/export/csv.php:34
 #: libraries/export/excel.php:37 libraries/export/htmlword.php:33
 #: libraries/export/json.php:29 libraries/export/latex.php:35
@@ -4785,123 +4809,123 @@ msgstr "Ukuran Panjang/Nilai*"
 #: libraries/export/php_array.php:29 libraries/export/sql.php:83
 #: libraries/export/texytext.php:31 libraries/export/xls.php:29
 #: libraries/export/xlsx.php:29 libraries/export/xml.php:25
-#: libraries/export/yaml.php:30 libraries/import.lib.php:1145
-#: libraries/import.lib.php:1167 libraries/import/csv.php:33
+#: libraries/export/yaml.php:30 libraries/import.lib.php:1080
+#: libraries/import.lib.php:1102 libraries/import/csv.php:33
 #: libraries/import/docsql.php:35 libraries/import/ldi.php:49
 #: libraries/import/ods.php:32 libraries/import/sql.php:20
 #: libraries/import/xls.php:28 libraries/import/xlsx.php:28
-#: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:889
+#: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:890
 #, fuzzy
 msgid "Options"
 msgstr "Operasi"
 
-#: libraries/db_routines.lib.php:707
+#: libraries/db_routines.lib.php:678
 msgid "Add parameter"
 msgstr ""
 
-#: libraries/db_routines.lib.php:710
+#: libraries/db_routines.lib.php:681
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Hapus database"
 
-#: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
+#: libraries/db_routines.lib.php:686 libraries/db_routines.lib.php:1159
 msgid "Return type"
 msgstr ""
 
-#: libraries/db_routines.lib.php:721
+#: libraries/db_routines.lib.php:692
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Ukuran Panjang/Nilai*"
 
-#: libraries/db_routines.lib.php:726
+#: libraries/db_routines.lib.php:697
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "Pilihan untuk tabel"
 
-#: libraries/db_routines.lib.php:745
+#: libraries/db_routines.lib.php:716
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
 msgstr "Deskripsi"
 
-#: libraries/db_routines.lib.php:749
+#: libraries/db_routines.lib.php:720
 msgid "Is deterministic"
 msgstr ""
 
-#: libraries/db_routines.lib.php:753
+#: libraries/db_routines.lib.php:724
 msgid "Definer"
 msgstr ""
 
-#: libraries/db_routines.lib.php:758
+#: libraries/db_routines.lib.php:729
 #, fuzzy
 #| msgid "Query type"
 msgid "Security type"
 msgstr "Tipe Pencarian"
 
-#: libraries/db_routines.lib.php:765
+#: libraries/db_routines.lib.php:736
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/db_routines.lib.php:839 libraries/db_routines.lib.php:842
+#: libraries/db_routines.lib.php:800 libraries/db_routines.lib.php:803
 msgid "Routine parameters"
 msgstr ""
 
-#: libraries/db_routines.lib.php:849 tbl_change.php:284 tbl_change.php:322
+#: libraries/db_routines.lib.php:810 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
 msgstr "Fungsi"
 
-#: libraries/db_routines.lib.php:851 libraries/replication_gui.lib.php:117
+#: libraries/db_routines.lib.php:812 libraries/replication_gui.lib.php:117
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
 #: pmd_general.php:775 server_status.php:1029 tbl_change.php:326
-#: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:865
+#: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:866
 msgid "Value"
 msgstr "Nilai"
 
-#: libraries/db_routines.lib.php:965
+#: libraries/db_routines.lib.php:916
 msgid "You must provide a routine name"
 msgstr ""
 
-#: libraries/db_routines.lib.php:984
+#: libraries/db_routines.lib.php:935
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/db_routines.lib.php:995 libraries/db_routines.lib.php:1036
+#: libraries/db_routines.lib.php:946 libraries/db_routines.lib.php:987
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/db_routines.lib.php:1020
+#: libraries/db_routines.lib.php:971
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/db_routines.lib.php:1077
+#: libraries/db_routines.lib.php:1028
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/db_routines.lib.php:1209
+#: libraries/db_routines.lib.php:1151
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
 msgstr "Tidak ada arsip untuk diunggah"
 
-#: libraries/db_routines.lib.php:1253
+#: libraries/db_routines.lib.php:1192
 #, fuzzy
 #| msgid "Add column"
 msgid "Add routine"
 msgstr "Tambah kolom"
 
-#: libraries/db_routines.lib.php:1256
+#: libraries/db_routines.lib.php:1195
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
 msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
 
-#: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:2121
+#: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -4909,36 +4933,36 @@ msgstr ""
 "Kemungkinan hanya perkiraan saja. Lihat [a@./Documentation."
 "html#faq3_11@Dokumentasi]FAQ 3.11[/a]"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:122
+#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:112
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Koneksi untuk controluser yang di definisikan di konfigurasi Anda gagal."
 
-#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysql.dbi.lib.php:339
-#: libraries/dbi/mysqli.dbi.lib.php:395
+#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysql.dbi.lib.php:326
+#: libraries/dbi/mysqli.dbi.lib.php:351
 msgid "The server is not responding"
 msgstr "Server tidak menjawab"
 
-#: libraries/dbi/mysql.dbi.lib.php:337 libraries/dbi/mysqli.dbi.lib.php:395
+#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysqli.dbi.lib.php:351
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(atau konfigurasi socket dari server MySQL tidak benar)"
 
-#: libraries/dbi/mysql.dbi.lib.php:346
+#: libraries/dbi/mysql.dbi.lib.php:333
 msgid "Details..."
 msgstr "Rincian..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
-#: user_password.php:119 user_password.php:137
+#: user_password.php:105 user_password.php:123
 msgid "Change password"
 msgstr "Ubah Kata Sandi"
 
 #: libraries/display_change_password.lib.php:34
-#: libraries/replication_gui.lib.php:347 server_privileges.php:789
+#: libraries/replication_gui.lib.php:346 server_privileges.php:789
 msgid "No Password"
 msgstr "Kata Sandi belum ditetapkan"
 
 #: libraries/display_change_password.lib.php:45
-#: libraries/replication_gui.lib.php:355 libraries/replication_gui.lib.php:358
+#: libraries/replication_gui.lib.php:354 libraries/replication_gui.lib.php:357
 #: server_privileges.php:797 server_privileges.php:800
 msgid "Re-type"
 msgstr "Ketik ulang"
@@ -4984,183 +5008,183 @@ msgstr "Jumlah baris per halaman"
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin export, silahkan periksa instalasi Anda!"
 
-#: libraries/display_export.lib.php:87
+#: libraries/display_export.lib.php:80
 #, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Mengizinkan untuk mengunci tabel dalam Thread yang lagi berjalan."
 
-#: libraries/display_export.lib.php:89
+#: libraries/display_export.lib.php:82
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "Ciptakan tabel baru pada database %s"
 
-#: libraries/display_export.lib.php:91
+#: libraries/display_export.lib.php:84
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Ciptakan tabel baru pada database %s"
 
-#: libraries/display_export.lib.php:97
+#: libraries/display_export.lib.php:90
 #, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Jenis Ekspor"
 
-#: libraries/display_export.lib.php:113
+#: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
 msgstr ""
 
-#: libraries/display_export.lib.php:129
+#: libraries/display_export.lib.php:122
 msgid "Custom - display all possible options"
 msgstr ""
 
-#: libraries/display_export.lib.php:137
+#: libraries/display_export.lib.php:130
 #, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
 msgstr "Database"
 
-#: libraries/display_export.lib.php:139
+#: libraries/display_export.lib.php:132
 #, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabel"
 
-#: libraries/display_export.lib.php:149
+#: libraries/display_export.lib.php:142
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "Baris"
 
-#: libraries/display_export.lib.php:157
+#: libraries/display_export.lib.php:150
 #, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
 msgstr "Dump semua row"
 
-#: libraries/display_export.lib.php:159
+#: libraries/display_export.lib.php:152
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
 msgstr "Jumlah baris per halaman"
 
-#: libraries/display_export.lib.php:162
+#: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
 msgstr ""
 
-#: libraries/display_export.lib.php:173
+#: libraries/display_export.lib.php:166
 msgid "Dump all rows"
 msgstr "Dump semua row"
 
-#: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
+#: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
 msgstr ""
 
-#: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
+#: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
 #, fuzzy, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Simpan pada server dalam direktori %s"
 
-#: libraries/display_export.lib.php:206
+#: libraries/display_export.lib.php:199
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Kirimkan ke"
 
-#: libraries/display_export.lib.php:227
+#: libraries/display_export.lib.php:220
 #, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "Konvensi nama file"
 
-#: libraries/display_export.lib.php:229
+#: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
 msgstr ""
 
-#: libraries/display_export.lib.php:231
+#: libraries/display_export.lib.php:224
 msgid ", @DATABASE@ will become the database name"
 msgstr ""
 
-#: libraries/display_export.lib.php:233
+#: libraries/display_export.lib.php:226
 msgid ", @TABLE@ will become the table name"
 msgstr ""
 
-#: libraries/display_export.lib.php:237
+#: libraries/display_export.lib.php:230
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
-#: libraries/display_export.lib.php:275
+#: libraries/display_export.lib.php:268
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
-#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:515
+#: libraries/display_export.lib.php:274 libraries/display_import.lib.php:188
+#: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:463
 msgid "Character set of the file:"
 msgstr "Penyusunan karakter dalam file:"
 
-#: libraries/display_export.lib.php:311
+#: libraries/display_export.lib.php:304
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Kompresi"
 
-#: libraries/display_export.lib.php:313 libraries/display_tbl.lib.php:556
+#: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:564
 #: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:559
 #: pmd_general.php:510 server_privileges.php:1955 server_status.php:835
 msgid "None"
 msgstr "tanpa"
 
-#: libraries/display_export.lib.php:315
+#: libraries/display_export.lib.php:308
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "Dikompress dengan Zip"
 
-#: libraries/display_export.lib.php:317
+#: libraries/display_export.lib.php:310
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "Dikompress dengan GZip"
 
-#: libraries/display_export.lib.php:319
+#: libraries/display_export.lib.php:312
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "\"Dikompress dengan BZip\""
 
-#: libraries/display_export.lib.php:328
+#: libraries/display_export.lib.php:321
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "Kirimkan ke"
 
-#: libraries/display_export.lib.php:333 libraries/display_import.lib.php:244
+#: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Format"
 
-#: libraries/display_export.lib.php:338
+#: libraries/display_export.lib.php:331
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Pilihan transformasi"
 
-#: libraries/display_export.lib.php:339
+#: libraries/display_export.lib.php:332
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:347 libraries/display_import.lib.php:260
+#: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -5254,155 +5278,175 @@ msgstr ""
 msgid "Restore column order"
 msgstr "Tambahkan/Hapus kolom"
 
-#: libraries/display_tbl.lib.php:411
+#: libraries/display_tbl.lib.php:417
 msgid "Drag to reorder"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:412
+#: libraries/display_tbl.lib.php:418
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
 msgstr "Klik untuk memilih"
 
-#: libraries/display_tbl.lib.php:413
+#: libraries/display_tbl.lib.php:419
 msgid "Click to mark/unmark"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:425
+#: libraries/display_tbl.lib.php:420
+msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:431
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
-#: libraries/display_tbl.lib.php:431
-#, fuzzy
-#| msgid "row(s) starting from record #"
-msgid "row(s) starting from row #"
-msgstr "baris dimulai dari rekord #"
-
 #: libraries/display_tbl.lib.php:436
+#, fuzzy
+msgid "Start row"
+msgstr "Status"
+
+#: libraries/display_tbl.lib.php:438
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of rows"
+msgstr "Jumlah baris per halaman"
+
+#: libraries/display_tbl.lib.php:443
+#, fuzzy
+#| msgid "More"
+msgid "Mode"
+msgstr "Selebihnya"
+
+#: libraries/display_tbl.lib.php:445
 msgid "horizontal"
 msgstr "horisontal"
 
-#: libraries/display_tbl.lib.php:437
+#: libraries/display_tbl.lib.php:446
 msgid "horizontal (rotated headers)"
 msgstr "horisontal (rotated headers)"
 
-#: libraries/display_tbl.lib.php:438
+#: libraries/display_tbl.lib.php:447
 msgid "vertical"
 msgstr "vertikal"
 
-#: libraries/display_tbl.lib.php:444
-#, php-format
-msgid "in %s mode and repeat headers after %s cells"
-msgstr "diatur dengan urutan %s dan mengulang header setelah %s sel."
+#: libraries/display_tbl.lib.php:452
+msgid "Headers every"
+msgstr ""
 
-#: libraries/display_tbl.lib.php:538
+#: libraries/display_tbl.lib.php:454
+#, fuzzy
+#| msgid "Browse"
+msgid "rows"
+msgstr "Browse"
+
+#: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
 msgstr "Urut berdasarkan kunci"
 
-#: libraries/display_tbl.lib.php:590 libraries/display_tbl.lib.php:600
+#: libraries/display_tbl.lib.php:598 libraries/display_tbl.lib.php:608
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Teks yang disingkat"
 
-#: libraries/display_tbl.lib.php:591 libraries/display_tbl.lib.php:604
+#: libraries/display_tbl.lib.php:599 libraries/display_tbl.lib.php:612
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Teks Penuh"
 
-#: libraries/display_tbl.lib.php:617
+#: libraries/display_tbl.lib.php:625
 #, fuzzy
 msgid "Relational key"
 msgstr "Skema Relational"
 
-#: libraries/display_tbl.lib.php:618
+#: libraries/display_tbl.lib.php:626
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
 msgstr "Skema Relational"
 
-#: libraries/display_tbl.lib.php:625
+#: libraries/display_tbl.lib.php:633
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:627
+#: libraries/display_tbl.lib.php:635
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:637 libraries/relation.lib.php:123
+#: libraries/display_tbl.lib.php:645 libraries/relation.lib.php:112
 #: libraries/tbl_properties.inc.php:143 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "Transformasi Browser"
 
-#: libraries/display_tbl.lib.php:642
+#: libraries/display_tbl.lib.php:650
 msgid "Geometry"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:643
+#: libraries/display_tbl.lib.php:651
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:644
+#: libraries/display_tbl.lib.php:652
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1288
+#: libraries/display_tbl.lib.php:1303
 msgid "Copy"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:1303 libraries/display_tbl.lib.php:1315
+#: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
 msgstr "Baris telah dihapus"
 
-#: libraries/display_tbl.lib.php:1342 libraries/display_tbl.lib.php:2351
+#: libraries/display_tbl.lib.php:1357 libraries/display_tbl.lib.php:2314
 #: server_status.php:831
 msgid "Kill"
 msgstr "Tutup"
 
-#: libraries/display_tbl.lib.php:2225
+#: libraries/display_tbl.lib.php:2188
 msgid "in query"
 msgstr "dalam susunan pemeriksaan"
 
-#: libraries/display_tbl.lib.php:2243
+#: libraries/display_tbl.lib.php:2206
 msgid "Showing rows"
 msgstr "Tampilan baris"
 
-#: libraries/display_tbl.lib.php:2253
+#: libraries/display_tbl.lib.php:2216
 msgid "total"
 msgstr "jumlah"
 
-#: libraries/display_tbl.lib.php:2261 sql.php:682
+#: libraries/display_tbl.lib.php:2224 sql.php:689
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "pencarian membutuhkan waktu %01.4f detik"
 
-#: libraries/display_tbl.lib.php:2457
+#: libraries/display_tbl.lib.php:2418
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2485
+#: libraries/display_tbl.lib.php:2446
 msgid "Print view (with full texts)"
 msgstr "Pandangan cetak (dengan teks lengkap)"
 
-#: libraries/display_tbl.lib.php:2533 tbl_chart.php:83
+#: libraries/display_tbl.lib.php:2494 tbl_chart.php:83
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Tampilkan skema PDF"
 
-#: libraries/display_tbl.lib.php:2548
+#: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/display_tbl.lib.php:2568
+#: libraries/display_tbl.lib.php:2529
 #, fuzzy
 #| msgid "Create version"
 msgid "Create view"
 msgstr "Membuat versi"
 
-#: libraries/display_tbl.lib.php:2683
+#: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
 msgstr "Link tidak ditemukan"
 
@@ -5429,7 +5473,7 @@ msgstr "Lokasi citra yang benar untuk tema %s tidak ditemukan!"
 msgid "There are no triggers to display."
 msgstr "Tidak ada arsip untuk diunggah"
 
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
+#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
 msgid "Time"
 msgstr "Jangka Waktu"
 
@@ -5446,34 +5490,34 @@ msgstr "Menambahkan pengguna baru"
 msgid "Version information"
 msgstr "Informasi tentang versi"
 
-#: libraries/engines/innodb.lib.php:22
+#: libraries/engines/innodb.lib.php:20
 msgid "Data home directory"
 msgstr "Home direktori data"
 
-#: libraries/engines/innodb.lib.php:23
+#: libraries/engines/innodb.lib.php:21
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr "Bagian lazim dari Directory Path untuk seluruh file data milik InnoDB."
 
-#: libraries/engines/innodb.lib.php:26
+#: libraries/engines/innodb.lib.php:24
 msgid "Data files"
 msgstr "File data"
 
-#: libraries/engines/innodb.lib.php:29
+#: libraries/engines/innodb.lib.php:27
 msgid "Autoextend increment"
 msgstr "Pembesaran otomatis"
 
-#: libraries/engines/innodb.lib.php:30
+#: libraries/engines/innodb.lib.php:28
 msgid ""
 " The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
 " Ukuran bertahap dari pembesaran ruang tabel otomatis bila ia mempenuh."
 
-#: libraries/engines/innodb.lib.php:34
+#: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
 msgstr "Ukuran penampungan buffer"
 
-#: libraries/engines/innodb.lib.php:35
+#: libraries/engines/innodb.lib.php:33
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
@@ -5481,71 +5525,71 @@ msgstr ""
 "Ukuran Memory Buffer yang digunakan oleh InnoDB untuk meng-cache data dan "
 "indeks dari tabelnya."
 
-#: libraries/engines/innodb.lib.php:134
+#: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
 msgstr "Penampungan Buffer"
 
-#: libraries/engines/innodb.lib.php:135 server_status.php:320
+#: libraries/engines/innodb.lib.php:131 server_status.php:320
 msgid "InnoDB Status"
 msgstr "Status dari InnoDB"
 
-#: libraries/engines/innodb.lib.php:163
+#: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
 msgstr "Penggunaan penampungan Buffer"
 
-#: libraries/engines/innodb.lib.php:171
+#: libraries/engines/innodb.lib.php:161
 msgid "pages"
 msgstr "halaman"
 
-#: libraries/engines/innodb.lib.php:180
+#: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
 msgstr "Halaman yang bebas"
 
-#: libraries/engines/innodb.lib.php:186
+#: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
 msgstr "Halaman yang kotor"
 
-#: libraries/engines/innodb.lib.php:192
+#: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
 msgstr "Halaman yang berisi data"
 
-#: libraries/engines/innodb.lib.php:198
+#: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
 msgstr "Halaman yang akan di-flush"
 
-#: libraries/engines/innodb.lib.php:204
+#: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
 msgstr "Halaman yang sibuk"
 
-#: libraries/engines/innodb.lib.php:213
+#: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
 msgstr "Halaman yang dipalang"
 
-#: libraries/engines/innodb.lib.php:224
+#: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
 msgstr "Aktifitas penampungan Buffer"
 
-#: libraries/engines/innodb.lib.php:228
+#: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
 msgstr "Permintaan pembacaan"
 
-#: libraries/engines/innodb.lib.php:234
+#: libraries/engines/innodb.lib.php:224
 msgid "Write requests"
 msgstr "Permintaan penulisan"
 
-#: libraries/engines/innodb.lib.php:240
+#: libraries/engines/innodb.lib.php:230
 msgid "Read misses"
 msgstr "Pembacaan yang kelewat"
 
-#: libraries/engines/innodb.lib.php:246
+#: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
 msgstr "Penundaan penulisan"
 
-#: libraries/engines/innodb.lib.php:252
+#: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
 msgstr "Pembacaan yang kelewat dalam %"
 
-#: libraries/engines/innodb.lib.php:260
+#: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
 msgstr "Penundaan penulisan dalam %"
 
@@ -5846,8 +5890,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5970,8 +6014,8 @@ msgstr "Tipe MIME yang tersedia"
 #: libraries/export/latex.php:140 libraries/export/sql.php:453
 #: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
-#: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:274
-#: libraries/replication_gui.lib.php:331 server_privileges.php:713
+#: libraries/replication_gui.lib.php:270 libraries/replication_gui.lib.php:273
+#: libraries/replication_gui.lib.php:330 server_privileges.php:713
 #: server_privileges.php:716 server_privileges.php:772
 #: server_privileges.php:1607 server_privileges.php:2150 server_status.php:797
 msgid "Host"
@@ -6167,8 +6211,8 @@ msgstr "Gambarkan"
 msgid "Export contents"
 msgstr "Ekspor isi"
 
-#: libraries/footer.inc.php:188 libraries/footer.inc.php:191
-#: libraries/footer.inc.php:194
+#: libraries/footer.inc.php:163 libraries/footer.inc.php:166
+#: libraries/footer.inc.php:169
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
@@ -6186,38 +6230,38 @@ msgstr "Hasil SQL"
 msgid "Generated by"
 msgstr "Diciptakan oleh"
 
-#: libraries/import.lib.php:1141
+#: libraries/import.lib.php:1076
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1142
+#: libraries/import.lib.php:1077
 msgid "View a structure`s contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1143
+#: libraries/import.lib.php:1078
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1144
+#: libraries/import.lib.php:1079
 msgid "Edit its structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1147
+#: libraries/import.lib.php:1082
 #, fuzzy
 msgid "Go to database"
 msgstr "Database tidak ditemukan"
 
-#: libraries/import.lib.php:1150 libraries/import.lib.php:1174
+#: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 msgid "settings"
 msgstr ""
 
-#: libraries/import.lib.php:1169
+#: libraries/import.lib.php:1104
 msgid "Go to table"
 msgstr ""
 
-#: libraries/import.lib.php:1178
+#: libraries/import.lib.php:1113
 msgid "Go to view"
 msgstr ""
 
@@ -6333,7 +6377,7 @@ msgid "To"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
-#: libraries/sql_query_form.lib.php:439
+#: libraries/sql_query_form.lib.php:399
 msgid "Submit"
 msgstr "Kirim"
 
@@ -6345,7 +6389,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:488 tbl_replace.php:332
+#: libraries/mult_submits.inc.php:488 tbl_replace.php:313
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
@@ -6353,190 +6397,190 @@ msgstr "Tidak ada perubahan"
 msgid "Charset"
 msgstr "Perangkat karakter (Charset)"
 
-#: libraries/mysql_charsets.lib.php:206 libraries/mysql_charsets.lib.php:407
+#: libraries/mysql_charsets.lib.php:198 libraries/mysql_charsets.lib.php:399
 #: tbl_change.php:553
 msgid "Binary"
 msgstr "Binari"
 
-#: libraries/mysql_charsets.lib.php:218
+#: libraries/mysql_charsets.lib.php:210
 msgid "Bulgarian"
 msgstr "Bahasa Bulgaria"
 
-#: libraries/mysql_charsets.lib.php:222 libraries/mysql_charsets.lib.php:347
+#: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:339
 msgid "Simplified Chinese"
 msgstr "Bahasa Cina sederhana"
 
-#: libraries/mysql_charsets.lib.php:224 libraries/mysql_charsets.lib.php:367
+#: libraries/mysql_charsets.lib.php:216 libraries/mysql_charsets.lib.php:359
 msgid "Traditional Chinese"
 msgstr "Bahasa Cina tradisional"
 
-#: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:414
+#: libraries/mysql_charsets.lib.php:220 libraries/mysql_charsets.lib.php:406
 msgid "case-insensitive"
 msgstr "peka terhadap huruf besar/kecil"
 
-#: libraries/mysql_charsets.lib.php:231 libraries/mysql_charsets.lib.php:416
+#: libraries/mysql_charsets.lib.php:223 libraries/mysql_charsets.lib.php:408
 msgid "case-sensitive"
 msgstr "tidak peka terhadap huruf besar/kecil"
 
-#: libraries/mysql_charsets.lib.php:234
+#: libraries/mysql_charsets.lib.php:226
 msgid "Croatian"
 msgstr "Bahasa Kroatia"
 
-#: libraries/mysql_charsets.lib.php:237
+#: libraries/mysql_charsets.lib.php:229
 msgid "Czech"
 msgstr "Bahasa Ceko"
 
-#: libraries/mysql_charsets.lib.php:240
+#: libraries/mysql_charsets.lib.php:232
 msgid "Danish"
 msgstr "Bahasa Denmark"
 
-#: libraries/mysql_charsets.lib.php:243
+#: libraries/mysql_charsets.lib.php:235
 msgid "English"
 msgstr "Bahasa Ingris"
 
-#: libraries/mysql_charsets.lib.php:246
+#: libraries/mysql_charsets.lib.php:238
 msgid "Esperanto"
 msgstr "Bahasa Esperanto"
 
-#: libraries/mysql_charsets.lib.php:249
+#: libraries/mysql_charsets.lib.php:241
 msgid "Estonian"
 msgstr "Bahasa Estonia"
 
-#: libraries/mysql_charsets.lib.php:252 libraries/mysql_charsets.lib.php:255
+#: libraries/mysql_charsets.lib.php:244 libraries/mysql_charsets.lib.php:247
 msgid "German"
 msgstr "Bahasa Jerman"
 
-#: libraries/mysql_charsets.lib.php:252
+#: libraries/mysql_charsets.lib.php:244
 msgid "dictionary"
 msgstr "kamus"
 
-#: libraries/mysql_charsets.lib.php:255
+#: libraries/mysql_charsets.lib.php:247
 msgid "phone book"
 msgstr "buku telpon"
 
-#: libraries/mysql_charsets.lib.php:258
+#: libraries/mysql_charsets.lib.php:250
 msgid "Hungarian"
 msgstr "Bahasa Hongaria"
 
-#: libraries/mysql_charsets.lib.php:261
+#: libraries/mysql_charsets.lib.php:253
 msgid "Icelandic"
 msgstr "Islandia"
 
-#: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:354
+#: libraries/mysql_charsets.lib.php:256 libraries/mysql_charsets.lib.php:346
 msgid "Japanese"
 msgstr "Bahasa Jepang"
 
-#: libraries/mysql_charsets.lib.php:267
+#: libraries/mysql_charsets.lib.php:259
 msgid "Latvian"
 msgstr "Latvia"
 
-#: libraries/mysql_charsets.lib.php:270
+#: libraries/mysql_charsets.lib.php:262
 msgid "Lithuanian"
 msgstr "Bahasa Lithuania"
 
-#: libraries/mysql_charsets.lib.php:273 libraries/mysql_charsets.lib.php:376
+#: libraries/mysql_charsets.lib.php:265 libraries/mysql_charsets.lib.php:368
 msgid "Korean"
 msgstr "Bahasa Korea"
 
-#: libraries/mysql_charsets.lib.php:276
+#: libraries/mysql_charsets.lib.php:268
 msgid "Persian"
 msgstr "Persia"
 
-#: libraries/mysql_charsets.lib.php:279
+#: libraries/mysql_charsets.lib.php:271
 msgid "Polish"
 msgstr "Polandia"
 
-#: libraries/mysql_charsets.lib.php:282 libraries/mysql_charsets.lib.php:330
+#: libraries/mysql_charsets.lib.php:274 libraries/mysql_charsets.lib.php:322
 msgid "West European"
 msgstr "Eropa Barat"
 
-#: libraries/mysql_charsets.lib.php:285
+#: libraries/mysql_charsets.lib.php:277
 msgid "Romanian"
 msgstr "Romania"
 
-#: libraries/mysql_charsets.lib.php:288
+#: libraries/mysql_charsets.lib.php:280
 msgid "Slovak"
 msgstr "Slovakia"
 
-#: libraries/mysql_charsets.lib.php:291
+#: libraries/mysql_charsets.lib.php:283
 msgid "Slovenian"
 msgstr "Slovenia"
 
-#: libraries/mysql_charsets.lib.php:294
+#: libraries/mysql_charsets.lib.php:286
 msgid "Spanish"
 msgstr "Bahasa Spanyol"
 
-#: libraries/mysql_charsets.lib.php:297
+#: libraries/mysql_charsets.lib.php:289
 msgid "Traditional Spanish"
 msgstr "Spanyol tradisional"
 
-#: libraries/mysql_charsets.lib.php:300 libraries/mysql_charsets.lib.php:397
+#: libraries/mysql_charsets.lib.php:292 libraries/mysql_charsets.lib.php:389
 msgid "Swedish"
 msgstr "Bahasa Swedia"
 
-#: libraries/mysql_charsets.lib.php:303 libraries/mysql_charsets.lib.php:400
+#: libraries/mysql_charsets.lib.php:295 libraries/mysql_charsets.lib.php:392
 msgid "Thai"
 msgstr "Bahasa Thailand"
 
-#: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:394
+#: libraries/mysql_charsets.lib.php:298 libraries/mysql_charsets.lib.php:386
 msgid "Turkish"
 msgstr "Bahasa Turki"
 
-#: libraries/mysql_charsets.lib.php:309 libraries/mysql_charsets.lib.php:391
+#: libraries/mysql_charsets.lib.php:301 libraries/mysql_charsets.lib.php:383
 msgid "Ukrainian"
 msgstr "Bahasa Ukrainia"
 
-#: libraries/mysql_charsets.lib.php:312 libraries/mysql_charsets.lib.php:321
+#: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:313
 msgid "Unicode"
 msgstr "Unikode"
 
-#: libraries/mysql_charsets.lib.php:312 libraries/mysql_charsets.lib.php:321
-#: libraries/mysql_charsets.lib.php:330 libraries/mysql_charsets.lib.php:337
-#: libraries/mysql_charsets.lib.php:359 libraries/mysql_charsets.lib.php:370
+#: libraries/mysql_charsets.lib.php:304 libraries/mysql_charsets.lib.php:313
+#: libraries/mysql_charsets.lib.php:322 libraries/mysql_charsets.lib.php:329
+#: libraries/mysql_charsets.lib.php:351 libraries/mysql_charsets.lib.php:362
 msgid "multilingual"
 msgstr "berbagai bahasa"
 
-#: libraries/mysql_charsets.lib.php:337
+#: libraries/mysql_charsets.lib.php:329
 msgid "Central European"
 msgstr "Eropa Tengah"
 
-#: libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:334
 msgid "Russian"
 msgstr "Bahasa Rusia"
 
-#: libraries/mysql_charsets.lib.php:359
+#: libraries/mysql_charsets.lib.php:351
 msgid "Baltic"
 msgstr "Bahasa Baltik"
 
-#: libraries/mysql_charsets.lib.php:364
+#: libraries/mysql_charsets.lib.php:356
 msgid "Armenian"
 msgstr "Bahasa Armenia"
 
-#: libraries/mysql_charsets.lib.php:370
+#: libraries/mysql_charsets.lib.php:362
 msgid "Cyrillic"
 msgstr "Bahasa Kirilia"
 
-#: libraries/mysql_charsets.lib.php:373
+#: libraries/mysql_charsets.lib.php:365
 msgid "Arabic"
 msgstr "Bahasa Arab"
 
-#: libraries/mysql_charsets.lib.php:379
+#: libraries/mysql_charsets.lib.php:371
 msgid "Hebrew"
 msgstr "Bahasa Yahudi"
 
-#: libraries/mysql_charsets.lib.php:382
+#: libraries/mysql_charsets.lib.php:374
 msgid "Georgian"
 msgstr "Georgia"
 
-#: libraries/mysql_charsets.lib.php:385
+#: libraries/mysql_charsets.lib.php:377
 msgid "Greek"
 msgstr "Bahasa Yunani"
 
-#: libraries/mysql_charsets.lib.php:388
+#: libraries/mysql_charsets.lib.php:380
 msgid "Czech-Slovak"
 msgstr "Cecko-Slovakia"
 
-#: libraries/mysql_charsets.lib.php:403 libraries/mysql_charsets.lib.php:410
+#: libraries/mysql_charsets.lib.php:395 libraries/mysql_charsets.lib.php:402
 msgid "unknown"
 msgstr "tidak diketahui"
 
@@ -6558,88 +6602,88 @@ msgstr "Logout"
 msgid "Reload navigation frame"
 msgstr ""
 
-#: libraries/plugin_interface.lib.php:336
+#: libraries/plugin_interface.lib.php:310
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Format ini tidak ada pilihannya"
 
-#: libraries/relation.lib.php:83
+#: libraries/relation.lib.php:72
 msgid "not OK"
 msgstr "tidak oke"
 
-#: libraries/relation.lib.php:88
+#: libraries/relation.lib.php:77
 msgid "Enabled"
 msgstr "Aktif"
 
-#: libraries/relation.lib.php:95 libraries/relation.lib.php:107
+#: libraries/relation.lib.php:84 libraries/relation.lib.php:96
 #: pmd_relation_new.php:68
 msgid "General relation features"
 msgstr "Ciri-ciri dari General Relation"
 
-#: libraries/relation.lib.php:111
+#: libraries/relation.lib.php:100
 msgid "Display Features"
 msgstr "Tampilkan ciri-ciri"
 
-#: libraries/relation.lib.php:117
+#: libraries/relation.lib.php:106
 msgid "Creation of PDFs"
 msgstr "Penciptaan PDF"
 
-#: libraries/relation.lib.php:121
+#: libraries/relation.lib.php:110
 msgid "Displaying Column Comments"
 msgstr "Tampilkan komentar kolom"
 
-#: libraries/relation.lib.php:126
+#: libraries/relation.lib.php:115
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel "
 "Column_comments Anda"
 
-#: libraries/relation.lib.php:131 libraries/sql_query_form.lib.php:410
+#: libraries/relation.lib.php:120 libraries/sql_query_form.lib.php:370
 msgid "Bookmarked SQL query"
 msgstr "Ingat pada pencarian SQL "
 
-#: libraries/relation.lib.php:135 querywindow.php:98 querywindow.php:205
+#: libraries/relation.lib.php:124 querywindow.php:74 querywindow.php:181
 msgid "SQL history"
 msgstr "Sejarah SQL"
 
-#: libraries/relation.lib.php:143
+#: libraries/relation.lib.php:132
 msgid "Persistent recently used tables"
 msgstr ""
 
-#: libraries/relation.lib.php:147
+#: libraries/relation.lib.php:136
 msgid "Persistent tables' UI preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:155
+#: libraries/relation.lib.php:144
 msgid "User preferences"
 msgstr ""
 
-#: libraries/relation.lib.php:159
+#: libraries/relation.lib.php:148
 msgid "Quick steps to setup advanced features:"
 msgstr ""
 
-#: libraries/relation.lib.php:161
+#: libraries/relation.lib.php:150
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:162
+#: libraries/relation.lib.php:151
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 
-#: libraries/relation.lib.php:163
+#: libraries/relation.lib.php:152
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 
-#: libraries/relation.lib.php:164
+#: libraries/relation.lib.php:153
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/relation.lib.php:1200
+#: libraries/relation.lib.php:1076
 msgid "no description"
 msgstr "tanpa keterangan"
 
@@ -6658,8 +6702,8 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:57 libraries/replication_gui.lib.php:58
-#: libraries/replication_gui.lib.php:251 libraries/replication_gui.lib.php:254
-#: libraries/replication_gui.lib.php:261 server_privileges.php:693
+#: libraries/replication_gui.lib.php:250 libraries/replication_gui.lib.php:253
+#: libraries/replication_gui.lib.php:260 server_privileges.php:693
 #: server_privileges.php:696 server_privileges.php:703
 #: server_synchronize.php:1182
 msgid "User name"
@@ -6673,12 +6717,12 @@ msgstr ""
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:422
+#: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:382
 #: server_status.php:1028 server_variables.php:108
 msgid "Variable"
 msgstr "Variabel"
 
-#: libraries/replication_gui.lib.php:175 server_binlog.php:202
+#: libraries/replication_gui.lib.php:175 server_binlog.php:183
 msgid "Server ID"
 msgstr "ID Server"
 
@@ -6688,70 +6732,70 @@ msgid ""
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:242 server_replication.php:192
+#: libraries/replication_gui.lib.php:241 server_replication.php:192
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:256 server_privileges.php:698
+#: libraries/replication_gui.lib.php:255 server_privileges.php:698
 msgid "Any user"
 msgstr "Setiap pengguna"
 
-#: libraries/replication_gui.lib.php:257 libraries/replication_gui.lib.php:325
-#: libraries/replication_gui.lib.php:348 server_privileges.php:699
+#: libraries/replication_gui.lib.php:256 libraries/replication_gui.lib.php:324
+#: libraries/replication_gui.lib.php:347 server_privileges.php:699
 #: server_privileges.php:766 server_privileges.php:790
 #: server_privileges.php:2008 server_privileges.php:2038
 msgid "Use text field"
 msgstr "Gunakan text field"
 
-#: libraries/replication_gui.lib.php:304 server_privileges.php:746
+#: libraries/replication_gui.lib.php:303 server_privileges.php:746
 msgid "Any host"
 msgstr "Setiap host"
 
-#: libraries/replication_gui.lib.php:308 server_privileges.php:750
+#: libraries/replication_gui.lib.php:307 server_privileges.php:750
 msgid "Local"
 msgstr "Lokal"
 
-#: libraries/replication_gui.lib.php:314 server_privileges.php:755
+#: libraries/replication_gui.lib.php:313 server_privileges.php:755
 msgid "This Host"
 msgstr "Host yang ini"
 
-#: libraries/replication_gui.lib.php:320 server_privileges.php:761
+#: libraries/replication_gui.lib.php:319 server_privileges.php:761
 msgid "Use Host Table"
 msgstr "Gunakan Host Table"
 
-#: libraries/replication_gui.lib.php:333 server_privileges.php:774
+#: libraries/replication_gui.lib.php:332 server_privileges.php:774
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:362
+#: libraries/replication_gui.lib.php:361
 msgid "Generate Password"
 msgstr "Menghasilkan kata sandi"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:224
-#: libraries/schema/Eps_Relation_Schema.class.php:397
-#: libraries/schema/Pdf_Relation_Schema.class.php:486
-#: libraries/schema/Svg_Relation_Schema.class.php:366
+#: libraries/schema/Dia_Relation_Schema.class.php:222
+#: libraries/schema/Eps_Relation_Schema.class.php:395
+#: libraries/schema/Pdf_Relation_Schema.class.php:484
+#: libraries/schema/Svg_Relation_Schema.class.php:364
 #: libraries/schema/Visio_Relation_Schema.class.php:210
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabel \"%s\" tidak ditemukan!"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:250
-#: libraries/schema/Eps_Relation_Schema.class.php:438
-#: libraries/schema/Pdf_Relation_Schema.class.php:520
-#: libraries/schema/Svg_Relation_Schema.class.php:408
+#: libraries/schema/Dia_Relation_Schema.class.php:248
+#: libraries/schema/Eps_Relation_Schema.class.php:436
+#: libraries/schema/Pdf_Relation_Schema.class.php:518
+#: libraries/schema/Svg_Relation_Schema.class.php:406
 #: libraries/schema/Visio_Relation_Schema.class.php:252
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Silakan konfigurasikan koordinasi bagi tabel %s"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:748
-#: libraries/schema/Pdf_Relation_Schema.class.php:848
-#: libraries/schema/Svg_Relation_Schema.class.php:734
-#: libraries/schema/Visio_Relation_Schema.class.php:499
+#: libraries/schema/Eps_Relation_Schema.class.php:742
+#: libraries/schema/Pdf_Relation_Schema.class.php:842
+#: libraries/schema/Svg_Relation_Schema.class.php:728
+#: libraries/schema/Visio_Relation_Schema.class.php:497
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
@@ -6765,24 +6809,24 @@ msgstr ""
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:874
-#: libraries/schema/Pdf_Relation_Schema.class.php:1113
+#: libraries/schema/Pdf_Relation_Schema.class.php:868
+#: libraries/schema/Pdf_Relation_Schema.class.php:1107
 msgid "Relational schema"
 msgstr "Skema Relational"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1088
+#: libraries/schema/Pdf_Relation_Schema.class.php:1082
 msgid "Table of contents"
 msgstr "Daftar Isi"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1238
-#: libraries/schema/Pdf_Relation_Schema.class.php:1259
+#: libraries/schema/Pdf_Relation_Schema.class.php:1232
+#: libraries/schema/Pdf_Relation_Schema.class.php:1253
 #: libraries/tbl_properties.inc.php:108 tbl_printview.php:141
 #: tbl_structure.php:207
 msgid "Attributes"
 msgstr "Atribut"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1241
-#: libraries/schema/Pdf_Relation_Schema.class.php:1262 tbl_printview.php:144
+#: libraries/schema/Pdf_Relation_Schema.class.php:1235
+#: libraries/schema/Pdf_Relation_Schema.class.php:1256 tbl_printview.php:144
 #: tbl_structure.php:210 tbl_tracking.php:271
 msgid "Extra"
 msgstr "Ekstra"
@@ -6886,17 +6930,17 @@ msgid "Toggle scratchboard"
 msgstr "pindah buku catatan (Scratchboard)"
 
 #. l10n: Text direction, use either ltr or rtl
-#: libraries/select_lang.lib.php:484
+#: libraries/select_lang.lib.php:469
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:489 libraries/select_lang.lib.php:495
-#: libraries/select_lang.lib.php:501
+#: libraries/select_lang.lib.php:474 libraries/select_lang.lib.php:480
+#: libraries/select_lang.lib.php:486
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr ""
 
-#: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
+#: libraries/select_server.lib.php:32 libraries/select_server.lib.php:38
 #, fuzzy
 #| msgid "Current server"
 msgid "Current Server"
@@ -6913,7 +6957,7 @@ msgstr "Ciri-ciri dari General Relation"
 msgid "Synchronize"
 msgstr ""
 
-#: libraries/server_links.inc.php:84 server_binlog.php:96
+#: libraries/server_links.inc.php:84 server_binlog.php:77
 #: server_status.php:266
 msgid "Binary log"
 msgstr "Log binari"
@@ -6931,83 +6975,83 @@ msgstr "Penyusunan Karakter"
 msgid "Engines"
 msgstr "Mesin"
 
-#: libraries/server_synchronize.lib.php:1337 server_synchronize.php:1111
+#: libraries/server_synchronize.lib.php:1279 server_synchronize.php:1111
 msgid "Source database"
 msgstr "Database cumber"
 
-#: libraries/server_synchronize.lib.php:1339
-#: libraries/server_synchronize.lib.php:1362
+#: libraries/server_synchronize.lib.php:1281
+#: libraries/server_synchronize.lib.php:1302
 msgid "Current server"
 msgstr "Server saat ini"
 
-#: libraries/server_synchronize.lib.php:1341
-#: libraries/server_synchronize.lib.php:1364
+#: libraries/server_synchronize.lib.php:1283
+#: libraries/server_synchronize.lib.php:1304
 msgid "Remote server"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1344
+#: libraries/server_synchronize.lib.php:1286
 msgid "Difference"
 msgstr "Perbedaan"
 
-#: libraries/server_synchronize.lib.php:1360 server_synchronize.php:1113
+#: libraries/server_synchronize.lib.php:1300 server_synchronize.php:1113
 msgid "Target database"
 msgstr "Database target"
 
-#: libraries/sql_query_form.lib.php:223
+#: libraries/sql_query_form.lib.php:189
 #, fuzzy, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Melaksanakan perintah SQL pada database %s"
 
-#: libraries/sql_query_form.lib.php:240 libraries/sql_query_form.lib.php:264
+#: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:230
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Melaksanakan perintah SQL pada database %s"
 
-#: libraries/sql_query_form.lib.php:296 navigation.php:302
+#: libraries/sql_query_form.lib.php:262 navigation.php:272
 #: setup/frames/index.inc.php:231
 #, fuzzy
 msgid "Clear"
 msgstr "Kalender"
 
-#: libraries/sql_query_form.lib.php:301
+#: libraries/sql_query_form.lib.php:267
 #, fuzzy
 #| msgid "Column names"
 msgid "Columns"
 msgstr "Nama kolom"
 
-#: libraries/sql_query_form.lib.php:336 sql.php:1009 sql.php:1010 sql.php:1027
+#: libraries/sql_query_form.lib.php:302 sql.php:1016 sql.php:1017 sql.php:1034
 msgid "Bookmark this SQL query"
 msgstr "Simpan pencarian SQL ini"
 
-#: libraries/sql_query_form.lib.php:343 sql.php:1021
+#: libraries/sql_query_form.lib.php:309 sql.php:1028
 msgid "Let every user access this bookmark"
 msgstr "Izinkan semua pengguna untuk mengakses simpanan ini"
 
-#: libraries/sql_query_form.lib.php:349
+#: libraries/sql_query_form.lib.php:315
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:365
+#: libraries/sql_query_form.lib.php:331
 msgid "Do not overwrite this query from outside the window"
 msgstr "Jangan timpahkan pencarian ini dari jendela luar"
 
-#: libraries/sql_query_form.lib.php:372
+#: libraries/sql_query_form.lib.php:338
 msgid "Delimiter"
 msgstr "Pembatas"
 
-#: libraries/sql_query_form.lib.php:380
+#: libraries/sql_query_form.lib.php:346
 msgid " Show this query here again "
 msgstr " Tampilkan ulang perintah SQL "
 
-#: libraries/sql_query_form.lib.php:443
+#: libraries/sql_query_form.lib.php:403
 msgid "View only"
 msgstr "Hanya melihat"
 
-#: libraries/sql_query_form.lib.php:490 prefs_manage.php:241
+#: libraries/sql_query_form.lib.php:438 prefs_manage.php:241
 msgid "Location of the text file"
 msgstr "dari File"
 
-#: libraries/sql_query_form.lib.php:502 tbl_change.php:887
+#: libraries/sql_query_form.lib.php:450 tbl_change.php:887
 msgid "web server upload directory"
 msgstr "direktori upload pada web-server"
 
@@ -7122,7 +7166,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:509
 #: tbl_printview.php:323 tbl_structure.php:156 tbl_structure.php:161
-#: tbl_structure.php:607 tbl_structure.php:809
+#: tbl_structure.php:607 tbl_structure.php:810
 msgid "Index"
 msgstr "Indeks"
 
@@ -7388,13 +7432,13 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 
-#: libraries/user_preferences.lib.php:142
+#: libraries/user_preferences.lib.php:112
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
 msgstr "Tidak dapat memuat konfigurasi default dari: \"%1$s\""
 
-#: libraries/user_preferences.lib.php:309
+#: libraries/user_preferences.lib.php:268
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
@@ -7578,28 +7622,28 @@ msgid ""
 "issues."
 msgstr ""
 
-#: navigation.php:213 server_databases.php:281 server_synchronize.php:1202
+#: navigation.php:183 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
 msgstr "Database tidak ditemukan"
 
-#: navigation.php:303
+#: navigation.php:273
 msgid "Filter"
 msgstr ""
 
-#: navigation.php:303
+#: navigation.php:273
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "filter tables by name"
 msgstr "Urutkan tabel berdasarkan"
 
-#: navigation.php:336 navigation.php:337
+#: navigation.php:306 navigation.php:307
 #, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Buat tabel"
 
-#: navigation.php:342 navigation.php:514
+#: navigation.php:312 navigation.php:475
 msgid "Please select a database"
 msgstr "Silakan pilih database"
 
@@ -7885,11 +7929,11 @@ msgstr ""
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
-#: querywindow.php:93
+#: querywindow.php:69
 msgid "Import files"
 msgstr "Impor file"
 
-#: querywindow.php:104
+#: querywindow.php:80
 msgid "All"
 msgstr "Semua"
 
@@ -7904,42 +7948,42 @@ msgstr "<b>%s</b> tabel tidak ditemukan atau tidak diset di %s"
 msgid "File doesn't exist"
 msgstr "Tabel \"%s\" tidak ditemukan!"
 
-#: server_binlog.php:106
+#: server_binlog.php:87
 msgid "Select binary log to view"
 msgstr "Pilih Log binari untuk ditinjau"
 
-#: server_binlog.php:122 server_status.php:275
+#: server_binlog.php:103 server_status.php:275
 #, fuzzy
 msgid "Files"
 msgstr "Field"
 
-#: server_binlog.php:169 server_binlog.php:171 server_status.php:806
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:806
 #: server_status.php:808
 msgid "Truncate Shown Queries"
 msgstr "Potongkan pencarian yang ditampilkan"
 
-#: server_binlog.php:177 server_binlog.php:179 server_status.php:806
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:806
 #: server_status.php:808
 msgid "Show Full Queries"
 msgstr "Tampilkan pencarian yang lengkap"
 
-#: server_binlog.php:199
+#: server_binlog.php:180
 msgid "Log name"
 msgstr "Catat nama"
 
-#: server_binlog.php:200
+#: server_binlog.php:181
 msgid "Position"
 msgstr "Posisi"
 
-#: server_binlog.php:201
+#: server_binlog.php:182
 msgid "Event type"
 msgstr "Tipe Kejadian"
 
-#: server_binlog.php:203
+#: server_binlog.php:184
 msgid "Original position"
 msgstr "Posisi aslinya"
 
-#: server_binlog.php:204
+#: server_binlog.php:185
 msgid "Information"
 msgstr "Informasi"
 
@@ -8329,8 +8373,8 @@ msgstr "Hapus database yang memiliki nama yang sama dengan pengguna."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
 "tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
@@ -9386,7 +9430,7 @@ msgstr "Tidak dapat terhubung ke sumber"
 msgid "Could not connect to the target"
 msgstr "Tidak dapat terhubung ke target"
 
-#: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:76
+#: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:50
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
@@ -9784,36 +9828,36 @@ msgstr ""
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
-#: sql.php:182
+#: sql.php:189
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:654 tbl_replace.php:388
+#: sql.php:661 tbl_replace.php:369
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: sql.php:671
+#: sql.php:678
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:674 tbl_replace.php:362
+#: sql.php:681 tbl_replace.php:343
 msgid "Showing SQL query"
 msgstr ""
 
-#: sql.php:676
+#: sql.php:683
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Mengesahkan (validate) SQL"
 
-#: sql.php:983
+#: sql.php:990
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Ditemukan masalah dengan indeks dalam tabel `%s`"
 
-#: sql.php:1015
+#: sql.php:1022
 msgid "Label"
 msgstr "Judul"
 
@@ -9952,12 +9996,12 @@ msgstr ""
 msgid "Y Values"
 msgstr "Nilai"
 
-#: tbl_create.php:56
+#: tbl_create.php:30
 #, fuzzy, php-format
 msgid "Table %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
-#: tbl_create.php:242
+#: tbl_create.php:216
 #, fuzzy, php-format
 msgid "Table %1$s has been created."
 msgstr "Tabel %s telah dihapus"
@@ -10028,35 +10072,35 @@ msgstr "Gagal ubah nama Indeks ke PRIMARY!"
 msgid "No index parts defined!"
 msgstr "Bagian indeks belum diberi definisin!"
 
-#: tbl_indexes.php:159
+#: tbl_indexes.php:165
 msgid "Create a new index"
 msgstr "Ciptakan indeks baru"
 
-#: tbl_indexes.php:161
+#: tbl_indexes.php:167
 msgid "Modify an index"
 msgstr "Ubah indeks"
 
-#: tbl_indexes.php:167
+#: tbl_indexes.php:173
 msgid "Index name:"
 msgstr "Nama indeks&nbsp;:"
 
-#: tbl_indexes.php:173
+#: tbl_indexes.php:179
 msgid "Index type:"
 msgstr "Tipe indeks&nbsp;:"
 
-#: tbl_indexes.php:183
+#: tbl_indexes.php:189
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
 "(Tanda nama \"PRIMARY\" <b>wajib</b> sebagai satu-satunya nama dan <b>hanya</"
 "b> sebagai Kunci utama saja!)"
 
-#: tbl_indexes.php:257
+#: tbl_indexes.php:263
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "Menambahkan ke indeks &nbsp;%s&nbsp;kolom"
 
-#: tbl_indexes.php:262 tbl_structure.php:726 tbl_structure.php:737
+#: tbl_indexes.php:268 tbl_structure.php:727 tbl_structure.php:738
 msgid "Column count has to be larger than zero."
 msgstr "Perhitungan kolom wajib lebih besar dari nol."
 
@@ -10186,39 +10230,39 @@ msgstr "Cek integriti referensial:"
 msgid "Show tables"
 msgstr "Tampilkan tabel"
 
-#: tbl_printview.php:307 tbl_structure.php:792
+#: tbl_printview.php:307 tbl_structure.php:793
 msgid "Space usage"
 msgstr "Penggunaan tempat"
 
-#: tbl_printview.php:311 tbl_structure.php:796
+#: tbl_printview.php:311 tbl_structure.php:797
 msgid "Usage"
 msgstr "Penggunaan"
 
-#: tbl_printview.php:338 tbl_structure.php:823
+#: tbl_printview.php:338 tbl_structure.php:824
 msgid "Effective"
 msgstr "Efektif"
 
-#: tbl_printview.php:363 tbl_structure.php:861
+#: tbl_printview.php:363 tbl_structure.php:862
 msgid "Row Statistics"
 msgstr "Statistik Baris"
 
-#: tbl_printview.php:366 tbl_structure.php:864
+#: tbl_printview.php:366 tbl_structure.php:865
 msgid "Statements"
 msgstr "Keterangan"
 
-#: tbl_printview.php:377 tbl_structure.php:876
+#: tbl_printview.php:377 tbl_structure.php:877
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:379 tbl_structure.php:878
+#: tbl_printview.php:379 tbl_structure.php:879
 msgid "dynamic"
 msgstr "dinamis"
 
-#: tbl_printview.php:401 tbl_structure.php:921
+#: tbl_printview.php:401 tbl_structure.php:922
 msgid "Row length"
 msgstr "Panjangnya baris"
 
-#: tbl_printview.php:411 tbl_structure.php:929
+#: tbl_printview.php:411 tbl_structure.php:930
 msgid " Row size "
 msgstr " Besarnya baris "
 
@@ -10350,13 +10394,13 @@ msgstr "Pada Awal Tabel"
 msgid "After %s"
 msgstr "sisipkan setelah %s"
 
-#: tbl_structure.php:731
+#: tbl_structure.php:732
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Ciptakan indeks pada kolom &nbsp;%s&nbsp;"
 
-#: tbl_structure.php:892
+#: tbl_structure.php:893
 msgid "partitioned"
 msgstr ""
 
@@ -10554,11 +10598,11 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Deskripsi"
 
-#: user_password.php:48
+#: user_password.php:34
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
 
-#: user_password.php:110
+#: user_password.php:96
 msgid "The profile has been updated."
 msgstr "Profil pengguna telah di-update."
 
@@ -10570,6 +10614,14 @@ msgstr "Nama VIEW"
 #, fuzzy
 msgid "Rename view to"
 msgstr "Ubah nama tabel menjadi "
+
+#, fuzzy
+#~| msgid "row(s) starting from record #"
+#~ msgid "row(s) starting from row #"
+#~ msgstr "baris dimulai dari rekord #"
+
+#~ msgid "in %s mode and repeat headers after %s cells"
+#~ msgstr "diatur dengan urutan %s dan mengulang header setelah %s sel."
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "

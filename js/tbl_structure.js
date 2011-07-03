@@ -250,4 +250,146 @@ $(document).ready(function() {
         }) // end $.post()
     }) // end insert table button "do_save_data"
 
+    /**
+     *Ajax event handler for index edit
+    **/
+    $("#table_index tbody tr td.edit_index.ajax").live('click', function(event){
+        event.preventDefault();
+        var url = $(this).find("a").attr("href");
+        if (url.substring(0, 16) == "tbl_indexes.php?") {
+            url = url.substring(16, url.length );
+        }
+        url = url + "&ajax_request=true";
+
+        var div = $('<div id="edit_index_dialog"></div>');
+
+        /**
+         *  @var    button_options  Object that stores the options passed to jQueryUI
+         *                          dialog
+         */
+        var button_options = {};
+        // in the following function we need to use $(this)
+        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+
+        var button_options_error = {};
+        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+        var $msgbox = PMA_ajaxShowMessage();
+
+        $.get( "tbl_indexes.php" , url ,  function(data) {
+            //in the case of an error, show the error message returned.
+            if (data.success != undefined && data.success == false) {
+                div
+                .append(data.error)
+                .dialog({
+                    title: PMA_messages['strEdit'],
+                    height: 230,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options_error
+                })// end dialog options
+            } else {
+                div
+                .append(data)
+                .dialog({
+                    title: PMA_messages['strEdit'],
+                    height: 600,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    buttons : button_options
+                })
+                //Remove the top menu container from the dialog
+                .find("#topmenucontainer").hide()
+                ; // end dialog options
+            }
+            PMA_ajaxRemoveMessage($msgbox);
+        }) // end $.get()
+    });
+
+    /**
+     *Ajax action for submiting the index form
+    **/
+    $("#index_frm.ajax input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the export form
+         */
+        var $form = $("#index_frm");
+
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+            if ($("#sqlqueryresults").length != 0) {
+                $("#sqlqueryresults").remove();
+            }
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data.sql_query);
+                $("#result_query .notice").remove();
+                $("#result_query").prepend((data.message));
+
+                /*Reload the field form*/
+                $("#table_index").remove();
+                var temp_div = $("<div id='temp_div'><div>").append(data.index_table);
+                $(temp_div).find("#table_index").insertAfter("#index_header");
+                if ($("#edit_index_dialog").length > 0) {
+                    $("#edit_index_dialog").dialog("close").remove();
+                }
+
+            } else {
+                var temp_div = $("<div id='temp_div'><div>").append(data.error);
+                var error = $(temp_div).find(".error code").addClass("error");
+                PMA_ajaxShowMessage(error);
+            }
+
+        }) // end $.post()
+    }) // end insert table button "do_save_data"
+
+    /**
+     *Ajax action for submiting the index form for add more columns
+    **/
+    $("#index_frm.ajax input[name=add_fields]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the export form
+         */
+        var $form = $("#index_frm");
+
+        PMA_prepareForAjaxRequest($form);
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
+            $("#index_columns").remove();
+            var temp_div = $("<div id='temp_div'><div>").append(data);
+            $(temp_div).find("#index_columns").insertAfter("#index_frm fieldset .error");
+        }) // end $.post()
+    }) // end insert table button "Go"
+
+    /**Add the show/hide index table option if the index is available*/
+    if ($("#index_div.ajax").find("#table_index").length != 0) {
+        /**
+         *Prepare a div containing a link for toggle the index table
+         */
+        $('<div id="toggletableindexdiv"><a id="toggletableindexlink"></a></div>')
+        .insertAfter('#index_div')
+        /** don't show it until we have index table on-screen */
+        .show();
+
+        /** Changing the displayed text according to the hide/show criteria in table index*/
+
+        $('#toggletableindexlink')
+        .html(PMA_messages['strHideIndexes'])
+        .bind('click', function() {
+             var $link = $(this);
+             $('#index_div').slideToggle();
+             if ($link.text() == PMA_messages['strHideIndexes']) {
+                 $link.text(PMA_messages['strShowIndexes']);
+             } else {
+                 $link.text(PMA_messages['strHideIndexes']);
+             }
+             /** avoid default click action */
+             return false;
+        });
+    } //end show/hide table index
+
+
 }) // end $(document).ready()
