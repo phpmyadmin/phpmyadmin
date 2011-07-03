@@ -8767,10 +8767,9 @@ msgid "Server traffic"
 msgstr "Server Traffic"
 
 #: server_status.php:403
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Die Slave Statustabelle sehen"
+msgstr "Alle Status Variablen"
 
 #: server_status.php:413 server_status.php:439
 #, fuzzy
