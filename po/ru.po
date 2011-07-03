@@ -4929,7 +4929,7 @@ msgstr "Определяющий"
 
 #: libraries/db_routines.lib.php:753
 msgid "Definer"
-msgstr ""
+msgstr "Определитель"
 
 #: libraries/db_routines.lib.php:758
 #, fuzzy
