@@ -419,10 +419,10 @@ class PMA_Index
 
         $r = '';
 
-        $r .= '<h2>' . __('Indexes') . ': ';
+        $r .= '<h2 id="index_header">' . __('Indexes') . ': ';
         $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
         $r .= '</h2>';
-        $r .= '<table>';
+        $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
         if (! $print_mode) {
@@ -450,7 +450,11 @@ class PMA_Index
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
-                $r .= '<td ' . $row_span . '>'
+                $r .= '<td class="edit_index ';
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $r .= 'ajax" ';
+                }
+                $r .= '" ' . $row_span . '>'
                    . '    <a href="tbl_indexes.php' . PMA_generate_common_url($this_params)
                    . '">' . PMA_getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
