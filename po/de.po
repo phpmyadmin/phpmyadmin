@@ -1339,6 +1339,8 @@ msgstr "Löschen"
 #: js/messages.php:122
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"DieDefinition einer gespeicherten Prozedur muss ein RETURN-Statement "
+"beinhalten!"
 
 #: js/messages.php:123
 #, fuzzy
