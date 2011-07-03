@@ -1308,7 +1308,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
                 if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation']) && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])) {
-                    $include_file = $GLOBALS['mime_map'][$meta->name]['transformation'];
+                    $include_file = PMA_securePath($GLOBALS['mime_map'][$meta->name]['transformation']);
 
                     if (file_exists('./libraries/transformations/' . $include_file)) {
                         $transformfunction_name = str_replace('.inc.php', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
