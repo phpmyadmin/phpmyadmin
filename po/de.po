@@ -5685,7 +5685,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
-msgstr "Reparaturprozess"
+msgstr "Reparaturprozesse"
 
 #: libraries/engines/myisam.lib.php:42
 msgid ""
