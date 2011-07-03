@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-03 19:34+0200\n"
+"PO-Revision-Date: 2011-07-03 19:35+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -5400,7 +5400,7 @@ msgstr "Текст (WKT)"
 
 #: libraries/display_tbl.lib.php:644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Бинарный (WKB)"
 
 #: libraries/display_tbl.lib.php:1288
 msgid "Copy"
