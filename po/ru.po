@@ -1901,7 +1901,7 @@ msgstr "Путь к файлам темы %s не найден!"
 
 #: libraries/Theme_Manager.class.php:291 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
