@@ -4939,7 +4939,6 @@ msgid "Return options"
 msgstr "Rückgabe der Optionen"
 
 #: libraries/db_routines.lib.php:745
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
 msgstr "Beschreibung"
