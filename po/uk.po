@@ -1235,7 +1235,7 @@ msgstr "Статистика запиту"
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: js/messages.php:94
 msgid "Loading"
