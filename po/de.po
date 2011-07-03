@@ -9752,10 +9752,9 @@ msgid "Insecure connection"
 msgstr "Unsichere Verbindung"
 
 #: setup/frames/index.inc.php:92
-#, fuzzy
 #| msgid "Configuration storage"
 msgid "Configuration saved."
-msgstr "Konfigurationsspeicher"
+msgstr "Konfiguration gespeichert."
 
 #: setup/frames/index.inc.php:93
 msgid ""
