@@ -3036,7 +3036,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr ""
+msgstr "Імпорт / Експорт"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
