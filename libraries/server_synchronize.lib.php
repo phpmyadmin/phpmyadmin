@@ -624,7 +624,7 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
         $Create_Query = PMA_DBI_fetch_value("SHOW CREATE TABLE " . PMA_backquote($src_db) . '.' . PMA_backquote($uncommon_tables[$table_index]), 0, 1, $src_link);
 
         // Replace the src table name with a `dbname`.`tablename`
-        $Create_Table_Query = preg_replace('/' . PMA_backquote($uncommon_tables[$table_index]) . '/', 
+        $Create_Table_Query = preg_replace('/' . preg_quote(PMA_backquote($uncommon_tables[$table_index]), '/') . '/', 
                                             PMA_backquote($trg_db) . '.' .PMA_backquote($uncommon_tables[$table_index]),
                                             $Create_Query,
                                             $limit = 1
