@@ -2012,7 +2012,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "неуспешно получаване на типа на BLOB"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
