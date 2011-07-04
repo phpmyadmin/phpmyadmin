@@ -14,6 +14,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/tbl_select.lib.php';
 require_once './libraries/relation.lib.php';
+require_once './libraries/tbl_info.inc.php';
 
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
@@ -65,7 +66,7 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
     $foreigners = PMA_getForeigners($db, $table);
     $flag = 1;
     $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
-    $maxPlotlLimit = $GLOBALS['cfg']['pmaMaxRowPlotLimit']; 
+    $maxPlotlLimit = $GLOBALS['cfg']['maxRowPlotLimit']; 
     ?>
 
 <fieldset id="fieldset_subtab">
@@ -348,7 +349,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
             //JSON encode the data(query result)
             if(isset($zoom_submit) && !empty($data)){ ?>
                 <div id='resizer' style="width:900px;float:right">
-	        <?php if (isset($data)) ?><center><!-- <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a><--!> </center>
+	        <?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
                 <div id="querydata" style="display:none">
                     <?php if(isset($data)) echo json_encode($data); ?>
                 </div>
