@@ -614,7 +614,7 @@ msgstr "Adgang nægtet"
 
 #: db_search.php:66 db_search.php:309
 msgid "at least one of the words"
-msgstr "mindst et af ordene"
+msgstr "mindst ét ​​af ordene"
 
 #: db_search.php:67 db_search.php:310
 msgid "all words"
