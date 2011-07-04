@@ -2067,9 +2067,13 @@ span.mysql-number {
     border-right: solid 1px #FFFFFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -3px;
+    margin-left: -6px;
     position: absolute;
     width: 5px;
+}
+
+.pma_table td {
+    position: static;
 }
 
 .pma_table th.draggable span, .pma_table tbody td span {
@@ -2121,9 +2125,120 @@ span.mysql-number {
     margin-top: -1em;
     opacity: 0.8;
     padding: 0.5em 1em;
-    position: absolute;
+    position: fixed;
     text-shadow: -1px -1px #000;
     -moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
     border-radius: 0.3em;
+}
+
+.data {
+    position: relative;
+}
+
+.cHide {
+    background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
+    color: #CCC;
+    cursor: pointer;
+    height: 16px;
+    margin-left: -5px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.cHide:hover {
+    background-color: #AAA;
+}
+
+.cDrop {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.coldrop {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_drop.png);
+    cursor: pointer;
+    height: 16px;
+    margin-left: 0.5em;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.coldrop:hover, .coldrop-hover {
+    background-color: #999;
+}
+
+.cList {
+    background: #EEE;
+    border: solid 1px #999;
+    position: absolute;
+}
+
+.cList table {
+}
+
+.cList table tr:hover {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.cList table td input {
+    cursor: pointer;
+}
+
+.showAllColBtn {
+    border-bottom: solid 1px #999;
+    border-top: solid 1px #999;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.35em 1em;
+    text-align: center;
+}
+
+.showAllColBtn:hover {
+    background: #DDD;
+}
+
+.navigation {
+    background: #E5E5E5;
+    border: 1px solid black;
+    margin: 0.8em 0;
+}
+
+.navigation td {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.navigation_separator {
+    color: #555;
+    display: inline-block;
+    text-align: center;
+    width: 1.2em;
+    text-shadow: 1px 0 #FFF;
+}
+
+.navigation input[type=submit] {
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0.3em 0.5em;
+    min-width: 1.5em;
+    font-weight: bold;
+}
+
+.navigation input[type=submit]:hover {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.navigation select {
+    margin: 0 0.8em;
 }
