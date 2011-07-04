@@ -25,11 +25,27 @@ phpMyAdmin - ChangeLog
 + [display] More options for browsing GIS data
 + [interface] Support for spatial indexes
 + [display] GIS data visualization
-+ AJAX for table structure multiple-columns change
++ AJAX for table structure multiple-column change
++ AJAX for table structure index edit
++ Show/hide indexes in table Structure
++ More compact navigation bar
++ Display direction (horizontal/vertical) no longer displayed by default
++ Shift/click support in database Structure
++ Show/hide column in table Browse
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
 - bug #3323101 [parser] Invalid escape sequence in SQL parser
+- bug #3348995 [config] $cfg['Export']['asfile'] set to false does not select asText option
+- bug #3340151 [export] Working SQL query exports error page
+- bug #3353649 [interface] "Create an index on X columns" form not validated
+- bug #3350790 [interface] JS error in Table->Structure->Index->Edit
+
+3.4.3.1 (2011-07-02)
+- [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
+- [security] Fixed possible code injection incase session variables are compromised, see PMASA-2011-6
+- [security] Fixed regexp quoting issue in Synchronize code, see PMASA-2011-7
+- [security] Fixed filtering of a file path, which allowed for directory traversal, see PMASA-2011-8
 
 3.4.3.0 (2011-06-27)
 - bug #3311170 [sync] Missing helper icons in Synchronize
@@ -119,7 +135,7 @@ phpMyAdmin - ChangeLog
 + patch #2974341 [structure] Clicking on table name in db Structure should 
   Browse the table if possible, thanks to bhdouglass - dougboybhd
 + patch #2975533 [search] New search operators, thanks to
-  Martynas Mickevičius
+  Martynas MickeviÄius
 + patch #2967320 [designer] Colored relations based on the primary key,
   thanks to GreenRover - greenrover
 - [core] Provide way for vendors to easily change paths to config files.
@@ -273,7 +289,7 @@ phpMyAdmin - ChangeLog
 
 3.3.7.0 (2010-09-07)
 - patch #3050492 [PDF scratchboard] Cannot drag table box to the edge after
-  a page size increase, thanks to Martin Schönberger - mad05
+  a page size increase, thanks to Martin SchÃ¶nberger - mad05
 
 3.3.6.0 (2010-08-28)
 - bug #3033063 [core] Navi gets wrong db name
@@ -294,7 +310,7 @@ phpMyAdmin - ChangeLog
 
 3.3.5.0 (2010-07-26)
 - patch #2932113 [information_schema] Slow export when having lots of
-  databases, thanks to Stéphane Pontier - shadow_walker
+  databases, thanks to StÃ©phane Pontier - shadow_walker
 - bug #3022705 [import] Import button does not work in Catalan when there
   is no progress bar possible
 - bug [replication] Do not offer information_schema in the list of databases
@@ -334,9 +350,9 @@ phpMyAdmin - ChangeLog
 - patch #2984893 [engines] InnoDB storage page emits a warning,
   thanks to Madhura Jayaratne - madhuracj
 - bug #2974687, bug #2974692 [compatibility] PHPExcel : IBM AIX iconv() does not work,
-  thanks to Björn Wiberg - bwiberg
+  thanks to BjÃ¶rn Wiberg - bwiberg
 - bug #2983066 [interface] Flush table on table operations shows the query twice, 
-  thanks to Martynas Mickevičius - BlinK_
+  thanks to Martynas MickeviÄius - BlinK_
 - bug #2983060, patch #2987900 [interface] Fix initial state of tables in
   designer, thanks to Sutharshan Balachandren.
 - bug #2983062, patch #2989408 [engines] Fix warnings when changing table
@@ -415,7 +431,7 @@ phpMyAdmin - ChangeLog
 + rfe #2839504 [engines] Support InnoDB plugin's new row formats 
 + [core] Added ability for synchronizing databases among servers.
 + [lang] #2843101 Dutch update, thanks to scavenger2008
-+ [lang] Galician update, thanks to Xosé Calvo - xosecalvo
++ [lang] Galician update, thanks to XosÃ© Calvo - xosecalvo
 + [export] Added MediaWiki export module,
   thanks to Derek Schaefer - drummingds1
 + [lang] Turkish update, thanks to Burak Yavuz

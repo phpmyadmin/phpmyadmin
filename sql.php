@@ -164,10 +164,17 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 /**
  * Check ajax request to set the column order
  */
-if(isset($_REQUEST['set_col_order']) && $_REQUEST['set_col_order'] == true) {
+if(isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     $pmatable = new PMA_Table($table, $db);
+
+    // set column order
     $col_order = explode(',', $_REQUEST['col_order']);
     $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+
+    // set column visibility
+    $col_visib = explode(',', $_REQUEST['col_visib']);
+    $retval &= $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+
     PMA_ajaxResponse(NULL, ($retval == true));
 }
 
