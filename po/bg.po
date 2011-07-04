@@ -2392,6 +2392,7 @@ msgstr "Потребителско - показване на всички опц
 #: libraries/config.values.php:102
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
+"Потребителско - като горното, но без показване на избор бързо/потребителско"
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
