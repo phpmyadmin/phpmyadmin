@@ -587,10 +587,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create view"
 msgid "Create routine"
-msgstr "Създаване на изглед"
+msgstr "Създаване на процедура"
 
 #: db_routines.php:385
 #| msgid "Edit mode"
