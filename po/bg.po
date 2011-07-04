@@ -5216,7 +5216,7 @@ msgstr "Не открит тригер с име %s"
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Няма тригери"
+msgstr "Няма тригери."
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:936
 msgid "Time"
