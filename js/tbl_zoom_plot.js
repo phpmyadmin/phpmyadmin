@@ -94,6 +94,18 @@ $(document).ready(function() {
           $('#zoom_search_form').submit();
     })
 
+    /*
+     * Disable the data info form elements if browse mode else enable on edit mode
+     */ 
+    if($("input[name='mode']:checked").val() == 'edit'){
+	    for(var i = 4; i < 8 ; i++)
+   	        $('#fieldID_' + i).removeAttr('disabled');  
+	}
+    else{
+       for(var i = 4; i < 8 ; i++)
+           $('#fieldID_' + i).attr('disabled', 'disabled');  
+	}
+
     /**
      ** Change mouse pointer on change of mode
      */ 
@@ -102,24 +114,28 @@ $(document).ready(function() {
 	    currentSettings.plotOptions.series.cursor = 'crosshair';
 	    cursorMode = 'crosshair';
             currentChart = PMA_createChart(currentSettings);
+	    for(var i = 4; i < 8 ; i++)
+   	        $('#fieldID_' + i).removeAttr('disabled');  
 	}
 	else{
 	    currentSettings.plotOptions.series.cursor = 'pointer';
 	    cursorMode = 'pointer';
             currentChart = PMA_createChart(currentSettings);
+	    for(var i = 4; i < 8 ; i++)
+   	        $('#fieldID_' + i).attr('disabled', 'disabled');  
 	}
-     });
+    });
 
-     /**
+    /**
       ** Prepare a div containing a link, otherwise it's incorrectly displayed 
       ** after a couple of clicks
       **/
-     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
-     .insertAfter('#zoom_search_form')
-     // don't show it until we have results on-screen
-     .hide();
+    $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
+    .insertAfter('#zoom_search_form')
+    // don't show it until we have results on-screen
+    .hide();
 
-     $('#togglesearchformlink')
+    $('#togglesearchformlink')
         .html(PMA_messages['strShowSearchCriteria'])
         .bind('click', function() {
             var $link = $(this);
@@ -149,7 +165,7 @@ $(document).ready(function() {
 	$('#togglesearchformdiv').show();
         
         ShowDialog(false);
-	$('#resizer').height($('#dataDisplay').height() + 49); 
+	$('#resizer').height($('#dataDisplay').height() + 50); 
 
 
         var xLabel = $('#tableid_0').val();
@@ -187,7 +203,7 @@ $(document).ready(function() {
             	defaultSeriesType: 'scatter',
 	    	zoomType: 'xy',
 	    	width:$('#resizer').width() -3,
-            	height:$('#resizer').height() 
+            	height:$('#resizer').height()-20 
 	    },
 	    credits: {
                 enabled: false 
@@ -239,7 +255,7 @@ $(document).ready(function() {
             resize: function() {
                 currentChart.setSize(
                     this.offsetWidth -3,
-                    this.offsetHeight - 20,
+                    this.offsetHeight -20,
                     false
                 );
             }
