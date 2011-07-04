@@ -4657,10 +4657,9 @@ msgid "Add parameter"
 msgstr ""
 
 #: libraries/db_routines.lib.php:710
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Изтриване БД"
+msgstr ""
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
