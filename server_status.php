@@ -642,16 +642,16 @@ function printQueryStatistics() {
         <br>
         <span>
         <?php
-        echo '&oslash;'.__('per hour').':'; 
+        echo '&oslash; '.__('per hour').':'; 
         echo PMA_formatNumber($total_queries * $hour_factor, 0);
         echo '<br>';
         
-        echo '&oslash;'.__('per minute').':'; 
+        echo '&oslash; '.__('per minute').':'; 
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); 
         echo '<br>';
         
         if($total_queries / $server_status['Uptime'] >= 1) {
-            echo '&oslash;'.__('per second').':';
+            echo '&oslash; '.__('per second').':';
             echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); 
         }
         ?>
@@ -715,12 +715,14 @@ function printQueryStatistics() {
         </table>
 
         <div id="serverstatusquerieschart">
+            <span style="display:none;">
         <?php
             if($other_sum > 0)
                 $chart_json[__('Other')] = $other_sum;
 
             echo json_encode($chart_json);
         ?>
+            </span>
         </div>
         <?php
 }
@@ -971,6 +973,7 @@ function printVariablesTable() {
      * Messages are built using the message name
      */
     $strShowStatus = array(
+        'Aborted_clients' => __('The number of connections that were aborted because the client died without closing the connection properly.'),
         'Aborted_connects' => __('The number of failed attempts to connect to the MySQL server.'),
         'Binlog_cache_disk_use' => __('The number of transactions that used the temporary binary log cache but that exceeded the value of binlog_cache_size and used a temporary file to store statements from the transaction.'),
         'Binlog_cache_use' => __('The number of transactions that used the temporary binary log cache.'),

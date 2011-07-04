@@ -95,7 +95,7 @@ class Linux {
     function loadavg() {
         $buf = file_get_contents('/proc/stat');
         $nums=preg_split("/\s+/", substr($buf,0,strpos($buf,"\n")));
-        return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => $nums[4]);
+        return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => intval($nums[4]));
     }
     
     function memory() {
@@ -104,6 +104,9 @@ class Linux {
         $mem = array_combine( $matches[1], $matches[2] );
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
+        
+        foreach($mem as $idx=>$value) 
+            $mem[$idx] = intval($value);
         
         return $mem;
     }

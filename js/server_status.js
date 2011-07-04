@@ -101,6 +101,9 @@ $(function() {
         tabStatus[$(this).attr('id')] = 'static';
     });
     
+    // Display button links
+    $('div.buttonlinks').show();
+    
     // Handles refresh rate changing
     $('.buttonlinks select').change(function() {
         var chart=tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
@@ -330,7 +333,7 @@ $(function() {
 
                 // Build query statistics chart
                 var cdata = new Array();
-                $.each(jQuery.parseJSON($('#serverstatusquerieschart').html()),function(key,value) {
+                $.each(jQuery.parseJSON($('#serverstatusquerieschart span').html()),function(key,value) {
                     cdata.push([key,parseInt(value)]);
                 });
                 
@@ -703,7 +706,7 @@ $(function() {
                 { dataType: 'cpu', 
                   name: 'none', 
                   transformFn: function(cur, prev) {
-                      if(prev==null) return undefined;
+                      if(prev == null) return undefined;
                       var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
                       var diff_idle = cur.idle - prev.idle;
                       return 100*(diff_total - diff_idle) / diff_total;
@@ -883,12 +886,13 @@ $(function() {
                     if(elem.nodes[j].valueDivisor)
                         value = value / elem.nodes[j].valueDivisor;
 
-                    if(elem.nodes[j].transformFn)
+                    if(elem.nodes[j].transformFn) {
                         value = elem.nodes[j].transformFn(
                             chartData[key][j],
                             (oldChartData == null) ? null : oldChartData[key][j],
                             j
                         );
+                    }
                     
                     if(value != undefined)
                         elem.chart.series[j].addPoint(

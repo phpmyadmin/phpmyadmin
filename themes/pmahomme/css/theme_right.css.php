@@ -1185,6 +1185,7 @@ table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serve
 .buttonlinks {
     float: <?php echo $right; ?>;
     white-space: nowrap;
+    display: none; /* Made visible with js */
 }
 
 /* Also used for the variables page */

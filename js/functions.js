@@ -1508,7 +1508,7 @@ function PMA_createChart(passedSettings) {
         
         if(server_time_diff) {
             settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-            settings.xAxis.max = new Date().getTime() - server_time_diff;
+            settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
         }
     }
 
