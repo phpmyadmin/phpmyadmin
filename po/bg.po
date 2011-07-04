@@ -7770,7 +7770,7 @@ msgstr ""
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
 msgid "Allows creating and dropping triggers"
-msgstr "Позволява създаване и премахване на тригери"
+msgstr "Позволява създаване и изтриване на тригери"
 
 #: server_privileges.php:66 server_privileges.php:192
 #: server_privileges.php:457 server_privileges.php:519
