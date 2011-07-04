@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-04 08:29+0200\n"
+"PO-Revision-Date: 2011-07-04 08:30+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4689,10 +4689,9 @@ msgid "Definer"
 msgstr ""
 
 #: libraries/db_routines.lib.php:758
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Сигурност"
+msgstr "Тип на сигурност"
 
 #: libraries/db_routines.lib.php:765
 msgid "SQL data access"
