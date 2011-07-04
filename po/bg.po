@@ -1193,7 +1193,7 @@ msgstr "."
 
 #: js/messages.php:78
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB изпратени след последното опресняване"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
