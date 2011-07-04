@@ -4737,7 +4737,7 @@ msgstr ""
 #: libraries/db_routines.lib.php:1209
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Няма процедури"
+msgstr "Няма процедури."
 
 #: libraries/db_routines.lib.php:1253
 #| msgid "Add index"
