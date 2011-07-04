@@ -9799,10 +9799,9 @@ msgid "Add unique index"
 msgstr "Добавяне на уникален ключ"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Добавяне на индекс"
+msgstr "Добавяне на SPATIAL индекс"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
