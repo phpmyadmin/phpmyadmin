@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-04 10:35+0200\n"
+"PO-Revision-Date: 2011-07-04 10:36+0200\n"
 "Last-Translator:  <thomas@dyhr.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -533,10 +533,9 @@ msgstr "MySQL returnerede: "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Felj i udførsel af forespørgsel"
+msgstr "Fejl i udførsel af forespørgsel"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
