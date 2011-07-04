@@ -8273,10 +8273,9 @@ msgid "Containing the word:"
 msgstr "Съдържащ думата:"
 
 #: server_status.php:467
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "Показване на отворените теблици"
+msgstr ""
 
 #: server_status.php:471
 msgid "Filter by category..."
