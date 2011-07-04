@@ -2280,7 +2280,7 @@ msgstr "Показване БД &quot;%s&quot;."
 #: libraries/common.lib.php:2403
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "Функционалността %s се влияе от известен дефект, вж. %s"
+msgstr "Функционалността %s се влияе от известен дефект, виж %s"
 
 #: libraries/common.lib.php:2760 libraries/common.lib.php:2767
 #: libraries/common.lib.php:2955 libraries/config/setup.forms.php:295
