@@ -2344,7 +2344,7 @@ msgstr "И двете"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Никъде"
 
 #: libraries/config.values.php:47
 msgid "Left"
