@@ -2210,7 +2210,7 @@ msgstr "Редакция на заявката на място"
 
 #: libraries/common.lib.php:1247
 msgid "Inline"
-msgstr ""
+msgstr "На място"
 
 #: libraries/common.lib.php:1314 sql.php:931
 msgid "Profiling"
