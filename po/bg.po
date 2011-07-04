@@ -1756,7 +1756,7 @@ msgstr "Главният ключ беше изтрит"
 #: libraries/Index.class.php:478
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "Индекса %s беше изтрит"
+msgstr "Индекс %s беше изтрит"
 
 #: libraries/Index.class.php:582
 #, php-format
