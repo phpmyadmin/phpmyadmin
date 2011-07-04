@@ -8305,7 +8305,7 @@ msgstr "Тип на заявката"
 #. l10n: # = Amount of queries
 #: server_status.php:561
 msgid "#"
-msgstr ""
+msgstr "№"
 
 #: server_status.php:625
 #, php-format
