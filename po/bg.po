@@ -1197,7 +1197,7 @@ msgstr "KiB изпратени след последното опреснява�
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB получени след последното опресняване"
 
 #: js/messages.php:80
 #| msgid "Server Choice"
