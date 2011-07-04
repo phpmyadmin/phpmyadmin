@@ -5902,10 +5902,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Отваряне на нов прозорец с phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Няма намерени данни за диаграмата."
+msgstr ""
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
