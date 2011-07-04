@@ -9472,7 +9472,7 @@ msgstr "Стойности на X"
 #: tbl_chart.php:129
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Етикет на оста Y"
+msgstr "Етикет на оста Y:"
 
 #: tbl_chart.php:129
 #| msgid "Value"
