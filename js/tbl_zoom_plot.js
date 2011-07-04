@@ -7,23 +7,42 @@
  **/
 
 
+/**
+ **  Display Help/Info
+ **/
 function displayHelp() {
         var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp']);
 }
 
+/**
+ ** Extend the array object for max function
+ ** @param array
+ **/
 Array.max = function (array) {
 	return Math.max.apply( Math, array );
 }
 
+/**
+ ** Extend the array object for min function
+ ** @param array
+ **/
 Array.min = function (array) {
 	return Math.min.apply( Math, array );
 }
 
+
+/**
+ ** Scrolls the view to the display section
+ **/
 function scrollToChart() {
    var x = $('#dataDisplay').offset().top - 100; // 100 provides buffer in viewport
    $('html,body').animate({scrollTop: x}, 500);
 }
 
+/**
+ ** Displays the query result display section
+ ** @param modal: type of dialog
+ **/
 function ShowDialog(modal) {
       $("#overlay").show();
       $("#dialog").fadeIn(300);
@@ -31,8 +50,12 @@ function ShowDialog(modal) {
       {
           HideDialog();
       });
-    }
+}
 
+/**
+ ** Hides the query result display section
+ ** @param modal : type of dialog
+ **/
 function HideDialog() {
     $("#overlay").hide();
     $("#dialog").fadeOut(300);
@@ -49,9 +72,9 @@ $(document).ready(function() {
         cache: 'false'
     });
 
-
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer'; 
     var currentChart=null;
+
     /**
      ** Form submit on field change
      **/
@@ -71,6 +94,9 @@ $(document).ready(function() {
           $('#zoom_search_form').submit();
     })
 
+    /**
+     ** Change mouse pointer on change of mode
+     */ 
     $("input[name='mode']").change(function(){
         if($("input[name='mode']:checked").val() == 'edit'){
 	    currentSettings.plotOptions.series.cursor = 'crosshair';
@@ -84,27 +110,29 @@ $(document).ready(function() {
 	}
      });
 
-    /*
-     * Edit point data submit
-     */
+     /**
+      ** Prepare a div containing a link, otherwise it's incorrectly displayed 
+      ** after a couple of clicks
+      **/
+     $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
+     .insertAfter('#zoom_search_form')
+     // don't show it until we have results on-screen
+     .hide();
 
-    $('#buttonID').live('click',function(event){
-	
-        $search_form = $('#zoom_search_form');
-	event.preventDefault();
-	alert('Working on it!');
-	//PMA_prepareForAjaxRequest($search_form);
-	//var str = $search_form.serialize();  
-        //$.post($search_form.attr('action'), str, function(response){
-	//	$('#sqlqueryresults').html(response);
-	//	$("#sqlqueryresults").trigger('appendAnchor');
-
-	
-	//});
-	
-
-    });
-
+     $('#togglesearchformlink')
+        .html(PMA_messages['strShowSearchCriteria'])
+        .bind('click', function() {
+            var $link = $(this);
+            $('#zoom_search_form').slideToggle();
+            if ($link.text() == PMA_messages['strHideSearchCriteria']) {
+                $link.text(PMA_messages['strShowSearchCriteria']);
+            } else {
+                $link.text(PMA_messages['strHideSearchCriteria']);
+            }
+	     // avoid default click action
+	    return false;
+	 });
+    
     /*
      * Generate plot using Highcharts
      */ 
@@ -112,8 +140,17 @@ $(document).ready(function() {
     // Get query result 
     var data = jQuery.parseJSON($('#querydata').html());
     if (data != null) {
-    ShowDialog(false);
-    $('#resizer').height($('#dataDisplay').height() + 49); 
+
+        $('#zoom_search_form')
+         .slideToggle()
+         .hide();
+        $('#togglesearchformlink')
+         .text(PMA_messages['strShowSearchCriteria'])
+	$('#togglesearchformdiv').show();
+        
+        ShowDialog(false);
+	$('#resizer').height($('#dataDisplay').height() + 49); 
+
 
         var xLabel = $('#tableid_0').val();
     	var yLabel = $('#tableid_1').val();
@@ -129,6 +166,7 @@ $(document).ready(function() {
     	// Get column names
     	for (key in data[0]) columnNames.push(key);
 
+        // Form series 
     	$.each(data,function(key,value) {
 	    series[it] = new Object();
             series[it].data = new Array();
@@ -142,6 +180,7 @@ $(document).ready(function() {
 	    it++;   
         });
 
+        // Set the plot settings
         var currentSettings = {
             chart: {
             	renderTo: 'querychart',
@@ -207,6 +246,7 @@ $(document).ready(function() {
         });
         
         currentChart = PMA_createChart(currentSettings);
+
 	scrollToChart();
     }
 });

@@ -18,7 +18,6 @@ require_once './libraries/relation.lib.php';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'tbl_select.js';
 $GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
@@ -30,11 +29,10 @@ $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 
-
 /**
  * Not selection yet required -> displays the selection form
  */
-   
+
     // Gets some core libraries
     require_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -75,12 +73,11 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
 $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
-
 echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
-?>
 
-<?php /* Form for Zoom Search input */ 
-
+/**
+ *  Set the field name,type,collation and whether null on select of a coulmn
+ */
 if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null')))
 {
     $flag = 2;
@@ -96,55 +93,19 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 
     }
 }
+?>
 
-if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null')) {
+<?php
+  
+/*
+ * Form for input criteria
+ */
 
-    $w = $data = array(); 
-
-    $sql_query = 'SELECT *';
-
-    //Add the table
-	
-    $sql_query .= ' FROM ' . PMA_backquote($table);
-    for($i = 0 ; $i < 4 ; $i++){
-        if($inputs[$i] == __('pma_null'))
-	    continue;
-        $tmp = array();
-        // The where clause
-        $charsets = array();
-        $cnt_func = count($zoomFunc[$i]);
-        $func_type = $zoomFunc[$i];
-        list($charsets[$i]) = explode('_', $collations[$i]);
-        $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
-        $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
-        if($whereClause)
-                $w[] = $whereClause;
-
-        } // end for
-        //print_r($w);
-        if ($w) {
-            $sql_query .= ' WHERE ' . implode(' AND ', $w);
-        }
-	$sql_query .= ' LIMIT ' . $maxPlotlLimit;
-
-    if ($dataLabel == '') {
-	$dataLabel = PMA_getDisplayField($db,$table);
-    }
-
-
-    $settings = array('xLabel' => $inputs[0], 'yLabel' => $inputs[1], 'dataLabel' => $dataLabel); 
-    $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $data[] = $row;
-    }
-    $query_data = $data;
-    //$scatter_plot = PMA_SVG_scatter_plot($data,$settings); 
-}
 ?>
 <form method="post" action="tbl_zoom_select.php" name="zoomInputForm" id="zoom_search_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-<input type="hidden" name="back" value="tbl_select.php" />
+<input type="hidden" name="back" value="tbl_zoom_select.php" />
 <input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
 
 
@@ -275,10 +236,15 @@ for($i = 0 ; $i < 4 ; $i++){
 
 
 <?php
-    }
+    }//end for
 ?>
     </table>
 
+    <?php
+    /*
+     * Other inputs like data label and mode go after selection of column criteria
+     */
+    ?>
     <table>
     <tr><td><label for="label"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
     <td><select name="dataLabel" id='dataLabel' >
@@ -310,63 +276,127 @@ for($i = 0 ; $i < 4 ; $i++){
 <fieldset class="tblFooters">
     <input type="hidden" name="max_number_of_fields"
         value="<?php echo $fields_cnt; ?>" />
-    <input type="submit" name="zoom_submit" value="<?php echo __('Go'); ?>" />
+    <input type="submit" name="zoom_submit" id="zoomSubmitId" value="<?php echo __('Go'); ?>" />
 </fieldset>
-
-<div id="overlay" class="web_dialog_overlay"></div>
-<div id="dialog" class="web_dialog" style="display:none">
-<fieldset id="displaySection">
-<legend><?php echo __('Browse/Edit the points') ?></legend>
-<?php if(isset($zoom_submit) && !empty($data)){ ?>
-    <div id='resizer' style="width:900px;float:right">
-	<?php if (isset($data)) ?><center><!-- <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a><--!> </center>
-        <div id="querydata" style="display:none">
-            <?php if(isset($data)) echo json_encode($data); ?>
-        </div>
-	<div id="querychart" style="float:right">
-	</div>
-    </div>
-
-<?php } ?>
-
-<fieldset id='dataDisplay'>
-    <fieldset>
-    <table class="data">
-        <thead>
-            <tr><th> <?php echo __('Column'); ?> </th>
-            <th> <?php echo __('Value'); ?> </th></tr>
-        </thead>
-        <tbody>
-        <?php
-        $odd_row = true;
-        for ($i = 4; $i < $fields_cnt + 4 ; $i++) {
-            $tbl_fields_type[$i] = $fields_type[$i - 4];
-            $fieldpopup = $fields_list[$i - 4];
-            $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
-        ?>
-            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-                <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
-                <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
-            </tr>
-        <?php } ?>
-        </tbody>
-    </table>
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input type="submit" id="buttonID" name="edit_point" value="<?php echo __('Submit'); ?>" />
-    </fieldset>
-</fieldset>
-
-
-</fieldset>
-</div>
 </form>
+
+<?php 
+
+/*
+ * Handle the input criteria and gerate the query result
+ * Form for displaying query results
+ */
+if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null')) {
+
+    /*
+     * Query generation part
+     */
+    $w = $data = array(); 
+    $sql_query = 'SELECT *';
+
+    //Add the table
+	
+    $sql_query .= ' FROM ' . PMA_backquote($table);
+    for($i = 0 ; $i < 4 ; $i++){
+        if($inputs[$i] == __('pma_null'))
+	    continue;
+        $tmp = array();
+        // The where clause
+        $charsets = array();
+        $cnt_func = count($zoomFunc[$i]);
+        $func_type = $zoomFunc[$i];
+        list($charsets[$i]) = explode('_', $collations[$i]);
+        $unaryFlag =  (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) ? true : false;
+        $whereClause = PMA_tbl_search_getWhereClause($fields[$i],$inputs[$i], $types[$i], $collations[$i], $func_type, $unaryFlag);
+        if($whereClause)
+                $w[] = $whereClause;
+
+        } // end for
+        //print_r($w);
+        if ($w) {
+            $sql_query .= ' WHERE ' . implode(' AND ', $w);
+        }
+	$sql_query .= ' LIMIT ' . $maxPlotlLimit;
+    if ($dataLabel == '') {
+	$dataLabel = PMA_getDisplayField($db,$table);
+    }
+    
+    /*
+     * Query execution part
+     */
+    $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $data[] = $row;
+    }
+?>
+
+<?php
+    /*
+     * Form for displaying point data and also the scatter plot
+     */
+?>   
+    <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="back" value="tbl_zoom_select.php" />
+
+    <div id="overlay" class="web_dialog_overlay"></div>
+    <div id="dialog" class="web_dialog" style="display:none">
+    <fieldset id="displaySection">
+        <legend><?php echo __('Browse/Edit the points') ?></legend>
+        <?php
+            //JSON encode the data(query result)
+            if(isset($zoom_submit) && !empty($data)){ ?>
+                <div id='resizer' style="width:900px;float:right">
+	        <?php if (isset($data)) ?><center><!-- <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a><--!> </center>
+                <div id="querydata" style="display:none">
+                    <?php if(isset($data)) echo json_encode($data); ?>
+                </div>
+	        <div id="querychart" style="float:right"></div>
+                </div>
+                <?php 
+	    } ?>
+    
+    <fieldset id='dataDisplay'>
+        <legend><?php echo __('Data point content') ?></legend>
+        <fieldset>
+        <table class="data">
+            <thead>
+                <tr>
+		<th> <?php echo __('Column'); ?> </th>
+                <th> <?php echo __('Value'); ?> </th>
+		</tr>
+            </thead>
+            <tbody>
+            <?php
+                $odd_row = true;
+        	for ($i = 4; $i < $fields_cnt + 4 ; $i++) {
+            	    $tbl_fields_type[$i] = $fields_type[$i - 4];
+            	    $fieldpopup = $fields_list[$i - 4];
+            	    $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
+                    ?>
+                    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+                        <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
+                        <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
+                    </tr>
+                    <?php 
+		} ?>
+            </tbody>
+        </table>
+        </fieldset>
+        <fieldset class="tblFooters">
+            <input type="submit" id="buttonID" name="edit_point" value="<?php echo __('Submit'); ?>" />
+        </fieldset>
+    </fieldset>
+
+    </fieldset>
+    </div>
+    </form>
+    </fieldset>
+    <?php 
+} ?>
+
 <div id="sqlqueryresults"></div>
     <?php
     require './libraries/footer.inc.php';
 ?>
-
-
-</fieldset>
-
-
