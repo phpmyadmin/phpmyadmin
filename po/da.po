@@ -942,7 +942,7 @@ msgstr "Valgte eksporttype skal gemmes som fil!"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Utilstrækkeligt plads til at gemme filen %s."
+msgstr "Utilstrækkelig plads til at gemme filen %s."
 
 #: export.php:307
 #, php-format
