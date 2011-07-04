@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-04 08:46+0200\n"
+"PO-Revision-Date: 2011-07-04 08:47+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2383,7 +2383,7 @@ msgstr "структура и данни"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Бързо - показване на минимум опции"
 
 #: libraries/config.values.php:101
 msgid "Custom - display all possible options to configure"
