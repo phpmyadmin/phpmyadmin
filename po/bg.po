@@ -8282,10 +8282,9 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:484
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Релации"
+msgstr ""
 
 #: server_status.php:528 server_status.php:563 server_status.php:676
 #: server_status.php:721
