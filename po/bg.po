@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-01 10:37+0200\n"
+"PO-Revision-Date: 2011-07-04 08:24+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5210,7 +5210,7 @@ msgstr "Връзките не са намерени"
 #, php-format
 #| msgid "Export as %s"
 msgid "Export of trigger %s"
-msgstr "Експорт на спусък %s"
+msgstr "Експорт на тригер %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
