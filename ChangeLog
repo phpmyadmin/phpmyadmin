@@ -27,10 +27,11 @@ phpMyAdmin - ChangeLog
 + [display] GIS data visualization
 + AJAX for table structure multiple-column change
 + AJAX for table structure index edit
-+ Show/hide indexes in table structure
++ Show/hide indexes in table Structure
 + More compact navigation bar
 + Display direction (horizontal/vertical) no longer displayed by default
 + Shift/click support in database Structure
++ Show/hide column in table Browse
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
