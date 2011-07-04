@@ -1321,7 +1321,7 @@ msgstr "Твърде дълга стойност!"
 #: js/messages.php:126
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr "Заб.: Ако файлът съдържа няколко таблици, те ще бъдат обединени."
+msgstr "Заб.: Ако файлът съдържа няколко таблици, те ще бъдат обединени"
 
 #: js/messages.php:129
 msgid "Hide query box"
