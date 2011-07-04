@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-04 08:26+0200\n"
+"PO-Revision-Date: 2011-07-04 08:27+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7668,7 +7668,7 @@ msgstr ""
 #: server_privileges.php:48 server_privileges.php:201
 #: server_privileges.php:530
 msgid "Allows creating and dropping indexes."
-msgstr "Позволява създаване и премахване на индекси."
+msgstr "Позволява създаване и изтриване на индекси."
 
 #: server_privileges.php:49 server_privileges.php:191
 #: server_privileges.php:454 server_privileges.php:518
