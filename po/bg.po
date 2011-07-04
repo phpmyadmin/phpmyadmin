@@ -1166,7 +1166,7 @@ msgstr "Диаграма на заявки в реално време"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Статична информация"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
