@@ -293,8 +293,9 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     ?>
 
 <!-- Navigation bar -->
-<table border="0" cellpadding="2" cellspacing="0" class="navigation">
+<table border="0" cellpadding="0" cellspacing="0" class="navigation">
 <tr>
+    <td class="navigation_separator"></td>
     <?php
     // Move to the beginning or to the previous page
     if ($_SESSION['tmp_user_values']['pos'] && $_SESSION['tmp_user_values']['max_rows'] != 'all') {
@@ -330,8 +331,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
                     5,
                     5,
                     20,
-                    10,
-                    __('Page number:')
+                    10
             );
         ?>
         </form>
@@ -344,16 +344,16 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     if ($GLOBALS['cfg']['ShowAll'] && ($num_rows < $unlim_num_rows)) {
         echo "\n";
         ?>
-<td>
-    <form action="sql.php" method="post">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="pos" value="0" />
-        <input type="hidden" name="session_max_rows" value="all" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" value="<?php echo __('Show all'); ?>" />
-    </form>
-</td>
+    <td>
+        <form action="sql.php" method="post">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
+            <input type="hidden" name="pos" value="0" />
+            <input type="hidden" name="session_max_rows" value="all" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="submit" name="navig" value="<?php echo __('Show all'); ?>" />
+        </form>
+    </td>
         <?php
     } // end show all
 
@@ -386,9 +386,17 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             $onclick
             );
     } // end move toward
+
+    // show separator if pagination happen
+    if ($nbTotalPage > 1){
+        echo '<td><div class="navigation_separator">|</div></td>';
+    }
     ?>
     <td>
-        <input class="restore_column hide" type="submit" value="<?php echo __('Restore column order'); ?>" />
+        <div class="restore_column hide">
+            <input type="submit" value="<?php echo __('Restore column order'); ?>" />
+            <div class="navigation_separator">|</div>
+        </div>
         <?php
         if (PMA_isSelect()) {
             // generate the column order, if it is set
@@ -396,6 +404,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
             if ($col_order) {
                 echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+            }
+            $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+            if ($col_visib) {
+                echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
             }
             // generate table create time
             echo '<input id="table_create_time" type="hidden" value="' .
@@ -405,40 +417,48 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
         echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
         echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
+        echo '<input id="col_visib_hint" type="hidden" value="' . __('Click the drop-down arrow<br />to toggle column\'s visibility') . '" />';
+        echo '<input id="show_all_col_text" type="hidden" value="' . __('Show all') . '" />';
         ?>
     </td>
-</tr>
-</table>
 
 <?php // if displaying a VIEW, $unlim_num_rows could be zero because
       // of $cfg['MaxExactCountViews']; in this case, avoid passing
       // the 5th parameter to checkFormElementInRange()
       // (this means we can't validate the upper limit ?>
-<div>
-    <form action="sql.php" method="post"
-onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
-        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-        <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
-        <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-        <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
-        <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
-        <?php echo __('row(s) starting from row #') . "\n"; ?>
-        <input type="text" name="pos" size="6" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
-    <?php
-    // Display mode (horizontal/vertical and repeat headers)
-    $choices = array(
-        'horizontal'        => __('horizontal'),
-        'horizontalflipped' => __('horizontal (rotated headers)'),
-        'vertical'          => __('vertical'));
-    $param1 = PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
-    unset($choices);
+    <td class="navigation_goto">
+        <form action="sql.php" method="post"
+    onsubmit="return (checkFormElementInRange(this, 'session_max_rows', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 1) &amp;&amp; checkFormElementInRange(this, 'pos', '<?php echo str_replace('\'', '\\\'', __('%d is not valid row number.')); ?>', 0<?php echo $unlim_num_rows > 0 ? ',' . $unlim_num_rows - 1 : ''; ?>))">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="sql_query" value="<?php echo $html_sql_query; ?>" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="submit" name="navig" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> value="<?php echo __('Show'); ?> :" />
+            <?php echo __('Start row') . ': ' . "\n"; ?>
+            <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" class="textfield" onfocus="this.select()" />
+            <?php echo __('Number of rows') . ': ' . "\n"; ?>
+            <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
+        <?php
+        if ($GLOBALS['cfg']['ShowDisplayDir']) {
+            // Display mode (horizontal/vertical and repeat headers)
+            echo __('Mode') . ': ' . "\n";
+            $choices = array(
+                'horizontal'        => __('horizontal'),
+                'horizontalflipped' => __('horizontal (rotated headers)'),
+                'vertical'          => __('vertical'));
+            echo PMA_generate_html_dropdown('disp_direction', $choices, $_SESSION['tmp_user_values']['disp_direction'], $id_for_direction_dropdown);
+            unset($choices);
+        }
 
-    $param2 = '            <input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n"
-            . '           ';
-    echo '    ' . sprintf(__('in %s mode and repeat headers after %s cells'), "\n" . $param1, "\n" . $param2) . "\n";
-    ?>
-    </form>
-</div>
+        echo __('Headers every') . ': ' . "\n";
+        echo '<input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n";
+        echo __('rows'). "\n";
+        ?>
+        </form>
+    </td>
+    <td class="navigation_separator"></td>
+</tr>
+</table>
+
     <?php
 } // end of the 'PMA_displayTableNavigation()' function
 
@@ -779,8 +799,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         // prepare to get the column order, if available
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
     } else {
         $col_order = false;
+        $col_visib = false;
     }
 
     for ($j = 0; $j < $fields_cnt; $j++) {
@@ -921,6 +943,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<th';
                 $th_class = array();
                 $th_class[] = 'draggable';
+                if ($col_visib && !$col_visib[$j]) {
+                    $th_class[] = 'hide';
+                }
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -939,7 +964,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '>' . $order_link . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . 'class="draggable' . ($condition_field ? ' condition' : '') . '">' . "\n"
+                . 'class="draggable'
+                . ($condition_field ? ' condition' : '')
+                . '">' . "\n"
                 . $order_link . $comments . '    </th>' . "\n";
         } // end if (2.1)
 
@@ -950,6 +977,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '<th';
                 $th_class = array();
                 $th_class[] = 'draggable';
+                if ($col_visib && !$col_visib[$j]) {
+                    $th_class[] = 'hide';
+                }
                 if ($condition_field) {
                     $th_class[] = 'condition';
                 }
@@ -971,7 +1001,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo "\n" . $comments . '</th>';
             }
             $vertical_display['desc'][] = '    <th '
-                . 'class="draggable' . ($condition_field ? ' condition"' : '') . '">' . "\n"
+                . 'class="draggable'
+                . ($condition_field ? ' condition"' : '')
+                . '">' . "\n"
                 . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                 . $comments . '    </th>';
         } // end else (2.2)
@@ -1178,8 +1210,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
     if (PMA_isSelect()) {
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
     } else {
         $col_order = false;
+        $col_visib = false;
     }
 
     // Correction University of Virginia 19991216 in the while below
@@ -1350,11 +1384,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $meta    = $fields_meta[$i];
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
+            $hide_class = ($col_visib && !$col_visib[$j] &&
+                           // hide per <td> only if the display direction is not vertical
+                           $_SESSION['tmp_user_values']['disp_direction'] != 'vertical') ? 'hide' : '';
             $pointer = $i;
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class . ' ' . $hide_class;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1383,7 +1420,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
                 if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation']) && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])) {
-                    $include_file = $GLOBALS['mime_map'][$meta->name]['transformation'];
+                    $include_file = PMA_securePath($GLOBALS['mime_map'][$meta->name]['transformation']);
 
                     if (file_exists('./libraries/transformations/' . $include_file)) {
                         $transformfunction_name = str_replace('.inc.php', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
@@ -1702,13 +1739,15 @@ function PMA_displayVerticalTable()
             echo '<th></th>' . "\n";
         }
         echo $vertical_display['textbtn'];
-        $foo_counter = 0;
+        $cell_displayed = 0;
         foreach ($vertical_display['row_delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
+            if (($cell_displayed != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '<th' .
+                     (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '') .
+                     '></th>' . "\n";
             }
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
-            $foo_counter++;
+            $cell_displayed++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1720,14 +1759,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '    <th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1739,14 +1772,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['copy'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '    <th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1758,14 +1785,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1774,8 +1795,10 @@ function PMA_displayVerticalTable()
         // prepare to get the column order, if available
         $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
         $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
     } else {
         $col_order = false;
+        $col_visib = false;
     }
 
     // Displays data
@@ -1783,17 +1806,17 @@ function PMA_displayVerticalTable()
         // assign appropriate key with current column order
         $key = $col_order ? $col_order[$j] : $j;
 
-        echo '<tr>' . "\n";
+        echo '<tr' . (($col_visib && !$col_visib[$j]) ? ' class="hide"' : '') . '>' . "\n";
         echo $val;
 
-        $foo_counter = 0;
+        $cell_displayed = 0;
         foreach ($vertical_display['rowdata'][$key] as $subval) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) and !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
+            if (($cell_displayed != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) and !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])) {
                 echo $val;
             }
 
             echo $subval;
-            $foo_counter++;
+            $cell_displayed++;
         } // end while
 
         echo '</tr>' . "\n";
@@ -1804,14 +1827,16 @@ function PMA_displayVerticalTable()
          && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
         echo '<tr>' . "\n";
         echo $vertical_display['textbtn'];
-        $foo_counter = 0;
+        $cell_displayed = 0;
         foreach ($vertical_display['row_delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
+            if (($cell_displayed != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])) {
+                echo '<th' .
+                     (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '') .
+                     '></th>' . "\n";
             }
 
             echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
-            $foo_counter++;
+            $cell_displayed++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1823,14 +1848,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['edit'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1842,14 +1861,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['copy'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     } // end if
@@ -1861,14 +1874,8 @@ function PMA_displayVerticalTable()
         if (! is_array($vertical_display['edit']) && ! is_array($vertical_display['row_delete'])) {
             echo $vertical_display['textbtn'];
         }
-        $foo_counter = 0;
         foreach ($vertical_display['delete'] as $val) {
-            if (($foo_counter != 0) && ($_SESSION['tmp_user_values']['repeat_cells'] != 0) && !($foo_counter % $_SESSION['tmp_user_values']['repeat_cells'])) {
-                echo '<th></th>' . "\n";
-            }
-
             echo $val;
-            $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
     }

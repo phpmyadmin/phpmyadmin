@@ -89,18 +89,23 @@ $(document).ready(function() {
 /**
  * Toggles the disabling of the "save to file" options
  */
+function toggle_save_to_file() {
+    if($("#radio_dump_asfile:checked").length == 0) {
+        $("#ul_save_asfile > li").fadeTo('fast', 0.4);
+        $("#ul_save_asfile > li > input").attr('disabled', 'disabled');
+        $("#ul_save_asfile > li> select").attr('disabled', 'disabled');
+    } else {
+        $("#ul_save_asfile > li").fadeTo('fast', 1);
+        $("#ul_save_asfile > li > input").removeAttr('disabled');
+        $("#ul_save_asfile > li> select").removeAttr('disabled');
+    }
+}
+
 $(document).ready(function() {
+    toggle_save_to_file();
     $("input[type='radio'][name='output_format']").change(function() {
-        if($("#radio_dump_asfile:checked").length == 0) {
-            $("#ul_save_asfile > li").fadeTo('fast', 0.4);
-            $("#ul_save_asfile > li > input").attr('disabled', 'disabled');
-            $("#ul_save_asfile > li> select").attr('disabled', 'disabled');
-        } else {
-            $("#ul_save_asfile > li").fadeTo('fast', 1);
-            $("#ul_save_asfile > li > input").removeAttr('disabled');
-            $("#ul_save_asfile > li> select").removeAttr('disabled');
-        }
-     });
+        toggle_save_to_file();
+    });
 });
 
 /**

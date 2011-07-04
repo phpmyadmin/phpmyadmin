@@ -130,18 +130,27 @@ if (isset($_REQUEST['where_clause'])) {
 $query = array();
 $value_sets = array();
 $func_no_param = array(
-    'NOW',
+    'CONNECTION_ID',
+    'CURRENT_USER',
     'CURDATE',
     'CURTIME',
+    'DATABASE',
+    'LAST_INSERT_ID',
+    'NOW',
+    'PI',
+    'RAND',
+    'SYSDATE',
+    'UNIX_TIMESTAMP',
+    'USER',
     'UTC_DATE',
     'UTC_TIME',
     'UTC_TIMESTAMP',
-    'UNIX_TIMESTAMP',
-    'RAND',
-    'USER',
-    'LAST_INSERT_ID',
     'UUID',
-    'CURRENT_USER',
+    'VERSION',
+);
+$func_optional_param = array(
+    'RAND',
+    'UNIX_TIMESTAMP',
 );
 
 foreach ($loop_array as $rownumber => $where_clause) {
@@ -225,16 +234,15 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         if (empty($me_funcs[$key])) {
             $cur_value = $val;
-        } elseif ('UNIX_TIMESTAMP' === $me_funcs[$key] && $val != "''") {
-            $cur_value = $me_funcs[$key] . '(' . $val . ')';
         } elseif ('UUID' === $me_funcs[$key]) {
             /* This way user will know what UUID new row has */
             $uuid = PMA_DBI_fetch_value('SELECT UUID()');
             $cur_value = "'" . $uuid . "'";
-        } elseif (in_array($me_funcs[$key], $func_no_param)) {
-            $cur_value = $me_funcs[$key] . '()';
-        } else {
+        } elseif (!in_array($me_funcs[$key], $func_no_param)
+                  || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        } else {
+            $cur_value = $me_funcs[$key] . '()';
         }
 
         //  i n s e r t

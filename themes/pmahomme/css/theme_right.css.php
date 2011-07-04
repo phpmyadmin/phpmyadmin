@@ -65,7 +65,7 @@ h2 a img{display:inline;}
 
 .data{
 margin: 0 0 12px 0;
-
+position: relative;
 }
 
 h3 {
@@ -1729,7 +1729,7 @@ table#serverconnection_trg_local  {
   */
 input[type=text].invalid_value,
 .invalid_value {
-    background:#F00;
+    background:#FFCCCC;
 }
 
 /**
@@ -2422,12 +2422,16 @@ span.mysql-number {
 }
 
 .colborder {
-    border-left: 1px solid #FFF;
+    border-right: 1px solid #FFF;
     cursor: col-resize;
     height: 100%;
-    margin-left: -1px;
+    margin-left: -6px;
     position: absolute;
     width: 5px;
+}
+
+.pma_table td {
+    position: static;
 }
 
 .pma_table th.draggable span, .pma_table tbody td span {
@@ -2483,9 +2487,140 @@ span.mysql-number {
     margin-top: -1em;
     opacity: 0.8;
     padding: 0.5em 1em;
-    position: absolute;
+    position: fixed;
     text-shadow: -1px -1px #000;
     -moz-border-radius: 0.3em;
     -webkit-border-radius: 0.3em;
     border-radius: 0.3em;
+}
+
+.cHide {
+    background: #EEE url(./themes/pmahomme/img/col_hide.png);
+    color: #CCC;
+    cursor: pointer;
+    height: 16px;
+    margin-left: -10px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.cHide:hover {
+    background-color: #AAA;
+}
+
+.cDrop {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.coldrop {
+    background: url(./themes/pmahomme/img/col_drop.png);
+    cursor: pointer;
+    height: 16px;
+    margin-left: 0.3em;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.coldrop:hover, .coldrop-hover {
+    background-color: #999;
+}
+
+.cList {
+    background: #EEE;
+    border: solid 1px #999;
+    position: absolute;
+    -moz-box-shadow: 0 0.2em 0.5em #333;
+    -webkit-box-shadow: 0 0.2em 0.5em #333;
+    box-shadow: 0 0.2em 0.5em #333;
+}
+
+.cList table {
+}
+
+.cList table tr:hover {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.cList table td input {
+    cursor: pointer;
+}
+
+.showAllColBtn {
+    border-bottom: solid 1px #999;
+    border-top: solid 1px #999;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.35em 1em;
+    text-align: center;
+}
+
+.showAllColBtn:hover {
+    background: #DDD;
+}
+
+.navigation {
+    margin: 0.8em 0;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    
+    background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
+    background-size: 100% 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
+    background: -moz-linear-gradient(top,  #eeeeee,  #cccccc);
+    background: -o-linear-gradient(top,  #eeeeee,  #cccccc);
+    <?php echo PMA_ieFilter('#eeeeee', '#cccccc'); ?>
+}
+
+.navigation td {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.navigation_separator {
+    color: #999;
+    display: inline-block;
+    font-size: 1.5em;
+    text-align: center;
+    height: 1.4em;
+    width: 1.2em;
+    text-shadow: 1px 0 #FFF;
+}
+
+.navigation input[type=submit] {
+    background: none;
+    border: 0;
+    filter: none;
+    margin: 0;
+    padding: 0.8em 0.5em;
+
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.navigation input[type=submit]:hover {
+    color: white;
+    cursor: pointer;
+    text-shadow: none;
+
+    background-image: url(./themes/svg_gradient.php?from=333333&to=555555);
+    background-size: 100% 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#555555));
+    background: -moz-linear-gradient(top,  #333333,  #555555);
+    background: -o-linear-gradient(top,  #333333,  #555555);
+    <?php echo PMA_ieFilter('#333333', '#555555'); ?>
+}
+
+.navigation select {
+    margin: 0 0.8em;
 }

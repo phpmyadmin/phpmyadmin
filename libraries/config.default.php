@@ -1117,6 +1117,7 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  */
 $cfg['DefaultTabTable'] = 'sql.php';
 
+
 /*******************************************************************************
  * Export defaults
  */
@@ -1824,6 +1825,7 @@ $cfg['Export']['xml_export_contents'] = true;
  */
 $cfg['Export']['yaml_structure_or_data'] = 'data';
 
+
 /*******************************************************************************
  * Import defaults
  */
@@ -2311,6 +2313,11 @@ $cfg['ShowBrowseComments'] = true;
 $cfg['ShowPropertyComments']= true;
 
 /**
+ * shows table display direction.
+ */
+$cfg['ShowDisplayDir'] = false;
+
+/**
  * repeat header names every X cells? (0 = deactivate)
  *
  * @global integer $cfg['RepeatCells']
@@ -2410,6 +2417,7 @@ $cfg['UserprefsDisallow'] = array();
  * User preferences: enable the Developer tab
  */
 $cfg['UserprefsDeveloperTab'] = false;
+
 
 /*******************************************************************************
  * Window title settings
@@ -2521,7 +2529,9 @@ $cfg['DefaultQueryDatabase'] = '';
 /*******************************************************************************
  * SQL Query box settings
  * These are the links display in all of the SQL Query boxes
- *
+ */
+
+/**
  * @global array $cfg['SQLQuery']
  */
 $cfg['SQLQuery'] = array();
@@ -2593,7 +2603,7 @@ $cfg['SaveDir'] = '';
 $cfg['TempDir'] = '';
 
 
-/**
+/*******************************************************************************
  * Misc. settings
  */
 
@@ -2635,7 +2645,12 @@ $cfg['LinkLengthLimit'] = 2000;
  */
 $cfg['DisableMultiTableMaintenance'] = false;
 
+
 /*******************************************************************************
+ * SQL Parser
+ */
+
+/**
  * SQL Parser Settings
  *
  * @global array $cfg['SQP']
@@ -2665,6 +2680,10 @@ $cfg['SQP']['fmtIndUnit'] = 'em';
 
 
 /*******************************************************************************
+ * SQL Validator
+ */
+
+/**
  * If you wish to use the SQL Validator service, you should be aware of the
  * following:
  * All SQL statements are stored anonymously for statistical purposes.
@@ -2699,6 +2718,10 @@ $cfg['SQLValidator']['password'] = '';
 
 /*******************************************************************************
  * Developers ONLY!
+ */
+
+/**
+ * Debugging settings
  *
  * @global array $cfg['DBG']
  */
@@ -2824,14 +2847,19 @@ if ($cfg['ShowFunctionFields']) {
         'CHAR',
         'CHAR_LENGTH',
         'COMPRESS',
+        'CONNECTION_ID',
         'COS',
         'COT',
         'CRC32',
         'CURDATE',
         'CURRENT_USER',
         'CURTIME',
+        'DATABASE',
         'DATE',
         'DAYNAME',
+        'DAYOFMONTH',
+        'DAYOFWEEK',
+        'DAYOFYEAR',
         'DEGREES',
         'DES_DECRYPT',
         'DES_ENCRYPT',
@@ -2841,35 +2869,53 @@ if ($cfg['ShowFunctionFields']) {
         'FROM_DAYS',
         'FROM_UNIXTIME',
         'HEX',
+        'HOUR',
         'INET_ATON',
         'INET_NTOA',
+        'LAST_DAY',
         'LENGTH',
         'LN',
+        'LOAD_FILE',
         'LOG',
         'LOG10',
         'LOG2',
         'LOWER',
+        'LTRIM',
         'MD5',
+        'MICROSECOND',
+        'MINUTE',
+        'MONTH',
+        'MONTHNAME',
         'NOW',
         'OCT',
         'OLD_PASSWORD',
         'ORD',
         'PASSWORD',
+        'PI',
+        'QUARTER',
+        'QUOTE',
         'RADIANS',
         'RAND',
         'REVERSE',
         'ROUND',
+        'RTRIM',
+        'SECOND',
         'SEC_TO_TIME',
         'SHA1',
+        'SIGN',
+        'SIN',
         'SOUNDEX',
         'SPACE',
         'SQRT',
-        'STDDEV_POP',
-        'STDDEV_SAMP',
+        'SYSDATE',
         'TAN',
+        'TIME',
         'TIMESTAMP',
         'TIME_TO_SEC',
+        'TO_DAYS',
+        'TRIM',
         'UNCOMPRESS',
+        'UNCOMPRESSED_LENGTH',
         'UNHEX',
         'UNIX_TIMESTAMP',
         'UPPER',
@@ -2878,9 +2924,12 @@ if ($cfg['ShowFunctionFields']) {
         'UTC_TIME',
         'UTC_TIMESTAMP',
         'UUID',
-        'VAR_POP',
-        'VAR_SAMP',
+        'VERSION',
+        'WEEK',
+        'WEEKDAY',
+        'WEEKOFYEAR',
         'YEAR',
+        'YEARWEEK',
     );
 
     /**
@@ -2908,29 +2957,29 @@ if ($cfg['ShowFunctionFields']) {
         'TIME'      => 'FUNC_DATE',
         'YEAR'      => 'FUNC_DATE',
 
-        'CHAR'          => 'FUNC_CHAR',
-        'VARCHAR'       => 'FUNC_CHAR',
-        'TINYTEXT'      => 'FUNC_CHAR',
-        'TEXT'          => 'FUNC_CHAR',
-        'MEDIUMTEXT'    => 'FUNC_CHAR',
-        'LONGTEXT'      => 'FUNC_CHAR',
-        'BINARY'        => 'FUNC_CHAR',
-        'VARBINARY'     => 'FUNC_CHAR',
-        'TINYBLOB'      => 'FUNC_CHAR',
-        'MEDIUMBLOB'    => 'FUNC_CHAR',
-        'BLOB'          => 'FUNC_CHAR',
-        'LONGBLOB'      => 'FUNC_CHAR',
-        'ENUM'          => '',
-        'SET'           => '',
+        'CHAR'       => 'FUNC_CHAR',
+        'VARCHAR'    => 'FUNC_CHAR',
+        'TINYTEXT'   => 'FUNC_CHAR',
+        'TEXT'       => 'FUNC_CHAR',
+        'MEDIUMTEXT' => 'FUNC_CHAR',
+        'LONGTEXT'   => 'FUNC_CHAR',
+        'BINARY'     => 'FUNC_CHAR',
+        'VARBINARY'  => 'FUNC_CHAR',
+        'TINYBLOB'   => 'FUNC_CHAR',
+        'MEDIUMBLOB' => 'FUNC_CHAR',
+        'BLOB'       => 'FUNC_CHAR',
+        'LONGBLOB'   => 'FUNC_CHAR',
+        'ENUM'       => '',
+        'SET'        => '',
 
-        'GEOMETRY'              => 'FUNC_SPATIAL',
-        'POINT'                 => 'FUNC_SPATIAL',
-        'LINESTRING'            => 'FUNC_SPATIAL',
-        'POLYGON'               => 'FUNC_SPATIAL',
-        'MULTIPOINT'            => 'FUNC_SPATIAL',
-        'MULTILINESTRING'       => 'FUNC_SPATIAL',
-        'MULTIPOLYGON'          => 'FUNC_SPATIAL',
-        'GEOMETRYCOLLECTION'    => 'FUNC_SPATIAL',
+        'GEOMETRY'           => 'FUNC_SPATIAL',
+        'POINT'              => 'FUNC_SPATIAL',
+        'LINESTRING'         => 'FUNC_SPATIAL',
+        'POLYGON'            => 'FUNC_SPATIAL',
+        'MULTIPOINT'         => 'FUNC_SPATIAL',
+        'MULTILINESTRING'    => 'FUNC_SPATIAL',
+        'MULTIPOLYGON'       => 'FUNC_SPATIAL',
+        'GEOMETRYCOLLECTION' => 'FUNC_SPATIAL',
 
     );
 
@@ -2945,20 +2994,27 @@ if ($cfg['ShowFunctionFields']) {
             'CHAR',
             'CURRENT_USER',
             'COMPRESS',
+            'DATABASE',
             'DAYNAME',
             'DES_DECRYPT',
             'DES_ENCRYPT',
             'ENCRYPT',
             'HEX',
             'INET_NTOA',
+            'LOAD_FILE',
             'LOWER',
+            'LTRIM',
             'MD5',
+            'MONTHNAME',
             'OLD_PASSWORD',
             'PASSWORD',
+            'QUOTE',
             'REVERSE',
+            'RTRIM',
             'SHA1',
             'SOUNDEX',
             'SPACE',
+            'TRIM',
             'UNCOMPRESS',
             'UNHEX',
             'UPPER',
@@ -2972,8 +3028,11 @@ if ($cfg['ShowFunctionFields']) {
             'DATE',
             'FROM_DAYS',
             'FROM_UNIXTIME',
+            'LAST_DAY',
             'NOW',
             'SEC_TO_TIME',
+            'SYSDATE',
+            'TIME',
             'TIMESTAMP',
             'UTC_DATE',
             'UTC_TIME',
@@ -2991,31 +3050,46 @@ if ($cfg['ShowFunctionFields']) {
             'BIT_COUNT',
             'CEILING',
             'CHAR_LENGTH',
+            'CONNECTION_ID',
             'COS',
             'COT',
             'CRC32',
+            'DAYOFMONTH',
+            'DAYOFWEEK',
+            'DAYOFYEAR',
             'DEGREES',
             'EXP',
             'FLOOR',
+            'HOUR',
             'INET_ATON',
             'LENGTH',
             'LN',
             'LOG',
             'LOG2',
             'LOG10',
+            'MICROSECOND',
+            'MINUTE',
+            'MONTH',
             'OCT',
             'ORD',
+            'PI',
+            'QUARTER',
             'RADIANS',
             'RAND',
             'ROUND',
+            'SECOND',
+            'SIGN',
+            'SIN',
             'SQRT',
-            'STDDEV_POP',
-            'STDDEV_SAMP',
             'TAN',
+            'TO_DAYS',
             'TIME_TO_SEC',
+            'UNCOMPRESSED_LENGTH',
             'UNIX_TIMESTAMP',
-            'VAR_POP',
-            'VAR_SAMP',
+            'WEEK',
+            'WEEKDAY',
+            'WEEKOFYEAR',
+            'YEARWEEK',
         ),
 
         'FUNC_SPATIAL' => array(
@@ -3052,8 +3126,6 @@ if ($cfg['ShowFunctionFields']) {
         'first_timestamp' => 'NOW',
         'pk_char36' => 'UUID',
     );
-
-
 } // end if
 
 /**
