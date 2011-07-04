@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-04 08:40+0200\n"
+"PO-Revision-Date: 2011-07-04 08:41+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1157,7 +1157,7 @@ msgstr "Диаграма на трафик в реално време"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Диаграма връзки/процеси в реално време"
 
 #: js/messages.php:66 server_status.php:445
 #| msgid "Hide query box"
