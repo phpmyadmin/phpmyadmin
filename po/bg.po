@@ -551,10 +551,10 @@ msgid "Execute routine"
 msgstr ""
 
 #: db_routines.php:261 db_routines.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export as %s"
 msgid "Export of routine %s"
-msgstr "Експорт като %s"
+msgstr "Експорт на процедура %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
