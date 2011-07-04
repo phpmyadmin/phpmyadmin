@@ -140,8 +140,8 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 ?>
 
 <form action="./tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
-    onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {
-        this.elements['index'].disabled = false}">
+    onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
+        this.elements['index[Key_name]'].disabled = false}">
 <?php
 $form_params = array(
     'db'    => $db,
