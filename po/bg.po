@@ -1958,7 +1958,7 @@ msgstr "Оттук нататък са необходими бисквитки."
 #: libraries/auth/signon.auth.lib.php:234
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "Входът без парола е забранен от конфигурацията (вж. AllowNoPassword)"
+msgstr "Входът без парола е забранен от конфигурацията (виж AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:643
 #: libraries/auth/signon.auth.lib.php:238
