@@ -4741,10 +4741,9 @@ msgid "There are no routines to display."
 msgstr "Няма процедури"
 
 #: libraries/db_routines.lib.php:1253
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Добавяне на индекс"
+msgstr "Добавяне на процедура"
 
 #: libraries/db_routines.lib.php:1256
 #, fuzzy
