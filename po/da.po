@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-04 10:50+0200\n"
+"PO-Revision-Date: 2011-07-04 10:52+0200\n"
 "Last-Translator:  <thomas@dyhr.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -925,7 +925,7 @@ msgstr "Indtast hver værdi i et seperat felt."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Genstart indsættelse og tilføj ny værdi"
 
 #: enum_editor.php:67
 msgid "Output"
