@@ -550,7 +550,7 @@ msgstr "Nenhuma rotina com o nome %1$s encontrada no banco de dados %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Executar rotina"
 
 #: db_routines.php:261 db_routines.php:265
 #, fuzzy, php-format
