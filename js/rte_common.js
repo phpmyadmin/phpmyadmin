@@ -38,10 +38,6 @@ var RTE = {
             $elm.focus();
             alert(PMA_messages['strFormEmpty']);
             return false;
-        } else if ($elm.val().length > 64) {
-            alert(PMA_messages['strValueTooLong']);
-            $elm.focus().select();
-            return false;
         }
         $elm = $('.rte_table').find('textarea[name=item_definition]');
         if ($elm.val() == '') {
@@ -99,14 +95,6 @@ var RTE = {
                 if ($('.rte_table').find('textarea[name=item_definition]').val().toLowerCase().indexOf('return') < 0) {
                     this.syntaxHiglighter.focus();
                     alert(PMA_messages['MissingReturn']);
-                    return false;
-                }
-            }
-            if (! isError) {
-                $elm = $('.rte_table').last().find('input[name=routine_comment]');
-                if ($elm.val().length > 64) {
-                    alert(PMA_messages['strValueTooLong']);
-                    $elm.focus().select();
                     return false;
                 }
             }

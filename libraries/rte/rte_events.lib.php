@@ -338,7 +338,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td style='width: 20%;'>" . __('Event name') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_name' value='{$item['name']}' /></td>\n";
+    $retval .= "    <td><input type='text' name='item_name' value='{$item['name']}'\n";
+    $retval .= "               maxlength='64' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Status') . "</td>\n";
@@ -422,7 +423,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Comment') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_comment'\n";
+    $retval .= "    <td><input type='text' name='item_comment' maxlength='64'\n";
     $retval .= "               value='{$item['comment']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
