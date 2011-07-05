@@ -306,10 +306,13 @@ $(function() {
     });
     
     $('#filterText').keyup(function(e) {
-        if($(this).val().length == 0) textFilter = null;
-        else textFilter = new RegExp("(^|_)" + $(this).val(),'i');
+        word = $(this).val().replace('_',' ');
         
-        text = $(this).val();
+        if(word.length == 0) textFilter = null;
+        else textFilter = new RegExp("(^|_)" + word,'i');
+        
+        text = word;
+        
         filterVariables();
     });
     
@@ -504,8 +507,8 @@ $(function() {
     
     
     /**** Monitor charting implementation ****/
-	/* Holds all charts */
-    var chartGrid;
+    /* Holds all charts */
+    var chartGrid = null;
     /* Object that contains a list of required nodes that need to be retrieved from the server for chart updates */
     var requiredData = [];
     /* Refresh rate of all grid charts in ms */
@@ -521,25 +524,31 @@ $(function() {
     // Chart auto increment
     var chartAI = 0;
     
-    var chartSize = { width: 300, height: 300 };
+    var chartSize = { width: 295, height: 250 };
+    
+    var redrawCharts = false;
+    
+    var gridTimeoutCallBack = null;
+    
+    var xmin=-1, xmax=-1;
     
     var presetCharts = {
         'cpu-WINNT': {
-            title: 'System CPU Usage (%)',
-            nodes: [{ dataType: 'cpu', name: 'loadavg'}]
+            title: 'System CPU Usage',
+            nodes: [{ dataType: 'cpu', name: 'loadavg', unit: '%'}]
         },
         'memory-WINNT': {
-            title: 'System memory (MiB)',
+            title: 'System memory',
             nodes: [
-                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024 }, 
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024, unit: 'MiB' }, 
+                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: 'MiB'  }, 
             ]
         },
         'swap-WINNT': {
-            title: 'System swap (MiB)',
+            title: 'System swap',
             nodes: [
-                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024, unit: 'Mib' }, 
             ]
         },
         'cpu-Linux': {
@@ -547,6 +556,7 @@ $(function() {
             nodes: [
                 { dataType: 'cpu', 
                   name: 'Average load', 
+                  unit: '%',
                   transformFn: function(cur, prev) {
                       if(prev == null) return undefined;
                       var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
@@ -557,12 +567,12 @@ $(function() {
             ]
         },
         'memory-Linux': {
-            title: 'System memory (in MiB)',
+            title: 'System memory',
             nodes: [
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'Cached', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024  },
-                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024  },
+                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'Cached',  valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024, unit: 'Mib' },
+                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024, unit: 'Mib' },
             ],
             settings: {
                 chart: {
@@ -576,11 +586,11 @@ $(function() {
             }
         },
         'swap-Linux': {
-            title: 'System swap (in MiB)',
+            title: 'System swap',
             nodes: [
-                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024  }, 
-                { dataType: 'memory', name: 'SwapFree', valueDivisor: 1024  }, 
+                { dataType: 'memory', name: 'SwapUsed',   valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'SwapFree',   valueDivisor: 1024, unit: 'Mib' }, 
             ],
             settings: {
                 chart: {
@@ -596,7 +606,7 @@ $(function() {
     }
     
     // Default setting
-    chartGrid = {
+    defaultChartGrid = {
         '0': presetCharts['cpu-'+server_os],
         '1': presetCharts['memory-'+server_os],
         '2': presetCharts['swap-'+server_os],
@@ -610,14 +620,14 @@ $(function() {
                     ]
          },
          '5': {
-             title: 'Traffic (in KiB)',
+             title: 'Traffic',
              nodes: [
-                { dataType:'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024},
-                { dataType:'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024}
+                { dataType:'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: 'KiB' },
+                { dataType:'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: 'KiB' }
             ]
          }
     };
-	
+    
     var gridbuttons = { cogButton: {
         //enabled: true,
         symbol:  'url(' + pma_theme_image  + 's_cog.png)',
@@ -639,21 +649,19 @@ $(function() {
         }]
     } }
     
-	Highcharts.setOptions({
+    Highcharts.setOptions({
         lang: {
             settings: 'Settings',
             removeChart: 'Remove chart',
             editChart: 'Edit labels and series'
         }
     });
-     
-    initGrid();
-	
+    
     // global settings
     $('div#statustabs_charting div.popupMenu input[name="setSize"]').click(function() {
         chartSize = {
-            width: parseInt($('div#statustabs_charting div.popupMenu input[name="width"]').attr('value')) || 300,
-            height: parseInt($('div#statustabs_charting div.popupMenu input[name="height"]').attr('value')) || 300
+            width: parseInt($('div#statustabs_charting div.popupMenu input[name="width"]').attr('value')) || chartSize.width,
+            height: parseInt($('div#statustabs_charting div.popupMenu input[name="height"]').attr('value')) || chartSize.height
         };
         
         $.each(chartGrid, function(key, value) {
@@ -662,15 +670,17 @@ $(function() {
     });
     
     $('div#statustabs_charting div.popupMenu select[name="gridChartRefresh"]').change(function() {
-        gridRefresh = this.value * 1000;
+        gridRefresh = parseInt(this.value) * 1000;
         clearTimeout(refreshTimeout);
         
+        if(gridTimeoutCallBack)
+            gridTimeoutCallBack.abort();
+        
+        xmin = new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh;
+        xmax = new Date().getTime() - server_time_diff + gridRefresh;
+        
         $.each(chartGrid, function(key, value) {
-            value.chart.xAxis[0].setExtremes(
-                new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
-                new Date().getTime() - server_time_diff + gridRefresh,
-                true
-            );
+            value.chart.xAxis[0].setExtremes(xmin, xmax, false);
         });
         
         refreshTimeout = setTimeout(refreshChartGrid, gridRefresh);
@@ -683,18 +693,18 @@ $(function() {
             buttons: {
                 'Add chart to grid': function() {                  
                     var type = $('input[name="chartType"]').find(':checked').val();
-					
+                    
                     if(type == 'cpu' || type == 'memory')
                         newChart = presetCharts[type + '-' + server_os];
-					
-					if(newChart.nodes.length == 0) return;
-                    console.log(chartGrid);
+                    
+                    if(newChart.nodes.length == 0) return;
+                    
                     newChart.title = $('input[name="chartTitle"]').attr('value');
                     // Add a cloned object to the chart grid
                     addChart($.extend(true, {}, newChart));
                     
                     newChart = null;
-                    console.log(chartGrid);
+
                     $( this ).dialog( "close" );
                 }
             },
@@ -704,6 +714,18 @@ $(function() {
                 $('#seriesPreview').html('');
             }
         });
+        return false;
+    });
+    
+    $('a[href="#pauseCharts"]').click(function() {
+        redrawCharts = ! redrawCharts;
+        if(! redrawCharts)
+            $(this).html('<img src="' + pma_theme_image + 'play.png" alt="Resume"/> Resume Monitor');
+        else {
+            $(this).html('<img src="' + pma_theme_image + 'pause.png" alt="Pause"/> Pause Monitor');
+            if(chartGrid == null)
+                initGrid();
+        }
         return false;
     });
     
@@ -783,6 +805,8 @@ $(function() {
         var settings;
         var series;
 
+        chartGrid = defaultChartGrid;
+        
         $.each(chartGrid, function(key, value) {
             addChart(value,true);
         });
@@ -790,8 +814,8 @@ $(function() {
         buildRequiredDataList();
         refreshChartGrid();
         
-        $( "#chartGrid" ).sortable();
-        $( "#chartGrid" ).disableSelection();
+        //$( "#chartGrid" ).sortable();
+        //$( "#chartGrid" ).disableSelection();
     }
     
     function addChart(chartObj, initialize) {
@@ -799,20 +823,58 @@ $(function() {
         for(var j=0; j<chartObj.nodes.length; j++)
             series.push(chartObj.nodes[j]);
         
+        if(xmin == -1)
+            xmin = new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh;
+        if(xmax == -1) 
+            xmax = new Date().getTime() - server_time_diff + gridRefresh;
+        
         settings = {
             chart: {
                 renderTo: 'gridchart' + chartAI,
                 width: chartSize.width,
-                height: chartSize.height
+                height: chartSize.height,
+                marginRight: 0,
+                zoomType: 'x',
+                events: {
+                    selection: function(event) {
+                        var extremesObject = event.xAxis[0], 
+                            min = extremesObject.min,
+                            max = extremesObject.max;
+                        
+                        $('#logTable').html(new Date(min) + ' till ' + new Date(max));
+                        
+                        $(document).scrollTop($('div#logTable').offset().top);
+                        
+                        return false;
+                    }
+                }
             },
             xAxis: {
-                min: new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
-                max: new Date().getTime() - server_time_diff + gridRefresh
+                min: xmin,
+                max: xmax
             },
+
             yAxis: {
                 title: {
                     text: ''
                 }
+            },
+            tooltip: {
+                formatter: function() {
+                        var s = '<b>'+Highcharts.dateFormat('%H:%M:%S', this.x)+'</b>';
+                    
+                        $.each(this.points, function(i, point) {
+                            s += '<br/><span style="color:'+point.series.color+'">'+ point.series.name +':</span> '+
+                                ((parseInt(point.y) == point.y) ? point.y : Highcharts.numberFormat(this.y, 2)) + ' ' + (point.series.options.unit || '');
+                        });
+                        
+                        
+                        return s;
+                },
+                shared: true
+            },
+            legend: {
+                enabled: false
             },
             series: series,
             buttons: gridbuttons,
@@ -862,28 +924,31 @@ $(function() {
     
     function refreshChartGrid() {
         /* Send to server */
-        $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(requiredData) },function(data) {
+        gridTimeoutCallBack = $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(requiredData) },function(data) {
             var chartData = $.parseJSON(data);
-            var value;
-
+            var value, i=0;
+            var diff;
+    
             /* Update values in each graph */
             $.each(chartGrid, function(key, elem) {
                 for(var j=0; j < elem.nodes.length; j++) {
                     value = chartData[key][j].y;
 
-                    if(oldChartData==null) diff = chartData.x - elem.chart.xAxis[0].getExtremes().max;
-                    else diff = parseInt(chartData.x - oldChartData.x);
+                    if(i==0 && j==0) {
+                        if(oldChartData==null) diff = chartData.x - xmax;
+                        else diff = parseInt(chartData.x - oldChartData.x);
+                        
+                        xmin+= diff;
+                        xmax+= diff;
+                    }
                     
-                    elem.chart.xAxis[0].setExtremes(
-                        elem.chart.xAxis[0].getExtremes().min+diff, 
-                        elem.chart.xAxis[0].getExtremes().max+diff, 
-                        false
-                    );
+                    elem.chart.xAxis[0].setExtremes(xmin, xmax, false);
                     
                     if(elem.nodes[j].display == 'differential') {
                         if(oldChartData == null || oldChartData[key] == null) continue;
                         value -= oldChartData[key][j].y;
                     }
+                    
                     if(elem.nodes[j].valueDivisor)
                         value = value / elem.nodes[j].valueDivisor;
 
@@ -903,8 +968,11 @@ $(function() {
                         );
                 }
                 
+                i++;
+                
                 chartGrid[key].numPoints++;
-				elem.chart.redraw();
+                if(redrawCharts)
+                    elem.chart.redraw();
             });
             
             oldChartData = chartData;

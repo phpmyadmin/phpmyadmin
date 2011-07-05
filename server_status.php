@@ -43,6 +43,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 );
                 
                 exit(json_encode($ret));
+                
             case 'queries':
                 $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" OR Variable_name="Questions" AND Value>0', 0, 1);
                 cleanDeprecated($queries);
@@ -59,6 +60,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 );
 
                 exit(json_encode($ret));
+                
             case 'traffic':
                 $traffic = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Bytes_received" OR Variable_name="Bytes_sent"', 0, 1);
                 
@@ -79,7 +81,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     foreach($chartNodes as $node_id=>$node) {
                         switch($node['dataType']) {
                             case 'statusvar':
-                                $statusVars[] = $node['name'];
+                                // Some white list filtering
+                                if(! preg_match('/[^a-zA-Z_]+/',$node['name']))
+                                    $statusVars[] = $node['name'];
                                 break;
                                 
                             case 'proc':
@@ -129,6 +133,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $ret['x'] = microtime(true)*1000;
                 
                 exit(json_encode($ret));
+        }
+    }
+    
+    if(isset($_REQUEST['log_data'])) {
+        if($_REQUEST['type'] == 'slow') {
+            $q = PMA_DBI_query();
         }
     }
 }
@@ -467,8 +477,6 @@ echo __('Runtime Information');
                 </a>
                 <a class="tabChart liveconnectionsLink" href="#">
                     <?php echo __('Live conn./process chart'); ?>
-                
-
                 </a>
             </div>
             <div class="tabInnerContent">
@@ -552,7 +560,8 @@ echo __('Runtime Information');
         
         <div id="statustabs_charting">
             <div class="popupMenu">
-                <a href="#popupLink"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/></a>
+                <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
+                <a href="#popupLink"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
                 <ul class="popupContent">
                     <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
                     <li>
@@ -608,6 +617,10 @@ echo __('Runtime Information');
             <ul id="chartGrid">
     
             </ul>
+            <div id="logTable">
+                Slow query log<br/>
+            </div>
+            
             <script type="text/javascript">
                 variableNames = [ <?php
                     $i=0;
@@ -1159,7 +1172,7 @@ function printVariablesTable() {
             $odd_row = !$odd_row;
 ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_'.$allocationMap[$name]:''; ?>">
-            <th class="name"><?php echo htmlspecialchars($name) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
+            <th class="name"><?php echo htmlspecialchars(str_replace('_',' ',$name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
             </th>
             <td class="value"><?php
             if (isset($alerts[$name])) {

@@ -129,7 +129,7 @@ $(function() {
     
     $('#filterText').keyup(function(e) {
         if($(this).val().length==0) textFilter=null;
-        else textFilter = new RegExp("(^| )"+$(this).val(),'i');
+        else textFilter = new RegExp("(^| )"+$(this).val().replace('_',' '),'i');
         filterVariables();
     });
     

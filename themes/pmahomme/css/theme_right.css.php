@@ -1247,51 +1247,56 @@ div.liveChart {
     padding-bottom:80px;
 }
 
-ul#chartGrid { list-style-type: none; margin: 0; padding: 0; }
+ul#chartGrid { clear:both; list-style-type: none; margin: 0; padding: 0; }
 ul#chartGrid li { margin: 3px 3px 3px 0; padding: 1px; float: left; font-size: 4em; text-align: center; }
 
 #addChartDialog input[type="text"] {
-	margin:0px;
-	padding:3px;
+    margin:0px;
+    padding:3px;
 }
 
 div#chartVariableSettings {
-	border:1px solid #ddd;
-	background-color:#E6E6E6;
-	margin-left:10px;
+    border:1px solid #ddd;
+    background-color:#E6E6E6;
+    margin-left:10px;
 }
 
 ul#chartGrid li {
-	background: #EBEBEB;
+    background: #EBEBEB;
 }
 
 div#statustabs_charting div.popupMenu {
-	float:<?php echo $right; ?>;
+    float:<?php echo $left; ?>;
 }
 
 .popupMenu {
-	position:relative;
+    position:relative;
 }
 
 .popupContent {
-	display: none;
-	position: absolute;
-	right: 0px;
-	border: 1px solid #CCC;
-	margin:0;
-	padding:3px;
+    display: none;
+    position: absolute;
+    right: 0px;
+    border: 1px solid #CCC;
+    margin:0;
+    padding:3px;
     -moz-box-shadow:    1px 1px 6px #ddd;
     -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow:         2px 2px 3px #666;
-	background-color:white;
-	z-index: 2;
+    background-color:white;
+    z-index: 2;
 }
 
 .popupContent li {
-	display: inline;
-	white-space: nowrap;
-	margin:0; 
-	list-style-type:none;
+    display: inline;
+    white-space: nowrap;
+    margin:0; 
+    list-style-type:none;
+}
+
+div#logTable {
+    padding-top: 10px;
+    clear: both;
 }
 
 /* end serverstatus */
@@ -1304,23 +1309,23 @@ a.editLink {
 }
 
 table.serverVariableEditTable {
-	border:0;
-	margin:0;
-	padding:0;
-	width:100%;
+    border:0;
+    margin:0;
+    padding:0;
+    width:100%;
 }
 table.serverVariableEditTable td {
-	border:0;
-	margin:0;
-	padding:0;
+    border:0;
+    margin:0;
+    padding:0;
 }
 table.serverVariableEditTable td:first-child {
-	white-space:nowrap;
-	vertical-align:middle;
+    white-space:nowrap;
+    vertical-align:middle;
 }
 
 table.serverVariableEditTable input {
-	width:95%;
+    width:95%;
 }
 
 table#serverVariables td {
