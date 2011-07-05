@@ -16,8 +16,8 @@ require_once './libraries/common.lib.php';
  * Include JavaScript libraries
  */
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'rte_common.js';
-$GLOBALS['js_include'][] = 'db_triggers.js';
+$GLOBALS['js_include'][] = 'rte/common.js';
+$GLOBALS['js_include'][] = 'rte/triggers.js';
 
 /**
  * Include all other files
