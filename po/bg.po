@@ -568,7 +568,7 @@ msgstr ""
 
 #: db_routines.php:312
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Архивираната заявка е:"
 
 #: db_routines.php:316
 #, php-format
