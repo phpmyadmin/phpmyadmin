@@ -544,7 +544,7 @@ msgstr "Грешка при обработка на заявката"
 #, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr ""
+msgstr "Процедурата %1$s не е намерена в БД %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
