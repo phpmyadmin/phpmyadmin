@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-05 15:02+0200\n"
+"PO-Revision-Date: 2011-07-05 15:03+0200\n"
 "Last-Translator:  <vitorpc.18@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1161,10 +1161,9 @@ msgid "Edit"
 msgstr "Editar"
 
 #: js/messages.php:64 server_status.php:420
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Seleção do Servidor"
+msgstr "Gráfico de tráfego em tempo real"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
