@@ -1863,6 +1863,10 @@ fieldset .disabled-field td {
     vertical-align:     middle;
 }
 
+.rte_table tr td:nth-child(1) {
+    font-weight:        bold;
+}
+
 .rte_table input, .rte_table select, .rte_table textarea {
     width:              100%;
     margin:             0;

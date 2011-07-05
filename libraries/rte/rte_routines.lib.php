@@ -1328,7 +1328,7 @@ function PMA_RTN_getExecuteForm($routine, $is_ajax)
         }
         $rowclass = ($i % 2 == 0) ? 'even' : 'odd';
         $retval .= "\n<tr class='$rowclass'>\n";
-        $retval .= "<td><strong>{$routine['param_name'][$i]}</strong></td>\n";
+        $retval .= "<td>{$routine['param_name'][$i]}</td>\n";
         $retval .= "<td>{$routine['param_type'][$i]}</td>\n";
         if ($cfg['ShowFunctionFields']) {
             $retval .= "<td>\n";
