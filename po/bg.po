@@ -7471,7 +7471,7 @@ msgstr "Запис в хранилището на браузъра"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Настройките ще бъдат запазени в хранилището на вашия браузъра"
+msgstr "Настройките ще бъдат запазени в хранилището на вашия браузър"
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
