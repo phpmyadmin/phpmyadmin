@@ -1,16 +1,100 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * What type of item the editor is for.
- */
-RTE.editor = 'routine';
-
-/**
  * @var    param_template    This variable contains the template for one row
  *                           of the parameters table that is attached to the
  *                           dialog when a new parameter is added.
  */
 RTE.param_template = '';
+
+RTE.postDialogShow = function (data) {
+    // Cache the template for a parameter table row
+    RTE.param_template = data.param_template;
+    // Make adjustments in the dialog to make it AJAX compatible
+    $('.routine_param_remove').show();
+    $('input[name=routine_removeparameter]').remove();
+    $('input[name=routine_addparameter]').css('width', '100%');
+    // Enable/disable the 'options' dropdowns for parameters as necessary
+    $('.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
+    $('.routine_params_table').last().find('tr').has('td').each(function() {
+        RTE.setOptionsForParameter(
+            $(this).find('select[name^=routine_param_type]'),
+            $(this).find('input[name^=routine_param_length]'),
+            $(this).find('select[name^=routine_param_opts_text]'),
+            $(this).find('select[name^=routine_param_opts_num]')
+        );
+    });
+    // Enable/disable the 'options' dropdowns for function return value as necessary
+    RTE.setOptionsForParameter(
+        $('.rte_table').last().find('select[name=routine_returntype]'),
+        $('.rte_table').last().find('input[name=routine_returnlength]'),
+        $('.rte_table').last().find('select[name=routine_returnopts_text]'),
+        $('.rte_table').last().find('select[name=routine_returnopts_num]')
+    );
+};
+
+RTE.handleInsertRow = function (data) {return true;};
+
+RTE.validateCustom = function () {
+    var isSuccess = true;
+    $('.routine_params_table').last().find('tr').each(function() {
+        if (isSuccess) {
+            $(this).find(':input').each(function() {
+                inputname = $(this).attr('name');
+                if (inputname.substr(0, 17) == 'routine_param_dir' ||
+                    inputname.substr(0, 18) == 'routine_param_name' ||
+                    inputname.substr(0, 18) == 'routine_param_type') {
+                    if ($(this).val() == '') {
+                        $(this).focus();
+                        isSuccess = false;
+                        return false;
+                    }
+                }
+            });
+        }
+    });
+    if (! isSuccess) {
+        alert(PMA_messages['strFormEmpty']);
+        return false;
+    }
+    // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
+    $('.routine_params_table').last().find('tr').each(function() {
+        var $inputtyp = $(this).find('select[name^=routine_param_type]');
+        var $inputlen = $(this).find('input[name^=routine_param_length]');
+        if ($inputtyp.length && $inputlen.length) {
+            if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET' || $inputtyp.val().substr(0,3) == 'VAR')
+               && $inputlen.val() == '') {
+                $inputlen.focus();
+                isSuccess = false;
+                return false;
+            }
+        }
+    });
+    if (! isSuccess) {
+        alert(PMA_messages['strFormEmpty']);
+        return false;
+    }
+    if ($('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
+        // The length/values of return variable for functions must
+        // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
+        var $returntyp = $('select[name=routine_returntype]');
+        var $returnlen = $('input[name=routine_returnlength]');
+        if (($returntyp.val() == 'ENUM' || $returntyp.val() == 'SET' || $returntyp.val().substr(0,3) == 'VAR')
+           && $returnlen.val() == '') {
+            $returnlen.focus();
+            alert(PMA_messages['strFormEmpty']);
+            return false;
+        }
+    }
+    if ($('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
+        if ($('.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
+            RTE.syntaxHiglighter.focus();
+            alert(PMA_messages['MissingReturn']);
+            return false;
+        }
+    }
+    return isSuccess;
+};
 
 /**
  * Enable/disable the "options" dropdown and "length" input for

@@ -9,7 +9,6 @@
  *                in the relevant javascript files in this folder.
  */
 var RTE = {
-    editor: null,
     /**
      * @var    $ajaxDialog        jQuery object containing the reference to the
      *                            dialog that contains the editor.
@@ -45,60 +44,7 @@ var RTE = {
             alert(PMA_messages['strFormEmpty']);
             return false;
         }
-        // Validate routines editor
-        if (RTE.editor == 'routine') {
-            if (! isError) {
-                $('.routine_params_table').last().find('tr').each(function() {
-                    if (! isError) {
-                        $(this).find(':input').each(function() {
-                            inputname = $(this).attr('name');
-                            if (inputname.substr(0, 17) == 'routine_param_dir' ||
-                                inputname.substr(0, 18) == 'routine_param_name' ||
-                                inputname.substr(0, 18) == 'routine_param_type') {
-                                if ($(this).val() == '') {
-                                    $(this).focus();
-                                    isError = true;
-                                    return false;
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-            if (! isError) {
-                // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
-                $('.routine_params_table').last().find('tr').each(function() {
-                    var $inputtyp = $(this).find('select[name^=routine_param_type]');
-                    var $inputlen = $(this).find('input[name^=routine_param_length]');
-                    if ($inputtyp.length && $inputlen.length) {
-                        if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET' || $inputtyp.val().substr(0,3) == 'VAR')
-                           && $inputlen.val() == '') {
-                            $inputlen.focus();
-                            isError = true;
-                            return false;
-                        }
-                    }
-                });
-            }
-            if (! isError && $('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
-                // The length/values of return variable for functions must
-                // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
-                var $returntyp = $('select[name=routine_returntype]');
-                var $returnlen = $('input[name=routine_returnlength]');
-                if (($returntyp.val() == 'ENUM' || $returntyp.val() == 'SET' || $returntyp.val().substr(0,3) == 'VAR')
-                   && $returnlen.val() == '') {
-                    $returnlen.focus();
-                    isError = true;
-                }
-            }
-            if (! isError && $('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
-                if ($('.rte_table').find('textarea[name=item_definition]').val().toLowerCase().indexOf('return') < 0) {
-                    this.syntaxHiglighter.focus();
-                    alert(PMA_messages['MissingReturn']);
-                    return false;
-                }
-            }
-        }
+        return RTE.validateCustom();
     } // end validate()
 }; // end RTE namespace
 
@@ -158,7 +104,7 @@ $(document).ready(function() {
                                     $edit_row.remove();
                                 }
 
-                                if (RTE.editor != 'trigger' || data.sameTable == true) {
+                                if (RTE.handleInsertRow(data)) {
                                     // Insert the new row at the correct location in the list of routines
                                     /**
                                      * @var    text    Contains the name of a routine from the list
@@ -242,32 +188,6 @@ $(document).ready(function() {
                 if ($('input[name=editor_process_edit]').length > 0) {
                     mode = 'edit';
                 }
-                // Routines-specific code
-                if (RTE.editor == 'routine') {
-                    // Cache the template for a parameter table row
-                    RTE.param_template = data.param_template;
-                    // Make adjustments in the dialog to make it AJAX compatible
-                    $('.routine_param_remove').show();
-                    $('input[name=routine_removeparameter]').remove();
-                    $('input[name=routine_addparameter]').css('width', '100%');
-                    // Enable/disable the 'options' dropdowns for parameters as necessary
-                    $('.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
-                    $('.routine_params_table').last().find('tr').has('td').each(function() {
-                        RTE.setOptionsForParameter(
-                            $(this).find('select[name^=routine_param_type]'),
-                            $(this).find('input[name^=routine_param_length]'),
-                            $(this).find('select[name^=routine_param_opts_text]'),
-                            $(this).find('select[name^=routine_param_opts_num]')
-                        );
-                    });
-                    // Enable/disable the 'options' dropdowns for function return value as necessary
-                    RTE.setOptionsForParameter(
-                        $('.rte_table').last().find('select[name=routine_returntype]'),
-                        $('.rte_table').last().find('input[name=routine_returnlength]'),
-                        $('.rte_table').last().find('select[name=routine_returnopts_text]'),
-                        $('.rte_table').last().find('select[name=routine_returnopts_num]')
-                    );
-                }
                 // Attach syntax highlited editor to routine definition
                 /**
                  * @var    $elm    jQuery object containing the reference to
@@ -281,6 +201,8 @@ $(document).ready(function() {
                 RTE.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
                 // Hack to prevent the syntax highlighter from expanding beyond dialog boundries
                 $('.CodeMirror-scroll').find('div').first().css('width', '1px');
+                // Execute item-specific code
+                RTE.postDialogShow(data);
             } else {
                 PMA_ajaxShowMessage(data.error);
             }

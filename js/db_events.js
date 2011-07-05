@@ -1,9 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
-/**
- * What type of item the editor is for.
- */
-RTE.editor = 'event';
+RTE.validateCustom = function () {return true;};
+RTE.postDialogShow = function (data) {};
+RTE.handleInsertRow = function (data) {return true;};
 
 /**
  * Attach Ajax event handlers for the "Change event type"
