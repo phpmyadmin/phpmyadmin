@@ -569,7 +569,7 @@ msgstr "Desculpa, mas falhamos ao restaurar a rotina."
 
 #: db_routines.php:312
 msgid "The backed up query was:"
-msgstr ""
+msgstr "A consulta de backup foi:"
 
 #: db_routines.php:316
 #, fuzzy, php-format
