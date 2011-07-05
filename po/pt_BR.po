@@ -594,10 +594,9 @@ msgid "Create routine"
 msgstr "Criar rotina"
 
 #: db_routines.php:385
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit routine"
-msgstr "Editar servidor"
+msgstr "Editar rotina"
 
 #: db_routines.php:436
 msgid ""
