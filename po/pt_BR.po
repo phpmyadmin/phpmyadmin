@@ -537,7 +537,6 @@ msgstr "Mensagens do MySQL : "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Erro no processamento da requisição"
