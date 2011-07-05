@@ -33,13 +33,13 @@ var RTE = {
         var $elm = null;
         // Common validation
         $elm = $('.rte_table').last().find('input[name=item_name]');
-        if ($elm.val() == '') {
+        if ($elm.val() === '') {
             $elm.focus();
             alert(PMA_messages['strFormEmpty']);
             return false;
         }
         $elm = $('.rte_table').find('textarea[name=item_definition]');
-        if ($elm.val() == '') {
+        if ($elm.val() === '') {
             this.syntaxHiglighter.focus();
             alert(PMA_messages['strFormEmpty']);
             return false;
@@ -53,7 +53,7 @@ var RTE = {
  *
  * @see $cfg['AjaxEnable']
  */
-$(document).ready(function() {
+$(document).ready(function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      *
@@ -62,7 +62,7 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-    $('.ajax_add_anchor, .ajax_edit_anchor').live('click', function(event) {
+    $('.ajax_add_anchor, .ajax_edit_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var    $edit_row    jQuery object containing the reference to
@@ -81,10 +81,10 @@ $(document).ready(function() {
          *                 the AJAX message shown to the user.
          */
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
+        $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
+            if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
-                RTE.buttonOptions[PMA_messages['strGo']] = function() {
+                RTE.buttonOptions[PMA_messages['strGo']] = function () {
                     RTE.syntaxHiglighter.save();
                     // Validate editor and submit request, if passed.
                     if (RTE.validate()) {
@@ -94,13 +94,13 @@ $(document).ready(function() {
                         var data = $('.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
                         $.post($('.rte_form').last().attr('action'), data, function (data) {
-                            if(data.success == true) {
+                            if (data.success === true) {
                                 // Item created successfully
                                 PMA_ajaxRemoveMessage($msg);
                                 PMA_slidingMessage(data.message);
                                 RTE.$ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must remove the reference to the old row.
-                                if (mode == 'edit') {
+                                if (mode === 'edit') {
                                     $edit_row.remove();
                                 }
 
@@ -117,9 +117,9 @@ $(document).ready(function() {
                                      *                     in the list of routines or not.
                                      */
                                     var inserted = false;
-                                    $('table.data').find('tr').each(function() {
+                                    $('table.data').find('tr').each(function () {
                                         text = $(this).children('td').eq(0).find('strong').text().toUpperCase();
-                                        if (text != '' && text > data.name) {
+                                        if (text !== '' && text > data.name) {
                                             $(this).before(data.new_row);
                                             inserted = true;
                                             return false;
@@ -133,7 +133,7 @@ $(document).ready(function() {
                                     // Now we have inserted the row at the correct position, but surely
                                     // at least some row classes are wrong now. So we will itirate
                                     // throught all rows and assign correct classes to them.
-                                } else if ($('table.data').find('tr').has('td').length == 0) {
+                                } else if ($('table.data').find('tr').has('td').length === 0) {
                                     $('table.data').hide("slow", function () {
                                         $('#nothing2display').show("slow");
                                     });
@@ -142,8 +142,9 @@ $(document).ready(function() {
                                  * @var    ct    Count of processed rows.
                                  */
                                 var ct = 0;
-                                $('table.data').find('tr').has('td').each(function() {
-                                    rowclass = (ct % 2 == 0) ? 'even' : 'odd';
+                                var rowclass = '';
+                                $('table.data').find('tr').has('td').each(function () {
+                                    rowclass = (ct % 2 === 0) ? 'even' : 'odd';
                                     $(this).removeClass().addClass(rowclass);
                                     ct++;
                                 });
@@ -159,14 +160,14 @@ $(document).ready(function() {
                             }
                         });
                     }
-                } // end of function that handles the submission of the Editor
-                RTE.buttonOptions[PMA_messages['strClose']] = function() {
+                }; // end of function that handles the submission of the Editor
+                RTE.buttonOptions[PMA_messages['strClose']] = function () {
                     $(this).dialog("close");
-                }
+                };
                 /**
                  * Display the dialog to the user
                  */
-                RTE.$ajaxDialog = $('<div>'+data.message+'</div>').dialog({
+                RTE.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                                 width: 700,  // TODO: make a better decision about the size
                                 height: 555, // of the dialog based on the size of the viewport
                                 buttons: RTE.buttonOptions,
@@ -177,7 +178,7 @@ $(document).ready(function() {
                                 }
                         });
                 RTE.$ajaxDialog.find('input[name=item_name]').focus();
-                RTE.$ajaxDialog.find('.datefield, .datetimefield').each(function() {
+                RTE.$ajaxDialog.find('.datefield, .datetimefield').each(function () {
                     PMA_addDatepicker($(this).css('width', '95%'));
                 });
                 /**
@@ -206,7 +207,7 @@ $(document).ready(function() {
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        }) // end $.get()
+        }); // end $.get()
     }); // end $.live()
 
     /**
@@ -216,10 +217,10 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-    $('.rte_table').find('input[name^=item], input[name^=params]').live('keydown', function(e) {
-        if (e.which == 13) {
+    $('.rte_table').find('input[name^=item], input[name^=params]').live('keydown', function (e) {
+        if (e.which === 13) {
             e.preventDefault();
-            if (typeof RTE.buttonOptions[PMA_messages['strGo']] == 'function') {
+            if (typeof RTE.buttonOptions[PMA_messages['strGo']] === 'function') {
                 RTE.buttonOptions[PMA_messages['strGo']].call();
             }
         }
@@ -233,21 +234,23 @@ $(document).ready(function() {
      *
      * @see $cfg['AjaxEnable']
      */
-    $('.ajax_export_anchor').live('click', function(event) {
+    $('.ajax_export_anchor').live('click', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
+        $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
+            if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 /**
                  * @var button_options  Object containing options for jQueryUI dialog buttons
                  */
                 var button_options = {};
-                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
+                button_options[PMA_messages['strClose']] = function () {
+                    $(this).dialog("close").remove();
+                };
                 /**
                  * Display the dialog to the user
                  */
-                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
+                var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                                       width: 500,
                                       buttons: button_options,
                                       title: data.title
@@ -258,7 +261,7 @@ $(document).ready(function() {
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        }) // end $.get()
+        }); // end $.get()
     }); // end $.live()
 
     /**
@@ -268,7 +271,7 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    $('.ajax_drop_anchor').live('click', function(event) {
+    $('.ajax_drop_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var $curr_row    Object containing reference to the current row
@@ -278,19 +281,19 @@ $(document).ready(function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             /**
              * @var    $msg    jQuery object containing the reference to
              *                 the AJAX message shown to the user.
              */
             var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                if (data.success === true) {
                     /**
                      * @var $table    Object containing reference to the main list of elements.
                      */
                     var $table = $curr_row.parent();
-                    if ($table.find('tr').length == 2) {
+                    if ($table.find('tr').length === 2) {
                         $table.hide("slow", function () {
                             $(this).find('tr.even, tr.odd').remove();
                             $('#nothing2display').show("slow");
@@ -305,8 +308,9 @@ $(document).ready(function() {
                              * @var    ct    Count of processed rows.
                              */
                             var ct = 0;
-                            $table.find('tr').has('td').each(function() {
-                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
+                            var rowclass = '';
+                            $table.find('tr').has('td').each(function () {
+                                rowclass = (ct % 2 === 0) ? 'even' : 'odd';
                                 $(this).removeClass().addClass(rowclass);
                                 ct++;
                             });
@@ -318,7 +322,7 @@ $(document).ready(function() {
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
                 }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
+            }); // end $.get()
+        }); // end $.PMA_confirm()
     }); // end $.live()
 }); // end of $(document).ready()
