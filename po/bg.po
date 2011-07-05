@@ -960,7 +960,7 @@ msgstr "Web сървърът няма права за писане върху ф
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Схемата беше записана във файл %s."
+msgstr "Схемата беше запазена във файл %s."
 
 #: import.php:58
 #, php-format
