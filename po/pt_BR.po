@@ -589,10 +589,9 @@ msgstr ""
 "<b>Um ou mais erros ocorreram durante o processamento de sua requisição:</b>"
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Criar relacionamento"
+msgstr "Criar rotina"
 
 #: db_routines.php:385
 #, fuzzy
