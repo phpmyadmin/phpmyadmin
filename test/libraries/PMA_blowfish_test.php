@@ -29,6 +29,7 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
             PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret));
     }
 
+    /*  Due to differences in the initialization factor, these tests are not portable between systems. 
     public function testEncrypt()
     {
         $secret = '$%ÄüfuDFRR';
@@ -44,6 +45,7 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
         $decrypted = '12345678';
         $this->assertEquals($decrypted, PMA_blowfish_decrypt($encrypted, $secret));
     }
+    */
 
 }
 ?>
