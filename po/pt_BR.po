@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-05 14:53+0200\n"
+"PO-Revision-Date: 2011-07-05 14:56+0200\n"
 "Last-Translator:  <vitorpc.18@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -543,10 +543,10 @@ msgstr "Erro no processamento da requisição"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Nenhuma tabela encontrada no banco de dados"
+msgstr "Nenhuma rotina com o nome %1$s encontrada no banco de dados %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
