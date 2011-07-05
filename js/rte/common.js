@@ -166,7 +166,7 @@ $(document).ready(function() {
                 /**
                  * Display the dialog to the user
                  */
-                RTE.$ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
+                RTE.$ajaxDialog = $('<div>'+data.message+'</div>').dialog({
                                 width: 700,  // TODO: make a better decision about the size
                                 height: 555, // of the dialog based on the size of the viewport
                                 buttons: RTE.buttonOptions,
