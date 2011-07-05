@@ -5207,7 +5207,7 @@ msgstr "Експорт на тригер %s"
 #: libraries/display_triggers.inc.php:39
 #, php-format
 msgid "Export of trigger \"%s\""
-msgstr ""
+msgstr "Експорт на тригер \"%s\""
 
 #: libraries/display_triggers.inc.php:47
 #, php-format
