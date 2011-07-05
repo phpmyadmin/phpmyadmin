@@ -13,16 +13,16 @@ if (! defined('PHPMYADMIN')) {
 $titles = PMA_buildActionTitles();
 
 if ($GLOBALS['is_ajax_request'] != true) {
-	/**
-	 * Displays the header and tabs
-	 */
-	if (empty($table)) {
-		require_once './libraries/db_common.inc.php';
-		require_once './libraries/db_info.inc.php';
-	} else {
-		require_once './libraries/tbl_common.php';
-		require_once './libraries/tbl_links.inc.php';
-	}
+    /**
+     * Displays the header and tabs
+     */
+    if (empty($table)) {
+        require_once './libraries/db_common.inc.php';
+        require_once './libraries/db_info.inc.php';
+    } else {
+        require_once './libraries/tbl_common.php';
+        require_once './libraries/tbl_links.inc.php';
+    }
 } else {
     /**
      * Since we did not include some libraries, we need
@@ -46,11 +46,11 @@ $ajax_class = array('add'    => '',
                     'drop'   => '',
                     'export' => '');
 if ($GLOBALS['cfg']['AjaxEnable']) {
-	$ajax_class = array('add'    => 'class="ajax_add_anchor"',
-						'edit'   => 'class="ajax_edit_anchor"',
-						'exec'   => 'class="ajax_exec_anchor"',
-						'drop'   => 'class="ajax_drop_anchor"',
-						'export' => 'class="ajax_export_anchor"');
+    $ajax_class = array('add'    => 'class="ajax_add_anchor"',
+                        'edit'   => 'class="ajax_edit_anchor"',
+                        'exec'   => 'class="ajax_exec_anchor"',
+                        'drop'   => 'class="ajax_drop_anchor"',
+                        'export' => 'class="ajax_export_anchor"');
 }
 
 /**

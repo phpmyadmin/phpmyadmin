@@ -43,9 +43,9 @@ function PMA_RTE_getList($type, $items)
     $retval .= "        <!-- TABLE HEADERS -->\n";
     $retval .= "        <tr>\n";
     foreach ($header_arr['cols'] as $key => $value) {
-		if (isset($value['label'])) {
+        if (isset($value['label'])) {
             $retval .= "            <th colspan='{$value['colspan']}'>{$value['label']}</th>\n";
-		}
+        }
     }
     $retval .= "        </tr>\n";
     $retval .= "        <!-- TABLE DATA -->\n";
