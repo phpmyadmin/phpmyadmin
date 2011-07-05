@@ -2874,7 +2874,7 @@ msgstr "Метод за експортиране"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
-msgstr ""
+msgstr "Запазване на сървъра"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
