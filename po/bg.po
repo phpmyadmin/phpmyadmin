@@ -574,7 +574,7 @@ msgstr "Архивираната заявка е:"
 #, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr ""
+msgstr "Процедурата%1$s  беше променена."
 
 #: db_routines.php:329
 #, php-format
