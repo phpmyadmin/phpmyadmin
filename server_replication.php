@@ -40,10 +40,10 @@ if (! $is_superuser) {
 if (isset($GLOBALS['sr_take_action'])) {
     $refresh = false;
     if (isset($GLOBALS['slave_changemaster'])) {
-        $_SESSION['replication']['m_username'] = $sr['username'] = PMA_sqlAddslashes($GLOBALS['username']);
-        $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_sqlAddslashes($GLOBALS['pma_pw']);
-        $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_sqlAddslashes($GLOBALS['hostname']);
-        $_SESSION['replication']['m_port']     = $sr['port']     = PMA_sqlAddslashes($GLOBALS['port']);
+        $_SESSION['replication']['m_username'] = $sr['username'] = PMA_sqlAddSlashes($GLOBALS['username']);
+        $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_sqlAddSlashes($GLOBALS['pma_pw']);
+        $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_sqlAddSlashes($GLOBALS['hostname']);
+        $_SESSION['replication']['m_port']     = $sr['port']     = PMA_sqlAddSlashes($GLOBALS['port']);
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
@@ -53,7 +53,7 @@ if (isset($GLOBALS['sr_take_action'])) {
 
         if (! $link_to_master) {
             $_SESSION['replication']['sr_action_status'] = 'error';
-            $_SESSION['replication']['sr_action_info'] = sprintf(__('Unable to connect to master %s.'), $sr['hostname']);
+            $_SESSION['replication']['sr_action_info'] = sprintf(__('Unable to connect to master %s.'), htmlspecialchars($sr['hostname']));
         } else {
             // Read the current master position
             $position = PMA_replication_slave_bin_log_master($link_to_master);
@@ -69,7 +69,7 @@ if (isset($GLOBALS['sr_take_action'])) {
                     $_SESSION['replication']['sr_action_info'] = __('Unable to change master');
                 } else {
                     $_SESSION['replication']['sr_action_status'] = 'success';
-                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed successfully to %s'), $sr['hostname']);
+                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed successfully to %s'), htmlspecialchars($sr['hostname']));
                 }
             }
         }

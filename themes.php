@@ -17,7 +17,7 @@ $path_to_themes = $cfg['ThemePath'] . '/';
 require './libraries/header_http.inc.php';
 
 /* HTML header */
-$page_title = 'phpMyAdmin - ' . __('Theme / Style');
+$page_title = 'phpMyAdmin - ' . __('Theme');
 require './libraries/header_meta_style.inc.php';
 ?>
 <script type="text/javascript" language="javascript">
@@ -37,7 +37,7 @@ function takeThis(what){
 </head>
 
 <body id="bodythemes">
-<h1>phpMyAdmin - <?php echo __('Theme / Style'); ?></h1>
+<h1>phpMyAdmin - <?php echo __('Theme'); ?></h1>
 <p><a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php'); ?>#pma_<?php echo preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION); ?>"><?php echo __('Get more themes!'); ?></a></p>
 <?php
 $_SESSION['PMA_Theme_Manager']->printPreviews();

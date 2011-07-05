@@ -15,10 +15,9 @@ var sql_box_locked = false;
 var only_once_elements = new Array();
 
 /**
- * @var ajax_message_init   boolean boolean that stores status of
- *      notification for PMA_ajaxShowNotification
+ * @var   int   ajax_message_count   Number of AJAX messages shown since page load
  */
-var ajax_message_init = false;
+var ajax_message_count = 0;
 
 /**
  * @var codemirror_editor object containing CodeMirror editor
@@ -624,24 +623,75 @@ $(document).ready(function() {
         if ($(e.target).is('a, img, a *')) {
             return;
         }
-        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
         var $tr = $(this);
-        var $checkbox = $tr.find(':checkbox');
-        if ($checkbox.length) {
-            // checkbox in a row, add or remove class depending on checkbox state
-            var checked = $checkbox.attr('checked');
-            if (!$(e.target).is(':checkbox, label')) {
-                checked = !checked;
-                $checkbox.attr('checked', checked);
-            }
-            if (checked) {
-                $tr.addClass('marked');
+        
+        // make the table unselectable (to prevent default highlighting when shift+click)
+        $tr.parents('table').noSelect();
+        
+        if (!e.shiftKey || last_clicked_row == -1) {
+            // usual click
+            
+            // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+            var $checkbox = $tr.find(':checkbox');
+            if ($checkbox.length) {
+                // checkbox in a row, add or remove class depending on checkbox state
+                var checked = $checkbox.attr('checked');
+                if (!$(e.target).is(':checkbox, label')) {
+                    checked = !checked;
+                    $checkbox.attr('checked', checked);
+                }
+                if (checked) {
+                    $tr.addClass('marked');
+                } else {
+                    $tr.removeClass('marked');
+                }
+                last_click_checked = checked;
             } else {
-                $tr.removeClass('marked');
+                // normaln data table, just toggle class
+                $tr.toggleClass('marked');
+                last_click_checked = false;
             }
+            
+            // remember the last clicked row
+            last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
+            last_shift_clicked_row = -1;
         } else {
-            // normal data table, just toggle class
-            $tr.toggleClass('marked');
+            // handle the shift click
+            var start, end;
+            
+            // clear last shift click result
+            if (last_shift_clicked_row >= 0) {
+                if (last_shift_clicked_row >= last_clicked_row) {
+                    start = last_clicked_row;
+                    end = last_shift_clicked_row;
+                } else {
+                    start = last_shift_clicked_row;
+                    end = last_clicked_row;
+                }
+                $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+                    .slice(start, end + 1)
+                    .removeClass('marked')
+                    .find(':checkbox')
+                    .attr('checked', false);
+            }
+            
+            // handle new shift click
+            var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
+            if (curr_row >= last_clicked_row) {
+                start = last_clicked_row;
+                end = curr_row;
+            } else {
+                start = curr_row;
+                end = last_clicked_row;
+            }
+            $tr.parent().find('tr.odd:not(.noclick), tr.even:not(.noclick)')
+                .slice(start, end + 1)
+                .addClass('marked')
+                .find(':checkbox')
+                .attr('checked', true);
+            
+            // remember the last shift clicked row
+            last_shift_clicked_row = curr_row;
         }
     });
 
@@ -652,6 +702,22 @@ $(document).ready(function() {
         PMA_addDatepicker($(this));
         });
 })
+
+/**
+ * True if last click is to check a row.
+ */
+var last_click_checked = false;
+
+/**
+ * Zero-based index of last clicked row.
+ * Used to handle the shift + click event in the code above.
+ */
+var last_clicked_row = -1;
+
+/**
+ * Zero-based index of last shift clicked row.
+ */
+var last_shift_clicked_row = -1;
 
 /**
  * Row highlighting in horizontal mode (use "live"
@@ -1150,7 +1216,7 @@ function changeMIMEType(db, table, reference, mime_type)
  * Jquery Coding for inline editing SQL_QUERY
  */
 $(document).ready(function(){
-    $(".inline_edit_sql").click( function(){
+    $(".inline_edit_sql").live('click', function(){
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1165,7 +1231,12 @@ $(document).ready(function(){
         $(".btnSave").each(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
-                window.location.replace("import.php?db=" + db +"&table=" + table + "&sql_query=" + sql_query + "&show_query=1&token=" + token);
+                window.location.replace("import.php"
+                                      + "?db=" + encodeURIComponent(db)
+                                      + "&table=" + encodeURIComponent(table)
+                                      + "&sql_query=" + encodeURIComponent(sql_query)
+                                      + "&show_query=1"
+                                      + "&token=" + token);
             });
         });
         $(".btnDiscard").each(function(){
@@ -1243,83 +1314,64 @@ $(document).ready(function(){
  *                              optional, defaults to 'Loading...'
  * @param   var     timeout     number of milliseconds for the message to be visible
  *                              optional, defaults to 5000
- * @return  jQuery object       jQuery Element that holds the message div 
+ * @return  jQuery object       jQuery Element that holds the message div
  */
-
 function PMA_ajaxShowMessage(message, timeout) {
 
-    //Handle the case when a empty data.message is passed.  We don't want the empty message
-    if(message == '') {
+    //Handle the case when a empty data.message is passed. We don't want the empty message
+    if (message == '') {
         return true;
+    } else if (! message) {
+        // If the message is undefined, show the default
+        message = PMA_messages['strLoading'];
     }
 
     /**
-     * @var msg String containing the message that has to be displayed
-     * @default PMA_messages['strLoading']
-     */
-    if(!message) {
-        var msg = PMA_messages['strLoading'];
-    }
-    else {
-        var msg = message;
-    }
-
-    /**
-     * @var timeout Number of milliseconds for which {@link msg} will be visible
+     * @var timeout Number of milliseconds for which the message will be visible
      * @default 5000 ms
      */
-    if(!timeout) {
-        var to = 5000;
-    }
-    else {
-        var to = timeout;
+    if (! timeout) {
+        timeout = 5000;
     }
 
-    if( !ajax_message_init) {
-        //For the first time this function is called, append a new div
-        $(function(){
-            $('<div id="loading_parent"></div>')
-            .insertBefore("#serverinfo");
-
-            $('<span id="loading" class="ajax_notification"></span>')
-            .appendTo("#loading_parent")
-            .html(msg)
-            .fadeIn('medium')
-            .delay(to)
-            .fadeOut('medium', function(){
-                $(this)
-                .html("") //Clear the message
-                .hide();
-            });
-        }, 'top.frame_content');
-        ajax_message_init = true;
+    // Create a parent element for the AJAX messages, if necessary
+    if ($('#loading_parent').length == 0) {
+        $('<div id="loading_parent"></div>')
+        .insertBefore("#serverinfo");
     }
-    else {
-        //Otherwise, just show the div again after inserting the message
-        $("#loading")
-        .stop(true, true)
-        .html(msg)
+
+    // Update message count to create distinct message elements every time
+    ajax_message_count++;
+
+    // Remove all old messages, if any
+    $(".ajax_notification[id^=ajax_message_num]").remove();
+
+    /**
+     * @var    $retval    a jQuery object containing the reference
+     *                    to the created AJAX message
+     */
+    var $retval = $('<span class="ajax_notification" id="ajax_message_num_' + ajax_message_count + '"></span>')
+        .hide()
+        .appendTo("#loading_parent")
+        .html(message)
         .fadeIn('medium')
-        .delay(to)
+        .delay(timeout)
         .fadeOut('medium', function() {
-            $(this)
-            .html("")
-            .hide();
-        })
-    }
+            $(this).remove();
+        });
 
-    return $("#loading");
+    return $retval;
 }
 
 /**
  * Removes the message shown for an Ajax operation when it's completed
  */
 function PMA_ajaxRemoveMessage($this_msgbox) {
-    $this_msgbox
-     .stop(true, true)
-     .fadeOut('medium', function() {
-        $this_msgbox.hide();
-     });
+    if ($this_msgbox != undefined && $this_msgbox instanceof jQuery) {
+        $this_msgbox
+        .stop(true, true)
+        .fadeOut('medium');
+    }
 }
 
 /**
@@ -1469,7 +1521,7 @@ function PMA_createChart(passedSettings) {
             enabled:false
         },
         xAxis: {
-            type: 'datetime',
+            type: 'datetime'
         },
         yAxis: {
             min: 0,
@@ -1776,46 +1828,6 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * Attach Ajax event handlers for Drop Trigger.  Used on tbl_structure.php
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-
-    $(".drop_trigger_anchor").live('click', function(event) {
-        event.preventDefault();
-
-        $anchor = $(this);
-        /**
-         * @var curr_row    Object reference to the current trigger's <tr>
-         */
-        var $curr_row = $anchor.parents('tr');
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = 'DROP TRIGGER IF EXISTS `' + $curr_row.children('td:first').text() + '`';
-
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("#topmenucontainer")
-                    .next('div')
-                    .remove()
-                    .end()
-                    .after(data.sql_query);
-                    $curr_row.hide("medium").remove();
-                }
-                else {
-                    PMA_ajaxShowMessage(data.error);
-                }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }) // end $().live()
-}, 'top.frame_content'); //end $(document).ready() for Drop Trigger
-
-/**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *
@@ -2079,6 +2091,10 @@ $(document).ready(function() {
      * Hides certain table structure actions, replacing them with the word "More". They are displayed
      * in a dropdown menu when the user hovers over the word "More."
      */
+    displayMoreTableOpts();
+});
+
+function displayMoreTableOpts() {
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if($("input[type='hidden'][name='table_type']").val() == "table") {
@@ -2088,6 +2104,7 @@ $(document).ready(function() {
         $table.find("td[class='unique']").remove();
         $table.find("td[class='index']").remove();
         $table.find("td[class='fulltext']").remove();
+        $table.find("td[class='spatial']").remove();
         $table.find("th[class='action']").attr("colspan", 3);
 
         // Display the "more" text
@@ -2098,9 +2115,9 @@ $(document).ready(function() {
             // Optimize DOM querying
             var $this_dropdown = $(this);
              // The top offset must be set for IE even if it didn't change
-            var cell_right_edge_offset = $this_dropdown.parent().offset().left + $this_dropdown.parent().innerWidth();
+            var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
             var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
-            var top_offset = $this_dropdown.parent().offset().top + $this_dropdown.parent().innerHeight();
+            var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
             $this_dropdown.offset({ top: top_offset, left: left_offset });
         });
 
@@ -2146,8 +2163,7 @@ $(document).ready(function() {
                 }
             });
     }
-});
-
+}
 $(document).ready(initTooltips);
 
 /* Displays tooltips */
@@ -2273,62 +2289,6 @@ $(function() {
     $(window).resize(menuResize);
     menuResize();
 });
-
-/**
- * For the checkboxes in browse mode, handles the shift/click (only works
- * in horizontal mode) and propagates the click to the "companion" checkbox
- * (in both horizontal and vertical). Works also for pages reached via AJAX.
- */
-$(document).ready(function() {
-    $('.multi_checkbox').live('click',function(e) {
-        var current_checkbox_id = this.id;
-        var left_checkbox_id = current_checkbox_id.replace('_right', '_left');
-        var right_checkbox_id = current_checkbox_id.replace('_left', '_right');
-        var other_checkbox_id = '';
-        if (current_checkbox_id == left_checkbox_id) {
-            other_checkbox_id = right_checkbox_id;
-        } else {
-            other_checkbox_id = left_checkbox_id;
-        }
-
-        var $current_checkbox = $('#' + current_checkbox_id);
-        var $other_checkbox = $('#' + other_checkbox_id);
-
-        if (e.shiftKey) {
-            var index_of_current_checkbox = $('.multi_checkbox').index($current_checkbox);
-            var $last_checkbox = $('.multi_checkbox').filter('.last_clicked');
-            var index_of_last_click = $('.multi_checkbox').index($last_checkbox);
-            $('.multi_checkbox')
-                .filter(function(index) {
-                    // the first clicked row can be on a row above or below the
-                    // shift-clicked row
-                    return (index_of_current_checkbox > index_of_last_click && index > index_of_last_click && index < index_of_current_checkbox)
-                     || (index_of_last_click > index_of_current_checkbox && index < index_of_last_click && index > index_of_current_checkbox);
-                })
-                .each(function(index) {
-                    var $intermediate_checkbox = $(this);
-                    if ($current_checkbox.is(':checked')) {
-                        $intermediate_checkbox.attr('checked', true);
-                    } else {
-                        $intermediate_checkbox.attr('checked', false);
-                    }
-                });
-        }
-
-        $('.multi_checkbox').removeClass('last_clicked');
-        $current_checkbox.addClass('last_clicked');
-
-        // When there is a checkbox on both ends of the row, propagate the
-        // click on one of them to the other one.
-        // (the default action has not been prevented so if we have
-        // just clicked, this "if" is true)
-        if ($current_checkbox.is(':checked')) {
-            $other_checkbox.attr('checked', true);
-        } else {
-            $other_checkbox.attr('checked', false);
-        }
-    });
-}) // end of $(document).ready() for multi checkbox
 
 /**
  * Get the row number from the classlist (for example, row_1)
@@ -2498,6 +2458,184 @@ $(document).ready(function() {
 }) // end of $(document).ready()
 
 /**
+ * Attach Ajax event handlers for Export of Routines, Triggers and Events.
+ *
+ * @uses    PMA_ajaxShowMessage()
+ * @uses    PMA_ajaxRemoveMessage()
+ *
+ * @see $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $('.export_routine_anchor, .export_trigger_anchor, .export_event_anchor').live('click', function(event) {
+        event.preventDefault();
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+                /**
+                 * @var button_options  Object containing options for jQueryUI dialog buttons
+                 */
+                var button_options = {};
+                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
+                /**
+                 * Display the dialog to the user
+                 */
+                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
+                                      width: 500,
+                                      buttons: button_options,
+                                      title: data.title
+                                  });
+                // Attach syntax highlited editor to export dialog
+                var elm = $ajaxDialog.find('textarea');
+                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        }) // end $.get()
+    }); // end $.live()
+}); // end of $(document).ready() for Export of Routines, Triggers and Events.
+
+/**
+ * Creates a message inside an object with a sliding effect
+ *
+ * @param   msg    A string containing the text to display
+ * @param   $obj   a jQuery object containing the reference
+ *                 to the element where to put the message
+ *                 This is optional, if no element is
+ *                 provided, one will be created below the
+ *                 navigation links at the top of the page
+ *
+ * @return  bool   True on success, false on failure
+ */
+function PMA_slidingMessage(msg, $obj) {
+    if (msg == undefined || msg.length == 0) {
+        // Don't show an empty message
+        return false;
+    }
+    if ($obj == undefined || ! $obj instanceof jQuery || $obj.length == 0) {
+        // If the second argument was not supplied,
+        // we might have to create a new DOM node.
+        if ($('#PMA_slidingMessage').length == 0) {
+            $('#topmenucontainer')
+            .after('<span id="PMA_slidingMessage" '
+                 + 'style="display: inline-block;"></span>');
+        }
+        $obj = $('#PMA_slidingMessage');
+    }
+    if ($obj.has('div').length > 0) {
+        // If there already is a message inside the
+        // target object, we must get rid of it
+        $obj
+        .find('div')
+        .first()
+        .fadeOut(function () {
+            $obj
+            .children()
+            .remove();
+            $obj
+            .append('<div style="display: none;">' + msg + '</div>')
+            .animate({
+                height: $obj.find('div').first().height()
+            })
+            .find('div')
+            .first()
+            .fadeIn();
+        });
+    } else {
+        // Object does not already have a message
+        // inside it, so we simply slide it down
+        var h = $obj
+                .width('100%')
+                .html('<div style="display: none;">' + msg + '</div>')
+                .find('div')
+                .first()
+                .height();
+        $obj
+        .find('div')
+        .first()
+        .css('height', 0)
+        .show()
+        .animate({
+                height: h
+            }, function() {
+            // Set the height of the parent
+            // to the height of the child
+            $obj
+            .height(
+                $obj
+                .find('div')
+                .first()
+                .height()
+            );
+        });
+    }
+    return true;
+} // end PMA_slidingMessage()
+
+/**
+ * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
+ *
+ * @uses    $.PMA_confirm()
+ * @uses    PMA_ajaxShowMessage()
+ * @see     $cfg['AjaxEnable']
+ */
+$(document).ready(function() {
+    $('.drop_routine_anchor, .drop_trigger_anchor, .drop_event_anchor').live('click', function(event) {
+        event.preventDefault();
+        /**
+         * @var $curr_row    Object containing reference to the current row
+         */
+        var $curr_row = $(this).parents('tr');
+        /**
+         * @var question    String containing the question to be asked for confirmation
+         */
+        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
+        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+            /**
+             * @var    $msg    jQuery object containing the reference to
+             *                 the AJAX message shown to the user.
+             */
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
+                if(data.success == true) {
+                    /**
+                     * @var $table    Object containing reference to the main list of elements.
+                     */
+                    var $table = $curr_row.parent();
+                    if ($table.find('tr').length == 2) {
+                        $table.hide("slow", function () {
+                            $(this).find('tr.even, tr.odd').remove();
+                            $('#nothing2display').show("slow");
+                        });
+                    } else {
+                        $curr_row.hide("slow", function () {
+                            $(this).remove();
+                            // Now we have removed the row from the list, but maybe
+                            // some row classes are wrong now. So we will itirate
+                            // throught all rows and assign correct classes to them.
+                            /**
+                             * @var    ct    Count of processed rows.
+                             */
+                            var ct = 0;
+                            $table.find('tr').has('td').each(function() {
+                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
+                                $(this).removeClass().addClass(rowclass);
+                                ct++;
+                            });
+                        });
+                    }
+                    // Show the query that we just executed
+                    PMA_ajaxRemoveMessage($msg);
+                    PMA_slidingMessage(data.sql_query);
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
+                }
+            }) // end $.get()
+        }) // end $.PMA_confirm()
+    }); // end $.live()
+}); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
+
+/**
  * Attach Ajax event handlers for Drop Table.
  *
  * @uses    $.PMA_confirm()
@@ -2567,4 +2705,35 @@ $(document).ready(function() {
     if (elm.length > 0) {
         codemirror_editor = CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
     }
-})
+});
+
+/**
+ * jQuery plugin to cancel selection in HTML code.
+ */
+(function ($) {
+    $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
+        var prevent = (p == null) ? true : p;
+        if (prevent) {
+            return this.each(function () {
+                if ($.browser.msie || $.browser.safari) $(this).bind('selectstart', function () {
+                    return false;
+                });
+                else if ($.browser.mozilla) {
+                    $(this).css('MozUserSelect', 'none');
+                    $('body').trigger('focus');
+                } else if ($.browser.opera) $(this).bind('mousedown', function () {
+                    return false;
+                });
+                else $(this).attr('unselectable', 'on');
+            });
+        } else {
+            return this.each(function () {
+                if ($.browser.msie || $.browser.safari) $(this).unbind('selectstart');
+                else if ($.browser.mozilla) $(this).css('MozUserSelect', 'inherit');
+                else if ($.browser.opera) $(this).unbind('mousedown');
+                else $(this).removeAttr('unselectable', 'on');
+            });
+        }
+    }; //end noSelect    
+})(jQuery);
+

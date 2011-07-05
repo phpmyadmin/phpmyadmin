@@ -11,9 +11,6 @@ include_once("Export_Relation_Schema.class.php");
  * This Class inherits the XMLwriter class and
  * helps in developing structure of SVG Schema Export
  *
- * @name PMA_SVG
- * @copyright
- * @license
  * @access public
  * @see http://php.net/manual/en/book.xmlwriter.php
  */
@@ -124,7 +121,7 @@ class PMA_SVG extends XMLWriter
 
     /**
      * Starts Svg Document
-     * 
+     *
      * svg document starts by first initializing svg tag
      * which contains all the attributes and namespace that needed
      * to define the svg document
@@ -146,7 +143,7 @@ class PMA_SVG extends XMLWriter
 
     /**
      * Ends Svg Document
-     * 
+     *
      * @return void
      * @access public
      * @see XMLWriter::endElement(),XMLWriter::endDocument()
@@ -159,7 +156,7 @@ class PMA_SVG extends XMLWriter
 
     /**
      * output Svg Document
-     * 
+     *
      * svg document prompted to the user for download
      * Svg document saved in .svg extension and can be
      * easily changeable by using any svg IDE
@@ -179,17 +176,17 @@ class PMA_SVG extends XMLWriter
 
     /**
      * Draws Svg elements
-     * 
-     * SVG has some predefined shape elements like rectangle & text 
+     *
+     * SVG has some predefined shape elements like rectangle & text
      * and other elements who have x,y co-ordinates are drawn.
      * specify their width and height and can give styles too.
      *
      * @param string name Svg element name
      * @param integer x The x attribute defines the left position of the element
-                        (e.g. x="0" places the element 0 pixels from the left of 
+                        (e.g. x="0" places the element 0 pixels from the left of
                         the browser window)
      * @param integer y The y attribute defines the top position of the element
-                        (e.g. y="0" places the element 0 pixels from the top of 
+                        (e.g. y="0" places the element 0 pixels from the top of
                         the browser window)
      * @param integer width The width attribute defines the width the element
      * @param integer height The height attribute defines the height the element
@@ -218,9 +215,9 @@ class PMA_SVG extends XMLWriter
 
     /**
      * Draws Svg Line element
-     * 
+     *
      * Svg line element is drawn for connecting the tables.
-     * arrows are also drawn by specify its start and ending 
+     * arrows are also drawn by specify its start and ending
      * co-ordinates
      *
      * @param string name Svg element name i.e line
@@ -247,14 +244,14 @@ class PMA_SVG extends XMLWriter
 
     /**
      * get width of string/text
-     * 
+     *
      * Svg text element width is calcualted depending on font name
      * and font size. It is very important to know the width of text
      * because rectangle is drawn around it.
-     * 
+     *
      * This is a bit hardcore method. I didn't found any other than this.
      *
-     * @param string text string that width will be calculated 
+     * @param string text string that width will be calculated
      * @param integer font name of the font like Arial,sans-serif etc
      * @param integer fontSize size of font
      * @return integer width of the text
@@ -315,16 +312,14 @@ class PMA_SVG extends XMLWriter
 
 /**
  * Table preferences/statistics
- * 
- * This class preserves the table co-ordinates,fields 
+ *
+ * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in SVG XML document.
  *
  * @name Table_Stats
- * @copyright
- * @license
  * @see PMA_SVG
  */
-class Table_Stats 
+class Table_Stats
 {
     /**
      * Defines properties
@@ -373,7 +368,7 @@ class Table_Stats
         * load fields
         * check to see if it will load all fields or only the foreign keys
         */
-        
+
         if ($showKeys) {
             $indexes = PMA_Index::getFromTable($this->_tableName, $db);
             $all_columns = array();
@@ -402,8 +397,8 @@ class Table_Stats
         // x and y
         $sql = 'SELECT x, y FROM '
          . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_sqlAddslashes($tableName) . '\''
+         . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+         . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
@@ -457,7 +452,7 @@ class Table_Stats
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
-         */ 
+         */
         while ($this->width < $svg->getStringWidth($this->_getTitle(),$font,$fontSize)) {
             $this->width += 7;
         }
@@ -523,18 +518,16 @@ class Table_Stats
 
 /**
  * Relation preferences/statistics
- * 
+ *
  * This class fetches the table master and foreign fields positions
- * and helps in generating the Table references and then connects 
+ * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
  *
  * @name Relation_Stats
- * @copyright
- * @license
  * @see PMA_SVG::printElementLine
  */
-class Relation_Stats 
+class Relation_Stats
 {
     /**
      * Defines properties
@@ -676,7 +669,7 @@ class Relation_Stats
             'fill:'.$color.';stroke:black;stroke-width:2;'
             );
     }
-} 
+}
 /*
 * end of the "Relation_Stats" class
 */
@@ -685,7 +678,7 @@ class Relation_Stats
  * Svg Relation Schema Class
  *
  * Purpose of this class is to generate the SVG XML Document because
- * SVG defines the graphics in XML format which is used for representing 
+ * SVG defines the graphics in XML format which is used for representing
  * the database diagrams as vector image. This class actually helps
  *  in preparing SVG XML format.
  *
@@ -694,8 +687,6 @@ class Relation_Stats
  * to this class
  *
  * @name Svg_Relation_Schema
- * @copyright
- * @license
  */
 class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 {
@@ -818,7 +809,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 
     /**
      * Draws relation arrows and lines
-     * connects master table's master field to 
+     * connects master table's master field to
      * foreign table's forein field
      *
      * @param boolean changeColor Whether to use one color per relation or not

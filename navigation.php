@@ -4,34 +4,6 @@
  * the navigation frame - displays server, db and table selection tree
  *
  * @package phpMyAdmin
- * @uses $GLOBALS['pma']->databases
- * @uses $GLOBALS['server']
- * @uses $GLOBALS['db']
- * @uses $GLOBALS['table']
- * @uses $GLOBALS['available_languages']
- * @uses $GLOBALS['lang']
- * @uses $GLOBALS['text_dir']
- * @uses $GLOBALS['pmaThemeImage']
- * @uses $GLOBALS['cfg']['LeftFrameLight']
- * @uses $GLOBALS['cfg']['ShowTooltip']
- * @uses $GLOBALS['cfg']['ShowTooltipAliasDB']
- * @uses $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses $GLOBALS['cfgRelation']['commwork']) {
- * @uses PMA_List_Database::getSingleItem()
- * @uses PMA_List_Database::getHtmlSelectGrouped()
- * @uses PMA_List_Database::getGroupedDetails()
- * @uses PMA_generate_common_url()
- * @uses PMA_generate_common_hidden_inputs()
- * @uses PMA_getDbComment();
- * @uses PMA_getTableCount()
- * @uses PMA_getTableList()
- * @uses PMA_getRelationsParam()
- * @uses PMA_outBufferPre()
- * @uses strlen()
- * @uses session_write_close()
- * @uses is_array()
- * @uses implode()
- * @uses htmlspecialchars()
  */
 
 /**
@@ -42,8 +14,6 @@ require_once './libraries/common.inc.php';
 /**
  * finish and cleanup navigation.php script execution, only to be used in navigation.php
  *
- * @uses $GLOBALS['controllink'] to close it
- * @uses $GLOBALS['userlink'] to close it
  * @access private
  */
 function PMA_exitNavigationFrame()
@@ -59,7 +29,7 @@ require_once './libraries/RecentTable.class.php';
  * Check if it is an ajax request to reload the recent tables list.
  */
 if ($GLOBALS['is_ajax_request'] && $_REQUEST['recent_table']) {
-    PMA_ajaxResponse('', true, array('options' => RecentTable::getInstance()->getHtmlSelectOption()) );
+    PMA_ajaxResponse('', true, array('options' => PMA_RecentTable::getInstance()->getHtmlSelectOption()) );
 }
 
 // keep the offset of the db list in session before closing it
@@ -194,9 +164,15 @@ require './libraries/navigation_header.inc.php';
 
 // display recently used tables
 if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
-    echo '<div id="recentTableList">';
-    echo RecentTable::getInstance()->getHtmlSelect();
-    echo '</div>';
+    echo '<div id="recentTableList">' . "\n"
+        .'<form method="post" action="index.php" target="_parent">' . "\n"
+        .PMA_generate_common_hidden_inputs() . "\n"
+        .PMA_RecentTable::getInstance()->getHtmlSelect()
+        .'<noscript>' . "\n"
+        .'<input type="submit" name="Go" value="' . __('Go') . '" />' . "\n"
+        .'</noscript>' . "\n"
+        .'</form>' . "\n"
+        .'</div>' . "\n";
 }
 
 if (! $GLOBALS['server']) {
@@ -348,15 +324,6 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
 /**
  * displays collapsable db list
  *
- * @uses    $_REQUEST['dbgroup']
- * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    strpos()
- * @uses    urlencode()
- * @uses    printf()
- * @uses    htmlspecialchars()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_getTableList()
- * @uses    PMA_displayTableList()
  * @global  integer $element_counter
  * @global  string $img_minus
  * @global  string $img_plus
@@ -526,22 +493,6 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
  * calls itself recursively if table in given list
  * is a list itself
  *
- * @uses    is_array()
- * @uses    count()
- * @uses    urlencode()
- * @uses    strpos()
- * @uses    printf()
- * @uses    htmlspecialchars()
- * @uses    strlen()
- * @uses    is_array()
- * @uses    PMA_displayTableList()
- * @uses    $_REQUEST['tbl_group']
- * @uses    $GLOBALS['common_url_query']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['cfg']['LeftFrameTableSeparator']
- * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    $GLOBALS['cfg']['DefaultTabTable']
  * @global  integer the element counter
  * @global  string  html code for '-' image
  * @global  string  html code for '+' image

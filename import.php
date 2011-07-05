@@ -3,7 +3,6 @@
 /**
  * Core script for import, this is just the glue around all other stuff
  *
- * @uses    PMA_Bookmark_getList()
  * @package phpMyAdmin
  */
 
@@ -108,7 +107,7 @@ if ($import_type == 'table') {
     }
     $err_url  = $goto
               . '?' . $common
-              . (preg_match('@^tbl_[a-z]*\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
+              . (preg_match('@^tbl_[a-z]*\.php$@', $goto) ? '&amp;table=' . htmlspecialchars($table) : '');
     $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
 
@@ -154,7 +153,7 @@ if (!empty($id_bookmark)) {
         case 0: // bookmarked query that have to be run
             $import_text = PMA_Bookmark_get($db, $id_bookmark, 'id', isset($action_bookmark_all));
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
-                $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $import_text);
+                $import_text = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddSlashes($bookmark_variable) . '${2}', $import_text);
             }
 
             // refresh left frame on changes in table or db structure

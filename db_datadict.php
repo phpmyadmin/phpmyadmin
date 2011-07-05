@@ -58,9 +58,8 @@ PMA_DBI_select_db($db);
 $rowset = PMA_DBI_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
 
 $count  = 0;
-while ($row = PMA_DBI_fetch_assoc($rowset)) {
-    $myfieldname = 'Tables_in_' . htmlspecialchars($db);
-    $table        = $row[$myfieldname];
+while ($row = PMA_DBI_fetch_row($rowset)) {
+    $table = $row[0];
     $comments = PMA_getComments($db, $table);
 
     echo '<div>' . "\n";

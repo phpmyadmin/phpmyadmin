@@ -13,31 +13,6 @@
  *
  * always use $GLOBALS, as this script is also included by functions
  *
- * @uses    $_REQUEST['no_history']
- * @uses    $GLOBALS['lang']
- * @uses    $GLOBALS['collation_connection']
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['error_message']
- * @uses    $GLOBALS['reload']
- * @uses    $GLOBALS['sql_query']
- * @uses    $GLOBALS['focus_querywindow']
- * @uses    $GLOBALS['checked_special']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['controllink'] to close it
- * @uses    $GLOBALS['userlink'] to close it
- * @uses    $cfg['Server']['user']
- * @uses    $cfg['NavigationBarIconic']
- * @uses    $cfg['MaxCharactersInDisplayedSQL']
- * @uses    PMA_isValid()
- * @uses    PMA_setHistory()
- * @uses    PMA_ifSetOr()
- * @uses    PMA_escapeJsString()
- * @uses    PMA_getenv()
- * @uses    PMA_generate_common_url()
- * @uses    basename()
- * @uses    file_exists()
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

@@ -1,12 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @uses    PMA_generate_common_url()
- * @uses    PMA_isSuperuser()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_fetch_result()
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    $userlink
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

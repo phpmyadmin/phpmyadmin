@@ -14,7 +14,7 @@ require_once './libraries/Message.class.php';
  *
  * @package phpMyAdmin
  */
-class RecentTable
+class PMA_RecentTable
 {
     /**
      * Defines the internal PMA table which contains recent tables.
@@ -33,9 +33,9 @@ class RecentTable
     public $tables;
 
     /**
-     * RecentTable instance.
+     * PMA_RecentTable instance.
      *
-     * @var RecentTable
+     * @var PMA_RecentTable
      */
     private static $_instance;
 
@@ -46,22 +46,23 @@ class RecentTable
             $this->pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                                PMA_backquote($GLOBALS['cfg']['Server']['recent']);
         }
-        if (! isset($_SESSION['tmp_user_values']['recent_tables'])) {
-            $_SESSION['tmp_user_values']['recent_tables'] =
+        $server_id = $GLOBALS['server'];
+        if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
+            $_SESSION['tmp_user_values']['recent_tables'][$server_id] =
                 isset($this->pma_table) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'];
+        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$server_id];
     }
 
     /**
      * Returns class instance.
      *
-     * @return RecentTable
+     * @return PMA_RecentTable
      */
     public static function getInstance()
     {
         if (is_null(self::$_instance)) {
-            self::$_instance = new RecentTable();
+            self::$_instance = new PMA_RecentTable();
         }
         return self::$_instance;
     }
@@ -69,10 +70,6 @@ class RecentTable
     /**
      * Returns recently used tables from phpMyAdmin database.
      *
-     * @uses $pma_table
-     * @uses PMA_query_as_controluser()
-     * @uses PMA_DBI_fetch_array()
-     * @uses json_decode()
      *
      * @return array
      */
@@ -94,9 +91,6 @@ class RecentTable
     /**
      * Save recent tables into phpMyAdmin database.
      *
-     * @uses PMA_DBI_try_query()
-     * @uses json_decode()
-     * @uses PMA_Message
      * 
      * @return true|PMA_Message
      */
@@ -105,7 +99,7 @@ class RecentTable
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query =
         " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
-        " VALUES ('" . $username . "', '" . PMA_sqlAddslashes(json_encode($this->tables)) . "')";
+        " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes(json_encode($this->tables)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -148,7 +142,7 @@ class RecentTable
         $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
-                $html .= '<option value="' . $table . '">' . $table . '</option>';
+                $html .= '<option value="' . htmlspecialchars($table) . '">' . htmlspecialchars($table) . '</option>';
             }
         } else {
             $html .= '<option value="">' . __('There are no recent tables') . '</option>';
@@ -163,9 +157,9 @@ class RecentTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<input type="hidden" id="LeftDefaultTabTable" value="' .
-                         $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
-        $html .= '<select id="recentTable">';
+        $html  = '<input type="hidden" name="goto" id="LeftDefaultTabTable" value="' .
+                         htmlspecialchars($GLOBALS['cfg']['LeftDefaultTabTable']) . '" />';
+        $html .= '<select name="table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
         

@@ -30,32 +30,6 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @usedby  tbl_structure.php
  * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['server']
- * @uses    $GLOBALS['goto']
- * @uses    $GLOBALS['is_upload']           from common.inc.php
- * @uses    $GLOBALS['sql_query']           from grab_globals.lib.php
- * @uses    $GLOBALS['cfg']['DefaultQueryTable']
- * @uses    $GLOBALS['cfg']['DefaultQueryDatabase']
- * @uses    $GLOBALS['cfg']['Servers']
- * @uses    $GLOBALS['cfg']['DefaultTabDatabase']
- * @uses    $GLOBALS['cfg']['Bookmark']
- * @uses    PMA_generate_common_url()
- * @uses    PMA_backquote()
- * @uses    PMA_DBI_fetch_result()
- * @uses    PMA_showMySQLDocu()
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_sqlQueryFormBookmark()
- * @uses    PMA_sqlQueryFormInsert()
- * @uses    PMA_sqlQueryFormUpload()
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_set_enc_form()
- * @uses    sprintf()
- * @uses    htmlspecialchars()
- * @uses    str_replace()
- * @uses    md5()
- * @uses    function_exists()
  * @param   boolean|string  $query          query to display in the textarea
  *                                          or true to display last executed
  * @param   boolean|string  $display_tab    sql|files|history|full|false
@@ -183,14 +157,6 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  * prints querybox fieldset
  *
  * @usedby  PMA_sqlQueryForm()
- * @uses    $GLOBALS['text_dir']
- * @uses    $GLOBALS['cfg']['TextareaAutoSelect']
- * @uses    $GLOBALS['cfg']['TextareaCols']
- * @uses    $GLOBALS['cfg']['TextareaRows']
- * @uses    PMA_USR_OS
- * @uses    PMA_USR_BROWSER_AGENT
- * @uses    PMA_USR_BROWSER_VER
- * @uses    htmlspecialchars()
  * @param   string      $query          query to display in the textarea
  * @param   boolean     $is_querywindow if inside querywindow or not
  * @param   string      $delimiter      default delimiter to use
@@ -391,12 +357,6 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
  * prints bookmark fieldset
  *
  * @usedby  PMA_sqlQueryForm()
- * @uses    PMA_Bookmark_getList()
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['pmaThemeImage']
- * @uses    $GLOBALS['cfg']['ReplaceHelpImg']
- * @uses    count()
- * @uses    htmlspecialchars()
  */
 function PMA_sqlQueryFormBookmark()
 {
@@ -460,18 +420,6 @@ function PMA_sqlQueryFormBookmark()
  * prints bookmark fieldset
  *
  * @usedby  PMA_sqlQueryForm()
- * @uses    $GLOBALS['cfg']['GZipDump']
- * @uses    $GLOBALS['cfg']['BZipDump']
- * @uses    $GLOBALS['cfg']['UploadDir']
- * @uses    $GLOBALS['cfg']['AvailableCharsets']
- * @uses    $GLOBALS['max_upload_size']
- * @uses    PMA_supportedDecompressions()
- * @uses    PMA_getFileSelectOptions()
- * @uses    PMA_displayMaximumUploadSize()
- * @uses    PMA_generateCharsetDropdownBox()
- * @uses    PMA_generateHiddenMaxFileSize()
- * @uses    PMA_CSDROPDOWN_CHARSET
- * @uses    empty()
  */
 function PMA_sqlQueryFormUpload(){
     $errors = array ();

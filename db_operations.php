@@ -47,7 +47,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // lower_case_table_names=1 `DB` becomes `db`
             $lower_case_table_names = PMA_DBI_fetch_value('SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1);
             if ($lower_case_table_names === '1') {
-                $newname = strtolower($newname);
+                $newname = PMA_strtolower($newname);
             }
 
             $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
@@ -69,37 +69,36 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             $GLOBALS['pma']->databases->build();
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 50000) {
-            // here I don't use DELIMITER because it's not part of the
-            // language; I have to send each statement one by one
+        // here I don't use DELIMITER because it's not part of the
+        // language; I have to send each statement one by one
 
-            // to avoid selecting alternatively the current and new db
-            // we would need to modify the CREATE definitions to qualify
-            // the db name
-            $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
-            if ($procedure_names) {
-                foreach($procedure_names as $procedure_name) {
-                    PMA_DBI_select_db($db);
-                    $tmp_query = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name);
-                    // collect for later display
-                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                    PMA_DBI_select_db($newname);
-                    PMA_DBI_query($tmp_query);
-                }
-            }
-
-            $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
-            if ($function_names) {
-                foreach($function_names as $function_name) {
-                    PMA_DBI_select_db($db);
-                    $tmp_query = PMA_DBI_get_definition($db, 'FUNCTION', $function_name);
-                    // collect for later display
-                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                    PMA_DBI_select_db($newname);
-                    PMA_DBI_query($tmp_query);
-                }
+        // to avoid selecting alternatively the current and new db
+        // we would need to modify the CREATE definitions to qualify
+        // the db name
+        $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+        if ($procedure_names) {
+            foreach($procedure_names as $procedure_name) {
+                PMA_DBI_select_db($db);
+                $tmp_query = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name);
+                // collect for later display
+                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                PMA_DBI_select_db($newname);
+                PMA_DBI_query($tmp_query);
             }
         }
+
+        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+        if ($function_names) {
+            foreach($function_names as $function_name) {
+                PMA_DBI_select_db($db);
+                $tmp_query = PMA_DBI_get_definition($db, 'FUNCTION', $function_name);
+                // collect for later display
+                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                PMA_DBI_select_db($newname);
+                PMA_DBI_query($tmp_query);
+            }
+        }
+
         // go back to current db, just in case
         PMA_DBI_select_db($db);
 
@@ -233,7 +232,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // to avoid selecting alternatively the current and new db
             // we would need to modify the CREATE definitions to qualify
             // the db name
-            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddslashes($db,true) . '\';');
+            $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
             if ($event_names) {
                 foreach($event_names as $event_name) {
                     PMA_DBI_select_db($db);
@@ -244,9 +243,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                     PMA_DBI_query($tmp_query);
                 }
             }
-    }
-    // go back to current db, just in case
-    PMA_DBI_select_db($db);
+        }
+
+        // go back to current db, just in case
+        PMA_DBI_select_db($db);
 
         // Duplicate the bookmarks for this db (done once for each db)
         if (! $_error && $db != $newname) {
@@ -586,7 +586,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     $test_query = '
          SELECT *
            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
+          WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
     $test_rs    = PMA_query_as_controluser($test_query, null, PMA_DBI_QUERY_STORE);
 
     /*

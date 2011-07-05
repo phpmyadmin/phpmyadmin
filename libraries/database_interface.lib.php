@@ -145,15 +145,6 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
  * uses language to charset mapping from mysql/share/errmsg.txt
  * and charset names to ISO charset from information_schema.CHARACTER_SETS
  *
- * @uses    $GLOBALS['cfg']['IconvExtraParams']
- * @uses    PMA_DBI_fetch_value()   to get server_language
- * @uses    preg_match()            to filter server_language
- * @uses    in_array()
- * @uses    function_exists()       to check for a convert function
- * @uses    iconv()                 to convert message
- * @uses    libiconv()              to convert message
- * @uses    recode_string()         to convert message
- * @uses    mb_convert_encoding()   to convert message
  * @param   string  $message
  * @return  string  $message
  */
@@ -284,15 +275,8 @@ function PMA_usort_comparison_callback($a, $b)
  * </code>
  *
  * @todo    move into PMA_Table
- * @uses    PMA_DBI_fetch_result()
- * @uses    PMA_escape_mysql_wildcards()
- * @uses    PMA_backquote()
- * @uses    is_array()
- * @uses    addslashes()
- * @uses    strpos()
- * @uses    strtoupper()
- * @param   string          $databases      database
- * @param   string          $table          table
+ * @param   string          $database       database
+ * @param   string|false    $table          table
  * @param   boolean|string  $tbl_is_group   $table is a table group
  * @param   resource        $link           mysql link
  * @param   integer         $limit_offset   zero-based offset for the count
@@ -321,12 +305,12 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND `TABLE_NAME` LIKE \''
-                  . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
+                  . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } elseif ('comment' === $tbl_is_group) {
                 $sql_where_table = 'AND `TABLE_COMMENT` LIKE \''
-                  . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
+                  . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } else {
-                $sql_where_table = 'AND `TABLE_NAME` = \'' . addslashes($table) . '\'';
+                $sql_where_table = 'AND `TABLE_NAME` = \'' . PMA_sqlAddSlashes($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -339,7 +323,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         // added BINARY in the WHERE clause to force a case sensitive
         // comparison (if we are looking for the db Aa we don't want
         // to find the db aa)
-        $this_databases = array_map('PMA_sqlAddslashes', $databases);
+        $this_databases = array_map('PMA_sqlAddSlashes', $databases);
 
         $sql = '
            SELECT *,
@@ -399,7 +383,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
             if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database)
-                    .' LIKE \'' . PMA_escape_mysql_wildcards(addslashes($table)) . '%\'';
+                    .' LIKE \'' . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table, true)) . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database);
@@ -583,7 +567,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
         // get table information from information_schema
         if ($database) {
             $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
-                . addslashes($database) . '\'';
+                . PMA_sqlAddSlashes($database) . '\'';
         } else {
             $sql_where_schema = '';
         }
@@ -718,6 +702,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
  * @param   string  $table      name of table to retrieve columns from
  * @param   string  $column     name of specific column
  * @param   mixed   $link       mysql link resource
+ * @return array
  */
 function PMA_DBI_get_columns_full($database = null, $table = null,
     $column = null, $link = null)
@@ -730,17 +715,17 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 
         // get columns information from information_schema
         if (null !== $database) {
-            $sql_wheres[] = '`TABLE_SCHEMA` = \'' . addslashes($database) . '\' ';
+            $sql_wheres[] = '`TABLE_SCHEMA` = \'' . PMA_sqlAddSlashes($database) . '\' ';
         } else {
             $array_keys[] = 'TABLE_SCHEMA';
         }
         if (null !== $table) {
-            $sql_wheres[] = '`TABLE_NAME` = \'' . addslashes($table) . '\' ';
+            $sql_wheres[] = '`TABLE_NAME` = \'' . PMA_sqlAddSlashes($table) . '\' ';
         } else {
             $array_keys[] = 'TABLE_NAME';
         }
         if (null !== $column) {
-            $sql_wheres[] = '`COLUMN_NAME` = \'' . addslashes($column) . '\' ';
+            $sql_wheres[] = '`COLUMN_NAME` = \'' . PMA_sqlAddSlashes($column) . '\' ';
         } else {
             $array_keys[] = 'COLUMN_NAME';
         }
@@ -851,84 +836,11 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
     $fields = PMA_DBI_fetch_result(
         'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        'Field', ($full ? null : 'Field'), $link);
+        'Field', null, $link);
     if (! is_array($fields) || count($fields) < 1) {
         return false;
     }
     return $fields;
-}
-
-/**
- * array PMA_DBI_get_column_values (string $database, string $table, string $column , mysql db link $link = null)
- *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   string  $column     name of the column to retrieve data from
- * @param   mixed   $link       mysql link resource
- * @return  array   $field_values
- */
-
-function PMA_DBI_get_column_values($database, $table, $column, $link = null)
-{
-    $query = 'SELECT ';
-    for($i=0; $i< sizeof($column); $i++)
-    {
-        $query.= PMA_backquote($column[$i]);
-        if($i < (sizeof($column)-1))
-        {
-            $query.= ', ';
-        }
-    }
-    $query.= ' FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table);
-    $field_values = PMA_DBI_fetch_result($query, null, null, $link);
-
-    if (! is_array($field_values) || count($field_values) < 1) {
-        return false;
-    }
-    return $field_values;
-}
-/**
- * array PMA_DBI_get_table_data (string $database, string $table, mysql db link $link = null)
- *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   mixed   $link       mysql link resource
- * @return  array   $result
- */
-
- function PMA_DBI_get_table_data($database, $table, $link = null)
- {
-
-    $result = PMA_DBI_fetch_result(
-        'SELECT * FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
-        null,null, $link);
-
-    if (! is_array($result) || count($result) < 1) {
-        return false;
-    }
-    return $result;
- }
-
-/**
-* array  PMA_DBI_get_table_indexes($database, $table, $link = null)
-*
-* @param    string  $database   name of database
-* @param    string  $table      name of the table whose indexes are to be retreived
-* @param    mixed   $link       mysql link resource
-* @return   array   $indexes
-*/
-
-function PMA_DBI_get_table_indexes($database, $table, $link = null)
-{
-
-    $indexes = PMA_DBI_fetch_result(
-              'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
-               null, null, $link);
-
-    if (! is_array($indexes) || count($indexes) < 1) {
-        return false;
-    }
-    return $indexes;
 }
 
  /**
@@ -969,29 +881,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  *  Function called just after a connection to the MySQL database server has been established
  *  It sets the connection collation, and determins the version of MySQL which is running.
  *
- * @uses    ./libraries/charset_conversion.lib.php
- * @uses    PMA_DBI_QUERY_STORE
- * @uses    PMA_MYSQL_INT_VERSION to set it
- * @uses    PMA_MYSQL_STR_VERSION to set it
- * @uses    $_SESSION['PMA_MYSQL_INT_VERSION'] for caching
- * @uses    $_SESSION['PMA_MYSQL_STR_VERSION'] for caching
- * @uses    PMA_DBI_GETVAR_SESSION
- * @uses    PMA_DBI_fetch_value()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_get_variable()
- * @uses    $GLOBALS['collation_connection']
- * @uses    $GLOBALS['available_languages']
- * @uses    $GLOBALS['mysql_charset_map']
- * @uses    $GLOBALS['lang']
- * @uses    $GLOBALS['cfg']['Lang']
- * @uses    defined()
- * @uses    explode()
- * @uses    sprintf()
- * @uses    intval()
- * @uses    define()
- * @uses    defined()
- * @uses    substr()
- * @uses    count()
  * @param   mixed   $link   mysql link resource|object
  * @param   boolean $is_controluser
  */
@@ -1030,7 +919,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
-            PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddslashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
+            PMA_DBI_query("SET collation_connection = '" . PMA_sqlAddSlashes($GLOBALS['collation_connection']) . "';", $link, PMA_DBI_QUERY_STORE);
         } else {
             PMA_DBI_query("SET NAMES 'utf8' COLLATE 'utf8_general_ci';", $link, PMA_DBI_QUERY_STORE);
         }
@@ -1049,13 +938,6 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * // $user_name = 'John Doe'
  * </code>
  *
- * @uses    is_string()
- * @uses    is_int()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_fetch_assoc()
- * @uses    PMA_DBI_free_result()
  * @param   string|mysql_result $result query or mysql result
  * @param   integer             $row_number row to fetch the value from,
  *                                      starting at 0, with 0 beeing default
@@ -1111,13 +993,6 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
  * // $user = array('id' => 123, 'name' => 'John Doe')
  * </code>
  *
- * @uses    is_string()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_fetch_assoc()
- * @uses    PMA_DBI_fetch_array()
- * @uses    PMA_DBI_free_result()
  * @param   string|mysql_result $result query or mysql result
  * @param   string              $type   NUM|ASSOC|BOTH
  *                                      returned array should either numeric
@@ -1197,14 +1072,6 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $optio
  * // $users['admin']['John Doe'] = '123'
  * </code>
  *
- * @uses    is_string()
- * @uses    is_int()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_num_rows()
- * @uses    PMA_DBI_num_fields()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_fetch_assoc()
- * @uses    PMA_DBI_free_result()
  * @param   string|mysql_result $result query or mysql result
  * @param   string|integer      $key    field-name or offset
  *                                      used as key for array
@@ -1335,9 +1202,7 @@ function PMA_DBI_getCompatibilities()
 /**
  * returns warnings for last query
  *
- * @uses    $GLOBALS['userlink']
- * @uses    PMA_DBI_fetch_result()
- * @param   resource mysql link  $link   mysql link resource
+ * @param   resource $link   mysql link resource
  * @return  array   warnings
  */
 function PMA_DBI_get_warnings($link = null)
@@ -1357,11 +1222,6 @@ function PMA_DBI_get_warnings($link = null)
  * returns true (int > 0) if current user is superuser
  * otherwise 0
  *
- * @uses    $_SESSION['is_superuser'] for caching
- * @uses    $GLOBALS['userlink']
- * @uses    $GLOBALS['server']
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_QUERY_STORE
  * @return  integer  $is_superuser
  */
 function PMA_isSuperuser()
@@ -1385,7 +1245,6 @@ function PMA_isSuperuser()
 /**
  * returns an array of PROCEDURE or FUNCTION names for a db
  *
- * @uses    PMA_DBI_free_result()
  * @param   string              $db     db name
  * @param   string              $which  PROCEDURE | FUNCTION
  * @param   resource            $link   mysql link
@@ -1407,7 +1266,6 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 /**
  * returns the definition of a specific PROCEDURE, FUNCTION or EVENT
  *
- * @uses    PMA_DBI_fetch_value()
  * @param   string              $db     db name
  * @param   string              $which  PROCEDURE | FUNCTION | EVENT
  * @param   string              $name  the procedure|function|event name
@@ -1427,29 +1285,33 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
 }
 
 /**
- * returns details about the TRIGGERs of a specific table
+ * returns details about the TRIGGERs for a specific table or database
  *
- * @uses    PMA_DBI_fetch_result()
  * @param   string              $db     db name
  * @param   string              $table  table name
  * @param   string              $delimiter  the delimiter to use (may be empty)
  *
  * @return  array               information about triggers (may be empty)
  */
-function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
+function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 {
     $result = array();
-
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-    // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
-    // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
-    // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
-        $triggers = PMA_DBI_fetch_result("SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddslashes($db,true) . "' and EVENT_OBJECT_TABLE = '" . PMA_sqlAddslashes($table, true) . "';");
+        // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
+        // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
+        // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
+        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddSlashes($db,true) . "';";
+        if (! empty($table)) {
+            $query .= " AND EVENT_OBJECT_TABLE = '" . PMA_sqlAddSlashes($table, true) . "';";
+        }
     } else {
-        $triggers = PMA_DBI_fetch_result("SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddslashes($db,true)) . " LIKE '" . PMA_sqlAddslashes($table, true) . "';");
+        $query = "SHOW TRIGGERS FROM " . PMA_backquote(PMA_sqlAddSlashes($db,true));
+        if (! empty($table)) {
+            $query .= " LIKE '" . PMA_sqlAddSlashes($table, true) . "';";
+        }
     }
 
-    if ($triggers) {
+    if ($triggers = PMA_DBI_fetch_result($query)) {
         foreach ($triggers as $trigger) {
             if ($GLOBALS['cfg']['Server']['DisableIS']) {
                 $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
@@ -1460,6 +1322,7 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
             }
             $one_result = array();
             $one_result['name'] = $trigger['TRIGGER_NAME'];
+            $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
             $one_result['action_timing'] = $trigger['ACTION_TIMING'];
             $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
 
@@ -1478,7 +1341,6 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
 /**
  * Returns true if $db.$view_name is a view, false if not
  *
- * @uses   PMA_DBI_fetch_result()
  * @param  string $db         database name
  * @param  string $view_name  view/table name
  *
@@ -1486,7 +1348,11 @@ function PMA_DBI_get_triggers($db, $table, $delimiter = '//')
  */
 function PMA_isView($db, $view_name)
 {
-    $result = PMA_DBI_fetch_result("SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = '".$db."' and TABLE_NAME = '".$view_name."';");
+    $result = PMA_DBI_fetch_result(
+        "SELECT TABLE_NAME
+        FROM information_schema.VIEWS
+        WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
+            AND TABLE_NAME = '" . PMA_sqlAddSlashes($view_name) . "'");
 
     if ($result) {
         return true;

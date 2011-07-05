@@ -219,8 +219,8 @@ class PMA_Tracker
 
         $sql_query =
         " SELECT tracking_active FROM " . self::$pma_table .
-        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($tablename) . "' " .
+        " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddSlashes($dbname) . "' " .
+        " AND " . PMA_backquote('table_name') . " = '" . PMA_sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
 
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
@@ -331,15 +331,15 @@ class PMA_Tracker
         "tracking " .
         ") " .
         "values (
-        '" . PMA_sqlAddslashes($dbname) . "',
-        '" . PMA_sqlAddslashes($tablename) . "',
-        '" . PMA_sqlAddslashes($version) . "',
-        '" . PMA_sqlAddslashes($date) . "',
-        '" . PMA_sqlAddslashes($date) . "',
-        '" . PMA_sqlAddslashes($snapshot) . "',
-        '" . PMA_sqlAddslashes($create_sql) . "',
-        '" . PMA_sqlAddslashes("\n") . "',
-        '" . PMA_sqlAddslashes($tracking_set) . "' )";
+        '" . PMA_sqlAddSlashes($dbname) . "',
+        '" . PMA_sqlAddSlashes($tablename) . "',
+        '" . PMA_sqlAddSlashes($version) . "',
+        '" . PMA_sqlAddSlashes($date) . "',
+        '" . PMA_sqlAddSlashes($date) . "',
+        '" . PMA_sqlAddSlashes($snapshot) . "',
+        '" . PMA_sqlAddSlashes($create_sql) . "',
+        '" . PMA_sqlAddSlashes("\n") . "',
+        '" . PMA_sqlAddSlashes($tracking_set) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -366,7 +366,7 @@ class PMA_Tracker
     {
         $sql_query =
         "/*NOTRACK*/\n" .
-        "DELETE FROM " . self::$pma_table . " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "'";
+        "DELETE FROM " . self::$pma_table . " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "'";
         $result = PMA_query_as_controluser($sql_query);
 
         return $result;
@@ -421,15 +421,15 @@ class PMA_Tracker
         "tracking " .
         ") " .
         "values (
-        '" . PMA_sqlAddslashes($dbname) . "',
-        '" . PMA_sqlAddslashes('') . "',
-        '" . PMA_sqlAddslashes($version) . "',
-        '" . PMA_sqlAddslashes($date) . "',
-        '" . PMA_sqlAddslashes($date) . "',
-        '" . PMA_sqlAddslashes('') . "',
-        '" . PMA_sqlAddslashes($create_sql) . "',
-        '" . PMA_sqlAddslashes("\n") . "',
-        '" . PMA_sqlAddslashes($tracking_set) . "' )";
+        '" . PMA_sqlAddSlashes($dbname) . "',
+        '" . PMA_sqlAddSlashes('') . "',
+        '" . PMA_sqlAddSlashes($version) . "',
+        '" . PMA_sqlAddSlashes($date) . "',
+        '" . PMA_sqlAddSlashes($date) . "',
+        '" . PMA_sqlAddSlashes('') . "',
+        '" . PMA_sqlAddSlashes($create_sql) . "',
+        '" . PMA_sqlAddSlashes("\n") . "',
+        '" . PMA_sqlAddSlashes($tracking_set) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -455,9 +455,9 @@ class PMA_Tracker
         $sql_query =
         " UPDATE " . self::$pma_table .
         " SET `tracking_active` = '" . $new_state . "' " .
-        " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "' " .
-        " AND `version` = '" . PMA_sqlAddslashes($version) . "' ";
+        " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
+        " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' " .
+        " AND `version` = '" . PMA_sqlAddSlashes($version) . "' ";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -491,7 +491,7 @@ class PMA_Tracker
         $new_data_processed = '';
         if (is_array($new_data)) {
             foreach ($new_data as $data) {
-                $new_data_processed .= '# log ' . $date . ' ' . $data['username'] . PMA_sqlAddslashes($data['statement']) . "\n";
+                $new_data_processed .= '# log ' . $date . ' ' . $data['username'] . PMA_sqlAddSlashes($data['statement']) . "\n";
             }
         } else {
             $new_data_processed = $new_data;
@@ -500,9 +500,9 @@ class PMA_Tracker
         $sql_query =
         " UPDATE " . self::$pma_table .
         " SET `" . $save_to . "` = '" . $new_data_processed . "' " .
-        " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "' " .
-        " AND `version` = '" . PMA_sqlAddslashes($version) . "' ";
+        " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
+        " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' " .
+        " AND `version` = '" . PMA_sqlAddSlashes($version) . "' ";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -559,8 +559,8 @@ class PMA_Tracker
     {
         $sql_query =
         " SELECT MAX(version) FROM " . self::$pma_table .
-        " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
-        " AND `table_name` = '" . PMA_sqlAddslashes($tablename) . "' ";
+        " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
+        " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) . "' ";
 
         if ($statement != "") {
             $sql_query .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
@@ -593,11 +593,11 @@ class PMA_Tracker
             self::init();
         }
         $sql_query = " SELECT * FROM " . self::$pma_table .
-            " WHERE `db_name` = '" . PMA_sqlAddslashes($dbname) . "' ";
+            " WHERE `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' ";
         if (! empty($tablename)) {
-            $sql_query .= " AND `table_name` = '" . PMA_sqlAddslashes($tablename) ."' ";
+            $sql_query .= " AND `table_name` = '" . PMA_sqlAddSlashes($tablename) ."' ";
         }
-        $sql_query .= " AND `version` = '" . PMA_sqlAddslashes($version) ."' ".
+        $sql_query .= " AND `version` = '" . PMA_sqlAddSlashes($version) ."' ".
                      " ORDER BY `version` DESC ";
 
         $mixed = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
@@ -959,12 +959,12 @@ class PMA_Tracker
                 $sql_query =
                 " /*NOTRACK*/\n" .
                 " UPDATE " . self::$pma_table .
-                " SET " . PMA_backquote($save_to) ." = CONCAT( " . PMA_backquote($save_to) . ",'\n" . PMA_sqlAddslashes($query) . "') ," .
+                " SET " . PMA_backquote($save_to) ." = CONCAT( " . PMA_backquote($save_to) . ",'\n" . PMA_sqlAddSlashes($query) . "') ," .
                 " `date_updated` = '" . $date . "' ";
 
                 // If table was renamed we have to change the tablename attribute in pma_tracking too
                 if ($result['identifier'] == 'RENAME TABLE') {
-                    $sql_query .= ', `table_name` = \'' . PMA_sqlAddslashes($result['tablename_after_rename']) . '\' ';
+                    $sql_query .= ', `table_name` = \'' . PMA_sqlAddSlashes($result['tablename_after_rename']) . '\' ';
                 }
 
                 // Save the tracking information only for
@@ -974,9 +974,9 @@ class PMA_Tracker
                 // we want to track
                 $sql_query .=
                 " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
-                " AND `db_name` = '" . PMA_sqlAddslashes($dbname) . "' " .
-                " AND `table_name` = '" . PMA_sqlAddslashes($result['tablename']) . "' " .
-                " AND `version` = '" . PMA_sqlAddslashes($version) . "' ";
+                " AND `db_name` = '" . PMA_sqlAddSlashes($dbname) . "' " .
+                " AND `table_name` = '" . PMA_sqlAddSlashes($result['tablename']) . "' " .
+                " AND `version` = '" . PMA_sqlAddSlashes($version) . "' ";
 
                 $result = PMA_query_as_controluser($sql_query);
             }

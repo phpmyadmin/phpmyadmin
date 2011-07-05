@@ -8,33 +8,6 @@
  *
  * @todo 'edit_next' tends to not work as expected if used ... at least there is no order by
  *       it needs the original query and the row number and than replace the LIMIT clause
- * @uses    PMA_checkParameters()
- * @uses    PMA_DBI_select_db()
- * @uses    PMA_DBI_query()
- * @uses    PMA_DBI_fetch_row()
- * @uses    PMA_DBI_get_fields_meta()
- * @uses    PMA_DBI_free_result()
- * @uses    PMA_DBI_try_query()
- * @uses    PMA_DBI_getError()
- * @uses    PMA_DBI_affected_rows()
- * @uses    PMA_DBI_insert_id()
- * @uses    PMA_backquote()
- * @uses    PMA_getUniqueCondition()
- * @uses    PMA_sqlAddslashes()
- * @uses    PMA_securePath()
- * @uses    PMA_sendHeaderLocation()
- * @uses    str_replace()
- * @uses    count()
- * @uses    file_exists()
- * @uses    strlen()
- * @uses    str_replace()
- * @uses    preg_replace()
- * @uses    is_array()
- * @uses    $GLOBALS['db']
- * @uses    $GLOBALS['table']
- * @uses    $GLOBALS['goto']
- * @uses    $GLOBALS['sql_query']
- * @uses    PMA_File::getRecentBLOBReference()
  * @package phpMyAdmin
  */
 
@@ -65,6 +38,7 @@ PMA_DBI_select_db($GLOBALS['db']);
  */
 $goto_include = false;
 
+$GLOBALS['js_include'][] = 'makegrid.js';
 // Needed for generation of Inline Edit anchors
 $GLOBALS['js_include'][] = 'sql.js';
 
@@ -156,18 +130,27 @@ if (isset($_REQUEST['where_clause'])) {
 $query = array();
 $value_sets = array();
 $func_no_param = array(
-    'NOW',
+    'CONNECTION_ID',
+    'CURRENT_USER',
     'CURDATE',
     'CURTIME',
+    'DATABASE',
+    'LAST_INSERT_ID',
+    'NOW',
+    'PI',
+    'RAND',
+    'SYSDATE',
+    'UNIX_TIMESTAMP',
+    'USER',
     'UTC_DATE',
     'UTC_TIME',
     'UTC_TIMESTAMP',
-    'UNIX_TIMESTAMP',
-    'RAND',
-    'USER',
-    'LAST_INSERT_ID',
     'UUID',
-    'CURRENT_USER',
+    'VERSION',
+);
+$func_optional_param = array(
+    'RAND',
+    'UNIX_TIMESTAMP',
 );
 
 foreach ($loop_array as $rownumber => $where_clause) {
@@ -244,23 +227,22 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
                 // if the most recent BLOB reference exists, set it as a field value
                 if (!is_null($bs_reference)) {
-                    $val = "'" . PMA_sqlAddslashes($bs_reference) . "'";
+                    $val = "'" . PMA_sqlAddSlashes($bs_reference) . "'";
                 }
             }
         }
 
         if (empty($me_funcs[$key])) {
             $cur_value = $val;
-        } elseif ('UNIX_TIMESTAMP' === $me_funcs[$key] && $val != "''") {
-            $cur_value = $me_funcs[$key] . '(' . $val . ')';
         } elseif ('UUID' === $me_funcs[$key]) {
             /* This way user will know what UUID new row has */
             $uuid = PMA_DBI_fetch_value('SELECT UUID()');
             $cur_value = "'" . $uuid . "'";
-        } elseif (in_array($me_funcs[$key], $func_no_param)) {
-            $cur_value = $me_funcs[$key] . '()';
-        } else {
+        } elseif (!in_array($me_funcs[$key], $func_no_param)
+                  || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        } else {
+            $cur_value = $me_funcs[$key] . '()';
         }
 
         //  i n s e r t
@@ -282,7 +264,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
         } elseif (empty($me_funcs[$key])
          && isset($me_fields_prev[$key])
-         && ("'" . PMA_sqlAddslashes($me_fields_prev[$key]) . "'" == $val)) {
+         && ("'" . PMA_sqlAddSlashes($me_fields_prev[$key]) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
         } elseif (! empty($val)) {
@@ -423,7 +405,8 @@ if (! empty($error_messages)) {
 unset($error_messages, $warning_messages, $total_affected_rows, $last_messages, $last_message);
 
 if($GLOBALS['is_ajax_request'] == true) {
-
+    /**Get the total row count of the table*/
+    $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'],$_REQUEST['table']);
     $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
     PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }

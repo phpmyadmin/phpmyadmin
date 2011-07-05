@@ -305,10 +305,6 @@ class PMA_Config
     /**
      * loads default values from default source
      *
-     * @uses    file_exists()
-     * @uses    $this->default_source
-     * @uses    $this->error_config_default_file
-     * @uses    $this->settings
      * @return  boolean     success
      */
     function loadDefaults()
@@ -418,16 +414,6 @@ class PMA_Config
      * Loads user preferences and merges them with current config
      * must be called after control connection has been estabilished
      *
-     * @uses $GLOBALS['cfg']
-     * @uses $GLOBALS['collation_connection']
-     * @uses $GLOBALS['lang']
-     * @uses $_SESSION['cache']['server_$server']['config_mtime']
-     * @uses $_SESSION['cache']['server_$server']['userprefs']
-     * @uses $_SESSION['cache']['server_$server']['userprefs_mtime']
-     * @uses $_SESSION['PMA_Theme_Manager']
-     * @uses PMA_apply_userprefs()
-     * @uses PMA_array_merge_recursive()
-     * @uses PMA_load_userprefs()
      * @return boolean
      */
     function loadUserPreferences()
@@ -530,10 +516,6 @@ class PMA_Config
      * If user preferences are not yet initialized, option is applied to global config and
      * added to a update queue, which is processed by {@link loadUserPreferences()}
      *
-     * @uses $GLOBALS['cfg']
-     * @uses PMA_array_read()
-     * @uses PMA_array_write()
-     * @uses PMA_persist_option()
      * @param string $cookie_name can be null
      * @param string $cfg_path
      * @param mixed  $new_cfg_value
@@ -672,7 +654,6 @@ class PMA_Config
     /**
      * sets configuration variable
      *
-     * @uses    $this->settings
      * @param   string  $setting    configuration option
      * @param   string  $value      new value for configuration option
      */
@@ -890,14 +871,6 @@ class PMA_Config
     /**
      * checks for font size configuration, and sets font size as requested by user
      *
-     * @uses    $_GET
-     * @uses    $_POST
-     * @uses    $_COOKIE
-     * @uses    preg_match()
-     * @uses    function_exists()
-     * @uses    PMA_Config::set()
-     * @uses    PMA_Config::get()
-     * @uses    PMA_Config::setCookie()
      */
     function checkFontsize()
     {
@@ -1105,8 +1078,6 @@ class PMA_Config
     /**
      * returns options for font size selection
      *
-     * @uses    preg_replace()
-     * @uses    ksort()
      * @static
      * @param   string  $current_size   current selected font size with unit
      * @return  array   selectable font sizes
@@ -1167,9 +1138,6 @@ class PMA_Config
     /**
      * returns html selectbox for font sizes
      *
-     * @uses    $GLOBALS['PMA_Config']
-     * @uses    PMA_Config::get()
-     * @uses    PMA_Config::_getFontsizeOptions()
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1204,8 +1172,6 @@ class PMA_Config
     /**
      * return complete font size selection form
      *
-     * @uses    PMA_generate_common_hidden_inputs()
-     * @uses    PMA_Config::_getFontsizeSelection()
      * @static
      * @param   string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
@@ -1225,10 +1191,6 @@ class PMA_Config
     /**
      * removes cookie
      *
-     * @uses    PMA_Config::isHttps()
-     * @uses    PMA_Config::getCookiePath()
-     * @uses    setcookie()
-     * @uses    time()
      * @param   string  $cookie     name of cookie to remove
      * @return  boolean result of setcookie()
      */
@@ -1242,12 +1204,6 @@ class PMA_Config
      * sets cookie if value is different from current cokkie value,
      * or removes if value is equal to default
      *
-     * @uses    PMA_Config::isHttps()
-     * @uses    PMA_Config::getCookiePath()
-     * @uses    $_COOKIE
-     * @uses    PMA_Config::removeCookie()
-     * @uses    setcookie()
-     * @uses    time()
      * @param   string  $cookie     name of cookie to remove
      * @param   mixed   $value      new cookie value
      * @param   string  $default    default value

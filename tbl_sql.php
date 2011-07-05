@@ -14,6 +14,7 @@ require_once './libraries/common.inc.php';
  * Runs common work
  */
 $GLOBALS['js_include'][] = 'functions.js';
+$GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 
 require './libraries/tbl_common.php';

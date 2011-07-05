@@ -759,7 +759,7 @@ if (isset($Field) && count($Field) > 0) {
                 while ($ind = PMA_DBI_fetch_assoc($ind_rs)) {
                     $col1 = $tab . '.' . $ind['Column_name'];
                     if (isset($col_all[$col1])) {
-                        if ($ind['non_unique'] == 0) {
+                        if ($ind['Non_unique'] == 0) {
                             if (isset($col_where[$col1])) {
                                 $col_unique[$col1] = 'Y';
                             } else {

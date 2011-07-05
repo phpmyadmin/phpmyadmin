@@ -3,7 +3,8 @@
 /**
  * Set of functions used to build YAML dumps of tables
  *
- * @package phpMyAdmin-Export-YAML
+ * @package phpMyAdmin-Export
+ * @subpackage YAML
  */
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -1859,12 +1859,108 @@ fieldset .disabled-field td {
     margin-bottom: 0.5em;
 }
 
+.rte_table td {
+    vertical-align:     middle;
+}
+
+.rte_table input, .rte_table select, .rte_table textarea {
+    width:              100%;
+    margin:             0;
+    box-sizing:         border-box;
+    -ms-box-sizing:     border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+}
+#placeholder .button {
+    position: absolute;
+    cursor: pointer;
+}
+
+#placeholder div.button {
+    font-size: smaller;
+    color: #999;
+    background-color: #eee;
+    padding: 2px;
+}
+
 #table_columns input, #table_columns select {
     width:              14em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
+}
+
+#placeholder {
+    position: relative;
+    border: 1px solid #aaa;
+    float: right;
+    overflow: hidden;
+}
+
+.placeholderDrag {
+    cursor: move;
+}
+
+#placeholder .button {
+    position: absolute;
+}
+
+#left_arrow {
+    left:8px;
+    top:26px;
+}
+
+#right_arrow {
+    left:26px;
+    top:26px;
+}
+
+#up_arrow {
+    left:17px;
+    top:8px;
+}
+
+#down_arrow {
+    left:17px;
+    top:44px;
+}
+
+#zoom_in {
+    left:17px;
+    top:67px;
+}
+
+#zoom_world {
+    left:17px;
+    top:85px;
+}
+
+#zoom_out {
+    left:17px;
+    top:103px;
+}
+
+.gis_table td {
+    vertical-align: middle;
+}
+
+.gis_table select {
+    min-width: 151px;
+}
+
+.gis_table .save {
+    font-weight: bold;
+    vertical-align: bottom;
+    height: 100px;
+}
+
+.gis_table .button {
+   text-align: <?php echo $right; ?>;
+}
+
+.gis_table .choice {
+    display:none;
 }
 
 .CodeMirror {
@@ -1965,4 +2061,184 @@ span.mysql-separator {
 }
 span.mysql-number {
     color: <?php echo $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer']; ?>;
+}
+
+.colborder {
+    border-right: solid 1px #FFFFFF;
+    cursor: col-resize;
+    height: 100%;
+    margin-left: -6px;
+    position: absolute;
+    width: 5px;
+}
+
+.pma_table td {
+    position: static;
+}
+
+.pma_table th.draggable span, .pma_table tbody td span {
+    display: block;
+    overflow: hidden;
+}
+
+.cRsz {
+    position: absolute;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.cCpy {
+    background: #000;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0.1em;
+    padding: 0.3em;
+    position: absolute;
+}
+
+.cPointer {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
+    height: 20px;
+    margin-left: -5px;  /* must be minus half of its width */
+    margin-top: -10px;
+    position: absolute;
+    width: 10px;
+}
+
+.cPointerVer {  /* cPointer with vertical display mode */
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer_ver.png);
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;   /* must be minus half of its height */
+    position: absolute;
+    width: 20px;
+}
+
+.dHint {
+    background: #333;
+    border:1px solid #000;
+    color: #FFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: -1em;
+    opacity: 0.8;
+    padding: 0.5em 1em;
+    position: fixed;
+    text-shadow: -1px -1px #000;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}
+
+.data {
+    position: relative;
+}
+
+.cHide {
+    background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
+    color: #CCC;
+    cursor: pointer;
+    height: 16px;
+    margin-left: -5px;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.cHide:hover {
+    background-color: #AAA;
+}
+
+.cDrop {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.coldrop {
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_drop.png);
+    cursor: pointer;
+    height: 16px;
+    margin-left: 0.5em;
+    margin-top: 0.3em;
+    position: absolute;
+    width: 16px;
+}
+
+.coldrop:hover, .coldrop-hover {
+    background-color: #999;
+}
+
+.cList {
+    background: #EEE;
+    border: solid 1px #999;
+    position: absolute;
+}
+
+.cList table {
+}
+
+.cList table tr:hover {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.cList table td input {
+    cursor: pointer;
+}
+
+.showAllColBtn {
+    border-bottom: solid 1px #999;
+    border-top: solid 1px #999;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.35em 1em;
+    text-align: center;
+}
+
+.showAllColBtn:hover {
+    background: #DDD;
+}
+
+.navigation {
+    background: #E5E5E5;
+    border: 1px solid black;
+    margin: 0.8em 0;
+}
+
+.navigation td {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.navigation_separator {
+    color: #555;
+    display: inline-block;
+    text-align: center;
+    width: 1.2em;
+    text-shadow: 1px 0 #FFF;
+}
+
+.navigation input[type=submit] {
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0.3em 0.5em;
+    min-width: 1.5em;
+    font-weight: bold;
+}
+
+.navigation input[type=submit]:hover {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.navigation select {
+    margin: 0 0.8em;
 }

@@ -13,11 +13,6 @@ if (! defined('PHPMYADMIN')) {
  * void PMA_TableHeader([bool $db_is_information_schema = false])
  * display table header (<table><thead>...</thead><tbody>)
  *
- * @uses    PMA_showHint()
- * @uses    $GLOBALS['cfg']['PropertiesNumColumns']
- * @uses    $GLOBALS['is_show_stats']
- * @uses    $GLOBALS['colspan_for_structure']
- * @uses    PMA_SortableTableHeader()
  * @param   boolean $db_is_information_schema
  * @param   boolean $replication
  */

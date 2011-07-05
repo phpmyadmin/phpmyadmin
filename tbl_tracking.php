@@ -584,7 +584,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
              PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddslashes($GLOBALS['db']) . "' " .
+             " WHERE " . PMA_backquote('db_name') . " = '" . PMA_sqlAddSlashes($GLOBALS['db']) . "' " .
              " ORDER BY ". PMA_backquote('db_name') . ", " . PMA_backquote('table_name');
 
 $sql_result = PMA_query_as_controluser($sql_query);
@@ -624,8 +624,8 @@ if (PMA_DBI_num_rows($sql_result) > 0) {
 $sql_query = " SELECT * FROM " .
              PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
              PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             " WHERE " . PMA_backquote('db_name')    . " = '" . PMA_sqlAddslashes($_REQUEST['db']) . "' ".
-             " AND "   . PMA_backquote('table_name') . " = '" . PMA_sqlAddslashes($_REQUEST['table']) ."' ".
+             " WHERE " . PMA_backquote('db_name')    . " = '" . PMA_sqlAddSlashes($_REQUEST['db']) . "' ".
+             " AND "   . PMA_backquote('table_name') . " = '" . PMA_sqlAddSlashes($_REQUEST['table']) ."' ".
              " ORDER BY ". PMA_backquote('version') . " DESC ";
 
 $sql_result = PMA_query_as_controluser($sql_query);

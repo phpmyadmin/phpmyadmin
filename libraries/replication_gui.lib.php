@@ -199,7 +199,6 @@ function PMA_replication_print_slaves_table($hidden = false) {
 /**
  * get the correct username and hostname lengths for this MySQL server
  *
- * @uses    strtok()
  * @return  array   username length, hostname length
  */
 
@@ -207,7 +206,7 @@ function PMA_replication_get_username_hostname_length() {
     $fields_info = PMA_DBI_get_columns('mysql', 'user');
     $username_length = 16;
     $hostname_length = 41;
-    foreach ($fields_info as $key => $val) {
+    foreach ($fields_info as $val) {
         if ($val['Field'] == 'User') {
             strtok($val['Type'], '()');
             $v = strtok('()');

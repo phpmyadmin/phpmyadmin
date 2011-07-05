@@ -12,6 +12,7 @@ require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'db_structure.js';
+$GLOBALS['js_include'][] = 'tbl_change.js';
 
 /**
  * Prepares the tables list if the user where not redirected to this script
@@ -57,14 +58,6 @@ $titles = PMA_buildActionTitles();
 // 1. No tables
 if ($num_tables == 0) {
 	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
-
-	// Routines
-	require './libraries/db_routines.inc.php';
-
-	// Events
-	if (PMA_MYSQL_INT_VERSION > 50100) {
-	    require './libraries/db_events.inc.php';
-	}
 
 	if (empty($db_is_information_schema)) {
 		require './libraries/display_create_table.lib.php';
@@ -354,8 +347,8 @@ foreach ($tables as $keyname => $each_table) {
             <?php echo $titles['Structure']; ?></a></td>
     <td align="center"><?php echo $search_table; ?></td>
     <?php if (! $db_is_information_schema) { ?>
-    <td align="center">
-        <a href="tbl_change.php?<?php echo $tbl_url_query; ?>">
+    <td align="center" class="insert_table">
+        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : ''); ?> href="tbl_change.php?<?php echo $tbl_url_query; ?>">
             <?php echo $titles['Insert']; ?></a></td>
     <td align="center"><?php echo $empty_table; ?></td>
     <td align="center">
@@ -545,13 +538,6 @@ PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'fr
 <hr />
 
 <?php
-// Routines
-require './libraries/db_routines.inc.php';
-
-// Events
-if (PMA_MYSQL_INT_VERSION > 50100) {
-    require './libraries/db_events.inc.php';
-}
 
 /**
  * Work on the database

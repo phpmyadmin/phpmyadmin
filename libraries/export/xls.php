@@ -1,9 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Set of functions used to build dumps of tables as Excel files.
  *
- *
- * @package phpMyAdmin-Export-XLS
+ * @package phpMyAdmin-Export
+ * @subpackage XLS
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -56,19 +57,19 @@ function PMA_exportComment($text) {
 function PMA_exportFooter() {
     global $workbook;
     global $tmp_filename;
-    
+
     $tmp_filename = tempnam(realpath($GLOBALS['cfg']['TempDir']), 'pma_xls_');
-    
+
     $workbookWriter = new PHPExcel_Writer_Excel5($workbook);
     $workbookWriter->setTempDir(realpath($GLOBALS['cfg']['TempDir']));
     $workbookWriter->save($tmp_filename);
-    
+
     if (!PMA_exportOutputHandler(file_get_contents($tmp_filename))) {
         return false;
     }
-    
+
     unlink($tmp_filename);
-    
+
     unset($GLOBALS['workbook']);
     unset($GLOBALS['sheet_index']);
 
@@ -84,17 +85,17 @@ function PMA_exportFooter() {
  */
 function PMA_exportHeader() {
     global $db;
-    
+
     /* Initialize the workbook */
     $GLOBALS['workbook'] = new PHPExcel();
     $GLOBALS['sheet_index'] = 0;
     global $workbook;
-    
+
     $workbook->getProperties()->setCreator('phpMyAdmin ' . PMA_VERSION);
     $workbook->getProperties()->setLastModifiedBy('phpMyAdmin ' . PMA_VERSION);
     $workbook->getProperties()->setTitle($db);
     $workbook->getProperties()->setSubject('phpMyAdmin ' . PMA_VERSION . ' XLS Dump');
-    
+
     return true;
 }
 
@@ -108,8 +109,8 @@ function PMA_exportHeader() {
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    
-    
+
+
     return true;
 }
 
@@ -155,33 +156,33 @@ function PMA_exportDBCreate($db) {
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $workbook;
     global $sheet_index;
-    
+
     /**
      * Get the data from the database using the original query
      */
     $result      = PMA_DBI_fetch_result($sql_query);
     $row_cnt     = count($result);
-    
+
     if ($row_cnt > 0) {
         $col_names = array_keys($result[0]);
         $fields_cnt = count($result[0]);
         $row_offset = 1;
-        
+
         /* Only one sheet is created on workbook initialization */
         if ($sheet_index > 0) {
             $workbook->createSheet();
         }
-        
+
         $workbook->setActiveSheetIndex($sheet_index);
         $workbook->getActiveSheet()->setTitle(substr($table, 0, 31));
-        
+
         if (isset($GLOBALS['xls_columns']) && $GLOBALS['xls_columns']) {
             for ($i = 0; $i < $fields_cnt; ++$i) {
                 $workbook->getActiveSheet()->setCellValueByColumnAndRow($i, $row_offset, $col_names[$i]);
             }
             $row_offset++;
         }
-        
+
         for ($r = 0; ($r < 65536) && ($r < $row_cnt); ++$r) {
             for ($c = 0; $c < $fields_cnt; ++$c) {
                 if (!isset($result[$r][$col_names[$c]]) || is_null($result[$r][$col_names[$c]])) {
@@ -196,10 +197,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 }
             }
         }
-        
+
         $sheet_index++;
     }
-    
+
     return true;
 }
 

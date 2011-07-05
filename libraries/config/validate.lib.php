@@ -18,8 +18,6 @@
 /**
  * Returns validator list
  *
- * @uses ConfigFile::getDbEntry()
- * @uses ConfigFile::getInstance()
  * @return array
  */
 function PMA_config_get_validators()
@@ -65,9 +63,6 @@ function PMA_config_get_validators()
  *   cleanup in HTML documen
  * o false - when no validators match name(s) given by $validator_id
  *
- * @uses ConfigFile::getCanonicalPath()
- * @uses ConfigFile::getInstance()
- * @uses PMA_config_get_validators()
  * @param string|array  $validator_id
  * @param array         $values
  * @param bool          $isPostSource  tells whether $values are directly from POST request
@@ -221,7 +216,6 @@ function test_db_connection($extension, $connect_type, $host, $port, $socket, $u
 /**
  * Validate server config
  *
- * @uses test_db_connection()
  * @param string $path
  * @param array  $values
  * @return array
@@ -256,7 +250,6 @@ function validate_server($path, $values)
 /**
  * Validate pmadb config
  *
- * @uses test_db_connection()
  * @param string $path
  * @param array  $values
  * @return array
@@ -295,7 +288,6 @@ function validate_pmadb($path, $values)
 /**
  * Validates regular expression
  *
- * @uses test_php_errormsg()
  * @param string $path
  * @param array  $values
  * @return array
@@ -399,7 +391,6 @@ function test_number($path, $values, $allow_neg, $allow_zero, $max_value, $error
 /**
  * Validates port number
  *
- * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
@@ -412,7 +403,6 @@ function validate_port_number($path, $values)
 /**
  * Validates positive number
  *
- * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array
@@ -425,7 +415,6 @@ function validate_positive_number($path, $values)
 /**
  * Validates non-negative number
  *
- * @uses test_number()
  * @param string $path
  * @param array  $values
  * @return array

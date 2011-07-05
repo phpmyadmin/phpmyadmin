@@ -1,9 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions used to build dumps of tables
+ * Set of functions used to build LaTeX dumps of tables
  *
- * @package phpMyAdmin-Export-Latex
+ * @package phpMyAdmin-Export
+ * @subpackage Latex
  */
 if (! defined('PHPMYADMIN')) {
     exit;

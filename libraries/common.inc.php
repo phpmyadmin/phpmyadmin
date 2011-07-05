@@ -371,6 +371,7 @@ $goto_whitelist = array(
     'db_operations.php',
     'db_printview.php',
     'db_search.php',
+    'db_routines.php',
     //'Documentation.html',
     'export.php',
     'import.php',
@@ -508,10 +509,21 @@ if (PMA_isValid($_REQUEST['db'])) {
  */
 $GLOBALS['table'] = '';
 if (PMA_isValid($_REQUEST['table'])) {
-    // can we strip tags from this?
-    // only \ and / is not allowed in table names for MySQL
-    $GLOBALS['table'] = $_REQUEST['table'];
-    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+    // check if specified table contain db name
+    if (strpos($_REQUEST['table'], '.')) {
+        $splitted = explode('.', $_REQUEST['table']);
+        if (count($splitted) == 2) {    // make sure the format is "db.table"
+            $GLOBALS['db'] = $splitted[0];
+            $GLOBALS['url_params']['db'] = $GLOBALS['db'];
+            $GLOBALS['table'] = $splitted[1];
+            $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+        }
+    } else {
+        // can we strip tags from this?
+        // only \ and / is not allowed in table names for MySQL
+        $GLOBALS['table'] = $_REQUEST['table'];
+        $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+    }
 }
 
 /**
@@ -572,14 +584,11 @@ require './libraries/select_lang.lib.php';
  * this check is done here after loading language files to present errors in locale
  */
 if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = __('phpMyAdmin was unable to read your configuration file!<br />This might happen if PHP finds a parse error in it or PHP cannot find the file.<br />Please call the configuration file directly using the link below and read the PHP error message(s) that you receive. In most cases a quote or a semicolon is missing somewhere.<br />If you receive a blank page, everything is fine.')
-        . '<br /><br />'
-        . ($GLOBALS['PMA_Config']->getSource() == CONFIG_FILE ?
-        '<a href="show_config_errors.php"'
-        .' target="_blank">' . $GLOBALS['PMA_Config']->getSource() . '</a>'
-        :
-        '<a href="' . $GLOBALS['PMA_Config']->getSource() . '"'
-        .' target="_blank">' . $GLOBALS['PMA_Config']->getSource() . '</a>');
+    $error = '<h1>' . __('Failed to read configuration file') . '</h1>'
+        . _('This usually means there is a syntax error in it, please check any errors shown below.')
+        . '<br />'
+        . '<br />'
+        . '<iframe src="show_config_errors.php" />';
     trigger_error($error, E_USER_ERROR);
 }
 if ($GLOBALS['PMA_Config']->error_config_default_file) {
@@ -775,10 +784,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     if (function_exists('mb_convert_encoding')
      && $lang == 'ja') {
         require_once './libraries/kanji-encoding.lib.php';
-        /**
-         * enable multibyte string support
-         */
-        define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
 
     /**

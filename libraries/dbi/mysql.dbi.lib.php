@@ -182,7 +182,6 @@ function PMA_DBI_fetch_row($result)
 /*
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * @uses    mysql_data_seek()
  * @param   $result
  * @param   $offset
  * @return  boolean true on success, false on failure
@@ -208,9 +207,33 @@ function PMA_DBI_free_result()
 }
 
 /**
+ * Check if there are any more query results from a multi query
+ *
+ * @return  boolean         false
+ */
+function PMA_DBI_more_results() {
+    // N.B.: PHP's 'mysql' extension does not support
+    // multi_queries so this function will always
+    // return false. Use the 'mysqli' extension, if
+    // you need support for multi_queries.
+    return false;
+}
+
+/**
+ * Prepare next result from multi_query
+ *
+ * @return  boolean         false
+ */
+function PMA_DBI_next_result() {
+    // N.B.: PHP's 'mysql' extension does not support
+    // multi_queries so this function will always
+    // return false. Use the 'mysqli' extension, if
+    // you need support for multi_queries.
+    return false;
+}
+
+/**
  * Returns a string representing the type of connection used
- * @uses    mysql_get_host_info()
- * @uses    $GLOBALS['userlink']    as default for $link
  * @param   resource        $link   mysql link
  * @return  string          type of connection used
  */
@@ -228,8 +251,6 @@ function PMA_DBI_get_host_info($link = null)
 
 /**
  * Returns the version of the MySQL protocol used
- * @uses    mysql_get_proto_info()
- * @uses    $GLOBALS['userlink']    as default for $link
  * @param   resource        $link   mysql link
  * @return  integer         version of the MySQL protocol used
  */
@@ -247,7 +268,6 @@ function PMA_DBI_get_proto_info($link = null)
 
 /**
  * returns a string that represents the client library version
- * @uses    mysql_get_client_info()
  * @return  string          MySQL client library version
  */
 function PMA_DBI_get_client_info()
@@ -258,13 +278,6 @@ function PMA_DBI_get_client_info()
 /**
  * returns last error message or false if no errors occured
  *
- * @uses    PMA_DBI_convert_message()
- * @uses    $GLOBALS['errno']
- * @uses    $GLOBALS['userlink']
- * @uses    mysql_errno()
- * @uses    mysql_error()
- * @uses    defined()
- * @uses    PMA_generate_common_url()
  * @param   resource        $link   mysql link
  * @return  string|boolean  $error or false
  */
@@ -353,8 +366,6 @@ function PMA_DBI_insert_id($link = null)
 /**
  * returns the number of rows affected by last query
  *
- * @uses    $GLOBALS['userlink']
- * @uses    mysql_affected_rows()
  * @param   object mysql   $link   the mysql object
  * @param   boolean        $get_from_cache
  * @return  string integer

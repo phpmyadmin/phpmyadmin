@@ -34,8 +34,8 @@ function messages_begin()
 /**
  * Adds a new message to message list
  *
- * @param string $id unique message identifier
  * @param string $type one of: notice, error
+ * @param string $id unique message identifier
  * @param string $title language string id (in $str array)
  * @param string $message message text
  */

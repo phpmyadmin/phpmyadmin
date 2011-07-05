@@ -19,7 +19,7 @@ require_once './libraries/RecentTable.class.php';
  * @param string $table The table name
  */
 function PMA_addRecentTable($db, $table) {
-    $tmp_result = RecentTable::getInstance()->add($db, $table);
+    $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
     if ($tmp_result === true) {
         echo '<span class="hide" id="update_recent_tables"></span>';
     } else {
@@ -154,8 +154,6 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
 
                         /**
                          * Displays table comment
-                         * @uses $show_comment from libraries/tbl_info.inc.php
-                         * @uses $GLOBALS['avoid_show_comment'] from tbl_relation.php
                          */
                         if (!empty($show_comment) && ! isset($GLOBALS['avoid_show_comment'])) {
                             if (strstr($show_comment, '; InnoDB free')) {

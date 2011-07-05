@@ -3,7 +3,8 @@
 /**
  * Produce a PDF report (export) from a query
  *
- * @package phpMyAdmin-Export-PDF
+ * @package phpMyAdmin-Export
+ * @subpackage PDF
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -39,7 +40,8 @@ require_once './libraries/tcpdf/tcpdf.php';
 
 /**
  * Adapted from a LGPL script by Philip Clarke
- * @package phpMyAdmin-Export-PDF
+ * @package phpMyAdmin-Export
+ * @subpackage PDF
  */
 class PMA_PDF extends TCPDF
 {

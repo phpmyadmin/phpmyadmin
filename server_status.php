@@ -21,6 +21,21 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
 require_once './libraries/common.inc.php';
 
 /**
+ * Function to output refresh rate selection.
+ */
+function PMA_choose_refresh_rate() {
+    echo '<option value="5">' . __('Refresh rate') . '</option>';
+    foreach (array(1, 2, 5, 20, 40, 60, 120, 300, 600) as $rate) {
+        if ($rate % 60 == 0) {
+            $minrate = $rate / 60;
+            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d minute', '%d minutes', $minrate), $minrate) . '</option>';
+        } else {
+            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
+        }
+    }
+}
+
+/**
  * Ajax request
  */
 
@@ -29,7 +44,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     header('Content-Type: text/html; charset=UTF-8');
 
     // real-time charting data
-    if(isset($_REQUEST['chart_data'])) {
+    if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
             case 'proc':
                 $c = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Connections"', 0, 1);
@@ -41,7 +56,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     'y_proc' => $num_procs,
                     'y_conn' => $c['Connections']
                 );
-                
+
                 exit(json_encode($ret));
                 
             case 'queries':
@@ -63,13 +78,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 
             case 'traffic':
                 $traffic = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Bytes_received" OR Variable_name="Bytes_sent"', 0, 1);
-                
+
                 $ret = array(
                     'x'          => microtime(true)*1000,
                     'y_sent'     => $traffic['Bytes_sent'],
                     'y_received' => $traffic['Bytes_received']
                 );
-                    
+
                 exit(json_encode($ret));
             
             case 'chartgrid':
@@ -389,9 +404,9 @@ $allocationMap = array();
 // sort vars into arrays
 foreach ($server_status as $name => $value) {
     foreach ($allocations as $filter => $section) {
-        if (strpos($name, $filter) !== FALSE) {
+        if (strpos($name, $filter) !== false) {
             $allocationMap[$name] = $section;
-            if($section == 'com' && $value > 0) $used_queries[$name] = $value;
+            if ($section == 'com' && $value > 0) $used_queries[$name] = $value;
             break; // Only exits inner loop
         }
     }
@@ -401,7 +416,7 @@ foreach ($server_status as $name => $value) {
 unset($used_queries['Com_admin_commands']);
 
 /* Ajax request refresh */
-if(isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
+if (isset($_REQUEST['show']) && isset($_REQUEST['ajax_request'])) {
     switch($_REQUEST['show']) {
         case 'query_statistics':
             printQueryStatistics();
@@ -448,8 +463,9 @@ server_os = '<?php echo PHP_OS; ?>';
 /**
  * Displays the sub-page heading
  */
-if($GLOBALS['cfg']['MainPageIconic'])
+if ($GLOBALS['cfg']['MainPageIconic']) {
     echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
+}
 
 echo __('Runtime Information');
 
@@ -472,6 +488,7 @@ echo __('Runtime Information');
                     <label for="trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <?php refreshList('trafficChartRefresh'); ?>
                 </span>
+
                 <a class="tabChart livetrafficLink" href="#">
                     <?php echo __('Live traffic chart'); ?>
                 </a>
@@ -539,7 +556,7 @@ echo __('Runtime Information');
                     echo '<span class="status_'.$section_name.'"> ';
                     $i=0;
                     foreach ($section_links as $link_name => $link_url) {
-                        if($i > 0) echo ', ';
+                        if ($i > 0) echo ', ';
                         if ('doc' == $link_name) {
                             echo PMA_showMySQLDocu($link_url, $link_url);
                         } else {
@@ -706,7 +723,7 @@ function printQueryStatistics() {
         // For the percentage column, use Questions - Connections, because
         // the number of connections is not an item of the Query types
         // but is included in Questions. Then the total of the percentages is 100.
-        $name = str_replace(Array('Com_', '_'), Array('', ' '), $name);
+        $name = str_replace(array('Com_', '_'), array('', ' '), $name);
 
         // Group together values that make out less than 2% into "Other", but only if we have more than 6 fractions already
         if($value < $query_sum * 0.02 && count($chart_json)>6)
@@ -730,7 +747,7 @@ function printQueryStatistics() {
         <div id="serverstatusquerieschart">
             <span style="display:none;">
         <?php
-            if($other_sum > 0)
+            if ($other_sum > 0)
                 $chart_json[__('Other')] = $other_sum;
 
             echo json_encode($chart_json);
@@ -779,7 +796,7 @@ function printServerTraffic() {
         } elseif ($server_slave_status) {
             echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
         }
-        echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
+        echo __('For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.');
         echo '</p>';
     }
 
@@ -947,12 +964,12 @@ function printServerTraffic() {
     <tbody>
     <?php
     $odd_row = true;
-    while($process = PMA_DBI_fetch_assoc($result)) {
+    while ($process = PMA_DBI_fetch_assoc($result)) {
         if (PMA_DRIZZLE) {
             // Drizzle uses uppercase keys
             foreach ($process as $k => $v) {
                 $k = $k !== 'DB'
-                    ? $k = ucfirst(strtolower($k))
+                    ? ucfirst(strtolower($k))
                     : 'db';
                 $process[$k] = $v;
             }

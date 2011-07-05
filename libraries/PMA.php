@@ -82,10 +82,6 @@ class PMA
     /**
      * Accessor to PMA::$databases
      *
-     * @uses    PMA::$databases
-     * @uses    PMA::$userlink
-     * @uses    PMA::$controllink
-     * @uses    PMA_List_Database
      * @return PMA_List_Databases
      */
     public function getDatabaseList()

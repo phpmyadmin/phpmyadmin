@@ -24,15 +24,13 @@ require_once './libraries/js_escape.lib.php';
 
 $js_messages['strClickToSelect'] = __('Click to select');
 $js_messages['strClickToUnselect'] = __('Click to unselect');
-$js_messages['strNoDropDatabases'] = __('"DROP DATABASE" statements are disabled.');
+$js_messages['strNoDropDatabases'] = $cfg['AllowUserDropDatabase'] ? '' : __('"DROP DATABASE" statements are disabled.');
 
 /* For confirmations */
 $js_messages['strDoYouReally'] = __('Do you really want to ');
 $js_messages['strDropDatabaseStrongWarning'] = __('You are about to DESTROY a complete database!');
 $js_messages['strDropTableStrongWarning'] = __('You are about to DESTROY a complete table!');
 $js_messages['strTruncateTableStrongWarning'] = __('You are about to TRUNCATE a complete table!');
-$js_messages['strDroppingEvent'] = __('Dropping Event');
-$js_messages['strDroppingProcedure'] = __('Dropping Procedure');
 $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table');
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
@@ -77,9 +75,9 @@ $js_messages['strThousandsSeperator'] = __(',');
 /* l10n: Decimal separator */
 $js_messages['strDecimalSeperator'] = __('.');
 
-$js_messages['strChartKBSent'] = __('kB sent since last refresh');
-$js_messages['strChartKBReceived'] = __('kB received since last refresh');
-$js_messages['strChartServerTraffic'] = __('Server traffic (in kB)');
+$js_messages['strChartKBSent'] = __('KiB sent since last refresh');
+$js_messages['strChartKBReceived'] = __('KiB received since last refresh');
+$js_messages['strChartServerTraffic'] = __('Server traffic (in KiB)');
 $js_messages['strChartConnections'] = __('Connections since last refresh');
 $js_messages['strChartProcesses'] = __('Processes');
 $js_messages['strChartConnectionsTitle'] = __('Connections / Processes');
@@ -114,6 +112,8 @@ $js_messages['strNo'] = __('No');
 
 /* For db_stucture.js */
 $js_messages['strInsertTable'] = __('Insert Table');
+$js_messages['strHideIndexes'] = __('Hide indexes');
+$js_messages['strShowIndexes'] = __('Show indexes');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
@@ -121,6 +121,10 @@ $js_messages['strHideSearchResults'] = __('Hide search results');
 $js_messages['strShowSearchResults'] = __('Show search results');
 $js_messages['strBrowsing'] = __('Browsing');
 $js_messages['strDeleting'] = __('Deleting');
+
+/* For db_routines.js */
+$js_messages['MissingReturn'] = __('The definition of a stored function must contain a RETURN statement!');
+$js_messages['strValueTooLong'] = __('Value too long in the form!');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');
@@ -132,6 +136,8 @@ $js_messages['strInlineEdit'] = __('Inline Edit');
 $js_messages['strEdit'] = __('Edit');
 $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');
+$js_messages['strNoRowSelected'] = __('No rows selected');
+$js_messages['strChangeTbl'] = __('Change');
 
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');

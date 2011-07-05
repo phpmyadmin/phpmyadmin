@@ -14,6 +14,7 @@ if (! defined('PHPMYADMIN')) {
  * Check parameters
  */
 require_once './libraries/common.inc.php';
+require_once './libraries/common.lib.php';
 PMA_checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 
@@ -322,27 +323,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     $type = rtrim($type);
     $type_upper = strtoupper($type);
 
-    foreach ($cfg['ColumnTypes'] as $col_goup => $column_type) {
-        if (is_array($column_type)) {
-            $content_cells[$i][$ci] .= '<optgroup label="' . htmlspecialchars($col_goup) . '">';
-            foreach ($column_type as $col_group_type) {
-                $content_cells[$i][$ci] .= '<option value="'. $col_group_type . '"';
-                if ($type_upper == strtoupper($col_group_type)) {
-                    $content_cells[$i][$ci] .= ' selected="selected"';
-                }
-                $content_cells[$i][$ci] .= '>' . $col_group_type . '</option>';
-            }
-            $content_cells[$i][$ci] .= '</optgroup>';
-            continue;
-        }
-
-        $content_cells[$i][$ci] .= '<option value="'. $column_type . '"';
-        if ($type_upper == strtoupper($column_type)) {
-            $content_cells[$i][$ci] .= ' selected="selected"';
-        }
-        $content_cells[$i][$ci] .= '>' . $column_type . '</option>';
-    } // end for
-
+    $content_cells[$i][$ci] .= PMA_getSupportedDatatypes(true, $type_upper);
     $content_cells[$i][$ci] .= '    </select>';
     $ci++;
 
@@ -792,7 +773,7 @@ if ($action == 'tbl_create.php') {
 <h3><?php printf(__('Values for the column "%s"'), isset($row['Field']) ? htmlspecialchars($row['Field']) : ""); ?></h3>
 <p><?php echo __('Enter each value in a separate field.'); ?></p>
 <div id="values"></div>
-<p><a class="add_value"><?php echo __('+ Add a new value'); ?></a></p>
+<p><a class="add_value"><?php echo __('+ Add a value'); ?></a></p>
 <input type="submit" value="<?php echo __('Go'); ?>" /> <a class="cancel_enum_editor"><?php echo __('Cancel'); ?></a>
 </div>
 

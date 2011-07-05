@@ -43,14 +43,14 @@ class PMA_Index
     protected $_columns = array();
 
     /**
-     * The index method used (BTREE, FULLTEXT, HASH, RTREE).
+     * The index method used (BTREE, SPATIAL, FULLTEXT, HASH, RTREE).
      *
      * @var string
      */
     protected $_type = '';
 
     /**
-     * The index choice (PRIMARY, UNIQUE, INDEX, FULLTEXT)
+     * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
      * @var string
      */
@@ -86,7 +86,6 @@ class PMA_Index
     /**
      * Constructor
      *
-     * @uses    $this->set()
      * @param   array $params
      */
     public function __construct($params = array())
@@ -112,8 +111,6 @@ class PMA_Index
     /**
      * returns an array with all indexes from the given table
      *
-     * @uses    PMA_Index::_loadIndexes()
-     * @uses    PMA_Index::$_registry
      * @param   string $table
      * @param   string $schema
      * @return  array
@@ -132,8 +129,6 @@ class PMA_Index
     /**
      * return primary if set, false otherwise
      *
-     * @uses    PMA_Index::_loadIndexes()
-     * @uses    PMA_Index::$_registry
      * @param   string $table
      * @param   string $schema
      * @return  mixed primary index or false if no one exists
@@ -152,11 +147,6 @@ class PMA_Index
     /**
      * Load index data for table
      *
-     * @uses    PMA_Index::$_registry
-     * @uses    PMA_DBI_fetch_result()
-     * @uses    PMA_backquote()
-     * @uses    PMA_Index
-     * @uses    PMA_Index->addColumn()
      * @param   string $table
      * @param   string $schema
      * @return  boolean
@@ -186,8 +176,6 @@ class PMA_Index
     /**
      * Add column to index
      *
-     * @uses    $this->_columns
-     * @uses    PMA_Index_Column
      * @param   array $params column params
      */
     public function addColumn($params)
@@ -227,7 +215,6 @@ class PMA_Index
     /**
      * Returns true if $column indexed in this index
      *
-     * @uses    $this->_columns
      * @param   string $column
      * @return  boolean
      */
@@ -269,6 +256,8 @@ class PMA_Index
             $this->_choice = 'PRIMARY';
         } elseif ('FULLTEXT' == $this->_type) {
             $this->_choice = 'FULLTEXT';
+        } elseif ('SPATIAL' == $this->_type) {
+            $this->_choice = 'SPATIAL';
         } elseif ('0' == $this->_non_unique) {
             $this->_choice = 'UNIQUE';
         } else {
@@ -323,6 +312,7 @@ class PMA_Index
             'PRIMARY',
             'INDEX',
             'UNIQUE',
+            'SPATIAL',
             'FULLTEXT',
         );
     }
@@ -429,10 +419,10 @@ class PMA_Index
 
         $r = '';
 
-        $r .= '<h2>' . __('Indexes') . ': ';
+        $r .= '<h2 id="index_header">' . __('Indexes') . ': ';
         $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
         $r .= '</h2>';
-        $r .= '<table>';
+        $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
         if (! $print_mode) {
@@ -460,7 +450,11 @@ class PMA_Index
             if (! $print_mode) {
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
-                $r .= '<td ' . $row_span . '>'
+                $r .= '<td class="edit_index ';
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $r .= 'ajax" ';
+                }
+                $r .= '" ' . $row_span . '>'
                    . '    <a href="tbl_indexes.php' . PMA_generate_common_url($this_params)
                    . '">' . PMA_getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
@@ -504,7 +498,7 @@ class PMA_Index
                 $r .= '</td>';
                 $r .= '<td>' . htmlspecialchars($column->getCardinality()) . '</td>';
                 $r .= '<td>' . htmlspecialchars($column->getCollation()) . '</td>';
-                $r .= '<td>' . htmlspecialchars($column->getNull()) . '</td>';
+                $r .= '<td>' . htmlspecialchars($column->getNull(true)) . '</td>';
 
                 if ($column->getSeqInIndex() == 1) {
                     $r .= '<td ' . $row_span . '>'
@@ -543,12 +537,6 @@ class PMA_Index
     /**
      * Function to check over array of indexes and look for common problems
      *
-     * @uses    is_string()
-     * @uses    is_array()
-     * @uses    count()
-     * @uses    array_pop()
-     * @uses    reset()
-     * @uses    current()
      * @access  public
      * @param   string      name of table
      * @return  string      Output HTML
@@ -635,7 +623,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_cardinality = 0;
+    protected $_cardinality = null;
 
     public function __construct($params = array())
     {
@@ -679,9 +667,11 @@ class PMA_Index_Column
         return $this->_cardinality;
     }
 
-    public function getNull()
+    public function getNull($as_text = false)
     {
-        return $this->_null;
+        return $as_text
+            ? (!$this->_null || $this->_null == 'NO' ? __('No') : __('Yes'))
+            : $this->_null;
     }
 
     public function getSeqInIndex()

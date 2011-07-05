@@ -72,7 +72,6 @@ class ConfigFile
     /**
      * Private constructor, use {@link getInstance()}
      *
-     * @uses PMA_array_write()
      */
     private function __construct()
     {
@@ -193,9 +192,6 @@ class ConfigFile
     /**
      * Sets config value
      *
-     * @uses PMA_array_read()
-     * @uses PMA_array_remove()
-     * @uses PMA_array_write()
      * @param string $path
      * @param mixed  $value
      * @param string $canonical_path
@@ -285,7 +281,6 @@ class ConfigFile
     /**
      * Returns config value or $default if it's not set
      *
-     * @uses PMA_array_read()
      * @param  string $path
      * @param  mixed  $default
      * @return mixed
@@ -300,7 +295,6 @@ class ConfigFile
      * exist in config.default.php ($cfg) and config.values.php
      * ($_cfg_db['_overrides'])
      *
-     * @uses PMA_array_read()
      * @param  string $canonical_path
      * @param  mixed  $default
      * @return mixed
@@ -314,7 +308,6 @@ class ConfigFile
      * Returns config value, if it's not set uses the default one; returns
      * $default if the path isn't set and doesn't contain a default value
      *
-     * @uses PMA_array_read()
      * @param  string $path
      * @param  mixed  $default
      * @return mixed
@@ -342,7 +335,6 @@ class ConfigFile
     /**
      * Returns config database entry for $path ($cfg_db in config_info.php)
      *
-     * @uses PMA_array_read()
      * @param  string $path
      * @param  mixed  $default
      * @return mixed

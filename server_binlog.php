@@ -3,25 +3,6 @@
 /**
  * display the binary logs and the content of the selected
  *
- * @uses    $cfg['MainPageIconic']
- * @uses    $cfg['NavigationBarIconic']
- * @uses    $cfg['MaxRows']
- * @uses    $cfg['LimitChars']
- * @uses    $pmaThemeImage
- * @uses    $binary_logs
- * @uses    PMA_generate_common_hidden_inputs()
- * @uses    PMA_generate_common_url()
- * @uses    PMA_formatByteDown()
- * @uses    PMA_DBI_fetch_assoc()
- * @uses    PMA_strlen()
- * @uses    PMA_substr()
- * @uses    $_REQUEST['pos']
- * @uses    $_REQUEST['log']
- * @uses    $_REQUEST['dontlimitchars']
- * @uses    count()
- * @uses    array_key_exists()
- * @uses    implode()
- * @uses    htmlspecialchars()
  * @package phpMyAdmin
  */
 

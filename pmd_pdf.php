@@ -22,7 +22,7 @@ if (isset($mode)) {
 
     $pmd_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']);
-    $scale_q = PMA_sqlAddslashes($scale);
+    $scale_q = PMA_sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
         /*
@@ -38,10 +38,10 @@ if (isset($mode)) {
         }
     }
 
-    $pdf_page_number_q = PMA_sqlAddslashes($pdf_page_number);
+    $pdf_page_number_q = PMA_sqlAddSlashes($pdf_page_number);
 
     if ('export' == $mode) {
-        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . PMA_sqlAddslashes($db) . "'";
+        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . PMA_sqlAddSlashes($db) . "'";
 
         PMA_query_as_controluser($sql,true,PMA_DBI_QUERY_STORE);
     }
@@ -56,7 +56,7 @@ if (isset($mode)) {
         AND
         ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
         AND
-        ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddslashes($db) .'\'
+        ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddSlashes($db) .'\'
         AND pdf_page_number = ' . $pdf_page_number_q . ';', true, PMA_DBI_QUERY_STORE);     
     }
 }
@@ -83,7 +83,7 @@ $choices = array();
 
 $table_info_result = PMA_query_as_controluser('SELECT * FROM ' 
             . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-            . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'');
+            . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'');
 
 if (PMA_DBI_num_rows($table_info_result) > 0) {
     echo '<p>' . __('Page') . ':';

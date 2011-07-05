@@ -15,6 +15,7 @@ require_once './libraries/check_user_privileges.lib.php';
 require_once './libraries/bookmark.lib.php';
 
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
+$GLOBALS['js_include'][] = 'tbl_change.js';
 
 if(isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
@@ -159,11 +160,29 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $extra_data['select'] = $select;
     PMA_ajaxResponse(NULL, true, $extra_data);
 }
+
+/**
+ * Check ajax request to set the column order
+ */
+if(isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
+    $pmatable = new PMA_Table($table, $db);
+
+    // set column order
+    $col_order = explode(',', $_REQUEST['col_order']);
+    $retval = $pmatable->setUiProp(PMA_Table::PROP_COLUMN_ORDER, $col_order, $_REQUEST['table_create_time']);
+
+    // set column visibility
+    $col_visib = explode(',', $_REQUEST['col_visib']);
+    $retval &= $pmatable->setUiProp(PMA_Table::PROP_COLUMN_VISIB, $col_visib, $_REQUEST['table_create_time']);
+
+    PMA_ajaxResponse(NULL, ($retval == true));
+}
+
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) && strlen($db)) {
     require_once './libraries/bookmark.lib.php';
-    $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddslashes($table) . '\'',
+    $book_sql_query = PMA_Bookmark_get($db, '\'' . PMA_sqlAddSlashes($table) . '\'',
         'label', false, true);
 
     if (! empty($book_sql_query)) {
@@ -363,10 +382,13 @@ if ($is_select) { // see line 141
     $is_maint    = true;
 }
 
+// assign default full_sql_query
+$full_sql_query = $sql_query;
+
 // Handle remembered sorting order, only for single table query
 if ($GLOBALS['cfg']['RememberSorting']
- && basename($GLOBALS['PMA_PHP_SELF']) == 'sql.php'
  && ! ($is_count || $is_export || $is_func || $is_analyse)
+ && count($analyzed_sql[0]['select_expr']) == 0
  && isset($analyzed_sql[0]['queryflags']['select_from'])
  && count($analyzed_sql[0]['table_ref']) == 1
  ) {
@@ -376,7 +398,7 @@ if ($GLOBALS['cfg']['RememberSorting']
         if ($sorted_col) {
             // retrieve the remembered sorting order for current table
             $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-            $sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
+            $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append . $analyzed_sql[0]['section_after_limit'];
 
             // update the $analyzed_sql
             $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
@@ -412,9 +434,7 @@ if ((! $cfg['ShowAll'] || $_SESSION['tmp_user_values']['max_rows'] != 'all')
         }
     }
 
-} else {
-    $full_sql_query      = $sql_query;
-} // end if...else
+}
 
 if (strlen($db)) {
     PMA_DBI_select_db($db);
@@ -435,6 +455,15 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     $querytime_before = array_sum(explode(' ', microtime()));
 
     $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
+
+    // If a stored procedure was called, there may be more results that are
+    // queued up and waiting to be flushed from the buffer. So let's do that.
+    while (true) {
+        if(! PMA_DBI_more_results()) {
+            break;
+        }
+        PMA_DBI_next_result();
+    }
 
     $querytime_after = array_sum(explode(' ', microtime()));
 
@@ -846,6 +875,7 @@ else {
     } else {
 
         $GLOBALS['js_include'][] = 'functions.js';
+        $GLOBALS['js_include'][] = 'makegrid.js';
         $GLOBALS['js_include'][] = 'sql.js';
 
         unset($message);

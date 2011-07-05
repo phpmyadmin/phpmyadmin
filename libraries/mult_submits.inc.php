@@ -91,6 +91,11 @@ if (! empty($submit_mult)
                 $query_type = 'unique_fld';
                 $mult_btn   = __('Yes');
                 break;
+            case 'spatial':
+                unset($submit_mult);
+                $query_type = 'spatial_fld';
+                $mult_btn   = __('Yes');
+                break;
             case 'ftext':
                 unset($submit_mult);
                 $query_type = 'fulltext_fld';
@@ -401,6 +406,12 @@ elseif ($mult_btn == __('Yes')) {
 
             case 'unique_fld':
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE( ' : ', ')
+                           . PMA_backquote($selected[$i])
+                           . (($i == $selected_cnt-1) ? ');' : '');
+                break;
+
+            case 'spatial_fld':
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL( ' : ', ')
                            . PMA_backquote($selected[$i])
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;

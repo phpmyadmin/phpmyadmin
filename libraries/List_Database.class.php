@@ -56,10 +56,6 @@ require_once './libraries/List.class.php';
     /**
      * Constructor
      *
-     * @uses    PMA_List_Database::$_db_link
-     * @uses    PMA_List_Database::$_db_link_user
-     * @uses    PMA_List_Database::$_db_link_control
-     * @uses    PMA_List_Database::build()
      * @param   mixed   $db_link_user       user database link resource|object
      * @param   mixed   $db_link_control    control database link resource|object
      */
@@ -77,9 +73,6 @@ require_once './libraries/List.class.php';
      * checks if the configuration wants to hide some databases
      *
      * @todo temporaly use this docblock to test how to doc $GLOBALS
-     * @uses    PMA_List_Database::$items
-     * @uses    preg_match()
-     * @uses    $cfg['Server']['hide_db']
      */
     protected function _checkHideDatabase()
     {
@@ -98,16 +91,6 @@ require_once './libraries/List.class.php';
      * retrieves database list from server
      *
      * @todo    we could also search mysql tables if all fail?
-     * @uses    PMA_List_Database::$_show_databases_disabled for not retrying if SHOW DATABASES is disabled
-     * @uses    PMA_List_Database::$_db_link
-     * @uses    PMA_List_Database::$_db_link_control in case of SHOW DATABASES is disabled for userlink
-     * @uses    PMA_DBI_fetch_result()
-     * @uses    PMA_DBI_getError()
-     * @uses    natsort()
-     * @uses    sort()
-     * @uses    $cfg['NaturalOrder']
-     * @uses    $GLOBALS['error_showdatabases']
-     * @uses    $GLOBALS['errno']
      * @param   string  $like_db_name   usally a db_name containing wildcards
      */
     protected function _retrieve($like_db_name = null)
@@ -160,11 +143,6 @@ require_once './libraries/List.class.php';
     /**
      * builds up the list
      *
-     * @uses    PMA_List_Database::$items to initialize it
-     * @uses    PMA_List_Database::_checkOnlyDatabase()
-     * @uses    PMA_List_Database::_retrieve()
-     * @uses    PMA_List_Database::_checkHideDatabase()
-     * @uses    exchangeArray()
      */
     public function build()
     {
@@ -179,17 +157,6 @@ require_once './libraries/List.class.php';
     /**
      * checks the only_db configuration
      *
-     * @uses    PMA_List_Database::$_show_databases_disabled
-     * @uses    PMA_List_Database::$items
-     * @uses    PMA_List_Database::_retrieve()
-     * @uses    PMA_unescape_mysql_wildcards()
-     * @uses    preg_match()
-     * @uses    array_diff()
-     * @uses    array_merge()
-     * @uses    is_array()
-     * @uses    strlen()
-     * @uses    is_string()
-     * @uses    $cfg['Server']['only_db']
      * @return  boolean false if there is no only_db, otherwise true
      */
     protected function _checkOnlyDatabase()
@@ -240,9 +207,6 @@ require_once './libraries/List.class.php';
     /**
      * returns default item
      *
-     * @uses    PMA_List::getEmpty()
-     * @uses    $GLOBALS['db']
-     * @uses    strlen()
      * @return  string  default item
      */
     public function getDefault()
@@ -257,18 +221,6 @@ require_once './libraries/List.class.php';
     /**
      * returns array with dbs grouped with extended infos
      *
-     * @uses    $GLOBALS['PMA_List_Database']
-     * @uses    $GLOBALS['cfgRelation']['commwork']
-     * @uses    $cfg['ShowTooltip']
-     * @uses    $cfg['LeftFrameDBTree']
-     * @uses    $cfg['LeftFrameDBSeparator']
-     * @uses    $cfg['ShowTooltipAliasDB']
-     * @uses    PMA_getTableCount()
-     * @uses    PMA_getDbComment()
-     * @uses    is_array()
-     * @uses    implode()
-     * @uses    strstr()
-     * @uses    explode()
      * @param   integer $offset
      * @param   integer $count
      * @return  array   db list
@@ -347,7 +299,6 @@ require_once './libraries/List.class.php';
     /**
      * returns a part of the items
      *
-     * @uses    array_slice()
      * @param   integer $offset
      * @param   integer $count
      * @return  array  some items
@@ -472,7 +423,7 @@ require_once './libraries/List.class.php';
             SELECT DISTINCT `Db` FROM `mysql`.`db`
             WHERE `Select_priv` = 'Y'
             AND `User`
-            IN ('" . PMA_sqlAddslashes($GLOBALS['cfg']['Server']['user']) . "', '')";
+            IN ('" . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
         $tmp_mydbs = PMA_DBI_fetch_result($local_query, null, null,
             $GLOBALS['controllink']);
         if ($tmp_mydbs) {
@@ -520,7 +471,7 @@ require_once './libraries/List.class.php';
         } // end if
 
         // 2. get allowed dbs from the "mysql.tables_priv" table
-        $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($GLOBALS['cfg']['Server']['user']) . '\'';
+        $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {

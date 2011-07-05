@@ -17,10 +17,6 @@
  * because both header and footer functions must know what each other is
  * doing.
  *
- * @uses    $cfg['OBGzip']
- * @uses    function_exists()
- * @uses    ini_get()
- * @uses    ob_get_level()
  * @staticvar integer remember last calculated value
  * @return  integer  the output buffer mode
  */
@@ -66,11 +62,6 @@ function PMA_outBufferModeGet()
  * output buffering is turned on.  It also needs to be passed $mode from
  * the PMA_outBufferModeGet() function or it will be useless.
  *
- * @uses    PMA_outBufferModeGet()
- * @uses    PMA_outBufferPost() to register it as shutdown function
- * @uses    ob_start()
- * @uses    header() to send X-ob_mode:
- * @uses    register_shutdown_function() to register PMA_outBufferPost()
  */
 function PMA_outBufferPre()
 {
@@ -89,9 +80,6 @@ function PMA_outBufferPre()
  * buffering is turned on.  It also needs to be passed $mode from the
  * PMA_outBufferModeGet() function or it will be useless.
  *
- * @uses    PMA_outBufferModeGet()
- * @uses    ob_flush()
- * @uses    flush()
  */
 function PMA_outBufferPost()
 {

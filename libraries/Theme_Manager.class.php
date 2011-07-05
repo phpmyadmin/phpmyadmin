@@ -187,11 +187,6 @@ class PMA_Theme_Manager
     /**
      * save theme in cookie
      *
-     * @uses    $GLOBALS['PMA_Config']->setCookie();
-     * @uses    PMA_Theme_Manager::getThemeCookieName()
-     * @uses    PMA_Theme_Manager::$theme
-     * @uses    PMA_Theme_Manager::$theme_default
-     * @uses    PMA_Theme::getId()
      */
     function setThemeCookie()
     {
@@ -288,7 +283,7 @@ class PMA_Theme_Manager
         $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
                             . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
                             . '">';
-        $select_box .=  $theme_preview_href . __('Theme / Style') . '</a>:' . "\n";
+        $select_box .=  $theme_preview_href . __('Theme') . '</a>:' . "\n";
 
         $select_box .=  '<select name="set_theme" xml:lang="en" dir="ltr"'
             .' onchange="this.form.submit();" >';
@@ -331,8 +326,6 @@ class PMA_Theme_Manager
     /**
      * prints out preview for every theme
      *
-     * @uses    $this->themes
-     * @uses    PMA_Theme::printPreview()
      */
     function printPreviews()
     {
