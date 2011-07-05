@@ -225,8 +225,9 @@ function PMA_fatalError($error_message, $message_args = null)
 
     require('./libraries/error.inc.php');
     
-    if (!defined('TESTSUITE'))
+    if (!defined('TESTSUITE')) {
         exit;
+    }
 }
 
 /**
