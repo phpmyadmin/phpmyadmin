@@ -33,8 +33,6 @@ RTE.postDialogShow = function (data) {
     );
 };
 
-RTE.handleInsertRow = function (data) {return true;};
-
 RTE.validateCustom = function () {
     var isSuccess = true;
     $('.routine_params_table').last().find('tr').each(function() {

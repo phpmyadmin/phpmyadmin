@@ -122,11 +122,9 @@ function PMA_TRI_handleEditor()
             if ($message->isSuccess()) {
                 $trigger = PMA_TRI_getDataFromName($_REQUEST['item_name']);
                 $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
-                $extra_data['sameTable'] = false;
-                if (empty($table)) {
-                    $extra_data['sameTable'] = true;
-                } else if ($table == $trigger['table']) {
-                    $extra_data['sameTable'] = true;
+                $extra_data['insert'] = false;
+                if (empty($table) || $table == $trigger['table']) {
+                    $extra_data['insert'] = true;
                 }
                 $extra_data['new_row'] = PMA_RTE_getRowForList('trigger', $trigger, 0);
                 $response = $output;

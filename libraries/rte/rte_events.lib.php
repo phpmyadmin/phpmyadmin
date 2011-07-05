@@ -123,6 +123,7 @@ function PMA_EVN_handleEditor()
                 $event   = PMA_DBI_fetch_single_row($query);
                 $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
                 $extra_data['new_row'] = PMA_RTE_getRowForList('event', $event, 0);
+                $extra_data['insert'] = ! empty($event);
                 $response = $output;
             } else {
                 $response = $message;

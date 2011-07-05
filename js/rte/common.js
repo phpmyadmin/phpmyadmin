@@ -104,7 +104,7 @@ $(document).ready(function() {
                                     $edit_row.remove();
                                 }
 
-                                if (RTE.handleInsertRow(data)) {
+                                if (data.insert) {
                                     // Insert the new row at the correct location in the list of routines
                                     /**
                                      * @var    text    Contains the name of a routine from the list

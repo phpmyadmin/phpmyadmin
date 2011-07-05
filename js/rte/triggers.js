@@ -2,4 +2,3 @@
 
 RTE.validateCustom = function () {return true;};
 RTE.postDialogShow = function (data) {};
-RTE.handleInsertRow = function (data) {return data.sameTable;};

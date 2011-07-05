@@ -414,6 +414,7 @@ function PMA_RTN_handleEditor()
                 $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
                 $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['item_name']));
                 $extra_data['new_row']   = PMA_RTE_getRowForList('routine', $routine, 0);
+                $extra_data['insert']    = ! empty($routine);
                 $response = $output;
             } else {
                 $response = $message;

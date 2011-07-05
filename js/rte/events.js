@@ -2,7 +2,6 @@
 
 RTE.validateCustom = function () {return true;};
 RTE.postDialogShow = function (data) {};
-RTE.handleInsertRow = function (data) {return true;};
 
 /**
  * Attach Ajax event handlers for the "Change event type"
