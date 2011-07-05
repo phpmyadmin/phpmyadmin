@@ -2445,7 +2445,7 @@ $(document).ready(function() {
                 /**
                  * Display the dialog to the user
                  */
-                var $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
+                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
                                       width: 500,
                                       buttons: button_options,
                                       title: data.title

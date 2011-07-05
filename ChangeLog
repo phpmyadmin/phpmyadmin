@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 + Display direction (horizontal/vertical) no longer displayed by default
 + Shift/click support in database Structure
 + Show/hide column in table Browse
+- bug #3353856 [AJAX] AJAX dialogs use wrong font-size
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes

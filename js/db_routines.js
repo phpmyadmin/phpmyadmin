@@ -308,7 +308,7 @@ $(document).ready(function() {
                 /**
                  * Display the dialog to the user
                  */
-                $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
+                $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
                                 width: 700,  // TODO: make a better decision about the size
                                 height: 550, // of the dialog based on the size of the viewport
                                 buttons: button_options,
@@ -529,7 +529,7 @@ $(document).ready(function() {
                     /**
                      * Display the dialog to the user
                      */
-                    $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
+                    $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
                                     width: 650,  // TODO: make a better decision about the size
                                                  // of the dialog based on the size of the viewport
                                     buttons: button_options,
