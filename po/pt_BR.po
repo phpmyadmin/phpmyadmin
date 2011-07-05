@@ -1222,10 +1222,9 @@ msgid "Processes"
 msgstr "Processos"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Conexões"
+msgstr "Conexões / Processos"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
