@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-05 15:08+0200\n"
+"PO-Revision-Date: 2011-07-05 15:09+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7410,7 +7410,7 @@ msgstr ""
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
-msgstr "Промените бяха съхранени"
+msgstr "Промените бяха запазени"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
