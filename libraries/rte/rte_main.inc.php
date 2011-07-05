@@ -58,67 +58,59 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
  */
 $errors = array();
 
+// Some definitions for triggers
+$action_timings      = array('BEFORE',
+                             'AFTER');
+$event_manipulations = array('INSERT',
+                             'UPDATE',
+                             'DELETE');
+
+// Some definitions for routines
+$param_directions    = array('IN',
+                             'OUT',
+                             'INOUT');
+$param_opts_num      = array('UNSIGNED',
+                             'ZEROFILL',
+                             'UNSIGNED ZEROFILL');
+$param_sqldataaccess = array('NO SQL',
+                             'CONTAINS SQL',
+                             'READS SQL DATA',
+                             'MODIFIES SQL DATA');
+
+// Some definitions for events
+$event_status        = array(
+                           'query'   => array('ENABLE',
+                                              'DISABLE',
+                                              'DISABLE ON SLAVE'),
+                           'display' => array('ENABLED',
+                                              'DISABLED',
+                                              'SLAVESIDE_DISABLED')
+                       );
+$event_type          = array('RECURRING',
+                             'ONE TIME');
+$event_interval      = array('YEAR',
+                             'QUARTER',
+                             'MONTH',
+                             'DAY',
+                             'HOUR',
+                             'MINUTE',
+                             'WEEK',
+                             'SECOND',
+                             'YEAR_MONTH',
+                             'DAY_HOUR',
+                             'DAY_MINUTE',
+                             'DAY_SECOND',
+                             'HOUR_MINUTE',
+                             'HOUR_SECOND',
+                             'MINUTE_SECOND');
 /**
- * Check what main function to call by the constant set set earlier
+ * The below function is defined in rte_routines.lib.php,
+ * rte_triggers.lib.php and rte_events.lib.php
+ *
+ * The appropriate function will now be called based on which one
+ * of these files was included earlier in the top-level folder
  */
-switch (ITEM) {
-case 'triggers':
-    // Some definitions
-    $action_timings      = array('BEFORE',
-                                 'AFTER');
-    $event_manipulations = array('INSERT',
-                                 'UPDATE',
-                                 'DELETE');
-	PMA_TRI_main();
-	break;
-
-case 'routines':
-    // Some definitions
-    $param_directions    = array('IN',
-                                 'OUT',
-                                 'INOUT');
-    $param_opts_num      = array('UNSIGNED',
-                                 'ZEROFILL',
-                                 'UNSIGNED ZEROFILL');
-    $param_sqldataaccess = array('NO SQL',
-                                 'CONTAINS SQL',
-                                 'READS SQL DATA',
-                                 'MODIFIES SQL DATA');
-	PMA_RTN_main();
-	break;
-
-case 'events':
-    $event_status        = array(
-                               'query'   => array('ENABLE',
-                                                  'DISABLE',
-                                                  'DISABLE ON SLAVE'),
-                               'display' => array('ENABLED',
-                                                  'DISABLED',
-                                                  'SLAVESIDE_DISABLED')
-                           );
-    $event_type          = array('RECURRING',
-                                 'ONE TIME');
-    $event_interval      = array('YEAR',
-                                 'QUARTER',
-                                 'MONTH',
-                                 'DAY',
-                                 'HOUR',
-                                 'MINUTE',
-                                 'WEEK',
-                                 'SECOND',
-                                 'YEAR_MONTH',
-                                 'DAY_HOUR',
-                                 'DAY_MINUTE',
-                                 'DAY_SECOND',
-                                 'HOUR_MINUTE',
-                                 'HOUR_SECOND',
-                                 'MINUTE_SECOND');
-	PMA_EVN_main();
-	break;
-
-	default:
-	break;
-}
+PMA_RTE_main();
 
 /**
  * Display the footer, if necessary

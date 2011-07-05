@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Main function for the events functionality
  */
-function PMA_EVN_main()
+function PMA_RTE_main()
 {
     global $db, $header_arr, $human_name;
 

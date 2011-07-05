@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Main function for the routines functionality
  */
-function PMA_RTN_main()
+function PMA_RTE_main()
 {
     global $db, $header_arr, $human_name;
 

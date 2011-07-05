@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Main function for the triggers functionality
  */
-function PMA_TRI_main()
+function PMA_RTE_main()
 {
     global $db, $table, $header_arr, $human_name;
 

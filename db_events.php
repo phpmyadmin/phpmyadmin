@@ -29,7 +29,6 @@ require_once './libraries/rte/rte_common.lib.php';
 /**
  * Do the magic
  */
-define('ITEM', 'events');
 require_once './libraries/rte/rte_main.inc.php';
 
 ?>
