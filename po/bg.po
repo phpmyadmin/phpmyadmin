@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-05 13:48+0200\n"
+"PO-Revision-Date: 2011-07-05 13:49+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -526,7 +526,7 @@ msgstr "MySQL върна празен резултат (т.е. нула редо
 #: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Следната заявка се провали: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
