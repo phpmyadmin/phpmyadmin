@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-05 14:51+0200\n"
+"PO-Revision-Date: 2011-07-05 14:52+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -1803,7 +1803,7 @@ msgstr[1] "%1$d реда добавени."
 #: libraries/RecentTable.class.php:114
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr ""
+msgstr "Наскоро отваряната таблице не можа да бъде запазена"
 
 #: libraries/RecentTable.class.php:149
 msgid "Recent tables"
