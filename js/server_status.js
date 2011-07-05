@@ -503,178 +503,20 @@ $(function() {
     
     
     
-    /**** Grid/Table charting implementation ****/
-    
-    // global settings
-    $('div#statustabs_charting div.popupMenu input[name="setSize"]').click(function() {
-        chartSize = {
-            width: parseInt($('div#statustabs_charting div.popupMenu input[name="width"]').attr('value')) || 300,
-            height: parseInt($('div#statustabs_charting div.popupMenu input[name="height"]').attr('value')) || 300
-        };
-        
-        $.each(chartGrid, function(key, value) {
-            value.chart.setSize(chartSize.width, chartSize.height);
-        });
-    });
-    
-    $('div#statustabs_charting div.popupMenu select[name="gridChartRefresh"]').change(function() {
-        gridRefresh = this.value * 1000;
-        clearTimeout(refreshTimeout);
-        
-        $.each(chartGrid, function(key, value) {
-            value.chart.xAxis[0].setExtremes(
-                new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
-                new Date().getTime() - server_time_diff + gridRefresh,
-                true
-            );
-        });
-        
-        refreshTimeout = setTimeout(refreshChartGrid, gridRefresh);
-    });
-    
-    Highcharts.setOptions({
-        lang: {
-            settings: 'Settings',
-            removeChart: 'Remove chart',
-            editChart: 'Edit labels and series'
-        }
-    });
-    
-    var gridbuttons = { cogButton: {
-        //enabled: true,
-        symbol:  'url(' + pma_theme_image  + 's_cog.png)',
-        x: -36,
-        symbolFill: '#B5C9DF',
-        hoverSymbolFill: '#779ABF',
-        _titleKey: 'settings',
-        menuName: 'gridsettings',
-        menuItems: [{
-            textKey: 'editChart',
-            onclick: function() {
-                alert('tbi');
-            }
-        }, {
-            textKey: 'removeChart',
-            onclick: function() {
-                removeChart(this);
-            }
-        }]
-    } }
-    
-
-    $('a[href="#addNewChart"]').click(function() {
-        $('div#addChartDialog').dialog({
-            width:'auto',
-            height:'auto',
-            buttons: {
-                'Add chart to grid': function() {
-                    if(newChart.nodes.length == 0) return;
-                    
-                    var type = $('input[name="chartType"]').find(':checked').val();
-                    if(type=='cpu' || type='memory');
-                        newChart = presetCharts[type + '-' + server_os];
-                    
-                    newChart.title = $('input[name="chartTitle"]').attr('value');
-                    // Add a cloned object to the chart grid
-                    addChart($.extend(true, {}, newChart));
-                    
-                    newChart.nodes = [];
-                    
-                    $( this ).dialog( "close" );
-                }
-            },
-            close: function() {
-                newChart=null;
-                $('span#clearSeriesLink').hide();
-                $('#seriesPreview').html('');
-            }
-        });
-        return false;
-    });
-    
-    $('input[name="chartType"]').change(function() {
-        $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
-    });
-    
-    $('input[name="useDivisor"]').change(function() {
-        $('span.divisorInput').toggle(this.checked);
-    });
-    
-    $('select[name="varChartList"]').change(function () {
-        if(this.selectedIndex!=0)
-            $('#variableInput').attr('value',this.value);
-    });
-    
-    $('a[href="#kibDivisor"]').click(function() {
-        $('input[name="valueDivisor"]').attr('value',1024);
-        return false;
-    });
-    $('a[href="#mibDivisor"]').click(function() {
-        $('input[name="valueDivisor"]').attr('value',1024*1024);
-        return false;
-    });
-
-    $('a[href="#submitClearSeries"]').click(function() {
-        $('#seriesPreview').html('<i>None</i>');
-        newChart = null;
-        $('span#clearSeriesLink').hide();
-    });
-    
-    $('a[href="#submitAddSeries"]').click(function() {
-        if($('input#variableInput').attr('value').length == 0) return false;
-        if(newChart == null) {
-            $('#seriesPreview').html('');
-        
-            newChart = {
-                title: $('input[name="chartTitle"]').attr('value'),
-                nodes: []
-            }
-        }
-        
-        var serie = {
-            dataType:'statusvar',
-            name: $('input#variableInput').attr('value'),
-            display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : '',
-        };
-        
-        if(serie.name = 'Processes') serie.dataType='proc';
-        
-        if($('input[name="useDivisor"]').attr('checked')) 
-            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').attr('value'));
-        
-        var str = serie.display == 'differential' ? ', differential' : '';
-        str += serie.valueDivisor ? ', divided by ' + serie.valueDivisor : '';
-        $('#seriesPreview').append('- ' + serie.name + str + '<br>');
-        
-        newChart.nodes.push(serie);
-        
-        $('input#variableInput').attr('value','');
-        $('input[name="differentialValue"]').attr('checked',true);
-        $('input[name="useDivisor"]').attr('checked',false);
-        $('input[name="useDivisor"]').trigger('change');
-        $('select[name="varChartList"]').get(0).selectedIndex=0;
-        
-        $('span#clearSeriesLink').show();
-        
-        return false;
-    });
-    
-    $("input#variableInput").autocomplete({
-            source: variableNames
-    });
-    
+    /**** Monitor charting implementation ****/
+	/* Holds all charts */
     var chartGrid;
     /* Object that contains a list of required nodes that need to be retrieved from the server for chart updates */
     var requiredData = [];
-    /* Refresh rate of all grids in ms */
+    /* Refresh rate of all grid charts in ms */
     var gridRefresh = 5000;
     /* Saves the previous ajax response for differential values */
     var oldChartData = null;
     /* Stores the timeout handler so it can be cleared */
     var refreshTimeout = null;
-    
+    // Max points in each chart
     var gridMaxPoints = 20;
-    
+    // Holding about to created chart 
     var newChart = null;
     // Chart auto increment
     var chartAI = 0;
@@ -683,7 +525,7 @@ $(function() {
     
     var presetCharts = {
         'cpu-WINNT': {
-            title: 'System CPU Usage',
+            title: 'System CPU Usage (%)',
             nodes: [{ dataType: 'cpu', name: 'loadavg'}]
         },
         'memory-WINNT': {
@@ -704,7 +546,7 @@ $(function() {
             title: 'System CPU Usage',
             nodes: [
                 { dataType: 'cpu', 
-                  name: 'none', 
+                  name: 'Average load', 
                   transformFn: function(cur, prev) {
                       if(prev == null) return undefined;
                       var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
@@ -775,8 +617,167 @@ $(function() {
             ]
          }
     };
+	
+    var gridbuttons = { cogButton: {
+        //enabled: true,
+        symbol:  'url(' + pma_theme_image  + 's_cog.png)',
+        x: -36,
+        symbolFill: '#B5C9DF',
+        hoverSymbolFill: '#779ABF',
+        _titleKey: 'settings',
+        menuName: 'gridsettings',
+        menuItems: [{
+            textKey: 'editChart',
+            onclick: function() {
+                alert('tbi');
+            }
+        }, {
+            textKey: 'removeChart',
+            onclick: function() {
+                removeChart(this);
+            }
+        }]
+    } }
+    
+	Highcharts.setOptions({
+        lang: {
+            settings: 'Settings',
+            removeChart: 'Remove chart',
+            editChart: 'Edit labels and series'
+        }
+    });
      
     initGrid();
+	
+    // global settings
+    $('div#statustabs_charting div.popupMenu input[name="setSize"]').click(function() {
+        chartSize = {
+            width: parseInt($('div#statustabs_charting div.popupMenu input[name="width"]').attr('value')) || 300,
+            height: parseInt($('div#statustabs_charting div.popupMenu input[name="height"]').attr('value')) || 300
+        };
+        
+        $.each(chartGrid, function(key, value) {
+            value.chart.setSize(chartSize.width, chartSize.height);
+        });
+    });
+    
+    $('div#statustabs_charting div.popupMenu select[name="gridChartRefresh"]').change(function() {
+        gridRefresh = this.value * 1000;
+        clearTimeout(refreshTimeout);
+        
+        $.each(chartGrid, function(key, value) {
+            value.chart.xAxis[0].setExtremes(
+                new Date().getTime() - server_time_diff - gridMaxPoints * gridRefresh,
+                new Date().getTime() - server_time_diff + gridRefresh,
+                true
+            );
+        });
+        
+        refreshTimeout = setTimeout(refreshChartGrid, gridRefresh);
+    });
+    
+    $('a[href="#addNewChart"]').click(function() {
+        $('div#addChartDialog').dialog({
+            width:'auto',
+            height:'auto',
+            buttons: {
+                'Add chart to grid': function() {                  
+                    var type = $('input[name="chartType"]').find(':checked').val();
+					
+                    if(type == 'cpu' || type == 'memory')
+                        newChart = presetCharts[type + '-' + server_os];
+					
+					if(newChart.nodes.length == 0) return;
+                    console.log(chartGrid);
+                    newChart.title = $('input[name="chartTitle"]').attr('value');
+                    // Add a cloned object to the chart grid
+                    addChart($.extend(true, {}, newChart));
+                    
+                    newChart = null;
+                    console.log(chartGrid);
+                    $( this ).dialog( "close" );
+                }
+            },
+            close: function() {
+                newChart = null;
+                $('span#clearSeriesLink').hide();
+                $('#seriesPreview').html('');
+            }
+        });
+        return false;
+    });
+    
+    $('input[name="chartType"]').change(function() {
+        $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
+    });
+    
+    $('input[name="useDivisor"]').change(function() {
+        $('span.divisorInput').toggle(this.checked);
+    });
+    
+    $('select[name="varChartList"]').change(function () {
+        if(this.selectedIndex!=0)
+            $('#variableInput').attr('value',this.value);
+    });
+    
+    $('a[href="#kibDivisor"]').click(function() {
+        $('input[name="valueDivisor"]').attr('value',1024);
+        return false;
+    });
+    $('a[href="#mibDivisor"]').click(function() {
+        $('input[name="valueDivisor"]').attr('value',1024*1024);
+        return false;
+    });
+
+    $('a[href="#submitClearSeries"]').click(function() {
+        $('#seriesPreview').html('<i>None</i>');
+        newChart = null;
+        $('span#clearSeriesLink').hide();
+    });
+    
+    $('a[href="#submitAddSeries"]').click(function() {
+        if($('input#variableInput').attr('value').length == 0) return false;
+        if(newChart == null) {
+            $('#seriesPreview').html('');
+        
+            newChart = {
+                title: $('input[name="chartTitle"]').attr('value'),
+                nodes: []
+            }
+        }
+        
+        var serie = {
+            dataType:'statusvar',
+            name: $('input#variableInput').attr('value'),
+            display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : '',
+        };
+        
+        if(serie.name = 'Processes') serie.dataType='proc';
+        
+        if($('input[name="useDivisor"]').attr('checked')) 
+            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').attr('value'));
+        
+        var str = serie.display == 'differential' ? ', differential' : '';
+        str += serie.valueDivisor ? ', divided by ' + serie.valueDivisor : '';
+        $('#seriesPreview').append('- ' + serie.name + str + '<br>');
+        
+        newChart.nodes.push(serie);
+        
+        $('input#variableInput').attr('value','');
+        $('input[name="differentialValue"]').attr('checked',true);
+        $('input[name="useDivisor"]').attr('checked',false);
+        $('input[name="useDivisor"]').trigger('change');
+        $('select[name="varChartList"]').get(0).selectedIndex=0;
+        
+        $('span#clearSeriesLink').show();
+
+        return false;
+    });
+    
+    $("input#variableInput").autocomplete({
+            source: variableNames
+    });
+    
     
     function initGrid() {
         var settings;
@@ -897,12 +898,13 @@ $(function() {
                     if(value != undefined)
                         elem.chart.series[j].addPoint(
                             {  x: chartData.x, y: value },
-                            j == elem.nodes.length - 1, 
+                            false, 
                             elem.numPoints >= gridMaxPoints
                         );
                 }
                 
                 chartGrid[key].numPoints++;
+				elem.chart.redraw();
             });
             
             oldChartData = chartData;

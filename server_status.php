@@ -559,7 +559,7 @@ echo __('Runtime Information');
                         Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
                     </li>
                     <li> Chart size: <br>
-                    <input type="text" name="width" size="3" value="350"> x <input type="text" size="3" name="height" value="350"> 
+                    <input type="text" name="width" size="3" value="300"> x <input type="text" size="3" name="height" value="300"> 
                     <input type="submit" name="setSize" value="Set">
                     </li>
                 </ul>
