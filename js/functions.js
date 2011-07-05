@@ -2553,44 +2553,6 @@ $(document).ready(function() {
 }) // end of $(document).ready()
 
 /**
- * Attach Ajax event handlers for Export of Routines, Triggers and Events.
- *
- * @uses    PMA_ajaxShowMessage()
- * @uses    PMA_ajaxRemoveMessage()
- *
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $('.ajax_export_anchor').live('click', function(event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
-                PMA_ajaxRemoveMessage($msg);
-                /**
-                 * @var button_options  Object containing options for jQueryUI dialog buttons
-                 */
-                var button_options = {};
-                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
-                /**
-                 * Display the dialog to the user
-                 */
-                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
-                                      width: 500,
-                                      buttons: button_options,
-                                      title: data.title
-                                  });
-                // Attach syntax highlited editor to export dialog
-                var elm = $ajaxDialog.find('textarea');
-                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }) // end $.get()
-    }); // end $.live()
-}); // end of $(document).ready() for Export of Routines, Triggers and Events.
-
-/**
  * Creates a message inside an object with a sliding effect
  *
  * @param   msg    A string containing the text to display
@@ -2666,69 +2628,6 @@ function PMA_slidingMessage(msg, $obj) {
     }
     return true;
 } // end PMA_slidingMessage()
-
-/**
- * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
- *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @see     $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $('.ajax_drop_anchor').live('click', function(event) {
-        event.preventDefault();
-        /**
-         * @var $curr_row    Object containing reference to the current row
-         */
-        var $curr_row = $(this).parents('tr');
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-            /**
-             * @var    $msg    jQuery object containing the reference to
-             *                 the AJAX message shown to the user.
-             */
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
-                    /**
-                     * @var $table    Object containing reference to the main list of elements.
-                     */
-                    var $table = $curr_row.parent();
-                    if ($table.find('tr').length == 2) {
-                        $table.hide("slow", function () {
-                            $(this).find('tr.even, tr.odd').remove();
-                            $('#nothing2display').show("slow");
-                        });
-                    } else {
-                        $curr_row.hide("slow", function () {
-                            $(this).remove();
-                            // Now we have removed the row from the list, but maybe
-                            // some row classes are wrong now. So we will itirate
-                            // throught all rows and assign correct classes to them.
-                            /**
-                             * @var    ct    Count of processed rows.
-                             */
-                            var ct = 0;
-                            $table.find('tr').has('td').each(function() {
-                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
-                                $(this).removeClass().addClass(rowclass);
-                                ct++;
-                            });
-                        });
-                    }
-                    // Show the query that we just executed
-                    PMA_ajaxRemoveMessage($msg);
-                    PMA_slidingMessage(data.sql_query);
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
-                }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }); // end $.live()
-}); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
 
 /**
  * Attach Ajax event handlers for Drop Table.
