@@ -1170,9 +1170,8 @@ msgid "Live conn./process chart"
 msgstr ""
 
 #: js/messages.php:66 server_status.php:445
-#, fuzzy
 msgid "Live query chart"
-msgstr "consulta SQL"
+msgstr "Gráfico de consulta em tempo real"
 
 #: js/messages.php:68
 msgid "Static data"
