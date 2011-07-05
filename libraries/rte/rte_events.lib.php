@@ -161,8 +161,7 @@ function PMA_EVN_handleEditor()
             // Show form
             $editor = PMA_EVN_getEditorForm($mode, $operation, $item);
             if ($GLOBALS['is_ajax_request']) {
-                $extra_data = array('title' => $title,
-                                    'editor' => 'event');
+                $extra_data = array('title' => $title);
                 PMA_ajaxResponse($editor, true, $extra_data);
             } else {
                 echo "\n\n<h2>$title</h2>\n\n$editor";

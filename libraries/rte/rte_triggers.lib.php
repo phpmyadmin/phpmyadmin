@@ -163,8 +163,7 @@ function PMA_TRI_handleEditor()
             // Show form
             $editor = PMA_TRI_getEditorForm($mode, $item);
             if ($GLOBALS['is_ajax_request']) {
-                $extra_data = array('title' => $title,
-                                    'editor' => 'trigger');
+                $extra_data = array('title' => $title);
                 PMA_ajaxResponse($editor, true, $extra_data);
             } else {
                 echo "\n\n<h2>$title</h2>\n\n$editor";

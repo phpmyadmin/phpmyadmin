@@ -1,116 +1,16 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Validate editor form fields.
- *
- * @param    syntaxHiglighter    an object containing the reference to the
- *                               codemirror editor. This will be used to
- *                               focus the form on the codemirror editor
- *                               if it contains invalid data.
+ * What type of item the editor is for.
  */
-function validateEditor(syntaxHiglighter) {
-    /**
-     * @var    inputname    Will contain the value of the name
-     *                      attribute of input fields being checked.
-     */
-    var inputname = '';
-    /**
-     * @var    $elm    a jQuery object containing the reference
-     *                 to an element that is being validated.
-     */
-    var $elm = null;
-    /**
-     * @var    isError    Stores the outcome of the validation.
-     */
-    var isError = false;
+RTE.editor = 'routine';
 
-    // Common validation
-    $elm = $('.rte_table').last().find('input[name=item_name]');
-    if ($elm.val() == '') {
-        $elm.focus();
-        isError = true;
-    } else if ($elm.val().length > 64) {
-        alert(PMA_messages['strValueTooLong']);
-        $elm.focus().select();
-        return false;
-    }
-    if (! isError) {
-        $elm = $('.rte_table').find('textarea[name=item_definition]');
-        if ($elm.val() == '') {
-            syntaxHiglighter.focus();
-            isError = true;
-        }
-    }
-
-    // Validate routines editor
-    if (editor == 'routine') {
-        if (! isError) {
-            $('.routine_params_table').last().find('tr').each(function() {
-                if (! isError) {
-                    $(this).find(':input').each(function() {
-                        inputname = $(this).attr('name');
-                        if (inputname.substr(0, 17) == 'routine_param_dir' ||
-                            inputname.substr(0, 18) == 'routine_param_name' ||
-                            inputname.substr(0, 18) == 'routine_param_type') {
-                            if ($(this).val() == '') {
-                                $(this).focus();
-                                isError = true;
-                                return false;
-                            }
-                        }
-                    });
-                }
-            });
-        }
-        if (! isError) {
-            // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
-            $('.routine_params_table').last().find('tr').each(function() {
-                var $inputtyp = $(this).find('select[name^=routine_param_type]');
-                var $inputlen = $(this).find('input[name^=routine_param_length]');
-                if ($inputtyp.length && $inputlen.length) {
-                    if (($inputtyp.val() == 'ENUM' || $inputtyp.val() == 'SET' || $inputtyp.val().substr(0,3) == 'VAR')
-                       && $inputlen.val() == '') {
-                        $inputlen.focus();
-                        isError = true;
-                        return false;
-                    }
-                }
-            });
-        }
-        if (! isError && $('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
-            // The length/values of return variable for functions must
-            // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
-            var $returntyp = $('select[name=routine_returntype]');
-            var $returnlen = $('input[name=routine_returnlength]');
-            if (($returntyp.val() == 'ENUM' || $returntyp.val() == 'SET' || $returntyp.val().substr(0,3) == 'VAR')
-               && $returnlen.val() == '') {
-                $returnlen.focus();
-                isError = true;
-            }
-        }
-        if (! isError && $('select[name=routine_type]').find(':selected').val() == 'FUNCTION') {
-            if ($('.rte_table').find('textarea[name=item_definition]').val().toLowerCase().indexOf('return') < 0) {
-                syntaxHiglighter.focus();
-                alert(PMA_messages['MissingReturn']);
-                return false;
-            }
-        }
-        if (! isError) {
-            $elm = $('.rte_table').last().find('input[name=routine_comment]');
-            if ($elm.val().length > 64) {
-                alert(PMA_messages['strValueTooLong']);
-                $elm.focus().select();
-                return false;
-            }
-        }
-    }
-    if (! isError) {
-        return true;
-    } else {
-        alert(PMA_messages['strFormEmpty']);
-        return false;
-    }
-} // end validateEditor()
+/**
+ * @var    param_template    This variable contains the template for one row
+ *                           of the parameters table that is attached to the
+ *                           dialog when a new parameter is added.
+ */
+RTE.param_template = '';
 
 /**
  * Enable/disable the "options" dropdown and "length" input for
@@ -128,7 +28,7 @@ function validateEditor(syntaxHiglighter) {
  *                    to the dropdown box with options for
  *                    parameters of numeric type
  */
-function setOptionsForParameter($type, $len, $text, $num) {
+RTE.setOptionsForParameter = function($type, $len, $text, $num) {
     // Process for parameter options
     switch ($type.val()) {
     case 'TINYINT':
@@ -180,221 +80,14 @@ function setOptionsForParameter($type, $len, $text, $num) {
         $len.show();
         break;
     }
-}
+};
 
 /**
- * What type item the editor is for.
- * Can be one of [routine|trigger|event].
- * Loaded through AJAX with JSON data.
- */
-var editor = null;
-
-/**
- * Attach Ajax event handlers for the Routines, Triggers and Events functionalities.
+ * Attach Ajax event handlers for the Routines functionalities.
  *
  * @see $cfg['AjaxEnable']
  */
 $(document).ready(function() {
-    /**
-     * @var    $ajaxDialog    jQuery object containing the reference to the
-     *                        dialog that contains the editor.
-     */
-    var $ajaxDialog = null;
-    /**
-     * @var    param_template    This variable contains the template for one row
-     *                           of the parameters table that is attached to the
-     *                           dialog when a new parameter is added.
-     */
-    var param_template = '';
-    /**
-     * @var    syntaxHiglighter    Reference to the codemirror editor.
-     */
-    var syntaxHiglighter = null;
-    /**
-     * @var button_options  Object containing options for jQueryUI dialog buttons
-     */
-    var button_options = {};
-
-    /**
-     * Attach Ajax event handlers for the Add/Edit functionality.
-     *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    PMA_ajaxRemoveMessage()
-     *
-     * @see $cfg['AjaxEnable']
-     */
-    $('.ajax_add_anchor, .ajax_edit_anchor').live('click', function(event) {
-        event.preventDefault();
-        /**
-         * @var    $edit_row    jQuery object containing the reference to
-         *                      the row of the the item being edited
-         *                      from the list of items .
-         */
-        var $edit_row = null;
-        if ($(this).hasClass('ajax_edit_anchor')) {
-            // Remeber the row of the item being edited for later,
-            // so that if the edit is successful, we can replace the
-            // row with info about the modified item.
-            $edit_row = $(this).parents('tr');
-        }
-        /**
-         * @var    $msg    jQuery object containing the reference to
-         *                 the AJAX message shown to the user.
-         */
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
-                editor = data.editor;
-                PMA_ajaxRemoveMessage($msg);
-                button_options[PMA_messages['strGo']] = function() {
-                    syntaxHiglighter.save();
-                    // Validate editor and submit request, if passed.
-                    if (validateEditor(syntaxHiglighter)) {
-                        /**
-                         * @var    data    Form data to be sent in the AJAX request.
-                         */
-                        var data = $('.rte_form').last().serialize();
-                        $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-                        $.post($('.rte_form').last().attr('action'), data, function (data) {
-                            if(data.success == true) {
-                                // Item created successfully
-                                PMA_ajaxRemoveMessage($msg);
-                                PMA_slidingMessage(data.message);
-                                $ajaxDialog.dialog('close');
-                                // If we are in 'edit' mode, we must remove the reference to the old row.
-                                if (mode == 'edit') {
-                                    $edit_row.remove();
-                                }
-
-                                if (editor != 'trigger' || data.sameTable == true) {
-                                    // Insert the new row at the correct location in the list of routines
-                                    /**
-                                     * @var    text    Contains the name of a routine from the list
-                                     *                 that is used in comparisons to find the correct
-                                     *                 location where to insert a new row.
-                                     */
-                                    var text = '';
-                                    /**
-                                     * @var    inserted    Whether a new has been inserted
-                                     *                     in the list of routines or not.
-                                     */
-                                    var inserted = false;
-                                    $('table.data').find('tr').each(function() {
-                                        text = $(this).children('td').eq(0).find('strong').text().toUpperCase();
-                                        if (text != '' && text > data.name) {
-                                            $(this).before(data.new_row);
-                                            inserted = true;
-                                            return false;
-                                        }
-                                    });
-                                    if (! inserted) {
-                                        $('table.data').append(data.new_row);
-                                    }
-                                    // Fade-in the new row
-                                    $('.ajaxInsert').show('slow').removeClass('ajaxInsert');
-                                    // Now we have inserted the row at the correct position, but surely
-                                    // at least some row classes are wrong now. So we will itirate
-                                    // throught all rows and assign correct classes to them.
-                                } else if ($('table.data').find('tr').has('td').length == 0) {
-                                    $('table.data').hide("slow", function () {
-                                        $('#nothing2display').show("slow");
-                                    });
-                                }
-                                /**
-                                 * @var    ct    Count of processed rows.
-                                 */
-                                var ct = 0;
-                                $('table.data').find('tr').has('td').each(function() {
-                                    rowclass = (ct % 2 == 0) ? 'even' : 'odd';
-                                    $(this).removeClass().addClass(rowclass);
-                                    ct++;
-                                });
-                                // If this is the first item being added, remove the
-                                // "No items" message and show the list of items.
-                                if ($('table.data').find('tr').has('td').length > 0 && $('#nothing2display').is(':visible')) {
-                                    $('#nothing2display').hide("slow", function () {
-                                        $('table.data').show("slow");
-                                    });
-                                }
-                            } else {
-                                PMA_ajaxShowMessage(data.error);
-                            }
-                        });
-                    }
-                } // end of function that handles the submission of the Editor
-                button_options[PMA_messages['strClose']] = function() {
-                    $(this).dialog("close");
-                }
-                /**
-                 * Display the dialog to the user
-                 */
-                $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
-                                width: 700,  // TODO: make a better decision about the size
-                                height: 555, // of the dialog based on the size of the viewport
-                                buttons: button_options,
-                                title: data.title,
-                                modal: true,
-                                close: function () {
-                                    $(this).remove();
-                                }
-                        });
-                $ajaxDialog.find('input[name=item_name]').focus();
-                $ajaxDialog.find('.datefield, .datetimefield').each(function() {
-                    PMA_addDatepicker($(this).css('width', '95%'));
-                });
-                /**
-                 * @var    mode    Used to remeber whether the editor is in
-                 *                 "Edit" or "Add" mode.
-                 */
-                var mode = 'add';
-                if ($('input[name=editor_process_edit]').length > 0) {
-                    mode = 'edit';
-                }
-                // Routines-specific code
-                if (editor == 'routine') {
-                    // Cache the template for a parameter table row
-                    param_template = data.param_template;
-                    // Make adjustments in the dialog to make it AJAX compatible
-                    $('.routine_param_remove').show();
-                    $('input[name=routine_removeparameter]').remove();
-                    $('input[name=routine_addparameter]').css('width', '100%');
-                    // Enable/disable the 'options' dropdowns for parameters as necessary
-                    $('.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
-                    $('.routine_params_table').last().find('tr').has('td').each(function() {
-                        setOptionsForParameter(
-                            $(this).find('select[name^=routine_param_type]'),
-                            $(this).find('input[name^=routine_param_length]'),
-                            $(this).find('select[name^=routine_param_opts_text]'),
-                            $(this).find('select[name^=routine_param_opts_num]')
-                        );
-                    });
-                    // Enable/disable the 'options' dropdowns for function return value as necessary
-                    setOptionsForParameter(
-                        $('.rte_table').last().find('select[name=routine_returntype]'),
-                        $('.rte_table').last().find('input[name=routine_returnlength]'),
-                        $('.rte_table').last().find('select[name=routine_returnopts_text]'),
-                        $('.rte_table').last().find('select[name=routine_returnopts_num]')
-                    );
-                }
-                // Attach syntax highlited editor to routine definition
-                /**
-                 * @var    $elm    jQuery object containing the reference to
-                 *                 the "Routine Definition" textarea.
-                 */
-                var $elm = $('textarea[name=item_definition]').last();
-                /**
-                 * @var    opts    Options to pass to the codemirror editor.
-                 */
-                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
-                syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
-                // Hack to prevent the syntax highlighter from expanding beyond dialog boundries
-                $('.CodeMirror-scroll').find('div').first().css('width', '1px');
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }) // end $.get()
-    }); // end $.live()
-
     /**
      * Attach Ajax event handlers for the "Add parameter to routine" functionality.
      *
@@ -411,7 +104,7 @@ $(document).ready(function() {
          * @var    $new_param_row    A string containing the HTML code for the
          *                           new row for the routine paramaters table.
          */
-        var new_param_row = param_template.replace(/%s/g, $routine_params_table.find('tr').length-1);
+        var new_param_row = RTE.param_template.replace(/%s/g, $routine_params_table.find('tr').length-1);
         $routine_params_table.append(new_param_row);
         if ($('.rte_table').find('select[name=routine_type]').val() == 'FUNCTION') {
             $('.routine_return_row').show();
@@ -422,7 +115,7 @@ $(document).ready(function() {
          *                    inserted row in the routine parameters table.
          */
         var $newrow = $('.routine_params_table').last().find('tr').has('td').last();
-        setOptionsForParameter(
+        RTE.setOptionsForParameter(
             $newrow.find('select[name^=routine_param_type]'),
             $newrow.find('input[name^=routine_param_length]'),
             $newrow.find('select[name^=routine_param_opts_text]'),
@@ -480,16 +173,6 @@ $(document).ready(function() {
     }); // end $.live()
 
     /**
-     * Attach Ajax event handlers for the "Change event type" functionality.
-     *
-     * @see $cfg['AjaxEnable']
-     * TODO: merge with above
-     */
-    $('select[name=item_type]').live('change', function() {
-        $('.recurring_event_row, .onetime_event_row').toggle();
-    }); // end $.live()
-
-    /**
      * Attach Ajax event handlers for the "Change parameter type" functionality.
      *
      * @see $cfg['AjaxEnable']
@@ -500,7 +183,7 @@ $(document).ready(function() {
          *                 a row in the routine parameters table.
          */
         var $row = $(this).parents('tr').first();
-        setOptionsForParameter(
+        RTE.setOptionsForParameter(
             $row.find('select[name^=routine_param_type]'),
             $row.find('input[name^=routine_param_length]'),
             $row.find('select[name^=routine_param_opts_text]'),
@@ -515,7 +198,7 @@ $(document).ready(function() {
      * @see $cfg['AjaxEnable']
      */
     $('select[name=routine_returntype]').live('change', function() {
-        setOptionsForParameter(
+        RTE.setOptionsForParameter(
             $('.rte_table').find('select[name=routine_returntype]'),
             $('.rte_table').find('input[name=routine_returnlength]'),
             $('.rte_table').find('select[name=routine_returnopts_text]'),
@@ -542,7 +225,7 @@ $(document).ready(function() {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
                 if (data.dialog) {
-                    button_options[PMA_messages['strGo']] = function() {
+                    RTE.buttonOptions[PMA_messages['strGo']] = function() {
                         /**
                          * @var    data    Form data to be sent in the AJAX request.
                          */
@@ -559,7 +242,7 @@ $(document).ready(function() {
                             }
                         });
                     }
-                    button_options[PMA_messages['strClose']] = function() {
+                    RTE.buttonOptions[PMA_messages['strClose']] = function() {
                         $(this).dialog("close");
                     }
                     /**
@@ -568,7 +251,7 @@ $(document).ready(function() {
                     $ajaxDialog = $('<div style="font-size: 0.9em;">'+data.message+'</div>').dialog({
                                     width: 650,  // TODO: make a better decision about the size
                                                  // of the dialog based on the size of the viewport
-                                    buttons: button_options,
+                                    buttons: RTE.buttonOptions,
                                     title: data.title,
                                     modal: true,
                                     close: function () {
@@ -587,21 +270,5 @@ $(document).ready(function() {
                 PMA_ajaxShowMessage(data.error);
             }
         });
-    });
-
-    /**
-     * Attach Ajax event handlers for input fields in the editor
-     * and the routine execution dialog used to submit the Ajax
-     * request when the ENTER key is pressed.
-     *
-     * @see $cfg['AjaxEnable']
-     */
-    $('.rte_table').find('input[name^=item], input[name^=params]').live('keydown', function(e) {
-        if (e.which == 13) {
-            e.preventDefault();
-            if (typeof button_options[PMA_messages['strGo']] == 'function') {
-                button_options[PMA_messages['strGo']].call();
-            }
-        }
     });
 }); // end of $(document).ready() for the Routine Functionalities

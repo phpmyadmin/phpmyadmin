@@ -18,6 +18,7 @@ require_once './libraries/mysql_charsets.lib.php';
  */
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$GLOBALS['js_include'][] = 'rte_common.js';
 $GLOBALS['js_include'][] = 'db_routines.js';
 
 /**

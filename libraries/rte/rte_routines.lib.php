@@ -463,7 +463,6 @@ function PMA_RTN_handleEditor()
             if ($GLOBALS['is_ajax_request']) {
                 $template   = PMA_RTN_getParameterRow();
                 $extra_data = array('title' => $title,
-                                    'editor' => 'routine',
                                     'param_template' => $template,
                                     'type' => $routine['type']);
                 PMA_ajaxResponse($editor, true, $extra_data);
