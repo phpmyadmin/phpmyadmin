@@ -1812,7 +1812,7 @@ msgstr[1] "%1$d реда добавени."
 #: libraries/RecentTable.class.php:114
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Наскоро отваряната таблице не можа да бъде запазена"
+msgstr "Наскоро отваряната таблице не можа да бъде записана"
 
 #: libraries/RecentTable.class.php:149
 msgid "Recent tables"
