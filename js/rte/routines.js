@@ -112,6 +112,9 @@ RTE.validateCustom = function () {
  *                    parameters of numeric type
  */
 RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
+    var $no_opts = $text.parent().parent().find('.no_opts');
+    var $no_len  = $len.parent().parent().find('.no_len');
+
     // Process for parameter options
     switch ($type.val()) {
     case 'TINYINT':
@@ -125,6 +128,7 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
     case 'REAL':
         $text.parent().hide();
         $num.parent().show();
+        $no_opts.hide();
         break;
     case 'TINYTEXT':
     case 'TEXT':
@@ -135,13 +139,13 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
     case 'SET':
     case 'ENUM':
         $text.parent().show();
-        $text.show();
         $num.parent().hide();
+        $no_opts.hide();
         break;
     default:
-        $text.parent().show();
-        $text.hide();
+        $text.parent().hide();
         $num.parent().hide();
+        $no_opts.show();
         break;
     }
     // Process for parameter length
@@ -157,10 +161,12 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
     case 'MEDIUMTEXT':
     case 'LONGBLOB':
     case 'LONGTEXT':
-        $len.hide();
+        $len.parent().hide();
+        $no_len.show();
         break;
     default:
-        $len.show();
+        $len.parent().show();
+        $no_len.hide();
         break;
     }
 };

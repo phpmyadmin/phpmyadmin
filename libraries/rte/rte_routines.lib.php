@@ -845,12 +845,14 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            </select></td>\n";
     $retval .= "            <td><input name='routine_param_length[$index]' type='text'\n";
     $retval .= "                       value='{$routine['param_length'][$i]}' /></td>\n";
+    $retval .= "            <td class='hide no_len'>---</td>\n";
     $retval .= "            <td class='routine_param_opts_text'>\n";
     $retval .= PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET,
                                               "routine_param_opts_text[$index]",
                                               null,
                                               $routine['param_opts_text'][$i]);
     $retval .= "            </td>\n";
+    $retval .= "            <td class='hide no_opts'>---</td>\n";
     $retval .= "            <td class='routine_param_opts_num'><select name='routine_param_opts_num[$index]'>\n";
     $retval .= "                <option value=''></option>";
     foreach ($param_opts_num as $key => $value) {
@@ -1033,6 +1035,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
     $retval .= "    <td>" . __('Return length/values') . "</td>\n";
     $retval .= "    <td><input type='text' name='routine_returnlength'\n";
     $retval .= "               value='{$routine['returnlength']}' /></td>\n";
+    $retval .= "    <td class='hide no_len'>---</td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
     $retval .= "    <td>" . __('Return options') . "</td>\n";
@@ -1051,7 +1054,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax) {
         }
         $retval .= "<option$selected>$value</option>";
     }
-    $retval .= "\n    </select></div></td>\n";
+    $retval .= "\n    </select></div>\n";
+    $retval .= "    <div class='hide no_opts'>---</div>\n";
+    $retval .= "</td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
