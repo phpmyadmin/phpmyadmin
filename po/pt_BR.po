@@ -553,9 +553,9 @@ msgid "Execute routine"
 msgstr "Executar rotina"
 
 #: db_routines.php:261 db_routines.php:265
-#, fuzzy, php-format
+#, php-format
 msgid "Export of routine %s"
-msgstr "Importar arquivos"
+msgstr "Exportar da rotina %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:960
 #, fuzzy, php-format
