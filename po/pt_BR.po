@@ -1113,7 +1113,6 @@ msgstr "Isto não é um número!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "Total"
