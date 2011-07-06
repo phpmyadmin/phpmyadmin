@@ -7174,7 +7174,7 @@ msgstr ""
 
 #: main.php:282
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "Конфигурационния файл има нужда от тайна парола (blowfish_secret)."
+msgstr "Конфигурационния файл има нужда от тайна фраза (blowfish_secret)."
 
 #: main.php:290
 msgid ""
