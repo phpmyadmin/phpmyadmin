@@ -4733,7 +4733,7 @@ msgstr "Стойност"
 
 #: libraries/db_routines.lib.php:965
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Трябва да дадете име на процедурата"
 
 #: libraries/db_routines.lib.php:984
 #, php-format
