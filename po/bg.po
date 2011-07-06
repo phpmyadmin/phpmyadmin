@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-06 09:57+0200\n"
+"PO-Revision-Date: 2011-07-06 09:58+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4849,7 +4849,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:87
 msgid "Exporting databases from the current server"
-msgstr ""
+msgstr "Експорт на БД от текущия сървър"
 
 #: libraries/display_export.lib.php:89
 #, php-format
