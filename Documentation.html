@@ -2144,6 +2144,12 @@ setfacl -d -m "g:www-data:rwx" tmp
         identify what they mean.
     </dd>
 
+    <dt id="cfg_ShowDisplayDir">$cfg['ShowDisplayDir'] boolean</dt>
+    <dd>
+        Defines whether or not type display direction option is shown
+        when browsing a table.
+    </dd>
+
     <dt id="cfg_RepeatCells">$cfg['RepeatCells'] integer</dt>
     <dd>
         Repeat the headers every X cells, or 0 to deactivate.
@@ -2386,23 +2392,6 @@ setfacl -d -m "g:www-data:rwx" tmp
         <a href="#cfg_RestrictColumnTypes" class="configrule">$cfg['RestrictColumnTypes']</a> and for
         <code>first_timestamp</code>, which is used for first timestamp column
         in table.</dd>
-
-    <dt id="cfg_NumOperators">$cfg['NumOperators'] array</dt>
-    <dd>Operators available for search operations on numeric and date columns.
-    </dd>
-
-    <dt id="cfg_TextOperators">$cfg['TextOperators'] array</dt>
-    <dd>Operators available for search operations on character columns.
-        Note that we put <code>LIKE</code> by default instead of
-        <code>LIKE %...%</code>, to avoid unintended performance problems
-        in case of huge tables.</dd>
-
-    <dt id="cfg_EnumOperators">$cfg['EnumOperators'] array</dt>
-    <dd>Operators available for search operations on ENUM columns.</dd>
-
-    <dt id="cfg_NullOperators">$cfg['NullOperators'] array</dt>
-    <dd>Additional operators available for search operations when the
-        column can be null.</dd>
 
 </dl>
 

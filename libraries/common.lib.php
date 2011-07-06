@@ -2877,7 +2877,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
         foreach ($cfg['ColumnTypes'] as $key => $value) {
             if (is_array($value)) {
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
-                foreach ($value as $subkey => $subvalue) {
+                foreach ($value as $subvalue) {
                     if ($subvalue == $selected) {
                         $retval .= "<option selected='selected'>";
                         $retval .= $subvalue;
@@ -2901,9 +2901,9 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
         }
     } else {
         $retval = array();
-        foreach ($cfg['ColumnTypes'] as $key => $value) {
+        foreach ($cfg['ColumnTypes'] as $value) {
             if (is_array($value)) {
-                foreach ($value as $subkey => $subvalue) {
+                foreach ($value as $subvalue) {
                     if ($subvalue !== '-') {
                         $retval[] = $subvalue;
                     }

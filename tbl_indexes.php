@@ -97,7 +97,13 @@ if (isset($_REQUEST['do_save_data'])) {
         PMA_DBI_query($sql_query);
         $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
-
+        
+        if( $GLOBALS['is_ajax_request'] == true) {
+            $extra_data['index_table'] = PMA_Index::getView($table, $db);
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        }
+        
         $active_page = 'tbl_structure.php';
         require './tbl_structure.php';
         exit;
@@ -133,9 +139,9 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 // end preparing form values
 ?>
 
-<form action="./tbl_indexes.php" method="post" name="index_frm"
-    onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {
-        this.elements['index'].disabled = false}">
+<form action="./tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
+    onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
+        this.elements['index[Key_name]'].disabled = false}">
 <?php
 $form_params = array(
     'db'    => $db,
@@ -162,7 +168,9 @@ if (isset($_REQUEST['create_index'])) {
 }
 ?>
     </legend>
-
+<?php
+PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
+?>
 <div class="formelement">
 <label for="input_index_name"><?php echo __('Index name:'); ?></label>
 <input type="text" name="index[Key_name]" id="input_index_name" size="25"
@@ -177,13 +185,9 @@ if (isset($_REQUEST['create_index'])) {
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
 </div>
 
+<br class="clearfloat" /><br />
 
-<br class="clearfloat" />
-<?php
-PMA_Message::error(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
-?>
-
-<table>
+<table id="index_columns">
 <thead>
 <tr><th><?php echo __('Column'); ?></th>
     <th><?php echo __('Size'); ?></th>

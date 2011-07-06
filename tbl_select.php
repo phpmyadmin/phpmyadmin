@@ -129,31 +129,57 @@ if (! isset($param) || $param[0] == '') {
             <td><?php echo $fields_collation[$i]; ?></td>
             <td><select name="func[]">
         <?php
+        // determine valid operators
         if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
-            foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
-                echo "\n" . '                        '
-                   . '<option value="' . htmlspecialchars($fc) . '">'
-                   . htmlspecialchars($fc) . '</option>';
-            }
+            // enum operators
+            $operators = array(
+                '=',
+                '!=',
+            );
         } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
-            foreach ($GLOBALS['cfg']['TextOperators'] as $fc) {
-            echo "\n" . '                        '
-               . '<option value="' . htmlspecialchars($fc) . '">'
-               . htmlspecialchars($fc) . '</option>';
-            }
+            // text operators
+            $operators = array(
+               'LIKE',
+               'LIKE %...%',
+               'NOT LIKE',
+               '=',
+               '!=',
+               'REGEXP',
+               'REGEXP ^...$',
+               'NOT REGEXP',
+               "= ''",
+               "!= ''",
+               'IN (...)',
+               'NOT IN (...)',
+               'BETWEEN',
+               'NOT BETWEEN',
+            );
         } else {
-            foreach ($GLOBALS['cfg']['NumOperators'] as $fc) {
-                echo "\n" . '                        '
-                   . '<option value="' .  htmlspecialchars($fc) . '">'
-                   . htmlspecialchars($fc) . '</option>';
-            }
+            // numeric operators
+            $operators = array(
+               '=',
+               '>',
+               '>=',
+               '<',
+               '<=',
+               '!=',
+               'LIKE',
+               'NOT LIKE',
+               'IN (...)',
+               'NOT IN (...)',
+               'BETWEEN',
+               'NOT BETWEEN',
+            );
         } // end if... else...
+
+        // if field can be NULL, add IS NULL and IS NOT NULL
         if ($fields_null[$i]) {
-            foreach ($GLOBALS['cfg']['NullOperators'] as $fc) {
-                echo "\n" . '                        '
-                   . '<option value="' .  htmlspecialchars($fc) . '">'
-                   . htmlspecialchars($fc) . '</option>';
-            }
+            $operators[] = 'IS NULL';
+            $operators[] = 'IS NOT NULL';
+        }
+        foreach ($operators as $op) {
+            echo "\n" . '                        '
+               . '<option value="' .  htmlspecialchars($op) . '">' . htmlspecialchars($op) . '</option>';
         }
         ?>
 
@@ -327,11 +353,17 @@ else {
         $sql_query .= ' WHERE ' . $where;
     } else {
         $w = $charsets = array();
+        $unary_operators = array(
+           'IS NULL' => 1,
+           'IS NOT NULL' => 1,
+           "= ''" => 1,
+           "!= ''" => 1
+        );
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
             list($charsets[$i]) = explode('_', $collations[$i]);
-            if (isset($GLOBALS['cfg']['UnaryOperators'][$func_type]) && $GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
+            if (isset($unary_operators[$func_type])) {
                 $fields[$i] = '';
                 $w[] = PMA_backquote($names[$i]) . ' ' . $func_type;
 
