@@ -4610,7 +4610,7 @@ msgstr "Зявка по пример"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:139
 msgid "Designer"
-msgstr ""
+msgstr "Строител"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:60
 #: server_privileges.php:119 server_privileges.php:1802
