@@ -43,6 +43,20 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
 
+    if (isset($_REQUEST['logging_vars'])) {
+        if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
+            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
+            if(!is_numeric($value)) $value="'".$value."'";
+            
+            if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']))
+                PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value);
+            
+        }
+    
+        $loggingVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")', 0, 1);
+        exit(json_encode($loggingVars));
+    }
+
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
@@ -174,6 +188,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 // Charting
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
@@ -456,6 +471,7 @@ url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
 pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 server_time_diff = new Date().getTime() - <?php echo microtime(true)*1000; ?>;
 server_os = '<?php echo PHP_OS; ?>';
+is_superuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
 </script>
 <div id="serverstatus">
     <h2><?php
@@ -579,6 +595,7 @@ echo __('Runtime Information');
             <div class="popupMenu">
                 <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
                 <a href="#popupLink"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
+                <a href="#monitorInstructions"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions</a>
                 <ul class="popupContent">
                     <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
                     <li>
@@ -589,6 +606,25 @@ echo __('Runtime Information');
                     <input type="submit" name="setSize" value="Set">
                     </li>
                 </ul>
+            </div>
+            <div id="monitorInstructions" title="Monitor Instructions" style="display:none;">
+                The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
+                queries. For the latter you will need to log_output set to 'TABLE' and have either the slow_query_log or general_log enabled.
+                <p></p>
+                <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
+                <div class="ajaxContent">
+                </div>
+                <div class="monitorUse" style="display:none;">
+                <p></p>
+                <b>Using the monitor:</b><br/>
+                Ok, you are good to go! Once you click 'Start monitor' your browser will refresh all displayed charts
+                in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart
+                using the cog icon on each respective chart.
+                <p>When you get to see a sudden spike in activity, select the relevant timespan on any chart by holding down the
+                left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
+                activity spike.</p>
+                </p>
+                </div>
             </div>
             <div id="addChartDialog" title="Add chart" style="display:none;">
                 <div id="tabGridVariables">
@@ -635,7 +671,7 @@ echo __('Runtime Information');
     
             </ul>
             <div id="logTable">
-                Slow query log<br/>
+                <br/>
             </div>
             
             <script type="text/javascript">

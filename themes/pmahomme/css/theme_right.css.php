@@ -1299,6 +1299,10 @@ div#logTable {
     clear: both;
 }
 
+.smallIndent {
+    padding-left: 7px;
+}
+
 /* end serverstatus */
 
 /* server variables */

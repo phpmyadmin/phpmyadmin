@@ -729,6 +729,104 @@ $(function() {
         return false;
     });
     
+    $('a[href="#monitorInstructions"]').click(function() {
+        var $dialog = $('div#monitorInstructions');
+        
+        $dialog.dialog({
+            width: 585,
+            height: 415
+        }).find('img.ajaxIcon').show();
+        
+        var loadLogVars = function(getvars) {
+            vars = { ajax_request: true, logging_vars: true };
+            if(getvars) $.extend(vars,getvars);
+            
+            $.get('server_status.php?' + url_query, vars,
+                function(data) {
+                    var logVars = $.parseJSON(data),
+                        icon = 's_success.png', msg='', str='';
+                    
+                    if(logVars['general_log'] == 'ON') {
+                        if(logVars['slow_query_log'] == 'ON') 
+                            msg = 'general_log and slow_query_log is enabled.';
+                        else 
+                            msg = 'general_log is enabled.';
+                    }
+                    
+                    if(msg.length == 0 && logVars['slow_query_log'] == 'ON') {
+                        msg = 'slow_query_log is enabled.';
+                    }
+                    
+                    if(msg.length == 0) {
+                        icon = 's_error.png';
+                        msg = 'slow_query_log and general_log is disabled.';
+                    }
+                    
+                    str = '<b>Current settings:</b><br><div class="smallIndent">';
+                    str += '<img src="' + pma_theme_image + icon + '" alt=""/> ' + msg + '<br />';
+                    
+                    if(logVars['log_output'] != 'TABLE')
+                        str += '<img src="' + pma_theme_image + 's_error.png" alt=""/> ' + 'log_output is not set to TABLE' + '<br />';
+                    else 
+                        str += '<img src="' + pma_theme_image + 's_success.png" alt=""/> ' + 'log_output is set to TABLE' + '<br />';
+                    
+                    if(logVars['slow_query_log'] == 'ON' && logVars['long_query_time'] > 2) {
+                        str += '<img src="' + pma_theme_image + 's_attention.png" alt=""/> '
+                            + $.sprintf('slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 1 second, depending on your system.', logVars['long_query_time'])
+                            + '<br />';
+                    }
+                    
+                    str += '</div>';
+                    
+                    if(is_superuser) {
+                        str += '<p></p><b>Change settings</b>';
+                        str += '<div class="smallIndent">';
+                        str += 'Following settings will be applied globally and reset to default on server restart:' + '<br/>';
+                        
+                        if(logVars['log_output'] != 'TABLE')
+                            str += '- <a class="set" href="#log_output-TABLE">' + 'Set log_output to TABLE' + ' </a><br />';
+                        
+                        if(logVars['general_log'] != 'ON')
+                            str += '- <a class="set" href="#general_log-ON">' + 'Enable general log' + ' </a><br />';
+                        else 
+                            str += '- <a class="set" href="#general_log-OFF">' + 'Disable general log' + ' </a><br />';
+                        
+                        if(logVars['slow_query_log'] != 'ON')
+                            str += '- <a class="set" href="#slow_query_log-ON">' +  'Enable slow query log' + ' </a><br />';
+                        else 
+                            str += '- <a class="set" href="#slow_query_log-OFF">' +  'Disable slow query log' + ' </a><br />';
+                        
+                        if(logVars['long_query_time'] > 2) 
+                            str += '- <a class="set" href="#long_query_time-1">' + 'Set long_query_time to 1s' + ' </a><br />';
+                        else 
+                            str += '- <a class="set" href="#long_query_time-5">' + 'Set long_query_time to 5s' + ' </a><br />';
+                        
+                    } else 
+                        str += 'You don\'t have super user rights to change this variables. Please log in as root account or contact your database administrator.<br/>';
+                    
+                    str += '</div>';
+                    
+                    $dialog.find('div.monitorUse').toggle(
+                        logVars['log_output'] == 'TABLE' && (logVars['slow_query_log'] == 'ON' || logVars['general_log'] == 'ON')
+                    );
+                    
+                    $dialog.find('div.ajaxContent').html(str);
+                    $dialog.find('img.ajaxIcon').hide();
+                    $dialog.find('a.set').click(function() {
+                        var nameValue = $(this).attr('href').split('-');
+                        loadLogVars({ varName: nameValue[0].substr(1), varValue: nameValue[1]});
+                        $dialog.find('img.ajaxIcon').show();
+                    });
+                }
+            );
+        }
+        
+        
+        loadLogVars();
+        
+        return false;
+    });
+    
     $('input[name="chartType"]').change(function() {
         $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
     });
@@ -867,7 +965,6 @@ $(function() {
                             s += '<br/><span style="color:'+point.series.color+'">'+ point.series.name +':</span> '+
                                 ((parseInt(point.y) == point.y) ? point.y : Highcharts.numberFormat(this.y, 2)) + ' ' + (point.series.options.unit || '');
                         });
-                        
                         
                         return s;
                 },
