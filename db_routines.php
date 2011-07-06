@@ -25,7 +25,6 @@ $GLOBALS['js_include'][] = 'rte/routines.js';
  * Include all other files
  */
 require_once './libraries/rte/rte_routines.lib.php';
-require_once './libraries/rte/rte_common.lib.php';
 
 /**
  * Do the magic

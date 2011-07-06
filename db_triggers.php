@@ -23,7 +23,6 @@ $GLOBALS['js_include'][] = 'rte/triggers.js';
  * Include all other files
  */
 require_once './libraries/rte/rte_triggers.lib.php';
-require_once './libraries/rte/rte_common.lib.php';
 
 /**
  * Do the magic

@@ -24,7 +24,6 @@ $GLOBALS['js_include'][] = 'rte/events.js';
  * Include all other files
  */
 require_once './libraries/rte/rte_events.lib.php';
-require_once './libraries/rte/rte_common.lib.php';
 
 /**
  * Do the magic

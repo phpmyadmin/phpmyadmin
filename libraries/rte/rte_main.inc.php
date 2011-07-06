@@ -8,9 +8,12 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Create labels for the list
+ * Include all other files that are common
+ * to routines, triggers and events.
  */
-$titles = PMA_buildActionTitles();
+require_once './libraries/rte/rte_export.lib.php';
+require_once './libraries/rte/rte_list.lib.php';
+require_once './libraries/rte/rte_footer.lib.php';
 
 if ($GLOBALS['is_ajax_request'] != true) {
     /**
@@ -53,6 +56,11 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
                         'drop'   => 'class="ajax_drop_anchor"',
                         'export' => 'class="ajax_export_anchor"');
 }
+
+/**
+ * Create labels for the list
+ */
+$titles = PMA_buildActionTitles();
 
 /**
  * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
