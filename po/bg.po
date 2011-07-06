@@ -1998,7 +1998,7 @@ msgstr "Файлът %s не съдържа идентификатор на кл
 #: libraries/auth/swekey/swekey.auth.lib.php:157
 #: libraries/auth/swekey/swekey.auth.lib.php:180
 msgid "Hardware authentication failed"
-msgstr "Хардуерното удостоверяване провалено"
+msgstr "Неуспешно хардуерно удостоверяване"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
