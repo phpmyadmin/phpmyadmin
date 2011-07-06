@@ -4673,7 +4673,7 @@ msgstr "Настройки"
 
 #: libraries/db_routines.lib.php:707
 msgid "Add parameter"
-msgstr ""
+msgstr "Добавяне на параметър"
 
 #: libraries/db_routines.lib.php:710
 #| msgid "Remove database"
