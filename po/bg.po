@@ -4620,7 +4620,7 @@ msgstr "Права"
 
 #: libraries/db_links.inc.php:97 libraries/db_routines.lib.php:1207
 msgid "Routines"
-msgstr ""
+msgstr "Процедури"
 
 #: libraries/db_links.inc.php:105 libraries/display_triggers.inc.php:62
 #: libraries/export/sql.php:987 libraries/export/xml.php:38
