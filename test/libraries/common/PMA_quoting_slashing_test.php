@@ -90,8 +90,19 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      * @dataProvider backquoteDataProvider
      */
     public function testBackquote($a, $b) {
+        // Test bypass quoting (used by dump functions)
         $this->assertEquals($a, PMA_backquote($a, false));
+
+        // Test backquote
         $this->assertEquals($b, PMA_backquote($a));
+    }
+
+    public function testBackquoteForbidenWords() {
+        global $PMA_SQPdata_forbidden_word;
+
+        foreach ($PMA_SQPdata_forbidden_word as $forbidden){
+            $this->assertEquals("`" . $forbidden . "`", PMA_backquote($forbidden, false));
+        }
     }
 }
 ?>
