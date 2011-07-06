@@ -84,104 +84,6 @@ $cfg['AttributeTypes'] = !empty($cfg['AttributeTypes']) ? $cfg['AttributeTypes']
 );
 
 if ($cfg['ShowFunctionFields']) {
-    $cfg['Functions'] = !empty($cfg['Functions']) ? $cfg['Functions'] : array(
-        'ABS',
-        'ACOS',
-        'ASCII',
-        'ASIN',
-        'ATAN',
-        'BIN',
-        'BIT_COUNT',
-        'BIT_LENGTH',
-        'CEILING',
-        'CHAR',
-        'CHAR_LENGTH',
-        'COMPRESS',
-        'CONNECTION_ID',
-        'COS',
-        'COT',
-        'CRC32',
-        'CURDATE',
-        'CURRENT_USER',
-        'CURTIME',
-        'DATABASE',
-        'DATE',
-        'DAYNAME',
-        'DAYOFMONTH',
-        'DAYOFWEEK',
-        'DAYOFYEAR',
-        'DEGREES',
-        'DES_DECRYPT',
-        'DES_ENCRYPT',
-        'ENCRYPT',
-        'EXP',
-        'FLOOR',
-        'FROM_DAYS',
-        'FROM_UNIXTIME',
-        'HEX',
-        'HOUR',
-        'INET_ATON',
-        'INET_NTOA',
-        'LAST_DAY',
-        'LENGTH',
-        'LN',
-        'LOAD_FILE',
-        'LOG',
-        'LOG10',
-        'LOG2',
-        'LOWER',
-        'LTRIM',
-        'MD5',
-        'MICROSECOND',
-        'MINUTE',
-        'MONTH',
-        'MONTHNAME',
-        'NOW',
-        'OCT',
-        'OLD_PASSWORD',
-        'ORD',
-        'PASSWORD',
-        'PI',
-        'QUARTER',
-        'QUOTE',
-        'RADIANS',
-        'RAND',
-        'REVERSE',
-        'ROUND',
-        'RTRIM',
-        'SECOND',
-        'SEC_TO_TIME',
-        'SHA1',
-        'SIGN',
-        'SIN',
-        'SOUNDEX',
-        'SPACE',
-        'SQRT',
-        'SYSDATE',
-        'TAN',
-        'TIME',
-        'TIMESTAMP',
-        'TIME_TO_SEC',
-        'TO_DAYS',
-        'TRIM',
-        'UNCOMPRESS',
-        'UNCOMPRESSED_LENGTH',
-        'UNHEX',
-        'UNIX_TIMESTAMP',
-        'UPPER',
-        'USER',
-        'UTC_DATE',
-        'UTC_TIME',
-        'UTC_TIMESTAMP',
-        'UUID',
-        'VERSION',
-        'WEEK',
-        'WEEKDAY',
-        'WEEKOFYEAR',
-        'YEAR',
-        'YEARWEEK',
-    );
-
     $cfg['RestrictColumnTypes'] = !empty($cfg['RestrictColumnTypes']) ? $cfg['RestrictColumnTypes'] : array(
         'TINYINT'   => 'FUNC_NUMBER',
         'SMALLINT'  => 'FUNC_NUMBER',
@@ -228,7 +130,7 @@ if ($cfg['ShowFunctionFields']) {
 
     );
 
-    $cfg['RestrictFunctions'] = !empty($cfg['RestrictFunctions']) ? $cfg['RestrictFunctions'] : array(
+    $restrict_functions = array(
         'FUNC_CHAR' => array(
             'BIN',
             'CHAR',
@@ -260,6 +162,7 @@ if ($cfg['ShowFunctionFields']) {
             'UPPER',
             'USER',
             'UUID',
+            'VERSION',
         ),
 
         'FUNC_DATE' => array(
@@ -353,6 +256,21 @@ if ($cfg['ShowFunctionFields']) {
             'MPolyFromWKB',
         ),
     );
+    if (empty($cfg['RestrictFunctions'])) {
+        $cfg['RestrictFunctions'] = $restrict_functions;
+    }
+
+    if (empty($cfg['Functions'])) {
+        // build a list of functions based on $restrict_functions
+        $cfg['Functions'] = array();
+        foreach ($restrict_functions as $cat => $functions) {
+            if ($cat != 'FUNC_SPATIAL') {
+                $cfg['Functions'] = array_merge($cfg['Functions'], $functions);
+            }
+        }
+        sort($cfg['Functions']);
+    }
+    unset($restrict_functions);
 
     $cfg['DefaultFunctions'] = !empty($cfg['DefaultFunctions']) ? $cfg['DefaultFunctions'] : array(
         'FUNC_CHAR' => '',
