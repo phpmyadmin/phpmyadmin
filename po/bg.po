@@ -8397,7 +8397,7 @@ msgstr "ID"
 #: server_status.php:856
 #| msgid "Limits the number of simultaneous connections the user may have."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Броят неуспешни опити за връзка мъм MySQL сървъра."
+msgstr "Броят неуспешни опити за връзка към MySQL сървъра."
 
 #: server_status.php:857
 msgid ""
