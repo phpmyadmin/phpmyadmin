@@ -504,7 +504,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "Din SQL-forespørgsel blev udført korrekt"
 
 #: db_routines.php:157
-#, php-format
+#, php-format, fuzzy
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "række påvirket af den sidste SQL-sætning inde i proceduren"
@@ -514,7 +514,7 @@ msgstr[1] "rækker påvirket af den sidste SQL-sætning inde i proceduren"
 #, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Udførelsesresultater af rutine %r"
+msgstr "Udførelsesresultater af rutine %s"
 
 #: db_routines.php:187 libraries/import.lib.php:152 sql.php:685
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -553,7 +553,7 @@ msgstr "Udfør rutine"
 #, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Eksport af rutine %r"
+msgstr "Eksport af rutine %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:911
 #, fuzzy, php-format

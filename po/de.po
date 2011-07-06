@@ -528,7 +528,7 @@ msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen)."
 #, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Die folgende Abfrage ist fehlgeschlagen:"
+msgstr "Die folgende Abfrage ist fehlgeschlagen: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
