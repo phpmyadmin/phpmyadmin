@@ -94,7 +94,7 @@ function PMA_TRI_handleExport()
 
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
-        $triggers = PMA_DBI_get_triggers($db, $table);
+        $triggers = PMA_DBI_get_triggers($db, $table, '');
         $export_data = false;
         foreach ($triggers as $trigger) {
             if ($trigger['name'] === $item_name) {
