@@ -2871,14 +2871,10 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
 {
     global $cfg;
 
-    $column_types = PMA_DRIZZLE
-        ? $cfg['DrizzleColumnTypes']
-        : $cfg['ColumnTypes'];
-
     if ($html) {
         // NOTE: the SELECT tag in not included in this snippet.
         $retval = '';
-        foreach ($column_types as $key => $value) {
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
             if (is_array($value)) {
                 $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                 foreach ($value as $subkey => $subvalue) {
@@ -2905,7 +2901,7 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
         }
     } else {
         $retval = array();
-        foreach ($column_types as $key => $value) {
+        foreach ($cfg['ColumnTypes'] as $key => $value) {
             if (is_array($value)) {
                 foreach ($value as $subkey => $subvalue) {
                     if ($subvalue !== '-') {
@@ -2962,50 +2958,15 @@ function PMA_unsupportedDatatypes() {
 function PMA_getFunctionsForField($field, $insert_mode)
 {
     global $cfg, $analyzed_sql, $data;
-    static $functions, $restrict_functions;
-
-    if (!isset($functions)) {
-        if (PMA_DRIZZLE) {
-            // Remove unavailable functions
-            $functions = array_diff($cfg['Functions'], $cfg['DrizzleRemoveFunctions']);
-            $restrict_functions = $cfg['RestrictFunctions'];
-            unset($restrict_functions['FUNC_SPATIAL']);
-            foreach ($restrict_functions as &$v) {
-                $v = array_diff($v, $cfg['DrizzleRemoveFunctions']);
-            }
-            unset($v);
-
-            // Add new functions
-            $sql = "SELECT upper(plugin_name) f
-                FROM data_dictionary.plugins
-                WHERE plugin_name IN ('" . implode("','", array_keys($cfg['DrizzleAddFunctions'])) . "')
-                  AND plugin_type = 'Function'
-                  AND is_active";
-            $drizzle_funcs = PMA_DBI_fetch_result($sql, 'f', 'f');
-            $functions = array_merge($functions, $drizzle_funcs);
-            sort($functions);
-            foreach ($drizzle_funcs as $function) {
-                $category = $cfg['DrizzleAddFunctions'][$function];
-                $restrict_functions[$category][] = $function;
-            }
-            foreach ($restrict_functions as &$v) {
-                sort($v);
-            }
-            unset($v);
-        } else {
-            $functions = &$cfg['Functions'];
-            $restrict_functions = &$cfg['RestrictFunctions'];
-        }
-    }
 
     $selected = '';
     // Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
     // or something similar. Then directly look up the entry in the RestrictFunctions array,
     // which will then reveal the available dropdown options
     if (isset($cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])])
-     && isset($restrict_functions[$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
+     && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])]])) {
         $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($field['True_Type'])];
-        $dropdown           = $restrict_functions[$current_func_type];
+        $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
         $default_function   = $cfg['DefaultFunctions'][$current_func_type];
     } else {
         $dropdown = array();
@@ -3031,7 +2992,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
         && $field['Key'] == 'PRI'
         && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
     ) {
-         $default_function = $cfg['DefaultFunctions']['FUNC_UUID'];
+         $default_function = $cfg['DefaultFunctions']['pk_char36'];
     }
     // this is set only when appropriate and is always true
     if (isset($field['display_binary_as_hex'])) {
@@ -3054,12 +3015,12 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // For compatibility's sake, do not let out all other functions. Instead
     // print a separator (blank) and then show ALL functions which weren't shown
     // yet.
-    $cnt_functions = count($functions);
+    $cnt_functions = count($cfg['Functions']);
     for ($j = 0; $j < $cnt_functions; $j++) {
-        if (! isset($dropdown_built[$functions[$j]]) || $dropdown_built[$functions[$j]] != 'true') {
+        if (! isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'true') {
             // Is current function defined as default?
-            $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                        || (!$field['first_timestamp'] && $functions[$j] == $default_function)
+            $selected = ($field['first_timestamp'] && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
+                        || (!$field['first_timestamp'] && $cfg['Functions'][$j] == $default_function)
                       ? ' selected="selected"'
                       : '';
             if ($op_spacing_needed == true) {
@@ -3069,7 +3030,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
             }
 
             $retval .= '                ';
-            $retval .= '<option' . $selected . '>' . $functions[$j] . '</option>' . "\n";
+            $retval .= '<option' . $selected . '>' . $cfg['Functions'][$j] . '</option>' . "\n";
         }
     } // end for
 

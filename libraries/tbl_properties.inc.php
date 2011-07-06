@@ -464,16 +464,13 @@ for ($i = 0; $i < $num_fields; $i++) {
         $default_current_timestamp = false;
     }
 
-    $attribute_types = PMA_DRIZZLE
-            ? $cfg['DrizzleAttributeTypes']
-            : $cfg['AttributeTypes'];
-    $cnt_attribute_types = count($attribute_types);
+    $cnt_attribute_types = count($cfg['AttributeTypes']);
     for ($j = 0; $j < $cnt_attribute_types; $j++) {
-        $content_cells[$i][$ci] .= '                <option value="'. $attribute_types[$j] . '"';
-        if (strtoupper($attribute) == strtoupper($attribute_types[$j])) {
+        $content_cells[$i][$ci] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
+        if (strtoupper($attribute) == strtoupper($cfg['AttributeTypes'][$j])) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        $content_cells[$i][$ci] .= '>' . $attribute_types[$j] . '</option>';
+        $content_cells[$i][$ci] .= '>' . $cfg['AttributeTypes'][$j] . '</option>';
     }
 
     $content_cells[$i][$ci] .= '</select>';
