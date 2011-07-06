@@ -2794,8 +2794,8 @@ if ($cfg['ShowFunctionFields']) {
         'FUNC_CHAR' => '',
         'FUNC_DATE' => '',
         'FUNC_NUMBER' => '',
+        'FUNC_UUID' => 'UUID',
         'first_timestamp' => 'NOW',
-        'pk_char36' => 'UUID',
     );
 }
 

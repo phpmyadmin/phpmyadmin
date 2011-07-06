@@ -2992,7 +2992,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
         && $field['Key'] == 'PRI'
         && ($field['Type'] == 'char(36)' || $field['Type'] == 'varchar(36)')
     ) {
-         $default_function = $cfg['DefaultFunctions']['pk_char36'];
+         $default_function = $cfg['DefaultFunctions']['FUNC_UUID'];
     }
     // this is set only when appropriate and is always true
     if (isset($field['display_binary_as_hex'])) {
