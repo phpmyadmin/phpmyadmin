@@ -1,0 +1,4 @@
+# This folder does not require access over HTTP
+# (the following directive denies access by default)
+# For more information see: http://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
+Order allow,deny
