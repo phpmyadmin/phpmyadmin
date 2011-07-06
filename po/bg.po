@@ -4579,7 +4579,7 @@ msgstr "Диспечер на събитията включен"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Диспечер на събитията изключен"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
