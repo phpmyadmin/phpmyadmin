@@ -17,24 +17,24 @@ function checkIndexName()
     }
 
     // Gets the elements pointers
-    var the_idx_name = document.forms['index_frm'].elements['index'];
-    var the_idx_type = document.forms['index_frm'].elements['index_type'];
+    var the_idx_name = document.forms['index_frm'].elements['index[Key_name]'];
+    var the_idx_type = document.forms['index_frm'].elements['index[Index_type]'];
 
     // Index is a primary key
     if (the_idx_type.options[0].value == 'PRIMARY' && the_idx_type.options[0].selected) {
-        document.forms['index_frm'].elements['index'].value = 'PRIMARY';
+        document.forms['index_frm'].elements['index[Key_name]'].value = 'PRIMARY';
         if (typeof(the_idx_name.disabled) != 'undefined') {
-            document.forms['index_frm'].elements['index'].disabled = true;
+            document.forms['index_frm'].elements['index[Key_name]'].disabled = true;
         }
     }
 
     // Other cases
     else {
         if (the_idx_name.value == 'PRIMARY') {
-            document.forms['index_frm'].elements['index'].value = '';
+            document.forms['index_frm'].elements['index[Key_name]'].value = '';
         }
         if (typeof(the_idx_name.disabled) != 'undefined') {
-            document.forms['index_frm'].elements['index'].disabled = false;
+            document.forms['index_frm'].elements['index[Key_name]'].disabled = false;
         }
     }
 

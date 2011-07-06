@@ -140,8 +140,8 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 ?>
 
 <form action="./tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>
-    onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {
-        this.elements['index'].disabled = false}">
+    onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
+        this.elements['index[Key_name]'].disabled = false}">
 <?php
 $form_params = array(
     'db'    => $db,
@@ -168,7 +168,9 @@ if (isset($_REQUEST['create_index'])) {
 }
 ?>
     </legend>
-
+<?php
+PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
+?>
 <div class="formelement">
 <label for="input_index_name"><?php echo __('Index name:'); ?></label>
 <input type="text" name="index[Key_name]" id="input_index_name" size="25"
@@ -183,11 +185,7 @@ if (isset($_REQUEST['create_index'])) {
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
 </div>
 
-
-<br class="clearfloat" />
-<?php
-PMA_Message::error(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))->display();
-?>
+<br class="clearfloat" /><br />
 
 <table id="index_columns">
 <thead>
