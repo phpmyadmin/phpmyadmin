@@ -526,7 +526,7 @@ msgstr "MySQL върна празен резултат (т.е. нула редо
 #: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Следната заявка се провали: \"%s\""
+msgstr "Следната заявка е неуспешна: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:609
