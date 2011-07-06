@@ -44,7 +44,11 @@
 
  <target name="phpcpd" description="Generate pmd-cpd.xml using PHPCPD">
   <exec executable="phpcpd">
-   <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml ${source}" />
+   <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml
+              --exclude test
+              --exclude libraries/PHPExcel
+              --exclude libraries/tcpdf
+              ${source}" />
   </exec>
  </target>
 
@@ -54,9 +58,11 @@
   </exec>
  </target>
 
- <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer">
-  <exec executable="phpcs" output="/dev/null">
-   <arg line="--report=checkstyle
+ <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, PHPExcel, tcpdf directories">
+  <exec executable="phpcs">
+   <arg line="-v
+              --ignore=*/PHPExcel/*,*/php-gettext/*,*/tcpdf/*
+              --report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
               --standard=PEAR
               ${source}" />
