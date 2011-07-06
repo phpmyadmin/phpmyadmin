@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-06 09:59+0200\n"
+"PO-Revision-Date: 2011-07-06 10:00+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4871,7 +4871,7 @@ msgstr "Бързо - показване на минимум опции"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "Потребителско - показване на всички опции"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
