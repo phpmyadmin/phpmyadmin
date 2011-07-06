@@ -4583,7 +4583,7 @@ msgstr ""
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Включване"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
