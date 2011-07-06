@@ -4678,7 +4678,7 @@ msgstr "Добавяне на параметър"
 #: libraries/db_routines.lib.php:710
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr ""
+msgstr "Изтриване на последен параметър"
 
 #: libraries/db_routines.lib.php:715 libraries/db_routines.lib.php:1217
 msgid "Return type"
