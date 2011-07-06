@@ -4168,7 +4168,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:451
 msgid "Show password change form"
-msgstr "Показване на формуляр за промяна на парола"
+msgstr "Показване на формуляр за смяна на парола"
 
 #: libraries/config/messages.inc.php:452
 msgid "Show create database form"
