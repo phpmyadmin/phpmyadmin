@@ -2185,7 +2185,7 @@ msgstr "SQL заявка"
 
 #: libraries/common.lib.php:1078
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Неуспех при свързване към SQL валидатора!"
 
 #: libraries/common.lib.php:1119 libraries/config/messages.inc.php:472
 msgid "Explain SQL"
