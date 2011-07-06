@@ -4606,7 +4606,7 @@ msgstr "Проследяване"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
-msgstr "Зявка по пример"
+msgstr "Заявка по пример"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:139
 msgid "Designer"
