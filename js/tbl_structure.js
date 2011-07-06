@@ -269,10 +269,10 @@ $(document).ready(function() {
          */
         var button_options = {};
         // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
         var $msgbox = PMA_ajaxShowMessage();
 
         $.get( "tbl_indexes.php" , url ,  function(data) {
@@ -300,6 +300,7 @@ $(document).ready(function() {
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
+                checkIndexName();
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
@@ -360,7 +361,7 @@ $(document).ready(function() {
         $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
             $("#index_columns").remove();
             var temp_div = $("<div id='temp_div'><div>").append(data);
-            $(temp_div).find("#index_columns").insertAfter("#index_frm fieldset .error");
+            $(temp_div).find("#index_columns").appendTo("#index_edit_fields");
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -390,6 +391,8 @@ $(document).ready(function() {
              return false;
         });
     } //end show/hide table index
+    
+    $('#select_index_type').live('change', checkIndexType);
 
 
 }) // end $(document).ready()

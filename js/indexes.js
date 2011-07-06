@@ -56,7 +56,7 @@ function checkIndexType()
     /**
      * @var Object Table header for the size column.
      */
-    $size_header = $('thead tr th:nth-child(2)');
+    $size_header = $('#index_columns thead tr th:nth-child(2)');
     /**
      * @var Object Inputs to specify the columns for the index.
      */
@@ -132,7 +132,7 @@ function checkIndexType()
  */
 $(document).ready(function() {
     checkIndexType();
-    $('#select_index_type').bind('change', checkIndexType);
+    $('#select_index_type').live('change', checkIndexType);
 });
 
 /**#@- */

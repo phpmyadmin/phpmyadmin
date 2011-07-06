@@ -158,7 +158,7 @@ if (isset($_REQUEST['create_index'])) {
 
 echo PMA_generate_common_hidden_inputs($form_params);
 ?>
-<fieldset>
+<fieldset id="index_edit_fields">
     <legend>
 <?php
 if (isset($_REQUEST['create_index'])) {
