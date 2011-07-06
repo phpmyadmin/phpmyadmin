@@ -4825,7 +4825,7 @@ msgstr "Създаване БД"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
-msgstr "Създай"
+msgstr "Създаване"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:121
 #: server_privileges.php:1493 server_replication.php:33
