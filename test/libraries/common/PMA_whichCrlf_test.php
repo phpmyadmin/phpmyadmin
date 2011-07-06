@@ -5,6 +5,7 @@
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_whichCrlf_test.php
+ * @group common.lib-tests
  */
 
 /*

@@ -5,12 +5,14 @@
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_quoting_slashing_test.php
+ * @group common.lib-tests
  */
 
 /*
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
+require_once 'libraries/sqlparser.data.php';
 
 class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
 {
@@ -88,9 +90,8 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
      * @dataProvider backquoteDataProvider
      */
     public function testBackquote($a, $b) {
-        //$this->assertEquals($a, PMA_backquote($a, false));
-        //$this->assertEquals($b, PMA_backquote($a));
-        $this->markTestSkipped("Fix test for PMA_backquote() ");
+        $this->assertEquals($a, PMA_backquote($a, false));
+        $this->assertEquals($b, PMA_backquote($a));
     }
 }
 ?>
