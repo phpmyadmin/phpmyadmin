@@ -271,14 +271,6 @@ if ($cfg['ShowFunctionFields']) {
         sort($cfg['Functions']);
     }
     unset($restrict_functions);
-
-    $cfg['DefaultFunctions'] = !empty($cfg['DefaultFunctions']) ? $cfg['DefaultFunctions'] : array(
-        'FUNC_CHAR' => '',
-        'FUNC_DATE' => '',
-        'FUNC_NUMBER' => '',
-        'first_timestamp' => 'NOW',
-        'pk_char36' => 'UUID',
-    );
 } // end if
 
 ?>

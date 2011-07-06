@@ -2788,11 +2788,15 @@ if ($cfg['ShowFunctionFields']) {
     /**
      * Default functions for above defined groups
      *
-     * Fill in this array to overwrite data from data_*.inc.php files
-     *
      * @global array $cfg['DefaultFunctions']
      */
-    $cfg['DefaultFunctions'] = array();
+    $cfg['DefaultFunctions'] = array(
+        'FUNC_CHAR' => '',
+        'FUNC_DATE' => '',
+        'FUNC_NUMBER' => '',
+        'first_timestamp' => 'NOW',
+        'pk_char36' => 'UUID',
+    );
 }
 
 ?>
