@@ -4587,7 +4587,7 @@ msgstr ""
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Изключване"
 
 #: libraries/db_events.inc.php:141
 #| msgid "Add a new Event"
