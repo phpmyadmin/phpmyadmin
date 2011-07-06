@@ -19,7 +19,8 @@ var RTE = {
      */
     syntaxHiglighter: null,
     /**
-     * @var    buttonOptions     Object containing options for jQueryUI dialog buttons
+     * @var    buttonOptions      Object containing options for
+     *                            the jQueryUI dialog buttons
      */
     buttonOptions: {},
     /**
@@ -31,7 +32,8 @@ var RTE = {
          *                 to an element that is being validated.
          */
         var $elm = null;
-        // Common validation
+        // Common validation. At the very least the name
+        // and the definition must be provided for an item
         $elm = $('.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.focus();
@@ -44,8 +46,27 @@ var RTE = {
             alert(PMA_messages['strFormEmpty']);
             return false;
         }
+        // The validation has so far passed, so now
+        // we can validate item-specific fields.
         return RTE.validateCustom();
-    } // end validate()
+    }, // end validate()
+    /**
+     * Validate custom editor form fields.
+     * This function can be overridden by
+     * other files in this folder.
+     */
+    validateCustom: function () {
+        return true;
+    }, // end validateCustom()
+    /**
+     * Execute some code after the ajax
+     * dialog for the ditor is shown.
+     * This function can be overridden by
+     * other files in this folder.
+     */
+    postDialogShow: function () {
+        // Nothing by default
+    } // end postDialogShow()
 }; // end RTE namespace
 
 /**
@@ -56,11 +77,6 @@ var RTE = {
 $(document).ready(function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
-     *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    PMA_ajaxRemoveMessage()
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('.ajax_add_anchor, .ajax_edit_anchor').live('click', function (event) {
         event.preventDefault();
@@ -80,11 +96,16 @@ $(document).ready(function () {
          * @var    $msg    jQuery object containing the reference to
          *                 the AJAX message shown to the user.
          */
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
             if (data.success === true) {
+                // We have successfully fetched the editor form
                 PMA_ajaxRemoveMessage($msg);
+                // Now define the function that is called when
+                // the user presses the "Go" button
                 RTE.buttonOptions[PMA_messages['strGo']] = function () {
+                    // Move the data from the codemirror editor back to the
+                    // textarea, where it can be used in the form submission.
                     RTE.syntaxHiglighter.save();
                     // Validate editor and submit request, if passed.
                     if (RTE.validate()) {
@@ -92,7 +113,7 @@ $(document).ready(function () {
                          * @var    data    Form data to be sent in the AJAX request.
                          */
                         var data = $('.rte_form').last().serialize();
-                        $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+                        $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
                         $.post($('.rte_form').last().attr('action'), data, function (data) {
                             if (data.success === true) {
                                 // Item created successfully
@@ -103,22 +124,29 @@ $(document).ready(function () {
                                 if (mode === 'edit') {
                                     $edit_row.remove();
                                 }
-
+                                // Sometimes, like when moving a trigger from a table to
+                                // another one, the new row should not be inserted into the
+                                // list. In this case "data.insert" will be set to false.
                                 if (data.insert) {
-                                    // Insert the new row at the correct location in the list of routines
+                                    // Insert the new row at the correct location in the list of items
                                     /**
-                                     * @var    text    Contains the name of a routine from the list
+                                     * @var    text    Contains the name of an item from the list
                                      *                 that is used in comparisons to find the correct
                                      *                 location where to insert a new row.
                                      */
                                     var text = '';
                                     /**
-                                     * @var    inserted    Whether a new has been inserted
-                                     *                     in the list of routines or not.
+                                     * @var    inserted    Whether a new item has been inserted
+                                     *                     in the list or not.
                                      */
                                     var inserted = false;
                                     $('table.data').find('tr').each(function () {
-                                        text = $(this).children('td').eq(0).find('strong').text().toUpperCase();
+                                        text = $(this)
+                                                .children('td')
+                                                .eq(0)
+                                                .find('strong')
+                                                .text()
+                                                .toUpperCase();
                                         if (text !== '' && text > data.name) {
                                             $(this).before(data.new_row);
                                             inserted = true;
@@ -126,31 +154,44 @@ $(document).ready(function () {
                                         }
                                     });
                                     if (! inserted) {
+                                        // If we didn't manage to insert the row yet,
+                                        // it must belong at the end of the list,
+                                        // so we insert it there.
                                         $('table.data').append(data.new_row);
                                     }
                                     // Fade-in the new row
                                     $('.ajaxInsert').show('slow').removeClass('ajaxInsert');
-                                    // Now we have inserted the row at the correct position, but surely
-                                    // at least some row classes are wrong now. So we will itirate
-                                    // throught all rows and assign correct classes to them.
                                 } else if ($('table.data').find('tr').has('td').length === 0) {
+                                    // If we are not supposed to insert the new row, we will now
+                                    // check if the table is empty and needs to be hidden. This
+                                    // will be the case if we were editing the only item in the
+                                    // list, which we removed and will not be inserting something
+                                    // else in its place.
                                     $('table.data').hide("slow", function () {
                                         $('#nothing2display').show("slow");
                                     });
                                 }
+                                // Now we have inserted the row at the correct position, but surely
+                                // at least some row classes are wrong now. So we will itirate
+                                // throught all rows and assign correct classes to them.
                                 /**
-                                 * @var    ct    Count of processed rows.
+                                 * @var    ct          Count of processed rows.
                                  */
                                 var ct = 0;
+                                /**
+                                 * @var    rowclass    Class to be attached to the row
+                                 *                     that is being processed
+                                 */
                                 var rowclass = '';
                                 $('table.data').find('tr').has('td').each(function () {
                                     rowclass = (ct % 2 === 0) ? 'even' : 'odd';
                                     $(this).removeClass().addClass(rowclass);
                                     ct++;
                                 });
-                                // If this is the first item being added, remove the
-                                // "No items" message and show the list of items.
-                                if ($('table.data').find('tr').has('td').length > 0 && $('#nothing2display').is(':visible')) {
+                                // If this is the first item being added, remove
+                                // the "No items" message and show the list.
+                                if ($('table.data').find('tr').has('td').length > 0
+                                    && $('#nothing2display').is(':visible')) {
                                     $('#nothing2display').hide("slow", function () {
                                         $('table.data').show("slow");
                                     });
@@ -158,8 +199,8 @@ $(document).ready(function () {
                             } else {
                                 PMA_ajaxShowMessage(data.error);
                             }
-                        });
-                    }
+                        }); // end $.post()
+                    } // end "if (RTE.validate())"
                 }; // end of function that handles the submission of the Editor
                 RTE.buttonOptions[PMA_messages['strClose']] = function () {
                     $(this).dialog("close");
@@ -168,8 +209,8 @@ $(document).ready(function () {
                  * Display the dialog to the user
                  */
                 RTE.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                                width: 700,  // TODO: make a better decision about the size
-                                height: 555, // of the dialog based on the size of the viewport
+                                width: 700,
+                                height: 555,
                                 buttons: RTE.buttonOptions,
                                 title: data.title,
                                 modal: true,
@@ -189,10 +230,10 @@ $(document).ready(function () {
                 if ($('input[name=editor_process_edit]').length > 0) {
                     mode = 'edit';
                 }
-                // Attach syntax highlited editor to routine definition
+                // Attach syntax highlited editor to the definition
                 /**
                  * @var    $elm    jQuery object containing the reference to
-                 *                 the "Routine Definition" textarea.
+                 *                 the Definition textarea.
                  */
                 var $elm = $('textarea[name=item_definition]').last();
                 /**
@@ -214,29 +255,23 @@ $(document).ready(function () {
      * Attach Ajax event handlers for input fields in the editor
      * and the routine execution dialog used to submit the Ajax
      * request when the ENTER key is pressed.
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('.rte_table').find('input[name^=item], input[name^=params]').live('keydown', function (e) {
-        if (e.which === 13) {
+        if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
             if (typeof RTE.buttonOptions[PMA_messages['strGo']] === 'function') {
                 RTE.buttonOptions[PMA_messages['strGo']].call();
             }
         }
-    });
+    }); // end $.live()
 
     /**
      * Attach Ajax event handlers for Export of Routines, Triggers and Events.
-     *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    PMA_ajaxRemoveMessage()
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('.ajax_export_anchor').live('click', function (event) {
         event.preventDefault();
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        var $msg = PMA_ajaxShowMessage();
+        // Fire the ajax request straight away
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
@@ -256,8 +291,16 @@ $(document).ready(function () {
                                       title: data.title
                                   });
                 // Attach syntax highlited editor to export dialog
-                var elm = $ajaxDialog.find('textarea');
-                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
+                /**
+                 * @var    $elm    jQuery object containing the reference
+                 *                 to the Export textarea.
+                 */
+                var $elm = $ajaxDialog.find('textarea');
+                /**
+                 * @var    opts    Options to pass to the codemirror editor.
+                 */
+                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
+                CodeMirror.fromTextArea($elm[0], opts);
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
@@ -266,10 +309,6 @@ $(document).ready(function () {
 
     /**
      * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
-     *
-     * @uses    $.PMA_confirm()
-     * @uses    PMA_ajaxShowMessage()
-     * @see     $cfg['AjaxEnable']
      */
     $('.ajax_drop_anchor').live('click', function (event) {
         event.preventDefault();
@@ -281,6 +320,7 @@ $(document).ready(function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
+        // We ask for confirmation first here, before submitting the ajax request
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             /**
              * @var    $msg    jQuery object containing the reference to
@@ -293,7 +333,13 @@ $(document).ready(function () {
                      * @var $table    Object containing reference to the main list of elements.
                      */
                     var $table = $curr_row.parent();
+                    // Check how many rows will be left after we remove
+                    // the one that the user has requested us to remove
                     if ($table.find('tr').length === 2) {
+                        // If there are two rows left, it means that they are
+                        // the header of the table and the rows that we are
+                        // about to remove, so after the removal there will be
+                        // nothing to show in the table, so we hide it.
                         $table.hide("slow", function () {
                             $(this).find('tr.even, tr.odd').remove();
                             $('#nothing2display').show("slow");
@@ -305,9 +351,13 @@ $(document).ready(function () {
                             // some row classes are wrong now. So we will itirate
                             // throught all rows and assign correct classes to them.
                             /**
-                             * @var    ct    Count of processed rows.
+                             * @var    ct          Count of processed rows.
                              */
                             var ct = 0;
+                            /**
+                             * @var    rowclass    Class to be attached to the row
+                             *                     that is being processed
+                             */
                             var rowclass = '';
                             $table.find('tr').has('td').each(function () {
                                 rowclass = (ct % 2 === 0) ? 'even' : 'odd';
@@ -316,8 +366,9 @@ $(document).ready(function () {
                             });
                         });
                     }
-                    // Show the query that we just executed
+                    // Get rid of the "Loading" message
                     PMA_ajaxRemoveMessage($msg);
+                    // Show the query that we just executed
                     PMA_slidingMessage(data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);

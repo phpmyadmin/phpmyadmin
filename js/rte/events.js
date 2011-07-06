@@ -1,5 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
+/**
+ * Overriding the validateCustom() function defined in common.js
+ */
 RTE.validateCustom = function () {
     /**
      * @var    $elm    a jQuery object containing the reference
@@ -7,6 +10,7 @@ RTE.validateCustom = function () {
      */
     var $elm = null;
     if ($('select[name=item_type]').find(':selected').val() === 'RECURRING') {
+        // The interval field must not be empty for recurring events
         $elm = $('input[name=item_interval_value]');
         if ($elm.val() === '') {
             $elm.focus();
@@ -14,6 +18,7 @@ RTE.validateCustom = function () {
             return false;
         }
     } else {
+        // The execute_at field must not be empty for "once off" events
         $elm = $('input[name=item_execute_at]');
         if ($elm.val() === '') {
             $elm.focus();
@@ -22,12 +27,12 @@ RTE.validateCustom = function () {
         }
     }
     return true;
-};
-RTE.postDialogShow = function () {};
+}; // end RTE.validateCustom()
 
 /**
  * Attach Ajax event handlers for the "Change event type"
- * functionality in the events editor.
+ * functionality in the events editor, so that the correct
+ * rows are shown in the editor when changing the event type
  *
  * @see $cfg['AjaxEnable']
  */

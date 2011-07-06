@@ -7,6 +7,11 @@
  */
 RTE.param_template = '';
 
+/**
+ * Overriding the postDialogShow() function defined in common.js
+ *
+ * @param   data   JSON-encoded data from the ajax request
+ */
 RTE.postDialogShow = function (data) {
     // Cache the template for a parameter table row
     RTE.param_template = data.param_template;
@@ -24,19 +29,32 @@ RTE.postDialogShow = function (data) {
             $(this).find('select[name^=routine_param_opts_num]')
         );
     });
-    // Enable/disable the 'options' dropdowns for function return value as necessary
+    // Enable/disable the 'options' dropdowns for
+    // function return value as necessary
     RTE.setOptionsForParameter(
         $('.rte_table').last().find('select[name=routine_returntype]'),
         $('.rte_table').last().find('input[name=routine_returnlength]'),
         $('.rte_table').last().find('select[name=routine_returnopts_text]'),
         $('.rte_table').last().find('select[name=routine_returnopts_num]')
     );
-};
+}; // end RTE.postDialogShow()
 
+/**
+ * Overriding the validateCustom() function defined in common.js
+ */
 RTE.validateCustom = function () {
+    /**
+     * @var   isSuccess   Stores the outcome of the validation
+     */
     var isSuccess = true;
+    /**
+     * @var   inputname   The value of the "name" attribute for
+     *                    the field that is being processed
+     */
     var inputname = '';
     $('.routine_params_table').last().find('tr').each(function () {
+        // Every parameter of a routine must have
+        // a non-empty direction, name and type
         if (isSuccess) {
             $(this).find(':input').each(function () {
                 inputname = $(this).attr('name');
@@ -50,14 +68,16 @@ RTE.validateCustom = function () {
                     }
                 }
             });
+        } else {
+            return false;
         }
     });
     if (! isSuccess) {
         alert(PMA_messages['strFormEmpty']);
         return false;
     }
-    // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
     $('.routine_params_table').last().find('tr').each(function () {
+        // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
         var $inputtyp = $(this).find('select[name^=routine_param_type]');
         var $inputlen = $(this).find('input[name^=routine_param_length]');
         if ($inputtyp.length && $inputlen.length) {
@@ -86,14 +106,15 @@ RTE.validateCustom = function () {
         }
     }
     if ($('select[name=routine_type]').find(':selected').val() === 'FUNCTION') {
+        // A function must contain a RETURN statement in its definition
         if ($('.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
             RTE.syntaxHiglighter.focus();
             alert(PMA_messages['MissingReturn']);
             return false;
         }
     }
-    return isSuccess;
-};
+    return true;
+}; // end RTE.validateCustom()
 
 /**
  * Enable/disable the "options" dropdown and "length" input for
@@ -112,7 +133,17 @@ RTE.validateCustom = function () {
  *                    parameters of numeric type
  */
 RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
+    /**
+     * @var   $no_opts   a jQuery object containing the reference
+     *                   to an element to be displayed when no
+     *                   options are available
+     */
     var $no_opts = $text.parent().parent().find('.no_opts');
+    /**
+     * @var   $no_len    a jQuery object containing the reference
+     *                   to an element to be displayed when no
+     *                  "length/values" field is available
+     */
     var $no_len  = $len.parent().parent().find('.no_len');
 
     // Process for parameter options
@@ -169,7 +200,7 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
         $no_len.hide();
         break;
     }
-};
+}; // end RTE.setOptionsForParameter()
 
 /**
  * Attach Ajax event handlers for the Routines functionalities.
@@ -179,8 +210,6 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
 $(document).ready(function () {
     /**
      * Attach Ajax event handlers for the "Add parameter to routine" functionality.
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('input[name=routine_addparameter]').live('click', function (event) {
         event.preventDefault();
@@ -194,7 +223,9 @@ $(document).ready(function () {
          *                           new row for the routine paramaters table.
          */
         var new_param_row = RTE.param_template.replace(/%s/g, $routine_params_table.find('tr').length - 1);
+        // Append the new row to the parameters table
         $routine_params_table.append(new_param_row);
+        // Make sure that the row is correctly shown according to the type of routine
         if ($('.rte_table').find('select[name=routine_type]').val() === 'FUNCTION') {
             $('.routine_return_row').show();
             $('.routine_direction_cell').hide();
@@ -204,6 +235,7 @@ $(document).ready(function () {
          *                    inserted row in the routine parameters table.
          */
         var $newrow = $('.routine_params_table').last().find('tr').has('td').last();
+        // Enable/disable the 'options' dropdowns for parameters as necessary
         RTE.setOptionsForParameter(
             $newrow.find('select[name^=routine_param_type]'),
             $newrow.find('input[name^=routine_param_length]'),
@@ -214,8 +246,6 @@ $(document).ready(function () {
 
     /**
      * Attach Ajax event handlers for the "Remove parameter from routine" functionality.
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('.routine_param_remove_anchor').live('click', function (event) {
         event.preventDefault();
@@ -253,23 +283,24 @@ $(document).ready(function () {
     }); // end $.live()
 
     /**
-     * Attach Ajax event handlers for the "Change routine type" functionality.
-     *
-     * @see $cfg['AjaxEnable']
+     * Attach Ajax event handlers for the "Change routine type"
+     * functionality in the routines editor, so that the correct
+     * fields are shown in the editor when changing the routine type
      */
     $('select[name=routine_type]').live('change', function () {
         $('.routine_return_row, .routine_direction_cell').toggle();
     }); // end $.live()
 
     /**
-     * Attach Ajax event handlers for the "Change parameter type" functionality.
-     *
-     * @see $cfg['AjaxEnable']
+     * Attach Ajax event handlers for the "Change parameter type"
+     * functionality in the routines editor, so that the correct
+     * option/length fields, if any, are shown when changing
+     * a parameter type
      */
     $('select[name^=routine_param_type]').live('change', function () {
         /**
          * @var    $row    jQuery object containing the reference to
-         *                 a row in the routine parameters table.
+         *                 a row in the routine parameters table
          */
         var $row = $(this).parents('tr').first();
         RTE.setOptionsForParameter(
@@ -278,13 +309,12 @@ $(document).ready(function () {
             $row.find('select[name^=routine_param_opts_text]'),
             $row.find('select[name^=routine_param_opts_num]')
         );
-    });
+    }); // end $.live()
 
     /**
      * Attach Ajax event handlers for the "Change the type of return
-     * variable of function" functionality.
-     *
-     * @see $cfg['AjaxEnable']
+     * variable of function" functionality, so that the correct fields,
+     * if any, are shown when changing the function return type type
      */
     $('select[name=routine_returntype]').live('change', function () {
         RTE.setOptionsForParameter(
@@ -293,33 +323,33 @@ $(document).ready(function () {
             $('.rte_table').find('select[name=routine_returnopts_text]'),
             $('.rte_table').find('select[name=routine_returnopts_num]')
         );
-    });
+    }); // end $.live()
 
     /**
      * Attach Ajax event handlers for the Execute routine functionality.
-     *
-     * @uses    PMA_ajaxShowMessage()
-     * @uses    PMA_ajaxRemoveMessage()
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('.ajax_exec_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var    $msg    jQuery object containing the reference to
-         *                 the AJAX message shown to the user.
+         *                 the AJAX message shown to the user
          */
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        var $msg = PMA_ajaxShowMessage();
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
+                // If 'data.dialog' is true we show a dialog with a form
+                // to get the input parameters for routine, otherwise
+                // we just show the results of the query
                 if (data.dialog) {
+                    // Define the function that is called when
+                    // the user presses the "Go" button
                     RTE.buttonOptions[PMA_messages['strGo']] = function () {
                         /**
                          * @var    data    Form data to be sent in the AJAX request.
                          */
                         var data = $('.rte_form').last().serialize();
-                        $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+                        $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
                         $.post('db_routines.php', data, function (data) {
                             if (data.success === true) {
                                 // Routine executed successfully
@@ -338,8 +368,7 @@ $(document).ready(function () {
                      * Display the dialog to the user
                      */
                     $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                                    width: 650,  // TODO: make a better decision about the size
-                                                 // of the dialog based on the size of the viewport
+                                    width: 650,
                                     buttons: RTE.buttonOptions,
                                     title: data.title,
                                     modal: true,
@@ -348,6 +377,9 @@ $(document).ready(function () {
                                     }
                             });
                     $ajaxDialog.find('input[name^=params]').first().focus();
+                    /**
+                     * Attach the datepickers to the relevant form fields
+                     */
                     $ajaxDialog.find('.datefield, .datetimefield').each(function () {
                         PMA_addDatepicker($(this).css('width', '95%'));
                     });
@@ -358,6 +390,6 @@ $(document).ready(function () {
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        });
-    });
+        }); // end $.get()
+    }); // end $.live()
 }); // end of $(document).ready() for the Routine Functionalities
