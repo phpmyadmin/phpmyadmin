@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-05 16:08+0200\n"
+"PO-Revision-Date: 2011-07-06 09:25+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -564,7 +564,7 @@ msgstr "Невалиден тип процедура: \"%s\""
 
 #: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Съжаляваме, но възстановяването на изтритата процедура е неуспешно."
 
 #: db_routines.php:312
 msgid "The backed up query was:"
