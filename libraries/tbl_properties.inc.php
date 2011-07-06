@@ -28,7 +28,11 @@ require_once './libraries/StorageEngine.class.php';
 require_once './libraries/Partition.class.php';
 
 // load additional configuration variables
-require_once './libraries/data_mysql.inc.php';
+if (PMA_DRIZZLE) {
+    require_once './libraries/data_drizzle.inc.php';
+} else {
+    require_once './libraries/data_mysql.inc.php';
+}
 
 if (is_int($cfg['DefaultPropDisplay'])) {
     if ($num_fields <= $cfg['DefaultPropDisplay']) {

@@ -20,7 +20,11 @@ require_once './libraries/common.lib.php';
 require_once './libraries/db_table_exists.lib.php';
 
 // load additional configuration variables
-require_once './libraries/data_mysql.inc.php';
+if (PMA_DRIZZLE) {
+    require_once './libraries/data_drizzle.inc.php';
+} else {
+    require_once './libraries/data_mysql.inc.php';
+}
 
 /**
  * Sets global variables.

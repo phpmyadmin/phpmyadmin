@@ -8,27 +8,22 @@
 // VARCHAR, TINYINT, TEXT and DATE are listed first, based on estimated popularity
 $cfg['ColumnTypes'] = !empty($cfg['ColumnTypes']) ? $cfg['ColumnTypes'] : array(
     // most used
-    'INT',
+    'INTEGER',
     'VARCHAR',
     'TEXT',
     'DATE',
 
     // numeric
     'NUMERIC' => array(
-        'TINYINT',
-        'SMALLINT',
-        'MEDIUMINT',
-        'INT',
+        'INTEGER',
         'BIGINT',
         '-',
         'DECIMAL',
-        'FLOAT',
         'DOUBLE',
-        'REAL',
         '-',
-        'BIT',
         'BOOLEAN',
         'SERIAL',
+        'UUID',
     ),
 
 
@@ -38,63 +33,29 @@ $cfg['ColumnTypes'] = !empty($cfg['ColumnTypes']) ? $cfg['ColumnTypes'] : array(
         'DATETIME',
         'TIMESTAMP',
         'TIME',
-        'YEAR',
     ),
 
     // Text
     'STRING' => array(
-        'CHAR',
         'VARCHAR',
-        '-',
-        'TINYTEXT',
         'TEXT',
-        'MEDIUMTEXT',
-        'LONGTEXT',
-        '-',
-        'BINARY',
         'VARBINARY',
-        '-',
-        'TINYBLOB',
-        'MEDIUMBLOB',
         'BLOB',
-        'LONGBLOB',
-        '-',
         'ENUM',
-        'SET',
-    ),
-
-    'SPATIAL' => array(
-        'GEOMETRY',
-        'POINT',
-        'LINESTRING',
-        'POLYGON',
-        'MULTIPOINT',
-        'MULTILINESTRING',
-        'MULTIPOLYGON',
-        'GEOMETRYCOLLECTION',
     ),
 );
 
 $cfg['AttributeTypes'] = !empty($cfg['AttributeTypes']) ? $cfg['AttributeTypes'] : array(
    '',
-   'BINARY',
-   'UNSIGNED',
-   'UNSIGNED ZEROFILL',
    'on update CURRENT_TIMESTAMP',
 );
 
 if ($cfg['ShowFunctionFields']) {
     $cfg['RestrictColumnTypes'] = !empty($cfg['RestrictColumnTypes']) ? $cfg['RestrictColumnTypes'] : array(
-        'TINYINT'   => 'FUNC_NUMBER',
-        'SMALLINT'  => 'FUNC_NUMBER',
-        'MEDIUMINT' => 'FUNC_NUMBER',
-        'INT'       => 'FUNC_NUMBER',
+        'INTEGER'   => 'FUNC_NUMBER',
         'BIGINT'    => 'FUNC_NUMBER',
         'DECIMAL'   => 'FUNC_NUMBER',
-        'FLOAT'     => 'FUNC_NUMBER',
         'DOUBLE'    => 'FUNC_NUMBER',
-        'REAL'      => 'FUNC_NUMBER',
-        'BIT'       => 'FUNC_NUMBER',
         'BOOLEAN'   => 'FUNC_NUMBER',
         'SERIAL'    => 'FUNC_NUMBER',
 
@@ -102,32 +63,13 @@ if ($cfg['ShowFunctionFields']) {
         'DATETIME'  => 'FUNC_DATE',
         'TIMESTAMP' => 'FUNC_DATE',
         'TIME'      => 'FUNC_DATE',
-        'YEAR'      => 'FUNC_DATE',
 
-        'CHAR'       => 'FUNC_CHAR',
         'VARCHAR'    => 'FUNC_CHAR',
-        'TINYTEXT'   => 'FUNC_CHAR',
         'TEXT'       => 'FUNC_CHAR',
-        'MEDIUMTEXT' => 'FUNC_CHAR',
-        'LONGTEXT'   => 'FUNC_CHAR',
-        'BINARY'     => 'FUNC_CHAR',
         'VARBINARY'  => 'FUNC_CHAR',
-        'TINYBLOB'   => 'FUNC_CHAR',
-        'MEDIUMBLOB' => 'FUNC_CHAR',
         'BLOB'       => 'FUNC_CHAR',
-        'LONGBLOB'   => 'FUNC_CHAR',
+        'UUID'       => 'FUNC_UUID',
         'ENUM'       => '',
-        'SET'        => '',
-
-        'GEOMETRY'           => 'FUNC_SPATIAL',
-        'POINT'              => 'FUNC_SPATIAL',
-        'LINESTRING'         => 'FUNC_SPATIAL',
-        'POLYGON'            => 'FUNC_SPATIAL',
-        'MULTIPOINT'         => 'FUNC_SPATIAL',
-        'MULTILINESTRING'    => 'FUNC_SPATIAL',
-        'MULTIPOLYGON'       => 'FUNC_SPATIAL',
-        'GEOMETRYCOLLECTION' => 'FUNC_SPATIAL',
-
     );
 
     $restrict_functions = array(
@@ -138,23 +80,16 @@ if ($cfg['ShowFunctionFields']) {
             'COMPRESS',
             'DATABASE',
             'DAYNAME',
-            'DES_DECRYPT',
-            'DES_ENCRYPT',
-            'ENCRYPT',
             'HEX',
-            'INET_NTOA',
             'LOAD_FILE',
             'LOWER',
             'LTRIM',
             'MD5',
             'MONTHNAME',
-            'OLD_PASSWORD',
-            'PASSWORD',
             'QUOTE',
             'REVERSE',
             'RTRIM',
-            'SHA1',
-            'SOUNDEX',
+            //'SOUNDEX', // https://bugs.launchpad.net/drizzle/+bug/804566
             'SPACE',
             'TRIM',
             'UNCOMPRESS',
@@ -165,6 +100,10 @@ if ($cfg['ShowFunctionFields']) {
             'VERSION',
         ),
 
+        'FUNC_UUID' => array(
+            'UUID',
+        ),
+
         'FUNC_DATE' => array(
             'CURRENT_DATE',
             'CURRENT_TIME',
@@ -173,9 +112,8 @@ if ($cfg['ShowFunctionFields']) {
             'FROM_UNIXTIME',
             'LAST_DAY',
             'NOW',
-            'SEC_TO_TIME',
             'SYSDATE',
-            'TIME',
+            //'TIME', // https://bugs.launchpad.net/drizzle/+bug/804571
             'TIMESTAMP',
             'UTC_DATE',
             'UTC_TIME',
@@ -189,7 +127,6 @@ if ($cfg['ShowFunctionFields']) {
             'ASCII',
             'ASIN',
             'ATAN',
-            'BIT_LENGTH',
             'BIT_COUNT',
             'CEILING',
             'CHAR_LENGTH',
@@ -204,7 +141,6 @@ if ($cfg['ShowFunctionFields']) {
             'EXP',
             'FLOOR',
             'HOUR',
-            'INET_ATON',
             'LENGTH',
             'LN',
             'LOG',
@@ -229,7 +165,7 @@ if ($cfg['ShowFunctionFields']) {
             'TIME_TO_SEC',
             'UNCOMPRESSED_LENGTH',
             'UNIX_TIMESTAMP',
-            'WEEK',
+            //'WEEK', // same as TIME
             'WEEKDAY',
             'WEEKOFYEAR',
             'YEARWEEK',
@@ -256,7 +192,8 @@ if ($cfg['ShowFunctionFields']) {
             'MPolyFromWKB',
         ),
     );
-    if (empty($cfg['RestrictFunctions'])) {
+    $cfg_default_restrict_funcs = empty($cfg['RestrictFunctions']);
+    if ($cfg_default_restrict_funcs) {
         $cfg['RestrictFunctions'] = $restrict_functions;
     }
 
@@ -264,10 +201,33 @@ if ($cfg['ShowFunctionFields']) {
         // build a list of functions based on $restrict_functions
         $cfg['Functions'] = array();
         foreach ($restrict_functions as $cat => $functions) {
-            if ($cat != 'FUNC_SPATIAL') {
-                $cfg['Functions'] = array_merge($cfg['Functions'], $functions);
-            }
+            $cfg['Functions'] = array_merge($cfg['Functions'], $functions);
         }
+
+        // check for some functions known to be in modules
+        $functions = array(
+            'MYSQL_PASSWORD' => 'FUNC_CHAR',
+            'ROT13' => 'FUNC_CHAR',
+        );
+        // add new functions
+        $sql = "SELECT upper(plugin_name) f
+            FROM data_dictionary.plugins
+            WHERE plugin_name IN ('" . implode("','", array_keys($functions)) . "')
+              AND plugin_type = 'Function'
+              AND is_active";
+        $drizzle_functions = PMA_DBI_fetch_result($sql, 'f', 'f');
+        $cfg['Functions'] = array_merge($cfg['Functions'], $drizzle_functions);
+        if ($cfg_default_restrict_funcs) {
+            foreach ($drizzle_functions as $function) {
+                $category = $functions[$function];
+                $cfg['RestrictFunctions'][$category][] = $function;
+            }
+            foreach ($cfg['RestrictFunctions'] as &$v) {
+                sort($v);
+            }
+            unset($v);
+        }
+
         sort($cfg['Functions']);
     }
     unset($restrict_functions);
