@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-06-24 21:23+0200\n"
+"PO-Revision-Date: 2011-07-03 19:50+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -687,10 +687,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Слова разделяются пробелом (\" \")."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "В таблице/таблицах:"
+msgstr "В таблицах:"
 
 #: db_search.php:328
 msgid "Inside column:"
@@ -1199,41 +1198,38 @@ msgstr "."
 
 #: js/messages.php:78
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "Отправлено KiB с момента последнего обновления"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "Принято KiB с момента последнего обновления"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Server traffic"
 msgid "Server traffic (in KiB)"
-msgstr "Трафик сервера"
+msgstr "Трафик сервера (в KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Соединений с момента последнего обновления"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
 msgstr "Процессы"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Соединения"
+msgstr "Соединения / Процессы"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Выполнено запросов с момента последнего обновления"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
-msgstr "SQL запросы"
+msgstr "Выполнено запросов"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
@@ -1334,13 +1330,12 @@ msgstr "Удаление"
 
 #: js/messages.php:124
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Определение хранимой функции должно содержать выражение RETURN!"
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Не заполнены необходимые поля формы!"
+msgstr "Значение в форме имеет слишком большую длину!"
 
 #: js/messages.php:128
 msgid ""
@@ -1919,7 +1914,7 @@ msgstr "Путь к файлам темы %s не найден!"
 
 #: libraries/Theme_Manager.class.php:286 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Тема"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -2120,16 +2115,17 @@ msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
 #: libraries/common.inc.php:587
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Не получилось сохранить настройки"
+msgstr "Ошибка при чтении конфигурационного файла"
 
 #: libraries/common.inc.php:588
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Обычно это означает наличие синтаксических ошибок, пожалуйста, проверьте "
+"выведенные ниже ошибки."
 
 #: libraries/common.inc.php:595
 #, php-format
@@ -2375,7 +2371,7 @@ msgstr "Файлы для загрузки отсутствуют"
 
 #: libraries/common.lib.php:2849 libraries/common.lib.php:2850
 msgid "Execute"
-msgstr ""
+msgstr "Выполнить"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -3232,8 +3228,8 @@ msgid ""
 "storage[/a] in documentation"
 msgstr ""
 "Настройка phpMyAdmin для установки расширенных возможностей. Смотрите в "
-"документации раздел описывающий [a@../Documentation.html#linked-tables]"
-"хранение конфигурации[/a]"
+"документации раздел описывающий [a@Documentation.html#linked-tables]хранение "
+"конфигурации[/a]"
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
@@ -4787,22 +4783,22 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Расширение %s не найдено. Пожалуйста, проверьте ваши настройки PHP."
 
 #: libraries/db_events.inc.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "Экспортировать содержимое"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event \"%s\""
-msgstr "Экспортировать содержимое"
+msgstr "Экспорт события \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "Таблиц в базе данных не найдено"
+msgstr "В базе данных %2$s не найдено событие с именем %1$s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
@@ -4810,10 +4806,9 @@ msgid "Events"
 msgstr "События"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Файлы для загрузки отсутствуют"
+msgstr "Отсутствуют события для отображения."
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
 #: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
@@ -4825,25 +4820,24 @@ msgstr "Имя"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is enabled"
-msgstr ""
+msgstr "Включен планировщик событий"
 
 #: libraries/db_events.inc.php:129
 msgid "The event scheduler is disabled"
-msgstr ""
+msgstr "Отключен планировщик событий"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it on"
-msgstr ""
+msgstr "Включить"
 
 #: libraries/db_events.inc.php:131
 msgid "Turn it off"
-msgstr ""
+msgstr "Выключить"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add an event"
-msgstr "Добавить новый сервер"
+msgstr "Добавить событие"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4879,32 +4873,29 @@ msgid "Triggers"
 msgstr "Триггеры"
 
 #: libraries/db_routines.lib.php:630
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Детали..."
+msgstr "Детали"
 
 #: libraries/db_routines.lib.php:633
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "Процедуры"
+msgstr "Имя процедуры"
 
 #: libraries/db_routines.lib.php:650
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Изменить"
+msgstr "Изменить на %s"
 
 #: libraries/db_routines.lib.php:655
 msgid "Parameters"
-msgstr ""
+msgstr "Параметры"
 
 #: libraries/db_routines.lib.php:660
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Прямые линии связей"
+msgstr "Направление"
 
 #: libraries/db_routines.lib.php:663 libraries/tbl_properties.inc.php:105
 msgid "Length/Values"
@@ -4929,62 +4920,55 @@ msgid "Options"
 msgstr "Параметры"
 
 #: libraries/db_routines.lib.php:678
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add parameter"
-msgstr "Добавить префикс"
+msgstr "Добавить параметр"
 
 #: libraries/db_routines.lib.php:681
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Удалить базу данных"
+msgstr "Удалить последний параметр"
 
 #: libraries/db_routines.lib.php:686 libraries/db_routines.lib.php:1159
 msgid "Return type"
 msgstr "Возвращаемый тип"
 
 #: libraries/db_routines.lib.php:692
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Длина/значения"
+msgstr "Вернуть длину/значения"
 
 #: libraries/db_routines.lib.php:697
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Параметры таблицы"
+msgstr "Вернуть параметры"
 
 #: libraries/db_routines.lib.php:716
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Описание"
+msgstr "Определение"
 
 #: libraries/db_routines.lib.php:720
 msgid "Is deterministic"
-msgstr ""
+msgstr "Определяющий"
 
 #: libraries/db_routines.lib.php:724
 msgid "Definer"
-msgstr ""
+msgstr "Определитель"
 
 #: libraries/db_routines.lib.php:729
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Безопасность"
+msgstr "Тип безопасности"
 
 #: libraries/db_routines.lib.php:736
 msgid "SQL data access"
-msgstr ""
+msgstr "Доступ к SQL данным"
 
 #: libraries/db_routines.lib.php:800 libraries/db_routines.lib.php:803
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Процедуры"
+msgstr "Параметры процедуры"
 
 #: libraries/db_routines.lib.php:810 tbl_change.php:284 tbl_change.php:322
 msgid "Function"
@@ -4999,59 +4983,55 @@ msgstr "Значение"
 
 #: libraries/db_routines.lib.php:916
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Необходимо задать имя процедуры"
 
 #: libraries/db_routines.lib.php:935
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "\"%s\" является ошибочным параметром."
 
 #: libraries/db_routines.lib.php:946 libraries/db_routines.lib.php:987
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Вы должны задать длину/значения для параметров процедуры имеющих тип ENUM, "
+"SET, VARCHAR и VARBINARY."
 
 #: libraries/db_routines.lib.php:971
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Вы должны задать имя и тип для каждого параметра процедуры."
 
 #: libraries/db_routines.lib.php:1028
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Вы должны задать определение процедуры."
 
 #: libraries/db_routines.lib.php:1151
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Файлы для загрузки отсутствуют"
+msgstr "Нет процедур для отображения."
 
 #: libraries/db_routines.lib.php:1192
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Добавить индекс"
+msgstr "Добавить процедуру"
 
 #: libraries/db_routines.lib.php:1195
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Для доступа к данной странице у вас недостаточно прав!"
+msgstr "У вас недостаточно прав для создания новой процедуры"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Может быть приблизительно. Смотрите [a@./Documentation."
-"html#faq3_11@Documentation]FAQ 3.11[/a]"
+"Может быть примерно. Смотрите "
+"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:112
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-"Не удалось установить подключение для пользователя указанного в директиве "
-"controluser, с помощью параметров определенных в конфигурационном файле "
-"config.inc.php."
+msgstr "Ошибка при указании соединения для controluser в конфигурации."
 
 #: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysql.dbi.lib.php:326
 #: libraries/dbi/mysqli.dbi.lib.php:351
@@ -5060,7 +5040,7 @@ msgstr "Сервер не отвечает"
 
 #: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysqli.dbi.lib.php:351
 msgid "(or the local MySQL server's socket is not correctly configured)"
-msgstr "(либо сокет локального MySQL-сервера некорректно настроен)"
+msgstr "(либо локальный сокет MySQL неверно настроен)"
 
 #: libraries/dbi/mysql.dbi.lib.php:333
 msgid "Details..."
@@ -5460,15 +5440,15 @@ msgstr "Преобразование"
 
 #: libraries/display_tbl.lib.php:650
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрия"
 
 #: libraries/display_tbl.lib.php:651
 msgid "Well Known Text"
-msgstr ""
+msgstr "Текст (WKT)"
 
 #: libraries/display_tbl.lib.php:652
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Бинарный (WKB)"
 
 #: libraries/display_tbl.lib.php:1303
 msgid "Copy"
@@ -5514,7 +5494,7 @@ msgstr "Отобразить график"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Визуализация GIS данных"
 
 #: libraries/display_tbl.lib.php:2529
 msgid "Create view"
@@ -5525,27 +5505,26 @@ msgid "Link not found"
 msgstr "Связь не найдена"
 
 #: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
-msgstr "Экспортировать содержимое"
+msgstr "Экспорт триггера %s"
 
 #: libraries/display_triggers.inc.php:39
 #, php-format
 msgid "Export of trigger \"%s\""
-msgstr ""
+msgstr "Экспорт триггера \"%s\""
 
 #: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "Не найден правильный путь к изображениям для темы %s!"
+msgstr "Не найден триггер с именем %s"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Файлы для загрузки отсутствуют"
+msgstr "Отсутствуют триггеры для отображения."
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
 msgid "Time"
@@ -5556,10 +5535,9 @@ msgid "Event"
 msgstr "Событие"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a trigger"
-msgstr "Добавить новый сервер"
+msgstr "Добавить триггер"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -6327,10 +6305,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Открыть phpMyAdmin в новом окне"
 
 #: libraries/gis_visualization.lib.php:129
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Данные для графика не найдены."
+msgstr "Данные для визуализации GIS не найдены."
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
@@ -7338,10 +7315,9 @@ msgid "PARTITION definition"
 msgstr "Определение разделов (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Добавить новое значение"
+msgstr "+ Добавить значение"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
@@ -8683,22 +8659,22 @@ msgid "Refresh rate"
 msgstr "Частота обновления"
 
 #: server_status.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "minutes"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "минуты"
-msgstr[1] "минуты"
-msgstr[2] "минуты"
+msgstr[0] "%d минута"
+msgstr[1] "%d минуты"
+msgstr[2] "%d минут"
 
 #: server_status.php:33
-#, fuzzy, php-format
+#, php-format
 #| msgid "second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "секунда"
-msgstr[1] "секунда"
-msgstr[2] "секунда"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
 
 #: server_status.php:134
 #, php-format
@@ -8782,10 +8758,9 @@ msgid "All status variables"
 msgstr "Все переменные состояния"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "Частота обновления"
+msgstr "Частота обновления:"
 
 #: server_status.php:462
 msgid "Containing the word:"
@@ -9228,7 +9203,7 @@ msgstr "Количество записей с помощью fsync(), сдел�
 #: server_status.php:906
 msgid "The number of pending log file fsyncs."
 msgstr ""
-"Количество незавершенных попыток синхронизации с помощью операции fsync()."
+"Количество незавершенных попыток синхронизации с помощью операции fsync."
 
 #: server_status.php:907
 msgid "Pending log file writes."
@@ -9382,7 +9357,7 @@ msgstr "Количество открытых файлов."
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Количество открытых потоков (применяется к файлам журналов). Потоком "
-"называется файл, открытый с помощью функции fopen()."
+"называется файл, открытый с помощью функции fopen."
 
 #: server_status.php:935
 msgid "The number of tables that are open."
@@ -9700,7 +9675,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Не удалось установить переменную"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
@@ -10213,10 +10188,9 @@ msgid "View dump (schema) of table"
 msgstr "Отобразить дамп (схему) таблицы"
 
 #: tbl_gis_visualization.php:111
-#, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
-msgstr "Отображать выбор сервера"
+msgstr "Визуализация GIS данных"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
@@ -10227,42 +10201,37 @@ msgid "Height"
 msgstr "Высота"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Столбцов в текстовом поле"
+msgstr "Название столбца"
 
 #: tbl_gis_visualization.php:167
-#, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
-msgstr "- не выбран -"
+msgstr "-- Пусто --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
-msgstr "Общее количество"
+msgstr "Пространственный столбец"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Используйте в качестве основного слоя OpenStreetMaps"
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
 msgstr "Пересоздать"
 
 #: tbl_gis_visualization.php:206
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Сохранить как файл"
+msgstr "Сохранить в файл"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Имя таблицы"
+msgstr "Имя файла"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -10295,7 +10264,7 @@ msgstr "Тип индекса&nbsp;:"
 #: tbl_indexes.php:189
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(Имя \"PRIMARY\" должен иметь <b>только</b> первичный индекс!)"
+msgstr "(Имя \"PRIMARY\" <b>должен</b> иметь <b>только</b> первичный индекс!)"
 
 #: tbl_indexes.php:263
 #, php-format
@@ -10505,7 +10474,7 @@ msgstr "Сортировка:"
 
 #: tbl_structure.php:158 tbl_structure.php:163 tbl_structure.php:611
 msgid "Spatial"
-msgstr ""
+msgstr "Пространственный"
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
@@ -10524,10 +10493,9 @@ msgid "Add unique index"
 msgstr "Добавить уникальный индекс"
 
 #: tbl_structure.php:176 tbl_structure.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
-msgstr "Добавить индекс"
+msgstr "Добавить пространственный индекс"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"

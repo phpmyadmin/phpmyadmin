@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-06-23 10:24+0200\n"
+"PO-Revision-Date: 2011-07-01 12:28+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -527,10 +527,10 @@ msgstr ""
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Το ερώτημα «%s» απέτυχε"
+msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
@@ -544,10 +544,10 @@ msgstr "Σφάλμα στην προώθηση αιτημάτος"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %s found in database %s"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Καμιά ρουτίνα με την ονομασία %s δεν βρέθηκε στη βάση δεδομένων %s"
+msgstr "Καμιά ρουτίνα με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
@@ -4836,10 +4836,9 @@ msgid "Turn it off"
 msgstr "Απενεργοποιήστε τον"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new Event"
 msgid "Add an event"
-msgstr "Προσθήκη ενός νέου Συμβάντος"
+msgstr "Προσθήκη ενός συμβάντος"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5525,10 +5524,9 @@ msgid "Event"
 msgstr "Συμβάν"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "Προσθήκη μιας νέας Ενέργειας"
+msgstr "Προσθήκη μιας ενέργειας"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -7310,10 +7308,9 @@ msgid "PARTITION definition"
 msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Προσθήκη νέας τιμής"
+msgstr "+ Προσθήκη μιας τιμής"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
