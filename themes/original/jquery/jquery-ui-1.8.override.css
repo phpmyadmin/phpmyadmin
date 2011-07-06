@@ -5,3 +5,4 @@
 /* Component containers
 ----------------------------------*/
 .ui-widget { font-size: 1em; }
+#ui-timepicker-div { z-index: 1003; }
