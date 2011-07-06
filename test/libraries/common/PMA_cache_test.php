@@ -5,6 +5,7 @@
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_cache_test.php
+ * @group common.lib-tests
  */
 
 /*
@@ -89,6 +90,19 @@ class PMA_cache_test extends PHPUnit_Framework_TestCase
         $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_server']);
         PMA_cacheUnset('test_data_2', true);
         $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_server']);
+    }
+
+    /**
+     * Test clearing user cache
+     */
+    public function testClearUserCache()
+    {
+        $GLOBALS['server'] = 'server';
+        PMA_cacheSet('is_superuser', 'yes', true);
+        $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
+
+        PMA_clearUserCache();
+        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
     }
 }
 ?>

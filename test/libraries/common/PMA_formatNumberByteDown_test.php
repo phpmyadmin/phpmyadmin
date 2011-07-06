@@ -5,6 +5,7 @@
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_formatNumberByteDown_test.php
+ * @group common.lib-tests
  */
 
 /*
@@ -75,9 +76,9 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      */
     public function formatByteDownDataProvider() {
         return array(
-            array(10, 2, 2, array('10', 'B')),
+            array(10, 2, 2, array('10', __('B'))),
             array(100, 2, 0, array('0', __('KiB'))),
-            array(100, 3, 0, array('100', 'B')),
+            array(100, 3, 0, array('100', __('B'))),
             array(100, 2, 2, array('0.10', __('KiB'))),
             array(1034, 3, 2, array('1.01', __('KiB'))),
             array(100233, 3, 3, array('97.884', __('KiB'))),

@@ -5,13 +5,13 @@
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_localisedDateTimespan_test.php
+ * @group common.lib-tests
  */
 
 /*
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 {

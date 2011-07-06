@@ -5,6 +5,7 @@
  *
  * @package phpMyAdmin-test
  * @version $Id: PMA_printableBitValue_test.php
+ * @group common.lib-tests
  */
 
 /*
