@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-27 10:29+0200\n"
-"PO-Revision-Date: 2011-07-06 09:38+0200\n"
+"PO-Revision-Date: 2011-07-06 09:39+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2577,7 +2577,7 @@ msgstr "Изпъкване редовете, посочени с мишка"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Маркиране на показалеца"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
