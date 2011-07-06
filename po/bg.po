@@ -8384,7 +8384,7 @@ msgstr "максимален брой на едновременните коне
 
 #: server_status.php:734
 msgid "Failed attempts"
-msgstr "Провалили се опити"
+msgstr "Неуспешни опити"
 
 #: server_status.php:748
 msgid "Aborted"
