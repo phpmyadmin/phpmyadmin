@@ -142,7 +142,7 @@ $js_messages['strTableSearch'] = __('Table Search');
 
 /* For tbl_zoom_plot.js */
 $js_messages['strZoomSearch'] = __('Zoom Search');
-$js_messages['strDisplayHelp'] =  __('* Each point represents a data row.<br>* Hovering over a point will show its label.<br>* Drag and select an area in the plot to zoom into it.<br>* Click reset zoom link to come back to original state.<br>* Click data points to view the data row.<br>* The plot can be resized by dragging it along the bottom right corner.<br>');
+$js_messages['strDisplayHelp'] =  __('* Each point represents a data row.<br>* Hovering over a point will show its label.<br>* Drag and select an area in the plot to zoom into it.<br>* Click reset zoom link to come back to original state.<br>*  Click a data point to view and possibly edit the data row.<br>* The plot can be resized by dragging it along the bottom right corner.<br>');
 
 
 /* For tbl_change.js */
