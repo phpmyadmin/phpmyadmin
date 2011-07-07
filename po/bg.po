@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:36+0200\n"
+"PO-Revision-Date: 2011-07-07 16:39+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8960,7 +8960,7 @@ msgstr "Синхронизиране на данните"
 
 #: server_synchronize.php:395 server_synchronize.php:834
 msgid "not present"
-msgstr ""
+msgstr "не съществува"
 
 #: server_synchronize.php:419 server_synchronize.php:862
 msgid "Structure Difference"
