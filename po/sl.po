@@ -5303,10 +5303,9 @@ msgid "Start row"
 msgstr "Začetna vrstica"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Število vrstic:"
+msgstr "Število vrstic"
 
 #: libraries/display_tbl.lib.php:443
 #, fuzzy
