@@ -5362,7 +5362,6 @@ msgid "Start row"
 msgstr "Εγγραφή έναρξης"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
 msgstr "Αριθμός εγγραφών"
