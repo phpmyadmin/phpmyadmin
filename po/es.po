@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:20+0200\n"
+"PO-Revision-Date: 2011-07-07 16:21+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4379,10 +4379,9 @@ msgstr ""
 "examinar una tabla"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Dirección por defecto de la visualización"
+msgstr "Mostrar dirección de visualización"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
