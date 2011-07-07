@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 11:17+0200\n"
+"PO-Revision-Date: 2011-07-07 11:18+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2508,7 +2508,7 @@ msgstr "Тази настройка е забранена, тя няма да в
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
 #: libraries/relation.lib.php:85 pmd_relation_new.php:68
 msgid "Disabled"
-msgstr "Изключено"
+msgstr "Забрано"
 
 #: libraries/config/FormDisplay.tpl.php:242
 #, php-format
