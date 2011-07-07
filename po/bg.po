@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 15:45+0200\n"
+"PO-Revision-Date: 2011-07-07 15:46+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5256,7 +5256,7 @@ msgstr "Весия"
 
 #: libraries/engines/innodb.lib.php:20
 msgid "Data home directory"
-msgstr ""
+msgstr "Папка с данни"
 
 #: libraries/engines/innodb.lib.php:21
 msgid "The common part of the directory path for all InnoDB data files."
