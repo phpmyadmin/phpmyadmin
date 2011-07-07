@@ -7557,7 +7557,7 @@ msgstr "Файлът не съществува"
 
 #: server_binlog.php:87
 msgid "Select binary log to view"
-msgstr "Изберете двоичен журнал за преглед"
+msgstr "Изберете двоичен дневник за преглед"
 
 #: server_binlog.php:103 server_status.php:275
 msgid "Files"
