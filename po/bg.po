@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:41+0200\n"
+"PO-Revision-Date: 2011-07-07 16:42+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9000,7 +9000,7 @@ msgstr "Вмъкване на ред(ове)"
 
 #: server_synchronize.php:441 server_synchronize.php:885
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Да бъде ли изтрито предишното съдържание на таблиците?"
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
