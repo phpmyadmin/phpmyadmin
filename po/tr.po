@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 18:30+0200\n"
+"PO-Revision-Date: 2011-07-07 18:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1286,10 +1286,9 @@ msgid "Hide indexes"
 msgstr "İndeksleri gizle"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Izgara göster"
+msgstr "İndeksleri göster"
 
 #: js/messages.php:117
 msgid "Searching"
