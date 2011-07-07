@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 11:14+0200\n"
+"PO-Revision-Date: 2011-07-07 11:15+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2738,7 +2738,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:61
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Изключване на избора на множество таблици при поддръжката"
+msgstr "Забрана на избора на много таблици за профилактика"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
