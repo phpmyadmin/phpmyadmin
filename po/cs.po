@@ -5280,10 +5280,9 @@ msgid "%d is not valid row number."
 msgstr "%d není platné číslo řádku."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "Spustit"
+msgstr "Počáteční řádek"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
