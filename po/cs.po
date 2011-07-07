@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 15:05+0200\n"
+"PO-Revision-Date: 2011-07-07 15:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -4312,10 +4312,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Výchozí směr zobrazování"
+msgstr "Zobrazit volbu směru zobrazování"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
