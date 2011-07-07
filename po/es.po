@@ -4375,8 +4375,8 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
-"Define si se muestra la opción sobre el tipo de dirección de la pantalla al "
-"examinar una tabla"
+"Define si se muestra la opción sobre el tipo de dirección de la "
+"visualización al examinar una tabla"
 
 #: libraries/config/messages.inc.php:454
 #| msgid "Default display direction"
