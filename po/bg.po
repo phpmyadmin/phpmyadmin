@@ -3592,6 +3592,7 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
 #: libraries/config/messages.inc.php:316
 msgid "mcrypt warning"
