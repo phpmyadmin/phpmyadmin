@@ -8984,7 +8984,7 @@ msgstr "Промяна на колона(и)"
 
 #: server_synchronize.php:428 server_synchronize.php:871
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Изтриване на индекс(и)"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Apply index(s)"
