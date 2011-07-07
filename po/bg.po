@@ -9004,7 +9004,7 @@ msgstr "Да бъде ли изтрито предишното съдържан�
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
-msgstr "Прилагане на промените"
+msgstr "Прилагане на избраните промените"
 
 #: server_synchronize.php:446 server_synchronize.php:891
 msgid "Synchronize Databases"
