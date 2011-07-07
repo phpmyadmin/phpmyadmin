@@ -5156,10 +5156,9 @@ msgid "Headers every"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:454
-#, fuzzy
 #| msgid "Browse"
 msgid "rows"
-msgstr "Прелистване"
+msgstr "реда"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
