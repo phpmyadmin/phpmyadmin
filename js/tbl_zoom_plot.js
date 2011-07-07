@@ -11,10 +11,10 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-        var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
-	msgbox.click(function() {
-		$(this).remove();
-	});
+    var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
+    msgbox.click(function() {
+        $(this).remove();
+    });
 }
 
 /**
@@ -22,7 +22,7 @@ function displayHelp() {
  ** @param array
  **/
 Array.max = function (array) {
-	return Math.max.apply( Math, array );
+    return Math.max.apply( Math, array );
 }
 
 /**
@@ -30,7 +30,7 @@ Array.max = function (array) {
  ** @param array
  **/
 Array.min = function (array) {
-	return Math.min.apply( Math, array );
+    return Math.min.apply( Math, array );
 }
 
 
@@ -47,12 +47,12 @@ function scrollToChart() {
  ** @param modal: type of dialog
  **/
 function ShowDialog(modal) {
-      $("#overlay").show();
-      $("#dialog").fadeIn(300);
-      $("#overlay").click(function (e)
-      {
-          HideDialog();
-      });
+    $("#overlay").show();
+    $("#dialog").fadeIn(300);
+    $("#overlay").click(function (e)
+    {
+        HideDialog();
+    });
 }
 
 /**
@@ -159,12 +159,29 @@ $(document).ready(function() {
 	currentSettings.yAxis.min = Array.min(yCord) - 2;
 	
         currentChart = PMA_createChart(currentSettings);
+	currentChart.series[currentData].data[0].select();
 	$form = $('#zoom_display_form');
 	$str = $form.serialize();
+	alert('Working on it');
         $.post($form.attr('action'), $str, function(response) {
-		alert('Plot update done, database update remains!');
-        })
-    });
+	    /*var sql_query = 'Update film_actor Set last_update = \'2011-01-01\' where actor_id = 1;';
+	    $.post('sql.php', {
+                'token' : window.parent.token,
+                'db' : window.parent.db,
+                'ajax_request' : true,
+                'sql_query' : sql_query,
+		'inline_edit' : false
+	    }, function(data) {
+	        if(data.success == true) {
+			$('#sqlqueryresults').html(data.sql_query);
+			$("#sqlqueryresults").trigger('appendAnchor');
+	        }
+		else 
+		    PMA_ajaxShowMessage(data.error);
+	    })*/
+		
+        })//end $.post('sql.php')
+    });//end $.post
 
 
     /*
