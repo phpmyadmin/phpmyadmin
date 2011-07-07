@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 12:17+0200\n"
+"PO-Revision-Date: 2011-07-07 12:18+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7438,7 +7438,7 @@ msgstr "препоръчително"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Грешка: Зависимостта вече съществува."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
