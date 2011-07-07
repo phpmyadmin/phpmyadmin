@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 12:18+0200\n"
+"PO-Revision-Date: 2011-07-07 12:19+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7450,7 +7450,7 @@ msgstr ""
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
-msgstr "Вътрешна връзка добавена"
+msgstr "Вътрешна зависимост е добавена"
 
 #: pmd_relation_upd.php:55
 msgid "Relation deleted"
