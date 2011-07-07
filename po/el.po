@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 12:35+0200\n"
+"PO-Revision-Date: 2011-07-07 12:36+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5359,7 +5359,7 @@ msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γ�
 #: libraries/display_tbl.lib.php:436
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Γραμμή έναρξης"
+msgstr "Εγγραφή έναρξης"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
