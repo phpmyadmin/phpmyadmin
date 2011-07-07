@@ -8217,7 +8217,7 @@ msgstr ""
 
 #: server_status.php:264
 msgid "Query cache"
-msgstr "Кеш на заявките"
+msgstr "Буфер за заявки"
 
 #: server_status.php:265
 msgid "Threads"
