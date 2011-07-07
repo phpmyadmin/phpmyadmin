@@ -8968,7 +8968,7 @@ msgstr "Структурни различия"
 
 #: server_synchronize.php:420 server_synchronize.php:863
 msgid "Data Difference"
-msgstr ""
+msgstr "Различия в данните"
 
 #: server_synchronize.php:425 server_synchronize.php:868
 msgid "Add column(s)"
