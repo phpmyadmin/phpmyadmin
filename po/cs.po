@@ -4312,7 +4312,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid "Show display direction"
-msgstr "Zobrazit volbu směru zobrazování"
+msgstr "Zobrazit volbu směru vypisování"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
