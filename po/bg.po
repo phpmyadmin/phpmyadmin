@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 12:19+0200\n"
+"PO-Revision-Date: 2011-07-07 12:20+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7458,7 +7458,7 @@ msgstr "Зависимостта изтрита"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Грешка при запазване на координатите в Строител."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
