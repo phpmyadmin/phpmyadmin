@@ -5209,7 +5209,7 @@ msgstr "Показване на диаграма"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Визуализиране на GIS данни"
 
 #: libraries/display_tbl.lib.php:2529
 msgid "Create view"
