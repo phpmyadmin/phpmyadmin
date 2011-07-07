@@ -5329,10 +5329,9 @@ msgid "Headers every"
 msgstr "Glave vsakih"
 
 #: libraries/display_tbl.lib.php:454
-#, fuzzy
 #| msgid "Browse"
 msgid "rows"
-msgstr "Prebrskaj"
+msgstr "vrstic"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
