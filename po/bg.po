@@ -5352,7 +5352,7 @@ msgstr "Пропуснати прочитания в %"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
-msgstr ""
+msgstr "Изчаквания за запис в %"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
