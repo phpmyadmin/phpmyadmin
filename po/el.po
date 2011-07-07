@@ -5388,10 +5388,9 @@ msgid "Headers every"
 msgstr "Κεφαλίδες κάθε"
 
 #: libraries/display_tbl.lib.php:454
-#, fuzzy
 #| msgid "Browse"
 msgid "rows"
-msgstr "Περιήγηση"
+msgstr "εγγραφές"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
