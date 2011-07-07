@@ -2732,8 +2732,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
-"Изключва възможността за избор на много таблици за извършване на "
-"профилактика като оптимизиране или поправка."
+"Забранява възможността за избор на много таблици за едновременно извършване "
+"на профилактика като оптимизиране или поправка."
 
 #: libraries/config/messages.inc.php:61
 #| msgid "Table maintenance"
