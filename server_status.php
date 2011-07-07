@@ -594,7 +594,7 @@ echo __('Runtime Information');
         <div id="statustabs_charting">
             <div class="popupMenu">
                 <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
-                <a href="#popupLink"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
+                <a href="#popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
                 <a href="#monitorInstructions"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions</a>
                 <ul class="popupContent">
                     <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
@@ -620,9 +620,13 @@ echo __('Runtime Information');
                 Ok, you are good to go! Once you click 'Start monitor' your browser will refresh all displayed charts
                 in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart
                 using the cog icon on each respective chart.
-                <p>When you get to see a sudden spike in activity, select the relevant timespan on any chart by holding down the
+                <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
                 left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
                 activity spike.</p>
+                <p><b>Please note:</b>
+                Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
+                very load intensive task, thus it is advisable to select only a small time span.
+                </p>
                 </p>
                 </div>
             </div>

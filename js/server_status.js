@@ -691,13 +691,16 @@ $(function() {
             width:'auto',
             height:'auto',
             buttons: {
-                'Add chart to grid': function() {                  
+                'Add chart to grid': function() {
                     var type = $('input[name="chartType"]').find(':checked').val();
                     
                     if(type == 'cpu' || type == 'memory')
                         newChart = presetCharts[type + '-' + server_os];
                     
-                    if(newChart.nodes.length == 0) return;
+                    if(newChart.nodes.length == 0) {
+                        alert('Please add at least one variable to the series');
+                        return;
+                    }
                     
                     newChart.title = $('input[name="chartTitle"]').attr('value');
                     // Add a cloned object to the chart grid
@@ -714,6 +717,9 @@ $(function() {
                 $('#seriesPreview').html('');
             }
         });
+        
+        $('div#addChartDialog #seriesPreview').html('<i>'+'None.'+'</i>');
+        
         return false;
     });
     
@@ -723,8 +729,10 @@ $(function() {
             $(this).html('<img src="' + pma_theme_image + 'play.png" alt="Resume"/> Resume Monitor');
         else {
             $(this).html('<img src="' + pma_theme_image + 'pause.png" alt="Pause"/> Pause Monitor');
-            if(chartGrid == null)
+            if(chartGrid == null) {
                 initGrid();
+                $('a[href="#popupLink"]').show();
+            }
         }
         return false;
     });
@@ -734,7 +742,7 @@ $(function() {
         
         $dialog.dialog({
             width: 585,
-            height: 415
+            height: 'auto'
         }).find('img.ajaxIcon').show();
         
         var loadLogVars = function(getvars) {
@@ -787,14 +795,14 @@ $(function() {
                             str += '- <a class="set" href="#log_output-TABLE">' + 'Set log_output to TABLE' + ' </a><br />';
                         
                         if(logVars['general_log'] != 'ON')
-                            str += '- <a class="set" href="#general_log-ON">' + 'Enable general log' + ' </a><br />';
+                            str += '- <a class="set" href="#general_log-ON">' + 'Enable general_log' + ' </a><br />';
                         else 
-                            str += '- <a class="set" href="#general_log-OFF">' + 'Disable general log' + ' </a><br />';
+                            str += '- <a class="set" href="#general_log-OFF">' + 'Disable general_log' + ' </a><br />';
                         
                         if(logVars['slow_query_log'] != 'ON')
-                            str += '- <a class="set" href="#slow_query_log-ON">' +  'Enable slow query log' + ' </a><br />';
+                            str += '- <a class="set" href="#slow_query_log-ON">' +  'Enable slow_query_log' + ' </a><br />';
                         else 
-                            str += '- <a class="set" href="#slow_query_log-OFF">' +  'Disable slow query log' + ' </a><br />';
+                            str += '- <a class="set" href="#slow_query_log-OFF">' +  'Disable slow_query_log' + ' </a><br />';
                         
                         if(logVars['long_query_time'] > 2) 
                             str += '- <a class="set" href="#long_query_time-1">' + 'Set long_query_time to 1s' + ' </a><br />';
