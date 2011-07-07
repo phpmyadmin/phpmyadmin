@@ -5639,7 +5639,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
-msgstr "Размер на буфера на журнала"
+msgstr "Размер на буфера на дневника"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid ""
