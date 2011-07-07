@@ -4369,10 +4369,9 @@ msgstr ""
 "περιήγηση σε πίνακα"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Προεπιλεγμένη κατεύθυνση προβολής"
+msgstr "Προβολή κατεύθυνσης προβολής"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
