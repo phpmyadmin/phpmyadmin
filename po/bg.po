@@ -7418,7 +7418,7 @@ msgstr "Импорт от избрания файл"
 
 #: pmd_pdf.php:100
 msgid "Export to selected page"
-msgstr ""
+msgstr "Експорт към избраната страница"
 
 #: pmd_pdf.php:102
 msgid "Create a page and export to it"
