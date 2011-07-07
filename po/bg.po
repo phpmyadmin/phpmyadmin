@@ -2931,7 +2931,7 @@ msgstr "Използване на отложени вмъквания"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
-msgstr "Забраняване на проверките за външен ключ"
+msgstr "Забрана на проверките за външен ключ"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
