@@ -6941,7 +6941,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:606 tbl_structure.php:678
 #, php-format
 msgid "Add %s column(s)"
-msgstr "Добавяне на %s колона(и)"
+msgstr "Нови %s колона(и)"
 
 #: libraries/tbl_properties.inc.php:608 tbl_structure.php:672
 msgid "You have to add at least one column."
