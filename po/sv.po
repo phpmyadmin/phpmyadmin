@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 21:14+0200\n"
+"PO-Revision-Date: 2011-07-07 21:18+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -4305,6 +4305,8 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Definierar oavsett om typ display riktning alternativ visas när du bläddrar "
+"en tabell"
 
 #: libraries/config/messages.inc.php:454
 #, fuzzy
