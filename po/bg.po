@@ -4195,10 +4195,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Ориентация по подразбиране"
+msgstr ""
 
 #: libraries/config/messages.inc.php:455
 msgid ""
