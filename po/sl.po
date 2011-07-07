@@ -5326,7 +5326,7 @@ msgstr "navpičnem"
 
 #: libraries/display_tbl.lib.php:452
 msgid "Headers every"
-msgstr ""
+msgstr "Glave vsakih"
 
 #: libraries/display_tbl.lib.php:454
 #, fuzzy
