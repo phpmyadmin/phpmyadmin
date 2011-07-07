@@ -1134,7 +1134,7 @@ msgstr "Паролата не е същата!"
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
 msgid "Add user"
-msgstr "Добавяне потребител"
+msgstr "Нов потребител"
 
 #: js/messages.php:57
 msgid "Reloading Privileges"
