@@ -8895,7 +8895,7 @@ msgstr ""
 
 #: server_status.php:957
 msgid "The number of sorted rows."
-msgstr "Брой на сортираните редове."
+msgstr "Броят сортирани редове."
 
 #: server_status.php:958
 msgid "The number of sorts that were done by scanning the table."
