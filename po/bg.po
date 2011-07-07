@@ -5292,7 +5292,7 @@ msgstr "Действие"
 #: libraries/display_triggers.inc.php:120
 #| msgid "Add a new server"
 msgid "Add a trigger"
-msgstr "Добавяне на тригер"
+msgstr "Нов тригер"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
