@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:12+0200\n"
+"PO-Revision-Date: 2011-07-07 16:13+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8288,7 +8288,7 @@ msgstr "Съдържащ думата:"
 
 #: server_status.php:467
 msgid "Show only alert values"
-msgstr ""
+msgstr "Само тревожни стойности"
 
 #: server_status.php:471
 msgid "Filter by category..."
