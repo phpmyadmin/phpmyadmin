@@ -7442,7 +7442,7 @@ msgstr ""
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Грешка: Връзката не е добавена."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
