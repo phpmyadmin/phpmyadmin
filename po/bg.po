@@ -7426,7 +7426,7 @@ msgstr "създаване на страница и експорт към нея
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr ""
+msgstr "Име: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
