@@ -1291,7 +1291,7 @@ msgstr "Таблицата трябва да има поне една колон
 
 #: js/messages.php:107
 msgid "Create Table"
-msgstr "Създаване таблица"
+msgstr "Създаване на таблица"
 
 #: js/messages.php:112
 msgid "Insert Table"
