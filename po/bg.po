@@ -2503,7 +2503,7 @@ msgstr "най-много %s"
 
 #: libraries/config/FormDisplay.tpl.php:167
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr "Тази настройка е изключена, тя няма да влияе на конфигурацията"
+msgstr "Тази настройка е забранена, тя няма да влияе на конфигурацията"
 
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
 #: libraries/relation.lib.php:85 pmd_relation_new.php:68
