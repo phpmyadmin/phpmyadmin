@@ -6121,7 +6121,7 @@ msgstr "Добавяне на представка на таблицата"
 
 #: libraries/mult_submits.inc.php:271
 msgid "Add prefix"
-msgstr ""
+msgstr "Добавяне на представка"
 
 #: libraries/mult_submits.inc.php:488 tbl_replace.php:313
 msgid "No change"
