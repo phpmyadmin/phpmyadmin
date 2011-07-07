@@ -5360,7 +5360,7 @@ msgstr "nebeneinander"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Kopfzeilen alle %s Datensätze"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
