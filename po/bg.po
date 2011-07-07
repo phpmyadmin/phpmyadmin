@@ -9033,7 +9033,7 @@ msgstr "Текуща връзка"
 #: server_synchronize.php:1163
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Настройка: %s"
 
 #: server_synchronize.php:1178
 msgid "Socket"
