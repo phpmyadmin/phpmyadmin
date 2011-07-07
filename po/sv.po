@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 21:23+0200\n"
+"PO-Revision-Date: 2011-07-07 21:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7197,10 +7197,9 @@ msgid "PARTITION definition"
 msgstr "Partitionsdefinition"
 
 #: libraries/tbl_properties.inc.php:779
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Lägg till ett nytt värde"
+msgstr "+ Lägg till ett värde"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
