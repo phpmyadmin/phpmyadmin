@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:44+0200\n"
+"PO-Revision-Date: 2011-07-07 16:45+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9016,7 +9016,7 @@ msgstr "Избраните целеви таблици бяха синхрони
 
 #: server_synchronize.php:937
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Целевата БД беше синхронизирана с изходната"
 
 #: server_synchronize.php:998
 msgid "The following queries have been executed:"
