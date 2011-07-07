@@ -4659,7 +4659,7 @@ msgstr "Подробности"
 #: libraries/db_routines.lib.php:633
 #| msgid "Column names"
 msgid "Routine name"
-msgstr "Име на процедура"
+msgstr "Име"
 
 #: libraries/db_routines.lib.php:650
 #, php-format
