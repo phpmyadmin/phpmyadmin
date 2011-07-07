@@ -5340,7 +5340,7 @@ msgstr "Заявки за запис"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Read misses"
-msgstr ""
+msgstr "Пропуснати прочитания"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
