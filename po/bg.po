@@ -8803,7 +8803,7 @@ msgstr "Броят попадения в кеш."
 
 #: server_status.php:939
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Броят заявки добавени в буфера."
 
 #: server_status.php:940
 msgid ""
