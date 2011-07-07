@@ -5308,7 +5308,7 @@ msgstr "Свободни страници"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
-msgstr ""
+msgstr "Мръсни страници"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
