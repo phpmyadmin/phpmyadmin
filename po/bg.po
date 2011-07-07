@@ -8693,7 +8693,7 @@ msgstr ""
 
 #: server_status.php:903
 msgid "The number of log write requests."
-msgstr "Броят на заявки за запис в дневника."
+msgstr "Броят на заявки за запис в журнала."
 
 #: server_status.php:904
 msgid "The number of physical writes to the log file."
