@@ -5385,7 +5385,7 @@ msgstr "κάθετη"
 
 #: libraries/display_tbl.lib.php:452
 msgid "Headers every"
-msgstr ""
+msgstr "Κεφαλίδες κάθε"
 
 #: libraries/display_tbl.lib.php:454
 #, fuzzy
