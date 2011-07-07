@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-06-25 10:41+0200\n"
+"PO-Revision-Date: 2011-07-03 19:04+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -4780,10 +4780,9 @@ msgid "Turn it off"
 msgstr "Izklopi ga"
 
 #: libraries/db_events.inc.php:141
-#, fuzzy
 #| msgid "Add a new Event"
 msgid "Add an event"
-msgstr "Dodaj nov dogodek"
+msgstr "Dodaj dogodek"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5467,10 +5466,9 @@ msgid "Event"
 msgstr "Dogodek"
 
 #: libraries/display_triggers.inc.php:120
-#, fuzzy
 #| msgid "Add a new Trigger"
 msgid "Add a trigger"
-msgstr "Dodaj nov sprožilec"
+msgstr "Dodaj sprožilec"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -7242,10 +7240,9 @@ msgid "PARTITION definition"
 msgstr "Definicija PARTITION"
 
 #: libraries/tbl_properties.inc.php:776
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Dodaj novo vrednost"
+msgstr "+ Dodaj vrednost"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""

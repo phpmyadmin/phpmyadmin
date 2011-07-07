@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-03-07 01:17+0200\n"
-"Last-Translator: <hjortholm@gmail.com>\n"
+"PO-Revision-Date: 2011-07-04 10:57+0200\n"
+"Last-Translator:  <thomas@dyhr.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -504,17 +504,17 @@ msgid "Your SQL query has been executed successfully"
 msgstr "Din SQL-forespørgsel blev udført korrekt"
 
 #: db_routines.php:157
-#, php-format
+#, php-format, fuzzy
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "række påvirket af den sidste SQL-sætning inde i proceduren"
+msgstr[1] "rækker påvirket af den sidste SQL-sætning inde i proceduren"
 
 #: db_routines.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Tillader udførelse af gemte rutiner."
+msgstr "Udførelsesresultater af rutine %s"
 
 #: db_routines.php:187 libraries/import.lib.php:152 sql.php:685
 #: tbl_change.php:180 tbl_get_field.php:34
@@ -525,7 +525,7 @@ msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 #: db_routines.php:326
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "Den følgende SQL-forespørgsel fejlede: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
@@ -534,27 +534,26 @@ msgstr "MySQL returnerede: "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
-msgstr "Felj i udførsel af forespørgsel"
+msgstr "Fejl i udførsel af forespørgsel"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Ingen tabeller fundet i databasen"
+msgstr "Ingen rutine med navnet %1$s fundet i databasen %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Udfør rutine"
 
 #: db_routines.php:261 db_routines.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
-msgstr "Standardindstillinger for eksport"
+msgstr "Eksport af rutine %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:911
 #, fuzzy, php-format
@@ -584,19 +583,17 @@ msgstr "Database %1$s er oprettet,"
 
 #: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>Der er opstået fejl under behandling af anmodningen:</b>"
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Opret relation"
+msgstr "Opret rutine"
 
 #: db_routines.php:385
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Redigeringstilstand"
+msgstr "Rediger rutine"
 
 #: db_routines.php:436
 msgid ""
@@ -604,17 +601,21 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Du bruger en forældet PHP 'mysql' udvidelse, som ikke er i stand til at "
+"håndtere multi forespørgsler. <b> Eksekveringen af ​​nogle lagrede rutiner "
+"kan mislykkes! </ b> Brug den forbedrede 'MySQLi \"udvidelse for at undgå "
+"eventuelle problemer."
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
-msgstr "Adgang Nægtet"
+msgstr "Adgang nægtet"
 
 #: db_search.php:42 db_search.php:284
 msgid "at least one of the words"
-msgstr "mindst et af ordene"
+msgstr "mindst ét ​​af ordene"
 
 #: db_search.php:43 db_search.php:285
 msgid "all words"
@@ -649,7 +650,7 @@ msgstr "Vis"
 #: db_search.php:236
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Slet match for %s tabellen"
+msgstr "Slet match for %s tabellen?"
 
 #: db_search.php:236 libraries/display_tbl.lib.php:1338
 #: libraries/display_tbl.lib.php:2314
@@ -675,10 +676,9 @@ msgid "Search in database"
 msgstr "Søg i databasen"
 
 #: db_search.php:275
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Ord eller værdi(er) (jokertegn: \"%\"):"
+msgstr "Ord eller værdier til at søge efter (jokertegn: \"%\"):"
 
 #: db_search.php:280
 msgid "Find:"
@@ -926,11 +926,11 @@ msgstr "Indtast hver værdi i et seperat felt."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Genstart indsættelse og tilføj ny værdi"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Output"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
@@ -943,7 +943,7 @@ msgstr "Valgte eksporttype skal gemmes som fil!"
 #: export.php:164 export.php:189 export.php:671
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Utilstrækkeligt plads til at gemme filen %s."
+msgstr "Utilstrækkelig plads til at gemme filen %s."
 
 #: export.php:307
 #, php-format
@@ -10511,44 +10511,46 @@ msgid "After %s"
 msgstr "Efter %s"
 
 #: tbl_structure.php:732
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Dan et indeks på&nbsp;%s&nbsp;kolonner"
+msgstr "Opret et indeks på &nbsp;%s&nbsp; kolonner"
 
 #: tbl_structure.php:893
 msgid "partitioned"
-msgstr ""
+msgstr "partitioneret"
 
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Sporings rapport for tabel `% s`"
 
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Version %s er oprettet, sporing for %s.%s er aktiveret."
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Sporing for %s.%s, version %s er deaktiveret."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Sporing for %s.%s, version %s er aktiveret."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL-sætninger udført."
 
 #: tbl_tracking.php:214
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Du kan udføre eksporten ved at oprette og bruge en midlertidig database. "
+"Sørg venligst for at du har privilegier til at gøre det."
 
 #: tbl_tracking.php:215
 msgid "Comment out these two lines if you do not need them."
@@ -10556,16 +10558,16 @@ msgstr ""
 
 #: tbl_tracking.php:224
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "SQL-sætninger eksporteres. Kopier venligst dump eller udfør den."
 
 #: tbl_tracking.php:255
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Version %s snapshot (SQL kode)"
 
 #: tbl_tracking.php:382
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "Sporing af data definition slettet"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
 #, fuzzy
@@ -10616,7 +10618,7 @@ msgstr ""
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL dump"
 
 #: tbl_tracking.php:560
 msgid "This option will replace your table and contained data."
@@ -10624,55 +10626,55 @@ msgstr ""
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL-udførelse"
 
 #: tbl_tracking.php:572
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Eksporter som %s"
 
 #: tbl_tracking.php:612
 msgid "Show versions"
-msgstr ""
+msgstr "Vis versioner"
 
 #: tbl_tracking.php:644
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: tbl_tracking.php:692
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Deaktiver tracking af %s.%s"
 
 #: tbl_tracking.php:694
 msgid "Deactivate now"
-msgstr ""
+msgstr "Deaktiver nu"
 
 #: tbl_tracking.php:705
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Aktiver tracking af %s.%s"
 
 #: tbl_tracking.php:707
 msgid "Activate now"
-msgstr ""
+msgstr "Aktiver nu"
 
 #: tbl_tracking.php:720
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Opret version %s af %s.%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Spor disse data definition udsagn"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Spor disse data manipulation udsagn:"
 
 #: tbl_tracking.php:740
 msgid "Create version"
-msgstr ""
+msgstr "Opret version"
 
 #: themes.php:31
 #, php-format
@@ -10685,7 +10687,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "Hent flere temaer!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -10722,7 +10724,7 @@ msgstr "VIEW navn"
 
 #: view_operations.php:91
 msgid "Rename view to"
-msgstr ""
+msgstr "Omdøb view til"
 
 #, fuzzy
 #~| msgid "row(s) starting from record #"

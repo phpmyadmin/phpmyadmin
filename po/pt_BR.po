@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-06-30 23:48+0200\n"
-"Last-Translator:  <wiltave@gmail.com>\n"
+"PO-Revision-Date: 2011-07-05 15:06+0200\n"
+"Last-Translator:  <vitorpc.18@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -478,7 +478,6 @@ msgid "Add/Delete criteria rows"
 msgstr "Adicionar/Remover critérios de linha"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
 msgstr "Adicionar/Remover colunas"
@@ -511,8 +510,8 @@ msgstr "Seu comando SQL foi executado com sucesso"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d linha afetada pela última instrução dentro do procedimento"
+msgstr[1] "%d linhas afetadas pela última instrução dentro do procedimento"
 
 #: db_routines.php:167
 #, php-format
@@ -526,10 +525,10 @@ msgstr "MySQL retornou um conjunto vazio (ex. zero registros)."
 
 #: db_routines.php:192 db_routines.php:297 db_routines.php:302
 #: db_routines.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "As seguintes consultas foram executadas:"
+msgstr "A seguinte consulta falhou: \"%s\""
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
@@ -538,68 +537,66 @@ msgstr "Mensagens do MySQL : "
 
 #: db_routines.php:210 db_routines.php:242 db_routines.php:270
 #: db_routines.php:409
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Erro no processamento da requisição"
 
 #: db_routines.php:211 db_routines.php:243 db_routines.php:271
 #: db_routines.php:410
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Nenhuma tabela encontrada no banco de dados"
+msgstr "Nenhuma rotina com o nome %1$s encontrada no banco de dados %2$s"
 
 #: db_routines.php:232 db_routines.php:236
 msgid "Execute routine"
-msgstr ""
+msgstr "Executar rotina"
 
 #: db_routines.php:261 db_routines.php:265
-#, fuzzy, php-format
+#, php-format
 msgid "Export of routine %s"
-msgstr "Importar arquivos"
+msgstr "Exportação de rotina %s"
 
 #: db_routines.php:290 libraries/db_routines.lib.php:911
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
-msgstr "Índice de servidor inválido: \"%s\""
+msgstr "Tipo de rotina inválido: \"%s\""
 
 #: db_routines.php:311
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Desculpa, mas falhamos ao restaurar a rotina."
 
 #: db_routines.php:312
 msgid "The backed up query was:"
-msgstr ""
+msgstr "A consulta de backup foi:"
 
 #: db_routines.php:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Tabela %s foi eliminada"
+msgstr "A rotina %1$s foi modificada."
 
 #: db_routines.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "A tabela %1$s foi criada."
+msgstr "A rotina %1$s foi criada."
 
 #: db_routines.php:337
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
+"<b>Um ou mais erros ocorreram durante o processamento de sua requisição:</b>"
 
 #: db_routines.php:381
-#, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
-msgstr "Criar relacionamento"
+msgstr "Criar rotina"
 
 #: db_routines.php:385
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit routine"
-msgstr "Editar servidor"
+msgstr "Editar rotina"
 
 #: db_routines.php:436
 msgid ""
@@ -678,7 +675,6 @@ msgid "Search in database"
 msgstr "Procurar no Banco de Dados"
 
 #: db_search.php:275
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palavra(s) ou valor(es) para procurar (coringa: \"%\"):"
@@ -692,7 +688,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Palavras são separadas por um caracter de espaço (\" \")."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Dentro da(s) tabela(s):"
@@ -1118,7 +1113,6 @@ msgstr "Isto não é um número!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "Total"
@@ -1167,23 +1161,21 @@ msgid "Edit"
 msgstr "Editar"
 
 #: js/messages.php:64 server_status.php:420
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Seleção do Servidor"
+msgstr "Gráfico de tráfego em tempo real"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
 msgstr ""
 
 #: js/messages.php:66 server_status.php:445
-#, fuzzy
 msgid "Live query chart"
-msgstr "consulta SQL"
+msgstr "Gráfico de consulta em tempo real"
 
 #: js/messages.php:68
 msgid "Static data"
-msgstr ""
+msgstr "Dado(s) estático(s)"
 
 #. l10n: Total number of queries
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
@@ -1196,7 +1188,7 @@ msgstr "Total"
 #. l10n: Other, small valued, queries
 #: js/messages.php:72 server_status.php:602
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1322
@@ -1210,35 +1202,33 @@ msgstr "."
 
 #: js/messages.php:78
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB enviados desde a última atualização"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB recebidos desde a última atualização"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Seleção do Servidor"
+msgstr "Tráfego do Servidor (em KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Conexões desde a última atualização"
 
 #: js/messages.php:82 server_status.php:794
 msgid "Processes"
 msgstr "Processos"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Conexões"
+msgstr "Conexões / Processos"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Consultas emitidas desde a última atualização"
 
 #: js/messages.php:85
 #, fuzzy
