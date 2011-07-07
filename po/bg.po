@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:13+0200\n"
+"PO-Revision-Date: 2011-07-07 16:14+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8323,7 +8323,7 @@ msgstr "№"
 #: server_status.php:625
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Мрежови трафик от включването: %s"
 
 #: server_status.php:633
 #, php-format
