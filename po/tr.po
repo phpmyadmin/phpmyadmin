@@ -5307,10 +5307,9 @@ msgid "Start row"
 msgstr "Başlangıç satırı"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Satır sayısı:"
+msgstr "Satır sayısı"
 
 #: libraries/display_tbl.lib.php:443
 #, fuzzy
