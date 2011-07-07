@@ -5362,6 +5362,8 @@ msgstr "Pulsar para marcar/desmarcar"
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
+"Pulsa la flecha de la lista desplegable <br />para conmutar la visibilidad "
+"de la columna"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
