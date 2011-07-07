@@ -8378,7 +8378,7 @@ msgstr "Конекции"
 
 #: server_status.php:727
 msgid "max. concurrent connections"
-msgstr "максимален брой на едновременните конекции"
+msgstr "максимален брой на едновременните връзки"
 
 #: server_status.php:734
 msgid "Failed attempts"
