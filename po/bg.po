@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 11:18+0200\n"
+"PO-Revision-Date: 2011-07-07 11:19+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -3425,7 +3425,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:277
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Изключете ако искате да виждате всички БД наведнъж"
 
 #: libraries/config/messages.inc.php:278
 msgid "Use light version"
