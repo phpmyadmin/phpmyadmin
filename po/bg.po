@@ -5316,7 +5316,7 @@ msgstr "Страници съдържащи данни"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Страници за изчистване"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
