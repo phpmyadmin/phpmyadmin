@@ -215,6 +215,7 @@
                     $cb.css('left', $this.position().left + $this.outerWidth(true))
                        .show();
                 }
+                $(this.cRsz).css('height', $(this.t).height());
             },
             
             /**

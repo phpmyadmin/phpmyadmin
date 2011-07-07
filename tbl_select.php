@@ -227,6 +227,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params);
  * Selection criteria have been submitted -> do the work
  */
 else {
+    echo "ZZ";
     // Builds the query
 
     $sql_query = 'SELECT ' . (isset($distinct) ? 'DISTINCT ' : '');
