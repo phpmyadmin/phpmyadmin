@@ -8708,7 +8708,7 @@ msgstr "Броят вмъкнати редове в InnoDB таблици."
 
 #: server_status.php:920
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "Броят прочетени редове от InnoDB таблици."
 
 #: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
