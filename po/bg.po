@@ -6959,7 +6959,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:776
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Добавяне на стойност"
+msgstr "+ Нова стойност"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
