@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2010-12-28 22:26+0200\n"
@@ -730,15 +730,15 @@ msgstr "БД"
 
 #: db_tracking.php:86
 msgid "Last version"
-msgstr ""
+msgstr "Остання версія"
 
 #: db_tracking.php:87 tbl_tracking.php:588
 msgid "Created"
-msgstr ""
+msgstr "Створено"
 
 #: db_tracking.php:88 tbl_tracking.php:589
 msgid "Updated"
-msgstr ""
+msgstr "Оновлено"
 
 #: db_tracking.php:89 libraries/common.lib.php:1354
 #: libraries/server_links.inc.php:50 server_processlist.php:71
@@ -788,7 +788,7 @@ msgstr ""
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr ""
+msgstr "Журнал бази даних"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:793
 #, php-format
@@ -957,7 +957,7 @@ msgstr ""
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "Ця операція може зайняти багато часу.  Продовжити ?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
@@ -1011,17 +1011,17 @@ msgstr "Видалити відмічених користувачів"
 #: js/messages.php:56 libraries/tbl_properties.inc.php:792
 #: tbl_tracking.php:245 tbl_tracking.php:373
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: js/messages.php:60 libraries/tbl_properties.inc.php:797 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: js/messages.php:63
 msgid "Loading"
-msgstr ""
+msgstr "Завантаження"
 
 #: js/messages.php:64
 msgid "Processing Request"
@@ -1029,7 +1029,7 @@ msgstr "Обробка запиту"
 
 #: js/messages.php:65 libraries/import/ods.php:80
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "Помилка при обробці запиту"
 
 #: js/messages.php:66
 msgid "Dropping Column"
@@ -1105,7 +1105,7 @@ msgstr "Зберегти"
 #: js/messages.php:91 libraries/display_tbl.lib.php:598 pmd_general.php:158
 #: tbl_change.php:315 tbl_change.php:321
 msgid "Hide"
-msgstr ""
+msgstr "Приховати"
 
 #: js/messages.php:94
 msgid "Hide search criteria"
@@ -1146,7 +1146,7 @@ msgstr "Згенерувати пароль"
 
 #: js/messages.php:111 libraries/replication_gui.lib.php:365
 msgid "Generate"
-msgstr ""
+msgstr "Згенерувати"
 
 #: js/messages.php:112
 msgid "Change Password"
@@ -1314,11 +1314,11 @@ msgstr "Вівторок"
 
 #: js/messages.php:190
 msgid "Wednesday"
-msgstr ""
+msgstr "Середа"
 
 #: js/messages.php:191
 msgid "Thursday"
-msgstr ""
+msgstr "Четвер"
 
 #: js/messages.php:192
 msgid "Friday"
@@ -1326,7 +1326,7 @@ msgstr "П'ятниця"
 
 #: js/messages.php:193
 msgid "Saturday"
-msgstr ""
+msgstr "Субота"
 
 #. l10n: Short week day name
 #: js/messages.php:197 libraries/common.lib.php:1594
@@ -1417,7 +1417,7 @@ msgstr "Секунда"
 
 #: libraries/Config.class.php:1190 tbl_chart.php:159
 msgid "Font size"
-msgstr ""
+msgstr "Розмір шрифту"
 
 #: libraries/File.class.php:310
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1439,7 +1439,7 @@ msgstr ""
 
 #: libraries/File.class.php:322
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Неможливо записати файл на диск."
 
 #: libraries/File.class.php:325
 msgid "File upload stopped by extension."
@@ -1447,7 +1447,7 @@ msgstr ""
 
 #: libraries/File.class.php:328
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "Невідома помилка при завантаженні файлу."
 
 #: libraries/File.class.php:559
 msgid ""
@@ -1480,7 +1480,7 @@ msgstr "Кількість елементів"
 
 #: libraries/Index.class.php:449 tbl_tracking.php:273 tbl_tracking.php:322
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: libraries/Index.class.php:471
 msgid "The primary key has been dropped"
@@ -1558,7 +1558,7 @@ msgstr ""
 
 #: libraries/Table.class.php:1031 tbl_get_field.php:25
 msgid "Invalid table name"
-msgstr ""
+msgstr "Неправильна назва таблиці"
 
 #: libraries/Table.class.php:1046
 #, php-format
@@ -1651,7 +1651,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:244
 msgid "Server:"
-msgstr ""
+msgstr "Сервер:"
 
 #: libraries/auth/cookie.auth.lib.php:249
 msgid "Username:"
@@ -1673,7 +1673,7 @@ msgstr "З цього моменту Cookies повинні бути дозво�
 #: libraries/auth/signon.auth.lib.php:222
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "Авторизація без паролю заборонена в настройках (див. AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:648
 #: libraries/auth/signon.auth.lib.php:226
@@ -1707,7 +1707,7 @@ msgstr ""
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr ""
+msgstr "Авторизуємося..."
 
 #: libraries/blobstreaming.lib.php:241
 msgid "PBMS error"
@@ -1946,7 +1946,7 @@ msgstr "Створити PHP код"
 #: libraries/common.lib.php:1198 libraries/config/messages.inc.php:464
 #: server_status.php:467
 msgid "Refresh"
-msgstr ""
+msgstr "Оновити"
 
 #: libraries/common.lib.php:1207
 msgid "Skip Validate SQL"
@@ -2180,7 +2180,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:574
 #: libraries/config/validate.lib.php:360 libraries/config/validate.lib.php:450
 msgid "Incorrect value"
-msgstr ""
+msgstr "Некоректне значення"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:464
@@ -2324,7 +2324,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2480,7 +2480,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Максимальний час виконання"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -2605,7 +2605,7 @@ msgstr "Метод експорту"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "Зберегти на сервері"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -2716,15 +2716,15 @@ msgstr "CSV дані"
 
 #: libraries/config/messages.inc.php:158
 msgid "Developer"
-msgstr ""
+msgstr "Розробник"
 
 #: libraries/config/messages.inc.php:159
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Параметри для розробників phpMyAdmin"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
-msgstr ""
+msgstr "Режим редагування"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize edit mode"
@@ -2755,7 +2755,7 @@ msgstr ""
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr ""
+msgstr "Імпорт"
 
 #: libraries/config/messages.inc.php:169
 msgid "Import defaults"
@@ -2767,7 +2767,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:171
 msgid "Import / export"
-msgstr ""
+msgstr "Імпорт / Експорт"
 
 #: libraries/config/messages.inc.php:172
 msgid "Set import and export directories and compression options"
@@ -2792,7 +2792,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:98
 msgid "Servers"
-msgstr ""
+msgstr "Сервери"
 
 #: libraries/config/messages.inc.php:180
 msgid "Servers display options"
@@ -2808,7 +2808,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:186
 msgid "Open Document"
@@ -2816,7 +2816,7 @@ msgstr "Відкрити Документ"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
-msgstr ""
+msgstr "Інші параметри ядра"
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit enywhere else"
@@ -2846,7 +2846,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
-msgstr ""
+msgstr "Безпека"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
@@ -2864,11 +2864,11 @@ msgstr "Аутентифікація"
 
 #: libraries/config/messages.inc.php:198
 msgid "Authentication settings"
-msgstr ""
+msgstr "Параметри аутентифікації"
 
 #: libraries/config/messages.inc.php:199
 msgid "Server configuration"
-msgstr ""
+msgstr "Конфігурація сервера"
 
 #: libraries/config/messages.inc.php:200
 msgid ""
@@ -2990,11 +2990,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:231
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:232
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Додаткові параметри для iconv"
 
 #: libraries/config/messages.inc.php:233
 msgid ""
@@ -3048,7 +3048,7 @@ msgstr "Імена колонок і першому рядку"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Не імпортувати пусті рядки"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import currencies ($5.00 to 5.00)"
@@ -3068,7 +3068,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:259
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Не використовувати AUTO_INCREMENT для нульових значень"
 
 #: libraries/config/messages.inc.php:262
 msgid "Initial state for sliders"
@@ -3298,7 +3298,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:314
 msgid "Memory limit"
-msgstr ""
+msgstr "Ліміт пам'яті"
 
 #: libraries/config/messages.inc.php:315
 msgid "These are Edit, Inline edit, Copy and Delete links"
@@ -3470,11 +3470,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:358
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Дозволити авторизацію без паролю"
 
 #: libraries/config/messages.inc.php:359
 msgid "Allow root login"
-msgstr ""
+msgstr "Дозволити авторизацію для root"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -9317,7 +9317,7 @@ msgstr ""
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "Рядків не вибрано"
 
 #: tbl_select.php:109
 msgid "Do a \"query by example\" (wildcard: \"%\")"

@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-03-22 12:51+0200\n"
@@ -907,6 +907,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Въпреки това при последното изпълнение никакви данни не постъпиха, това "
+"обикновено означава, че phpMyAdmin няма да бъде в състояние да завърши този "
+"импорт, освен ако не бъдат увеличени времевите ограничения в PHP."
 
 #: import.php:453 libraries/Message.class.php:185
 #: libraries/display_tbl.lib.php:2080 libraries/sql_query_form.lib.php:139
@@ -1132,7 +1135,7 @@ msgstr "Игнориране"
 
 #: js/messages.php:101
 msgid "Select referenced key"
-msgstr ""
+msgstr "Изберете посочвания ключ"
 
 #: js/messages.php:102
 msgid "Select Foreign Key"
@@ -1440,6 +1443,7 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"Изпратеният файл надхвърля директивата MAX_FILE_SIZE заложена във формата."
 
 #: libraries/File.class.php:316
 msgid "The uploaded file was only partially uploaded."
@@ -1741,7 +1745,7 @@ msgstr ""
 
 #: libraries/blobstreaming.lib.php:320
 msgid "get BLOB Content-Type failed"
-msgstr ""
+msgstr "неуспешно получаване на типа на BLOB"
 
 #: libraries/blobstreaming.lib.php:347
 msgid "View image"
@@ -1942,7 +1946,7 @@ msgstr "MySQL отговори: "
 
 #: libraries/common.lib.php:1098
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Неуспешно свързване към SQL валидатора!"
 
 #: libraries/common.lib.php:1139 libraries/config/messages.inc.php:463
 msgid "Explain SQL"
@@ -1975,11 +1979,11 @@ msgstr "Валидирай SQL-а"
 
 #: libraries/common.lib.php:1265
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Редакция на заявката на място"
 
 #: libraries/common.lib.php:1267
 msgid "Inline"
-msgstr ""
+msgstr "На място"
 
 #: libraries/common.lib.php:1334 libraries/common.lib.php:1350
 msgid "Profiling"
@@ -2150,15 +2154,16 @@ msgstr "структура и данни"
 
 #: libraries/config.values.php:99
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Бързо - показване на минимум опции"
 
 #: libraries/config.values.php:100
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Потребителско - показване на всички опции"
 
 #: libraries/config.values.php:101
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr ""
+"Потребителско - като горното, но без показване на избор бързо/потребителско"
 
 #: libraries/config.values.php:119
 msgid "complete inserts"
@@ -2283,6 +2288,8 @@ msgstr "Включване на Ajax"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Ако е включено потребитлят може да въведе MySQL сървър във формата за "
+"удостоверяване с бисквитка"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -2297,7 +2304,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Позволяване на вграждане в трети сайтове"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -2308,6 +2315,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Тайна фраза, използвана за криптиране на бисквитките при [kbd]cookie[/kbd] "
+"удоствоверяване"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -2327,7 +2336,7 @@ msgstr "Изпъкване редовете, посочени с мишка"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Маркиране на показалеца"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
@@ -2345,6 +2354,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Определя какъв вид полета за редакция да бъдат използвани за колони тип CHAR "
+"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, [kbd]textarea"
+"[/kbd] - позволява вмъкването на нови редове"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -2459,7 +2471,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Показване на сървърите в списък"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
@@ -2618,7 +2630,7 @@ msgstr "Метод за експортиране"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "Запазване на сървъра"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -3142,7 +3154,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:275
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Изключете ако искате да виждате всички БД наведнъж"
 
 #: libraries/config/messages.inc.php:276
 msgid "Use light version"
@@ -3301,6 +3313,7 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
 #: libraries/config/messages.inc.php:312
 msgid "mcrypt warning"
@@ -3462,7 +3475,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:352
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Папка на сървъра, в която експортите да бъдат записвани"
 
 #: libraries/config/messages.inc.php:353
 msgid "Save directory"
@@ -3767,7 +3780,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:420
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Добавяне DROP DATABASE"
 
 #: libraries/config/messages.inc.php:421
 msgid ""
@@ -3777,7 +3790,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:422
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Добавяне DROP TABLE"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
@@ -3787,7 +3800,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:424
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "Добавяне DROP VIEW"
 
 #: libraries/config/messages.inc.php:425
 msgid "Defines the list of statements the auto-creation uses for new versions."
@@ -3868,11 +3881,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
-msgstr ""
+msgstr "Показване на формуляр за смяна на парола"
 
 #: libraries/config/messages.inc.php:443
 msgid "Show create database form"
-msgstr ""
+msgstr "Показване на формуляр за създаване на БД"
 
 #: libraries/config/messages.inc.php:444
 msgid ""
@@ -3900,7 +3913,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:449
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Показване на връзка към phpinfo()"
 
 #: libraries/config/messages.inc.php:450
 msgid "Show detailed MySQL server information"
@@ -4226,7 +4239,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:367
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Грешен IP адрес: %s"
 
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
 #: libraries/core.lib.php:264
@@ -4253,12 +4266,12 @@ msgstr "Име"
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "БД изглежда празна!"
 
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:143
 #: libraries/tbl_links.inc.php:90
 msgid "Tracking"
-msgstr ""
+msgstr "Проследяване"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
@@ -4266,7 +4279,7 @@ msgstr "Запитване по пример"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:139
 msgid "Designer"
-msgstr ""
+msgstr "Строител"
 
 #: libraries/db_links.inc.php:93 libraries/server_links.inc.php:64
 #: server_privileges.php:119 server_privileges.php:1802
@@ -4276,11 +4289,11 @@ msgstr "Привилегии"
 
 #: libraries/db_routines.inc.php:24 libraries/db_routines.inc.php:26
 msgid "Routines"
-msgstr ""
+msgstr "Процедури"
 
 #: libraries/db_routines.inc.php:37
 msgid "Return type"
-msgstr ""
+msgstr "Тип връщани данни"
 
 #: libraries/db_structure.lib.php:48 libraries/display_tbl.lib.php:1929
 msgid ""
@@ -4362,7 +4375,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:87
 msgid "Exporting databases from the current server"
-msgstr ""
+msgstr "Експорт на БД от текущия сървър"
 
 #: libraries/display_export.lib.php:89
 #, php-format
@@ -4380,11 +4393,11 @@ msgstr "Тип на експортирането:"
 
 #: libraries/display_export.lib.php:113
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Бързо - показване на минимум опции"
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "Потребителско - показване на всички опции"
 
 #: libraries/display_export.lib.php:137
 msgid "Database(s):"
@@ -5267,7 +5280,7 @@ msgstr ""
 #: libraries/export/sql.php:107
 #, php-format
 msgid "Add %s statement"
-msgstr ""
+msgstr "Ново заявление %s"
 
 #: libraries/export/sql.php:91
 msgid "Add statements:"
@@ -5368,7 +5381,7 @@ msgstr "РЕЛАЦИИ ЗА ТАБЛИЦА"
 #: libraries/export/sql.php:873 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
-msgstr ""
+msgstr "Тригери"
 
 #: libraries/export/sql.php:885
 #, fuzzy
@@ -6893,7 +6906,7 @@ msgstr "Страница беше създадена"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
-msgstr ""
+msgstr "Неуспешно създаване на страница"
 
 #: pmd_pdf.php:89
 msgid "Page"
@@ -6919,7 +6932,7 @@ msgstr "Създай нов индекс"
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr ""
+msgstr "Име: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
@@ -6927,19 +6940,19 @@ msgstr ""
 
 #: pmd_pdf.php:119
 msgid "recommended"
-msgstr ""
+msgstr "препоръчително"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Грешка: Зависимостта вече съществува."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Грешка: Зависимостта не е добавена."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "FOREIGN KEY зависимост е добавена"
 
 #: pmd_relation_new.php:84
 #, fuzzy
@@ -6953,7 +6966,7 @@ msgstr "Преглед на релациите"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Грешка при запазване на координатите в Строител."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
@@ -6961,7 +6974,7 @@ msgstr "Промените бяха съхранени"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "Промените не бяха запазени, изпратения формуляр съдържа грешки."
 
 #: prefs_manage.php:80
 msgid "Could not import configuration"
@@ -6969,15 +6982,15 @@ msgstr "Конфигурацията не може да бъде импорти�
 
 #: prefs_manage.php:112
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Конфигурацията съдържа грешни данни за някои ключове."
 
 #: prefs_manage.php:128
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Искате ли да импортирате оставащите настройки?"
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Записан на: @DATE@"
 
 #: prefs_manage.php:239
 #, fuzzy
@@ -6995,7 +7008,7 @@ msgstr "Настройки ще бъдат импортирани от лока�
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Нямате запазени настройки!"
 
 #: prefs_manage.php:258 prefs_manage.php:312
 msgid "This feature is not supported by your web browser"
@@ -7020,7 +7033,7 @@ msgstr "Запис в хранилището на браузъра"
 
 #: prefs_manage.php:306
 msgid "Settings will be saved in your browser's local storage."
-msgstr ""
+msgstr "Настройките ще бъдат запазени в хранилището на вашия браузър"
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
@@ -7106,11 +7119,11 @@ msgstr "Статистика за базите данни"
 #: server_databases.php:183 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr ""
+msgstr "Главен сървър"
 
 #: server_databases.php:185 server_replication.php:246
 msgid "Slave replication"
-msgstr ""
+msgstr "Подчинен сървър"
 
 #: server_databases.php:268 server_databases.php:269
 msgid "Enable Statistics"
@@ -7624,6 +7637,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Този сървър не е настроен като главен в репликация. Желаете ли да го <a href="
+"\"%s\">настроите</a>?"
 
 #: server_replication.php:215
 msgid "Master configuration"
@@ -7743,6 +7758,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Този сървър не е настроен като подчинен в репликация. Желаете ли да го <a "
+"href=\"%s\">настроите</a>?"
 
 #: server_status.php:46
 msgid ""
@@ -8713,6 +8730,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Неуспешно получаване на версията. Вероятно сте offline или сървърът за "
+"обновления не отговаря."
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"

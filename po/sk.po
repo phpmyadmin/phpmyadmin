@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
@@ -4480,7 +4480,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:498
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Podrobné viacprvkové dopyty"
 
 #: libraries/config/messages.inc.php:499 setup/frames/index.inc.php:229
 msgid "Check for latest version"
@@ -5789,7 +5789,7 @@ msgstr "Údaj"
 
 #: libraries/export/sql.php:111
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Voľby <code>CREATE TABLE</code>:"
 
 #: libraries/export/sql.php:123
 msgid ""

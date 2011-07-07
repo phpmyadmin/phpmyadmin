@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-04-14 17:44+0200\n"
@@ -6667,7 +6667,7 @@ msgstr "Nenhum"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
-msgstr ""
+msgstr "Como definido:"
 
 #: libraries/tbl_properties.inc.php:516 tbl_structure.php:153
 #: tbl_structure.php:157 tbl_structure.php:566
@@ -10035,12 +10035,14 @@ msgid "Create version %s of %s.%s"
 msgstr "Criar versão %s de %s.%s"
 
 #: tbl_tracking.php:667
+#, fuzzy
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Rastrear estas instruções de definição de dados:"
 
 #: tbl_tracking.php:675
+#, fuzzy
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Rastrear estas instruções de manipulação de dados:"
 
 #: tbl_tracking.php:683
 msgid "Create version"

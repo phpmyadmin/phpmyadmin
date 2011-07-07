@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.3-rc1\n"
+"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-03-07 01:17+0200\n"
@@ -805,11 +805,11 @@ msgstr "Indtast hver værdi i et seperat felt."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
-msgstr ""
+msgstr "+ Genstart indsættelse og tilføj ny værdi"
 
 #: enum_editor.php:67
 msgid "Output"
-msgstr ""
+msgstr "Output"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
@@ -9974,37 +9974,39 @@ msgstr "Dan et indeks på&nbsp;%s&nbsp;kolonner"
 
 #: tbl_structure.php:850
 msgid "partitioned"
-msgstr ""
+msgstr "partitioneret"
 
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Sporings rapport for tabel `% s`"
 
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Version %s er oprettet, sporing for %s.%s er aktiveret."
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Sporing for %s.%s, version %s er deaktiveret."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Sporing for %s.%s, version %s er aktiveret."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL-sætninger udført."
 
 #: tbl_tracking.php:215
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Du kan udføre eksporten ved at oprette og bruge en midlertidig database. "
+"Sørg venligst for at du har privilegier til at gøre det."
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
@@ -10012,12 +10014,12 @@ msgstr ""
 
 #: tbl_tracking.php:225
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "SQL-sætninger eksporteres. Kopier venligst dump eller udfør den."
 
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Version %s snapshot (SQL kode)"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
@@ -10046,7 +10048,7 @@ msgstr ""
 
 #: tbl_tracking.php:502
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL dump"
 
 #: tbl_tracking.php:503
 msgid "This option will replace your table and contained data."
@@ -10054,55 +10056,55 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL-udførelse"
 
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Eksporter som %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "Vis versioner"
 
 #: tbl_tracking.php:587
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: tbl_tracking.php:635
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "Deaktiver tracking af %s.%s"
 
 #: tbl_tracking.php:637
 msgid "Deactivate now"
-msgstr ""
+msgstr "Deaktiver nu"
 
 #: tbl_tracking.php:648
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "Aktiver tracking af %s.%s"
 
 #: tbl_tracking.php:650
 msgid "Activate now"
-msgstr ""
+msgstr "Aktiver nu"
 
 #: tbl_tracking.php:663
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "Opret version %s af %s.%s"
 
 #: tbl_tracking.php:667
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Spor disse data definition udsagn"
 
 #: tbl_tracking.php:675
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Spor disse data manipulation udsagn:"
 
 #: tbl_tracking.php:683
 msgid "Create version"
-msgstr ""
+msgstr "Opret version"
 
 #: themes.php:31
 #, php-format
@@ -10115,7 +10117,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "Hent flere temaer!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -10152,4 +10154,4 @@ msgstr "VIEW navn"
 
 #: view_operations.php:91
 msgid "Rename view to"
-msgstr ""
+msgstr "Omdøb view til"
