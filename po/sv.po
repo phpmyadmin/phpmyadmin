@@ -1286,10 +1286,9 @@ msgid "Hide indexes"
 msgstr "Dölj index"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Visa rutnät"
+msgstr "Visa index"
 
 #: js/messages.php:117
 msgid "Searching"
