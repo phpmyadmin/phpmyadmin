@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:20+0200\n"
+"PO-Revision-Date: 2011-07-07 16:32+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -9004,7 +9004,7 @@ msgstr ""
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Прилагане на промените"
 
 #: server_synchronize.php:446 server_synchronize.php:891
 msgid "Synchronize Databases"
