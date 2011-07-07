@@ -4787,7 +4787,7 @@ msgstr "Няма процедури."
 #: libraries/db_routines.lib.php:1192
 #| msgid "Add index"
 msgid "Add routine"
-msgstr "Добавяне на процедура"
+msgstr "Нова процедура"
 
 #: libraries/db_routines.lib.php:1195
 #| msgid "You don't have sufficient privileges to be here right now!"
