@@ -5344,7 +5344,7 @@ msgstr "Пропуснати прочитания"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
-msgstr ""
+msgstr "Изчаквания за запис"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
