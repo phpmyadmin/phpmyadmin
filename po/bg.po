@@ -8233,7 +8233,7 @@ msgstr "Забавени вмъквания"
 
 #: server_status.php:269
 msgid "Key cache"
-msgstr "Кеш на ключове"
+msgstr "Буфер за ключове"
 
 #: server_status.php:270
 msgid "Joins"
