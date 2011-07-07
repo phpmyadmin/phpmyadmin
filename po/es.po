@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-06-28 22:53+0200\n"
+"PO-Revision-Date: 2011-07-07 16:19+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1295,10 +1295,9 @@ msgid "Insert Table"
 msgstr "Insertar tablas"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Agregar índice"
+msgstr "Esconder índices"
 
 #: js/messages.php:114
 #, fuzzy
