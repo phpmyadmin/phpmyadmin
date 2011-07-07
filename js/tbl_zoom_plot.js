@@ -11,7 +11,10 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-        var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp']);
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
+	msgbox.click(function() {
+		$(this).remove();
+	});
 }
 
 /**
@@ -73,7 +76,14 @@ $(document).ready(function() {
     });
 
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer'; 
-    var currentChart=null;
+    var currentChart = null;
+    var currentData = null;
+    var xLabel = $('#tableid_0').val();
+    var yLabel = $('#tableid_1').val();
+    var dataLabel = $('#dataLabel').val();
+
+    // Get query result 
+    var data = jQuery.parseJSON($('#querydata').html());
 
     /**
      ** Form submit on field change
@@ -93,38 +103,6 @@ $(document).ready(function() {
     $('#tableid_3').change(function() {
           $('#zoom_search_form').submit();
     })
-
-    /*
-     * Disable the data info form elements if browse mode else enable on edit mode
-     */ 
-    if($("input[name='mode']:checked").val() == 'edit'){
-	    for(var i = 4; i < 8 ; i++)
-   	        $('#fieldID_' + i).removeAttr('disabled');  
-	}
-    else{
-       for(var i = 4; i < 8 ; i++)
-           $('#fieldID_' + i).attr('disabled', 'disabled');  
-	}
-
-    /**
-     ** Change mouse pointer on change of mode
-     */ 
-    $("input[name='mode']").change(function(){
-        if($("input[name='mode']:checked").val() == 'edit'){
-	    currentSettings.plotOptions.series.cursor = 'crosshair';
-	    cursorMode = 'crosshair';
-            currentChart = PMA_createChart(currentSettings);
-	    for(var i = 4; i < 8 ; i++)
-   	        $('#fieldID_' + i).removeAttr('disabled');  
-	}
-	else{
-	    currentSettings.plotOptions.series.cursor = 'pointer';
-	    cursorMode = 'pointer';
-            currentChart = PMA_createChart(currentSettings);
-	    for(var i = 4; i < 8 ; i++)
-   	        $('#fieldID_' + i).attr('disabled', 'disabled');  
-	}
-    });
 
     /**
       ** Prepare a div containing a link, otherwise it's incorrectly displayed 
@@ -148,13 +126,51 @@ $(document).ready(function() {
 	     // avoid default click action
 	    return false;
 	 });
-    
+   
+    /*
+     * Handle submit of zoom_display_form 
+     */
+     
+    $("#zoom_display_form.ajax").live('submit', function(event) {
+	
+        //Prevent default submission of form
+        event.preventDefault();
+	
+        var it = 4;
+	for (key in data[currentData]) {
+	    data[currentData][key] = $('#fieldID_' + it).val();
+	    it++    
+	}
+        //Update the chart seiries for replot
+        series[currentData].data = {
+	    name : data[currentData][dataLabel],
+            x : data[currentData][xLabel],
+            y : data[currentData][yLabel],
+	    color : colorCodes[currentData % 8],
+	    id : currentData,
+	};
+	xCord[currentData] = data[currentData][xLabel]
+	yCord[currentData] = data[currentData][yLabel]
+
+	currentSettings.series = series;
+	currentSettings.xAxis.max = Array.max(xCord) + 2;
+	currentSettings.xAxis.min = Array.min(xCord) - 2;
+	currentSettings.yAxis.max = Array.max(yCord) + 2;
+	currentSettings.yAxis.min = Array.min(yCord) - 2;
+	
+        currentChart = PMA_createChart(currentSettings);
+	$form = $('#zoom_display_form');
+	$str = $form.serialize();
+        $.post($form.attr('action'), $str, function(response) {
+		alert('Plot update done, database update remains!');
+        })
+    });
+
+
     /*
      * Generate plot using Highcharts
      */ 
 
-    // Get query result 
-    var data = jQuery.parseJSON($('#querydata').html());
     if (data != null) {
 
         $('#zoom_search_form')
@@ -167,10 +183,6 @@ $(document).ready(function() {
         ShowDialog(false);
 	$('#resizer').height($('#dataDisplay').height() + 50); 
 
-
-        var xLabel = $('#tableid_0').val();
-    	var yLabel = $('#tableid_1').val();
-    	var dataLabel = $('#dataLabel').val();
     	var columnNames = new Array();
     	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
     	var series = new Array();
@@ -213,7 +225,7 @@ $(document).ready(function() {
 	    plotOptions: {
 	        series: {
 	            allowPointSelect: true,
-                    cursor: cursorMode,
+                    cursor: 'pointer',
 		    showInLegend: false,
                     dataLabels: {
                         enabled: false,
@@ -227,6 +239,7 @@ $(document).ready(function() {
 					$('#fieldID_' + j).val(data[id][key]);
 					j++;
 				} 
+				currentData = id;
                             },
                         }
 	            }
@@ -262,7 +275,6 @@ $(document).ready(function() {
         });
         
         currentChart = PMA_createChart(currentSettings);
-
 	scrollToChart();
     }
 });

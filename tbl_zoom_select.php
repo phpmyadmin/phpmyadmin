@@ -263,14 +263,6 @@ for($i = 0 ; $i < 4 ; $i++){
         } ?>
     </select>
     </td></tr>
-    <tr><td><label for="mode"><?php echo __("Mode"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-    <td><input type="radio" name="mode" value="browse" checked /><?php echo __('Browse'); ?></td>
-    <?php if(isset($mode) and $mode == __('edit')){  ?>
-        <td><input type="radio" name="mode" value="edit" checked /><?php echo __('Edit'); ?></td>
-    <?php } else { ?>
-        <td><input type="radio" name="mode" value="edit" /><?php echo __('Edit'); ?></td> 
-    <?php } ?>
-    </tr>
     </table>
 
 </fieldset>
@@ -392,11 +384,12 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
 
     </fieldset>
     </div>
+    <input type="hidden" id="queryID" name="sql_query" />
     </form>
     </fieldset>
     <?php 
-} ?>
-
+}
+?>
 <div id="sqlqueryresults"></div>
     <?php
     require './libraries/footer.inc.php';
