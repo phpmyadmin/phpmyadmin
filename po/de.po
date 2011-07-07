@@ -4350,10 +4350,9 @@ msgstr ""
 "durchsuchen einer Tabelle"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Stamdardanzeigerichtung"
+msgstr "Zeige die Anzeige-Richtung"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
