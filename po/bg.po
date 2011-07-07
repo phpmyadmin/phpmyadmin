@@ -7613,7 +7613,7 @@ msgstr "Главен сървър"
 
 #: server_databases.php:185 server_replication.php:246
 msgid "Slave replication"
-msgstr ""
+msgstr "Подчинен сървър"
 
 #: server_databases.php:272 server_databases.php:273
 msgid "Enable Statistics"
