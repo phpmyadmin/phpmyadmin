@@ -692,14 +692,15 @@ $(function() {
             height:'auto',
             buttons: {
                 'Add chart to grid': function() {
-                    var type = $('input[name="chartType"]').find(':checked').val();
+                    var type = $('input[name="chartType"]:checked').val();
                     
-                    if(type == 'cpu' || type == 'memory')
+                    if(type == 'cpu' || type == 'memory' || type=='swap')
                         newChart = presetCharts[type + '-' + server_os];
-                    
-                    if(newChart.nodes.length == 0) {
-                        alert('Please add at least one variable to the series');
-                        return;
+                    else {
+                        if(! newChart || ! newChart.nodes || newChart.nodes.length == 0) {
+                            alert('Please add at least one variable to the series');
+                            return;
+                        }
                     }
                     
                     newChart.title = $('input[name="chartTitle"]').attr('value');
@@ -737,8 +738,8 @@ $(function() {
         return false;
     });
     
-    $('a[href="#monitorInstructions"]').click(function() {
-        var $dialog = $('div#monitorInstructions');
+    $('a[href="#monitorInstructionsDialog"]').click(function() {
+        var $dialog = $('div#monitorInstructionsDialog');
         
         $dialog.dialog({
             width: 585,
@@ -947,9 +948,32 @@ $(function() {
                             min = extremesObject.min,
                             max = extremesObject.max;
                         
-                        $('#logTable').html(new Date(min) + ' till ' + new Date(max));
+                        $('#logAnalyseDialog').html(
+                            '<p>Selected time range: ' +
+                             Highcharts.dateFormat('%H:%M:%S',new Date(min)) + ' - ' +  Highcharts.dateFormat('%H:%M:%S',new Date(max)) + '</p>' +
+                            '<p>Results are currently group by query text</p>'+
+                            '<p>Choose from which log you want the statistics to be generated from.</p>' /*+ 
+                            '<input type="checkbox" id="groupData" value="1" checked="checked" /> <label for="groupData">Group together identical queries</label>'*/
+                        );
                         
-                        $(document).scrollTop($('div#logTable').offset().top);
+                        $('#logAnalyseDialog').dialog({
+                            width: 'auto',
+                            height: 'auto',
+                            buttons: {
+                                'From slow log': function() {
+                                    loadLogStatistics({src: 'slow', start: min, end: max});
+                                    
+                                    $( this ).dialog( "close" );
+                                    $(document).scrollTop($('div#logTable').offset().top);
+                                },
+                                'From general log': function() {
+                                    loadLogStatistics({src: 'general', start: min, end: max});
+                                    
+                                    $( this ).dialog( "close" );
+                                    $(document).scrollTop($('div#logTable').offset().top);
+                                }
+                            }
+                        });
                         
                         return false;
                     }
@@ -1092,5 +1116,55 @@ $(function() {
         $.each(chartGrid, function(key, chart) {
             requiredData[key] = chart.nodes;
         });
+    }
+    
+    function loadLogStatistics(opts) {
+        $('#logTable').html('Loading statistics <img src="' + pma_theme_image + 'ajax_clock_small.gif" alt="">');
+        
+        var formatValue = function(name, value) {
+            switch(name) {
+                case 'user_host': 
+                    return value.replace(/(\[.*?\])+/g,'');
+            }
+            return value;
+        }
+        
+        $.get('server_status.php?'+url_query, 
+            { ajax_request: true, log_data: 1, type: opts.src, time_start: Math.round(opts.start / 1000), time_end: Math.round(opts.end / 1000) },
+            function(data) { 
+                var rows = $.parseJSON(data);
+                var cols = new Array();
+                var str = '<table border="0">';
+                
+                for(var i=0; i < rows.length; i++) {
+                    if(i == 0) {
+                        str += '<thead>';
+                        $.each(rows[0],function(key, value) {
+                            cols.push(key);
+                        });
+                        str += '<tr><th>' + cols.join('</th><th>') + '</th></tr>';
+                        str += '</thead><tbody>';
+                    }
+                    
+                    str += '<tr>';
+                    for(var j=0; j < cols.length; j++)
+                        str += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
+                    str += '</tr>';    
+                }
+                
+                str+='</tbody></table>';
+                
+                if(rows.length == 0)
+                    str = '<i>No results found</i>';
+                
+                $('#logTable').html(str);
+                
+                $('div#logTable table').tablesorter({
+                    sortList: [[0,1]],
+                    widgets: ['zebra']
+                });
+
+            }
+        );
     }
 });

@@ -166,8 +166,28 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
     
     if(isset($_REQUEST['log_data'])) {
+        $start = intval($_REQUEST['time_start']);
+        $end = intval($_REQUEST['time_end']);
+        
         if($_REQUEST['type'] == 'slow') {
-            $q = PMA_DBI_query();
+            $q = 'SELECT SUM(query_time) AS TIME(query_time), SUM(lock_time) as lock_time, '.
+                 'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, sql_text, COUNT(sql_text) AS count '.
+                 'FROM `mysql`.`slow_log` WHERE event_time > FROM_UNIXTIME('.$start.') '.
+                 'AND event_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text HAVING count > 1';
+                 
+            $r = PMA_DBI_fetch_result($q);
+            
+            exit(json_encode($r));
+        }
+        
+        if($_REQUEST['type'] == 'general') {
+            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as count FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
+                 'AND event_time > FROM_UNIXTIME('.$start.') AND event_time < FROM_UNIXTIME('.$end.') '.
+                 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument'; // HAVING count > 1';
+            
+            $r = PMA_DBI_fetch_result($q);
+            
+            exit(json_encode($r));
         }
     }
 }
@@ -592,103 +612,7 @@ echo __('Runtime Information');
         </div>
         
         <div id="statustabs_charting">
-            <div class="popupMenu">
-                <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
-                <a href="#popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
-                <a href="#monitorInstructions"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions</a>
-                <ul class="popupContent">
-                    <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
-                    <li>
-                        Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
-                    </li>
-                    <li> Chart size: <br>
-                    <input type="text" name="width" size="3" value="300"> x <input type="text" size="3" name="height" value="300"> 
-                    <input type="submit" name="setSize" value="Set">
-                    </li>
-                </ul>
-            </div>
-            <div id="monitorInstructions" title="Monitor Instructions" style="display:none;">
-                The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
-                queries. For the latter you will need to log_output set to 'TABLE' and have either the slow_query_log or general_log enabled.
-                <p></p>
-                <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
-                <div class="ajaxContent">
-                </div>
-                <div class="monitorUse" style="display:none;">
-                <p></p>
-                <b>Using the monitor:</b><br/>
-                Ok, you are good to go! Once you click 'Start monitor' your browser will refresh all displayed charts
-                in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart
-                using the cog icon on each respective chart.
-                <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
-                left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
-                activity spike.</p>
-                <p><b>Please note:</b>
-                Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
-                very load intensive task, thus it is advisable to select only a small time span.
-                </p>
-                </p>
-                </div>
-            </div>
-            <div id="addChartDialog" title="Add chart" style="display:none;">
-                <div id="tabGridVariables">
-                    <p><input type="text" name="chartTitle" value="Chart title" /></p>
-                    
-                    <input type="radio" name="chartType" value="cpu"> CPU Usage<br>
-                    <input type="radio" name="chartType" value="memory"> Memory Usage<br>
-                    <input type="radio" name="chartType" value="variable" checked="checked"> Status variable(s) <br>
-                    <div id="chartVariableSettings">
-                        <label for="chartSeries">Select series:</label><br>
-                        <select id="chartSeries" name="varChartList" size="1">
-                            <option>Commonly monitored</option>
-                            <option>Processes</option>
-                            <option>Questions</option>
-                            <option>Connections</option>
-                            <option>Bytes_sent</option>
-                            <option>Bytes_received</option>
-                            <option>Threads_connected</option>
-                            <option>Created_tmp_disk_tables</option>
-                            <option>Handler_read_first</option>
-                            <option>Innodb_buffer_pool_wait_free</option>
-                            <option>Key_reads</option>
-                            <option>Open_tables</option>
-                            <option>Select_full_join</option>
-                            <option>Slow_queries</option>
-                        </select><br>
-                        <label for="variableInput">or type variable name: </label> <input type="text" name="variableInput" id="variableInput" />
-                        <p></p>
-                        <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> <label for="differentialValue"> Display as differential value</label><br>
-                        <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
-                        <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span>
-                        <p>
-                            <a href="#submitAddSeries"><b>Add this series</b></a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
-                        </p>
-                        Series in Chart:<br/>
-                        <span id="seriesPreview">
-                        <i>None</i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <ul id="chartGrid">
-    
-            </ul>
-            <div id="logTable">
-                <br/>
-            </div>
-            
-            <script type="text/javascript">
-                variableNames = [ <?php
-                    $i=0;
-                    foreach($server_status as $name=>$value) {
-                        if(is_numeric($value)) {
-                            if($i++ > 0) echo ", ";
-                            echo "'".$name."'";
-                        }
-                    }
-                    ?> ];
-            </script>
+            <?php printMonitor(); ?>
         </div>
     </div>
 </div>
@@ -1282,6 +1206,116 @@ function printVariablesTable() {
     <?php
 }
 
+function printMonitor() {
+?>
+    <div class="popupMenu">
+        <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
+        <a href="#popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
+        <a href="#monitorInstructionsDialog"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions</a>
+        <ul class="popupContent">
+            <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
+            <li>
+                Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
+            </li>
+            <li> Chart size: <br>
+            <input type="text" name="width" size="3" value="300"> x <input type="text" size="3" name="height" value="300"> 
+            <input type="submit" name="setSize" value="Set">
+            </li>
+        </ul>
+    </div>
+    
+    <div id="monitorInstructionsDialog" title="Monitor Instructions" style="display:none;">
+        The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
+        queries. For the latter you will need to log_output set to 'TABLE' and have either the slow_query_log or general_log enabled.
+        <p></p>
+        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
+        <div class="ajaxContent">
+        </div>
+        <div class="monitorUse" style="display:none;">
+        <p></p>
+        <b>Using the monitor:</b><br/>
+        Ok, you are good to go! Once you click 'Start monitor' your browser will refresh all displayed charts
+        in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart
+        using the cog icon on each respective chart.
+        <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
+        left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
+        activity spike.</p>
+        <p><b>Please note:</b>
+        Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
+        very load intensive task, thus it is advisable to select only a small time span.
+        </p>
+        </p>
+        </div>
+    </div>
+    
+    <div id="addChartDialog" title="Add chart" style="display:none;">
+        <div id="tabGridVariables">
+            <p><input type="text" name="chartTitle" value="Chart title" /></p>
+            
+            <input type="radio" name="chartType" value="cpu"> CPU Usage<br>
+            <input type="radio" name="chartType" value="memory"> Memory Usage<br>
+            <input type="radio" name="chartType" value="swap"> Swap Usage<br>
+            <input type="radio" name="chartType" value="variable" checked="checked"> Status variable(s) <br>
+            <div id="chartVariableSettings">
+                <label for="chartSeries">Select series:</label><br>
+                <select id="chartSeries" name="varChartList" size="1">
+                    <option>Commonly monitored</option>
+                    <option>Processes</option>
+                    <option>Questions</option>
+                    <option>Connections</option>
+                    <option>Bytes_sent</option>
+                    <option>Bytes_received</option>
+                    <option>Threads_connected</option>
+                    <option>Created_tmp_disk_tables</option>
+                    <option>Handler_read_first</option>
+                    <option>Innodb_buffer_pool_wait_free</option>
+                    <option>Key_reads</option>
+                    <option>Open_tables</option>
+                    <option>Select_full_join</option>
+                    <option>Slow_queries</option>
+                </select><br>
+                <label for="variableInput">or type variable name: </label> <input type="text" name="variableInput" id="variableInput" />
+                <p></p>
+                <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> <label for="differentialValue"> Display as differential value</label><br>
+                <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
+                <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span>
+                <p>
+                    <a href="#submitAddSeries"><b>Add this series</b></a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
+                </p>
+                Series in Chart:<br/>
+                <span id="seriesPreview">
+                <i>None</i>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div title="Log statistics" id="logAnalyseDialog">
+        
+    </div>
+    
+    <ul id="chartGrid">
+
+    </ul>
+    <div id="logTable">
+        <br/>
+    </div>
+    
+    <script type="text/javascript">
+        variableNames = [ <?php
+            $i=0;
+            foreach($server_status as $name=>$value) {
+                if(is_numeric($value)) {
+                    if($i++ > 0) echo ", ";
+                    echo "'".$name."'";
+                }
+            }
+            ?> ];
+    </script>
+<?php
+}
+
+/* Builds a <select> list for refresh rates */
 function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)) {
 ?>
     <select name="<?php echo $name; ?>">

@@ -1,4 +1,14 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Library for extracting information about system memory and cpu. Currently supports all 
+ * Windows and Linux plattforms
+ *
+ * This code is based on the OS Classes from the phpsysinfo project (http://phpsysinfo.sourceforge.net/)
+ * 
+ * @package phpMyAdmin
+ */
+
 function getSysInfo() {
     $supported = array('Linux','WINNT');
 
