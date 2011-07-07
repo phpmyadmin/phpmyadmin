@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:04+0200\n"
+"PO-Revision-Date: 2011-07-07 16:05+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8821,7 +8821,7 @@ msgstr ""
 
 #: server_status.php:942
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Броят заявки регистрирани в буфера."
 
 #: server_status.php:943
 msgid "The total number of blocks in the query cache."
