@@ -8422,7 +8422,7 @@ msgstr ""
 
 #: server_status.php:861
 msgid "How many temporary files mysqld has created."
-msgstr "Брой на създадените от mysqld временни файлове."
+msgstr "Броят създадени от mysqld временни файлове."
 
 #: server_status.php:862
 msgid ""
