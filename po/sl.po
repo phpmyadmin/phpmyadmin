@@ -5298,10 +5298,9 @@ msgid "%d is not valid row number."
 msgstr "%d ni veljavna številka vrstice."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Vrstic besedilnega polja"
+msgstr "Začetna vrstica"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
