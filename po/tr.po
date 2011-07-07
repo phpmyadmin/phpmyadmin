@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 18:31+0200\n"
+"PO-Revision-Date: 2011-07-07 18:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -5302,10 +5302,9 @@ msgid "%d is not valid row number."
 msgstr "%d geçerli bir satır sayısı değil."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Metin alanı satırları"
+msgstr "Başlangıç satırı"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
