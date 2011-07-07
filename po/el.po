@@ -1301,10 +1301,9 @@ msgid "Hide indexes"
 msgstr "Απόκρυψη ευρετηρίων"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Εμφάνιση πλέγματος"
+msgstr "Εμφάνιση ευρετηρίων"
 
 #: js/messages.php:117
 msgid "Searching"
