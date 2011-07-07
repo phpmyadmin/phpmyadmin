@@ -2738,7 +2738,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:61
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Забрана на избора на много таблици за профилактика"
+msgstr "Изключване на избора на множество таблици при поддръжка"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
