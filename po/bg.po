@@ -5332,7 +5332,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
-msgstr ""
+msgstr "Заявки за четене"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Write requests"
