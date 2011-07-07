@@ -5125,10 +5125,9 @@ msgid "%d is not valid row number."
 msgstr "%d не е валиден номер на ред."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Реда в текстово поле"
+msgstr ""
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
