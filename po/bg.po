@@ -6680,7 +6680,7 @@ msgstr "Синхронизиране"
 #: libraries/server_links.inc.php:84 server_binlog.php:77
 #: server_status.php:266
 msgid "Binary log"
-msgstr "Двоичен журнал"
+msgstr "Двоичен дневник"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
 #: server_engines.php:129 server_status.php:318
