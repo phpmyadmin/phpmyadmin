@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 16:40+0200\n"
+"PO-Revision-Date: 2011-07-07 16:41+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8992,7 +8992,7 @@ msgstr "Добавяне на индекс(и)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Update row(s)"
-msgstr ""
+msgstr "Обновяване на ред(ове)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Insert row(s)"
