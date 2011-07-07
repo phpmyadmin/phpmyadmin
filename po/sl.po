@@ -4330,10 +4330,9 @@ msgstr ""
 "prikaza"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Privzeta smer prikaza"
+msgstr "Prikaži smer prikaza"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
