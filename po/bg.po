@@ -7446,7 +7446,7 @@ msgstr "Грешка: Зависимостта не е добавена."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "FOREIGN KEY зависимост е добавена"
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
