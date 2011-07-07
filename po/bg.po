@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 09:45+0200\n"
+"PO-Revision-Date: 2011-07-07 09:46+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6680,7 +6680,7 @@ msgstr "Синхронизиране"
 #: libraries/server_links.inc.php:84 server_binlog.php:77
 #: server_status.php:266
 msgid "Binary log"
-msgstr "Двоичен дневник"
+msgstr "Двоичен журнал"
 
 #: libraries/server_links.inc.php:95 server_engines.php:125
 #: server_engines.php:129 server_status.php:318
