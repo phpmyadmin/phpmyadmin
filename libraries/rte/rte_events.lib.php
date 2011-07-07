@@ -7,30 +7,28 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+function PMA_RTE_getWord($index)
+{
+    $words = array(
+        'add'       => __('Add event'),
+        'docu'      => 'EVENTS',
+        'export'    => __('Export of event %s'),
+        'human'     => __('event'),
+        'no_create' => __('You do not have the necessary privileges to create a new event'),
+        'not_found' => __('No event with name %1$s found in database %2$s'),
+        'nothing'   => __('There are no events to display.'),
+        'title'     => __('Events'),
+    );
+    return isset($words[$index]) ? $words[$index] : '';
+}
+
 /**
  * Main function for the events functionality
  */
 function PMA_RTE_main()
 {
-    global $db, $header_arr, $human_name;
+    global $db;
 
-    /**
-     * Here we define some data that will be used to create the list events
-     */
-    $human_name = __('event');
-    $columns    = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-    $where      = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
-    $items      = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where ORDER BY `EVENT_NAME` ASC;");
-    $cols       = array(array('label'   => __('Name'),   'colspan' => 1, 'field'   => 'name'),
-                        array('label'   => __('Status'), 'colspan' => 1, 'field'   => 'status'),
-                        array('label'   => __('Action'), 'colspan' => 3, 'field'   => 'edit'),
-                        array(                                           'field'   => 'export'),
-                        array(                                           'field'   => 'drop'),
-                        array('label'   => __('Type'),   'colspan' => 1, 'field'   => 'type'));
-    $header_arr = array('title'   => __('Events'),
-                        'docu'    => 'EVENTS',
-                        'nothing' => __('There are no events to display.'),
-                        'cols'    => $cols);
     /**
      * Process all requests
      */
@@ -39,14 +37,17 @@ function PMA_RTE_main()
     /**
      * Display a list of available events
      */
+    $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
+    $where   = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
+    $items   = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where ORDER BY `EVENT_NAME` ASC;");
     echo PMA_RTE_getList('event', $items);
     /**
      * Display a link for adding a new event, if
      * the user has the privileges and a link to
-     * toggle the state of the vent scheduler.
+     * toggle the state of the event scheduler.
      */
     echo PMA_EVN_getFooterLinks();
-} // end PMA_EVN_main()
+} // end PMA_RTE_main()
 
 function PMA_EVN_handleEditor()
 {
@@ -122,7 +123,7 @@ function PMA_EVN_handleEditor()
                 $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
                 $event   = PMA_DBI_fetch_single_row($query);
                 $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
-                $extra_data['new_row'] = PMA_RTE_getRowForList('event', $event, 0);
+                $extra_data['new_row'] = PMA_EVN_getRowForList($event);
                 $extra_data['insert'] = ! empty($event);
                 $response = $output;
             } else {
@@ -172,7 +173,7 @@ function PMA_EVN_handleEditor()
             // exit;
         } else {
             $message = __('Error in processing request') . ' : '
-                     . sprintf(__('No event with name %1$s found in database %2$s'),
+                     . sprintf(PMA_RTE_getWord('not_found'),
                                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
                                htmlspecialchars(PMA_backquote($db)));
             $message = PMA_message::error($message);

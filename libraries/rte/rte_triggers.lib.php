@@ -7,33 +7,28 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+function PMA_RTE_getWord($index)
+{
+    $words = array(
+        'add'       => __('Add trigger'),
+        'docu'      => 'TRIGGERS',
+        'export'    => __('Export of trigger %s'),
+        'human'     => __('trigger'),
+        'no_create' => __('You do not have the necessary privileges to create a new trigger'),
+        'not_found' => __('No trigger with name %1$s found in database %2$s'),
+        'nothing'   => __('There are no triggers to display.'),
+        'title'     => __('Triggers'),
+    );
+    return isset($words[$index]) ? $words[$index] : '';
+}
+
 /**
  * Main function for the triggers functionality
  */
 function PMA_RTE_main()
 {
-    global $db, $table, $header_arr, $human_name;
+    global $db, $table;
 
-    /**
-     * Here we define some data that will be used to create the list triggers
-     */
-    $human_name = __('trigger');
-    $items      = PMA_DBI_get_triggers($db, $table);
-    $cols       = array(array('label' => __('Name'),   'colspan' => 1, 'field'   => 'name'),
-                        array('label' => __('Table'),  'colspan' => 1, 'field'   => 'table'),
-                        array('label' => __('Action'), 'colspan' => 3, 'field'   => 'edit'),
-                        array(                                         'field'   => 'export'),
-                        array(                                         'field'   => 'drop'),
-                        array('label' => __('Time'),   'colspan' => 1, 'field'   => 'time'),
-                        array('label' => __('Event'),  'colspan' => 1, 'field'   => 'event'));
-    $header_arr = array('title'   => __('Triggers'),
-                        'docu'    => 'TRIGGERS',
-                        'nothing' => __('There are no triggers to display.'),
-                        'cols'    => $cols);
-    if (! empty($table)) {
-        // Remove the table header
-        unset ($header_arr['cols']['1']);
-    }
     /**
      * Process all requests
      */
@@ -42,14 +37,14 @@ function PMA_RTE_main()
     /**
      * Display a list of available triggers
      */
-    $items = PMA_DBI_get_triggers($db, $table); // refresh list
+    $items = PMA_DBI_get_triggers($db, $table);
     echo PMA_RTE_getList('trigger', $items);
     /**
      * Display a link for adding a new trigger,
      * if the user has the necessary privileges
      */
     echo PMA_TRI_getFooterLinks();
-} // end PMA_TRI_main()
+} // end PMA_RTE_main()
 
 function PMA_TRI_handleEditor()
 {
@@ -126,7 +121,7 @@ function PMA_TRI_handleEditor()
                 if (empty($table) || $table == $trigger['table']) {
                     $extra_data['insert'] = true;
                 }
-                $extra_data['new_row'] = PMA_RTE_getRowForList('trigger', $trigger, 0);
+                $extra_data['new_row'] = PMA_TRI_getRowForList($trigger);
                 $response = $output;
             } else {
                 $response = $message;
@@ -171,7 +166,7 @@ function PMA_TRI_handleEditor()
             // exit;
         } else {
             $message = __('Error in processing request') . ' : '
-                     . sprintf(__('No trigger with name %1$s found in database %2$s'),
+                     . sprintf(PMA_RTE_getWord('not_found'),
                                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
                                htmlspecialchars(PMA_backquote($db)));
             $message = PMA_message::error($message);

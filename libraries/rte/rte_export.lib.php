@@ -16,14 +16,13 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_RTE_handleExport($item_name, $export_data)
 {
-    global $db, $table, $human_name;
+    global $db, $table;
 
     $item_name = htmlspecialchars(PMA_backquote($_GET['item_name']));
     if ($export_data !== false) {
         $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
-                     . htmlspecialchars($export_data) . '</textarea>';
-        // l10n: Sample output: 'Export of event `testevent`' or 'Export of trigger `mytrigger`'
-        $title = sprintf(__('Export of %1$s %2$s'), $human_name, $item_name);
+                     . htmlspecialchars(trim($export_data)) . '</textarea>';
+        $title = sprintf(PMA_RTE_getWord('export'), $item_name);
         if ($GLOBALS['is_ajax_request'] == true) {
             $extra_data = array('title' => $title);
             PMA_ajaxResponse($export_data, true, $extra_data);
@@ -36,9 +35,7 @@ function PMA_RTE_handleExport($item_name, $export_data)
     } else {
         $_db = htmlspecialchars(PMA_backquote($db));
         $response = __('Error in Processing Request') . ' : '
-        // l10n: Sample output: 'No event with name `myevent` found in database `mydb`'
-                  . sprintf(__('No %1$s with name %2$s found in database %3$s'),
-                            $human_name, $item_name, $_db);
+                  . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db);
         $response = PMA_message::error($response);
         if ($GLOBALS['is_ajax_request'] == true) {
             PMA_ajaxResponse($response, false);

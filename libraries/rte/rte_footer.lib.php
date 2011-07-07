@@ -18,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
-    global $db, $url_query, $ajax_class, $human_name;
+    global $db, $url_query, $ajax_class;
 
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
@@ -30,11 +30,10 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
         $retval .= "href='db_" . strtolower($name) . "s.php";
         $retval .= "?$url_query&amp;add_item=1'>";
         $retval .= PMA_getIcon('b_' . strtolower($name) . '_add.png');
-        $retval .= sprintf(__('Add %s'), $human_name) . "</a>\n";
+        $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
         $retval .= "            " . PMA_getIcon('b_' . strtolower($name) . '_add.png');
-        $retval .= sprintf(__('You do not have the necessary privileges to create a new %s'),
-                           $human_name) . "\n";
+        $retval .= PMA_RTE_getWord('no_create') . "\n";
     }
     $retval .= "            " . PMA_showMySQLDocu('SQL-Syntax', $docu) . "\n";
     $retval .= "        </div>\n";

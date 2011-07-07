@@ -7,31 +7,28 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+function PMA_RTE_getWord($index)
+{
+    $words = array(
+        'add'       => __('Add routine'),
+        'docu'      => 'STORED_ROUTINES',
+        'export'    => __('Export of routine %s'),
+        'human'     => __('routine'),
+        'no_create' => __('You do not have the necessary privileges to create a new routine'),
+        'not_found' => __('No routine with name %1$s found in database %2$s'),
+        'nothing'   => __('There are no routines to display.'),
+        'title'     => __('Routines'),
+    );
+    return isset($words[$index]) ? $words[$index] : '';
+}
+
 /**
  * Main function for the routines functionality
  */
 function PMA_RTE_main()
 {
-    global $db, $header_arr, $human_name;
+    global $db;
 
-    /**
-     * Here we define some data that will be used to create the list routines
-     */
-    $human_name = __('routine');
-    $columns = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
-    $items   = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
-    $cols    = array(array('label' => __('Name'),   'colspan' => 1, 'field'   => 'name'),
-                     array('label' => __('Action'), 'colspan' => 4, 'field'   => 'edit'),
-                     array(                         'colspan' => 1, 'field'   => 'execute'),
-                     array(                         'colspan' => 1, 'field'   => 'export'),
-                     array(                         'colspan' => 1, 'field'   => 'drop'),
-                     array('label' => __('Type'),   'colspan' => 1, 'field'   => 'type'),
-                     array('label' => __('Returns'),'colspan' => 1, 'field'   => 'returns'));
-    $header_arr = array('title'   => __('Routines'),
-                        'docu'    => 'STORED_ROUTINES',
-                        'nothing' => __('There are no routines to display.'),
-                        'cols'    => $cols);
     /**
      * Process all requests
      */
@@ -41,6 +38,9 @@ function PMA_RTE_main()
     /**
      * Display a list of available routines
      */
+    $columns = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
+    $items   = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
     echo PMA_RTE_getList('routine', $items);
     /**
      * Display the form for adding a new routine, if the user has the privileges.
@@ -56,7 +56,7 @@ function PMA_RTE_main()
                        . 'Please use the improved \'mysqli\' extension to '
                        . 'avoid any problems.'), E_USER_WARNING);
     }
-}
+} // end PMA_RTE_main()
 
 /**
  * This function parses a string containing one parameter of a routine,
@@ -412,9 +412,9 @@ function PMA_RTN_handleEditor()
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
                 $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
-                $extra_data['name']      = htmlspecialchars(strtoupper($_REQUEST['item_name']));
-                $extra_data['new_row']   = PMA_RTE_getRowForList('routine', $routine, 0);
-                $extra_data['insert']    = ! empty($routine);
+                $extra_data['name']    = htmlspecialchars(strtoupper($_REQUEST['item_name']));
+                $extra_data['new_row'] = PMA_RTN_getRowForList($routine);
+                $extra_data['insert']  = ! empty($routine);
                 $response = $output;
             } else {
                 $response = $message;
@@ -473,7 +473,7 @@ function PMA_RTN_handleEditor()
             // exit;
         } else {
             $message = __('Error in processing request') . ' : '
-                     . sprintf(__('No routine with name %1$s found in database %2$s'),
+                     . sprintf(PMA_RTE_getWord('not_found'),
                                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
                                htmlspecialchars(PMA_backquote($db)));
             $message = PMA_message::error($message);
