@@ -5381,10 +5381,9 @@ msgid "Number of rows"
 msgstr "Número de filas"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Más"
+msgstr "Modo"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
