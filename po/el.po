@@ -5357,10 +5357,9 @@ msgid "%d is not valid row number."
 msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γραμμών."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Γραμμές περιοχής κειμένου (textarea)"
+msgstr "Γραμμή έναρξης"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
