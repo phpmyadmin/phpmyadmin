@@ -8265,7 +8265,7 @@ msgstr ""
 
 #: server_status.php:303
 msgid "Flush query cache"
-msgstr ""
+msgstr "Изчистване на буфера за заявки"
 
 #: server_status.php:396
 msgid "Runtime Information"
