@@ -8780,7 +8780,7 @@ msgstr "Брой на отворените файлове."
 
 #: server_status.php:934
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "Броят отворени потоци (използва се главно в дневници)."
+msgstr "Броят отворени потоци (използва се главно за дневници)."
 
 #: server_status.php:935
 msgid "The number of tables that are open."
