@@ -8776,7 +8776,7 @@ msgstr ""
 
 #: server_status.php:933
 msgid "The number of files that are open."
-msgstr "Брой на отворените файлове."
+msgstr "Броят отворени файлове."
 
 #: server_status.php:934
 msgid "The number of streams that are open (used mainly for logging)."
