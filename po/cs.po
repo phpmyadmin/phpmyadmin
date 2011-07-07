@@ -5308,7 +5308,7 @@ msgstr "svislém"
 
 #: libraries/display_tbl.lib.php:452
 msgid "Headers every"
-msgstr ""
+msgstr "Hlavičky opakovat po"
 
 #: libraries/display_tbl.lib.php:454
 #, fuzzy
