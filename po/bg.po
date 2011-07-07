@@ -7454,7 +7454,7 @@ msgstr "Вътрешна зависимост е добавена"
 
 #: pmd_relation_upd.php:55
 msgid "Relation deleted"
-msgstr "Изтрита връзка"
+msgstr "Зависимостта изтрита"
 
 #: pmd_save_pos.php:44
 msgid "Error saving coordinates for Designer."
