@@ -5302,10 +5302,10 @@ msgid "vertical"
 msgstr "svislém"
 
 #: libraries/display_tbl.lib.php:452
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every"
 msgid "Headers every %s rows"
-msgstr "Hlavičky opakovat po"
+msgstr "Záhlaví opakovat každých %s řádek"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
