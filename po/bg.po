@@ -9024,7 +9024,7 @@ msgstr "Следните заявки бяха изпълнени:"
 
 #: server_synchronize.php:1126
 msgid "Enter manually"
-msgstr ""
+msgstr "Ръчно въвеждане"
 
 #: server_synchronize.php:1134
 msgid "Current connection"
