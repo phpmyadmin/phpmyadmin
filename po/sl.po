@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-07-07 11:48+0200\n"
+"PO-Revision-Date: 2011-07-07 11:50+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -5291,7 +5291,7 @@ msgstr "Kliknite za označitev/opustitev"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Kliknite spustno puščico<br />za preklop vidnosti stolpcev"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
