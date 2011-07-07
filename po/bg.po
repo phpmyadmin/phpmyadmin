@@ -8328,7 +8328,7 @@ msgstr "Мрежови трафик от включването: %s"
 #: server_status.php:633
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
-msgstr "Този MySQL сървър работи от %s. Стартиран е на %s."
+msgstr "Този MySQL сървър работи от %s. Включен е на %s."
 
 #: server_status.php:643
 msgid ""
