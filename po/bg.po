@@ -1849,7 +1849,7 @@ msgstr "%s е разрешен на този MySQL сървър."
 #: libraries/StorageEngine.class.php:319
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s е изключен за този MySQL сървър."
+msgstr "%s е забранено за този MySQL сървър."
 
 #: libraries/StorageEngine.class.php:323
 #, php-format
