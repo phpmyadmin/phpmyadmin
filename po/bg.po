@@ -5304,7 +5304,7 @@ msgstr "страници"
 
 #: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
-msgstr ""
+msgstr "Свободни страници"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
