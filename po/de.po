@@ -5331,10 +5331,9 @@ msgid "%d is not valid row number."
 msgstr "%d ist keine gültige Zeilennummer."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Textfeldzeilen"
+msgstr "Anfangs-Datensatz"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
