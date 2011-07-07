@@ -5,45 +5,6 @@
  */
 
 /**
- * Ensures indexes names are valid according to their type and, for a primary
- * key, lock index name to 'PRIMARY'
- *
- * @return  boolean  false if there is no index form, true else
- */
-function checkIndexName()
-{
-    if (typeof(document.forms['index_frm']) == 'undefined') {
-        return false;
-    }
-
-    // Gets the elements pointers
-    var the_idx_name = document.forms['index_frm'].elements['index[Key_name]'];
-    var the_idx_type = document.forms['index_frm'].elements['index[Index_type]'];
-
-    // Index is a primary key
-    if (the_idx_type.options[0].value == 'PRIMARY' && the_idx_type.options[0].selected) {
-        document.forms['index_frm'].elements['index[Key_name]'].value = 'PRIMARY';
-        if (typeof(the_idx_name.disabled) != 'undefined') {
-            document.forms['index_frm'].elements['index[Key_name]'].disabled = true;
-        }
-    }
-
-    // Other cases
-    else {
-        if (the_idx_name.value == 'PRIMARY') {
-            document.forms['index_frm'].elements['index[Key_name]'].value = '';
-        }
-        if (typeof(the_idx_name.disabled) != 'undefined') {
-            document.forms['index_frm'].elements['index[Key_name]'].disabled = false;
-        }
-    }
-
-    return true;
-} // end of the 'checkIndexName()' function
-
-onload = checkIndexName;
-
-/**
  * Hides/shows the inputs and submits appropriately depending
  * on whether the index type chosen is 'SPATIAL' or not.
  */
@@ -132,7 +93,12 @@ function checkIndexType()
  */
 $(document).ready(function() {
     checkIndexType();
-    $('#select_index_type').live('change', checkIndexType);
+    checkIndexName("index_frm");
+    $('#select_index_type').live('change', function(event){
+        event.preventDefault();
+        checkIndexType();
+        checkIndexName("index_frm");
+    });
 });
 
 /**#@- */

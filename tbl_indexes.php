@@ -179,7 +179,7 @@ PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b>
 
 <div class="formelement">
 <label for="select_index_type"><?php echo __('Index type:'); ?></label>
-<select name="index[Index_type]" id="select_index_type" onchange="return checkIndexName()">
+<select name="index[Index_type]" id="select_index_type" >
     <?php echo $index->generateIndexSelector(); ?>
 </select>
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>

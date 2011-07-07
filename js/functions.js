@@ -2152,8 +2152,47 @@ function displayMoreTableOpts() {
                 }
             });
     }
+
 }
 $(document).ready(initTooltips);
+
+/**
+ * Ensures indexes names are valid according to their type and, for a primary
+ * key, lock index name to 'PRIMARY'
+ *
+ * @return  boolean  false if there is no index form, true else
+ */
+function checkIndexName(form_name)
+{
+    if ($("#"+form_name).length == 0) {
+        return false
+    }
+
+    // Gets the elements pointers
+    var the_idx_name = $("#input_index_name");
+    var the_idx_type = $("#select_index_type");
+
+    // Index is a primary key
+    if (the_idx_type.find("option:selected").attr("value") == 'PRIMARY') {
+        $("#input_index_name").attr("value",  'PRIMARY');
+        if (the_idx_name.attr("disabled") != 'undefined') {
+            $("#input_index_name").attr("disabled", true);
+        }
+    }
+
+    // Other cases
+    else {
+        if (the_idx_name.attr("value") == 'PRIMARY') {
+            $("#input_index_name").attr("value",  '');
+        }
+        if (the_idx_name.attr("disabled") != 'undefined') {
+            $("#input_index_name").attr("disabled", false);
+        }
+    }
+
+    return true;
+} // end of the 'checkIndexName()' function
+
 
 /* Displays tooltips */
 function initTooltips() {

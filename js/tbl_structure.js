@@ -300,12 +300,12 @@ $(document).ready(function() {
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
-                checkIndexName();
+                checkIndexName("index_frm");
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     });
-
+    
     /**
      *Ajax action for submiting the index form
     **/
@@ -392,7 +392,5 @@ $(document).ready(function() {
         });
     } //end show/hide table index
     
-    $('#select_index_type').live('change', checkIndexType);
-
 
 }) // end $(document).ready()
