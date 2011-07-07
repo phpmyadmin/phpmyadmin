@@ -7422,7 +7422,7 @@ msgstr ""
 
 #: pmd_pdf.php:102
 msgid "Create a page and export to it"
-msgstr ""
+msgstr "създаване на страница и експорт към нея"
 
 #: pmd_pdf.php:111
 msgid "New page name: "
