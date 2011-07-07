@@ -84,7 +84,7 @@ foreach ($the_tables as $key => $table) {
     }
     $counter++;
     echo '<div' . $breakstyle . '>' . "\n";
-    echo '<h1>' . $table . '</h1>' . "\n";
+    echo '<h1>' . htmlspecialchars($table) . '</h1>' . "\n";
 
     /**
      * Gets table informations
