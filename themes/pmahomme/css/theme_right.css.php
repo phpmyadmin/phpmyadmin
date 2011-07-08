@@ -1175,11 +1175,14 @@ h3#serverstatusqueries span {
     display:inline;
 }
 
-table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
+th img.sortableIcon, th img.sortableIcon {
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
 }
-table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serverstatusvariables th.headerSortDown img.sortableIcon {
+th.headerSortUp img.sortableIcon, th.headerSortUp img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
+}
+th.headerSortDown img.sortableIcon, th.headerSortDown img.sortableIcon {
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
 }
 
 .statuslinks {
