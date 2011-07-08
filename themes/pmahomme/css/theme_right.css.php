@@ -63,9 +63,14 @@ h2 img{display:none;}
 h2 a img{display:inline;}
 
 
-.data{
+.data,
+.data_full_width {
 margin: 0 0 12px 0;
 position: relative;
+}
+
+.data_full_width {
+    width: 100%;
 }
 
 h3 {

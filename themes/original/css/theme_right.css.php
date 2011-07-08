@@ -2132,8 +2132,13 @@ span.mysql-number {
     border-radius: 0.3em;
 }
 
-.data {
+.data,
+.data_full_width {
     position: relative;
+}
+
+.data_full_width {
+    width: 100%;
 }
 
 .cHide {
