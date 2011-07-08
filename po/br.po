@@ -1297,10 +1297,9 @@ msgid "Hide indexes"
 msgstr "Kuzhat menegerioù"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Indexes"
 msgid "Show indexes"
-msgstr "Menegerioù"
+msgstr "Diskouez menegerioù"
 
 #: js/messages.php:117
 msgid "Searching"
