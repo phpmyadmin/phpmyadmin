@@ -2584,7 +2584,7 @@ msgstr "Lakaat al linennoù dibabet da skediñ"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Merker linennoù"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
