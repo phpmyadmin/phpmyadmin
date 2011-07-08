@@ -2159,13 +2159,14 @@ $(document).ready(initTooltips);
 /**
  * Ensures indexes names are valid according to their type and, for a primary
  * key, lock index name to 'PRIMARY'
- *
- * @return  boolean  false if there is no index form, true else
+ * @param   string   form_id  Variable which parses the form name as
+ *                            the input
+ * @return  boolean  false    if there is no index form, true else
  */
-function checkIndexName(form_name)
+function checkIndexName(form_id)
 {
-    if ($("#"+form_name).length == 0) {
-        return false
+    if ($("#"+form_id).length == 0) {
+        return false;
     }
 
     // Gets the elements pointers
@@ -2174,20 +2175,16 @@ function checkIndexName(form_name)
 
     // Index is a primary key
     if (the_idx_type.find("option:selected").attr("value") == 'PRIMARY') {
-        $("#input_index_name").attr("value",  'PRIMARY');
-        if (the_idx_name.attr("disabled") != 'undefined') {
-            $("#input_index_name").attr("disabled", true);
-        }
+        the_idx_name.attr("value", 'PRIMARY');
+        the_idx_name.attr("disabled", true);
     }
 
     // Other cases
     else {
         if (the_idx_name.attr("value") == 'PRIMARY') {
-            $("#input_index_name").attr("value",  '');
+            the_idx_name.attr("value",  '');
         }
-        if (the_idx_name.attr("disabled") != 'undefined') {
-            $("#input_index_name").attr("disabled", false);
-        }
+        the_idx_name.attr("disabled", false);
     }
 
     return true;
