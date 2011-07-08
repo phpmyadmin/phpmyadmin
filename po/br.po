@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-02 22:10+0200\n"
+"PO-Revision-Date: 2011-07-08 19:28+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1292,10 +1292,9 @@ msgid "Insert Table"
 msgstr "Ensoc'hañ un daolenn"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "Menegerioù"
+msgstr "Kuzhat menegerioù"
 
 #: js/messages.php:114
 #, fuzzy
