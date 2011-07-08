@@ -108,6 +108,10 @@ if (isset($_REQUEST['do_save_data'])) {
         require './tbl_structure.php';
         exit;
     } else {
+        if( $GLOBALS['is_ajax_request'] == true) {
+            $extra_data['error'] = $error;
+            PMA_ajaxResponse($error,false);
+        }
         $error->display();
     }
 } // end builds the new index

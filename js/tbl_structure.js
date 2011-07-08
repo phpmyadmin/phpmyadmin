@@ -338,8 +338,14 @@ $(document).ready(function() {
                 }
 
             } else {
-                var temp_div = $("<div id='temp_div'><div>").append(data.error);
-                var error = $(temp_div).find(".error code").addClass("error");
+                if(data.error != undefined) {
+                    var temp_div = $("<div id='temp_div'><div>").append(data.error);
+                    if($(temp_div).find(".error code").length != 0) {
+                        var error = $(temp_div).find(".error code").addClass("error");
+                    } else {
+                        var error = temp_div;
+                    }
+                }
                 PMA_ajaxShowMessage(error);
             }
 
