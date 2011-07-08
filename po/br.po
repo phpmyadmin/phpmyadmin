@@ -2626,7 +2626,7 @@ msgstr "Niver a vannoù evit an takadoù skrid CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Bannoù evit an takadoù skrid CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
