@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-08 19:31+0200\n"
+"PO-Revision-Date: 2011-07-08 19:32+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2558,7 +2558,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Aotren ar frammoù a-berzh tud all"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
