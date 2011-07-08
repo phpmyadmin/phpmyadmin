@@ -2667,7 +2667,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Dizreinañ SQL"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
