@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 14:31+0200\n"
+"PO-Revision-Date: 2011-07-07 16:45+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -3359,7 +3359,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr "Брой на добавените редове"
+msgstr "Броят добавени редове"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
@@ -5080,11 +5080,11 @@ msgstr "Щракване за сортиране"
 
 #: libraries/display_tbl.lib.php:419
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Щракване за маркиране/отмаркиране"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Щракнете стрелката,<br/>за да изберете колони"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5093,7 +5093,7 @@ msgstr "%d не е валиден номер на ред."
 
 #: libraries/display_tbl.lib.php:436
 msgid "Start row"
-msgstr ""
+msgstr "Начален ред"
 
 #: libraries/display_tbl.lib.php:438
 msgid "Number of rows"
@@ -5118,7 +5118,7 @@ msgstr "вертикален"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Заглавки всеки %s реда"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
@@ -5155,7 +5155,7 @@ msgstr "Браузърна трансформация"
 
 #: libraries/display_tbl.lib.php:650
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрия"
 
 #: libraries/display_tbl.lib.php:651
 msgid "Well Known Text"
@@ -5209,7 +5209,7 @@ msgstr "Показване на диаграма"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Визуализиране на GIS данни"
 
 #: libraries/display_tbl.lib.php:2529
 msgid "Create view"
@@ -5256,11 +5256,11 @@ msgstr "Весия"
 
 #: libraries/engines/innodb.lib.php:20
 msgid "Data home directory"
-msgstr ""
+msgstr "Папка с данни"
 
 #: libraries/engines/innodb.lib.php:21
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Общата част от пътя до папката с всички InnoDB файлове."
 
 #: libraries/engines/innodb.lib.php:24
 msgid "Data files"
@@ -5304,11 +5304,11 @@ msgstr "страници"
 
 #: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
-msgstr ""
+msgstr "Свободни страници"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
-msgstr ""
+msgstr "Мръсни страници"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
@@ -5316,15 +5316,15 @@ msgstr "Страници съдържащи данни"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Страници за изчистване"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
-msgstr ""
+msgstr "Заети страници"
 
 #: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
-msgstr ""
+msgstr "Заключени страници"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
@@ -5332,27 +5332,27 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
-msgstr ""
+msgstr "Заявки за четене"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Write requests"
-msgstr ""
+msgstr "Заявки за запис"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Read misses"
-msgstr ""
+msgstr "Пропуснати прочитания"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
-msgstr ""
+msgstr "Изчаквания за запис"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
-msgstr ""
+msgstr "Пропуснати прочитания в %"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
-msgstr ""
+msgstr "Изчаквания за запис в %"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
@@ -5479,7 +5479,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Заглавки на метаданните"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
@@ -5508,7 +5508,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr ""
+msgstr "Размер на буфера за индекси"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
@@ -5518,7 +5518,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr ""
+msgstr "Размер на буфера за записи"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
@@ -5529,7 +5529,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
-msgstr ""
+msgstr "Размер на буфера на дневника"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
@@ -7126,7 +7126,7 @@ msgstr "Принос"
 
 #: main.php:218
 msgid "Get support"
-msgstr ""
+msgstr "Получаване на помощ"
 
 #: main.php:219
 msgid "List of changes"
@@ -7727,8 +7727,7 @@ msgstr "Няма ефект в тази версия на MySQL."
 #: server_privileges.php:559
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
-"Позволява презареждане на сървърните настройки и изчистване на кеша на "
-"сървъра."
+"Позволява презареждане на настройките и изчистване на буфера на сървъра."
 
 #: server_privileges.php:58 server_privileges.php:208
 #: server_privileges.php:566
@@ -7767,9 +7766,9 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"Позволява конектвне, дори ако е достигнат максималния брой на конекциите; "
-"Изисква се за повечето административни операции, като установяване на "
-"глобални променливи или спиране на нишка на други потребители."
+"Позволява връзка, дори ако е достигнат максималния брой на връзка; Изисква "
+"се за повечето административни операции, като установяване на глобални "
+"променливи или спиране на нишка на други потребители."
 
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
@@ -8217,7 +8216,7 @@ msgstr ""
 
 #: server_status.php:264
 msgid "Query cache"
-msgstr "Кеш на заявките"
+msgstr "Буфер за заявки"
 
 #: server_status.php:265
 msgid "Threads"
@@ -8233,7 +8232,7 @@ msgstr "Забавени вмъквания"
 
 #: server_status.php:269
 msgid "Key cache"
-msgstr "Кеш на ключове"
+msgstr "Буфер за ключове"
 
 #: server_status.php:270
 msgid "Joins"
@@ -8265,7 +8264,7 @@ msgstr ""
 
 #: server_status.php:303
 msgid "Flush query cache"
-msgstr ""
+msgstr "Изчистване на буфера за заявки"
 
 #: server_status.php:396
 msgid "Runtime Information"
@@ -8289,11 +8288,11 @@ msgstr "Съдържащ думата:"
 
 #: server_status.php:467
 msgid "Show only alert values"
-msgstr ""
+msgstr "Само тревожни стойности"
 
 #: server_status.php:471
 msgid "Filter by category..."
-msgstr ""
+msgstr "Филтър по категория..."
 
 #: server_status.php:484
 msgid "Related links:"
@@ -8324,12 +8323,12 @@ msgstr "№"
 #: server_status.php:625
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Мрежови трафик от включването: %s"
 
 #: server_status.php:633
 #, php-format
 msgid "This MySQL server has been running for %s. It started up on %s."
-msgstr "Този MySQL сървър работи от %s. Стартиран е на %s."
+msgstr "Този MySQL сървър работи от %s. Включен е на %s."
 
 #: server_status.php:643
 msgid ""
@@ -8379,7 +8378,7 @@ msgstr "Конекции"
 
 #: server_status.php:727
 msgid "max. concurrent connections"
-msgstr "максимален брой на едновременните конекции"
+msgstr "максимален брой на едновременните връзки"
 
 #: server_status.php:734
 msgid "Failed attempts"
@@ -8423,7 +8422,7 @@ msgstr ""
 
 #: server_status.php:861
 msgid "How many temporary files mysqld has created."
-msgstr "Брой на създадените от mysqld временни файлове."
+msgstr "Броят създадени от mysqld временни файлове."
 
 #: server_status.php:862
 msgid ""
@@ -8445,7 +8444,7 @@ msgstr ""
 
 #: server_status.php:865
 msgid "The number of INSERT DELAYED rows written."
-msgstr "Брой на вмъкнатите посредством INSERT DELAYED редове."
+msgstr "Броят вмъкнати посредством INSERT DELAYED редове."
 
 #: server_status.php:866
 msgid "The number of executed FLUSH statements."
@@ -8700,7 +8699,7 @@ msgstr ""
 
 #: server_status.php:918
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "Броят изтрити редове от InnoDB таблици."
 
 #: server_status.php:919
 msgid "The number of rows inserted in InnoDB tables."
@@ -8708,7 +8707,7 @@ msgstr "Броят вмъкнати редове в InnoDB таблици."
 
 #: server_status.php:920
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "Броят прочетени редове от InnoDB таблици."
 
 #: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
@@ -8777,15 +8776,15 @@ msgstr ""
 
 #: server_status.php:933
 msgid "The number of files that are open."
-msgstr "Брой на отворените файлове."
+msgstr "Броят отворени файлове."
 
 #: server_status.php:934
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "Брой на отворените потоци (използва се главно за логове)."
+msgstr "Броят отворени потоци (използва се главно за дневници)."
 
 #: server_status.php:935
 msgid "The number of tables that are open."
-msgstr "Брой на отвотените таблици."
+msgstr "Броят отворени таблици."
 
 #: server_status.php:936
 msgid ""
@@ -8796,7 +8795,7 @@ msgstr ""
 
 #: server_status.php:937
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "Количеството свободна памет за буфер за заявки."
 
 #: server_status.php:938
 msgid "The number of cache hits."
@@ -8804,7 +8803,7 @@ msgstr "Броят попадения в кеш."
 
 #: server_status.php:939
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Броят заявки добавени към буфера."
 
 #: server_status.php:940
 msgid ""
@@ -8822,11 +8821,11 @@ msgstr ""
 
 #: server_status.php:942
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Броят заявки регистрирани в буфера."
 
 #: server_status.php:943
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Общият брой блокове в буфера за заявки."
 
 #: server_status.php:944
 msgid "The status of failsafe replication (not yet implemented)."
@@ -8896,7 +8895,7 @@ msgstr ""
 
 #: server_status.php:957
 msgid "The number of sorted rows."
-msgstr "Брой на сортираните редове."
+msgstr "Броят сортирани редове."
 
 #: server_status.php:958
 msgid "The number of sorts that were done by scanning the table."
@@ -8953,79 +8952,79 @@ msgstr ""
 
 #: server_synchronize.php:261
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "Синхронизиране на структурата"
 
 #: server_synchronize.php:266
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Синхронизиране на данните"
 
 #: server_synchronize.php:395 server_synchronize.php:834
 msgid "not present"
-msgstr ""
+msgstr "не съществува"
 
 #: server_synchronize.php:419 server_synchronize.php:862
 msgid "Structure Difference"
-msgstr ""
+msgstr "Структурни различия"
 
 #: server_synchronize.php:420 server_synchronize.php:863
 msgid "Data Difference"
-msgstr ""
+msgstr "Различия в данните"
 
 #: server_synchronize.php:425 server_synchronize.php:868
 msgid "Add column(s)"
-msgstr ""
+msgstr "Добавяне на колона(и)"
 
 #: server_synchronize.php:426 server_synchronize.php:869
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Изтриване на колона(и)"
 
 #: server_synchronize.php:427 server_synchronize.php:870
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Промяна на колона(и)"
 
 #: server_synchronize.php:428 server_synchronize.php:871
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Изтриване на индекс(и)"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Добавяне на индекс(и)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Update row(s)"
-msgstr ""
+msgstr "Обновяване на ред(ове)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Вмъкване на ред(ове)"
 
 #: server_synchronize.php:441 server_synchronize.php:885
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Да бъде ли изтрито предишното съдържание на таблиците?"
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Прилагане на избраните промените"
 
 #: server_synchronize.php:446 server_synchronize.php:891
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Синхронизиране на БД"
 
 #: server_synchronize.php:459
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "Избраните целеви таблици бяха синхронизирани с изходните."
 
 #: server_synchronize.php:937
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Целевата БД беше синхронизирана с изходната"
 
 #: server_synchronize.php:998
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Следните заявки бяха изпълнени:"
 
 #: server_synchronize.php:1126
 msgid "Enter manually"
-msgstr ""
+msgstr "Ръчно въвеждане"
 
 #: server_synchronize.php:1134
 msgid "Current connection"
@@ -9034,11 +9033,11 @@ msgstr "Текуща връзка"
 #: server_synchronize.php:1163
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Настройка: %s"
 
 #: server_synchronize.php:1178
 msgid "Socket"
-msgstr ""
+msgstr "Сокет"
 
 #: server_synchronize.php:1224
 msgid ""

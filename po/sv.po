@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-06-25 01:19+0200\n"
+"PO-Revision-Date: 2011-07-07 21:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1281,16 +1281,14 @@ msgid "Insert Table"
 msgstr "Lägg till en tabell"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Lägg till index"
+msgstr "Dölj index"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Visa rutnät"
+msgstr "Visa index"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -4307,12 +4305,13 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Definierar oavsett om typ display riktning alternativ visas när du bläddrar "
+"en tabell"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Standard visningsriktning"
+msgstr "Visa visnings riktning"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -5266,7 +5265,7 @@ msgstr "Klicka för att markera/avmarkera"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Klicka på pilen <br /> för att växla kolumnens synlighet"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5274,22 +5273,19 @@ msgid "%d is not valid row number."
 msgstr "%d är inte ett giltigt radnummer."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Textarea rader"
+msgstr "Starta rad"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Antal rader:"
+msgstr "Antal rader"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Mera"
+msgstr "Läge"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5306,7 +5302,7 @@ msgstr "vertikal"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Sidhuvud var %s rad"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
@@ -7201,10 +7197,9 @@ msgid "PARTITION definition"
 msgstr "Partitionsdefinition"
 
 #: libraries/tbl_properties.inc.php:779
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "+ Add a value"
-msgstr "+ Lägg till ett nytt värde"
+msgstr "+ Lägg till ett värde"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 msgid ""
