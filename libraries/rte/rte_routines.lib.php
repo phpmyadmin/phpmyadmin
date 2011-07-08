@@ -7,6 +7,15 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
+ * rte_events.lib.php. It is used to retreive some language strings that are
+ * used in functionalities that are common to routines, triggers and events.
+ *
+ * @param   string  $index   The index of the string to get
+ *
+ * @return  string  The requested string or an empty string, if not available
+ */
 function PMA_RTE_getWord($index)
 {
     $words = array(
@@ -20,7 +29,7 @@ function PMA_RTE_getWord($index)
         'title'     => __('Routines'),
     );
     return isset($words[$index]) ? $words[$index] : '';
-}
+} // end PMA_RTE_getWord()
 
 /**
  * Main function for the routines functionality
@@ -331,6 +340,9 @@ function PMA_RTN_getRoutineDataFromName($name, $all = true)
     return $retval;
 } // PMA_RTN_getRoutineDataFromName()
 
+/**
+ * Handles editor requests for adding or editing an item
+ */
 function PMA_RTN_handleEditor()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $cfg, $errors;
@@ -479,10 +491,10 @@ function PMA_RTN_handleEditor()
             }
         }
     }
-}
+} // end PMA_RTN_handleEditor()
 
 /**
- * This function will generate the values that are required to complete the "Add new routine" form
+ * This function will generate the values that are required to complete the editor form
  * It is especially necessary to handle the 'Add another parameter', 'Remove last parameter'
  * and 'Change routine type' functionalities when JS is disabled.
  *
@@ -862,16 +874,16 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
  *                                 or add a new one: 'edit' or 'add'.
  * @param   string   $operation    If the editor was previously invoked with
  *                                 JS turned off, this will hold the name of
- *                                 the current operation: 'add', remove', 'change'
+ *                                 the current operation
  * @param   array    $routine      Data for the routine returned by
- *                                 PMA_RTN_getRoutineDataFromRequest() or
- *                                 PMA_RTN_getRoutineDataFromName()
+ *                                 PMA_RTN_getDataFromRequest() or
+ *                                 PMA_RTN_getDataFromName()
  * @param   array    $errors       If the editor was already invoked and there
  *                                 has been an error while processing the request
  *                                 this array will hold the errors.
  * @param   bool     $is_ajax      True, if called from an ajax request
  *
- * @return  string   HTML code for the routine editor.
+ * @return  string   HTML code for the editor.
  */
 function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax)
 {
@@ -1094,6 +1106,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax)
     return $retval;
 } // end PMA_RTN_getEditorForm()
 
+/**
+ * Handles requests for executing a routine
+ */
 function PMA_RTN_handleExecute()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $cfg;
@@ -1153,7 +1168,7 @@ function PMA_RTN_handleExecute()
                     break;
                 }
                 while (true) {
-                    if(! PMA_DBI_more_results()) {
+                    if (! PMA_DBI_more_results()) {
                         break;
                     }
                     PMA_DBI_next_result();
@@ -1268,7 +1283,7 @@ function PMA_RTN_handleExecute()
  * Creates the HTML code that shows the routine execution dialog.
  *
  * @param   array    $routine      Data for the routine returned by
- *                                 PMA_RTN_getRoutineDataFromName()
+ *                                 PMA_RTN_getDataFromName()
  * @param   bool     $is_ajax      True, if called from an ajax request
  *
  * @return  string   HTML code for the routine execution dialog.

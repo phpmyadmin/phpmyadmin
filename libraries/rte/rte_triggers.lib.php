@@ -7,6 +7,15 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
+ * rte_events.lib.php. It is used to retreive some language strings that are
+ * used in functionalities that are common to routines, triggers and events.
+ *
+ * @param   string  $index   The index of the string to get
+ *
+ * @return  string  The requested string or an empty string, if not available
+ */
 function PMA_RTE_getWord($index)
 {
     $words = array(
@@ -20,7 +29,7 @@ function PMA_RTE_getWord($index)
         'title'     => __('Triggers'),
     );
     return isset($words[$index]) ? $words[$index] : '';
-}
+} // end PMA_RTE_getWord()
 
 /**
  * Main function for the triggers functionality
@@ -46,6 +55,9 @@ function PMA_RTE_main()
     echo PMA_TRI_getFooterLinks();
 } // end PMA_RTE_main()
 
+/**
+ * Handles editor requests for adding or editing an item
+ */
 function PMA_TRI_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db, $table;
@@ -182,10 +194,10 @@ function PMA_TRI_handleEditor()
             }
         }
     }
-}
+} // end PMA_TRI_handleEditor()
 
 /**
- * This function will generate the values that are required to for the ditor
+ * This function will generate the values that are required to for the editor
  *
  * @return  array    Data necessary to create the editor.
  */
@@ -240,6 +252,20 @@ function PMA_TRI_getDataFromName($name)
     }
 } // end PMA_TRI_getDataFromName()
 
+/**
+ * Displays a form used to add/edit a trigger
+ *
+ * @param   string   $mode         If the editor will be used edit a trigger
+ *                                 or add a new one: 'edit' or 'add'.
+ * @param   string   $operation    If the editor was previously invoked with
+ *                                 JS turned off, this will hold the name of
+ *                                 the current operation
+ * @param   array    $item         Data for the trigger returned by
+ *                                 PMA_TRI_getDataFromRequest() or
+ *                                 PMA_TRI_getDataFromName()
+ *
+ * @return  string   HTML code for the editor.
+ */
 function PMA_TRI_getEditorForm($mode, $item)
 {
     global $db, $table, $titles, $event_manipulations, $action_timings;
@@ -337,7 +363,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "<!-- END " . strtoupper($mode) . " TRIGGER FORM -->\n\n";
 
     return $retval;
-}
+} // end PMA_TRI_getEditorForm()
 
 /**
  * Composes the query necessary to create a trigger from an HTTP request.

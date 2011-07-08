@@ -95,7 +95,7 @@ function PMA_RTE_getList($type, $items)
 } // end PMA_RTE_getList()
 
 /**
- * Creates the contents for a cell in the list of routines
+ * Creates the contents for a row in the list of routines
  *
  * @param    array    $routine    An array of routine data
  * @param    string   $rowclass   Empty or one of ['even'|'odd']
@@ -181,10 +181,10 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 } // end PMA_RTN_getRowForList()
 
 /**
- * Creates the contents for a cell in the list of triggers
+ * Creates the contents for a row in the list of triggers
  *
- * @param    string   $field     What kind of cell to return
- * @param    array    $trigger   An array of trigger data
+ * @param    array    $routine    An array of routine data
+ * @param    string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a cell for the list of triggers
  */
@@ -239,10 +239,10 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 } // end PMA_TRI_getRowForList()
 
 /**
- * Creates the contents for a cell in the list of events
+ * Creates the contents for a row in the list of events
  *
- * @param    string   $field   What kind of cell to return
- * @param    array    $event   An array of routine data
+ * @param    array    $routine    An array of routine data
+ * @param    string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a cell for the list of events
  */

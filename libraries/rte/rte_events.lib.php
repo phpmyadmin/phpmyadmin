@@ -7,6 +7,15 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
+ * rte_events.lib.php. It is used to retreive some language strings that are
+ * used in functionalities that are common to routines, triggers and events.
+ *
+ * @param   string  $index   The index of the string to get
+ *
+ * @return  string  The requested string or an empty string, if not available
+ */
 function PMA_RTE_getWord($index)
 {
     $words = array(
@@ -20,7 +29,7 @@ function PMA_RTE_getWord($index)
         'title'     => __('Events'),
     );
     return isset($words[$index]) ? $words[$index] : '';
-}
+} // end PMA_RTE_getWord()
 
 /**
  * Main function for the events functionality
@@ -49,6 +58,9 @@ function PMA_RTE_main()
     echo PMA_EVN_getFooterLinks();
 } // end PMA_RTE_main()
 
+/**
+ * Handles editor requests for adding or editing an item
+ */
 function PMA_EVN_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db, $table;
@@ -184,10 +196,10 @@ function PMA_EVN_handleEditor()
             }
         }
     }
-}
+} // end PMA_EVN_handleEditor()
 
 /**
- * This function will generate the values that are required to for the ditor
+ * This function will generate the values that are required to for the editor
  *
  * @return  array    Data necessary to create the editor.
  */
@@ -264,6 +276,20 @@ function PMA_EVN_getDataFromName($name)
     return $retval;
 } // end PMA_EVN_getDataFromName()
 
+/**
+ * Displays a form used to add/edit an event
+ *
+ * @param   string   $mode         If the editor will be used edit an event
+ *                                 or add a new one: 'edit' or 'add'.
+ * @param   string   $operation    If the editor was previously invoked with
+ *                                 JS turned off, this will hold the name of
+ *                                 the current operation
+ * @param   array    $item         Data for the event returned by
+ *                                 PMA_EVN_getDataFromRequest() or
+ *                                 PMA_EVN_getDataFromName()
+ *
+ * @return  string   HTML code for the editor.
+ */
 function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
     global $db, $table, $titles, $event_status, $event_type, $event_interval;
@@ -421,7 +447,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<!-- END " . strtoupper($mode) . " EVENT FORM -->\n\n";
 
     return $retval;
-}
+} // end PMA_EVN_getEditorForm()
 
 /**
  * Composes the query necessary to create an event from an HTTP request.
