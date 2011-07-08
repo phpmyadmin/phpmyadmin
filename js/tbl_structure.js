@@ -179,6 +179,7 @@ $(document).ready(function() {
                         height: 230,
                         width: 900,
                         open: PMA_verifyTypeOfAllColumns,
+                        modal: true,
                         buttons : button_options_error
                     })// end dialog options
                 } else {
@@ -189,6 +190,7 @@ $(document).ready(function() {
                         height: 600,
                         width: 900,
                         open: PMA_verifyTypeOfAllColumns,
+                        modal: true,
                         buttons : button_options
                     })
                     //Remove the top menu container from the dialog
@@ -285,6 +287,7 @@ $(document).ready(function() {
                     height: 230,
                     width: 900,
                     open: PMA_verifyTypeOfAllColumns,
+                    modal: true,
                     buttons : button_options_error
                 })// end dialog options
             } else {
@@ -295,6 +298,7 @@ $(document).ready(function() {
                     height: 600,
                     width: 900,
                     open: PMA_verifyTypeOfAllColumns,
+                    modal: true,
                     buttons : button_options
                 })
                 //Remove the top menu container from the dialog
