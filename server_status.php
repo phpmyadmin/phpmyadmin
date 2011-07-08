@@ -1207,6 +1207,7 @@ function printVariablesTable() {
 }
 
 function printMonitor() {
+    global $server_status;
 ?>
     <div class="popupMenu">
         <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
