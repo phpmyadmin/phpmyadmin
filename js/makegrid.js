@@ -749,15 +749,17 @@
                     g.showHint(e);
                 });
         }
-        $(t).find('th:not(.draggable)')
-            .mouseenter(function(e) {
-                g.showColVisibHint = true;
-                g.showHint(e);
-            })
-            .mouseleave(function(e) {
-                g.showColVisibHint = false;
-                g.showHint(e);
-            });
+        if ($firstRowCols.length > 1) {
+            $(t).find('th:not(.draggable)')
+                .mouseenter(function(e) {
+                    g.showColVisibHint = true;
+                    g.showHint(e);
+                })
+                .mouseleave(function(e) {
+                    g.showColVisibHint = false;
+                    g.showHint(e);
+                });
+        }
         $(t).find('th.draggable a')
             .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
