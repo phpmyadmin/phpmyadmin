@@ -2638,7 +2638,7 @@ msgstr "Linennoù evit an takadoù skrid CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Gwiriañ aotreoù ar restr gefluniañ"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
