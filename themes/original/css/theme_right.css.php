@@ -2107,15 +2107,6 @@ span.mysql-number {
     width: 10px;
 }
 
-.cPointerVer {  /* cPointer with vertical display mode */
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer_ver.png);
-    height: 10px;
-    margin-left: -5px;
-    margin-top: -5px;   /* must be minus half of its height */
-    position: absolute;
-    width: 20px;
-}
-
 .dHint {
     background: #333;
     border:1px solid #000;
