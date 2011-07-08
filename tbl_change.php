@@ -19,6 +19,9 @@ require_once './libraries/common.lib.php';
  */
 require_once './libraries/db_table_exists.lib.php';
 
+// load additional configuration variables
+require_once './libraries/data_mysql.inc.php';
+
 /**
  * Sets global variables.
  * Here it's better to use a if, instead of the '?' operator

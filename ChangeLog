@@ -27,16 +27,22 @@ phpMyAdmin - ChangeLog
 + [display] GIS data visualization
 + AJAX for table structure multiple-column change
 + AJAX for table structure index edit
-+ Show/hide indexes in table structure
++ Show/hide indexes in table Structure
 + More compact navigation bar
 + Display direction (horizontal/vertical) no longer displayed by default
 + Shift/click support in database Structure
++ Show/hide column in table Browse
+- bug #3353856 [AJAX] AJAX dialogs use wrong font-size
+- bug #3354356 [interface] Timepicker does not work in AJAX dialogs
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
 - bug #3323101 [parser] Invalid escape sequence in SQL parser
 - bug #3348995 [config] $cfg['Export']['asfile'] set to false does not select asText option
 - bug #3340151 [export] Working SQL query exports error page
+- bug #3353649 [interface] "Create an index on X columns" form not validated
+- bug #3350790 [interface] JS error in Table->Structure->Index->Edit
+- bug #3353811 [interface] Info message has "error" class
 
 3.4.3.1 (2011-07-02)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5

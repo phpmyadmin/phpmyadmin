@@ -142,7 +142,7 @@ class PMA_RecentTable
         $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
-                $html .= '<option value="' . $table . '">' . $table . '</option>';
+                $html .= '<option value="' . htmlspecialchars($table) . '">' . htmlspecialchars($table) . '</option>';
             }
         } else {
             $html .= '<option value="">' . __('There are no recent tables') . '</option>';
@@ -158,7 +158,7 @@ class PMA_RecentTable
     public function getHtmlSelect()
     {
         $html  = '<input type="hidden" name="goto" id="LeftDefaultTabTable" value="' .
-                         $GLOBALS['cfg']['LeftDefaultTabTable'] . '" />';
+                         htmlspecialchars($GLOBALS['cfg']['LeftDefaultTabTable']) . '" />';
         $html .= '<select name="table" id="recentTable">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
