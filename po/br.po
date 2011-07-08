@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-08 19:36+0200\n"
+"PO-Revision-Date: 2011-07-08 19:37+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2592,7 +2592,7 @@ msgstr "Lakaat al linenn a vuk al logodenn daveti da usskediñ"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Lakaat ar reti da usskediñ"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
