@@ -467,7 +467,7 @@ function PMA_RTN_handleEditor()
         }
         if ($routine !== false) {
             // Show form
-            $editor = PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $GLOBALS['is_ajax_request']);
+            $editor = PMA_RTN_getEditorForm($mode, $operation, $routine);
             if ($GLOBALS['is_ajax_request']) {
                 $template   = PMA_RTN_getParameterRow();
                 $extra_data = array('title' => $title,
@@ -878,16 +878,12 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
  * @param   array    $routine      Data for the routine returned by
  *                                 PMA_RTN_getDataFromRequest() or
  *                                 PMA_RTN_getDataFromName()
- * @param   array    $errors       If the editor was already invoked and there
- *                                 has been an error while processing the request
- *                                 this array will hold the errors.
- * @param   bool     $is_ajax      True, if called from an ajax request
  *
  * @return  string   HTML code for the editor.
  */
-function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax)
+function PMA_RTN_getEditorForm($mode, $operation, $routine)
 {
-    global $db, $titles, $param_directions, $param_sqldataaccess, $param_opts_num;
+    global $db, $titles, $errors, $param_directions, $param_sqldataaccess, $param_opts_num;
 
     // Escape special characters
     $need_escape = array(
@@ -973,7 +969,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax)
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Type') . "</td>\n";
     $retval .= "    <td>\n";
-    if ($is_ajax) {
+    if ($GLOBALS['is_ajax_request']) {
         $retval .= "        <select name='item_type'>\n";
         $retval .= "            <option value='PROCEDURE'$isprocedure_select>PROCEDURE</option>\n";
         $retval .= "            <option value='FUNCTION'$isfunction_select>FUNCTION</option>\n";
@@ -1091,7 +1087,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine, $errors, $is_ajax)
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
-    if ($is_ajax) {
+    if ($GLOBALS['is_ajax_request']) {
         $retval .= "<input type='hidden' name='editor_process_{$mode}' value='true' />\n";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
     } else {
@@ -1255,7 +1251,7 @@ function PMA_RTN_handleExecute()
          */
         $routine = PMA_RTN_getRoutineDataFromName($_GET['item_name'], false);
         if ($routine !== false) {
-            $form = PMA_RTN_getExecuteForm($routine, $GLOBALS['is_ajax_request']);
+            $form = PMA_RTN_getExecuteForm($routine);
             if ($GLOBALS['is_ajax_request'] == true) {
                 $extra_data = array();
                 $extra_data['dialog'] = true;
@@ -1284,11 +1280,10 @@ function PMA_RTN_handleExecute()
  *
  * @param   array    $routine      Data for the routine returned by
  *                                 PMA_RTN_getDataFromName()
- * @param   bool     $is_ajax      True, if called from an ajax request
  *
  * @return  string   HTML code for the routine execution dialog.
  */
-function PMA_RTN_getExecuteForm($routine, $is_ajax)
+function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
 
@@ -1305,7 +1300,7 @@ function PMA_RTN_getExecuteForm($routine, $is_ajax)
     $retval .= "<input type='hidden' name='item_name' value='{$routine['item_name']}' />\n";
     $retval .= PMA_generate_common_hidden_inputs($db) . "\n";
     $retval .= "<fieldset>\n";
-    if ($is_ajax != true) {
+    if ($GLOBALS['is_ajax_request'] != true) {
         $retval .= "<legend>{$routine['item_name']}</legend>\n";
         $retval .= "<table class='rte_table'>\n";
         $retval .= "<caption class='tblHeaders'>\n";
@@ -1387,7 +1382,7 @@ function PMA_RTN_getExecuteForm($routine, $is_ajax)
         $retval .= "</tr>\n";
     }
     $retval .= "\n</table>\n";
-    if ($is_ajax != true) {
+    if ($GLOBALS['is_ajax_request'] != true) {
         $retval .= "</fieldset>\n\n";
         $retval .= "<fieldset class='tblFooters'>\n";
         $retval .= "    <input type='submit' name='execute_routine'\n";
