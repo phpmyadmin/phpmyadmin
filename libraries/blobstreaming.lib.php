@@ -346,7 +346,6 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
         return 'Error';
     }
 
-    //$output = "<a href=\"#\" onclick=\"requestMIMETypeChange('" . urlencode($db_name) . "', '" . urlencode($GLOBALS['table']) . "', '" . urlencode($bs_reference) . "', '" . urlencode($content_type) . "')\">$content_type</a>";
     $output = $content_type;
 
     // specify custom HTML for various content types

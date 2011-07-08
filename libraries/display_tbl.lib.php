@@ -449,9 +449,9 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             unset($choices);
         }
 
-        echo __('Headers every') . ': ' . "\n";
-        echo '<input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />' . "\n";
-        echo __('rows'). "\n";
+        printf(__('Headers every %s rows'),
+            '<input type="text" size="3" name="repeat_cells" value="' . $_SESSION['tmp_user_values']['repeat_cells'] . '" class="textfield" />');
+        echo "\n";
         ?>
         </form>
     </td>

@@ -226,9 +226,11 @@ if ($cfg['ShowFunctionFields']) {
             'SQRT',
             'TAN',
             'TO_DAYS',
+            'TO_SECONDS',
             'TIME_TO_SEC',
             'UNCOMPRESSED_LENGTH',
             'UNIX_TIMESTAMP',
+            'UUID_SHORT',
             'WEEK',
             'WEEKDAY',
             'WEEKOFYEAR',
@@ -256,6 +258,14 @@ if ($cfg['ShowFunctionFields']) {
             'MPolyFromWKB',
         ),
     );
+    // $restrict_functions holds all known functions, remove these that are unavailable on current server
+    if (PMA_MYSQL_INT_VERSION < 50500) {
+        $restrict_functions['FUNC_NUMBER'] = array_diff($restrict_functions['FUNC_NUMBER'], array('TO_SECONDS'));
+    }
+    if (PMA_MYSQL_INT_VERSION < 50120) {
+        $restrict_functions['FUNC_NUMBER'] = array_diff($restrict_functions['FUNC_NUMBER'], array('UUID_SHORT'));
+    }
+
     if (empty($cfg['RestrictFunctions'])) {
         $cfg['RestrictFunctions'] = $restrict_functions;
     }
