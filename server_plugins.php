@@ -81,7 +81,7 @@ ksort($plugins);
         <div id="sectionlinks">
         <?php
         foreach ($plugins as $plugin_type => $plugin_list) {
-            $key = preg_replace('/[^a-z]/i', '', $plugin_type);
+            $key = 'plugins-' . preg_replace('/[^a-z]/', '', strtolower($plugin_type));
             echo '<a href="#' . $key . '">' . htmlspecialchars($plugin_type) . '</a>' . "\n";
         }
         ?>
@@ -89,10 +89,10 @@ ksort($plugins);
         <br />
         <?php
         foreach ($plugins as $plugin_type => $plugin_list) {
-            $key = preg_replace('/[^a-z]/i', '', $plugin_type);
+            $key = 'plugins-' . preg_replace('/[^a-z]/', '', strtolower($plugin_type));
             sort($plugin_list);
             ?>
-            <table class="data_full_width">
+            <table class="data_full_width" id="<?php echo $key; ?>">
             <caption class="tblHeaders">
                 <a class="top" href="#serverinfo"><?php
                     echo __('Begin');
