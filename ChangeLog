@@ -1,6 +1,10 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.4.3.2 (2011-07-XX)
+- [security] Fixed XSS vulnerability, see PMASA-2011-9
+- [security] Fixed local file inclusion vulnerability, see PMASA-2011-10
+
 3.4.3.1 (2011-07-02)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
 - [security] Fixed possible code injection incase session variables are compromised, see PMASA-2011-6
