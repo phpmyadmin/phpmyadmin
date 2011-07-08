@@ -492,7 +492,6 @@ function PMA_RTN_handleEditor()
  * and 'Change routine type' functionalities when JS is disabled.
  *
  * @return  array    Data necessary to create the routine editor.
- *
  */
 function PMA_RTN_getRoutineDataFromRequest()
 {
@@ -649,16 +648,19 @@ function PMA_RTN_getRoutineDataFromRequest()
 /**
  * Composes the query necessary to create a routine from an HTTP request.
  *
- * @return  string    The CREATE [ROUTINE | PROCEDURE] query.
- *
+ * @return  string  The CREATE [ROUTINE | PROCEDURE] query.
  */
 function PMA_RTN_getQueryFromRequest() {
-    global $_REQUEST, $cfg, $errors, $param_sqldataaccess;
+    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_opts_num;
 
     $query = 'CREATE ';
-    if (! empty($_REQUEST['routine_definer']) && strpos($_REQUEST['routine_definer'], '@') !== false) {
-        $arr = explode('@', $_REQUEST['routine_definer']);
-        $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+    if (! empty($_REQUEST['routine_definer'])) {
+        if (strpos($_REQUEST['routine_definer'], '@') !== false) {
+            $arr = explode('@', $_REQUEST['routine_definer']);
+            $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+        } else {
+            $errors[] = __('The definer must be in the "username@hostname" format');
+        }
     }
     if ($_REQUEST['routine_type'] == 'FUNCTION' || $_REQUEST['routine_type'] == 'PROCEDURE') {
         $query .= $_REQUEST['routine_type'] . ' ';
@@ -713,7 +715,7 @@ function PMA_RTN_getQueryFromRequest() {
                 if (! empty($_REQUEST['routine_param_opts_num'][$i])) {
                     if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_param_type'][$i])])) {
                         $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_param_type'][$i])];
-                        if ($group == 'FUNC_NUMBER') {
+                        if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['routine_param_opts_num'][$i], $param_opts_num)) {
                             $params .= ' ' . strtoupper($_REQUEST['routine_param_opts_num'][$i]);
                         }
                     }
@@ -730,11 +732,15 @@ function PMA_RTN_getQueryFromRequest() {
     }
     $query .= " (" . $params . ") ";
     if ($_REQUEST['routine_type'] == 'FUNCTION') {
-        $query .= "RETURNS {$_REQUEST['routine_returntype']}";
+        if (! empty($_REQUEST['routine_returntype']) && in_array($_REQUEST['routine_returntype'], $cfg['Functions'])) {
+            $query .= "RETURNS {$_REQUEST['routine_returntype']}";
+        } else {
+            $errors[] = __('You must provide a valid return type for the routine.');
+        }
         if (! empty($_REQUEST['routine_returnlength'])
             && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
                             $_REQUEST['routine_returntype'])) {
-            $query .= "(" . $_REQUEST['routine_returnlength'] . ")";
+            $query .= "(" . intval($_REQUEST['routine_returnlength']) . ")";
         } else if (empty($_REQUEST['routine_returnlength'])
             && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['routine_returntype'])) {
             if (! $warned_about_length) {
@@ -754,7 +760,7 @@ function PMA_RTN_getQueryFromRequest() {
         if (! empty($_REQUEST['routine_returnopts_num'])) {
             if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_returntype'])])) {
                 $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['routine_returntype'])];
-                if ($group == 'FUNC_NUMBER') {
+                if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['routine_returnopts_num'], $param_opts_num)) {
                     $query .= ' ' . strtoupper($_REQUEST['routine_returnopts_num']);
                 }
             }
@@ -762,14 +768,14 @@ function PMA_RTN_getQueryFromRequest() {
         $query .= ' ';
     }
     if (! empty($_REQUEST['routine_comment'])) {
-        $query .= "COMMENT '{$_REQUEST['routine_comment']}' ";
+        $query .= "COMMENT '" . PMA_sqlAddslashes($_REQUEST['routine_comment']) . "' ";
     }
     if (isset($_REQUEST['routine_isdeterministic'])) {
         $query .= 'DETERMINISTIC ';
     } else {
         $query .= 'NOT DETERMINISTIC ';
     }
-    if (! empty($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess, true)) {
+    if (! empty($_REQUEST['routine_sqldataaccess']) && in_array($_REQUEST['routine_sqldataaccess'], $param_sqldataaccess)) {
         $query .= $_REQUEST['routine_sqldataaccess'] . ' ';
     }
     if (! empty($_REQUEST['routine_securitytype'])) {
@@ -782,6 +788,7 @@ function PMA_RTN_getQueryFromRequest() {
     } else {
         $errors[] = __('You must provide a routine definition.');
     }
+
     return $query;
 } // end PMA_RTN_getQueryFromRequest()
 

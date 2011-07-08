@@ -332,13 +332,23 @@ function PMA_TRI_getEditorForm($mode, $item)
     return $retval;
 }
 
-function PMA_TRI_getQueryFromRequest() {
-    global $_REQUEST, $cfg, $db, $errors, $action_timings, $event_manipulations;
+/**
+ * Composes the query necessary to create a trigger from an HTTP request.
+ *
+ * @return  string  The CREATE TRIGGER query.
+ */
+function PMA_TRI_getQueryFromRequest()
+{
+    global $_REQUEST, $db, $errors, $action_timings, $event_manipulations;
 
     $query = 'CREATE ';
-    if (! empty($_REQUEST['item_definer']) && strpos($_REQUEST['item_definer'], '@') !== false) {
-        $arr = explode('@', $_REQUEST['item_definer']);
-        $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+    if (! empty($_REQUEST['item_definer'])) {
+        if (strpos($_REQUEST['item_definer'], '@') !== false) {
+            $arr = explode('@', $_REQUEST['item_definer']);
+            $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+        } else {
+            $errors[] = __('The definer must be in the "username@hostname" format');
+        }
     }
     $query .= 'TRIGGER ';
     if (! empty($_REQUEST['item_name'])) {
@@ -349,12 +359,12 @@ function PMA_TRI_getQueryFromRequest() {
     if (! empty($_REQUEST['item_timing']) && in_array($_REQUEST['item_timing'], $action_timings)) {
         $query .= $_REQUEST['item_timing'] . ' ';
     } else {
-        $query .= 'BEFORE ';
+        $errors[] = __('You must provide a valid timing for the trigger');
     }
     if (! empty($_REQUEST['item_event']) && in_array($_REQUEST['item_event'], $event_manipulations)) {
         $query .= $_REQUEST['item_event'] . ' ';
     } else {
-        $query .= 'INSERT ';
+        $errors[] = __('You must provide a valid event for the trigger');
     }
     $query .= 'ON ';
     if (! empty($_REQUEST['item_table']) && in_array($_REQUEST['item_table'], PMA_DBI_get_tables($db))) {
@@ -368,7 +378,8 @@ function PMA_TRI_getQueryFromRequest() {
     } else {
         $errors[] = __('You must provide a trigger definition.');
     }
+
     return $query;
-}
+} // end PMA_TRI_getQueryFromRequest()
 
 ?>

@@ -445,14 +445,23 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     return $retval;
 }
 
-function PMA_EVN_getQueryFromRequest() // FIXME: need better error checking here
+/**
+ * Composes the query necessary to create an event from an HTTP request.
+ *
+ * @return  string  The CREATE EVENT query.
+ */
+function PMA_EVN_getQueryFromRequest()
 {
-    global $_REQUEST, $cfg, $db, $errors, $event_status;
+    global $_REQUEST, $db, $errors, $event_status, $event_type, $event_interval;
 
     $query = 'CREATE ';
-    if (! empty($_REQUEST['item_definer']) && strpos($_REQUEST['item_definer'], '@') !== false) {
-        $arr = explode('@', $_REQUEST['item_definer']);
-        $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+    if (! empty($_REQUEST['item_definer'])) {
+        if (strpos($_REQUEST['item_definer'], '@') !== false) {
+            $arr = explode('@', $_REQUEST['item_definer']);
+            $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+        } else {
+            $errors[] = __('The definer must be in the "username@hostname" format');
+        }
     }
     $query .= 'EVENT ';
     if (! empty($_REQUEST['item_name'])) {
@@ -461,17 +470,30 @@ function PMA_EVN_getQueryFromRequest() // FIXME: need better error checking here
         $errors[] = __('You must provide an event name');
     }
     $query .= 'ON SCHEDULE ';
-    if ($_REQUEST['item_type'] == 'RECURRING') {
-        $query .= 'EVERY ' . $_REQUEST['item_interval_value'] . ' ';
-        $query .= $_REQUEST['item_interval_field'] . ' ';
-        if (! empty($_REQUEST['item_starts'])) {
-            $query .= "STARTS '" . $_REQUEST['item_starts'] . "' ";
-        }
-        if (! empty($_REQUEST['item_ends'])) {
-            $query .= "ENDS '" . $_REQUEST['item_ends'] . "' ";
+    if (! empty($_REQUEST['item_type']) && in_array($_REQUEST['item_type'], $event_type)) {
+        if ($_REQUEST['item_type'] == 'RECURRING') {
+            if (! empty($_REQUEST['item_interval_value'])
+            && !empty($_REQUEST['item_interval_field'])
+            && in_array($_REQUEST['item_interval_field'], $event_interval)) {
+                $query .= 'EVERY ' . intval($_REQUEST['item_interval_value']) . ' ' . $_REQUEST['item_interval_field'] . ' ';
+            } else {
+                $errors[] = __('You must provide a valid interval value for the event.');
+            }
+            if (! empty($_REQUEST['item_starts'])) {
+                $query .= "STARTS '" . PMA_sqlAddSlashes($_REQUEST['item_starts']) . "' ";
+            }
+            if (! empty($_REQUEST['item_ends'])) {
+                $query .= "ENDS '" . PMA_sqlAddSlashes($_REQUEST['item_ends']) . "' ";
+            }
+        } else {
+            if (! empty($_REQUEST['item_execute_at'])) {
+                $query .= "AT '" . PMA_sqlAddSlashes($_REQUEST['item_execute_at']) . "' ";
+            } else {
+                $errors[] = __('You must provide a valid execution time for the event.');
+            }
         }
     } else {
-        $query .= "AT '" . $_REQUEST['item_execute_at'] . "' ";
+        $errors[] = __('You must provide a valid type for the event.');
     }
     $query .= 'ON COMPLETION ';
     if (empty($_REQUEST['item_preserve'])) {
@@ -492,7 +514,8 @@ function PMA_EVN_getQueryFromRequest() // FIXME: need better error checking here
     } else {
         $errors[] = __('You must provide an event definition.');
     }
+
     return $query;
-}
+} // end PMA_EVN_getQueryFromRequest()
 
 ?>
