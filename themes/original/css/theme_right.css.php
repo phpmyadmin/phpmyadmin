@@ -990,7 +990,7 @@ div#serverStatusTabs {
     margin-top:1em;
 }
 
-div#serverstatus table caption a.top {
+caption a.top {
     float: <?php echo $right; ?>;
 }
 
