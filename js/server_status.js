@@ -964,13 +964,11 @@ $(function() {
                                     loadLogStatistics({src: 'slow', start: min, end: max});
                                     
                                     $( this ).dialog( "close" );
-                                    $(document).scrollTop($('div#logTable').offset().top);
                                 },
                                 'From general log': function() {
                                     loadLogStatistics({src: 'general', start: min, end: max});
                                     
                                     $( this ).dialog( "close" );
-                                    $(document).scrollTop($('div#logTable').offset().top);
                                 }
                             }
                         });
@@ -1119,7 +1117,24 @@ $(function() {
     }
     
     function loadLogStatistics(opts) {
-        $('#logTable').html('Loading statistics <img src="' + pma_theme_image + 'ajax_clock_small.gif" alt="">');
+        var tableStr = '';
+        var logRequest = null;
+        
+        $('#loadingLogsDialog').html('Analysing & loading logs. This may take a while. <img class="ajaxIcon" src="' + pma_theme_image + 'ajax_clock_small.gif" alt="">');
+
+        $('#loadingLogsDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: {
+                'Cancel request': function() {
+                    if(logRequest != null) 
+                        logRequest.abort();
+                    
+                    $(this).dialog("close"); 
+                }
+            }
+        });
+        
         
         var formatValue = function(name, value) {
             switch(name) {
@@ -1129,41 +1144,62 @@ $(function() {
             return value;
         }
         
-        $.get('server_status.php?'+url_query, 
+        logRequest = $.get('server_status.php?'+url_query, 
             { ajax_request: true, log_data: 1, type: opts.src, time_start: Math.round(opts.start / 1000), time_end: Math.round(opts.end / 1000) },
             function(data) { 
-                var rows = $.parseJSON(data);
+                var data = $.parseJSON(data);
+                var rows = data.rows;
                 var cols = new Array();
-                var str = '<table border="0">';
+                
+                tableStr = '<table border="0">';
                 
                 for(var i=0; i < rows.length; i++) {
                     if(i == 0) {
-                        str += '<thead>';
+                        tableStr += '<thead>';
                         $.each(rows[0],function(key, value) {
                             cols.push(key);
                         });
-                        str += '<tr><th>' + cols.join('</th><th>') + '</th></tr>';
-                        str += '</thead><tbody>';
+                        tableStr += '<tr><th>' + cols.join('</th><th>') + '</th></tr>';
+                        tableStr += '</thead><tbody>';
                     }
                     
-                    str += '<tr>';
+                    tableStr += '<tr>';
                     for(var j=0; j < cols.length; j++)
-                        str += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
-                    str += '</tr>';    
+                        tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
+                    tableStr += '</tr>';    
                 }
                 
-                str+='</tbody></table>';
+                tableStr+='</tbody></table>';
                 
                 if(rows.length == 0)
-                    str = '<i>No results found</i>';
+                    tableStr = '<i>No results found</i>';
                 
-                $('#logTable').html(str);
+                $('#logTable').html(tableStr);
                 
                 $('div#logTable table').tablesorter({
                     sortList: [[0,1]],
                     widgets: ['zebra']
                 });
-
+                
+                if(rows.length != 0) {
+                    $('#loadingLogsDialog').html('<p>Log data loaded. Queries executed in this time span:</p>');
+                    $.each(data.sum, function(key, value) {
+                        key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
+                        if(key == 'Total') key = '<b>' + key + '</b>';
+                        $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
+                    });
+                    
+                    $('#loadingLogsDialog').dialog( "option", "buttons", { "Jump to log table": function() { 
+                        $(this).dialog("close"); 
+                        $(document).scrollTop($('div#logTable').offset().top);
+                    } } );
+                    
+                } else {
+                    $('#loadingLogsDialog').html('<p>Log analysed, but not data found in this time span.</p>');
+                    $('#loadingLogsDialog').dialog( "option", "buttons", { "Close": function() { 
+                        $(this).dialog("close"); 
+                    } } );
+                }
             }
         );
     }

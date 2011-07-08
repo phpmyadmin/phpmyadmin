@@ -419,6 +419,8 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-tabs .ui-tabs-hide {
     position: absolute;
     left: -10000px;
+    /* required so that overflowing content doesn't cause scrolling */
+    top: -10000px;
 }
 /* Datepicker
 ----------------------------------*/

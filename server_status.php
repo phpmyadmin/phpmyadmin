@@ -175,9 +175,22 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                  'FROM `mysql`.`slow_log` WHERE event_time > FROM_UNIXTIME('.$start.') '.
                  'AND event_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text HAVING count > 1';
                  
-            $r = PMA_DBI_fetch_result($q);
+            $result = PMA_DBI_try_query($q);
             
-            exit(json_encode($r));
+            $return = array( 'rows' => array(), 'sum' => array());
+            $type = '';
+            
+            while ($row = PMA_DBI_fetch_assoc($result)) {
+                $type = substr($row['sql_text'],0,strpos($row['sql_text'],' '));
+                $return['sum'][$type]++;
+                $return['rows'][] = $row;
+            }
+            
+            $return['sum']['TOTAL'] = array_sum($return['sum']);
+            
+            PMA_DBI_free_result($result);
+
+            exit(json_encode($return));
         }
         
         if($_REQUEST['type'] == 'general') {
@@ -185,9 +198,24 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                  'AND event_time > FROM_UNIXTIME('.$start.') AND event_time < FROM_UNIXTIME('.$end.') '.
                  'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument'; // HAVING count > 1';
             
-            $r = PMA_DBI_fetch_result($q);
+            $result = PMA_DBI_try_query($q);
             
-            exit(json_encode($r));
+            $return = array( 'rows' => array(), 'sum' => array());
+            $type = '';
+            
+            while ($row = PMA_DBI_fetch_assoc($result)) {
+                $type = substr($row['argument'],0,strpos($row['argument'],' '));
+                $return['sum'][$type]++;
+                if($type=='INSERT' && strlen($row['argument'] > 300))
+                    $row['argument'] = substr($row['argument'],0,301) . '...';
+                $return['rows'][] = $row;
+            }
+            
+            $return['sum']['TOTAL'] = array_sum($return['sum']);
+            
+            PMA_DBI_free_result($result);
+            
+            exit(json_encode($return));
         }
     }
 }
@@ -1290,6 +1318,9 @@ function printMonitor() {
             </div>
         </div>
     </div>
+    
+    <div id="loadingLogsDialog" title="Loading logs" style="display:none;">
+    </diV>
     
     <div title="Log statistics" id="logAnalyseDialog">
         
