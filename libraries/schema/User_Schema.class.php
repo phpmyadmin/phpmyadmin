@@ -567,10 +567,13 @@ class PMA_User_Schema
         require_once './libraries/transformations.lib.php';
         require_once './libraries/Index.class.php';
         /**
-         * default is PDF
+         * default is PDF, otherwise validate it's only letters a-z
          */
         global  $db,$export_type;
-        $export_type            = isset($export_type) ? $export_type : 'pdf';
+        if (!isset($export_type) || !preg_match('/^[a-zA-Z]+$/', $export_type)) {
+            $export_type = 'pdf';
+        }
+
         PMA_DBI_select_db($db);
 
         include("./libraries/schema/".ucfirst($export_type)."_Relation_Schema.class.php");
