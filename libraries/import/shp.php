@@ -18,8 +18,11 @@ if (isset($plugin_list)) {
     );
 } else {
 
-    ini_set('memory_limit', '128M');
-    set_time_limit(120);
+    if ((int) ini_get('memory_limit') < 512) {
+        ini_set('memory_limit', '512M');
+    }
+    set_time_limit(300);
+
 
     // Append the bfShapeFiles directory to the include path variable
     set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/bfShapeFiles/');
@@ -208,7 +211,7 @@ if (isset($plugin_list)) {
     }
 
     $shp = new PMA_ShapeFile(1);
-    // If the zip archive has more than one file, get the content to the buffer from .shp file.
+    // If the zip archive has more than one file, get the correct content to the buffer from .shp file.
     if ($compression == 'application/zip' && PMA_getNoOfFilesInZip($import_file) > 1) {
         $zip_content =  PMA_getZipContents($import_file, '/^.*\.shp$/i');
         $GLOBALS['import_text'] = $zip_content['data'];
@@ -227,7 +230,7 @@ if (isset($plugin_list)) {
                 // Extract the .dbf file and point to it.
                 $extracted =  PMA_zipExtract($import_file, realpath($cfg['TempDir']), array($dbf_file_name));
                 if ($extracted) {
-                    $dbf_file_path = realpath($cfg['TempDir']) . '/' . $dbf_file_name;
+                    $dbf_file_path = realpath($cfg['TempDir']) . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
                     $temp_dbf_file = true;
                     // Replace the .dbf with .*, as required by the bsShapeFiles library.
                     $file_name = substr($dbf_file_path, 0, strlen($dbf_file_path) - 4) . '.*';

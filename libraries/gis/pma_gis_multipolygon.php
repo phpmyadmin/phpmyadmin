@@ -359,7 +359,115 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         return $wkt;
     }
 
-    /** Generate parameters for the GIS data editor from the value of the GIS column.
+    /**
+     * Generate the WKT for the data from ESRI shape files.
+     *
+     * @param array $row_data GIS data
+     *
+     * @return the WKT for the data from ESRI shape files
+     */
+    public function getShape($row_data)
+    {
+        // Determines whether each line ring is an inner ring or an outer ring.
+        // If it's an inner ring get a point on the surface which can be used to
+        // correctly classify inner rings to their respective outer rings.
+        require_once './libraries/gis/pma_gis_polygon.php';
+        foreach ($row_data['parts'] as $i => $ring) {
+            $row_data['parts'][$i]['isOuter'] = PMA_GIS_Polygon::isOuterRing($ring['points']);
+        }
+
+        $this->getPointsOnSurface($row_data['parts']);
+
+        // Classify inner rings to their respective outer rings.
+        foreach ($row_data['parts'] as $j => $ring1) {
+            if (! $ring1['isOuter']) {
+                foreach ($row_data['parts'] as $k => $ring2) {
+                    if ($ring2['isOuter']) {
+                        // If the pointOnSurface of the inner ring is also inside the outer ring
+                        if (PMA_GIS_Polygon::isPointInsidePolygon($ring1['pointOnSurface'], $ring2['points'])) {
+                            if (! isset($ring2['inner'])) {
+                                $row_data['parts'][$k]['inner'] = array();
+                            }
+                            $row_data['parts'][$k]['inner'][] = $j;
+                        }
+                    }
+                }
+            }
+        }
+
+        $wkt = 'MULTIPOLYGON(';
+        // for each polygon
+        foreach ($row_data['parts'] as $ring) {
+            if ($ring['isOuter']) {
+                $wkt .= '('; // start of polygon
+
+                $wkt .= '('; // start of outer ring
+                foreach($ring['points'] as $point) {
+                    $wkt .= $point['x'] . ' ' . $point['y'] . ',';
+                }
+                $wkt = substr($wkt, 0, strlen($wkt) - 1);
+                $wkt .= ')'; // end of outer ring
+
+                // inner rings if any
+                if (isset($ring['inner'])) {
+                    foreach ($ring['inner'] as $j) {
+                        $wkt .= ',('; // start of inner ring
+                        foreach ($row_data['parts'][$j]['points'] as $innerPoint) {
+                            $wkt .= $innerPoint['x'] . ' ' . $innerPoint['y'] . ',';
+                        }
+                        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+                        $wkt .= ')';  // end of inner ring
+                    }
+                }
+
+                $wkt .= '),'; // end of polygon
+            }
+        }
+        $wkt = substr($wkt, 0, strlen($wkt) - 1);
+
+        $wkt .= ')'; // end of multipolygon
+        return $wkt;
+    }
+
+    /**
+     * Attach to each ring a point on its surface.
+     *
+     * @param array $rings
+     */
+    private function getPointsOnSurface(&$rings)
+    {
+        $sql = 'SELECT ';
+        $inner_rings =  false;
+
+        foreach ($rings as $i => $ring) {
+            if (! $ring['isOuter']) {
+                $inner_rings = true;
+                // gis_data[0]['MULTIPOLYGON'][0][0] will have $ring
+                $gis_data = array(array('MULTIPOLYGON' => array(array($ring['points']))));
+                $gis_data[0]['MULTIPOLYGON'][0][0]['no_of_points'] = count($ring['points']);
+                $geom = $this->generateWkt($gis_data, 0);
+                $sql .= 'AsText(PointOnSurface(GeomFromText("' . $geom . '"))) as `P' . $i . '`, ';
+            }
+        }
+        if (! $inner_rings) {
+            return;
+        }
+
+        $sql = substr($sql, 0, strlen($sql) - 2);
+        $result = PMA_DBI_fetch_result($sql);
+
+        require_once './libraries/gis/pma_gis_point.php';
+        $point = PMA_GIS_Point::singleton();
+        foreach ($rings as $i => $ring) {
+            if (! $ring['isOuter']) {
+                $param = $point->generateParams($result[0]['P' . $i], 0);
+                $rings[$i]['pointOnSurface'] = $param[0]['POINT'];
+            }
+        }
+    }
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column
      * @param index  $index of the geometry

@@ -324,6 +324,100 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         return $wkt;
     }
 
+    /**
+     * Calculates the area of a closed simple polygon.
+     *
+     * @param array $ring array of points forming the ring
+     *
+     * @return the area of a closed simple polygon.
+     */
+    public static function area($ring) {
+
+        $no_of_points = count($ring);
+
+        // If the last point is same as the first point ignore it
+        $last = count($ring) - 1;
+        if (($ring[0]['x'] == $ring[$last]['x']) && ($ring[0]['y'] == $ring[$last]['y'])) {
+            $no_of_points--;
+        }
+
+        //         _n-1
+        // A = _1_ \    (X(i) * Y(i+1)) - (Y(i) * X(i+1))
+        //      2  /__
+        //         i=0
+        $area = 0;
+        for ($i = 0; $i < $no_of_points; $i++) {
+            $j = ($i + 1) % $no_of_points;
+            $area += $ring[$i]['x'] * $ring[$j]['y'];
+            $area -= $ring[$i]['y'] * $ring[$j]['x'];
+        }
+        $area /= 2.0;
+
+        return $area;
+    }
+
+    /**
+     * Determines whether a set of points represents an outer ring.
+     * If points are in clockwise orientation then, they form an outer ring.
+     *
+     * @param array $ring array of points forming the ring
+     *
+     * @return whether a set of points represents an outer ring.
+     */
+    public static function isOuterRing($ring)
+    {
+        // If area is negative then it's in clockwise orientation, i.e. it's an outer ring
+        if (PMA_GIS_Polygon::area($ring) < 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Determines whether a given point is inside a given polygon.
+     *
+     * @param array $point x, y coordinates of the point
+     * @param array $ring  array of points forming the ring
+     *
+     * @return whether a given point is inside a given polygon
+     */
+    public static function isPointInsidePolygon($point, $polygon)
+    {
+        // If first point is repeated at the end remove it
+        $last = count($polygon) - 1;
+        if (($polygon[0]['x'] == $polygon[$last]['x']) && ($polygon[0]['y'] == $polygon[$last]['y'])) {
+            $polygon = array_slice($polygon, 0, $last);
+        }
+
+        $no_of_points = count($polygon);
+        $counter = 0;
+
+        // Use ray casting algorithm
+        $p1 = $polygon[0];
+        for ($i = 1; $i <= $no_of_points; $i++) {
+            $p2 = $polygon[$i % $no_of_points];
+            if ($point['y'] > min(array($p1['y'], $p2['y']))) {
+                if ($point['y'] <= max(array($p1['y'], $p2['y']))) {
+                    if ($point['x'] <= max(array($p1['x'], $p2['x']))) {
+                        if ($p1['y'] != $p2['y']) {
+                            $xinters = ($point['y'] - $p1['y']) * ($p2['x'] - $p1['x']) / ($p2['y'] - $p1['y']) + $p1['x'];
+                            if ($p1['x'] == $p2['x'] || $point['x'] <= $xinters) {
+                                $counter++;
+                            }
+                        }
+                    }
+                }
+            }
+            $p1 = $p2;
+        }
+
+        if ($counter % 2 == 0) {
+            return  false;
+        } else {
+            return true;
+        }
+    }
+
     /** Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column
