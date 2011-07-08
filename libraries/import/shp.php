@@ -208,15 +208,48 @@ if (isset($plugin_list)) {
     }
 
     $shp = new PMA_ShapeFile(1);
+    // If the zip archive has more than one file, get the content to the buffer from .shp file.
+    if ($compression == 'application/zip' && PMA_getNoOfFilesInZip($import_file) > 1) {
+        $zip_content =  PMA_getZipContents($import_file, '/^.*\.shp$/i');
+        $GLOBALS['import_text'] = $zip_content['data'];
+    }
+
+    // We need dbase extension to handle .dbf file
     if (extension_loaded('dbase')) {
+        // If we can extract the zip archive to 'TempDir' and use the files in it for import
+        if ($compression == 'application/zip'
+            && ! empty($cfg['TempDir'])
+            && is_writable($cfg['TempDir'])
+        ) {
+            $dbf_file_name = PMA_findFileFromZipArchive('/^.*\.dbf$/i', $import_file);
+            // If the corresponding .dbf file is in the zip archive
+            if ($dbf_file_name) {
+                // Extract the .dbf file and point to it.
+                $extracted =  PMA_zipExtract($import_file, realpath($cfg['TempDir']), array($dbf_file_name));
+                if ($extracted) {
+                    $dbf_file_path = realpath($cfg['TempDir']) . '/' . $dbf_file_name;
+                    $temp_dbf_file = true;
+                    // Replace the .dbf with .*, as required by the bsShapeFiles library.
+                    $file_name = substr($dbf_file_path, 0, strlen($dbf_file_path) - 4) . '.*';
+                    $shp->FileName = $file_name;
+                }
+            }
+        }
         // If file is in UploadDir, use .dbf file in the same UploadDir to load extra data.
-        if (! empty($local_import_file) && ! empty($cfg['UploadDir']) && $compression == 'none') {
+        elseif (! empty($local_import_file) && ! empty($cfg['UploadDir']) && $compression == 'none') {
             // Replace the .shp with .*, so the bsShapeFiles library correctly locates .dbf file.
             $file_name = substr($import_file, 0, strlen($import_file) - 4) . '.*';
             $shp->FileName = $file_name;
         }
     }
+
+    // Load data
     $shp->loadFromFile('');
+
+    // Delete the .dbf file extracted to 'TempDir'
+    if ($temp_dbf_file) {
+        unlink($dbf_file_path);
+    }
 
     $esri_types = array(
         0  => 'Null Shape',

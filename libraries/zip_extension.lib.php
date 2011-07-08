@@ -10,11 +10,12 @@
   * Gets zip file contents
   *
   * @param   string  $file
+  * @param   string  $specific_entry regular expression to match a file
   * @return  array  ($error_message, $file_data); $error_message
   *                  is empty if no error
   */
 
-function PMA_getZipContents($file)
+function PMA_getZipContents($file, $specific_entry = null)
 {
     $error_message = '';
     $file_data = '';
@@ -28,11 +29,15 @@ function PMA_getZipContents($file)
             $read = zip_entry_read($first_zip_entry);
             $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
             if (!strcmp($ods_mime, $read)) {
+                $specific_entry = '/^content\.xml$/';
+            }
+
+            if (isset($specific_entry)) {
                 /* Return the correct contents, not just the first entry */
                 for ( ; ; ) {
                     $entry = zip_read($zip_handle);
                     if (is_resource($entry)) {
-                        if (!strcmp('content.xml', zip_entry_name($entry))) {
+                        if (preg_match($specific_entry, zip_entry_name($entry))) {
                             zip_entry_open($zip_handle, $entry, 'r');
                             $file_data = zip_entry_read($entry, zip_entry_filesize($entry));
                             zip_entry_close($entry);
@@ -41,15 +46,15 @@ function PMA_getZipContents($file)
                     } else {
                         /**
                          * Either we have reached the end of the zip and still
-                         * haven't found 'content.xml' or there was a parsing
+                         * haven't found $specific_entry or there was a parsing
                          * error that we must display
                          */
                         if ($entry === false) {
-                            $error_message = __('Error in ZIP archive:') . ' Could not find "content.xml"';
+                            $error_message = __('Error in ZIP archive:') . ' Could not find "' . $specific_entry . '"';
                         } else {
                             $error_message = __('Error in ZIP archive:') . ' ' . PMA_getZipError($zip_handle);
                         }
-                        
+
                         break;
                     }
                 }
@@ -66,6 +71,69 @@ function PMA_getZipContents($file)
     }
     zip_close($zip_handle);
     return (array('error' => $error_message, 'data' => $file_data));
+}
+
+/**
+ * Returns the file name of the first file that matches the given $file_regexp.
+ *
+ * @param string $file_regexp regular expression for the file name to match
+ * @param string $file        zip archive
+ */
+function PMA_findFileFromZipArchive ($file_regexp, $file)
+{
+    $zip_handle = zip_open($file);
+    $found = false;
+    if (is_resource($zip_handle)) {
+        $entry = zip_read($zip_handle);
+        while (is_resource($entry)) {
+            if (preg_match($file_regexp, zip_entry_name($entry))) {
+                $file_name = zip_entry_name($entry);
+                zip_close($zip_handle);
+                return $file_name;
+            }
+            $entry = zip_read($zip_handle);
+        }
+    }
+    zip_close($zip_handle);
+    return false;
+}
+
+/**
+ * Returns the number of files in the zip archive.
+ *
+ * @param string $file
+ */
+function PMA_getNoOfFilesInZip($file)
+{
+    $count = 0;
+    $zip_handle = zip_open($file);
+    $found = false;
+    if (is_resource($zip_handle)) {
+        $entry = zip_read($zip_handle);
+        while (is_resource($entry)) {
+            $count++;
+            $entry = zip_read($zip_handle);
+        }
+    }
+    zip_close($zip_handle);
+    return $count;
+}
+
+/**
+ * Extracts a set of files from the given zip archive to a given destinations.
+ *
+ * @param string $zip_path
+ * @param string $destination
+ * @param array  $entries
+ */
+function PMA_zipExtract($zip_path, $destination, $entries) {
+    $zip = new ZipArchive;
+    if ($zip->open($zip_path) === true) {
+        $zip->extractTo($destination, $entries);
+        $zip->close();
+        return true;
+    }
+    return false;
 }
 
 /**
