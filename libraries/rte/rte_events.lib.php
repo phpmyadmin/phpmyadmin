@@ -152,7 +152,7 @@ function PMA_EVN_handleEditor()
             if (! empty($_REQUEST['item_name']) && empty($_REQUEST['editor_process_edit']) && empty($_REQUEST['item_changetype'])) {
                 $item = PMA_EVN_getDataFromName($_REQUEST['item_name']);
                 if ($item !== false) {
-                    $item['original_name'] = $item['name'];
+                    $item['item_original_name'] = $item['item_name'];
                 }
             } else {
                 $item = PMA_EVN_getDataFromRequest();
@@ -186,68 +186,46 @@ function PMA_EVN_handleEditor()
     }
 }
 
+/**
+ * This function will generate the values that are required to for the ditor
+ *
+ * @return  array    Data necessary to create the editor.
+ */
 function PMA_EVN_getDataFromRequest()
 {
     $retval = array();
-
-    $retval['name'] = '';
-    if (isset($_REQUEST['item_name'])) {
-        $retval['name'] = $_REQUEST['item_name'];
+    $indices = array('item_name',
+                     'item_original_name',
+                     'item_status',
+                     'item_execute_at',
+                     'item_interval_value',
+                     'item_interval_field',
+                     'item_starts',
+                     'item_ends',
+                     'item_definition',
+                     'item_preserve',
+                     'item_comment',
+                     'item_definer');
+    foreach ($indices as $key => $index) {
+        $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
     }
-    $retval['original_name'] = '';
-    if (isset($_REQUEST['item_original_name'])) {
-         $retval['original_name'] = $_REQUEST['item_original_name'];
-    }
-    $retval['status'] = '';
-    if (isset($_REQUEST['item_status'])) {
-        $retval['status'] = $_REQUEST['item_status'];
-    }
-    $retval['type']        = 'ONE TIME';
-    $retval['type_toggle'] = 'RECURRING';
+    $retval['item_type']        = 'ONE TIME';
+    $retval['item_type_toggle'] = 'RECURRING';
     if (isset($_REQUEST['item_type']) && $_REQUEST['item_type'] == 'RECURRING') {
-        $retval['type']        = 'RECURRING';
-        $retval['type_toggle'] = 'ONE TIME';
+        $retval['item_type']        = 'RECURRING';
+        $retval['item_type_toggle'] = 'ONE TIME';
     }
-    $retval['execute_at'] = '';
-    if (isset($_REQUEST['item_execute_at'])) {
-        $retval['execute_at'] = $_REQUEST['item_execute_at'];
-    }
-    $retval['interval_value'] = '';
-    if (isset($_REQUEST['item_interval_value'])) {
-        $retval['interval_value'] = $_REQUEST['item_interval_value'];
-    }
-    $retval['interval_field'] = '';
-    if (isset($_REQUEST['item_interval_field'])) {
-        $retval['interval_field'] = $_REQUEST['item_interval_field'];
-    }
-    $retval['starts'] = '';
-    if (isset($_REQUEST['item_starts'])) {
-        $retval['starts'] = $_REQUEST['item_starts'];
-    }
-    $retval['ends'] = '';
-    if (isset($_REQUEST['item_ends'])) {
-        $retval['ends'] = $_REQUEST['item_ends'];
-    }
-    $retval['definition'] = '';
-    if (isset($_REQUEST['item_definition'])) {
-        $retval['definition'] = $_REQUEST['item_definition'];
-    }
-    $retval['preserve'] = '';
-    if (isset($_REQUEST['item_preserve'])) {
-        $retval['preserve'] = $_REQUEST['item_preserve'];
-    }
-    $retval['definer'] = '';
-    if (isset($_REQUEST['item_definer'])) {
-        $retval['definer'] = $_REQUEST['item_definer'];
-    }
-    $retval['comment'] = '';
-    if (isset($_REQUEST['item_comment'])) {
-        $retval['comment'] = $_REQUEST['item_comment'];
-    }
-
     return $retval;
-}
+} // end PMA_EVN_getDataFromRequest()
 
+/**
+ * This function will generate the values that are required to complete
+ * the "Edit event" form given the name of a event.
+ *
+ * @param   string   $name   The name of the event.
+ *
+ * @return  array    Data necessary to create the editor.
+ */
 function PMA_EVN_getDataFromName($name)
 {
     global $db;
@@ -262,29 +240,29 @@ function PMA_EVN_getDataFromName($name)
     if (! $item) {
         return false;
     }
-    $retval['name']   = $item['EVENT_NAME'];
-    $retval['status'] = $item['STATUS'];
-    $retval['type']   = $item['EVENT_TYPE'];
-    if ($retval['type'] == 'RECURRING') {
-        $retval['type_toggle'] = 'ONE TIME';
+    $retval['item_name']   = $item['EVENT_NAME'];
+    $retval['item_status'] = $item['STATUS'];
+    $retval['item_type']   = $item['EVENT_TYPE'];
+    if ($retval['item_type'] == 'RECURRING') {
+        $retval['item_type_toggle'] = 'ONE TIME';
     } else {
-        $retval['type_toggle'] = 'RECURRING';
+        $retval['item_type_toggle'] = 'RECURRING';
     }
-    $retval['execute_at']     = $item['EXECUTE_AT'];
-    $retval['interval_value'] = $item['INTERVAL_VALUE'];
-    $retval['interval_field'] = $item['INTERVAL_FIELD'];
-    $retval['starts']         = $item['STARTS'];
-    $retval['ends']           = $item['ENDS'];
-    $retval['preserve']       = '';
+    $retval['item_execute_at']     = $item['EXECUTE_AT'];
+    $retval['item_interval_value'] = $item['INTERVAL_VALUE'];
+    $retval['item_interval_field'] = $item['INTERVAL_FIELD'];
+    $retval['item_starts']         = $item['STARTS'];
+    $retval['item_ends']           = $item['ENDS'];
+    $retval['item_preserve']       = '';
     if ($item['ON_COMPLETION'] == 'PRESERVE') {
-        $retval['preserve']   = " checked='checked'";
+        $retval['item_preserve']   = " checked='checked'";
     }
-    $retval['definition'] = $item['EVENT_DEFINITION'];
-    $retval['definer']    = $item['DEFINER'];
-    $retval['comment']    = $item['EVENT_COMMENT'];
+    $retval['item_definition'] = $item['EVENT_DEFINITION'];
+    $retval['item_definer']    = $item['DEFINER'];
+    $retval['item_comment']    = $item['EVENT_COMMENT'];
 
     return $retval;
-}
+} // end PMA_EVN_getDataFromName()
 
 function PMA_EVN_getEditorForm($mode, $operation, $item)
 {
@@ -292,16 +270,16 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 
     // Escape special characters
     $need_escape = array(
-                       'original_name',
-                       'name',
-                       'type',
-                       'execute_at',
-                       'interval_value',
-                       'starts',
-                       'ends',
-                       'definition',
-                       'definer',
-                       'comment'
+                       'item_original_name',
+                       'item_name',
+                       'item_type',
+                       'item_execute_at',
+                       'item_interval_value',
+                       'item_starts',
+                       'item_ends',
+                       'item_definition',
+                       'item_definer',
+                       'item_comment'
                    );
     foreach($need_escape as $key => $index) {
         $item[$index] = htmlentities($item[$index], ENT_QUOTES);
@@ -309,19 +287,19 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $original_data = '';
     if ($mode == 'edit') {
         $original_data = "<input name='item_original_name' "
-                       . "type='hidden' value='{$item['original_name']}'/>\n";
+                       . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
     // Handle some logic first
     if ($operation == 'change') {
-        if ($item['type'] == 'RECURRING') {
-            $item['type']         = 'ONE TIME';
-            $item['type_toggle']  = 'RECURRING';
+        if ($item['item_type'] == 'RECURRING') {
+            $item['item_type']         = 'ONE TIME';
+            $item['item_type_toggle']  = 'RECURRING';
         } else {
-            $item['type']         = 'RECURRING';
-            $item['type_toggle']  = 'ONE TIME';
+            $item['item_type']         = 'RECURRING';
+            $item['item_type_toggle']  = 'ONE TIME';
         }
     }
-    if ($item['type'] == 'ONE TIME') {
+    if ($item['item_type'] == 'ONE TIME') {
         $isrecurring_class = ' hide';
         $isonetime_class   = '';
     } else {
@@ -340,7 +318,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td style='width: 20%;'>" . __('Event name') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_name' value='{$item['name']}'\n";
+    $retval .= "    <td><input type='text' name='item_name' value='{$item['item_name']}'\n";
     $retval .= "               maxlength='64' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
@@ -349,7 +327,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "        <select name='item_status'>\n";
     foreach ($event_status['display'] as $key => $value) {
         $selected = "";
-        if (! empty($item['status']) && $item['status'] == $value) {
+        if (! empty($item['item_status']) && $item['item_status'] == $value) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -365,36 +343,36 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
         $retval .= "        <select name='item_type'>";
         foreach ($event_type as $key => $value) {
             $selected = "";
-            if (! empty($item['type']) && $item['type'] == $value) {
+            if (! empty($item['item_type']) && $item['item_type'] == $value) {
                 $selected = " selected='selected'";
             }
             $retval .= "<option$selected>$value</option>";
         }
         $retval .= "        </select>\n";
     } else {
-        $retval .= "        <input name='item_type' type='hidden' value='{$item['type']}' />\n";
+        $retval .= "        <input name='item_type' type='hidden' value='{$item['item_type']}' />\n";
         $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
-        $retval .= "            {$item['type']}\n";
+        $retval .= "            {$item['item_type']}\n";
         $retval .= "        </div>\n";
         $retval .= "        <input style='width: 49%;' type='submit' name='item_changetype'\n";
-        $retval .= "               value='".sprintf(__('Change to %s'), $item['type_toggle'])."' />\n";
+        $retval .= "               value='".sprintf(__('Change to %s'), $item['item_type_toggle'])."' />\n";
     }
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='onetime_event_row $isonetime_class'>\n";
     $retval .= "    <td>" . __('Execute at') . "</td>\n";
     $retval .= "    <td style='white-space: nowrap;'>\n";
-    $retval .= "        <input type='text' name='item_execute_at' value='{$item['execute_at']}' class='datetimefield' />\n";
+    $retval .= "        <input type='text' name='item_execute_at' value='{$item['item_execute_at']}' class='datetimefield' />\n";
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row $isrecurring_class'>\n";
     $retval .= "    <td>" . __('Execute every') . "</td>\n";
     $retval .= "    <td>\n";
-    $retval .= "        <input style='width: 49%;' type='text' name='item_interval_value' value='{$item['interval_value']}' />\n";
+    $retval .= "        <input style='width: 49%;' type='text' name='item_interval_value' value='{$item['item_interval_value']}' />\n";
     $retval .= "        <select style='width: 49%;' name='item_interval_field'>";
     foreach ($event_interval as $key => $value) {
         $selected = "";
-        if (! empty($item['interval_field']) && $item['interval_field'] == $value) {
+        if (! empty($item['item_interval_field']) && $item['item_interval_field'] == $value) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -404,29 +382,29 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
     $retval .= "    <td>" . __('Start') . "</td>\n";
-    $retval .= "    <td style='white-space: nowrap;'><input type='text' name='item_starts' value='{$item['starts']}' class='datetimefield' /></td>\n";
+    $retval .= "    <td style='white-space: nowrap;'><input type='text' name='item_starts' value='{$item['item_starts']}' class='datetimefield' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
     $retval .= "    <td>" . __('End') . "</td>\n";
-    $retval .= "    <td style='white-space: nowrap;'><input type='text' name='item_ends' value='{$item['ends']}' class='datetimefield' /></td>\n";
+    $retval .= "    <td style='white-space: nowrap;'><input type='text' name='item_ends' value='{$item['item_ends']}' class='datetimefield' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
-    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>{$item['definition']}</textarea></td>\n";
+    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>{$item['item_definition']}</textarea></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('On completion preserve') . "</td>\n";
-    $retval .= "    <td><input type='checkbox' name='item_preserve'{$item['preserve']} /></td>\n";
+    $retval .= "    <td><input type='checkbox' name='item_preserve'{$item['item_preserve']} /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definer') . "</td>\n";
     $retval .= "    <td><input type='text' name='item_definer'\n";
-    $retval .= "               value='{$item['definer']}' /></td>\n";
+    $retval .= "               value='{$item['item_definer']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Comment') . "</td>\n";
     $retval .= "    <td><input type='text' name='item_comment' maxlength='64'\n";
-    $retval .= "               value='{$item['comment']}' /></td>\n";
+    $retval .= "               value='{$item['item_comment']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";

@@ -23,19 +23,19 @@ RTE.postDialogShow = function (data) {
     $('.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
     $('.routine_params_table').last().find('tr').has('td').each(function () {
         RTE.setOptionsForParameter(
-            $(this).find('select[name^=routine_param_type]'),
-            $(this).find('input[name^=routine_param_length]'),
-            $(this).find('select[name^=routine_param_opts_text]'),
-            $(this).find('select[name^=routine_param_opts_num]')
+            $(this).find('select[name^=item_param_type]'),
+            $(this).find('input[name^=item_param_length]'),
+            $(this).find('select[name^=item_param_opts_text]'),
+            $(this).find('select[name^=item_param_opts_num]')
         );
     });
     // Enable/disable the 'options' dropdowns for
     // function return value as necessary
     RTE.setOptionsForParameter(
-        $('.rte_table').last().find('select[name=routine_returntype]'),
-        $('.rte_table').last().find('input[name=routine_returnlength]'),
-        $('.rte_table').last().find('select[name=routine_returnopts_text]'),
-        $('.rte_table').last().find('select[name=routine_returnopts_num]')
+        $('.rte_table').last().find('select[name=item_returntype]'),
+        $('.rte_table').last().find('input[name=item_returnlength]'),
+        $('.rte_table').last().find('select[name=item_returnopts_text]'),
+        $('.rte_table').last().find('select[name=item_returnopts_num]')
     );
 }; // end RTE.postDialogShow()
 
@@ -58,9 +58,9 @@ RTE.validateCustom = function () {
         if (isSuccess) {
             $(this).find(':input').each(function () {
                 inputname = $(this).attr('name');
-                if (inputname.substr(0, 17) === 'routine_param_dir' ||
-                    inputname.substr(0, 18) === 'routine_param_name' ||
-                    inputname.substr(0, 18) === 'routine_param_type') {
+                if (inputname.substr(0, 17) === 'item_param_dir' ||
+                    inputname.substr(0, 18) === 'item_param_name' ||
+                    inputname.substr(0, 18) === 'item_param_type') {
                     if ($(this).val() === '') {
                         $(this).focus();
                         isSuccess = false;
@@ -78,8 +78,8 @@ RTE.validateCustom = function () {
     }
     $('.routine_params_table').last().find('tr').each(function () {
         // SET, ENUM, VARCHAR and VARBINARY fields must have length/values
-        var $inputtyp = $(this).find('select[name^=routine_param_type]');
-        var $inputlen = $(this).find('input[name^=routine_param_length]');
+        var $inputtyp = $(this).find('select[name^=item_param_type]');
+        var $inputlen = $(this).find('input[name^=item_param_length]');
         if ($inputtyp.length && $inputlen.length) {
             if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR')
                && $inputlen.val() === '') {
@@ -93,11 +93,11 @@ RTE.validateCustom = function () {
         alert(PMA_messages['strFormEmpty']);
         return false;
     }
-    if ($('select[name=routine_type]').find(':selected').val() === 'FUNCTION') {
+    if ($('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
         // The length/values of return variable for functions must
         // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
-        var $returntyp = $('select[name=routine_returntype]');
-        var $returnlen = $('input[name=routine_returnlength]');
+        var $returntyp = $('select[name=item_returntype]');
+        var $returnlen = $('input[name=item_returnlength]');
         if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR')
            && $returnlen.val() === '') {
             $returnlen.focus();
@@ -105,7 +105,7 @@ RTE.validateCustom = function () {
             return false;
         }
     }
-    if ($('select[name=routine_type]').find(':selected').val() === 'FUNCTION') {
+    if ($('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
         // A function must contain a RETURN statement in its definition
         if ($('.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
             RTE.syntaxHiglighter.focus();
@@ -226,7 +226,7 @@ $(document).ready(function () {
         // Append the new row to the parameters table
         $routine_params_table.append(new_param_row);
         // Make sure that the row is correctly shown according to the type of routine
-        if ($('.rte_table').find('select[name=routine_type]').val() === 'FUNCTION') {
+        if ($('.rte_table').find('select[name=item_type]').val() === 'FUNCTION') {
             $('.routine_return_row').show();
             $('.routine_direction_cell').hide();
         }
@@ -237,10 +237,10 @@ $(document).ready(function () {
         var $newrow = $('.routine_params_table').last().find('tr').has('td').last();
         // Enable/disable the 'options' dropdowns for parameters as necessary
         RTE.setOptionsForParameter(
-            $newrow.find('select[name^=routine_param_type]'),
-            $newrow.find('input[name^=routine_param_length]'),
-            $newrow.find('select[name^=routine_param_opts_text]'),
-            $newrow.find('select[name^=routine_param_opts_num]')
+            $newrow.find('select[name^=item_param_type]'),
+            $newrow.find('input[name^=item_param_length]'),
+            $newrow.find('select[name^=item_param_opts_text]'),
+            $newrow.find('select[name^=item_param_opts_num]')
         );
     }); // end $.live()
 
@@ -264,17 +264,17 @@ $(document).ready(function () {
                  *                      the input field being reindexed.
                  */
                 var inputname = $(this).attr('name');
-                if (inputname.substr(0, 17) === 'routine_param_dir') {
+                if (inputname.substr(0, 17) === 'item_param_dir') {
                     $(this).attr('name', inputname.substr(0, 17) + '[' + index + ']');
-                } else if (inputname.substr(0, 18) === 'routine_param_name') {
+                } else if (inputname.substr(0, 18) === 'item_param_name') {
                     $(this).attr('name', inputname.substr(0, 18) + '[' + index + ']');
-                } else if (inputname.substr(0, 18) === 'routine_param_type') {
+                } else if (inputname.substr(0, 18) === 'item_param_type') {
                     $(this).attr('name', inputname.substr(0, 18) + '[' + index + ']');
-                } else if (inputname.substr(0, 20) === 'routine_param_length') {
+                } else if (inputname.substr(0, 20) === 'item_param_length') {
                     $(this).attr('name', inputname.substr(0, 20) + '[' + index + ']');
-                } else if (inputname.substr(0, 23) === 'routine_param_opts_text') {
+                } else if (inputname.substr(0, 23) === 'item_param_opts_text') {
                     $(this).attr('name', inputname.substr(0, 23) + '[' + index + ']');
-                } else if (inputname.substr(0, 22) === 'routine_param_opts_num') {
+                } else if (inputname.substr(0, 22) === 'item_param_opts_num') {
                     $(this).attr('name', inputname.substr(0, 22) + '[' + index + ']');
                 }
             });
@@ -287,7 +287,7 @@ $(document).ready(function () {
      * functionality in the routines editor, so that the correct
      * fields are shown in the editor when changing the routine type
      */
-    $('select[name=routine_type]').live('change', function () {
+    $('select[name=item_type]').live('change', function () {
         $('.routine_return_row, .routine_direction_cell').toggle();
     }); // end $.live()
 
@@ -297,17 +297,17 @@ $(document).ready(function () {
      * option/length fields, if any, are shown when changing
      * a parameter type
      */
-    $('select[name^=routine_param_type]').live('change', function () {
+    $('select[name^=item_param_type]').live('change', function () {
         /**
          * @var    $row    jQuery object containing the reference to
          *                 a row in the routine parameters table
          */
         var $row = $(this).parents('tr').first();
         RTE.setOptionsForParameter(
-            $row.find('select[name^=routine_param_type]'),
-            $row.find('input[name^=routine_param_length]'),
-            $row.find('select[name^=routine_param_opts_text]'),
-            $row.find('select[name^=routine_param_opts_num]')
+            $row.find('select[name^=item_param_type]'),
+            $row.find('input[name^=item_param_length]'),
+            $row.find('select[name^=item_param_opts_text]'),
+            $row.find('select[name^=item_param_opts_num]')
         );
     }); // end $.live()
 
@@ -316,12 +316,12 @@ $(document).ready(function () {
      * variable of function" functionality, so that the correct fields,
      * if any, are shown when changing the function return type type
      */
-    $('select[name=routine_returntype]').live('change', function () {
+    $('select[name=item_returntype]').live('change', function () {
         RTE.setOptionsForParameter(
-            $('.rte_table').find('select[name=routine_returntype]'),
-            $('.rte_table').find('input[name=routine_returnlength]'),
-            $('.rte_table').find('select[name=routine_returnopts_text]'),
-            $('.rte_table').find('select[name=routine_returnopts_num]')
+            $('.rte_table').find('select[name=item_returntype]'),
+            $('.rte_table').find('input[name=item_returnlength]'),
+            $('.rte_table').find('select[name=item_returnopts_text]'),
+            $('.rte_table').find('select[name=item_returnopts_num]')
         );
     }); // end $.live()
 

@@ -137,8 +137,8 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
         $routine_details = PMA_RTN_getRoutineDataFromName($routine['SPECIFIC_NAME'], false);
         if ($routine !== false) {
             $execute_action = 'execute_routine';
-            for ($i=0; $i<$routine_details['num_params']; $i++) {
-                if ($routine_details['type'] == 'PROCEDURE' && $routine_details['param_dir'][$i] == 'OUT') {
+            for ($i=0; $i<$routine_details['item_num_params']; $i++) {
+                if ($routine_details['item_type'] == 'PROCEDURE' && $routine_details['item_param_dir'][$i] == 'OUT') {
                     continue;
                 }
                 $execute_action = 'execute_dialog';

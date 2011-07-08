@@ -115,7 +115,12 @@ function PMA_TRI_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $extra_data = array();
             if ($message->isSuccess()) {
-                $trigger = PMA_TRI_getDataFromName($_REQUEST['item_name']);
+                $items = PMA_DBI_get_triggers($db, $table, '');
+                foreach ($items as $key => $value) {
+                    if ($value['name'] == $_REQUEST['item_name']) {
+                        $trigger = $value;
+                    }
+                }
                 $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
                 $extra_data['insert'] = false;
                 if (empty($table) || $table == $trigger['table']) {
@@ -145,7 +150,7 @@ function PMA_TRI_handleEditor()
             if (! empty($_REQUEST['item_name']) && empty($_REQUEST['editor_process_edit'])) {
                 $item = PMA_TRI_getDataFromName($_REQUEST['item_name']);
                 if ($item !== false) {
-                    $item['original_name'] = $item['name'];
+                    $item['item_original_name'] = $item['item_name'];
                 }
             } else {
                 $item = PMA_TRI_getDataFromRequest();
@@ -179,59 +184,61 @@ function PMA_TRI_handleEditor()
     }
 }
 
+/**
+ * This function will generate the values that are required to for the ditor
+ *
+ * @return  array    Data necessary to create the editor.
+ */
 function PMA_TRI_getDataFromRequest()
 {
     $retval = array();
-
-    $retval['name'] = '';
-    if (isset($_REQUEST['item_name'])) {
-        $retval['name'] = $_REQUEST['item_name'];
+    $indices = array('item_name',
+                     'item_table',
+                     'item_original_name',
+                     'item_action_timing',
+                     'item_event_manipulation',
+                     'item_definition',
+                     'item_definer');
+    foreach ($indices as $key => $index) {
+        $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
     }
-    $retval['table'] = '';
-    if (isset($_REQUEST['item_table'])) {
-        $retval['table'] = $_REQUEST['item_table'];
-    }
-    $retval['original_name'] = '';
-    if (isset($_REQUEST['item_original_name'])) {
-         $retval['original_name'] = $_REQUEST['item_original_name'];
-    }
-    $retval['action_timing'] = '';
-    if (isset($_REQUEST['item_timing'])) {
-        $retval['action_timing'] = $_REQUEST['item_timing'];
-    }
-    $retval['event_manipulation'] = '';
-    if (isset($_REQUEST['item_event'])) {
-        $retval['event_manipulation'] = $_REQUEST['item_event'];
-    }
-    $retval['definition'] = '';
-    if (isset($_REQUEST['item_definition'])) {
-        $retval['definition'] = $_REQUEST['item_definition'];
-    }
-    $retval['definer'] = '';
-    if (isset($_REQUEST['item_definer'])) {
-        $retval['definer'] = $_REQUEST['item_definer'];
-    }
-
     return $retval;
-}
+} // end PMA_TRI_getDataFromRequest()
 
+/**
+ * This function will generate the values that are required to complete
+ * the "Edit trigger" form given the name of a trigger.
+ *
+ * @param   string   $name   The name of the trigger.
+ *
+ * @return  array    Data necessary to create the editor.
+ */
 function PMA_TRI_getDataFromName($name)
 {
     global $db, $table, $_REQUEST;
 
-    $retval = array();
+    $temp = array();
     $items = PMA_DBI_get_triggers($db, $table, '');
     foreach ($items as $key => $value) {
         if ($value['name'] == $name) {
-            $retval = $value;
+            $temp = $value;
         }
     }
-    if (empty($retval)) {
+    if (empty($temp)) {
         return false;
     } else {
+        $retval = array();
+        $retval['create']                  = $temp['create'];
+        $retval['drop']                    = $temp['drop'];
+        $retval['item_name']               = $temp['name'];
+        $retval['item_table']              = $temp['table'];
+        $retval['item_action_timing']      = $temp['action_timing'];
+        $retval['item_event_manipulation'] = $temp['event_manipulation'];
+        $retval['item_definition']         = $temp['definition'];
+        $retval['item_definer']            = $temp['definer'];
         return $retval;
     }
-}
+} // end PMA_TRI_getDataFromName()
 
 function PMA_TRI_getEditorForm($mode, $item)
 {
@@ -239,10 +246,10 @@ function PMA_TRI_getEditorForm($mode, $item)
 
     // Escape special characters
     $need_escape = array(
-                       'original_name',
-                       'name',
-                       'definition',
-                       'definer'
+                       'item_original_name',
+                       'item_name',
+                       'item_definition',
+                       'item_definer'
                    );
     foreach($need_escape as $key => $index) {
         $item[$index] = htmlentities($item[$index], ENT_QUOTES);
@@ -250,7 +257,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $original_data = '';
     if ($mode == 'edit') {
         $original_data = "<input name='item_original_name' "
-                       . "type='hidden' value='{$item['original_name']}'/>\n";
+                       . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
 
     // Create the output
@@ -266,7 +273,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "<tr>\n";
     $retval .= "    <td style='width: 20%;'>" . __('Trigger name') . "</td>\n";
     $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
-    $retval .= "               value='{$item['name']}' /></td>\n";
+    $retval .= "               value='{$item['item_name']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Table') . "</td>\n";
@@ -274,7 +281,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "        <select name='item_table'>\n";
     foreach (PMA_DBI_get_tables($db) as $key => $value) {
         $selected = "";
-        if ($value == $item['table']) {
+        if ($value == $item['item_table']) {
             $selected = " selected='selected'";
         }
         $retval .= "            <option$selected>$value</option>\n";
@@ -287,7 +294,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    <td><select name='item_timing'>\n";
     foreach ($action_timings as $key => $value) {
         $selected = "";
-        if (! empty($item['action_timing']) && $item['action_timing'] == $value) {
+        if (! empty($item['item_action_timing']) && $item['item_action_timing'] == $value) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -299,7 +306,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    <td><select name='item_event'>\n";
     foreach ($event_manipulations as $key => $value) {
         $selected = "";
-        if (! empty($item['event_manipulation']) && $item['event_manipulation'] == $value) {
+        if (! empty($item['item_event_manipulation']) && $item['item_event_manipulation'] == $value) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -308,12 +315,12 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
-    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>{$item['definition']}</textarea></td>\n";
+    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>{$item['item_definition']}</textarea></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definer') . "</td>\n";
     $retval .= "    <td><input type='text' name='item_definer'\n";
-    $retval .= "               value='{$item['definer']}' /></td>\n";
+    $retval .= "               value='{$item['item_definer']}' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
