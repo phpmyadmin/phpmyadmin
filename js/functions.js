@@ -2170,21 +2170,21 @@ function checkIndexName(form_id)
     }
 
     // Gets the elements pointers
-    var the_idx_name = $("#input_index_name");
-    var the_idx_type = $("#select_index_type");
+    var $the_idx_name = $("#input_index_name");
+    var $the_idx_type = $("#select_index_type");
 
     // Index is a primary key
-    if (the_idx_type.find("option:selected").attr("value") == 'PRIMARY') {
-        the_idx_name.attr("value", 'PRIMARY');
-        the_idx_name.attr("disabled", true);
+    if ($the_idx_type.find("option:selected").attr("value") == 'PRIMARY') {
+        $the_idx_name.attr("value", 'PRIMARY');
+        $the_idx_name.attr("disabled", true);
     }
 
     // Other cases
     else {
-        if (the_idx_name.attr("value") == 'PRIMARY') {
-            the_idx_name.attr("value",  '');
+        if ($the_idx_name.attr("value") == 'PRIMARY') {
+            $the_idx_name.attr("value",  '');
         }
-        the_idx_name.attr("disabled", false);
+        $the_idx_name.attr("disabled", false);
     }
 
     return true;
