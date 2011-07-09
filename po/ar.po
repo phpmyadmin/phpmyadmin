@@ -3209,7 +3209,7 @@ msgstr "تخصيص الإطار الرئيسي"
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "إستعلام SQL"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
