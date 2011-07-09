@@ -3343,7 +3343,6 @@ msgstr "إستعمل الجملة LOCAL"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "ضع أسماء الحقول في السطر الأول"
