@@ -3386,7 +3386,7 @@ msgstr "عدد الصفوف المدخلة"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "الهدف لإيقونة الوصول السريع"
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
