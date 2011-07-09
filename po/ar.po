@@ -3509,7 +3509,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "حذف كل الكوكيز عند الخروج"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
