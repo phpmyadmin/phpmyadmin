@@ -3428,7 +3428,7 @@ msgstr "عرض قواعد البيانات في شجرة"
 
 #: libraries/config/messages.inc.php:277
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "تعطيل هذا إذا كنت تريد رؤية قواعد البيانات كلٌ على حدا"
 
 #: libraries/config/messages.inc.php:278
 msgid "Use light version"
