@@ -2691,7 +2691,7 @@ msgstr "An ivinell diskouezet pa'z eer en un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
