@@ -3468,7 +3468,7 @@ msgstr "هدف رابط الشعار"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "توضيح الخادم تحت مؤشر الفأرة"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
