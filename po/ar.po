@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:05+0200\n"
+"PO-Revision-Date: 2011-07-09 03:06+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3204,7 +3204,7 @@ msgstr "تخصيص اطار التصفح"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
-msgstr ""
+msgstr "تخصيص الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
