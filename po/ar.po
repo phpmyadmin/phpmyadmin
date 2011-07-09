@@ -3472,7 +3472,7 @@ msgstr "توضيح الخادم تحت مؤشر الفأرة"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
-msgstr ""
+msgstr "تفعيل التوضيح (highlighting)"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
