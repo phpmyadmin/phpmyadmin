@@ -209,12 +209,19 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
                 $type = strtolower($match[1]);
-                $return['sum'][$type]++;
+                // Ignore undefined index warning, just increase counter by one
+                @$return['sum'][$type]++;
                 if($type=='insert') {
+                    // Group inserts if selected
                     if(isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
+                            
+                            // Add a ... to the end of this query to indicate that there's been other queries
+                            $return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.';
+                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                                
                             // Group this value, thus do not add to the result list
                             continue;
                         } else {
@@ -223,8 +230,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         }
                     }
                         
+                    // Cut off big selects, but append byte count therefor
                     if(strlen($row['argument']) > 300)
-                        $row['argument'] = substr($row['argument'],0,301) . '... [' . strlen($row['argument']). ' Bytes]';
+                        $row['argument'] = substr($row['argument'],0,301) . '... [' . PMA_localizeNumber(number_format(strlen($row['argument']), 2)). ' Bytes]';
                 }
                 $return['rows'][] = $row;
                 $i++;

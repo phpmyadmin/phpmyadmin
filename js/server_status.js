@@ -80,7 +80,41 @@ $(function() {
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
-
+    
+    
+    /*** Table sort tooltip ***/
+    
+    var $tableSortHint = $('<div class="dHint" style="display:none;">' + 'Click to sort' + '</div>');
+    $('body').append($tableSortHint);
+    
+    $('table#serverstatusqueriesdetails thead th, table#serverstatusvariables thead th, div#logTable table thead th').live('mouseover mouseout',function(e) {
+        if(e.type == 'mouseover') {
+            $tableSortHint
+                .stop(true, true)
+                .css({
+                    top: e.clientY + 15,
+                    left: e.clientX + 15
+                })
+                .show('fast')
+                .data('shown',true);
+        } else {
+            $tableSortHint
+                .stop(true, true)
+                .hide(300,function() {
+                    $(this).data('shown',false);
+                });
+        }
+    });
+    
+    $(document).mousemove(function(e) {
+        if($tableSortHint.data('shown') == true)
+            $tableSortHint.css({
+                top: e.clientY + 15,
+                left: e.clientX + 15
+            })
+    });
+    
+    
     // Tell highcarts not to use UTC dates (global setting)    
     Highcharts.setOptions({
         global: {
@@ -540,6 +574,8 @@ $(function() {
     
     var xmin=-1, xmax=-1;
     
+    
+    
     // Allows drag and drop rearrange and print/edit icons on charts
     var editMode = false;
     
@@ -775,7 +811,7 @@ $(function() {
         var $dialog = $('div#monitorInstructionsDialog');
         
         $dialog.dialog({
-            width: 585,
+            width: 595,
             height: 'auto'
         }).find('img.ajaxIcon').show();
         
@@ -808,14 +844,20 @@ $(function() {
                     str += '<img src="' + pma_theme_image + icon + '" alt=""/> ' + msg + '<br />';
                     
                     if(logVars['log_output'] != 'TABLE')
-                        str += '<img src="' + pma_theme_image + 's_error.png" alt=""/> ' + 'log_output is not set to TABLE' + '<br />';
+                        str += '<img src="' + pma_theme_image + 's_error.png" alt=""/> ' + 'log_output is not set to TABLE.' + '<br />';
                     else 
-                        str += '<img src="' + pma_theme_image + 's_success.png" alt=""/> ' + 'log_output is set to TABLE' + '<br />';
+                        str += '<img src="' + pma_theme_image + 's_success.png" alt=""/> ' + 'log_output is set to TABLE.' + '<br />';
                     
-                    if(logVars['slow_query_log'] == 'ON' && logVars['long_query_time'] > 2) {
-                        str += '<img src="' + pma_theme_image + 's_attention.png" alt=""/> '
-                            + $.sprintf('slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 1 second, depending on your system.', logVars['long_query_time'])
-                            + '<br />';
+                    if(logVars['slow_query_log'] == 'ON') {
+                        if(logVars['long_query_time'] > 2)
+                            str += '<img src="' + pma_theme_image + 's_attention.png" alt=""/> '
+                                + $.sprintf('slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 0-2 seconds, depending on your system.', logVars['long_query_time'])
+                                + '<br />';
+                        
+                        if(logVars['long_query_time'] < 2)
+                            str += '<img src="' + pma_theme_image + 's_success.png" alt=""/> '
+                                + $.sprintf('long_query_time is set to %d second(s).', logVars['long_query_time'])
+                                + '<br />';
                     }
                     
                     str += '</div>';
@@ -1191,7 +1233,7 @@ $(function() {
                 var cols = new Array();
                 
                 if(rows.length != 0) {
-                    tableStr = '<table border="0">';
+                    tableStr = '<table border="0" class="sortable">';
                     
                     for(var i=0; i < rows.length; i++) {
                         if(i == 0) {
@@ -1237,6 +1279,10 @@ $(function() {
                         sortList: [[0,1]],
                         widgets: ['zebra']
                     });
+                    
+                    $('div#logTable table thead th')
+                        .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
+
                     
                     $('#loadingLogsDialog').html('<p>Log data loaded. Queries executed in this time span:</p>');
                     $.each(data.sum, function(key, value) {
