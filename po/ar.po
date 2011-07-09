@@ -3259,10 +3259,9 @@ msgid "Text fields"
 msgstr "حقول نصية"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Use text field"
 msgid "Customize text input fields"
-msgstr "استخدم حقل نص"
+msgstr "تخصيص حقول الإدخال النصية"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
