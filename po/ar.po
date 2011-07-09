@@ -3188,7 +3188,7 @@ msgstr "تعقب التغيرات"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
+msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
