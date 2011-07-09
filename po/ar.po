@@ -511,7 +511,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
 #: db_routines.php:158
-#, fuzzy, php-format
+#, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d تأثر بالإجراء الأخير"
