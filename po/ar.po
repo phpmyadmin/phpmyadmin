@@ -3361,7 +3361,7 @@ msgstr "النسبة المئوية للإستيراد كرقم عشري (12.00%
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "عدد الإستعلامات التي تقفز من البداية"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
