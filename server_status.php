@@ -202,13 +202,30 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             
             $return = array( 'rows' => array(), 'sum' => array());
             $type = '';
+            $insertTables = array();
+            $insertTablesFirst = array();
+            $i = 0;
             
             while ($row = PMA_DBI_fetch_assoc($result)) {
-                $type = substr($row['argument'],0,strpos($row['argument'],' '));
+                preg_match('/^(\w+)\s/',$row['argument'],$match);
+				$type = $match[1];
                 $return['sum'][$type]++;
-                if($type=='INSERT' && strlen($row['argument'] > 300))
-                    $row['argument'] = substr($row['argument'],0,301) . '...';
+                if($type=='INSERT') {
+                    if(isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
+                        $insertTables[$matches[2]]++;
+                        if ($insertTables[$matches[2]] > 1) 
+                            $returns['rows'][$insertTablesFirst]['count'] = $insertTables[$matches[2]];
+                        else {
+                            $insertTablesFirst = $i;
+                            $insertTables[$matches[2]] += $returns['rows'][$insertTablesFirst]['count'] - 1;
+                        }
+                    }
+                        
+                    if(strlen($row['argument']) > 300)
+                        $row['argument'] = substr($row['argument'],0,301) . '...';
+                }
                 $return['rows'][] = $row;
+                $i++;
             }
             
             $return['sum']['TOTAL'] = array_sum($return['sum']);
@@ -1240,7 +1257,7 @@ function printMonitor() {
     <div class="popupMenu">
         <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
         <a href="#popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
-        <a href="#monitorInstructionsDialog"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions</a>
+        <a href="#monitorInstructionsDialog"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions/Setup</a>
         <ul class="popupContent">
             <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
             <li>
@@ -1320,7 +1337,7 @@ function printMonitor() {
     </div>
     
     <div id="loadingLogsDialog" title="Loading logs" style="display:none;">
-    </diV>
+    </div>
     
     <div title="Log statistics" id="logAnalyseDialog">
         

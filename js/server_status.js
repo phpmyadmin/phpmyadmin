@@ -951,9 +951,9 @@ $(function() {
                         $('#logAnalyseDialog').html(
                             '<p>Selected time range: ' +
                              Highcharts.dateFormat('%H:%M:%S',new Date(min)) + ' - ' +  Highcharts.dateFormat('%H:%M:%S',new Date(max)) + '</p>' +
-                            '<p>Results are currently group by query text</p>'+
-                            '<p>Choose from which log you want the statistics to be generated from.</p>' /*+ 
-                            '<input type="checkbox" id="groupData" value="1" checked="checked" /> <label for="groupData">Group together identical queries</label>'*/
+                            '<input type="checkbox" id="groupInserts" value="1" checked="checked" /> <label for="groupData">Group together INSERTs into same table</label>' +
+                            '<p>Choose from which log you want the statistics to be generated from.</p>' + 
+                            'Results are grouped by query text.'
                         );
                         
                         $('#logAnalyseDialog').dialog({
@@ -961,12 +961,12 @@ $(function() {
                             height: 'auto',
                             buttons: {
                                 'From slow log': function() {
-                                    loadLogStatistics({src: 'slow', start: min, end: max});
+                                    loadLogStatistics({src: 'slow', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') });
                                     
                                     $( this ).dialog( "close" );
                                 },
                                 'From general log': function() {
-                                    loadLogStatistics({src: 'general', start: min, end: max});
+                                    loadLogStatistics({src: 'general', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') });
                                     
                                     $( this ).dialog( "close" );
                                 }
@@ -1151,37 +1151,34 @@ $(function() {
                 var rows = data.rows;
                 var cols = new Array();
                 
-                tableStr = '<table border="0">';
-                
-                for(var i=0; i < rows.length; i++) {
-                    if(i == 0) {
-                        tableStr += '<thead>';
-                        $.each(rows[0],function(key, value) {
-                            cols.push(key);
-                        });
-                        tableStr += '<tr><th>' + cols.join('</th><th>') + '</th></tr>';
-                        tableStr += '</thead><tbody>';
+                if(rows.length != 0) {
+                    tableStr = '<table border="0">';
+                    
+                    for(var i=0; i < rows.length; i++) {
+                        if(i == 0) {
+                            tableStr += '<thead>';
+                            $.each(rows[0],function(key, value) {
+                                cols.push(key);
+                            });
+                            tableStr += '<tr><th>' + cols.join('</th><th>') + '</th></tr>';
+                            tableStr += '</thead><tbody>';
+                        }
+                        
+                        tableStr += '<tr>';
+                        for(var j=0; j < cols.length; j++)
+                            tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
+                        tableStr += '</tr>';    
                     }
                     
-                    tableStr += '<tr>';
-                    for(var j=0; j < cols.length; j++)
-                        tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
-                    tableStr += '</tr>';    
-                }
-                
-                tableStr+='</tbody></table>';
-                
-                if(rows.length == 0)
-                    tableStr = '<i>No results found</i>';
-                
-                $('#logTable').html(tableStr);
-                
-                $('div#logTable table').tablesorter({
-                    sortList: [[0,1]],
-                    widgets: ['zebra']
-                });
-                
-                if(rows.length != 0) {
+                    tableStr+='</tbody></table>';
+                    
+                    $('#logTable').html(tableStr);
+                    
+                    $('div#logTable table').tablesorter({
+                        sortList: [[0,1]],
+                        widgets: ['zebra']
+                    });
+                    
                     $('#loadingLogsDialog').html('<p>Log data loaded. Queries executed in this time span:</p>');
                     $.each(data.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
@@ -1195,10 +1192,12 @@ $(function() {
                     } } );
                     
                 } else {
+                    
                     $('#loadingLogsDialog').html('<p>Log analysed, but not data found in this time span.</p>');
                     $('#loadingLogsDialog').dialog( "option", "buttons", { "Close": function() { 
                         $(this).dialog("close"); 
                     } } );
+                    
                 }
             }
         );
