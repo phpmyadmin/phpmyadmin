@@ -5325,10 +5325,9 @@ msgid "%d is not valid row number."
 msgstr "%d n'est pas un numéro de ligne valable."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Taille verticale pour une zone de texte"
+msgstr "Ligne de départ"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
