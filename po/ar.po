@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:09+0200\n"
+"PO-Revision-Date: 2011-07-09 03:10+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3265,7 +3265,7 @@ msgstr "تخصيص حقول الإدخال النصية"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "نص"
 
 #: libraries/config/messages.inc.php:230
 #, fuzzy
