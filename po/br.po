@@ -2703,7 +2703,7 @@ msgstr "Ivinell dre ziouer evit ar servijer"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un daolenn"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
