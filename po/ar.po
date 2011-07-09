@@ -3459,6 +3459,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"فتح الصفحة المرتبطة في النافذة الرئيسية ([kbd]main[/kbd]) أو في نافذة جديدة "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link target"
