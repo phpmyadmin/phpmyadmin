@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:35+0200\n"
+"PO-Revision-Date: 2011-07-09 03:37+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3476,7 +3476,7 @@ msgstr "تفعيل التوضيح (highlighting)"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "أكبر عدد للجداول المستعملة مؤخراً ; ضع 0 للتعطيل"
 
 #: libraries/config/messages.inc.php:289
 #, fuzzy
