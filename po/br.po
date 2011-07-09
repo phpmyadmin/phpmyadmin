@@ -2723,7 +2723,7 @@ msgstr "Diskouez roll an diazoù roadennoù e-lec'h ul lañser desachañ"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Diskouez a ra an diazoù roadennoù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
