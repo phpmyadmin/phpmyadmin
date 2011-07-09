@@ -3394,7 +3394,7 @@ msgstr "عرض الشعار في الإطار الأيسر"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
-msgstr ""
+msgstr "عرض الشعار"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
