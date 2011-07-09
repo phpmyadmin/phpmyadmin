@@ -1265,18 +1265,13 @@ ul#chartGrid li {
     background: #EBEBEB;
 }
 
-div#statustabs_charting div.popupMenu {
+div#statustabs_charting div.monitorLinks {
     float:<?php echo $left; ?>;
-}
-
-.popupMenu {
-    position:relative;
 }
 
 .popupContent {
     display: none;
     position: absolute;
-    right: 0px;
     border: 1px solid #CCC;
     margin:0;
     padding:3px;
@@ -1285,13 +1280,6 @@ div#statustabs_charting div.popupMenu {
     box-shadow:         2px 2px 3px #666;
     background-color:white;
     z-index: 2;
-}
-
-.popupContent li {
-    display: inline;
-    white-space: nowrap;
-    margin:0; 
-    list-style-type:none;
 }
 
 div#logTable {
@@ -1338,6 +1326,37 @@ table#serverVariables td {
 
 /* end server variables */
 
+
+p.notice {
+    margin:             1.5em 0px;
+    border:             1px solid #000;
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 10px 50%;
+    padding:            10px 10px 10px 25px;
+        <?php } else { ?>
+    background-position: 99% 50%;
+    padding:            25px 10px 10px 10px
+        <?php } ?>
+    <?php } else { ?>
+    padding:            0.3em;
+    <?php } ?>
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    -moz-box-shadow: 0px 1px 2px #fff inset;
+    -webkit-box-shadow: 0px 1px 2px #fff inset;
+    box-shadow:0px 1px 2px #fff; inset;
+    background:#555;
+    color:#d4fb6a;
+}
+
+p.notice a {
+    color:#fff;
+    text-decoration:underline;
+}
+
 /* querywindow */
 body#bodyquerywindow {
     margin: 0;
@@ -1382,32 +1401,6 @@ div#profilingchart {
 
 #togglequerybox{margin:0 10px}
 
-#serverstatus p {
-
-    margin:             1.5em 0px;
-    border:             1px solid #000;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
-    background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding:            10px 10px 10px 25px;
-        <?php } else { ?>
-    background-position: 99% 50%;
-    padding:            25px 10px 10px 10px
-        <?php } ?>
-    <?php } else { ?>
-    padding:            0.3em;
-    <?php } ?>
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
-    -moz-box-shadow: 0px 1px 2px #fff inset;
-    -webkit-box-shadow: 0px 1px 2px #fff inset;
-    box-shadow:0px 1px 2px #fff; inset;
-    background:#555;
-    color:#d4fb6a;
-}
-#serverstatus p a{color:#fff;text-decoration:underline;}
 #serverstatus h3
 {
     margin: 15px 0;

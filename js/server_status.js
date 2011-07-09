@@ -43,21 +43,29 @@ $(function() {
 
     
     // Popup behaviour
-    $('div.popupMenu a[href="#popupLink"]').click( function() {
-        $(this).parent().find('.popupContent').show();
+    $('a[rel="popupLink"]').click( function() {
+        var $link = $(this);
+        
+        $('.' + $link.attr('href').substr(1))
+            .show()
+            .offset({ top: $link.offset().top + $link.height() + 5, left: $link.offset().left })
+            .addClass('openedPopup');
+        
         return false;
     });
     
     $(document).click( function(event) {
-        var $cnt = $('div.popupMenu .popupContent');
-        var pos = $cnt.offset();
-        
-        // Hide if the mouseclick is outside the popupcontent
-        if(event.pageX < pos.left || event.pageY < pos.top || event.pageX > pos.left + $cnt.outerWidth() || event.pageY > pos.top + $cnt.outerHeight())
-            $cnt.hide();
+        $('.openedPopup').each(function() {
+            var $cnt = $(this);
+            var pos = $(this).offset();
+            
+            // Hide if the mouseclick is outside the popupcontent
+            if(event.pageX < pos.left || event.pageY < pos.top || event.pageX > pos.left + $cnt.outerWidth() || event.pageY > pos.top + $cnt.outerHeight())
+                $cnt.hide();
+        });
     });
 });
-
+    
 $(function() {
     // Filters for status variables
     var textFilter=null;
@@ -532,6 +540,9 @@ $(function() {
     
     var xmin=-1, xmax=-1;
     
+    // Allows drag and drop rearrange and print/edit icons on charts
+    var editMode = false;
+    
     var presetCharts = {
         'cpu-WINNT': {
             title: 'System CPU Usage',
@@ -657,19 +668,41 @@ $(function() {
         }
     });
     
+    $('div#statustabs_charting div.popupContent input[name="newChartWidth"]').attr('value',chartSize.width);
+    $('div#statustabs_charting div.popupContent input[name="newChartHeight"]').attr('value',chartSize.height);
+    
+    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function() {
+        editMode = !editMode;
+        if($(this).attr('href') == '#endChartEditMode') editMode = false;
+        
+        // Icon graphics have zIndex 19,20 and 21. Let's just hope nothing else has the same zIndex
+        $('ul#chartGrid li svg *[zIndex=20], li svg *[zIndex=21], li svg *[zIndex=19]').toggle(editMode)
+        
+        $('a[href="#endChartEditMode"]').toggle(editMode);
+        
+        if(editMode) {
+            $( "#chartGrid" ).sortable();
+            $( "#chartGrid" ).disableSelection();
+        } else {
+            $( "#chartGrid" ).sortable('destroy');
+        }
+        
+        return false;
+    });
+    
     // global settings
-    $('div#statustabs_charting div.popupMenu input[name="setSize"]').click(function() {
+    $('div#statustabs_charting div.popupContent input[name="newChartWidth"], div#statustabs_charting div.popupContent input[name="newChartHeight"]').change(function() {
         chartSize = {
-            width: parseInt($('div#statustabs_charting div.popupMenu input[name="width"]').attr('value')) || chartSize.width,
-            height: parseInt($('div#statustabs_charting div.popupMenu input[name="height"]').attr('value')) || chartSize.height
+            width: parseInt($('div#statustabs_charting div.popupContent input[name="newChartWidth"]').attr('value')) || chartSize.width,
+            height: parseInt($('div#statustabs_charting div.popupContent input[name="newChartHeight"]').attr('value')) || chartSize.height
         };
         
         $.each(chartGrid, function(key, value) {
-            value.chart.setSize(chartSize.width, chartSize.height);
+            value.chart.setSize(chartSize.width, chartSize.height, false);
         });
     });
     
-    $('div#statustabs_charting div.popupMenu select[name="gridChartRefresh"]').change(function() {
+    $('div#statustabs_charting div.popupContent select[name="gridChartRefresh"]').change(function() {
         gridRefresh = parseInt(this.value) * 1000;
         clearTimeout(refreshTimeout);
         
@@ -732,7 +765,7 @@ $(function() {
             $(this).html('<img src="' + pma_theme_image + 'pause.png" alt="Pause"/> Pause Monitor');
             if(chartGrid == null) {
                 initGrid();
-                $('a[href="#popupLink"]').show();
+                $('a[href="#settingsPopup"]').show();
             }
         }
         return false;
@@ -920,9 +953,6 @@ $(function() {
         
         buildRequiredDataList();
         refreshChartGrid();
-        
-        //$( "#chartGrid" ).sortable();
-        //$( "#chartGrid" ).disableSelection();
     }
     
     function addChart(chartObj, initialize) {
@@ -940,10 +970,12 @@ $(function() {
                 renderTo: 'gridchart' + chartAI,
                 width: chartSize.width,
                 height: chartSize.height,
-                marginRight: 0,
+                marginRight: 5,
                 zoomType: 'x',
                 events: {
                     selection: function(event) {
+                        if(editMode) return false;
+                        
                         var extremesObject = event.xAxis[0], 
                             min = extremesObject.min,
                             max = extremesObject.max;
@@ -1023,6 +1055,9 @@ $(function() {
             $("#chartGrid").sortable('refresh');
             buildRequiredDataList();
         }
+        
+        // Edit,Print icon only in edit mode
+        $('ul#chartGrid li svg *[zIndex=20], li svg *[zIndex=21], li svg *[zIndex=19]').toggle(editMode)
         
         chartAI++;
     }
@@ -1119,10 +1154,10 @@ $(function() {
     function loadLogStatistics(opts) {
         var tableStr = '';
         var logRequest = null;
-		var groupInsert = false;
-		
-		if(opts.groupInserts)
-			groupInserts = true;
+        var groupInsert = false;
+        
+        if(opts.groupInserts)
+            groupInserts = true;
         
         $('#loadingLogsDialog').html('Analysing & loading logs. This may take a while. <img class="ajaxIcon" src="' + pma_theme_image + 'ajax_clock_small.gif" alt="">');
 
@@ -1164,7 +1199,7 @@ $(function() {
                             $.each(rows[0],function(key, value) {
                                 cols.push(key);
                             });
-                            tableStr += '<tr><th>' + cols.join('</th><th>') + '</th></tr>';
+                            tableStr += '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>';
                             tableStr += '</thead><tbody>';
                         }
                         
@@ -1177,6 +1212,26 @@ $(function() {
                     tableStr+='</tbody></table>';
                     
                     $('#logTable').html(tableStr);
+                    
+                    // Append a tooltip to the count column, if there exist one
+                    if($('#logTable th:last').html() == '#') {
+                        $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon" src="' + pma_theme_image + 'b_docs.png" alt="" />');
+                    
+                        var qtipContent = 'This columns shows the amount of identical queries that are grouped together. However only the SQL Text is being compared, thus the queries other attributes such as start time may differ.';
+                        if(groupInserts) qtipContent += '<p>Since grouping of INSERTs queries has been selected, INSERT queries into the same table are also being grouped together, disregarding of the inserted data.</p>';
+                        
+                        $('img.qroupedQueryInfoIcon').qtip({
+                            content: qtipContent,
+                            position: {
+                                corner: {
+                                    target: 'bottomMiddle',
+                                    tooltip: 'topRight'
+                                }
+                                
+                            },
+                            hide: { delay: 1000 }
+                        })
+                    }
                     
                     $('div#logTable table').tablesorter({
                         sortList: [[0,1]],

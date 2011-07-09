@@ -205,7 +205,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $insertTables = array();
             $insertTablesFirst = -1;
             $i = 0;
-            $moo = array();
             
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
@@ -634,7 +633,7 @@ echo __('Runtime Information');
                 </div>
             </fieldset>
             <div id="linkSuggestions" class="defaultLinks" style="display:none">
-                <p><?php echo __('Related links:'); ?>
+                <p class="notice"><?php echo __('Related links:'); ?>
                 <?php
                 foreach ($links as $section_name => $section_links) {
                     echo '<span class="status_'.$section_name.'"> ';
@@ -790,7 +789,7 @@ function printServerTraffic() {
     ?>
     </h3>
 
-    <p>
+    <p class="notice">
     <?php
     echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
         PMA_timespanFormat($server_status['Uptime']),
@@ -800,7 +799,7 @@ function printServerTraffic() {
 
     <?php
     if ($server_master_status || $server_slave_status) {
-        echo '<p>';
+        echo '<p class="notice">';
         if ($server_master_status && $server_slave_status) {
             echo __('This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.');
         } elseif ($server_master_status) {
@@ -1257,20 +1256,20 @@ function printVariablesTable() {
 function printMonitor() {
     global $server_status;
 ?>
-    <div class="popupMenu">
+    <div class="monitorLinks">
         <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
-        <a href="#popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
+        <a href="#settingsPopup" rel="popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
         <a href="#monitorInstructionsDialog"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions/Setup</a>
-        <ul class="popupContent">
-            <li><a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a><br></li>
-            <li>
-                Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
-            </li>
-            <li> Chart size: <br>
-            <input type="text" name="width" size="3" value="300"> x <input type="text" size="3" name="height" value="300"> 
-            <input type="submit" name="setSize" value="Set">
-            </li>
-        </ul>
+        <a href="#endChartEditMode" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_okay.png" alt="End editing"/> Done rearranging/editing charts</a>		
+    </div>
+    
+    <div class="popupContent settingsPopup">
+        <a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a> | <a href="#rearrangeCharts"> Rearrange/edit charts</a><br>
+        <p>
+            Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
+        </p>
+        <p> Chart size: <input type="text" name="newChartWidth" size="3" /> x <input type="text" size="3" name="newChartHeight" /> 
+        </p>
     </div>
     
     <div id="monitorInstructionsDialog" title="Monitor Instructions" style="display:none;">
