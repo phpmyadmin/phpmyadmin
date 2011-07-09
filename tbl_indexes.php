@@ -108,6 +108,10 @@ if (isset($_REQUEST['do_save_data'])) {
         require './tbl_structure.php';
         exit;
     } else {
+        if( $GLOBALS['is_ajax_request'] == true) {
+            $extra_data['error'] = $error;
+            PMA_ajaxResponse($error,false);
+        }
         $error->display();
     }
 } // end builds the new index
@@ -158,7 +162,7 @@ if (isset($_REQUEST['create_index'])) {
 
 echo PMA_generate_common_hidden_inputs($form_params);
 ?>
-<fieldset>
+<fieldset id="index_edit_fields">
     <legend>
 <?php
 if (isset($_REQUEST['create_index'])) {
@@ -179,7 +183,7 @@ PMA_Message::notice(__('("PRIMARY" <b>must</b> be the name of and <b>only of</b>
 
 <div class="formelement">
 <label for="select_index_type"><?php echo __('Index type:'); ?></label>
-<select name="index[Index_type]" id="select_index_type" onchange="return checkIndexName()">
+<select name="index[Index_type]" id="select_index_type" >
     <?php echo $index->generateIndexSelector(); ?>
 </select>
 <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
