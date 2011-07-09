@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:21+0200\n"
+"PO-Revision-Date: 2011-07-09 03:23+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3357,7 +3357,7 @@ msgstr "عملات الإستيراد ($5.00 إلى 5.00)"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "النسبة المئوية للإستيراد كرقم عشري (12.00% إلى .12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
