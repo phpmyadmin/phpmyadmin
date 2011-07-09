@@ -5265,10 +5265,9 @@ msgid "%d is not valid row number."
 msgstr "%d is not valid row number."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Textarea rows"
+msgstr "Start row"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
