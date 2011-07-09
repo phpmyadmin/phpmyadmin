@@ -3200,7 +3200,7 @@ msgstr "تخصيص خيارات الإستيراد"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "تخصيص اطار التصفح"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
