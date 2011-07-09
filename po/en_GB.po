@@ -4296,6 +4296,8 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Defines whether or not type display direction option is shown when browsing "
+"a table"
 
 #: libraries/config/messages.inc.php:454
 #, fuzzy
