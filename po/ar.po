@@ -3217,7 +3217,7 @@ msgstr "صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "تخصيص الروابط الموجودة في صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:219
 #, fuzzy
