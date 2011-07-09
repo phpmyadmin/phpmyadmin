@@ -2707,7 +2707,7 @@ msgstr "Ivinell diskouezet pa'z eer tre en un daolenn"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit an taolennoù"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
