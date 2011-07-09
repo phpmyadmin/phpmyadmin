@@ -4300,10 +4300,9 @@ msgstr ""
 "a table"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Default display direction"
+msgstr "Show display direction"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
