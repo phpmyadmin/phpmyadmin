@@ -171,9 +171,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         
         if($_REQUEST['type'] == 'slow') {
             $q = 'SELECT SUM(query_time) AS TIME(query_time), SUM(lock_time) as lock_time, '.
-                 'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, sql_text, COUNT(sql_text) AS count '.
+                 'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, sql_text, COUNT(sql_text) AS \'#\' '.
                  'FROM `mysql`.`slow_log` WHERE event_time > FROM_UNIXTIME('.$start.') '.
-                 'AND event_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text HAVING count > 1';
+                 'AND event_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text';
                  
             $result = PMA_DBI_try_query($q);
             
@@ -194,7 +194,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         }
         
         if($_REQUEST['type'] == 'general') {
-            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as count FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
+            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
                  'AND event_time > FROM_UNIXTIME('.$start.') AND event_time < FROM_UNIXTIME('.$end.') '.
                  'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument'; // HAVING count > 1';
             
@@ -203,26 +203,29 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return = array( 'rows' => array(), 'sum' => array());
             $type = '';
             $insertTables = array();
-            $insertTablesFirst = array();
+            $insertTablesFirst = -1;
             $i = 0;
+            $moo = array();
             
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
-				$type = $match[1];
+                $type = $match[1];
                 $return['sum'][$type]++;
                 if($type=='INSERT') {
                     if(isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
                         $insertTables[$matches[2]]++;
-                        if ($insertTables[$matches[2]] > 1) 
-                            $returns['rows'][$insertTablesFirst]['count'] = $insertTables[$matches[2]];
-                        else {
+                        if ($insertTables[$matches[2]] > 1) {
+                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
+                            // Group this value, thus do not add to the result list
+                            continue;
+                        } else {
                             $insertTablesFirst = $i;
-                            $insertTables[$matches[2]] += $returns['rows'][$insertTablesFirst]['count'] - 1;
+                            $insertTables[$matches[2]] += $row['#'] - 1;
                         }
                     }
                         
                     if(strlen($row['argument']) > 300)
-                        $row['argument'] = substr($row['argument'],0,301) . '...';
+                        $row['argument'] = substr($row['argument'],0,301) . '... [' . strlen($row['argument']). ' Bytes]';
                 }
                 $return['rows'][] = $row;
                 $i++;

@@ -1119,6 +1119,10 @@ $(function() {
     function loadLogStatistics(opts) {
         var tableStr = '';
         var logRequest = null;
+		var groupInsert = false;
+		
+		if(opts.groupInserts)
+			groupInserts = true;
         
         $('#loadingLogsDialog').html('Analysing & loading logs. This may take a while. <img class="ajaxIcon" src="' + pma_theme_image + 'ajax_clock_small.gif" alt="">');
 
@@ -1145,7 +1149,7 @@ $(function() {
         }
         
         logRequest = $.get('server_status.php?'+url_query, 
-            { ajax_request: true, log_data: 1, type: opts.src, time_start: Math.round(opts.start / 1000), time_end: Math.round(opts.end / 1000) },
+            { ajax_request: true, log_data: 1, type: opts.src, time_start: Math.round(opts.start / 1000), time_end: Math.round(opts.end / 1000), groupInserts: groupInserts },
             function(data) { 
                 var data = $.parseJSON(data);
                 var rows = data.rows;
