@@ -3302,7 +3302,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:236
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "تجاهل أخطاء الجمل المتعددة"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
