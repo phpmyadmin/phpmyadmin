@@ -3448,7 +3448,7 @@ msgstr "فاصل شجرة الجدول"
 
 #: libraries/config/messages.inc.php:282
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "إعمل رابط للمكان الذي يشير اليه الشعار"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link URL"
