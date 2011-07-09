@@ -370,6 +370,15 @@ class PMA_Table
                     $query .= ' DEFAULT 0';
                 } elseif ($type == 'BIT') {
                     $query .= ' DEFAULT b\'' . preg_replace('/[^01]/', '0', $default_value) . '\'';
+                } elseif ($type == 'BOOLEAN') {
+                    if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                        $query .= ' DEFAULT TRUE';
+                    } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
+                        $query .= ' DEFAULT FALSE';
+                    } else {
+                        // Invalid BOOLEAN value
+                        $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
+                    }
                 } else {
                     $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
                 }
