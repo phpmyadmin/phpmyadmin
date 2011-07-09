@@ -5294,7 +5294,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Headers every %s rows"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
