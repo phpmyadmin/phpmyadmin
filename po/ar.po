@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:07+0200\n"
+"PO-Revision-Date: 2011-07-09 03:08+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3243,7 +3243,7 @@ msgstr "بدء التشغيل"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr ""
+msgstr "تخصيص صفحة بدء التشغيل"
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
