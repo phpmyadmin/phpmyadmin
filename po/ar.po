@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:06+0200\n"
+"PO-Revision-Date: 2011-07-09 03:07+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3220,10 +3220,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "تخصيص الروابط الموجودة في صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Server variables and settings"
 msgid "SQL queries settings"
-msgstr "متغيرات وإعدادات الخادم"
+msgstr "إعدادات إستعلامات SQL"
 
 #: libraries/config/messages.inc.php:220
 #, fuzzy
