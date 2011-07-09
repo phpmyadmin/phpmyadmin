@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:24+0200\n"
+"PO-Revision-Date: 2011-07-09 03:25+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -3374,7 +3374,7 @@ msgstr "لاتستعمل AUTO_INCREMENT للقيم الصفرية"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "الحالة الأولية"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
