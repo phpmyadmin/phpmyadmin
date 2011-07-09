@@ -341,7 +341,7 @@ class PMA_Table
 
         if ($length != ''
             && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT'
-                . '|SERIAL|BOOLEAN)$@i', $type)) {
+                . '|SERIAL|BOOLEAN|UUID)$@i', $type)) {
             $query .= '(' . $length . ')';
         }
 
