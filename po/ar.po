@@ -3382,7 +3382,7 @@ msgstr "كم عدد الصفوف التي يمكن إدخالها مرة واح�
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "عدد الصفوف المدخلة"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
