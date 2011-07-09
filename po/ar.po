@@ -3345,7 +3345,7 @@ msgstr "إستعمل الجملة LOCAL"
 #: libraries/config/messages.inc.php:263
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "ضع أسماء الحقول في السطر الأول"
+msgstr "ضع أسماء الصفوف في السطر الأول"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
