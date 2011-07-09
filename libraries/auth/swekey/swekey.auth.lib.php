@@ -143,7 +143,9 @@ function Swekey_auth_error()
         return "Internal Error: CA File $caFile not found";
 
     $result = null;
-    parse_str($_SERVER['QUERY_STRING']);
+	$swekey_id = $_GET['swekey_id'];
+	$swekey_otp = $_GET['swekey_otp'];
+
     if (isset($swekey_id)) {
         unset($_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY']);
         if (! isset($_SESSION['SWEKEY']['RND_TOKEN'])) {
@@ -166,7 +168,7 @@ function Swekey_auth_error()
                 $result = $GLOBALS['strSwekeyNoKey'];
                 if ($_SESSION['SWEKEY']['CONF_DEBUG'])
                 {
-                    $result .= "<br>".$swekey_id;
+                    $result .= "<br>" . htmlspecialchars($swekey_id);
                 }
                 unset($_SESSION['SWEKEY']['CONF_LOADED']); // reload the conf file
              }
