@@ -405,7 +405,7 @@ msgid "Last check"
 msgstr "التحقق الأخير"
 
 #: db_printview.php:220 db_structure.php:432
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
