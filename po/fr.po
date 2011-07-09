@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 16:46+0200\n"
+"PO-Revision-Date: 2011-07-09 20:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1917,7 +1917,7 @@ msgstr "Connexion impossible: paramètres incorrects."
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bienvenue sur %s"
+msgstr "Bienvenue dans %s"
 
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
