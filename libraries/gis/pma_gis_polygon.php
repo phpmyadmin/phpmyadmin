@@ -418,6 +418,63 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         }
     }
 
+    /**
+     * Returns a point that is guaranteed to be on the surface of the ring.
+     * (for simple closed rings)
+     *
+     * @param array $ring array of points forming the ring
+     */
+    public static function getPointOnSurface($ring)
+    {
+        // Find two consecutive distinct points.
+        for ($i = 0; $i < count($ring) - 1; $i++) {
+            if (($ring[$i]['x'] != $ring[$i + 1]['x'])
+                || ($ring[$i]['y'] != $ring[$i + 1]['y'])
+            ) {
+                $x0 = $ring[$i]['x'];
+                $x1 = $ring[$i + 1]['x'];
+                $y0 = $ring[$i]['y'];
+                $y1 = $ring[$i + 1]['y'];
+            }
+        }
+
+        if (! isset($x0)) {
+            return false;
+        }
+
+        // Find the mid point
+        $x2 = ($x0 + $x1) / 2;
+        $y2 = ($y0 + $y1) / 2;
+
+        // Always keep $epsilon < 1 to go with the reduction logic found later in this method
+        $epsilon = 0.1;
+        $denominator = sqrt(pow(($y1 - $y0), 2) + pow(($x0 - $x1), 2));
+        $pointA = array(); $pointB = array();
+
+        while (true) {
+            // Get the points on either sides of the line with a distance of epsilon to the mid point
+            $pointA['x'] = $x2 + ($epsilon * ($y1 - $y0)) / $denominator;
+            $pointA['y'] = $y2 + ($pointA['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
+
+            $pointB['x'] = $x2 + ($epsilon * ($y1 - $y0)) / (0 - $denominator);
+            $pointB['y'] = $y2 + ($pointB['x'] - $x2) * ($x0 - $x1) / ($y1 - $y0);
+
+            // One of the points should be inside the polygon, unless epcilon chosen is too large
+            if (PMA_GIS_Polygon::isPointInsidePolygon($pointA, $ring)) {
+                return $pointA;
+            } else if (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
+                return $pointB;
+            }
+
+            // If both are outside the polygon reduce the epsilon and recalculate the points
+            // (reduce exponentially for faster convergance)
+            else {
+                $epsilon = pow($epsilon, 2);
+            }
+
+        }
+    }
+
     /** Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column

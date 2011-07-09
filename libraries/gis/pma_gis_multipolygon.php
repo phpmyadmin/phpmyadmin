@@ -376,7 +376,12 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             $row_data['parts'][$i]['isOuter'] = PMA_GIS_Polygon::isOuterRing($ring['points']);
         }
 
-        $this->getPointsOnSurface($row_data['parts']);
+        // Find points on surface for inner rings
+        foreach ($row_data['parts'] as $i => $ring) {
+            if (! $ring['isOuter']) {
+                $row_data['parts'][$i]['pointOnSurface'] = PMA_GIS_Polygon::getPointOnSurface($ring['points']);
+            }
+        }
 
         // Classify inner rings to their respective outer rings.
         foreach ($row_data['parts'] as $j => $ring1) {
@@ -427,43 +432,6 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
 
         $wkt .= ')'; // end of multipolygon
         return $wkt;
-    }
-
-    /**
-     * Attach to each ring a point on its surface.
-     *
-     * @param array $rings
-     */
-    private function getPointsOnSurface(&$rings)
-    {
-        $sql = 'SELECT ';
-        $inner_rings =  false;
-
-        foreach ($rings as $i => $ring) {
-            if (! $ring['isOuter']) {
-                $inner_rings = true;
-                // gis_data[0]['MULTIPOLYGON'][0][0] will have $ring
-                $gis_data = array(array('MULTIPOLYGON' => array(array($ring['points']))));
-                $gis_data[0]['MULTIPOLYGON'][0][0]['no_of_points'] = count($ring['points']);
-                $geom = $this->generateWkt($gis_data, 0);
-                $sql .= 'AsText(PointOnSurface(GeomFromText("' . $geom . '"))) as `P' . $i . '`, ';
-            }
-        }
-        if (! $inner_rings) {
-            return;
-        }
-
-        $sql = substr($sql, 0, strlen($sql) - 2);
-        $result = PMA_DBI_fetch_result($sql);
-
-        require_once './libraries/gis/pma_gis_point.php';
-        $point = PMA_GIS_Point::singleton();
-        foreach ($rings as $i => $ring) {
-            if (! $ring['isOuter']) {
-                $param = $point->generateParams($result[0]['P' . $i], 0);
-                $rings[$i]['pointOnSurface'] = $param[0]['POINT'];
-            }
-        }
     }
 
     /**
