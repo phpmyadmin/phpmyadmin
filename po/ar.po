@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 03:01+0200\n"
+"PO-Revision-Date: 2011-07-09 03:02+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -82,7 +82,6 @@ msgstr "تنفيذ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:431 tbl_tracking.php:313
-#, fuzzy
 msgid "Keyname"
 msgstr "اسم المفتاح"
 
