@@ -208,9 +208,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
-                $type = $match[1];
+                $type = strtolower($match[1]);
                 $return['sum'][$type]++;
-                if($type=='INSERT') {
+                if($type=='insert') {
                     if(isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
