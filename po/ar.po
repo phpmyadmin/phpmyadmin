@@ -3330,7 +3330,7 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"الشكل الإفتراضي ; كن مدرك بأن هذه القائمة تعتمد على مكان (قاعدة البيانات "
+"الهيئة الإفتراضي ; كن مدرك بأن هذه القائمة تعتمد على مكان (قاعدة البيانات "
 "والجدول)"
 
 #: libraries/config/messages.inc.php:247
