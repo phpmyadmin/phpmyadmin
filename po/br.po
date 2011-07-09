@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-09 15:53+0200\n"
+"PO-Revision-Date: 2011-07-09 15:55+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2711,7 +2711,7 @@ msgstr "Ivinell dre ziouer evit an taolennoù"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:637
 msgid "Show binary contents as HEX"
