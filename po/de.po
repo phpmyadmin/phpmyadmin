@@ -8707,7 +8707,7 @@ msgstr "Transaktions-Koordinator"
 
 #: server_status.php:285
 msgid "Flush (close) all tables"
-msgstr "Alle Tabellen aktualisieren und schließen."
+msgstr "Alle Tabellen aktualisieren und schließen"
 
 #: server_status.php:287
 msgid "Show open tables"
