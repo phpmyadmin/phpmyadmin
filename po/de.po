@@ -6847,7 +6847,7 @@ msgstr "Bitte konfigurieren Sie die Koordinaten für die Tabelle %s"
 #: libraries/schema/Visio_Relation_Schema.class.php:497
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema der Datenbank \"%s\" - Seite %s"
+msgstr "Schema der Datenbank %s - Seite %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
