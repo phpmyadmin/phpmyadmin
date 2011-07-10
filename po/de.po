@@ -6788,7 +6788,7 @@ msgid ""
 "this list."
 msgstr ""
 "Nur Slaves, die mit der Option --report-host=host_name gestartet wurden, "
-"sind in dieser Liste sichtbar"
+"sind in dieser Liste sichtbar."
 
 #: libraries/replication_gui.lib.php:241 server_replication.php:192
 msgid "Add slave replication user"
