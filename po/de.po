@@ -1083,7 +1083,7 @@ msgstr "Sie sind dabei die Daten einer kompletten Tabelle zu ZERSTÖREN!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr "Trackingdaten werden gelöscht."
+msgstr "Trackingdaten werden gelöscht"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
