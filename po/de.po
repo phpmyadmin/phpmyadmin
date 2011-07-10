@@ -5012,7 +5012,7 @@ msgstr ""
 
 #: libraries/dbi/mysql.dbi.lib.php:333
 msgid "Details..."
-msgstr "Details ..."
+msgstr "Details..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
