@@ -2608,6 +2608,7 @@ msgid "Highlight pointer"
 msgstr "Cursor hervorheben"
 
 #: libraries/config/messages.inc.php:30
+#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
