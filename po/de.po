@@ -503,7 +503,7 @@ msgstr "SQL-Befehl ausführen"
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
+msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt"
 
 #: db_routines.php:158
 #, php-format
