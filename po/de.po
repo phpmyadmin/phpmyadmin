@@ -5856,7 +5856,7 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Die Größe des globalen Transaktionslogpuffers (es werden zwei Puffer dieser "
+"Die Größe des globalen Transaktionslogpuffers (es werden 2 Puffer dieser "
 "Größe angelegt. Die Voreinstellung ist 1 MB."
 
 #: libraries/engines/pbxt.lib.php:47
