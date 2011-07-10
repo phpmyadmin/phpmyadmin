@@ -2748,7 +2748,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr ""
+msgstr "Diweredekaat trezalc'h an taolennoù lies."
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
