@@ -7931,7 +7931,7 @@ msgstr "Alle"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 "Die Tabelle <b>%s</b> wurde entweder nicht gefunden oder in der "
-"Kofigurationsdatei %s nicht gesetzt."
+"Kofigurationsdatei %s nicht gesetzt"
 
 #: schema_export.php:45
 msgid "File doesn't exist"
