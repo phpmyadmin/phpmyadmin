@@ -10713,7 +10713,8 @@ msgstr "Verfügbare MIME-Typen"
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
-"Kursiv dargestellte MIME-Typen besitzen keine untergliederten Umwandlungen."
+"Kursiv dargestellte MIME-Typen besitzen keine untergliederten Umwandlungs-"
+"Funktionen"
 
 #: transformation_overview.php:42
 msgid "Available transformations"
