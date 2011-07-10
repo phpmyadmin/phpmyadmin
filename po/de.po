@@ -10385,7 +10385,7 @@ msgstr "Effektiv"
 
 #: tbl_printview.php:363 tbl_structure.php:858
 msgid "Row Statistics"
-msgstr "Zeilenstatistik"
+msgstr "Datensatz-Statistiken"
 
 #: tbl_printview.php:366 tbl_structure.php:861
 msgid "Statements"
