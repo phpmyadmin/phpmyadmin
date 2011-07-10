@@ -1841,7 +1841,7 @@ msgstr "Es gibt keine aktuellen Tabellen"
 #: libraries/StorageEngine.class.php:180
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Für dieses Tabellenformat sind keine Statusinformationen verfügbar"
+msgstr "Für dieses Tabellenformat sind keine Statusinformationen verfügbar."
 
 #: libraries/StorageEngine.class.php:316
 #, php-format
