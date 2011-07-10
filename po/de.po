@@ -10066,7 +10066,7 @@ msgstr "Als neue Zeile einfügen und Fehler ignorieren"
 
 #: tbl_change.php:985
 msgid "Show insert query"
-msgstr "Zeige insert  Abfrage"
+msgstr "Zeige insert Abfrage"
 
 #: tbl_change.php:996
 msgid "and then"
