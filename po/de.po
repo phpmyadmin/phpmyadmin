@@ -5921,7 +5921,7 @@ msgstr "Dateiwachstumsgröße"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "Die Wachstumsgröße der Handle-Dateien (.xtd)"
+msgstr "Die Wachstumsgröße der Handle-Dateien (.xtd)."
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
