@@ -1816,8 +1816,8 @@ msgstr[1] "%1$d Datensätze betroffen."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d Zeile gelöscht."
-msgstr[1] "%1$d Zeilen gelöscht."
+msgstr[0] "%1$d Datensatz gelöscht."
+msgstr[1] "%1$d Datensätze gelöscht."
 
 #: libraries/Message.class.php:273
 #, php-format
