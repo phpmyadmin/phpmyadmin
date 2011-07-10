@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 19:36+0200\n"
+"PO-Revision-Date: 2011-07-10 19:37+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2752,7 +2752,7 @@ msgstr "Diweredekaat trezalc'h an taolennoù lies."
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Aozañ ar rekedoù SQL en ur prenestr difoupañ"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
