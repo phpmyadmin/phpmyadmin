@@ -10304,7 +10304,7 @@ msgstr ""
 
 #: tbl_operations.php:668
 msgid "Flush the table (FLUSH)"
-msgstr "Leeren des Tabellencaches (\"FLUSH\")"
+msgstr "Leeren des Tabellencaches (FLUSH)"
 
 #: tbl_operations.php:677
 msgid "Delete data or table"
