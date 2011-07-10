@@ -153,57 +153,33 @@ $(document).ready(function() {
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
-        if($("#tablestructure tbody tr").hasClass("marked")){
-            var div = $('<div id="change_column_dialog"></div>');
-
-            /**
-             *  @var    button_options  Object that stores the options passed to jQueryUI
-             *                          dialog
-             */
-            var button_options = {};
-            // in the following function we need to use $(this)
-            button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
-
-            var button_options_error = {};
-            button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+        if ($("#tablestructure tbody tr").hasClass("marked")) {
+            /*Define the action and $url variabls for the post method*/
             var $form = $("#fieldsForm");
-            var $msgbox = PMA_ajaxShowMessage();
-
-            $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true&submit_mult=change" ,  function(data) {
-                //in the case of an error, show the error message returned.
-                if (data.success != undefined && data.success == false) {
-                    div
-                    .append(data.error)
-                    .dialog({
-                        title: PMA_messages['strChangeTbl'],
-                        height: 230,
-                        width: 900,
-                        open: PMA_verifyTypeOfAllColumns,
-                        modal: true,
-                        buttons : button_options_error
-                    })// end dialog options
-                } else {
-                    div
-                    .append(data)
-                    .dialog({
-                        title: PMA_messages['strChangeTbl'],
-                        height: 600,
-                        width: 900,
-                        open: PMA_verifyTypeOfAllColumns,
-                        modal: true,
-                        buttons : button_options
-                    })
-                    //Remove the top menu container from the dialog
-                    .find("#topmenucontainer").hide()
-                    ; // end dialog options
-                    $("#append_fields_form input[name=do_save_data]").addClass("ajax");
-                }
-                PMA_ajaxRemoveMessage($msgbox);
-            }) // end $.get()
+            var action = $form.attr('action');
+            var url = $form.serialize()+"&ajax_request=true&submit_mult=change";
+            /*Calling for the changeColumns fucntion*/
+            changeColumns(action,url);
         }  else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });
+
+    /**
+     *Ajax event handler for single column change
+    **/
+    $("#fieldsForm.ajax #tablestructure tbody tr td.edit a").live('click', function(event){
+        event.preventDefault();
+        /*Define the action and $url variabls for the post method*/
+        var action = "tbl_alter.php";
+        var url = $(this).attr('href');
+        if (url.substring(0, 13) == "tbl_alter.php") {
+            url = url.substring(14, url.length);
+        }
+        url = url + "&ajax_request=true";
+        /*Calling for the changeColumns fucntion*/
+        changeColumns(action,url);
+     });
 
     /**
      *Ajax action for submitting the column change form
@@ -309,7 +285,7 @@ $(document).ready(function() {
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     });
-    
+
     /**
      *Ajax action for submiting the index form
     **/
@@ -401,6 +377,69 @@ $(document).ready(function() {
              return false;
         });
     } //end show/hide table index
-    
+
 
 }) // end $(document).ready()
+
+/**
+ * Loads the append_fields_form to the Change dialog allowing users
+ * to change the columns
+ * @param   string	action  Variable which parses the name of the
+ * 							destination file
+ * @param   string	$url    Variable which parses the data for the
+ * 							post action
+ */
+function changeColumns(action,url) {
+    /*Remove the hidden dialogs if there are*/
+    if ($('#change_column_dialog').length != 0) {
+        $('#change_column_dialog').remove();
+    }
+    var div = $('<div id="change_column_dialog"></div>');
+
+    /**
+     *  @var    button_options  Object that stores the options passed to jQueryUI
+     *                          dialog
+     */
+    var button_options = {};
+    // in the following function we need to use $(this)
+    button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+
+    var button_options_error = {};
+    button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+    var $msgbox = PMA_ajaxShowMessage();
+
+    $.get( action , url ,  function(data) {
+        //in the case of an error, show the error message returned.
+        if (data.success != undefined && data.success == false) {
+            div
+            .append(data.error)
+            .dialog({
+                title: PMA_messages['strChangeTbl'],
+                height: 230,
+                width: 900,
+                modal: true,
+                open: PMA_verifyTypeOfAllColumns,
+                buttons : button_options_error
+            })// end dialog options
+        } else {
+            div
+            .append(data)
+            .dialog({
+                title: PMA_messages['strChangeTbl'],
+                height: 600,
+                width: 900,
+                modal: true,
+                open: PMA_verifyTypeOfAllColumns,
+                buttons : button_options
+            })
+            //Remove the top menu container from the dialog
+            .find("#topmenucontainer").hide()
+            ; // end dialog options
+            $("#append_fields_form input[name=do_save_data]").addClass("ajax");
+            /*changed the z-index of the enum editor to allow the edit*/
+            $("#enum_editor").css("z-index", "1100");
+        }
+        PMA_ajaxRemoveMessage($msgbox);
+    }) // end $.get()
+}
+
