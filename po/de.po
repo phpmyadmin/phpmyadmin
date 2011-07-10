@@ -4324,7 +4324,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:449
 msgid "Allow to display all the rows"
-msgstr "Erlaube alle Zeilen anzuzeigen"
+msgstr "Erlaube es alle Datensätze anzuzeigen"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
