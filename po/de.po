@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 04:22+0200\n"
+"PO-Revision-Date: 2011-07-10 04:23+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9325,7 +9325,7 @@ msgstr ""
 #: server_status.php:931
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
-"Anzahl der Zeilen, die in INSERT-DELAYED-Warteschleifen darauf warten, "
+"Anzahl der Datensätze, die in INSERT-DELAYED-Warteschleifen darauf warten, "
 "geschrieben zu werden."
 
 #: server_status.php:932
