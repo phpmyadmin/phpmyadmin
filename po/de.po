@@ -4337,7 +4337,7 @@ msgstr ""
 "Bitte beachten, dass das Einschalten bei [kbd]config[/kbd] authentication "
 "mode keine Wirkung hat, da das Passwort in der Konfigurationsdatei steht; "
 "dieses beschränkt nicht die Möglichkeit der direkten Ausführung des selben "
-"Befehls."
+"Befehls"
 
 #: libraries/config/messages.inc.php:451
 msgid "Show password change form"
