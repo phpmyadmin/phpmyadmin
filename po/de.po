@@ -2678,8 +2678,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Warnung (&quot;Sind Sie wirklich sicher &hellip;&quot;) anzeigen, wenn "
-"Dateien verloren gehen könnten."
+"Warnung (&quot;Sind Sie wirklich sicher...&quot;) anzeigen, wenn Dateien "
+"verloren gehen könnten"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
