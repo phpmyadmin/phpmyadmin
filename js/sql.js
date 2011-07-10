@@ -644,7 +644,10 @@ $(document).ready(function() {
                     })
                 } else {
                     $this_field.find('textarea').live('keypress', function(e) {
-                        $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', false);
+                        // FF errorniously triggers for modifier keys such as tab (bug #3357837)
+                        if (e.which != 0) {
+                            $('.checkbox_null_' + field_name + '_' + this_row_index).attr('checked', false);
+                        }
                     })
                 }
 
