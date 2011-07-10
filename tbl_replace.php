@@ -153,7 +153,29 @@ $func_optional_param = array(
     'UNIX_TIMESTAMP',
 );
 
-$gis_from_text_functions = array(    'GeomFromText',    'GeomCollFromText',    'LineFromText',    'MLineFromText',    'PointFromText',    'MPointFromText',    'PolyFromText',    'MPolyFromText',);$gis_from_wkb_functions = array(    'GeomFromWKB',    'GeomCollFromWKB',    'LineFromWKB',    'MLineFromWKB',    'PointFromWKB',    'MPointFromWKB',    'PolyFromWKB',    'MPolyFromWKB',);foreach ($loop_array as $rownumber => $where_clause) {
+$gis_from_text_functions = array(
+    'GeomFromText',
+    'GeomCollFromText',
+    'LineFromText',
+    'MLineFromText',
+    'PointFromText',
+    'MPointFromText',
+    'PolyFromText',
+    'MPolyFromText',
+);
+
+$gis_from_wkb_functions = array(
+    'GeomFromWKB',
+    'GeomCollFromWKB',
+    'LineFromWKB',
+    'MLineFromWKB',
+    'PointFromWKB',
+    'MPointFromWKB',
+    'PolyFromWKB',
+    'MPolyFromWKB',
+);
+
+foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
         continue;
@@ -238,11 +260,6 @@ $gis_from_text_functions = array(    'GeomFromText',    'GeomCollFromText',    '
             /* This way user will know what UUID new row has */
             $uuid = PMA_DBI_fetch_value('SELECT UUID()');
             $cur_value = "'" . $uuid . "'";
-        } elseif (!in_array($me_funcs[$key], $func_no_param)
-                  || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
-            $cur_value = $me_funcs[$key] . '(' . $val . ')';
-        } else {
-            $cur_value = $me_funcs[$key] . '()';
         } elseif ((in_array($me_funcs[$key], $gis_from_text_functions)
             && substr($val, 0, 3) == "'''")
             || in_array($me_funcs[$key], $gis_from_wkb_functions)
@@ -252,8 +269,11 @@ $gis_from_text_functions = array(    'GeomFromText',    'GeomCollFromText',    '
             // Remove escaping apostrophes
             $val = str_replace("''", "'", $val);
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
-        } else {
+        } elseif (! in_array($me_funcs[$key], $func_no_param)
+                  || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
             $cur_value = $me_funcs[$key] . '(' . $val . ')';
+        }  else {
+            $cur_value = $me_funcs[$key] . '()';
         }
 
         //  i n s e r t
