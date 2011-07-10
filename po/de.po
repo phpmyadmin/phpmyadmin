@@ -10124,7 +10124,7 @@ msgstr "Gestapelt"
 
 #: tbl_chart.php:94
 msgid "Chart title"
-msgstr "Titel des Reports:"
+msgstr "Titel des Reports"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
