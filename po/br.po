@@ -2772,7 +2772,7 @@ msgstr "Diskouez an arlunioù evit ar c'hemennoù diwall, faziañ ha titouriñ"
 
 #: libraries/config/messages.inc.php:67
 msgid "Iconic errors"
-msgstr ""
+msgstr "Arlunioù evit ar fazioù"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
