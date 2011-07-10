@@ -6190,7 +6190,7 @@ msgid ""
 "0x616263)</i>"
 msgstr ""
 "Binäre Spalten in hexadezimaler Schreibweise exportieren <i>(zum Beispiel "
-"wird aus &bdquo;abc&rdquo; 0x616263)</i>"
+"wird aus \"abc\" 0x616263)</i>"
 
 #: libraries/export/sql.php:282
 msgid ""
