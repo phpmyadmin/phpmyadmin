@@ -157,9 +157,9 @@ $(document).ready(function() {
             /*Define the action and $url variabls for the post method*/
             var $form = $("#fieldsForm");
             var action = $form.attr('action');
-            var $url = $form.serialize()+"&ajax_request=true&submit_mult=change";
+            var url = $form.serialize()+"&ajax_request=true&submit_mult=change";
             /*Calling for the changeColumns fucntion*/
-            changeColumns(action,$url);
+            changeColumns(action,url);
         }  else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
@@ -172,13 +172,13 @@ $(document).ready(function() {
         event.preventDefault();
         /*Define the action and $url variabls for the post method*/
         var action = "tbl_alter.php";
-        var $url = $(this).attr('href');
-        if ($url.substring(0, 13) == "tbl_alter.php") {
-            $url = $url.substring(14, $url.length);
+        var url = $(this).attr('href');
+        if (url.substring(0, 13) == "tbl_alter.php") {
+            url = url.substring(14, url.length);
         }
-        $url = $url + "&ajax_request=true";
+        url = url + "&ajax_request=true";
         /*Calling for the changeColumns fucntion*/
-        changeColumns(action,$url);
+        changeColumns(action,url);
      });
 
     /**
@@ -389,7 +389,11 @@ $(document).ready(function() {
  * @param   string	$url    Variable which parses the data for the
  * 							post action
  */
-function changeColumns(action,$url) {
+function changeColumns(action,url) {
+    /*Remove the hidden dialogs if there are*/
+    if ($('#change_column_dialog').length != 0) {
+        $('#change_column_dialog').remove();
+    }
     var div = $('<div id="change_column_dialog"></div>');
 
     /**
@@ -404,7 +408,7 @@ function changeColumns(action,$url) {
     button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
     var $msgbox = PMA_ajaxShowMessage();
 
-    $.get( action , $url ,  function(data) {
+    $.get( action , url ,  function(data) {
         //in the case of an error, show the error message returned.
         if (data.success != undefined && data.success == false) {
             div
@@ -413,8 +417,8 @@ function changeColumns(action,$url) {
                 title: PMA_messages['strChangeTbl'],
                 height: 230,
                 width: 900,
-                open: PMA_verifyTypeOfAllColumns,
                 modal: true,
+                open: PMA_verifyTypeOfAllColumns,
                 buttons : button_options_error
             })// end dialog options
         } else {
@@ -424,14 +428,16 @@ function changeColumns(action,$url) {
                 title: PMA_messages['strChangeTbl'],
                 height: 600,
                 width: 900,
-                open: PMA_verifyTypeOfAllColumns,
                 modal: true,
+                open: PMA_verifyTypeOfAllColumns,
                 buttons : button_options
             })
             //Remove the top menu container from the dialog
             .find("#topmenucontainer").hide()
             ; // end dialog options
             $("#append_fields_form input[name=do_save_data]").addClass("ajax");
+            /*changed the z-index of the enum editor to allow the edit*/
+            $("#enum_editor").css("z-index", "1100");
         }
         PMA_ajaxRemoveMessage($msgbox);
     }) // end $.get()
