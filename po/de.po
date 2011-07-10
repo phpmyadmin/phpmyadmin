@@ -10225,7 +10225,9 @@ msgstr "Index modifizieren"
 #: tbl_indexes.php:172
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "Der Name des Primärschlüssels darf <b>nur</b> \"PRIMARY\" lauten."
+msgstr ""
+"Der Name des Primärschlüssels (und <b>nur dessen</b>) darf <b>nur</b> "
+"\"PRIMARY\" lauten."
 
 #: tbl_indexes.php:175
 msgid "Index name:"
