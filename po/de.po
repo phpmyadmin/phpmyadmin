@@ -773,7 +773,7 @@ msgstr "Auswahl entfernen"
 
 #: db_structure.php:488
 msgid "Check tables having overhead"
-msgstr "Tabellen m. Überhang ausw."
+msgstr "Tabellen mit Überhang auswählen"
 
 #: db_structure.php:496 libraries/common.lib.php:2847
 #: libraries/common.lib.php:2848 libraries/config/messages.inc.php:164
