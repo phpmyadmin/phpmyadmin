@@ -8228,7 +8228,7 @@ msgstr "Tabellenspezifische Rechte"
 #: server_privileges.php:444 server_privileges.php:588
 #: server_privileges.php:1610
 msgid " Note: MySQL privilege names are expressed in English "
-msgstr "MySQL-Rechte werden auf Englisch angegeben."
+msgstr " Hinweis: MySQL-Rechte werden auf Englisch angegeben "
 
 #: server_privileges.php:513
 msgid "Administration"
