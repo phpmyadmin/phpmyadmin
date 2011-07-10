@@ -336,13 +336,11 @@ class PMA_Table
 
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
-        /**
-         * @todo include db-name
-         */
         $query = PMA_backquote($name) . ' ' . $type;
 
         if ($length != ''
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $type)) {
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT'
+                . '|SERIAL|BOOLEAN)$@i', $type)) {
             $query .= '(' . $length . ')';
         }
 

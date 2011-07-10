@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-06-28 18:31+0200\n"
+"PO-Revision-Date: 2011-07-07 19:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1281,16 +1281,14 @@ msgid "Insert Table"
 msgstr "Tablo Ekle"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "İndeks ekle"
+msgstr "İndeksleri gizle"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Izgara göster"
+msgstr "İndeksleri göster"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -4326,12 +4324,13 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Tabloya gözatılırken görüntüleme talimatı seçeneği doldurulsada "
+"doldurulmasada gösterilmesini tanımlar"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Varsayılan görüntü talimatı"
+msgstr "Görüntüleme talimatını göster"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -5298,6 +5297,7 @@ msgstr "İşaretlemek/işareti kaldırmak için tıklayın"
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
+"Sütunların görünürlüğünü değiştirmek<br />için aşağı açılır okuna tıklayın"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5305,22 +5305,19 @@ msgid "%d is not valid row number."
 msgstr "%d geçerli bir satır sayısı değil."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Metin alanı satırları"
+msgstr "Başlangıç satırı"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Satır sayısı:"
+msgstr "Satır sayısı"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Daha Fazla"
+msgstr "Kip"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5337,7 +5334,7 @@ msgstr "dikey"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Her %s satırda bir başlıklar"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"

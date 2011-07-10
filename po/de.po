@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-03 20:12+0200\n"
+"PO-Revision-Date: 2011-07-08 00:00+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1293,16 +1293,14 @@ msgid "Insert Table"
 msgstr "Tabelle einfügen"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Index hinzufügen"
+msgstr "Indexes verbergen"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Gitterlinien anzeigen"
+msgstr "Indexes anzeigen"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -4348,12 +4346,13 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Legt fest, ob die Typen-Anzeige-Richtungs-Option gezeigt wird, beim "
+"durchsuchen einer Tabelle"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Stamdardanzeigerichtung"
+msgstr "Zeige die Anzeige-Richtung"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -5324,6 +5323,8 @@ msgstr "Klicken zum aus- bzw. abwählen"
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
+"Den Pfeil des AUfklappsmenüs anklicken<br />um die Sichtbarkeit der Spalte "
+"umzustellen"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5331,22 +5332,19 @@ msgid "%d is not valid row number."
 msgstr "%d ist keine gültige Zeilennummer."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Textfeldzeilen"
+msgstr "Anfangs-Datensatz"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Anzahl der Zeilen:"
+msgstr "Anzahl der Datensätze:"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Mehr"
+msgstr "Art und Weise"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5363,7 +5361,7 @@ msgstr "nebeneinander"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Kopfzeilen alle %s Datensätze"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"

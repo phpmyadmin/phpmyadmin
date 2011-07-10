@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-02 22:10+0200\n"
+"PO-Revision-Date: 2011-07-08 19:45+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -1292,16 +1292,14 @@ msgid "Insert Table"
 msgstr "Ensoc'hañ un daolenn"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "Menegerioù"
+msgstr "Kuzhat menegerioù"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Indexes"
 msgid "Show indexes"
-msgstr "Menegerioù"
+msgstr "Diskouez menegerioù"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -2554,50 +2552,59 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Gweredekaat kement-mañ a aotre ur bajenn zo en un domani disheñvel da "
+"c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un "
+"[strong]toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Aotren ar frammoù a-berzh tud all"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr ""
+"Diskouez al liamm evit &quot;Skarzhañ un diaz roadennoù&quot; d'an "
+"implijerien voutin"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Kevrin Blow fish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Lakaat al linennoù dibabet da skediñ"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Merker linennoù"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Lakaat al linenn a vuk al logodenn daveti da usskediñ"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Lakaat ar reti da usskediñ"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Aotren ar gwaskañ [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] evit an "
+"oberiadennoù enporzhiañ hag ezporzhiañ"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2605,30 +2612,33 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Spisaat peseurt doare kontrolloù kemmañ a zleer ober ganto evit ar bannoù "
+"CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, "
+"[kbd]textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Kemmañ ar bannoù CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Niver a vannoù evit an takadoù skrid CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Bannoù evit an takadoù skrid CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Niver a linennoù evit an takadoù skrid CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Linennoù evit an takadoù skrid CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Gwiriañ aotreoù ar restr gefluniañ"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
@@ -2657,11 +2667,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Dizreinañ SQL"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
-msgstr ""
+msgstr "Talvoud dre ziouer durc'hadur an diskwel"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
