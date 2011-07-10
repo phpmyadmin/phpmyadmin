@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 04:07+0200\n"
+"PO-Revision-Date: 2011-07-10 04:08+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -4635,12 +4635,11 @@ msgstr "Versionsüberprüfung"
 
 # Maybe wikipedia links should point to $lang.wikipedia.org, eg http://de.wikipedia.org/wiki/ZIP-Dateiformat
 #: libraries/config/messages.inc.php:513
-#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a]-Kompression für "
+"[a@http://de.wikipedia.org/wiki/ZIP-Dateiformat]ZIP[/a]-Kompression für "
 "Import- und Exportoperationen aktivieren"
 
 #: libraries/config/messages.inc.php:514
