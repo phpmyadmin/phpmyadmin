@@ -3427,7 +3427,7 @@ msgstr "Anfangswert für Schieberegler"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
-msgstr "Anzahl der auf einmal einfügbaren Zeilen"
+msgstr "Anzahl der auf einmal einfügbaren Datensätze"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
