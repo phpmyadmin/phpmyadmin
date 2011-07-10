@@ -5422,7 +5422,7 @@ msgstr "Kopieren"
 
 #: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
-msgstr "Der Datensatz wurde gelöscht."
+msgstr "Der Datensatz wurde gelöscht"
 
 #: libraries/display_tbl.lib.php:1357 libraries/display_tbl.lib.php:2314
 #: server_status.php:831
