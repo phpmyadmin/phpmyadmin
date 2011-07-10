@@ -1896,7 +1896,7 @@ msgstr "Standard-Oberflächendesign %s nicht gefunden!"
 #: libraries/Theme_Manager.class.php:147
 #, php-format
 msgid "Theme %s not found!"
-msgstr "Oberflächendesign \"%s\" nicht gefunden!"
+msgstr "Oberflächendesign %s nicht gefunden!"
 
 #: libraries/Theme_Manager.class.php:210
 #, php-format
