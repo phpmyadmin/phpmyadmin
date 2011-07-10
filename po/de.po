@@ -2567,9 +2567,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"Wenn diese Option aktiviert ist, kann  eine Webseite einer fremden Domäne "
-"phpMyAdmin in einem Frame aufrufen. Dies stellt eine potentielle [strong]"
-"Sicherheitslücke[/strong] für Cross-Frame Scripting Attacken dar."
+"Wenn diese Option aktiviert ist, kann eine Webseite einer fremden Domäne "
+"phpMyAdmin in einem Frame aufrufen. Dies stellt eine potentielle "
+"[strong]Sicherheitslücke[/strong] für Cross-Frame Scripting Attacken dar."
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
