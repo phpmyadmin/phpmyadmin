@@ -10401,7 +10401,7 @@ msgstr "Zeilenlänge"
 
 #: tbl_printview.php:411 tbl_structure.php:926
 msgid " Row size "
-msgstr "Zeilengröße"
+msgstr " Zeilengröße "
 
 #: tbl_relation.php:276
 #, php-format
