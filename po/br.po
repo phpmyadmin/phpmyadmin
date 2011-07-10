@@ -2801,7 +2801,7 @@ msgstr "Furmad"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compression"
-msgstr ""
+msgstr "Gwaskadur"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
