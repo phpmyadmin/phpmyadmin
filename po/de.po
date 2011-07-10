@@ -8577,7 +8577,7 @@ msgstr "Die Datenbanken mit dem Master abgleichen"
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr "Kontrol-Slave"
+msgstr "Kontrol-Slave:"
 
 #: server_replication.php:323
 msgid "Full start"
