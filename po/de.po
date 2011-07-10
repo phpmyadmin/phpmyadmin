@@ -5107,7 +5107,7 @@ msgstr "Datensätze:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr "Einige Datensätze exportieren:"
+msgstr "Einige Datensätze exportieren"
 
 #: libraries/display_export.lib.php:152
 msgid "Number of rows:"
