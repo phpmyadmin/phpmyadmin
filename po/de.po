@@ -8531,7 +8531,7 @@ msgstr "Repliziere nur:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr "Bitte Datenbank auswählen"
+msgstr "Bitte Datenbanken auswählen:"
 
 #: server_replication.php:226
 msgid ""
