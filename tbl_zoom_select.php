@@ -28,8 +28,8 @@ $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
-$titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 
+$titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 /**
  * Not selection yet required -> displays the selection form
  */
@@ -69,6 +69,7 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
     $maxPlotlLimit = $GLOBALS['cfg']['maxRowPlotLimit']; 
     ?>
 
+<div id="sqlqueryresults"></div>
 <fieldset id="fieldset_subtab">
 <?php
 $url_params = array();
@@ -318,9 +319,19 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
      * Query execution part
      */
     $result     = PMA_DBI_query( $sql_query . ";" , null, PMA_DBI_QUERY_STORE);
+    $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
+        //Need a row with indexes as 0,1,2 for the PMA_getUniqueCondition hence using a temporary array
+	$tmpRow = array();
+	foreach($row as $val)
+	    $tmpRow[] = $val;
+        //Get unique conditon on each row (will be needed for row update)
+	$uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
+	//Append it to row array as where_clause
+	$row['where_clause'] = $uniqueCondition[0];
         $data[] = $row;
-    }
+    }	
+
 ?>
 
 <?php
@@ -390,7 +401,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
     <?php 
 }
 ?>
-<div id="sqlqueryresults"></div>
+
     <?php
     require './libraries/footer.inc.php';
 ?>

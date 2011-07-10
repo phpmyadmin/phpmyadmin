@@ -11,10 +11,10 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-    var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
-    msgbox.click(function() {
-        $(this).remove();
-    });
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
+	msgbox.click(function() {
+               $(this).remove();
+	});
 }
 
 /**
@@ -22,7 +22,7 @@ function displayHelp() {
  ** @param array
  **/
 Array.max = function (array) {
-    return Math.max.apply( Math, array );
+	return Math.max.apply( Math, array );
 }
 
 /**
@@ -30,9 +30,16 @@ Array.max = function (array) {
  ** @param array
  **/
 Array.min = function (array) {
-    return Math.min.apply( Math, array );
+	return Math.min.apply( Math, array );
 }
 
+/**
+ ** Checks if a string contains only numeric value
+ ** @param n: String (to be checked) 
+ **/
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 /**
  ** Scrolls the view to the display section
@@ -47,12 +54,12 @@ function scrollToChart() {
  ** @param modal: type of dialog
  **/
 function ShowDialog(modal) {
-    $("#overlay").show();
-    $("#dialog").fadeIn(300);
-    $("#overlay").click(function (e)
-    {
-        HideDialog();
-    });
+      $("#overlay").show();
+      $("#dialog").fadeIn(300);
+      $("#overlay").click(function (e)
+      {
+          HideDialog();
+      });
 }
 
 /**
@@ -64,7 +71,6 @@ function HideDialog() {
     $("#dialog").fadeOut(300);
 }
 
-        
 $(document).ready(function() {
 
    /**
@@ -138,7 +144,8 @@ $(document).ready(function() {
 	
         var it = 4;
 	for (key in data[currentData]) {
-	    data[currentData][key] = $('#fieldID_' + it).val();
+	    if (key != 'where_clause')
+	        data[currentData][key] = $('#fieldID_' + it).val();
 	    it++    
 	}
         //Update the chart seiries for replot
@@ -160,29 +167,40 @@ $(document).ready(function() {
 	
         currentChart = PMA_createChart(currentSettings);
 	currentChart.series[currentData].data[0].select();
-	$form = $('#zoom_display_form');
-	$str = $form.serialize();
-	alert('Working on it');
-        $.post($form.attr('action'), $str, function(response) {
-	    /*var sql_query = 'Update film_actor Set last_update = \'2011-01-01\' where actor_id = 1;';
-	    $.post('sql.php', {
-                'token' : window.parent.token,
-                'db' : window.parent.db,
-                'ajax_request' : true,
-                'sql_query' : sql_query,
-		'inline_edit' : false
+	
+	//Generate SQL query for update
+        var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
+	$.each(data[currentData],function(index, value) {
+	    if(index != 'where_clause') {
+	        sql_query += '`' + index + '`=' 
+		if(!isNumeric(value)) 
+		    sql_query += '\'' + value.replace(/'/g, "''") + '\' ,'
+		else
+		    sql_query += value.replace(/'/g, "''") + ' ,'
+
+	    }
+	    else {
+	        sql_query = sql_query.substring(0, sql_query.length - 1);
+		sql_query += ' WHERE ' + PMA_urldecode(value);
+	    }
+	});
+	//Post SQL query to sql.php	
+	$.post('sql.php', {
+            'token' : window.parent.token,
+            'db' : window.parent.db,
+            'ajax_request' : true,
+            'sql_query' : sql_query,
+	    'inline_edit' : false
 	    }, function(data) {
 	        if(data.success == true) {
-			$('#sqlqueryresults').html(data.sql_query);
-			$("#sqlqueryresults").trigger('appendAnchor');
+	            $('#sqlqueryresults').html(data.sql_query);
+		    $("#sqlqueryresults").trigger('appendAnchor');
 	        }
-		else 
-		    PMA_ajaxShowMessage(data.error);
-	    })*/
+	        else 
+	            PMA_ajaxShowMessage(data.error);
+	    })
 		
-        })//end $.post('sql.php')
-    });//end $.post
-
+        })//end $.post('sql.php') 
 
     /*
      * Generate plot using Highcharts
