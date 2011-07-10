@@ -5318,7 +5318,7 @@ msgstr "Spalten-Anordnung wiederherstellen"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Drag to reorder"
-msgstr "Zur Umordnung ziehen."
+msgstr "Zur Umordnung ziehen"
 
 #: libraries/display_tbl.lib.php:418
 msgid "Click to sort"
