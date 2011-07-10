@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:54+0200\n"
+"PO-Revision-Date: 2011-07-10 03:55+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3433,7 +3433,7 @@ msgstr "Anzahl der auf einmal einfügbaren Zeilen"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr "Anzahl der eingefügten Zeilen."
+msgstr "Anzahl der eingefügten Datensätze"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
