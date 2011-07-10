@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-06-27 03:38+0200\n"
+"POT-Creation-Date: 2011-07-07 15:16+0200\n"
+"PO-Revision-Date: 2011-07-09 03:43+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -64,17 +64,17 @@ msgstr "بحث"
 #: libraries/schema/User_Schema.class.php:445
 #: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:350
 #: libraries/sql_query_form.lib.php:414 libraries/sql_query_form.lib.php:466
-#: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
+#: libraries/tbl_properties.inc.php:610 libraries/tbl_properties.inc.php:780
 #: main.php:109 navigation.php:172 navigation.php:210 pmd_pdf.php:124
 #: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:109
 #: server_privileges.php:646 server_privileges.php:1694
 #: server_privileges.php:2051 server_privileges.php:2098
 #: server_privileges.php:2138 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
-#: tbl_change.php:1061 tbl_indexes.php:266 tbl_operations.php:280
+#: server_synchronize.php:1220 tbl_change.php:335 tbl_change.php:1027
+#: tbl_change.php:1064 tbl_indexes.php:264 tbl_operations.php:280
 #: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
+#: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -82,7 +82,6 @@ msgstr "تنفيذ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:431 tbl_tracking.php:313
-#, fuzzy
 msgid "Keyname"
 msgstr "اسم المفتاح"
 
@@ -129,7 +128,7 @@ msgid "Database comment: "
 msgstr "ملاحظة قاعدة البيانات: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
-#: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
+#: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "تعليقات الجدول"
@@ -139,8 +138,8 @@ msgstr "تعليقات الجدول"
 #: libraries/export/odt.php:302 libraries/export/texytext.php:227
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
-#: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
-#: tbl_indexes.php:194 tbl_printview.php:139 tbl_relation.php:399
+#: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
+#: tbl_indexes.php:192 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
 msgstr "عمود"
@@ -153,10 +152,10 @@ msgstr "عمود"
 #: libraries/export/odt.php:305 libraries/export/texytext.php:228
 #: libraries/schema/Pdf_Relation_Schema.class.php:1231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
-#: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
-#: tbl_change.php:289 tbl_change.php:316 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:103 server_privileges.php:2151
+#: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
-#: tbl_structure.php:796 tbl_tracking.php:267 tbl_tracking.php:314
+#: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "نوع"
 
@@ -165,7 +164,7 @@ msgstr "نوع"
 #: libraries/export/odt.php:308 libraries/export/texytext.php:229
 #: libraries/schema/Pdf_Relation_Schema.class.php:1233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1254
-#: libraries/tbl_properties.inc.php:109 tbl_change.php:325
+#: libraries/tbl_properties.inc.php:112 tbl_change.php:328
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Null"
@@ -176,7 +175,7 @@ msgstr "خالي"
 #: libraries/export/texytext.php:230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1234
 #: libraries/schema/Pdf_Relation_Schema.class.php:1255
-#: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
+#: libraries/tbl_properties.inc.php:109 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
 msgstr "إفتراضي"
@@ -196,7 +195,7 @@ msgstr "مرتبط بـ"
 #: libraries/export/texytext.php:235
 #: libraries/schema/Pdf_Relation_Schema.class.php:1247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1258
-#: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
+#: libraries/tbl_properties.inc.php:132 tbl_printview.php:149
 msgid "Comments"
 msgstr "تعليقات"
 
@@ -336,10 +335,10 @@ msgstr "التبديل إلى قاعدة البيانات المنسوخة"
 
 #: db_operations.php:552 libraries/Index.class.php:437
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
-#: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:107
-#: libraries/tbl_properties.inc.php:720 server_collations.php:53
+#: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
+#: libraries/tbl_properties.inc.php:723 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
-#: tbl_structure.php:206 tbl_structure.php:904 tbl_tracking.php:268
+#: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
 msgstr "Collation"
@@ -350,8 +349,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
-"s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
+"%s."
 
 #: db_operations.php:600
 msgid "Edit or export relational schema"
@@ -371,11 +370,11 @@ msgstr "جدول"
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:62
 #: libraries/import.lib.php:146 navigation.php:593 navigation.php:615
 #: tbl_printview.php:391 tbl_structure.php:395 tbl_structure.php:501
-#: tbl_structure.php:914
+#: tbl_structure.php:910
 msgid "Rows"
 msgstr "صفوف"
 
-#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:195
+#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:193
 msgid "Size"
 msgstr "حجم"
 
@@ -387,35 +386,35 @@ msgstr "قيد الإستعمال"
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:705
 #: libraries/schema/Pdf_Relation_Schema.class.php:1209 tbl_printview.php:431
-#: tbl_structure.php:946
+#: tbl_structure.php:942
 msgid "Creation"
 msgstr "الإنشاء"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
 #: libraries/export/sql.php:710
 #: libraries/schema/Pdf_Relation_Schema.class.php:1214 tbl_printview.php:441
-#: tbl_structure.php:954
+#: tbl_structure.php:950
 msgid "Last update"
 msgstr "التحديث الأخير"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
 #: libraries/export/sql.php:715
 #: libraries/schema/Pdf_Relation_Schema.class.php:1219 tbl_printview.php:451
-#: tbl_structure.php:962
+#: tbl_structure.php:958
 msgid "Last check"
 msgstr "التحقق الأخير"
 
 #: db_printview.php:220 db_structure.php:432
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s  جدول (جداول)"
 msgstr[1] "%s  جدول (جداول)"
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[2] "%s  جدول (جداول)"
+msgstr[3] "%s  جدول (جداول)"
+msgstr[4] "%s  جدول (جداول)"
+msgstr[5] "%s  جدول (جداول)"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -437,19 +436,19 @@ msgstr "ترتيب"
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:557 libraries/display_tbl.lib.php:898
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
-#: tbl_select.php:278
+#: tbl_select.php:304
 msgid "Ascending"
 msgstr "تصاعديا"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:562 libraries/display_tbl.lib.php:895
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
-#: tbl_select.php:279
+#: tbl_select.php:305
 msgid "Descending"
 msgstr "تنازليا"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:435
-#: tbl_change.php:279 tbl_tracking.php:648
+#: tbl_change.php:282 tbl_tracking.php:648
 msgid "Show"
 msgstr "عرض"
 
@@ -470,8 +469,8 @@ msgid "Del"
 msgstr "حذف"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:307 tbl_change.php:887 tbl_indexes.php:262
-#: tbl_select.php:252
+#: server_privileges.php:307 tbl_change.php:890 tbl_indexes.php:260
+#: tbl_select.php:278
 msgid "Or"
 msgstr "أو"
 
@@ -504,101 +503,101 @@ msgstr "إستعلام SQL في قاعدة البيانات <b>%s</b>:"
 msgid "Submit Query"
 msgstr "إرسال الإستعلام"
 
-#: db_routines.php:154 import.php:452 libraries/Message.class.php:175
+#: db_routines.php:155 import.php:452 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2235 libraries/sql_query_form.lib.php:113
 #: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
 #: view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
-#: db_routines.php:157
-#, fuzzy, php-format
+#: db_routines.php:158
+#, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d تأثر بالإجراء الأخير"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[1] "%d تأثر بالإجراء الأخير"
+msgstr[2] "%d تأثر بالإجراء الأخير"
+msgstr[3] "%d تأثر بالإجراء الأخير"
+msgstr[4] "%d تأثر بالإجراء الأخير"
+msgstr[5] "%d تأثر بالإجراء الأخير"
 
-#: db_routines.php:167
+#: db_routines.php:168
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "نتائج تنفيذ الإجراء %s"
 
-#: db_routines.php:187 libraries/import.lib.php:152 sql.php:685
-#: tbl_change.php:180 tbl_get_field.php:34
+#: db_routines.php:188 libraries/import.lib.php:152 sql.php:685
+#: tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 
-#: db_routines.php:192 db_routines.php:297 db_routines.php:302
-#: db_routines.php:326
+#: db_routines.php:193 db_routines.php:298 db_routines.php:303
+#: db_routines.php:327
 #, fuzzy, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "فشل الإستعلام \"%s\""
 
-#: db_routines.php:193 db_routines.php:298 db_routines.php:303
-#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
+#: db_routines.php:194 db_routines.php:299 db_routines.php:304
+#: db_routines.php:314 db_routines.php:328 libraries/common.lib.php:581
 msgid "MySQL said: "
 msgstr "MySQL قال: "
 
-#: db_routines.php:210 db_routines.php:242 db_routines.php:270
-#: db_routines.php:409
+#: db_routines.php:211 db_routines.php:243 db_routines.php:271
+#: db_routines.php:410
 msgid "Error in processing request"
 msgstr "خطأ في معالجة الطلب"
 
-#: db_routines.php:211 db_routines.php:243 db_routines.php:271
-#: db_routines.php:410
+#: db_routines.php:212 db_routines.php:244 db_routines.php:272
+#: db_routines.php:411
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "لا يوجد جدول بالإسم %1$s  في قاعدة البيانات %2$s"
 
-#: db_routines.php:232 db_routines.php:236
+#: db_routines.php:233 db_routines.php:237
 msgid "Execute routine"
 msgstr "تنفيذ"
 
-#: db_routines.php:261 db_routines.php:265
+#: db_routines.php:262 db_routines.php:266
 #, php-format
 msgid "Export of routine %s"
 msgstr "تصدير %s"
 
-#: db_routines.php:290 libraries/db_routines.lib.php:911
+#: db_routines.php:291 libraries/db_routines.lib.php:911
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "نوع الإجراء غير صحيح: %s"
 
-#: db_routines.php:311
+#: db_routines.php:312
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "عفواً , فشل في إستعادة الإجراء المزال"
 
-#: db_routines.php:312
+#: db_routines.php:313
 msgid "The backed up query was:"
 msgstr "الإستعلام الإحتياطي:"
 
-#: db_routines.php:316
+#: db_routines.php:317
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "تم تعديل الإجراء %1$s"
 
-#: db_routines.php:329
+#: db_routines.php:330
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "تم إنشاء الإجراء %1$s."
 
-#: db_routines.php:337
+#: db_routines.php:338
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>حصل خطأ أثناء معالجة طلبك: </b>"
 
-#: db_routines.php:381
+#: db_routines.php:382
 msgid "Create routine"
 msgstr "إنشاء إجراء"
 
-#: db_routines.php:385
+#: db_routines.php:386
 msgid "Edit routine"
 msgstr "تعديل الإجراء"
 
-#: db_routines.php:436
+#: db_routines.php:437
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
@@ -735,8 +734,8 @@ msgstr "التتبع غير نشط."
 #: db_structure.php:372 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "هذا العرض له ما لا يقل عدد هذه الصفوف يرجى الرجوع إلى %s الوثيقة %s"
 
 #: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:152
@@ -814,8 +813,8 @@ msgstr "حذف"
 msgid "Check table"
 msgstr "التحقق من الجدول"
 
-#: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:846
-#: tbl_structure.php:848
+#: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:842
+#: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "تحسين الجدول"
 
@@ -922,12 +921,12 @@ msgstr "تتبع الجدول"
 msgid "Database Log"
 msgstr "سجل قاعدة البيانات"
 
-#: enum_editor.php:21 libraries/tbl_properties.inc.php:773
+#: enum_editor.php:21 libraries/tbl_properties.inc.php:776
 #, php-format
 msgid "Values for the column \"%s\""
 msgstr "قيم للعمود \"%s\""
 
-#: enum_editor.php:22 libraries/tbl_properties.inc.php:774
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:777
 msgid "Enter each value in a separate field."
 msgstr "أدخل كل قيمة بحقل منفصل"
 
@@ -971,8 +970,8 @@ msgstr "تم حفظ الـDump إلى الملف %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "يبدو أنك تحاول رفع ملف كبير الحجم , فضلاً راجع المستند %sdocumentation%s لحل "
 "المشكلة."
@@ -1141,7 +1140,7 @@ msgstr "قيد إعادة قراءة الصلاحيات."
 msgid "Removing Selected Users"
 msgstr "حذف المستخدمين المحددين"
 
-#: js/messages.php:59 libraries/tbl_properties.inc.php:772
+#: js/messages.php:59 libraries/tbl_properties.inc.php:775
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
 msgstr "أغلاق"
@@ -1175,7 +1174,7 @@ msgstr "بيانات ثابتة"
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
 #: libraries/engines/innodb.lib.php:158 server_databases.php:219
 #: server_status.php:701 server_status.php:762 tbl_printview.php:348
-#: tbl_structure.php:833
+#: tbl_structure.php:829
 msgid "Total"
 msgstr "مجموع كلي"
 
@@ -1230,7 +1229,7 @@ msgstr "إستعلامات صادرة"
 msgid "Query statistics"
 msgstr "إحصائيات الإستعلام"
 
-#: js/messages.php:91 libraries/tbl_properties.inc.php:777 pmd_general.php:388
+#: js/messages.php:91 libraries/tbl_properties.inc.php:780 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
@@ -1350,14 +1349,14 @@ msgstr "تعديل سريع"
 
 #: js/messages.php:135 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
-#: libraries/tbl_properties.inc.php:766 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:227 tbl_change.php:976
-#: tbl_gis_visualization.php:222 tbl_indexes.php:259 tbl_relation.php:563
+#: libraries/tbl_properties.inc.php:769 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:227 tbl_change.php:979
+#: tbl_gis_visualization.php:222 tbl_indexes.php:257 tbl_relation.php:563
 msgid "Save"
 msgstr "حفظ"
 
 #: js/messages.php:136 libraries/display_tbl.lib.php:645 pmd_general.php:158
-#: tbl_change.php:316 tbl_change.php:322
+#: tbl_change.php:319 tbl_change.php:325
 msgid "Hide"
 msgstr "أخفاء"
 
@@ -1379,8 +1378,8 @@ msgstr "إخفاء معايير البحث"
 msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
-#: js/messages.php:145 tbl_change.php:304 tbl_indexes.php:209
-#: tbl_indexes.php:236
+#: js/messages.php:145 tbl_change.php:307 tbl_indexes.php:207
+#: tbl_indexes.php:234
 msgid "Ignore"
 msgstr "تجاهل"
 
@@ -1458,7 +1457,7 @@ msgstr "سابق"
 #: js/messages.php:191 libraries/common.lib.php:2222
 #: libraries/common.lib.php:2225 libraries/display_tbl.lib.php:366
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
-#: tbl_structure.php:938
+#: tbl_structure.php:934
 msgid "Next"
 msgstr "التالي"
 
@@ -1742,7 +1741,7 @@ msgstr "لم يتم تعريف الفهرس!"
 msgid "Indexes"
 msgstr "فهارس"
 
-#: libraries/Index.class.php:433 libraries/tbl_properties.inc.php:503
+#: libraries/Index.class.php:433 libraries/tbl_properties.inc.php:506
 #: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
 #: tbl_tracking.php:315
 msgid "Unique"
@@ -1785,7 +1784,7 @@ msgstr "قاعدة بيانات"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:533
-#: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:883
+#: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
 #: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "خطأ"
@@ -1922,8 +1921,8 @@ msgstr "أهلا بك في %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr "يبدو انك لم تنشئ ملف الإعدادات.إستخدم %1$ssetup script%2$s لإنشائه."
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2074,12 +2073,12 @@ msgstr "جداول"
 #: libraries/config/user_preferences.forms.php:277
 #: libraries/export/latex.php:216 libraries/export/sql.php:1058
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
-#: tbl_structure.php:802
+#: tbl_structure.php:798
 msgid "Data"
 msgstr "بيانات"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:55
-#: tbl_printview.php:333 tbl_structure.php:819
+#: tbl_printview.php:333 tbl_structure.php:815
 msgid "Overhead"
 msgstr "الحمل الزائد"
 
@@ -2309,7 +2308,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/db_links.inc.php:48 libraries/export/latex.php:352
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:623 pmd_general.php:151
+#: libraries/tbl_properties.inc.php:626 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
 msgid "Structure"
 msgstr "بناء"
@@ -2345,7 +2344,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "دليل تحميل الملفات على خادم الشبكة"
 
 #: libraries/common.lib.php:2814 libraries/sql_query_form.lib.php:447
-#: tbl_change.php:884
+#: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
 msgstr "الدليل الذي حددته لتحميل عملك لا يمكن الوصول إليه."
 
@@ -2520,7 +2519,7 @@ msgstr "السماح للمستخدمين بتخصيص هذه القيمة"
 
 #: libraries/config/FormDisplay.tpl.php:324
 #: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
-#: prefs_manage.php:325 tbl_change.php:1025
+#: prefs_manage.php:325 tbl_change.php:1028
 msgid "Reset"
 msgstr "إعادة تعيين"
 
@@ -2776,7 +2775,7 @@ msgid "Character set of the file"
 msgstr "مجموعة الأحرف للملف"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:874
+#: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:870
 msgid "Format"
 msgstr "صيغة"
 
@@ -2875,7 +2874,7 @@ msgstr "Label key"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
-#: libraries/tbl_properties.inc.php:142
+#: libraries/tbl_properties.inc.php:145
 msgid "MIME type"
 msgstr "نوع MIME"
 
@@ -3183,54 +3182,52 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
-msgstr ""
+msgstr "تعقب التغيرات"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
+msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
-msgstr ""
+msgstr "تخصيص خيارات التصدير"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize import defaults"
-msgstr ""
+msgstr "تخصيص خيارات الإستيراد"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "تخصيص اطار التصفح"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
-msgstr ""
+msgstr "تخصيص الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "إستعلام SQL"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
-msgstr ""
+msgstr "صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "تخصيص الروابط الموجودة في صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Server variables and settings"
 msgid "SQL queries settings"
-msgstr "متغيرات وإعدادات الخادم"
+msgstr "إعدادات إستعلامات SQL"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "نصوص SQL سابقة"
+msgstr "مدقق SQL"
 
 #: libraries/config/messages.inc.php:221
 msgid ""
@@ -3242,69 +3239,70 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
-msgstr ""
+msgstr "بدء التشغيل"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr ""
+msgstr "تخصيص صفحة بدء التشغيل"
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
-msgstr ""
+msgstr "التبويبات"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "إختر الطريقة التي تعمل بها التبويبات"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
-msgstr "استخدم حقل نص"
+msgstr "حقول نصية"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Use text field"
 msgid "Customize text input fields"
-msgstr "استخدم حقل نص"
+msgstr "تخصيص حقول الإدخال النصية"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "نص"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "تحذير"
+msgstr "تحذيرات"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "إلغاء عرض بعض التحذيرات في phpMyAdmin"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"تفعيل ضغط [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] لعمليات التصدير "
+"والإستيراد"
 
 #: libraries/config/messages.inc.php:233
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:234
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "مدخلات إضافية لـ iconv"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"إذا كان مفعل , فإن phpMyAdmin  سوف تستمر في تنفيذ الإستعلامات المتعددة حتى "
+"لو فشل بعضها"
 
 #: libraries/config/messages.inc.php:236
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "تجاهل أخطاء الجمل المتعددة"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
@@ -3315,12 +3313,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:238
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "الإستيراد الجزئي: السماح بالمقاطعة"
 
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "لاتحبط عندما يكون الخطأ في جمل الإدخال INSERT"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
@@ -3332,83 +3330,83 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"الهيئة الإفتراضي ; كن مدرك بأن هذه القائمة تعتمد على مكان (قاعدة البيانات "
+"والجدول)"
 
 #: libraries/config/messages.inc.php:247
 msgid "Format of imported file"
-msgstr ""
+msgstr "هيئة الملفات المستوردة"
 
 #: libraries/config/messages.inc.php:251 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "إستعمل الجملة LOCAL"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "ضع أسماء الحقول في السطر الأول"
+msgstr "ضع أسماء الصفوف في السطر الأول"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "لاتستورد صفوف فارغة"
 
 #: libraries/config/messages.inc.php:256
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "عملات الإستيراد ($5.00 إلى 5.00)"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "النسبة المئوية للإستيراد كرقم عشري (12.00% إلى .12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "عدد الإستعلامات التي يتخطاها من البداية"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "إستيراد جزئي: تخطي الإستعلامات"
 
 #: libraries/config/messages.inc.php:261
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "أضف قيمة AUTO_INCREMENT"
+msgstr "لاتستعمل AUTO_INCREMENT للقيم الصفرية"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "الحالة الأولية"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "كم عدد الصفوف التي يمكن إدخالها مرة واحدة"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "عدد الصفوف المدخلة"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "الهدف لإيقونة الوصول السريع"
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "عرض الشعار في الإطار الأيسر"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
-msgstr ""
+msgstr "عرض الشعار"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "عرض إختيار الخادم في الجزء العلوي من الإطار الأيسر"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display servers selection"
-msgstr ""
+msgstr "عرض إختيار الخوادم"
 
 #: libraries/config/messages.inc.php:272
 msgid "Minimum number of tables to display the table filter box"
-msgstr ""
+msgstr "اقل عدد جداول تعرض في صندوق تصفية الجداول"
 
 #: libraries/config/messages.inc.php:273
 msgid "String that separates databases into different tree levels"
@@ -3416,7 +3414,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:274
 msgid "Database tree separator"
-msgstr ""
+msgstr "فاصل شجرة قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:275
 msgid ""
@@ -3426,19 +3424,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:276
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "عرض قواعد البيانات في شجرة"
 
 #: libraries/config/messages.inc.php:277
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "تعطيل هذا إذا كنت تريد رؤية قواعد البيانات كلٌ على حدا"
 
 #: libraries/config/messages.inc.php:278
 msgid "Use light version"
-msgstr ""
+msgstr "إستخدم نسخة light"
 
 #: libraries/config/messages.inc.php:279
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "أقصى عمق لشجرة الجدول"
 
 #: libraries/config/messages.inc.php:280
 msgid "String that separates tables into different tree levels"
@@ -3446,43 +3444,44 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:281
 msgid "Table tree separator"
-msgstr ""
+msgstr "فاصل شجرة الجدول"
 
 #: libraries/config/messages.inc.php:282
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "إعمل رابط للمكان الذي يشير اليه الشعار"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link URL"
-msgstr ""
+msgstr "رابط الشعار"
 
 #: libraries/config/messages.inc.php:284
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"فتح الصفحة المرتبطة في النافذة الرئيسية ([kbd]main[/kbd]) أو في نافذة جديدة "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link target"
-msgstr ""
+msgstr "هدف رابط الشعار"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "توضيح الخادم تحت مؤشر الفأرة"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
-msgstr ""
+msgstr "تفعيل التوضيح (highlighting)"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "أكبر عدد للجداول المستعملة مؤخراً ; ضع 0 للتعطيل"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used tables"
-msgstr "تحليل الجدول"
+msgstr "الجداول المستعملة مؤخراً"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
@@ -3499,7 +3498,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid "Limit column characters"
-msgstr ""
+msgstr "حد أحرف العمود"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -3510,17 +3509,17 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "حذف كل الكوكيز عند الخروج"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr ""
+msgstr "تعريف ما إذا كان سوف يتذكر تسجيل الدخول الأخير من تحقق الكوكيز أم لا"
 
 #: libraries/config/messages.inc.php:297
 msgid "Recall user name"
-msgstr ""
+msgstr "تذكر إسم المستخدم"
 
 #: libraries/config/messages.inc.php:298
 msgid ""
@@ -3536,15 +3535,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:300
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "تحديد كم المدة التي يبقى فيها الكوكيز"
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie validity"
-msgstr ""
+msgstr "صلاحية دخول الكوكيز"
 
 #: libraries/config/messages.inc.php:302
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "مضاعفة حجم مربع النص لأعمدة LONGTEXT"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
@@ -4625,7 +4624,7 @@ msgstr ""
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
 #: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
 #: libraries/display_create_table.lib.php:51
-#: libraries/display_triggers.inc.php:70 libraries/tbl_properties.inc.php:99
+#: libraries/display_triggers.inc.php:70 libraries/tbl_properties.inc.php:102
 #: setup/frames/index.inc.php:125 tbl_structure.php:204
 msgid "Name"
 msgstr "الاسم"
@@ -4711,7 +4710,7 @@ msgstr ""
 msgid "Direction"
 msgstr "الإنشاء"
 
-#: libraries/db_routines.lib.php:663 libraries/tbl_properties.inc.php:105
+#: libraries/db_routines.lib.php:663 libraries/tbl_properties.inc.php:108
 msgid "Length/Values"
 msgstr "الطول/القيمة"
 
@@ -4729,7 +4728,7 @@ msgstr "الطول/القيمة"
 #: libraries/import/docsql.php:35 libraries/import/ldi.php:49
 #: libraries/import/ods.php:32 libraries/import/sql.php:20
 #: libraries/import/xls.php:28 libraries/import/xlsx.php:28
-#: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:890
+#: libraries/import/xml.php:25 tbl_select.php:257 tbl_structure.php:886
 msgid "Options"
 msgstr "خيارات"
 
@@ -4789,14 +4788,14 @@ msgstr ""
 msgid "Routine parameters"
 msgstr ""
 
-#: libraries/db_routines.lib.php:810 tbl_change.php:284 tbl_change.php:322
+#: libraries/db_routines.lib.php:810 tbl_change.php:287 tbl_change.php:325
 msgid "Function"
 msgstr "دالة"
 
 #: libraries/db_routines.lib.php:812 libraries/replication_gui.lib.php:117
 #: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
-#: pmd_general.php:775 server_status.php:1029 tbl_change.php:326
-#: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:866
+#: pmd_general.php:775 server_status.php:1029 tbl_change.php:329
+#: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:862
 msgid "Value"
 msgstr "القيمة"
 
@@ -5023,8 +5022,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:268
@@ -5043,7 +5042,7 @@ msgid "Compression:"
 msgstr "الضغط"
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:564
-#: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:559
+#: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:562
 #: pmd_general.php:510 server_privileges.php:1955 server_status.php:835
 msgid "None"
 msgstr "لا شيء"
@@ -5241,14 +5240,9 @@ msgid "vertical"
 msgstr "عمودي"
 
 #: libraries/display_tbl.lib.php:452
-msgid "Headers every"
+#, php-format
+msgid "Headers every %s rows"
 msgstr ""
-
-#: libraries/display_tbl.lib.php:454
-#, fuzzy
-#| msgid "Browse"
-msgid "rows"
-msgstr "استعراض"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
@@ -5285,7 +5279,7 @@ msgid "Show BLOB contents"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:645 libraries/relation.lib.php:112
-#: libraries/tbl_properties.inc.php:143 transformation_overview.php:46
+#: libraries/tbl_properties.inc.php:146 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "تحويل المتصفح"
 
@@ -5775,8 +5769,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6186,7 +6180,7 @@ msgstr ""
 msgid "DocSQL"
 msgstr ""
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:598
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:601
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Table name"
 msgstr "اسم الجدول"
@@ -6268,7 +6262,7 @@ msgid "Charset"
 msgstr "مجموعة المحارف"
 
 #: libraries/mysql_charsets.lib.php:198 libraries/mysql_charsets.lib.php:399
-#: tbl_change.php:553
+#: tbl_change.php:556
 msgid "Binary"
 msgstr "ثنائي"
 
@@ -6688,7 +6682,7 @@ msgstr "جدول المحتويات"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1232
 #: libraries/schema/Pdf_Relation_Schema.class.php:1253
-#: libraries/tbl_properties.inc.php:108 tbl_printview.php:141
+#: libraries/tbl_properties.inc.php:111 tbl_printview.php:141
 #: tbl_structure.php:207
 msgid "Attributes"
 msgstr "الخواص"
@@ -6917,7 +6911,7 @@ msgstr "عرض فقط"
 msgid "Location of the text file"
 msgstr "مكان ملف نصي"
 
-#: libraries/sql_query_form.lib.php:450 tbl_change.php:887
+#: libraries/sql_query_form.lib.php:450 tbl_change.php:890
 msgid "web server upload directory"
 msgstr "دليل تحميل الملفات على خادم الشبكة"
 
@@ -6999,7 +6993,7 @@ msgstr ""
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:105
+#: libraries/tbl_properties.inc.php:108
 #, fuzzy
 #| msgid ""
 #| "If field type is \"enum\" or \"set\", please enter the values using this "
@@ -7017,7 +7011,7 @@ msgstr ""
 "لليسار (\"\\\") أو علامة الاقتباس الفردية (\"'\") فيما بين تلك القيم، اجعلها "
 "كشرطة مائلة لليسار (مثلا '\\\\xyz' أو 'a\\'b')."
 
-#: libraries/tbl_properties.inc.php:106
+#: libraries/tbl_properties.inc.php:109
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
@@ -7025,13 +7019,13 @@ msgstr ""
 "للقيم الافتراضية، الرجاء أدخل قيمة مفردة، دون علامات هروب أو تنصيص، باستخدام "
 "التنسيق: a"
 
-#: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:509
+#: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:512
 #: tbl_printview.php:323 tbl_structure.php:156 tbl_structure.php:161
-#: tbl_structure.php:607 tbl_structure.php:810
+#: tbl_structure.php:607 tbl_structure.php:806
 msgid "Index"
 msgstr "فهرست"
 
-#: libraries/tbl_properties.inc.php:136
+#: libraries/tbl_properties.inc.php:139
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -7040,11 +7034,11 @@ msgstr ""
 "لعرض قائمة بخيارات التحويل المتوفرة وأنواع تحويلات MIME الخاصة بها، اضغط على "
 "%sخيارات التحويل%s"
 
-#: libraries/tbl_properties.inc.php:144
+#: libraries/tbl_properties.inc.php:147
 msgid "Transformation options"
 msgstr "خيارات التحويل"
 
-#: libraries/tbl_properties.inc.php:145
+#: libraries/tbl_properties.inc.php:148
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -7055,64 +7049,64 @@ msgstr ""
 ">إذا احتجت أن تضع شرطة مائلة (\"\\\") أو علامة تنصيص (\"'\") بين هذه القيم، "
 "اسبقها بشرطة مائلة )على سبيل المثال '\\\\xyz' أو 'a\\'b'(."
 
-#: libraries/tbl_properties.inc.php:352
+#: libraries/tbl_properties.inc.php:355
 msgid "ENUM or SET data too long?"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:354
+#: libraries/tbl_properties.inc.php:357
 msgid "Get more editing space"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:377
+#: libraries/tbl_properties.inc.php:380
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "لا شيء"
 
-#: libraries/tbl_properties.inc.php:378
+#: libraries/tbl_properties.inc.php:381
 msgid "As defined:"
 msgstr "كما هو معرف:"
 
-#: libraries/tbl_properties.inc.php:497 tbl_structure.php:155
+#: libraries/tbl_properties.inc.php:500 tbl_structure.php:155
 #: tbl_structure.php:160 tbl_structure.php:605
 msgid "Primary"
 msgstr "أساسي"
 
-#: libraries/tbl_properties.inc.php:515 tbl_structure.php:159
+#: libraries/tbl_properties.inc.php:518 tbl_structure.php:159
 #: tbl_structure.php:164 tbl_structure.php:614
 msgid "Fulltext"
 msgstr "النص كاملا"
 
-#: libraries/tbl_properties.inc.php:564 transformation_overview.php:57
+#: libraries/tbl_properties.inc.php:567 transformation_overview.php:57
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr "ليس هناك وصف متوفر لهذا التحويل.<br />رجاء اسأل الناشر، ما يفعله %s."
 
-#: libraries/tbl_properties.inc.php:606 tbl_structure.php:678
+#: libraries/tbl_properties.inc.php:609 tbl_structure.php:678
 #, fuzzy, php-format
 #| msgid "Add into comments"
 msgid "Add %s column(s)"
 msgstr "أضف إلى الملاحظات"
 
-#: libraries/tbl_properties.inc.php:608 tbl_structure.php:672
+#: libraries/tbl_properties.inc.php:611 tbl_structure.php:672
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
 msgstr "عليك اختيار عمود واحد على الأقل للعرض"
 
-#: libraries/tbl_properties.inc.php:716 server_engines.php:56
+#: libraries/tbl_properties.inc.php:719 server_engines.php:56
 #: tbl_operations.php:370
 msgid "Storage Engine"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:745
+#: libraries/tbl_properties.inc.php:748
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:776
+#: libraries/tbl_properties.inc.php:779
 #, fuzzy
 #| msgid "Add a new User"
 msgid "+ Add a value"
@@ -7420,8 +7414,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا%"
-"s."
+"تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %sهنا"
+"%s."
 
 #: main.php:314
 msgid ""
@@ -8170,8 +8164,8 @@ msgstr "احذف قواعد البيانات التي لها نفس أسماء �
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "ملاحظة: يقرأ phpMyAdmin صلاحيات المستخدمين من جداول الصلاحيات من خادم MySQL "
 "مباشرة. محتويات هذه الجداول قد تختلف عن الصلاحيات التي يستخدمها الخادم إذا "
@@ -9611,7 +9605,7 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
-#: sql.php:95 tbl_change.php:254 tbl_select.php:27 tbl_select.php:28
+#: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
 #: tbl_select.php:31 tbl_select.php:34
 msgid "Browse foreign values"
 msgstr "استعرض القيم الغريبة"
@@ -9654,62 +9648,62 @@ msgstr "علامة"
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
-#: tbl_change.php:680
+#: tbl_change.php:683
 #, fuzzy
 #| msgid " Because of its length,<br /> this field might not be editable "
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr " بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
 
-#: tbl_change.php:797
+#: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
-#: tbl_change.php:803
+#: tbl_change.php:806
 msgid "Binary - do not edit"
 msgstr "ثنائي - لاتحرره"
 
-#: tbl_change.php:851
+#: tbl_change.php:854
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:980
+#: tbl_change.php:983
 msgid "Insert as new row"
 msgstr "إدخال كتسجيل جديد"
 
-#: tbl_change.php:981
+#: tbl_change.php:984
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:982
+#: tbl_change.php:985
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:993
+#: tbl_change.php:996
 msgid "and then"
 msgstr "وبعدها"
 
-#: tbl_change.php:997
+#: tbl_change.php:1000
 msgid "Go back to previous page"
 msgstr "الرجوع إلى الصفحة السابقة"
 
-#: tbl_change.php:998
+#: tbl_change.php:1001
 msgid "Insert another new row"
 msgstr "إدخال تسجيل جديد"
 
-#: tbl_change.php:1002
+#: tbl_change.php:1005
 msgid "Go back to this page"
 msgstr "ارجع إلى هذه الصفحة"
 
-#: tbl_change.php:1010
+#: tbl_change.php:1013
 msgid "Edit next row"
 msgstr "عدل الصف التالي"
 
-#: tbl_change.php:1021
+#: tbl_change.php:1024
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: tbl_change.php:1059
+#: tbl_change.php:1062
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
@@ -9862,26 +9856,26 @@ msgstr "تصميم فهرسه جديده"
 msgid "Modify an index"
 msgstr "تعديل الفهرسة"
 
-#: tbl_indexes.php:173
-msgid "Index name:"
-msgstr "اسم الفهرس&nbsp;:"
-
-#: tbl_indexes.php:179
-msgid "Index type:"
-msgstr "نوع الفهرس&nbsp;:"
-
-#: tbl_indexes.php:189
+#: tbl_indexes.php:172
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
 "(\"الأساسي\" <b>يجب</b> يجب أن يكون الاسم <b>وأيضاً فقط</b> المفتاح الأساسي!)"
 
-#: tbl_indexes.php:263
+#: tbl_indexes.php:175
+msgid "Index name:"
+msgstr "اسم الفهرس&nbsp;:"
+
+#: tbl_indexes.php:181
+msgid "Index type:"
+msgstr "نوع الفهرس&nbsp;:"
+
+#: tbl_indexes.php:261
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr "إضافه كفهرس &nbsp;%s&nbsp;صف(ـوف)"
 
-#: tbl_indexes.php:268 tbl_structure.php:727 tbl_structure.php:738
+#: tbl_indexes.php:266 tbl_structure.php:727
 msgid "Column count has to be larger than zero."
 msgstr ""
 
@@ -10011,39 +10005,39 @@ msgstr "تحديد التكامل المرجعي:"
 msgid "Show tables"
 msgstr "شاهد الجدول"
 
-#: tbl_printview.php:307 tbl_structure.php:793
+#: tbl_printview.php:307 tbl_structure.php:789
 msgid "Space usage"
 msgstr "المساحة المستغلة"
 
-#: tbl_printview.php:311 tbl_structure.php:797
+#: tbl_printview.php:311 tbl_structure.php:793
 msgid "Usage"
 msgstr "المساحة"
 
-#: tbl_printview.php:338 tbl_structure.php:824
+#: tbl_printview.php:338 tbl_structure.php:820
 msgid "Effective"
 msgstr "فعال"
 
-#: tbl_printview.php:363 tbl_structure.php:862
+#: tbl_printview.php:363 tbl_structure.php:858
 msgid "Row Statistics"
 msgstr "إحصائيات"
 
-#: tbl_printview.php:366 tbl_structure.php:865
+#: tbl_printview.php:366 tbl_structure.php:861
 msgid "Statements"
 msgstr "أوامر"
 
-#: tbl_printview.php:377 tbl_structure.php:877
+#: tbl_printview.php:377 tbl_structure.php:873
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:379 tbl_structure.php:879
+#: tbl_printview.php:379 tbl_structure.php:875
 msgid "dynamic"
 msgstr "ديناميكي"
 
-#: tbl_printview.php:401 tbl_structure.php:922
+#: tbl_printview.php:401 tbl_structure.php:918
 msgid "Row length"
 msgstr "طول الصف"
 
-#: tbl_printview.php:411 tbl_structure.php:930
+#: tbl_printview.php:411 tbl_structure.php:926
 msgid " Row size "
 msgstr " مقاس الصف "
 
@@ -10072,21 +10066,21 @@ msgstr ""
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "تجعل \"استعلام بواسطة المثال\" (wildcard: \"%\")"
 
-#: tbl_select.php:234
+#: tbl_select.php:260
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "اختيار حقول (على الأقل واحد):"
 
-#: tbl_select.php:252
+#: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "أضف شروط البحث (جسم من الفقره \"where\" clause):"
 
-#: tbl_select.php:259
+#: tbl_select.php:285
 msgid "Number of rows per page"
 msgstr "رقم السجلات لكل صفحة"
 
-#: tbl_select.php:265
+#: tbl_select.php:291
 msgid "Display order:"
 msgstr "ترتيب العرض:"
 
@@ -10186,7 +10180,7 @@ msgstr "بعد %s"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "تصميم فهرسه على&nbsp;%s&nbsp;عمود"
 
-#: tbl_structure.php:893
+#: tbl_structure.php:889
 msgid "partitioned"
 msgstr ""
 
@@ -10392,6 +10386,11 @@ msgid "Rename view to"
 msgstr "أعد تسمية العرض الـ"
 
 #, fuzzy
+#~| msgid "Browse"
+#~ msgid "rows"
+#~ msgstr "استعراض"
+
+#, fuzzy
 #~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "صفوف تبدأ من"
@@ -10475,8 +10474,8 @@ msgstr "أعد تسمية العرض الـ"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط %"
-#~ "sهنا%s."
+#~ "تم تعطيل المزايا الإضافية للعمل بالجداول المترابطة. لمعرفة السبب اضغط "
+#~ "%sهنا%s."
 
 #~ msgid "Execute bookmarked query"
 #~ msgstr "نفذ استعلام محفوظ بعلامة مرجعية"

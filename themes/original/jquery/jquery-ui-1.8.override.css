@@ -1,0 +1,8 @@
+/**
+ * Use this file to override styles set by jquery-ui-1.8.custom.css
+ */
+
+/* Component containers
+----------------------------------*/
+.ui-widget { font-size: 1em; }
+#ui-timepicker-div { z-index: 1003; }

@@ -179,6 +179,7 @@ $(document).ready(function() {
                         height: 230,
                         width: 900,
                         open: PMA_verifyTypeOfAllColumns,
+                        modal: true,
                         buttons : button_options_error
                     })// end dialog options
                 } else {
@@ -189,6 +190,7 @@ $(document).ready(function() {
                         height: 600,
                         width: 900,
                         open: PMA_verifyTypeOfAllColumns,
+                        modal: true,
                         buttons : button_options
                     })
                     //Remove the top menu container from the dialog
@@ -269,10 +271,10 @@ $(document).ready(function() {
          */
         var button_options = {};
         // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
         var $msgbox = PMA_ajaxShowMessage();
 
         $.get( "tbl_indexes.php" , url ,  function(data) {
@@ -285,6 +287,7 @@ $(document).ready(function() {
                     height: 230,
                     width: 900,
                     open: PMA_verifyTypeOfAllColumns,
+                    modal: true,
                     buttons : button_options_error
                 })// end dialog options
             } else {
@@ -295,16 +298,18 @@ $(document).ready(function() {
                     height: 600,
                     width: 900,
                     open: PMA_verifyTypeOfAllColumns,
+                    modal: true,
                     buttons : button_options
                 })
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
+                checkIndexName("index_frm");
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
     });
-
+    
     /**
      *Ajax action for submiting the index form
     **/
@@ -337,8 +342,14 @@ $(document).ready(function() {
                 }
 
             } else {
-                var temp_div = $("<div id='temp_div'><div>").append(data.error);
-                var error = $(temp_div).find(".error code").addClass("error");
+                if(data.error != undefined) {
+                    var temp_div = $("<div id='temp_div'><div>").append(data.error);
+                    if($(temp_div).find(".error code").length != 0) {
+                        var error = $(temp_div).find(".error code").addClass("error");
+                    } else {
+                        var error = temp_div;
+                    }
+                }
                 PMA_ajaxShowMessage(error);
             }
 
@@ -360,7 +371,7 @@ $(document).ready(function() {
         $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
             $("#index_columns").remove();
             var temp_div = $("<div id='temp_div'><div>").append(data);
-            $(temp_div).find("#index_columns").insertAfter("#index_frm fieldset .error");
+            $(temp_div).find("#index_columns").appendTo("#index_edit_fields");
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -390,6 +401,6 @@ $(document).ready(function() {
              return false;
         });
     } //end show/hide table index
-
+    
 
 }) // end $(document).ready()

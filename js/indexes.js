@@ -5,45 +5,6 @@
  */
 
 /**
- * Ensures indexes names are valid according to their type and, for a primary
- * key, lock index name to 'PRIMARY'
- *
- * @return  boolean  false if there is no index form, true else
- */
-function checkIndexName()
-{
-    if (typeof(document.forms['index_frm']) == 'undefined') {
-        return false;
-    }
-
-    // Gets the elements pointers
-    var the_idx_name = document.forms['index_frm'].elements['index'];
-    var the_idx_type = document.forms['index_frm'].elements['index_type'];
-
-    // Index is a primary key
-    if (the_idx_type.options[0].value == 'PRIMARY' && the_idx_type.options[0].selected) {
-        document.forms['index_frm'].elements['index'].value = 'PRIMARY';
-        if (typeof(the_idx_name.disabled) != 'undefined') {
-            document.forms['index_frm'].elements['index'].disabled = true;
-        }
-    }
-
-    // Other cases
-    else {
-        if (the_idx_name.value == 'PRIMARY') {
-            document.forms['index_frm'].elements['index'].value = '';
-        }
-        if (typeof(the_idx_name.disabled) != 'undefined') {
-            document.forms['index_frm'].elements['index'].disabled = false;
-        }
-    }
-
-    return true;
-} // end of the 'checkIndexName()' function
-
-onload = checkIndexName;
-
-/**
  * Hides/shows the inputs and submits appropriately depending
  * on whether the index type chosen is 'SPATIAL' or not.
  */
@@ -56,7 +17,7 @@ function checkIndexType()
     /**
      * @var Object Table header for the size column.
      */
-    $size_header = $('thead tr th:nth-child(2)');
+    $size_header = $('#index_columns thead tr th:nth-child(2)');
     /**
      * @var Object Inputs to specify the columns for the index.
      */
@@ -132,7 +93,12 @@ function checkIndexType()
  */
 $(document).ready(function() {
     checkIndexType();
-    $('#select_index_type').bind('change', checkIndexType);
+    checkIndexName("index_frm");
+    $('#select_index_type').live('change', function(event){
+        event.preventDefault();
+        checkIndexType();
+        checkIndexName("index_frm");
+    });
 });
 
 /**#@- */
