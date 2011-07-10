@@ -4319,7 +4319,7 @@ msgstr "Serverbezeichnung"
 #: libraries/config/messages.inc.php:448
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Ob dem Benutzer eine Schaltfläche &bdquo;Alle (Zeilen) anzeigen&rdquo; "
+"Ob dem Benutzer eine Schaltfläche &bdquo;Alle (Datensätze) anzeigen&rdquo; "
 "angezeigt werden soll"
 
 #: libraries/config/messages.inc.php:449
