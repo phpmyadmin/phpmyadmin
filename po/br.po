@@ -2764,7 +2764,7 @@ msgstr "Diskouez ar fazioù"
 
 #: libraries/config/messages.inc.php:65
 msgid "Gather errors"
-msgstr ""
+msgstr "Dastum ar fazioù"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
