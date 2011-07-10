@@ -2668,7 +2668,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Kadarnaat ar rekedoù diverkañ DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
