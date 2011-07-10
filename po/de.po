@@ -7128,7 +7128,7 @@ msgstr ""
 "versagt, wo die Kommandozeile erfolgreich ist, so reduzieren Sie bitte Ihre "
 "Abfrage auf den Befehl, welcher die Probleme verursacht, und senden Sie uns "
 "einen Fehlerbericht mit den Datenausschnitt, den Sie weiter unten auf dieser "
-"Seite finden.:"
+"Seite finden:"
 
 #: libraries/sqlparser.lib.php:169
 msgid "BEGIN CUT"
