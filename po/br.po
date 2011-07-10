@@ -2788,7 +2788,7 @@ msgstr "Pad seveniñ hirañ"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
-msgstr ""
+msgstr "Enrollañ evel restr"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:239
 msgid "Character set of the file"
