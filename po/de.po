@@ -4851,7 +4851,7 @@ msgstr "Trigger"
 
 #: libraries/db_routines.lib.php:630
 msgid "Details"
-msgstr "Details ..."
+msgstr "Details"
 
 #: libraries/db_routines.lib.php:633
 msgid "Routine name"
