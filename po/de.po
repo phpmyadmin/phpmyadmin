@@ -311,7 +311,7 @@ msgstr "Nur Daten"
 
 #: db_operations.php:504
 msgid "CREATE DATABASE before copying"
-msgstr "Vor dem Kopieren CREATE DATABASE ausführen."
+msgstr "Vor dem Kopieren CREATE DATABASE ausführen"
 
 #: db_operations.php:507 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
