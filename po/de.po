@@ -9240,7 +9240,7 @@ msgstr "Wie oft auf ein Datensatz-Sperre gewartet werden musste."
 
 #: server_status.php:918
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "Anzahl gelöschter Zeilen aller InnoDB Tabellen."
+msgstr "Anzahl gelöschter Datensätze aller InnoDB Tabellen."
 
 #: server_status.php:919
 msgid "The number of rows inserted in InnoDB tables."
