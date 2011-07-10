@@ -10140,7 +10140,7 @@ msgstr "Die verbleibenden Spalten"
 
 #: tbl_chart.php:128
 msgid "X-Axis label:"
-msgstr "Beschriftung X-Achse"
+msgstr "Beschriftung X-Achse:"
 
 #: tbl_chart.php:128
 msgid "X Values"
