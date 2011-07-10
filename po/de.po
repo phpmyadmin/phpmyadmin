@@ -8914,8 +8914,8 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"Anzahl der Zeilen, die mit INSERT DELAYED geschrieben wurden, und bei denen "
-"ein Fehler auftrat (z. B. duplicate key)."
+"Anzahl der Datensätze, die mit INSERT DELAYED geschrieben wurden, und bei "
+"denen ein Fehler auftrat (z. B. duplicate key)."
 
 #: server_status.php:864
 msgid ""
