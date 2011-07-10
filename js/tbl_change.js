@@ -70,21 +70,8 @@ function daysInFebruary (year){
 //function to convert single digit to double digit
 function fractionReplace(num)
 {
-    num=parseInt(num);
-    var res="00";
-    switch(num)
-    {
-        case 1:res= "01";break;
-        case 2:res= "02";break;
-        case 3:res= "03";break;
-        case 4:res= "04";break;
-        case 5:res= "05";break;
-        case 6:res= "06";break;
-        case 7:res= "07";break;
-        case 8:res= "08";break;
-        case 9:res= "09";break;
-        }
-    return res;
+    num = parseInt(num);
+    return num >= 1 && num <= 9 ? '0' + num : '00';
 }
 
 /* function to check the validity of date

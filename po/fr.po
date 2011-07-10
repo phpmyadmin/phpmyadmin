@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-06-27 15:26+0200\n"
+"PO-Revision-Date: 2011-07-09 20:07+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1296,16 +1296,14 @@ msgid "Insert Table"
 msgstr "Insérer dans la table"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Ajouter un index"
+msgstr "Cacher les index"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Grille"
+msgstr "Montrer les index"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -1919,7 +1917,7 @@ msgstr "Connexion impossible: paramètres incorrects."
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
-msgstr "Bienvenue sur %s"
+msgstr "Bienvenue dans %s"
 
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
@@ -4347,12 +4345,13 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Définit si l'option de direction d'affichage est montrée lorsqu'on affiche "
+"le contenu d'une table"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Valeur par défaut de la direction de l'affichage"
+msgstr "Montrer le sélecteur de direction de l'affichage"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -5318,7 +5317,7 @@ msgstr "Cliquer pour marquer/enlever les marques"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Cliquer sur la flèche<br />pour gérer l'affichage des colonnes"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5326,22 +5325,19 @@ msgid "%d is not valid row number."
 msgstr "%d n'est pas un numéro de ligne valable."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Taille verticale pour une zone de texte"
+msgstr "Ligne de départ"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
 msgstr "Nombre de lignes"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "plus"
+msgstr "Mode"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5358,7 +5354,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "En-têtes à intervalle de %s lignes"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
