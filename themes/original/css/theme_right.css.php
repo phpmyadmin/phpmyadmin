@@ -2168,15 +2168,16 @@ span.mysql-number {
     position: absolute;
 }
 
-.cList table {
+.cList .lDiv div {
+    padding: 0.2em 0.5em 0.2em 0.2em;
 }
 
-.cList table tr:hover {
+.cList .lDiv div:hover {
     background: #DDD;
     cursor: pointer;
 }
 
-.cList table td input {
+.cList .lDiv div input {
     cursor: pointer;
 }
 
