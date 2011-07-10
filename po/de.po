@@ -10198,7 +10198,7 @@ msgstr "Dateiname"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Der Name des Primärschlüssels muss PRIMARY lauten!"
+msgstr "Der Name des Primärschlüssels muss \"PRIMARY\" lauten!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
