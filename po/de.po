@@ -4971,7 +4971,7 @@ msgstr ""
 
 #: libraries/db_routines.lib.php:1028
 msgid "You must provide a routine definition."
-msgstr "Sie müssen die Definition der Routine angeben"
+msgstr "Sie müssen die Definition der Routine angeben."
 
 #: libraries/db_routines.lib.php:1151
 msgid "There are no routines to display."
