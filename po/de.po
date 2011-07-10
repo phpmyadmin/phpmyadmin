@@ -9464,7 +9464,7 @@ msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
-"Anzahl der Prozesse, die länger als slow_launch_time  brauchten, um sich zu "
+"Anzahl der Prozesse, die länger als slow_launch_time brauchten, um sich zu "
 "verbinden."
 
 #: server_status.php:954
