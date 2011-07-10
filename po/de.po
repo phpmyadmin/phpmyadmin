@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 04:06+0200\n"
+"PO-Revision-Date: 2011-07-10 04:07+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -3325,12 +3325,11 @@ msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr "Unterdrückung einiger phpMyAdmin Warnhinweise"
 
 #: libraries/config/messages.inc.php:232
-#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"[a@http://en.wikipedia.org/wiki/Gzip]GZip[/a]-Kompression für Import- und "
+"[a@http://de.wikipedia.org/wiki/Gzip]GZip[/a]-Kompression für Import- und "
 "Exportoperationen aktiviren"
 
 #: libraries/config/messages.inc.php:233
