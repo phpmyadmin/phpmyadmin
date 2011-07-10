@@ -2609,12 +2609,11 @@ msgstr "Cursor hervorheben"
 
 # Maybe the wikipedia link should point to the german version of the article (http://de.wikipedia.org/wiki/Bzip2 )
 #: libraries/config/messages.inc.php:30
-#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-Kompression für Import und "
+"[a@http://de.wikipedia.org/wiki/Bzip2]bzip2[/a]-Kompression für Import und "
 "Export aktivieren"
 
 #: libraries/config/messages.inc.php:31
