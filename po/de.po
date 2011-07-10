@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-08 00:00+0200\n"
+"PO-Revision-Date: 2011-07-10 03:04+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1878,8 +1878,7 @@ msgstr "Konnte die UI Einstellungen der Tabelle nicht speichern"
 #: libraries/Theme.class.php:143
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
-"Keinen gültiges Pfad für Grafiken des Oberflächendesigns \"%s\" gefunden!"
+msgstr "Keinen gültigen Pfad für Grafiken des Oberflächendesigns %s gefunden!"
 
 #: libraries/Theme.class.php:336
 msgid "No preview available."
