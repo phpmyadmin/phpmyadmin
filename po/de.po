@@ -1823,8 +1823,8 @@ msgstr[1] "%1$d Datensätze gelöscht."
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d Zeile eingefügt."
-msgstr[1] "%1$d Zeilen eingefügt."
+msgstr[0] "%1$d Datensatz eingefügt."
+msgstr[1] "%1$d Datensätze eingefügt."
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
