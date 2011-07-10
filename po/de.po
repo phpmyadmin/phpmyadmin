@@ -9487,7 +9487,7 @@ msgstr "Anzahl der Sortiervorgänge, die mit Bereichen durchgeführt wurden."
 
 #: server_status.php:957
 msgid "The number of sorted rows."
-msgstr "Anzahl der sortierten Zeilen."
+msgstr "Anzahl der sortierten Datensätze."
 
 #: server_status.php:958
 msgid "The number of sorts that were done by scanning the table."
