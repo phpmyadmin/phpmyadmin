@@ -7542,7 +7542,7 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"Sie haben die Option \"mbstring.func_overload\" in Ihrer PHP-Konfiguration "
+"Sie haben die Option mbstring.func_overload in Ihrer PHP-Konfiguration "
 "aktiviert. Diese ist nicht kompatibel zu phpMyAdmin, weshalb es zu Problemen "
 "und Datenverlust kommen kann."
 
