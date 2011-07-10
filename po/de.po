@@ -5434,7 +5434,7 @@ msgstr "in der Abfrage"
 
 #: libraries/display_tbl.lib.php:2206
 msgid "Showing rows"
-msgstr "Zeige Datensätze "
+msgstr "Zeige Datensätze"
 
 #: libraries/display_tbl.lib.php:2216
 msgid "total"
