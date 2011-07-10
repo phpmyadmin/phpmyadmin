@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 19:39+0200\n"
+"PO-Revision-Date: 2011-07-10 19:40+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2768,7 +2768,7 @@ msgstr "Dastum ar fazioù"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Diskouez an arlunioù evit ar c'hemennoù diwall, faziañ ha titouriñ"
 
 #: libraries/config/messages.inc.php:67
 msgid "Iconic errors"
