@@ -1998,7 +1998,7 @@ msgstr ""
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Da Sie seit mindestens %s Sekunden inaktiv waren, wurden Sie automatisch "
-"abgemeldet. Bitte melden Sie sich erneut an."
+"abgemeldet. Bitte melden Sie sich erneut an"
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
