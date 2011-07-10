@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 04:01+0200\n"
+"PO-Revision-Date: 2011-07-10 04:02+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -8283,7 +8283,7 @@ msgstr "Die Rechte für %s wurden geändert."
 #: server_privileges.php:1200
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "Sie haben die Rechte für %s entfernt."
+msgstr "Sie haben die Rechte für %s widerrufen"
 
 #: server_privileges.php:1236
 #, php-format
