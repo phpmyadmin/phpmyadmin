@@ -8927,7 +8927,7 @@ msgstr ""
 
 #: server_status.php:865
 msgid "The number of INSERT DELAYED rows written."
-msgstr "Anzahl der Zeilen, die mit INSERT DELAYED geschrieben wurden."
+msgstr "Anzahl der Datensätze, die mit INSERT DELAYED geschrieben wurden."
 
 #: server_status.php:866
 msgid "The number of executed FLUSH statements."
