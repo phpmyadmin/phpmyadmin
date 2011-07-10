@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:11+0200\n"
+"PO-Revision-Date: 2011-07-10 03:12+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -8530,14 +8530,15 @@ msgstr ""
 "Nun die folgenden Zeilen am Ende des [mysqld] Abschnitts in der my.cnf "
 "hinzufügen. Danach den MySQL-Server neu starten."
 
+# translation from go to "OK" as defined in po file
 #: server_replication.php:228
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"Nachdem Sie den MySQL-Server neu gestartet haben, klicken Sie auf \"Go\". "
-"Daraufhin sollten Sie eien Meldung sehen, dass dieser Server als Master "
+"Nachdem Sie den MySQL-Server neu gestartet haben, klicken Sie auf OK. "
+"Daraufhin sollten Sie eine Meldung sehen, dass dieser Server als Master "
 "konfiguriert <b>ist</b> ."
 
 #: server_replication.php:291
