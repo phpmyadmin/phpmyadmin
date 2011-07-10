@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:33+0200\n"
+"PO-Revision-Date: 2011-07-10 03:34+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7078,7 +7078,7 @@ msgstr "Begrenzer"
 
 #: libraries/sql_query_form.lib.php:346
 msgid " Show this query here again "
-msgstr "Diese Abfrage hier wieder anzeigen"
+msgstr " Diese Abfrage hier wieder anzeigen "
 
 #: libraries/sql_query_form.lib.php:403
 msgid "View only"
