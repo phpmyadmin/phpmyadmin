@@ -8939,7 +8939,7 @@ msgstr "Anzahl der Anfragen, ein COMMIT auszuführen."
 
 #: server_status.php:868
 msgid "The number of times a row was deleted from a table."
-msgstr "Anzahl der Zeilen, die aus Tabellen gelöscht wurden."
+msgstr "Anzahl der Datensätze, die aus Tabellen gelöscht wurden."
 
 #: server_status.php:869
 msgid ""
