@@ -700,7 +700,7 @@ msgstr "Diese Datenbank enthält keine Tabellen"
 #: db_structure.php:270 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "Die Tabelle %s wurde geleert."
+msgstr "Die Tabelle %s wurde geleert"
 
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
