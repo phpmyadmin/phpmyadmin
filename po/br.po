@@ -2797,7 +2797,7 @@ msgstr "Strobad arouezennoù ar restr"
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:870
 msgid "Format"
-msgstr ""
+msgstr "Furmad"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compression"
