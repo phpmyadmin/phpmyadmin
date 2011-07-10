@@ -10314,7 +10314,7 @@ msgstr "Tabelle defragmentieren"
 #, php-format
 msgid "Table %s has been flushed"
 msgstr ""
-"Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert."
+"Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert"
 
 #: tbl_operations.php:668
 msgid "Flush the table (FLUSH)"
