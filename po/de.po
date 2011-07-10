@@ -9252,7 +9252,7 @@ msgstr "Anzahl der Datensätze, die aus InnoDB-Tabellen gelesen wurden."
 
 #: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
-msgstr "Anzahl der Zeilen, die in InnoDB-Tabellen aktualisiert wurden."
+msgstr "Anzahl der Datensätze, die in InnoDB-Tabellen aktualisiert wurden."
 
 #: server_status.php:922
 msgid ""
