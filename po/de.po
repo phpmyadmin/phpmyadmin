@@ -7103,7 +7103,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 "Es scheint einen Fehler in Ihrer MySQL-Abfrage zu geben. Die MySQL-"
-"Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen."
+"Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen"
 
 #: libraries/sqlparser.lib.php:167
 msgid ""
