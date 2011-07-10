@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:25+0200\n"
+"PO-Revision-Date: 2011-07-10 03:26+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2251,7 +2251,7 @@ msgstr "Messen"
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1282
 msgid "B"
-msgstr "Bytes"
+msgstr "B"
 
 #: libraries/common.lib.php:1282
 msgid "KiB"
