@@ -7517,7 +7517,7 @@ msgstr "Wiki"
 
 #: main.php:216
 msgid "Official Homepage"
-msgstr "Offizielle Homepage "
+msgstr "Offizielle Homepage"
 
 #: main.php:217
 msgid "Contribute"
