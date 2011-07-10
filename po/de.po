@@ -9232,7 +9232,7 @@ msgstr ""
 #: server_status.php:916
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
-"Längste Wartezeite um eine Zeilen-Sperre zu bekommen, in Millisekunden."
+"Längste Wartezeite um eine Datensatz-Sperre zu bekommen, in Millisekunden."
 
 #: server_status.php:917
 msgid "The number of times a row lock had to be waited for."
