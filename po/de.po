@@ -8755,7 +8755,7 @@ msgstr "Nach Kategorie filtern..."
 
 #: server_status.php:484
 msgid "Related links:"
-msgstr "Verwandte Links"
+msgstr "Verwandte Links:"
 
 #: server_status.php:528 server_status.php:563 server_status.php:676
 #: server_status.php:721
