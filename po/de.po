@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:14+0200\n"
+"PO-Revision-Date: 2011-07-10 03:15+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10428,7 +10428,7 @@ msgstr "Spalten auswählen (min. eines):"
 
 #: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Eigenes Filterkriterium (Argumente für den WHERE-Ausdruck):"
+msgstr "Eigenes Filterkriterium (Argumente für den \"WHERE\"-Ausdruck):"
 
 #: tbl_select.php:285
 msgid "Number of rows per page"
