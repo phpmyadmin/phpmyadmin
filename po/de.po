@@ -1740,7 +1740,9 @@ msgstr "Unbekannter Fehler beim Dateihochladen."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Fehler beim Verschieben der hochgeladenen Datei, siehe FAQ 1.11"
+msgstr ""
+"Fehler beim Verschieben der hochgeladenen Datei, siehe "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:417 tbl_relation.php:526
 msgid "No index defined!"
