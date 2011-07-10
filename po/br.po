@@ -2813,7 +2813,7 @@ msgstr "Gwaskadur"
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "Diskouez anvioù ar bannoù diouzhtu el linenn gentañ"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
