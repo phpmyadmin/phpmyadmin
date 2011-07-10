@@ -3866,7 +3866,7 @@ msgstr "Host-Autorisierungsreihenfolge"
 
 #: libraries/config/messages.inc.php:361
 msgid "Leave blank for defaults"
-msgstr "Leer lassen, um Voreinstellungen zu verwenden."
+msgstr "Leer lassen, um die Voreinstellungen zu verwenden"
 
 #: libraries/config/messages.inc.php:362
 msgid "Host authorization rules"
