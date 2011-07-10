@@ -4272,7 +4272,7 @@ msgid ""
 "automatically."
 msgstr ""
 "Automatische Versionserstellung für Tabellen und Ansichten durch den "
-"Verlaufs-mechanismus"
+"Verlaufs-Mechanismus."
 
 #: libraries/config/messages.inc.php:439
 msgid "Automatically create versions"
