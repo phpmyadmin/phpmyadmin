@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:34+0200\n"
+"PO-Revision-Date: 2011-07-10 03:35+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -747,7 +747,9 @@ msgstr "Gesamt"
 #: db_structure.php:448 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "Neue Tabellen werden standardmäßig im Format %s angelegt."
+msgstr ""
+"%s die Storage-Engine die standardmäßig auf diesem MySQL-Server eingestellt "
+"ist."
 
 #: db_structure.php:476 db_structure.php:493 db_structure.php:494
 #: libraries/display_tbl.lib.php:2339 libraries/display_tbl.lib.php:2344
