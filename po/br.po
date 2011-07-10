@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 19:43+0200\n"
+"PO-Revision-Date: 2011-07-10 19:44+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2792,7 +2792,7 @@ msgstr "Enrollañ evel restr"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:239
 msgid "Character set of the file"
-msgstr ""
+msgstr "Strobad arouezennoù ar restr"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:870
