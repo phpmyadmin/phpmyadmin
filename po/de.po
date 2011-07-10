@@ -9605,7 +9605,8 @@ msgstr "Zeile(n) einfügen"
 
 #: server_synchronize.php:441 server_synchronize.php:885
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Möchten Sie alle vorhergehenden zeilen aus den Ziel-Tabellen löschen?"
+msgstr ""
+"Möchten Sie alle vorhergehenden Datensätze aus den Ziel-Tabellen löschen?"
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
