@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:04+0200\n"
+"PO-Revision-Date: 2011-07-10 03:05+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2313,8 +2313,7 @@ msgstr "Zur Datenbank &quot;%s&quot; springen."
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
-"Die Funktion  \"%s\" wird durch einen bekannten Fehler beeinträchtigt, siehe "
-"%s"
+"Die Funktion  %s wird durch einen bekannten Fehler beeinträchtigt, siehe %s"
 
 #: libraries/common.lib.php:2646 libraries/common.lib.php:2653
 #: libraries/common.lib.php:2840 libraries/config/setup.forms.php:296
