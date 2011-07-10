@@ -11,10 +11,10 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-        var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
-	msgbox.click(function() {
-               $(this).remove();
-	});
+    var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
+    msgbox.click(function() {
+        $(this).remove();
+    });
 }
 
 /**
@@ -22,7 +22,7 @@ function displayHelp() {
  ** @param array
  **/
 Array.max = function (array) {
-	return Math.max.apply( Math, array );
+    return Math.max.apply( Math, array );
 }
 
 /**
@@ -30,7 +30,7 @@ Array.max = function (array) {
  ** @param array
  **/
 Array.min = function (array) {
-	return Math.min.apply( Math, array );
+   return Math.min.apply( Math, array );
 }
 
 /**
