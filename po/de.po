@@ -7391,7 +7391,7 @@ msgid ""
 "the link."
 msgstr ""
 "Zeigt einen Link an; die Spalte enthlt den Dateinamen. Die erste Option ist "
-"ein Präfix, wie \"http://www.domain.com\". Zweite Option ist der "
+"ein Präfix, wie \"http://www.example.com/\". Die zweite Option ist der "
 "darzustellende Titel des Links."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
