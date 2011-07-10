@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 04:21+0200\n"
+"PO-Revision-Date: 2011-07-10 04:22+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9221,7 +9221,7 @@ msgstr "Momentan anstehende Zeilen-Sperren."
 #: server_status.php:914
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
-"Durchschnittliche Wartezeite um eine Zeilen-Sperre zu bekommen, in "
+"Durchschnittliche Wartezeite um eine Datensatz-Sperre zu bekommen, in "
 "Millisekunden."
 
 #: server_status.php:915
