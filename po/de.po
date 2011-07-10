@@ -5445,7 +5445,7 @@ msgstr "insgesamt"
 #: libraries/display_tbl.lib.php:2224 sql.php:689
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "die Abfrage dauerte %01.4f Sekunden."
+msgstr "Die Abfrage dauerte %01.4f Sekunden"
 
 #: libraries/display_tbl.lib.php:2418
 msgid "Query results operations"
