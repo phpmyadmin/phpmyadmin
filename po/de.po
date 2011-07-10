@@ -2577,7 +2577,7 @@ msgstr "Erlaube Frame-Einbettung durch Dritte"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "&quot;Drop Database&quot;-Link normalen Benutzern anzeigen."
+msgstr "&quot;Drop Database&quot;-Link normalen Benutzern anzeigen"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
