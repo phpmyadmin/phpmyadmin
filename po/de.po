@@ -6976,7 +6976,7 @@ msgstr "ltr"
 #: libraries/select_lang.lib.php:486
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr "Unbekannte Sprache: \"%1$s\"."
+msgstr "Unbekannte Sprache: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:38
 msgid "Current Server"
