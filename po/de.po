@@ -10098,7 +10098,7 @@ msgstr ""
 #: tbl_change.php:1062
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr "Einfügen mit %s Zeilen fortfahren"
+msgstr "Einfügen mit %s Datensätzen fortfahren"
 
 #: tbl_chart.php:85
 msgid "Bar"
