@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:05+0200\n"
+"PO-Revision-Date: 2011-07-10 03:06+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6331,7 +6331,7 @@ msgstr "Spaltennamen: "
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "Ungültiger Parameter für CSV-Import: \"%s\""
+msgstr "Ungültiger Parameter für CSV-Import: %s"
 
 #: libraries/import/csv.php:132
 #, php-format
