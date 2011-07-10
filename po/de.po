@@ -1002,8 +1002,8 @@ msgstr ""
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"Die Import-Plugins konnten nicht geladen werden. Bitte überprüfen Sie Ihre "
-"phpMyAdmin-Installation."
+"Die Import-Plugins konnten nicht geladen werden, bitte überprüfen Sie Ihre "
+"phpMyAdmin-Installation!"
 
 #: import.php:395
 msgid "The bookmark has been deleted."
