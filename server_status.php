@@ -691,16 +691,16 @@ function printQueryStatistics() {
         <br>
         <span>
         <?php
-        echo '&oslash; '.__('per hour').':'; 
+        echo '&oslash; '.__('per hour').': '; 
         echo PMA_formatNumber($total_queries * $hour_factor, 0);
         echo '<br>';
         
-        echo '&oslash; '.__('per minute').':'; 
+        echo '&oslash; '.__('per minute').': '; 
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); 
         echo '<br>';
         
         if($total_queries / $server_status['Uptime'] >= 1) {
-            echo '&oslash; '.__('per second').':';
+            echo '&oslash; '.__('per second').': ';
             echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); 
         }
         ?>
@@ -1276,8 +1276,10 @@ function printMonitor() {
         <p>
             Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
         </p>
-        <p> Chart size: <input type="text" name="newChartWidth" size="3" /> x <input type="text" size="3" name="newChartHeight" /> 
+        <p> 
+            Chart size: <input type="text" name="newChartWidth" size="3" /> x <input type="text" size="3" name="newChartHeight" /> 
         </p>
+        <a href="#clearMonitorConfig">Clear monitor config</a>
     </div>
     
     <div id="monitorInstructionsDialog" title="Monitor Instructions" style="display:none;">
@@ -1308,10 +1310,10 @@ function printMonitor() {
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="Chart title" /></p>
             
-            <input type="radio" name="chartType" value="cpu"> CPU Usage<br>
-            <input type="radio" name="chartType" value="memory"> Memory Usage<br>
-            <input type="radio" name="chartType" value="swap"> Swap Usage<br>
-            <input type="radio" name="chartType" value="variable" checked="checked"> Status variable(s) <br>
+            <input type="radio" name="chartType" value="cpu" id="chartCPU"> <label for="chartCPU">CPU Usage</label><br/>
+            <input type="radio" name="chartType" value="memory" id="chartMemory"> <label for="chartMemory">Memory Usage</label><br/>
+            <input type="radio" name="chartType" value="swap" id="chartSwap"> <label for="chartSwap">Swap Usage</label><br/>
+            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked"> <label for="chartStatusVar">Status variable(s)</label><br/>
             <div id="chartVariableSettings">
                 <label for="chartSeries">Select series:</label><br>
                 <select id="chartSeries" name="varChartList" size="1">
@@ -1334,7 +1336,9 @@ function printMonitor() {
                 <p></p>
                 <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> <label for="differentialValue"> Display as differential value</label><br>
                 <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
-                <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span>
+                <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span><br>
+                <input type="checkbox" id="useUnit" name="useUnit" value="1" /> <label for="useUnit">Append unit to data values</label>
+                <span class="unitInput" style="display:none;"><input type="text" name="valueUnit" size="4" value=""></span>
                 <p>
                     <a href="#submitAddSeries"><b>Add this series</b></a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
                 </p>
