@@ -3325,6 +3325,7 @@ msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr "Unterdrückung einiger phpMyAdmin Warnhinweise"
 
 #: libraries/config/messages.inc.php:232
+#, fuzzy
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
