@@ -8468,7 +8468,9 @@ msgstr "Verbindung zu Master %s fehlgeschlagen."
 #: server_replication.php:63
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr "Log-Position des Masters nicht lesbar. Rechteproblem auf dem Master?"
+msgstr ""
+"Log-Position des Masters nicht lesbar. Mögliches Rechteproblem auf dem "
+"Master."
 
 #: server_replication.php:69
 msgid "Unable to change master"
