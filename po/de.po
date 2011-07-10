@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:58+0200\n"
+"PO-Revision-Date: 2011-07-10 03:59+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -7199,7 +7199,7 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr ""
 "Bitte geben Sie jeweils nur einen Standardwert ohne Escape- oder "
-"Anführungszeichen an."
+"Anführungszeichen an, und verwenden Sie dieses Format: a"
 
 #: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:512
 #: tbl_printview.php:323 tbl_structure.php:156 tbl_structure.php:161
