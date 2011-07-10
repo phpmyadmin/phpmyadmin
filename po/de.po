@@ -1776,7 +1776,7 @@ msgstr "Kommentar"
 
 #: libraries/Index.class.php:465
 msgid "The primary key has been dropped"
-msgstr "Der Primärschlüssel wurde gelöscht."
+msgstr "Der Primärschlüssel wurde gelöscht"
 
 #: libraries/Index.class.php:469
 #, php-format
