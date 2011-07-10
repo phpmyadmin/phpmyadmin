@@ -10218,7 +10218,7 @@ msgstr "Kann Index nicht in PRIMARY umbenennen!"
 
 #: tbl_indexes.php:91
 msgid "No index parts defined!"
-msgstr "Keine Indizes definiert."
+msgstr "Keine Indizes definiert"
 
 #: tbl_indexes.php:165
 msgid "Create a new index"
