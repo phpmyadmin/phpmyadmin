@@ -7845,7 +7845,7 @@ msgstr "Fehler beim speichern der Koordinaten für den Designer."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
-msgstr "Änderungen gespeichert."
+msgstr "Änderungen gespeichert"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
