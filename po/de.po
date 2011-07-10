@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:50+0200\n"
+"PO-Revision-Date: 2011-07-10 03:51+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1105,7 +1105,7 @@ msgstr "Wirklich alle BLOB-Referenzen für Datenbank %s deaktivieren?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Das Formular ist leer !"
+msgstr "Das Formular ist leer!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
