@@ -3653,7 +3653,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum number of rows to display"
-msgstr "Maximale Anzahl der angezeigten Zeilen"
+msgstr "Maximale Anzahl der angezeigten Datensätze"
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of tables displayed in table list"
