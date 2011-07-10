@@ -6939,7 +6939,7 @@ msgstr "mehrfarbig"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
-msgstr "Tabellendimensionen anzeigen."
+msgstr "Tabellendimensionen anzeigen"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
