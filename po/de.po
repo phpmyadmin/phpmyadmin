@@ -9180,7 +9180,7 @@ msgstr "Anzahl der tatsächlichen Schreibvorgänge der Protokoll-Datei."
 
 #: server_status.php:905
 msgid "The number of fsync() writes done to the log file."
-msgstr "Getätigte fsyncs() Schreibzugriffe für die Protokoll-Datei."
+msgstr "Getätigte fsync() Schreibzugriffe für die Protokoll-Datei."
 
 #: server_status.php:906
 msgid "The number of pending log file fsyncs."
