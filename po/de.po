@@ -5469,7 +5469,7 @@ msgstr "Erzeuge View"
 
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
-msgstr "Der Verweis wurde nicht gefunden."
+msgstr "Der Verweis wurde nicht gefunden"
 
 #: libraries/display_triggers.inc.php:35
 #, php-format
