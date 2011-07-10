@@ -8454,7 +8454,7 @@ msgstr "Platzhalter"
 
 #: server_privileges.php:2295
 msgid "User has been added."
-msgstr "Benutzer wurde hinzugefügt"
+msgstr "Benutzer wurde hinzugefügt."
 
 #: server_replication.php:49
 msgid "Unknown error"
