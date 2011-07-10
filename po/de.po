@@ -4226,7 +4226,7 @@ msgid ""
 "log when creating a table."
 msgstr ""
 "DROP TABLE IF EXISTS statement beim Erstellen einer neuen Ansicht als erste "
-"Zeile loggen"
+"Zeile loggen."
 
 #: libraries/config/messages.inc.php:431
 msgid "Add DROP TABLE"
