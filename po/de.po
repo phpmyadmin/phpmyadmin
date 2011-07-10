@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 04:10+0200\n"
+"PO-Revision-Date: 2011-07-10 04:11+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -433,7 +433,7 @@ msgstr "Sortierung"
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
 #: tbl_select.php:304
 msgid "Ascending"
-msgstr "aufsteigend"
+msgstr "Aufsteigend"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:562 libraries/display_tbl.lib.php:895
