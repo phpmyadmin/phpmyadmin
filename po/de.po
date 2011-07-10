@@ -2004,7 +2004,7 @@ msgstr ""
 #: libraries/auth/cookie.auth.lib.php:580
 #: libraries/auth/signon.auth.lib.php:244
 msgid "Cannot log in to the MySQL server"
-msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen."
+msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
