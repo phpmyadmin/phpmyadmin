@@ -1874,7 +1874,7 @@ msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
 #: libraries/Table.class.php:1148
 #, php-format
 msgid "Table %s has been renamed to %s"
-msgstr "Tabelle %s wurde umbenannt in %s."
+msgstr "Tabelle %s wurde in %s umbenannt"
 
 #: libraries/Table.class.php:1275
 msgid "Could not save table UI preferences"
