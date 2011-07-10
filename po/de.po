@@ -10057,7 +10057,7 @@ msgstr "Zu BLOB-Repository hochladen"
 
 #: tbl_change.php:983
 msgid "Insert as new row"
-msgstr "Als neuen Datensatz speichern "
+msgstr "Als neuen Datensatz speichern"
 
 #: tbl_change.php:984
 msgid "Insert as new row and ignore errors"
