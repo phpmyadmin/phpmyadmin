@@ -251,11 +251,11 @@
                 }
                 // adjust the column visibility list
                 if (newn < oldn) {
-                    $(g.cList).find('tr:eq(' + newn + ')')
-                              .before($(g.cList).find('tr:eq(' + oldn + ')'));
+                    $(g.cList).find('.lDiv div:eq(' + newn + ')')
+                              .before($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
                 } else {
-                    $(g.cList).find('tr:eq(' + newn + ')')
-                              .after($(g.cList).find('tr:eq(' + oldn + ')'));
+                    $(g.cList).find('.lDiv div:eq(' + newn + ')')
+                              .after($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
                 }
                 // adjust the colOrder
                 var tmp = this.colOrder[oldn];
@@ -464,10 +464,10 @@
                                 .hide();
                         }
                         this.colVisib[n] = 0;
-                        $(this.cList).find('tr:eq(' + n + ') input').removeAttr('checked');
+                        $(this.cList).find('.lDiv div:eq(' + n + ') input').removeAttr('checked');
                     } else {
                         // cannot hide, force the checkbox to stay checked
-                        $(this.cList).find('tr:eq(' + n + ') input').attr('checked', 'checked');
+                        $(this.cList).find('.lDiv div:eq(' + n + ') input').attr('checked', 'checked');
                         return false;
                     }
                 } else {    // column n is not visible
@@ -482,7 +482,7 @@
                             .show();
                     }
                     this.colVisib[n] = 1;
-                    $(this.cList).find('tr:eq(' + n + ') input').attr('checked', 'checked');
+                    $(this.cList).find('.lDiv div:eq(' + n + ') input').attr('checked', 'checked');
                 }
                 return true;
             },
@@ -682,16 +682,16 @@
             });
             
             // add column visibility control
-            g.cList.innerHTML = '<table cellpadding="0" cellspacing="0"><tbody></tbody></table>';
-            var $tbody = $(g.cList).find('tbody');
-            for (var i = 0; i < $firstRowHeaders.length; i++) {
-                var currHeader = $firstRowHeaders[i];
-                var tr = document.createElement('tr');
-                $(tr).html('<td><input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/></td>' +
-                           '<td>' + $(currHeader).text() + '</td>');
-                $tbody.append(tr);
+            g.cList.innerHTML = '<div class="lDiv"></div>';
+            var $listDiv = $(g.cList).find('div');
+            for (var i = 0; i < $firstRowCols.length; i++) {
+                var currHeader = $firstRowCols[i];
+                var listElmt = document.createElement('div');
+                $(listElmt).html('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>' +
+                           $(currHeader).text());
+                $listDiv.append(listElmt);
                 // add event on click
-                $(tr).click(function() {
+                $(listElmt).click(function() {
                     if ( g.toggleCol($(this).index()) ) {
                         g.afterToggleCol();
                     }
