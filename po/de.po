@@ -8167,7 +8167,7 @@ msgstr ""
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Erlaubt dem Benutzer zu fragen, wo sich die Master- bzw. Slave-Systeme "
-"befinden"
+"befinden."
 
 #: server_privileges.php:59 server_privileges.php:207
 #: server_privileges.php:567
