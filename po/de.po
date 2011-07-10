@@ -7417,8 +7417,8 @@ msgstr ""
 "Option gibt an wieviel Zeichen ab dort dargestellt werden sollen. Falls "
 "diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die "
 "dritte Option kann einen Text enthalten, der bei partieller Ausgabe des "
-"Textes angehängt wird, um eine Abschneidung kenntlich zu machen "
-"(Standard: ...)."
+"Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: "
+"\"...\")."
 
 #: libraries/user_preferences.inc.php:32
 msgid "Manage your settings"
