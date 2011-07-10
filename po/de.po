@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:35+0200\n"
+"PO-Revision-Date: 2011-07-10 03:36+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1063,7 +1063,7 @@ msgstr "Zum Abwählen anklicken"
 
 #: js/messages.php:27 libraries/import.lib.php:102 sql.php:221
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Die Anweisung \"DROP DATABASE\" wurde deaktiviert."
+msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:282 sql.php:319
 msgid "Do you really want to "
