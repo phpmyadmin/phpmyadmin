@@ -7265,8 +7265,7 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Für diese Umwandlung ist keine Beschreibung verfügbar.<br />Für weitere "
-"Informationen wenden Sie sich bitte an den Autoren der Funktion &quot;"
-"%s&quot;."
+"Informationen wenden Sie sich bitte an den Autoren der Funktion %s."
 
 #: libraries/tbl_properties.inc.php:609 tbl_structure.php:678
 #, php-format
