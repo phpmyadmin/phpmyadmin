@@ -522,7 +522,7 @@ msgstr "Ergebnisse der ausgeführten Routine %s"
 #: db_routines.php:188 libraries/import.lib.php:152 sql.php:685
 #: tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen)."
+msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Datensätze)."
 
 #: db_routines.php:193 db_routines.php:298 db_routines.php:303
 #: db_routines.php:327
