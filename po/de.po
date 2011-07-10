@@ -1860,7 +1860,7 @@ msgstr "Dieser MySQL-Server unterstützt %s nicht."
 
 #: libraries/Table.class.php:1036
 msgid "Invalid database"
-msgstr "ungültige Datenbank"
+msgstr "Ungültige Datenbank"
 
 #: libraries/Table.class.php:1050 tbl_get_field.php:25
 msgid "Invalid table name"
