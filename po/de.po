@@ -9677,7 +9677,7 @@ msgstr "Download"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
-msgstr "Laden oder Speichern der Konfiguration fehlgeschlagen."
+msgstr "Laden oder Speichern der Konfiguration fehlgeschlagen"
 
 #: setup/frames/index.inc.php:50
 msgid ""
