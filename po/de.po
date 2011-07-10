@@ -1269,7 +1269,7 @@ msgstr "OK"
 
 #: js/messages.php:102
 msgid "Renaming Databases"
-msgstr "Datenbanken werden umbenannt."
+msgstr "Datenbanken werden umbenannt"
 
 #: js/messages.php:103
 msgid "Reload Database"
