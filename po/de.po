@@ -2698,8 +2698,8 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
-"[kbd]horizontal[/kbd], [kbd]vertikal[/kbd] oder eine Zahl, die die maximale "
-"Menge angibt, für die das vertikale Modell genutzt werden soll"
+"[kbd]horizontal[/kbd], [kbd]vertikal[/kbd] oder eine Zahl, welche die "
+"maximale Menge angibt, für die das vertikale Modell genutzt werden soll"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
