@@ -2756,7 +2756,7 @@ msgstr "Aozañ ar rekedoù SQL en ur prenestr difoupañ"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
-msgstr ""
+msgstr "Aozañ en ur prenestr"
 
 #: libraries/config/messages.inc.php:64
 msgid "Display errors"
