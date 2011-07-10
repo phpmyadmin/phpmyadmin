@@ -1809,8 +1809,8 @@ msgstr "Fehler"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d Zeile betroffen."
-msgstr[1] "%1$d Zeilen betroffen."
+msgstr[0] "%1$d Datensatz betroffen."
+msgstr[1] "%1$d Datensätze betroffen."
 
 #: libraries/Message.class.php:257
 #, php-format
