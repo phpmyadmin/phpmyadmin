@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-08 19:45+0200\n"
+"PO-Revision-Date: 2011-07-09 15:58+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2678,58 +2678,60 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] pe un niver a verk an talvoud "
+"brasañ a vo implijet ar mod a-serzh evitañ"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Durc'hadur an diskwel evit kemmañ/krouiñ bannoù"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en ur servijer"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit ar servijer"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un daolenn"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit an taolennoù"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:637
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù)"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Diskouez roll an diazoù roadennoù e-lec'h ul lañser desachañ"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Diskouez a ra an diazoù roadennoù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Diskouez a ra ar servijerioù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:60
 msgid ""
