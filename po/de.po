@@ -9236,7 +9236,7 @@ msgstr ""
 
 #: server_status.php:917
 msgid "The number of times a row lock had to be waited for."
-msgstr "Wie oft auf ein Zeilen-Sperre gewartet werden musste."
+msgstr "Wie oft auf ein Datensatz-Sperre gewartet werden musste."
 
 #: server_status.php:918
 msgid "The number of rows deleted from InnoDB tables."
