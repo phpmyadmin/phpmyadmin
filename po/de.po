@@ -9427,8 +9427,8 @@ msgid ""
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 "Anzahl der Joins ohne Schlüssel, bei denen nach jeder Zeile auf "
-"Schlüsselbenutzung geprüft wurde. Wenn dieser Wert nicht 0 ist sollten die "
-"Indizes der Tabellen sorgfältig überprüft werden."
+"Schlüsselbenutzung geprüft wurde. (Wenn dieser Wert nicht 0 ist sollten die "
+"Indizes der Tabellen sorgfältig überprüft werden.)"
 
 #: server_status.php:948
 msgid ""
