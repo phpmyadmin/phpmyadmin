@@ -4214,7 +4214,7 @@ msgid ""
 "the log when creating a database."
 msgstr ""
 "DROP DATABASE IF EXISTS statement beim Erstellen einer neuen Datenbank als "
-"erste Zeile loggen"
+"erste Zeile loggen."
 
 #: libraries/config/messages.inc.php:429
 msgid "Add DROP DATABASE"
