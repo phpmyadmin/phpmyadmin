@@ -3011,7 +3011,7 @@ msgstr "Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder"
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
 msgstr ""
-"Es wird ein Dropdownfeld verwendet, falls weniger Einträge vorhanden sind."
+"Es wird ein Auswahl-Feld verwendet, falls weniger Einträge vorhanden sind"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
