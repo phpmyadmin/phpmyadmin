@@ -8550,7 +8550,7 @@ msgid ""
 msgstr ""
 "Nachdem Sie den MySQL-Server neu gestartet haben, klicken Sie auf OK. "
 "Daraufhin sollten Sie eine Meldung sehen, dass dieser Server als Master "
-"konfiguriert <b>ist</b> ."
+"konfiguriert <b>ist</b>"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
