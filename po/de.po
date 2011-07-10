@@ -9227,7 +9227,7 @@ msgstr ""
 #: server_status.php:915
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
-"Summe aller Wartezeiten um Zeilen-Sperren zu bekommen, in Millisekunden."
+"Summe aller Wartezeiten um Datensatz-Sperren zu bekommen, in Millisekunden."
 
 #: server_status.php:916
 msgid "The maximum time to acquire a row lock, in milliseconds."
