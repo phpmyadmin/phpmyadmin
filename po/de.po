@@ -2030,7 +2030,7 @@ msgstr "Kein gültiger Authentisierungsschlüssel angeschlossen"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
-msgstr "Authentifiziere ..."
+msgstr "Authentifiziere..."
 
 #: libraries/blobstreaming.lib.php:236
 msgid "PBMS error"
