@@ -4435,9 +4435,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Wird dies auf [kbd]nested[/kbd] gesetzt, so wird der Alias des "
-"Tabellennamens nur benutzt, um die Tabellen gemäß der $cfg"
-"['LeftFrameTableSeparator'] Direktive zu teilen bzw. zu verschachteln. Nur "
-"der Ordner erhält den Alias, der Tabellename bleibt unverändert."
+"Tabellennamens nur benutzt, um die Tabellen gemäß der "
+"$cfg['LeftFrameTableSeparator'] Direktive zu teilen bzw. zu verschachteln. "
+"Nur der Ordner erhält den Alias, der Tabellename bleibt unverändert"
 
 #: libraries/config/messages.inc.php:469
 msgid "Display table comment instead of its name"
