@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 03:52+0200\n"
+"PO-Revision-Date: 2011-07-10 03:53+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -2607,6 +2607,7 @@ msgstr "Zeile unter Mauscursor hervorheben"
 msgid "Highlight pointer"
 msgstr "Cursor hervorheben"
 
+# Maybe the wikipedia link should point to the german version of the article (http://de.wikipedia.org/wiki/Bzip2 )
 #: libraries/config/messages.inc.php:30
 #, fuzzy
 msgid ""
@@ -2614,7 +2615,7 @@ msgid ""
 "import and export operations"
 msgstr ""
 "[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-Kompression für Import und "
-"Export aktivieren."
+"Export aktivieren"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
