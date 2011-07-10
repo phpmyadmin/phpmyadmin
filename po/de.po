@@ -7851,7 +7851,7 @@ msgstr "Änderungen gespeichert"
 msgid "Cannot save settings, submitted form contains errors"
 msgstr ""
 "Einstellungen können nicht gespeichert werden, ausgefülltes Formular enthält "
-"Fehler."
+"Fehler"
 
 #: prefs_manage.php:80
 msgid "Could not import configuration"
