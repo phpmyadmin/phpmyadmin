@@ -1891,7 +1891,7 @@ msgstr "auswählen"
 #: libraries/Theme_Manager.class.php:109
 #, php-format
 msgid "Default theme %s not found!"
-msgstr "Standard-Oberflächendesign \"%s\" nicht gefunden!"
+msgstr "Standard-Oberflächendesign %s nicht gefunden!"
 
 #: libraries/Theme_Manager.class.php:147
 #, php-format
