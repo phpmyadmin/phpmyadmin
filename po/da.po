@@ -1200,7 +1200,7 @@ msgstr "KiB sendt siden forrige visning"
 
 #: js/messages.php:79
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB modtaget siden forrige visning"
 
 #: js/messages.php:80
 #, fuzzy
