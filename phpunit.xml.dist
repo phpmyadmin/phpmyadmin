@@ -13,15 +13,22 @@
                  timeout="30000"/>
     </selenium>
 
+    <php>
+      <const name="TESTSUITE_SERVER" value="localhost"/>
+      <const name="TESTSUITE_DATABASE" value="test_database"/>
+      <const name="TESTSUITE_USER" value="test_user"/>
+      <const name="TESTSUITE_PASSWORD" value="test_password"/>
+    </php>
+
     <testsuites>
         <testsuite name="Unit">
+            <file>test/Environment_test.php</file>
             <directory suffix="_test.php">test/libraries/core</directory>
             <directory suffix="_test.php">test/libraries/common</directory>
             <directory suffix="_test.php">test/libraries</directory>
-            <file>test/Environment_test.php</file>
         </testsuite>
         <testsuite name="Selenium">
-            <directory suffix="Test.php">test/selenium</directory>
+            <!--<directory suffix="Test.php">test/selenium</directory>-->
         </testsuite>
     </testsuites>
 
