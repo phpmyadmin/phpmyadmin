@@ -4180,7 +4180,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 msgid "PDF schema: table coordinates"
-msgstr "Table Coords Table"
+msgstr "PDF Schema: Tabellen Koordinatien"
 
 #: libraries/config/messages.inc.php:424
 msgid ""
