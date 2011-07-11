@@ -3060,7 +3060,7 @@ msgstr "Redigeringstilstand"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr "Tilpas redigerinstilstand"
+msgstr "Tilpas redigeringstilstand"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
