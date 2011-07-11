@@ -10,17 +10,16 @@
             colOrder: new Array(),      // array of column order
             colVisib: new Array(),      // array of column visibility
             tableCreateTime: null,      // table creation time, only available in "Browse tab"
-            hintShown: false,           // true if hint balloon is shown, used by updateHint() method
+            qtip: null,                 // qtip API
             reorderHint: '',            // string, hint for column reordering
             sortHint: '',               // string, hint for column sorting
             markHint: '',               // string, hint for column marking
             colVisibHint: '',           // string, hint for column visibility drop-down
-            showAllColText: '',         // string, text for "show all" button under column visibility list
             showReorderHint: false,
             showSortHint: false,
             showMarkHint: false,
             showColVisibHint: false,
-            hintIsHiding: false,        // true when hint is still shown, but hideHint() already called
+            showAllColText: '',         // string, text for "show all" button under column visibility list
             visibleHeadersCount: 0,     // number of visible data headers
             
             // functions
@@ -63,8 +62,8 @@
                     objTop: objPos.top,
                     objLeft: objPos.left
                 };
+                this.qtip.hide();
                 $('body').css('cursor', 'move');
-                this.hideHint();
                 $('body').noSelect();
             },
             
@@ -166,7 +165,7 @@
              */
             reposRsz: function() {
                 $(this.cRsz).find('div').hide();
-                $firstRowCols = $(this.t).find('tr:first th.draggable:visible');
+                var $firstRowCols = $(this.t).find('tr:first th.draggable:visible');
                 for (var n = 0; n < $firstRowCols.length; n++) {
                     $this = $($firstRowCols[n]);
                     $cb = $(g.cRsz).find('div:eq(' + n + ')');   // column border
@@ -325,53 +324,14 @@
                     }
                     
                     // hide the hint if no text
-                    if (!text) {
-                        this.hideHint();
-                        return;
-                    }
+                    this.qtip.disable(!text && e.type == 'mouseenter');
                     
-                    $(this.dHint).html(text);
-                    if (!this.hintShown || this.hintIsHiding) {
-                        $(this.dHint)
-                            .stop(true, true)
-                            .css({
-                                top: e.clientY,
-                                left: e.clientX + 15
-                            })
-                            .show('fast');
-                        this.hintShown = true;
-                        this.hintIsHiding = false;
-                    }
+                    this.qtip.updateContent(text, false);
+                } else {
+                    this.qtip.disable(true);
                 }
             },
             
-            /**
-             * Hide the hint.
-             */
-            hideHint: function() {
-                if (this.hintShown) {
-                    $(this.dHint)
-                        .stop(true, true)
-                        .hide(300, function() {
-                            g.hintShown = false;
-                            g.hintIsHiding = false;
-                        });
-                    this.hintIsHiding = true;
-                }
-            },
-            
-            /**
-             * Update hint position.
-             */
-            updateHint: function(e) {
-                if (this.hintShown) {
-                    $(this.dHint).css({
-                        top: e.clientY,
-                        left: e.clientX + 15
-                    });
-                }
-            },
-
             /**
              * Toggle column's visibility.
              * After calling this function and it returns true, afterToggleCol() must be called.
@@ -487,7 +447,6 @@
         g.cRsz = document.createElement('div');     // column resizer
         g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
         g.cPointer = document.createElement('div'); // column pointer, used when reordering column
-        g.dHint = document.createElement('div');    // draggable hint
         g.cDrop = document.createElement('div');    // column drop-down arrows
         g.cList = document.createElement('div');    // column visibility list
         
@@ -498,10 +457,6 @@
         // adjust g.cPoint
         g.cPointer.className = 'cPointer';
         $(g.cPointer).css('visibility', 'hidden');
-        
-        // adjust g.dHint
-        g.dHint.className = 'dHint';
-        $(g.dHint).hide();
         
         // adjust g.cDrop
         g.cDrop.className = 'cDrop';
@@ -632,6 +587,22 @@
         });
         g.reposRsz();
         
+        // bind event to update currently hovered qtip API
+        $(t).find('th').mouseenter(function(e) {
+            g.qtip = $(this).qtip('api');
+        });
+        
+        // create qtip for each <th> with draggable class
+        $(t).find('th.draggable').qtip({
+            style: {
+                tip: true,
+                name: 'dark'
+            },
+            position: {
+                corner: { target: 'topRight', tooltip: 'bottomLeft' }
+            }
+        });
+        
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
@@ -656,6 +627,15 @@
         }
         if ($firstRowCols.length > 1) {
             $(t).find('th:not(.draggable)')
+                .qtip({
+                    style: {
+                        tip: true,
+                        name: 'dark'
+                    },
+                    position: {
+                        corner: { target: 'topRight', tooltip: 'bottomLeft' }
+                    }
+                })
                 .mouseenter(function(e) {
                     g.showColVisibHint = true;
                     g.showHint(e);
@@ -686,7 +666,6 @@
             });
         $(document).mousemove(function(e) {
             g.dragMove(e);
-            g.updateHint(e);
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);
@@ -708,7 +687,6 @@
         $(g.gDiv).append(g.cPointer);
         $(g.gDiv).append(g.cDrop);
         $(g.gDiv).append(g.cList);
-        $(g.gDiv).append(g.dHint);
         $(g.gDiv).append(g.cCpy);
 
         // some adjustment
