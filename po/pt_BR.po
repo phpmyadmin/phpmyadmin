@@ -2138,6 +2138,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Isso geralmente significa que há um erro de sintaxe, por favor cheque "
+"qualquer erro mostrado abaixo."
 
 #: libraries/common.inc.php:595
 #, fuzzy, php-format
