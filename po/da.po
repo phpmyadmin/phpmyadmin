@@ -1203,10 +1203,9 @@ msgid "KiB received since last refresh"
 msgstr "KiB modtaget siden forrige visning"
 
 #: js/messages.php:80
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Server valg"
+msgstr "Server-trafik (i KiB)"
 
 #: js/messages.php:81
 msgid "Connections since last refresh"
