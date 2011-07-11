@@ -6881,7 +6881,7 @@ msgstr "Mostrar dimensão das tabelas"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
-msgstr "mostrar todas as tabelas com o mesmo tamanho?"
+msgstr "Mostrar todas as tabelas com o mesmo tamanho"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
