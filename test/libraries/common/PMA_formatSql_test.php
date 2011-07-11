@@ -12,6 +12,7 @@
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
+require_once 'libraries/sqlparser.lib.php';
 
 class PMA_formatSql_test extends PHPUnit_Framework_TestCase{
 
