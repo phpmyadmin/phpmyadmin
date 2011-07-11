@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 04:13+0200\n"
+"PO-Revision-Date: 2011-07-11 04:14+0200\n"
 "Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3475,10 +3475,9 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "O número de tabelas que estão abertas."
+msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
 #: libraries/config/messages.inc.php:273
 msgid "String that separates databases into different tree levels"
