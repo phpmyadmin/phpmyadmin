@@ -1320,10 +1320,9 @@ msgid "Show search results"
 msgstr "Vis søgeresultater"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Vis"
+msgstr "Viser"
 
 #: js/messages.php:121
 msgid "Deleting"
