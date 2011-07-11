@@ -4906,10 +4906,9 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/db_routines.lib.php:1151
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Não existem arquivos para fazer upload"
+msgstr "Não existem rotinas para mostrar."
 
 #: libraries/db_routines.lib.php:1192
 #, fuzzy
