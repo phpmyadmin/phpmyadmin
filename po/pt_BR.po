@@ -3894,9 +3894,8 @@ msgid "SweKey config file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:369
-#, fuzzy
 msgid "Authentication method to use"
-msgstr "Autenticando..."
+msgstr "Método de autenticação para usar"
 
 #: libraries/config/messages.inc.php:370 setup/frames/index.inc.php:126
 msgid "Authentication type"
