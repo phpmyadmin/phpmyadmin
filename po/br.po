@@ -2901,7 +2901,7 @@ msgstr "Seurt MIME"
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 tbl_relation.php:396
 msgid "Relations"
-msgstr ""
+msgstr "Darempredoù"
 
 #: libraries/config/messages.inc.php:105
 msgid "Export method"
