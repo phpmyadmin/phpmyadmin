@@ -5902,10 +5902,9 @@ msgid "Columns separated with:"
 msgstr "Colunas separadas com:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Campos delimitados por"
+msgstr "Colunas delimitadas por:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #, fuzzy
