@@ -2872,7 +2872,7 @@ msgstr "Patrom anv taolenn"
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:116 libraries/export/texytext.php:23
 msgid "Dump table"
-msgstr ""
+msgstr "Ezporzhiañ an daolenn"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
