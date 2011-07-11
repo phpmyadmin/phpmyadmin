@@ -2939,7 +2939,7 @@ msgstr "Deiziad krouiñ/hizivaat/gwiriañ"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "Ensoc'hadennoù gant dale"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
