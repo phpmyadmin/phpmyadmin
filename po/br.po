@@ -2860,7 +2860,7 @@ msgstr "Patrom anv diaz roadennoù"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "Patrom anv servijer"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
