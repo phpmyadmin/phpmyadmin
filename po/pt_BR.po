@@ -5119,7 +5119,7 @@ msgstr ""
 #: libraries/display_export.lib.php:274 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:463
 msgid "Character set of the file:"
-msgstr "Conjunto de caracteres do arquivo"
+msgstr "Conjunto de caracteres do arquivo:"
 
 #: libraries/display_export.lib.php:304
 #, fuzzy
