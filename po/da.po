@@ -682,7 +682,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Ord adskilles af mellemrums-karakter (\" \")."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Indeni tabel(ler):"
