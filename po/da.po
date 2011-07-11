@@ -1127,10 +1127,9 @@ msgstr "De to kodeord er ikke ens!"
 
 #: js/messages.php:56 server_privileges.php:1679 server_privileges.php:1703
 #: server_privileges.php:2108 server_privileges.php:2302
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Enhver bruger"
+msgstr "Opret bruger"
 
 #: js/messages.php:57
 msgid "Reloading Privileges"
