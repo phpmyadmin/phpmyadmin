@@ -756,7 +756,7 @@ msgstr "Med det markerede:"
 #: server_databases.php:262 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:590
 msgid "Check All"
-msgstr "Afmærk alt"
+msgstr "Vælg alle"
 
 #: db_structure.php:483 libraries/display_tbl.lib.php:2335
 #: libraries/replication_gui.lib.php:35 server_databases.php:264
