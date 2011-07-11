@@ -5004,10 +5004,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Não pode carregar exportação dos plugins, verifique sua instalação!"
 
 #: libraries/display_export.lib.php:80
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Permitir bloquear tabelas para a processo atual."
+msgstr "Exportar bancos de dados do servidor atual"
 
 #: libraries/display_export.lib.php:82
 #, fuzzy, php-format
