@@ -507,8 +507,8 @@ msgstr "Din SQL-forespørgsel blev udført korrekt"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] "række påvirket af den sidste SQL-sætning inde i proceduren"
-msgstr[1] "rækker påvirket af den sidste SQL-sætning inde i proceduren"
+msgstr[0] "%d række påvirket af den sidste SQL-sætning inde i proceduren"
+msgstr[1] "%d rækker påvirket af den sidste SQL-sætning inde i proceduren"
 
 #: db_routines.php:168
 #, php-format
