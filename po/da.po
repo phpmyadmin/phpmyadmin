@@ -702,7 +702,7 @@ msgstr "Tabel %s blev tømt"
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
-msgstr "Visning %s er blevet droppet"
+msgstr "Visning %s er blevet slettet"
 
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
