@@ -1604,7 +1604,7 @@ msgstr "tirsdag"
 
 #: js/messages.php:239
 msgid "Wednesday"
-msgstr ""
+msgstr "Onsdag"
 
 #: js/messages.php:240
 msgid "Thursday"
