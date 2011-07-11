@@ -2927,7 +2927,7 @@ msgstr "Lakaat krochedoù stouet a bep tu da anvioù an taolennoù hag ar banno�
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:346
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Mod kenglotañ gant SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
