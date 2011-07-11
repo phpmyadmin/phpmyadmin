@@ -2867,7 +2867,7 @@ msgstr "Kolonner afsluttes med"
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "Linjer afsluttet med"
+msgstr "Linjer afsluttes med"
 
 #: libraries/config/messages.inc.php:82
 #, fuzzy
