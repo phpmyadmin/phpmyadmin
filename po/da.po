@@ -1069,10 +1069,9 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "Du er ved at DESTRUERE en komplet tabel!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Du er ved at DESTRUERE en komplet database!"
+msgstr "Du er ved at slette en hel tabel!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
