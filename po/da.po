@@ -1163,10 +1163,9 @@ msgid "Live conn./process chart"
 msgstr "Realtids forbind./opgave-oversigt"
 
 #: js/messages.php:66 server_status.php:445
-#, fuzzy
 #| msgid "Showing SQL query"
 msgid "Live query chart"
-msgstr "Viser SQL-forespørgsel"
+msgstr "Realtid forespørgsels-oversigt"
 
 #: js/messages.php:68
 msgid "Static data"
