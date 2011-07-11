@@ -3271,7 +3271,7 @@ msgstr "SQL-forespørgsler"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
-msgstr ""
+msgstr "SQL Query-boks"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
