@@ -4917,10 +4917,9 @@ msgid "Add routine"
 msgstr "Adicionar índice"
 
 #: libraries/db_routines.lib.php:1195
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Você não tem direitos suficientes para estar aqui agora!"
+msgstr "Você não tem direitos suficientes para criar uma nova rotina"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
 msgid ""
