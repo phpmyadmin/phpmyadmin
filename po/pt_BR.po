@@ -5052,10 +5052,9 @@ msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Número de arquivos"
+msgstr "Número de linhas:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
