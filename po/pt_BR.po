@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-05 15:06+0200\n"
-"Last-Translator:  <vitorpc.18@gmail.com>\n"
+"PO-Revision-Date: 2011-07-11 04:42+0200\n"
+"Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -247,6 +247,7 @@ msgstr "Ver o esquema do Banco de Dados"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:371 navigation.php:299
+#, fuzzy
 msgid "No tables found in database."
 msgstr "Nenhuma tabela encontrada no Banco de Dados"
 
@@ -595,6 +596,10 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Você está usando  extensão 'mysql' obsoleta do PHP, que não é capaz de lidar "
+"com multi consultas. <b.>A execução de algumas rotinas de armazenamento "
+"podem falhar!</b> Por favor, use a extensão melhorada 'mysqli' para evitar "
+"quaisquer problemas."
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -1154,7 +1159,7 @@ msgstr "Gráfico de tráfego em tempo real"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Quadro conn./process em tempo real"
 
 #: js/messages.php:66 server_status.php:445
 msgid "Live query chart"
@@ -1321,6 +1326,7 @@ msgstr "Apagando %s"
 #: js/messages.php:124
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"A definição de uma função armazenada deve conter uma instrução de RETURN!"
 
 #: js/messages.php:125
 #, fuzzy
@@ -1920,7 +1926,7 @@ msgstr "Encontrado caminho inválido para o tema %s!"
 
 #: libraries/Theme_Manager.class.php:286 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
@@ -1971,7 +1977,7 @@ msgstr "Você pode digitar a url/IP e a porta separados por um espaço."
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "Servidor"
+msgstr "Servidor:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
@@ -2015,7 +2021,7 @@ msgstr "Usuário ou senha incorreta. Acesso negado."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
-msgstr "Não é possível encontrar o script de autenticação de logon"
+msgstr "Não é possível encontrar o script de autenticação de logon:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
@@ -2132,6 +2138,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Isso geralmente significa que há um erro de sintaxe, por favor cheque "
+"qualquer erro mostrado abaixo."
 
 #: libraries/common.inc.php:595
 #, fuzzy, php-format
@@ -2143,7 +2151,9 @@ msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
-msgstr "A variável <tt>$cfg['PmaAbsoluteUri']</tt> deve ser setada"
+msgstr ""
+"A diretriz<tt>$cfg['PmaAbsoluteUri']</tt> deve ser estabelecida no seu "
+"arquivo de configuração!"
 
 #: libraries/common.inc.php:630
 #, fuzzy, php-format
@@ -2212,7 +2222,7 @@ msgstr "consulta SQL"
 
 #: libraries/common.lib.php:1031
 msgid "Failed to connect to SQL validator!"
-msgstr "Falha ao conectar ao validador SQL"
+msgstr "Falha ao conectar ao validador SQL!"
 
 #: libraries/common.lib.php:1072 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
@@ -2366,8 +2376,7 @@ msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
 #: libraries/common.lib.php:2814 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
-"O diretório que você especificou para subir arquivos não foi encontrado."
+msgstr "O diretório que você especificou para subir arquivos não foi encontrado"
 
 #: libraries/common.lib.php:2822
 msgid "There are no files to upload"
@@ -2375,7 +2384,7 @@ msgstr "Não existem arquivos para fazer upload"
 
 #: libraries/common.lib.php:2849 libraries/common.lib.php:2850
 msgid "Execute"
-msgstr ""
+msgstr "Executar"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -2434,7 +2443,7 @@ msgstr "Personalizada - exibir todas as opções possíveis para configurar"
 
 #: libraries/config.values.php:102
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada."
+msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada"
 
 #: libraries/config.values.php:120
 #, fuzzy
@@ -2454,7 +2463,7 @@ msgstr "ambos acima"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
-msgstr "nenhuma das acima."
+msgstr "nenhuma das acima"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:412
@@ -2587,33 +2596,35 @@ msgstr "Permitir elaboração de terceiros"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Exibir link &quot;Apagar banco de dados&quot; para usuários normais"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Frase secreta utilizada para encriptar cookies na autenticação por "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Segredo Blowfish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Destacar linhas selecionadas"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Marcador de linha"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Destacar linha apontada pelo cursor do mouse"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Destacar apontador"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
@@ -2623,7 +2634,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2631,14 +2642,17 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Define que tipo de controles de edição devem ser utilizados pelas colunas "
+"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, "
+"[kbd]textarea[/kbd] - permite quebra de linhas em colunas"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Número de colunas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
@@ -2962,10 +2976,9 @@ msgid "SQL compatibility mode"
 msgstr "Modo de compatibilidade SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
-#, fuzzy
 #| msgid "<code>@TABLE@</code>"
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>@TABLE@</code>"
+msgstr "<code>CRIAR TABELA</code> opções:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
@@ -3174,10 +3187,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:192
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Numero da página:"
+msgstr "Títulos das páginas"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
@@ -3213,14 +3225,12 @@ msgid "Basic settings"
 msgstr "Configurações básicas"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 msgid "Authentication"
-msgstr "Autenticando..."
+msgstr "Autenticação"
 
 #: libraries/config/messages.inc.php:200
-#, fuzzy
 msgid "Authentication settings"
-msgstr "Autenticando..."
+msgstr "Configurações de autenticação"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
@@ -3477,10 +3487,9 @@ msgid "Display servers selection"
 msgstr ""
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
 #| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "O número de tabelas que estão abertas."
+msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
 #: libraries/config/messages.inc.php:273
 msgid "String that separates databases into different tree levels"
@@ -3897,9 +3906,8 @@ msgid "SweKey config file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:369
-#, fuzzy
 msgid "Authentication method to use"
-msgstr "Autenticando..."
+msgstr "Método de autenticação para usar"
 
 #: libraries/config/messages.inc.php:370 setup/frames/index.inc.php:126
 msgid "Authentication type"
@@ -4701,10 +4709,9 @@ msgid "Events"
 msgstr "Eventos"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Não existem arquivos para fazer upload"
+msgstr "Não existem eventos para serem mostrados"
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
 #: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
@@ -4770,10 +4777,9 @@ msgid "Triggers"
 msgstr "Gatilhos"
 
 #: libraries/db_routines.lib.php:630
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Detalhes..."
+msgstr "Detalhes"
 
 #: libraries/db_routines.lib.php:633
 #, fuzzy
@@ -4912,10 +4918,9 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/db_routines.lib.php:1151
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Não existem arquivos para fazer upload"
+msgstr "Não existem rotinas para mostrar."
 
 #: libraries/db_routines.lib.php:1192
 #, fuzzy
@@ -4924,10 +4929,9 @@ msgid "Add routine"
 msgstr "Adicionar índice"
 
 #: libraries/db_routines.lib.php:1195
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Você não tem direitos suficientes para estar aqui agora!"
+msgstr "Você não tem direitos suficientes para criar uma nova rotina"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
 msgid ""
@@ -5012,10 +5016,9 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "Não pode carregar exportação dos plugins, verifique sua instalação!"
 
 #: libraries/display_export.lib.php:80
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Permitir bloquear tabelas para a processo atual."
+msgstr "Exportar bancos de dados do servidor atual"
 
 #: libraries/display_export.lib.php:82
 #, fuzzy, php-format
@@ -5033,7 +5036,7 @@ msgstr "Criar nova tabela no Banco de Dados %s"
 #, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Tipo de exportação"
+msgstr "Método de exportação:"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
@@ -5061,10 +5064,9 @@ msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Número de arquivos"
+msgstr "Número de linhas:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
@@ -5091,10 +5093,9 @@ msgid "Save output to a file"
 msgstr "Enviado"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Nome do arquivo do modelo"
+msgstr "Nome do arquivo do modelo:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
@@ -5130,13 +5131,12 @@ msgstr ""
 #: libraries/display_export.lib.php:274 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:463
 msgid "Character set of the file:"
-msgstr "Conjunto de caracteres do arquivo"
+msgstr "Conjunto de caracteres do arquivo:"
 
 #: libraries/display_export.lib.php:304
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Compressão"
+msgstr "Compressão:"
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:564
 #: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:562
@@ -5170,16 +5170,14 @@ msgstr "Enviado"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Formato"
+msgstr "Formato:"
 
 #: libraries/display_export.lib.php:331
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Opções de transformação"
+msgstr "Opções de formato especifico:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
@@ -5188,9 +5186,8 @@ msgid ""
 msgstr ""
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "Versão do cliente MySQL"
+msgstr "Codificação de conversão:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -5226,10 +5223,9 @@ msgid "Importing into the table \"%s\""
 msgstr "Sem bases"
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Arquivo para importar"
+msgstr "Arquivo para importar:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
@@ -5247,10 +5243,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Não é permitido subir arquivos neste servidor."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Importação parcial"
+msgstr "Importação parcial:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -5261,7 +5256,6 @@ msgstr ""
 "continuar na posição %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -5276,10 +5270,9 @@ msgstr ""
 "grandes, entretanto isso pode interromper as transações."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Número de registros (consultas) ignoradas no início"
+msgstr "Número de registros para pular, iniciando da primeira linha:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -5475,13 +5468,13 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "No valid image path for theme %s found!"
 msgid "No trigger with name %s found"
-msgstr "Encontrado caminho inválido para imagens para o tema %s!"
+msgstr "Nenhum trigger com o nome %s encontrado"
 
 #: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Não existem arquivos para fazer upload"
+msgstr "Não existem triggers para mostrar"
 
 #: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
 msgid "Time"
@@ -5916,47 +5909,42 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Linhas terminadas por"
+msgstr "Colunas separadas com:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Campos delimitados por"
+msgstr "Colunas delimitadas por:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Campos contornados por"
+msgstr "Campos pulados por:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Linhas terminadas por"
+msgstr "Linhas terminadas com:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Substituir NULL por"
+msgstr "Substituir NULL com:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:33
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Edição do Excel"
+msgstr "Edição do Excel:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:208
@@ -6062,10 +6050,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Gerado um relatório contendo dados da tabela simples)"
 
 #: libraries/export/pdf.php:25
-#, fuzzy
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Título do Relatório"
+msgstr "Título do Relatório:"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
@@ -6081,7 +6068,9 @@ msgstr ""
 #, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Adicionar comentário pessoal no cabeçalho (\\n quebra linhas)"
+msgstr ""
+"Adicionar comentário pessoal no cabeçalho (\n"
+" quebra linhas)"
 
 #: libraries/export/sql.php:48
 msgid ""
@@ -6102,10 +6091,9 @@ msgid "Add %s statement"
 msgstr "Comandos"
 
 #: libraries/export/sql.php:145
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Comandos"
+msgstr "Adicionar instruções:"
 
 #: libraries/export/sql.php:197
 msgid ""
@@ -6348,7 +6336,6 @@ msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
 #: libraries/import/sql.php:33
-#, fuzzy
 #| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "Modo de compatibilidade SQL"
@@ -6411,7 +6398,7 @@ msgstr "Conjunto de caracteres"
 #: libraries/mysql_charsets.lib.php:198 libraries/mysql_charsets.lib.php:399
 #: tbl_change.php:556
 msgid "Binary"
-msgstr " Binário "
+msgstr " Binário"
 
 #: libraries/mysql_charsets.lib.php:210
 msgid "Bulgarian"
@@ -6850,7 +6837,6 @@ msgid "Create a page"
 msgstr "Criar uma nova página"
 
 #: libraries/schema/User_Schema.class.php:95
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "Numero da página:"
@@ -6907,7 +6893,7 @@ msgstr "Mostrar dimensão das tabelas"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
-msgstr "mostrar todas as tabelas com o mesmo tamanho?"
+msgstr "Mostrar todas as tabelas com o mesmo tamanho"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
@@ -7272,7 +7258,6 @@ msgid "+ Add a value"
 msgstr "+ Adicionar um valor"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link to download the binary data of the field. You can use the "
 #| "first option to specify the filename, or use the second option as the "
@@ -7284,10 +7269,11 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Mostrar o link para baixar os dados binários do campo. Primeira opção é o "
-"nome do arquivo binário. Segunda opção é um possível nome de campo de uma "
-"linha da tabela que contém o nome do arquivo. Se você usar a segunda opção "
-"precisa colocar na primeira opção uma string em branco"
+"Mostrar um link para baixar os dados binários da coluna. Você pode usar a "
+"primeira opção para especificar o nome do arquivo, ou usar a segunda opção "
+"como o nome de uma coluna que contém o nome do arquivo. Se você usar a "
+"segunda opção, você precisará primeiro de configurar a primeira opção para a "
+"string vazia."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -7304,8 +7290,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Mostrar uma miniatura clicável; opções: largura,altura em pixels (mantém a "
-"proporção original)"
+"Mostrar uma miniatura clicável; As opções são a largura e altura máxima em "
+"pixels."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
