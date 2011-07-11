@@ -4697,10 +4697,9 @@ msgid "Events"
 msgstr "Eventos"
 
 #: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Não existem arquivos para fazer upload"
+msgstr "Não existem eventos para serem mostrados"
 
 #: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
 #: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
