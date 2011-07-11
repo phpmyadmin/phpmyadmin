@@ -18,7 +18,7 @@
  *
  */
 $(document).ready(function() {
-    
+
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -182,63 +182,6 @@ $(document).ready(function() {
      });
 
     /**
-     *Ajax action for submitting the column change form
-    **/
-    $("#append_fields_form input[name=do_save_data].ajax").live('click', function(event) {
-        event.preventDefault();
-        /**
-         *  @var    the_form    object referring to the export form
-         */
-        var $form = $("#append_fields_form");
-
-        PMA_prepareForAjaxRequest($form);
-
-        /*
-         * First validate the form; if there is a problem, avoid submitting it
-         *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
-         * this is why we pass $form[0] as a parameter (the jQuery object
-         * is actually an array of DOM elements)
-         */
-        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            //User wants to submit the form
-            $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-                if ($("#sqlqueryresults").length != 0) {
-                    $("#sqlqueryresults").remove();
-                } else if ($(".error").length != 0) {
-                    $(".error").remove();
-                }
-                if (data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
-                    $("#sqlqueryresults").html(data.sql_query);
-                    $("#result_query .notice").remove();
-                    $("#result_query").prepend((data.message));
-                    if ($("#change_column_dialog").length > 0) {
-                        $("#change_column_dialog").dialog("close").remove();
-                    }
-                    /*Reload the field form*/
-                    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-                        $("#fieldsForm").remove();
-                        var $temp_div = $("<div id='temp_div'><div>").append(form_data);
-                        if ($("#sqlqueryresults").length != 0) {
-                            $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
-                        } else {
-                            $temp_div.find("#fieldsForm").insertAfter(".error");
-                        }
-                        /*Call the function to display the more options in table*/
-                        displayMoreTableOpts();
-                    });
-                } else {
-                    var $temp_div = $("<div id='temp_div'><div>").append(data);
-                    var $error = $temp_div.find(".error code").addClass("error");
-                    PMA_ajaxShowMessage($error);
-                }
-            }) // end $.post()
-        }
-}) // end insert table button "do_save_data"
-
-    /**
      *Ajax event handler for index edit
     **/
     $("#table_index tbody tr td.edit_index.ajax").live('click', function(event){
@@ -249,7 +192,11 @@ $(document).ready(function() {
         }
         url = url + "&ajax_request=true";
 
-        var div = $('<div id="edit_index_dialog"></div>');
+        /*Remove the hidden dialogs if there are*/
+        if ($('#edit_index_dialog').length != 0) {
+            $('#edit_index_dialog').remove();
+        }
+        var $div = $('<div id="edit_index_dialog"></div>');
 
         /**
          *  @var    button_options  Object that stores the options passed to jQueryUI
@@ -266,7 +213,7 @@ $(document).ready(function() {
         $.get( "tbl_indexes.php" , url ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
-                div
+                $div
                 .append(data.error)
                 .dialog({
                     title: PMA_messages['strEdit'],
@@ -277,7 +224,7 @@ $(document).ready(function() {
                     buttons : button_options_error
                 })// end dialog options
             } else {
-                div
+                $div
                 .append(data)
                 .dialog({
                     title: PMA_messages['strEdit'],
@@ -322,22 +269,22 @@ $(document).ready(function() {
 
                 /*Reload the field form*/
                 $("#table_index").remove();
-                var temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                $(temp_div).find("#table_index").insertAfter("#index_header");
+                var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
+                $($temp_div).find("#table_index").insertAfter("#index_header");
                 if ($("#edit_index_dialog").length > 0) {
                     $("#edit_index_dialog").dialog("close").remove();
                 }
 
             } else {
                 if(data.error != undefined) {
-                    var temp_div = $("<div id='temp_div'><div>").append(data.error);
-                    if($(temp_div).find(".error code").length != 0) {
-                        var error = $(temp_div).find(".error code").addClass("error");
+                    var $temp_div = $("<div id='temp_div'><div>").append(data.error);
+                    if($($temp_div).find(".error code").length != 0) {
+                        var $error = $($temp_div).find(".error code").addClass("error");
                     } else {
-                        var error = temp_div;
+                        var $error = $temp_div;
                     }
                 }
-                PMA_ajaxShowMessage(error);
+                PMA_ajaxShowMessage($error);
             }
 
         }) // end $.post()
@@ -357,8 +304,8 @@ $(document).ready(function() {
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
             $("#index_columns").remove();
-            var temp_div = $("<div id='temp_div'><div>").append(data);
-            $(temp_div).find("#index_columns").appendTo("#index_edit_fields");
+            var $temp_div = $("<div id='temp_div'><div>").append(data);
+            $($temp_div).find("#index_columns").appendTo("#index_edit_fields");
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -405,7 +352,7 @@ function changeColumns(action,url) {
     if ($('#change_column_dialog').length != 0) {
         $('#change_column_dialog').remove();
     }
-    var div = $('<div id="change_column_dialog"></div>');
+    var $div = $('<div id="change_column_dialog"></div>');
 
     /**
      *  @var    button_options  Object that stores the options passed to jQueryUI
@@ -422,7 +369,7 @@ function changeColumns(action,url) {
     $.get( action , url ,  function(data) {
         //in the case of an error, show the error message returned.
         if (data.success != undefined && data.success == false) {
-            div
+            $div
             .append(data.error)
             .dialog({
                 title: PMA_messages['strChangeTbl'],
@@ -433,7 +380,7 @@ function changeColumns(action,url) {
                 buttons : button_options_error
             })// end dialog options
         } else {
-            div
+            $div
             .append(data)
             .dialog({
                 title: PMA_messages['strChangeTbl'],
