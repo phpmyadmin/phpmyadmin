@@ -2890,7 +2890,7 @@ msgstr "Enklozañ an istitloù"
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
-msgstr ""
+msgstr "Alc'hwez an dikedenn"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
