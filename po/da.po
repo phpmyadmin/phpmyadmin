@@ -559,7 +559,7 @@ msgstr "Server indekset %s er ugyldigt"
 
 #: db_routines.php:312
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Beklager, det lykkedes ikke at genetablere den slettede rutine."
 
 #: db_routines.php:313
 msgid "The backed up query was:"
