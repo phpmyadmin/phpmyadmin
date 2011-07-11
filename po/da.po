@@ -3017,7 +3017,7 @@ msgstr "Sortér fremmede nøgler i valgboks"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr "Der vil blive brugt en valgboks, hvis der er færre elementer til stede"
+msgstr "Der vil blive brugt en valgboks, hvis der er få elementer til stede"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
