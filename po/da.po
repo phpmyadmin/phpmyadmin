@@ -572,10 +572,10 @@ msgid "Routine %1$s has been modified."
 msgstr "Tabel \"%1$s\" er slettet"
 
 #: db_routines.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "Database %1$s er oprettet,"
+msgstr "Rutine %1$s er oprettet,"
 
 #: db_routines.php:338
 msgid "<b>One or more errors have occured while processing your request:</b>"
