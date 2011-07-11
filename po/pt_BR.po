@@ -2215,7 +2215,7 @@ msgstr "consulta SQL"
 
 #: libraries/common.lib.php:1031
 msgid "Failed to connect to SQL validator!"
-msgstr "Falha ao conectar ao validador SQL"
+msgstr "Falha ao conectar ao validador SQL!"
 
 #: libraries/common.lib.php:1072 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
