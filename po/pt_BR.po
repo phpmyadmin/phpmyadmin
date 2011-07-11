@@ -5024,7 +5024,7 @@ msgstr "Criar nova tabela no Banco de Dados %s"
 #, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Tipo de exportação"
+msgstr "Método de exportação:"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
