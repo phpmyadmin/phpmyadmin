@@ -5158,10 +5158,9 @@ msgstr "Enviado"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Formato"
+msgstr "Formato:"
 
 #: libraries/display_export.lib.php:331
 #, fuzzy
