@@ -2909,6 +2909,7 @@ msgstr "Fortsat tabeloverskrift"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
+#, fuzzy
 msgid "Label key"
 msgstr "Mærke nøgle"
 
