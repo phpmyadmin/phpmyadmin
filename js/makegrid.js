@@ -592,8 +592,8 @@
             for (var i = 0; i < $firstRowCols.length; i++) {
                 var currHeader = $firstRowCols[i];
                 var listElmt = document.createElement('div');
-                $(listElmt).html('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>' +
-                           $(currHeader).text());
+                $(listElmt).text($(currHeader).text())
+                    .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>');
                 $listDiv.append(listElmt);
                 // add event on click
                 $(listElmt).click(function() {
