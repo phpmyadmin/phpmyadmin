@@ -2624,7 +2624,7 @@ msgstr "Destacar linha apontada pelo cursor do mouse"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Destacar apontador"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
