@@ -1253,7 +1253,7 @@ msgstr "Felj i udførsel af forespørgsel"
 
 #: js/messages.php:97
 msgid "Dropping Column"
-msgstr ""
+msgstr "Sletter kolonne"
 
 #: js/messages.php:98
 msgid "Adding Primary Key"
