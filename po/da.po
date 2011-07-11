@@ -1105,10 +1105,9 @@ msgstr "Dette er ikke et tal!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "Total"
+msgstr "Samlet antal"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
