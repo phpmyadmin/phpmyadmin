@@ -662,8 +662,8 @@ msgstr "Slet"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>I alt:</b> <i>%s</i> hit"
-msgstr[1] "<b>I alt</b> <i>%s</i> hits"
+msgstr[0] "<b>I alt:</b> <i>%s</i> sammenfald"
+msgstr[1] "<b>I alt</b> <i>%s</i> sammenfald"
 
 #: db_search.php:272
 msgid "Search in database"
