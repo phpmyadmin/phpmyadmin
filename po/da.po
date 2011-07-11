@@ -697,7 +697,7 @@ msgstr "Ingen tabeller fundet i databasen"
 #: db_structure.php:270 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "Tabel %s er tømt"
+msgstr "Tabel %s blev tømt"
 
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
