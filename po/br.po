@@ -2918,7 +2918,7 @@ msgstr "Frikañ ar restroù zo c'hoazh"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr ""
+msgstr "Derc'hel soñj eus patrom anv ar restr"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
