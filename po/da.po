@@ -3216,7 +3216,7 @@ msgid ""
 "what they are for"
 msgstr ""
 "Avanceret serverkonfiguration. Lad være med at ændre disse indstillinger med "
-"mindre, du ved, hvad de betyder"
+"mindre du ved hvad de betyder"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
