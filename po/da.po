@@ -1226,7 +1226,7 @@ msgstr "Igangsatte forespørgsler siden forrige visning"
 
 #: js/messages.php:85
 msgid "Issued queries"
-msgstr ""
+msgstr "Igangsatte forespørgsler"
 
 #: js/messages.php:87 server_status.php:402
 msgid "Query statistics"
