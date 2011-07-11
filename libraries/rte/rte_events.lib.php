@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Functions for event management.
+ *
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -48,7 +50,9 @@ function PMA_RTE_main()
      */
     $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
     $where   = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
-    $items   = PMA_DBI_fetch_result("SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where ORDER BY `EVENT_NAME` ASC;");
+    $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
+             . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
+    $items   = PMA_DBI_fetch_result($query);
     echo PMA_RTE_getList('event', $items);
     /**
      * Display a link for adding a new event, if
@@ -65,7 +69,9 @@ function PMA_EVN_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db, $table;
 
-    if (! empty($_REQUEST['editor_process_add']) || ! empty($_REQUEST['editor_process_edit'])) {
+    if (! empty($_REQUEST['editor_process_add'])
+        || ! empty($_REQUEST['editor_process_edit'])
+    ) {
         $sql_query = '';
 
         $item_query = PMA_EVN_getQueryFromRequest();
@@ -74,7 +80,11 @@ function PMA_EVN_handleEditor()
             // Execute the created query
             if (! empty($_REQUEST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $create_item = PMA_DBI_get_definition($db, 'EVENT', $_REQUEST['item_original_name']);
+                $create_item = PMA_DBI_get_definition(
+                    $db,
+                    'EVENT',
+                    $_REQUEST['item_original_name']
+                );
                 $drop_item = "DROP EVENT " . PMA_backquote($_REQUEST['item_original_name']) . ";\n";
                 $result = PMA_DBI_try_query($drop_item);
                 if (! $result) {
@@ -147,9 +157,10 @@ function PMA_EVN_handleEditor()
     /**
      * Display a form used to add/edit a trigger, if necessary
      */
-    if (count($errors) || ( empty($_REQUEST['editor_process_add']) && empty($_REQUEST['editor_process_edit']) &&
-              (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])
-            || ! empty($_REQUEST['item_changetype'])))) { // FIXME: this must be simpler than that
+    if (count($errors) || ( empty($_REQUEST['editor_process_add']) && empty($_REQUEST['editor_process_edit'])
+        && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])
+        || ! empty($_REQUEST['item_changetype'])))
+    ) { // FIXME: this must be simpler than that
         $operation = '';
         if (! empty($_REQUEST['item_changetype'])) {
             $operation = 'change';
@@ -161,7 +172,10 @@ function PMA_EVN_handleEditor()
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
             $title = __("Edit event");
-            if (! empty($_REQUEST['item_name']) && empty($_REQUEST['editor_process_edit']) && empty($_REQUEST['item_changetype'])) {
+            if (! empty($_REQUEST['item_name'])
+                && empty($_REQUEST['editor_process_edit'])
+                && empty($_REQUEST['item_changetype'])
+            ) {
                 $item = PMA_EVN_getDataFromName($_REQUEST['item_name']);
                 if ($item !== false) {
                     $item['item_original_name'] = $item['item_name'];
@@ -184,10 +198,12 @@ function PMA_EVN_handleEditor()
             }
             // exit;
         } else {
-            $message = __('Error in processing request') . ' : '
-                     . sprintf(PMA_RTE_getWord('not_found'),
-                               htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
-                               htmlspecialchars(PMA_backquote($db)));
+            $message  = __('Error in processing request') . ' : ';
+            $message .= sprintf(
+                PMA_RTE_getWord('not_found'),
+                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PMA_backquote($db))
+            );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
                 PMA_ajaxResponse($message, false);
@@ -246,7 +262,8 @@ function PMA_EVN_getDataFromName($name)
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
              . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
-    $where   = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "' AND EVENT_NAME='" . PMA_sqlAddSlashes($name) . "'";
+    $where   = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+             . "AND EVENT_NAME='" . PMA_sqlAddSlashes($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
     $item    = PMA_DBI_fetch_single_row($query);
     if (! $item) {
@@ -279,14 +296,14 @@ function PMA_EVN_getDataFromName($name)
 /**
  * Displays a form used to add/edit an event
  *
- * @param   string   $mode         If the editor will be used edit an event
- *                                 or add a new one: 'edit' or 'add'.
- * @param   string   $operation    If the editor was previously invoked with
- *                                 JS turned off, this will hold the name of
- *                                 the current operation
- * @param   array    $item         Data for the event returned by
- *                                 PMA_EVN_getDataFromRequest() or
- *                                 PMA_EVN_getDataFromName()
+ * @param   string   $mode      If the editor will be used edit an event
+ *                              or add a new one: 'edit' or 'add'.
+ * @param   string   $operation If the editor was previously invoked with
+ *                              JS turned off, this will hold the name of
+ *                              the current operation
+ * @param   array    $item      Data for the event returned by
+ *                              PMA_EVN_getDataFromRequest() or
+ *                              PMA_EVN_getDataFromName()
  *
  * @return  string   HTML code for the editor.
  */
@@ -307,7 +324,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
                        'item_definer',
                        'item_comment'
                    );
-    foreach($need_escape as $key => $index) {
+    foreach ($need_escape as $key => $index) {
         $item[$index] = htmlentities($item[$index], ENT_QUOTES);
     }
     $original_data = '';
@@ -344,7 +361,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td style='width: 20%;'>" . __('Event name') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_name' value='{$item['item_name']}'\n";
+    $retval .= "    <td><input type='text' name='item_name' \n";
+    $retval .= "               value='{$item['item_name']}'\n";
     $retval .= "               maxlength='64' /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
@@ -376,29 +394,39 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
         }
         $retval .= "        </select>\n";
     } else {
-        $retval .= "        <input name='item_type' type='hidden' value='{$item['item_type']}' />\n";
+        $retval .= "        <input name='item_type' type='hidden' \n";
+        $retval .= "               value='{$item['item_type']}' />\n";
         $retval .= "        <div style='width: 49%; float: left; text-align: center; font-weight: bold;'>\n";
         $retval .= "            {$item['item_type']}\n";
         $retval .= "        </div>\n";
-        $retval .= "        <input style='width: 49%;' type='submit' name='item_changetype'\n";
-        $retval .= "               value='".sprintf(__('Change to %s'), $item['item_type_toggle'])."' />\n";
+        $retval .= "        <input style='width: 49%;' type='submit'\n";
+        $retval .= "               name='item_changetype'\n";
+        $retval .= "               value='";
+        $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
+        $retval .= "' />\n";
     }
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='onetime_event_row $isonetime_class'>\n";
     $retval .= "    <td>" . __('Execute at') . "</td>\n";
     $retval .= "    <td style='white-space: nowrap;'>\n";
-    $retval .= "        <input type='text' name='item_execute_at' value='{$item['item_execute_at']}' class='datetimefield' />\n";
+    $retval .= "        <input type='text' name='item_execute_at'\n";
+    $retval .= "               value='{$item['item_execute_at']}'\n";
+    $retval .= "               class='datetimefield' />\n";
     $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row $isrecurring_class'>\n";
     $retval .= "    <td>" . __('Execute every') . "</td>\n";
     $retval .= "    <td>\n";
-    $retval .= "        <input style='width: 49%;' type='text' name='item_interval_value' value='{$item['item_interval_value']}' />\n";
+    $retval .= "        <input style='width: 49%;' type='text'\n";
+    $retval .= "               name='item_interval_value'\n";
+    $retval .= "               value='{$item['item_interval_value']}' />\n";
     $retval .= "        <select style='width: 49%;' name='item_interval_field'>";
     foreach ($event_interval as $key => $value) {
         $selected = "";
-        if (! empty($item['item_interval_field']) && $item['item_interval_field'] == $value) {
+        if (! empty($item['item_interval_field'])
+            && $item['item_interval_field'] == $value
+        ) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -408,15 +436,25 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
     $retval .= "    <td>" . __('Start') . "</td>\n";
-    $retval .= "    <td style='white-space: nowrap;'><input type='text' name='item_starts' value='{$item['item_starts']}' class='datetimefield' /></td>\n";
+    $retval .= "    <td style='white-space: nowrap;'>\n";
+    $retval .= "        <input type='text'\n name='item_starts'\n";
+    $retval .= "               value='{$item['item_starts']}'\n";
+    $retval .= "               class='datetimefield' />\n";
+    $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
     $retval .= "    <td>" . __('End') . "</td>\n";
-    $retval .= "    <td style='white-space: nowrap;'><input type='text' name='item_ends' value='{$item['item_ends']}' class='datetimefield' /></td>\n";
+    $retval .= "    <td style='white-space: nowrap;'>\n";
+    $retval .= "        <input type='text' name='item_ends'\n";
+    $retval .= "               value='{$item['item_ends']}'\n";
+    $retval .= "               class='datetimefield' />\n";
+    $retval .= "    </td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
-    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>{$item['item_definition']}</textarea></td>\n";
+    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
+    $retval .= $item['item_definition'];
+    $retval .= "</textarea></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('On completion preserve') . "</td>\n";
@@ -435,7 +473,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
     if ($GLOBALS['is_ajax_request']) {
-        $retval .= "<input type='hidden' name='editor_process_{$mode}' value='true' />\n";
+        $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
+        $retval .= "       value='true' />\n";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
     } else {
         $retval .= "<fieldset class='tblFooters'>\n";
@@ -462,7 +501,8 @@ function PMA_EVN_getQueryFromRequest()
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PMA_backquote($arr[0]);
+            $query .= '@' . PMA_backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
@@ -477,9 +517,11 @@ function PMA_EVN_getQueryFromRequest()
     if (! empty($_REQUEST['item_type']) && in_array($_REQUEST['item_type'], $event_type)) {
         if ($_REQUEST['item_type'] == 'RECURRING') {
             if (! empty($_REQUEST['item_interval_value'])
-            && !empty($_REQUEST['item_interval_field'])
-            && in_array($_REQUEST['item_interval_field'], $event_interval)) {
-                $query .= 'EVERY ' . intval($_REQUEST['item_interval_value']) . ' ' . $_REQUEST['item_interval_field'] . ' ';
+                && !empty($_REQUEST['item_interval_field'])
+                && in_array($_REQUEST['item_interval_field'], $event_interval)
+            ) {
+                $query .= 'EVERY ' . intval($_REQUEST['item_interval_value']) . ' ';
+                $query .= $_REQUEST['item_interval_field'] . ' ';
             } else {
                 $errors[] = __('You must provide a valid interval value for the event.');
             }
@@ -505,7 +547,7 @@ function PMA_EVN_getQueryFromRequest()
     }
     $query .= 'PRESERVE ';
     if (! empty($_REQUEST['item_status'])) {
-        foreach($event_status['display'] as $key => $value) {
+        foreach ($event_status['display'] as $key => $value) {
             if ($value == $_REQUEST['item_status']) {
                 $query .= $event_status['query'][$key] . ' ';
                 break;
