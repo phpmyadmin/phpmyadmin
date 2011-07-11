@@ -20,6 +20,9 @@ class PMA_GIS_Factory
         include_once './libraries/gis/pma_gis_geometry.php';
 
         $type_lower = strtolower($type);
+        if (! file_exists('./libraries/gis/pma_gis_' . $type_lower . '.php')) {
+            return false;
+        }
         if (include_once './libraries/gis/pma_gis_' . $type_lower . '.php') {
             switch($type) {
             case 'MULTIPOLYGON' :
@@ -37,10 +40,10 @@ class PMA_GIS_Factory
             case 'GEOMETRYCOLLECTION' :
                 return PMA_GIS_Geometrycollection::singleton();
             default :
-                throw new Exception('Unknown GIS data type');
+                return false;
             }
         } else {
-            throw new Exception('File not found');
+            return false;
         }
     }
 }

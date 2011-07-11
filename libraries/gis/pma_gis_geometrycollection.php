@@ -53,6 +53,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $scale_data = $gis_obj->scaleRow($sub_part);
 
             // Upadate minimum/maximum values for x and y cordinates.
@@ -102,6 +105,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $image = $gis_obj->prepareRowAsPng($sub_part, $label, $color, $scale_data, $image);
         }
         return $image;
@@ -130,6 +136,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $image = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
         }
         return $pdf;
@@ -159,6 +168,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $row .= $gis_obj->prepareRowAsSvg($sub_part, $label, $color, $scale_data);
         }
         return $row;
@@ -189,6 +201,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color, $scale_data);
         }
         return $row;
@@ -239,6 +254,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             if (isset($gis_data[$i]['gis_type'])) {
                 $type = $gis_data[$i]['gis_type'];
                 $gis_obj = PMA_GIS_Factory::factory($type);
+                if (! $gis_obj) {
+                    continue;
+                }
                 $wkt .= $gis_obj->generateWkt($gis_data, $i) . ',';
             }
         }
@@ -275,6 +293,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
             $i++;
         }
