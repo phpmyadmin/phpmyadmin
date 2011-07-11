@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 13:55+0200\n"
+"PO-Revision-Date: 2011-07-11 13:56+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -613,7 +613,7 @@ msgstr "mindst ét ​​af ordene"
 
 #: db_search.php:43 db_search.php:285
 msgid "all words"
-msgstr "alle ordene"
+msgstr "alle ord"
 
 #: db_search.php:44 db_search.php:286
 msgid "the exact phrase"
