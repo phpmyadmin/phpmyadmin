@@ -1926,7 +1926,7 @@ msgstr "Encontrado caminho inválido para o tema %s!"
 
 #: libraries/Theme_Manager.class.php:286 themes.php:20 themes.php:40
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/auth/config.auth.lib.php:76
 msgid "Cannot connect: invalid settings."
