@@ -2884,7 +2884,7 @@ msgstr "Skabelon for servernavn"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr "Maske for tabelnavn"
+msgstr "Skabelon for tabelnavn"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
