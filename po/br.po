@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 20:33+0200\n"
+"PO-Revision-Date: 2011-07-11 20:34+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2852,7 +2852,7 @@ msgstr "Linennoù a echu gant"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
-msgstr ""
+msgstr "Stumm Excel"
 
 #: libraries/config/messages.inc.php:85
 msgid "Database name template"
