@@ -424,7 +424,7 @@ msgstr ""
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:937
 msgid "Sort"
-msgstr "Sorter"
+msgstr "Sortér"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:557 libraries/display_tbl.lib.php:898
