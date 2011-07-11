@@ -2848,7 +2848,7 @@ msgstr "Bannoù a echu gant"
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr ""
+msgstr "Linennoù a echu gant"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
