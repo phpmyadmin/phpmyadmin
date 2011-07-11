@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 14:02+0200\n"
+"PO-Revision-Date: 2011-07-11 15:32+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2373,7 +2373,7 @@ msgstr "Der er ikke nogen filer at uploade"
 
 #: libraries/common.lib.php:2849 libraries/common.lib.php:2850
 msgid "Execute"
-msgstr ""
+msgstr "Udfør"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
