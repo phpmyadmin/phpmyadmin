@@ -192,41 +192,51 @@ $(document).ready(function() {
         var $form = $("#append_fields_form");
 
         PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-            if ($("#sqlqueryresults").length != 0) {
-                $("#sqlqueryresults").remove();
-            } else if ($(".error").length != 0) {
-                $(".error").remove();
-            }
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
-                $("#sqlqueryresults").html(data.sql_query);
-                $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
-                if ($("#change_column_dialog").length > 0) {
-                    $("#change_column_dialog").dialog("close").remove();
+
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
+        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+            //User wants to submit the form
+            $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                } else if ($(".error").length != 0) {
+                    $(".error").remove();
                 }
-                /*Reload the field form*/
-                $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-                    $("#fieldsForm").remove();
-                    var $temp_div = $("<div id='temp_div'><div>").append(form_data);
-                    if ($("#sqlqueryresults").length != 0) {
-                        $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
-                    } else {
-                        $temp_div.find("#fieldsForm").insertAfter(".error");
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
+                    if ($("#change_column_dialog").length > 0) {
+                        $("#change_column_dialog").dialog("close").remove();
                     }
-                    /*Call the function to display the more options in table*/
-                    displayMoreTableOpts();
-                });
-            } else {
-                var $temp_div = $("<div id='temp_div'><div>").append(data);
-                var $error = $temp_div.find(".error code").addClass("error");
-                PMA_ajaxShowMessage($error);
-            }
-        }) // end $.post()
-    }) // end insert table button "do_save_data"
+                    /*Reload the field form*/
+                    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+                        $("#fieldsForm").remove();
+                        var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+                        if ($("#sqlqueryresults").length != 0) {
+                            $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
+                        } else {
+                            $temp_div.find("#fieldsForm").insertAfter(".error");
+                        }
+                        /*Call the function to display the more options in table*/
+                        displayMoreTableOpts();
+                    });
+                } else {
+                    var $temp_div = $("<div id='temp_div'><div>").append(data);
+                    var $error = $temp_div.find(".error code").addClass("error");
+                    PMA_ajaxShowMessage($error);
+                }
+            }) // end $.post()
+        }
+}) // end insert table button "do_save_data"
 
     /**
      *Ajax event handler for index edit
