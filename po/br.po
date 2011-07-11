@@ -2931,7 +2931,7 @@ msgstr "Mod kenglotañ gant SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Dibarzhioù evit <code>CREATE TABLE</code> :"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
