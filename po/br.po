@@ -2905,7 +2905,7 @@ msgstr "Darempredoù"
 
 #: libraries/config/messages.inc.php:105
 msgid "Export method"
-msgstr ""
+msgstr "Doare ezporzhiañ"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
