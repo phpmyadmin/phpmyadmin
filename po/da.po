@@ -566,10 +566,10 @@ msgid "The backed up query was:"
 msgstr "Den gemte forespørgsel var:"
 
 #: db_routines.php:317
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Tabel %s er slettet"
+msgstr "Tabel %1$s er slettet"
 
 #: db_routines.php:330
 #, fuzzy, php-format
