@@ -2862,7 +2862,7 @@ msgstr "Fjern CRLF-karakterer i kolonnerne"
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr "Felter afsluttes med"
+msgstr "Kolonner afsluttes med"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
