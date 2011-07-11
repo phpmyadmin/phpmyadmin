@@ -2612,7 +2612,7 @@ msgstr "Segredo Blowfish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Destacar linhas selecionadas"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
