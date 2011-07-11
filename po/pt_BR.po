@@ -2964,10 +2964,9 @@ msgid "SQL compatibility mode"
 msgstr "Modo de compatibilidade SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
-#, fuzzy
 #| msgid "<code>@TABLE@</code>"
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>@TABLE@</code>"
+msgstr "<code>CRIAR TABELA</code> opções:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
