@@ -681,7 +681,7 @@ function PMA_RTN_getQueryFromRequest()
                                                 htmlspecialchars($_REQUEST['item_param_dir'][$i]));
                 }
                 if ($_REQUEST['item_param_length'][$i] != ''
-                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
+                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                                    $_REQUEST['item_param_type'][$i])) {
                     $params .= "(" . $_REQUEST['item_param_length'][$i] . ")";
                 } else if ($_REQUEST['item_param_length'][$i] == ''
@@ -726,7 +726,7 @@ function PMA_RTN_getQueryFromRequest()
             $errors[] = __('You must provide a valid return type for the routine.');
         }
         if (! empty($_REQUEST['item_returnlength'])
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i',
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                             $_REQUEST['item_returntype'])) {
             $query .= "(" . intval($_REQUEST['item_returnlength']) . ")";
         } else if (empty($_REQUEST['item_returnlength'])
