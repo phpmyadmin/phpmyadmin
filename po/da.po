@@ -2940,7 +2940,7 @@ msgstr "Overskriv eksisterende fil(er)"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr "Husk maske for filnavn"
+msgstr "Husk skabelon for filnavn"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
