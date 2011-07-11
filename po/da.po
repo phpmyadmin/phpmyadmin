@@ -1093,6 +1093,7 @@ msgstr "Du er ved at deaktivere en BLOB-beholder."
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
 msgstr ""
+"Er du sikker på at du vil deaktivere alle BLOB-referencer i databasen %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
