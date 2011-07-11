@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 15:34+0200\n"
+"PO-Revision-Date: 2011-07-11 15:35+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2880,7 +2880,7 @@ msgstr "Skabelon for databasenavn"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr "Maske for servernavn"
+msgstr "Skabelon for servernavn"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
