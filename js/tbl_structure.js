@@ -280,6 +280,7 @@ $(document).ready(function() {
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
+                checkIndexType();
                 checkIndexName("index_frm");
             }
             PMA_ajaxRemoveMessage($msgbox);
