@@ -2843,7 +2843,7 @@ msgstr "Tennañ an arouezennoù dibenn linenn e dibarzh ar bannoù"
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr ""
+msgstr "Bannoù a echu gant"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
