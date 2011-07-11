@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-05 15:06+0200\n"
-"Last-Translator:  <vitorpc.18@gmail.com>\n"
+"PO-Revision-Date: 2011-07-11 04:06+0200\n"
+"Last-Translator:  <erickdeoliveiraleal@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -247,6 +247,7 @@ msgstr "Ver o esquema do Banco de Dados"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:371 navigation.php:299
+#, fuzzy
 msgid "No tables found in database."
 msgstr "Nenhuma tabela encontrada no Banco de Dados"
 
