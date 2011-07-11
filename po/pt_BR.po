@@ -2016,7 +2016,7 @@ msgstr "Usuário ou senha incorreta. Acesso negado."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
-msgstr "Não é possível encontrar o script de autenticação de logon"
+msgstr "Não é possível encontrar o script de autenticação de logon:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
