@@ -2896,7 +2896,7 @@ msgstr "Alc'hwez an dikedenn"
 #: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
 #: libraries/tbl_properties.inc.php:145
 msgid "MIME type"
-msgstr ""
+msgstr "Seurt MIME"
 
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 tbl_relation.php:396
