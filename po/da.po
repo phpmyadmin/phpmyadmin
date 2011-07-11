@@ -3307,7 +3307,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
-msgstr ""
+msgstr "Faner"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
