@@ -1154,10 +1154,9 @@ msgid "Edit"
 msgstr "Ret"
 
 #: js/messages.php:64 server_status.php:420
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Server valg"
+msgstr "Realtids trafikoversigt"
 
 #: js/messages.php:65 server_status.php:423
 msgid "Live conn./process chart"
