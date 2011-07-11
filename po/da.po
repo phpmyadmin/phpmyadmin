@@ -1271,10 +1271,9 @@ msgid "Renaming Databases"
 msgstr "Omdøber databaser"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Omdøb database til"
+msgstr "Opfrisk database"
 
 #: js/messages.php:104
 msgid "Copying Database"
