@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 20:35+0200\n"
+"PO-Revision-Date: 2011-07-11 20:36+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2885,7 +2885,7 @@ msgstr "Istitl eus an daolenn"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
-msgstr ""
+msgstr "Enklozañ an istitloù"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
