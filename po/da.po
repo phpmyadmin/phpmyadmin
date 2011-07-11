@@ -1463,7 +1463,6 @@ msgstr "Færdig"
 
 #. l10n: Display text for previous month link in calendar
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Forrige"
