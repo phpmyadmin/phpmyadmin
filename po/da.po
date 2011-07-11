@@ -1335,10 +1335,9 @@ msgstr ""
 "udtryk."
 
 #: js/messages.php:125
-#, fuzzy
 #| msgid "Missing value in the form!"
 msgid "Value too long in the form!"
-msgstr "Ingen værdi i formularen !"
+msgstr "Værdien i formularen er for lang!"
 
 #: js/messages.php:128
 msgid ""
