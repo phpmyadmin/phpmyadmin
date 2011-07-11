@@ -88,6 +88,66 @@ $js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements 
 
 $js_messages['strChartQueryPie'] = __('Query statistics');
 
+/* server status monitor */
+$js_messages['strSystemCPUUsage'] = __('System CPU Usage');
+$js_messages['strSystemMemory'] = __('System memory');
+$js_messages['strSystemSwap'] = __('System swap');
+$js_messages['strMiB'] = __('MiB');
+$js_messages['strKiB'] = __('KiB');
+
+$js_messages['strAverageLoad'] = __('Average load');
+/* l10n: Questions is the name of a MySQL Status variable */
+$js_messages['strQuestions'] = __('Questions');
+$js_messages['strTraffic'] = __('Traffic');
+$js_messages['strSettings'] = __('Settings');
+$js_messages['strRemoveChart'] = __('Remove chart');
+$js_messages['strEditChart'] = __('Edit labels and series');
+$js_messages['strAddChart'] = __('Add chart to grid');
+$js_messages['strClose'] = __('Close');
+$js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to the series');
+$js_messages['strNone'] = __('None');
+$js_messages['strResumeMonitor'] = __('Resume monitor');
+$js_messages['strPauseMonitor'] = __('Pause monitor');
+/* Monitor: Instructions Dialog */
+$js_messages['strBothLogOn'] = __('general_log and slow_query_log is enabled.');
+$js_messages['strGenLogOn'] = __('general_log is enabled.');
+$js_messages['strSlowLogOn'] = __('slow_query_log is enabled.');
+$js_messages['strBothLogOff'] = __('slow_query_log and general_log is disabled.');
+$js_messages['strLogOutNotTable'] = __('log_output is not set to TABLE.');
+$js_messages['strLogOutIsTable'] = __('log_output is set to TABLE.');
+$js_messages['strSmallerLongQueryTimeAdvice'] = __('slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 0-2 seconds, depending on your system.');
+$js_messages['strLongQueryTimeSet'] = __('long_query_time is set to %d second(s).');
+$js_messages['strSettingsAppliedGlobal'] = __('Following settings will be applied globally and reset to default on server restart:');
+/* l10n: %s is FILE or TABLE */
+$js_messages['strSetLogOutput'] = __('Set log_output to %s');
+/* l10n: Enable in this context means setting a status variable to ON */
+$js_messages['strEnableVar'] = __('Enable %s');
+/* l10n: Disable in this context means setting a status variable to OFF */
+$js_messages['strDisableVar'] = __('Disable %s');
+/* l10n: %d seconds */
+$js_messages['setSetLongQueryTime'] = __('Set long_query_time to %ds');
+$js_messages['strNoSuperUser'] = __('You don\'t have super user rights to change this variables. Please log in as root account or contact your database administrator.');
+$js_messages['strChangeSettings'] = __('Change settings');
+$js_messages['strCurrentSettings'] = __('Current settings');
+
+$js_messages['strChartTitle'] = __('Chart Title');
+/* l10n: As in differential values */
+$js_messages['strDifferential'] = __('Differential');
+$js_messages['strDividedBy'] = __('Divided by %s:');
+
+$js_messages['strSelectedTimeRange'] = __('Selected time range:');
+$js_messages['strGroupInserts'] = __('Group together INSERTs into same table');
+$js_messages['strLogAnalyseInfo'] = __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.');
+$js_messages['strFromSlowLog'] = __('From slow log');
+$js_messages['strFromGeneralLog'] = __('From general log');
+$js_messages['strAnalysingLogs'] = __('Analysing & loading logs. This may take a while.');
+$js_messages['strCountColumnExplanation'] = __('This columns shows the amount of identical queries that are grouped together. However only the SQL Text is being compared, thus the queries other attributes such as start time may differ.');
+$js_messages['strMoreCountColumnExplanation'] = __('Since grouping of INSERTs queries has been selected, INSERT queries into the same table are also being grouped together, disregarding of the inserted data.');
+$js_messages['strLogDataLoaded'] = __('Log data loaded. Queries executed in this time span:');
+
+$js_messages['strJumpToTable'] = __('Jump to Log table');
+$js_messages['strNoDataFound'] = __('Log analysed, but not data found in this time span.');
+
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');

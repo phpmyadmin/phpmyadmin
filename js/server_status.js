@@ -439,7 +439,7 @@ $(function() {
                     });
                     
                 $('#serverstatusqueriesdetails tr:first th')
-                    .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
+                    .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
                     
                 break;
             
@@ -453,7 +453,7 @@ $(function() {
                     });
                     
                 $('#serverstatusvariables tr:first th')
-                    .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
+                    .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
                     
                 break;
         }
@@ -583,28 +583,28 @@ $(function() {
     
     var presetCharts = {
         'cpu-WINNT': {
-            title: 'System CPU Usage',
+            title: PMA_messages['strSystemCPUUsage'],
             nodes: [{ dataType: 'cpu', name: 'loadavg', unit: '%'}]
         },
         'memory-WINNT': {
-            title: 'System memory',
+            title: PMA_messages['strSystemMemory'],
             nodes: [
-                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024, unit: 'MiB' }, 
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: 'MiB'  }, 
+                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
+                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  }, 
             ]
         },
         'swap-WINNT': {
-            title: 'System swap',
+            title: PMA_messages['strSystemSwap'],
             nodes: [
-                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024, unit: 'Mib' }, 
-                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
+                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
             ]
         },
         'cpu-Linux': {
-            title: 'System CPU Usage',
+            title: PMA_messages['strSystemCPUUsage'],
             nodes: [
                 { dataType: 'cpu', 
-                  name: 'Average load', 
+                  name: PMA_messages['strAverageLoad'], 
                   unit: '%',
                   transformFn: function(cur, prev) {
                       if(prev == null) return undefined;
@@ -616,12 +616,12 @@ $(function() {
             ]
         },
         'memory-Linux': {
-            title: 'System memory',
+            title: PMA_messages['strSystemMemory'],
             nodes: [
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: 'Mib' }, 
-                { dataType: 'memory', name: 'Cached',  valueDivisor: 1024, unit: 'Mib' }, 
-                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024, unit: 'Mib' },
-                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024, unit: 'Mib' },
+                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
+                { dataType: 'memory', name: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
+                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
             ],
             settings: {
                 chart: {
@@ -636,11 +636,11 @@ $(function() {
             }
         },
         'swap-Linux': {
-            title: 'System swap',
+            title: PMA_messages['strSystemSwap'],
             nodes: [
-                { dataType: 'memory', name: 'SwapUsed',   valueDivisor: 1024, unit: 'Mib' }, 
-                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024, unit: 'Mib' }, 
-                { dataType: 'memory', name: 'SwapFree',   valueDivisor: 1024, unit: 'Mib' }, 
+                { dataType: 'memory', name: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
+                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
+                { dataType: 'memory', name: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] }, 
             ],
             settings: {
                 chart: {
@@ -658,53 +658,58 @@ $(function() {
     
     // Default setting
     defaultChartGrid = {
-        'c0': presetCharts['cpu-'+server_os],
-        'c1': presetCharts['memory-'+server_os],
-        'c2': presetCharts['swap-'+server_os],
-        'c3': {  title: 'Questions',
-                nodes: [{ dataType:'statusvar', name:'Questions', display: 'differential'}]
-            }, 
-         'c4': {
-             title: 'Connections / Processes',
-             nodes: [ { dataType:'statusvar', name:'Connections', display: 'differential'},
-                      { dataType:'proc', name:'Processes'}
-                    ]
-         },
-         'c5': {
-             title: 'Traffic',
-             nodes: [
-                { dataType:'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: 'KiB' },
-                { dataType:'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: 'KiB' }
-            ]
+        'c0': {  title: PMA_messages['strQuestions'],
+                 nodes: [{ dataType: 'statusvar', name: 'Questions', display: 'differential' }]
+              },
+         'c1': {
+                 title: PMA_messages['strChartConnectionsTitle'],
+                 nodes: [ { dataType: 'statusvar', name: 'Connections', display: 'differential' },
+                          { dataType: 'proc', name: 'Processes'} ]
+               },
+         'c2': {
+                 title: PMA_messages['strTraffic'],
+                 nodes: [
+                    { dataType: 'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
+                    { dataType: 'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
+                 ]
          }
     };
     
-    var gridbuttons = { cogButton: {
-        //enabled: true,
-        symbol:  'url(' + pma_theme_image  + 's_cog.png)',
-        x: -36,
-        symbolFill: '#B5C9DF',
-        hoverSymbolFill: '#779ABF',
-        _titleKey: 'settings',
-        menuName: 'gridsettings',
-        menuItems: [{
-            textKey: 'editChart',
-            onclick: function() {
-                alert('tbi');
-            }
-        }, {
-            textKey: 'removeChart',
-            onclick: function() {
-                removeChart(this);
-            }
-        }]
-    } }
+    // Server is localhost => We can add cpu/memory/swap 
+    if(server_db_isLocal) {
+        defaultChartGrid['c3'] = presetCharts['cpu-' + server_os];
+        defaultChartGrid['c4'] = presetCharts['memory-' + server_os];
+        defaultChartGrid['c5'] = presetCharts['swap-' + server_os];
+    }
+    
+    var gridbuttons = { 
+        cogButton: {
+            //enabled: true,
+            symbol: 'url(' + pmaThemeImage  + 's_cog.png)',
+            x: -36,
+            symbolFill: '#B5C9DF',
+            hoverSymbolFill: '#779ABF',
+            _titleKey: 'settings',
+            menuName: 'gridsettings',
+            menuItems: [{
+                textKey: 'editChart',
+                onclick: function() {
+                    alert('tbi');
+                }
+            }, {
+                textKey: 'removeChart',
+                onclick: function() {
+                    removeChart(this);
+                }
+            }]
+        }
+    };
     
     Highcharts.setOptions({
         lang: {
-            settings: 'Settings',
-            removeChart: 'Remove chart',
-            editChart: 'Edit labels and series'
+            settings:    PMA_messages['strSettings'],
+            removeChart: PMA_messages['strRemoveChart'],
+            editChart:   PMA_messages['strEditChart']
         }
     });
     
@@ -729,14 +734,22 @@ $(function() {
     });
     
     // global settings
-    $('div#statustabs_charting div.popupContent input[name="newChartWidth"], div#statustabs_charting div.popupContent input[name="newChartHeight"]').change(function() {
+    $('div#statustabs_charting div.popupContent input[name="newChartWidth"], ' +
+      'div#statustabs_charting div.popupContent input[name="newChartHeight"]').change(function() {
+          
         monitorSettings.chartSize = {
-            width: parseInt($('div#statustabs_charting div.popupContent input[name="newChartWidth"]').attr('value')) || monitorSettings.chartSize.width,
-            height: parseInt($('div#statustabs_charting div.popupContent input[name="newChartHeight"]').attr('value')) || monitorSettings.chartSize.height
+            width: parseInt($('div#statustabs_charting div.popupContent input[name="newChartWidth"]')
+                    .attr('value')) || monitorSettings.chartSize.width,
+            height: parseInt($('div#statustabs_charting div.popupContent input[name="newChartHeight"]')
+                    .attr('value')) || monitorSettings.chartSize.height
         };
         
         $.each(chartGrid, function(key, value) {
-            value.chart.setSize(monitorSettings.chartSize.width, monitorSettings.chartSize.height, false);
+            value.chart.setSize(
+                monitorSettings.chartSize.width,
+                monitorSettings.chartSize.height, 
+                false
+            );
         });
         
         saveMonitor(); // Save settings
@@ -762,41 +775,45 @@ $(function() {
     });
     
     $('a[href="#addNewChart"]').click(function() {
+        var dlgButtons = { };
+        
+        dlgButtons[PMA_messages['strAddChart']] = function() {
+            var type = $('input[name="chartType"]:checked').val();
+            
+            if(type == 'cpu' || type == 'memory' || type=='swap')
+                newChart = presetCharts[type + '-' + server_os];
+            else {
+                if(! newChart || ! newChart.nodes || newChart.nodes.length == 0) {
+                    alert(PMA_messages['strAddOneSeriesWarning']);
+                    return;
+                }
+            }
+            
+            newChart.title = $('input[name="chartTitle"]').attr('value');
+            // Add a cloned object to the chart grid
+            addChart($.extend(true, {}, newChart));
+            
+            newChart = null;
+                
+            saveMonitor(); // Save settings
+
+            $(this).dialog("close");
+        }
+        
+        dlgButtons[PMA_messages['strClose']] = function() {
+            newChart = null;
+            $('span#clearSeriesLink').hide();
+            $('#seriesPreview').html('');
+            $(this).dialog("close");
+        }
+        
         $('div#addChartDialog').dialog({
             width:'auto',
             height:'auto',
-            buttons: {
-                'Add chart to grid': function() {
-                    var type = $('input[name="chartType"]:checked').val();
-                    
-                    if(type == 'cpu' || type == 'memory' || type=='swap')
-                        newChart = presetCharts[type + '-' + server_os];
-                    else {
-                        if(! newChart || ! newChart.nodes || newChart.nodes.length == 0) {
-                            alert('Please add at least one variable to the series');
-                            return;
-                        }
-                    }
-                    
-                    newChart.title = $('input[name="chartTitle"]').attr('value');
-                    // Add a cloned object to the chart grid
-                    addChart($.extend(true, {}, newChart));
-                    
-                    newChart = null;
-                        
-                    saveMonitor(); // Save settings
-
-                    $( this ).dialog( "close" );
-                }
-            },
-            close: function() {
-                newChart = null;
-                $('span#clearSeriesLink').hide();
-                $('#seriesPreview').html('');
-            }
+            buttons: dlgButtons
         });
         
-        $('div#addChartDialog #seriesPreview').html('<i>'+'None.'+'</i>');
+        $('div#addChartDialog #seriesPreview').html('<i>' + PMA_messages['strNone'] + '</i>');
         
         return false;
     });
@@ -804,9 +821,9 @@ $(function() {
     $('a[href="#pauseCharts"]').click(function() {
         redrawCharts = ! redrawCharts;
         if(! redrawCharts)
-            $(this).html('<img src="' + pma_theme_image + 'play.png" alt="Resume"/> Resume Monitor');
+            $(this).html('<img src="' + pmaThemeImage + 'play.png" alt="" /> ' + PMA_messages['strResumeMonitor']);
         else {
-            $(this).html('<img src="' + pma_theme_image + 'pause.png" alt="Pause"/> Pause Monitor');
+            $(this).html('<img src="' + pmaThemeImage + 'pause.png" alt="" /> ' + PMA_messages['strPauseMonitor']);
             if(chartGrid == null) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -834,37 +851,37 @@ $(function() {
                     
                     if(logVars['general_log'] == 'ON') {
                         if(logVars['slow_query_log'] == 'ON') 
-                            msg = 'general_log and slow_query_log is enabled.';
+                            msg = PMA_messages['strBothLogOn'];
                         else 
-                            msg = 'general_log is enabled.';
+                            msg = PMA_messages['strGenLogOn'];
                     }
                     
                     if(msg.length == 0 && logVars['slow_query_log'] == 'ON') {
-                        msg = 'slow_query_log is enabled.';
+                        msg = PMA_messages['strSlowLogOn'];
                     }
                     
                     if(msg.length == 0) {
                         icon = 's_error.png';
-                        msg = 'slow_query_log and general_log is disabled.';
+                        msg = PMA_messages['strBothLogOff'];
                     }
                     
-                    str = '<b>Current settings:</b><br><div class="smallIndent">';
-                    str += '<img src="' + pma_theme_image + icon + '" alt=""/> ' + msg + '<br />';
+                    str = '<b>' + PMA_messages['strCurrentSettings'] + '</b><br><div class="smallIndent">';
+                    str += '<img src="' + pmaThemeImage + icon + '" alt=""/> ' + msg + '<br />';
                     
                     if(logVars['log_output'] != 'TABLE')
-                        str += '<img src="' + pma_theme_image + 's_error.png" alt=""/> ' + 'log_output is not set to TABLE.' + '<br />';
+                        str += '<img src="' + pmaThemeImage + 's_error.png" alt=""/> ' + PMA_messages['strLogOutNotTable'] + '<br />';
                     else 
-                        str += '<img src="' + pma_theme_image + 's_success.png" alt=""/> ' + 'log_output is set to TABLE.' + '<br />';
+                        str += '<img src="' + pmaThemeImage + 's_success.png" alt=""/> ' + PMA_messages['strLogOutIsTable'] + '<br />';
                     
                     if(logVars['slow_query_log'] == 'ON') {
                         if(logVars['long_query_time'] > 2)
-                            str += '<img src="' + pma_theme_image + 's_attention.png" alt=""/> '
-                                + $.sprintf('slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 0-2 seconds, depending on your system.', logVars['long_query_time'])
+                            str += '<img src="' + pmaThemeImage + 's_attention.png" alt=""/> '
+                                + $.sprintf(PMA_messages['strSmallerLongQueryTimeAdvice'], logVars['long_query_time'])
                                 + '<br />';
                         
                         if(logVars['long_query_time'] < 2)
-                            str += '<img src="' + pma_theme_image + 's_success.png" alt=""/> '
-                                + $.sprintf('long_query_time is set to %d second(s).', logVars['long_query_time'])
+                            str += '<img src="' + pmaThemeImage + 's_success.png" alt=""/> '
+                                + $.sprintf(PMA_messages['strLongQueryTimeSet'], logVars['long_query_time'])
                                 + '<br />';
                     }
                     
@@ -873,28 +890,43 @@ $(function() {
                     if(is_superuser) {
                         str += '<p></p><b>Change settings</b>';
                         str += '<div class="smallIndent">';
-                        str += 'Following settings will be applied globally and reset to default on server restart:' + '<br/>';
+                        str += PMA_messages['strSettingsAppliedGlobal'] + '<br/>';
                         
-                        if(logVars['log_output'] != 'TABLE')
-                            str += '- <a class="set" href="#log_output-TABLE">' + 'Set log_output to TABLE' + ' </a><br />';
+                        var varValue = 'TABLE';
+                        if(logVars['log_output'] == 'TABLE') varValue = 'FILE';
+                        
+                        str += '- <a class="set" href="#log_output-' + varValue + '">'
+                            + $.sprintf(PMA_messages['strSetLogOutput'], varValue)
+                            + ' </a><br />';
                         
                         if(logVars['general_log'] != 'ON')
-                            str += '- <a class="set" href="#general_log-ON">' + 'Enable general_log' + ' </a><br />';
+                            str += '- <a class="set" href="#general_log-ON">' 
+                                + $.sprintf(PMA_messages['strEnableVar'], 'general_log') 
+                                + ' </a><br />';
                         else 
-                            str += '- <a class="set" href="#general_log-OFF">' + 'Disable general_log' + ' </a><br />';
+                            str += '- <a class="set" href="#general_log-OFF">' 
+                                + $.sprintf(PMA_messages['strDisableVar'], 'general_log') 
+                                + ' </a><br />';
                         
                         if(logVars['slow_query_log'] != 'ON')
-                            str += '- <a class="set" href="#slow_query_log-ON">' +  'Enable slow_query_log' + ' </a><br />';
+                            str += '- <a class="set" href="#slow_query_log-ON">' 
+                                +  $.sprintf(PMA_messages['strEnableVar'], 'slow_query_log')
+                                + ' </a><br />';
                         else 
-                            str += '- <a class="set" href="#slow_query_log-OFF">' +  'Disable slow_query_log' + ' </a><br />';
+                            str += '- <a class="set" href="#slow_query_log-OFF">' 
+                                +  $.sprintf(PMA_messages['strDisableVar'], 'slow_query_log')
+                                + ' </a><br />';
                         
-                        if(logVars['long_query_time'] > 2) 
-                            str += '- <a class="set" href="#long_query_time-1">' + 'Set long_query_time to 1s' + ' </a><br />';
-                        else 
-                            str += '- <a class="set" href="#long_query_time-5">' + 'Set long_query_time to 5s' + ' </a><br />';
                         
+                        varValue = 5;
+                        if(logVars['long_query_time'] > 2) varValue = 1;
+                        
+                        str += '- <a class="set" href="#long_query_time-' + varValue + '">' 
+                            + $.sprintf(PMA_messages['setSetLongQueryTime'], varValue)
+                            + ' </a><br />';
+                            
                     } else 
-                        str += 'You don\'t have super user rights to change this variables. Please log in as root account or contact your database administrator.<br/>';
+                        str += PMA_messages['strNoSuperUser'] + '<br/>';
                     
                     str += '</div>';
                     
@@ -922,7 +954,7 @@ $(function() {
     $('input[name="chartType"]').change(function() {
         $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
         var title = $('input[name="chartTitle"]').attr('value');
-        if(title == 'Chart title' || title == $('label[for="'+$('input[name="chartTitle"]').data('lastRadio')+'"]').text()) {
+        if(title == PMA_messages['strChartTitle'] || title == $('label[for="'+$('input[name="chartTitle"]').data('lastRadio')+'"]').text()) {
             $('input[name="chartTitle"]').data('lastRadio',$(this).attr('id'));
             $('input[name="chartTitle"]').attr('value',$('label[for="'+$(this).attr('id')+'"]').text());
         }
@@ -943,7 +975,7 @@ $(function() {
     
     $('a[href="#kibDivisor"]').click(function() {
         $('input[name="valueDivisor"]').attr('value',1024);
-        $('input[name="valueUnit"]').attr('value','KiB');
+        $('input[name="valueUnit"]').attr('value',PMA_messages['strKiB']);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked',true);
         return false;
@@ -951,14 +983,14 @@ $(function() {
     
     $('a[href="#mibDivisor"]').click(function() {
         $('input[name="valueDivisor"]').attr('value',1024*1024);
-        $('input[name="valueUnit"]').attr('value','MiB');
+        $('input[name="valueUnit"]').attr('value',PMA_messages['strMiB']);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked',true);
         return false;
     });
     
     $('a[href="#submitClearSeries"]').click(function() {
-        $('#seriesPreview').html('<i>None</i>');
+        $('#seriesPreview').html('<i>' + PMA_messages['strNone'] + '</i>');
         newChart = null;
         $('span#clearSeriesLink').hide();
     });
@@ -989,8 +1021,11 @@ $(function() {
         if($('input[name="useUnit"]').attr('checked'))
             serie.unit = $('input[name="valueUnit"]').attr('value');
         
-        var str = serie.display == 'differential' ? ', differential' : '';
-        str += serie.valueDivisor ? ', divided by ' + serie.valueDivisor : '';
+        
+        
+        var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
+        str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
+        
         $('#seriesPreview').append('- ' + serie.name + str + '<br>');
         
         newChart.nodes.push(serie);
@@ -1070,28 +1105,36 @@ $(function() {
                             max = extremesObject.max;
                         
                         $('#logAnalyseDialog').html(
-                            '<p>Selected time range: ' +
-                             Highcharts.dateFormat('%H:%M:%S',new Date(min)) + ' - ' +  Highcharts.dateFormat('%H:%M:%S',new Date(max)) + '</p>' +
-                            '<input type="checkbox" id="groupInserts" value="1" checked="checked" /> <label for="groupData">Group together INSERTs into same table</label>' +
-                            '<p>Choose from which log you want the statistics to be generated from.</p>' + 
-                            'Results are grouped by query text.'
+                            '<p>' + PMA_messages['strSelectedTimeRange']
+                            + Highcharts.dateFormat('%H:%M:%S',new Date(min)) + ' - ' 
+                            + Highcharts.dateFormat('%H:%M:%S',new Date(max)) + '</p>'
+                            + '<input type="checkbox" id="groupInserts" value="1" checked="checked" />'
+                            + '<label for="groupData">' + PMA_messages['strGroupInserts'] + '</label>'
+                            + PMA_messages['strLogAnalyseInfo']
                         );
+                        
+                        var dlgBtns = { };
+                        
+                        dlgBtns[PMA_messages['strFromSlowLog']] = function() {
+                            loadLogStatistics(
+                                { src: 'slow', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') } 
+                            );
+                            
+                            $(this).dialog("close");
+                        }
+                        
+                        dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
+                            loadLogStatistics(
+                                { src: 'general', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') }
+                            );
+                            
+                            $(this).dialog("close");
+                        }
                         
                         $('#logAnalyseDialog').dialog({
                             width: 'auto',
                             height: 'auto',
-                            buttons: {
-                                'From slow log': function() {
-                                    loadLogStatistics({src: 'slow', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') });
-                                    
-                                    $( this ).dialog( "close" );
-                                },
-                                'From general log': function() {
-                                    loadLogStatistics({src: 'general', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') });
-                                    
-                                    $( this ).dialog( "close" );
-                                }
-                            }
+                            buttons: dlgBtns
                         });
                         
                         return false;
@@ -1252,7 +1295,7 @@ $(function() {
         if(opts.groupInserts)
             groupInserts = true;
         
-        $('#loadingLogsDialog').html('Analysing & loading logs. This may take a while. <img class="ajaxIcon" src="' + pma_theme_image + 'ajax_clock_small.gif" alt="">');
+        $('#loadingLogsDialog').html(PMA_messages['strAnalysingLogs'] + ' <img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
         $('#loadingLogsDialog').dialog({
             width: 'auto',
@@ -1308,10 +1351,10 @@ $(function() {
                     
                     // Append a tooltip to the count column, if there exist one
                     if($('#logTable th:last').html() == '#') {
-                        $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon" src="' + pma_theme_image + 'b_docs.png" alt="" />');
+                        $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon" src="' + pmaThemeImage + 'b_docs.png" alt="" />');
                     
-                        var qtipContent = 'This columns shows the amount of identical queries that are grouped together. However only the SQL Text is being compared, thus the queries other attributes such as start time may differ.';
-                        if(groupInserts) qtipContent += '<p>Since grouping of INSERTs queries has been selected, INSERT queries into the same table are also being grouped together, disregarding of the inserted data.</p>';
+                        var qtipContent = PMA_messages['strCountColumnExplanation'];
+                        if(groupInserts) qtipContent += '<p>' + PMA_messages['strMoreCountColumnExplanation'] + '</p>';
                         
                         $('img.qroupedQueryInfoIcon').qtip({
                             content: qtipContent,
@@ -1332,28 +1375,33 @@ $(function() {
                     });
                     
                     $('div#logTable table thead th')
-                        .append('<img class="sortableIcon" src="' + pma_theme_image + 'cleardot.gif" alt="">');
+                        .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
 
                     
-                    $('#loadingLogsDialog').html('<p>Log data loaded. Queries executed in this time span:</p>');
+                    $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
                     $.each(data.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                         if(key == 'Total') key = '<b>' + key + '</b>';
                         $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
                     });
                     
-                    $('#loadingLogsDialog').dialog( "option", "buttons", { "Jump to log table": function() { 
+                    var dlgBtns = {};
+                    dlgBtns[PMA_messages['strJumpToTable']] = function() { 
                         $(this).dialog("close"); 
                         $(document).scrollTop($('div#logTable').offset().top);
-                    } } );
+                    }
+                    
+                    $('#loadingLogsDialog').dialog( "option", "buttons", dlgBtns);
                     
                 } else {
+                    $('#loadingLogsDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
                     
-                    $('#loadingLogsDialog').html('<p>Log analysed, but not data found in this time span.</p>');
-                    $('#loadingLogsDialog').dialog( "option", "buttons", { "Close": function() { 
+                    var dlgBtns = {};
+                    dlgBtns[PMA_messages['strClose']] = function() { 
                         $(this).dialog("close"); 
-                    } } );
+                    }
                     
+                    $('#loadingLogsDialog').dialog( "option", "buttons", dlgBtns );
                 }
             }
         );

@@ -231,8 +231,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     }
                         
                     // Cut off big selects, but append byte count therefor
-                    if(strlen($row['argument']) > 300)
-                        $row['argument'] = substr($row['argument'],0,301) . '... [' . PMA_localizeNumber(number_format(strlen($row['argument']), 2)). ' Bytes]';
+                    if(strlen($row['argument']) > 310)
+                        $row['argument'] = substr($row['argument'],0,301) . '... [' . 
+                                            PMA_localizeNumber(number_format(strlen($row['argument']), 2)). 
+                                            ' ' . __('Bytes') . ']';
                 }
                 $return['rows'][] = $row;
                 $i++;
@@ -539,18 +541,23 @@ require './libraries/server_common.inc.php';
  */
 require './libraries/server_links.inc.php';
 
+$server = 1;
+if(isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
+
+$server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost' 
+                              || $cfg['Servers'][$server]['host'] == '127.0.0.1';
+
 ?>
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
-pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 server_time_diff = new Date().getTime() - <?php echo microtime(true)*1000; ?>;
 server_os = '<?php echo PHP_OS; ?>';
 is_superuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
+server_db_isLocal = <?php echo ($server_db_isLocal)?'true':'false'; ?>;
 </script>
 <div id="serverstatus">
     <h2><?php
-
 /**
  * Displays the sub-page heading
  */
@@ -1262,38 +1269,60 @@ function printVariablesTable() {
 }
 
 function printMonitor() {
-    global $server_status;
+    global $server_status, $server_db_isLocal;
 ?>
     <div class="monitorLinks">
-        <a href="#pauseCharts"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="Start"/> Start Monitor</a>
-        <a href="#settingsPopup" rel="popupLink" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="Settings"/> Settings</a>
-        <a href="#monitorInstructionsDialog"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="Instructions"/> Instructions/Setup</a>
-        <a href="#endChartEditMode" style="display:none;"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_okay.png" alt="End editing"/> Done rearranging/editing charts</a>		
+        <a href="#pauseCharts">
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="" /> 
+            <?php echo __('Start Monitor'); ?>
+        </a>
+        <a href="#settingsPopup" rel="popupLink" style="display:none;">
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="" /> 
+            <?php echo __('Settings'); ?>
+        </a>
+        <a href="#monitorInstructionsDialog">
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="" /> 
+            <?php echo __('Instructions/Setup'); ?>
+        </a>
+        <a href="#endChartEditMode" style="display:none;">
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_okay.png" alt="" /> 
+            <?php echo __('Done rearranging/editing charts'); ?>
+        </a>
     </div>
     
     <div class="popupContent settingsPopup">
-        <a href="#addNewChart"><img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="Add chart"/> Add chart</a> | <a href="#rearrangeCharts"> Rearrange/edit charts</a><br>
+        <a href="#addNewChart">
+            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="" /> 
+            <?php echo __('Add chart'); ?>
+        </a> | 
+        <a href="#rearrangeCharts"> <?php echo __('Rearrange/edit charts'); ?></a><br>
         <p>
-            Refresh rate: <?php refreshList('gridChartRefresh'); ?><br>
+            <?php echo __('Refresh rate:'); refreshList('gridChartRefresh'); ?><br>
         </p>
         <p> 
-            Chart size: <input type="text" name="newChartWidth" size="3" /> x <input type="text" size="3" name="newChartHeight" /> 
+            <?php echo __('Chart size:'); ?>
+            <input type="text" name="newChartWidth" size="3" /> 
+            <?php 
+            /* l10n: Multiply sign for pixel dimensions. E.g. 500 x 300 */
+            echo __('x'); 
+            ?>
+            <input type="text" size="3" name="newChartHeight" /> 
         </p>
-        <a href="#clearMonitorConfig">Clear monitor config</a>
+        <a href="#clearMonitorConfig"><?php echo __('Clear monitor config'); ?></a>
     </div>
     
-    <div id="monitorInstructionsDialog" title="Monitor Instructions" style="display:none;">
-        The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
-        queries. For the latter you will need to log_output set to 'TABLE' and have either the slow_query_log or general_log enabled.
+    <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
+        <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
+        queries. For the latter you will need to log_output set to \'TABLE\' and have either the slow_query_log or general_log enabled.'); ?>
         <p></p>
         <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
         <div class="ajaxContent">
         </div>
         <div class="monitorUse" style="display:none;">
         <p></p>
-        <b>Using the monitor:</b><br/>
-        Ok, you are good to go! Once you click 'Start monitor' your browser will refresh all displayed charts
-        in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart
+        <?php echo __('<b>Using the monitor:</b><br/>
+        Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts
+        in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart
         using the cog icon on each respective chart.
         <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
         left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
@@ -1301,23 +1330,29 @@ function printMonitor() {
         <p><b>Please note:</b>
         Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
         very load intensive task, thus it is advisable to select only a small time span.
-        </p>
-        </p>
+        </p>'); ?>
         </div>
     </div>
     
     <div id="addChartDialog" title="Add chart" style="display:none;">
         <div id="tabGridVariables">
-            <p><input type="text" name="chartTitle" value="Chart title" /></p>
+            <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
+            <?php if($server_db_isLocal) { ?>
+            <input type="radio" name="chartType" value="cpu" id="chartCPU"> 
+            <label for="chartCPU"><?php echo __('CPU Usage'); ?></label><br/>
             
-            <input type="radio" name="chartType" value="cpu" id="chartCPU"> <label for="chartCPU">CPU Usage</label><br/>
-            <input type="radio" name="chartType" value="memory" id="chartMemory"> <label for="chartMemory">Memory Usage</label><br/>
-            <input type="radio" name="chartType" value="swap" id="chartSwap"> <label for="chartSwap">Swap Usage</label><br/>
-            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked"> <label for="chartStatusVar">Status variable(s)</label><br/>
+            <input type="radio" name="chartType" value="memory" id="chartMemory"> 
+            <label for="chartMemory"><?php echo __('Memory Usage'); ?></label><br/>
+            
+            <input type="radio" name="chartType" value="swap" id="chartSwap"> 
+            <label for="chartSwap"><?php echo __('Swap Usage'); ?></label><br/>
+            <?php } ?>
+            <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked"> 
+            <label for="chartStatusVar"><?php echo __('Status variable(s)'); ?></label><br/>
             <div id="chartVariableSettings">
-                <label for="chartSeries">Select series:</label><br>
+                <label for="chartSeries"><?php echo __('Select series:'); ?></label><br>
                 <select id="chartSeries" name="varChartList" size="1">
-                    <option>Commonly monitored</option>
+                    <option><?php echo __('Commonly monitored'); ?></option>
                     <option>Processes</option>
                     <option>Questions</option>
                     <option>Connections</option>
@@ -1332,28 +1367,42 @@ function printMonitor() {
                     <option>Select_full_join</option>
                     <option>Slow_queries</option>
                 </select><br>
-                <label for="variableInput">or type variable name: </label> <input type="text" name="variableInput" id="variableInput" />
+                <label for="variableInput"><?php echo __('or type variable name:'); ?> </label> 
+                <input type="text" name="variableInput" id="variableInput" />
                 <p></p>
-                <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> <label for="differentialValue"> Display as differential value</label><br>
-                <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> <label for="useDivisor">Apply a divisor </label>
-                <span class="divisorInput" style="display:none;"><input type="text" name="valueDivisor" size="4" value="1"> (<a href="#kibDivisor">KiB</a>, <a href="#mibDivisor">MiB</a>)</span><br>
-                <input type="checkbox" id="useUnit" name="useUnit" value="1" /> <label for="useUnit">Append unit to data values</label>
-                <span class="unitInput" style="display:none;"><input type="text" name="valueUnit" size="4" value=""></span>
+                <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked" /> 
+                <label for="differentialValue"><?php echo __('Display as differential value'); ?></label><br>
+                <input type="checkbox" id="useDivisor" name="useDivisor" value="1" /> 
+                <label for="useDivisor"><?php echo __('Apply a divisor'); ?></label>
+                <span class="divisorInput" style="display:none;">
+                    <input type="text" name="valueDivisor" size="4" value="1"> 
+                    (<a href="#kibDivisor"><?php echo __('KiB'); ?></a>, <a href="#mibDivisor"><?php echo __('MiB'); ?></a>)
+                </span><br>
+                
+                <input type="checkbox" id="useUnit" name="useUnit" value="1" /> 
+                <label for="useUnit"><?php echo __('Append unit to data values'); ?></label>
+                
+                <span class="unitInput" style="display:none;">
+                    <input type="text" name="valueUnit" size="4" value="">
+                </span>
                 <p>
-                    <a href="#submitAddSeries"><b>Add this series</b></a> <span id="clearSeriesLink" style="display:none;">| <a href="#submitClearSeries">Clear series</a></span>
+                    <a href="#submitAddSeries"><b><?php echo __('Add this series'); ?></b></a> 
+                    <span id="clearSeriesLink" style="display:none;">
+                       | <a href="#submitClearSeries"><?php echo __('Clear series'); ?></a>
+                    </span>
                 </p>
-                Series in Chart:<br/>
+                <?php echo __('Series in Chart:'); ?><br/>
                 <span id="seriesPreview">
-                <i>None</i>
+                <i><?php echo __('None'); ?></i>
                 </span>
             </div>
         </div>
     </div>
     
-    <div id="loadingLogsDialog" title="Loading logs" style="display:none;">
+    <div id="loadingLogsDialog" title="<?php echo __('Loading logs'); ?>" style="display:none;">
     </div>
     
-    <div title="Log statistics" id="logAnalyseDialog">
+    <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>">
         
     </div>
     

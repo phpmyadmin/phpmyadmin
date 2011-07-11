@@ -92,7 +92,6 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
-pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 isSuperuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
 </script>
 
