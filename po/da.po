@@ -1222,7 +1222,7 @@ msgstr "Forbindelser / Opgaver"
 
 #: js/messages.php:84
 msgid "Issued queries since last refresh"
-msgstr ""
+msgstr "Igangsatte forespørgsler siden forrige visning"
 
 #: js/messages.php:85
 msgid "Issued queries"
