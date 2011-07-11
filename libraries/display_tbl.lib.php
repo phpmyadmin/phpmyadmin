@@ -1519,61 +1519,67 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // Remove 'inline_edit' from $class as we do not allow to inline-edit geometry data.
                 $class = str_replace('inline_edit', '', $class);
 
-                // Display as [GEOMETRY - (size)]
-                if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
-                    $geometry_text = PMA_handle_non_printable_contents(
-                        'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function,
-                        $transform_options, $default_function, $meta
-                    );
-                    $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
-                        $class, $condition_field, $geometry_text
-                    );
+                if (! isset($row[$i]) || is_null($row[$i])) {
+                    $vertical_display['data'][$row_no][$i] = PMA_buildNullDisplay($class, $condition_field);
+                } elseif ($row[$i] != '') {
+                    // Display as [GEOMETRY - (size)]
+                    if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
+                        $geometry_text = PMA_handle_non_printable_contents(
+                            'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''), $transform_function,
+                            $transform_options, $default_function, $meta
+                        );
+                        $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
+                            $class, $condition_field, $geometry_text
+                        );
 
-                // Display in Well Known Text(WKT) format.
-                } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
-                    // Convert to WKT format
-                    $wktval = PMA_asWKT($row[$i]);
+                    // Display in Well Known Text(WKT) format.
+                    } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
+                        // Convert to WKT format
+                        $wktval = PMA_asWKT($row[$i]);
 
-                    if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
-                        && $_SESSION['tmp_user_values']['display_text'] == 'P'
-                    ) {
-                        $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
-                        $is_field_truncated = true;
-                    }
-
-                    $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
-                        $class, $condition_field, $analyzed_sql, $meta, $map, $wktval, $transform_function,
-                        $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
-                    );
-
-                // Display in  Well Known Binary(WKB) format.
-                } else {
-                    if ($_SESSION['tmp_user_values']['display_binary']) {
-                        if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                            && PMA_contains_nonprintable_ascii($row[$i])
-                        ) {
-                            $wkbval = PMA_substr(bin2hex($row[$i]), 8);
-                        } else {
-                            $wkbval = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
-                        }
-
-                        if (PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars']
+                        if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
                             && $_SESSION['tmp_user_values']['display_text'] == 'P'
                         ) {
-                            $wkbval = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                            $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
                             $is_field_truncated = true;
                         }
 
                         $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
-                            $class, $condition_field, $analyzed_sql, $meta, $map, $wkbval, $transform_function,
+                            $class, $condition_field, $analyzed_sql, $meta, $map, $wktval, $transform_function,
                             $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
                         );
+
+                    // Display in  Well Known Binary(WKB) format.
                     } else {
-                        $wkbval = PMA_handle_non_printable_contents(
-                            'BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params
-                        );
-                        $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay($class, $condition_field, $wkbval);
+                        if ($_SESSION['tmp_user_values']['display_binary']) {
+                            if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+                                && PMA_contains_nonprintable_ascii($row[$i])
+                            ) {
+                                $wkbval = PMA_substr(bin2hex($row[$i]), 8);
+                            } else {
+                                $wkbval = htmlspecialchars(PMA_replace_binary_contents($row[$i]));
+                            }
+
+                            if (PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars']
+                                && $_SESSION['tmp_user_values']['display_text'] == 'P'
+                            ) {
+                                $wkbval = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                                $is_field_truncated = true;
+                            }
+
+                            $vertical_display['data'][$row_no][$i] = '<td ' . PMA_prepare_row_data(
+                                $class, $condition_field, $analyzed_sql, $meta, $map, $wkbval, $transform_function,
+                                $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated
+                            );
+                        } else {
+                            $wkbval = PMA_handle_non_printable_contents(
+                                'BINARY', $row[$i], $transform_function, $transform_options, $default_function, $meta, $_url_params
+                            );
+                            $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay($class, $condition_field, $wkbval);
+                        }
                     }
+                } else {
+                    $vertical_display['data'][$row_no][$i] = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                 }
 
             // n o t   n u m e r i c   a n d   n o t   B L O B
