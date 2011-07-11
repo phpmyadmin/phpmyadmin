@@ -2881,7 +2881,7 @@ msgstr "Enklozañ an istitloù"
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
-msgstr ""
+msgstr "Istitl eus an daolenn"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
