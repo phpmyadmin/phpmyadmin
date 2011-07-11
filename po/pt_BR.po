@@ -1972,7 +1972,7 @@ msgstr "Você pode digitar a url/IP e a porta separados por um espaço."
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "Servidor"
+msgstr "Servidor:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
