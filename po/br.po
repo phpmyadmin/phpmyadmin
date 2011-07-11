@@ -2833,7 +2833,7 @@ msgstr "Arouezenn dec'hout"
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
 #: libraries/config/messages.inc.php:147 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr ""
+msgstr "Erlec'hiañ NULL gant"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
