@@ -707,7 +707,7 @@ msgstr "Visning %s er blevet slettet"
 #: db_structure.php:279 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "Tabel %s er slettet"
+msgstr "Tabel %s blev slettet"
 
 #: db_structure.php:286 tbl_create.php:269
 msgid "Tracking is active."
