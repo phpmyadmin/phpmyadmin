@@ -1298,10 +1298,9 @@ msgid "Insert Table"
 msgstr "Indsæt tabel"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "Indeks"
+msgstr "Skjul indekser"
 
 #: js/messages.php:114
 #, fuzzy
