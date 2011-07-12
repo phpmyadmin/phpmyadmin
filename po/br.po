@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-08 19:45+0200\n"
+"PO-Revision-Date: 2011-07-10 19:45+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2645,25 +2645,30 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Gwaskañ a ra an ezporzhiadennoù gzip/bzip2 war ar prim hep sunañ nemeur a "
+"vemor; Mar bez kudennoù gant ar restroù gzip/bzip2 krouet, diweredekait an "
+"dibarzh."
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Gwaskañ war ar prim"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:165
 msgid "Configuration file"
-msgstr ""
+msgstr "Restr gefluniañ"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Ur gemennadenn (&quot;Ha sur oc'h...&quot;) a zlefe dont war wel pa vezer "
+"war-nes koll roadennoù."
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Kadarnaat ar rekedoù diverkañ DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
@@ -2678,119 +2683,125 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] pe un niver a verk an talvoud "
+"brasañ a vo implijet ar mod a-serzh evitañ"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Durc'hadur an diskwel evit kemmañ/krouiñ bannoù"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en ur servijer"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit ar servijer"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un daolenn"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit an taolennoù"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:637
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù)"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Diskouez roll an diazoù roadennoù e-lec'h ul lañser desachañ"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Diskouez a ra an diazoù roadennoù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Diskouez a ra ar servijerioù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:60
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Diweredekaat an oberiadennoù trezalc'h a-vras, evel gwellekaat pe kempenn "
+"taolennoù diuzet un diaz roadennoù."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr ""
+msgstr "Diweredekaat trezalc'h an taolennoù lies."
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Aozañ ar rekedoù SQL en ur prenestr difoupañ"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
-msgstr ""
+msgstr "Aozañ en ur prenestr"
 
 #: libraries/config/messages.inc.php:64
 msgid "Display errors"
-msgstr ""
+msgstr "Diskouez ar fazioù"
 
 #: libraries/config/messages.inc.php:65
 msgid "Gather errors"
-msgstr ""
+msgstr "Dastum ar fazioù"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Diskouez an arlunioù evit ar c'hemennoù diwall, faziañ ha titouriñ"
 
 #: libraries/config/messages.inc.php:67
 msgid "Iconic errors"
-msgstr ""
+msgstr "Arlunioù evit ar fazioù"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Niver a eilennoù lakaet evit seveniñ ar skriptoù ([kbd]0[/kbd] a dalvez hep "
+"bevenn)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Pad seveniñ hirañ"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
-msgstr ""
+msgstr "Enrollañ evel restr"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:239
 msgid "Character set of the file"
-msgstr ""
+msgstr "Strobad arouezennoù ar restr"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:870
 msgid "Format"
-msgstr ""
+msgstr "Furmad"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compression"
-msgstr ""
+msgstr "Gwaskadur"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
@@ -2802,13 +2813,13 @@ msgstr ""
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "Diskouez anvioù ar bannoù diouzhtu el linenn gentañ"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr ""
+msgstr "Bannoù gronnet gant"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:249 libraries/import/csv.php:81

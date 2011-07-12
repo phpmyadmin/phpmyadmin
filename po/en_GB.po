@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-06-27 15:25+0200\n"
+"PO-Revision-Date: 2011-07-09 16:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1280,16 +1280,14 @@ msgid "Insert Table"
 msgstr "Insert Table"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Add index"
+msgstr "Hide indexes"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Show grid"
+msgstr "Show indexes"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -4298,12 +4296,13 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Defines whether or not type display direction option is shown when browsing "
+"a table"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Default display direction"
+msgstr "Show display direction"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -5258,7 +5257,7 @@ msgstr "Click to mark/unmark"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Click the drop-down arrow<br />to toggle column's visibility"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
@@ -5266,22 +5265,19 @@ msgid "%d is not valid row number."
 msgstr "%d is not valid row number."
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "Textarea rows"
+msgstr "Start row"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Number of rows:"
+msgstr "Number of rows"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "More"
+msgstr "Mode"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5298,7 +5294,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Headers every %s rows"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
