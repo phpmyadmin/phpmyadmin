@@ -147,6 +147,7 @@ $(document).ready(function () {
                                                 .find('strong')
                                                 .text()
                                                 .toUpperCase();
+                                        text = $.trim(text);
                                         if (text !== '' && text > data.name) {
                                             $(this).before(data.new_row);
                                             inserted = true;
