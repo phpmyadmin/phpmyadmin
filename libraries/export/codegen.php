@@ -47,17 +47,6 @@ if (isset($plugin_list)) {
  */
 
 /**
- * Possibly outputs comment
- *
- * @param   string  $text  Text of comment
- * @return  string      The formatted comment
- */
-function PMA_exportComment($text)
-{
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded

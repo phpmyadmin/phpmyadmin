@@ -359,18 +359,6 @@ class PMA_PDF extends TCPDF
 $pdf = new PMA_PDF('L', 'pt', 'A3');
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text)
-{
-    return true;
-}
-
-/**
  * Finalize the pdf.
  *
  * @return  bool        Whether it suceeded

@@ -101,17 +101,6 @@ function PMA_texEscape($string) {
 }
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text) {
-    return PMA_exportOutputHandler('% ' . $text . $GLOBALS['crlf']);
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded

@@ -36,19 +36,6 @@ if (isset($plugin_list)) {
  */
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text)
-{
-    PMA_exportOutputHandler('# ' . $text . $GLOBALS['crlf']);
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded

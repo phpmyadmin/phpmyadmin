@@ -34,17 +34,6 @@ $GLOBALS['ods_buffer'] = '';
 require_once './libraries/opendocument.lib.php';
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text) {
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded
