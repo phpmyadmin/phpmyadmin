@@ -726,19 +726,22 @@ $(function() {
         if($(this).attr('href') == '#endChartEditMode') editMode = false;
         
         // Icon graphics have zIndex 19,20 and 21. Let's just hope nothing else has the same zIndex
-        $('ul#chartGrid li svg *[zIndex=20], li svg *[zIndex=21], li svg *[zIndex=19]').toggle(editMode)
+        $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode)
         
         $('a[href="#endChartEditMode"]').toggle(editMode);
         
         if(editMode) {
             $("#chartGrid").sortableTable({
                 events: {
+                    start: function() {
+                        console.log('start.');
+                    },
                     drop: function() { console.log('dropped'); }
                 }
             });
            
         } else {
-            $("#chartGrid td").sortable('destroy');
+            $("#chartGrid").sortableTable('destroy');
             saveMonitor(); // Save settings
         }
         
@@ -755,6 +758,8 @@ $(function() {
             height: parseInt($('div#statustabs_charting div.popupContent input[name="newChartHeight"]')
                     .attr('value')) || monitorSettings.chartSize.height
         };
+        
+        $('table#chartGrid td').css('width',monitorSettings.chartSize.width);
         
         $.each(runtime.charts, function(key, value) {
             value.chart.setSize(
@@ -1103,6 +1108,14 @@ $(function() {
             addChart(value,true);
         });
         
+        var numCharts = $('table#chartGrid .monitorChart').length;
+        var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
+        for(var i=0; i < numMissingCells; i++) {
+            $('table#chartGrid tr:last').append('<td></td>');
+        }
+        
+        $('table#chartGrid td').css('width',monitorSettings.chartSize.width);
+        
         buildRequiredDataList();
         refreshChartGrid();
     }
@@ -1216,7 +1229,7 @@ $(function() {
         }
         
         // Edit,Print icon only in edit mode
-        $('ul#chartGrid li svg *[zIndex=20], li svg *[zIndex=21], li svg *[zIndex=19]').toggle(editMode)
+        $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode)
         
         runtime.chartAI++;
     }

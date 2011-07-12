@@ -48,6 +48,10 @@
 				$draggedEl = $(this).children();
 				oldCell = this;
 				move(e.pageX,e.pageY);
+				
+				if(options.events && options.events.start)
+					options.events.start(this);
+
 				return false;
 			}
 			
@@ -66,10 +70,11 @@
 								if($(previewMove).attr('class') != $(this).children().first().attr('class')) {
 									if(previewMove != null) moveTo(previewMove);
 									previewMove = $(this).children().first();
-									moveTo($(previewMove), { pos: {
-										top: $(oldCell).offset().top - $(previewMove).parent().offset().top,
-										left: $(oldCell).offset().left - $(previewMove).parent().offset().left
-									} });
+									if(previewMove.length > 0)
+										moveTo($(previewMove), { pos: {
+											top: $(oldCell).offset().top - $(previewMove).parent().offset().top,
+											left: $(oldCell).offset().left - $(previewMove).parent().offset().left
+										} });
 								}
 								
 								return false;
@@ -99,7 +104,7 @@
 				});
 				
 				// Mouse events
-				$(table).find('td').children().unbind('mouseup',onMouseUp)
+				$(table).find('td').unbind('mouseup',onMouseUp)
 				$(table).find('td').unbind('mousedown',onMouseDown);
 					
 				$(document).unbind('mousemove',globalMouseMove);
@@ -116,7 +121,7 @@
 				});
 				
 				// Mouse events
-				$(table).find('td').children().bind('mouseup',onMouseUp);
+				$(table).find('td').bind('mouseup',onMouseUp);
 				$(table).find('td').bind('mousedown',onMouseDown);
 			}
 			
