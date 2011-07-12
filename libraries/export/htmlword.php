@@ -35,17 +35,6 @@ if (isset($plugin_list)) {
 } else {
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text) {
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded
@@ -80,8 +69,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 /**
  * Outputs database header
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -93,8 +81,7 @@ function PMA_exportDBHeader($db) {
 /**
  * Outputs database footer
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -104,10 +91,9 @@ function PMA_exportDBFooter($db) {
 }
 
 /**
- * Outputs create database database
+ * Outputs CREATE DATABASE statement
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -117,14 +103,13 @@ function PMA_exportDBCreate($db) {
 }
 
 /**
- * Outputs the content of a table in CSV format
+ * Outputs the content of a table in HTML (Microsoft Word) format
  *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
+ * @param   string  $db         database name
+ * @param   string  $table      table name
+ * @param   string  $crlf       the end of line sequence
+ * @param   string  $error_url  the url to go back in case of error
+ * @param   string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -182,7 +167,28 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     return true;
 }
 
-function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
+/**
+ * Outputs table's structure
+ *
+ * @param   string  $db           database name
+ * @param   string  $table        table name
+ * @param   string  $crlf         the end of line sequence
+ * @param   string  $error_url    the url to go back in case of error
+ * @param   bool    $do_relation  whether to include relation comments
+ * @param   bool    $do_comments  whether to include the pmadb-style column comments
+ *                                as comments in the structure; this is deprecated
+ *                                but the parameter is left here because export.php
+ *                                calls PMA_exportStructure() also for other export
+ *                                types which use this parameter
+ * @param   bool    $do_mime      whether to include mime comments
+ * @param   bool    $dates        whether to include creation/update/check dates
+ * @param   string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
+ * @param   string  $export_type  'server', 'database', 'table'
+ * @return  bool      Whether it suceeded
+ *
+ * @access  public
+ */
+function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
 {
     global $cfgRelation;
 
