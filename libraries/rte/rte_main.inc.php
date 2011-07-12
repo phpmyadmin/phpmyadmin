@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Common code for Routines, Triggers and Events.
+ *
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -42,7 +44,8 @@ if ($GLOBALS['is_ajax_request'] != true) {
 }
 
 /**
- * Generate the conditional classes that will be used to attach jQuery events to links
+ * Generate the conditional classes that will
+ * be used to attach jQuery events to links
  */
 $ajax_class = array('add'    => '',
                     'edit'   => '',
@@ -63,7 +66,8 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
 $titles = PMA_buildActionTitles();
 
 /**
- * Keep a list of errors that occured while processing an 'Add' or 'Edit' operation.
+ * Keep a list of errors that occured while
+ * processing an 'Add' or 'Edit' operation.
  */
 $errors = array();
 

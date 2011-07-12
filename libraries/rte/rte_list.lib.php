@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Common functions for generating lists of Routines, Triggers and Events.
+ *
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -32,8 +34,10 @@ function PMA_RTE_getList($type, $items)
      */
     $retval  = "<!-- LIST OF " . PMA_RTE_getWord('docu') . " START -->\n";
     $retval .= "<fieldset>\n";
-    $retval .= "    <legend>" . PMA_RTE_getWord('title');
-    $retval .= PMA_showMySQLDocu('SQL-Syntax', PMA_RTE_getWord('docu')) . "</legend>\n";
+    $retval .= "    <legend>\n";
+    $retval .= "        " . PMA_RTE_getWord('title') . "\n";
+    $retval .= "        " . PMA_showMySQLDocu('SQL-Syntax', PMA_RTE_getWord('docu')) . "\n";
+    $retval .= "    </legend>\n";
     $retval .= "    <div class='$class1' id='nothing2display'>\n";
     $retval .= "      " . PMA_RTE_getWord('nothing') . "\n";
     $retval .= "    </div>\n";
@@ -114,13 +118,17 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
-    $retval .= "                <strong>" . htmlspecialchars($routine['SPECIFIC_NAME']) . "</strong>\n";
+    $retval .= "                <strong>\n";
+    $retval .= "                    " . htmlspecialchars($routine['SPECIFIC_NAME']) . "\n";
+    $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($routine['ROUTINE_DEFINITION'] !== NULL
+    if ($routine['ROUTINE_DEFINITION'] !== null
         && PMA_currentUserHasPrivilege('ALTER ROUTINE', $db)
-        && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)) {
-        $retval .= '                <a ' . $ajax_class['edit'] . ' href="db_routines.php?'
+        && PMA_currentUserHasPrivilege('CREATE ROUTINE', $db)
+    ) {
+        $retval .= '                <a ' . $ajax_class['edit']
+                                         . ' href="db_routines.php?'
                                          . $url_query
                                          . '&amp;edit_item=1'
                                          . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
@@ -130,21 +138,30 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($routine['ROUTINE_DEFINITION'] !== NULL && PMA_currentUserHasPrivilege('EXECUTE', $db)) {
+    if ($routine['ROUTINE_DEFINITION'] !== null
+        && PMA_currentUserHasPrivilege('EXECUTE', $db)
+    ) {
         // Check if he routine has any input parameters. If it does,
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
-        $routine_details = PMA_RTN_getRoutineDataFromName($routine['SPECIFIC_NAME'], false);
+        $routine_details = PMA_RTN_getDataFromName(
+            $routine['SPECIFIC_NAME'],
+            false
+        );
         if ($routine !== false) {
             $execute_action = 'execute_routine';
             for ($i=0; $i<$routine_details['item_num_params']; $i++) {
-                if ($routine_details['item_type'] == 'PROCEDURE' && $routine_details['item_param_dir'][$i] == 'OUT') {
+                if ($routine_details['item_type'] == 'PROCEDURE'
+                    && $routine_details['item_param_dir'][$i] == 'OUT'
+                ) {
                     continue;
                 }
                 $execute_action = 'execute_dialog';
                 break;
             }
-            $retval .= '                <a ' . $ajax_class['exec']. ' href="db_routines.php?' . $url_query
+            $retval .= '                <a ' . $ajax_class['exec']
+                                             . ' href="db_routines.php?'
+                                             . $url_query
                                              . '&amp;' . $execute_action . '=1'
                                              . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
                                              . '">' . $titles['Execute'] . "</a>\n";
@@ -154,14 +171,18 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= '                <a ' . $ajax_class['export'] . ' href="db_routines.php?' . $url_query
+    $retval .= '                <a ' . $ajax_class['export']
+                                     . ' href="db_routines.php?'
+                                     . $url_query
                                      . '&amp;export_item=1'
                                      . '&amp;item_name=' . urlencode($routine['SPECIFIC_NAME'])
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA_currentUserHasPrivilege('EVENT', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']. ' href="sql.php?' . $url_query
+        $retval .= '                <a ' . $ajax_class['drop']
+                                         . ' href="sql.php?'
+                                         . $url_query
                                          . '&amp;sql_query=' . urlencode($sql_drop)
                                          . '&amp;goto=db_events.php' . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";
@@ -183,7 +204,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 /**
  * Creates the contents for a row in the list of triggers
  *
- * @param    array    $routine    An array of routine data
+ * @param    array    $trigger    An array of routine data
  * @param    string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a cell for the list of triggers
@@ -195,15 +216,20 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>{$trigger['drop']}</span>\n";
-    $retval .= "                <strong>" . htmlspecialchars($trigger['name']) . "</strong>\n";
+    $retval .= "                <strong>\n";
+    $retval .= "                    " . htmlspecialchars($trigger['name']) . "\n";
+    $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= "                <a href='db_triggers.php?db={$db}&amp;table={$trigger['table']}'>"
-                                   . $trigger['table'] . "</a>\n";
+    $retval .= "                <a href='db_triggers.php?db={$db}"
+                                 . "&amp;table={$trigger['table']}'>"
+                                 . $trigger['table'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
-        $retval .= '                <a ' . $ajax_class['edit'] . ' href="db_triggers.php?' . $url_query
+        $retval .= '                <a ' . $ajax_class['edit']
+                                         . ' href="db_triggers.php?'
+                                         . $url_query
                                          . '&amp;edit_item=1'
                                          . '&amp;item_name=' . urlencode($trigger['name'])
                                          . '">' . $titles['Edit'] . "</a>\n";
@@ -212,14 +238,18 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= '                    <a ' . $ajax_class['export'] . ' href="db_triggers.php?' . $url_query
+    $retval .= '                    <a ' . $ajax_class['export']
+                                         . ' href="db_triggers.php?'
+                                         . $url_query
                                          . '&amp;export_item=1'
                                          . '&amp;item_name=' . urlencode($trigger['name'])
                                          . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA_currentUserHasPrivilege('TRIGGER', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']. ' href="sql.php?' . $url_query
+        $retval .= '                <a ' . $ajax_class['drop']
+                                         . ' href="sql.php?'
+                                         . $url_query
                                          . '&amp;sql_query=' . urlencode($trigger['drop'])
                                          . '&amp;goto=db_triggers.php' . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";
@@ -241,7 +271,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 /**
  * Creates the contents for a row in the list of events
  *
- * @param    array    $routine    An array of routine data
+ * @param    array    $event      An array of routine data
  * @param    string   $rowclass   Empty or one of ['even'|'odd']
  *
  * @return   string   HTML code of a cell for the list of events
@@ -250,20 +280,26 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
 {
     global $ajax_class, $url_query, $db, $titles;
 
-    $sql_drop = sprintf('DROP EVENT IF EXISTS %s',
-                         PMA_backquote($event['EVENT_NAME']));
+    $sql_drop = sprintf(
+        'DROP EVENT IF EXISTS %s',
+        PMA_backquote($event['EVENT_NAME'])
+    );
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
-    $retval .= "                <strong>" . htmlspecialchars($event['EVENT_NAME']) . "</strong>\n";
+    $retval .= "                <strong>\n";
+    $retval .= "                    " . htmlspecialchars($event['EVENT_NAME']) . "\n";
+    $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                 {$event['STATUS']}\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA_currentUserHasPrivilege('EVENT', $db)) {
-        $retval .= '                <a ' . $ajax_class['edit'] . ' href="db_events.php?' . $url_query
+        $retval .= '                <a ' . $ajax_class['edit']
+                                         . ' href="db_events.php?'
+                                         . $url_query
                                          . '&amp;edit_item=1'
                                          . '&amp;item_name=' . urlencode($event['EVENT_NAME'])
                                          . '">' . $titles['Edit'] . "</a>\n";
@@ -272,14 +308,18 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= '                <a ' . $ajax_class['export'] . ' href="db_events.php?' . $url_query
+    $retval .= '                <a ' . $ajax_class['export']
+                                     . ' href="db_events.php?'
+                                     . $url_query
                                      . '&amp;export_item=1'
                                      . '&amp;item_name=' . urlencode($event['EVENT_NAME'])
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA_currentUserHasPrivilege('EVENT', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']. ' href="sql.php?' . $url_query
+        $retval .= '                <a ' . $ajax_class['drop']
+                                         . ' href="sql.php?'
+                                         . $url_query
                                          . '&amp;sql_query=' . urlencode($sql_drop)
                                          . '&amp;goto=db_events.php' . urlencode("?db={$db}")
                                          . '" >' . $titles['Drop'] . "</a>\n";

@@ -230,7 +230,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
  *
  * @return  array    Data necessary to create the routine editor.
  */
-function PMA_RTN_getRoutineDataFromName($name, $all = true)
+function PMA_RTN_getDataFromName($name, $all = true)
 {
     global $param_directions, $param_sqldataaccess, $db;
 
@@ -338,7 +338,7 @@ function PMA_RTN_getRoutineDataFromName($name, $all = true)
     }
 
     return $retval;
-} // PMA_RTN_getRoutineDataFromName()
+} // PMA_RTN_getDataFromName()
 
 /**
  * Handles editor requests for adding or editing an item
@@ -450,18 +450,18 @@ function PMA_RTN_handleEditor()
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
             $title = __("Create routine");
-            $routine = PMA_RTN_getRoutineDataFromRequest();
+            $routine = PMA_RTN_getDataFromRequest();
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
             $title = __("Edit routine");
             if (! $operation && ! empty($_REQUEST['item_name']) && empty($_REQUEST['editor_process_edit'])) {
-                $routine = PMA_RTN_getRoutineDataFromName($_REQUEST['item_name']);
+                $routine = PMA_RTN_getDataFromName($_REQUEST['item_name']);
                 if ($routine !== false) {
                     $routine['item_original_name'] = $routine['item_name'];
                     $routine['item_original_type'] = $routine['item_type'];
                 }
             } else {
-                $routine = PMA_RTN_getRoutineDataFromRequest();
+                $routine = PMA_RTN_getDataFromRequest();
             }
             $mode = 'edit';
         }
@@ -500,7 +500,7 @@ function PMA_RTN_handleEditor()
  *
  * @return  array    Data necessary to create the routine editor.
  */
-function PMA_RTN_getRoutineDataFromRequest()
+function PMA_RTN_getDataFromRequest()
 {
     global $_REQUEST, $param_directions, $param_sqldataaccess;
 
@@ -630,7 +630,7 @@ function PMA_RTN_getRoutineDataFromRequest()
     }
 
     return $retval;
-} // end function PMA_RTN_getRoutineDataFromRequest()
+} // end function PMA_RTN_getDataFromRequest()
 
 /**
  * Composes the query necessary to create a routine from an HTTP request.
@@ -784,8 +784,8 @@ function PMA_RTN_getQueryFromRequest()
  * Creates one row for the parameter table used in the routine editor.
  *
  * @param   array    $routine    Data for the routine returned by
- *                               PMA_RTN_getRoutineDataFromRequest() or
- *                               PMA_RTN_getRoutineDataFromName()
+ *                               PMA_RTN_getDataFromRequest() or
+ *                               PMA_RTN_getDataFromName()
  * @param   mixed    $index      Either a numeric index of the row being processed
  *                               or NULL to create a template row for AJAX request
  * @param   string   $class      Class used to hide the direction column, if the
@@ -1114,7 +1114,7 @@ function PMA_RTN_handleExecute()
      */
     if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['item_name'])) {
         // Build the queries
-        $routine   = PMA_RTN_getRoutineDataFromName($_REQUEST['item_name'], false);
+        $routine   = PMA_RTN_getDataFromName($_REQUEST['item_name'], false);
         if ($routine !== false) {
             $queries   = array();
             $end_query = array();
@@ -1249,7 +1249,7 @@ function PMA_RTN_handleExecute()
         /**
          * Display the execute form for a routine.
          */
-        $routine = PMA_RTN_getRoutineDataFromName($_GET['item_name'], false);
+        $routine = PMA_RTN_getDataFromName($_GET['item_name'], false);
         if ($routine !== false) {
             $form = PMA_RTN_getExecuteForm($routine);
             if ($GLOBALS['is_ajax_request'] == true) {

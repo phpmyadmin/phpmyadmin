@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Common functions for the export functionality for Routines, Triggers and Events.
+ *
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -27,10 +29,10 @@ function PMA_RTE_handleExport($item_name, $export_data)
             $extra_data = array('title' => $title);
             PMA_ajaxResponse($export_data, true, $extra_data);
         } else {
-            echo '<fieldset>' . "\n"
-               . ' <legend>' . $title . '</legend>' . "\n"
+            echo "<fieldset>\n"
+               . "<legend>$title</legend>\n"
                . $export_data
-               . '</fieldset>';
+               . "</fieldset>\n";
         }
     } else {
         $_db = htmlspecialchars(PMA_backquote($db));
@@ -71,11 +73,11 @@ function PMA_RTN_handleExport()
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
         $type = PMA_DBI_fetch_value(
-                    "SELECT ROUTINE_TYPE "
-                  . "FROM INFORMATION_SCHEMA.ROUTINES "
-                  . "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
-                  . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($item_name) . "';"
-                );
+            "SELECT ROUTINE_TYPE " .
+            "FROM INFORMATION_SCHEMA.ROUTINES " .
+            "WHERE ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' " .
+            "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($item_name) . "';"
+        );
         $export_data = PMA_DBI_get_definition($db, $type, $item_name);
         PMA_RTE_handleExport($item_name, $export_data);
     }

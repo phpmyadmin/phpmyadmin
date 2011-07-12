@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Common functions for generating the footer for Routines, Triggers and Events.
+ *
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -20,6 +22,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $url_query, $ajax_class;
 
+    $icon = 'b_' . strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
@@ -29,10 +32,10 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . strtolower($name) . "s.php";
         $retval .= "?$url_query&amp;add_item=1'>";
-        $retval .= PMA_getIcon('b_' . strtolower($name) . '_add.png');
+        $retval .= PMA_getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
-        $retval .= "            " . PMA_getIcon('b_' . strtolower($name) . '_add.png');
+        $retval .= "            " . PMA_getIcon($icon);
         $retval .= PMA_RTE_getWord('no_create') . "\n";
     }
     $retval .= "            " . PMA_showMySQLDocu('SQL-Syntax', $docu) . "\n";
@@ -77,7 +80,11 @@ function PMA_EVN_getFooterLinks()
      * a form for toggling the state of the event scheduler
      */
     // Init options for the event scheduler toggle functionality
-    $es_state = PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'event_scheduler'", 0, 1);
+    $es_state = PMA_DBI_fetch_value(
+        "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+        0,
+        1
+    );
     $es_state = strtolower($es_state);
     $options = array(
                     0 => array(
@@ -97,15 +104,17 @@ function PMA_EVN_getFooterLinks()
     // show the usual footer
     $retval .= PMA_RTE_getFooterLinks('CREATE_EVENT', 'EVENT', 'EVENT');
     $retval .= "    <fieldset class='right'>\n";
-    $retval .= "        <legend>" . __('Event scheduler status') . '</legend>' . "\n";
+    $retval .= "        <legend>\n";
+    $retval .= "            " . __('Event scheduler status') . "\n";
+    $retval .= "        </legend>\n";
     $retval .= "        <div class='wrap'>\n";
     // show the toggle button
     $retval .= PMA_toggleButton(
-                   "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
-                   'sql_query',
-                   $options,
-                   'PMA_slidingMessage(data.sql_query);'
-               );
+        "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
+        'sql_query',
+        $options,
+        'PMA_slidingMessage(data.sql_query);'
+    );
     $retval .= "        </div>\n";
     $retval .= "    </fieldset>\n";
     $retval .= "    <div style='clear: both;'></div>\n";
