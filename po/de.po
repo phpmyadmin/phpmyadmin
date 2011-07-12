@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 09:26+0200\n"
+"PO-Revision-Date: 2011-07-12 23:03+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -957,10 +957,11 @@ msgstr ""
 msgid "The web server does not have permission to save the file %s."
 msgstr "Der Webserver hat keine Schreibrechte um die Datei %s zu speichern."
 
+# Schema is not the right word for it, because a dump contains also data, and NOT just the scheme.
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump (Schema) wurde in Datei %s gespeichert."
+msgstr "Dump wurde in Datei %s gespeichert."
 
 #: import.php:57
 #, php-format
