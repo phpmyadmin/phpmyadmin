@@ -231,127 +231,6 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
 } // end PMA_RTN_parseRoutineDefiner()
 
 /**
- * This function will generate the values that are required to complete
- * the "Edit routine" form given the name of a routine.
- *
- * @param   string   $name   The name of the routine.
- * @param   bool     $all    Whether to return all data or just
- *                           the info about parameters.
- *
- * @return  array    Data necessary to create the routine editor.
- */
-function PMA_RTN_getDataFromName($name, $all = true)
-{
-    global $param_directions, $param_sqldataaccess, $db;
-
-    $retval  = array();
-
-    // Build and execute the query
-    $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
-             . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
-             . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
-             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'";
-    $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
-
-    $routine = PMA_DBI_fetch_single_row($query);
-
-    if (! $routine) {
-        return false;
-    }
-
-    // Get required data
-    $retval['item_name'] = $routine['SPECIFIC_NAME'];
-    $retval['item_type'] = $routine['ROUTINE_TYPE'];
-    $parsed_query = PMA_SQP_parse(
-        PMA_DBI_get_definition(
-            $db,
-            $routine['ROUTINE_TYPE'],
-            $routine['SPECIFIC_NAME']
-        )
-    );
-    $params = PMA_RTN_parseAllParameters($parsed_query, $routine['ROUTINE_TYPE']);
-    $retval['item_num_params']      = $params['num'];
-    $retval['item_param_dir']       = $params['dir'];
-    $retval['item_param_name']      = $params['name'];
-    $retval['item_param_type']      = $params['type'];
-    $retval['item_param_length']    = $params['length'];
-    $retval['item_param_opts_num']  = $params['opts'];
-    $retval['item_param_opts_text'] = $params['opts'];
-
-    // Get extra data
-    if ($all) {
-        if ($retval['item_type'] == 'FUNCTION') {
-            $retval['item_type_toggle'] = 'PROCEDURE';
-        } else {
-            $retval['item_type_toggle'] = 'FUNCTION';
-        }
-        $retval['item_returntype']   = '';
-        $retval['item_returnlength'] = '';
-        $retval['item_returnopts_num']  = '';
-        $retval['item_returnopts_text'] = '';
-        if (! empty($routine['DTD_IDENTIFIER'])) {
-            if (strlen($routine['DTD_IDENTIFIER']) > 63) {
-                // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
-                // at least 64 characters, then it may actually have been
-                // chopped because that column is a varchar(64), so we will
-                // parse the output of SHOW CREATE query to get accurate
-                // information about the return variable.
-                $dtd = '';
-                $fetching = false;
-                for ($i=0; $i<$parsed_query['len']; $i++) {
-                    if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
-                    ) {
-                        $fetching = true;
-                    } else if ($fetching == true && $parsed_query[$i]['type'] == 'alpha_reservedWord') {
-                        // We will not be looking for options such as UNSIGNED
-                        // or ZEROFILL because there is no way that a numeric
-                        // field's DTD_IDENTIFIER can be longer than 64
-                        // characters. We can safely assume that the return
-                        // datatype is either ENUM or SET, so we only look
-                        // for CHARSET.
-                        $word = strtoupper($parsed_query[$i]['data']);
-                        if ($word == 'CHARSET'
-                            && ($parsed_query[$i+1]['type'] == 'alpha_charset'
-                            || $parsed_query[$i+1]['type'] == 'alpha_identifier')
-                        ) {
-                            $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
-                        }
-                        break;
-                    } else if ($fetching == true) {
-                        $dtd .= $parsed_query[$i]['data'] . ' ';
-                    }
-                }
-                $routine['DTD_IDENTIFIER'] = $dtd;
-            }
-            $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
-            $retval['item_returntype']      = $returnparam[2];
-            $retval['item_returnlength']    = $returnparam[3];
-            $retval['item_returnopts_num']  = $returnparam[4];
-            $retval['item_returnopts_text'] = $returnparam[4];
-        }
-        $retval['item_definer']         = PMA_RTN_parseRoutineDefiner($parsed_query);
-        $retval['item_definition']      = $routine['ROUTINE_DEFINITION'];
-        $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] == 'YES') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
-            $retval['item_securitytype_definer'] = " selected='selected'";
-        } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
-            $retval['item_securitytype_invoker'] = " selected='selected'";
-        }
-        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-        $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
-    }
-
-    return $retval;
-} // PMA_RTN_getDataFromName()
-
-/**
  * Handles editor requests for adding or editing an item
  */
 function PMA_RTN_handleEditor()
@@ -658,158 +537,125 @@ function PMA_RTN_getDataFromRequest()
 } // end function PMA_RTN_getDataFromRequest()
 
 /**
- * Composes the query necessary to create a routine from an HTTP request.
+ * This function will generate the values that are required to complete
+ * the "Edit routine" form given the name of a routine.
  *
- * @return  string  The CREATE [ROUTINE | PROCEDURE] query.
+ * @param   string   $name   The name of the routine.
+ * @param   bool     $all    Whether to return all data or just
+ *                           the info about parameters.
+ *
+ * @return  array    Data necessary to create the routine editor.
  */
-function PMA_RTN_getQueryFromRequest()
+function PMA_RTN_getDataFromName($name, $all = true)
 {
-    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_opts_num;
+    global $param_directions, $param_sqldataaccess, $db;
 
-    $query = 'CREATE ';
-    if (! empty($_REQUEST['item_definer'])) {
-        if (strpos($_REQUEST['item_definer'], '@') !== false) {
-            $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA_backquote($arr[0]);
-            $query .= '@' . PMA_backquote($arr[1]) . ' ';
-        } else {
-            $errors[] = __('The definer must be in the "username@hostname" format');
-        }
-    }
-    if ($_REQUEST['item_type'] == 'FUNCTION'
-        || $_REQUEST['item_type'] == 'PROCEDURE'
-    ) {
-        $query .= $_REQUEST['item_type'] . ' ';
-    } else {
-        $errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['item_type']));
-    }
-    if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA_backquote($_REQUEST['item_name']) . ' ';
-    } else {
-        $errors[] = __('You must provide a routine name');
-    }
-    $params = '';
-    $warned_about_dir    = false;
-    $warned_about_name   = false;
-    $warned_about_length = false;
-    if (! empty($_REQUEST['item_param_name'])
-        && ! empty($_REQUEST['item_param_type'])
-        && ! empty($_REQUEST['item_param_length'])
-        && is_array($_REQUEST['item_param_name'])
-        && is_array($_REQUEST['item_param_type'])
-        && is_array($_REQUEST['item_param_length'])
-    ) {
-        for ($i=0; $i<count($_REQUEST['item_param_name']); $i++) {
-            if (! empty($_REQUEST['item_param_name'][$i]) && ! empty($_REQUEST['item_param_type'][$i])) {
-                if ($_REQUEST['item_type'] == 'PROCEDURE' && ! empty($_REQUEST['item_param_dir'][$i])) {
-                    $params .= $_REQUEST['item_param_dir'][$i] . " " . PMA_backquote($_REQUEST['item_param_name'][$i]) . " "
-                            . $_REQUEST['item_param_type'][$i];
-                } else if ($_REQUEST['item_type'] == 'FUNCTION') {
-                    $params .= PMA_backquote($_REQUEST['item_param_name'][$i]) . " " . $_REQUEST['item_param_type'][$i];
-                } else if (! $warned_about_dir) {
-                    $warned_about_dir = true;
-                    $errors[] = sprintf(
-                        __('Invalid direction "%s" given for parameter.'),
-                        htmlspecialchars($_REQUEST['item_param_dir'][$i])
-                    );
-                }
-                if ($_REQUEST['item_param_length'][$i] != ''
-                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                                   $_REQUEST['item_param_type'][$i])
-                ) {
-                    $params .= "(" . $_REQUEST['item_param_length'][$i] . ")";
-                } else if ($_REQUEST['item_param_length'][$i] == '' && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_param_type'][$i])) {
-                    if (! $warned_about_length) {
-                        $warned_about_length = true;
-                        $errors[] = __('You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.');
-                    }
-                }
-                if (! empty($_REQUEST['item_param_opts_text'][$i])) {
-                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])])) {
-                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])];
-                        if ($group == 'FUNC_CHAR') {
-                            $params .= ' CHARSET ' . strtolower($_REQUEST['item_param_opts_text'][$i]);
-                        }
-                    }
-                }
-                if (! empty($_REQUEST['item_param_opts_num'][$i])) {
-                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])])) {
-                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])];
-                        if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['item_param_opts_num'][$i], $param_opts_num)) {
-                            $params .= ' ' . strtoupper($_REQUEST['item_param_opts_num'][$i]);
-                        }
-                    }
-                }
-                if ($i != count($_REQUEST['item_param_name'])-1) {
-                    $params .= ", ";
-                }
-            } else if (! $warned_about_name) {
-                $warned_about_name = true;
-                $errors[] = __('You must provide a name and a type for each routine parameter.');
-                break;
-            }
-        }
-    }
-    $query .= " (" . $params . ") ";
-    if ($_REQUEST['item_type'] == 'FUNCTION') {
-        if (! empty($_REQUEST['item_returntype']) && in_array($_REQUEST['item_returntype'], $cfg['ColumnTypes'])) {
-            $query .= "RETURNS {$_REQUEST['item_returntype']}";
-        } else {
-            $errors[] = __('You must provide a valid return type for the routine.');
-        }
-        if (! empty($_REQUEST['item_returnlength'])
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                            $_REQUEST['item_returntype'])
-        ) {
-            $query .= "(" . intval($_REQUEST['item_returnlength']) . ")";
-        } else if (empty($_REQUEST['item_returnlength']) && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_returntype'])) {
-            if (! $warned_about_length) {
-                $warned_about_length = true;
-                $errors[] = __('You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.');
-            }
-        }
-        if (! empty($_REQUEST['item_returnopts_text'])) {
-            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])])) {
-                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])];
-                if ($group == 'FUNC_CHAR') {
-                    $query .= ' CHARSET ' . strtolower($_REQUEST['item_returnopts_text']);
-                }
-            }
-        }
-        if (! empty($_REQUEST['item_returnopts_num'])) {
-            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])])) {
-                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])];
-                if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['item_returnopts_num'], $param_opts_num)) {
-                    $query .= ' ' . strtoupper($_REQUEST['item_returnopts_num']);
-                }
-            }
-        }
-        $query .= ' ';
-    }
-    if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA_sqlAddslashes($_REQUEST['item_comment']) . "' ";
-    }
-    if (isset($_REQUEST['item_isdeterministic'])) {
-        $query .= 'DETERMINISTIC ';
-    } else {
-        $query .= 'NOT DETERMINISTIC ';
-    }
-    if (! empty($_REQUEST['item_sqldataaccess']) && in_array($_REQUEST['item_sqldataaccess'], $param_sqldataaccess)) {
-        $query .= $_REQUEST['item_sqldataaccess'] . ' ';
-    }
-    if (! empty($_REQUEST['item_securitytype'])) {
-        if ($_REQUEST['item_securitytype'] == 'DEFINER' || $_REQUEST['item_securitytype'] == 'INVOKER') {
-            $query .= 'SQL SECURITY ' . $_REQUEST['item_securitytype'] . ' ';
-        }
-    }
-    if (! empty($_REQUEST['item_definition'])) {
-        $query .= $_REQUEST['item_definition'];
-    } else {
-        $errors[] = __('You must provide a routine definition.');
+    $retval  = array();
+
+    // Build and execute the query
+    $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
+             . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
+             . "ROUTINE_COMMENT, SECURITY_TYPE";
+    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
+             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'";
+    $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
+
+    $routine = PMA_DBI_fetch_single_row($query);
+
+    if (! $routine) {
+        return false;
     }
 
-    return $query;
-} // end PMA_RTN_getQueryFromRequest()
+    // Get required data
+    $retval['item_name'] = $routine['SPECIFIC_NAME'];
+    $retval['item_type'] = $routine['ROUTINE_TYPE'];
+    $parsed_query = PMA_SQP_parse(
+        PMA_DBI_get_definition(
+            $db,
+            $routine['ROUTINE_TYPE'],
+            $routine['SPECIFIC_NAME']
+        )
+    );
+    $params = PMA_RTN_parseAllParameters($parsed_query, $routine['ROUTINE_TYPE']);
+    $retval['item_num_params']      = $params['num'];
+    $retval['item_param_dir']       = $params['dir'];
+    $retval['item_param_name']      = $params['name'];
+    $retval['item_param_type']      = $params['type'];
+    $retval['item_param_length']    = $params['length'];
+    $retval['item_param_opts_num']  = $params['opts'];
+    $retval['item_param_opts_text'] = $params['opts'];
+
+    // Get extra data
+    if ($all) {
+        if ($retval['item_type'] == 'FUNCTION') {
+            $retval['item_type_toggle'] = 'PROCEDURE';
+        } else {
+            $retval['item_type_toggle'] = 'FUNCTION';
+        }
+        $retval['item_returntype']   = '';
+        $retval['item_returnlength'] = '';
+        $retval['item_returnopts_num']  = '';
+        $retval['item_returnopts_text'] = '';
+        if (! empty($routine['DTD_IDENTIFIER'])) {
+            if (strlen($routine['DTD_IDENTIFIER']) > 63) {
+                // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
+                // at least 64 characters, then it may actually have been
+                // chopped because that column is a varchar(64), so we will
+                // parse the output of SHOW CREATE query to get accurate
+                // information about the return variable.
+                $dtd = '';
+                $fetching = false;
+                for ($i=0; $i<$parsed_query['len']; $i++) {
+                    if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+                        && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
+                    ) {
+                        $fetching = true;
+                    } else if ($fetching == true && $parsed_query[$i]['type'] == 'alpha_reservedWord') {
+                        // We will not be looking for options such as UNSIGNED
+                        // or ZEROFILL because there is no way that a numeric
+                        // field's DTD_IDENTIFIER can be longer than 64
+                        // characters. We can safely assume that the return
+                        // datatype is either ENUM or SET, so we only look
+                        // for CHARSET.
+                        $word = strtoupper($parsed_query[$i]['data']);
+                        if ($word == 'CHARSET'
+                            && ($parsed_query[$i+1]['type'] == 'alpha_charset'
+                            || $parsed_query[$i+1]['type'] == 'alpha_identifier')
+                        ) {
+                            $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
+                        }
+                        break;
+                    } else if ($fetching == true) {
+                        $dtd .= $parsed_query[$i]['data'] . ' ';
+                    }
+                }
+                $routine['DTD_IDENTIFIER'] = $dtd;
+            }
+            $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
+            $retval['item_returntype']      = $returnparam[2];
+            $retval['item_returnlength']    = $returnparam[3];
+            $retval['item_returnopts_num']  = $returnparam[4];
+            $retval['item_returnopts_text'] = $returnparam[4];
+        }
+        $retval['item_definer']         = PMA_RTN_parseRoutineDefiner($parsed_query);
+        $retval['item_definition']      = $routine['ROUTINE_DEFINITION'];
+        $retval['item_isdeterministic'] = '';
+        if ($routine['IS_DETERMINISTIC'] == 'YES') {
+            $retval['item_isdeterministic'] = " checked='checked'";
+        }
+        $retval['item_securitytype_definer'] = '';
+        $retval['item_securitytype_invoker'] = '';
+        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+            $retval['item_securitytype_definer'] = " selected='selected'";
+        } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
+            $retval['item_securitytype_invoker'] = " selected='selected'";
+        }
+        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
+        $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
+    }
+
+    return $retval;
+} // PMA_RTN_getDataFromName()
 
 /**
  * Creates one row for the parameter table used in the routine editor.
@@ -1158,6 +1004,160 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
 
     return $retval;
 } // end PMA_RTN_getEditorForm()
+
+/**
+ * Composes the query necessary to create a routine from an HTTP request.
+ *
+ * @return  string  The CREATE [ROUTINE | PROCEDURE] query.
+ */
+function PMA_RTN_getQueryFromRequest()
+{
+    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_opts_num;
+
+    $query = 'CREATE ';
+    if (! empty($_REQUEST['item_definer'])) {
+        if (strpos($_REQUEST['item_definer'], '@') !== false) {
+            $arr = explode('@', $_REQUEST['item_definer']);
+            $query .= 'DEFINER=' . PMA_backquote($arr[0]);
+            $query .= '@' . PMA_backquote($arr[1]) . ' ';
+        } else {
+            $errors[] = __('The definer must be in the "username@hostname" format');
+        }
+    }
+    if ($_REQUEST['item_type'] == 'FUNCTION'
+        || $_REQUEST['item_type'] == 'PROCEDURE'
+    ) {
+        $query .= $_REQUEST['item_type'] . ' ';
+    } else {
+        $errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['item_type']));
+    }
+    if (! empty($_REQUEST['item_name'])) {
+        $query .= PMA_backquote($_REQUEST['item_name']) . ' ';
+    } else {
+        $errors[] = __('You must provide a routine name');
+    }
+    $params = '';
+    $warned_about_dir    = false;
+    $warned_about_name   = false;
+    $warned_about_length = false;
+    if (! empty($_REQUEST['item_param_name'])
+        && ! empty($_REQUEST['item_param_type'])
+        && ! empty($_REQUEST['item_param_length'])
+        && is_array($_REQUEST['item_param_name'])
+        && is_array($_REQUEST['item_param_type'])
+        && is_array($_REQUEST['item_param_length'])
+    ) {
+        for ($i=0; $i<count($_REQUEST['item_param_name']); $i++) {
+            if (! empty($_REQUEST['item_param_name'][$i]) && ! empty($_REQUEST['item_param_type'][$i])) {
+                if ($_REQUEST['item_type'] == 'PROCEDURE' && ! empty($_REQUEST['item_param_dir'][$i])) {
+                    $params .= $_REQUEST['item_param_dir'][$i] . " " . PMA_backquote($_REQUEST['item_param_name'][$i]) . " "
+                            . $_REQUEST['item_param_type'][$i];
+                } else if ($_REQUEST['item_type'] == 'FUNCTION') {
+                    $params .= PMA_backquote($_REQUEST['item_param_name'][$i]) . " " . $_REQUEST['item_param_type'][$i];
+                } else if (! $warned_about_dir) {
+                    $warned_about_dir = true;
+                    $errors[] = sprintf(
+                        __('Invalid direction "%s" given for parameter.'),
+                        htmlspecialchars($_REQUEST['item_param_dir'][$i])
+                    );
+                }
+                if ($_REQUEST['item_param_length'][$i] != ''
+                    && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
+                                   $_REQUEST['item_param_type'][$i])
+                ) {
+                    $params .= "(" . $_REQUEST['item_param_length'][$i] . ")";
+                } else if ($_REQUEST['item_param_length'][$i] == '' && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_param_type'][$i])) {
+                    if (! $warned_about_length) {
+                        $warned_about_length = true;
+                        $errors[] = __('You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.');
+                    }
+                }
+                if (! empty($_REQUEST['item_param_opts_text'][$i])) {
+                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])])) {
+                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])];
+                        if ($group == 'FUNC_CHAR') {
+                            $params .= ' CHARSET ' . strtolower($_REQUEST['item_param_opts_text'][$i]);
+                        }
+                    }
+                }
+                if (! empty($_REQUEST['item_param_opts_num'][$i])) {
+                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])])) {
+                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])];
+                        if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['item_param_opts_num'][$i], $param_opts_num)) {
+                            $params .= ' ' . strtoupper($_REQUEST['item_param_opts_num'][$i]);
+                        }
+                    }
+                }
+                if ($i != count($_REQUEST['item_param_name'])-1) {
+                    $params .= ", ";
+                }
+            } else if (! $warned_about_name) {
+                $warned_about_name = true;
+                $errors[] = __('You must provide a name and a type for each routine parameter.');
+                break;
+            }
+        }
+    }
+    $query .= " (" . $params . ") ";
+    if ($_REQUEST['item_type'] == 'FUNCTION') {
+        if (! empty($_REQUEST['item_returntype']) && in_array($_REQUEST['item_returntype'], $cfg['ColumnTypes'])) {
+            $query .= "RETURNS {$_REQUEST['item_returntype']}";
+        } else {
+            $errors[] = __('You must provide a valid return type for the routine.');
+        }
+        if (! empty($_REQUEST['item_returnlength'])
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
+                            $_REQUEST['item_returntype'])
+        ) {
+            $query .= "(" . intval($_REQUEST['item_returnlength']) . ")";
+        } else if (empty($_REQUEST['item_returnlength']) && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_returntype'])) {
+            if (! $warned_about_length) {
+                $warned_about_length = true;
+                $errors[] = __('You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.');
+            }
+        }
+        if (! empty($_REQUEST['item_returnopts_text'])) {
+            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])])) {
+                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])];
+                if ($group == 'FUNC_CHAR') {
+                    $query .= ' CHARSET ' . strtolower($_REQUEST['item_returnopts_text']);
+                }
+            }
+        }
+        if (! empty($_REQUEST['item_returnopts_num'])) {
+            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])])) {
+                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])];
+                if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['item_returnopts_num'], $param_opts_num)) {
+                    $query .= ' ' . strtoupper($_REQUEST['item_returnopts_num']);
+                }
+            }
+        }
+        $query .= ' ';
+    }
+    if (! empty($_REQUEST['item_comment'])) {
+        $query .= "COMMENT '" . PMA_sqlAddslashes($_REQUEST['item_comment']) . "' ";
+    }
+    if (isset($_REQUEST['item_isdeterministic'])) {
+        $query .= 'DETERMINISTIC ';
+    } else {
+        $query .= 'NOT DETERMINISTIC ';
+    }
+    if (! empty($_REQUEST['item_sqldataaccess']) && in_array($_REQUEST['item_sqldataaccess'], $param_sqldataaccess)) {
+        $query .= $_REQUEST['item_sqldataaccess'] . ' ';
+    }
+    if (! empty($_REQUEST['item_securitytype'])) {
+        if ($_REQUEST['item_securitytype'] == 'DEFINER' || $_REQUEST['item_securitytype'] == 'INVOKER') {
+            $query .= 'SQL SECURITY ' . $_REQUEST['item_securitytype'] . ' ';
+        }
+    }
+    if (! empty($_REQUEST['item_definition'])) {
+        $query .= $_REQUEST['item_definition'];
+    } else {
+        $errors[] = __('You must provide a routine definition.');
+    }
+
+    return $query;
+} // end PMA_RTN_getQueryFromRequest()
 
 /**
  * Handles requests for executing a routine
