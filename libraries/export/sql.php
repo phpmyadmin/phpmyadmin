@@ -460,7 +460,7 @@ function PMA_exportHeader()
     $head .= PMA_exportComment($host_string);
     $head .=  PMA_exportComment(__('Generation Time')
            . ': ' .  PMA_localisedDate())
-           .  PMA_exportComment(__('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3))
+           .  PMA_exportComment(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION)
            .  PMA_exportComment(__('PHP Version') . ': ' . phpversion())
            .  PMA_possibleCRLF();
 

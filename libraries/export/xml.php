@@ -97,7 +97,7 @@ function PMA_exportHeader() {
     }
     $head .= $crlf
            .  '- ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
-           .  '- ' . __('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+           .  '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
            .  '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
            .  '-->' . $crlf . $crlf;
 
