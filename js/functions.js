@@ -1817,6 +1817,76 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
+ * jQuery coding for 'Change Table'.  Used on tbl_structure.php *
+ * Attach Ajax Event handlers for Change Table
+ */
+$(document).ready(function() {
+    /**
+     *Ajax action for submitting the column change form
+    **/
+    $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the export form
+         */
+        var $form = $("#append_fields_form");
+
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
+        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+            // OK, form passed validation step
+            if ($form.hasClass('ajax')) {
+                PMA_prepareForAjaxRequest($form);
+                //User wants to submit the form
+                $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+                    if ($("#sqlqueryresults").length != 0) {
+                        $("#sqlqueryresults").remove();
+                    } else if ($(".error").length != 0) {
+                        $(".error").remove();
+                    }
+                    if (data.success == true) {
+                        PMA_ajaxShowMessage(data.message);
+                        $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                        $("#sqlqueryresults").html(data.sql_query);
+                        $("#result_query .notice").remove();
+                        $("#result_query").prepend((data.message));
+                        if ($("#change_column_dialog").length > 0) {
+                            $("#change_column_dialog").dialog("close").remove();
+                        }
+                        /*Reload the field form*/
+                        $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+                            $("#fieldsForm").remove();
+                            var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+                            if ($("#sqlqueryresults").length != 0) {
+                                $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
+                            } else {
+                                $temp_div.find("#fieldsForm").insertAfter(".error");
+                            }
+                            /*Call the function to display the more options in table*/
+                            displayMoreTableOpts();
+                        });
+                    } else {
+                        var $temp_div = $("<div id='temp_div'><div>").append(data);
+                        var $error = $temp_div.find(".error code").addClass("error");
+                        PMA_ajaxShowMessage($error);
+                    }
+                }) // end $.post()
+            } else {
+                // non-Ajax submit
+                $form.append('<input type="hidden" name="do_save_data" value="Save" />');
+                $form.submit();
+            }
+        }
+    }) // end change table button "do_save_data"
+
+}, 'top.frame_content'); //end $(document).ready for 'Change Table'
+
+/**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *

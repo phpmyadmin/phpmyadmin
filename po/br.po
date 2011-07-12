@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-10 19:45+0200\n"
+"PO-Revision-Date: 2011-07-11 20:39+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2825,7 +2825,7 @@ msgstr "Bannoù gronnet gant"
 #: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
-msgstr ""
+msgstr "Arouezenn dec'hout"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
@@ -2833,38 +2833,38 @@ msgstr ""
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
 #: libraries/config/messages.inc.php:147 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr ""
+msgstr "Erlec'hiañ NULL gant"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Tennañ an arouezennoù dibenn linenn e dibarzh ar bannoù"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr ""
+msgstr "Bannoù a echu gant"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr ""
+msgstr "Linennoù a echu gant"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
-msgstr ""
+msgstr "Stumm Excel"
 
 #: libraries/config/messages.inc.php:85
 msgid "Database name template"
-msgstr ""
+msgstr "Patrom anv diaz roadennoù"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "Patrom anv servijer"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "Patrom anv taolenn"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
@@ -2872,74 +2872,74 @@ msgstr ""
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:116 libraries/export/texytext.php:23
 msgid "Dump table"
-msgstr ""
+msgstr "Ezporzhiañ an daolenn"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
-msgstr ""
+msgstr "Enklozañ an istitloù"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
-msgstr ""
+msgstr "Istitl eus an daolenn"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
-msgstr ""
+msgstr "Enklozañ an istitloù"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
-msgstr ""
+msgstr "Alc'hwez an dikedenn"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
 #: libraries/tbl_properties.inc.php:145
 msgid "MIME type"
-msgstr ""
+msgstr "Seurt MIME"
 
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 tbl_relation.php:396
 msgid "Relations"
-msgstr ""
+msgstr "Darempredoù"
 
 #: libraries/config/messages.inc.php:105
 msgid "Export method"
-msgstr ""
+msgstr "Doare ezporzhiañ"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
-msgstr ""
+msgstr "Enrollañ war ar servijer"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Frikañ ar restroù zo c'hoazh"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr ""
+msgstr "Derc'hel soñj eus patrom anv ar restr"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Lakaat krochedoù stouet a bep tu da anvioù an taolennoù hag ar bannoù"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:346
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Mod kenglotañ gant SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Dibarzhioù evit <code>CREATE TABLE</code> :"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Deiziad krouiñ/hizivaat/gwiriañ"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "Ensoc'hadennoù gant dale"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
