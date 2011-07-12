@@ -231,10 +231,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     }
                         
                     // Cut off big selects, but append byte count therefor
-                    if(strlen($row['argument']) > 310)
-                        $row['argument'] = substr($row['argument'],0,301) . '... [' . 
-                                            PMA_localizeNumber(number_format(strlen($row['argument']), 2)). 
-                                            ' ' . __('Bytes') . ']';
+                    if(strlen($row['argument']) > 180)
+                        $row['argument'] = substr($row['argument'],0,160) . '... [' . 
+                                            PMA_formatByteDown(strlen($row['argument']), 2).']';
                 }
                 $return['rows'][] = $row;
                 $i++;
@@ -266,6 +265,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.sortableTable.js';
 // Charting
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
@@ -1406,9 +1406,9 @@ function printMonitor() {
         
     </div>
     
-    <ul id="chartGrid">
+    <table border="0" id="chartGrid">
 
-    </ul>
+    </table>
     <div id="logTable">
         <br/>
     </div>

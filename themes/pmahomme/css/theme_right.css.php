@@ -1248,9 +1248,6 @@ div.liveChart {
     padding-bottom:80px;
 }
 
-ul#chartGrid { clear:both; list-style-type: none; margin: 0; padding: 0; }
-ul#chartGrid li { margin: 3px 3px 3px 0; padding: 1px; float: left; font-size: 4em; text-align: center; }
-
 #addChartDialog input[type="text"] {
     margin:0px;
     padding:3px;
@@ -1262,7 +1259,7 @@ div#chartVariableSettings {
     margin-left:10px;
 }
 
-ul#chartGrid li {
+table#chartGrid div.monitorChart {
     background: #EBEBEB;
 }
 

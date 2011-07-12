@@ -549,31 +549,39 @@ $(function() {
     
     
     /**** Monitor charting implementation ****/
-    /* Holds all charts */
-    var chartGrid = null;
-    /* Object that contains a list of required nodes that need to be retrieved from the server for chart updates */
-    var requiredData = [];
     /* Saves the previous ajax response for differential values */
     var oldChartData = null;
-    /* Stores the timeout handler so it can be cleared */
-    var refreshTimeout = null;
-    // Holding about to created chart 
+    // Holds about to created chart 
     var newChart = null;
-    // Chart auto increment
-    var chartAI = 0;
-    // To play/pause the monitor
-    var redrawCharts = false;
-    // To cancel the automatic refresh when gridRefresh has changed
-    var gridTimeoutCallBack = null;
-    // Holds displayed timespan of all charts
-    var xmin=-1, xmax=-1;
+    
+    // Runtime parameter of the monitor
+    var runtime = {
+        // Holds all visible charts in the grid
+        charts: null,
+        // Current max points per chart (needed for auto calculation)
+        gridMaxPoints: 20,
+        // displayed time frame
+        xmin: -1, 
+        xmax: -1,
+        // Stores the timeout handler so it can be cleared
+        refreshTimeout: null,
+        // Stores the GET request to refresh the charts
+        refreshRequest: null,
+        // Chart auto increment
+        chartAI: 0,
+        // To play/pause the monitor
+        redrawCharts: false,
+        // Object that contains a list of nodes that need to be retrieved from the server for chart updates
+        dataList: []
+    }
     
     var monitorSettings = null;
     
     var defaultMonitorSettings = {
+        columns: 4,
         chartSize: { width: 295, height: 250 },
-        // Max points in each chart
-        gridMaxPoints: 20,
+        // Max points in each chart. Settings it to 'auto' sets gridMaxPoints to (chartwidth - 40) / 12
+        gridMaxPoints: 'auto', 
         /* Refresh rate of all grid charts in ms */
         gridRefresh: 5000
     }
@@ -723,10 +731,14 @@ $(function() {
         $('a[href="#endChartEditMode"]').toggle(editMode);
         
         if(editMode) {
-            $( "#chartGrid" ).sortable();
-            $( "#chartGrid" ).disableSelection();
+            $("#chartGrid").sortableTable({
+                events: {
+                    drop: function() { console.log('dropped'); }
+                }
+            });
+           
         } else {
-            $( "#chartGrid" ).sortable('destroy');
+            $("#chartGrid td").sortable('destroy');
             saveMonitor(); // Save settings
         }
         
@@ -744,7 +756,7 @@ $(function() {
                     .attr('value')) || monitorSettings.chartSize.height
         };
         
-        $.each(chartGrid, function(key, value) {
+        $.each(runtime.charts, function(key, value) {
             value.chart.setSize(
                 monitorSettings.chartSize.width,
                 monitorSettings.chartSize.height, 
@@ -752,24 +764,30 @@ $(function() {
             );
         });
         
+        if(monitorSettings.gridMaxPoints == 'auto')
+            runtime.gridMaxPoints = Math.round((monitorSettings.chartSize.width - 40) / 12);
+        
+        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        
         saveMonitor(); // Save settings
     });
     
     $('div#statustabs_charting div.popupContent select[name="gridChartRefresh"]').change(function() {
         monitorSettings.gridRefresh = parseInt(this.value) * 1000;
-        clearTimeout(refreshTimeout);
+        clearTimeout(runtime.refreshTimeout);
         
-        if(gridTimeoutCallBack)
-            gridTimeoutCallBack.abort();
+        if(runtime.refreshRequest)
+            runtime.refreshRequest.abort();
         
-        xmin = new Date().getTime() - server_time_diff - monitorSettings.gridMaxPoints * monitorSettings.gridRefresh;
-        xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
         
-        $.each(chartGrid, function(key, value) {
-            value.chart.xAxis[0].setExtremes(xmin, xmax, false);
+        $.each(runtime.charts, function(key, value) {
+            value.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
         });
         
-        refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
+        runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
         
         saveMonitor(); // Save settings
     });
@@ -819,12 +837,12 @@ $(function() {
     });
     
     $('a[href="#pauseCharts"]').click(function() {
-        redrawCharts = ! redrawCharts;
-        if(! redrawCharts)
+        runtime.redrawCharts = ! runtime.redrawCharts;
+        if(! runtime.redrawCharts)
             $(this).html('<img src="' + pmaThemeImage + 'play.png" alt="" /> ' + PMA_messages['strResumeMonitor']);
         else {
             $(this).html('<img src="' + pmaThemeImage + 'pause.png" alt="" /> ' + PMA_messages['strPauseMonitor']);
-            if(chartGrid == null) {
+            if(runtime.charts == null) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
             }
@@ -1052,17 +1070,18 @@ $(function() {
         var settings;
         var series;
 
+        /* Apply default values & config */
         if(window.localStorage) {
             if(window.localStorage['monitorCharts'])
-                chartGrid = $.parseJSON(window.localStorage['monitorCharts']);
+                runtime.charts = $.parseJSON(window.localStorage['monitorCharts']);
             if(window.localStorage['monitorSettings'])
                 monitorSettings = $.parseJSON(window.localStorage['monitorSettings']);
             
-            $('a[href="#clearMonitorConfig"]').toggle(chartGrid != null);
+            $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
         }
         
-        if(chartGrid == null)
-            chartGrid = defaultChartGrid;
+        if(runtime.charts == null)
+            runtime.charts = defaultChartGrid;
         if(monitorSettings == null)
             monitorSettings = defaultMonitorSettings;
         
@@ -1071,7 +1090,16 @@ $(function() {
     
         $('select[name="gridChartRefresh"]').attr('value',monitorSettings.gridRefresh / 1000);
         
-        $.each(chartGrid, function(key, value) {
+        if(monitorSettings.gridMaxPoints == 'auto')
+            runtime.gridMaxPoints = Math.round((monitorSettings.chartSize.width - 40) / 12);
+        else 
+            runtime.gridMaxPoints = monitorSettings.gridMaxPoints;
+        
+        runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
+        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+
+        /* Add all charts */
+        $.each(runtime.charts, function(key, value) {
             addChart(value,true);
         });
         
@@ -1084,14 +1112,9 @@ $(function() {
         for(var j=0; j<chartObj.nodes.length; j++)
             series.push(chartObj.nodes[j]);
         
-        if(xmin == -1)
-            xmin = new Date().getTime() - server_time_diff - monitorSettings.gridMaxPoints * monitorSettings.gridRefresh;
-        if(xmax == -1) 
-            xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
-        
         settings = {
             chart: {
-                renderTo: 'gridchart' + chartAI,
+                renderTo: 'gridchart' + runtime.chartAI,
                 width: monitorSettings.chartSize.width,
                 height: monitorSettings.chartSize.height,
                 marginRight: 5,
@@ -1142,8 +1165,8 @@ $(function() {
                 }
             },
             xAxis: {
-                min: xmin,
-                max: xmax
+                min: runtime.xmin,
+                max: runtime.xmax
             },
 
             yAxis: {
@@ -1176,21 +1199,26 @@ $(function() {
             $.extend(true,settings,chartObj.settings);
                 
         if($('#'+settings.chart.renderTo).length==0) {
-            $('ul#chartGrid').append('<li class="ui-state-default" id="'+settings.chart.renderTo+'"></li>');
+            var numCharts = $('table#chartGrid .monitorChart').length;
+    
+            if(numCharts == 0 || !( numCharts % monitorSettings.columns))
+                $('table#chartGrid').append('<tr></tr>');
+            
+            $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="'+settings.chart.renderTo+'"></div></td>');
         }
         
         chartObj.chart = PMA_createChart(settings);
         chartObj.numPoints = 0;
         
         if(initialize != true) {
-            chartGrid['c'+chartAI] = chartObj;
+            runtime.charts['c'+runtime.chartAI] = chartObj;
             buildRequiredDataList();
         }
         
         // Edit,Print icon only in edit mode
         $('ul#chartGrid li svg *[zIndex=20], li svg *[zIndex=21], li svg *[zIndex=19]').toggle(editMode)
         
-        chartAI++;
+        runtime.chartAI++;
     }
     
     function removeChart(chartObj) {
@@ -1198,9 +1226,9 @@ $(function() {
         if(! htmlnode ) return;
         
         
-        $.each(chartGrid, function(key, value) {
+        $.each(runtime.charts, function(key, value) {
             if(value.chart.options.chart.renderTo == htmlnode) {
-                delete chartGrid[key];
+                delete runtime.charts[key];
                 return false;
             }
         });
@@ -1219,13 +1247,13 @@ $(function() {
     
     function refreshChartGrid() {
         /* Send to server */
-        gridTimeoutCallBack = $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(requiredData) },function(data) {
+        runtime.refreshRequest = $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(runtime.dataList) },function(data) {
             var chartData = $.parseJSON(data);
             var value, i=0;
             var diff;
     
             /* Update values in each graph */
-            $.each(chartGrid, function(key, elem) {
+            $.each(runtime.charts, function(key, elem) {
                 // If newly added chart, we have no data for it yet
                 if(! chartData[key]) return;
                 // Draw all points
@@ -1233,14 +1261,14 @@ $(function() {
                     value = chartData[key][j].y;
 
                     if(i==0 && j==0) {
-                        if(oldChartData==null) diff = chartData.x - xmax;
+                        if(oldChartData==null) diff = chartData.x - runtime.xmax;
                         else diff = parseInt(chartData.x - oldChartData.x);
                         
-                        xmin+= diff;
-                        xmax+= diff;
+                        runtime.xmin+= diff;
+                        runtime.xmax+= diff;
                     }
                     
-                    elem.chart.xAxis[0].setExtremes(xmin, xmax, false);
+                    elem.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
                     
                     if(elem.nodes[j].display == 'differential') {
                         if(oldChartData == null || oldChartData[key] == null) continue;
@@ -1253,8 +1281,7 @@ $(function() {
                     if(elem.nodes[j].transformFn) {
                         value = elem.nodes[j].transformFn(
                             chartData[key][j],
-                            (oldChartData == null) ? null : oldChartData[key][j],
-                            j
+                            (oldChartData == null) ? null : oldChartData[key][j]
                         );
                     }
                     
@@ -1262,28 +1289,28 @@ $(function() {
                         elem.chart.series[j].addPoint(
                             {  x: chartData.x, y: value },
                             false, 
-                            elem.numPoints >= monitorSettings.gridMaxPoints
+                            elem.numPoints >= runtime.gridMaxPoints
                         );
                 }
                 
                 i++;
                 
-                chartGrid[key].numPoints++;
-                if(redrawCharts)
+                runtime.charts[key].numPoints++;
+                if(runtime.redrawCharts)
                     elem.chart.redraw();
             });
             
             oldChartData = chartData;
             
-            refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
+            runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
         });
     }
     
     /* Build list of nodes that need to be retrieved */
     function buildRequiredDataList() {
-        requiredData = {};
-        $.each(chartGrid, function(key, chart) {
-            requiredData[key] = chart.nodes;
+        runtime.dataList = {};
+        $.each(runtime.charts, function(key, chart) {
+            runtime.dataList[key] = chart.nodes;
         });
     }
     
@@ -1410,7 +1437,7 @@ $(function() {
     function saveMonitor() {
         var gridCopy = {};
             
-        $.each(chartGrid, function(key, elem) {
+        $.each(runtime.charts, function(key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
             gridCopy[key].settings = elem.settings;
