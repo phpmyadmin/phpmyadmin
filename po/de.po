@@ -8827,8 +8827,8 @@ msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
-"Auf stark frequentierten Server können die Byte-Zähler überlaufen (wieder "
-"bei 0 beginnen), deshalb können diese Werte, wie sie vom MySQL Server "
+"Auf stark frequentierten Server können die Byte-Zähler überlaufen, d.h. "
+"wieder bei 0 beginnen, deshalb können diese Werte, wie sie vom MySQL Server "
 "ausgegeben werden, falsch sein."
 
 #: server_status.php:681
