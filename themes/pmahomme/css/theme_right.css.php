@@ -2230,6 +2230,10 @@ fieldset .disabled-field td {
     -webkit-box-sizing: border-box;
 }
 
+.rte_table .routine_params_table {
+    width:              100%;
+}
+
 #placeholder .button {
     position: absolute;
     cursor: pointer;
