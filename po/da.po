@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 14:02+0200\n"
+"PO-Revision-Date: 2011-07-11 15:49+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2373,7 +2373,7 @@ msgstr "Der er ikke nogen filer at uploade"
 
 #: libraries/common.lib.php:2849 libraries/common.lib.php:2850
 msgid "Execute"
-msgstr ""
+msgstr "Udfør"
 
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
@@ -2411,12 +2411,11 @@ msgstr "struktur"
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:123 libraries/export/texytext.php:24
 msgid "data"
-msgstr ""
+msgstr "data"
 
 #: libraries/config.values.php:98 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:124 libraries/export/texytext.php:24
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
 msgstr "Struktur og data"
@@ -2622,7 +2621,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2830,7 +2829,6 @@ msgstr "Komprimering"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Indsæt feltnavne i første række"
@@ -2844,10 +2842,9 @@ msgstr "Felter skal adskilles med"
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
-msgstr "Felter escaped med"
+msgstr "Kolonner escapes med"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
@@ -2859,21 +2856,20 @@ msgstr "Erstat NULL med"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr "Fjern karakterer for linjeskift i felterne"
+msgstr "Fjern CRLF-karakterer i kolonnerne"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr "Felter afsluttes med"
+msgstr "Kolonner afsluttes med"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "Linjer afsluttet med"
+msgstr "Linjer afsluttes med"
 
 #: libraries/config/messages.inc.php:82
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel-udgave"
@@ -2884,11 +2880,11 @@ msgstr "Skabelon for databasenavn"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr "Maske for servernavn"
+msgstr "Skabelon for servernavn"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr "Maske for tabelnavn"
+msgstr "Skabelon for tabelnavn"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
@@ -2900,7 +2896,7 @@ msgstr "Dump tabel"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
-msgstr "Inkluder tabeloverskrift"
+msgstr "Inkludér tabeloverskrift"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
@@ -2913,6 +2909,7 @@ msgstr "Fortsat tabeloverskrift"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
+#, fuzzy
 msgid "Label key"
 msgstr "Mærke nøgle"
 
@@ -2928,10 +2925,9 @@ msgid "Relations"
 msgstr "Relationer"
 
 #: libraries/config/messages.inc.php:105
-#, fuzzy
 #| msgid "Export type"
 msgid "Export method"
-msgstr "Eksporttype"
+msgstr "Eksport-type"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
@@ -2944,7 +2940,7 @@ msgstr "Overskriv eksisterende fil(er)"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr "Husk maske for filnavn"
+msgstr "Husk skabelon for filnavn"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
@@ -2953,11 +2949,11 @@ msgstr "Brug \"backquotes\" omkring tabel -og feltnavne"
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:346
 msgid "SQL compatibility mode"
-msgstr "SQL-kompatibilitetsmodus"
+msgstr "SQL-kompatibilitets-tilstand"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "Muligheder for <code>CREATE TABLE</code>:"
+msgstr "Indstillinger til <code>CREATE TABLE</code>:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
@@ -2981,7 +2977,7 @@ msgstr "Brug ignorér inserts"
 
 #: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
-msgstr "Syntaks som skal bruges, når der indsættes data"
+msgstr "Syntaks der bruges, når der indsættes data"
 
 #: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
@@ -3012,16 +3008,16 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteringsrækkefølge for elementer i valgboks med fremmede nøgler; [kbd]"
-"content[/kbd] er de refererede data, [kbd]id[/kbd] er nøglens værdi"
+"Sorteringsrækkefølge for elementer i valgboks med fremmede nøgler; "
+"[kbd]content[/kbd] er de refererede data, [kbd]id[/kbd] er nøglens værdi"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr "Sortër fremmede nøgler i valgboks på:"
+msgstr "Sortér fremmede nøgler i valgboks"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr "Der vil blive brugt en valgboks, hvis der er færre elementer til stede"
+msgstr "Der vil blive brugt en valgboks, hvis der er få elementer til stede"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
@@ -3064,7 +3060,7 @@ msgstr "Redigeringstilstand"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr "Tilpas redigerinstilstand"
+msgstr "Tilpas redigeringstilstand"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
@@ -3091,7 +3087,7 @@ msgstr "Bestem indstillinger for nogle af de mest anvendte valgmuligheder"
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "Import"
+msgstr "Importér"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import defaults"
@@ -3146,13 +3142,12 @@ msgstr "Hovedramme"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:188
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "Open Document"
-msgstr "Open Document tekst"
+msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:190
 msgid "Other core settings"
@@ -3171,14 +3166,17 @@ msgid ""
 "Specify browser's title bar text. Refer to [a@Documentation."
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
-msgstr "Angiv browserens titeltekst. "
+msgstr ""
+"Angiv browserens tekst i titelbaren. Se "
+"[a@Documentation.html#cfg_TitleTable]dokumentationen[/a] for tekststrenge "
+"der indeholder særlige værdier."
 
 #: libraries/config/messages.inc.php:194
 #: libraries/navigation_header.inc.php:83
 #: libraries/navigation_header.inc.php:86
 #: libraries/navigation_header.inc.php:89
 msgid "Query window"
-msgstr "Foresp. vindue"
+msgstr "Forespørgselsvindue"
 
 #: libraries/config/messages.inc.php:195
 msgid "Customize query window options"
@@ -3193,8 +3191,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
-"Bemærk venligst at phpMyAdmin blot er en brugerflade, hvis egenskaber ikke "
-"begrænser MySQL"
+"Bemærk venligst at phpMyAdmin blot er en brugerflade og at den ikke "
+"begrænser mulighederne i MySQL"
 
 #: libraries/config/messages.inc.php:198
 msgid "Basic settings"
@@ -3218,7 +3216,7 @@ msgid ""
 "what they are for"
 msgstr ""
 "Avanceret serverkonfiguration. Lad være med at ændre disse indstillinger med "
-"mindre, du ved, hvad de betyder"
+"mindre du ved hvad de betyder"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
@@ -3234,16 +3232,21 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Konfigurér phpMyAdmin configuration storage for at få adgang til flere "
+"funktioner. Se dokumentationen for [a@Documentation.html#linked-"
+"tables]phpMyAdmin configuration storage[/a]."
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
-msgstr ""
+msgstr "Ændrer sporing"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Sporing af ændringer i databasen er udført. phpMyAdmin configuration storage "
+"er krævet."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -3264,11 +3267,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "SQL-forespørgsler"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
-msgstr ""
+msgstr "SQL Query-boks"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
@@ -3296,7 +3299,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
-msgstr ""
+msgstr "Opstart"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
@@ -3304,7 +3307,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
-msgstr ""
+msgstr "Faner"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
@@ -3328,7 +3331,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:230
 msgid "Warnings"
-msgstr ""
+msgstr "Advarsler"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
