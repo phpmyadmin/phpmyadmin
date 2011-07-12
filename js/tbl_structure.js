@@ -270,7 +270,7 @@ $(document).ready(function() {
                 /*Reload the field form*/
                 $("#table_index").remove();
                 var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                $($temp_div).find("#table_index").insertAfter("#index_header");
+                $temp_div.find("#table_index").insertAfter("#index_header");
                 if ($("#edit_index_dialog").length > 0) {
                     $("#edit_index_dialog").dialog("close").remove();
                 }
@@ -278,8 +278,8 @@ $(document).ready(function() {
             } else {
                 if(data.error != undefined) {
                     var $temp_div = $("<div id='temp_div'><div>").append(data.error);
-                    if($($temp_div).find(".error code").length != 0) {
-                        var $error = $($temp_div).find(".error code").addClass("error");
+                    if ($temp_div.find(".error code").length != 0) {
+                        var $error = $temp_div.find(".error code").addClass("error");
                     } else {
                         var $error = $temp_div;
                     }
@@ -305,7 +305,7 @@ $(document).ready(function() {
         $.post($form.attr('action'), $form.serialize()+"&add_fields=Go", function(data) {
             $("#index_columns").remove();
             var $temp_div = $("<div id='temp_div'><div>").append(data);
-            $($temp_div).find("#index_columns").appendTo("#index_edit_fields");
+            $temp_div.find("#index_columns").appendTo("#index_edit_fields");
         }) // end $.post()
     }) // end insert table button "Go"
 
