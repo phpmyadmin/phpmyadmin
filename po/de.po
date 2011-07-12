@@ -3412,7 +3412,7 @@ msgstr "Prozentwerte als Dezimalzahlen importieren (12.00% wird zu 0.12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr "Anzahl der am Anfang zu überspringenden Einträge (Abfragen)"
+msgstr "Anzahl der am Anfang zu überspringenden Abfragen"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
