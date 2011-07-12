@@ -7299,7 +7299,7 @@ msgstr ""
 "können. In der ersten Möglichkeit benennen Sie den Dateinamen. Als zweite "
 "Option wird ein Spaltenname durch den Dateinamen gesetzt. Sollte die zweite "
 "Option gesetzt sein, ist es notwendig, die erste Option auf einen Leerstring "
-"zu setzen ('')."
+"zu setzen."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
