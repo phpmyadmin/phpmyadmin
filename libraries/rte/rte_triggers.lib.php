@@ -132,19 +132,20 @@ function PMA_TRI_handleEditor()
             $extra_data = array();
             if ($message->isSuccess()) {
                 $items = PMA_DBI_get_triggers($db, $table, '');
+                $trigger = false;
                 foreach ($items as $key => $value) {
                     if ($value['name'] == $_REQUEST['item_name']) {
                         $trigger = $value;
                     }
                 }
-                $extra_data['name'] = htmlspecialchars(
-                    strtoupper($_REQUEST['item_name'])
-                );
                 $extra_data['insert'] = false;
-                if (empty($table) || $table == $trigger['table']) {
+                if (empty($table) || ($trigger !== false && $table == $trigger['table'])) {
                     $extra_data['insert'] = true;
+                    $extra_data['new_row'] = PMA_TRI_getRowForList($trigger);
+                    $extra_data['name'] = htmlspecialchars(
+                        strtoupper($_REQUEST['item_name'])
+                    );
                 }
-                $extra_data['new_row'] = PMA_TRI_getRowForList($trigger);
                 $response = $output;
             } else {
                 $response = $message;
