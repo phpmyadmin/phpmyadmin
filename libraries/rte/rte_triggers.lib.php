@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Functions for trigger management.
+ *
  * @package phpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -62,7 +64,9 @@ function PMA_TRI_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db, $table;
 
-    if (! empty($_REQUEST['editor_process_add']) || ! empty($_REQUEST['editor_process_edit'])) {
+    if (! empty($_REQUEST['editor_process_add'])
+        || ! empty($_REQUEST['editor_process_edit'])
+    ) {
         $sql_query = '';
 
         $item_query = PMA_TRI_getQueryFromRequest();
@@ -133,7 +137,9 @@ function PMA_TRI_handleEditor()
                         $trigger = $value;
                     }
                 }
-                $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
+                $extra_data['name'] = htmlspecialchars(
+                    strtoupper($_REQUEST['item_name'])
+                );
                 $extra_data['insert'] = false;
                 if (empty($table) || $table == $trigger['table']) {
                     $extra_data['insert'] = true;
@@ -150,8 +156,9 @@ function PMA_TRI_handleEditor()
     /**
      * Display a form used to add/edit a trigger, if necessary
      */
-    if (count($errors) || ( empty($_REQUEST['editor_process_add']) && empty($_REQUEST['editor_process_edit']) &&
-              (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])))) { // FIXME: this must be simpler than that
+    if (count($errors) || ( empty($_REQUEST['editor_process_add']) && empty($_REQUEST['editor_process_edit'])
+        && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
+    ) {
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
             $title = __("Create trigger");
@@ -159,7 +166,9 @@ function PMA_TRI_handleEditor()
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
             $title = __("Edit trigger");
-            if (! empty($_REQUEST['item_name']) && empty($_REQUEST['editor_process_edit'])) {
+            if (! empty($_REQUEST['item_name'])
+                && empty($_REQUEST['editor_process_edit'])
+            ) {
                 $item = PMA_TRI_getDataFromName($_REQUEST['item_name']);
                 if ($item !== false) {
                     $item['item_original_name'] = $item['item_name'];
@@ -182,10 +191,12 @@ function PMA_TRI_handleEditor()
             }
             // exit;
         } else {
-            $message = __('Error in processing request') . ' : '
-                     . sprintf(PMA_RTE_getWord('not_found'),
-                               htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
-                               htmlspecialchars(PMA_backquote($db)));
+            $message  = __('Error in processing request') . ' : ';
+            $message .= sprintf(
+                PMA_RTE_getWord('not_found'),
+                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PMA_backquote($db))
+            );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
                 PMA_ajaxResponse($message, false);
@@ -257,9 +268,6 @@ function PMA_TRI_getDataFromName($name)
  *
  * @param   string   $mode         If the editor will be used edit a trigger
  *                                 or add a new one: 'edit' or 'add'.
- * @param   string   $operation    If the editor was previously invoked with
- *                                 JS turned off, this will hold the name of
- *                                 the current operation
  * @param   array    $item         Data for the trigger returned by
  *                                 PMA_TRI_getDataFromRequest() or
  *                                 PMA_TRI_getDataFromName()
@@ -277,7 +285,7 @@ function PMA_TRI_getEditorForm($mode, $item)
                        'item_definition',
                        'item_definer'
                    );
-    foreach($need_escape as $key => $index) {
+    foreach ($need_escape as $key => $index) {
         $item[$index] = htmlentities($item[$index], ENT_QUOTES);
     }
     $original_data = '';
@@ -320,7 +328,9 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    <td><select name='item_timing'>\n";
     foreach ($action_timings as $key => $value) {
         $selected = "";
-        if (! empty($item['item_action_timing']) && $item['item_action_timing'] == $value) {
+        if (! empty($item['item_action_timing'])
+            && $item['item_action_timing'] == $value
+        ) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -332,7 +342,9 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "    <td><select name='item_event'>\n";
     foreach ($event_manipulations as $key => $value) {
         $selected = "";
-        if (! empty($item['item_event_manipulation']) && $item['item_event_manipulation'] == $value) {
+        if (! empty($item['item_event_manipulation'])
+            && $item['item_event_manipulation'] == $value
+        ) {
             $selected = " selected='selected'";
         }
         $retval .= "<option$selected>$value</option>";
@@ -341,7 +353,9 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definition') . "</td>\n";
-    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>{$item['item_definition']}</textarea></td>\n";
+    $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
+    $retval .= $item['item_definition'];
+    $retval .= "</textarea></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definer') . "</td>\n";
@@ -351,7 +365,8 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "</table>\n";
     $retval .= "</fieldset>\n";
     if ($GLOBALS['is_ajax_request']) {
-        $retval .= "<input type='hidden' name='editor_process_{$mode}' value='true' />\n";
+        $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
+        $retval .= "       value='true' />\n";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
     } else {
         $retval .= "<fieldset class='tblFooters'>\n";
@@ -378,7 +393,8 @@ function PMA_TRI_getQueryFromRequest()
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA_backquote($arr[0]) . '@' . PMA_backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PMA_backquote($arr[0]);
+            $query .= '@' . PMA_backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
