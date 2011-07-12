@@ -1447,7 +1447,7 @@ function PMA_RTN_getExecuteForm($routine)
         } else if ($routine['item_param_type'][$i] == 'DATE') {
             $class = 'datefield';
         }
-        $retval .= "<td style='white-space: nowrap;'>\n";
+        $retval .= "<td class='nowrap'>\n";
         if (in_array($routine['item_param_type'][$i], array('ENUM', 'SET'))) {
             $tokens = PMA_SQP_parse($routine['item_param_length'][$i]);
             if ($routine['item_param_type'][$i] == 'ENUM') {
