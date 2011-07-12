@@ -297,9 +297,10 @@ if (! isset($sql_backquotes)) {
 /**
  * Exports routines (procedures and functions)
  *
- * @param   string      $db
+ * @param   string  $db
+ * @return  bool  Whether it suceeded
  *
- * @return  bool        Whether it suceeded
+ * @access  public
  */
 function PMA_exportRoutines($db) {
     global $crlf;
@@ -357,9 +358,10 @@ function PMA_exportRoutines($db) {
 /**
  * Possibly outputs comment
  *
- * @param   string      Text of comment
- *
+ * @param   string  $text  Text of comment
  * @return  string      The formatted comment
+ *
+ * @access  private
  */
 function PMA_exportComment($text = '')
 {
@@ -375,10 +377,11 @@ function PMA_exportComment($text = '')
  * Possibly outputs CRLF
  *
  * @return  string  $crlf or nothing
+ *
+ * @access private
  */
 function PMA_possibleCRLF()
 {
-
     if (isset($GLOBALS['sql_include_comments']) && $GLOBALS['sql_include_comments']) {
         return $GLOBALS['crlf'];
     } else {
@@ -518,10 +521,9 @@ function PMA_exportHeader()
 }
 
 /**
- * Outputs CREATE DATABASE database
+ * Outputs CREATE DATABASE statement
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -557,8 +559,7 @@ function PMA_exportDBCreate($db)
 /**
  * Outputs database header
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -574,8 +575,7 @@ function PMA_exportDBHeader($db)
 /**
  * Outputs database footer
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -626,15 +626,13 @@ function PMA_exportDBFooter($db)
     return $result;
 }
 
-
 /**
  * Returns a stand-in CREATE definition to resolve view dependencies
  *
- * @param   string   the database name
- * @param   string   the view name
- * @param   string   the end of line sequence
- *
- * @return  string   resulting definition
+ * @param   string  $db    the database name
+ * @param   string  $view  the view name
+ * @param   string  $crlf  the end of line sequence
+ * @return  string         resulting definition
  *
  * @access  public
  */
@@ -662,19 +660,14 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
 /**
  * Returns $table's CREATE definition
  *
- * @param   string   the database name
- * @param   string   the table name
- * @param   string   the end of line sequence
- * @param   string   the url to go back in case of error
- * @param   boolean  whether to include creation/update/check dates
- * @param   boolean  whether to add semicolon and end-of-line at the end
- * @param   boolean  whether we're handling view
- *
+ * @param   string  $db             the database name
+ * @param   string  $table          the table name
+ * @param   string  $crlf           the end of line sequence
+ * @param   string  $error_url      the url to go back in case of error
+ * @param   bool    $show_dates     whether to include creation/update/check dates
+ * @param   bool    $add_semicolon  whether to add semicolon and end-of-line at the end
+ * @param   bool    $view           whether we're handling a view
  * @return  string   resulting schema
- *
- * @global  boolean  whether to add 'drop' statements or not
- * @global  boolean  whether to use backquotes to allow the use of special
- *                   characters in database, table and fields names or not
  *
  * @access  public
  */
@@ -869,21 +862,19 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     return $schema_create . ($add_semicolon ? ';' . $crlf : '');
 } // end of the 'PMA_getTableDef()' function
 
-
 /**
  * Returns $table's comments, relations etc.
  *
- * @param   string   the database name
- * @param   string   the table name
- * @param   string   the end of line sequence
- * @param   boolean  whether to include relation comments
- * @param   boolean  whether to include mime comments
- *
+ * @param   string  $db           database name
+ * @param   string  $table        table name
+ * @param   string  $crlf         end of line sequence
+ * @param   bool    $do_relation  whether to include relation comments
+ * @param   bool    $do_mime      whether to include mime comments
  * @return  string   resulting comments
  *
- * @access  public
+ * @access  private
  */
-function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mime = false)
+function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_mime = false)
 {
     global $cfgRelation;
     global $sql_backquotes;
@@ -943,21 +934,21 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false,  $do_mim
 /**
  * Outputs table's structure
  *
- * @param   string   the database name
- * @param   string   the table name
- * @param   string   the end of line sequence
- * @param   string   the url to go back in case of error
- * @param   boolean  whether to include relation comments
- * @param   boolean  whether to include the pmadb-style column comments
- *                   as comments in the structure; this is deprecated
- *                   but the parameter is left here because export.php
- *                   calls PMA_exportStructure() also for other export
- *                   types which use this parameter
- * @param   boolean  whether to include mime comments
- * @param   string   'stand_in', 'create_table', 'create_view'
- * @param   string   'server', 'database', 'table'
- *
- * @return  bool     Whether it suceeded
+ * @param   string  $db           database name
+ * @param   string  $table        table name
+ * @param   string  $crlf         the end of line sequence
+ * @param   string  $error_url    the url to go back in case of error
+ * @param   bool    $relation     whether to include relation comments
+ * @param   bool    $comments     whether to include the pmadb-style column comments
+ *                                as comments in the structure; this is deprecated
+ *                                but the parameter is left here because export.php
+ *                                calls PMA_exportStructure() also for other export
+ *                                types which use this parameter
+ * @param   bool    $mime         whether to include mime comments
+ * @param   bool    $dates        whether to include creation/update/check dates
+ * @param   string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
+ * @param   string  $export_type  'server', 'database', 'table'
+ * @return  bool      Whether it suceeded
  *
  * @access  public
  */
@@ -1019,26 +1010,16 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
 }
 
 /**
- * Dispatches between the versions of 'getTableContent' to use depending
- * on the php version
+ * Outputs the content of a table in SQL format
  *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
+ * @param   string  $db         database name
+ * @param   string  $table      table name
+ * @param   string  $crlf       the end of line sequence
+ * @param   string  $error_url  the url to go back in case of error
+ * @param   string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
- * @global  boolean  whether to use backquotes to allow the use of special
- *                   characters in database, table and fields names or not
- * @global  integer  the number of records
- * @global  integer  the current record position
- *
  * @access  public
- *
- * @see     PMA_getTableContentFast(), PMA_getTableContentOld()
- *
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
