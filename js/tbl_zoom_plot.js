@@ -11,10 +11,10 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-    var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
-    msgbox.click(function() {
-        $(this).remove();
-    });
+        var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'],10000);
+	msgbox.click(function() {
+               $(this).remove();
+	});
 }
 
 /**
@@ -22,7 +22,7 @@ function displayHelp() {
  ** @param array
  **/
 Array.max = function (array) {
-    return Math.max.apply( Math, array );
+	return Math.max.apply( Math, array );
 }
 
 /**
@@ -30,7 +30,7 @@ Array.max = function (array) {
  ** @param array
  **/
 Array.min = function (array) {
-   return Math.min.apply( Math, array );
+	return Math.min.apply( Math, array );
 }
 
 /**
@@ -39,6 +39,18 @@ Array.min = function (array) {
  **/
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+/**
+ ** Checks if an object is empty
+ ** @param n: Object (to be checked) 
+ **/
+function isEmpty(obj) {
+    var name;
+    for (name in obj) {
+        return false;
+    }
+    return true;
 }
 
 /**
@@ -142,13 +154,22 @@ $(document).ready(function() {
         //Prevent default submission of form
         event.preventDefault();
 	
+	//Update the data, find changed values
+	var newValues = new Array();//Stores the values changed from original
         var it = 4;
 	for (key in data[currentData]) {
-	    if (key != 'where_clause')
-	        data[currentData][key] = $('#fieldID_' + it).val();
+	    if (key != 'where_clause'){
+		var oldVal = data[currentData][key];
+		var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+		if (oldVal != newVal){
+		    data[currentData][key] = newVal;
+		    newValues[key] = newVal;
+		}
+	    }
 	    it++    
-	}
-        //Update the chart seiries for replot
+	}//End data update
+
+        //Update the chart series and replot
         series[currentData].data = {
 	    name : data[currentData][dataLabel],
             x : data[currentData][xLabel],
@@ -156,6 +177,7 @@ $(document).ready(function() {
 	    color : colorCodes[currentData % 8],
 	    id : currentData,
 	};
+
 	xCord[currentData] = data[currentData][xLabel]
 	yCord[currentData] = data[currentData][yLabel]
 
@@ -165,49 +187,49 @@ $(document).ready(function() {
 	currentSettings.yAxis.max = Array.max(yCord) + 2;
 	currentSettings.yAxis.min = Array.min(yCord) - 2;
 	
-        currentChart = PMA_createChart(currentSettings);
+        currentChart = PMA_createChart(currentSettings); 
 	currentChart.series[currentData].data[0].select();
-	
-	//Generate SQL query for update
-        var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
-	$.each(data[currentData],function(index, value) {
-	    if(index != 'where_clause') {
-	        sql_query += '`' + index + '`=' 
-		if(!isNumeric(value)) 
-		    sql_query += '\'' + value.replace(/'/g, "''") + '\' ,'
-		else
-		    sql_query += value.replace(/'/g, "''") + ' ,'
+	//End plot update	
 
-	    }
-	    else {
-	        sql_query = sql_query.substring(0, sql_query.length - 1);
-		sql_query += ' WHERE ' + PMA_urldecode(value);
-	    }
-	});
-	//Post SQL query to sql.php	
-	$.post('sql.php', {
-            'token' : window.parent.token,
-            'db' : window.parent.db,
-            'ajax_request' : true,
-            'sql_query' : sql_query,
-	    'inline_edit' : false
-	    }, function(data) {
-	        if(data.success == true) {
-	            $('#sqlqueryresults').html(data.sql_query);
-		    $("#sqlqueryresults").trigger('appendAnchor');
+	//Generate SQL query for update
+	if (!isEmpty(newValues)) {
+            var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
+	    for (key in newValues) {
+	        if(key != 'where_clause') {
+	            sql_query += '`' + key + '`=' ;
+		    var value = newValues[key];
+		    if(!isNumeric(value) && value != null) 
+		        sql_query += '\'' + value + '\' ,';
+		    else
+		        sql_query += value + ' ,';
 	        }
-	        else 
-	            PMA_ajaxShowMessage(data.error);
-	    })
-		
-        })//end $.post('sql.php') 
+	    }
+	    sql_query = sql_query.substring(0, sql_query.length - 1);
+	    sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
+	    
+	    //Post SQL query to sql.php	
+	    $.post('sql.php', {
+                'token' : window.parent.token,
+                'db' : window.parent.db,
+                'ajax_request' : true,
+                'sql_query' : sql_query,
+	        'inline_edit' : false
+	        }, function(data) {
+	            if(data.success == true) {
+	                $('#sqlqueryresults').html(data.sql_query);
+		        $("#sqlqueryresults").trigger('appendAnchor');
+	            }
+	            else 
+	                PMA_ajaxShowMessage(data.error);
+	    })//End $.post
+	}//End database update
+    });//End submit handler 
 
     /*
      * Generate plot using Highcharts
      */ 
 
     if (data != null) {
-
         $('#zoom_search_form')
          .slideToggle()
          .hide();
@@ -216,7 +238,7 @@ $(document).ready(function() {
 	$('#togglesearchformdiv').show();
         
         ShowDialog(false);
-	$('#resizer').height($('#dataDisplay').height() + 50); 
+	//$('#resizer').height($('#dataDisplay').height() + 50); 
 
     	var columnNames = new Array();
     	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
@@ -270,8 +292,11 @@ $(document).ready(function() {
                             click: function() {
 			        var id = this.id;
 				var j = 4;
-                                for( key in data[id]){
-					$('#fieldID_' + j).val(data[id][key]);
+                                for( key in data[id]) {
+					if (data[id][key] == null)
+					    $('#fields_null_id_' + j).attr('checked', true);
+					else
+					    $('#fieldID_' + j).val(data[id][key]);
 					j++;
 				} 
 				currentData = id;

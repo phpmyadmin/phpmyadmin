@@ -351,7 +351,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
         <?php
             //JSON encode the data(query result)
             if(isset($zoom_submit) && !empty($data)){ ?>
-                <div id='resizer' style="width:900px;float:right">
+                <div id='resizer' style="width:600px;height:400px;float:right">
 	        <?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
                 <div id="querydata" style="display:none">
                     <?php if(isset($data)) echo json_encode($data); ?>
@@ -368,6 +368,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
             <thead>
                 <tr>
 		<th> <?php echo __('Column'); ?> </th>
+		<th> <?php echo __('Null'); ?> </th>
                 <th> <?php echo __('Value'); ?> </th>
 		</tr>
             </thead>
@@ -381,6 +382,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
                     ?>
                     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
                         <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
+		    	<th><?php echo '<input type="checkbox" class="checkbox_null" name="fields_null[ ' . $i . ' ]" id="fields_null_id_' . $i . '" />'; ?></th>
                         <th><?php echo PMA_getForeignFields_Values($foreigners, $foreignData, $fieldpopup, $tbl_fields_type, $i, $db, $table, $titles,$GLOBALS['cfg']['ForeignKeyMaxLimit'], '' ); ?> </th>
                     </tr>
                     <?php 
