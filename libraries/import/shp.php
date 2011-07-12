@@ -217,6 +217,7 @@ if (isset($plugin_list)) {
         $GLOBALS['import_text'] = $zip_content['data'];
     }
 
+    $temp_dbf_file = false;
     // We need dbase extension to handle .dbf file
     if (extension_loaded('dbase')) {
         // If we can extract the zip archive to 'TempDir' and use the files in it for import
