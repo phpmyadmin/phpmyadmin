@@ -6947,10 +6947,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "Tetikleyici %1$s değiştirildi."
 
 #: libraries/rte/rte_triggers.lib.php:114
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Tablo %1$s oluşturuldu."
+msgstr "Tetikleyici %1$s oluşturuldu."
 
 #: libraries/rte/rte_triggers.lib.php:165
 #, fuzzy
