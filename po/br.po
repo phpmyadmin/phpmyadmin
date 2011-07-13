@@ -3161,7 +3161,7 @@ msgstr "Rekedoù SQL"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
-msgstr ""
+msgstr "Boest rekedoù SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
