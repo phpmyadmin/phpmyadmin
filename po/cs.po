@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 14:57+0200\n"
+"PO-Revision-Date: 2011-07-13 14:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6951,10 +6951,9 @@ msgid "You must provide a valid table name"
 msgstr "Musíte zadat platné jméno tabulky"
 
 #: libraries/rte/rte_triggers.lib.php:429
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Musíte zadat definici rutiny."
+msgstr "Musíte zadat definici spouště."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
