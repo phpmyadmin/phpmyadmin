@@ -700,7 +700,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     $schema_create = '';
     $auto_increment = '';
     $new_crlf = $crlf;
-PMA_Table::sGetStatusInfo($db, $table);
+
     // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
     $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\'', null, PMA_DBI_QUERY_STORE);
     if ($result != false) {
