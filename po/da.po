@@ -3322,10 +3322,9 @@ msgid "Partial import: skip queries"
 msgstr "Delvis import: Spring over forespørgsler"
 
 #: libraries/config/messages.inc.php:261
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Tilføj AUTO_INCREMENT værdi"
+msgstr "Brug ikke AUTO_INCREMENT for 0-værdier"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
