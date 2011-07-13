@@ -6941,10 +6941,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Üzgünüm, kaldırılmış tetikleyiciyi geri yükleme başarısız oldu."
 
 #: libraries/rte/rte_triggers.lib.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Yordam %1$s değiştirildi."
+msgstr "Tetikleyici %1$s değiştirildi."
 
 #: libraries/rte/rte_triggers.lib.php:114
 #, fuzzy, php-format
