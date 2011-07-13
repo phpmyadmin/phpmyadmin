@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 17:48+0200\n"
+"PO-Revision-Date: 2011-07-13 17:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6653,10 +6653,9 @@ msgid "Execute every"
 msgstr "Çalıştır; her"
 
 #: libraries/rte/rte_events.lib.php:438
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Başlangıç"
+msgstr "Başlama"
 
 #: libraries/rte/rte_events.lib.php:454 libraries/rte/rte_routines.lib.php:952
 #: libraries/rte/rte_triggers.lib.php:356
