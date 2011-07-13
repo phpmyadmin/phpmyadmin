@@ -1285,6 +1285,10 @@ div#logTable {
     clear: both;
 }
 
+div#logTable table {
+	width:100%;
+}
+
 .smallIndent {
     padding-left: 7px;
 }

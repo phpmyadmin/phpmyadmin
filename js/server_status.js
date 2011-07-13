@@ -756,6 +756,9 @@ $(function() {
         
         var newSize = chartSize();
         
+        // Empty cells should keep their size so you can drop onto them
+        $('table#chartGrid tr td').css('width',newSize.width + 'px');
+        
         var numColumns;
         var $tr = $('table#chartGrid tr:first');
         var row=0;
@@ -797,6 +800,9 @@ $(function() {
         
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        
+        if(editMode)
+            $("#chartGrid").sortableTable('refresh');
         
         saveMonitor(); // Save settings
     });
@@ -1137,13 +1143,16 @@ $(function() {
             addChart(value,true);
         });
         
+        /* Fill in missing cells */
         var numCharts = $('table#chartGrid .monitorChart').length;
         var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
         for(var i=0; i < numMissingCells; i++) {
             $('table#chartGrid tr:last').append('<td></td>');
         }
         
-     //   $('table#chartGrid td').css('width',monitorSettings.chartSize.width);
+        // Empty cells should keep their size so you can drop onto them
+        $('table#chartGrid tr td').css('width',chartSize().width + 'px');
+
         
         buildRequiredDataList();
         refreshChartGrid();

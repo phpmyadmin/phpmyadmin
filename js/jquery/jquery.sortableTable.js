@@ -107,6 +107,7 @@
 			
 			// Call this when the table has been updated
 			this.refresh = function() {
+				destroy();
 				setup();
 			}
 			
