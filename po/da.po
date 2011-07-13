@@ -3226,7 +3226,7 @@ msgstr "Advarsler"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Deaktivér nogle af advarslerne som phpMyAdmin viser"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
