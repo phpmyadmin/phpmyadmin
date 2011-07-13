@@ -3334,7 +3334,7 @@ msgstr "Skydernes udgangspunkt"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Hvor mange rækker kan der indsættes på een gang"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
