@@ -3268,7 +3268,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:238
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Delvis import: Tillad afbrydelse"
 
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
