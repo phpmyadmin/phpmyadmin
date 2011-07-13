@@ -37,7 +37,9 @@
 		function sortableTableInstance(table, options) {
 			var down = false;
 			var	$draggedEl, oldCell, previewMove, id;
-				
+			
+			if(!options) options = {};
+			
 			/* Mouse handlers on the child elements */
 			var onMouseUp = function(e) { 
 				dropAt(e.pageX, e.pageY); 
@@ -87,13 +89,13 @@
 			
 			// Initialize sortable table
 			this.init = function() {
-				init();
+				setup();
 				$(document).mousemove(globalMouseMove);
 			}
 			
 			// Call this when the table has been updated
 			this.refresh = function() {
-				init();
+				setup();
 			}
 			
 			this.destroy = function() {
@@ -110,7 +112,7 @@
 				$(document).unbind('mousemove',globalMouseMove);
 			}
 			
-			function init() {
+			function setup() {
 				id = 1;
 				// Add some required css to each child element in the <td>s
 				$(table).find('td').children().each(function() {
@@ -131,19 +133,27 @@
 					left: $(drag).children().first().offset().left - $(dropTo).offset().left, 
 					top:  $(drag).children().first().offset().top - $(dropTo).offset().top 
 				};
+				var dropPosDiff = {
+					left: $(dropTo).children().first().offset().left - $(drag).offset().left, 
+					top:  $(dropTo).children().first().offset().top - $(drag).offset().top 
+				};
 
-				// I love you append(). It moves the DOM Elements so gracefully <3
+				/* I love you append(). It moves the DOM Elements so gracefully <3 */
+				// Put the element in the way to old place
 				$(drag).append($(dropTo).children().first()).children()
+					.stop(true,true)
 					.bind('mouseup',onMouseUp)
-					.css('left','0')
-					.css('top','0');
+					.css('left',dropPosDiff.left + 'px')
+					.css('top',dropPosDiff.top + 'px');
 					
+				// Put our dragged element into the space we just freed up
 				$(dropTo).append($(drag).children().first()).children()
 					.bind('mouseup',onMouseUp)
 					.css('left',dragPosDiff.left + 'px')
 					.css('top',dragPosDiff.top + 'px');
 				
 				moveTo($(dropTo).children().first(), { duration: 100 });
+				moveTo($(drag).children().first(), { duration: 100 });
 					
 				if(options.events && options.events.drop)
 					options.events.drop(drag,dropTo);
