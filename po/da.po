@@ -3381,7 +3381,7 @@ msgstr "Kun i lille version; vis databaser i træ (afgjort vha. separator)"
 
 #: libraries/config/messages.inc.php:276
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Vis databaser i træ"
 
 #: libraries/config/messages.inc.php:277
 msgid "Disable this if you want to see all databases at once"
