@@ -735,9 +735,66 @@ $(function() {
             $("#chartGrid").sortableTable({
                 events: {
                     start: function() {
-                        console.log('start.');
+                      //  console.log('start.');
                     },
-                    drop: function() { console.log('dropped'); }
+                    // Drop event. The drag child element is moved into the drop element
+                    // and vice versa. So the parameters are switched.
+                    drop: function(drag, drop, pos) { 
+                        var dragKey, dropKey, dropRender;
+                        var dragRender = $(drag).children().first().attr('id');
+                        
+                        if($(drop).children().length > 0)
+                            dropRender = $(drop).children().first().attr('id');
+                        
+                        // Find the charts in the array
+                        $.each(runtime.charts, function(key, value) {
+                            if(value.chart.options.chart.renderTo == dragRender)
+                                dragKey = key;
+                            if(dropRender && value.chart.options.chart.renderTo == dropRender)
+                                dropKey = key;
+                        });
+                        
+                        // Case 1: drag and drop are charts -> Switch keys
+                        if(dropKey) {
+                            if(dragKey) {
+                                dragChart = runtime.charts[dragKey];
+                                runtime.charts[dragKey] = runtime.charts[dropKey];
+                                runtime.charts[dropKey] = dragChart;
+                            } else {
+                                // Case 2: drop is a empty cell => just completely rebuild the ids
+                                var keys = [];
+                                var dropKeyNum = parseInt(dropKey.substr(1));
+                                var insertBefore = pos.col + pos.row * monitorSettings.columns;
+                                var values = [];
+                                var newChartList = {};
+                                var c = 0;
+                                    
+                                $.each(runtime.charts, function(key, value) {
+                                    if(key != dropKey)
+                                        keys.push(key);
+                                });
+                                
+                                keys.sort();
+                                
+                                // Rebuilds all ids, with the dragged chart correctly inserted
+                                for(var i=0; i<keys.length; i++) {
+                                    if(keys[i] == insertBefore) {
+                                        newChartList['c' + (c++)] = runtime.charts[dropKey];
+                                        insertBefore = -1; // Insert ok
+                                    }
+                                    newChartList['c' + (c++)] = runtime.charts[keys[i]];
+                                }
+                                
+                                // Not inserted => put at the end
+                                if(insertBefore != -1)
+                                    newChartList['c' + (c++)] = runtime.charts[dropKey];
+                                
+                                runtime.charts = newChartList;
+                            }
+                            
+                            saveMonitor();
+                        }
+                    }
                 }
             });
            
@@ -751,7 +808,6 @@ $(function() {
     
     // global settings
     $('div#statustabs_charting div.popupContent select[name="chartColumns"]').change(function() {
-        
         monitorSettings.columns = parseInt(this.value);
         
         var newSize = chartSize();
@@ -759,11 +815,13 @@ $(function() {
         // Empty cells should keep their size so you can drop onto them
         $('table#chartGrid tr td').css('width',newSize.width + 'px');
         
+        /* Reorder all charts that it fills all column cells */
         var numColumns;
         var $tr = $('table#chartGrid tr:first');
         var row=0;
         while($tr.length != 0) {
             numColumns = 1;
+            // To many cells in one row => put into next row
             $tr.find('td').each(function() {
                 if(numColumns > monitorSettings.columns) {
                     if($tr.next().length == 0) $tr.after('<tr></tr>');
@@ -772,6 +830,7 @@ $(function() {
                 numColumns++;
             });
             
+            // To little cells in one row => for each cell to little, move all cells backwards by 1
             if($tr.next().length > 0) {
                 var cnt = monitorSettings.columns - $tr.find('td').length;
                 for(var i=0; i < cnt; i++) {
@@ -787,6 +846,7 @@ $(function() {
             row++;
         }
         
+        /* Apply new chart size to all charts */
         $.each(runtime.charts, function(key, value) {
             value.chart.setSize(
                 newSize.width,
@@ -1138,10 +1198,14 @@ $(function() {
         }
         $('table#chartGrid').html('');
         
-        /* Add all charts */
+        /* Add all charts - in correct order */
+        var keys = [];
         $.each(runtime.charts, function(key, value) {
-            addChart(value,true);
+            keys.push(key);
         });
+        keys.sort();
+        for(var i=0; i<keys.length; i++)
+            addChart(runtime.charts[keys[i]],true);
         
         /* Fill in missing cells */
         var numCharts = $('table#chartGrid .monitorChart').length;
@@ -1312,7 +1376,8 @@ $(function() {
             var diff;
     
             /* Update values in each graph */
-            $.each(runtime.charts, function(key, elem) {
+            $.each(runtime.charts, function(orderKey, elem) {
+                var key = elem.chartID;
                 // If newly added chart, we have no data for it yet
                 if(! chartData[key]) return;
                 // Draw all points
@@ -1354,7 +1419,7 @@ $(function() {
                 
                 i++;
                 
-                runtime.charts[key].numPoints++;
+                runtime.charts[orderKey].numPoints++;
                 if(runtime.redrawCharts)
                     elem.chart.redraw();
             });
@@ -1368,8 +1433,12 @@ $(function() {
     /* Build list of nodes that need to be retrieved */
     function buildRequiredDataList() {
         runtime.dataList = {};
+        // Store an own id, because the property name is subject of reordering, thus destroying our mapping with runtime.charts <=> runtime.dataList
+        var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
-            runtime.dataList[key] = chart.nodes;
+            runtime.dataList[chartID] = chart.nodes;
+            runtime.charts[key].chartID = chartID;
+            chartID++;
         });
     }
     

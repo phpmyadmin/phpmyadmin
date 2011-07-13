@@ -100,15 +100,26 @@
 			
 			// Initialize sortable table
 			this.init = function() {
-				setup();
+				id = 1;
+				// Add some required css to each child element in the <td>s
+				$(table).find('td').children().each(function() {
+					// Remove any old occurences of our added draggable-num class
+					$(this).attr('class',$(this).attr('class').replace(/\s*draggable\-\d+/g,''));
+					$(this).addClass('draggable-' + (id++));
+				});
+				
+				// Mouse events
+				$(table).find('td').bind('mouseup',onMouseUp);
+				$(table).find('td').bind('mousedown',onMouseDown);
+
 				$(document).mousemove(globalMouseMove);
 				$(document).bind('mouseleave', globalMouseOut);
 			}
 			
 			// Call this when the table has been updated
 			this.refresh = function() {
-				destroy();
-				setup();
+				this.destroy();
+				this.init();
 			}
 			
 			this.destroy = function() {
@@ -125,22 +136,6 @@
 				$(document).unbind('mousemove',globalMouseMove);
 				$(document).unbind('mouseleave',globalMouseOut);
 			}
-			
-			function setup() {
-				id = 1;
-				// Add some required css to each child element in the <td>s
-				$(table).find('td').children().each(function() {
-					// Remove any old occurences of our added draggable-num class
-					$(this).attr('class',$(this).attr('class').replace(/\s*draggable\-\d+/g,''));
-					$(this).addClass('draggable-' + (id++));
-					$(this).css('position','relative');			
-				});
-				
-				// Mouse events
-				$(table).find('td').bind('mouseup',onMouseUp);
-				$(table).find('td').bind('mousedown',onMouseDown);
-			}
-			
 			
 			function switchElement(drag, dropTo) {
 				var dragPosDiff = { 
@@ -176,8 +171,16 @@
 				moveTo($(dropTo).children().first(), { duration: 100 });
 				moveTo($(drag).children().first(), { duration: 100 });
 					
-				if(options.events && options.events.drop)
-					options.events.drop(drag,dropTo);
+				if(options.events && options.events.drop) {
+					// Drop event. The drag child element is moved into the drop element
+					// and vice versa. So the parameters are switched.
+					
+					// Calculate row and column index
+					colIdx = $(dropTo).prevAll().length;
+					rowIdx = $(dropTo).parent().prevAll().length;
+					
+					options.events.drop(drag,dropTo, { col: colIdx, row: rowIdx });
+				}
 			}
 			
 			function move(x,y) {
@@ -219,7 +222,18 @@
 				if(!opts.pos) opts.pos = { left: 0, top: 0 };
 				if(!opts.duration) opts.duration = 200;
 				
-				$(elem).animate({ top: opts.pos.top, left: opts.pos.left }, { duration: opts.duration });
+				$(elem).css('position','relative');
+				$(elem).animate({ top: opts.pos.top, left: opts.pos.left }, {
+					duration: opts.duration,
+					complete: function() {
+						if(opts.pos.left == 0 && opts.pos.top == 0) {
+							$(elem)
+								.css('position','')
+								.css('left','')
+								.css('top','');
+						}
+					}
+				});
 			}
 		}
 	}
