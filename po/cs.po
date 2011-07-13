@@ -6615,10 +6615,9 @@ msgid "Execute every"
 msgstr "Spustit každých"
 
 #: libraries/rte/rte_events.lib.php:438
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Úvodní stránka"
+msgstr "Počátek"
 
 #: libraries/rte/rte_events.lib.php:454 libraries/rte/rte_routines.lib.php:952
 #: libraries/rte/rte_triggers.lib.php:356
