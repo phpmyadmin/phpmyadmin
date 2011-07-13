@@ -6569,10 +6569,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Při zpracování požadavku došlo k několika chybám:</b>"
 
 #: libraries/rte/rte_events.lib.php:170
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Vytvořit pohled"
+msgstr "Vytvořit událost"
 
 #: libraries/rte/rte_events.lib.php:174
 #, fuzzy
