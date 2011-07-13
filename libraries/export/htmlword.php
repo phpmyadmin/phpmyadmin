@@ -313,8 +313,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             if ($row['Null'] != 'NO') {
                 $row['Default'] = 'NULL';
             }
-        } else {
-            $row['Default'] = $row['Default'];
         }
 
         $fmt_pre = '';
