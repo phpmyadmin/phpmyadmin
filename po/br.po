@@ -3012,7 +3012,7 @@ msgstr "LaTex"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
-msgstr ""
+msgstr "Dibarzhioù diskwel an diazoù roadennoù"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
