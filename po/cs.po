@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 14:49+0200\n"
+"PO-Revision-Date: 2011-07-13 14:50+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6552,10 +6552,10 @@ msgid "The backed up query was:"
 msgstr "Záložní dotaz byl:"
 
 #: libraries/rte/rte_events.lib.php:110
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Byla změněna rutina %1$s."
+msgstr "Byla změněna událost %1$s."
 
 #: libraries/rte/rte_events.lib.php:122
 #, fuzzy, php-format
