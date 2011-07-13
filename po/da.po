@@ -3212,10 +3212,9 @@ msgid "Text fields"
 msgstr "Tekstfelter"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Use text field"
 msgid "Customize text input fields"
-msgstr "Brug tekstfelt"
+msgstr "Tilpas tekstfelter"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
