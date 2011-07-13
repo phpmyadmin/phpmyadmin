@@ -6904,10 +6904,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Bohužel se nepodařilo obnovit odstraněnou spoušť."
 
 #: libraries/rte/rte_triggers.lib.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Byla změněna rutina %1$s."
+msgstr "Byla změněna spoušť %1$s."
 
 #: libraries/rte/rte_triggers.lib.php:114
 #, fuzzy, php-format
