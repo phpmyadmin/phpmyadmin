@@ -6574,10 +6574,9 @@ msgid "Create event"
 msgstr "Vytvořit událost"
 
 #: libraries/rte/rte_events.lib.php:174
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Upravit server"
+msgstr "Upravit událost"
 
 #: libraries/rte/rte_events.lib.php:201 libraries/rte/rte_routines.lib.php:375
 #: libraries/rte/rte_routines.lib.php:1326
