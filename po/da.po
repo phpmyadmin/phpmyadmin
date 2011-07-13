@@ -3358,7 +3358,7 @@ msgstr "Vis servervalg øverst i venstre ramme"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display servers selection"
-msgstr ""
+msgstr "Vis servervalg"
 
 #: libraries/config/messages.inc.php:272
 #, fuzzy
