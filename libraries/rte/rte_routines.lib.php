@@ -10,6 +10,25 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Sets required globals
+ */
+function PMA_RTN_setGlobals()
+{
+    global $param_directions, $param_opts_num, $param_sqldataaccess;
+
+    $param_directions    = array('IN',
+                                 'OUT',
+                                 'INOUT');
+    $param_opts_num      = array('UNSIGNED',
+                                 'ZEROFILL',
+                                 'UNSIGNED ZEROFILL');
+    $param_sqldataaccess = array('NO SQL',
+                                 'CONTAINS SQL',
+                                 'READS SQL DATA',
+                                 'MODIFIES SQL DATA');
+}
+
+/**
  * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
  * rte_events.lib.php. It is used to retreive some language strings that are
  * used in functionalities that are common to routines, triggers and events.
@@ -40,6 +59,7 @@ function PMA_RTE_main()
 {
     global $db;
 
+    PMA_RTN_setGlobals();
     /**
      * Process all requests
      */
