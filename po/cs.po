@@ -6941,10 +6941,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Musíte zadat platné časování spouště"
 
 #: libraries/rte/rte_triggers.lib.php:417
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Pro každý parametr musíte zadat jeho jméno a typ."
+msgstr "Musíte zadat platnou událost pro spoušť"
 
 #: libraries/rte/rte_triggers.lib.php:423
 #, fuzzy
