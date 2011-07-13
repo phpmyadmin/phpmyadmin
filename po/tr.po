@@ -6713,7 +6713,7 @@ msgstr "KAPALI"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "AÇIK"
 
 #: libraries/rte/rte_footer.lib.php:108
 #, fuzzy
