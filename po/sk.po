@@ -1293,10 +1293,9 @@ msgid "Hide indexes"
 msgstr "Skryť indexy"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Zobraziť mriežku"
+msgstr "Zobraziť indexy"
 
 #: js/messages.php:117
 msgid "Searching"
