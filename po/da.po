@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:07+0200\n"
+"PO-Revision-Date: 2011-07-13 22:08+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3296,7 +3296,6 @@ msgstr "Brug LOCAL nøgleord"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "Indsæt feltnavne i første række"
