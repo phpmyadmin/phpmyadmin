@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 14:52+0200\n"
+"PO-Revision-Date: 2011-07-13 14:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6656,10 +6656,9 @@ msgid "You must provide a valid execution time for the event."
 msgstr "Musíte zadat platnou dobu spuštění události."
 
 #: libraries/rte/rte_events.lib.php:542
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "Pro každý parametr musíte zadat jeho jméno a typ."
+msgstr "Musíte zadat správný typ události."
 
 #: libraries/rte/rte_events.lib.php:561
 #, fuzzy
