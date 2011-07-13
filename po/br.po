@@ -2992,7 +2992,7 @@ msgstr "Enporzhiañ"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import defaults"
-msgstr ""
+msgstr "Talvoudoù enporzhiañ dre ziouer"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
