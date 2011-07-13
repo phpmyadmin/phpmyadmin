@@ -6516,10 +6516,9 @@ msgid "event"
 msgstr "událost"
 
 #: libraries/rte/rte_events.lib.php:28
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a new event"
-msgstr "Nemáte dostatečná práva pro vytvoření rutiny"
+msgstr "Nemáte dostatečná práva pro vytvoření události"
 
 #: libraries/rte/rte_events.lib.php:29
 #, fuzzy, php-format
