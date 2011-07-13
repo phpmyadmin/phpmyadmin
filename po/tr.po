@@ -6963,10 +6963,9 @@ msgid "Edit trigger"
 msgstr "Tetikleyiciyi düzenle"
 
 #: libraries/rte/rte_triggers.lib.php:309
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Tetikleyiciler"
+msgstr "Tetikleyici adı"
 
 #: libraries/rte/rte_triggers.lib.php:407
 #| msgid "You must provide a routine name"
