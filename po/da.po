@@ -1912,7 +1912,7 @@ msgstr "Godkendelse af hardware mislykkedes"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Ingen gyldig autorisations-nøgle indkoblet"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
