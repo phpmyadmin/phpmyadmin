@@ -438,7 +438,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             <?php echo __('Number of rows') . ': ' . "\n"; ?>
             <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
         <?php
-        if ($GLOBALS['cfg']['ShowDisplayDir']) {
+        if ($GLOBALS['cfg']['ShowDisplayDirection']) {
             // Display mode (horizontal/vertical and repeat headers)
             echo __('Mode') . ': ' . "\n";
             $choices = array(
