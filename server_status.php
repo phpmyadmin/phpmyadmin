@@ -1300,13 +1300,19 @@ function printMonitor() {
             <?php echo __('Refresh rate:'); refreshList('gridChartRefresh'); ?><br>
         </p>
         <p> 
-            <?php echo __('Chart size:'); ?>
-            <input type="text" name="newChartWidth" size="3" /> 
-            <?php 
-            /* l10n: Multiply sign for pixel dimensions. E.g. 500 x 300 */
-            echo __('x'); 
-            ?>
-            <input type="text" size="3" name="newChartHeight" /> 
+            <?php echo __('Chart columns:'); ?>
+            <select name="chartColumns">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
         </p>
         <a href="#clearMonitorConfig"><?php echo __('Clear monitor config'); ?></a>
     </div>
@@ -1406,7 +1412,7 @@ function printMonitor() {
         
     </div>
     
-    <table border="0" id="chartGrid">
+    <table border="0" class="clearfloat" id="chartGrid">
 
     </table>
     <div id="logTable">

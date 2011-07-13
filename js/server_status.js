@@ -553,6 +553,7 @@ $(function() {
     var oldChartData = null;
     // Holds about to created chart 
     var newChart = null;
+    var chartSpacing;
     
     // Runtime parameter of the monitor
     var runtime = {
@@ -749,28 +750,50 @@ $(function() {
     });
     
     // global settings
-    $('div#statustabs_charting div.popupContent input[name="newChartWidth"], ' +
-      'div#statustabs_charting div.popupContent input[name="newChartHeight"]').change(function() {
-          
-        monitorSettings.chartSize = {
-            width: parseInt($('div#statustabs_charting div.popupContent input[name="newChartWidth"]')
-                    .attr('value')) || monitorSettings.chartSize.width,
-            height: parseInt($('div#statustabs_charting div.popupContent input[name="newChartHeight"]')
-                    .attr('value')) || monitorSettings.chartSize.height
-        };
+    $('div#statustabs_charting div.popupContent select[name="chartColumns"]').change(function() {
         
-        $('table#chartGrid td').css('width',monitorSettings.chartSize.width);
+        monitorSettings.columns = parseInt(this.value);
+        
+        var newSize = chartSize();
+        
+        var numColumns;
+        var $tr = $('table#chartGrid tr:first');
+        var row=0;
+        while($tr.length != 0) {
+            numColumns = 1;
+            $tr.find('td').each(function() {
+                if(numColumns > monitorSettings.columns) {
+                    if($tr.next().length == 0) $tr.after('<tr></tr>');
+                    $tr.next().prepend($(this));
+                }
+                numColumns++;
+            });
+            
+            if($tr.next().length > 0) {
+                var cnt = monitorSettings.columns - $tr.find('td').length;
+                for(var i=0; i < cnt; i++) {
+                    $tr.append($tr.next().find('td:first'));
+                    $tr.nextAll().each(function() {
+                        if($(this).next().length != 0)
+                            $(this).append($(this).next().find('td:first'));
+                    });
+                }
+            }
+            
+            $tr = $tr.next();
+            row++;
+        }
         
         $.each(runtime.charts, function(key, value) {
             value.chart.setSize(
-                monitorSettings.chartSize.width,
-                monitorSettings.chartSize.height, 
+                newSize.width,
+                newSize.height, 
                 false
             );
         });
         
         if(monitorSettings.gridMaxPoints == 'auto')
-            runtime.gridMaxPoints = Math.round((monitorSettings.chartSize.width - 40) / 12);
+            runtime.gridMaxPoints = Math.round((newSize.width - 40) / 12);
         
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
@@ -1089,11 +1112,9 @@ $(function() {
             runtime.charts = defaultChartGrid;
         if(monitorSettings == null)
             monitorSettings = defaultMonitorSettings;
-        
-        $('div#statustabs_charting div.popupContent input[name="newChartWidth"]').attr('value',monitorSettings.chartSize.width);
-        $('div#statustabs_charting div.popupContent input[name="newChartHeight"]').attr('value',monitorSettings.chartSize.height);
-    
+         
         $('select[name="gridChartRefresh"]').attr('value',monitorSettings.gridRefresh / 1000);
+        $('select[name="chartColumns"]').attr('value',monitorSettings.columns);
         
         if(monitorSettings.gridMaxPoints == 'auto')
             runtime.gridMaxPoints = Math.round((monitorSettings.chartSize.width - 40) / 12);
@@ -1103,6 +1124,14 @@ $(function() {
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
 
+        /* Calculate how much spacing there is between each chart */
+        $('table#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
+        chartSpacing = {
+            width: $('table#chartGrid td:nth-child(2)').offset().left - $('table#chartGrid td:nth-child(1)').offset().left,
+            height: $('table#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top - $('table#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
+        }
+        $('table#chartGrid').html('');
+        
         /* Add all charts */
         $.each(runtime.charts, function(key, value) {
             addChart(value,true);
@@ -1114,10 +1143,18 @@ $(function() {
             $('table#chartGrid tr:last').append('<td></td>');
         }
         
-        $('table#chartGrid td').css('width',monitorSettings.chartSize.width);
+     //   $('table#chartGrid td').css('width',monitorSettings.chartSize.width);
         
         buildRequiredDataList();
         refreshChartGrid();
+    }
+    
+    function chartSize() {
+        var wdt = $('div#logTable').innerWidth() / monitorSettings.columns - (monitorSettings.columns - 1) * chartSpacing.width;
+        return {
+            width: wdt,
+            height: 0.75 * wdt
+        }
     }
     
     function addChart(chartObj, initialize) {
@@ -1128,8 +1165,8 @@ $(function() {
         settings = {
             chart: {
                 renderTo: 'gridchart' + runtime.chartAI,
-                width: monitorSettings.chartSize.width,
-                height: monitorSettings.chartSize.height,
+                width: chartSize().width,
+                height: chartSize().height,
                 marginRight: 5,
                 zoomType: 'x',
                 events: {
