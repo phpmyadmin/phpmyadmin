@@ -3075,7 +3075,7 @@ msgstr "Prenestr klask"
 
 #: libraries/config/messages.inc.php:195
 msgid "Customize query window options"
-msgstr ""
+msgstr "Personelaat dibarzhioù ar prenestr klask"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
