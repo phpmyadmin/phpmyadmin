@@ -929,11 +929,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             PMA_fatalError(__('You should upgrade to %s %s or later.'), array('MySQL', '5.0.15'));
         }
 
-        /**
-         * DisableIS must be set to false for Drizzle, it maps SHOW commands to IS queries anyway
-         */
-        if (PMA_DRIZZLE && $cfg['Server']['DisableIS']) {
+        if (PMA_DRIZZLE) {
+            // DisableIS must be set to false for Drizzle, it maps SHOW commands to IS queries anyway
             $cfg['Server']['DisableIS'] = false;
+            // SHOW OPEN TABLES is not supported by Drizzle
+            $cfg['SkipLockedTables'] = false;
         }
 
         /**

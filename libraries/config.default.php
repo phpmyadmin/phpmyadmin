@@ -596,6 +596,7 @@ $cfg['MemoryLimit'] = '0';
 
 /**
  * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
+ * Is ignored for Drizzle.
  *
  * @global boolean $cfg['SkipLockedTables']
  */
