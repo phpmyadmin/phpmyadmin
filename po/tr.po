@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 17:59+0200\n"
+"PO-Revision-Date: 2011-07-13 18:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6906,10 +6906,9 @@ msgid "Function"
 msgstr "İşlev"
 
 #: libraries/rte/rte_triggers.lib.php:24
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Bir tetikleyici ekle"
+msgstr "Tetikleyici ekle"
 
 #: libraries/rte/rte_triggers.lib.php:26
 #, php-format
