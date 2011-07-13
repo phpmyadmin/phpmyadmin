@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 17:52+0200\n"
+"PO-Revision-Date: 2011-07-13 17:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6694,10 +6694,9 @@ msgid "You must provide a valid execution time for the event."
 msgstr "Olay için geçerli bir çalıştırma zamanı vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:542
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "Her yordam parametresi için bir ad ve bir tür sağlamalısınız."
+msgstr "Olay için geçerli bir tür vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:561
 #, fuzzy
