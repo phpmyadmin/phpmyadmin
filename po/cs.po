@@ -6511,10 +6511,9 @@ msgid "Export of event %s"
 msgstr "Exportovat událost %s"
 
 #: libraries/rte/rte_events.lib.php:27
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Událost"
+msgstr "událost"
 
 #: libraries/rte/rte_events.lib.php:28
 #, fuzzy
