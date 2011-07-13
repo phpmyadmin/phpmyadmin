@@ -3145,7 +3145,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
-msgstr ""
+msgstr "Tilpas eksport-indstillinger"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize import defaults"
