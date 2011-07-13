@@ -3000,7 +3000,7 @@ msgstr "Personelaat an talvoudoù implijet dre ziouer"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr ""
+msgstr "Enporzhiañ / Ezporzhiañ"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
