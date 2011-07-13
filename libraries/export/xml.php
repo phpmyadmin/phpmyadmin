@@ -28,16 +28,20 @@ if (isset($plugin_list)) {
     /* Export structure */
     $plugin_list['xml']['options'][] =
         array('type' => 'begin_group', 'name' => 'structure', 'text' => __('Object creation options (all are recommended)'));
-    $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Functions'));
-    $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Procedures'));
+    if (!PMA_DRIZZLE) {
+        $plugin_list['xml']['options'][] =
+            array('type' => 'bool', 'name' => 'export_functions', 'text' => __('Functions'));
+        $plugin_list['xml']['options'][] =
+            array('type' => 'bool', 'name' => 'export_procedures', 'text' => __('Procedures'));
+    }
     $plugin_list['xml']['options'][] =
         array('type' => 'bool', 'name' => 'export_tables', 'text' => __('Tables'));
-    $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Triggers'));
-    $plugin_list['xml']['options'][] =
-        array('type' => 'bool', 'name' => 'export_views', 'text' => __('Views'));
+    if (!PMA_DRIZZLE) {
+        $plugin_list['xml']['options'][] =
+            array('type' => 'bool', 'name' => 'export_triggers', 'text' => __('Triggers'));
+        $plugin_list['xml']['options'][] =
+            array('type' => 'bool', 'name' => 'export_views', 'text' => __('Views'));
+    }
     $plugin_list['xml']['options'][] = array('type' => 'end_group');
 
     /* Data */
@@ -105,7 +109,16 @@ function PMA_exportHeader() {
     $head .= '<pma_xml_export version="1.0"' . (($export_struct) ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"' : '') . '>' . $crlf;
 
     if ($export_struct) {
-        $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.$db.'\' LIMIT 1');
+        if (PMA_DRIZZLE) {
+            $result = PMA_DBI_fetch_result("
+                SELECT
+                    'utf8' AS DEFAULT_CHARACTER_SET_NAME,
+                    DEFAULT_COLLATION_NAME
+                FROM data_dictionary.SCHEMAS
+                WHERE SCHEMA_NAME = '" . PMA_sqlAddSlashes($db) . "'");
+        } else {
+            $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.$db.'\' LIMIT 1');
+        }
         $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
         $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
 
