@@ -300,9 +300,10 @@
             },
             
             /**
-             * Show hint with the text supplied.
+             * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
+             * It will hide the hint if all the boolean values is false.
              */
-            showHint: function(e) {
+            updateHint: function(e) {
                 if (!this.colRsz && !this.colMov) {     // if not resizing or dragging
                     var text = '';
                     if (this.showReorderHint && this.reorderHint) {
@@ -610,11 +611,11 @@
                     } else {
                         $(this).css('cursor', 'inherit');
                     }
-                    g.showHint(e);
+                    g.updateHint(e);
                 })
                 .mouseleave(function(e) {
                     g.showReorderHint = false;
-                    g.showHint(e);
+                    g.updateHint(e);
                 });
         }
         if ($firstRowCols.length > 1) {
@@ -623,31 +624,31 @@
             PMA_createqTip($colVisibTh);
             $colVisibTh.mouseenter(function(e) {
                     g.showColVisibHint = true;
-                    g.showHint(e);
+                    g.updateHint(e);
                 })
                 .mouseleave(function(e) {
                     g.showColVisibHint = false;
-                    g.showHint(e);
+                    g.updateHint(e);
                 });
         }
         $(t).find('th.draggable a')
             .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
                 g.showSortHint = true;
-                g.showHint(e);
+                g.updateHint(e);
             })
             .mouseleave(function(e) {
                 g.showSortHint = false;
-                g.showHint(e);
+                g.updateHint(e);
             });
         $(t).find('th.marker')
             .mouseenter(function(e) {
                 g.showMarkHint = true;
-                g.showHint(e);
+                g.updateHint(e);
             })
             .mouseleave(function(e) {
                 g.showMarkHint = false;
-                g.showHint(e);
+                g.updateHint(e);
             });
         $(document).mousemove(function(e) {
             g.dragMove(e);
