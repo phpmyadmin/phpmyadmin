@@ -125,12 +125,14 @@ if (! $db_is_information_schema) {
         $tabs[] =& $tab_routines;
     }
     if (PMA_MYSQL_INT_VERSION >= 50106 && ! PMA_DRIZZLE) {
-        // Temporarily hiding this unfinished feature
-        // $tabs[] =& $tab_events;
+        if (PMA_currentUserHasPrivilege('EVENT', $db)) {
+            $tabs[] =& $tab_events;
+        }
     }
     if (PMA_MYSQL_INT_VERSION >= 50002 && ! PMA_DRIZZLE) {
-        // Temporarily hiding this unfinished feature
-        // $tabs[] =& $tab_triggers;
+        if (PMA_currentUserHasPrivilege('TRIGGER', $db)) {
+            $tabs[] =& $tab_triggers;
+        }
     }
 }
 if (PMA_Tracker::isActive()) {
