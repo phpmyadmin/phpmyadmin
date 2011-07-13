@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 17:57+0200\n"
+"PO-Revision-Date: 2011-07-13 17:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6975,10 +6975,9 @@ msgid "Trigger name"
 msgstr "Tetikleyiciler"
 
 #: libraries/rte/rte_triggers.lib.php:407
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Bir yordam adı vermek zorundasınız"
+msgstr "Bir tetikleyici adı vermek zorundasınız"
 
 #: libraries/rte/rte_triggers.lib.php:412
 #, fuzzy
