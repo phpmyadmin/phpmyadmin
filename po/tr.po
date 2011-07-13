@@ -6990,10 +6990,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Tetikleyici için geçerli bir olay vermek zorundasınız"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Bir yordam adı vermek zorundasınız"
+msgstr "Geçerli bir tablo adı vermek zorundasınız"
 
 #: libraries/rte/rte_triggers.lib.php:429
 #| msgid "You must provide a routine definition."
