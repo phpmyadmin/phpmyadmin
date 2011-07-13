@@ -3178,10 +3178,9 @@ msgid "SQL queries settings"
 msgstr "Indstillinger til SQL-forespørgsler"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL-historik"
+msgstr "SQL Validator"
 
 #: libraries/config/messages.inc.php:221
 msgid ""
