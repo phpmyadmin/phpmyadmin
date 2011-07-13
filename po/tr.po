@@ -6868,7 +6868,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1096
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Her yordam parametresi için bir ad ve bir tür sağlamalısınız."
+msgstr "Her yordam parametresi için bir ad ve bir tür vermek zorundasınız."
 
 #: libraries/rte/rte_routines.lib.php:1121
 #, fuzzy
