@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-13 10:04+0200\n"
+"PO-Revision-Date: 2011-07-13 10:06+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4711,10 +4711,10 @@ msgid "Export of event \"%s\""
 msgstr "Export udalosti \"%s\""
 
 #: libraries/db_events.inc.php:40
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %s found in database %s"
-msgstr "V tejto databáze neboli nájdené žiadne tabuľky"
+msgstr "V databáze %2$s nebola nájdená udalosť s menom %1$s"
 
 #: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
 #: libraries/export/sql.php:609
