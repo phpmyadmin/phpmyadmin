@@ -151,9 +151,13 @@ if (isset($plugin_list)) {
                     $drop_clause = '<code>DROP TABLE</code>';
                 }
             } else {
-                $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>';
-                if (PMA_MYSQL_INT_VERSION > 50100) {
-                    $drop_clause .= '<code> / EVENT</code>';
+                if (PMA_DRIZZLE) {
+                    $drop_clause = '<code>DROP TABLE</code>';
+                } else {
+                    $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>';
+                    if (PMA_MYSQL_INT_VERSION > 50100) {
+                        $drop_clause .= '<code> / EVENT</code>';
+                    }
                 }
             }
             $plugin_list['sql']['options'][] = array(
@@ -161,11 +165,14 @@ if (isset($plugin_list)) {
                 'name' => 'drop_table',
                 'text' => sprintf(__('Add %s statement'), $drop_clause)
                 );
-            $plugin_list['sql']['options'][] = array(
-                'type' => 'bool',
-                'name' => 'procedure_function',
-                'text' => sprintf(__('Add %s statement'), '<code>CREATE PROCEDURE / FUNCTION' . (PMA_MYSQL_INT_VERSION > 50100 ? ' / EVENT</code>' : '</code>'))
-                );
+            // Drizzle doesn't support procedures and functions
+            if (!PMA_DRIZZLE) {
+                $plugin_list['sql']['options'][] = array(
+                    'type' => 'bool',
+                    'name' => 'procedure_function',
+                    'text' => sprintf(__('Add %s statement'), '<code>CREATE PROCEDURE / FUNCTION' . (PMA_MYSQL_INT_VERSION > 50100 ? ' / EVENT</code>' : '</code>'))
+                    );
+            }
 
             /* begin CREATE TABLE statements*/
             $plugin_list['sql']['options'][] = array(
@@ -216,12 +223,15 @@ if (isset($plugin_list)) {
                 'type' => 'message_only',
                 'text' => __('Instead of <code>INSERT</code> statements, use:')
             ));
-        $plugin_list['sql']['options'][] = array(
-            'type' => 'bool',
-            'name' => 'delayed',
-            'text' => __('<code>INSERT DELAYED</code> statements'),
-            'doc' => array('manual_MySQL_Database_Administration', 'insert_delayed')
-            );
+        // Not supported in Drizzle
+        if (!PMA_DRIZZLE) {
+            $plugin_list['sql']['options'][] = array(
+                'type' => 'bool',
+                'name' => 'delayed',
+                'text' => __('<code>INSERT DELAYED</code> statements'),
+                'doc' => array('manual_MySQL_Database_Administration', 'insert_delayed')
+                );
+        }
         $plugin_list['sql']['options'][] = array(
             'type' => 'bool',
             'name' => 'ignore',
@@ -275,12 +285,15 @@ if (isset($plugin_list)) {
             'text' => __('Dump binary columns in hexadecimal notation <i>(for example, "abc" becomes 0x616263)</i>')
             );
 
-        /* Dump time in UTC */
-        $plugin_list['sql']['options'][] = array(
-            'type' => 'bool',
-            'name' => 'utc_time',
-            'text' => __('Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and reloaded between servers in different time zones)</i>')
-            );
+        // Drizzle works only with UTC timezone
+        if (!PMA_DRIZZLE) {
+            /* Dump time in UTC */
+            $plugin_list['sql']['options'][] = array(
+                'type' => 'bool',
+                'name' => 'utc_time',
+                'text' => __('Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and reloaded between servers in different time zones)</i>')
+                );
+        }
 
         $plugin_list['sql']['options'][] = array('type' => 'end_group');
          /* end Data options */
@@ -413,7 +426,7 @@ function PMA_exportFooter()
 
     // restore connection settings
     $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
-    if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
+    if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file]) && !PMA_DRIZZLE) {
         $foot .=  $crlf
                 . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf
                 . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf
@@ -421,7 +434,7 @@ function PMA_exportFooter()
     }
 
     /* Restore timezone */
-    if ($GLOBALS['sql_utc_time']) {
+    if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
         PMA_DBI_query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
     }
 
@@ -480,7 +493,8 @@ function PMA_exportHeader()
     }
 
     /* We want exported AUTO_INCREMENT fields to have still same value, do this only for recent MySQL exports */
-    if (!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE') {
+    if ((!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE')
+            && !PMA_DRIZZLE) {
         $head .= 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
     }
 
@@ -491,7 +505,7 @@ function PMA_exportHeader()
 
 
     /* Change timezone if we should export timestamps in UTC */
-    if ($GLOBALS['sql_utc_time']) {
+    if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
         $head .= 'SET time_zone = "+00:00";' . $crlf;
         $GLOBALS['old_tz'] = PMA_DBI_fetch_value('SELECT @@session.time_zone');
         PMA_DBI_query('SET time_zone = "+00:00"');
@@ -499,7 +513,7 @@ function PMA_exportHeader()
 
     $head .= PMA_possibleCRLF();
 
-    if (! empty($GLOBALS['asfile'])) {
+    if (! empty($GLOBALS['asfile']) && !PMA_DRIZZLE) {
         // we are saving as file, therefore we provide charset information
         // so that a utility like the mysql client can interpret
         // the file correctly
@@ -538,16 +552,21 @@ function PMA_exportDBCreate($db)
     }
     $create_query = 'CREATE DATABASE ' . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db);
     $collation = PMA_getDbCollation($db);
-    if (strpos($collation, '_')) {
-        $create_query .= ' DEFAULT CHARACTER SET ' . substr($collation, 0, strpos($collation, '_')) . ' COLLATE ' . $collation;
+    if (PMA_DRIZZLE) {
+        $create_query .= ' COLLATE ' . $collation;
     } else {
-        $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
+        if (strpos($collation, '_')) {
+            $create_query .= ' DEFAULT CHARACTER SET ' . substr($collation, 0, strpos($collation, '_')) . ' COLLATE ' . $collation;
+        } else {
+            $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
+        }
     }
     $create_query .= ';' . $crlf;
     if (!PMA_exportOutputHandler($create_query)) {
         return false;
     }
-    if (isset($GLOBALS['sql_backquotes']) && isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') {
+    if (isset($GLOBALS['sql_backquotes'])
+            && ((isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] == 'NONE') || PMA_DRIZZLE)) {
         $result = PMA_exportOutputHandler('USE ' . PMA_backquote($db) . ';' . $crlf);
     } else {
         $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -681,15 +700,27 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
     $schema_create = '';
     $auto_increment = '';
     $new_crlf = $crlf;
-
+PMA_Table::sGetStatusInfo($db, $table);
     // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
     $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\'', null, PMA_DBI_QUERY_STORE);
     if ($result != false) {
         if (PMA_DBI_num_rows($result) > 0) {
-            $tmpres        = PMA_DBI_fetch_assoc($result);
+            $tmpres = PMA_DBI_fetch_assoc($result);
+            if (PMA_DRIZZLE && $show_dates) {
+                // Drizzle doesn't give Create_time and Update_time in SHOW TABLE STATUS, add it
+                $sql ="SELECT
+                        TABLE_CREATION_TIME AS Create_time,
+                        TABLE_UPDATE_TIME AS Update_time
+                    FROM data_dictionary.TABLES
+                    WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
+                      AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'";
+                $tmpres = array_merge(PMA_DBI_fetch_single_row($sql), $tmpres);
+            }
             // Here we optionally add the AUTO_INCREMENT next value,
             // but starting with MySQL 5.0.24, the clause is already included
             // in SHOW CREATE TABLE so we'll remove it below
+            // It's required for Drizzle because SHOW CREATE TABLE uses
+            // the value from table's creation time
             if (isset($GLOBALS['sql_auto_increment']) && !empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
@@ -862,6 +893,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
 
     // remove a possible "AUTO_INCREMENT = value" clause
     // that could be there starting with MySQL 5.0.24
+    // in Drizzle it's useless as it contains the value given at table creation time
     $schema_create = preg_replace('/AUTO_INCREMENT\s*=\s*([0-9])+/', '', $schema_create);
 
     $schema_create .= $auto_increment;
