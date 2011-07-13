@@ -3319,7 +3319,7 @@ msgstr "Antal SQL-forespørgsler der skal springes over fra start"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Delvis import: Spring over forespørgsler"
 
 #: libraries/config/messages.inc.php:261
 #, fuzzy
