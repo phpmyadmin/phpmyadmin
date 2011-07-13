@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:10+0200\n"
+"PO-Revision-Date: 2011-07-13 22:11+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3321,7 +3321,9 @@ msgstr "Antal SQL-forespørgsler der skal springes over fra start"
 msgid "Partial import: skip queries"
 msgstr "Delvis import: Spring over forespørgsler"
 
+# zero = null?
 #: libraries/config/messages.inc.php:261
+#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Brug ikke AUTO_INCREMENT for 0-værdier"
