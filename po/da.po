@@ -3350,7 +3350,7 @@ msgstr "Vis logoet i venstre ramme"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
-msgstr ""
+msgstr "Vis logo"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
