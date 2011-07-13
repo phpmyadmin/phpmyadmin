@@ -6832,10 +6832,9 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "Pro každý parametr musíte zadat jeho jméno a typ."
 
 #: libraries/rte/rte_routines.lib.php:1121
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "Pro každý parametr musíte zadat jeho jméno a typ."
+msgstr "Musíte zadat platný návratový typ rutiny."
 
 #: libraries/rte/rte_routines.lib.php:1171
 msgid "You must provide a routine definition."
