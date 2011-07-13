@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 14:50+0200\n"
+"PO-Revision-Date: 2011-07-13 14:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6610,10 +6610,9 @@ msgid "Execute at"
 msgstr "Spustit v"
 
 #: libraries/rte/rte_events.lib.php:419
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Spustit"
+msgstr "Spustit každých"
 
 #: libraries/rte/rte_events.lib.php:438
 #, fuzzy
