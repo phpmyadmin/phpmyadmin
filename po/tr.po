@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 17:53+0200\n"
+"PO-Revision-Date: 2011-07-13 17:54+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6699,10 +6699,9 @@ msgid "You must provide a valid type for the event."
 msgstr "Olay için geçerli bir tür vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:561
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Bir yordam tanımı sağlamalısınız."
+msgstr "Bir olay tanımı vermek zorundasınız."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
