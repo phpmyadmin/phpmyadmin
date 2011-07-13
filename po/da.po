@@ -3149,7 +3149,7 @@ msgstr "Tilpas eksport-indstillinger"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Tilpas import-indstillinger"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
