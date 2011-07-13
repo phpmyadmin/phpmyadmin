@@ -6877,7 +6877,7 @@ msgstr "Yordam için geçerli bir dönüş türü vermek zorundasınız."
 
 #: libraries/rte/rte_routines.lib.php:1171
 msgid "You must provide a routine definition."
-msgstr "Bir yordam tanımı sağlamalısınız."
+msgstr "Bir yordam tanımı vermek zorundasınız."
 
 #: libraries/rte/rte_routines.lib.php:1260
 #, php-format
