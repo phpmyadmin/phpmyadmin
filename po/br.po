@@ -2978,7 +2978,7 @@ msgstr "Dezverkoù"
 
 #: libraries/config/messages.inc.php:168
 msgid "General"
-msgstr ""
+msgstr "Hollek"
 
 #: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
