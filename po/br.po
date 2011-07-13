@@ -3029,7 +3029,7 @@ msgstr "Servijerioù"
 
 #: libraries/config/messages.inc.php:182
 msgid "Servers display options"
-msgstr ""
+msgstr "Dibarzhioù diskwel ar servijerioù"
 
 #: libraries/config/messages.inc.php:184
 msgid "Tables display options"
