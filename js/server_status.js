@@ -61,7 +61,7 @@ $(function() {
             
             // Hide if the mouseclick is outside the popupcontent
             if(event.pageX < pos.left || event.pageY < pos.top || event.pageX > pos.left + $cnt.outerWidth() || event.pageY > pos.top + $cnt.outerHeight())
-                $cnt.hide();
+                $cnt.hide().removeClass('openedPopup');
         });
     });
 });
@@ -732,6 +732,9 @@ $(function() {
         $('a[href="#endChartEditMode"]').toggle(editMode);
         
         if(editMode) {
+            // Close the settings popup
+            $('#statustabs_charting .popupContent').hide().removeClass('openedPopup');
+            
             $("#chartGrid").sortableTable({
                 events: {
                     start: function() {
