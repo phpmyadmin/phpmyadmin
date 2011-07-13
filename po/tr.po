@@ -6549,10 +6549,9 @@ msgid "Export of event %s"
 msgstr "%s olayını dışa aktarma"
 
 #: libraries/rte/rte_events.lib.php:27
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Olay"
+msgstr "olay"
 
 #: libraries/rte/rte_events.lib.php:28
 #, fuzzy
