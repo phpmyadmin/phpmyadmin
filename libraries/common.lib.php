@@ -2407,6 +2407,87 @@ function PMA_generate_slider_effect($id, $message)
 }
 
 /**
+ * Creates an AJAX sliding toggle button (or and equivalent form when AJAX is disabled)
+ *
+ * @param    string   $action        The URL for the request to be executed
+ * @param    string   $select_name   The name for the dropdown box
+ * @param    array    $options       An array of options (see rte_footer.lib.php)
+ * @param    string   $callback      A JS snippet to execute when the request is
+ *                                   successfully processed
+ *
+ * @return   string   HTML code for the toggle button
+ */
+function PMA_toggleButton($action, $select_name, $options, $callback)
+{
+    // Do the logic first
+    $link_on = "$action&amp;$select_name=" . urlencode($options[1]['value']);
+    $link_off = "$action&amp;$select_name=" . urlencode($options[0]['value']);
+    if ($options[1]['selected'] == true) {
+        $state = 'on';
+    } else if ($options[0]['selected'] == true) {
+        $state = 'off';
+    } else {
+        $state = 'on';
+    }
+    $selected1 = '';
+    $selected0 = '';
+    if ($options[1]['selected'] == true) {
+        $selected1 = " selected='selected'";
+    } else if ($options[0]['selected'] == true) {
+        $selected0 = " selected='selected'";
+    }
+    // Generate output
+    $retval  = "<!-- TOGGLE START -->\n";
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $retval .= "<noscript>\n";
+    }
+    $retval .= "<div class='wrapper'>\n";
+    $retval .= "    <form action='$action' method='post'>\n";
+    $retval .= "        <select name='$select_name'>\n";
+    $retval .= "            <option value='{$options[1]['value']}'$selected1>";
+    $retval .= "                {$options[1]['label']}\n";
+    $retval .= "            </option>\n";
+    $retval .= "            <option value='{$options[0]['value']}'$selected0>";
+    $retval .= "                {$options[0]['label']}\n";
+    $retval .= "            </option>\n";
+    $retval .= "        </select>\n";
+    $retval .= "        <input type='submit' value='" . __('Change') . "'/>\n";
+    $retval .= "    </form>\n";
+    $retval .= "</div>\n";
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $retval .= "</noscript>\n";
+        $retval .= "<div class='wrapper toggleAjax hide'>\n";
+        $retval .= "    <div class='toggleButton'>\n";
+        $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
+        $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
+        $retval .= "                 alt='' />\n";
+        $retval .= "            <table cellspacing='0' cellpadding='0'><tr>\n";
+        $retval .= "                <tbody>\n";
+        $retval .= "                <td class='toggleOn'>\n";
+        $retval .= "                    <span class='hide'>$link_on</span>\n";
+        $retval .= "                    <div>";
+        $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "</div>\n";
+        $retval .= "                </td>\n";
+        $retval .= "                <td><div>&nbsp;</div></td>\n";
+        $retval .= "                <td class='toggleOff'>\n";
+        $retval .= "                    <span class='hide'>$link_off</span>\n";
+        $retval .= "                    <div>";
+        $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "</div>\n";
+        $retval .= "                    </div>\n";
+        $retval .= "                </tbody>\n";
+        $retval .= "            </tr></table>\n";
+        $retval .= "            <span class='hide callback'>$callback</span>\n";
+        $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
+        $retval .= "        </div>\n";
+        $retval .= "    </div>\n";
+        $retval .= "</div>\n";
+    }
+    $retval .= "<!-- TOGGLE END -->";
+
+    return $retval;
+} // end PMA_toggleButton()
+
+/**
  * Clears cache content which needs to be refreshed on user change.
  */
 function PMA_clearUserCache() {

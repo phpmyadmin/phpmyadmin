@@ -37,17 +37,6 @@ require_once './libraries/PHPExcel/PHPExcel.php';
 require_once './libraries/PHPExcel/PHPExcel/Writer/Excel5.php';
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text) {
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded
@@ -102,8 +91,7 @@ function PMA_exportHeader() {
 /**
  * Outputs database header
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -117,8 +105,7 @@ function PMA_exportDBHeader($db) {
 /**
  * Outputs database footer
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -128,10 +115,9 @@ function PMA_exportDBFooter($db) {
 }
 
 /**
- * Outputs create database database
+ * Outputs CREATE DATABASE statement
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -143,12 +129,11 @@ function PMA_exportDBCreate($db) {
 /**
  * Outputs the content of a table in XLS format
  *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
+ * @param   string  $db         database name
+ * @param   string  $table      table name
+ * @param   string  $crlf       the end of line sequence
+ * @param   string  $error_url  the url to go back in case of error
+ * @param   string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public

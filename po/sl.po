@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-07 11:50+0200\n"
+"PO-Revision-Date: 2011-07-11 21:13+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -5319,10 +5319,10 @@ msgid "vertical"
 msgstr "navpičnem"
 
 #: libraries/display_tbl.lib.php:452
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every"
 msgid "Headers every %s rows"
-msgstr "Glave vsakih"
+msgstr "Glave vsakih %s vrstic"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"

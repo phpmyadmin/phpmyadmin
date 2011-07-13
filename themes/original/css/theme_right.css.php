@@ -1860,6 +1860,10 @@ fieldset .disabled-field td {
     vertical-align:     middle;
 }
 
+.rte_table tr td:nth-child(1) {
+    font-weight:        bold;
+}
+
 .rte_table input, .rte_table select, .rte_table textarea {
     width:              100%;
     margin:             0;
@@ -1868,6 +1872,11 @@ fieldset .disabled-field td {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
 }
+
+.rte_table .routine_params_table {
+    width:              100%;
+}
+
 #placeholder .button {
     position: absolute;
     cursor: pointer;
@@ -1878,6 +1887,56 @@ fieldset .disabled-field td {
     color: #999;
     background-color: #eee;
     padding: 2px;
+}
+
+.wrapper {
+    float: <?php echo $left; ?>;
+    margin-bottom: 0.5em;
+}
+.toggleButton {
+    position: relative;
+    cursor: pointer;
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 1.55em;
+    height: 1.55em;
+    overflow: hidden;
+    border-right: 0.1em solid #888;
+    border-left: 0.1em solid #888;
+}
+.toggleButton table,
+.toggleButton td,
+.toggleButton img {
+    padding: 0;
+    position: relative;
+}
+.toggleButton .container {
+    position: absolute;
+}
+.toggleButton .toggleOn {
+    color: white;
+    padding: 0 1em;
+}
+.toggleButton .toggleOff {
+    padding: 0 1em;
+}
+
+.doubleFieldset fieldset {
+    width: 48%;
+    float: <?php echo $left; ?>;
+    padding: 0;
+}
+.doubleFieldset fieldset.left {
+    margin-<?php echo $right; ?>: 1%;
+}
+.doubleFieldset fieldset.right {
+    margin-<?php echo $left; ?>: 1%;
+}
+.doubleFieldset legend {
+    margin-<?php echo $left; ?>: 0.5em;
+}
+.doubleFieldset div.wrap {
+    padding: 0.5em;
 }
 
 #table_columns input, #table_columns select {

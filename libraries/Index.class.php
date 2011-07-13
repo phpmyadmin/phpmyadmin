@@ -194,9 +194,10 @@ class PMA_Index
             // $columns[names][]
             // $columns[sub_parts][]
             foreach ($columns['names'] as $key => $name) {
+                $sub_part = isset($columns['sub_parts'][$key]) ? $columns['sub_parts'][$key] : '';
                 $_columns[] = array(
                     'Column_name'   => $name,
-                    'Sub_part'      => $columns['sub_parts'][$key],
+                    'Sub_part'      => $sub_part,
                 );
             }
         } else {
