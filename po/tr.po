@@ -6916,10 +6916,9 @@ msgid "Export of trigger %s"
 msgstr "%s tetikleyicisini dışa aktarma"
 
 #: libraries/rte/rte_triggers.lib.php:27
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Tetikleyiciler"
+msgstr "tetikleyici"
 
 #: libraries/rte/rte_triggers.lib.php:28
 #, fuzzy
