@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-07 15:16+0200\n"
+"POT-Creation-Date: 2011-07-13 14:48+0200\n"
 "PO-Revision-Date: 2011-07-13 13:55+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "Cerca"
 #: libraries/display_tbl.lib.php:566 libraries/display_tbl.lib.php:661
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:370
 #: libraries/rte/rte_events.lib.php:482 libraries/rte/rte_routines.lib.php:999
-#: libraries/rte/rte_routines.lib.php:1482
+#: libraries/rte/rte_routines.lib.php:1497
 #: libraries/rte/rte_triggers.lib.php:375
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
@@ -153,7 +153,7 @@ msgstr "Campo"
 #: libraries/export/texytext.php:234 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_routines.lib.php:865
 #: libraries/rte/rte_routines.lib.php:890
-#: libraries/rte/rte_routines.lib.php:1400
+#: libraries/rte/rte_routines.lib.php:1415
 #: libraries/schema/Pdf_Relation_Schema.class.php:1231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2151
@@ -502,115 +502,6 @@ msgstr "SQL-query sul database <b>%s</b>:"
 #: db_qbe.php:955 libraries/common.lib.php:1121
 msgid "Submit Query"
 msgstr "Invia Query"
-
-#: db_routines.php:155 import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2235 libraries/sql_query_form.lib.php:113
-#: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
-#: view_operations.php:60
-msgid "Your SQL query has been executed successfully"
-msgstr "La query SQL è stata eseguita con successo"
-
-#: db_routines.php:158
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-
-#: db_routines.php:168
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
-msgid "Execution results of routine %s"
-msgstr "Permette l'esecuzione di routines memorizzate."
-
-#: db_routines.php:188 libraries/import.lib.php:152 sql.php:685
-#: tbl_change.php:183 tbl_get_field.php:34
-msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
-
-#: db_routines.php:193 db_routines.php:298 db_routines.php:303
-#: db_routines.php:327
-#, fuzzy, php-format
-#| msgid "The following queries have been executed:"
-msgid "The following query has failed: \"%s\""
-msgstr "Le seguenti query sono state eseguite:"
-
-#: db_routines.php:194 db_routines.php:299 db_routines.php:304
-#: db_routines.php:314 db_routines.php:328 libraries/common.lib.php:581
-msgid "MySQL said: "
-msgstr "Messaggio di MySQL: "
-
-#: db_routines.php:211 db_routines.php:243 db_routines.php:271
-#: db_routines.php:410
-#| msgid "Error in Processing Request"
-msgid "Error in processing request"
-msgstr "Errore nel processare la richiesta"
-
-#: db_routines.php:212 db_routines.php:244 db_routines.php:272
-#: db_routines.php:411
-#, fuzzy, php-format
-#| msgid "No tables found in database"
-msgid "No routine with name %1$s found in database %2$s"
-msgstr "Non ci sono tabelle nel database"
-
-#: db_routines.php:233 db_routines.php:237
-msgid "Execute routine"
-msgstr ""
-
-#: db_routines.php:262 db_routines.php:266
-#, fuzzy, php-format
-#| msgid "Export defaults"
-msgid "Export of routine %s"
-msgstr "Esporta i predefiniti"
-
-#: db_routines.php:291 libraries/db_routines.lib.php:911
-#, fuzzy, php-format
-#| msgid "Invalid server index: %s"
-msgid "Invalid routine type: \"%s\""
-msgstr "Indice server non valido: %s"
-
-#: db_routines.php:312
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
-
-#: db_routines.php:313
-msgid "The backed up query was:"
-msgstr ""
-
-#: db_routines.php:317
-#, fuzzy, php-format
-#| msgid "Column %s has been dropped"
-msgid "Routine %1$s has been modified."
-msgstr "Il campo %s è stato eliminato"
-
-#: db_routines.php:330
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
-msgid "Routine %1$s has been created."
-msgstr "La tabella %1$s è stata creata."
-
-#: db_routines.php:338
-msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
-
-#: db_routines.php:382
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create routine"
-msgstr "Crea relazioni"
-
-#: db_routines.php:386
-#, fuzzy
-#| msgid "Edit mode"
-msgid "Edit routine"
-msgstr "Modalitá di modifica"
-
-#: db_routines.php:437
-msgid ""
-"You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. <b>The execution of some stored routines may fail!</"
-"b> Please use the improved 'mysqli' extension to avoid any problems."
-msgstr ""
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -1054,7 +945,7 @@ msgstr ""
 "basso per consentire a phpMyAdmin di terminare l'operazione."
 
 #: import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1240
+#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1255
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -2240,7 +2131,7 @@ msgstr "Query SQL"
 #: libraries/rte/rte_routines.lib.php:265
 #: libraries/rte/rte_routines.lib.php:275
 #: libraries/rte/rte_routines.lib.php:289
-#: libraries/rte/rte_routines.lib.php:1290
+#: libraries/rte/rte_routines.lib.php:1305
 #: libraries/rte/rte_triggers.lib.php:84 libraries/rte/rte_triggers.lib.php:89
 #: libraries/rte/rte_triggers.lib.php:99
 #: libraries/rte/rte_triggers.lib.php:112
@@ -2433,7 +2324,6 @@ msgid "Left"
 msgstr "A sinistra"
 
 #: libraries/config.values.php:47
-#| msgid "Height"
 msgid "Right"
 msgstr "A destra"
 
@@ -4187,7 +4077,6 @@ msgstr ""
 "utenti nel database, consigliato: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:410
-#| msgid "Recall user name"
 msgid "Recently used table"
 msgstr "Tabella utilizzata recentemente"
 
@@ -4964,7 +4853,7 @@ msgstr "Crea una nuova tabella nel database %s"
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:49
 #: libraries/rte/rte_list.lib.php:55 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_routines.lib.php:889
-#: libraries/rte/rte_routines.lib.php:1399
+#: libraries/rte/rte_routines.lib.php:1414
 #: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:125
 #: tbl_structure.php:204
 msgid "Name"
@@ -6188,7 +6077,7 @@ msgstr "Risultato SQL"
 msgid "Generated by"
 msgstr "Generato da"
 
-#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1284
+#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1299
 #: sql.php:685 tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
@@ -6690,7 +6579,7 @@ msgid "Variable"
 msgstr "Variabile"
 
 #: libraries/replication_gui.lib.php:117
-#: libraries/rte/rte_routines.lib.php:1404 pmd_general.php:476
+#: libraries/rte/rte_routines.lib.php:1419 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1029 tbl_change.php:329 tbl_printview.php:367
 #: tbl_select.php:117 tbl_structure.php:862
@@ -6792,7 +6681,7 @@ msgstr "Nessun file da caricare"
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_routines.lib.php:259
 #: libraries/rte/rte_routines.lib.php:264
 #: libraries/rte/rte_routines.lib.php:288
-#: libraries/rte/rte_routines.lib.php:1289
+#: libraries/rte/rte_routines.lib.php:1304
 #: libraries/rte/rte_triggers.lib.php:83 libraries/rte/rte_triggers.lib.php:88
 #: libraries/rte/rte_triggers.lib.php:111
 #, fuzzy, php-format
@@ -6839,11 +6728,9 @@ msgid "Edit event"
 msgstr "Modifica server"
 
 #: libraries/rte/rte_events.lib.php:201 libraries/rte/rte_routines.lib.php:375
-#: libraries/rte/rte_routines.lib.php:1311
-#: libraries/rte/rte_routines.lib.php:1347
+#: libraries/rte/rte_routines.lib.php:1326
+#: libraries/rte/rte_routines.lib.php:1362
 #: libraries/rte/rte_triggers.lib.php:195
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Errore nel processare la richiesta"
 
@@ -6871,12 +6758,16 @@ msgid "Change to %s"
 msgstr "Modifica"
 
 #: libraries/rte/rte_events.lib.php:411
+#, fuzzy
+#| msgid "Execute"
 msgid "Execute at"
-msgstr ""
+msgstr "Esegui"
 
 #: libraries/rte/rte_events.lib.php:419
+#, fuzzy
+#| msgid "Execute"
 msgid "Execute every"
-msgstr ""
+msgstr "Esegui"
 
 #: libraries/rte/rte_events.lib.php:438
 #, fuzzy
@@ -7109,7 +7000,7 @@ msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1072
-#: libraries/rte/rte_routines.lib.php:1116
+#: libraries/rte/rte_routines.lib.php:1131
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -7119,40 +7010,40 @@ msgstr ""
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1106
+#: libraries/rte/rte_routines.lib.php:1121
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1156
+#: libraries/rte/rte_routines.lib.php:1171
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1245
+#: libraries/rte/rte_routines.lib.php:1260
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/rte/rte_routines.lib.php:1261
+#: libraries/rte/rte_routines.lib.php:1276
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Permette l'esecuzione di routines memorizzate."
 
-#: libraries/rte/rte_routines.lib.php:1335
-#: libraries/rte/rte_routines.lib.php:1341
+#: libraries/rte/rte_routines.lib.php:1350
+#: libraries/rte/rte_routines.lib.php:1356
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1392
-#: libraries/rte/rte_routines.lib.php:1395
+#: libraries/rte/rte_routines.lib.php:1407
+#: libraries/rte/rte_routines.lib.php:1410
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
 msgstr "Routines"
 
-#: libraries/rte/rte_routines.lib.php:1402 tbl_change.php:287
+#: libraries/rte/rte_routines.lib.php:1417 tbl_change.php:287
 #: tbl_change.php:325
 msgid "Function"
 msgstr "Funzione"
