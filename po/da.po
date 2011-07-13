@@ -3273,7 +3273,7 @@ msgstr "Delvis import: Tillad afbrydelse"
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Afbryd ikke ved fejl i INSERT"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
