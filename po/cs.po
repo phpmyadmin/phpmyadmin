@@ -6651,10 +6651,9 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Musíte zadat platný interval pro událost."
 
 #: libraries/rte/rte_events.lib.php:538
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Musíte zadat definici rutiny."
+msgstr "Musíte zadat platnou dobu spuštění události."
 
 #: libraries/rte/rte_events.lib.php:542
 #, fuzzy
