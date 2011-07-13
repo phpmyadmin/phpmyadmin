@@ -3049,7 +3049,7 @@ msgstr "Testenn Open Document"
 
 #: libraries/config/messages.inc.php:190
 msgid "Other core settings"
-msgstr ""
+msgstr "Arventennoù pouezus all"
 
 #: libraries/config/messages.inc.php:191
 msgid "Settings that didn't fit enywhere else"
