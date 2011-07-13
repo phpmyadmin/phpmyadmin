@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:12+0200\n"
+"PO-Revision-Date: 2011-07-13 22:13+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3346,7 +3346,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Vis logoet i venstre ramme"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
