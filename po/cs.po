@@ -6946,10 +6946,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Musíte zadat platnou událost pro spoušť"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Musíte zadat jméno rutiny"
+msgstr "Musíte zadat platné jméno tabulky"
 
 #: libraries/rte/rte_triggers.lib.php:429
 #, fuzzy
