@@ -3401,7 +3401,7 @@ msgstr "Streng der inddeler tabeller i træ"
 
 #: libraries/config/messages.inc.php:281
 msgid "Table tree separator"
-msgstr ""
+msgstr "Separator til tabel-inddeling"
 
 #: libraries/config/messages.inc.php:282
 msgid "URL where logo in the navigation frame will point to"
