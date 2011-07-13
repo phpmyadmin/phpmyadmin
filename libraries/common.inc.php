@@ -363,6 +363,7 @@ $goto_whitelist = array(
     'db_create.php',
     'db_datadict.php',
     'db_sql.php',
+    'db_events.php',
     'db_export.php',
     'db_importdocsql.php',
     'db_qbe.php',
