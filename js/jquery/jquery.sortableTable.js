@@ -46,8 +46,10 @@
 			}
 			
 			var onMouseDown = function(e) {
-				down = true;
 				$draggedEl = $(this).children();
+				if($draggedEl.length == 0) return;
+				
+				down = true;
 				oldCell = this;
 				move(e.pageX,e.pageY);
 				
@@ -87,10 +89,20 @@
 				return false;
 			}
 			
+			var globalMouseOut = function() {
+				if(down) {
+					down = false;
+					if(previewMove) moveTo(previewMove);
+					moveTo($draggedEl);
+					previewMove = null;
+				}
+			}
+			
 			// Initialize sortable table
 			this.init = function() {
 				setup();
 				$(document).mousemove(globalMouseMove);
+				$(document).bind('mouseleave', globalMouseOut);
 			}
 			
 			// Call this when the table has been updated
@@ -110,6 +122,7 @@
 				$(table).find('td').unbind('mousedown',onMouseDown);
 					
 				$(document).unbind('mousemove',globalMouseMove);
+				$(document).unbind('mouseleave',globalMouseOut);
 			}
 			
 			function setup() {
@@ -133,18 +146,25 @@
 					left: $(drag).children().first().offset().left - $(dropTo).offset().left, 
 					top:  $(drag).children().first().offset().top - $(dropTo).offset().top 
 				};
-				var dropPosDiff = {
-					left: $(dropTo).children().first().offset().left - $(drag).offset().left, 
-					top:  $(dropTo).children().first().offset().top - $(drag).offset().top 
-				};
-
+				
+				var dropPosDiff = null;
+				if($(dropTo).children().length > 0) {
+					dropPosDiff = {
+						left: $(dropTo).children().first().offset().left - $(drag).offset().left,
+						top:  $(dropTo).children().first().offset().top - $(drag).offset().top 
+					};
+				}
+				
 				/* I love you append(). It moves the DOM Elements so gracefully <3 */
 				// Put the element in the way to old place
 				$(drag).append($(dropTo).children().first()).children()
 					.stop(true,true)
-					.bind('mouseup',onMouseUp)
-					.css('left',dropPosDiff.left + 'px')
-					.css('top',dropPosDiff.top + 'px');
+					.bind('mouseup',onMouseUp);
+				
+				if(dropPosDiff)
+					$(drag).append($(dropTo).children().first()).children()
+						.css('left',dropPosDiff.left + 'px')
+						.css('top',dropPosDiff.top + 'px');
 					
 				// Put our dragged element into the space we just freed up
 				$(dropTo).append($(drag).children().first()).children()
@@ -184,7 +204,7 @@
 						return;
 					}
 				});
-				
+
 				if(!switched) {
 					if(previewMove) moveTo(previewMove);
 					moveTo($draggedEl);
