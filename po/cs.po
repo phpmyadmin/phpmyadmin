@@ -6879,10 +6879,9 @@ msgid "Export of trigger %s"
 msgstr "Exportovat spoušť %s"
 
 #: libraries/rte/rte_triggers.lib.php:27
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Spouště"
+msgstr "spoušť"
 
 #: libraries/rte/rte_triggers.lib.php:28
 #, fuzzy
