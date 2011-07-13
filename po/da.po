@@ -3157,7 +3157,7 @@ msgstr "Tilpas navigations-rammen"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
-msgstr ""
+msgstr "Tilpas hoved-rammen"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
