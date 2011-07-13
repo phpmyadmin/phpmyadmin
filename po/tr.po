@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 18:00+0200\n"
+"PO-Revision-Date: 2011-07-13 18:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6926,10 +6926,10 @@ msgid "You do not have the necessary privileges to create a new trigger"
 msgstr "Yeni bir tetikleyici oluşturmak için gerekli izinlere sahip değilsiniz"
 
 #: libraries/rte/rte_triggers.lib.php:29
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "%1$s veritabanında %2$s adıyla yordam bulunamadı"
+msgstr "%2$s veritabanında %1$s adıyla tetikleyici bulunamadı"
 
 #: libraries/rte/rte_triggers.lib.php:30
 msgid "There are no triggers to display."
