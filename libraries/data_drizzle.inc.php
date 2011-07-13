@@ -89,7 +89,6 @@ if ($cfg['ShowFunctionFields']) {
             'QUOTE',
             'REVERSE',
             'RTRIM',
-            //'SOUNDEX', // https://bugs.launchpad.net/drizzle/+bug/804566
             'SPACE',
             'TRIM',
             'UNCOMPRESS',
