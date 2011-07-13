@@ -3185,7 +3185,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
-msgstr ""
+msgstr "Pajenn deraouiñ"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
