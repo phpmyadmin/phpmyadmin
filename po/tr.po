@@ -6559,10 +6559,10 @@ msgid "You do not have the necessary privileges to create a new event"
 msgstr "Yeni bir olay oluşturmak için gerekli izinlere sahip değilsiniz"
 
 #: libraries/rte/rte_events.lib.php:29
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "%s veritabanında %s adıyla olay bulunamadı"
+msgstr "%2$s veritabanında %1$s adıyla olay bulunamadı"
 
 #: libraries/rte/rte_events.lib.php:30
 msgid "There are no events to display."
