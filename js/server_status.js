@@ -736,6 +736,12 @@ $(function() {
             $('#statustabs_charting .popupContent').hide().removeClass('openedPopup');
             
             $("#chartGrid").sortableTable({
+                ignoreRect: {
+                    top: 8,
+                    left: chartSize().width - 63,
+                    width: 54,
+                    height: 24
+                },
                 events: {
                     start: function() {
                       //  console.log('start.');

@@ -9,6 +9,22 @@
  *
  */
 
+/* Options:
+	$('table').sortableTable({
+		ignoreRect: { top, left, width, height }  - relative coordinates on each element. If the user clicks 
+												    in this area, it is not seen as a drag&drop request. Useful for toolbars etc.
+		events: {
+			start: callback function when the user starts dragging
+			drop: callback function after an element has been dropped
+		}
+	})
+*/
+
+/* Commands:
+	$('table').sortableTable('init')  		- equivalent to $('table').sortableTable()
+	$('table').sortableTable('refresh')  	- if the table has been changed, refresh correctly assigns all events again
+	$('table').sortableTable('destroy')  	- removes all events from the table
+*/ 
 (function($) {
 	jQuery.fn.sortableTable = function(method) {
 	
@@ -48,10 +64,11 @@
 			var onMouseDown = function(e) {
 				$draggedEl = $(this).children();
 				if($draggedEl.length == 0) return;
+				if(options.ignoreRect && insideRect({x: e.pageX - $draggedEl.offset().left, y: e.pageY - $draggedEl.offset().top}, options.ignoreRect)) return;
 				
 				down = true;
 				oldCell = this;
-				move(e.pageX,e.pageY);
+				//move(e.pageX,e.pageY);
 				
 				if(options.events && options.events.start)
 					options.events.start(this);
@@ -193,6 +210,10 @@
 			function inside($el, x,y) {
 				var off = $el.offset();
 				return y >= off.top && x >= off.left && x < off.left + $el.width() && y < off.top + $el.height();
+			}
+			
+			function insideRect(pos, r) {
+				return pos.y > r.top && pos.x > r.left && pos.y < r.top + r.height && pos.x < r.left + r.width;
 			}
 			
 			function dropAt(x,y) {
