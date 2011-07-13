@@ -2389,7 +2389,7 @@ $(function() {
  * Get the row number from the classlist (for example, row_1)
  */
 function PMA_getRowNumber(classlist) {
-    return parseInt(classlist.split(/row_/)[1]);
+    return parseInt(classlist.split(/\s+row_/)[1]);
 }
 
 /**

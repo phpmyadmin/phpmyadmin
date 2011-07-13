@@ -6,7 +6,6 @@
             minColWidth: 15,
             
             // variables, assigned with default value, changed later
-            alignment: 'horizontal',    // 3 possibilities: vertical, horizontal, horizontalflipped
             actionSpan: 5,
             colOrder: new Array(),      // array of column order
             colVisib: new Array(),      // array of column visibility
@@ -32,9 +31,7 @@
                     n: n,
                     obj: obj,
                     objLeft: $(obj).position().left,
-                    objWidth: this.alignment != 'vertical' ?
-                              $(this.t).find('th.draggable:visible:eq(' + n + ') span').outerWidth() :
-                              $(this.t).find('tr:first td:eq(' + n + ') span').outerWidth()
+                    objWidth: $(this.t).find('th.draggable:visible:eq(' + n + ') span').outerWidth()
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
@@ -44,27 +41,15 @@
                 // prepare the cCpy and cPointer from the dragged column
                 $(this.cCpy).text($(obj).text());
                 var objPos = $(obj).position();
-                if (this.alignment != 'vertical') {
-                    $(this.cCpy).css({
-                        top: objPos.top + 20,
-                        left: objPos.left,
-                        height: $(obj).height(),
-                        width: $(obj).width()
-                    });
-                    $(this.cPointer).css({
-                        top: objPos.top
-                    });
-                } else {    // vertical alignment
-                    $(this.cCpy).css({
-                        top: objPos.top,
-                        left: objPos.left + 30,
-                        height: $(obj).height(),
-                        width: $(obj).width()
-                    });
-                    $(this.cPointer).css({
-                        top: objPos.top
-                    });
-                }
+                $(this.cCpy).css({
+                    top: objPos.top + 20,
+                    left: objPos.left,
+                    height: $(obj).height(),
+                    width: $(obj).width()
+                });
+                $(this.cPointer).css({
+                    top: objPos.top
+                });
                 
                 // get the column index, zero-based
                 var n = this.getHeaderIdx(obj);
@@ -90,17 +75,10 @@
                         $(this.colRsz.obj).css('left', this.colRsz.objLeft + dx + 'px');
                 } else if (this.colMov) {
                     // dragged column animation
-                    if (this.alignment != 'vertical') {
-                        var dx = e.pageX - this.colMov.x0;
-                        $(this.cCpy)
-                            .css('left', this.colMov.objLeft + dx)
-                            .show();
-                    } else {    // vertical alignment
-                        var dy = e.pageY - this.colMov.y0;
-                        $(this.cCpy)
-                            .css('top', this.colMov.objTop + dy)
-                            .show();
-                    }
+                    var dx = e.pageX - this.colMov.x0;
+                    $(this.cCpy)
+                        .css('left', this.colMov.objLeft + dx)
+                        .show();
                     
                     // pointer animation
                     var hoveredCol = this.getHoveredCol(e);
@@ -110,25 +88,14 @@
                         if (newn != this.colMov.n) {
                             // show the column pointer in the right place
                             var colPos = $(hoveredCol).position();
-                            if (this.alignment != 'vertical') {
-                                var newleft = newn < this.colMov.n ?
-                                              colPos.left :
-                                              colPos.left + $(hoveredCol).outerWidth();
-                                $(this.cPointer)
-                                    .css({
-                                        left: newleft,
-                                        visibility: 'visible'
-                                    });
-                            } else {    // vertical alignment
-                                var newtop = newn < this.colMov.n ?
-                                              colPos.top :
-                                              colPos.top + $(hoveredCol).outerHeight();
-                                $(this.cPointer)
-                                    .css({
-                                        top: newtop,
-                                        visibility: 'visible'
-                                    });
-                            }
+                            var newleft = newn < this.colMov.n ?
+                                          colPos.left :
+                                          colPos.left + $(hoveredCol).outerWidth();
+                            $(this.cPointer)
+                                .css({
+                                    left: newleft,
+                                    visibility: 'visible'
+                                });
                         } else {
                             // no movement to other column, hide the column pointer
                             $(this.cPointer).css('visibility', 'hidden');
@@ -187,18 +154,11 @@
              * Resize column n to new width "nw"
              */
             resize: function(n, nw) {
-                if (this.alignment != 'vertical') {
-                    $(this.t).find('tr').each(function() {
-                        $(this).find('th.draggable:visible:eq(' + n + ') span,' +
-                                     'td:visible:eq(' + (g.actionSpan + n) + ') span')
-                               .css('width', nw);
-                    });
-                } else {    // vertical alignment
-                    $(this.t).find('tr').each(function() {
-                        $(this).find('td:eq(' + n + ') span')
-                               .css('width', nw);
-                    });
-                }
+                $(this.t).find('tr').each(function() {
+                    $(this).find('th.draggable:visible:eq(' + n + ') span,' +
+                                 'td:visible:eq(' + (g.actionSpan + n) + ') span')
+                           .css('width', nw);
+                });
             },
             
             /**
@@ -206,9 +166,7 @@
              */
             reposRsz: function() {
                 $(this.cRsz).find('div').hide();
-                $firstRowCols = this.alignment != 'vertical' ?
-                                $(this.t).find('tr:first th.draggable:visible') :
-                                $(this.t).find('tr:first td');
+                $firstRowCols = $(this.t).find('tr:first th.draggable:visible');
                 for (var n = 0; n < $firstRowCols.length; n++) {
                     $this = $($firstRowCols[n]);
                     $cb = $(g.cRsz).find('div:eq(' + n + ')');   // column border
@@ -222,40 +180,29 @@
              * Shift column from index oldn to newn.
              */
             shiftCol: function(oldn, newn) {
-                if (this.alignment != 'vertical') {
-                    $(this.t).find('tr').each(function() {
-                        if (newn < oldn) {
-                            $(this).find('th.draggable:eq(' + newn + '),' +
-                                         'td:eq(' + (g.actionSpan + newn) + ')')
-                                   .before($(this).find('th.draggable:eq(' + oldn + '),' +
-                                                        'td:eq(' + (g.actionSpan + oldn) + ')'));
-                        } else {
-                            $(this).find('th.draggable:eq(' + newn + '),' +
-                                         'td:eq(' + (g.actionSpan + newn) + ')')
-                                   .after($(this).find('th.draggable:eq(' + oldn + '),' +
-                                                       'td:eq(' + (g.actionSpan + oldn) + ')'));
-                        }
-                    });
-                    // reposition the column resize bars
-                    this.reposRsz();
-                    
-                } else {    // vertical alignment
-                    // shift rows
+                $(this.t).find('tr').each(function() {
                     if (newn < oldn) {
-                        $(this.t).find('tr:eq(' + (g.actionSpan + newn) + ')')
-                                 .before($(this.t).find('tr:eq(' + (g.actionSpan + oldn) + ')'));
+                        $(this).find('th.draggable:eq(' + newn + '),' +
+                                     'td:eq(' + (g.actionSpan + newn) + ')')
+                               .before($(this).find('th.draggable:eq(' + oldn + '),' +
+                                                    'td:eq(' + (g.actionSpan + oldn) + ')'));
                     } else {
-                        $(this.t).find('tr:eq(' + (g.actionSpan + newn) + ')')
-                                 .after($(this.t).find('tr:eq(' + (g.actionSpan + oldn) + ')'));
+                        $(this).find('th.draggable:eq(' + newn + '),' +
+                                     'td:eq(' + (g.actionSpan + newn) + ')')
+                               .after($(this).find('th.draggable:eq(' + oldn + '),' +
+                                                   'td:eq(' + (g.actionSpan + oldn) + ')'));
                     }
-                }
+                });
+                // reposition the column resize bars
+                this.reposRsz();
+                    
                 // adjust the column visibility list
                 if (newn < oldn) {
-                    $(g.cList).find('tr:eq(' + newn + ')')
-                              .before($(g.cList).find('tr:eq(' + oldn + ')'));
+                    $(g.cList).find('.lDiv div:eq(' + newn + ')')
+                              .before($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
                 } else {
-                    $(g.cList).find('tr:eq(' + newn + ')')
-                              .after($(g.cList).find('tr:eq(' + oldn + ')'));
+                    $(g.cList).find('.lDiv div:eq(' + newn + ')')
+                              .after($(g.cList).find('.lDiv div:eq(' + oldn + ')'));
                 }
                 // adjust the colOrder
                 var tmp = this.colOrder[oldn];
@@ -274,23 +221,13 @@
             getHoveredCol: function(e) {
                 var hoveredCol;
                 $headers = $(this.t).find('th.draggable:visible');
-                if (this.alignment != 'vertical') {
-                    $headers.each(function() {
-                        var left = $(this).offset().left;
-                        var right = left + $(this).outerWidth();
-                        if (left <= e.pageX && e.pageX <= right) {
-                            hoveredCol = this;
-                        }
-                    });
-                } else {    // vertical alignment
-                    $headers.each(function() {
-                        var top = $(this).offset().top;
-                        var bottom = top + $(this).height();
-                        if (top <= e.pageY && e.pageY <= bottom) {
-                            hoveredCol = this;
-                        }
-                    });
-                }
+                $headers.each(function() {
+                    var left = $(this).offset().left;
+                    var right = left + $(this).outerWidth();
+                    if (left <= e.pageX && e.pageX <= right) {
+                        hoveredCol = this;
+                    }
+                });
                 return hoveredCol;
             },
             
@@ -298,15 +235,7 @@
              * Get a zero-based index from a <th class="draggable"> tag in a table.
              */
             getHeaderIdx: function(obj) {
-                var n;
-                if (this.alignment != 'vertical') {
-                    n = $(obj).parents('tr').find('th.draggable').index(obj);
-                } else {
-                    var column_idx = $(obj).index();
-                    var $th_in_same_column = $(this.t).find('th.draggable:nth-child(' + (column_idx + 1) + ')');
-                    n = $th_in_same_column.index(obj);
-                }
-                return n;
+                return $(obj).parents('tr').find('th.draggable').index(obj);
             },
             
             /**
@@ -453,36 +382,26 @@
                 if (this.colVisib[n]) {
                     // can hide if more than one column is visible
                     if (this.visibleHeadersCount > 1) {
-                        if (this.alignment != 'vertical') {
-                            $(this.t).find('tr').each(function() {
-                                $(this).find('th.draggable:eq(' + n + '),' +
-                                             'td:eq(' + (g.actionSpan + n) + ')')
-                                       .hide();
-                            });
-                        } else {    // vertical alignment
-                            $(this.t).find('tr:eq(' + (g.actionSpan + n) + ')')
-                                .hide();
-                        }
-                        this.colVisib[n] = 0;
-                        $(this.cList).find('tr:eq(' + n + ') input').removeAttr('checked');
-                    } else {
-                        // cannot hide, force the checkbox to stay checked
-                        $(this.cList).find('tr:eq(' + n + ') input').attr('checked', 'checked');
-                        return false;
-                    }
-                } else {    // column n is not visible
-                    if (this.alignment != 'vertical') {
                         $(this.t).find('tr').each(function() {
                             $(this).find('th.draggable:eq(' + n + '),' +
                                          'td:eq(' + (g.actionSpan + n) + ')')
-                                   .show();
+                                   .hide();
                         });
-                    } else {    // vertical alignment
-                        $(this.t).find('tr:eq(' + (g.actionSpan + n) + ')')
-                            .show();
+                        this.colVisib[n] = 0;
+                        $(this.cList).find('.lDiv div:eq(' + n + ') input').removeAttr('checked');
+                    } else {
+                        // cannot hide, force the checkbox to stay checked
+                        $(this.cList).find('.lDiv div:eq(' + n + ') input').attr('checked', 'checked');
+                        return false;
                     }
+                } else {    // column n is not visible
+                    $(this.t).find('tr').each(function() {
+                        $(this).find('th.draggable:eq(' + n + '),' +
+                                     'td:eq(' + (g.actionSpan + n) + ')')
+                               .show();
+                    });
                     this.colVisib[n] = 1;
-                    $(this.cList).find('tr:eq(' + n + ') input').attr('checked', 'checked');
+                    $(this.cList).find('.lDiv div:eq(' + n + ') input').attr('checked', 'checked');
                 }
                 return true;
             },
@@ -500,9 +419,7 @@
                 this.sendColPrefs();
                 
                 // check visible first row headers count
-                this.visibleHeadersCount = this.alignment != 'vertical' ?
-                                           $(this.t).find('tr:first th.draggable:visible').length :
-                                           $(this.t).find('th.draggable:nth-child(1):visible').length;
+                this.visibleHeadersCount = $(this.t).find('tr:first th.draggable:visible').length;
                 this.refreshRestoreButton();
             },
             
@@ -574,15 +491,12 @@
         g.cDrop = document.createElement('div');    // column drop-down arrows
         g.cList = document.createElement('div');    // column visibility list
         
-        // assign the table alignment
-        g.alignment = $("#top_direction_dropdown").val();
-        
         // adjust g.cCpy
         g.cCpy.className = 'cCpy';
         $(g.cCpy).hide();
         
         // adjust g.cPoint
-        g.cPointer.className = g.alignment != 'vertical' ? 'cPointer' : 'cPointerVer';
+        g.cPointer.className = 'cPointer';
         $(g.cPointer).css('visibility', 'hidden');
         
         // adjust g.dHint
@@ -601,23 +515,14 @@
         g.t = t;
         
         // get first row data columns
-        var $firstRowCols = g.alignment != 'vertical' ?
-                            $(t).find('tr:first th.draggable') :
-                            $(t).find('tr:first td');
-        
-        // get first row of data headers (first column of data headers, in vertical mode)
-        var $firstRowHeaders = g.alignment != 'vertical' ?
-                               $(t).find('tr:first th.draggable') :
-                               $(t).find('th.draggable:nth-child(1)');
+        var $firstRowCols = $(t).find('tr:first th.draggable');
         
         // initialize g.visibleHeadersCount
-        g.visibleHeadersCount = $firstRowHeaders.filter(':visible').length;
+        g.visibleHeadersCount = $firstRowCols.filter(':visible').length;
         
         // assign first column (actions) span
         if (! $(t).find('tr:first th:first').hasClass('draggable')) {  // action header exist
-            g.actionSpan = g.alignment != 'vertical' ?
-                           $(t).find('tr:first th:first').prop('colspan') :
-                           $(t).find('tr:first th:first').prop('rowspan');
+            g.actionSpan = $(t).find('tr:first th:first').prop('colspan');
         } else {
             g.actionSpan = 0;
         }
@@ -642,7 +547,7 @@
             }
         } else {
             g.colOrder = new Array();
-            for (var i = 0; i < $firstRowHeaders.length; i++) {
+            for (var i = 0; i < $firstRowCols.length; i++) {
                 g.colOrder.push(i);
             }
         }
@@ -656,12 +561,12 @@
             }
         } else {
             g.colVisib = new Array();
-            for (var i = 0; i < $firstRowHeaders.length; i++) {
+            for (var i = 0; i < $firstRowCols.length; i++) {
                 g.colVisib.push(1);
             }
         }
         
-        if ($firstRowHeaders.length > 1) {
+        if ($firstRowCols.length > 1) {
             // create column drop-down arrow(s)
             $(t).find('th:not(.draggable)').each(function() {
                 var cd = document.createElement('div'); // column drop-down arrow
@@ -682,16 +587,16 @@
             });
             
             // add column visibility control
-            g.cList.innerHTML = '<table cellpadding="0" cellspacing="0"><tbody></tbody></table>';
-            var $tbody = $(g.cList).find('tbody');
-            for (var i = 0; i < $firstRowHeaders.length; i++) {
-                var currHeader = $firstRowHeaders[i];
-                var tr = document.createElement('tr');
-                $(tr).html('<td><input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/></td>' +
-                           '<td>' + $(currHeader).text() + '</td>');
-                $tbody.append(tr);
+            g.cList.innerHTML = '<div class="lDiv"></div>';
+            var $listDiv = $(g.cList).find('div');
+            for (var i = 0; i < $firstRowCols.length; i++) {
+                var currHeader = $firstRowCols[i];
+                var listElmt = document.createElement('div');
+                $(listElmt).text($(currHeader).text())
+                    .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>');
+                $listDiv.append(listElmt);
                 // add event on click
-                $(tr).click(function() {
+                $(listElmt).click(function() {
                     if ( g.toggleCol($(this).index()) ) {
                         g.afterToggleCol();
                     }
@@ -706,7 +611,7 @@
                 g.showAllColumns();
             });
             // prepend "show all column" button at top if the list is too long
-            if ($firstRowHeaders.length > 10) {
+            if ($firstRowCols.length > 10) {
                 var clone = showAll.cloneNode(true);
                 $(g.cList).prepend(clone);
                 $(clone).click(function() {
@@ -749,15 +654,17 @@
                     g.showHint(e);
                 });
         }
-        $(t).find('th:not(.draggable)')
-            .mouseenter(function(e) {
-                g.showColVisibHint = true;
-                g.showHint(e);
-            })
-            .mouseleave(function(e) {
-                g.showColVisibHint = false;
-                g.showHint(e);
-            });
+        if ($firstRowCols.length > 1) {
+            $(t).find('th:not(.draggable)')
+                .mouseenter(function(e) {
+                    g.showColVisibHint = true;
+                    g.showHint(e);
+                })
+                .mouseleave(function(e) {
+                    g.showColVisibHint = false;
+                    g.showHint(e);
+                });
+        }
         $(t).find('th.draggable a')
             .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {

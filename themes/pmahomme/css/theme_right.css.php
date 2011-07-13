@@ -2534,15 +2534,6 @@ span.mysql-number {
     width: 10px;
 }
 
-.cPointerVer {  /* cPointer with vertical display mode */
-    background: url(./themes/pmahomme/img/col_pointer_ver.png);
-    height: 10px;
-    margin-left: -5px;
-    margin-top: -5px;   /* must be minus half of its height */
-    position: absolute;
-    width: 20px;
-}
-
 .dHint {
     background: #333;
     border:1px solid #000;
@@ -2603,15 +2594,16 @@ span.mysql-number {
     box-shadow: 0 0.2em 0.5em #333;
 }
 
-.cList table {
+.cList .lDiv div {
+    padding: 0.2em 0.5em 0.2em 0.2em;
 }
 
-.cList table tr:hover {
+.cList .lDiv div:hover {
     background: #DDD;
     cursor: pointer;
 }
 
-.cList table td input {
+.cList .lDiv div input {
     cursor: pointer;
 }
 
