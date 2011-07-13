@@ -3201,7 +3201,7 @@ msgstr "Personelaat an ivinelloù"
 
 #: libraries/config/messages.inc.php:226
 msgid "Text fields"
-msgstr ""
+msgstr "Maeziennoù testenn"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize text input fields"
