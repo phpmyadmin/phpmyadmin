@@ -1592,6 +1592,11 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  */
 function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 {
+    if (PMA_DRIZZLE) {
+        // Drizzle doesn't support triggers
+        return array();
+    }
+
     $result = array();
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
         // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
