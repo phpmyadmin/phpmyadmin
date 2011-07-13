@@ -2949,7 +2949,7 @@ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr ""
+msgstr "Diorroer"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
