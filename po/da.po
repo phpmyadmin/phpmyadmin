@@ -2014,6 +2014,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Dette betyder ofte at der er en eller flere syntaks-mæssige fejl i den, "
+"kontrollér venligst for fejlen(e) vist herunder."
 
 #: libraries/common.inc.php:596
 #, php-format
