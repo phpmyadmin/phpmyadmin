@@ -6643,7 +6643,6 @@ msgid "Change to %s"
 msgstr "%s'a değiştir"
 
 #: libraries/rte/rte_events.lib.php:411
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
 msgstr "Çalıştır"
