@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:11+0200\n"
+"PO-Revision-Date: 2011-07-13 22:12+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3330,7 +3330,7 @@ msgstr "Brug ikke AUTO_INCREMENT for 0-værdier"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Skydernes udgangspunkt"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
