@@ -3371,7 +3371,7 @@ msgstr "Streng der inddeler databaser i forskellige niveauer"
 
 #: libraries/config/messages.inc.php:274
 msgid "Database tree separator"
-msgstr ""
+msgstr "Database niveau inddelings-streng"
 
 #: libraries/config/messages.inc.php:275
 msgid ""
