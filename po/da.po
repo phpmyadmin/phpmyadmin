@@ -3196,7 +3196,7 @@ msgstr "Opstart"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr ""
+msgstr "Tilpas opstart-side"
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
