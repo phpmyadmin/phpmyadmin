@@ -593,15 +593,7 @@
         });
         
         // create qtip for each <th> with draggable class
-        $(t).find('th.draggable').qtip({
-            style: {
-                tip: true,
-                name: 'dark'
-            },
-            position: {
-                corner: { target: 'topRight', tooltip: 'bottomLeft' }
-            }
-        });
+        PMA_createqTip($(t).find('th.draggable'));
         
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
@@ -626,17 +618,10 @@
                 });
         }
         if ($firstRowCols.length > 1) {
-            $(t).find('th:not(.draggable)')
-                .qtip({
-                    style: {
-                        tip: true,
-                        name: 'dark'
-                    },
-                    position: {
-                        corner: { target: 'topRight', tooltip: 'bottomLeft' }
-                    }
-                })
-                .mouseenter(function(e) {
+            var $colVisibTh = $(t).find('th:not(.draggable)');
+            
+            PMA_createqTip($colVisibTh);
+            $colVisibTh.mouseenter(function(e) {
                     g.showColVisibHint = true;
                     g.showHint(e);
                 })
