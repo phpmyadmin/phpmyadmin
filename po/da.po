@@ -3204,7 +3204,7 @@ msgstr "Faner"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Vælg hvordan du ønsker at fanerne skal fungere"
 
 #: libraries/config/messages.inc.php:226
 #, fuzzy
