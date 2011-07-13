@@ -2005,10 +2005,9 @@ msgid "Check Privileges"
 msgstr "Check Privilegier"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
-msgstr "Kunne ikke indlæse standardkonfiguration fra: \"%1$s\""
+msgstr "Kunne ikke indlæse konfigurationsfilen"
 
 #: libraries/common.inc.php:589
 msgid ""
