@@ -3389,7 +3389,7 @@ msgstr "Deaktivér dette hvis du ønsker at se alle databaser på een gang"
 
 #: libraries/config/messages.inc.php:278
 msgid "Use light version"
-msgstr ""
+msgstr "Brug lille version"
 
 #: libraries/config/messages.inc.php:279
 msgid "Maximum table tree depth"
