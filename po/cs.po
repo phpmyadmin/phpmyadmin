@@ -6591,10 +6591,9 @@ msgid "Details"
 msgstr "Podrobnosti"
 
 #: libraries/rte/rte_events.lib.php:363
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Typ události"
+msgstr "Název události"
 
 #: libraries/rte/rte_events.lib.php:384 server_binlog.php:182
 msgid "Event type"
