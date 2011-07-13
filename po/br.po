@@ -3020,7 +3020,7 @@ msgstr "Taolenn verdeiñ"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Personelaat tres an daolenn verdeiñ"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:36
 #: setup/frames/index.inc.php:110
