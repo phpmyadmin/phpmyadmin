@@ -6998,10 +6998,9 @@ msgid "You must provide a valid table name"
 msgstr "Bir yordam adı vermek zorundasınız"
 
 #: libraries/rte/rte_triggers.lib.php:429
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Bir yordam tanımı sağlamalısınız."
+msgstr "Bir tetikleyici tanımı vermek zorundasınız."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
