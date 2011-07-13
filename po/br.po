@@ -3110,6 +3110,8 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Kefluniadur pishoc'h; bezit sur e ouzit ar pezh a rit a-raok mont da gemmañ "
+"tra pe dra"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
