@@ -268,8 +268,8 @@ class TableProperty
 	{
 		$lines=array();
 		$lines[] = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
-		$lines[] = "<hibernate-mapping xmlns=\"urn:nhibernate-mapping-2.2\" namespace=\"".ucfirst($db)."\" assembly=\"".ucfirst($db)."\">";
-		$lines[] = "	<class name=\"".ucfirst($table)."\" table=\"".$table."\">";
+		$lines[] = "<hibernate-mapping xmlns=\"urn:nhibernate-mapping-2.2\" namespace=\"".ucfirst(htmlspecialchars($db, ENT_COMPAT, 'UTF-8'))."\" assembly=\"".ucfirst(htmlspecialchars($db, ENT_COMPAT, 'UTF-8'))."\">";
+		$lines[] = "	<class name=\"".ucfirst(htmlspecialchars($table, ENT_COMPAT, 'UTF-8'))."\" table=\"".htmlspecialchars($table, ENT_COMPAT, 'UTF-8')."\">";
 		$result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
 		if ($result)
 		{
