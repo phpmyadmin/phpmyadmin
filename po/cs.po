@@ -6671,7 +6671,7 @@ msgstr "Nová"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Vypnuto"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
