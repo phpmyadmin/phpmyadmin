@@ -3189,7 +3189,7 @@ msgstr "Pajenn deraouiñ"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personelaat ar bajenn deraouiñ"
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
