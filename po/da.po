@@ -3153,7 +3153,7 @@ msgstr "Tilpas import-indstillinger"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Tilpas navigations-rammen"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
