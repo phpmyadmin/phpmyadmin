@@ -6689,10 +6689,9 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Her olay için geçerli aralık değeri vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:538
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Bir yordam tanımı sağlamalısınız."
+msgstr "Olay için geçerli bir çalıştırma zamanı vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:542
 #, fuzzy
