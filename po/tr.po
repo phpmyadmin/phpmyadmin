@@ -6590,10 +6590,10 @@ msgid "The backed up query was:"
 msgstr "Yedeklenmiş sorgu:"
 
 #: libraries/rte/rte_events.lib.php:110
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Yordam %1$s değiştirildi."
+msgstr "Olay %1$s değiştirildi."
 
 #: libraries/rte/rte_events.lib.php:122
 #, fuzzy, php-format
