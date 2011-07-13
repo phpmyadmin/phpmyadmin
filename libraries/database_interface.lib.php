@@ -1464,6 +1464,11 @@ function PMA_DBI_get_default_engine()
  */
 function PMA_DBI_getCompatibilities()
 {
+    // Drizzle doesn't support compatibility modes
+    if (PMA_DRIZZLE) {
+        return array();
+    }
+
     $compats = array('NONE');
     $compats[] = 'ANSI';
     $compats[] = 'DB2';
