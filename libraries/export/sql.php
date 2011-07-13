@@ -128,7 +128,7 @@ if (isset($plugin_list)) {
         $plugin_list['sql']['options'][] = array('type' => 'end_group');
 
         /* begin Structure options */
-         if (!$hide_structure) {
+        if (!$hide_structure) {
             $plugin_list['sql']['options'][] = array(
                 'type' => 'begin_group',
                 'name' => 'structure',
@@ -144,7 +144,7 @@ if (isset($plugin_list)) {
                     'name' => 'add_statements',
                     'text' => __('Add statements:')
                 ));
-             if ($plugin_param['export_type'] == 'table') {
+            if ($plugin_param['export_type'] == 'table') {
                 if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
                     $drop_clause = '<code>DROP VIEW</code>';
                 } else {
@@ -313,7 +313,7 @@ function PMA_exportRoutines($db) {
 
     if ($procedure_names || $function_names) {
         $text .= $crlf
-          . 'DELIMITER ' . $delimiter . $crlf;
+            . 'DELIMITER ' . $delimiter . $crlf;
     }
 
     if ($procedure_names) {
@@ -415,9 +415,9 @@ function PMA_exportFooter()
     $charset_of_file = isset($GLOBALS['charset_of_file']) ? $GLOBALS['charset_of_file'] : '';
     if (!empty($GLOBALS['asfile']) && isset($mysql_charset_map[$charset_of_file])) {
         $foot .=  $crlf
-               . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf
-               . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf
-               . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;' . $crlf;
+                . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;' . $crlf
+                . '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . $crlf
+                . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;' . $crlf;
     }
 
     /* Restore timezone */
@@ -458,11 +458,11 @@ function PMA_exportHeader()
         $host_string .= ':' . $cfg['Server']['port'];
     }
     $head .= PMA_exportComment($host_string);
-    $head .=  PMA_exportComment(__('Generation Time')
-           . ': ' .  PMA_localisedDate())
-           .  PMA_exportComment(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION)
-           .  PMA_exportComment(__('PHP Version') . ': ' . phpversion())
-           .  PMA_possibleCRLF();
+    $head .= PMA_exportComment(__('Generation Time')
+          . ': ' .  PMA_localisedDate())
+          .  PMA_exportComment(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION)
+          .  PMA_exportComment(__('PHP Version') . ': ' . phpversion())
+          .  PMA_possibleCRLF();
 
     if (isset($GLOBALS['sql_header_comment']) && !empty($GLOBALS['sql_header_comment'])) {
         // '\n' is not a newline (like "\n" would be), it's the characters
@@ -476,17 +476,17 @@ function PMA_exportHeader()
     }
 
     if (isset($GLOBALS['sql_disable_fk'])) {
-        $head .=  'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
+        $head .= 'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
     }
 
     /* We want exported AUTO_INCREMENT fields to have still same value, do this only for recent MySQL exports */
     if (!isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] == 'NONE') {
-        $head .=  'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
+        $head .= 'SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";' . $crlf;
     }
 
     if (isset($GLOBALS['sql_use_transaction'])) {
-        $head .=  'SET AUTOCOMMIT=0;' . $crlf
-                . 'START TRANSACTION;' . $crlf;
+        $head .= 'SET AUTOCOMMIT=0;' . $crlf
+               . 'START TRANSACTION;' . $crlf;
     }
 
 
@@ -815,9 +815,9 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false, $a
                 // comments for current table
                 if (!isset($GLOBALS['no_constraints_comments'])) {
                     $sql_constraints .= $crlf
-                                     . PMA_exportComment()
-                                     . PMA_exportComment(__('Constraints for table') . ' ' . PMA_backquote($table))
-                                     . PMA_exportComment();
+                                      . PMA_exportComment()
+                                      . PMA_exportComment(__('Constraints for table') . ' ' . PMA_backquote($table))
+                                      . PMA_exportComment();
                 }
 
                 // let's do the work
@@ -972,8 +972,8 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
 
     switch($export_mode) {
         case 'create_table':
-            $dump .=  PMA_exportComment(__('Table structure for table') . ' ' . $formatted_table_name)
-                  . PMA_exportComment();
+            $dump .= PMA_exportComment(__('Table structure for table') . ' ' . $formatted_table_name)
+            $dump .= PMA_exportComment();
             $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
             $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);
             break;
@@ -982,9 +982,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
             $triggers = PMA_DBI_get_triggers($db, $table);
             if ($triggers) {
                 $dump .=  PMA_possibleCRLF()
-                      . PMA_exportComment()
-                      . PMA_exportComment(__('Triggers') . ' ' . $formatted_table_name)
-                      . PMA_exportComment();
+                        . PMA_exportComment()
+                        . PMA_exportComment(__('Triggers') . ' ' . $formatted_table_name)
+                        . PMA_exportComment();
                 $delimiter = '//';
                 foreach ($triggers as $trigger) {
                     $dump .= $trigger['drop'] . ';' . $crlf;
@@ -996,7 +996,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
             break;
         case 'create_view':
             $dump .= PMA_exportComment(__('Structure for view') . ' ' . $formatted_table_name)
-                  .  PMA_exportComment();
+                   . PMA_exportComment();
             // delete the stand-in table previously created (if any)
             if ($export_type != 'table') {
                 $dump .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table) . ';' . $crlf;
@@ -1005,7 +1005,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
             break;
         case 'stand_in':
             $dump .=  PMA_exportComment(__('Stand-in structure for view') . ' ' . $formatted_table_name)
-                  .  PMA_exportComment();
+                    . PMA_exportComment();
             // export a stand-in definition to resolve view dependencies
             $dump .= PMA_getTableDefStandIn($db, $table, $crlf);
     } // end switch
@@ -1059,7 +1059,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     //  are used, we did not get the true column name in case of aliases)
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
-    $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+    $result = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
     // a possible error: the table has crashed
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
@@ -1067,11 +1067,11 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     }
 
     if ($result != false) {
-        $fields_cnt     = PMA_DBI_num_fields($result);
+        $fields_cnt = PMA_DBI_num_fields($result);
 
         // Get field information
-        $fields_meta    = PMA_DBI_get_fields_meta($result);
-        $field_flags    = array();
+        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $field_flags = array();
         for ($j = 0; $j < $fields_cnt; $j++) {
             $field_flags[$j] = PMA_DBI_field_flags($result, $j);
         }
@@ -1095,9 +1095,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         } else {
             // insert or replace
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'REPLACE') {
-                $sql_command    = 'REPLACE';
+                $sql_command = 'REPLACE';
             } else {
-                $sql_command    = 'INSERT';
+                $sql_command = 'INSERT';
             }
 
             // delayed inserts?
@@ -1124,10 +1124,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             }
         }
 
-        $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
-        $replace      = array('\0', '\n', '\r', '\Z');
-        $current_row  = 0;
-        $query_size   = 0;
+        $search      = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
+        $replace     = array('\0', '\n', '\r', '\Z');
+        $current_row = 0;
+        $query_size  = 0;
         if (($GLOBALS['sql_insert_syntax'] == 'extended' || $GLOBALS['sql_insert_syntax'] == 'both') && (!isset($GLOBALS['sql_type']) || $GLOBALS['sql_type'] != 'UPDATE')) {
             $separator    = ',';
             $schema_insert .= $crlf;
@@ -1150,7 +1150,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             for ($j = 0; $j < $fields_cnt; $j++) {
                 // NULL
                 if (!isset($row[$j]) || is_null($row[$j])) {
-                    $values[]     = 'NULL';
+                    $values[] = 'NULL';
                 // a number
                 // timestamp is numeric on some MySQL 4.1, BLOBs are sometimes numeric
                 } elseif ($fields_meta[$j]->numeric && $fields_meta[$j]->type != 'timestamp'
@@ -1220,7 +1220,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 }
                 // Other inserts case
                 else {
-                    $insert_line      = $schema_insert . '(' . implode(', ', $values) . ')';
+                    $insert_line = $schema_insert . '(' . implode(', ', $values) . ')';
                 }
             }
             unset($values);
