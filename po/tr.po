@@ -6744,10 +6744,9 @@ msgid "Export of routine %s"
 msgstr "%s yordamını dışa aktarma"
 
 #: libraries/rte/rte_routines.lib.php:27
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Yordamlar"
+msgstr "yordam"
 
 #: libraries/rte/rte_routines.lib.php:28
 msgid "You do not have the necessary privileges to create a new routine"
