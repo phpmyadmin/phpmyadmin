@@ -122,7 +122,7 @@ function PMA_exportHeader() {
         $head .= '    - Structure schemas' . $crlf;
         $head .= '    -->' . $crlf;
         $head .= '    <pma:structure_schemas>' . $crlf;
-        $head .= '        <pma:database name="' . $db . '" collation="' . $db_collation . '" charset="' . $db_charset . '">' . $crlf;
+        $head .= '        <pma:database name="' . htmlspecialchars($db) . '" collation="' . $db_collation . '" charset="' . $db_charset . '">' . $crlf;
         
         if (count($tables) == 0) {
             $tables[] = $table;
@@ -319,6 +319,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
         
         $columns_cnt = PMA_DBI_num_fields($result);
+        $columns = array();
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = stripslashes(str_replace(' ', '_', PMA_DBI_field_name($result, $i)));
         }
@@ -336,7 +337,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 if (!isset($record[$i]) || is_null($record[$i])) {
                     $record[$i] = 'NULL';
                 }
-                $buffer .= '            <column name="' . $columns[$i] . '">' . htmlspecialchars((string)$record[$i])
+                $buffer .= '            <column name="' . htmlspecialchars($columns[$i]) . '">' . htmlspecialchars((string)$record[$i])
                         .  '</column>' . $crlf;
             }
             $buffer         .= '        </table>' . $crlf;
