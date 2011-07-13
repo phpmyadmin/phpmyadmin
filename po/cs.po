@@ -6521,7 +6521,7 @@ msgid "You do not have the necessary privileges to create a new event"
 msgstr "Nemáte dostatečná práva pro vytvoření události"
 
 #: libraries/rte/rte_events.lib.php:29
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "V databázi %2$s nebyla nalezen událost se jménem %1$s"
