@@ -3254,7 +3254,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:236
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignorér flere efterfølgende fejl i udtryk"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
