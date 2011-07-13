@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:00+0200\n"
+"PO-Revision-Date: 2011-07-13 22:01+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -685,7 +685,6 @@ msgstr "Vis (udskriftvenlig)"
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a state it should translate to "Tom".
 #: db_structure.php:503 libraries/common.lib.php:2924
 #: libraries/common.lib.php:2925
-#, fuzzy
 msgid "Empty"
 msgstr "Tøm"
 
