@@ -377,7 +377,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
                     $mysql = '5.1';
                     /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
                     $lang = _pgettext('MySQL 5.1 documentation language', 'en');
-                } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
+                } else {
                     $mysql = '5.0';
                     /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
                     $lang = _pgettext('MySQL 5.0 documentation language', 'en');
