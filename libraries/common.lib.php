@@ -807,8 +807,6 @@ function PMA_backquote($a_name, $do_it = true)
  */
 function PMA_whichCrlf()
 {
-    $the_crlf = "\n";
-
     // The 'PMA_USR_OS' constant is defined in "./libraries/Config.class.php"
     // Win case
     if (PMA_USR_OS == 'Win') {
@@ -831,8 +829,6 @@ function PMA_whichCrlf()
  */
 function PMA_reloadNavigation($jsonly=false)
 {
-    global $cfg;
-
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
         // one of the reasons for a reload is when a table is dropped
