@@ -3338,7 +3338,7 @@ msgstr "Hvor mange rækker kan der indsættes på een gang"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Antal indsatte rækker"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
