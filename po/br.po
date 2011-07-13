@@ -3037,7 +3037,7 @@ msgstr "Dibarzhioù diskwel an taolennoù"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Taolenn bennañ"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
