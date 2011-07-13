@@ -6721,10 +6721,9 @@ msgid "Event scheduler status"
 msgstr "Olay zamanlayıcısı durumu"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Dönüş türü"
+msgstr "Dönüşler"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:328
 #: server_status.php:800 sql.php:943
