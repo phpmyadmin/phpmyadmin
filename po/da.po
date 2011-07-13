@@ -3173,10 +3173,9 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr "Tilpas links vist i SQL Query-boksen"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 #| msgid "Server variables and settings"
 msgid "SQL queries settings"
-msgstr "Server-variabler og indstillinger"
+msgstr "Indstillinger til SQL-forespørgsler"
 
 #: libraries/config/messages.inc.php:220
 #, fuzzy
