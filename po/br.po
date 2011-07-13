@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 19:32+0200\n"
+"PO-Revision-Date: 2011-07-13 19:33+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2982,7 +2982,7 @@ msgstr "Dre-vras"
 
 #: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Termeniñ un nebeud dibarzhioù implijet ingal"
 
 #: libraries/config/messages.inc.php:170 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
