@@ -3119,7 +3119,7 @@ msgstr "Merkañ arventennoù kevreañ ar servijer"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
-msgstr ""
+msgstr "Mirlec'h ar c'hefluniadurioù"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
