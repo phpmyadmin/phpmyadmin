@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-13 11:27+0100\n"
-"PO-Revision-Date: 2011-06-29 15:21+0200\n"
+"POT-Creation-Date: 2011-07-13 14:48+0200\n"
+"PO-Revision-Date: 2011-07-13 10:06+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -58,7 +58,7 @@ msgstr "Hľadať"
 #: libraries/display_tbl.lib.php:566 libraries/display_tbl.lib.php:661
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:370
 #: libraries/rte/rte_events.lib.php:482 libraries/rte/rte_routines.lib.php:999
-#: libraries/rte/rte_routines.lib.php:1482
+#: libraries/rte/rte_routines.lib.php:1497
 #: libraries/rte/rte_triggers.lib.php:375
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
@@ -152,7 +152,7 @@ msgstr "Stĺpce"
 #: libraries/export/texytext.php:234 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_routines.lib.php:865
 #: libraries/rte/rte_routines.lib.php:890
-#: libraries/rte/rte_routines.lib.php:1400
+#: libraries/rte/rte_routines.lib.php:1415
 #: libraries/schema/Pdf_Relation_Schema.class.php:1231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2151
@@ -938,7 +938,7 @@ msgstr ""
 "časový limit behu skriptu v php."
 
 #: import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1240
+#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1255
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1199,16 +1199,12 @@ msgid "Insert Table"
 msgstr "Pridať tabuľku"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Pridať index"
+msgstr "Skryť indexy"
 
 #: js/messages.php:114
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Zobraziť mriežku"
+msgstr "Zobraziť indexy"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -2020,6 +2016,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Toto je často spôsobené syntaktickou chybou v súbore, prosím skontrolujte "
+"chyby vypísané nižšie."
 
 #: libraries/common.inc.php:596
 #, php-format
@@ -2103,7 +2101,7 @@ msgstr "SQL dopyt"
 #: libraries/rte/rte_routines.lib.php:265
 #: libraries/rte/rte_routines.lib.php:275
 #: libraries/rte/rte_routines.lib.php:289
-#: libraries/rte/rte_routines.lib.php:1290
+#: libraries/rte/rte_routines.lib.php:1305
 #: libraries/rte/rte_triggers.lib.php:84 libraries/rte/rte_triggers.lib.php:89
 #: libraries/rte/rte_triggers.lib.php:99
 #: libraries/rte/rte_triggers.lib.php:112
@@ -4091,22 +4089,14 @@ msgid "Display columns table"
 msgstr "Zobrazenie stĺpcov tabuľky"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
-#| msgid "User preferences storage table"
 msgid "UI preferences table"
-msgstr "Tabuľka pre užívateľské nastavenia"
+msgstr "Tabuľka pre nastavenie rozhrania"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
@@ -4249,10 +4239,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
-#| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Východzí smer zobrazovania"
+msgstr "Zobraziť smer zobrazovania"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -4509,6 +4497,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Povoliť [a@http://en.wikipedia.org/wiki/ZIP_(súborový_formát)]ZIP[/a] "
+"kompresiu pre import a export operácie"
 
 #: libraries/config/messages.inc.php:514
 msgid "ZIP"
@@ -4626,7 +4616,7 @@ msgstr "en"
 #: libraries/core.lib.php:258
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Chýba rozšírenie %s. Skontrolujte prosín nastavenia PHP."
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -4738,7 +4728,7 @@ msgstr "Vytvoriť novú tabuľku v databáze %s"
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:49
 #: libraries/rte/rte_list.lib.php:55 libraries/rte/rte_list.lib.php:62
 #: libraries/rte/rte_routines.lib.php:889
-#: libraries/rte/rte_routines.lib.php:1399
+#: libraries/rte/rte_routines.lib.php:1414
 #: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:125
 #: tbl_structure.php:204
 msgid "Name"
@@ -5879,7 +5869,7 @@ msgstr "výsledok SQL"
 msgid "Generated by"
 msgstr "Vygenerované"
 
-#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1284
+#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1299
 #: sql.php:685 tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
@@ -6368,7 +6358,7 @@ msgid "Variable"
 msgstr "Premenná"
 
 #: libraries/replication_gui.lib.php:117
-#: libraries/rte/rte_routines.lib.php:1404 pmd_general.php:476
+#: libraries/rte/rte_routines.lib.php:1419 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1029 tbl_change.php:329 tbl_printview.php:367
 #: tbl_select.php:117 tbl_structure.php:862
@@ -6434,10 +6424,9 @@ msgid "Add event"
 msgstr "Pridať nového používateľa"
 
 #: libraries/rte/rte_events.lib.php:26
-#, fuzzy, php-format
-#| msgid "Export to selected page"
+#, php-format
 msgid "Export of event %s"
-msgstr "Exportovať na zvolenú stránku"
+msgstr "Exportovať udalosť %s"
 
 #: libraries/rte/rte_events.lib.php:27
 #, fuzzy
@@ -6453,9 +6442,9 @@ msgstr "Nemáte dostatočné práva na vykonanie tejto akcie!"
 
 #: libraries/rte/rte_events.lib.php:29
 #, fuzzy, php-format
-#| msgid "No tables found in database"
+#| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "V tejto databáze neboli nájdené žiadne tabuľky"
+msgstr "V databáze %2$s nebola nájdená udalosť s menom %1$s"
 
 #: libraries/rte/rte_events.lib.php:30
 #, fuzzy
@@ -6467,7 +6456,7 @@ msgstr "Žiadny súbor pre nahrávanie"
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_routines.lib.php:259
 #: libraries/rte/rte_routines.lib.php:264
 #: libraries/rte/rte_routines.lib.php:288
-#: libraries/rte/rte_routines.lib.php:1289
+#: libraries/rte/rte_routines.lib.php:1304
 #: libraries/rte/rte_triggers.lib.php:83 libraries/rte/rte_triggers.lib.php:88
 #: libraries/rte/rte_triggers.lib.php:111
 #, php-format
@@ -6513,8 +6502,8 @@ msgid "Edit event"
 msgstr "Webový server"
 
 #: libraries/rte/rte_events.lib.php:201 libraries/rte/rte_routines.lib.php:375
-#: libraries/rte/rte_routines.lib.php:1311
-#: libraries/rte/rte_routines.lib.php:1347
+#: libraries/rte/rte_routines.lib.php:1326
+#: libraries/rte/rte_routines.lib.php:1362
 #: libraries/rte/rte_triggers.lib.php:195
 msgid "Error in processing request"
 msgstr "Chyba pri spracovaní požiadavky"
@@ -6778,7 +6767,7 @@ msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1072
-#: libraries/rte/rte_routines.lib.php:1116
+#: libraries/rte/rte_routines.lib.php:1131
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -6788,15 +6777,15 @@ msgstr ""
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1106
+#: libraries/rte/rte_routines.lib.php:1121
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1156
+#: libraries/rte/rte_routines.lib.php:1171
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1245
+#: libraries/rte/rte_routines.lib.php:1260
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -6804,22 +6793,22 @@ msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok"
 msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky"
 msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov"
 
-#: libraries/rte/rte_routines.lib.php:1261
+#: libraries/rte/rte_routines.lib.php:1276
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Výsledky spustenia rutiny %s"
 
-#: libraries/rte/rte_routines.lib.php:1335
-#: libraries/rte/rte_routines.lib.php:1341
+#: libraries/rte/rte_routines.lib.php:1350
+#: libraries/rte/rte_routines.lib.php:1356
 msgid "Execute routine"
 msgstr "Spustiť rutinu"
 
-#: libraries/rte/rte_routines.lib.php:1392
-#: libraries/rte/rte_routines.lib.php:1395
+#: libraries/rte/rte_routines.lib.php:1407
+#: libraries/rte/rte_routines.lib.php:1410
 msgid "Routine parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1402 tbl_change.php:287
+#: libraries/rte/rte_routines.lib.php:1417 tbl_change.php:287
 #: tbl_change.php:325
 msgid "Function"
 msgstr "Funkcia"
@@ -10704,10 +10693,9 @@ msgstr "Premenovať pohľad na"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Hodnota vo formulári je príliš dlhá!"
 
-#, fuzzy
 #~| msgid "Export to selected page"
 #~ msgid "Export of event \"%s\""
-#~ msgstr "Exportovať na zvolenú stránku"
+#~ msgstr "Export udalosti \"%s\""
 
 #, fuzzy
 #~| msgid "No valid image path for theme %s found!"

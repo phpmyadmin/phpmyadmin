@@ -972,7 +972,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = false, 
 
     switch($export_mode) {
         case 'create_table':
-            $dump .= PMA_exportComment(__('Table structure for table') . ' ' . $formatted_table_name)
+            $dump .= PMA_exportComment(__('Table structure for table') . ' ' . $formatted_table_name);
             $dump .= PMA_exportComment();
             $dump .= PMA_getTableDef($db, $table, $crlf, $error_url, $dates);
             $dump .= PMA_getTableComments($db, $table, $crlf, $relation, $mime);

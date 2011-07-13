@@ -121,7 +121,7 @@ if (! $db_is_information_schema) {
     if ($is_superuser && !PMA_DRIZZLE) {
         $tabs[] =& $tab_privileges;
     }
-    if (PMA_MYSQL_INT_VERSION >= 50002 && ! PMA_DRIZZLE) {
+    if (!PMA_DRIZZLE) {
         $tabs[] =& $tab_routines;
     }
     if (PMA_MYSQL_INT_VERSION >= 50106 && ! PMA_DRIZZLE) {
@@ -129,7 +129,7 @@ if (! $db_is_information_schema) {
             $tabs[] =& $tab_events;
         }
     }
-    if (PMA_MYSQL_INT_VERSION >= 50002 && ! PMA_DRIZZLE) {
+    if (!PMA_DRIZZLE) {
         if (PMA_currentUserHasPrivilege('TRIGGER', $db)) {
             $tabs[] =& $tab_triggers;
         }
