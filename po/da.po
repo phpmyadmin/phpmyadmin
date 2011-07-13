@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:18+0200\n"
+"PO-Revision-Date: 2011-07-13 22:19+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3405,7 +3405,7 @@ msgstr "Separator til tabel-inddeling"
 
 #: libraries/config/messages.inc.php:282
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL som logoet i navigations-rammen vil pege på"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link URL"
