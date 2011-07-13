@@ -6716,10 +6716,9 @@ msgid "ON"
 msgstr "AÇIK"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Olay zamanlayıcısı etkin"
+msgstr "Olay zamanlayıcısı durumu"
 
 #: libraries/rte/rte_list.lib.php:52
 #, fuzzy
