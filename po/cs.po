@@ -6661,10 +6661,9 @@ msgid "You must provide a valid type for the event."
 msgstr "Musíte zadat správný typ události."
 
 #: libraries/rte/rte_events.lib.php:561
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Musíte zadat definici rutiny."
+msgstr "Musíte zadat definici události."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
