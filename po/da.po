@@ -3409,7 +3409,7 @@ msgstr "URL som logoet i navigations-rammen vil pege på"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link URL"
-msgstr ""
+msgstr "Logo link-URL"
 
 #: libraries/config/messages.inc.php:284
 msgid ""
