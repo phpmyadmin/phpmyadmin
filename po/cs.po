@@ -6678,10 +6678,9 @@ msgid "ON"
 msgstr "Zapnuto"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Plánovač událostí je zapnutý"
+msgstr "Stav plánovače událostí"
 
 #: libraries/rte/rte_list.lib.php:52
 #, fuzzy
