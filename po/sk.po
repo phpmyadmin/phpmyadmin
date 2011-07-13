@@ -4705,10 +4705,10 @@ msgid "Export of event %s"
 msgstr "Exportovať udalosť %s"
 
 #: libraries/db_events.inc.php:34
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export to selected page"
 msgid "Export of event \"%s\""
-msgstr "Exportovať na zvolenú stránku"
+msgstr "Export udalosti \"%s\""
 
 #: libraries/db_events.inc.php:40
 #, fuzzy, php-format
