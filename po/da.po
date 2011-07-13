@@ -3302,7 +3302,7 @@ msgstr "Indsæt feltnavne i første række"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Importér ikke tomme rækker"
 
 #: libraries/config/messages.inc.php:256
 msgid "Import currencies ($5.00 to 5.00)"
