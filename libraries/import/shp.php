@@ -336,6 +336,12 @@ if (isset($plugin_list)) {
         }
     }
 
+    if(count($rows) == 0) {
+        $error = true;
+        $err = PMA_Message::error(__('The imported file does not cantain any data'));
+        PMA_mysqlDie($err->getMessage(), '', '', $err_url);
+    }
+
     // Column names for spatial column and the rest of the columns, if they are available
     $col_names[] = 'SPATIAL';
     for ($n = 0; $n < $num_data_cols; $n++) {
