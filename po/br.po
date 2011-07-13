@@ -3025,7 +3025,7 @@ msgstr "Personelaat tres an daolenn verdeiñ"
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:36
 #: setup/frames/index.inc.php:110
 msgid "Servers"
-msgstr ""
+msgstr "Servijerioù"
 
 #: libraries/config/messages.inc.php:182
 msgid "Servers display options"
