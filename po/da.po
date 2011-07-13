@@ -3385,7 +3385,7 @@ msgstr "Vis databaser i træ"
 
 #: libraries/config/messages.inc.php:277
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Deaktivér dette hvis du ønsker at se alle databaser på een gang"
 
 #: libraries/config/messages.inc.php:278
 msgid "Use light version"
