@@ -2974,7 +2974,7 @@ msgstr "Personelaat an talvoudoù ezporzhiañ implijet dre ziouer"
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Dezverkoù"
 
 #: libraries/config/messages.inc.php:168
 msgid "General"
