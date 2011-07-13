@@ -3218,7 +3218,7 @@ msgstr "Tilpas tekstfelter"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! tekst"
 
 #: libraries/config/messages.inc.php:230
 msgid "Warnings"
