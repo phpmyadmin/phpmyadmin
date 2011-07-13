@@ -300,9 +300,12 @@ if (isset($plugin_list)) {
             break;
         default:
             $error = true;
-            $err = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
-            $param = isset($esri_types[$shp->shapeType]) ? $esri_types[$shp->shapeType] : __('Unkown Type');
-            $err->addParam($param);
+            if (! isset($esri_types[$shp->shapeType])) {
+                $err = PMA_Message::error(__('You tried to import an invalid file or the imported file contains invalid data'));
+            } else {
+                $err = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
+                $err->addParam($param);
+            }
             PMA_mysqlDie($err->getMessage(), '', '', $err_url);
     }
 
@@ -338,7 +341,7 @@ if (isset($plugin_list)) {
 
     if(count($rows) == 0) {
         $error = true;
-        $err = PMA_Message::error(__('The imported file does not cantain any data'));
+        $err = PMA_Message::error(__('The imported file does not contain any data'));
         PMA_mysqlDie($err->getMessage(), '', '', $err_url);
     }
 
