@@ -97,7 +97,7 @@ if(PMA_Tracker::isActive()) {
     $tabs['tracking']['text'] = __('Tracking');
     $tabs['tracking']['link'] = 'tbl_tracking.php';
 }
-if (! $db_is_information_schema && PMA_MYSQL_INT_VERSION >= 50002 && ! PMA_DRIZZLE) {
+if (!$db_is_information_schema && !PMA_DRIZZLE) {
     if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
         $tabs['triggers']['link'] = 'tbl_triggers.php';
         $tabs['triggers']['text'] = __('Triggers');

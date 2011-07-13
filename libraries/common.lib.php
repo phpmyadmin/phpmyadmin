@@ -140,10 +140,10 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  *
  * @access  public
  */
- function PMA_generateHiddenMaxFileSize($max_size)
- {
-     return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
- }
+function PMA_generateHiddenMaxFileSize($max_size)
+{
+    return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
+}
 
 /**
  * Add slashes before "'" and "\" characters so a value containing them can
@@ -377,7 +377,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
                     $mysql = '5.1';
                     /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
                     $lang = _pgettext('MySQL 5.1 documentation language', 'en');
-                } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
+                } else {
                     $mysql = '5.0';
                     /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
                     $lang = _pgettext('MySQL 5.0 documentation language', 'en');
@@ -707,7 +707,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             $group_name_full = '';
             $parts_cnt = count($parts) - 1;
             while ($i < $parts_cnt
-              && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
+                    && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
                 $group_name = $parts[$i] . $sep;
                 $group_name_full .= $group_name;
 
@@ -739,7 +739,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
 
         if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-          && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
+                && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
             // switch tooltip and name
             $table['Comment'] = $table['Name'];
             $table['disp_name'] = $table['Comment'];
@@ -807,8 +807,6 @@ function PMA_backquote($a_name, $do_it = true)
  */
 function PMA_whichCrlf()
 {
-    $the_crlf = "\n";
-
     // The 'PMA_USR_OS' constant is defined in "./libraries/Config.class.php"
     // Win case
     if (PMA_USR_OS == 'Win') {
@@ -825,15 +823,12 @@ function PMA_whichCrlf()
 /**
  * Reloads navigation if needed.
  *
- * @param   $jsonly prints out pure JavaScript
- * @global  array  configuration
+ * @param bool $jsonly prints out pure JavaScript
  *
  * @access  public
  */
 function PMA_reloadNavigation($jsonly=false)
 {
-    global $cfg;
-
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
         // one of the reasons for a reload is when a table is dropped
@@ -869,7 +864,7 @@ if (!$jsonly)
  * @param   string  $sql_query  the query to display
  * @param   string  $type       the type (level) of the message
  * @param   boolean $is_view    is this a message after a VIEW operation?
- * @global  array   the configuration array
+ * @return  string
  * @access  public
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
@@ -1218,6 +1213,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         ob_end_clean();
         return $buffer_contents;
     }
+    return null;
 } // end of the 'PMA_showMessage()' function
 
 /**
@@ -1225,7 +1221,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
  *
  * @access  public
  * @return  boolean whether profiling is supported
- *
  */
 function PMA_profilingSupported()
 {
@@ -1250,7 +1245,6 @@ function PMA_profilingSupported()
  *
  * @param   string  $sql_query
  * @access  public
- *
  */
 function PMA_profilingCheckbox($sql_query)
 {
@@ -1350,8 +1344,6 @@ function PMA_localizeNumber($value)
  * @return  string   the formatted value and its unit
  *
  * @access  public
- *
- * @version 1.1.0 - 2005-10-27
  */
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
@@ -1769,7 +1761,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         }
     } // end if... else...
 
-        return $ret;
+    return $ret;
 } // end of the 'PMA_linkOrButton()' function
 
 
@@ -1842,7 +1834,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
 
     return $format_string;
 }
-
 
 /**
  * Function added to avoid path disclosures.
@@ -1930,9 +1921,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             $meta->orgname = $meta->name;
 
             if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
-              && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])) {
-                foreach ($GLOBALS['analyzed_sql'][0]['select_expr']
-                  as $select_expr) {
+                    && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])) {
+                foreach ($GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr) {
                     // need (string) === (string)
                     // '' !== 0 but '' == 0
                     if ((string) $select_expr['alias'] === (string) $meta->name) {
@@ -1980,18 +1970,18 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 $condition .= '= ' . $row[$i] . ' AND';
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
-                 && stristr($field_flags, 'BINARY')
-                 && !empty($row[$i])) {
-                    // do not waste memory building a too big condition
-                    if (strlen($row[$i]) < 1000) {
-                        // use a CAST if possible, to avoid problems
-                        // if the field contains wildcard characters % or _
-                        $condition .= '= CAST(0x' . bin2hex($row[$i])
-                            . ' AS BINARY) AND';
-                    } else {
-                        // this blob won't be part of the final condition
-                        $condition = '';
-                    }
+                    && stristr($field_flags, 'BINARY')
+                    && !empty($row[$i])) {
+                // do not waste memory building a too big condition
+                if (strlen($row[$i]) < 1000) {
+                    // use a CAST if possible, to avoid problems
+                    // if the field contains wildcard characters % or _
+                    $condition .= '= CAST(0x' . bin2hex($row[$i])
+                        . ' AS BINARY) AND';
+                } else {
+                    // this blob won't be part of the final condition
+                    $condition = '';
+                }
             } elseif ($meta->type == 'bit') {
                 $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
             } else {
@@ -2167,12 +2157,12 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @param   integer     number of elements in the list
- * @param   integer     current position in the list
- * @param   array       url parameters
- * @param   string      script name for form target
- * @param   string      target frame
- * @param   integer     maximum number of elements to display from the list
+ * @param   int    $count        number of elements in the list
+ * @param   int    $pos          current position in the list
+ * @param   array  $_url_params  url parameters
+ * @param   string $script       script name for form target
+ * @param   string $frame        target frame
+ * @param   int    $max_count    maximum number of elements to display from the list
  *
  * @access  public
  */
@@ -2354,10 +2344,11 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
  * Generates and returns an HTML dropdown
  *
  * @param   string  $select_name
- * @param   array   $choices the choices values
- * @param   string  $active_choice the choice to select by default
- * @param   string  $id the id of the select element; can be different in case
- *                  the dropdown is present more than once on the page
+ * @param   array   $choices        choices values
+ * @param   string  $active_choice  the choice to select by default
+ * @param   string  $id             id of the select element; can be different in case
+ *                                  the dropdown is present more than once on the page
+ * @return string
  * @todo    support titles
  */
 function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
@@ -2492,8 +2483,8 @@ function PMA_clearUserCache() {
 /**
  * Verifies if something is cached in the session
  *
- * @param string $var
- * @param scalar $server
+ * @param string   $var
+ * @param int|true $server
  * @return boolean
  */
 function PMA_cacheExists($var, $server = 0)
@@ -2507,8 +2498,8 @@ function PMA_cacheExists($var, $server = 0)
 /**
  * Gets cached information from the session
  *
- * @param string $var
- * @param scalar $server
+ * @param string   $var
+ * @param int|true $server
  * @return mixed
  */
 function PMA_cacheGet($var, $server = 0)
@@ -2526,9 +2517,9 @@ function PMA_cacheGet($var, $server = 0)
 /**
  * Caches information in the session
  *
- * @param string $var
- * @param mixed $val
- * @param integer $server
+ * @param string   $var
+ * @param mixed    $val
+ * @param int|true $server
  * @return mixed
  */
 function PMA_cacheSet($var, $val = null, $server = 0)
@@ -2542,8 +2533,8 @@ function PMA_cacheSet($var, $val = null, $server = 0)
 /**
  * Removes cached information from the session
  *
- * @param string $var
- * @param scalar $server
+ * @param string   $var
+ * @param int|true $server
  */
 function PMA_cacheUnset($var, $server = 0)
 {
@@ -3130,6 +3121,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
  *                           string, db name where to also check for privileges
  * @param   mixed    $tbl    null, to only check global privileges
  *                           string, db name where to also check for privileges
+ * @return bool
  */
 function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
 {
