@@ -3057,7 +3057,7 @@ msgstr "Arventennoù a bep seurt"
 
 #: libraries/config/messages.inc.php:192
 msgid "Page titles"
-msgstr ""
+msgstr "Titloù pajennoù"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
