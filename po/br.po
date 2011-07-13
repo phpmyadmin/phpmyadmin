@@ -2965,7 +2965,7 @@ msgstr "Personelaat ar mod aozañ"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
-msgstr ""
+msgstr "Talvoudoù dre ziouer evit an ezporzhiañ"
 
 #: libraries/config/messages.inc.php:166
 msgid "Customize default export options"
