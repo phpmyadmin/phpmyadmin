@@ -75,7 +75,9 @@ function PMA_exportHeader() {
     global $table;
     global $tables;
 
-    $export_struct = isset($GLOBALS['xml_export_struc']) ? true : false;
+    $export_struct = isset($GLOBALS['xml_export_functions']) || isset($GLOBALS['xml_export_procedures'])
+        || isset($GLOBALS['xml_export_tables']) || isset($GLOBALS['xml_export_triggers'])
+        || isset($GLOBALS['xml_export_views']);
     $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
 
     if ($GLOBALS['output_charset_conversion']) {
@@ -140,7 +142,7 @@ function PMA_exportHeader() {
 
             $head .= '            <pma:' . $type . ' name="' . $table . '">' . $crlf;
 
-            $tbl = "                " . $tbl;
+            $tbl = "                " . htmlspecialchars($tbl);
             $tbl = str_replace("\n", "\n                ", $tbl);
 
             $head .= $tbl . ';' . $crlf;
@@ -156,7 +158,7 @@ function PMA_exportHeader() {
 
                         // Do some formatting
                         $code = substr(rtrim($code), 0, -3);
-                        $code = "                " . $code;
+                        $code = "                " . htmlspecialchars($code);
                         $code = str_replace("\n", "\n                ", $code);
 
                         $head .= $code . $crlf;
@@ -179,7 +181,7 @@ function PMA_exportHeader() {
                     // Do some formatting
                     $sql = PMA_DBI_get_definition($db, 'FUNCTION', $function);
                     $sql = rtrim($sql);
-                    $sql = "                " . $sql;
+                    $sql = "                " . htmlspecialchars($sql);
                     $sql = str_replace("\n", "\n                ", $sql);
 
                     $head .= $sql . $crlf;
@@ -202,7 +204,7 @@ function PMA_exportHeader() {
                     // Do some formatting
                     $sql = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure);
                     $sql = rtrim($sql);
-                    $sql = "                " . $sql;
+                    $sql = "                " . htmlspecialchars($sql);
                     $sql = str_replace("\n", "\n                ", $sql);
 
                     $head .= $sql . $crlf;
@@ -243,7 +245,7 @@ function PMA_exportDBHeader($db) {
         $head = '    <!--' . $crlf
               . '    - ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
               . '    -->' . $crlf
-              . '    <database name="' . $db . '">' . $crlf;
+              . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
 
         return PMA_exportOutputHandler($head);
     }
