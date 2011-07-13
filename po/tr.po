@@ -6645,7 +6645,7 @@ msgstr "%s'a değiştir"
 #: libraries/rte/rte_events.lib.php:411
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Çalıştırma"
+msgstr "Çalıştır"
 
 #: libraries/rte/rte_events.lib.php:419
 #| msgid "Execute"
