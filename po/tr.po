@@ -6953,10 +6953,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Tetikleyici %1$s oluşturuldu."
 
 #: libraries/rte/rte_triggers.lib.php:165
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Görünüm oluştur"
+msgstr "Tetikleyici oluştur"
 
 #: libraries/rte/rte_triggers.lib.php:169
 #, fuzzy
