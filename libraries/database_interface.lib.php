@@ -1300,7 +1300,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
         // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
         // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
         // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
-        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddSlashes($db,true) . "';";
+        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddSlashes($db,true) . "';";
         if (! empty($table)) {
             $query .= " AND EVENT_OBJECT_TABLE = '" . PMA_sqlAddSlashes($table, true) . "';";
         }
@@ -1319,12 +1319,15 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
                 $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
                 $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
                 $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
+                $trigger['DEFINER'] = $trigger['Definer'];
             }
             $one_result = array();
             $one_result['name'] = $trigger['TRIGGER_NAME'];
             $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
             $one_result['action_timing'] = $trigger['ACTION_TIMING'];
             $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
+            $one_result['definition'] = $trigger['ACTION_STATEMENT'];
+            $one_result['definer'] = $trigger['DEFINER'];
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
@@ -1335,6 +1338,14 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
             $result[] = $one_result;
         }
     }
+
+    // Sort results by name
+    $name = array();
+    foreach($result as $key => $value) {
+        $name[] = $value['name'];
+    }
+    array_multisort($name, SORT_ASC, $result);
+
     return($result);
 }
 

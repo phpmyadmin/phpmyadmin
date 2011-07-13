@@ -1,38 +1,32 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Triggers management.
+ *
+ * @package phpMyAdmin
+ */
 
 /**
- *
+ * Include required files
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
 
+/**
+ * Include JavaScript libraries
+ */
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'display_triggers.js';
+$GLOBALS['js_include'][] = 'rte/common.js';
+$GLOBALS['js_include'][] = 'rte/triggers.js';
 
 /**
- * Create labels for the list
+ * Include all other files
  */
-$titles = PMA_buildActionTitles();
+require_once './libraries/rte/rte_triggers.lib.php';
 
 /**
- * Displays the header
+ * Do the magic
  */
-require_once './libraries/db_common.inc.php';
-
-/**
- * Displays the tabs
- */
-require_once './libraries/db_info.inc.php';
-
-/**
- * Displays the list of triggers
- */
-require_once './libraries/display_triggers.inc.php';
-
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-
+require_once './libraries/rte/rte_main.inc.php';
 
 ?>
