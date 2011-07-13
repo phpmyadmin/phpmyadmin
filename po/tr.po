@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 17:49+0200\n"
+"PO-Revision-Date: 2011-07-13 17:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6663,10 +6663,9 @@ msgid "Definition"
 msgstr "Tanım"
 
 #: libraries/rte/rte_events.lib.php:460
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "tam eklemeler"
+msgstr "Tamamlamada koruma"
 
 #: libraries/rte/rte_events.lib.php:464 libraries/rte/rte_routines.lib.php:962
 #: libraries/rte/rte_triggers.lib.php:362
