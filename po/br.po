@@ -3008,7 +3008,7 @@ msgstr "Kefluniañ ar c'havlec'hioù enporzhiañ hag an dibarzhioù gwaskañ"
 
 #: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTex"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
