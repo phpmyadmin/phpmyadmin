@@ -2961,7 +2961,7 @@ msgstr "Mod aozañ"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Personelaat ar mod aozañ"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
