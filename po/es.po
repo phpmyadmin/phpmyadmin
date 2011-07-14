@@ -7070,10 +7070,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Debe proveer una sincronización válida para el disparador"
 
 #: libraries/rte/rte_triggers.lib.php:417
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Debe proveer en nombre y tipo para cada parámetro de rutina."
+msgstr "Debe proveer un evento válido para el disparador"
 
 #: libraries/rte/rte_triggers.lib.php:423
 #, fuzzy
