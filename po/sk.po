@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:13+0200\n"
+"PO-Revision-Date: 2011-07-14 10:14+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1094,7 +1094,7 @@ msgstr "Ostatné"
 #. l10n: Thousands separator
 #: js/messages.php:74 libraries/common.lib.php:1322
 msgid ","
-msgstr "&nbsp;"
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:76 libraries/common.lib.php:1324
