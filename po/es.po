@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 02:13+0200\n"
+"PO-Revision-Date: 2011-07-14 02:14+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7033,10 +7033,10 @@ msgstr ""
 "Pedimos disculpas por no haber podido recuperar el disparador eliminado."
 
 #: libraries/rte/rte_triggers.lib.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Se modificó la rutina %1$s."
+msgstr "Se modificó el disparador %1$s."
 
 #: libraries/rte/rte_triggers.lib.php:114
 #, fuzzy, php-format
