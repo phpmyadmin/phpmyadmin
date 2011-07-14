@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 13:43+0200\n"
+"PO-Revision-Date: 2011-07-14 13:44+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6934,7 +6934,7 @@ msgstr[1] ""
 #: libraries/rte/rte_routines.lib.php:1276
 #, php-format
 msgid "Execution results of routine %s"
-msgstr "Ergebnisse der ausgeführten Routine %s"
+msgstr "Ergebnisse der ausgeführten Prozedur %s"
 
 #: libraries/rte/rte_routines.lib.php:1350
 #: libraries/rte/rte_routines.lib.php:1356
