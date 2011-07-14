@@ -105,7 +105,7 @@ function PMA_exportHeader() {
     $head .= '<pma_xml_export version="1.0"' . (($export_struct) ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"' : '') . '>' . $crlf;
 
     if ($export_struct) {
-        $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.$db.'\' LIMIT 1');
+        $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.PMA_sqlAddSlashes($db).'\' LIMIT 1');
         $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
         $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
 
