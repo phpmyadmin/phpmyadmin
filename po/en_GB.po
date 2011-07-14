@@ -6886,10 +6886,9 @@ msgid "There are no triggers to display."
 msgstr "There are no triggers to display."
 
 #: libraries/rte/rte_triggers.lib.php:97
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Sorry, we failed to restore the dropped routine."
+msgstr "Sorry, we failed to restore the dropped trigger."
 
 #: libraries/rte/rte_triggers.lib.php:102
 #, fuzzy, php-format
