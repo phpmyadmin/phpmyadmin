@@ -25,33 +25,9 @@ function PMA_TRI_setGlobals()
 }
 
 /**
- * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
- * rte_events.lib.php. It is used to retreive some language strings that are
- * used in functionalities that are common to routines, triggers and events.
- *
- * @param   string  $index   The index of the string to get
- *
- * @return  string  The requested string or an empty string, if not available
- */
-function PMA_RTE_getWord($index)
-{
-    $words = array(
-        'add'       => __('Add trigger'),
-        'docu'      => 'TRIGGERS',
-        'export'    => __('Export of trigger %s'),
-        'human'     => __('trigger'),
-        'no_create' => __('You do not have the necessary privileges to create a new trigger'),
-        'not_found' => __('No trigger with name %1$s found in database %2$s'),
-        'nothing'   => __('There are no triggers to display.'),
-        'title'     => __('Triggers'),
-    );
-    return isset($words[$index]) ? $words[$index] : '';
-} // end PMA_RTE_getWord()
-
-/**
  * Main function for the triggers functionality
  */
-function PMA_RTE_main()
+function PMA_TRI_main()
 {
     global $db, $table;
 
@@ -71,7 +47,7 @@ function PMA_RTE_main()
      * if the user has the necessary privileges
      */
     echo PMA_TRI_getFooterLinks();
-} // end PMA_RTE_main()
+} // end PMA_TRI_main()
 
 /**
  * Handles editor requests for adding or editing an item

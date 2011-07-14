@@ -29,33 +29,9 @@ function PMA_RTN_setGlobals()
 }
 
 /**
- * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
- * rte_events.lib.php. It is used to retreive some language strings that are
- * used in functionalities that are common to routines, triggers and events.
- *
- * @param   string  $index   The index of the string to get
- *
- * @return  string  The requested string or an empty string, if not available
- */
-function PMA_RTE_getWord($index)
-{
-    $words = array(
-        'add'       => __('Add routine'),
-        'docu'      => 'STORED_ROUTINES',
-        'export'    => __('Export of routine %s'),
-        'human'     => __('routine'),
-        'no_create' => __('You do not have the necessary privileges to create a new routine'),
-        'not_found' => __('No routine with name %1$s found in database %2$s'),
-        'nothing'   => __('There are no routines to display.'),
-        'title'     => __('Routines'),
-    );
-    return isset($words[$index]) ? $words[$index] : '';
-} // end PMA_RTE_getWord()
-
-/**
  * Main function for the routines functionality
  */
-function PMA_RTE_main()
+function PMA_RTN_main()
 {
     global $db;
 
@@ -93,7 +69,7 @@ function PMA_RTE_main()
             E_USER_WARNING
         );
     }
-} // end PMA_RTE_main()
+} // end PMA_RTN_main()
 
 /**
  * This function parses a string containing one parameter of a routine,
