@@ -10172,7 +10172,7 @@ msgstr "Názov tabuľky"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Názov primárneho kľúča musí byť... PRIMARY!"
+msgstr "Názov primárneho kľúča musí byť \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
