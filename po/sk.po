@@ -9047,7 +9047,7 @@ msgstr "Počet požiadavkov na zmenu riadku v tabuľke."
 
 #: server_status.php:878
 msgid "The number of requests to insert a row in a table."
-msgstr "Počet požiadavkov na vloženie nového záznamu (riadku) do tabuľky."
+msgstr "Počet požiadavkov na vloženie nového riadku do tabuľky."
 
 #: server_status.php:879
 msgid "The number of pages containing data (dirty or clean)."
