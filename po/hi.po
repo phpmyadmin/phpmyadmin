@@ -803,7 +803,7 @@ msgstr "ट्रैकिंग रिपोर्ट"
 
 #: db_tracking.php:136 tbl_tracking.php:244 tbl_tracking.php:676
 msgid "Structure snapshot"
-msgstr "संरचना स्नैपशॉट"
+msgstr "संरचना क्षणचित्र"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
