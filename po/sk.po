@@ -6852,10 +6852,9 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
 #: libraries/rte/rte_triggers.lib.php:30
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Žiadny súbor pre nahrávanie"
+msgstr "Neboli nájdené žiadne spúšťače."
 
 #: libraries/rte/rte_triggers.lib.php:97
 #, fuzzy
