@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 02:10+0200\n"
+"PO-Revision-Date: 2011-07-14 02:11+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6779,10 +6779,9 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Debe proveer un valor de intervalo válido para el evento."
 
 #: libraries/rte/rte_events.lib.php:538
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Debe proveer una definición de rutina."
+msgstr "Debe proveer un tiempo de ejecución válido para el evento."
 
 #: libraries/rte/rte_events.lib.php:542
 #, fuzzy
