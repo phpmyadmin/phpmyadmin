@@ -35,6 +35,9 @@ phpMyAdmin - ChangeLog
 - bug #3353856 [AJAX] AJAX dialogs use wrong font-size
 - bug #3354356 [interface] Timepicker does not work in AJAX dialogs
 + AJAX for table Structure Indexes Edit
++ AJAX for table Structure column Change
++ [interface] Improved support for events
++ [interface] Improved support for triggers
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes

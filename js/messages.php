@@ -122,7 +122,6 @@ $js_messages['strDeleting'] = __('Deleting');
 
 /* For db_routines.js */
 $js_messages['MissingReturn'] = __('The definition of a stored function must contain a RETURN statement!');
-$js_messages['strValueTooLong'] = __('Value too long in the form!');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, they will be combined into one');

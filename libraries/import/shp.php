@@ -217,6 +217,7 @@ if (isset($plugin_list)) {
         $GLOBALS['import_text'] = $zip_content['data'];
     }
 
+    $temp_dbf_file = false;
     // We need dbase extension to handle .dbf file
     if (extension_loaded('dbase')) {
         // If we can extract the zip archive to 'TempDir' and use the files in it for import
@@ -248,6 +249,12 @@ if (isset($plugin_list)) {
 
     // Load data
     $shp->loadFromFile('');
+    if ($shp->lastError != "") {
+        $error = true;
+        $err = PMA_Message::error(__('There was an error importing the ESRI shape file: "%s".'));
+        $err->addParam($shp->lastError);
+        PMA_mysqlDie($err->getMessage(), '', '', $err_url);
+    }
 
     // Delete the .dbf file extracted to 'TempDir'
     if ($temp_dbf_file) {
@@ -299,9 +306,12 @@ if (isset($plugin_list)) {
             break;
         default:
             $error = true;
-            $err = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
-            $param = isset($esri_types[$shp->shapeType]) ? $esri_types[$shp->shapeType] : __('Unkown Type');
-            $err->addParam($param);
+            if (! isset($esri_types[$shp->shapeType])) {
+                $err = PMA_Message::error(__('You tried to import an invalid file or the imported file contains invalid data'));
+            } else {
+                $err = PMA_Message::error(__('MySQL Spatial Extension does not support ESRI type "%s".'));
+                $err->addParam($param);
+            }
             PMA_mysqlDie($err->getMessage(), '', '', $err_url);
     }
 
@@ -333,6 +343,12 @@ if (isset($plugin_list)) {
             }
             $rows[] = $tempRow;
         }
+    }
+
+    if(count($rows) == 0) {
+        $error = true;
+        $err = PMA_Message::error(__('The imported file does not contain any data'));
+        PMA_mysqlDie($err->getMessage(), '', '', $err_url);
     }
 
     // Column names for spatial column and the rest of the columns, if they are available

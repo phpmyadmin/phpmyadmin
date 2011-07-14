@@ -428,13 +428,12 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     {
         // Find two consecutive distinct points.
         for ($i = 0; $i < count($ring) - 1; $i++) {
-            if (($ring[$i]['x'] != $ring[$i + 1]['x'])
-                || ($ring[$i]['y'] != $ring[$i + 1]['y'])
-            ) {
+            if ($ring[$i]['y'] != $ring[$i + 1]['y']) {
                 $x0 = $ring[$i]['x'];
                 $x1 = $ring[$i + 1]['x'];
                 $y0 = $ring[$i]['y'];
                 $y1 = $ring[$i + 1]['y'];
+                break;
             }
         }
 
@@ -462,7 +461,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             // One of the points should be inside the polygon, unless epcilon chosen is too large
             if (PMA_GIS_Polygon::isPointInsidePolygon($pointA, $ring)) {
                 return $pointA;
-            } else if (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
+            } elseif (PMA_GIS_Polygon::isPointInsidePolygon($pointB, $ring)) {
                 return $pointB;
             }
 
@@ -470,6 +469,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             // (reduce exponentially for faster convergance)
             else {
                 $epsilon = pow($epsilon, 2);
+                if ($epsilon == 0) {
+                    return false;
+                }
             }
 
         }

@@ -35,19 +35,6 @@ if (isset($plugin_list)) {
  */
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text)
-{
-    PMA_exportOutputHandler('/* ' . $text . ' */' . $GLOBALS['crlf']);
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded
@@ -80,23 +67,21 @@ function PMA_exportHeader()
 /**
  * Outputs database header
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
  */
 function PMA_exportDBHeader($db)
 {
-    PMA_exportOutputHandler('/* Database \'' . $db . '\' */ ' . $GLOBALS['crlf'] );
+    PMA_exportOutputHandler('// Database \'' . $db . '\'' . $GLOBALS['crlf'] );
     return true;
 }
 
 /**
  * Outputs database footer
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -107,10 +92,9 @@ function PMA_exportDBFooter($db)
 }
 
 /**
- * Outputs create database database
+ * Outputs CREATE DATABASE statement
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -121,14 +105,13 @@ function PMA_exportDBCreate($db)
 }
 
 /**
- * Outputs the content of a table in YAML format
+ * Outputs the content of a table in JSON format
  *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
+ * @param   string  $db         database name
+ * @param   string  $table      table name
+ * @param   string  $crlf       the end of line sequence
+ * @param   string  $error_url  the url to go back in case of error
+ * @param   string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -151,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
         // Output table name as comment if this is the first record of the table
         if ($record_cnt == 1) {
-            $buffer .= '/* ' . $db . '.' . $table . ' */' . $crlf . $crlf;
+            $buffer .= '// ' . $db . '.' . $table . $crlf . $crlf;
             $buffer .= '[{';
         } else {
             $buffer .= ', {';
@@ -164,18 +147,20 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $column = $columns[$i];
 
             if (is_null($record[$i])) {
-                $buffer .= '"' . $column . '": null' . (! $isLastLine ? ',' : '');
+                $buffer .= '"' . addslashes($column) . '": null' . (! $isLastLine ? ',' : '');
             } elseif (is_numeric($record[$i])) {
-                $buffer .= '"' . $column . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
+                $buffer .= '"' . addslashes($column) . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
             } else {
-                $buffer .= '"' . $column . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
+                $buffer .= '"' . addslashes($column) . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
             }
         }
 
         $buffer .= '}';
     }
 
-    $buffer .=  ']';
+    if ($record_cnt) {
+        $buffer .=  ']';
+    }
     if (! PMA_exportOutputHandler($buffer)) {
         return false;
     }

@@ -313,6 +313,9 @@ class PMA_GIS_Visualization
             $type = substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $scale_data = $gis_obj->scaleRow($row[$this->_settings['spatialColumn']]);
 
             // Upadate minimum/maximum values for x and y cordinates.
@@ -392,6 +395,9 @@ class PMA_GIS_Visualization
             $type = substr($ref_data, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
+            if (! $gis_obj) {
+                continue;
+            }
             $label = '';
             if (isset($this->_settings['labelColumn'])
                 && isset($row[$this->_settings['labelColumn']])

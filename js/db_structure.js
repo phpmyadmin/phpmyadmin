@@ -61,12 +61,12 @@ $(document).ready(function() {
     $("td.insert_table a.ajax").live('click', function(event){
         event.preventDefault();
         currrent_insert_table = $(this);
-        var url = $(this).attr("href");
-        if (url.substring(0, 15) == "tbl_change.php?") {
-             url = url.substring(15);
+        var $url = $(this).attr("href");
+        if ($url.substring(0, 15) == "tbl_change.php?") {
+             $url = $url.substring(15);
         }
 
-       	var div = $('<div id="insert_table_dialog"></div>');
+       	var $div = $('<div id="insert_table_dialog"></div>');
        	var target = "tbl_change.php";
 
         /**
@@ -75,38 +75,43 @@ $(document).ready(function() {
          */
         var button_options = {};
         // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
 
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get( target , url+"&ajax_request=true" ,  function(data) {
+        $.get( target , $url+"&ajax_request=true" ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
-                div
+                $div
                 .append(data.error)
                 .dialog({
                     title: PMA_messages['strInsertTable'],
                     height: 230,
                     width: 900,
+                    modal: true,
                     open: PMA_verifyTypeOfAllColumns,
                     buttons : button_options_error
                 })// end dialog options
             } else {
-                div
-                .append(data)
-                .dialog({
-                    title: PMA_messages['strInsertTable'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options
-                })
+                var $dialog = $div
+                    .append(data)
+                    .dialog({
+                        title: PMA_messages['strInsertTable'],
+                        height: 600,
+                        width: 900,
+                        modal: true,
+                        open: PMA_verifyTypeOfAllColumns,
+                        buttons : button_options
+                    });// end dialog options
                 //Remove the top menu container from the dialog
-                .find("#topmenucontainer").hide()
-                ; // end dialog options
+                $dialog.find("#topmenucontainer").hide();
+                //Adding the datetime pikers for the dialog
+                $dialog.find('.datefield, .datetimefield').each(function () {
+                       PMA_addDatepicker($(this));
+                });
                 $(".insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
             }

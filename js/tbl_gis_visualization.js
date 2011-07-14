@@ -224,7 +224,7 @@ $(document).ready(function() {
      */
     $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
             + '.geometrycollection').live('mousemove', function(event) {
-        contents = $(this).attr('name');
+        contents = $.trim($(this).attr('name'));
         $("#tooltip").remove();
         if (contents != '') {
             $('<div id="tooltip">' + contents + '</div>').css({
