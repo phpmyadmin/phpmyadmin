@@ -6799,7 +6799,7 @@ msgstr "Nuevo"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Apagado"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
