@@ -8758,10 +8758,9 @@ msgid "All status variables"
 msgstr ""
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate:"
-msgstr "Obnoviť"
+msgstr "Obnovovacia frekvencia:"
 
 #: server_status.php:462
 #, fuzzy
