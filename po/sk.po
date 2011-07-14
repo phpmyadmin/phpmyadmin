@@ -5095,9 +5095,8 @@ msgid "Full texts"
 msgstr "Plné texty"
 
 #: libraries/display_tbl.lib.php:625
-#, fuzzy
 msgid "Relational key"
-msgstr "Relačná schéma"
+msgstr "Relačný kľúč"
 
 #: libraries/display_tbl.lib.php:626
 msgid "Relational display column"
