@@ -159,8 +159,8 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
         <label for="<?php echo htmlspecialchars($path) ?>"><?php echo $name ?></label>
         <?php if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
         <span class="doc">
-            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><img class="icon" src="<?php echo $img_path ?>b_help.png" width="11" height="11" alt="Doc" title="<?php echo __('Documentation') ?>" /></a><?php } ?>
-            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon" src="<?php echo $img_path ?>b_info.png" width="11" height="11" alt="Wiki" title="Wiki" /></a><?php } ?>
+            <?php if (!empty($opts['doc'])) { ?><a href="<?php echo $base_dir . $opts['doc']  ?>" target="documentation"><img class="icon ic_b_help_s" src="<?php echo $base_dir; ?>themes/dot.gif" alt="Doc" title="<?php echo __('Documentation') ?>" /></a><?php } ?>
+            <?php if (!empty($opts['wiki'])){ ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><img class="icon ic_b_info" src="<?php echo $base_dir; ?>themes/dot.gif" alt="Wiki" title="Wiki" /></a><?php } ?>
         </span>
         <?php } ?>
         <?php if ($option_is_disabled) { ?>
@@ -234,17 +234,17 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     }
     if ($is_setup_script && isset($opts['userprefs_comment']) && $opts['userprefs_comment']) {
         ?>
-        <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><img alt="comment" src="<?php echo $img_path ?>b_tblops.png" width="16" height="16" /></a>
+        <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><img alt="comment" class="icon ic-b_tblops" src="<?php echo $base_dir; ?>themes/dot.gif" /></a>
         <?php
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
         ?>
-        <a class="set-value" href="#<?php echo htmlspecialchars("$path={$opts['setvalue']}") ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" src="<?php echo $img_path ?>b_edit.png" width="16" height="16" /></a>
+        <a class="set-value" href="#<?php echo htmlspecialchars("$path={$opts['setvalue']}") ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><img alt="set-value" class="icon ic_b_edit" src="<?php echo $base_dir; ?>themes/dot.gif" /></a>
         <?php
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
         ?>
-        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" src="<?php echo $img_path ?>s_reload.png" width="16" height="16" /></a>
+        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><img alt="restore-default" class="icon ic_s_reload" src="<?php echo $base_dir; ?>themes/dot.gif" /></a>
         <?php
     }
     // this must match with displayErrors() in scripts/config.js

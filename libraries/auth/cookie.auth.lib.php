@@ -198,7 +198,7 @@ if (top != self) {
     echo '<a href="./Documentation.html" target="documentation" ' .
         'title="' . __('phpMyAdmin documentation') . '">';
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('phpMyAdmin documentation') . '" />';
+        echo '<img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('phpMyAdmin documentation') . '" />';
     } else {
         echo '(*)';
     }

@@ -266,6 +266,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sortableTable.js';
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 // Charting
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
@@ -562,7 +563,7 @@ server_db_isLocal = <?php echo ($server_db_isLocal)?'true':'false'; ?>;
  * Displays the sub-page heading
  */
 if ($GLOBALS['cfg']['MainPageIconic']) {
-    echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
+    echo '<img class="icon ic_s_status" src="themes/dot.gif" width="16" height="16" alt="" />';
 }
 
 echo __('Runtime Information');
@@ -1273,26 +1274,26 @@ function printMonitor() {
 ?>
     <div class="monitorLinks">
         <a href="#pauseCharts">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_play" alt="" /> 
             <?php echo __('Start Monitor'); ?>
         </a>
         <a href="#settingsPopup" rel="popupLink" style="display:none;">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_s_cog" alt="" /> 
             <?php echo __('Settings'); ?>
         </a>
         <a href="#monitorInstructionsDialog">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> 
             <?php echo __('Instructions/Setup'); ?>
         </a>
         <a href="#endChartEditMode" style="display:none;">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_okay.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_s_okay" alt="" /> 
             <?php echo __('Done rearranging/editing charts'); ?>
         </a>
     </div>
     
     <div class="popupContent settingsPopup">
         <a href="#addNewChart">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_b_chart" alt="" /> 
             <?php echo __('Add chart'); ?>
         </a> | 
         <a href="#rearrangeCharts"> <?php echo __('Rearrange/edit charts'); ?></a><br>

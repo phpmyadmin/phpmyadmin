@@ -46,64 +46,64 @@ if ($num_tables == 0) {
 
 $tab_structure['link']  = 'db_structure.php';
 $tab_structure['text']  = __('Structure');
-$tab_structure['icon']  = 'b_props.png';
+$tab_structure['icon']  = 'ic_b_props';
 
 $tab_sql['link']        = 'db_sql.php';
 $tab_sql['args']['db_query_force'] = 1;
 $tab_sql['text']        = __('SQL');
-$tab_sql['icon']        = 'b_sql.png';
+$tab_sql['icon']        = 'ic_b_sql';
 
 $tab_export['text']     = __('Export');
-$tab_export['icon']     = 'b_export.png';
+$tab_export['icon']     = 'ic_b_export';
 $tab_export['link']     = 'db_export.php';
 
 $tab_search['text']     = __('Search');
-$tab_search['icon']     = 'b_search.png';
+$tab_search['icon']     = 'ic_b_search';
 $tab_search['link']     = 'db_search.php';
 
 if(PMA_Tracker::isActive())
 {
     $tab_tracking['text'] = __('Tracking');
-    $tab_tracking['icon'] = 'eye.png';
+    $tab_tracking['icon'] = 'ic_eye';
     $tab_tracking['link'] = 'db_tracking.php';
 }
 
 $tab_qbe['text']        = __('Query');
-$tab_qbe['icon']        = 's_db.png';
+$tab_qbe['icon']        = 'ic_s_db';
 $tab_qbe['link']        = 'db_qbe.php';
 
 if ($cfgRelation['designerwork']) {
     $tab_designer['text']   = __('Designer');
-    $tab_designer['icon']   = 'b_relations.png';
+    $tab_designer['icon']   = 'ic_b_relations';
     $tab_designer['link']   = 'pmd_general.php';
 }
 
 if (! $db_is_information_schema) {
     $tab_import['link']     = 'db_import.php';
     $tab_import['text']     = __('Import');
-    $tab_import['icon']     = 'b_import.png';
+    $tab_import['icon']     = 'ic_b_import';
     $tab_operation['link']  = 'db_operations.php';
     $tab_operation['text']  = __('Operations');
-    $tab_operation['icon']  = 'b_tblops.png';
+    $tab_operation['icon']  = 'ic_b_tblops';
     if ($is_superuser) {
         $tab_privileges['link'] = 'server_privileges.php';
         $tab_privileges['args']['checkprivs']       = $db;
         // stay on database view
         $tab_privileges['args']['viewing_mode'] = 'db';
         $tab_privileges['text'] = __('Privileges');
-        $tab_privileges['icon'] = 's_rights.png';
+        $tab_privileges['icon'] = 'ic_s_rights';
     }
     $tab_routines['link']   = 'db_routines.php';
     $tab_routines['text']   = __('Routines');
-    $tab_routines['icon']   = 'b_routines.png';
+    $tab_routines['icon']   = 'ic_b_routines';
 
     $tab_events['link']     = 'db_events.php';
     $tab_events['text']     = __('Events');
-    $tab_events['icon']     = 'b_events.png';
+    $tab_events['icon']     = 'ic_b_events';
 
     $tab_triggers['link']   = 'db_triggers.php';
     $tab_triggers['text']   = __('Triggers');
-    $tab_triggers['icon']   = 'b_triggers.png';
+    $tab_triggers['icon']   = 'ic_b_triggers';
 }
 
 /**
