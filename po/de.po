@@ -6721,7 +6721,7 @@ msgstr "Der Ersteller muss im \"benutzername@hostname\" Format sein"
 #: libraries/rte/rte_events.lib.php:514
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Sie müssen einen Event-Namen angeben"
+msgstr "Sie müssen einen Ereignis-Namen angeben"
 
 #: libraries/rte/rte_events.lib.php:526
 #| msgid "You must provide a name and a type for each routine parameter."
