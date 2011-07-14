@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 02:07+0200\n"
+"PO-Revision-Date: 2011-07-14 02:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6644,10 +6644,9 @@ msgid "event"
 msgstr "evento"
 
 #: libraries/rte/rte_events.lib.php:28
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a new event"
-msgstr "No posee los privilegios necesarios para crear una nueva rutina"
+msgstr "No posee los privilegios necesarios para crear un nuevo evento"
 
 #: libraries/rte/rte_events.lib.php:29
 #, fuzzy, php-format
