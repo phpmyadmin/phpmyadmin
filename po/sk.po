@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 15:27+0200\n"
+"PO-Revision-Date: 2011-07-14 15:28+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -5177,7 +5177,7 @@ msgstr "Zobraziť graf"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Zobraziť GIS data"
 
 #: libraries/display_tbl.lib.php:2529
 #, fuzzy
