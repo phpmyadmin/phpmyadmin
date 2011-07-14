@@ -428,7 +428,7 @@ msgstr "में चले"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr "दृश्य बिल्डर"
+msgstr "दृश्य  निर्माता"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:937
