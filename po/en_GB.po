@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 15:10+0200\n"
+"PO-Revision-Date: 2011-07-14 15:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -6629,10 +6629,9 @@ msgid "The definer must be in the \"username@hostname\" format"
 msgstr "The definer must be in the \"username@hostname\" format"
 
 #: libraries/rte/rte_events.lib.php:514
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "You must provide a routine name"
+msgstr "You must provide an event name"
 
 #: libraries/rte/rte_events.lib.php:526
 #, fuzzy
