@@ -5015,7 +5015,7 @@ msgstr "Kliknite pre zoradenie"
 
 #: libraries/display_tbl.lib.php:419
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Kliknite pre označenie/odznačenie"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
