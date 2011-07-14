@@ -9540,7 +9540,7 @@ msgstr ""
 
 #: server_status.php:964
 msgid "The number of threads that are not sleeping."
-msgstr "Počet aktívnych (nespiacich) vlákien."
+msgstr "Počet nespiacich vlákien."
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
