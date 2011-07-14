@@ -5000,10 +5000,9 @@ msgid "Language"
 msgstr "Jazyk"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Stĺpce s textovou oblasťou"
+msgstr "Obnoviť poradie stĺpcov"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Drag to reorder"
