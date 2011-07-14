@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 02:08+0200\n"
+"PO-Revision-Date: 2011-07-14 02:09+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6686,10 +6686,10 @@ msgid "Event %1$s has been modified."
 msgstr "Se modificó el evento %1$s."
 
 #: libraries/rte/rte_events.lib.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "La Tabla %1$s se creó."
+msgstr "Se creó el evento %1$s."
 
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:299
 #: libraries/rte/rte_triggers.lib.php:122
