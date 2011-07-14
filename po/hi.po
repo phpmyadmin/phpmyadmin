@@ -1017,10 +1017,9 @@ msgstr "यह नंबर नहीं है!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "कुल"
+msgstr "कुल गिनती"
 
 #: js/messages.php:52
 msgid "The host name is empty!"
