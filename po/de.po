@@ -6920,7 +6920,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1171
 msgid "You must provide a routine definition."
-msgstr "Sie müssen die Definition der Routine angeben."
+msgstr "Sie müssen die Definition der Prozedur angeben."
 
 #: libraries/rte/rte_routines.lib.php:1260
 #, php-format
