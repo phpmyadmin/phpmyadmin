@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-14 09:21-0400\n"
-"PO-Revision-Date: 2011-07-11 15:49+0200\n"
+"POT-Creation-Date: 2011-07-14 18:39+0200\n"
+"PO-Revision-Date: 2011-07-14 08:33+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -424,7 +424,7 @@ msgstr "Skift til"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr ""
+msgstr "Visuel Konstruktør"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:937
@@ -620,8 +620,8 @@ msgstr "Sporing er ikke aktiv."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Viewet har mindst dette antal rækker. Se venligst %sdokumentationen%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
@@ -686,7 +686,6 @@ msgstr "Vis (udskriftvenlig)"
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a state it should translate to "Tom".
 #: db_structure.php:503 libraries/common.lib.php:2915
 #: libraries/common.lib.php:2916
-#, fuzzy
 msgid "Empty"
 msgstr "Tøm"
 
@@ -861,11 +860,11 @@ msgstr "Dump er blevet gemt i filen %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst %"
-"sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
+"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst "
+"%sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
 "begrænsning."
 
 #: import.php:277 import.php:330 libraries/File.class.php:459
@@ -1817,8 +1816,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -1914,7 +1913,7 @@ msgstr "Godkendelse af hardware mislykkedes"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:166
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "Ingen gyldig autorisations-nøgle indkoblet"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:202
 msgid "Authenticating..."
@@ -2007,16 +2006,16 @@ msgid "Check Privileges"
 msgstr "Check Privilegier"
 
 #: libraries/common.inc.php:588
-#, fuzzy
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
-msgstr "Kunne ikke indlæse standardkonfiguration fra: \"%1$s\""
+msgstr "Kunne ikke indlæse konfigurationsfilen"
 
 #: libraries/common.inc.php:589
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Dette betyder ofte at der er en eller flere syntaks-mæssige fejl i den, "
+"kontrollér venligst for fejlen(e) vist herunder."
 
 #: libraries/common.inc.php:596
 #, php-format
@@ -2221,10 +2220,8 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten af %s er påvirket af en kendt fejl, se %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Klik for at vælge"
+msgstr "Klik for at skifte"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -2811,7 +2808,6 @@ msgstr "Fortsat tabeloverskrift"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
-#, fuzzy
 msgid "Label key"
 msgstr "Mærke nøgle"
 
@@ -3149,19 +3145,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
-msgstr ""
+msgstr "Tilpas eksport-indstillinger"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Tilpas import-indstillinger"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Tilpas navigations-rammen"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
-msgstr ""
+msgstr "Tilpas hoved-rammen"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
@@ -3174,19 +3170,15 @@ msgstr "SQL Query-boks"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Tilpas links vist i SQL Query-boksen"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
-#| msgid "Server variables and settings"
 msgid "SQL queries settings"
-msgstr "Server-variabler og indstillinger"
+msgstr "Indstillinger til SQL-forespørgsler"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
-#| msgid "SQL history"
 msgid "SQL Validator"
-msgstr "SQL-historik"
+msgstr "SQL Validator"
 
 #: libraries/config/messages.inc.php:221
 msgid ""
@@ -3202,7 +3194,7 @@ msgstr "Opstart"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr ""
+msgstr "Tilpas opstart-side"
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
@@ -3210,23 +3202,19 @@ msgstr "Faner"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Vælg hvordan du ønsker at fanerne skal fungere"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
-#| msgid "Use text field"
 msgid "Text fields"
-msgstr "Brug tekstfelt"
+msgstr "Tekstfelter"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
-#| msgid "Use text field"
 msgid "Customize text input fields"
-msgstr "Brug tekstfelt"
+msgstr "Tilpas tekstfelter"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! tekst"
 
 #: libraries/config/messages.inc.php:230
 msgid "Warnings"
@@ -3234,31 +3222,35 @@ msgstr "Advarsler"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Deaktivér nogle af advarslerne som phpMyAdmin viser"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Aktivér [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
+"import og eksport-funktionerne"
 
 #: libraries/config/messages.inc.php:233
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:234
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Yderligere parametre til iconv"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Hvis aktiveret, vil phpMyAdmin fortsætte med at udføre efterfølgende SQL-"
+"forespørgsler selvom et eller flere af dem fejler"
 
 #: libraries/config/messages.inc.php:236
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignorér flere efterfølgende fejl i udtryk"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
@@ -3266,15 +3258,18 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Tillad afbrydelse af import hvis script opdager at timeout-tiden snart "
+"udløber. Dette kan være godt ved store import-filer, men kan afbryde "
+"transaktioner."
 
 #: libraries/config/messages.inc.php:238
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Delvis import: Tillad afbrydelse"
 
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Afbryd ikke ved fejl i INSERT"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
@@ -3297,50 +3292,45 @@ msgstr "Brug LOCAL nøgleord"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "Indsæt feltnavne i første række"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Importér ikke tomme rækker"
 
 #: libraries/config/messages.inc.php:256
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importér valutaer ($5.00 til 5.00)"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importér procenter med korrekte decimaler (12.00% bliver til .12)"
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
-msgstr "Antal poster (queries) der skal springes over fra start"
+msgstr "Antal SQL-forespørgsler der skal springes over fra start"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Delvis import: Spring over forespørgsler"
 
+# zero = null?
 #: libraries/config/messages.inc.php:261
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Tilføj AUTO_INCREMENT værdi"
+msgstr "Brug ikke AUTO_INCREMENT for 0-værdier"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Skydernes udgangspunkt"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Hvor mange rækker kan der indsættes på een gang"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Antal indsatte rækker"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
@@ -3348,103 +3338,102 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Vis logoet i venstre ramme"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
-msgstr ""
+msgstr "Vis logo"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Vis servervalg øverst i venstre ramme"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display servers selection"
-msgstr ""
+msgstr "Vis servervalg"
 
 #: libraries/config/messages.inc.php:272
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
-msgstr "Antallet af tabeller der er åbne."
+msgstr "Mindste antal tabeller der skal vises i tabel-filterboksen"
 
 #: libraries/config/messages.inc.php:273
 msgid "String that separates databases into different tree levels"
-msgstr ""
+msgstr "Streng der inddeler databaser i træ"
 
 #: libraries/config/messages.inc.php:274
 msgid "Database tree separator"
-msgstr ""
+msgstr "Separator til database-inddeling"
 
 #: libraries/config/messages.inc.php:275
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
-msgstr ""
+msgstr "Kun i lille version; vis databaser i træ (afgjort vha. separator)"
 
 #: libraries/config/messages.inc.php:276
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Vis databaser i træ"
 
 #: libraries/config/messages.inc.php:277
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Deaktivér dette hvis du ønsker at se alle databaser på een gang"
 
 #: libraries/config/messages.inc.php:278
 msgid "Use light version"
-msgstr ""
+msgstr "Brug lille version"
 
 #: libraries/config/messages.inc.php:279
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Maksimal dybde på database-træ"
 
 #: libraries/config/messages.inc.php:280
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "Streng der inddeler tabeller i træ"
 
 #: libraries/config/messages.inc.php:281
 msgid "Table tree separator"
-msgstr ""
+msgstr "Separator til tabel-inddeling"
 
 #: libraries/config/messages.inc.php:282
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL som logoet i navigations-rammen vil pege på"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link URL"
-msgstr ""
+msgstr "Logo link-URL"
 
 #: libraries/config/messages.inc.php:284
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt ([kbd]"
+"new[/kbd])"
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link target"
-msgstr ""
+msgstr "Logo link target"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Fremhæv server under musepil"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Aktivér fremhævning"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
+"Højeste antal af tidligere anvendte tabeller; sæt til 0 for at deaktivere"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
-#| msgid "Analyze table"
 msgid "Recently used tables"
-msgstr "Analysér tabel"
+msgstr "Tidligere anvendte tabeller"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Brug faner med mindre grafik"
 
 #: libraries/config/messages.inc.php:291
 msgid "Light tabs"
@@ -3457,7 +3446,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid "Limit column characters"
-msgstr ""
+msgstr "Begræns antal karakterer i kolonne"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -3468,7 +3457,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Slet alle cookies når der logges ud"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
@@ -4802,8 +4791,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -5566,8 +5555,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8540,14 +8529,14 @@ msgstr "Drop databaser der har samme navne som brugernes."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
-"s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
+"%s før du fortsætter."
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
