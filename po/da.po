@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 08:30+0200\n"
+"PO-Revision-Date: 2011-07-14 08:33+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3455,7 +3455,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid "Limit column characters"
-msgstr ""
+msgstr "Begræns antal karakterer i kolonne"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
