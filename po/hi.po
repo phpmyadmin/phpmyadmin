@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 20:54+0200\n"
+"PO-Revision-Date: 2011-07-14 20:55+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -271,7 +271,7 @@ msgstr "डेटाबेस का नाम खाली है"
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr " डेटाबेस का नाम %s बदल कर %s रखा गया है"
+msgstr " डेटाबेस  %s का नाम बदल कर %s रखा गया है"
 
 #: db_operations.php:276
 #, php-format
