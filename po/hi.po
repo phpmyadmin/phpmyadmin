@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 21:28+0200\n"
+"PO-Revision-Date: 2011-07-14 21:29+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -841,7 +841,7 @@ msgstr "\"लंबाई / मान\" क्षेत्र में शा�
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "चयनित निर्यात टाइप को फाइल में सेव करने की आवश्यकता है!"
+msgstr "चयनित निर्यात प्रकार को फाइल में संचित करने की आवश्यकता है!"
 
 #: export.php:163 export.php:188 export.php:670
 #, php-format
