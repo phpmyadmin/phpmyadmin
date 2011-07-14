@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-13 14:48+0200\n"
+"POT-Creation-Date: 2011-07-14 09:21-0400\n"
 "PO-Revision-Date: 2010-03-12 09:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: mongolian <mn@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Бүгдийг харах"
 
-#: browse_foreigners.php:70 libraries/common.lib.php:2183
+#: browse_foreigners.php:70 libraries/common.lib.php:2173
 #: libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:240
 #: libraries/schema/Pdf_Relation_Schema.class.php:1089
@@ -37,9 +37,9 @@ msgstr ""
 "Зорилтот хөтчийн цонх шинэчлэгдсэнгүй. Магадгүй та эх цонхыг хаасан эсвэл "
 "таны хөтөч хамгаалалтын тохиргооны улмаас шинэчлэлтийг хориглогдсон"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2729
-#: libraries/common.lib.php:2736 libraries/common.lib.php:2917
-#: libraries/common.lib.php:2918 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:2720
+#: libraries/common.lib.php:2727 libraries/common.lib.php:2908
+#: libraries/common.lib.php:2909 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Хайх"
@@ -48,16 +48,17 @@ msgstr "Хайх"
 #: db_operations.php:531 db_operations.php:559 db_search.php:335
 #: db_structure.php:529 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1186 libraries/Theme_Manager.class.php:300
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1263
-#: libraries/common.lib.php:2160 libraries/core.lib.php:504
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1257
+#: libraries/common.lib.php:2150 libraries/core.lib.php:504
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:566 libraries/display_tbl.lib.php:661
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:370
-#: libraries/rte/rte_events.lib.php:482 libraries/rte/rte_routines.lib.php:999
-#: libraries/rte/rte_routines.lib.php:1497
-#: libraries/rte/rte_triggers.lib.php:375
+#: libraries/rte/rte_events.lib.php:517
+#: libraries/rte/rte_routines.lib.php:1019
+#: libraries/rte/rte_routines.lib.php:1502
+#: libraries/rte/rte_triggers.lib.php:391
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:406
@@ -148,9 +149,9 @@ msgstr "Баганын нэрс"
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:255
 #: libraries/export/latex.php:364 libraries/export/odt.php:294
 #: libraries/export/texytext.php:234 libraries/rte/rte_list.lib.php:51
-#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_routines.lib.php:865
-#: libraries/rte/rte_routines.lib.php:890
-#: libraries/rte/rte_routines.lib.php:1415
+#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_routines.lib.php:885
+#: libraries/rte/rte_routines.lib.php:910
+#: libraries/rte/rte_routines.lib.php:1420
 #: libraries/schema/Pdf_Relation_Schema.class.php:1231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2151
@@ -203,7 +204,7 @@ msgstr "Тайлбар"
 #: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:332
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:330
 #: libraries/export/latex.php:434 libraries/export/odt.php:365
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
@@ -219,7 +220,7 @@ msgstr "Үгүй"
 #: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:332
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:330
 #: libraries/export/latex.php:434 libraries/export/odt.php:365
 #: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
@@ -368,9 +369,9 @@ msgstr "Хамааралтай схем"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
-#: libraries/export/pdf.php:102 libraries/export/xml.php:315
+#: libraries/export/pdf.php:102 libraries/export/xml.php:313
 #: libraries/header.inc.php:152 libraries/rte/rte_list.lib.php:56
-#: libraries/rte/rte_triggers.lib.php:314
+#: libraries/rte/rte_triggers.lib.php:330
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
@@ -510,7 +511,7 @@ msgstr "Хүснэгт хэрэглэх"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "ӨС <b>%s</b> дахь SQL-асуулт:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1121
+#: db_qbe.php:955 libraries/common.lib.php:1116
 msgid "Submit Query"
 msgstr "Асуултыг илгээх"
 
@@ -550,8 +551,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s олдоц(ууд) хүснэгт <i>%s</i>-д"
 msgstr[1] "%s олдоц(ууд) хүснэгт <i>%s</i>-д"
 
-#: db_search.php:231 libraries/common.lib.php:2731
-#: libraries/common.lib.php:2915 libraries/common.lib.php:2916
+#: db_search.php:231 libraries/common.lib.php:2722
+#: libraries/common.lib.php:2906 libraries/common.lib.php:2907
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:599
 msgid "Browse"
 msgstr "Хөтлөх"
@@ -644,8 +645,8 @@ msgstr ""
 #: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
@@ -692,8 +693,8 @@ msgstr "Бүх чагтыг болих"
 msgid "Check tables having overhead"
 msgstr "Дээдхийг шалгах"
 
-#: db_structure.php:497 libraries/common.lib.php:2928
-#: libraries/common.lib.php:2929 libraries/config/messages.inc.php:164
+#: db_structure.php:497 libraries/common.lib.php:2919
+#: libraries/common.lib.php:2920 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2352
 #: libraries/display_tbl.lib.php:2488 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:288
@@ -707,13 +708,13 @@ msgstr "Гаргах"
 msgid "Print view"
 msgstr "Хэвлэхээр харах"
 
-#: db_structure.php:503 libraries/common.lib.php:2924
-#: libraries/common.lib.php:2925
+#: db_structure.php:503 libraries/common.lib.php:2915
+#: libraries/common.lib.php:2916
 msgid "Empty"
 msgstr "Хоосон"
 
 #: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
-#: libraries/common.lib.php:2922 libraries/common.lib.php:2923
+#: libraries/common.lib.php:2913 libraries/common.lib.php:2914
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
@@ -785,7 +786,7 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: db_tracking.php:89 libraries/rte/rte_events.lib.php:369
+#: db_tracking.php:89 libraries/rte/rte_events.lib.php:404
 #: libraries/rte/rte_list.lib.php:63 libraries/server_links.inc.php:51
 #: server_status.php:801 sql.php:942 tbl_tracking.php:647
 msgid "Status"
@@ -886,8 +887,8 @@ msgstr "Асгалт %s файлд хадгалагдсан."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:459
@@ -946,7 +947,7 @@ msgid ""
 msgstr ""
 
 #: import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1255
+#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1260
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1075,8 +1076,8 @@ msgid "Close"
 msgstr ""
 
 #: js/messages.php:62 js/messages.php:133 libraries/Index.class.php:460
-#: libraries/common.lib.php:566 libraries/common.lib.php:1097
-#: libraries/common.lib.php:2926 libraries/common.lib.php:2927
+#: libraries/common.lib.php:566 libraries/common.lib.php:1092
+#: libraries/common.lib.php:2917 libraries/common.lib.php:2918
 #: libraries/config/messages.inc.php:473 libraries/display_tbl.lib.php:1302
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
@@ -1117,12 +1118,12 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:74 libraries/common.lib.php:1322
+#: js/messages.php:74 libraries/common.lib.php:1316
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:76 libraries/common.lib.php:1324
+#: js/messages.php:76 libraries/common.lib.php:1318
 msgid "."
 msgstr "."
 
@@ -1331,7 +1332,7 @@ msgstr "Нуух"
 msgid "No rows selected"
 msgstr "Сонгогдсон мөргүй"
 
-#: js/messages.php:137 libraries/common.lib.php:2449
+#: js/messages.php:137 libraries/common.lib.php:2440
 #: libraries/display_tbl.lib.php:2347 querywindow.php:90 querywindow.php:94
 #: querywindow.php:97 tbl_structure.php:152 tbl_structure.php:602
 msgid "Change"
@@ -1437,8 +1438,8 @@ msgid "Prev"
 msgstr "Өмнөх"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:190 libraries/common.lib.php:2222
-#: libraries/common.lib.php:2225 libraries/display_tbl.lib.php:366
+#: js/messages.php:190 libraries/common.lib.php:2212
+#: libraries/common.lib.php:2215 libraries/display_tbl.lib.php:366
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
 msgid "Next"
@@ -1514,27 +1515,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:210 libraries/common.lib.php:1458
+#: js/messages.php:210 libraries/common.lib.php:1450
 msgid "Jan"
 msgstr "1-р"
 
 #. l10n: Short month name
-#: js/messages.php:212 libraries/common.lib.php:1460
+#: js/messages.php:212 libraries/common.lib.php:1452
 msgid "Feb"
 msgstr "2-р"
 
 #. l10n: Short month name
-#: js/messages.php:214 libraries/common.lib.php:1462
+#: js/messages.php:214 libraries/common.lib.php:1454
 msgid "Mar"
 msgstr "3-р"
 
 #. l10n: Short month name
-#: js/messages.php:216 libraries/common.lib.php:1464
+#: js/messages.php:216 libraries/common.lib.php:1456
 msgid "Apr"
 msgstr "4-р"
 
 #. l10n: Short month name
-#: js/messages.php:218 libraries/common.lib.php:1466
+#: js/messages.php:218 libraries/common.lib.php:1458
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1542,37 +1543,37 @@ msgid "May"
 msgstr "5-р"
 
 #. l10n: Short month name
-#: js/messages.php:220 libraries/common.lib.php:1468
+#: js/messages.php:220 libraries/common.lib.php:1460
 msgid "Jun"
 msgstr "6-р"
 
 #. l10n: Short month name
-#: js/messages.php:222 libraries/common.lib.php:1470
+#: js/messages.php:222 libraries/common.lib.php:1462
 msgid "Jul"
 msgstr "7-р"
 
 #. l10n: Short month name
-#: js/messages.php:224 libraries/common.lib.php:1472
+#: js/messages.php:224 libraries/common.lib.php:1464
 msgid "Aug"
 msgstr "8-р"
 
 #. l10n: Short month name
-#: js/messages.php:226 libraries/common.lib.php:1474
+#: js/messages.php:226 libraries/common.lib.php:1466
 msgid "Sep"
 msgstr "9-р"
 
 #. l10n: Short month name
-#: js/messages.php:228 libraries/common.lib.php:1476
+#: js/messages.php:228 libraries/common.lib.php:1468
 msgid "Oct"
 msgstr "10р"
 
 #. l10n: Short month name
-#: js/messages.php:230 libraries/common.lib.php:1478
+#: js/messages.php:230 libraries/common.lib.php:1470
 msgid "Nov"
 msgstr "11р"
 
 #. l10n: Short month name
-#: js/messages.php:232 libraries/common.lib.php:1480
+#: js/messages.php:232 libraries/common.lib.php:1472
 msgid "Dec"
 msgstr "12р"
 
@@ -1613,37 +1614,37 @@ msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:245 libraries/common.lib.php:1483
+#: js/messages.php:245 libraries/common.lib.php:1475
 msgid "Sun"
 msgstr "Ня"
 
 #. l10n: Short week day name
-#: js/messages.php:247 libraries/common.lib.php:1485
+#: js/messages.php:247 libraries/common.lib.php:1477
 msgid "Mon"
 msgstr "Да"
 
 #. l10n: Short week day name
-#: js/messages.php:249 libraries/common.lib.php:1487
+#: js/messages.php:249 libraries/common.lib.php:1479
 msgid "Tue"
 msgstr "Мя"
 
 #. l10n: Short week day name
-#: js/messages.php:251 libraries/common.lib.php:1489
+#: js/messages.php:251 libraries/common.lib.php:1481
 msgid "Wed"
 msgstr "Лх"
 
 #. l10n: Short week day name
-#: js/messages.php:253 libraries/common.lib.php:1491
+#: js/messages.php:253 libraries/common.lib.php:1483
 msgid "Thu"
 msgstr "Пү"
 
 #. l10n: Short week day name
-#: js/messages.php:255 libraries/common.lib.php:1493
+#: js/messages.php:255 libraries/common.lib.php:1485
 msgid "Fri"
 msgstr "Ба"
 
 #. l10n: Short week day name
-#: js/messages.php:257 libraries/common.lib.php:1495
+#: js/messages.php:257 libraries/common.lib.php:1487
 msgid "Sat"
 msgstr "Бя"
 
@@ -1780,8 +1781,8 @@ msgstr ""
 msgid "Cardinality"
 msgstr "Ерөнхий"
 
-#: libraries/Index.class.php:440 libraries/rte/rte_events.lib.php:469
-#: libraries/rte/rte_routines.lib.php:986 tbl_tracking.php:272
+#: libraries/Index.class.php:440 libraries/rte/rte_events.lib.php:504
+#: libraries/rte/rte_routines.lib.php:1006 tbl_tracking.php:272
 #: tbl_tracking.php:321
 msgid "Comment"
 msgstr ""
@@ -1892,7 +1893,7 @@ msgstr ""
 msgid "Table %s has been renamed to %s"
 msgstr "Хүснэгт %s-ын нэр %s болж өөрчлөгдлөө"
 
-#: libraries/Table.class.php:1273
+#: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
 msgstr ""
 
@@ -1941,11 +1942,11 @@ msgstr "%s-д тавтай морилно уу"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та "
-"%1$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
+"Үүний шалтгаан нь магадгүй та тохиргооны файл үүсгээгүй байж болох юм. Та %1"
+"$ssetup script%2$s -ийг ашиглаж нэгийг үүсгэж болно."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2218,138 +2219,139 @@ msgstr "Баримт"
 msgid "SQL query"
 msgstr "SQL-асуулт"
 
-#: libraries/common.lib.php:581 libraries/rte/rte_events.lib.php:92
-#: libraries/rte/rte_events.lib.php:97 libraries/rte/rte_events.lib.php:107
-#: libraries/rte/rte_events.lib.php:120 libraries/rte/rte_routines.lib.php:260
-#: libraries/rte/rte_routines.lib.php:265
-#: libraries/rte/rte_routines.lib.php:275
-#: libraries/rte/rte_routines.lib.php:289
-#: libraries/rte/rte_routines.lib.php:1305
-#: libraries/rte/rte_triggers.lib.php:84 libraries/rte/rte_triggers.lib.php:89
-#: libraries/rte/rte_triggers.lib.php:99
-#: libraries/rte/rte_triggers.lib.php:112
+#: libraries/common.lib.php:581 libraries/rte/rte_events.lib.php:127
+#: libraries/rte/rte_events.lib.php:132 libraries/rte/rte_events.lib.php:142
+#: libraries/rte/rte_events.lib.php:155 libraries/rte/rte_routines.lib.php:280
+#: libraries/rte/rte_routines.lib.php:285
+#: libraries/rte/rte_routines.lib.php:295
+#: libraries/rte/rte_routines.lib.php:309
+#: libraries/rte/rte_routines.lib.php:1310
+#: libraries/rte/rte_triggers.lib.php:100
+#: libraries/rte/rte_triggers.lib.php:105
+#: libraries/rte/rte_triggers.lib.php:115
+#: libraries/rte/rte_triggers.lib.php:128
 msgid "MySQL said: "
 msgstr "MySQL хэлэх нь: "
 
-#: libraries/common.lib.php:1031
+#: libraries/common.lib.php:1026
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/common.lib.php:1072 libraries/config/messages.inc.php:474
+#: libraries/common.lib.php:1067 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
 msgstr "SQL тайлбар"
 
-#: libraries/common.lib.php:1076
+#: libraries/common.lib.php:1071
 msgid "Skip Explain SQL"
 msgstr "SQL тайлбарлахыг орхих"
 
-#: libraries/common.lib.php:1110
+#: libraries/common.lib.php:1105
 msgid "Without PHP Code"
 msgstr "PHP-кодгүй"
 
-#: libraries/common.lib.php:1113 libraries/config/messages.inc.php:476
+#: libraries/common.lib.php:1108 libraries/config/messages.inc.php:476
 msgid "Create PHP Code"
 msgstr "PHP-код үүсгэх"
 
-#: libraries/common.lib.php:1131 libraries/config/messages.inc.php:475
+#: libraries/common.lib.php:1126 libraries/config/messages.inc.php:475
 #: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
 msgstr "Да.дуудах"
 
-#: libraries/common.lib.php:1140
+#: libraries/common.lib.php:1135
 msgid "Skip Validate SQL"
 msgstr "SQL шалгалтыг алгасах"
 
-#: libraries/common.lib.php:1143 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1138 libraries/config/messages.inc.php:478
 msgid "Validate SQL"
 msgstr "SQL-ийг батлах"
 
-#: libraries/common.lib.php:1198
+#: libraries/common.lib.php:1193
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1200
+#: libraries/common.lib.php:1195
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Хөдөлгүүрүүд"
 
-#: libraries/common.lib.php:1262 sql.php:938
+#: libraries/common.lib.php:1256 sql.php:938
 msgid "Profiling"
 msgstr ""
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "B"
 msgstr "Байт"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "KiB"
 msgstr "кБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "MiB"
 msgstr "МБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "GiB"
 msgstr "ГБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "TiB"
 msgstr "TB"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "PiB"
 msgstr "PB"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "EiB"
 msgstr "EB"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1499
+#: libraries/common.lib.php:1491
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y оны %B сарын %d., %H:%M"
 
-#: libraries/common.lib.php:1797
+#: libraries/common.lib.php:1789
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s өдөр, %s цаг, %s минут, %s секунд"
 
-#: libraries/common.lib.php:2192 libraries/common.lib.php:2195
+#: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:302
 msgid "Begin"
 msgstr "Эхлэл"
 
-#: libraries/common.lib.php:2193 libraries/common.lib.php:2196
+#: libraries/common.lib.php:2183 libraries/common.lib.php:2186
 #: libraries/display_tbl.lib.php:303 server_binlog.php:135
 #: server_binlog.php:137
 msgid "Previous"
 msgstr "Өмнөх"
 
-#: libraries/common.lib.php:2223 libraries/common.lib.php:2226
-#: libraries/display_tbl.lib.php:381 libraries/rte/rte_events.lib.php:446
+#: libraries/common.lib.php:2213 libraries/common.lib.php:2216
+#: libraries/display_tbl.lib.php:381 libraries/rte/rte_events.lib.php:481
 msgid "End"
 msgstr "Төгс"
 
-#: libraries/common.lib.php:2288
+#: libraries/common.lib.php:2278
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "&quot;%s&quot; өгөгдлийн сан руу үсрэх."
 
-#: libraries/common.lib.php:2304
+#: libraries/common.lib.php:2294
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/common.lib.php:2456
+#: libraries/common.lib.php:2447
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/common.lib.php:2727 libraries/common.lib.php:2734
-#: libraries/common.lib.php:2921 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:2718 libraries/common.lib.php:2725
+#: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:367
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
@@ -2361,7 +2363,7 @@ msgstr ""
 msgid "Structure"
 msgstr "Бүтэц"
 
-#: libraries/common.lib.php:2728 libraries/common.lib.php:2735
+#: libraries/common.lib.php:2719 libraries/common.lib.php:2726
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2369,38 +2371,38 @@ msgstr "Бүтэц"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2730 libraries/common.lib.php:2919
-#: libraries/common.lib.php:2920 libraries/sql_query_form.lib.php:284
+#: libraries/common.lib.php:2721 libraries/common.lib.php:2910
+#: libraries/common.lib.php:2911 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Оруулах"
 
-#: libraries/common.lib.php:2737 libraries/db_links.inc.php:86
+#: libraries/common.lib.php:2728 libraries/db_links.inc.php:86
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Үйлдлүүд"
 
-#: libraries/common.lib.php:2867
+#: libraries/common.lib.php:2858
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:2883
+#: libraries/common.lib.php:2874
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web-сервэр түлхэх хавтас"
 
-#: libraries/common.lib.php:2895 libraries/sql_query_form.lib.php:447
+#: libraries/common.lib.php:2886 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Таны сонгосон хавтас \"upload\" хийгдэхгүй байна"
 
-#: libraries/common.lib.php:2903
+#: libraries/common.lib.php:2894
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:2930 libraries/common.lib.php:2931
+#: libraries/common.lib.php:2921 libraries/common.lib.php:2922
 msgid "Execute"
 msgstr ""
 
@@ -4716,17 +4718,17 @@ msgstr "Дизайнч"
 msgid "Privileges"
 msgstr "Онцгой эрхүүд"
 
-#: libraries/db_links.inc.php:97 libraries/rte/rte_routines.lib.php:31
+#: libraries/db_links.inc.php:97 libraries/rte/rte_routines.lib.php:50
 msgid "Routines"
 msgstr ""
 
 #: libraries/db_links.inc.php:101 libraries/export/sql.php:609
-#: libraries/rte/rte_events.lib.php:31
+#: libraries/rte/rte_events.lib.php:65
 msgid "Events"
 msgstr ""
 
 #: libraries/db_links.inc.php:105 libraries/export/sql.php:978
-#: libraries/export/xml.php:38 libraries/rte/rte_triggers.lib.php:31
+#: libraries/export/xml.php:38 libraries/rte/rte_triggers.lib.php:46
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
 msgstr ""
@@ -4803,8 +4805,8 @@ msgstr "%s ӨС-д шинэ хүснэгт үүсгэх"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:49
 #: libraries/rte/rte_list.lib.php:55 libraries/rte/rte_list.lib.php:62
-#: libraries/rte/rte_routines.lib.php:889
-#: libraries/rte/rte_routines.lib.php:1414
+#: libraries/rte/rte_routines.lib.php:909
+#: libraries/rte/rte_routines.lib.php:1419
 #: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:125
 #: tbl_structure.php:204
 msgid "Name"
@@ -4930,12 +4932,12 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Энэ утга нь %1$sstrftime%2$s -ийг хэрэглэж үүссэн, тиймээс та хугацааны "
-"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: "
-"%3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
+"тогтнолын тэмдэгтийг хэрэглэж болно. Нэмэлтээр дараах хувиргалт байх болно: %"
+"3$s. Бусад бичвэрүүд үүн шиг хадгалагдана."
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
@@ -5179,7 +5181,7 @@ msgstr "Түлхүүрээр эрэмбэлэх"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xls.php:28
 #: libraries/import/xlsx.php:28 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:892 tbl_select.php:257
+#: libraries/rte/rte_routines.lib.php:912 tbl_select.php:257
 #: tbl_structure.php:886
 msgid "Options"
 msgstr "Сонголтууд"
@@ -5689,8 +5691,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -5812,7 +5814,7 @@ msgid "Display MIME types"
 msgstr "Идэвхтэй MIME-төрлүүд"
 
 #: libraries/export/latex.php:129 libraries/export/sql.php:456
-#: libraries/export/xml.php:94 libraries/header_printview.inc.php:56
+#: libraries/export/xml.php:95 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:270 libraries/replication_gui.lib.php:273
 #: libraries/replication_gui.lib.php:330 server_privileges.php:713
@@ -5822,17 +5824,17 @@ msgid "Host"
 msgstr "Хост"
 
 #: libraries/export/latex.php:134 libraries/export/sql.php:461
-#: libraries/export/xml.php:99 libraries/header_printview.inc.php:58
+#: libraries/export/xml.php:100 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Үүссэн цаг"
 
 #: libraries/export/latex.php:135 libraries/export/sql.php:463
-#: libraries/export/xml.php:100 main.php:162
+#: libraries/export/xml.php:101 main.php:162
 msgid "Server version"
 msgstr "Сервэрийн хувилбар"
 
 #: libraries/export/latex.php:136 libraries/export/sql.php:464
-#: libraries/export/xml.php:101
+#: libraries/export/xml.php:102
 msgid "PHP Version"
 msgstr "PHP хувилбар"
 
@@ -6025,7 +6027,7 @@ msgstr "SQL-үр дүн"
 msgid "Generated by"
 msgstr "Үүсгэгч"
 
-#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1299
+#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1304
 #: sql.php:685 tbl_change.php:183 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL хоосон үр дүн буцаалаа (тэг мөрүүд г.м.)."
@@ -6520,7 +6522,7 @@ msgid "Variable"
 msgstr "Хувьсагч"
 
 #: libraries/replication_gui.lib.php:117
-#: libraries/rte/rte_routines.lib.php:1419 pmd_general.php:476
+#: libraries/rte/rte_routines.lib.php:1424 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1029 tbl_change.php:329 tbl_printview.php:367
 #: tbl_select.php:117 tbl_structure.php:862
@@ -6578,174 +6580,175 @@ msgstr ""
 msgid "Generate Password"
 msgstr "Нууц үг бий болгох"
 
-#: libraries/rte/rte_events.lib.php:24
+#: libraries/rte/rte_events.lib.php:58
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add event"
 msgstr "Шинэ хэрэглэгч нэмэх"
 
-#: libraries/rte/rte_events.lib.php:26
+#: libraries/rte/rte_events.lib.php:60
 #, fuzzy, php-format
 #| msgid "Export/Import to scale"
 msgid "Export of event %s"
 msgstr "Гаргах/Оруулах хэмжээс"
 
-#: libraries/rte/rte_events.lib.php:27
+#: libraries/rte/rte_events.lib.php:61
 #, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "Үзэгдэл"
 
-#: libraries/rte/rte_events.lib.php:28
+#: libraries/rte/rte_events.lib.php:62
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a new event"
+msgid "You do not have the necessary privileges to create an event"
 msgstr "Танд хангалттай эрх байхгүй!"
 
-#: libraries/rte/rte_events.lib.php:29
+#: libraries/rte/rte_events.lib.php:63
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "ӨС-д хүснэгт олдсонгүй."
 
-#: libraries/rte/rte_events.lib.php:30
+#: libraries/rte/rte_events.lib.php:64
 msgid "There are no events to display."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:91 libraries/rte/rte_events.lib.php:96
-#: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_routines.lib.php:259
-#: libraries/rte/rte_routines.lib.php:264
-#: libraries/rte/rte_routines.lib.php:288
-#: libraries/rte/rte_routines.lib.php:1304
-#: libraries/rte/rte_triggers.lib.php:83 libraries/rte/rte_triggers.lib.php:88
-#: libraries/rte/rte_triggers.lib.php:111
+#: libraries/rte/rte_events.lib.php:126 libraries/rte/rte_events.lib.php:131
+#: libraries/rte/rte_events.lib.php:154 libraries/rte/rte_routines.lib.php:279
+#: libraries/rte/rte_routines.lib.php:284
+#: libraries/rte/rte_routines.lib.php:308
+#: libraries/rte/rte_routines.lib.php:1309
+#: libraries/rte/rte_triggers.lib.php:99
+#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:105
+#: libraries/rte/rte_events.lib.php:140
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:106 libraries/rte/rte_routines.lib.php:274
-#: libraries/rte/rte_triggers.lib.php:98
+#: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
+#: libraries/rte/rte_triggers.lib.php:114
 msgid "The backed up query was:"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:110
+#: libraries/rte/rte_events.lib.php:145
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Event %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: libraries/rte/rte_events.lib.php:122
+#: libraries/rte/rte_events.lib.php:157
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Event %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:299
-#: libraries/rte/rte_triggers.lib.php:122
+#: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
+#: libraries/rte/rte_triggers.lib.php:138
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:170
+#: libraries/rte/rte_events.lib.php:205
 #, fuzzy
 #| msgid "Create"
 msgid "Create event"
 msgstr "Үүсгэх"
 
-#: libraries/rte/rte_events.lib.php:174
+#: libraries/rte/rte_events.lib.php:209
 #, fuzzy
 #| msgid "Event"
 msgid "Edit event"
 msgstr "Үзэгдэл"
 
-#: libraries/rte/rte_events.lib.php:201 libraries/rte/rte_routines.lib.php:375
-#: libraries/rte/rte_routines.lib.php:1326
-#: libraries/rte/rte_routines.lib.php:1362
-#: libraries/rte/rte_triggers.lib.php:195
+#: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
+#: libraries/rte/rte_routines.lib.php:1331
+#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_triggers.lib.php:211
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Процессууд"
 
-#: libraries/rte/rte_events.lib.php:360 libraries/rte/rte_routines.lib.php:857
-#: libraries/rte/rte_triggers.lib.php:306
+#: libraries/rte/rte_events.lib.php:395 libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_triggers.lib.php:322
 msgid "Details"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:363
+#: libraries/rte/rte_events.lib.php:398
 #, fuzzy
 #| msgid "Event type"
 msgid "Event name"
 msgstr "Хэрэг явдлын төрөл"
 
-#: libraries/rte/rte_events.lib.php:384 server_binlog.php:182
+#: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
 msgid "Event type"
 msgstr "Хэрэг явдлын төрөл"
 
-#: libraries/rte/rte_events.lib.php:405 libraries/rte/rte_routines.lib.php:878
+#: libraries/rte/rte_events.lib.php:440 libraries/rte/rte_routines.lib.php:898
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
 msgstr "Солих"
 
-#: libraries/rte/rte_events.lib.php:411
+#: libraries/rte/rte_events.lib.php:446
 msgid "Execute at"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:419
+#: libraries/rte/rte_events.lib.php:454
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Execute every"
 msgstr "Тэмдэглэгдсэн асуулт ажиллуулах"
 
-#: libraries/rte/rte_events.lib.php:438
+#: libraries/rte/rte_events.lib.php:473
 msgid "Start"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:454 libraries/rte/rte_routines.lib.php:952
-#: libraries/rte/rte_triggers.lib.php:356
+#: libraries/rte/rte_events.lib.php:489 libraries/rte/rte_routines.lib.php:972
+#: libraries/rte/rte_triggers.lib.php:372
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
 msgstr "Тайлбар"
 
-#: libraries/rte/rte_events.lib.php:460
+#: libraries/rte/rte_events.lib.php:495
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "On completion preserve"
 msgstr "Оруулалтыг дуусгах"
 
-#: libraries/rte/rte_events.lib.php:464 libraries/rte/rte_routines.lib.php:962
-#: libraries/rte/rte_triggers.lib.php:362
+#: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
+#: libraries/rte/rte_triggers.lib.php:378
 msgid "Definer"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:507
-#: libraries/rte/rte_routines.lib.php:1024
-#: libraries/rte/rte_triggers.lib.php:400
+#: libraries/rte/rte_events.lib.php:542
+#: libraries/rte/rte_routines.lib.php:1044
+#: libraries/rte/rte_triggers.lib.php:416
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:514
+#: libraries/rte/rte_events.lib.php:549
 msgid "You must provide an event name"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:526
+#: libraries/rte/rte_events.lib.php:561
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:538
+#: libraries/rte/rte_events.lib.php:573
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:542
+#: libraries/rte/rte_events.lib.php:577
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:561
+#: libraries/rte/rte_events.lib.php:596
 msgid "You must provide an event definition."
 msgstr ""
 
@@ -6771,292 +6774,292 @@ msgstr ""
 msgid "Returns"
 msgstr "Хүснэгтийн сонголтууд"
 
-#: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:328
+#: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
 #: server_status.php:800 sql.php:943
 msgid "Time"
 msgstr "Цаг"
 
-#: libraries/rte/rte_list.lib.php:59 libraries/rte/rte_triggers.lib.php:342
+#: libraries/rte/rte_list.lib.php:59 libraries/rte/rte_triggers.lib.php:358
 msgid "Event"
 msgstr "Үзэгдэл"
 
-#: libraries/rte/rte_routines.lib.php:24
+#: libraries/rte/rte_routines.lib.php:43
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add routine"
 msgstr "Шинэ талбар нэмэх"
 
-#: libraries/rte/rte_routines.lib.php:26
+#: libraries/rte/rte_routines.lib.php:45
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:27
+#: libraries/rte/rte_routines.lib.php:46
 #, fuzzy
 #| msgid "Add new field"
 msgid "routine"
 msgstr "Шинэ талбар нэмэх"
 
-#: libraries/rte/rte_routines.lib.php:28
+#: libraries/rte/rte_routines.lib.php:47
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a new routine"
+msgid "You do not have the necessary privileges to create a routine"
 msgstr "Танд хангалттай эрх байхгүй!"
 
-#: libraries/rte/rte_routines.lib.php:29
+#: libraries/rte/rte_routines.lib.php:48
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "ӨС-д хүснэгт олдсонгүй."
 
-#: libraries/rte/rte_routines.lib.php:30
+#: libraries/rte/rte_routines.lib.php:49
 msgid "There are no routines to display."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:68
+#: libraries/rte/rte_routines.lib.php:88
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:252
-#: libraries/rte/rte_routines.lib.php:1032
+#: libraries/rte/rte_routines.lib.php:272
+#: libraries/rte/rte_routines.lib.php:1052
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
 msgstr "Сервэрийн буруу индекс нь: \"%s\""
 
-#: libraries/rte/rte_routines.lib.php:273
+#: libraries/rte/rte_routines.lib.php:293
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:278
+#: libraries/rte/rte_routines.lib.php:298
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: libraries/rte/rte_routines.lib.php:291
+#: libraries/rte/rte_routines.lib.php:311
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: libraries/rte/rte_routines.lib.php:345
+#: libraries/rte/rte_routines.lib.php:365
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create routine"
 msgstr "Холбоо үүсгэх"
 
-#: libraries/rte/rte_routines.lib.php:349
+#: libraries/rte/rte_routines.lib.php:369
 msgid "Edit routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:860
+#: libraries/rte/rte_routines.lib.php:880
 #, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
 msgstr "Баганын нэрс"
 
-#: libraries/rte/rte_routines.lib.php:883
+#: libraries/rte/rte_routines.lib.php:903
 msgid "Parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:888
+#: libraries/rte/rte_routines.lib.php:908
 #, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
 msgstr "Шууд холбоос"
 
-#: libraries/rte/rte_routines.lib.php:891 libraries/tbl_properties.inc.php:108
+#: libraries/rte/rte_routines.lib.php:911 libraries/tbl_properties.inc.php:108
 msgid "Length/Values"
 msgstr "Урт/Утгууд*"
 
-#: libraries/rte/rte_routines.lib.php:906
+#: libraries/rte/rte_routines.lib.php:926
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add parameter"
 msgstr "Шинэ талбар нэмэх"
 
-#: libraries/rte/rte_routines.lib.php:910
+#: libraries/rte/rte_routines.lib.php:930
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove last parameter"
 msgstr "Өгөгдлийн санг д.нэрлэх нь"
 
-#: libraries/rte/rte_routines.lib.php:915
+#: libraries/rte/rte_routines.lib.php:935
 msgid "Return type"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:921
+#: libraries/rte/rte_routines.lib.php:941
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Урт/Утгууд*"
 
-#: libraries/rte/rte_routines.lib.php:927
+#: libraries/rte/rte_routines.lib.php:947
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "Хүснэгтийн сонголтууд"
 
-#: libraries/rte/rte_routines.lib.php:958
+#: libraries/rte/rte_routines.lib.php:978
 msgid "Is deterministic"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:967
+#: libraries/rte/rte_routines.lib.php:987
 #, fuzzy
 #| msgid "Query type"
 msgid "Security type"
 msgstr "Асуултын төрөл"
 
-#: libraries/rte/rte_routines.lib.php:974
+#: libraries/rte/rte_routines.lib.php:994
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1037
+#: libraries/rte/rte_routines.lib.php:1057
 msgid "You must provide a routine name"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1060
+#: libraries/rte/rte_routines.lib.php:1080
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1072
-#: libraries/rte/rte_routines.lib.php:1131
+#: libraries/rte/rte_routines.lib.php:1092
+#: libraries/rte/rte_routines.lib.php:1136
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1096
+#: libraries/rte/rte_routines.lib.php:1116
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1121
+#: libraries/rte/rte_routines.lib.php:1126
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1171
+#: libraries/rte/rte_routines.lib.php:1176
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1260
+#: libraries/rte/rte_routines.lib.php:1265
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/rte/rte_routines.lib.php:1276
+#: libraries/rte/rte_routines.lib.php:1281
 #, fuzzy, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Хадгалагдсан заншлыг ажиллуулахыг зөвшөөрөх."
 
-#: libraries/rte/rte_routines.lib.php:1350
-#: libraries/rte/rte_routines.lib.php:1356
+#: libraries/rte/rte_routines.lib.php:1355
+#: libraries/rte/rte_routines.lib.php:1361
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1407
-#: libraries/rte/rte_routines.lib.php:1410
+#: libraries/rte/rte_routines.lib.php:1412
+#: libraries/rte/rte_routines.lib.php:1415
 msgid "Routine parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1417 tbl_change.php:287
+#: libraries/rte/rte_routines.lib.php:1422 tbl_change.php:287
 #: tbl_change.php:325
 msgid "Function"
 msgstr "Функц"
 
-#: libraries/rte/rte_triggers.lib.php:24
+#: libraries/rte/rte_triggers.lib.php:39
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Add trigger"
 msgstr "Шинэ хэрэглэгч нэмэх"
 
-#: libraries/rte/rte_triggers.lib.php:26
+#: libraries/rte/rte_triggers.lib.php:41
 #, php-format
 msgid "Export of trigger %s"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:27
+#: libraries/rte/rte_triggers.lib.php:42
 #, fuzzy
 #| msgid "Add a new User"
 msgid "trigger"
 msgstr "Шинэ хэрэглэгч нэмэх"
 
-#: libraries/rte/rte_triggers.lib.php:28
+#: libraries/rte/rte_triggers.lib.php:43
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a new trigger"
+msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Танд хангалттай эрх байхгүй!"
 
-#: libraries/rte/rte_triggers.lib.php:29
+#: libraries/rte/rte_triggers.lib.php:44
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "ӨС-д хүснэгт олдсонгүй."
 
-#: libraries/rte/rte_triggers.lib.php:30
+#: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:97
+#: libraries/rte/rte_triggers.lib.php:113
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:102
+#: libraries/rte/rte_triggers.lib.php:118
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Trigger %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: libraries/rte/rte_triggers.lib.php:114
+#: libraries/rte/rte_triggers.lib.php:130
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped"
 msgid "Trigger %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
-#: libraries/rte/rte_triggers.lib.php:165
+#: libraries/rte/rte_triggers.lib.php:181
 #, fuzzy
 #| msgid "Create"
 msgid "Create trigger"
 msgstr "Үүсгэх"
 
-#: libraries/rte/rte_triggers.lib.php:169
+#: libraries/rte/rte_triggers.lib.php:185
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Edit trigger"
 msgstr "Шинэ хэрэглэгч нэмэх"
 
-#: libraries/rte/rte_triggers.lib.php:309
+#: libraries/rte/rte_triggers.lib.php:325
 #, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
 msgstr "сервэрийн нэр"
 
-#: libraries/rte/rte_triggers.lib.php:407
+#: libraries/rte/rte_triggers.lib.php:423
 msgid "You must provide a trigger name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:412
+#: libraries/rte/rte_triggers.lib.php:428
 msgid "You must provide a valid timing for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:417
+#: libraries/rte/rte_triggers.lib.php:433
 msgid "You must provide a valid event for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:423
+#: libraries/rte/rte_triggers.lib.php:439
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
 msgstr "Хүснэгтийн буруу нэр"
 
-#: libraries/rte/rte_triggers.lib.php:429
+#: libraries/rte/rte_triggers.lib.php:445
 msgid "You must provide a trigger definition."
 msgstr ""
 
@@ -8621,8 +8624,8 @@ msgstr "Хэрэглэгчтэй адил нэртэй өгөгдлийн сан
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Тэмдэглэл: phpMyAdmin нь MySQL-ийн онцгой эрхийн хүснэгтээс хэрэглэгчдийн "
 "онцгой эрхийг авна. Хэрэв тэд гараар өөрчлөгдсөн бол эдгээр хүснэгтийн "
@@ -11031,8 +11034,8 @@ msgstr ""
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд"
-#~ "%s дарж шалгах."
+#~ "Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд%"
+#~ "s дарж шалгах."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Давхардсан мөрүүдийг алгасах"
