@@ -6923,10 +6923,9 @@ msgid "You must provide a trigger name"
 msgstr "You must provide a trigger name"
 
 #: libraries/rte/rte_triggers.lib.php:412
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "You must provide a routine name"
+msgstr "You must provide a valid timing for the trigger"
 
 #: libraries/rte/rte_triggers.lib.php:417
 #, fuzzy
