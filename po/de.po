@@ -7031,10 +7031,9 @@ msgstr ""
 "Sie müssen einen Namen und einen Typ für jeden Trugger-Parameter angeben."
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Sie müssen einen Routinen-Namen angeben"
+msgstr "Sie müssen einen gültigen Tabellen-Namen angeben"
 
 #: libraries/rte/rte_triggers.lib.php:429
 #, fuzzy
