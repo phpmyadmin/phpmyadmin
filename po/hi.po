@@ -388,7 +388,7 @@ msgstr "आकार"
 #: db_printview.php:160 db_structure.php:410 libraries/export/sql.php:743
 #: libraries/export/sql.php:1058
 msgid "in use"
-msgstr "उपयोग में"
+msgstr "उपयोग में है"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:698
