@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 21:13+0200\n"
+"PO-Revision-Date: 2011-07-14 21:14+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -503,7 +503,7 @@ msgstr "डेटाबेस <b>%s<b> पर SQL क्वरी:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1116
 msgid "Submit Query"
-msgstr "क्वरी प्रस्तुत करें"
+msgstr "क्वरी भेजें"
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
