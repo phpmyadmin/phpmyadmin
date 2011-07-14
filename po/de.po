@@ -6831,7 +6831,7 @@ msgstr "Prozedur %1$s wurde geändert."
 #: libraries/rte/rte_routines.lib.php:291
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Die Routine %1$s wurde erstellt."
+msgstr "Die Prozedur %1$s wurde erstellt."
 
 #: libraries/rte/rte_routines.lib.php:345
 msgid "Create routine"
