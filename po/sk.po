@@ -4531,8 +4531,9 @@ msgid "HTTP authentication"
 msgstr "HTTP overovanie"
 
 #: libraries/config/setup.forms.php:51
+#, fuzzy
 msgid "Signon authentication"
-msgstr ""
+msgstr "Signon authentication"
 
 #: libraries/config/setup.forms.php:245
 #: libraries/config/user_preferences.forms.php:147 libraries/import/ldi.php:35
