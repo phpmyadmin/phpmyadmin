@@ -44,7 +44,7 @@ function PMA_RTE_getWord($index)
         'docu'      => 'STORED_ROUTINES',
         'export'    => __('Export of routine %s'),
         'human'     => __('routine'),
-        'no_create' => __('You do not have the necessary privileges to create a new routine'),
+        'no_create' => __('You do not have the necessary privileges to create a routine'),
         'not_found' => __('No routine with name %1$s found in database %2$s'),
         'nothing'   => __('There are no routines to display.'),
         'title'     => __('Routines'),

@@ -40,7 +40,7 @@ function PMA_RTE_getWord($index)
         'docu'      => 'TRIGGERS',
         'export'    => __('Export of trigger %s'),
         'human'     => __('trigger'),
-        'no_create' => __('You do not have the necessary privileges to create a new trigger'),
+        'no_create' => __('You do not have the necessary privileges to create a trigger'),
         'not_found' => __('No trigger with name %1$s found in database %2$s'),
         'nothing'   => __('There are no triggers to display.'),
         'title'     => __('Triggers'),

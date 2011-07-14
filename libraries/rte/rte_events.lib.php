@@ -59,7 +59,7 @@ function PMA_RTE_getWord($index)
         'docu'      => 'EVENTS',
         'export'    => __('Export of event %s'),
         'human'     => __('event'),
-        'no_create' => __('You do not have the necessary privileges to create a new event'),
+        'no_create' => __('You do not have the necessary privileges to create an event'),
         'not_found' => __('No event with name %1$s found in database %2$s'),
         'nothing'   => __('There are no events to display.'),
         'title'     => __('Events'),
