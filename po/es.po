@@ -7050,10 +7050,9 @@ msgid "Create trigger"
 msgstr "Crear disparador"
 
 #: libraries/rte/rte_triggers.lib.php:169
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Agregar un disparador"
+msgstr "Editar disparador"
 
 #: libraries/rte/rte_triggers.lib.php:309
 #, fuzzy
