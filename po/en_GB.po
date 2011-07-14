@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 15:12+0200\n"
+"PO-Revision-Date: 2011-07-14 15:13+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -6866,10 +6866,9 @@ msgid "Export of trigger %s"
 msgstr "Export of trigger %s"
 
 #: libraries/rte/rte_triggers.lib.php:27
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Triggers"
+msgstr "trigger"
 
 #: libraries/rte/rte_triggers.lib.php:28
 #, fuzzy
