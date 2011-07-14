@@ -6790,7 +6790,7 @@ msgstr "Routine"
 
 #: libraries/rte/rte_routines.lib.php:28
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Sie haben nicht genug Rechte um eine neue Routine zu erstellen"
+msgstr "Sie haben nicht genug Rechte um eine neue Prozedur zu erstellen"
 
 #: libraries/rte/rte_routines.lib.php:29
 #, php-format
