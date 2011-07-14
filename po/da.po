@@ -3420,7 +3420,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Logo link target"
-msgstr ""
+msgstr "Logo link target"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
