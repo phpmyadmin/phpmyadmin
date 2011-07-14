@@ -316,9 +316,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      * Gets fields properties
      */
     PMA_DBI_select_db($db);
-    $local_query = PMA_DBI_get_columns_sql($db, $table);
-    $result      = PMA_DBI_query($local_query);
-    $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations
     if ($do_relation && !empty($cfgRelation['relation'])) {
@@ -374,8 +371,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         $mime_map = PMA_getMIME($db, $table, true);
     }
 
-    $local_buffer = PMA_texEscape($table);
-
     // Table caption for first page and label
     if (isset($GLOBALS['latex_caption'])) {
         $buffer .= ' \\caption{'. PMA_expandUserString($GLOBALS['latex_structure_caption'], 'PMA_texEscape', array('table' => $table, 'database' => $db))
@@ -394,8 +389,8 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         return false;
     }
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-
+    $fields = PMA_DBI_get_columns($db, $table);
+    foreach ($fields as $row) {
         $type             = $row['Type'];
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
@@ -424,8 +419,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             if ($row['Null'] != 'NO') {
                 $row['Default'] = 'NULL';
             }
-        } else {
-            $row['Default'] = $row['Default'];
         }
 
         $field_name = $row['Field'];
@@ -468,7 +461,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             return false;
         }
     } // end while
-    PMA_DBI_free_result($result);
 
     $buffer = ' \\end{longtable}' . $crlf;
     return PMA_exportOutputHandler($buffer);

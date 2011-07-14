@@ -75,7 +75,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  * @access  public
  */
 function PMA_exportDBHeader($db) {
-    return PMA_exportOutputHandler('<h1>' . __('Database') . ' ' . $db . '</h1>');
+    return PMA_exportOutputHandler('<h1>' . __('Database') . ' ' . htmlspecialchars($db) . '</h1>');
 }
 
 /**
@@ -118,7 +118,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $what;
 
-    if (! PMA_exportOutputHandler('<h2>' . __('Dumping data for table') . ' ' . $table . '</h2>')) {
+    if (! PMA_exportOutputHandler('<h2>' . __('Dumping data for table') . ' ' . htmlspecialchars($table) . '</h2>')) {
         return false;
     }
     if (! PMA_exportOutputHandler('<table class="width100" cellspacing="1">')) {
@@ -192,7 +192,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
 {
     global $cfgRelation;
 
-    if (! PMA_exportOutputHandler('<h2>' . __('Table structure for table') . ' ' .$table . '</h2>')) {
+    if (! PMA_exportOutputHandler('<h2>' . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</h2>')) {
         return false;
     }
 
@@ -313,8 +313,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             if ($row['Null'] != 'NO') {
                 $row['Default'] = 'NULL';
             }
-        } else {
-            $row['Default'] = $row['Default'];
         }
 
         $fmt_pre = '';

@@ -117,7 +117,7 @@ function PMA_exportHeader() {
                 FROM data_dictionary.SCHEMAS
                 WHERE SCHEMA_NAME = '" . PMA_sqlAddSlashes($db) . "'");
         } else {
-            $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.$db.'\' LIMIT 1');
+            $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.PMA_sqlAddSlashes($db).'\' LIMIT 1');
         }
         $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
         $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];

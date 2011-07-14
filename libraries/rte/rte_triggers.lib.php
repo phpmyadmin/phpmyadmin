@@ -10,6 +10,21 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Sets required globals
+ */
+function PMA_TRI_setGlobals()
+{
+    global $action_timings, $event_manipulations;
+
+    // Some definitions for triggers
+    $action_timings      = array('BEFORE',
+                                 'AFTER');
+    $event_manipulations = array('INSERT',
+                                 'UPDATE',
+                                 'DELETE');
+}
+
+/**
  * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
  * rte_events.lib.php. It is used to retreive some language strings that are
  * used in functionalities that are common to routines, triggers and events.
@@ -25,7 +40,7 @@ function PMA_RTE_getWord($index)
         'docu'      => 'TRIGGERS',
         'export'    => __('Export of trigger %s'),
         'human'     => __('trigger'),
-        'no_create' => __('You do not have the necessary privileges to create a new trigger'),
+        'no_create' => __('You do not have the necessary privileges to create a trigger'),
         'not_found' => __('No trigger with name %1$s found in database %2$s'),
         'nothing'   => __('There are no triggers to display.'),
         'title'     => __('Triggers'),
@@ -40,6 +55,7 @@ function PMA_RTE_main()
 {
     global $db, $table;
 
+    PMA_TRI_setGlobals();
     /**
      * Process all requests
      */
