@@ -7025,11 +7025,10 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Sie müssen einen Trigger-Namen angeben"
 
 #: libraries/rte/rte_triggers.lib.php:417
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+"Sie müssen einen Namen und einen Typ für jeden Trugger-Parameter angeben."
 
 #: libraries/rte/rte_triggers.lib.php:423
 #, fuzzy
