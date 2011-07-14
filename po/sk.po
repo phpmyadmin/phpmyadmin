@@ -5129,7 +5129,7 @@ msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1303
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
