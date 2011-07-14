@@ -6826,7 +6826,7 @@ msgstr "Das wiederherstellen der gelöschten Prozedur schlug fehl."
 #: libraries/rte/rte_routines.lib.php:278
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Routine %1$s wurde geändert."
+msgstr "Prozedur %1$s wurde geändert."
 
 #: libraries/rte/rte_routines.lib.php:291
 #, php-format
