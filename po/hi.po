@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 19:55+0200\n"
+"PO-Revision-Date: 2011-07-14 19:56+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -585,7 +585,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "शब्द स्पेस(\" \") करक्टेर से अलग किये गए हैं."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr " टेबल में:"
