@@ -6651,10 +6651,9 @@ msgid "Create event"
 msgstr "Erzeuge Ereignis"
 
 #: libraries/rte/rte_events.lib.php:174
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Server bearbeiten"
+msgstr "Event bearbeiten"
 
 #: libraries/rte/rte_events.lib.php:201 libraries/rte/rte_routines.lib.php:375
 #: libraries/rte/rte_routines.lib.php:1326
