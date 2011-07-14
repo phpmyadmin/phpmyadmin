@@ -6617,10 +6617,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Die folgende Abfrage ist fehlgeschlagen: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:105
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Das wiederherstellen der gelöschten Routine schlug fehl."
+msgstr "Das wiederherstellen des gelöschten Ereignisses schlug fehl."
 
 #: libraries/rte/rte_events.lib.php:106 libraries/rte/rte_routines.lib.php:274
 #: libraries/rte/rte_triggers.lib.php:98
