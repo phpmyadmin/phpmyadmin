@@ -6817,7 +6817,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1032
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Ungültiger Routinen-Typ: \"%s\""
+msgstr "Ungültiger Prozeduren-Typ: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:273
 msgid "Sorry, we failed to restore the dropped routine."
