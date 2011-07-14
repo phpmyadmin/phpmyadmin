@@ -6745,7 +6745,7 @@ msgstr "Sie müssen die Definition des Ereignisses angeben."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Neu"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
