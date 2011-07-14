@@ -1,9 +1,9 @@
 <?php
+require_once './libraries/common.inc.php';
 if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
     require_once './libraries/header_http.inc.php';
     require_once './libraries/header_meta_style.inc.php';
 }
-require_once './libraries/common.inc.php';
 require_once './libraries/gis/pma_gis_factory.php';
 require_once './libraries/gis_visualization.lib.php';
 
@@ -72,7 +72,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 }
 ?>
     <form id="gis_data_editor_form" action="gis_data_editor.php" method="post">
-    <div id="gis_data_editor_no_js">
+    <div id="gis_data_editor">
         <h3><?php printf(__('Value for the column "%s"'), htmlspecialchars($_REQUEST['field'])); ?></h3>
 <?php   echo('<input type="hidden" name="field" value="' . htmlspecialchars($_REQUEST['field']) . '">');
         echo('<input type="hidden" name="input_name" value="' . htmlspecialchars($_REQUEST['input_name']) . '">');
