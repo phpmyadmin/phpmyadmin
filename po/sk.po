@@ -8763,10 +8763,9 @@ msgid "Refresh rate:"
 msgstr "Obnovovacia frekvencia:"
 
 #: server_status.php:462
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Nezmeniť heslo"
+msgstr "Obsahujúca slovo:"
 
 #: server_status.php:467
 #, fuzzy
