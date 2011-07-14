@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 13:33+0200\n"
+"PO-Revision-Date: 2011-07-14 13:34+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6716,7 +6716,7 @@ msgstr "Ersteller"
 #: libraries/rte/rte_routines.lib.php:1024
 #: libraries/rte/rte_triggers.lib.php:400
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Der Ersteller muss im \"benutzername@hostname\" Format sein"
 
 #: libraries/rte/rte_events.lib.php:514
 #, fuzzy
