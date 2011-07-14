@@ -3442,7 +3442,7 @@ msgstr "Tidligere anvendte tabeller"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Brug faner med mindre grafik"
 
 #: libraries/config/messages.inc.php:291
 msgid "Light tabs"
