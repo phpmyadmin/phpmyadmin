@@ -6908,10 +6908,9 @@ msgid "Create trigger"
 msgstr "Create trigger"
 
 #: libraries/rte/rte_triggers.lib.php:169
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Add a trigger"
+msgstr "Edit trigger"
 
 #: libraries/rte/rte_triggers.lib.php:309
 #, fuzzy
