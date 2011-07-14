@@ -1129,7 +1129,7 @@ function PMA_RTN_getQueryFromRequest()
             && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                             $_REQUEST['item_returntype'])
         ) {
-            $query .= "(" . intval($_REQUEST['item_returnlength']) . ")";
+            $query .= "(" . $_REQUEST['item_returnlength'] . ")";
         } else if (empty($_REQUEST['item_returnlength']) && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $_REQUEST['item_returntype'])) {
             if (! $warned_about_length) {
                 $warned_about_length = true;
