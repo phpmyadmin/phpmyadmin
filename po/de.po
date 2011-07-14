@@ -6731,7 +6731,7 @@ msgstr "Sie müssen einen gültigen Intervall für dieses Ereignis angeben."
 #: libraries/rte/rte_events.lib.php:538
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Sie müssen eine gültige Ausführungszeit für dieses Event angeben."
+msgstr "Sie müssen eine gültige Ausführungszeit für dieses Ereignis angeben."
 
 #: libraries/rte/rte_events.lib.php:542
 #, fuzzy
