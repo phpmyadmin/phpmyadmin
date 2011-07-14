@@ -6988,10 +6988,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Das Wiederherstellen der gelöschten Trigger schlug fehl."
 
 #: libraries/rte/rte_triggers.lib.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Routine %1$s wurde geändert."
+msgstr "Trigger %1$s wurde geändert."
 
 #: libraries/rte/rte_triggers.lib.php:114
 #, fuzzy, php-format
