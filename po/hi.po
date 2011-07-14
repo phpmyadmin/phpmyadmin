@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 19:57+0200\n"
+"PO-Revision-Date: 2011-07-14 20:14+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:354 libraries/display_tbl.lib.php:421
 #: server_privileges.php:1583
 msgid "Show all"
-msgstr "सभी दिखाओ"
+msgstr "सभी दिखाएँ"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2173
 #: libraries/export/pdf.php:135
