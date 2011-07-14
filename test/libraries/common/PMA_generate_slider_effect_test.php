@@ -1,4 +1,4 @@
-s<?php
+<?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PMA_generate_slider_effect from common.lib.php
