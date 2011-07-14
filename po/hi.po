@@ -184,7 +184,7 @@ msgstr "अशक्त"
 #: libraries/tbl_properties.inc.php:109 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
-msgstr "डिफ़ॉल्ट"
+msgstr "तयशुदा"
 
 #: db_datadict.php:174 libraries/export/htmlword.php:259
 #: libraries/export/latex.php:366 libraries/export/odt.php:304
