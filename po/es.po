@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-07 16:22+0200\n"
+"PO-Revision-Date: 2011-07-14 02:07+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -2235,10 +2235,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La funcionalidad %s está afectada por un fallo conocido, vea %s"
 
 #: libraries/common.lib.php:2456
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Clic para seleccionar"
+msgstr "Pulse para conmutar"
 
 #: libraries/common.lib.php:2727 libraries/common.lib.php:2734
 #: libraries/common.lib.php:2921 libraries/config/setup.forms.php:296
