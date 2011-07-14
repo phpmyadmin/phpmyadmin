@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 08:29+0200\n"
+"PO-Revision-Date: 2011-07-14 08:30+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3432,7 +3432,8 @@ msgstr "Aktivér fremhævning"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Højeste antal af tidligere brugte tabeller; sæt til 0 for at deaktivere"
+msgstr ""
+"Højeste antal af tidligere anvendte tabeller; sæt til 0 for at deaktivere"
 
 #: libraries/config/messages.inc.php:289
 #| msgid "Analyze table"
