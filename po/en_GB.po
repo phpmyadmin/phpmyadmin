@@ -6530,10 +6530,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "The following query has failed: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:105
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Sorry, we failed to restore the dropped routine."
+msgstr "Sorry, we failed to restore the dropped event."
 
 #: libraries/rte/rte_events.lib.php:106 libraries/rte/rte_routines.lib.php:274
 #: libraries/rte/rte_triggers.lib.php:98
