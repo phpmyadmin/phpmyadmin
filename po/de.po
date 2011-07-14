@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 13:32+0200\n"
+"PO-Revision-Date: 2011-07-14 13:33+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6691,11 +6691,11 @@ msgstr "Ausführen um"
 msgid "Execute every"
 msgstr "Abfrage ausführen"
 
+# Maybe the better term
 #: libraries/rte/rte_events.lib.php:438
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Start"
+msgstr "Anfang"
 
 #: libraries/rte/rte_events.lib.php:454 libraries/rte/rte_routines.lib.php:952
 #: libraries/rte/rte_triggers.lib.php:356
