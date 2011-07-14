@@ -6795,7 +6795,7 @@ msgstr "Sie haben nicht genug Rechte um eine neue Prozedur zu erstellen"
 #: libraries/rte/rte_routines.lib.php:29
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Keine Routine namens %1$s in der Datenbank %2$s gefunden"
+msgstr "Keine Prozedur mit dem Namen %1$s in der Datenbank %2$s gefunden"
 
 #: libraries/rte/rte_routines.lib.php:30
 msgid "There are no routines to display."
