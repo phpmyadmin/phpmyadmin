@@ -3432,7 +3432,7 @@ msgstr "Aktivér fremhævning"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "Højeste antal af tidligere brugte tabeller; sæt til 0 for at deaktivere"
 
 #: libraries/config/messages.inc.php:289
 #, fuzzy
