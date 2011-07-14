@@ -669,7 +669,7 @@ msgstr "सभी को चेक करें"
 #: libraries/replication_gui.lib.php:35 server_databases.php:264
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:594
 msgid "Uncheck All"
-msgstr " सभी को अनचेक करें"
+msgstr "सभी को अनचेक करें"
 
 #: db_structure.php:489
 msgid "Check tables having overhead"
