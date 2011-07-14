@@ -249,6 +249,12 @@ if (isset($plugin_list)) {
 
     // Load data
     $shp->loadFromFile('');
+    if ($shp->lastError != "") {
+        $error = true;
+        $err = PMA_Message::error(__('There was an error importing the ESRI shape file: "%s".'));
+        $err->addParam($shp->lastError);
+        PMA_mysqlDie($err->getMessage(), '', '', $err_url);
+    }
 
     // Delete the .dbf file extracted to 'TempDir'
     if ($temp_dbf_file) {
