@@ -7045,10 +7045,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Disparador %1$s creado."
 
 #: libraries/rte/rte_triggers.lib.php:165
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Crear vista"
+msgstr "Crear disparador"
 
 #: libraries/rte/rte_triggers.lib.php:169
 #, fuzzy
