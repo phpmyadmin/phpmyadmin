@@ -336,13 +336,11 @@ class PMA_Table
 
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
-        /**
-         * @todo include db-name
-         */
         $query = PMA_backquote($name) . ' ' . $type;
 
         if ($length != ''
-            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $type)) {
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT'
+                . '|SERIAL|BOOLEAN)$@i', $type)) {
             $query .= '(' . $length . ')';
         }
 
@@ -1242,8 +1240,8 @@ class PMA_Table
         $sql_query =
         " SELECT `prefs` FROM " . $pma_table .
         " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'" .
-        " AND `db_name` = '" . $this->db_name . "'" .
-        " AND `table_name` = '" . $this->name . "'";
+        " AND `db_name` = '" . PMA_sqlAddSlashes($this->db_name) . "'" .
+        " AND `table_name` = '" . PMA_sqlAddSlashes($this->name) . "'";
 
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
         if (isset($row[0])) {
@@ -1266,8 +1264,9 @@ class PMA_Table
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query =
         " REPLACE INTO " . $pma_table .
-        " VALUES ('" . $username . "', '" . $this->db_name . "', '" .
-                       $this->name . "', '" . PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "')";
+        " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes($this->db_name) . "', '" .
+                       PMA_sqlAddSlashes($this->name) . "', '" .
+                       PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "')";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
