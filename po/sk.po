@@ -9257,7 +9257,7 @@ msgstr "Počet riadkov odstránených z InnoDB tabuliek."
 
 #: server_status.php:919
 msgid "The number of rows inserted in InnoDB tables."
-msgstr "Počet záznamov (riadkov) vložených do InnoDB tabuliek."
+msgstr "Počet riadkov vložených do InnoDB tabuliek."
 
 #: server_status.php:920
 msgid "The number of rows read from InnoDB tables."
