@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 15:28+0200\n"
+"PO-Revision-Date: 2011-07-14 15:30+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -5379,6 +5379,7 @@ msgstr "Hranica odpadu"
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
+"Percentuílny podiel odpadu v úložnom súbore predtým, než je súbor zhustený."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1174
