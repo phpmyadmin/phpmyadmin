@@ -7005,10 +7005,9 @@ msgid "Create trigger"
 msgstr "Erzeuge Trigger"
 
 #: libraries/rte/rte_triggers.lib.php:169
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Einen Trigger hinzufügen"
+msgstr "Einen Trigger bearbeiten"
 
 #: libraries/rte/rte_triggers.lib.php:309
 #, fuzzy
