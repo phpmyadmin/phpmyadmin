@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:34+0200\n"
+"PO-Revision-Date: 2011-07-14 10:36+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -7396,7 +7396,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Zobrazí odkaz na obrázok (napr. stiahnutie poľa blob)."
+msgstr "Zobrazí odkaz pre stiahnutie tohto obrázka."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 msgid ""
