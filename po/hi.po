@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 20:56+0200\n"
+"PO-Revision-Date: 2011-07-14 20:58+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -724,10 +724,9 @@ msgid "Add prefix to table"
 msgstr "टेबल पर उपसर्ग जोड़ें"
 
 #: db_structure.php:517 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "फाइल, टेबल डेटा की जगह"
+msgstr "टेबल के उपसर्ग को पुनर्स्थापना करें"
 
 #: db_structure.php:519 libraries/mult_submits.inc.php:251
 #, fuzzy
