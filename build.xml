@@ -19,7 +19,7 @@
  </target>
 
  <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
-  <exec executable="phpunit" failonerror="true">
+  <exec executable="phpunit">
       <arg line="--configuration phpunit.xml.dist"/>
   </exec>
  </target>
