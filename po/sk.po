@@ -9265,7 +9265,7 @@ msgstr "Počet načítaných riadkov z InnoDB tabuliek."
 
 #: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
-msgstr "Počet upravených záznamov (riadkov) v InnoDB tabuľkách."
+msgstr "Počet upravených riadkov v InnoDB tabuľkách."
 
 #: server_status.php:922
 msgid ""
