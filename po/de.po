@@ -6939,7 +6939,7 @@ msgstr "Ergebnisse der ausgeführten Prozedur %s"
 #: libraries/rte/rte_routines.lib.php:1350
 #: libraries/rte/rte_routines.lib.php:1356
 msgid "Execute routine"
-msgstr "Führe Routine aus"
+msgstr "Führe Prozedur aus"
 
 #: libraries/rte/rte_routines.lib.php:1407
 #: libraries/rte/rte_routines.lib.php:1410
