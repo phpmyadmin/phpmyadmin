@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 08:48+0200\n"
+"PO-Revision-Date: 2011-07-14 08:52+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3717,7 +3717,7 @@ msgstr "Prekódovací nástroj"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Pri prechádzaní tabuliek sa pre každú uloží nastavenie triedenia"
 
 #: libraries/config/messages.inc.php:351
 msgid "Remember table's sorting"
