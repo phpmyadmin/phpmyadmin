@@ -6557,10 +6557,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>One or more errors have occurred while processing your request:</b>"
 
 #: libraries/rte/rte_events.lib.php:170
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Create view"
+msgstr "Create event"
 
 #: libraries/rte/rte_events.lib.php:174
 #, fuzzy
