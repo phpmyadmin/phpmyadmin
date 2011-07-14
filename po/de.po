@@ -6913,11 +6913,10 @@ msgstr ""
 "Sie müssen einen Namen und einen Typ für jeden Prozeduren-Parameter angeben."
 
 #: libraries/rte/rte_routines.lib.php:1121
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+"Sie müssen einen Namen und einen Typ für jeden Prozeduren-Parameter angeben."
 
 #: libraries/rte/rte_routines.lib.php:1171
 msgid "You must provide a routine definition."
