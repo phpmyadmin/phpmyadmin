@@ -6803,7 +6803,7 @@ msgstr "Apagado"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Encendido"
 
 #: libraries/rte/rte_footer.lib.php:108
 #, fuzzy
