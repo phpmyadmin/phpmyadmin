@@ -4770,7 +4770,7 @@ msgstr "Exportujem tabuľky z databázy \"%s\""
 #: libraries/display_export.lib.php:84
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Exportujem riadky z tabuľky  \"%s\""
+msgstr "Exportujem riadky z tabuľky \"%s\""
 
 #: libraries/display_export.lib.php:90
 msgid "Export Method:"
