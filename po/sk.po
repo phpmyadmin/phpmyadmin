@@ -4839,7 +4839,7 @@ msgstr ", meno databázy bude zmenené na @DATABASE@"
 
 #: libraries/display_export.lib.php:226
 msgid ", @TABLE@ will become the table name"
-msgstr ", meno tabuľky bude zmenené na @TABLE@ "
+msgstr ", meno tabuľky bude zmenené na @TABLE@"
 
 #: libraries/display_export.lib.php:230
 #, php-format
