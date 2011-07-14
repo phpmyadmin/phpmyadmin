@@ -1828,6 +1828,76 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
+ * jQuery coding for 'Change Table'.  Used on tbl_structure.php *
+ * Attach Ajax Event handlers for Change Table
+ */
+$(document).ready(function() {
+    /**
+     *Ajax action for submitting the column change form
+    **/
+    $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
+        event.preventDefault();
+        /**
+         *  @var    the_form    object referring to the export form
+         */
+        var $form = $("#append_fields_form");
+
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
+        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+            // OK, form passed validation step
+            if ($form.hasClass('ajax')) {
+                PMA_prepareForAjaxRequest($form);
+                //User wants to submit the form
+                $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
+                    if ($("#sqlqueryresults").length != 0) {
+                        $("#sqlqueryresults").remove();
+                    } else if ($(".error").length != 0) {
+                        $(".error").remove();
+                    }
+                    if (data.success == true) {
+                        PMA_ajaxShowMessage(data.message);
+                        $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                        $("#sqlqueryresults").html(data.sql_query);
+                        $("#result_query .notice").remove();
+                        $("#result_query").prepend((data.message));
+                        if ($("#change_column_dialog").length > 0) {
+                            $("#change_column_dialog").dialog("close").remove();
+                        }
+                        /*Reload the field form*/
+                        $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+                            $("#fieldsForm").remove();
+                            var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+                            if ($("#sqlqueryresults").length != 0) {
+                                $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
+                            } else {
+                                $temp_div.find("#fieldsForm").insertAfter(".error");
+                            }
+                            /*Call the function to display the more options in table*/
+                            displayMoreTableOpts();
+                        });
+                    } else {
+                        var $temp_div = $("<div id='temp_div'><div>").append(data);
+                        var $error = $temp_div.find(".error code").addClass("error");
+                        PMA_ajaxShowMessage($error);
+                    }
+                }) // end $.post()
+            } else {
+                // non-Ajax submit
+                $form.append('<input type="hidden" name="do_save_data" value="Save" />');
+                $form.submit();
+            }
+        }
+    }) // end change table button "do_save_data"
+
+}, 'top.frame_content'); //end $(document).ready for 'Change Table'
+
+/**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *
@@ -2163,8 +2233,44 @@ function displayMoreTableOpts() {
                 }
             });
     }
+
 }
 $(document).ready(initTooltips);
+
+/**
+ * Ensures indexes names are valid according to their type and, for a primary
+ * key, lock index name to 'PRIMARY'
+ * @param   string   form_id  Variable which parses the form name as
+ *                            the input
+ * @return  boolean  false    if there is no index form, true else
+ */
+function checkIndexName(form_id)
+{
+    if ($("#"+form_id).length == 0) {
+        return false;
+    }
+
+    // Gets the elements pointers
+    var $the_idx_name = $("#input_index_name");
+    var $the_idx_type = $("#select_index_type");
+
+    // Index is a primary key
+    if ($the_idx_type.find("option:selected").attr("value") == 'PRIMARY') {
+        $the_idx_name.attr("value", 'PRIMARY');
+        $the_idx_name.attr("disabled", true);
+    }
+
+    // Other cases
+    else {
+        if ($the_idx_name.attr("value") == 'PRIMARY') {
+            $the_idx_name.attr("value",  '');
+        }
+        $the_idx_name.attr("disabled", false);
+    }
+
+    return true;
+} // end of the 'checkIndexName()' function
+
 
 /* Displays tooltips */
 function initTooltips() {
@@ -2294,7 +2400,7 @@ $(function() {
  * Get the row number from the classlist (for example, row_1)
  */
 function PMA_getRowNumber(classlist) {
-    return parseInt(classlist.split(/row_/)[1]);
+    return parseInt(classlist.split(/\s+row_/)[1]);
 }
 
 /**
@@ -2329,6 +2435,136 @@ function PMA_init_slider() {
             });
     });
 }
+
+/**
+ * var  toggleButton  This is a function that creates a toggle
+ *                    sliding button given a jQuery reference
+ *                    to the correct DOM element
+ */
+var toggleButton = function ($obj) {
+    // In rtl mode the toggle switch is flipped horizontally
+    // so we need to take that into account
+    if ($('.text_direction', $obj).text() == 'ltr') {
+        var right = 'right';
+    } else {
+        var right = 'left';
+    }
+	/**
+	 *  var  h  Height of the button, used to scale the
+	 *          background image and position the layers
+	 */
+	var h = $obj.height();
+	$('img', $obj).height(h);
+	$('table', $obj).css('bottom', h-1);
+	/**
+	 *  var  on   Width of the "ON" part of the toggle switch
+	 *  var  off  Width of the "OFF" part of the toggle switch
+	 */
+	var on  = $('.toggleOn', $obj).width();
+	var off = $('.toggleOff', $obj).width();
+	// Make the "ON" and "OFF" parts of the switch the same size
+	$('.toggleOn > div', $obj).width(Math.max(on, off));
+	$('.toggleOff > div', $obj).width(Math.max(on, off));
+	/**
+	 *  var  w  Width of the central part of the switch
+	 */
+	var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+	// Resize the central part of the switch on the top
+	// layer to match the background
+	$('table td:nth-child(2) > div', $obj).width(w);
+	/**
+	 *  var  imgw    Width of the background image
+	 *  var  tblw    Width of the foreground layer
+	 *  var  offset  By how many pixels to move the background
+	 *               image, so that it matches the top layer
+	 */
+	var imgw = $('img', $obj).width();
+	var tblw = $('table', $obj).width();
+	var offset = parseInt(((imgw - tblw) / 2), 10);
+	// Move the background to match the layout of the top layer
+	$obj.find('img').css(right, offset);
+	/**
+	 *  var  offw    Outer width of the "ON" part of the toggle switch
+	 *  var  btnw    Outer width of the central part of the switch
+	 */
+	var offw = $('.toggleOff', $obj).outerWidth();
+	var btnw = $('table td:nth-child(2)', $obj).outerWidth();
+	// Resize the main div so that exactly one side of
+	// the switch plus the central part fit into it.
+	$obj.width(offw + btnw + 2);
+	/**
+	 *  var  move  How many pixels to move the
+	 *             switch by when toggling
+	 */
+	var move = $('.toggleOff', $obj).outerWidth();
+	// If the switch is initialized to the
+	// OFF state we need to move it now.
+	if ($('.container', $obj).hasClass('off')) {
+        if (right == 'right') {
+    		$('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+        } else {
+    		$('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+        }
+	}
+	// Attach an 'onclick' event to the switch
+	$('.container', $obj).click(function () {
+        if ($(this).hasClass('isActive')) {
+            return false;
+        } else {
+            $(this).addClass('isActive');
+        }
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        var $container = $(this);
+        var callback = $('.callback', this).text();
+		// Perform the actual toggle
+		if ($(this).hasClass('on')) {
+            if (right == 'right') {
+                var operator = '-=';
+            } else {
+                var operator = '+=';
+            }
+            var url = $(this).find('.toggleOff > span').text();
+            var removeClass = 'on';
+            var addClass = 'off';
+		} else {
+            if (right == 'right') {
+                var operator = '+=';
+            } else {
+                var operator = '-=';
+            }
+            var url = $(this).find('.toggleOn > span').text();
+            var removeClass = 'off';
+            var addClass = 'on';
+        }
+        $.post(url, {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+		        $container
+		        .removeClass(removeClass)
+		        .addClass(addClass)
+		        .animate({'left': operator + move + 'px'}, function () {
+                    $container.removeClass('isActive');
+                });
+                eval(callback);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+                $container.removeClass('isActive');
+            }
+        });
+	});
+};
+
+/**
+ * Initialise all toggle buttons
+ */
+$(window).load(function () {
+    $('.toggleAjax').each(function () {
+        $(this)
+        .show()
+        .find('.toggleButton')
+		toggleButton($(this));
+	});
+});
 
 /**
  * Vertical pointer
@@ -2458,44 +2694,6 @@ $(document).ready(function() {
 }) // end of $(document).ready()
 
 /**
- * Attach Ajax event handlers for Export of Routines, Triggers and Events.
- *
- * @uses    PMA_ajaxShowMessage()
- * @uses    PMA_ajaxRemoveMessage()
- *
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $('.export_routine_anchor, .export_trigger_anchor, .export_event_anchor').live('click', function(event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
-                PMA_ajaxRemoveMessage($msg);
-                /**
-                 * @var button_options  Object containing options for jQueryUI dialog buttons
-                 */
-                var button_options = {};
-                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
-                /**
-                 * Display the dialog to the user
-                 */
-                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
-                                      width: 500,
-                                      buttons: button_options,
-                                      title: data.title
-                                  });
-                // Attach syntax highlited editor to export dialog
-                var elm = $ajaxDialog.find('textarea');
-                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }) // end $.get()
-    }); // end $.live()
-}); // end of $(document).ready() for Export of Routines, Triggers and Events.
-
-/**
  * Creates a message inside an object with a sliding effect
  *
  * @param   msg    A string containing the text to display
@@ -2571,69 +2769,6 @@ function PMA_slidingMessage(msg, $obj) {
     }
     return true;
 } // end PMA_slidingMessage()
-
-/**
- * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
- *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @see     $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $('.drop_routine_anchor, .drop_trigger_anchor, .drop_event_anchor').live('click', function(event) {
-        event.preventDefault();
-        /**
-         * @var $curr_row    Object containing reference to the current row
-         */
-        var $curr_row = $(this).parents('tr');
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-            /**
-             * @var    $msg    jQuery object containing the reference to
-             *                 the AJAX message shown to the user.
-             */
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
-                    /**
-                     * @var $table    Object containing reference to the main list of elements.
-                     */
-                    var $table = $curr_row.parent();
-                    if ($table.find('tr').length == 2) {
-                        $table.hide("slow", function () {
-                            $(this).find('tr.even, tr.odd').remove();
-                            $('#nothing2display').show("slow");
-                        });
-                    } else {
-                        $curr_row.hide("slow", function () {
-                            $(this).remove();
-                            // Now we have removed the row from the list, but maybe
-                            // some row classes are wrong now. So we will itirate
-                            // throught all rows and assign correct classes to them.
-                            /**
-                             * @var    ct    Count of processed rows.
-                             */
-                            var ct = 0;
-                            $table.find('tr').has('td').each(function() {
-                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
-                                $(this).removeClass().addClass(rowclass);
-                                ct++;
-                            });
-                        });
-                    }
-                    // Show the query that we just executed
-                    PMA_ajaxRemoveMessage($msg);
-                    PMA_slidingMessage(data.sql_query);
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
-                }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }); // end $.live()
-}); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
 
 /**
  * Attach Ajax event handlers for Drop Table.

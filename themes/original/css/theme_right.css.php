@@ -969,14 +969,11 @@ h3#serverstatusqueries span {
     display:inline;
 }
 
-table#serverstatusqueriesdetails th img.sortableIcon, table#serverstatusvariables th img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
-}
-table#serverstatusqueriesdetails th.headerSortUp img.sortableIcon, table#serverstatusvariables th.headerSortUp img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
-}
-table#serverstatusqueriesdetails th.headerSortDown img.sortableIcon, table#serverstatusvariables th.headerSortDown img.sortableIcon {
+th.headerSortUp img.sortableIcon, th.headerSortUp img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
+}
+th.headerSortDown img.sortableIcon, th.headerSortDown img.sortableIcon {
+    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
 }
 
 .statuslinks {
@@ -993,7 +990,7 @@ div#serverStatusTabs {
     margin-top:1em;
 }
 
-div#serverstatus table caption a.top {
+caption a.top {
     float: <?php echo $right; ?>;
 }
 
@@ -1863,6 +1860,10 @@ fieldset .disabled-field td {
     vertical-align:     middle;
 }
 
+.rte_table tr td:nth-child(1) {
+    font-weight:        bold;
+}
+
 .rte_table input, .rte_table select, .rte_table textarea {
     width:              100%;
     margin:             0;
@@ -1871,6 +1872,11 @@ fieldset .disabled-field td {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
 }
+
+.rte_table .routine_params_table {
+    width:              100%;
+}
+
 #placeholder .button {
     position: absolute;
     cursor: pointer;
@@ -1881,6 +1887,56 @@ fieldset .disabled-field td {
     color: #999;
     background-color: #eee;
     padding: 2px;
+}
+
+.wrapper {
+    float: <?php echo $left; ?>;
+    margin-bottom: 0.5em;
+}
+.toggleButton {
+    position: relative;
+    cursor: pointer;
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 1.55em;
+    height: 1.55em;
+    overflow: hidden;
+    border-right: 0.1em solid #888;
+    border-left: 0.1em solid #888;
+}
+.toggleButton table,
+.toggleButton td,
+.toggleButton img {
+    padding: 0;
+    position: relative;
+}
+.toggleButton .container {
+    position: absolute;
+}
+.toggleButton .toggleOn {
+    color: white;
+    padding: 0 1em;
+}
+.toggleButton .toggleOff {
+    padding: 0 1em;
+}
+
+.doubleFieldset fieldset {
+    width: 48%;
+    float: <?php echo $left; ?>;
+    padding: 0;
+}
+.doubleFieldset fieldset.left {
+    margin-<?php echo $right; ?>: 1%;
+}
+.doubleFieldset fieldset.right {
+    margin-<?php echo $left; ?>: 1%;
+}
+.doubleFieldset legend {
+    margin-<?php echo $left; ?>: 0.5em;
+}
+.doubleFieldset div.wrap {
+    padding: 0.5em;
 }
 
 #table_columns input, #table_columns select {
@@ -2107,15 +2163,6 @@ span.mysql-number {
     width: 10px;
 }
 
-.cPointerVer {  /* cPointer with vertical display mode */
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer_ver.png);
-    height: 10px;
-    margin-left: -5px;
-    margin-top: -5px;   /* must be minus half of its height */
-    position: absolute;
-    width: 20px;
-}
-
 .dHint {
     background: #333;
     border:1px solid #000;
@@ -2177,15 +2224,16 @@ span.mysql-number {
     position: absolute;
 }
 
-.cList table {
+.cList .lDiv div {
+    padding: 0.2em 0.5em 0.2em 0.2em;
 }
 
-.cList table tr:hover {
+.cList .lDiv div:hover {
     background: #DDD;
     cursor: pointer;
 }
 
-.cList table td input {
+.cList .lDiv div input {
     cursor: pointer;
 }
 
