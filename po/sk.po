@@ -6919,7 +6919,7 @@ msgstr ""
 #: libraries/schema/Visio_Relation_Schema.class.php:210
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr "Tabuľka \"%s\" neexistuje!"
+msgstr "Tabuľka %s neexistuje!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:248
 #: libraries/schema/Eps_Relation_Schema.class.php:436
