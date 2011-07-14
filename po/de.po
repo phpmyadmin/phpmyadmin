@@ -6726,7 +6726,7 @@ msgstr "Sie müssen einen Event-Namen angeben"
 #: libraries/rte/rte_events.lib.php:526
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "Sie müssen einen gültigen Intervall für dieses Event hinterlegen"
+msgstr "Sie müssen einen gültigen Intervall für dieses Event angeben."
 
 #: libraries/rte/rte_events.lib.php:538
 #| msgid "You must provide a routine definition."
