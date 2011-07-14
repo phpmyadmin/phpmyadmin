@@ -608,7 +608,7 @@ msgstr " टेबल %s को खाली किया गया है."
 #: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
-msgstr "द्रश्य %s रद्द दिया गया है."
+msgstr "द्रश्य %s रद्द किया गया है."
 
 #: db_structure.php:280 tbl_operations.php:705
 #, php-format
