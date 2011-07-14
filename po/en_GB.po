@@ -6655,7 +6655,7 @@ msgstr "You must provide an event definition."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "New"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
