@@ -6997,10 +6997,9 @@ msgid "Function"
 msgstr "Función"
 
 #: libraries/rte/rte_triggers.lib.php:24
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Agregar un disparador"
+msgstr "Agregar disparador"
 
 #: libraries/rte/rte_triggers.lib.php:26
 #, php-format
