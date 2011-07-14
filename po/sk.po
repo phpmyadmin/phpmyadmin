@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 09:22+0200\n"
+"PO-Revision-Date: 2011-07-14 09:23+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -101,7 +101,7 @@ msgstr "Použiť túto hodnotu"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:326
 msgid "No blob streaming server configured!"
-msgstr "Nie je nastavený žiadny streamovacie server!"
+msgstr "Nie je nastavený žiadny streamovací server!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
