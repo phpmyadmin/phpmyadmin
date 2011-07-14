@@ -7060,10 +7060,9 @@ msgid "Trigger name"
 msgstr "Nombre del disparador"
 
 #: libraries/rte/rte_triggers.lib.php:407
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Debe proveer un nombre de rutina"
+msgstr "Debe proveer un nombre de disparador"
 
 #: libraries/rte/rte_triggers.lib.php:412
 #, fuzzy
