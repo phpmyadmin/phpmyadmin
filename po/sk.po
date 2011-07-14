@@ -6525,10 +6525,9 @@ msgstr "Chyba pri spracovaní požiadavky"
 
 #: libraries/rte/rte_events.lib.php:360 libraries/rte/rte_routines.lib.php:857
 #: libraries/rte/rte_triggers.lib.php:306
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Podrobnosti..."
+msgstr "Podrobnosti"
 
 #: libraries/rte/rte_events.lib.php:363
 #, fuzzy
