@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:38+0200\n"
+"PO-Revision-Date: 2011-07-14 10:39+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -9261,7 +9261,7 @@ msgstr "Počet riadkov vložených do InnoDB tabuliek."
 
 #: server_status.php:920
 msgid "The number of rows read from InnoDB tables."
-msgstr "Počet načítaných záznamov (riadkov) z InnoDB tabuliek."
+msgstr "Počet načítaných riadkov z InnoDB tabuliek."
 
 #: server_status.php:921
 msgid "The number of rows updated in InnoDB tables."
