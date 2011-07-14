@@ -704,7 +704,7 @@ msgstr "रद्द"
 
 #: db_structure.php:507 tbl_operations.php:604
 msgid "Check table"
-msgstr " टेबल को चेक करें"
+msgstr "टेबल को चेक करें"
 
 #: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
 #: tbl_structure.php:844
