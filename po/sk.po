@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-14 09:21-0400\n"
+"POT-Creation-Date: 2011-07-14 18:39+0200\n"
 "PO-Revision-Date: 2011-07-14 15:30+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -118,8 +118,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Súbor %s nebol nájdený na tomto systéme, viac informácií nájdete na "
-"www.phpmyadmin.net stránke."
+"Súbor %s nebol nájdený na tomto systéme, viac informácií nájdete na www."
+"phpmyadmin.net stránke."
 
 #: db_create.php:58
 #, php-format
@@ -625,8 +625,8 @@ msgstr "Sledovanie nie je aktívne."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohľad má aspoň toľko riadok. Podrobnosti nájdete v %sdokumentaci%s."
 
@@ -865,8 +865,8 @@ msgstr "Výpis bol uložený do súboru %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si "
 "prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť."
@@ -1824,8 +1824,8 @@ msgstr "Vitajte v %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravdepodobná príčina je, že neexistuje konfiguračný súbor. Na jeho "
 "vytvorenie môžete použiť %1$skonfiguračný skript%2$s."
@@ -2222,7 +2222,6 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnosť %s je ovplyvnená známou chybou, pozri %s"
 
 #: libraries/common.lib.php:2447
-#| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "Kliknite pre prepnutie"
 
@@ -3948,10 +3947,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Môžete použiť nahradzujúce znaky (% a _). Pokiaľ ich potrebujete použiť v "
-"ich pôvodnom význame, vložte spätné lomítko pred, napríklad "
-"[kbd]'moja\\_db'[/kbd] namiesto [kbd]'moja_db'[/kbd]. Použitím tejto voľby "
-"môžete ovplyvniť triedenie databáz v zozname. Stačí na konci zoznamu uviesť "
-"[kbd]*[/kbd] na konci pre zobrazenie ostatných v abecednom poradí."
+"ich pôvodnom význame, vložte spätné lomítko pred, napríklad [kbd]'moja"
+"\\_db'[/kbd] namiesto [kbd]'moja_db'[/kbd]. Použitím tejto voľby môžete "
+"ovplyvniť triedenie databáz v zozname. Stačí na konci zoznamu uviesť [kbd]*[/"
+"kbd] na konci pre zobrazenie ostatných v abecednom poradí."
 
 #: libraries/config/messages.inc.php:400
 msgid "Show only listed databases"
@@ -4854,8 +4853,8 @@ msgstr ", meno tabuľky bude zmenené na @TABLE@"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Táto hodnota je interpretovaná pomocou %1$sstrftime%2$s, takže môžete použiť "
 "reťazec pre formátovanie dátumu a času. Naviac budú vykonané tieto "
@@ -5011,7 +5010,6 @@ msgid "Language"
 msgstr "Jazyk"
 
 #: libraries/display_tbl.lib.php:397
-#| msgid "Textarea columns"
 msgid "Restore column order"
 msgstr "Obnoviť poradie stĺpcov"
 
@@ -5020,7 +5018,6 @@ msgid "Drag to reorder"
 msgstr "Usporiadajte pretiahnutím"
 
 #: libraries/display_tbl.lib.php:418
-#| msgid "Click to select"
 msgid "Click to sort"
 msgstr "Kliknite pre zoradenie"
 
@@ -5044,7 +5041,6 @@ msgid "Start row"
 msgstr "Štart"
 
 #: libraries/display_tbl.lib.php:438
-#| msgid "Number of rows:"
 msgid "Number of rows"
 msgstr "Počet riadkov"
 
@@ -5591,8 +5587,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6474,7 +6470,6 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "V databáze %2$s nebola nájdená udalosť s menom %1$s"
 
 #: libraries/rte/rte_events.lib.php:64
-#| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "Nie sú žiadne udalosti na zobrazenie."
 
@@ -6537,7 +6532,6 @@ msgstr "Chyba pri spracovaní požiadavky"
 
 #: libraries/rte/rte_events.lib.php:395 libraries/rte/rte_routines.lib.php:877
 #: libraries/rte/rte_triggers.lib.php:322
-#| msgid "Details..."
 msgid "Details"
 msgstr "Podrobnosti"
 
@@ -6679,7 +6673,6 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
 #: libraries/rte/rte_routines.lib.php:49
-#| msgid "There are no files to upload"
 msgid "There are no routines to display."
 msgstr "Neboli nájdené žiadne rutiny."
 
@@ -6866,7 +6859,6 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
 #: libraries/rte/rte_triggers.lib.php:45
-#| msgid "There are no files to upload"
 msgid "There are no triggers to display."
 msgstr "Neboli nájdené žiadne spúšťače."
 
@@ -7258,8 +7250,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL validator nemohol byť inicializovaný. Prosím skontrolujte, či sú "
-"nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v %"
-"sdocumentation%s."
+"nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v "
+"%sdocumentation%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -7953,8 +7945,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím %"
-"sNastavovacieho skriptu%s."
+"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím "
+"%sNastavovacieho skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -8394,13 +8386,13 @@ msgstr "Odstrániť databázy s rovnakým menom ako majú používatelia."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. "
 "Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli "
-"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať %"
-"sznovunačítanie práv%s predtým ako budete pokračovať."
+"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
+"%sznovunačítanie práv%s predtým ako budete pokračovať."
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."
@@ -8494,7 +8486,6 @@ msgid "wildcard"
 msgstr "nahradzujúci znak"
 
 #: server_privileges.php:2295
-#| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "Užívateľ bol pridaný."
 
@@ -8772,12 +8763,10 @@ msgid "All status variables"
 msgstr ""
 
 #: server_status.php:413 server_status.php:439
-#| msgid "Refresh"
 msgid "Refresh rate:"
 msgstr "Obnovovacia frekvencia:"
 
 #: server_status.php:462
-#| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Obsahujúca slovo:"
 
@@ -8792,7 +8781,6 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:484
-#| msgid "Related Links"
 msgid "Related links:"
 msgstr "Súvisiace odkazy:"
 
@@ -8900,7 +8888,6 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:856
-#| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Počet neúspešných pokusov o pripojenie k MySQL serveru."
 
@@ -10081,7 +10068,6 @@ msgid "Stacked"
 msgstr ""
 
 #: tbl_chart.php:94
-#| msgid "Report title:"
 msgid "Chart title"
 msgstr "Názov grafu"
 
@@ -10090,7 +10076,6 @@ msgid "X-Axis:"
 msgstr ""
 
 #: tbl_chart.php:113
-#| msgid "SQL queries"
 msgid "Series:"
 msgstr "Série:"
 
@@ -10909,8 +10894,8 @@ msgstr "Premenovať pohľad na"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
 #~ msgstr ""
-#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: %"
-#~ "s"
+#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: "
+#~ "%s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Pridať do komentárov"
