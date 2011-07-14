@@ -6598,10 +6598,9 @@ msgid "Execute at"
 msgstr "Execute at"
 
 #: libraries/rte/rte_events.lib.php:419
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Execute"
+msgstr "Execute every"
 
 #: libraries/rte/rte_events.lib.php:438
 #, fuzzy
