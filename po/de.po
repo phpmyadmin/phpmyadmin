@@ -6843,7 +6843,7 @@ msgstr "Bearbeite Prozedur"
 
 #: libraries/rte/rte_routines.lib.php:860
 msgid "Routine name"
-msgstr "Routinen Name"
+msgstr "Prozeduren-Name"
 
 #: libraries/rte/rte_routines.lib.php:883
 msgid "Parameters"
