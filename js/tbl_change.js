@@ -328,6 +328,20 @@ $(document).ready(function() {
     });
     
     /**
+     * Trigger asynchronous calls on data change and update the output.
+     */
+    $('#gis_editor').find("input[type='text']").live('change', function() {
+        var $form = $('form#gis_data_editor_form');
+        $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
+            if(data.success == true) {
+                $('#gis_data_textarea').val(data.result);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    });
+    
+    /**
      * Update the form on change of the GIS type.
      */
     $(".gis_type").live('change', function(event) {
