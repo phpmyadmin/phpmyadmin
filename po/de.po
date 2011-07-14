@@ -6944,7 +6944,7 @@ msgstr "Führe Prozedur aus"
 #: libraries/rte/rte_routines.lib.php:1407
 #: libraries/rte/rte_routines.lib.php:1410
 msgid "Routine parameters"
-msgstr "Routinen Parameter"
+msgstr "Prozeduren-Parameter"
 
 #: libraries/rte/rte_routines.lib.php:1417 tbl_change.php:287
 #: tbl_change.php:325
