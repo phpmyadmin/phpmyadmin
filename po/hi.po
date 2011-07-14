@@ -693,7 +693,7 @@ msgstr "छपाई द्रश्य."
 #: db_structure.php:503 libraries/common.lib.php:2915
 #: libraries/common.lib.php:2916
 msgid "Empty"
-msgstr "खाली करें"
+msgstr "खाली"
 
 #: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
 #: libraries/common.lib.php:2913 libraries/common.lib.php:2914
