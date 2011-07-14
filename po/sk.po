@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:39+0200\n"
+"PO-Revision-Date: 2011-07-14 11:16+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3588,7 +3588,7 @@ msgstr "Toto sú odkazy na Upraviť, Upraviť tu, Kopírovať a Odstrániť"
 
 #: libraries/config/messages.inc.php:320
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Kde zobraziť linky riadkov tabuľky"
 
 #: libraries/config/messages.inc.php:321
 msgid "Use natural order for sorting table and database names"
