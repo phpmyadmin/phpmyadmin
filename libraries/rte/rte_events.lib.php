@@ -10,6 +10,40 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Sets required globals
+ */
+function PMA_EVN_setGlobals()
+{
+    global $event_status, $event_type, $event_interval;
+
+    $event_status        = array(
+                               'query'   => array('ENABLE',
+                                                  'DISABLE',
+                                                  'DISABLE ON SLAVE'),
+                               'display' => array('ENABLED',
+                                                  'DISABLED',
+                                                  'SLAVESIDE_DISABLED')
+                           );
+    $event_type          = array('RECURRING',
+                                 'ONE TIME');
+    $event_interval      = array('YEAR',
+                                 'QUARTER',
+                                 'MONTH',
+                                 'DAY',
+                                 'HOUR',
+                                 'MINUTE',
+                                 'WEEK',
+                                 'SECOND',
+                                 'YEAR_MONTH',
+                                 'DAY_HOUR',
+                                 'DAY_MINUTE',
+                                 'DAY_SECOND',
+                                 'HOUR_MINUTE',
+                                 'HOUR_SECOND',
+                                 'MINUTE_SECOND');
+}
+
+/**
  * This function is defined in: rte_routines.lib.php, rte_triggers.lib.php and
  * rte_events.lib.php. It is used to retreive some language strings that are
  * used in functionalities that are common to routines, triggers and events.
@@ -25,7 +59,7 @@ function PMA_RTE_getWord($index)
         'docu'      => 'EVENTS',
         'export'    => __('Export of event %s'),
         'human'     => __('event'),
-        'no_create' => __('You do not have the necessary privileges to create a new event'),
+        'no_create' => __('You do not have the necessary privileges to create an event'),
         'not_found' => __('No event with name %1$s found in database %2$s'),
         'nothing'   => __('There are no events to display.'),
         'title'     => __('Events'),
@@ -40,6 +74,7 @@ function PMA_RTE_main()
 {
     global $db;
 
+    PMA_EVN_setGlobals();
     /**
      * Process all requests
      */
