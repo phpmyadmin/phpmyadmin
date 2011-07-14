@@ -313,6 +313,7 @@ $(document).ready(function() {
             series: series,
             title: { text: 'Query Results' },
 	    xAxis: {
+		type: 'linear',
 	        title: { text: $('#tableid_0').val() },
 	        max: Array.max(xCord) + 2,
 	        min: Array.min(xCord) - 2
