@@ -67,6 +67,7 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
     $flag = 1;
     $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
     $maxPlotlLimit = $GLOBALS['cfg']['maxRowPlotLimit']; 
+
     ?>
 
 <div id="sqlqueryresults"></div>
@@ -246,6 +247,12 @@ for($i = 0 ; $i < 4 ; $i++){
     /*
      * Other inputs like data label and mode go after selection of column criteria
      */
+
+    //Set default datalabel if not selected
+    if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null')) {
+        if ($dataLabel == '') 
+	    $dataLabel = PMA_getDisplayField($db,$table);
+    }
     ?>
     <table>
     <tr><td><label for="label"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
@@ -306,15 +313,11 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
                 $w[] = $whereClause;
 
         } // end for
-        //print_r($w);
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }
 	$sql_query .= ' LIMIT ' . $maxPlotlLimit;
-    if ($dataLabel == '') {
-	$dataLabel = PMA_getDisplayField($db,$table);
-    }
-    
+
     /*
      * Query execution part
      */
