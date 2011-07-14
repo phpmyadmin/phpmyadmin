@@ -6769,10 +6769,9 @@ msgid "The definer must be in the \"username@hostname\" format"
 msgstr "El definidor tiene que ser en el formato \"usuario@sistema\""
 
 #: libraries/rte/rte_events.lib.php:514
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Debe proveer un nombre de rutina"
+msgstr "Debe proveer un nombre de evento"
 
 #: libraries/rte/rte_events.lib.php:526
 #, fuzzy
