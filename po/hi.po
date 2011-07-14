@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 21:20+0200\n"
+"PO-Revision-Date: 2011-07-14 21:21+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -688,7 +688,7 @@ msgstr "निर्यात"
 #: libraries/display_tbl.lib.php:2439 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
-msgstr "छापने वाला द्रश्य."
+msgstr "छपाई द्रश्य."
 
 #: db_structure.php:503 libraries/common.lib.php:2915
 #: libraries/common.lib.php:2916
