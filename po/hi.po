@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 20:51+0200\n"
+"PO-Revision-Date: 2011-07-14 20:54+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -266,7 +266,7 @@ msgstr "सभी को रद्द करें"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "डेटाबेस नाम खाली है"
+msgstr "डेटाबेस का नाम खाली है"
 
 #: db_operations.php:272
 #, php-format
