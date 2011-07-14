@@ -4411,6 +4411,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Veľkosť editačného okna (počet riadkov). Táto hodnota bude zväčšená pre okná "
+"SQL dopytov (*2) a pre dopytové okno (*1,25)"
 
 #: libraries/config/messages.inc.php:491
 msgid "Textarea rows"
