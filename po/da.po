@@ -3435,10 +3435,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Højeste antal af tidligere brugte tabeller; sæt til 0 for at deaktivere"
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used tables"
-msgstr "Analysér tabel"
+msgstr "Tidligere anvendte tabeller"
 
 #: libraries/config/messages.inc.php:290
 msgid "Use less graphically intense tabs"
