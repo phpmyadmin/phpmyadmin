@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:20+0200\n"
+"PO-Revision-Date: 2011-07-14 10:21+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -6656,10 +6656,9 @@ msgid "routine"
 msgstr "Pridať index"
 
 #: libraries/rte/rte_routines.lib.php:28
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Nemáte dostatočné práva na vykonanie tejto akcie!"
+msgstr "Nemáte dostatočné práva na vytvorenie novej rutiny"
 
 #: libraries/rte/rte_routines.lib.php:29
 #, php-format
