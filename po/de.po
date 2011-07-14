@@ -6668,10 +6668,9 @@ msgid "Details"
 msgstr "Details"
 
 #: libraries/rte/rte_events.lib.php:363
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Ereignistyp"
+msgstr "Ereignis-Name"
 
 #: libraries/rte/rte_events.lib.php:384 server_binlog.php:182
 msgid "Event type"
