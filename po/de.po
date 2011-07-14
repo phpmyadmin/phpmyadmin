@@ -6734,11 +6734,9 @@ msgid "You must provide a valid execution time for the event."
 msgstr "Sie müssen eine gültige Ausführungszeit für dieses Ereignis angeben."
 
 #: libraries/rte/rte_events.lib.php:542
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+msgstr "Sie müssen einen gültigen Typ für dieses Event angeben."
 
 #: libraries/rte/rte_events.lib.php:561
 #, fuzzy
