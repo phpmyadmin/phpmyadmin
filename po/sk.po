@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 11:17+0200\n"
+"PO-Revision-Date: 2011-07-14 11:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4602,6 +4602,7 @@ msgstr "Nepodarilo sa pripojiť k MySQL serveru"
 #: libraries/config/validate.lib.php:228
 msgid "Empty username while using config authentication method"
 msgstr ""
+"Pri použití nastavenej autorizačnej metódy nebolo vyplnené užívateľské meno"
 
 #: libraries/config/validate.lib.php:232
 msgid "Empty signon session name while using signon authentication method"
