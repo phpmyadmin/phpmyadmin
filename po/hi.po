@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 21:26+0200\n"
+"PO-Revision-Date: 2011-07-14 21:27+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -825,7 +825,7 @@ msgstr "\"%s\" काँलम के लिए मान "
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:777
 msgid "Enter each value in a separate field."
-msgstr "एक मान अलग क्षेत्र में दर्ज करें."
+msgstr "हर एक मान अलग क्षेत्र में दर्ज करें."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
