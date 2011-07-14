@@ -6774,10 +6774,9 @@ msgid "You must provide an event name"
 msgstr "Debe proveer un nombre de evento"
 
 #: libraries/rte/rte_events.lib.php:526
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "Debe proveer en nombre y tipo para cada parámetro de rutina."
+msgstr "Debe proveer un valor de intervalo válido para el evento."
 
 #: libraries/rte/rte_events.lib.php:538
 #, fuzzy
