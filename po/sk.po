@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:36+0200\n"
+"PO-Revision-Date: 2011-07-14 10:38+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -9043,7 +9043,7 @@ msgstr "Počet interných príkazov ROLLBACK."
 
 #: server_status.php:877
 msgid "The number of requests to update a row in a table."
-msgstr "Počet požiadavkov na zmenu záznamu (riadku) v tabuľke."
+msgstr "Počet požiadavkov na zmenu riadku v tabuľke."
 
 #: server_status.php:878
 msgid "The number of requests to insert a row in a table."
