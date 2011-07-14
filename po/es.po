@@ -6697,10 +6697,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Ocurrieron uno o más errores al procesar el pedido:</n>"
 
 #: libraries/rte/rte_events.lib.php:170
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Crear vista"
+msgstr "Crear evento"
 
 #: libraries/rte/rte_events.lib.php:174
 #, fuzzy
