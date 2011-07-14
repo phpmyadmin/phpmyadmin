@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:18+0200\n"
+"PO-Revision-Date: 2011-07-14 10:19+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1901,7 +1901,7 @@ msgstr "Zlé používateľské meno alebo heslo. Prístup zamietnutý."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
-msgstr "Nepodarilo sa nájsť autorizačný skript pre prihlásenie."
+msgstr "Nepodarilo sa nájsť autorizačný skript pre prihlásenie:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:118
 #, php-format
