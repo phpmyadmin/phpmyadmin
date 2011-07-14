@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 09:19+0200\n"
+"PO-Revision-Date: 2011-07-14 09:20+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -4829,7 +4829,7 @@ msgstr "Šablóna pre názov súboru:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ bude nahradený menom servera"
 
 #: libraries/display_export.lib.php:224
 msgid ", @DATABASE@ will become the database name"
