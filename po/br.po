@@ -2890,7 +2890,7 @@ msgstr "Ment vrasañ ar reked krouet"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export type"
-msgstr "Seurt ezpozrhiadenn"
+msgstr "Seurt ezporzhiadenn"
 
 #: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
