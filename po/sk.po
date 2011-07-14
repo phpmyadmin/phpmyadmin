@@ -4668,7 +4668,7 @@ msgstr "Udalosti"
 #: libraries/export/xml.php:38 libraries/rte/rte_triggers.lib.php:31
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
-msgstr ""
+msgstr "Spúšťače"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
 msgid ""
