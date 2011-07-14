@@ -2886,7 +2886,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Ment vrasañ ar reked krouet"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export type"
