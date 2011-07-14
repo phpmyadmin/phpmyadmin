@@ -6799,7 +6799,7 @@ msgstr "Keine Prozedur mit dem Namen %1$s in der Datenbank %2$s gefunden"
 
 #: libraries/rte/rte_routines.lib.php:30
 msgid "There are no routines to display."
-msgstr "Es sind keine Routinen zum Anzeigen vorhanden."
+msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden."
 
 #: libraries/rte/rte_routines.lib.php:68
 msgid ""
