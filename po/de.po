@@ -6776,7 +6776,7 @@ msgstr "Ereignis"
 
 #: libraries/rte/rte_routines.lib.php:24
 msgid "Add routine"
-msgstr "Routine hinzufügen"
+msgstr "Prozedur hinzufügen"
 
 #: libraries/rte/rte_routines.lib.php:26
 #, php-format
