@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 02:12+0200\n"
+"PO-Revision-Date: 2011-07-14 02:13+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -6958,7 +6958,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1096
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Debe proveer en nombre y tipo para cada parámetro de rutina."
+msgstr "Debe proveer un nombre y tipo para cada parámetro de rutina."
 
 #: libraries/rte/rte_routines.lib.php:1121
 #| msgid "You must provide a name and a type for each routine parameter."
