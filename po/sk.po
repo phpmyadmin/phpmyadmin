@@ -9253,7 +9253,7 @@ msgstr "Koľkokrát sa muselo čakať na zámok na riadok."
 
 #: server_status.php:918
 msgid "The number of rows deleted from InnoDB tables."
-msgstr "Počet záznamov (riadkov) odstránených z InnoDB tabuliek."
+msgstr "Počet riadkov odstránených z InnoDB tabuliek."
 
 #: server_status.php:919
 msgid "The number of rows inserted in InnoDB tables."
