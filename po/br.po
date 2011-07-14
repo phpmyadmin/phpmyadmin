@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-13 19:47+0200\n"
+"PO-Revision-Date: 2011-07-15 00:29+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2870,7 +2870,7 @@ msgstr "Ensoc'hadennoù gant dale"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
