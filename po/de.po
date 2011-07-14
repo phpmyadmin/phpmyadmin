@@ -6768,7 +6768,7 @@ msgstr "Rückgabe-Wert"
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:328
 #: server_status.php:800 sql.php:943
 msgid "Time"
-msgstr "Dauer"
+msgstr "Zeit"
 
 #: libraries/rte/rte_list.lib.php:59 libraries/rte/rte_triggers.lib.php:342
 msgid "Event"
