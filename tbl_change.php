@@ -978,7 +978,7 @@ foreach ($rows as $row_id => $vrow) {
             echo('<span class="open_gis_editor">');
             echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
             echo('</span>');
-            echo('<div id="gis_editor"></div>');
+            echo('<div id="gis_editor"></div><div id="popup_background"></div>');
         }
         ?>
             </td>

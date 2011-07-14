@@ -1560,6 +1560,24 @@ a.close_gis_editor {
     float: right;
 }
 
+#gis_editor {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for IE */
+    z-index: 101;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#gis_data_textarea {
+    height: 6em;
+}
+
+#gis_data_editor {
+    background: #D0DCE0;
+    padding: 15px;
+}
+
 /**
  * ENUM/SET editor styles
  */
@@ -2024,28 +2042,6 @@ fieldset .disabled-field td {
 
 .gis_table .choice {
     display:none;
-}
-
-#gis_data_editor {
-    display: none;
-    position: fixed;
-    _position: absolute; /* hack for IE */
-    z-index: 101;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-#gis_data_editor_no_js {
-   margin: auto auto;
-}
-
-#gis_data_editor, #gis_data_editor_no_js {
-    background: #D0DCE0;
-    padding: 15px;
-}
-
-#gis_data_textarea {
-    height: 6em;
 }
 
 .CodeMirror {

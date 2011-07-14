@@ -216,7 +216,9 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType){
  * Closes the GIS data editor and perform necessary clean up work.
  */
 function closeGISEditor(){
-    $("#gis_editor").html('').attr('hidden', true);	
+    $("#popup_background").fadeOut("fast");
+    $("#gis_editor").fadeOut("fast");
+    $("#gis_editor").html('');
 }
 
 /**
@@ -229,13 +231,11 @@ function prepareJSVersion() {
     // Change the text on the submit button
     $("input[name='gis_data[save]']")
         .attr('value', PMA_messages['strCopy'])
-        .remove()
         .insertAfter($('#gis_data_textarea'))
         .before('<br><br>');
     
     // Add close and cancel links
-    $('#gis_data_editor_no_js')
-        .prepend('<a class="close_gis_editor">' + PMA_messages['strClose'] + '</a>');
+    $('#gis_data_editor').prepend('<a class="close_gis_editor">' + PMA_messages['strClose'] + '</a>');
     $('<a class="cancel_gis_editor"> ' + PMA_messages['strCancel'] + '</a>')
         .insertAfter($("input[name='gis_data[save]']"));
     
