@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 10:23+0200\n"
+"PO-Revision-Date: 2011-07-14 10:24+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -8886,10 +8886,9 @@ msgid "ID"
 msgstr "ID"
 
 #: server_status.php:856
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Nepodarilo sa pripojiť k MySQL serveru"
+msgstr "Počet neúspešných pokusov o pripojenie k MySQL serveru."
 
 #: server_status.php:857
 msgid ""
