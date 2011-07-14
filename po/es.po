@@ -7075,10 +7075,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Debe proveer un evento válido para el disparador"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Debe proveer un nombre de rutina"
+msgstr "Debe proveer un nombre de tabla válido"
 
 #: libraries/rte/rte_triggers.lib.php:429
 #, fuzzy
