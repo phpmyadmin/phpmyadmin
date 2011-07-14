@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 21:19+0200\n"
+"PO-Revision-Date: 2011-07-14 21:20+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -649,7 +649,7 @@ msgstr "जोड"
 #: db_structure.php:449 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s इस MySQL सर्वर पर डिफ़ॉल्ट भंडारण इंजन है."
+msgstr "%s इस MySQL सर्वर पर तयशुदा भंडारण इंजन है."
 
 #: db_structure.php:477 db_structure.php:494 db_structure.php:495
 #: libraries/display_tbl.lib.php:2339 libraries/display_tbl.lib.php:2344
