@@ -6680,10 +6680,10 @@ msgid "The backed up query was:"
 msgstr "La consulta respaldada era:"
 
 #: libraries/rte/rte_events.lib.php:110
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Se modificó la rutina %1$s."
+msgstr "Se modificó el evento %1$s."
 
 #: libraries/rte/rte_events.lib.php:122
 #, fuzzy, php-format
