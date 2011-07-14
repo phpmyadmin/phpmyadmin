@@ -1,8 +1,9 @@
 <?php
-
+if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
+    require_once './libraries/header_http.inc.php';
+    require_once './libraries/header_meta_style.inc.php';
+}
 require_once './libraries/common.inc.php';
-require_once './libraries/header_http.inc.php';
-require_once './libraries/header_meta_style.inc.php';
 require_once './libraries/gis/pma_gis_factory.php';
 require_once './libraries/gis_visualization.lib.php';
 
@@ -26,7 +27,8 @@ $no_visual = true;
 if (! isset($gis_data['gis_type'])) {
     if (isset($_REQUEST['value'])) {
         $gis_data['gis_type'] = substr($_REQUEST['value'], 1, strpos($_REQUEST['value'], "(") - 1);
-    } else {
+    }
+    if(! in_array($gis_data['gis_type'], $gis_types)) {
         $gis_data['gis_type'] = $gis_types[0];
         $no_visual = true;
     }
@@ -48,30 +50,40 @@ if (! $no_visual) {
     $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
 }
 
+$result = "'" . $wkt . "'";
+if ($srid != '') {
+    $result .= ',' . $srid;
+}
 if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
     $extra_data = array(
-        'wkt'           => $wkt,
-        'srid'          => $srid,
+        'result'        => $result,
         'visualization' => $visualization,
     );
     PMA_ajaxResponse(null, true, $extra_data);
 }
+
+if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
+    ob_start();
+} else {
 ?>
-
 </head>
-
 <body>
-    <form action="gis_data_editor.php" method="post">
+<?php
+}
+?>
+    <form id="gis_data_editor_form" action="gis_data_editor.php" method="post">
     <div id="gis_data_editor_no_js">
         <h3><?php printf(__('Value for the column "%s"'), htmlspecialchars($_REQUEST['field'])); ?></h3>
 <?php   echo('<input type="hidden" name="field" value="' . htmlspecialchars($_REQUEST['field']) . '">');
-        echo PMA_generate_common_hidden_inputs($url_params);
+        echo('<input type="hidden" name="input_name" value="' . htmlspecialchars($_REQUEST['input_name']) . '">');
+        echo('<input type="hidden" name="null_checkbox_name" value="' . htmlspecialchars($_REQUEST['null_checkbox_name']) . '">');
+        echo PMA_generate_common_hidden_inputs();
 ?>
         <div id="placeholder">
              <?php if (! $no_visual) {echo $visualization;} ?>
         </div>
         <div id="gis_data_header">
-            <select name="gis_data[gis_type]">
+            <select name="gis_data[gis_type]" class="gis_type">
 <?php
                 foreach ($gis_types as $gis_type) {
                     echo('<option value="' . $gis_type . '"');
@@ -82,7 +94,7 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                 }
 ?>
             </select>
-            <input type="submit" name="gis_data[go]" value="<?php echo __("Go")?>" />
+            <input type="submit" name="gis_data[go]" class="go" value="<?php echo __("Go")?>" />
             <label for="srid"><?php echo __("SRID"); ?>:&nbsp;</label>
             <input name="gis_data[srid]" type="text" value="<?php echo($srid); ?>" />
         </div>
@@ -104,7 +116,7 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                 } else {
                     $type = $gis_types[0];
                 }
-                echo('<select name="gis_data[' . $a . '][gis_type]">');
+                echo('<select name="gis_data[' . $a . '][gis_type]" class="gis_type">');
                 foreach (array_slice($gis_types, 0, 6) as $gis_type) {
                     echo('<option value="' . $gis_type . '"');
                     if ($type == $gis_type) {
@@ -113,7 +125,7 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                     echo('>' . $gis_type . '</option>');
                 }
                 echo('</select>');
-                echo('<input type="submit" name="gis_data[' . $a . '][go]" value="'); echo __("Go"); echo('">');
+                echo('<input type="submit" name="gis_data[' . $a . '][go]" class="go" value="'); echo __("Go"); echo('">');
             } else {
                 $type = $geom_type;
             }
@@ -149,7 +161,7 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
 <?php
                 }
 ?>
-               <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_point]" value="<?php echo __("Add a point"); ?>">
+               <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_point]" class="add" value="<?php echo __("Add a point"); ?>">
 <?php
             } elseif ($type == 'MULTILINESTRING' || $type == 'POLYGON') {
 
@@ -193,10 +205,10 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                         <label for="y"><?php echo  __("Y"); ?></label>
                         <input type="text" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][<?php echo($j); ?>][y]" value="<?php echo(isset($gis_data[$a][$type][$i][$j]['x']) ? htmlspecialchars($gis_data[$a][$type][$i][$j]['y']) : ''); ?>" />
 <?php               }
-?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" value="<?php echo __("Add a point"); ?>">
+?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" class="add" value="<?php echo __("Add a point"); ?>">
 <?php           }
                 $caption = ($type == 'MULTILINESTRING') ? __('Add a linestring') : __('Add an inner ring');
-?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" value="<?php echo($caption); ?>">
+?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" class="add" value="<?php echo($caption); ?>">
 <?php
             } elseif ($type == 'MULTIPOLYGON') {
                 $no_of_polygons = isset($gis_data[$a][$type]['no_of_polygons']) ? $gis_data[$a][$type]['no_of_polygons'] : 1;
@@ -243,15 +255,15 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
                             <label for="y"><?php echo  __("Y"); ?></label>
                             <input type="text" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][" . $j . "][y]"); ?>" value="<?php echo(isset($gis_data[$a][$type][$k][$i][$j]['y']) ? htmlspecialchars($gis_data[$a][$type][$k][$i][$j]['y']) : ''); ?>" />
 <?php                   }
-?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" value="<?php echo __("Add a point"); ?>">
+?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add" value="<?php echo __("Add a point"); ?>">
 <?php               }
-?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" value="<?php echo __('Add an inner ring') ?>">
+?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class= "add" value="<?php echo __('Add an inner ring') ?>">
 <?php           }
-?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" value="<?php echo __('Add a polygon') ?>">
+?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class= "add" value="<?php echo __('Add a polygon') ?>">
 <?php       }
         }
         if ($geom_type == 'GEOMETRYCOLLECTION') {
-?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" value="<?php  echo __("Add geometry"); ?>" />
+?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add" value="<?php  echo __("Add geometry"); ?>" />
 <?php   }
 ?>
         </div>
@@ -260,15 +272,20 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
             <h3><?php echo __('Output'); ?></h3>
             <p><?php echo __('Chose "GeomFromText" from the "Function" column and paste the below string into the "Value" field'); ?></p>
             <textarea id="gis_data_textarea" cols="95" rows="5">
-<?php       echo("'" . $wkt . "'");
-            if ($srid != '') {
-                echo(',' . $srid);
-            }
+<?php           echo($result);
 ?>          </textarea>
         </div>
     </div>
     </form>
+<?php
+
+if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
+    $extra_data['gis_editor'] = ob_get_contents();
+    PMA_ajaxResponse(NULL, ob_end_clean(), $extra_data);
+}
+?>
 </body>
+
 <?php
 /**
  * Displays the footer

@@ -1898,6 +1898,13 @@ input#input_import_file {
 }
 
 /**
+ * GIS data editor styles
+ */
+a.close_gis_editor {
+    float: right;
+}
+
+/**
  * ENUM/SET editor styles
  */
 p.enum_notice {
@@ -2595,7 +2602,7 @@ span.mysql-number {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    
+
     background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
     background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));

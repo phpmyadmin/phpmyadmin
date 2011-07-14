@@ -143,6 +143,7 @@ $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
+$js_messages['strCopy']= __('Copy');
 
 /* Designer (pmd/scripts/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');

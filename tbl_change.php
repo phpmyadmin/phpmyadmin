@@ -963,19 +963,22 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         if (in_array($field['pma_type'], $gis_data_types)) {
-            echo('<span>');
             $data_val = isset($vrow[$field['Field']]) ? $vrow[$field['Field']] : '';
             $_url_params = array(
                 'field' => $field['Field_title'],
                 'value' => $data_val,
-            );
+                'input_name' => 'fields' + $field_name_appendix,
+                'null_checkbox_name' => 'fields_null' + $field_name_appendix,
+             );
             if ($field['pma_type'] != 'geometry') {
                 $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
             }
             $edit_url = 'gis_data_editor.php' . PMA_generate_common_url($_url_params);
             $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            echo('<span class="open_gis_editor">');
             echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
             echo('</span>');
+            echo('<div id="gis_editor"></div>');
         }
         ?>
             </td>

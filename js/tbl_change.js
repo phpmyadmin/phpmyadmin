@@ -213,6 +213,45 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType){
  /* End of datetime validation*/
 
 /**
+ * Closes the GIS data editor and perform necessary clean up work.
+ */
+function closeGISEditor(){
+    $("#gis_editor").html('').attr('hidden', true);	
+}
+
+/**
+ * Prepares the HTML recieved via AJAX.
+ */
+function prepareJSVersion() {
+    // Hide 'Go' buttons associated with the dropdowns
+    $('.go').hide();
+    
+    // Change the text on the submit button
+    $("input[name='gis_data[save]']")
+        .attr('value', PMA_messages['strCopy'])
+        .remove()
+        .insertAfter($('#gis_data_textarea'))
+        .before('<br><br>');
+    
+    // Add close and cancel links
+    $('#gis_data_editor_no_js')
+        .prepend('<a class="close_gis_editor">' + PMA_messages['strClose'] + '</a>');
+    $('<a class="cancel_gis_editor"> ' + PMA_messages['strCancel'] + '</a>')
+        .insertAfter($("input[name='gis_data[save]']"));
+    
+    // Remove the unnecessary text
+    $('div#gis_data_output p').remove();
+    
+    // Remove 'add' buttons and add links
+    $('.add').each(function(e) {
+        $button = $(this);
+        text = $button.attr('value');
+        name = $button.attr('name');
+        $button.after('<a class="addJs" name="' + name + '">+ ' + text + '</a>').remove();
+    });
+}
+
+/**
  * Ajax handlers for Change Table page
  *
  * Actions Ajaxified here:
@@ -221,6 +260,98 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType){
  */
 $(document).ready(function() {
 
+    $('.open_gis_editor').live('click', function(event) {        
+        event.preventDefault();
+        
+        // Center the popup
+        var $span = $(this);
+        var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
+        var popupWidth = windowWidth * 0.9;
+        var popupHeight = windowHeight * 0.8;
+        var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
+        var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
+        var $gis_editor = $("#gis_editor");
+        $gis_editor.css({"position":"absolute", "top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
+
+        // Current value
+        var value = $span.parent('td').children("input[type='text']").val();
+        // Field name
+        var field = $span.parents('tr').children('td:first').find("input[type='hidden']").val();
+        // Names of input field and null checkbox
+        var input_name = $span.parents('tr').children('td:nth-child(5)').find('input:nth-child(3)').attr('name');
+        var null_checkbox_name = $span.parents('tr').children('td:nth-child(4)').find('.checkbox_null').attr('name');
+        
+        $.post('gis_data_editor.php', {
+            'field' : field, 
+            'value' : value, 
+            'input_name' : input_name,
+            'null_checkbox_name' : null_checkbox_name,
+            'get_gis_editor' : true,
+            'token' : window.parent.token
+        }, function(data) {
+            if(data.success == true) {
+                $gis_editor.html(data.gis_editor);
+                prepareJSVersion();
+                $('<input type="hidden" name="ajax" value="true">').appendTo($gis_editor);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        })
+        
+        // Make it appear
+        $("#popup_background").css({"opacity":"0.7"});
+        $("#popup_background").fadeIn("fast");
+        $gis_editor.fadeIn("fast");
+    })
+    
+    /**
+     * Prepare and insert the GIS data in Well Known Text format
+     * to the input field.
+     */
+    $("input[name='gis_data[save]']").live('click', function(event) {
+        event.preventDefault();        
+        
+        var $form = $('form#gis_data_editor_form');
+        var input_name = $form.find("input[name='input_name']").val();
+        var null_checkbox_name = $form.find("input[name='null_checkbox_name']").val();
+        
+        $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
+            if(data.success == true) {
+                $("input[name='" + null_checkbox_name + "']").attr('checked', false);
+                $("input[name='" + input_name + "']").val(data.result);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+        closeGISEditor();    
+    });
+    
+    /**
+     * Update the form on change of the GIS type.
+     */
+    $(".gis_type").live('change', function(event) {
+        var $gis_editor = $("#gis_editor");
+        var $form = $('form#gis_data_editor_form');
+        
+        $.post('gis_data_editor.php', $form.serialize() + "&get_gis_editor=true", function(data) {
+            if(data.success == true) {
+                $gis_editor.html(data.gis_editor);
+                prepareJSVersion();
+                $('<input type="hidden" name="ajax" value="true">').appendTo($gis_editor);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    });
+    
+    /**
+     * Handles closing of the GIS data editor.
+     */
+    $('.close_gis_editor, .cancel_gis_editor').live('click', function() {
+        closeGISEditor();
+    })
+    
     // these were hidden via the "hide" class
     $('.foreign_values_anchor').show();
 

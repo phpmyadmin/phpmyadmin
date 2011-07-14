@@ -1554,6 +1554,13 @@ input#input_import_file {
 }
 
 /**
+ * GIS data editor styles
+ */
+a.close_gis_editor {
+    float: right;
+}
+
+/**
  * ENUM/SET editor styles
  */
 p.enum_notice {
