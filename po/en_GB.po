@@ -6663,7 +6663,7 @@ msgstr "OFF"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 #: libraries/rte/rte_footer.lib.php:108
 #, fuzzy
