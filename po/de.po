@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-14 13:38+0200\n"
+"PO-Revision-Date: 2011-07-14 13:39+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6786,7 +6786,7 @@ msgstr "Exportieren der Routine %s"
 #: libraries/rte/rte_routines.lib.php:27
 #| msgid "Routines"
 msgid "routine"
-msgstr "Routine"
+msgstr "Prozedur"
 
 #: libraries/rte/rte_routines.lib.php:28
 msgid "You do not have the necessary privileges to create a new routine"
