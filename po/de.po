@@ -6646,10 +6646,9 @@ msgstr ""
 "wurde:</b>"
 
 #: libraries/rte/rte_events.lib.php:170
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Erzeuge View"
+msgstr "Erzeuge Ereignis"
 
 #: libraries/rte/rte_events.lib.php:174
 #, fuzzy
