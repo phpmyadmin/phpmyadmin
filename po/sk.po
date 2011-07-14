@@ -1749,7 +1749,7 @@ msgstr "%s je dostupný na tomto MySQL serveri."
 #: libraries/StorageEngine.class.php:319
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "Úložný systém %s bol zakázaný na tomto MySQL serveri."
+msgstr "%s bol zakázaný na tomto MySQL serveri."
 
 #: libraries/StorageEngine.class.php:323
 #, php-format
