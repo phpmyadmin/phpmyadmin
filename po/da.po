@@ -3424,7 +3424,7 @@ msgstr "Logo link target"
 
 #: libraries/config/messages.inc.php:286
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Fremhæv server under musepil"
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
