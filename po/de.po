@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 09:21-0400\n"
-"PO-Revision-Date: 2011-07-12 23:07+0200\n"
+"PO-Revision-Date: 2011-07-14 13:46+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2238,10 +2238,9 @@ msgstr ""
 "Die Funktion %s wird durch einen bekannten Fehler beeinträchtigt, siehe %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Zur Auswahl anklicken"
+msgstr "Zum Umschalten anklicken"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -6578,7 +6577,6 @@ msgid "Generate Password"
 msgstr "Passwort generieren"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
 msgstr "Ein Ereignis hinzufügen"
@@ -6589,7 +6587,6 @@ msgid "Export of event %s"
 msgstr "Export des Ereignisses %s"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "Ereignis"
@@ -6598,10 +6595,9 @@ msgstr "Ereignis"
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Sie haben nicht genug Rechte um eine neue Routine zu erstellen"
+msgstr "Sie haben nicht genug Rechte um ein neues Ereignis zu erstellen"
 
-#: libraries/rte/rte_events.lib.php:63
-#, fuzzy, php-format
+#: libraries/rte/rte_events.lib.php:29
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Es wurde kein Ereignis mit dem Namen %s in Datenbank %s gefunden"
@@ -6622,11 +6618,10 @@ msgstr "Es sind keine Ereignisse vorhanden, die angezeigt werden könnten."
 msgid "The following query has failed: \"%s\""
 msgstr "Die folgende Abfrage ist fehlgeschlagen: \"%s\""
 
-#: libraries/rte/rte_events.lib.php:140
-#, fuzzy
+#: libraries/rte/rte_events.lib.php:105
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Das wiederherstellen der gelöschten Routine schlug fehl."
+msgstr "Das wiederherstellen des gelöschten Ereignisses schlug fehl."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6634,16 +6629,16 @@ msgid "The backed up query was:"
 msgstr "Die gesicherte Abfrage war:"
 
 #: libraries/rte/rte_events.lib.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Routine %1$s wurde geändert."
+msgstr "Ereignis %1$s wurde geändert."
 
 #: libraries/rte/rte_events.lib.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Die Tabelle %1$s wurde erzeugt."
+msgstr "Ereignis %1$s wurde erzeugt."
 
 #: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
 #: libraries/rte/rte_triggers.lib.php:138
@@ -6653,16 +6648,14 @@ msgstr ""
 "wurde:</b>"
 
 #: libraries/rte/rte_events.lib.php:205
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Erzeuge View"
+msgstr "Erzeuge Ereignis"
 
 #: libraries/rte/rte_events.lib.php:209
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Server bearbeiten"
+msgstr "Event bearbeiten"
 
 #: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
 #: libraries/rte/rte_routines.lib.php:1331
@@ -6677,10 +6670,9 @@ msgid "Details"
 msgstr "Details"
 
 #: libraries/rte/rte_events.lib.php:398
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Ereignistyp"
+msgstr "Ereignis-Name"
 
 #: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
 msgid "Event type"
@@ -6692,22 +6684,19 @@ msgid "Change to %s"
 msgstr "Wechseln zu %s"
 
 #: libraries/rte/rte_events.lib.php:446
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Ausführen"
+msgstr "Ausführen um"
 
 #: libraries/rte/rte_events.lib.php:454
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Ausführen"
+msgstr "Abfrage ausführen"
 
 #: libraries/rte/rte_events.lib.php:473
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Start"
+msgstr "Anfang"
 
 #: libraries/rte/rte_events.lib.php:489 libraries/rte/rte_routines.lib.php:972
 #: libraries/rte/rte_triggers.lib.php:372
@@ -6715,10 +6704,9 @@ msgid "Definition"
 msgstr "Beschreibung"
 
 #: libraries/rte/rte_events.lib.php:495
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "Vollständige 'INSERT's"
+msgstr "Nach Abschluss erhalten"
 
 #: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
 #: libraries/rte/rte_triggers.lib.php:378
@@ -6729,68 +6717,59 @@ msgstr "Ersteller"
 #: libraries/rte/rte_routines.lib.php:1044
 #: libraries/rte/rte_triggers.lib.php:416
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Der Ersteller muss im \"benutzername@hostname\" Format sein"
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Sie müssen einen Routinen-Namen angeben"
+msgstr "Sie müssen einen Ereignis-Namen angeben"
 
 #: libraries/rte/rte_events.lib.php:561
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+msgstr "Sie müssen einen gültigen Intervall für dieses Ereignis angeben."
 
 #: libraries/rte/rte_events.lib.php:573
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Sie müssen die Definition der Routine angeben."
+msgstr "Sie müssen eine gültige Ausführungszeit für dieses Ereignis angeben."
 
 #: libraries/rte/rte_events.lib.php:577
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+msgstr "Sie müssen einen gültigen Typ für dieses Event angeben."
 
 #: libraries/rte/rte_events.lib.php:596
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Sie müssen die Definition der Routine angeben."
+msgstr "Sie müssen die Definition des Ereignisses angeben."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Neu"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "AUS"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "AN"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Der Ereignisplaner ist aktiviert"
+msgstr "Ereignis-Planer-Statistiken"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Rückgabe-Typ"
+msgstr "Rückgabe-Wert"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
 #: server_status.php:800 sql.php:943
 msgid "Time"
-msgstr "Dauer"
+msgstr "Zeit"
 
 #: libraries/rte/rte_list.lib.php:59 libraries/rte/rte_triggers.lib.php:358
 msgid "Event"
@@ -6798,33 +6777,32 @@ msgstr "Ereignis"
 
 #: libraries/rte/rte_routines.lib.php:43
 msgid "Add routine"
-msgstr "Routine hinzufügen"
+msgstr "Prozedur hinzufügen"
 
 #: libraries/rte/rte_routines.lib.php:45
 #, php-format
 msgid "Export of routine %s"
-msgstr "Exportieren der Routine %s"
+msgstr "Exportieren der Prozedur %s"
 
 #: libraries/rte/rte_routines.lib.php:46
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Routinen"
+msgstr "Prozedur"
 
 #: libraries/rte/rte_routines.lib.php:47
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Sie haben nicht genug Rechte um eine neue Routine zu erstellen"
+msgstr "Sie haben nicht genug Rechte um eine neue Prozedur zu erstellen"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Keine Routine namens %1$s in der Datenbank %2$s gefunden"
+msgstr "Keine Prozedur mit dem Namen %1$s in der Datenbank %2$s gefunden"
 
 #: libraries/rte/rte_routines.lib.php:49
 msgid "There are no routines to display."
-msgstr "Es sind keine Routinen zum Anzeigen vorhanden."
+msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden."
 
 #: libraries/rte/rte_routines.lib.php:88
 msgid ""
@@ -6832,43 +6810,43 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
-"Sie verwenden die von PHP als 'veraltet' gekennzeichnete 'mysql'-"
-"Erweiterung, die nicht in der Lage ist mehrere Abfrage zu verarbeiten. "
-"<b>Die Ausführung von einigen gespeicherten Prozeduren könnte fehlschlagen!</"
-"b> Bitte verwenden Sie die verbesserte 'mysqli'-Erweiterung um Probleme zu "
-"vermeiden."
+"Sie verwenden die von PHP als 'veraltet' gekennzeichnete "
+"'mysql'-Erweiterung, die nicht in der Lage ist, mehrere Abfragen zu "
+"verarbeiten. <b>Die Ausführung von einigen gespeicherten Prozeduren könnte "
+"fehlschlagen!</b> Bitte verwenden Sie die neuere 'mysqli'-Erweiterung um "
+"Probleme zu vermeiden."
 
 #: libraries/rte/rte_routines.lib.php:272
 #: libraries/rte/rte_routines.lib.php:1052
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Ungültiger Routinen-Typ: \"%s\""
+msgstr "Ungültiger Prozeduren-Typ: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:293
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "Das wiederherstellen der gelöschten Routine schlug fehl."
+msgstr "Das wiederherstellen der gelöschten Prozedur schlug fehl."
 
 #: libraries/rte/rte_routines.lib.php:298
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Routine %1$s wurde geändert."
+msgstr "Prozedur %1$s wurde geändert."
 
 #: libraries/rte/rte_routines.lib.php:311
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Die Routine %1$s wurde erstellt."
+msgstr "Die Prozedur %1$s wurde erstellt."
 
 #: libraries/rte/rte_routines.lib.php:365
 msgid "Create routine"
-msgstr "Erzeuge Routine"
+msgstr "Erzeuge Prozedur"
 
 #: libraries/rte/rte_routines.lib.php:369
 msgid "Edit routine"
-msgstr "Bearbeite Routine"
+msgstr "Bearbeite Prozedur"
 
 #: libraries/rte/rte_routines.lib.php:880
 msgid "Routine name"
-msgstr "Routinen Name"
+msgstr "Prozeduren-Name"
 
 #: libraries/rte/rte_routines.lib.php:903
 msgid "Parameters"
@@ -6916,7 +6894,7 @@ msgstr "SQL-Daten Zugriff"
 
 #: libraries/rte/rte_routines.lib.php:1057
 msgid "You must provide a routine name"
-msgstr "Sie müssen einen Routinen-Namen angeben"
+msgstr "Sie müssen einen Prozeduren-Namen angeben"
 
 #: libraries/rte/rte_routines.lib.php:1080
 #, php-format
@@ -6929,24 +6907,23 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Sie müssen Länge/Werte Angaben für Routinen Parameter des Typs ENUM, SET, "
+"Sie müssen Länge/Werte Angaben für Prozeduren Parameter des Typs ENUM, SET, "
 "VARCHAR und VARBINARY angeben."
 
 #: libraries/rte/rte_routines.lib.php:1116
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+"Sie müssen einen Namen und einen Typ für jeden Prozeduren-Parameter angeben."
 
 #: libraries/rte/rte_routines.lib.php:1126
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+"Sie müssen einen Namen und einen Typ für jeden Prozeduren-Parameter angeben."
 
 #: libraries/rte/rte_routines.lib.php:1176
 msgid "You must provide a routine definition."
-msgstr "Sie müssen die Definition der Routine angeben."
+msgstr "Sie müssen die Definition der Prozedur angeben."
 
 #: libraries/rte/rte_routines.lib.php:1265
 #, php-format
@@ -6960,17 +6937,17 @@ msgstr[1] ""
 #: libraries/rte/rte_routines.lib.php:1281
 #, php-format
 msgid "Execution results of routine %s"
-msgstr "Ergebnisse der ausgeführten Routine %s"
+msgstr "Ergebnisse der ausgeführten Prozedur %s"
 
 #: libraries/rte/rte_routines.lib.php:1355
 #: libraries/rte/rte_routines.lib.php:1361
 msgid "Execute routine"
-msgstr "Führe Routine aus"
+msgstr "Führe Prozedur aus"
 
 #: libraries/rte/rte_routines.lib.php:1412
 #: libraries/rte/rte_routines.lib.php:1415
 msgid "Routine parameters"
-msgstr "Routinen Parameter"
+msgstr "Prozeduren-Parameter"
 
 #: libraries/rte/rte_routines.lib.php:1422 tbl_change.php:287
 #: tbl_change.php:325
@@ -6978,8 +6955,6 @@ msgid "Function"
 msgstr "Funktion"
 
 #: libraries/rte/rte_triggers.lib.php:39
-#, fuzzy
-#| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "Einen Trigger hinzufügen"
 
@@ -6989,7 +6964,6 @@ msgid "Export of trigger %s"
 msgstr "Export des Triggers %s"
 
 #: libraries/rte/rte_triggers.lib.php:42
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
 msgstr "Trigger"
@@ -6998,84 +6972,75 @@ msgstr "Trigger"
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Sie haben nicht genug Rechte um eine neue Routine zu erstellen"
+msgstr "Sie haben nicht genug Rechte um einen neuen Trigger zu erstellen"
 
-#: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
+#: libraries/rte/rte_triggers.lib.php:29
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Keine Routine namens %1$s in der Datenbank %2$s gefunden"
+msgstr "Keine Trigger namens %1$s in der Datenbank %2$s gefunden"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
 msgstr "Es sind keine Trigger zum Anzeigen vorhanden."
 
 #: libraries/rte/rte_triggers.lib.php:113
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Das wiederherstellen der gelöschten Routine schlug fehl."
+msgstr "Das Wiederherstellen der gelöschten Trigger schlug fehl."
 
 #: libraries/rte/rte_triggers.lib.php:118
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Routine %1$s wurde geändert."
+msgstr "Trigger %1$s wurde geändert."
 
 #: libraries/rte/rte_triggers.lib.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Die Tabelle %1$s wurde erzeugt."
+msgstr "Trigger %1$s wurde erzeugt."
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Erzeuge View"
+msgstr "Erzeuge Trigger"
 
 #: libraries/rte/rte_triggers.lib.php:185
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Einen Trigger hinzufügen"
+msgstr "Einen Trigger bearbeiten"
 
 #: libraries/rte/rte_triggers.lib.php:325
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Trigger"
+msgstr "Trigger-Name"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Sie müssen einen Routinen-Namen angeben"
+msgstr "Sie müssen einen Trigger-Namen angeben"
 
 #: libraries/rte/rte_triggers.lib.php:428
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "Sie müssen einen Routinen-Namen angeben"
+msgstr "Sie müssen einen Trigger-Namen angeben"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Routinen-Paramter angeben."
+"Sie müssen einen Namen und einen Typ für jeden Trugger-Parameter angeben."
 
 #: libraries/rte/rte_triggers.lib.php:439
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Sie müssen einen Routinen-Namen angeben"
+msgstr "Sie müssen einen gültigen Tabellen-Namen angeben"
 
 #: libraries/rte/rte_triggers.lib.php:445
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Sie müssen die Definition der Routine angeben."
+msgstr "Sie müssen die Definition des Triggers angeben."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
