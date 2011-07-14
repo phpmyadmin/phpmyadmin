@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-13 14:48+0200\n"
-"PO-Revision-Date: 2011-07-13 22:19+0200\n"
+"PO-Revision-Date: 2011-07-14 08:26+0200\n"
 "Last-Translator:  <jacobkamphansen@gmail.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3323,7 +3323,6 @@ msgstr "Delvis import: Spring over forespørgsler"
 
 # zero = null?
 #: libraries/config/messages.inc.php:261
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Brug ikke AUTO_INCREMENT for 0-værdier"
