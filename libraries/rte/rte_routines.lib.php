@@ -1120,22 +1120,7 @@ function PMA_RTN_getQueryFromRequest()
     }
     $query .= " (" . $params . ") ";
     if ($_REQUEST['item_type'] == 'FUNCTION') {
-        // Make a flat array with column types
-        $columnTypes = array();
-        foreach ($cfg['ColumnTypes'] as $key => $value) {
-            if (is_array($value)) {
-                $columnTypes = array_merge($value, $columnTypes);
-            } else {
-                $columnTypes[] = $value;
-            }
-        }
-        foreach ($columnTypes as $key => $type) {
-            if ($type == '-') {
-                unset($columnTypes[$key]);
-            }
-        }
-        // Search the flat array for the supplied return type
-        if (! empty($_REQUEST['item_returntype']) && in_array($_REQUEST['item_returntype'], $columnTypes)) {
+        if (! empty($_REQUEST['item_returntype']) && in_array($_REQUEST['item_returntype'], PMA_getSupportedDatatypes())) {
             $query .= "RETURNS {$_REQUEST['item_returntype']}";
         } else {
             $errors[] = __('You must provide a valid return type for the routine.');
