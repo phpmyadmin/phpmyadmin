@@ -6743,10 +6743,9 @@ msgid "Execute every"
 msgstr "Ejecutar cada"
 
 #: libraries/rte/rte_events.lib.php:438
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Inicio"
+msgstr "Iniciar"
 
 #: libraries/rte/rte_events.lib.php:454 libraries/rte/rte_routines.lib.php:952
 #: libraries/rte/rte_triggers.lib.php:356
