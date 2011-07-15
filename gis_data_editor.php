@@ -212,7 +212,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 ?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" class="add point" value="<?php echo __("Add a point"); ?>">
 <?php           }
                 $caption = ($type == 'MULTILINESTRING') ? __('Add a linestring') : __('Add an inner ring');
-?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" class="add" value="<?php echo($caption); ?>">
+?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" class="add line" value="<?php echo($caption); ?>">
 <?php
             } elseif ($type == 'MULTIPOLYGON') {
                 $no_of_polygons = isset($gis_data[$a][$type]['no_of_polygons']) ? $gis_data[$a][$type]['no_of_polygons'] : 1;

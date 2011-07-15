@@ -255,6 +255,21 @@ function prepareJSVersion() {
 }
 
 /**
+ * Returns the HTML for a data point.
+ *
+ * @param pointNumber point number
+ * @param prefix      prefix of the name
+ * @returns the HTML for a data point
+ */
+function addDataPoint(pointNumber, prefix) {
+    return '<br>Point' + (pointNumber + 1) + ':'
+        + '<label for="x"> X </label>'
+        + '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">'
+        + '<label for="y"> Y </label>'
+        + '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">';
+}
+
+/**
  * Ajax handlers for Change Table page
  *
  * Actions Ajaxified here:
@@ -369,24 +384,56 @@ $(document).ready(function() {
     })
     
     /**
-     * Handle adding data points
+     * Handles adding data points
      */
     $('.addJs.point').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
+        // Eg. name = gis_data[0][MULTIPOINT][add_point] => prefix = gis_data[0][MULTIPOINT]
         var prefix = name.substr(0, name.length - 11);
+        // Find the number of points
         var $noOfPointsInput = $("input[name='" + prefix + "[no_of_points]" + "']");
         var noOfPoints = parseInt($noOfPointsInput.attr('value'));
-        var html = '<br/>'
-            + 'Point' + (noOfPoints + 1) + ':' 
-            + '<label for="x"> X </label>' 
-            + '<input type="text" name="' + prefix + '[' + noOfPoints + '][x]" value="">' 
-            + '<label for="y"> Y </label>' 
-            + '<input type="text" name="' + prefix + '[' + noOfPoints + '][y]" value="">';
+        // Add the new data point
+        var html = addDataPoint(noOfPoints, prefix);
         $a.before(html);
-        $noOfPointsInput.attr('value', noOfPoints + 1);    	
+        $noOfPointsInput.attr('value', noOfPoints + 1);
     });
     
+    /**
+     * Handles adding linestrings and inner rings
+     */
+    $('.line.addJs').live('click', function() {
+        var $a = $(this);
+        var name = $a.attr('name');
+
+        // Eg. name = gis_data[0][MULTILINESTRING][add_line] => prefix = gis_data[0][MULTILINESTRING]
+        var prefix = name.substr(0, name.length - 10);
+        var type = prefix.slice(prefix.lastIndexOf('[') + 1, prefix.lastIndexOf(']'));
+
+        // Find the number of lines
+        var $noOfLinesInput = $("input[name='" + prefix + "[no_of_lines]" + "']");
+        var noOfLines = parseInt($noOfLinesInput.attr('value'));
+
+        // Add the new linesting of inner ring based on the type
+        var html = '<br>';
+        if (type == 'MULTILINESTRING') {
+            html += 'Linestring' + (noOfLines + 1) + ':';
+            var noOfPoints = 2;
+        } else {
+            html += 'Inner Ring' + noOfLines + ':';
+            var noOfPoints = 4;
+        }
+        html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '">';
+        for (i = 0; i < noOfPoints; i++) {
+            html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
+        }
+        html += '<a class="point addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ Add a point</a><br>';
+        
+        $a.before(html);
+        $noOfLinesInput.attr('value', noOfLines + 1);
+    });
+
     // these were hidden via the "hide" class
     $('.foreign_values_anchor').show();
 
