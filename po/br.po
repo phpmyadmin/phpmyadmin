@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-15 15:00+0200\n"
+"PO-Revision-Date: 2011-07-15 15:01+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2919,7 +2919,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Urzh dispakañ an alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
