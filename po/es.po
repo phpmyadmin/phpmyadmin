@@ -6991,10 +6991,9 @@ msgid "trigger"
 msgstr "disparador"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "No posee los privilegios necesarios para crear un nuevo disparador"
+msgstr "No posee los privilegios necesarios para crear un disparador"
 
 #: libraries/rte/rte_triggers.lib.php:44
 #, php-format
