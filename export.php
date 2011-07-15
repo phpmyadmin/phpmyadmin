@@ -125,8 +125,7 @@ $time_start = time();
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.
  *
- * @param   string  the insert statement
- *
+ * @param   string  $line  the insert statement
  * @return  bool    Whether output suceeded
  */
 function PMA_exportOutputHandler($line)
@@ -512,7 +511,7 @@ if ($export_type == 'server') {
     }
 
     if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
-            PMA_exportRoutines($db);
+        PMA_exportRoutines($db);
     }
 
     $i = 0;

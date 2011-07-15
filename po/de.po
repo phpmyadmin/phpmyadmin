@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-07 15:16+0200\n"
-"PO-Revision-Date: 2011-07-11 09:26+0200\n"
+"PO-Revision-Date: 2011-07-12 23:07+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -957,10 +957,11 @@ msgstr ""
 msgid "The web server does not have permission to save the file %s."
 msgstr "Der Webserver hat keine Schreibrechte um die Datei %s zu speichern."
 
+# Schema is not the right word for it, because a dump contains also data, and NOT just the scheme.
 #: export.php:673
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump (Schema) wurde in Datei %s gespeichert."
+msgstr "Dump wurde in Datei %s gespeichert."
 
 #: import.php:57
 #, php-format
@@ -3411,7 +3412,7 @@ msgstr "Prozentwerte als Dezimalzahlen importieren (12.00% wird zu 0.12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr "Anzahl der am Anfang zu überspringenden Einträge (Abfragen)"
+msgstr "Anzahl der am Anfang zu überspringenden Abfragen"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
@@ -4056,10 +4057,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "MySQL Wildcard-Symbole (% und _) sind möglich, mit \\ wird die urspüngliche "
-"Bedeutung wiederhergestellt, d.h. 'my\\_db' und nicht 'my_db'. Mit dieser "
-"Optionen können Datenbanklisten sortiert werden; geben Sie ihre Namen "
-"sortiert ein und nutzen Sie am Ende [kbd]*[/kbd], um die übrigen in "
-"alphabetischer Reihenfolge anzuzeigen."
+"Bedeutung wiederhergestellt, d.h. [kbd]'my\\_db'[/kbd] und nicht "
+"[kbd]'my_db'[/kbd]. Mit dieser Optionen können Datenbanklisten sortiert "
+"werden; geben Sie ihre Namen sortiert ein und nutzen Sie am Ende "
+"[kbd]*[/kbd], um die übrigen in alphabetischer Reihenfolge anzuzeigen."
 
 #: libraries/config/messages.inc.php:400
 msgid "Show only listed databases"
@@ -5561,7 +5562,7 @@ msgstr "Unbenutzte Seiten"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
-msgstr "Inkonsistente Seiten (&quot;dirty&quot;)"
+msgstr "Inkonsistente Seiten"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
@@ -7298,7 +7299,7 @@ msgstr ""
 "können. In der ersten Möglichkeit benennen Sie den Dateinamen. Als zweite "
 "Option wird ein Spaltenname durch den Dateinamen gesetzt. Sollte die zweite "
 "Option gesetzt sein, ist es notwendig, die erste Option auf einen Leerstring "
-"zu setzen ('')."
+"zu setzen."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:9
 msgid ""
@@ -7315,8 +7316,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Ein klickbares Vorschaubild anzeigen. Optionen: Breite, Höhe in Pixeln "
-"(berücksichtigt das ursprüngliche  Seitenverhältnis)."
+"Ein klickbares Vorschaubild anzeigen. Optionen: Breite und Höhe in Pixeln, "
+"wobei das ursprüngliche Seitenverhältnis berücksichtigt wird."
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
@@ -8704,7 +8705,7 @@ msgstr "Transaktions-Koordinator"
 
 #: server_status.php:285
 msgid "Flush (close) all tables"
-msgstr "Alle Tabellen aktualisieren und schließen"
+msgstr "Alle Tabellen aktualisieren (und schließen)"
 
 #: server_status.php:287
 msgid "Show open tables"
@@ -8826,8 +8827,8 @@ msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
-"Auf stark frequentierten Server können die Byte-Zähler überlaufen (wieder "
-"bei 0 beginnen), deshalb können diese Werte, wie sie vom MySQL Server "
+"Auf stark frequentierten Server können die Byte-Zähler überlaufen, d.h. "
+"wieder bei 0 beginnen, deshalb können diese Werte, wie sie vom MySQL Server "
 "ausgegeben werden, falsch sein."
 
 #: server_status.php:681
