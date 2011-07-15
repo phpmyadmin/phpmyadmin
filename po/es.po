@@ -6820,10 +6820,9 @@ msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "No posee los privilegios necesarios para crear una nueva rutina"
+msgstr "No posee los privilegios necesarios para crear una rutina"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
