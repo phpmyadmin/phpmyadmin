@@ -1174,9 +1174,10 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
 }
 
 /**
- * Starting from some th, change the class of all td under it
+ * Starting from some th, change the class of all td under it.
+ * If isAddClass is specified, it will be used to determine whether to add or remove the class.
  */
-function PMA_changeClassForColumn($this_th, newclass) {
+function PMA_changeClassForColumn($this_th, newclass, isAddClass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     var has_big_t = !$this_th.closest('tr').children(':first').hasClass('column_heading');
@@ -1185,12 +1186,10 @@ function PMA_changeClassForColumn($this_th, newclass) {
         th_index--;
     }
     var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
-    if ($this_th.data('has_class_'+newclass)) {
-        $tds.removeClass(newclass);
-        $this_th.data('has_class_'+newclass, false);
+    if (isAddClass == undefined) {
+        $tds.toggleClass(newclass);
     } else {
-        $tds.addClass(newclass);
-        $this_th.data('has_class_'+newclass, true);
+        $tds.toggleClass(newclass, isAddClass);
     }
 }
 
@@ -1207,8 +1206,8 @@ $(document).ready(function() {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $('.column_heading.pointer').live('hover', function() {
-        PMA_changeClassForColumn($(this), 'hover');
+    $('.column_heading.pointer').live('hover', function(e) {
+        PMA_changeClassForColumn($(this), 'hover', e.type == 'mouseenter');
         });
 
     /**

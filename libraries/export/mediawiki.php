@@ -95,18 +95,16 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    global $mediawiki_export_struct;
-    global $mediawiki_export_data;
-
-    $result  = PMA_DBI_fetch_result("SHOW COLUMNS FROM `" . $db . "`.`" . $table . "`");
-    $row_cnt = count($result);
+    $columns = PMA_DBI_get_columns($db, $table);
+    $columns = array_values($columns);
+    $row_cnt = count($columns);
 
     $output = "{| cellpadding=\"10\" cellspacing=\"0\" border=\"1\" style=\"text-align:center;\"\n";
     $output .= "|+'''" . $table . "'''\n";
     $output .= "|- style=\"background:#ffdead;\"\n";
     $output .= "! style=\"background:#ffffff\" | \n";
     for ($i = 0; $i < $row_cnt; ++$i) {
-        $output .= " | " . $result[$i]['Field'];
+        $output .= " | " . $columns[$i]['Field'];
         if (($i + 1) != $row_cnt) {
             $output .= "\n";
         }
@@ -116,7 +114,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Type\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
-        $output .= " | " . $result[$i]['Type'];
+        $output .= " | " . $columns[$i]['Type'];
         if (($i + 1) != $row_cnt) {
             $output .= "\n";
         }
@@ -126,7 +124,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Null\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
-        $output .= " | " . $result[$i]['Null'];
+        $output .= " | " . $columns[$i]['Null'];
         if (($i + 1) != $row_cnt) {
             $output .= "\n";
         }
@@ -136,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Default\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
-        $output .= " | " . $result[$i]['Default'];
+        $output .= " | " . $columns[$i]['Default'];
         if (($i + 1) != $row_cnt) {
             $output .= "\n";
         }
@@ -146,7 +144,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $output .= "|- style=\"background:#f9f9f9;\"\n";
     $output .= "! style=\"background:#f2f2f2\" | Extra\n";
     for ($i = 0; $i < $row_cnt; ++$i) {
-        $output .= " | " . $result[$i]['Extra'];
+        $output .= " | " . $columns[$i]['Extra'];
         if (($i + 1) != $row_cnt) {
             $output .= "\n";
         }
