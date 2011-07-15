@@ -2923,7 +2923,7 @@ msgstr "Urzh dispakañ an alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Ul lañser desachañ a vo implijet ma vez nebeutoc'h a elfennoù"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
