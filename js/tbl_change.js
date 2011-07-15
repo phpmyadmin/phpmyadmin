@@ -244,10 +244,13 @@ function prepareJSVersion() {
     
     // Remove 'add' buttons and add links
     $('.add').each(function(e) {
-        $button = $(this);
-        text = $button.attr('value');
-        name = $button.attr('name');
-        $button.after('<a class="addJs" name="' + name + '">+ ' + text + '</a>').remove();
+        var $button = $(this);
+        $button.addClass('addJs').removeClass('add');
+        var classes = $button.attr('class');
+        $button
+            .after('<a class="' + classes + '" name="' + $button.attr('name') 
+                + '">+ ' + $button.attr('value') + '</a>')
+            .remove();
     });
 }
 
@@ -364,6 +367,25 @@ $(document).ready(function() {
     $('.close_gis_editor, .cancel_gis_editor').live('click', function() {
         closeGISEditor();
     })
+    
+    /**
+     * Handle adding data points
+     */
+    $('.addJs.point').live('click', function() {
+        var $a = $(this);
+        var name = $a.attr('name');
+        var prefix = name.substr(0, name.length - 11);
+        var $noOfPointsInput = $("input[name='" + prefix + "[no_of_points]" + "']");
+        var noOfPoints = parseInt($noOfPointsInput.attr('value'));
+        var html = '<br/>'
+            + 'Point' + (noOfPoints + 1) + ':' 
+            + '<label for="x"> X </label>' 
+            + '<input type="text" name="' + prefix + '[' + noOfPoints + '][x]" value="">' 
+            + '<label for="y"> Y </label>' 
+            + '<input type="text" name="' + prefix + '[' + noOfPoints + '][y]" value="">';
+        $a.before(html);
+        $noOfPointsInput.attr('value', noOfPoints + 1);    	
+    });
     
     // these were hidden via the "hide" class
     $('.foreign_values_anchor').show();

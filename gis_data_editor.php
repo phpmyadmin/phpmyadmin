@@ -165,7 +165,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 <?php
                 }
 ?>
-               <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_point]" class="add" value="<?php echo __("Add a point"); ?>">
+               <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_point]" class="add point" value="<?php echo __("Add a point"); ?>">
 <?php
             } elseif ($type == 'MULTILINESTRING' || $type == 'POLYGON') {
 
@@ -209,7 +209,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                         <label for="y"><?php echo  __("Y"); ?></label>
                         <input type="text" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][<?php echo($j); ?>][y]" value="<?php echo(isset($gis_data[$a][$type][$i][$j]['x']) ? htmlspecialchars($gis_data[$a][$type][$i][$j]['y']) : ''); ?>" />
 <?php               }
-?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" class="add" value="<?php echo __("Add a point"); ?>">
+?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" class="add point" value="<?php echo __("Add a point"); ?>">
 <?php           }
                 $caption = ($type == 'MULTILINESTRING') ? __('Add a linestring') : __('Add an inner ring');
 ?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" class="add" value="<?php echo($caption); ?>">
@@ -259,7 +259,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                             <label for="y"><?php echo  __("Y"); ?></label>
                             <input type="text" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][" . $j . "][y]"); ?>" value="<?php echo(isset($gis_data[$a][$type][$k][$i][$j]['y']) ? htmlspecialchars($gis_data[$a][$type][$k][$i][$j]['y']) : ''); ?>" />
 <?php                   }
-?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add" value="<?php echo __("Add a point"); ?>">
+?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add point" value="<?php echo __("Add a point"); ?>">
 <?php               }
 ?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class= "add" value="<?php echo __('Add an inner ring') ?>">
 <?php           }
