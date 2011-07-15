@@ -489,6 +489,7 @@ $(document).ready(function() {
         }
     });
 
+    displayPasswordGenerateButton();
 }, 'top.frame_content'); //end $(document).ready()
 
 /**#@- */
