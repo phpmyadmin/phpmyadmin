@@ -293,7 +293,6 @@ $(document).ready(function() {
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
                 prepareJSVersion();
-                $('<input type="hidden" name="ajax" value="true">').appendTo($gis_editor);
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
@@ -352,7 +351,6 @@ $(document).ready(function() {
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
                 prepareJSVersion();
-                $('<input type="hidden" name="ajax" value="true">').appendTo($gis_editor);
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
