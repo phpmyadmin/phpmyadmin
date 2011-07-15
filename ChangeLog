@@ -49,6 +49,8 @@ phpMyAdmin - ChangeLog
 - bug #3353811 [interface] Info message has "error" class
 - bug #3357837 [interface] TABbing through a NULL field in the inline mode resets NULL
 - remove version number in /setup
+- bug #3367993 [usability] Missing "Generate Password" button
+- bug #3363221 [display] Missing Server Parameter on inline sql query
 
 3.4.3.1 (2011-07-02)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
