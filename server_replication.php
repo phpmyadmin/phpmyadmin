@@ -158,7 +158,7 @@ require './libraries/server_links.inc.php';
 
 echo '<div id="replication">';
 echo ' <h2>';
-echo '   <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_replication.png"  width="16" height="16" alt="" />';
+echo '   <img class="icon ic_s_replication" src="themes/dot.gif" alt="" />';
 echo     __('Replication');
 echo ' </h2>';
 

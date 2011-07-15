@@ -131,7 +131,7 @@ function PMA_auth()
     // Defines the charset to be used
     header('Content-Type: text/html; charset=utf-8');
     // Defines the "item" image depending on text direction
-    $item_img = $GLOBALS['pmaThemeImage'] . 'item_' . $GLOBALS['text_dir'] . '.png';
+    $item_img = 'ic_item_' . $GLOBALS['text_dir'];
 
     /* HTML header; do not show here the PMA version to improve security */
     $page_title = 'phpMyAdmin ';

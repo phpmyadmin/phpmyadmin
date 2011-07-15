@@ -439,7 +439,7 @@ $(function() {
                     });
                     
                 $('#serverstatusqueriesdetails tr:first th')
-                    .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
+                    .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
                     
                 break;
             
@@ -453,7 +453,7 @@ $(function() {
                     });
                     
                 $('#serverstatusvariables tr:first th')
-                    .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
+                    .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
                     
                 break;
         }
@@ -944,7 +944,7 @@ $(function() {
         if(! runtime.redrawCharts)
             $(this).html('<img src="themes/dot.gif" class="icon ic_play" alt="" /> ' + PMA_messages['strResumeMonitor']);
         else {
-            $(this).html('<img src="themes/dot.gif" class="icon ic_play" alt="" /> ' + PMA_messages['strPauseMonitor']);
+            $(this).html('<img src="themes/dot.gif" class="icon ic_pause" alt="" /> ' + PMA_messages['strPauseMonitor']);
             if(runtime.charts == null) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -1559,7 +1559,7 @@ $(function() {
                     });
                     
                     $('div#logTable table thead th')
-                        .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
+                        .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
 
                     
                     $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');

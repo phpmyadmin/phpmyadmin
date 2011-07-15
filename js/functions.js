@@ -2286,10 +2286,10 @@ function initTooltips() {
     $(".footnotes").css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $("sup[class='footnotemarker']").hide();
-    $("img[class='footnotemarker']").show();
+    $("sup[class~='footnotemarker']").hide();
+    $("img[class~='footnotemarker']").show();
 
-    $("img[class='footnotemarker']").each(function() {
+    $("img[class~='footnotemarker']").each(function() {
         var span_id = $(this).attr("id");
         span_id = span_id.split("_")[1];
         var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
@@ -2375,7 +2375,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)

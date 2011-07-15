@@ -383,8 +383,7 @@ function PMA_sqlQueryFormBookmark()
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
         echo ' <a href="./Documentation.html#faqbookmark"'
             .' target="documentation">'
-            .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png"'
-            .' border="0" width="11" height="11" align="middle"'
+            .'<img class="icon ic_b_help_s" src="themes/dot.gif"'
             .' alt="' . __('Documentation') . '" /></a> ';
     } else {
         echo ' (<a href="./Documentation.html#faqbookmark"'

@@ -321,7 +321,7 @@ select[multiple] {
 
 /* Icon sprites */
 
-.icon, img.footnotemarker {
+.icon, .footnotemarker {
     vertical-align: -3px;
     margin-right:       0.3em;
     margin-left:        0.3em;
@@ -450,6 +450,16 @@ select[multiple] {
 .ic_s_theme { background-position: -1897px 0; } 
 .ic_s_vars { background-position: -1914px 0; } 
 .ic_window-new { background-position: -1931px 0; } 
+
+/* Same as ic_s_sortable */
+img.sortableIcon { background-position: -1812px 0; }
+
+/* Same as s_asc */
+th.headerSortUp img.sortableIcon { background-position: -1516px 0; }
+
+/* Same as s_desc */
+th.headerSortDown img.sortableIcon { background-position: 0 0; }
+
 
 /******************************************************************************/
 /* classes */
@@ -1303,17 +1313,7 @@ h3#serverstatusqueries span {
 img.sortableIcon {
     float:right;
     background-repeat:no-repeat;
-}
-
-th.headerSortUp img.sortableIcon {
-	background-position: -1516px 0;
-}
-
-th.headerSortDown img.sortableIcon {
-    background-position: 0 0;
-}
-th.headerSortDown img.sortableIcon, th.headerSortDown img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
+	margin:0;
 }
 
 .buttonlinks {

@@ -39,7 +39,7 @@ if ($is_create_db_priv) {
         <strong><?php echo __('Create database') . ':&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></strong><br />
         <?php
               echo '<span class="noPrivileges">'
-                 . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" alt="" width="11" height="11" hspace="2" border="0" align="middle" />' : '')
+                 . ($cfg['ErrorIconic'] ? '<img class="icon ic_s_error2" src="themes/dot.gif" alt="" hspace="2" border="0" align="middle" />' : '')
                  . '' . __('No Privileges') .'</span>';
 } // end create db form or message
 ?>

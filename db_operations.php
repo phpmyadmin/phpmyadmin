@@ -433,7 +433,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) && ! $db_is_info
 <fieldset class="caution">
  <legend><?php
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon ic-b_deltbl" src="themes/dot.gif" alt="" />';
+    echo '<img class="icon ic_b_deltbl" src="themes/dot.gif" alt="" />';
 }
 echo __('Remove database');
 ?></legend>
@@ -479,7 +479,7 @@ echo __('Remove database');
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic-b_edit" src="themes/dot.gif" alt="" />';
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
     }
     echo __('Copy database to') . ':';
     $drop_clause = 'DROP TABLE / DROP VIEW';

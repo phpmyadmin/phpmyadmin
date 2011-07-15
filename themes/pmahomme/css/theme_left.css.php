@@ -72,16 +72,29 @@ button {
     display:            inline;
 }
 
+/* Icon sprites */
 
-/******************************************************************************/
-/* classes */
-
-/* leave some space between icons and text */
 .icon {
+    /* leave some space between icons and text */
     vertical-align:     middle;
     margin-right:       0.3em;
     margin-left:        0.3em;
+    width:16px;
+    height:16px;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>iconsprites.png) no-repeat top left;
 }
+
+.ic_b_home { background-position: -357px 0; } 
+.ic_b_selboard { background-position: -754px 0; } 
+.ic_b_docs { background-position: -136px 0; } 
+.ic_b_sqlhelp { background-position: -856px 0; } 
+.ic_s_reload { background-position: -1761px 0; } 
+.ic_s_loggoff { background-position: -1698px 0; } 
+.ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; } 
+.ic_b_view { background-position: -1077px 0; } 
+
+/******************************************************************************/
+/* classes */
 
 .navi_dbName {
     font-weight:    bold;
@@ -157,9 +170,9 @@ div#leftframelinks .icon {
 
 div#reloadlink a img,
 div#leftframelinks a img.icon {
-    margin:             10px 2px 0 0;
-    padding:            0.2em;
-    border:             0px;
+    margin:        0.3em;
+    margin-top:    0.7em;
+    border:        0px;
 }
 
 div#leftframelinks a:hover img {

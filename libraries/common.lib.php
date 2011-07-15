@@ -1510,7 +1510,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array())
+function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
 {
     // default values
     $defaults = array(
@@ -1572,7 +1572,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
-        $image = '<img class="icon %1$s" src="themes/dot.gif"'
+        $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
             .' width="16" height="16" alt="" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
     }
@@ -1608,7 +1608,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
  * @param   string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params)
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir='')
 {
     $tag_id = 'topmenu';
     $tab_navigation =
@@ -1616,7 +1616,7 @@ function PMA_generate_html_tabs($tabs, $url_params)
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
     }
 
     $tab_navigation .=

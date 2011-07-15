@@ -234,7 +234,7 @@ function display_input($path, $name, $description = '', $type, $value, $value_is
     }
     if ($is_setup_script && isset($opts['userprefs_comment']) && $opts['userprefs_comment']) {
         ?>
-        <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><img alt="comment" class="icon ic-b_tblops" src="<?php echo $base_dir; ?>themes/dot.gif" /></a>
+        <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><img alt="comment" class="icon ic_b_tblops" src="<?php echo $base_dir; ?>themes/dot.gif" /></a>
         <?php
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
