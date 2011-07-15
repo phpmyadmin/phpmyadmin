@@ -95,7 +95,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
     public function setUp()
     {
-        session_start();
+        //session_start();
 
         // cleaning constants
         if ($this->runkitExt) {
@@ -127,7 +127,7 @@ class PMA_headerLocation_test extends PHPUnit_Extensions_OutputTestCase
 
     public function tearDown()
     {
-        session_destroy();
+        //session_destroy();
 
         // cleaning constants
         if ($this->runkitExt) {

@@ -12,6 +12,7 @@
  * Include to test.
  */
 require_once 'libraries/common.lib.php';
+require_once 'libraries/Message.class.php';
 
 class PMA_ajaxResponse_test extends PHPUnit_Extensions_OutputTestCase
 {
