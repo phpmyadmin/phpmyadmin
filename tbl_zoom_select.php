@@ -66,7 +66,8 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
     $foreigners = PMA_getForeigners($db, $table);
     $flag = 1;
     $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
-    $maxPlotlLimit = $GLOBALS['cfg']['maxRowPlotLimit']; 
+    $maxPlotlLimit = $GLOBALS['cfg']['maxRowPlotLimit'];
+    $dataLabel = PMA_getDisplayField($db,$table);
 
     ?>
 
