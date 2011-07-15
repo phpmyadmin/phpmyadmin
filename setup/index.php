@@ -29,7 +29,7 @@ require './libraries/header_http.inc.php';
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>phpMyAdmin <?php echo $GLOBALS['PMA_Config']->get('PMA_VERSION'); ?> setup</title>
+<title>phpMyAdmin setup</title>
 <link href="../favicon.ico" rel="icon" type="image/x-icon" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="styles.css" rel="stylesheet" type="text/css" />
@@ -40,7 +40,7 @@ require './libraries/header_http.inc.php';
 <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-<h1><span class="blue">php</span><span class="orange">MyAdmin</span> <?php echo $GLOBALS['PMA_Config']->get('PMA_VERSION'); ?> setup</h1>
+<h1><span class="blue">php</span><span class="orange">MyAdmin</span>  setup</h1>
 <div id="menu">
 <?php
 require './setup/frames/menu.inc.php';
