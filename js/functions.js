@@ -2837,3 +2837,42 @@ $(document).ready(function() {
     }; //end noSelect    
 })(jQuery);
 
+/**
+ * Create default PMA tooltip for the element specified. The default appearance
+ * can be overriden by specifying optional "options" parameter (see qTip options).
+ */
+function PMA_createqTip($elements, content, options) {
+    var o = {
+        content: content,
+        style: {
+            background: '#333',
+            border: {
+                radius: 5
+            },
+            fontSize: '0.8em',
+            padding: '0 0.5em',
+            name: 'dark'
+        },
+        position: {
+            target: 'mouse',
+            corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
+            adjust: { x: 20 }
+        },
+        show: {
+            delay: 0,
+            effect: {
+                type: 'grow',
+                length: 100
+            }
+        },
+        hide: {
+            effect: {
+                type: 'grow',
+                length: 150
+            }
+        }
+    }
+    
+    $elements.qtip($.extend(true, o, options));
+}
+
