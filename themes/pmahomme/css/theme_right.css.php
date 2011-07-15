@@ -451,6 +451,9 @@ select[multiple] {
 .ic_s_vars { background-position: -1914px 0; } 
 .ic_window-new { background-position: -1931px 0; } 
 
+/* Same as ic_b_help, but applied to place where width=11, height=11 attributes were used */
+.ic_b_help_s { background-position: -340px 0; } 
+
 /* Same as ic_s_sortable */
 img.sortableIcon { background-position: -1812px 0; }
 
