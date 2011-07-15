@@ -2906,7 +2906,7 @@ msgstr "Rediañ a ra kevreadennoù https etre ar servijer ha phpMyAdmin"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Rediañ ar c'hevreadennoù SSL"
 
 #: libraries/config/messages.inc.php:150
 msgid ""
