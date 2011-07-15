@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-15 15:03+0200\n"
-"Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
+"PO-Revision-Date: 2011-07-15 15:15+0200\n"
+"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
@@ -2878,7 +2878,7 @@ msgstr "Implijout an eizhdekvedennad evit BLOB"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Arabat ensoc'hañ ul linenn a dalvez kement hag un alc'hwez nemetañ"
 
 #: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
