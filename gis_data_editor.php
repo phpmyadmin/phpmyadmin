@@ -75,8 +75,12 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     <div id="gis_data_editor">
         <h3><?php printf(__('Value for the column "%s"'), htmlspecialchars($_REQUEST['field'])); ?></h3>
 <?php   echo('<input type="hidden" name="field" value="' . htmlspecialchars($_REQUEST['field']) . '">');
-        echo('<input type="hidden" name="input_name" value="' . htmlspecialchars($_REQUEST['input_name']) . '">');
-        echo('<input type="hidden" name="null_checkbox_name" value="' . htmlspecialchars($_REQUEST['null_checkbox_name']) . '">');
+        if (isset($_REQUEST['input_name'])) {
+            echo('<input type="hidden" name="input_name" value="' . htmlspecialchars($_REQUEST['input_name']) . '">');
+        }
+        if (isset($_REQUEST['null_checkbox_name'])) {
+            echo('<input type="hidden" name="null_checkbox_name" value="' . htmlspecialchars($_REQUEST['null_checkbox_name']) . '">');
+        }
         echo PMA_generate_common_hidden_inputs();
 ?>
         <div id="placeholder">

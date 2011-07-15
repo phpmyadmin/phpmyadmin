@@ -967,8 +967,6 @@ foreach ($rows as $row_id => $vrow) {
             $_url_params = array(
                 'field' => $field['Field_title'],
                 'value' => $data_val,
-                'input_name' => 'fields' + $field_name_appendix,
-                'null_checkbox_name' => 'fields_null' + $field_name_appendix,
              );
             if ($field['pma_type'] != 'geometry') {
                 $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));

@@ -255,7 +255,8 @@ function prepareJSVersion() {
  * Ajax handlers for Change Table page
  *
  * Actions Ajaxified here:
- * Submit Data to be inserted into the table
+ * GIS data editor.
+ * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
 $(document).ready(function() {
