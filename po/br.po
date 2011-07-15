@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-15 00:34+0200\n"
+"PO-Revision-Date: 2011-07-15 14:58+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -2902,7 +2902,7 @@ msgstr "Ezporzhiañ an eur er furmad UTC"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Rediañ a ra kevreadennoù https etre ar servijer ha phpMyAdmin"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force SSL connection"
