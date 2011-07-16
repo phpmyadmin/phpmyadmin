@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 21:29+0200\n"
+"PO-Revision-Date: 2011-07-16 21:30+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -3280,7 +3280,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:247
 msgid "Format of imported file"
-msgstr ""
+msgstr "Furmad ar restr enporzhiañ"
 
 #: libraries/config/messages.inc.php:251 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
