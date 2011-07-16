@@ -6996,10 +6996,9 @@ msgid "Create trigger"
 msgstr "Créer un déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:185
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Ajouter un déclencheur"
+msgstr "Modifier le déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:325
 #, fuzzy
