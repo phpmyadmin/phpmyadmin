@@ -49,17 +49,6 @@ if (isset($plugin_list)) {
 } else {
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text) {
-    return PMA_exportOutputHandler('<!-- ' . $text . ' -->' . $GLOBALS['crlf']);
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded
@@ -82,13 +71,14 @@ function PMA_exportFooter() {
 function PMA_exportHeader() {
     global $crlf;
     global $cfg;
-    global $what;
     global $db;
     global $table;
     global $tables;
-
-    $export_struct = isset($GLOBALS[$what . '_export_struc']) ? true : false;
-    $export_data = isset($GLOBALS[$what . '_export_contents']) ? true : false;
+    
+    $export_struct = isset($GLOBALS['xml_export_functions']) || isset($GLOBALS['xml_export_procedures'])
+        || isset($GLOBALS['xml_export_tables']) || isset($GLOBALS['xml_export_triggers'])
+        || isset($GLOBALS['xml_export_views']);
+    $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
 
     if ($GLOBALS['output_charset_conversion']) {
         $charset = $GLOBALS['charset_of_file'];
@@ -108,14 +98,14 @@ function PMA_exportHeader() {
     }
     $head .= $crlf
            .  '- ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
-           .  '- ' . __('Server version') . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+           .  '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
            .  '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
            .  '-->' . $crlf . $crlf;
 
     $head .= '<pma_xml_export version="1.0"' . (($export_struct) ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"' : '') . '>' . $crlf;
 
     if ($export_struct) {
-        $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.$db.'\' LIMIT 1');
+        $result = PMA_DBI_fetch_result('SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = \''.PMA_sqlAddSlashes($db).'\' LIMIT 1');
         $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
         $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
 
@@ -123,8 +113,8 @@ function PMA_exportHeader() {
         $head .= '    - Structure schemas' . $crlf;
         $head .= '    -->' . $crlf;
         $head .= '    <pma:structure_schemas>' . $crlf;
-        $head .= '        <pma:database name="' . $db . '" collation="' . $db_collation . '" charset="' . $db_charset . '">' . $crlf;
-
+        $head .= '        <pma:database name="' . htmlspecialchars($db) . '" collation="' . $db_collation . '" charset="' . $db_charset . '">' . $crlf;
+        
         if (count($tables) == 0) {
             $tables[] = $table;
         }
@@ -141,24 +131,24 @@ function PMA_exportHeader() {
             } else {
                 $type = 'table';
             }
-
-            if ($is_view && ! isset($GLOBALS[$what . '_export_views'])) {
+            
+            if ($is_view && ! isset($GLOBALS['xml_export_views'])) {
                 continue;
             }
-
-            if (! $is_view && ! isset($GLOBALS[$what . '_export_tables'])) {
+            
+            if (! $is_view && ! isset($GLOBALS['xml_export_tables'])) {
                 continue;
             }
 
             $head .= '            <pma:' . $type . ' name="' . $table . '">' . $crlf;
-
-            $tbl = "                " . $tbl;
+            
+            $tbl = "                " . htmlspecialchars($tbl);
             $tbl = str_replace("\n", "\n                ", $tbl);
 
             $head .= $tbl . ';' . $crlf;
             $head .= '            </pma:' . $type . '>' . $crlf;
-
-            if (isset($GLOBALS[$what . '_export_triggers']) && $GLOBALS[$what . '_export_triggers']) {
+            
+            if (isset($GLOBALS['xml_export_triggers']) && $GLOBALS['xml_export_triggers']) {
                 // Export triggers
                 $triggers = PMA_DBI_get_triggers($db, $table);
                 if ($triggers) {
@@ -168,7 +158,7 @@ function PMA_exportHeader() {
 
                         // Do some formatting
                         $code = substr(rtrim($code), 0, -3);
-                        $code = "                " . $code;
+                        $code = "                " . htmlspecialchars($code);
                         $code = str_replace("\n", "\n                ", $code);
 
                         $head .= $code . $crlf;
@@ -180,8 +170,8 @@ function PMA_exportHeader() {
                 }
             }
         }
-
-        if (isset($GLOBALS[$what . '_export_functions']) && $GLOBALS[$what . '_export_functions']) {
+        
+        if (isset($GLOBALS['xml_export_functions']) && $GLOBALS['xml_export_functions']) {
             // Export functions
             $functions = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
             if ($functions) {
@@ -191,7 +181,7 @@ function PMA_exportHeader() {
                     // Do some formatting
                     $sql = PMA_DBI_get_definition($db, 'FUNCTION', $function);
                     $sql = rtrim($sql);
-                    $sql = "                " . $sql;
+                    $sql = "                " . htmlspecialchars($sql);
                     $sql = str_replace("\n", "\n                ", $sql);
 
                     $head .= $sql . $crlf;
@@ -203,8 +193,8 @@ function PMA_exportHeader() {
                 unset($functions);
             }
         }
-
-        if (isset($GLOBALS[$what . '_export_procedures']) && $GLOBALS[$what . '_export_procedures']) {
+        
+        if (isset($GLOBALS['xml_export_procedures']) && $GLOBALS['xml_export_procedures']) {
             // Export procedures
             $procedures = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
             if ($procedures) {
@@ -214,7 +204,7 @@ function PMA_exportHeader() {
                     // Do some formatting
                     $sql = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure);
                     $sql = rtrim($sql);
-                    $sql = "                " . $sql;
+                    $sql = "                " . htmlspecialchars($sql);
                     $sql = str_replace("\n", "\n                ", $sql);
 
                     $head .= $sql . $crlf;
@@ -243,22 +233,20 @@ function PMA_exportHeader() {
 /**
  * Outputs database header
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
  */
 function PMA_exportDBHeader($db) {
     global $crlf;
-    global $what;
-
-    if (isset($GLOBALS[$what . '_export_contents']) && $GLOBALS[$what . '_export_contents']) {
+    
+    if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
         $head = '    <!--' . $crlf
               . '    - ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
               . '    -->' . $crlf
-              . '    <database name="' . $db . '">' . $crlf;
-
+              . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
+        
         return PMA_exportOutputHandler($head);
     }
     else
@@ -270,17 +258,15 @@ function PMA_exportDBHeader($db) {
 /**
  * Outputs database footer
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
  */
 function PMA_exportDBFooter($db) {
     global $crlf;
-    global $what;
-
-    if (isset($GLOBALS[$what . '_export_contents']) && $GLOBALS[$what . '_export_contents']) {
+    
+    if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
         return PMA_exportOutputHandler('    </database>' . $crlf);
     }
     else
@@ -290,10 +276,9 @@ function PMA_exportDBFooter($db) {
 }
 
 /**
- * Outputs create database database
+ * Outputs CREATE DATABASE statement
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -302,27 +287,25 @@ function PMA_exportDBCreate($db) {
     return true;
 }
 
-
 /**
- * Outputs the content of a table
+ * Outputs the content of a table in XML format
  *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
+ * @param   string  $db         database name
+ * @param   string  $table      table name
+ * @param   string  $crlf       the end of line sequence
+ * @param   string  $error_url  the url to go back in case of error
+ * @param   string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    global $what;
 
-    if (isset($GLOBALS[$what . '_export_contents']) && $GLOBALS[$what . '_export_contents']) {
+    if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
         $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
         $columns_cnt = PMA_DBI_num_fields($result);
+        $columns = array();
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = stripslashes(str_replace(' ', '_', PMA_DBI_field_name($result, $i)));
         }
@@ -340,7 +323,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 if (!isset($record[$i]) || is_null($record[$i])) {
                     $record[$i] = 'NULL';
                 }
-                $buffer .= '            <column name="' . $columns[$i] . '">' . htmlspecialchars((string)$record[$i])
+                $buffer .= '            <column name="' . htmlspecialchars($columns[$i]) . '">' . htmlspecialchars((string)$record[$i])
                         .  '</column>' . $crlf;
             }
             $buffer         .= '        </table>' . $crlf;

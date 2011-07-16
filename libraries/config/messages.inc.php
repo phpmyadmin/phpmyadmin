@@ -3,9 +3,9 @@
 /**
  * Messages for phpMyAdmin.
  *
- * This file is here for easy transition to Gettext. You should not add any
- * new messages here, use instead gettext directly in your template/PHP
- * file.
+ * This file defines variables in a special format suited for the
+ * configuration subsystem, with $strConfig as a prefix, _desc or _name
+ * as a suffix, and the directive name in between.
  *
  * @package phpMyAdmin
  */
@@ -450,8 +450,8 @@ $strConfigShowAll_name = __('Allow to display all the rows');
 $strConfigShowChgPassword_desc = __('Please note that enabling this has no effect with [kbd]config[/kbd] authentication mode because the password is hard coded in the configuration file; this does not limit the ability to execute the same command directly');
 $strConfigShowChgPassword_name = __('Show password change form');
 $strConfigShowCreateDb_name = __('Show create database form');
-$strConfigShowDisplayDir_desc = __('Defines whether or not type display direction option is shown when browsing a table');
-$strConfigShowDisplayDir_name = __('Show display direction');
+$strConfigShowDisplayDirection_desc = __('Defines whether or not type display direction option is shown when browsing a table');
+$strConfigShowDisplayDirection_name = __('Show display direction');
 $strConfigShowFieldTypesInDataEditView_desc = __('Defines whether or not type fields should be initially displayed in edit/insert mode');
 $strConfigShowFieldTypesInDataEditView_name = __('Show field types');
 $strConfigShowFunctionFields_desc = __('Display the function fields in edit/insert mode');

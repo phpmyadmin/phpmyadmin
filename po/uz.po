@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-07 15:16+0200\n"
+"POT-Creation-Date: 2011-07-14 18:39+0200\n"
 "PO-Revision-Date: 2010-07-22 02:31+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Барчасини кўрсатиш"
 
-#: browse_foreigners.php:70 libraries/common.lib.php:2183
+#: browse_foreigners.php:70 libraries/common.lib.php:2173
 #: libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:240
 #: libraries/schema/Pdf_Relation_Schema.class.php:1089
@@ -38,25 +38,28 @@ msgstr ""
 "Браузернинг нишондаги ойнасини янгилаб бўлмади. Эҳтимол, бош ойна ёпилган "
 "ёки браузер хавфсизлик юзасидан ойналараро янгилашни блокировка қилмоқда"
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2648
-#: libraries/common.lib.php:2655 libraries/common.lib.php:2836
-#: libraries/common.lib.php:2837 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:2720
+#: libraries/common.lib.php:2727 libraries/common.lib.php:2908
+#: libraries/common.lib.php:2909 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Қидириш"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:335
-#: db_structure.php:528 enum_editor.php:63 js/messages.php:90
+#: db_structure.php:529 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1186 libraries/Theme_Manager.class.php:300
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1263
-#: libraries/common.lib.php:2160 libraries/core.lib.php:498
-#: libraries/db_routines.lib.php:760 libraries/db_routines.lib.php:882
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1257
+#: libraries/common.lib.php:2150 libraries/core.lib.php:504
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:566 libraries/display_tbl.lib.php:661
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:370
+#: libraries/rte/rte_events.lib.php:517
+#: libraries/rte/rte_routines.lib.php:1019
+#: libraries/rte/rte_routines.lib.php:1502
+#: libraries/rte/rte_triggers.lib.php:391
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:406
@@ -71,7 +74,7 @@ msgstr "Қидириш"
 #: server_privileges.php:2138 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1220 tbl_change.php:335 tbl_change.php:1027
-#: tbl_change.php:1064 tbl_indexes.php:264 tbl_operations.php:280
+#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:280
 #: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
 #: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
@@ -80,7 +83,7 @@ msgid "Go"
 msgstr "OK"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
-#: libraries/Index.class.php:431 tbl_tracking.php:313
+#: libraries/Index.class.php:432 tbl_tracking.php:313
 msgid "Keyname"
 msgstr "Индекс номи"
 
@@ -132,25 +135,26 @@ msgstr "Маълумотлар базасига изоҳ:"
 msgid "Table comments"
 msgstr "Жадвал изоҳи"
 
-#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:435
-#: libraries/export/htmlword.php:248 libraries/export/latex.php:375
-#: libraries/export/odt.php:302 libraries/export/texytext.php:227
+#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:436
+#: libraries/export/htmlword.php:254 libraries/export/latex.php:364
+#: libraries/export/odt.php:291 libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
 #: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
-#: tbl_indexes.php:192 tbl_printview.php:139 tbl_relation.php:399
+#: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
 msgstr "Майдон номлари"
 
-#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:432
-#: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:637
-#: libraries/db_routines.lib.php:662 libraries/db_routines.lib.php:808
-#: libraries/db_routines.lib.php:1158 libraries/db_structure.lib.php:46
-#: libraries/export/htmlword.php:249 libraries/export/latex.php:375
-#: libraries/export/odt.php:305 libraries/export/texytext.php:228
+#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:433
+#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:255
+#: libraries/export/latex.php:364 libraries/export/odt.php:294
+#: libraries/export/texytext.php:234 libraries/rte/rte_list.lib.php:51
+#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_routines.lib.php:885
+#: libraries/rte/rte_routines.lib.php:910
+#: libraries/rte/rte_routines.lib.php:1420
 #: libraries/schema/Pdf_Relation_Schema.class.php:1231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2151
@@ -160,9 +164,9 @@ msgstr "Майдон номлари"
 msgid "Type"
 msgstr "Тур"
 
-#: db_datadict.php:169 libraries/Index.class.php:438
-#: libraries/export/htmlword.php:250 libraries/export/latex.php:375
-#: libraries/export/odt.php:308 libraries/export/texytext.php:229
+#: db_datadict.php:169 libraries/Index.class.php:439
+#: libraries/export/htmlword.php:256 libraries/export/latex.php:364
+#: libraries/export/odt.php:297 libraries/export/texytext.php:235
 #: libraries/schema/Pdf_Relation_Schema.class.php:1233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1254
 #: libraries/tbl_properties.inc.php:112 tbl_change.php:328
@@ -171,9 +175,9 @@ msgstr "Тур"
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
-#: libraries/export/latex.php:375 libraries/export/odt.php:311
-#: libraries/export/texytext.php:230
+#: db_datadict.php:170 db_structure.php:454 libraries/export/htmlword.php:257
+#: libraries/export/latex.php:364 libraries/export/odt.php:300
+#: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1234
 #: libraries/schema/Pdf_Relation_Schema.class.php:1255
 #: libraries/tbl_properties.inc.php:109 tbl_printview.php:143
@@ -181,9 +185,9 @@ msgstr "Null"
 msgid "Default"
 msgstr "Андоза"
 
-#: db_datadict.php:174 libraries/export/htmlword.php:253
-#: libraries/export/latex.php:377 libraries/export/odt.php:315
-#: libraries/export/texytext.php:232
+#: db_datadict.php:174 libraries/export/htmlword.php:259
+#: libraries/export/latex.php:366 libraries/export/odt.php:304
+#: libraries/export/texytext.php:238
 #: libraries/schema/Pdf_Relation_Schema.class.php:1236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1257 tbl_printview.php:147
 msgid "Links to"
@@ -191,21 +195,21 @@ msgstr "Алоқалар"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
-#: libraries/export/latex.php:380 libraries/export/odt.php:320
-#: libraries/export/texytext.php:235
+#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:262
+#: libraries/export/latex.php:369 libraries/export/odt.php:309
+#: libraries/export/texytext.php:241
 #: libraries/schema/Pdf_Relation_Schema.class.php:1247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1258
 #: libraries/tbl_properties.inc.php:132 tbl_printview.php:149
 msgid "Comments"
 msgstr "Изоҳлар"
 
-#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:348
-#: libraries/Index.class.php:375 libraries/Index.class.php:673
+#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:349
+#: libraries/Index.class.php:376 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:326
-#: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:330
+#: libraries/export/latex.php:434 libraries/export/odt.php:365
+#: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
 #: libraries/user_preferences.lib.php:270 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
@@ -216,12 +220,12 @@ msgstr "Изоҳлар"
 msgid "No"
 msgstr "Йўқ"
 
-#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:349
-#: libraries/Index.class.php:374 libraries/Index.class.php:673
+#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:350
+#: libraries/Index.class.php:375 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:326
-#: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:330
+#: libraries/export/latex.php:434 libraries/export/odt.php:365
+#: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
@@ -247,7 +251,7 @@ msgid "View dump (schema) of database"
 msgstr "Маълумотлар базаси дампини (схемасини) намойиш этиш"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:371 navigation.php:299
+#: export.php:370 navigation.php:299
 msgid "No tables found in database."
 msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
 
@@ -338,7 +342,7 @@ msgstr "Чекловлар қўшиш"
 msgid "Switch to copied database"
 msgstr "Нусха олинган маълумотлар базасига ўтиш"
 
-#: db_operations.php:552 libraries/Index.class.php:437
+#: db_operations.php:552 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
 #: libraries/tbl_properties.inc.php:723 server_collations.php:53
@@ -368,8 +372,9 @@ msgstr "Алоқалар схемаси"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
-#: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
-#: libraries/export/xml.php:331 libraries/header.inc.php:152
+#: libraries/export/pdf.php:102 libraries/export/xml.php:313
+#: libraries/header.inc.php:152 libraries/rte/rte_list.lib.php:56
+#: libraries/rte/rte_triggers.lib.php:330
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
@@ -384,37 +389,37 @@ msgstr "Жадвал "
 msgid "Rows"
 msgstr "Қаторларсони"
 
-#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:193
+#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
 msgstr "Ҳажми"
 
-#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
-#: libraries/export/sql.php:1077
+#: db_printview.php:160 db_structure.php:410 libraries/export/sql.php:743
+#: libraries/export/sql.php:1058
 msgid "in use"
 msgstr "ишлатилмоқда"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
-#: libraries/export/sql.php:705
+#: libraries/export/sql.php:698
 #: libraries/schema/Pdf_Relation_Schema.class.php:1209 tbl_printview.php:431
 #: tbl_structure.php:942
 msgid "Creation"
 msgstr "Тузиш"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
-#: libraries/export/sql.php:710
+#: libraries/export/sql.php:703
 #: libraries/schema/Pdf_Relation_Schema.class.php:1214 tbl_printview.php:441
 #: tbl_structure.php:950
 msgid "Last update"
 msgstr "Охирги янгиланиш"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
-#: libraries/export/sql.php:715
+#: libraries/export/sql.php:708
 #: libraries/schema/Pdf_Relation_Schema.class.php:1219 tbl_printview.php:451
 #: tbl_structure.php:958
 msgid "Last check"
 msgstr "Охирги текширув"
 
-#: db_printview.php:220 db_structure.php:432
+#: db_printview.php:220 db_structure.php:433
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
@@ -475,7 +480,7 @@ msgid "Del"
 msgstr "Ўчириш"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:307 tbl_change.php:890 tbl_indexes.php:260
+#: server_privileges.php:307 tbl_change.php:890 tbl_indexes.php:264
 #: tbl_select.php:278
 msgid "Or"
 msgstr "Ёки"
@@ -509,118 +514,9 @@ msgstr "Жадвалларни ишлатиш"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>\"%s\"</b> маълумотлар базасига SQL-сўров: "
 
-#: db_qbe.php:955 libraries/common.lib.php:1121
+#: db_qbe.php:955 libraries/common.lib.php:1116
 msgid "Submit Query"
 msgstr "сўровни бажариш"
-
-#: db_routines.php:155 import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2235 libraries/sql_query_form.lib.php:113
-#: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
-#: view_operations.php:60
-msgid "Your SQL query has been executed successfully"
-msgstr "SQL сўрови муваффақиятли бажарилди"
-
-#: db_routines.php:158
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-
-#: db_routines.php:168
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
-msgid "Execution results of routine %s"
-msgstr "Сақланадиган муолажаларни бажаришга рухсат беради"
-
-#: db_routines.php:188 libraries/import.lib.php:152 sql.php:685
-#: tbl_change.php:183 tbl_get_field.php:34
-msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL бўш натижа берди (яъни нольта сатр)."
-
-#: db_routines.php:193 db_routines.php:298 db_routines.php:303
-#: db_routines.php:327
-#, fuzzy, php-format
-#| msgid "The following queries have been executed:"
-msgid "The following query has failed: \"%s\""
-msgstr "Қуйидаги сўровлар бажарилди:"
-
-#: db_routines.php:194 db_routines.php:299 db_routines.php:304
-#: db_routines.php:314 db_routines.php:328 libraries/common.lib.php:581
-msgid "MySQL said: "
-msgstr "MySQL жавоби: "
-
-#: db_routines.php:211 db_routines.php:243 db_routines.php:271
-#: db_routines.php:410
-#, fuzzy
-#| msgid "Processes"
-msgid "Error in processing request"
-msgstr "Жараёнлар"
-
-#: db_routines.php:212 db_routines.php:244 db_routines.php:272
-#: db_routines.php:411
-#, fuzzy, php-format
-#| msgid "No tables found in database."
-msgid "No routine with name %1$s found in database %2$s"
-msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
-
-#: db_routines.php:233 db_routines.php:237
-msgid "Execute routine"
-msgstr ""
-
-#: db_routines.php:262 db_routines.php:266
-#, fuzzy, php-format
-#| msgid "Export functions"
-msgid "Export of routine %s"
-msgstr "Функцияларни экспорт қилиш"
-
-#: db_routines.php:291 libraries/db_routines.lib.php:911
-#, fuzzy, php-format
-#| msgid "Invalid server index: \"%s\""
-msgid "Invalid routine type: \"%s\""
-msgstr "Сервер рақами нотўғри: \"%s\""
-
-#: db_routines.php:312
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
-
-#: db_routines.php:313
-msgid "The backed up query was:"
-msgstr ""
-
-#: db_routines.php:317
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Routine %1$s has been modified."
-msgstr "\"%s\" жадвали ўчирилди"
-
-#: db_routines.php:330
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
-msgid "Routine %1$s has been created."
-msgstr "%1$s жадвали тузилди."
-
-#: db_routines.php:338
-msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
-
-#: db_routines.php:382
-#, fuzzy
-#| msgid "Create relation"
-msgid "Create routine"
-msgstr "Боғлиқлик ўрнатиш"
-
-#: db_routines.php:386
-#, fuzzy
-#| msgid "Edit mode"
-msgid "Edit routine"
-msgstr "Таҳрирлаш усули"
-
-#: db_routines.php:437
-msgid ""
-"You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. <b>The execution of some stored routines may fail!</"
-"b> Please use the improved 'mysqli' extension to avoid any problems."
-msgstr ""
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -658,8 +554,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
 msgstr[1] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
 
-#: db_search.php:231 libraries/common.lib.php:2650
-#: libraries/common.lib.php:2834 libraries/common.lib.php:2835
+#: db_search.php:231 libraries/common.lib.php:2722
+#: libraries/common.lib.php:2906 libraries/common.lib.php:2907
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:599
 msgid "Browse"
 msgstr "Кўриб чиқиш"
@@ -720,36 +616,36 @@ msgstr "Қуйидаги жадвал(лар)да қидириш:"
 msgid "Inside column:"
 msgstr "Қуйидаги майдон(лар)да қидириш: "
 
-#: db_structure.php:60
+#: db_structure.php:61
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
 
-#: db_structure.php:270 tbl_operations.php:688
+#: db_structure.php:271 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "\"%s\" жадвали тозаланди"
 
-#: db_structure.php:279 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
 msgstr " \"%s\" намойиши ўчирилди"
 
-#: db_structure.php:279 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "\"%s\" жадвали ўчирилди"
 
-#: db_structure.php:286 tbl_create.php:269
+#: db_structure.php:287 tbl_create.php:269
 msgid "Tracking is active."
 msgstr "Кузатиш фаол."
 
-#: db_structure.php:288 tbl_create.php:271
+#: db_structure.php:289 tbl_create.php:271
 msgid "Tracking is not active."
 msgstr "Кузатиш фаол эмас."
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:2198
+#: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -758,27 +654,27 @@ msgstr ""
 "Ушбу намойиш камида кўрсатилган миқдорда қаторларга эга. Батафсил маълумот "
 "учун %sдокументацияга%s қаранг."
 
-#: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:152
+#: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
 msgid "View"
 msgstr "Намойиш"
 
-#: db_structure.php:437 libraries/db_structure.lib.php:35
+#: db_structure.php:438 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:271
 msgid "Replication"
 msgstr "Репликация (захира нусха кўчириш)"
 
-#: db_structure.php:441
+#: db_structure.php:442
 msgid "Sum"
 msgstr "Жами"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:313
+#: db_structure.php:449 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "\"%s\" - MySQL серверидаги андозавий маълумотлар жадвали тури."
 
-#: db_structure.php:476 db_structure.php:493 db_structure.php:494
+#: db_structure.php:477 db_structure.php:494 db_structure.php:495
 #: libraries/display_tbl.lib.php:2339 libraries/display_tbl.lib.php:2344
 #: libraries/mult_submits.inc.php:15 server_databases.php:260
 #: server_databases.php:265 server_privileges.php:1666 tbl_structure.php:587
@@ -786,24 +682,24 @@ msgstr "\"%s\" - MySQL серверидаги андозавий маълумо�
 msgid "With selected:"
 msgstr "Белгиланганларни: "
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2334
+#: db_structure.php:480 libraries/display_tbl.lib.php:2334
 #: server_databases.php:262 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:590
 msgid "Check All"
 msgstr "Барчасини белгилаш"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2335
+#: db_structure.php:484 libraries/display_tbl.lib.php:2335
 #: libraries/replication_gui.lib.php:35 server_databases.php:264
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:594
 msgid "Uncheck All"
 msgstr "Белгилашни бекор қилиш"
 
-#: db_structure.php:488
+#: db_structure.php:489
 msgid "Check tables having overhead"
 msgstr "Оптималлаштириш лозим бўлгн жадвалларни белгилаш"
 
-#: db_structure.php:496 libraries/common.lib.php:2847
-#: libraries/common.lib.php:2848 libraries/config/messages.inc.php:164
+#: db_structure.php:497 libraries/common.lib.php:2919
+#: libraries/common.lib.php:2920 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2352
 #: libraries/display_tbl.lib.php:2488 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:288
@@ -811,60 +707,60 @@ msgstr "Оптималлаштириш лозим бўлгн жадваллар�
 msgid "Export"
 msgstr "Экспорт"
 
-#: db_structure.php:498 db_structure.php:553
+#: db_structure.php:499 db_structure.php:554
 #: libraries/display_tbl.lib.php:2439 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
 msgstr "Чоп этиш версияси"
 
-#: db_structure.php:502 libraries/common.lib.php:2843
-#: libraries/common.lib.php:2844
+#: db_structure.php:503 libraries/common.lib.php:2915
+#: libraries/common.lib.php:2916
 msgid "Empty"
 msgstr "Тозалаш"
 
-#: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:481
-#: libraries/common.lib.php:2841 libraries/common.lib.php:2842
+#: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
+#: libraries/common.lib.php:2913 libraries/common.lib.php:2914
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
 msgstr "Ўчириш"
 
-#: db_structure.php:506 tbl_operations.php:604
+#: db_structure.php:507 tbl_operations.php:604
 msgid "Check table"
 msgstr "Жадвални текшириш"
 
-#: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:842
+#: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
 #: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "Жадвални оптималлаштириш"
 
-#: db_structure.php:510 tbl_operations.php:640
+#: db_structure.php:511 tbl_operations.php:640
 msgid "Repair table"
 msgstr "Жадвални тиклаш"
 
-#: db_structure.php:512 tbl_operations.php:627
+#: db_structure.php:513 tbl_operations.php:627
 msgid "Analyze table"
 msgstr "Жадвал таҳлили"
 
-#: db_structure.php:514
+#: db_structure.php:515
 #, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
 msgstr "Ушбу жадвалга ўтиш"
 
-#: db_structure.php:516 libraries/mult_submits.inc.php:251
+#: db_structure.php:517 libraries/mult_submits.inc.php:251
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
 
-#: db_structure.php:518 libraries/mult_submits.inc.php:251
+#: db_structure.php:519 libraries/mult_submits.inc.php:251
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:383
+#: db_structure.php:561 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
 msgstr "Маълумотлар луғати"
 
@@ -873,10 +769,10 @@ msgid "Tracked tables"
 msgstr "Кузатилган жадваллар"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:493
-#: libraries/export/htmlword.php:90 libraries/export/latex.php:163
-#: libraries/export/odt.php:121 libraries/export/pdf.php:102
-#: libraries/export/sql.php:569 libraries/export/texytext.php:78
-#: libraries/export/xml.php:258 libraries/header.inc.php:139
+#: libraries/export/htmlword.php:78 libraries/export/latex.php:151
+#: libraries/export/odt.php:109 libraries/export/pdf.php:102
+#: libraries/export/sql.php:570 libraries/export/texytext.php:66
+#: libraries/export/xml.php:246 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:798
@@ -897,14 +793,15 @@ msgstr "Тузилди"
 msgid "Updated"
 msgstr "Янгиланди"
 
-#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
-#: sql.php:942 tbl_tracking.php:647
+#: db_tracking.php:89 libraries/rte/rte_events.lib.php:404
+#: libraries/rte/rte_list.lib.php:63 libraries/server_links.inc.php:51
+#: server_status.php:801 sql.php:942 tbl_tracking.php:647
 msgid "Status"
 msgstr "Ҳолат"
 
-#: db_tracking.php:90 libraries/Index.class.php:429
-#: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1157
-#: libraries/db_structure.lib.php:39 libraries/display_triggers.inc.php:76
+#: db_tracking.php:90 libraries/Index.class.php:430
+#: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:50
+#: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:64
 #: server_databases.php:191 server_privileges.php:1612
 #: server_privileges.php:1805 server_privileges.php:2154 tbl_structure.php:214
 msgid "Action"
@@ -972,12 +869,12 @@ msgstr ""
 msgid "Selected export type has to be saved in file!"
 msgstr "Белгиланган экспорт тури файлга сақланиши шарт!"
 
-#: export.php:164 export.php:189 export.php:671
+#: export.php:163 export.php:188 export.php:670
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "\"%s\" файлини сақлаш учун дискда етарли жой мавжуд эмас. "
 
-#: export.php:307
+#: export.php:306
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -985,12 +882,12 @@ msgstr ""
 "\"%s\" файли серверда мавжуд, унинг номини ўзгартиринг ёки қайта ёзиш "
 "параметрини ёқинг."
 
-#: export.php:311 export.php:315
+#: export.php:310 export.php:314
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "\"%s\" файлини веб-серверга сақлаш учун ҳуқуқлар етарли эмас."
 
-#: export.php:673
+#: export.php:672
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Дамп \"%s\" файлида сақланди."
@@ -1073,6 +970,13 @@ msgstr ""
 "Охирги ишга тушириш бўлишига қарамасдан, маълумотлар қайта ишланмади. "
 "Одатда, бу ҳол, php-сценарийлар учун ажратилган вақт оширилмагунча "
 "phpMyAdmin дастури импорт жараёнини якунла олмаслигини билдиради."
+
+#: import.php:452 libraries/Message.class.php:175
+#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1260
+#: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
+#: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
+msgid "Your SQL query has been executed successfully"
+msgstr "SQL сўрови муваффақиятли бажарилди"
 
 #: import_status.php:30 libraries/common.lib.php:622
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:109
@@ -1199,9 +1103,9 @@ msgstr "Белгиланган фойдаланувчиларни ўчириш"
 msgid "Close"
 msgstr "Ёпиш"
 
-#: js/messages.php:62 js/messages.php:134 libraries/Index.class.php:459
-#: libraries/common.lib.php:566 libraries/common.lib.php:1097
-#: libraries/common.lib.php:2845 libraries/common.lib.php:2846
+#: js/messages.php:62 js/messages.php:133 libraries/Index.class.php:460
+#: libraries/common.lib.php:566 libraries/common.lib.php:1092
+#: libraries/common.lib.php:2917 libraries/common.lib.php:2918
 #: libraries/config/messages.inc.php:473 libraries/display_tbl.lib.php:1302
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
@@ -1242,12 +1146,12 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:74 libraries/common.lib.php:1322
+#: js/messages.php:74 libraries/common.lib.php:1316
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: js/messages.php:76 libraries/common.lib.php:1324
+#: js/messages.php:76 libraries/common.lib.php:1318
 msgid "."
 msgstr ","
 
@@ -1313,8 +1217,8 @@ msgstr "Юклаш"
 msgid "Processing Request"
 msgstr "Жараёнлар"
 
-#: js/messages.php:96 libraries/db_events.inc.php:39
-#: libraries/display_triggers.inc.php:46 libraries/import/ods.php:80
+#: js/messages.php:96 libraries/import/ods.php:80
+#: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr ""
 
@@ -1420,126 +1324,120 @@ msgstr "\"%s\" ўчирилмоқда"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:125
-#, fuzzy
-#| msgid "Missing value in the form!"
-msgid "Value too long in the form!"
-msgstr "Форманинг керакли майдонлари тўлдирилмаган!"
-
-#: js/messages.php:128
+#: js/messages.php:127
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 
-#: js/messages.php:131
+#: js/messages.php:130
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide query box"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:132
+#: js/messages.php:131
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show query box"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:133
+#: js/messages.php:132
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline Edit"
 msgstr "Жадвал турлари"
 
-#: js/messages.php:135 libraries/config/FormDisplay.tpl.php:323
+#: js/messages.php:134 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
 #: libraries/tbl_properties.inc.php:769 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:227 tbl_change.php:979
-#: tbl_gis_visualization.php:222 tbl_indexes.php:257 tbl_relation.php:563
+#: tbl_gis_visualization.php:222 tbl_indexes.php:261 tbl_relation.php:563
 msgid "Save"
 msgstr "Сақлаш"
 
-#: js/messages.php:136 libraries/display_tbl.lib.php:645 pmd_general.php:158
+#: js/messages.php:135 libraries/display_tbl.lib.php:645 pmd_general.php:158
 #: tbl_change.php:319 tbl_change.php:325
 msgid "Hide"
 msgstr "Яшириш"
 
-#: js/messages.php:137 tbl_row_action.php:28
+#: js/messages.php:136 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "Амални амалга ошириш учун битта ёки бир нечта қаторни танлаш керак. "
 
-#: js/messages.php:138 libraries/display_tbl.lib.php:2347 querywindow.php:90
-#: querywindow.php:94 querywindow.php:97 tbl_structure.php:152
-#: tbl_structure.php:602
+#: js/messages.php:137 libraries/common.lib.php:2440
+#: libraries/display_tbl.lib.php:2347 querywindow.php:90 querywindow.php:94
+#: querywindow.php:97 tbl_structure.php:152 tbl_structure.php:602
 msgid "Change"
 msgstr "Ўзгартириш"
 
-#: js/messages.php:141
+#: js/messages.php:140
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Hide search criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:142
+#: js/messages.php:141
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Show search criteria"
 msgstr "SQL сўровлари қутиси"
 
-#: js/messages.php:145 tbl_change.php:307 tbl_indexes.php:207
-#: tbl_indexes.php:234
+#: js/messages.php:144 tbl_change.php:307 tbl_indexes.php:211
+#: tbl_indexes.php:238
 msgid "Ignore"
 msgstr "Эътибор бермаслик"
 
-#: js/messages.php:148
+#: js/messages.php:147
 msgid "Select referenced key"
 msgstr "Боғлиқ калитни танланг"
 
-#: js/messages.php:149
+#: js/messages.php:148
 msgid "Select Foreign Key"
 msgstr "Ташқи калитни танланг"
 
-#: js/messages.php:150
+#: js/messages.php:149
 msgid "Please select the primary key or a unique key"
 msgstr "Бирламчи (PRIMARY) ёки уникал (UNIQUE) индекс бўлган майдонни танланг!"
 
-#: js/messages.php:151 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:150 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Кўрсатиладиган майдонни танлаш"
 
-#: js/messages.php:152
+#: js/messages.php:151
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:155
+#: js/messages.php:154
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:158
+#: js/messages.php:157
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Парол ўрнатиш"
 
-#: js/messages.php:159 libraries/replication_gui.lib.php:364
+#: js/messages.php:158 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Генерация қилиш"
 
-#: js/messages.php:160
+#: js/messages.php:159
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Паролни ўзгартириш"
 
-#: js/messages.php:163 tbl_structure.php:497
+#: js/messages.php:162 tbl_structure.php:497
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Душ"
 
-#: js/messages.php:166 setup/lib/index.lib.php:158
+#: js/messages.php:165 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1550,131 +1448,131 @@ msgstr ""
 "чиқарилган."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:168
+#: js/messages.php:167
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Охирги версияни текшириш"
 
-#: js/messages.php:169
+#: js/messages.php:168
 #, fuzzy
 #| msgid "Go to database"
 msgid "up to date"
 msgstr "Ушбу базага ўтиш"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:187
+#: js/messages.php:186
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Садақа"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:189
+#: js/messages.php:188
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Орқага"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:191 libraries/common.lib.php:2222
-#: libraries/common.lib.php:2225 libraries/display_tbl.lib.php:366
+#: js/messages.php:190 libraries/common.lib.php:2212
+#: libraries/common.lib.php:2215 libraries/display_tbl.lib.php:366
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
 msgid "Next"
 msgstr "Кейинги"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:193
+#: js/messages.php:192
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Жами"
 
-#: js/messages.php:196
+#: js/messages.php:195
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Иккилик"
 
-#: js/messages.php:197
+#: js/messages.php:196
 msgid "February"
 msgstr ""
 
-#: js/messages.php:198
+#: js/messages.php:197
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Мар"
 
-#: js/messages.php:199
+#: js/messages.php:198
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Апр"
 
-#: js/messages.php:200
+#: js/messages.php:199
 msgid "May"
 msgstr "Май"
 
-#: js/messages.php:201
+#: js/messages.php:200
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Июн"
 
-#: js/messages.php:202
+#: js/messages.php:201
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Июл"
 
-#: js/messages.php:203
+#: js/messages.php:202
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Авг"
 
-#: js/messages.php:204
+#: js/messages.php:203
 msgid "September"
 msgstr ""
 
-#: js/messages.php:205
+#: js/messages.php:204
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Окт"
 
-#: js/messages.php:206
+#: js/messages.php:205
 msgid "November"
 msgstr ""
 
-#: js/messages.php:207
+#: js/messages.php:206
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:211 libraries/common.lib.php:1458
+#: js/messages.php:210 libraries/common.lib.php:1450
 msgid "Jan"
 msgstr "Янв"
 
 #. l10n: Short month name
-#: js/messages.php:213 libraries/common.lib.php:1460
+#: js/messages.php:212 libraries/common.lib.php:1452
 msgid "Feb"
 msgstr "Фев"
 
 #. l10n: Short month name
-#: js/messages.php:215 libraries/common.lib.php:1462
+#: js/messages.php:214 libraries/common.lib.php:1454
 msgid "Mar"
 msgstr "Мар"
 
 #. l10n: Short month name
-#: js/messages.php:217 libraries/common.lib.php:1464
+#: js/messages.php:216 libraries/common.lib.php:1456
 msgid "Apr"
 msgstr "Апр"
 
 #. l10n: Short month name
-#: js/messages.php:219 libraries/common.lib.php:1466
+#: js/messages.php:218 libraries/common.lib.php:1458
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1682,178 +1580,178 @@ msgid "May"
 msgstr "Май"
 
 #. l10n: Short month name
-#: js/messages.php:221 libraries/common.lib.php:1468
+#: js/messages.php:220 libraries/common.lib.php:1460
 msgid "Jun"
 msgstr "Июн"
 
 #. l10n: Short month name
-#: js/messages.php:223 libraries/common.lib.php:1470
+#: js/messages.php:222 libraries/common.lib.php:1462
 msgid "Jul"
 msgstr "Июл"
 
 #. l10n: Short month name
-#: js/messages.php:225 libraries/common.lib.php:1472
+#: js/messages.php:224 libraries/common.lib.php:1464
 msgid "Aug"
 msgstr "Авг"
 
 #. l10n: Short month name
-#: js/messages.php:227 libraries/common.lib.php:1474
+#: js/messages.php:226 libraries/common.lib.php:1466
 msgid "Sep"
 msgstr "Сен"
 
 #. l10n: Short month name
-#: js/messages.php:229 libraries/common.lib.php:1476
+#: js/messages.php:228 libraries/common.lib.php:1468
 msgid "Oct"
 msgstr "Окт"
 
 #. l10n: Short month name
-#: js/messages.php:231 libraries/common.lib.php:1478
+#: js/messages.php:230 libraries/common.lib.php:1470
 msgid "Nov"
 msgstr "Ноя"
 
 #. l10n: Short month name
-#: js/messages.php:233 libraries/common.lib.php:1480
+#: js/messages.php:232 libraries/common.lib.php:1472
 msgid "Dec"
 msgstr "Дек"
 
-#: js/messages.php:236
+#: js/messages.php:235
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Якш"
 
-#: js/messages.php:237
+#: js/messages.php:236
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Душ"
 
-#: js/messages.php:238
+#: js/messages.php:237
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Сеш"
 
-#: js/messages.php:239
+#: js/messages.php:238
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:240
+#: js/messages.php:239
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:241
+#: js/messages.php:240
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Жум"
 
-#: js/messages.php:242
+#: js/messages.php:241
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:246 libraries/common.lib.php:1483
+#: js/messages.php:245 libraries/common.lib.php:1475
 msgid "Sun"
 msgstr "Якш"
 
 #. l10n: Short week day name
-#: js/messages.php:248 libraries/common.lib.php:1485
+#: js/messages.php:247 libraries/common.lib.php:1477
 msgid "Mon"
 msgstr "Душ"
 
 #. l10n: Short week day name
-#: js/messages.php:250 libraries/common.lib.php:1487
+#: js/messages.php:249 libraries/common.lib.php:1479
 msgid "Tue"
 msgstr "Сеш"
 
 #. l10n: Short week day name
-#: js/messages.php:252 libraries/common.lib.php:1489
+#: js/messages.php:251 libraries/common.lib.php:1481
 msgid "Wed"
 msgstr "Чор"
 
 #. l10n: Short week day name
-#: js/messages.php:254 libraries/common.lib.php:1491
+#: js/messages.php:253 libraries/common.lib.php:1483
 msgid "Thu"
 msgstr "Пай"
 
 #. l10n: Short week day name
-#: js/messages.php:256 libraries/common.lib.php:1493
+#: js/messages.php:255 libraries/common.lib.php:1485
 msgid "Fri"
 msgstr "Жум"
 
 #. l10n: Short week day name
-#: js/messages.php:258 libraries/common.lib.php:1495
+#: js/messages.php:257 libraries/common.lib.php:1487
 msgid "Sat"
 msgstr "Шан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:262
+#: js/messages.php:261
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Якш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:264
+#: js/messages.php:263
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Душ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:266
+#: js/messages.php:265
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Сеш"
 
 #. l10n: Minimal week day name
-#: js/messages.php:268
+#: js/messages.php:267
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Чор"
 
 #. l10n: Minimal week day name
-#: js/messages.php:270
+#: js/messages.php:269
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Пай"
 
 #. l10n: Minimal week day name
-#: js/messages.php:272
+#: js/messages.php:271
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Жум"
 
 #. l10n: Minimal week day name
-#: js/messages.php:274
+#: js/messages.php:273
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Шан"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:276
+#: js/messages.php:275
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Вики"
 
-#: js/messages.php:278
+#: js/messages.php:277
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:279
+#: js/messages.php:278
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "ишлатилмоқда"
 
-#: js/messages.php:280
+#: js/messages.php:279
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -1905,44 +1803,45 @@ msgstr ""
 "Юкланган файл жойини ўзгартиришда хатолик, [a@./Documentation."
 "html#faq1_11@Documentation]\"FAQ 1.11\"[/a]га қаранг"
 
-#: libraries/Index.class.php:417 tbl_relation.php:526
+#: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
 msgstr "Индекс белгиланмаган!"
 
-#: libraries/Index.class.php:422 libraries/build_html_for_db.lib.php:40
+#: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:309
 msgid "Indexes"
 msgstr "Индекслар"
 
-#: libraries/Index.class.php:433 libraries/tbl_properties.inc.php:506
+#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:506
 #: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
 #: tbl_tracking.php:315
 msgid "Unique"
 msgstr "Уникал"
 
-#: libraries/Index.class.php:434 tbl_tracking.php:316
+#: libraries/Index.class.php:435 tbl_tracking.php:316
 msgid "Packed"
 msgstr "Қисилган"
 
-#: libraries/Index.class.php:436 tbl_tracking.php:318
+#: libraries/Index.class.php:437 tbl_tracking.php:318
 msgid "Cardinality"
 msgstr "Элементлар сони"
 
-#: libraries/Index.class.php:439 libraries/db_routines.lib.php:748
-#: tbl_tracking.php:272 tbl_tracking.php:321
+#: libraries/Index.class.php:440 libraries/rte/rte_events.lib.php:504
+#: libraries/rte/rte_routines.lib.php:1006 tbl_tracking.php:272
+#: tbl_tracking.php:321
 msgid "Comment"
 msgstr "Изоҳ"
 
-#: libraries/Index.class.php:465
+#: libraries/Index.class.php:466
 msgid "The primary key has been dropped"
 msgstr "Бирламчи калит ўчирилди"
 
-#: libraries/Index.class.php:469
+#: libraries/Index.class.php:470
 #, php-format
 msgid "Index %s has been dropped"
 msgstr " \"%s\" индекси ўчирилди"
 
-#: libraries/Index.class.php:567
+#: libraries/Index.class.php:568
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -2024,25 +1923,25 @@ msgstr "\"%s\" туридаги жадваллар ушбу MySQL серверд
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ушбу MySQL сервери \"%s\" турдаги жадваллар билан ишлай олмайди."
 
-#: libraries/Table.class.php:1036
+#: libraries/Table.class.php:1034
 msgid "Invalid database"
 msgstr "Нотўғри маълумотлар базаси"
 
-#: libraries/Table.class.php:1050 tbl_get_field.php:25
+#: libraries/Table.class.php:1048 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Жадвал номи нотўғри"
 
-#: libraries/Table.class.php:1065
+#: libraries/Table.class.php:1063
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s жадвалини %2$s деб қайта номлашда хатолик"
 
-#: libraries/Table.class.php:1148
+#: libraries/Table.class.php:1146
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "`\"%s\"` жадвалининг номи `\"%s\"` деб ўзгартирилди."
 
-#: libraries/Table.class.php:1275
+#: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
 msgstr ""
 
@@ -2212,23 +2111,23 @@ msgstr ""
 msgid "get BLOB Content-Type failed"
 msgstr ""
 
-#: libraries/blobstreaming.lib.php:342
+#: libraries/blobstreaming.lib.php:341
 msgid "View image"
 msgstr "Расм кўриниши"
 
-#: libraries/blobstreaming.lib.php:346
+#: libraries/blobstreaming.lib.php:345
 msgid "Play audio"
 msgstr "Аудиофайлни ўқиш"
 
-#: libraries/blobstreaming.lib.php:351
+#: libraries/blobstreaming.lib.php:350
 msgid "View video"
 msgstr "Видео кўриниши"
 
-#: libraries/blobstreaming.lib.php:355
+#: libraries/blobstreaming.lib.php:354
 msgid "Download file"
 msgstr "Файлни юклаб олиш"
 
-#: libraries/blobstreaming.lib.php:416
+#: libraries/blobstreaming.lib.php:415
 #, php-format
 msgid "Could not open file: %s"
 msgstr ""
@@ -2250,7 +2149,7 @@ msgstr "Жадваллар"
 #: libraries/config/user_preferences.forms.php:241
 #: libraries/config/user_preferences.forms.php:272
 #: libraries/config/user_preferences.forms.php:277
-#: libraries/export/latex.php:216 libraries/export/sql.php:1058
+#: libraries/export/latex.php:201 libraries/export/sql.php:1039
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
 #: tbl_structure.php:798
 msgid "Data"
@@ -2288,25 +2187,25 @@ msgstr "\"%s\" маълумотлар базасининг привилегия�
 msgid "Check Privileges"
 msgstr "Привилегияларни текшириш"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:588
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Failed to read configuration file"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:589
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:595
+#: libraries/common.inc.php:596
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr " \"%1$s\" файлидан андоза конфигурацияни юклаб бўлмади."
 
-#: libraries/common.inc.php:600
+#: libraries/common.inc.php:601
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2314,30 +2213,30 @@ msgstr ""
 "<tt>$cfg[\"PmaAbsoluteUrl\"]</tt> директиваси конфигурацион файлда созланиши "
 "ШАРТ!"
 
-#: libraries/common.inc.php:630
+#: libraries/common.inc.php:631
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Сервер рақами нотўғри: \"%s\""
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 " %1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
 "файлида белгиланган созлашларни тўғирланг."
 
-#: libraries/common.inc.php:646 libraries/config/messages.inc.php:497
+#: libraries/common.inc.php:647 libraries/config/messages.inc.php:497
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Сервер"
 
-#: libraries/common.inc.php:825
+#: libraries/common.inc.php:826
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "phpMyAdmin конфигурацион файлида нотўғри аутентификация усули белгиланган:"
 
-#: libraries/common.inc.php:928
+#: libraries/common.inc.php:929
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr " \"%s\" ни \"%s\" версияга ёки каттароқ версияга янгилаш зарур."
@@ -2381,137 +2280,157 @@ msgstr "Документация"
 msgid "SQL query"
 msgstr "SQL сўрови"
 
-#: libraries/common.lib.php:1031
+#: libraries/common.lib.php:581 libraries/rte/rte_events.lib.php:127
+#: libraries/rte/rte_events.lib.php:132 libraries/rte/rte_events.lib.php:142
+#: libraries/rte/rte_events.lib.php:155 libraries/rte/rte_routines.lib.php:280
+#: libraries/rte/rte_routines.lib.php:285
+#: libraries/rte/rte_routines.lib.php:295
+#: libraries/rte/rte_routines.lib.php:309
+#: libraries/rte/rte_routines.lib.php:1310
+#: libraries/rte/rte_triggers.lib.php:100
+#: libraries/rte/rte_triggers.lib.php:105
+#: libraries/rte/rte_triggers.lib.php:115
+#: libraries/rte/rte_triggers.lib.php:128
+msgid "MySQL said: "
+msgstr "MySQL жавоби: "
+
+#: libraries/common.lib.php:1026
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Failed to connect to SQL validator!"
 msgstr "MySQL-серверга уланиб бўлмади"
 
-#: libraries/common.lib.php:1072 libraries/config/messages.inc.php:474
+#: libraries/common.lib.php:1067 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
 msgstr "Сўров таҳлили"
 
-#: libraries/common.lib.php:1076
+#: libraries/common.lib.php:1071
 msgid "Skip Explain SQL"
 msgstr "Таҳлил керак эмас"
 
-#: libraries/common.lib.php:1110
+#: libraries/common.lib.php:1105
 msgid "Without PHP Code"
 msgstr "PHP-код олиб ташлаш"
 
-#: libraries/common.lib.php:1113 libraries/config/messages.inc.php:476
+#: libraries/common.lib.php:1108 libraries/config/messages.inc.php:476
 msgid "Create PHP Code"
 msgstr "PHP-код"
 
-#: libraries/common.lib.php:1131 libraries/config/messages.inc.php:475
+#: libraries/common.lib.php:1126 libraries/config/messages.inc.php:475
 #: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
 msgstr "Янгилаш"
 
-#: libraries/common.lib.php:1140
+#: libraries/common.lib.php:1135
 msgid "Skip Validate SQL"
 msgstr "SQL синтаксиси текширувини олиб ташлаш"
 
-#: libraries/common.lib.php:1143 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1138 libraries/config/messages.inc.php:478
 msgid "Validate SQL"
 msgstr "SQL тўғрилигини текшириш"
 
-#: libraries/common.lib.php:1198
+#: libraries/common.lib.php:1193
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/common.lib.php:1200
+#: libraries/common.lib.php:1195
 #, fuzzy
 #| msgid "Engines"
 msgid "Inline"
 msgstr "Жадвал турлари"
 
-#: libraries/common.lib.php:1262 sql.php:938
+#: libraries/common.lib.php:1256 sql.php:938
 msgid "Profiling"
 msgstr "Профиллаштириш"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "B"
 msgstr "Байт"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "KiB"
 msgstr "КБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "MiB"
 msgstr "МБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "GiB"
 msgstr "ГБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "TiB"
 msgstr "ТБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "PiB"
 msgstr "ПБ"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "EiB"
 msgstr "ЭБ"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1499
+#: libraries/common.lib.php:1491
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y й., %H:%M"
 
-#: libraries/common.lib.php:1797
+#: libraries/common.lib.php:1789
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "\"%s\" кун, \"%s\" соат, \"%s\" минут ва \"%s\" секунд"
 
-#: libraries/common.lib.php:2192 libraries/common.lib.php:2195
+#: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:302
 msgid "Begin"
 msgstr "Боши"
 
-#: libraries/common.lib.php:2193 libraries/common.lib.php:2196
+#: libraries/common.lib.php:2183 libraries/common.lib.php:2186
 #: libraries/display_tbl.lib.php:303 server_binlog.php:135
 #: server_binlog.php:137
 msgid "Previous"
 msgstr "Орқага"
 
-#: libraries/common.lib.php:2223 libraries/common.lib.php:2226
-#: libraries/display_tbl.lib.php:381
+#: libraries/common.lib.php:2213 libraries/common.lib.php:2216
+#: libraries/display_tbl.lib.php:381 libraries/rte/rte_events.lib.php:481
 msgid "End"
 msgstr "Охири"
 
-#: libraries/common.lib.php:2288
+#: libraries/common.lib.php:2278
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr " \"%s\" маълумотлар базасига ўтиш"
 
-#: libraries/common.lib.php:2304
+#: libraries/common.lib.php:2294
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 " \"%s\" параметрининг иши маълум хатоликка олиб келиши мумкин, батафсил "
 "маълумот учун қаранг \"%s\""
 
-#: libraries/common.lib.php:2646 libraries/common.lib.php:2653
-#: libraries/common.lib.php:2840 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:2447
+#, fuzzy
+#| msgid "Click to select"
+msgid "Click to toggle"
+msgstr "Танлаш учун сичқонча тугмасини босинг"
+
+#: libraries/common.lib.php:2718 libraries/common.lib.php:2725
+#: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:367
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:352
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:341
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
 #: libraries/tbl_properties.inc.php:626 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
 msgid "Structure"
 msgstr "Тузилиши"
 
-#: libraries/common.lib.php:2647 libraries/common.lib.php:2654
+#: libraries/common.lib.php:2719 libraries/common.lib.php:2726
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2519,38 +2438,38 @@ msgstr "Тузилиши"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2649 libraries/common.lib.php:2838
-#: libraries/common.lib.php:2839 libraries/sql_query_form.lib.php:284
+#: libraries/common.lib.php:2721 libraries/common.lib.php:2910
+#: libraries/common.lib.php:2911 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Қўйиш"
 
-#: libraries/common.lib.php:2656 libraries/db_links.inc.php:86
-#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:113
+#: libraries/common.lib.php:2728 libraries/db_links.inc.php:86
+#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Операциялар"
 
-#: libraries/common.lib.php:2786
+#: libraries/common.lib.php:2858
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/common.lib.php:2802
+#: libraries/common.lib.php:2874
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Юклаш каталогидан"
 
-#: libraries/common.lib.php:2814 libraries/sql_query_form.lib.php:447
+#: libraries/common.lib.php:2886 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Кўрсатилган каталокка юклаб бўлмади"
 
-#: libraries/common.lib.php:2822
+#: libraries/common.lib.php:2894
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/common.lib.php:2849 libraries/common.lib.php:2850
+#: libraries/common.lib.php:2921 libraries/common.lib.php:2922
 msgid "Execute"
 msgstr ""
 
@@ -3133,7 +3052,7 @@ msgid "Label key"
 msgstr "Белги идентификатори"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
+#: libraries/config/messages.inc.php:134 libraries/export/odt.php:315
 #: libraries/tbl_properties.inc.php:145
 msgid "MIME type"
 msgstr "MIME тури"
@@ -5087,69 +5006,10 @@ msgctxt "PHP documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/core.lib.php:256
+#: libraries/core.lib.php:258
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
-
-#: libraries/db_events.inc.php:30
-#, fuzzy, php-format
-#| msgid "Export contents"
-msgid "Export of event %s"
-msgstr "Таркибини экспорт қилиш"
-
-#: libraries/db_events.inc.php:34
-#, fuzzy, php-format
-#| msgid "Export contents"
-msgid "Export of event \"%s\""
-msgstr "Таркибини экспорт қилиш"
-
-#: libraries/db_events.inc.php:40
-#, fuzzy, php-format
-#| msgid "No tables found in database."
-msgid "No event with name %s found in database %s"
-msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
-
-#: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
-#: libraries/export/sql.php:609
-msgid "Events"
-msgstr "Ҳодисалар"
-
-#: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no events to display."
-msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
-
-#: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
-#: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
-#: libraries/display_create_table.lib.php:51
-#: libraries/display_triggers.inc.php:70 libraries/tbl_properties.inc.php:102
-#: setup/frames/index.inc.php:125 tbl_structure.php:204
-msgid "Name"
-msgstr "Номи"
-
-#: libraries/db_events.inc.php:129
-msgid "The event scheduler is enabled"
-msgstr ""
-
-#: libraries/db_events.inc.php:129
-msgid "The event scheduler is disabled"
-msgstr ""
-
-#: libraries/db_events.inc.php:131
-msgid "Turn it on"
-msgstr ""
-
-#: libraries/db_events.inc.php:131
-msgid "Turn it off"
-msgstr ""
-
-#: libraries/db_events.inc.php:141
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add an event"
-msgstr "Янги фойдаланувчи қўшиш"
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
@@ -5175,174 +5035,20 @@ msgstr "Дизайнер"
 msgid "Privileges"
 msgstr "Привилегиялар"
 
-#: libraries/db_links.inc.php:97 libraries/db_routines.lib.php:1149
+#: libraries/db_links.inc.php:97 libraries/rte/rte_routines.lib.php:50
 msgid "Routines"
 msgstr "Муолажалар"
 
-#: libraries/db_links.inc.php:105 libraries/display_triggers.inc.php:62
-#: libraries/export/sql.php:987 libraries/export/xml.php:38
+#: libraries/db_links.inc.php:101 libraries/export/sql.php:609
+#: libraries/rte/rte_events.lib.php:65
+msgid "Events"
+msgstr "Ҳодисалар"
+
+#: libraries/db_links.inc.php:105 libraries/export/sql.php:978
+#: libraries/export/xml.php:38 libraries/rte/rte_triggers.lib.php:46
+#: libraries/tbl_links.inc.php:103
 msgid "Triggers"
 msgstr "Триггерлар"
-
-#: libraries/db_routines.lib.php:630
-#, fuzzy
-#| msgid "Details..."
-msgid "Details"
-msgstr "Тафсилотлар..."
-
-#: libraries/db_routines.lib.php:633
-#, fuzzy
-#| msgid "Routines"
-msgid "Routine name"
-msgstr "Муолажалар"
-
-#: libraries/db_routines.lib.php:650
-#, fuzzy, php-format
-#| msgid "Change"
-msgid "Change to %s"
-msgstr "Ўзгартириш"
-
-#: libraries/db_routines.lib.php:655
-msgid "Parameters"
-msgstr ""
-
-#: libraries/db_routines.lib.php:660
-#, fuzzy
-#| msgid "Direct links"
-msgid "Direction"
-msgstr "Тўғридан-тўғри боғланишлар"
-
-#: libraries/db_routines.lib.php:663 libraries/tbl_properties.inc.php:108
-msgid "Length/Values"
-msgstr "Узунлик/қийматлар"
-
-#: libraries/db_routines.lib.php:664 libraries/display_tbl.lib.php:593
-#: libraries/export/codegen.php:41 libraries/export/csv.php:34
-#: libraries/export/excel.php:37 libraries/export/htmlword.php:33
-#: libraries/export/json.php:29 libraries/export/latex.php:35
-#: libraries/export/mediawiki.php:23 libraries/export/ods.php:29
-#: libraries/export/odt.php:27 libraries/export/pdf.php:29
-#: libraries/export/php_array.php:29 libraries/export/sql.php:83
-#: libraries/export/texytext.php:31 libraries/export/xls.php:29
-#: libraries/export/xlsx.php:29 libraries/export/xml.php:25
-#: libraries/export/yaml.php:30 libraries/import.lib.php:1080
-#: libraries/import.lib.php:1102 libraries/import/csv.php:33
-#: libraries/import/docsql.php:35 libraries/import/ldi.php:49
-#: libraries/import/ods.php:32 libraries/import/sql.php:20
-#: libraries/import/xls.php:28 libraries/import/xlsx.php:28
-#: libraries/import/xml.php:25 tbl_select.php:257 tbl_structure.php:886
-msgid "Options"
-msgstr "Параметрлар"
-
-#: libraries/db_routines.lib.php:678
-#, fuzzy
-#| msgid "Apply index(s)"
-msgid "Add parameter"
-msgstr "Индекс(лар)ни сақлаш"
-
-#: libraries/db_routines.lib.php:681
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Remove last parameter"
-msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
-
-#: libraries/db_routines.lib.php:686 libraries/db_routines.lib.php:1159
-msgid "Return type"
-msgstr "Қайтариладиган тип"
-
-#: libraries/db_routines.lib.php:692
-#, fuzzy
-#| msgid "Length/Values"
-msgid "Return length/values"
-msgstr "Узунлик/қийматлар"
-
-#: libraries/db_routines.lib.php:697
-#, fuzzy
-#| msgid "Table options"
-msgid "Return options"
-msgstr "Жадвал параметрлари"
-
-#: libraries/db_routines.lib.php:716
-#, fuzzy
-#| msgid "Description"
-msgid "Definition"
-msgstr "Тавсифи"
-
-#: libraries/db_routines.lib.php:720
-msgid "Is deterministic"
-msgstr ""
-
-#: libraries/db_routines.lib.php:724
-msgid "Definer"
-msgstr ""
-
-#: libraries/db_routines.lib.php:729
-#, fuzzy
-#| msgid "Security"
-msgid "Security type"
-msgstr "Хавфсизлик"
-
-#: libraries/db_routines.lib.php:736
-msgid "SQL data access"
-msgstr ""
-
-#: libraries/db_routines.lib.php:800 libraries/db_routines.lib.php:803
-#, fuzzy
-#| msgid "Routines"
-msgid "Routine parameters"
-msgstr "Муолажалар"
-
-#: libraries/db_routines.lib.php:810 tbl_change.php:287 tbl_change.php:325
-msgid "Function"
-msgstr "Функция"
-
-#: libraries/db_routines.lib.php:812 libraries/replication_gui.lib.php:117
-#: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
-#: pmd_general.php:775 server_status.php:1029 tbl_change.php:329
-#: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:862
-msgid "Value"
-msgstr "Қиймати"
-
-#: libraries/db_routines.lib.php:916
-msgid "You must provide a routine name"
-msgstr ""
-
-#: libraries/db_routines.lib.php:935
-#, php-format
-msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
-
-#: libraries/db_routines.lib.php:946 libraries/db_routines.lib.php:987
-msgid ""
-"You must provide length/values for routine parameters of type ENUM, SET, "
-"VARCHAR and VARBINARY."
-msgstr ""
-
-#: libraries/db_routines.lib.php:971
-msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
-
-#: libraries/db_routines.lib.php:1028
-msgid "You must provide a routine definition."
-msgstr ""
-
-#: libraries/db_routines.lib.php:1151
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no routines to display."
-msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
-
-#: libraries/db_routines.lib.php:1192
-#, fuzzy
-#| msgid "Apply index(s)"
-msgid "Add routine"
-msgstr "Индекс(лар)ни сақлаш"
-
-#: libraries/db_routines.lib.php:1195
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
-msgid "You do not have the necessary privileges to create a new routine"
-msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳуқуқ мавжуд эмас!"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
 msgid ""
@@ -5417,6 +5123,15 @@ msgstr "Привилегиялар йўқ"
 #, php-format
 msgid "Create table on database %s"
 msgstr "\"%s\" маълумотлар базасида янги жадвал тузиш"
+
+#: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:49
+#: libraries/rte/rte_list.lib.php:55 libraries/rte/rte_list.lib.php:62
+#: libraries/rte/rte_routines.lib.php:909
+#: libraries/rte/rte_routines.lib.php:1419
+#: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:125
+#: tbl_structure.php:204
+msgid "Name"
+msgstr "Номи"
 
 #: libraries/display_create_table.lib.php:55
 #, fuzzy
@@ -5567,7 +5282,7 @@ msgid "Compression:"
 msgstr "Сиқиш"
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:564
-#: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:562
+#: libraries/export/sql.php:1039 libraries/tbl_properties.inc.php:562
 #: pmd_general.php:510 server_privileges.php:1955 server_status.php:835
 msgid "None"
 msgstr "Йўқ"
@@ -5794,6 +5509,25 @@ msgstr ""
 msgid "Sort by key"
 msgstr "Индекс бўйича сортировка қилиш"
 
+#: libraries/display_tbl.lib.php:593 libraries/export/codegen.php:41
+#: libraries/export/csv.php:34 libraries/export/excel.php:37
+#: libraries/export/htmlword.php:33 libraries/export/json.php:29
+#: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
+#: libraries/export/ods.php:29 libraries/export/odt.php:27
+#: libraries/export/pdf.php:29 libraries/export/php_array.php:29
+#: libraries/export/sql.php:83 libraries/export/texytext.php:31
+#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
+#: libraries/export/xml.php:25 libraries/export/yaml.php:30
+#: libraries/import.lib.php:1080 libraries/import.lib.php:1102
+#: libraries/import/csv.php:33 libraries/import/docsql.php:35
+#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/sql.php:20 libraries/import/xls.php:28
+#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/rte/rte_routines.lib.php:912 tbl_select.php:257
+#: tbl_structure.php:886
+msgid "Options"
+msgstr "Параметрлар"
+
 #: libraries/display_tbl.lib.php:598 libraries/display_tbl.lib.php:608
 #, fuzzy
 #| msgid "Partial Texts"
@@ -5898,44 +5632,6 @@ msgstr "Версиясини тузиш"
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
 msgstr "Алоқа топилмади"
-
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger %s"
-msgstr "Триггерларни экспорт қилиш"
-
-#: libraries/display_triggers.inc.php:39
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger \"%s\""
-msgstr "Триггерларни экспорт қилиш"
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr " \"%s\" мавзуси расмларига тўғри йўл топилмади!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no triggers to display."
-msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Вақт"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Ҳодиса"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Янги фойдаланувчи қўшиш"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
@@ -6442,13 +6138,13 @@ msgstr "Excel-версияси"
 msgid "Data dump options"
 msgstr "Маълумотлар базаларини кўрсатиш афзалликлари"
 
-#: libraries/export/htmlword.php:136 libraries/export/odt.php:176
-#: libraries/export/sql.php:1153 libraries/export/texytext.php:124
+#: libraries/export/htmlword.php:121 libraries/export/odt.php:161
+#: libraries/export/sql.php:1134 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr "Жадвал маълумотларини дамп қилиш"
 
-#: libraries/export/htmlword.php:189 libraries/export/odt.php:246
-#: libraries/export/sql.php:976 libraries/export/texytext.php:171
+#: libraries/export/htmlword.php:195 libraries/export/odt.php:235
+#: libraries/export/sql.php:967 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr "Жадвал тузилиши"
 
@@ -6497,8 +6193,8 @@ msgstr "Майдон изоҳларини кўрсатиш"
 msgid "Display MIME types"
 msgstr "Мавжуд MIME турлари"
 
-#: libraries/export/latex.php:140 libraries/export/sql.php:453
-#: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
+#: libraries/export/latex.php:129 libraries/export/sql.php:456
+#: libraries/export/xml.php:95 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:270 libraries/replication_gui.lib.php:273
 #: libraries/replication_gui.lib.php:330 server_privileges.php:713
@@ -6507,18 +6203,18 @@ msgstr "Мавжуд MIME турлари"
 msgid "Host"
 msgstr "Хост"
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:458
-#: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
+#: libraries/export/latex.php:134 libraries/export/sql.php:461
+#: libraries/export/xml.php:100 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr "Тузилган сана "
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:460
-#: libraries/export/xml.php:111 main.php:162
+#: libraries/export/latex.php:135 libraries/export/sql.php:463
+#: libraries/export/xml.php:101 main.php:162
 msgid "Server version"
 msgstr "Сервер версияси"
 
-#: libraries/export/latex.php:147 libraries/export/sql.php:461
-#: libraries/export/xml.php:112
+#: libraries/export/latex.php:136 libraries/export/sql.php:464
+#: libraries/export/xml.php:102
 msgid "PHP Version"
 msgstr "PHP версиясм"
 
@@ -6644,35 +6340,35 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:321 libraries/export/xml.php:34
+#: libraries/export/sql.php:322 libraries/export/xml.php:34
 msgid "Procedures"
 msgstr "Муолажалар"
 
-#: libraries/export/sql.php:335 libraries/export/xml.php:32
+#: libraries/export/sql.php:336 libraries/export/xml.php:32
 msgid "Functions"
 msgstr "Функциялар"
 
-#: libraries/export/sql.php:809
+#: libraries/export/sql.php:802
 msgid "Constraints for dumped tables"
 msgstr "Сақланган жадвалларнинг ташқи калитида чекловлар"
 
-#: libraries/export/sql.php:818
+#: libraries/export/sql.php:811
 msgid "Constraints for table"
 msgstr "Жадвалларнинг ташқи калитида чекловлар"
 
-#: libraries/export/sql.php:918
+#: libraries/export/sql.php:909
 msgid "MIME TYPES FOR TABLE"
 msgstr "ЖАДВАЛ УЧУН MIME ТУРЛАРИ"
 
-#: libraries/export/sql.php:930
+#: libraries/export/sql.php:921
 msgid "RELATIONS FOR TABLE"
 msgstr "Жадвал алоқалари"
 
-#: libraries/export/sql.php:999
+#: libraries/export/sql.php:990
 msgid "Structure for view"
 msgstr "Намойиш этиш учун тузилма"
 
-#: libraries/export/sql.php:1008
+#: libraries/export/sql.php:999
 msgid "Stand-in structure for view"
 msgstr "Намойиш этиш учун тузилма"
 
@@ -6710,6 +6406,11 @@ msgstr "SQL сўрови натижаси"
 #: libraries/header_printview.inc.php:59
 msgid "Generated by"
 msgstr "Тузилган"
+
+#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1304
+#: sql.php:685 tbl_change.php:183 tbl_get_field.php:34
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "MySQL бўш натижа берди (яъни нольта сатр)."
 
 #: libraries/import.lib.php:1076
 msgid ""
@@ -7224,6 +6925,14 @@ msgstr "Тобе сервер статуси"
 msgid "Variable"
 msgstr "Ўзгарувчи"
 
+#: libraries/replication_gui.lib.php:117
+#: libraries/rte/rte_routines.lib.php:1424 pmd_general.php:476
+#: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
+#: server_status.php:1029 tbl_change.php:329 tbl_printview.php:367
+#: tbl_select.php:117 tbl_structure.php:862
+msgid "Value"
+msgstr "Қиймати"
+
 #: libraries/replication_gui.lib.php:175 server_binlog.php:183
 msgid "Server ID"
 msgstr "Сервер ID си"
@@ -7278,6 +6987,505 @@ msgstr ""
 #: libraries/replication_gui.lib.php:361
 msgid "Generate Password"
 msgstr "Парол ўрнатиш"
+
+#: libraries/rte/rte_events.lib.php:58
+#, fuzzy
+#| msgid "Add a new server"
+msgid "Add event"
+msgstr "Янги фойдаланувчи қўшиш"
+
+#: libraries/rte/rte_events.lib.php:60
+#, fuzzy, php-format
+#| msgid "Export contents"
+msgid "Export of event %s"
+msgstr "Таркибини экспорт қилиш"
+
+#: libraries/rte/rte_events.lib.php:61
+#, fuzzy
+#| msgid "Event"
+msgid "event"
+msgstr "Ҳодиса"
+
+#: libraries/rte/rte_events.lib.php:62
+#, fuzzy
+#| msgid "You don't have sufficient privileges to be here right now!"
+msgid "You do not have the necessary privileges to create an event"
+msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳуқуқ мавжуд эмас!"
+
+#: libraries/rte/rte_events.lib.php:63
+#, fuzzy, php-format
+#| msgid "No tables found in database."
+msgid "No event with name %1$s found in database %2$s"
+msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
+
+#: libraries/rte/rte_events.lib.php:64
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There are no events to display."
+msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
+
+#: libraries/rte/rte_events.lib.php:126 libraries/rte/rte_events.lib.php:131
+#: libraries/rte/rte_events.lib.php:154 libraries/rte/rte_routines.lib.php:279
+#: libraries/rte/rte_routines.lib.php:284
+#: libraries/rte/rte_routines.lib.php:308
+#: libraries/rte/rte_routines.lib.php:1309
+#: libraries/rte/rte_triggers.lib.php:99
+#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:127
+#, fuzzy, php-format
+#| msgid "The following queries have been executed:"
+msgid "The following query has failed: \"%s\""
+msgstr "Қуйидаги сўровлар бажарилди:"
+
+#: libraries/rte/rte_events.lib.php:140
+msgid "Sorry, we failed to restore the dropped event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
+#: libraries/rte/rte_triggers.lib.php:114
+msgid "The backed up query was:"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:145
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Event %1$s has been modified."
+msgstr "\"%s\" жадвали ўчирилди"
+
+#: libraries/rte/rte_events.lib.php:157
+#, fuzzy, php-format
+#| msgid "Table %1$s has been created."
+msgid "Event %1$s has been created."
+msgstr "%1$s жадвали тузилди."
+
+#: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
+#: libraries/rte/rte_triggers.lib.php:138
+msgid "<b>One or more errors have occured while processing your request:</b>"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:205
+#, fuzzy
+#| msgid "Create version"
+msgid "Create event"
+msgstr "Версиясини тузиш"
+
+#: libraries/rte/rte_events.lib.php:209
+#, fuzzy
+#| msgid "Edit server"
+msgid "Edit event"
+msgstr "Серверларни таҳрирлаш"
+
+#: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
+#: libraries/rte/rte_routines.lib.php:1331
+#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_triggers.lib.php:211
+#, fuzzy
+#| msgid "Processes"
+msgid "Error in processing request"
+msgstr "Жараёнлар"
+
+#: libraries/rte/rte_events.lib.php:395 libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_triggers.lib.php:322
+#, fuzzy
+#| msgid "Details..."
+msgid "Details"
+msgstr "Тафсилотлар..."
+
+#: libraries/rte/rte_events.lib.php:398
+#, fuzzy
+#| msgid "Event type"
+msgid "Event name"
+msgstr "Ҳодиса тури"
+
+#: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
+msgid "Event type"
+msgstr "Ҳодиса тури"
+
+#: libraries/rte/rte_events.lib.php:440 libraries/rte/rte_routines.lib.php:898
+#, fuzzy, php-format
+#| msgid "Change"
+msgid "Change to %s"
+msgstr "Ўзгартириш"
+
+#: libraries/rte/rte_events.lib.php:446
+msgid "Execute at"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:454
+#, fuzzy
+#| msgid "Execute bookmarked query"
+msgid "Execute every"
+msgstr "Белгиланган сўровни бажариш"
+
+#: libraries/rte/rte_events.lib.php:473
+#, fuzzy
+#| msgid "Startup"
+msgid "Start"
+msgstr "Бошланғич"
+
+#: libraries/rte/rte_events.lib.php:489 libraries/rte/rte_routines.lib.php:972
+#: libraries/rte/rte_triggers.lib.php:372
+#, fuzzy
+#| msgid "Description"
+msgid "Definition"
+msgstr "Тавсифи"
+
+#: libraries/rte/rte_events.lib.php:495
+#, fuzzy
+#| msgid "Complete inserts"
+msgid "On completion preserve"
+msgstr "Тўла қўйиш"
+
+#: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
+#: libraries/rte/rte_triggers.lib.php:378
+msgid "Definer"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:542
+#: libraries/rte/rte_routines.lib.php:1044
+#: libraries/rte/rte_triggers.lib.php:416
+msgid "The definer must be in the \"username@hostname\" format"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:549
+msgid "You must provide an event name"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:561
+msgid "You must provide a valid interval value for the event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:573
+msgid "You must provide a valid execution time for the event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:577
+msgid "You must provide a valid type for the event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:596
+msgid "You must provide an event definition."
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:29
+msgid "New"
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:91
+msgid "OFF"
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:96
+msgid "ON"
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:108
+msgid "Event scheduler status"
+msgstr ""
+
+#: libraries/rte/rte_list.lib.php:52
+#, fuzzy
+#| msgid "Return type"
+msgid "Returns"
+msgstr "Қайтариладиган тип"
+
+#: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
+#: server_status.php:800 sql.php:943
+msgid "Time"
+msgstr "Вақт"
+
+#: libraries/rte/rte_list.lib.php:59 libraries/rte/rte_triggers.lib.php:358
+msgid "Event"
+msgstr "Ҳодиса"
+
+#: libraries/rte/rte_routines.lib.php:43
+#, fuzzy
+#| msgid "Apply index(s)"
+msgid "Add routine"
+msgstr "Индекс(лар)ни сақлаш"
+
+#: libraries/rte/rte_routines.lib.php:45
+#, fuzzy, php-format
+#| msgid "Export functions"
+msgid "Export of routine %s"
+msgstr "Функцияларни экспорт қилиш"
+
+#: libraries/rte/rte_routines.lib.php:46
+#, fuzzy
+#| msgid "Routines"
+msgid "routine"
+msgstr "Муолажалар"
+
+#: libraries/rte/rte_routines.lib.php:47
+#, fuzzy
+#| msgid "You don't have sufficient privileges to be here right now!"
+msgid "You do not have the necessary privileges to create a routine"
+msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳуқуқ мавжуд эмас!"
+
+#: libraries/rte/rte_routines.lib.php:48
+#, fuzzy, php-format
+#| msgid "No tables found in database."
+msgid "No routine with name %1$s found in database %2$s"
+msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
+
+#: libraries/rte/rte_routines.lib.php:49
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There are no routines to display."
+msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
+
+#: libraries/rte/rte_routines.lib.php:88
+msgid ""
+"You are using PHP's deprecated 'mysql' extension, which is not capable of "
+"handling multi queries. <b>The execution of some stored routines may fail!</"
+"b> Please use the improved 'mysqli' extension to avoid any problems."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:272
+#: libraries/rte/rte_routines.lib.php:1052
+#, fuzzy, php-format
+#| msgid "Invalid server index: \"%s\""
+msgid "Invalid routine type: \"%s\""
+msgstr "Сервер рақами нотўғри: \"%s\""
+
+#: libraries/rte/rte_routines.lib.php:293
+msgid "Sorry, we failed to restore the dropped routine."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:298
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Routine %1$s has been modified."
+msgstr "\"%s\" жадвали ўчирилди"
+
+#: libraries/rte/rte_routines.lib.php:311
+#, fuzzy, php-format
+#| msgid "Table %1$s has been created."
+msgid "Routine %1$s has been created."
+msgstr "%1$s жадвали тузилди."
+
+#: libraries/rte/rte_routines.lib.php:365
+#, fuzzy
+#| msgid "Create relation"
+msgid "Create routine"
+msgstr "Боғлиқлик ўрнатиш"
+
+#: libraries/rte/rte_routines.lib.php:369
+#, fuzzy
+#| msgid "Edit mode"
+msgid "Edit routine"
+msgstr "Таҳрирлаш усули"
+
+#: libraries/rte/rte_routines.lib.php:880
+#, fuzzy
+#| msgid "Routines"
+msgid "Routine name"
+msgstr "Муолажалар"
+
+#: libraries/rte/rte_routines.lib.php:903
+msgid "Parameters"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:908
+#, fuzzy
+#| msgid "Direct links"
+msgid "Direction"
+msgstr "Тўғридан-тўғри боғланишлар"
+
+#: libraries/rte/rte_routines.lib.php:911 libraries/tbl_properties.inc.php:108
+msgid "Length/Values"
+msgstr "Узунлик/қийматлар"
+
+#: libraries/rte/rte_routines.lib.php:926
+#, fuzzy
+#| msgid "Apply index(s)"
+msgid "Add parameter"
+msgstr "Индекс(лар)ни сақлаш"
+
+#: libraries/rte/rte_routines.lib.php:930
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove last parameter"
+msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
+
+#: libraries/rte/rte_routines.lib.php:935
+msgid "Return type"
+msgstr "Қайтариладиган тип"
+
+#: libraries/rte/rte_routines.lib.php:941
+#, fuzzy
+#| msgid "Length/Values"
+msgid "Return length/values"
+msgstr "Узунлик/қийматлар"
+
+#: libraries/rte/rte_routines.lib.php:947
+#, fuzzy
+#| msgid "Table options"
+msgid "Return options"
+msgstr "Жадвал параметрлари"
+
+#: libraries/rte/rte_routines.lib.php:978
+msgid "Is deterministic"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:987
+#, fuzzy
+#| msgid "Security"
+msgid "Security type"
+msgstr "Хавфсизлик"
+
+#: libraries/rte/rte_routines.lib.php:994
+msgid "SQL data access"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1057
+msgid "You must provide a routine name"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1080
+#, php-format
+msgid "Invalid direction \"%s\" given for parameter."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1092
+#: libraries/rte/rte_routines.lib.php:1136
+msgid ""
+"You must provide length/values for routine parameters of type ENUM, SET, "
+"VARCHAR and VARBINARY."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1116
+msgid "You must provide a name and a type for each routine parameter."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1126
+msgid "You must provide a valid return type for the routine."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1176
+msgid "You must provide a routine definition."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1265
+#, php-format
+msgid "%d row affected by the last statement inside the procedure"
+msgid_plural "%d rows affected by the last statement inside the procedure"
+msgstr[0] ""
+
+#: libraries/rte/rte_routines.lib.php:1281
+#, fuzzy, php-format
+#| msgid "Allows executing stored routines."
+msgid "Execution results of routine %s"
+msgstr "Сақланадиган муолажаларни бажаришга рухсат беради"
+
+#: libraries/rte/rte_routines.lib.php:1355
+#: libraries/rte/rte_routines.lib.php:1361
+msgid "Execute routine"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1412
+#: libraries/rte/rte_routines.lib.php:1415
+#, fuzzy
+#| msgid "Routines"
+msgid "Routine parameters"
+msgstr "Муолажалар"
+
+#: libraries/rte/rte_routines.lib.php:1422 tbl_change.php:287
+#: tbl_change.php:325
+msgid "Function"
+msgstr "Функция"
+
+#: libraries/rte/rte_triggers.lib.php:39
+#, fuzzy
+#| msgid "Add a new server"
+msgid "Add trigger"
+msgstr "Янги фойдаланувчи қўшиш"
+
+#: libraries/rte/rte_triggers.lib.php:41
+#, fuzzy, php-format
+#| msgid "Export triggers"
+msgid "Export of trigger %s"
+msgstr "Триггерларни экспорт қилиш"
+
+#: libraries/rte/rte_triggers.lib.php:42
+#, fuzzy
+#| msgid "Triggers"
+msgid "trigger"
+msgstr "Триггерлар"
+
+#: libraries/rte/rte_triggers.lib.php:43
+#, fuzzy
+#| msgid "You don't have sufficient privileges to be here right now!"
+msgid "You do not have the necessary privileges to create a trigger"
+msgstr "Ушбу саҳифага кириш учун Сизда етарли ҳуқуқ мавжуд эмас!"
+
+#: libraries/rte/rte_triggers.lib.php:44
+#, fuzzy, php-format
+#| msgid "No tables found in database."
+msgid "No trigger with name %1$s found in database %2$s"
+msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
+
+#: libraries/rte/rte_triggers.lib.php:45
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There are no triggers to display."
+msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
+
+#: libraries/rte/rte_triggers.lib.php:113
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:118
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Trigger %1$s has been modified."
+msgstr "\"%s\" жадвали ўчирилди"
+
+#: libraries/rte/rte_triggers.lib.php:130
+#, fuzzy, php-format
+#| msgid "Table %1$s has been created."
+msgid "Trigger %1$s has been created."
+msgstr "%1$s жадвали тузилди."
+
+#: libraries/rte/rte_triggers.lib.php:181
+#, fuzzy
+#| msgid "Create version"
+msgid "Create trigger"
+msgstr "Версиясини тузиш"
+
+#: libraries/rte/rte_triggers.lib.php:185
+#, fuzzy
+#| msgid "Add a new server"
+msgid "Edit trigger"
+msgstr "Янги фойдаланувчи қўшиш"
+
+#: libraries/rte/rte_triggers.lib.php:325
+#, fuzzy
+#| msgid "Triggers"
+msgid "Trigger name"
+msgstr "Триггерлар"
+
+#: libraries/rte/rte_triggers.lib.php:423
+msgid "You must provide a trigger name"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:428
+msgid "You must provide a valid timing for the trigger"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:433
+msgid "You must provide a valid event for the trigger"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:439
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide a valid table name"
+msgstr "Жадвал номи нотўғри"
+
+#: libraries/rte/rte_triggers.lib.php:445
+msgid "You must provide a trigger definition."
+msgstr ""
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
@@ -7633,11 +7841,11 @@ msgstr ""
 "SQL синтаксисини текшириб бўлмади. PHP учун зарур кенгайтмалар "
 "ўрнатилганлигини текширинг, батафсил маълумот учун %sдокументацияга%s қаранг."
 
-#: libraries/tbl_links.inc.php:117 libraries/tbl_links.inc.php:118
+#: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
 msgstr "Жадвал - бўш!"
 
-#: libraries/tbl_links.inc.php:126
+#: libraries/tbl_links.inc.php:127
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr "\"%s.%s\" жадвалини кузатиш фаоллаштирилди."
@@ -8533,10 +8741,6 @@ msgstr "Журнал файли"
 #: server_binlog.php:181
 msgid "Position"
 msgstr "Позиция"
-
-#: server_binlog.php:182
-msgid "Event type"
-msgstr "Ҳодиса тури"
 
 #: server_binlog.php:184
 msgid "Original position"
@@ -10903,33 +11107,33 @@ msgstr "Индексни \"PRIMARY\"га қайта номлаб бўлмади!
 msgid "No index parts defined!"
 msgstr "Индекс қисмлари белгиланмаган!"
 
-#: tbl_indexes.php:165
+#: tbl_indexes.php:169
 msgid "Create a new index"
 msgstr "Янги индекс тузиш"
 
-#: tbl_indexes.php:167
+#: tbl_indexes.php:171
 msgid "Modify an index"
 msgstr "Индексни ўзгаририш"
 
-#: tbl_indexes.php:172
+#: tbl_indexes.php:176
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(\"PRIMARY\" номи <b>фақат</b> бирламчи индексгаэга бўлиши шарт!)"
 
-#: tbl_indexes.php:175
+#: tbl_indexes.php:179
 msgid "Index name:"
 msgstr "Индекс номи: "
 
-#: tbl_indexes.php:181
+#: tbl_indexes.php:185
 msgid "Index type:"
 msgstr "Индекс тури: "
 
-#: tbl_indexes.php:261
+#: tbl_indexes.php:265
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr " \"%s\" майдон(лар)ини индексга қўшиш"
 
-#: tbl_indexes.php:266 tbl_structure.php:727
+#: tbl_indexes.php:270 tbl_structure.php:727
 msgid "Column count has to be larger than zero."
 msgstr "Устунлар сони нолдан кўп бўлиши шарт."
 
@@ -11455,6 +11659,26 @@ msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
 
 #, fuzzy
+#~| msgid "Missing value in the form!"
+#~ msgid "Value too long in the form!"
+#~ msgstr "Форманинг керакли майдонлари тўлдирилмаган!"
+
+#, fuzzy
+#~| msgid "Export contents"
+#~ msgid "Export of event \"%s\""
+#~ msgstr "Таркибини экспорт қилиш"
+
+#, fuzzy
+#~| msgid "Export triggers"
+#~ msgid "Export of trigger \"%s\""
+#~ msgstr "Триггерларни экспорт қилиш"
+
+#, fuzzy
+#~| msgid "No valid image path for theme %s found!"
+#~ msgid "No trigger with name %s found"
+#~ msgstr " \"%s\" мавзуси расмларига тўғри йўл топилмади!"
+
+#, fuzzy
 #~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Кўриб чиқиш"
@@ -11586,9 +11810,6 @@ msgstr "Кўриниш номини ўзгартириш"
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Такрорий қаторларга эътибор бермаслик"
-
-#~ msgid "Execute bookmarked query"
-#~ msgstr "Белгиланган сўровни бажариш"
 
 #~ msgid "No tables"
 #~ msgstr "Жадвал мавжуд эмас"
