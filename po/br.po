@@ -3305,7 +3305,7 @@ msgstr "Enporzhiañ an dregantadoù evel degelennoù (12.00% a zeu da vezañ .12
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "Niver a rekedoù da lezel a-gostez adalek ar penn-kentañ"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
