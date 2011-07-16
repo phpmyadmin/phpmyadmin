@@ -28,6 +28,7 @@ require_once './libraries/rte/rte_events.lib.php';
 /**
  * Do the magic
  */
+$_PMA_RTE = 'EVN';
 require_once './libraries/rte/rte_main.inc.php';
 
 ?>
