@@ -6750,10 +6750,9 @@ msgid "ON"
 msgstr "Activé"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Le planificateur d'évènements est activé"
+msgstr "État du planificateur d'événements"
 
 #: libraries/rte/rte_list.lib.php:52
 #, fuzzy
