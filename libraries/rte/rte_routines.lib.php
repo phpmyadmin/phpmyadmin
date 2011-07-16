@@ -1011,7 +1011,10 @@ function PMA_RTN_getQueryFromRequest()
     ) {
         for ($i=0; $i<count($_REQUEST['item_param_name']); $i++) {
             if (! empty($_REQUEST['item_param_name'][$i]) && ! empty($_REQUEST['item_param_type'][$i])) {
-                if ($_REQUEST['item_type'] == 'PROCEDURE' && ! empty($_REQUEST['item_param_dir'][$i])) {
+                if ($_REQUEST['item_type'] == 'PROCEDURE'
+                    && ! empty($_REQUEST['item_param_dir'][$i])
+                    && in_array($_REQUEST['item_param_dir'][$i], $param_directions)
+                ) {
                     $params .= $_REQUEST['item_param_dir'][$i] . " " . PMA_backquote($_REQUEST['item_param_name'][$i]) . " "
                             . $_REQUEST['item_param_type'][$i];
                 } else if ($_REQUEST['item_type'] == 'FUNCTION') {
