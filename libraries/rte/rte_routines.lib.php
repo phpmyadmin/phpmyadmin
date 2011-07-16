@@ -1038,19 +1038,13 @@ function PMA_RTN_getQueryFromRequest()
                     }
                 }
                 if (! empty($_REQUEST['item_param_opts_text'][$i])) {
-                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])])) {
-                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])];
-                        if ($group == 'FUNC_CHAR') {
-                            $params .= ' CHARSET ' . strtolower($_REQUEST['item_param_opts_text'][$i]);
-                        }
+                    if (in_array($_REQUEST['item_param_type'][$i], $cfg['ColumnTypes']['STRING'])) {
+                        $params .= ' CHARSET ' . strtolower($_REQUEST['item_param_opts_text'][$i]);
                     }
                 }
                 if (! empty($_REQUEST['item_param_opts_num'][$i])) {
-                    if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])])) {
-                        $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_param_type'][$i])];
-                        if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['item_param_opts_num'][$i], $param_opts_num)) {
-                            $params .= ' ' . strtoupper($_REQUEST['item_param_opts_num'][$i]);
-                        }
+                    if (in_array($_REQUEST['item_param_type'][$i], $cfg['ColumnTypes']['NUMERIC'])) {
+                        $params .= ' ' . strtoupper($_REQUEST['item_param_opts_num'][$i]);
                     }
                 }
                 if ($i != count($_REQUEST['item_param_name'])-1) {
@@ -1082,19 +1076,13 @@ function PMA_RTN_getQueryFromRequest()
             }
         }
         if (! empty($_REQUEST['item_returnopts_text'])) {
-            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])])) {
-                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])];
-                if ($group == 'FUNC_CHAR') {
-                    $query .= ' CHARSET ' . strtolower($_REQUEST['item_returnopts_text']);
-                }
+            if (in_array($_REQUEST['item_returntype'], $cfg['ColumnTypes']['STRING'])) {
+                $query .= ' CHARSET ' . strtolower($_REQUEST['item_returnopts_text']);
             }
         }
         if (! empty($_REQUEST['item_returnopts_num'])) {
-            if (isset($cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])])) {
-                $group = $cfg['RestrictColumnTypes'][strtoupper($_REQUEST['item_returntype'])];
-                if ($group == 'FUNC_NUMBER' && in_array($_REQUEST['item_returnopts_num'], $param_opts_num)) {
-                    $query .= ' ' . strtoupper($_REQUEST['item_returnopts_num']);
-                }
+            if (in_array($_REQUEST['item_returntype'], $cfg['ColumnTypes']['NUMERIC'])) {
+                $query .= ' ' . strtoupper($_REQUEST['item_returnopts_num']);
             }
         }
         $query .= ' ';
