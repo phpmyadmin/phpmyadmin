@@ -6850,10 +6850,9 @@ msgid "trigger"
 msgstr "trigger"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "You do not have the necessary privileges to create a new trigger"
+msgstr "You do not have the necessary privileges to create a trigger"
 
 #: libraries/rte/rte_triggers.lib.php:44
 #, php-format
