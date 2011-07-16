@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 14:41+0200\n"
+"PO-Revision-Date: 2011-07-16 14:42+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6677,10 +6677,9 @@ msgid "Change to %s"
 msgstr "Changer pour %s"
 
 #: libraries/rte/rte_events.lib.php:446
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Exécuter"
+msgstr "Exécuter à"
 
 #: libraries/rte/rte_events.lib.php:454
 #, fuzzy
