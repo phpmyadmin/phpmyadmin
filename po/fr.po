@@ -6783,7 +6783,6 @@ msgid "routine"
 msgstr "Procédure stockée"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "Vous n'avez pas les privilèges nécessaires pour créer une procédure"
