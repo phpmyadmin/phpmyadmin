@@ -6641,10 +6641,9 @@ msgstr ""
 "<b>Au moins une erreur s'est produite lors du traitement de la requête :</b>"
 
 #: libraries/rte/rte_events.lib.php:205
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Créer une vue"
+msgstr "Créer un événement"
 
 #: libraries/rte/rte_events.lib.php:209
 #, fuzzy
