@@ -142,7 +142,18 @@ $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
-$js_messages['strCopy']= __('Copy');
+$js_messages['strCopy'] = __('Copy');
+$js_messages['strX'] = __('X');
+$js_messages['strY'] = __('Y');
+$js_messages['strPoint'] = __('Point');
+$js_messages['strLineString'] = __('Linestring');
+$js_messages['strPolygon'] = __('Polygon');
+$js_messages['strGeometry'] = __('Geometry');
+$js_messages['strInnerRing'] = __('Inner Ring');
+$js_messages['strOuterRing'] = __('Outer Ring');
+$js_messages['strAddPoint'] = __('Add a point');
+$js_messages['strAddInnerRing'] = __('Add an inner ring');
+$js_messages['strAddPolygon'] = __('Add a polygon');
 
 /* Designer (pmd/scripts/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
