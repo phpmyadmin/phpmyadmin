@@ -6573,7 +6573,7 @@ msgstr "Générer un mot de passe"
 #: libraries/rte/rte_events.lib.php:58
 #| msgid "Add an event"
 msgid "Add event"
-msgstr "Ajouter un évènement."
+msgstr "Ajouter un événement."
 
 #: libraries/rte/rte_events.lib.php:60
 #, php-format
