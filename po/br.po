@@ -3289,7 +3289,7 @@ msgstr "Ober gant ar ger-alc'hwez LOCAL"
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
 msgid "Column names in first row"
-msgstr ""
+msgstr "Anvioù bannoù el linenn gentañ"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
