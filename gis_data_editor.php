@@ -25,7 +25,9 @@ $gis_types = array(
 
 $no_visual = true;
 if (! isset($gis_data['gis_type'])) {
-    if (isset($_REQUEST['value'])) {
+    if (isset($_REQUEST['type']) && $_REQUEST['type'] != '') {
+        $gis_data['gis_type'] = strtoupper($_REQUEST['type']);
+    } elseif (isset($_REQUEST['value'])) {
         $gis_data['gis_type'] = substr($_REQUEST['value'], 1, strpos($_REQUEST['value'], "(") - 1);
     }
     if(! in_array($gis_data['gis_type'], $gis_types)) {

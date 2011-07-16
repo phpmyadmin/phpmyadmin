@@ -297,13 +297,16 @@ $(document).ready(function() {
         var value = $span.parent('td').children("input[type='text']").val();
         // Field name
         var field = $span.parents('tr').children('td:first').find("input[type='hidden']").val();
+        // Column type
+        var type = $span.parents('tr').find('span.column_type').text();
         // Names of input field and null checkbox
-        var input_name = $span.parents('tr').children('td:nth-child(5)').find('input:nth-child(3)').attr('name');
-        var null_checkbox_name = $span.parents('tr').children('td:nth-child(4)').find('.checkbox_null').attr('name');
+        var input_name = $span.parent('td').children("input[type='text']").attr('name');
+        var null_checkbox_name = $span.parents('tr').find('.checkbox_null').attr('name');
 
         $.post('gis_data_editor.php', {
             'field' : field,
             'value' : value,
+            'type' : type,
             'input_name' : input_name,
             'null_checkbox_name' : null_checkbox_name,
             'get_gis_editor' : true,
