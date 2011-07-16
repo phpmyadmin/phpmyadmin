@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 14:51+0200\n"
+"PO-Revision-Date: 2011-07-16 14:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6743,7 +6743,7 @@ msgstr "Nouveau"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr "Inactif"
+msgstr "Désactivé"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
