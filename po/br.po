@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 21:31+0200\n"
+"PO-Revision-Date: 2011-07-16 21:33+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -3301,7 +3301,7 @@ msgstr "Enporzhiañ moneizioù ($5.00 a zeu da vezañ 5.00)"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Enporzhiañ an dregantadoù evel degelennoù (12.00% a zeu da vezañ .12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
