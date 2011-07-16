@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 14:43+0200\n"
+"PO-Revision-Date: 2011-07-16 14:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6710,7 +6710,7 @@ msgstr "Créateur"
 #: libraries/rte/rte_routines.lib.php:1044
 #: libraries/rte/rte_triggers.lib.php:416
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Le définisseur doit suivre le format «utilisateur@machine»"
 
 #: libraries/rte/rte_events.lib.php:549
 #, fuzzy
