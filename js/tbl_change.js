@@ -434,6 +434,57 @@ $(document).ready(function() {
         $noOfLinesInput.attr('value', noOfLines + 1);
     });
 
+    /**
+     * Handles adding polygons
+     */
+    $('.addJs.polygon').live('click', function() {
+        var $a = $(this);
+        var name = $a.attr('name');
+        // Eg. name = gis_data[0][MULTIPOLYGON][add_polygon] => prefix = gis_data[0][MULTIPOLYGON]
+        var prefix = name.substr(0, name.length - 13);
+        // Find the number of polygons
+        var $noOfPolygonsInput = $("input[name='" + prefix + "[no_of_polygons]" + "']");
+        var noOfPolygons = parseInt($noOfPolygonsInput.attr('value'));
+
+        // Add the new polygon
+        var html = 'Polygon' + (noOfPolygons + 1) + ':<br>';
+        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1">';
+            + '<br>' + 'Outer Ring' + ':';
+            + '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4">';
+        for (i = 0; i < 4; i++) {
+            html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
+        }
+        html += '<a class="point addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ Add a point</a><br>';
+            + '<a class="line addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ Add an inner ring</a><br><br>';
+
+        $a.before(html);
+        $noOfPolygonsInput.attr('value', noOfPolygons + 1);
+    });
+
+    /**
+     * Handles adding geoms
+     */
+    $('.addJs.geom').live('click', function() {
+        var $a = $(this);
+        var prefix = 'gis_data[GEOMETRYCOLLECTION]';
+        // Find the number of geoms
+        var $noOfGeomsInput = $("input[name='" + prefix + "[geom_count]" + "']");
+        var noOfGeoms = parseInt($noOfGeomsInput.attr('value'));
+
+        var html1 = 'Geometry' + (noOfGeoms + 1) + ':<br>';
+        var $geomType = $("select[name='gis_data[" + (noOfGeoms - 1) + "][gis_type]']").clone();
+        $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
+        var html2 = '<br>' + 'Point' + ' :'
+            + '<label for="x"> X </label>'
+            + '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value="">'
+            + '<label for="y"> Y </label>'
+            + '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">'
+            + '<br><br>';
+
+        $a.before(html1); $geomType.insertBefore($a); $a.before(html2);
+        $noOfGeomsInput.attr('value', noOfGeoms + 1);
+    });
+
     // these were hidden via the "hide" class
     $('.foreign_values_anchor').show();
 

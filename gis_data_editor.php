@@ -135,10 +135,10 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
             }
 
             if ($type == 'POINT') {
-                echo('<br/>'); echo __("Point");
-?>              <label for="x"><?php echo __("X"); ?>:&nbsp;</label>
+                echo('<br/>'); echo __("Point"); echo(' :');
+?>              <label for="x"><?php echo __("X"); ?></label>
                 <input name="gis_data[<?php echo($a); ?>][POINT][x]" type="text" value="<?php echo(isset($gis_data[$a]['POINT']['x']) ? htmlspecialchars($gis_data[$a]['POINT']['x']) : ''); ?>" />
-                <label for="y"><?php echo __("Y"); ?>:&nbsp;</label>
+                <label for="y"><?php echo __("Y"); ?></label>
                 <input name="gis_data[<?php echo($a); ?>][POINT][y]" type="text" value="<?php echo(isset($gis_data[$a]['POINT']['y']) ? htmlspecialchars($gis_data[$a]['POINT']['y']) : ''); ?>" />
 <?php
             } elseif ($type == 'MULTIPOINT' || $type == 'LINESTRING') {
@@ -261,13 +261,13 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 <?php                   }
 ?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add point" value="<?php echo __("Add a point"); ?>">
 <?php               }
-?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class= "add" value="<?php echo __('Add an inner ring') ?>">
+?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class="add line" value="<?php echo __('Add an inner ring') ?>">
 <?php           }
-?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class= "add" value="<?php echo __('Add a polygon') ?>">
+?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class="add polygon" value="<?php echo __('Add a polygon') ?>">
 <?php       }
         }
         if ($geom_type == 'GEOMETRYCOLLECTION') {
-?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add" value="<?php  echo __("Add geometry"); ?>" />
+?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add geom" value="<?php  echo __("Add geometry"); ?>" />
 <?php   }
 ?>
         </div>
