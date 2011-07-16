@@ -6991,10 +6991,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Le déclencheur %1$s a été créé."
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Créer une vue"
+msgstr "Créer un déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:185
 #, fuzzy
