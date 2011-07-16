@@ -106,8 +106,7 @@ function PMA_RTN_parseOneParameter($value)
     $param_opts = array();
     for ($i=$pos; $i<$parsed_param['len']; $i++) {
         if (($parsed_param[$i]['type'] == 'alpha_columnType'
-            || $parsed_param[$i]['type'] == 'alpha_functionName') // "CHAR" seems to be mistaken for a function by the parser
-            && $depth == 0
+            || $parsed_param[$i]['type'] == 'alpha_functionName') && $depth == 0 // "CHAR" seems to be mistaken for a function by the parser
         ) {
             $retval[2] = strtoupper($parsed_param[$i]['data']);
         } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
@@ -428,7 +427,7 @@ function PMA_RTN_getDataFromRequest()
     $retval['item_param_length']    = array();
     $retval['item_param_opts_num']  = array();
     $retval['item_param_opts_text'] = array();
-    if (isset($_REQUEST['item_param_name'])
+    if (   isset($_REQUEST['item_param_name'])
         && isset($_REQUEST['item_param_type'])
         && isset($_REQUEST['item_param_length'])
         && isset($_REQUEST['item_param_opts_num'])
@@ -440,65 +439,30 @@ function PMA_RTN_getDataFromRequest()
         && is_array($_REQUEST['item_param_opts_text'])
     ) {
         if ($_REQUEST['item_type'] == 'PROCEDURE') {
-            $temp_num_params = 0;
             $retval['item_param_dir'] = $_REQUEST['item_param_dir'];
             foreach ($retval['item_param_dir'] as $key => $value) {
                 if (! in_array($value, $param_directions, true)) {
                     $retval['item_param_dir'][$key] = '';
                 }
-                $retval['item_num_params']++;
-            }
-            if ($temp_num_params > $retval['item_num_params']) {
-                $retval['item_num_params'] = $temp_num_params;
             }
         }
-        $temp_num_params = 0;
         $retval['item_param_name'] = $_REQUEST['item_param_name'];
-        foreach ($retval['item_param_name'] as $key => $value) {
-            $retval['item_param_name'][$key] = $value;
-            $temp_num_params++;
-        }
-        if ($temp_num_params > $retval['item_num_params']) {
-            $retval['item_num_params'] = $temp_num_params;
-        }
-        $temp_num_params = 0;
         $retval['item_param_type'] = $_REQUEST['item_param_type'];
         foreach ($retval['item_param_type'] as $key => $value) {
             if (! in_array($value, PMA_getSupportedDatatypes(), true)) {
                 $retval['item_param_type'][$key] = '';
             }
-            $temp_num_params++;
         }
-        if ($temp_num_params > $retval['item_num_params']) {
-            $retval['item_num_params'] = $temp_num_params;
-        }
-        $temp_num_params = 0;
-        $retval['item_param_length'] = $_REQUEST['item_param_length'];
-        foreach ($retval['item_param_length'] as $key => $value) {
-            $retval['item_param_length'][$key] = $value;
-            $temp_num_params++;
-        }
-        if ($temp_num_params > $retval['item_num_params']) {
-            $retval['item_num_params'] = $temp_num_params;
-        }
-        $temp_num_params = 0;
-        $retval['item_param_opts_num'] = $_REQUEST['item_param_opts_num'];
-        foreach ($retval['item_param_opts_num'] as $key => $value) {
-            $retval['item_param_opts_num'][$key] = $value;
-            $temp_num_params++;
-        }
-        if ($temp_num_params > $retval['item_num_params']) {
-            $retval['item_num_params'] = $temp_num_params;
-        }
-        $temp_num_params = 0;
+        $retval['item_param_length']    = $_REQUEST['item_param_length'];
+        $retval['item_param_opts_num']  = $_REQUEST['item_param_opts_num'];
         $retval['item_param_opts_text'] = $_REQUEST['item_param_opts_text'];
-        foreach ($retval['item_param_opts_text'] as $key => $value) {
-            $retval['item_param_opts_text'][$key] = $value;
-            $temp_num_params++;
-        }
-        if ($temp_num_params > $retval['item_num_params']) {
-            $retval['item_num_params'] = $temp_num_params;
-        }
+        $retval['item_num_params'] = max(
+            count($retval['item_param_name']),
+            count($retval['item_param_type']),
+            count($retval['item_param_length']),
+            count($retval['item_param_opts_num']),
+            count($retval['item_param_opts_text'])
+        );
     }
     $retval['item_returntype'] = '';
     if (isset($_REQUEST['item_returntype'])
