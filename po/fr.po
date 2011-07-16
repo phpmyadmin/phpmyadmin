@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 14:42+0200\n"
+"PO-Revision-Date: 2011-07-16 14:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6697,10 +6697,9 @@ msgid "Definition"
 msgstr "Définition"
 
 #: libraries/rte/rte_events.lib.php:495
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "Insertions complètes"
+msgstr "À la fin, préserver"
 
 #: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
 #: libraries/rte/rte_triggers.lib.php:378
