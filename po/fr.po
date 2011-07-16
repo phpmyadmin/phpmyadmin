@@ -6963,12 +6963,11 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Vous n'avez pas les privilèges nécessaires pour créer un déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr ""
-"Aucune procédure portant le nom %1$s n'a été trouvée dans la base de données "
-"%2$s"
+"Aucun déclencheur nommé %1$s n'a été trouvé dans la base de données %2$s"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
