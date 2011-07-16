@@ -972,7 +972,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
  */
 function PMA_RTN_getQueryFromRequest()
 {
-    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_opts_num;
+    global $_REQUEST, $cfg, $errors, $param_sqldataaccess, $param_opts_num, $param_directions;
+
+    $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
