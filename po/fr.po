@@ -7006,10 +7006,9 @@ msgid "Trigger name"
 msgstr "Nom du déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Vous devez fournir un nom pour la procédure"
+msgstr "Vous devez fournir un nom valable pour le déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:428
 #, fuzzy
