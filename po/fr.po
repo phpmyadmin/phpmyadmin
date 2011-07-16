@@ -6974,10 +6974,9 @@ msgid "There are no triggers to display."
 msgstr "Aucun déclencheur à afficher."
 
 #: libraries/rte/rte_triggers.lib.php:113
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Désolé, il a été impossible de restaurer la procédure."
+msgstr "Désolé, il a été impossible de restaurer le déclencheur."
 
 #: libraries/rte/rte_triggers.lib.php:118
 #, fuzzy, php-format
