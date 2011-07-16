@@ -6958,10 +6958,9 @@ msgid "trigger"
 msgstr "déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Vous n'avez pas les privilèges nécessaires pour créer une procédure"
+msgstr "Vous n'avez pas les privilèges nécessaires pour créer un déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:44
 #, fuzzy, php-format
