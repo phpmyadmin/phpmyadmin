@@ -6571,7 +6571,6 @@ msgid "Generate Password"
 msgstr "Générer un mot de passe"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
 msgstr "Ajouter un évènement."
