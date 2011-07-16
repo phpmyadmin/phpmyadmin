@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-05-06 09:13+0200\n"
-"Last-Translator: <manojonemail@gmail.com>\n"
+"PO-Revision-Date: 2011-07-14 21:29+0200\n"
+"Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:354 libraries/display_tbl.lib.php:421
 #: server_privileges.php:1583
 msgid "Show all"
-msgstr "सभी दिखाओ"
+msgstr "सभी दिखाएँ"
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2173
 #: libraries/export/pdf.php:135
@@ -35,8 +35,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद आपने मूल विंडो बंद कर दिया है,"
-"या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन के लिए कांफिगुर कर रखा है."
+"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद आपने मूल विंडो "
+"बंद कर दिया है,या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन "
+"के लिए कांफिगुर कर रखा है."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2720
 #: libraries/common.lib.php:2727 libraries/common.lib.php:2908
@@ -96,7 +97,7 @@ msgstr "वर्णन"
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
 msgid "Use this value"
-msgstr "इस मूल्य का उपयोग करें"
+msgstr "इस मान का उपयोग करें"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:326
@@ -117,8 +118,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ "
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ "
 
 #: db_create.php:58
 #, php-format
@@ -159,6 +160,7 @@ msgstr "कोलम"
 #: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
 #: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
+#, fuzzy
 msgid "Type"
 msgstr "टाइप"
 
@@ -170,6 +172,7 @@ msgstr "टाइप"
 #: libraries/tbl_properties.inc.php:112 tbl_change.php:328
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
+#, fuzzy
 msgid "Null"
 msgstr "अशक्त"
 
@@ -181,7 +184,7 @@ msgstr "अशक्त"
 #: libraries/tbl_properties.inc.php:109 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
-msgstr "डिफ़ॉल्ट"
+msgstr "तयशुदा"
 
 #: db_datadict.php:174 libraries/export/htmlword.php:259
 #: libraries/export/latex.php:366 libraries/export/odt.php:304
@@ -246,7 +249,7 @@ msgstr "छापें"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "डेटाबेस का डंप (स्कीमा) दिखाएं"
+msgstr "डेटाबेस का डंप (स्कीमा) नजारा"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:299
@@ -263,12 +266,12 @@ msgstr "सभी को रद्द करें"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "डेटाबेस नाम खाली है"
+msgstr "डेटाबेस का नाम खाली है"
 
 #: db_operations.php:272
 #, php-format
 msgid "Database %s has been renamed to %s"
-msgstr " डेटाबेस का नाम %s बदल कर %s रखा गया है"
+msgstr " डेटाबेस  %s का नाम बदल कर %s रखा गया है"
 
 #: db_operations.php:276
 #, php-format
@@ -290,11 +293,11 @@ msgstr "डेटाबेस को हटा दे"
 #: db_operations.php:452
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "डाटाबेस %s को ड्रोप कर दिया ।"
+msgstr "डाटाबेस %s को ड्रोप कर दिया गया है।"
 
 #: db_operations.php:457
 msgid "Drop the database (DROP)"
-msgstr "ड्रॉप डेटाबेस (छोड़ें)"
+msgstr "डेटाबेस को ड्रप करे "
 
 #: db_operations.php:487
 msgid "Copy database to"
@@ -352,8 +355,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए "
-"%shere%s पर क्लिक करें."
+"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, "
+"जानने के लिए %sयहाँ%s पर क्लिक करें."
 
 #: db_operations.php:600
 msgid "Edit or export relational schema"
@@ -385,7 +388,7 @@ msgstr "आकार"
 #: db_printview.php:160 db_structure.php:410 libraries/export/sql.php:743
 #: libraries/export/sql.php:1058
 msgid "in use"
-msgstr "उपयोग में"
+msgstr "उपयोग में है"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
 #: libraries/export/sql.php:698
@@ -412,8 +415,8 @@ msgstr "पिछली जाँच"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] " %s टेबल(s)"
-msgstr[1] " %s टेबल(s)"
+msgstr[0] " %s टेबलें"
+msgstr[1] " %s टेबल"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -421,11 +424,11 @@ msgstr "आपको कम से कम एक स्तंभ प्रदर
 
 #: db_qbe.php:186
 msgid "Switch to"
-msgstr "के लिए स्विच"
+msgstr "में चले"
 
 #: db_qbe.php:186
 msgid "visual builder"
-msgstr "दृश्य बिल्डर"
+msgstr "दृश्य  निर्माता"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:937
@@ -457,7 +460,7 @@ msgstr "मापदंड"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr "इन्सर्ट"
+msgstr "घुसाएं"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
@@ -475,7 +478,7 @@ msgstr "अथवा"
 
 #: db_qbe.php:529
 msgid "Modify"
-msgstr "संशोधित"
+msgstr "संशोधन"
 
 #: db_qbe.php:606
 msgid "Add/Delete criteria rows"
@@ -500,14 +503,14 @@ msgstr "डेटाबेस <b>%s<b> पर SQL क्वरी:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1116
 msgid "Submit Query"
-msgstr "क्वरी प्रस्तुत करें"
+msgstr "क्वरी भेजें"
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
-msgstr "प्रवेश निषेध"
+msgstr "पहुँच निषेधित"
 
 #: db_search.php:42 db_search.php:284
 msgid "at least one of the words"
@@ -572,7 +575,6 @@ msgid "Search in database"
 msgstr "डाटाबेस में खोजें"
 
 #: db_search.php:275
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "शब्द अथवा वेल्यु जिसे सर्च करना है (wildcard: \"%\"):"
@@ -586,7 +588,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "शब्द स्पेस(\" \") करक्टेर से अलग किये गए हैं."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr " टेबल में:"
@@ -607,7 +608,7 @@ msgstr " टेबल %s को खाली किया गया है."
 #: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
-msgstr "द्रश्य %s रद्द दिया गया है."
+msgstr "द्रश्य %s रद्द किया गया है."
 
 #: db_structure.php:280 tbl_operations.php:705
 #, php-format
@@ -627,7 +628,8 @@ msgstr "ट्रैकिंग सक्रिय नहीं है."
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दोक्युमेंताशन%s  पढ़ें."
+msgstr ""
+"इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दस्तावेज़%s  पढ़ें."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -647,7 +649,7 @@ msgstr "जोड"
 #: db_structure.php:449 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s इस MySQL सर्वर पर डिफ़ॉल्ट भंडारण इंजन है."
+msgstr "%s इस MySQL सर्वर पर तयशुदा भंडारण इंजन है."
 
 #: db_structure.php:477 db_structure.php:494 db_structure.php:495
 #: libraries/display_tbl.lib.php:2339 libraries/display_tbl.lib.php:2344
@@ -667,7 +669,7 @@ msgstr "सभी को चेक करें"
 #: libraries/replication_gui.lib.php:35 server_databases.php:264
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:594
 msgid "Uncheck All"
-msgstr " सभी को अनचेक करें"
+msgstr "सभी को अनचेक करें"
 
 #: db_structure.php:489
 msgid "Check tables having overhead"
@@ -686,23 +688,23 @@ msgstr "निर्यात"
 #: libraries/display_tbl.lib.php:2439 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
-msgstr "छापने वाला द्रश्य."
+msgstr "छपाई द्रश्य."
 
 #: db_structure.php:503 libraries/common.lib.php:2915
 #: libraries/common.lib.php:2916
 msgid "Empty"
-msgstr "खाली करें"
+msgstr "खाली"
 
 #: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
 #: libraries/common.lib.php:2913 libraries/common.lib.php:2914
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
-msgstr "छोड़ें"
+msgstr "रद्द"
 
 #: db_structure.php:507 tbl_operations.php:604
 msgid "Check table"
-msgstr " टेबल को चेक करें"
+msgstr "टेबल को चेक करें"
 
 #: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
 #: tbl_structure.php:844
@@ -711,29 +713,26 @@ msgstr "टेबल को अनुकूलित करें"
 
 #: db_structure.php:511 tbl_operations.php:640
 msgid "Repair table"
-msgstr "टेबल को टीक करें"
+msgstr "टेबल को मरम्मत करें"
 
 #: db_structure.php:513 tbl_operations.php:627
 msgid "Analyze table"
 msgstr "टेबल का विश्लेषण करें"
 
 #: db_structure.php:515
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "टेबल पर जायें"
+msgstr "टेबल पर उपसर्ग जोड़ें"
 
 #: db_structure.php:517 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "फाइल, टेबल डेटा की जगह"
+msgstr "टेबल के उपसर्ग को पुनर्स्थापना करें"
 
 #: db_structure.php:519 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "फाइल, टेबल डेटा की जगह"
+msgstr "टेबल को इस उपसर्ग के साथ प्रतिलिपि बनाएँ"
 
 #: db_structure.php:561 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
@@ -804,7 +803,7 @@ msgstr "ट्रैकिंग रिपोर्ट"
 
 #: db_tracking.php:136 tbl_tracking.php:244 tbl_tracking.php:676
 msgid "Structure snapshot"
-msgstr "संरचना स्नैपशॉट"
+msgstr "संरचना क्षणचित्र"
 
 #: db_tracking.php:181
 msgid "Untracked tables"
@@ -817,7 +816,7 @@ msgstr "टेबलओं को ट्रैक करें"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr "डेटाबेस लॉग"
+msgstr "डेटाबेस का रोजनामचा"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:776
 #, php-format
@@ -826,7 +825,7 @@ msgstr "\"%s\" काँलम के लिए मान "
 
 #: enum_editor.php:22 libraries/tbl_properties.inc.php:777
 msgid "Enter each value in a separate field."
-msgstr "एक मान अलग क्षेत्र में दर्ज करें."
+msgstr "हर एक मान अलग क्षेत्र में दर्ज करें."
 
 #: enum_editor.php:57
 msgid "+ Restart insertion and add a new value"
@@ -838,11 +837,11 @@ msgstr "उत्पादन"
 
 #: enum_editor.php:68
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "\"लंबाई / मूल्य\" क्षेत्र में शामिल हो गए मान कॉपी और पेस्ट"
+msgstr "\"लंबाई / मान\" क्षेत्र में शामिल हो गए मान कॉपी और पेस्ट"
 
 #: export.php:73
 msgid "Selected export type has to be saved in file!"
-msgstr "चयनित निर्यात टाइप को फाइल में सेव करने की आवश्यकता है!"
+msgstr "चयनित निर्यात प्रकार को फाइल में संचित करने की आवश्यकता है!"
 
 #: export.php:163 export.php:188 export.php:670
 #, php-format
@@ -978,10 +977,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं! "
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं! "
+msgstr "आप एक पूराटेबल नष्ट कर रहे हैं! "
 
 #: js/messages.php:33
 #, fuzzy
@@ -1020,10 +1018,9 @@ msgstr "यह नंबर नहीं है!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "कुल"
+msgstr "कुल गिनती"
 
 #: js/messages.php:52
 msgid "The host name is empty!"

@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-13 19:47+0200\n"
-"Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
+"PO-Revision-Date: 2011-07-15 15:27+0200\n"
+"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
@@ -2870,76 +2870,79 @@ msgstr "Ensoc'hadennoù gant dale"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Implijout an eizhdekvedennad evit BLOB"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Arabat ensoc'hañ ul linenn a dalvez kement hag un alc'hwez nemetañ"
 
 #: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Ereadur d'ober gantañ pa vez ensoc'het roadennoù"
 
 #: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Ment vrasañ ar reked krouet"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export type"
-msgstr ""
+msgstr "Seurt ezporzhiadenn"
 
 #: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "Enklozañ an ezporzhiadenn en un treuzgread"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Ezporzhiañ an eur er furmad UTC"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Rediañ a ra kevreadennoù https etre ar servijer ha phpMyAdmin"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Rediañ ar c'hevreadennoù SSL"
 
 #: libraries/config/messages.inc.php:150
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; "
+"[kbd]content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo evit "
+"talvout an alc'hwez"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Urzh dispakañ an alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Ul lañser desachañ a vo implijet ma vez nebeutoc'h a elfennoù"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Bevenn evit an alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr ""
+msgstr "Mod merdeiñ"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Personelaat ar mod merdeiñ"
 
 #: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
 #: libraries/config/messages.inc.php:229
 msgid "Customize default options"
-msgstr ""
+msgstr "Personelaat an dibarzhioù dre ziouer"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:237
 #: libraries/config/setup.forms.php:316
@@ -2947,7 +2950,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:216 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
-msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
@@ -3067,6 +3070,9 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
+"[a@Documentation.html#cfg_TitleTable]teuliadur[/a] evit an neudennadoù hud a "
+"c'haller ober ganto."
 
 #: libraries/config/messages.inc.php:194
 #: libraries/navigation_header.inc.php:83
@@ -3097,11 +3103,11 @@ msgstr "Arventennoù diazez"
 
 #: libraries/config/messages.inc.php:199
 msgid "Authentication"
-msgstr ""
+msgstr "Dilesadur"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
-msgstr ""
+msgstr "Arventennoù dilesañ"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
