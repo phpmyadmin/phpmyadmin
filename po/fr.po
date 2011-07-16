@@ -6613,10 +6613,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "La requête «%s» a échoué"
 
 #: libraries/rte/rte_events.lib.php:140
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Désolé, il a été impossible de restaurer la procédure."
+msgstr "Désolé, il a été impossible de restaurer l'événement."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
