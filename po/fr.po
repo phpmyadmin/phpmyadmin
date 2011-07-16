@@ -6755,10 +6755,9 @@ msgid "Event scheduler status"
 msgstr "État du planificateur d'événements"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Type retourné"
+msgstr "Retourne"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
 #: server_status.php:800 sql.php:943
