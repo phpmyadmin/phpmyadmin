@@ -6723,10 +6723,9 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Vous devez fournir un intervalle valable pour l'événement."
 
 #: libraries/rte/rte_events.lib.php:573
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Vous devez fournir une définition pour la procédure."
+msgstr "Vous devez fournir un moment d'exécution valable pour l'événement."
 
 #: libraries/rte/rte_events.lib.php:577
 #, fuzzy
