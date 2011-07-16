@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 14:54+0200\n"
+"PO-Revision-Date: 2011-07-16 14:55+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -6979,10 +6979,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Désolé, il a été impossible de restaurer le déclencheur."
 
 #: libraries/rte/rte_triggers.lib.php:118
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "La procédure %1$s a été modifiée."
+msgstr "Le déclencheur %1$s a été modifié."
 
 #: libraries/rte/rte_triggers.lib.php:130
 #, fuzzy, php-format
