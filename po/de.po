@@ -6592,7 +6592,8 @@ msgstr "Ereignis"
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
 msgstr ""
-"Sie haben nicht die notwendigenRechte um ein neues Ereignis zu erstellen"
+"Sie haben nicht die erforderlichen Rechte, um ein neues Ereignis zu "
+"erstellen"
 
 #: libraries/rte/rte_events.lib.php:63
 #, php-format
