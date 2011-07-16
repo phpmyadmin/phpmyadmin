@@ -994,7 +994,7 @@ function PMA_RTN_getQueryFromRequest()
         $errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['item_type']));
     }
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA_backquote($_REQUEST['item_name']) . ' ';
+        $query .= PMA_backquote($_REQUEST['item_name']);
     } else {
         $errors[] = __('You must provide a routine name');
     }
@@ -1060,7 +1060,7 @@ function PMA_RTN_getQueryFromRequest()
             }
         }
     }
-    $query .= " (" . $params . ") ";
+    $query .= "(" . $params . ") ";
     if ($_REQUEST['item_type'] == 'FUNCTION') {
         if (! empty($_REQUEST['item_returntype']) && in_array($_REQUEST['item_returntype'], PMA_getSupportedDatatypes())) {
             $query .= "RETURNS {$_REQUEST['item_returntype']}";
