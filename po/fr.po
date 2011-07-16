@@ -6623,10 +6623,10 @@ msgid "The backed up query was:"
 msgstr "La requête conservée est :"
 
 #: libraries/rte/rte_events.lib.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "La procédure %1$s a été modifiée."
+msgstr "L'événement %1$s a été modifié."
 
 #: libraries/rte/rte_events.lib.php:157
 #, fuzzy, php-format
