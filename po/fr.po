@@ -7021,10 +7021,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Vous devez fournir un événement valable pour le déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:439
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Vous devez fournir un nom pour la procédure"
+msgstr "Vous devez fournir un nom de table valable"
 
 #: libraries/rte/rte_triggers.lib.php:445
 #, fuzzy
