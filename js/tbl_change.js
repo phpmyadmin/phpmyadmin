@@ -262,10 +262,10 @@ function prepareJSVersion() {
  * @returns the HTML for a data point
  */
 function addDataPoint(pointNumber, prefix) {
-    return '<br>' + $js_messages['strPoint'] + (pointNumber + 1) + ':'
-        + '<label for="x"> ' + $js_messages['strX'] + ' </label>'
+    return '<br>' + PMA_messages['strPoint'] + (pointNumber + 1) + ':'
+        + '<label for="x"> ' + PMA_messages['strX'] + ' </label>'
         + '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">'
-        + '<label for="y"> ' + $js_messages['strY'] + ' </label>'
+        + '<label for="y"> ' + PMA_messages['strY'] + ' </label>'
         + '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">';
 }
 
@@ -418,10 +418,10 @@ $(document).ready(function() {
         // Add the new linesting of inner ring based on the type
         var html = '<br>';
         if (type == 'MULTILINESTRING') {
-            html += $js_messages['strLineString'] + (noOfLines + 1) + ':';
+            html += PMA_messages['strLineString'] + (noOfLines + 1) + ':';
             var noOfPoints = 2;
         } else {
-            html += $js_messages['strInnerRing'] + noOfLines + ':';
+            html += PMA_messages['strInnerRing'] + noOfLines + ':';
             var noOfPoints = 4;
         }
         html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '">';
@@ -429,7 +429,7 @@ $(document).ready(function() {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
         html += '<a class="point addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ ' 
-            + $js_messages['strAddPoint'] + '</a><br>';
+            + PMA_messages['strAddPoint'] + '</a><br>';
 
         $a.before(html);
         $noOfLinesInput.attr('value', noOfLines + 1);
@@ -448,17 +448,17 @@ $(document).ready(function() {
         var noOfPolygons = parseInt($noOfPolygonsInput.attr('value'));
 
         // Add the new polygon
-        var html = $js_messages['strPolygon'] + (noOfPolygons + 1) + ':<br>';
+        var html = PMA_messages['strPolygon'] + (noOfPolygons + 1) + ':<br>';
         html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1">';
-            + '<br>' + $js_messages['strOuterRing'] + ':';
+            + '<br>' + PMA_messages['strOuterRing'] + ':';
             + '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4">';
         for (i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
         html += '<a class="point addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ ' 
-            + $js_messages['strAddPoint'] + '</a><br>';
+            + PMA_messages['strAddPoint'] + '</a><br>';
             + '<a class="line addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ ' 
-            + $js_messages['strAddInnerRing'] + '</a><br><br>';
+            + PMA_messages['strAddInnerRing'] + '</a><br><br>';
 
         $a.before(html);
         $noOfPolygonsInput.attr('value', noOfPolygons + 1);
@@ -474,13 +474,13 @@ $(document).ready(function() {
         var $noOfGeomsInput = $("input[name='" + prefix + "[geom_count]" + "']");
         var noOfGeoms = parseInt($noOfGeomsInput.attr('value'));
 
-        var html1 = $js_messages['strGeometry'] + (noOfGeoms + 1) + ':<br>';
+        var html1 = PMA_messages['strGeometry'] + (noOfGeoms + 1) + ':<br>';
         var $geomType = $("select[name='gis_data[" + (noOfGeoms - 1) + "][gis_type]']").clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
-        var html2 = '<br>' + $js_messages['strPoint'] + ' :'
-            + '<label for="x"> ' + $js_messages['strX'] + ' </label>'
+        var html2 = '<br>' + PMA_messages['strPoint'] + ' :'
+            + '<label for="x"> ' + PMA_messages['strX'] + ' </label>'
             + '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value="">'
-            + '<label for="y"> ' + $js_messages['strY'] + ' </label>'
+            + '<label for="y"> ' + PMA_messages['strY'] + ' </label>'
             + '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">'
             + '<br><br>';
 
