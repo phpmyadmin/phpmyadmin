@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-16 21:30+0200\n"
+"PO-Revision-Date: 2011-07-16 21:31+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -3293,7 +3293,7 @@ msgstr "Anvioù bannoù el linenn gentañ"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Arabat enporzhiañ linennoù goullo"
 
 #: libraries/config/messages.inc.php:256
 msgid "Import currencies ($5.00 to 5.00)"
