@@ -3325,7 +3325,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Niver a linennoù da ensoc'hañ"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
