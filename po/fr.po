@@ -6687,10 +6687,9 @@ msgid "Execute every"
 msgstr "Exécuter chaque"
 
 #: libraries/rte/rte_events.lib.php:473
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Page de départ"
+msgstr "Départ"
 
 #: libraries/rte/rte_events.lib.php:489 libraries/rte/rte_routines.lib.php:972
 #: libraries/rte/rte_triggers.lib.php:372
