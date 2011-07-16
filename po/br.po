@@ -3156,7 +3156,7 @@ msgstr "Personelaat an arventennoù enporzhiañ dre ziouer"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Personelaat ar framm merdeiñ"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
