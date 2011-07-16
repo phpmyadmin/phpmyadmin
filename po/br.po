@@ -3337,7 +3337,7 @@ msgstr "Diskouez al logo er banell verdeiñ gleiz"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
-msgstr ""
+msgstr "Diskouez al logo"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
