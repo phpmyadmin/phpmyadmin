@@ -7016,10 +7016,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Vous devez fournir une temporisation valable pour le déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Vous devez fournir un nom et un type pour chacun des paramètres."
+msgstr "Vous devez fournir un événement valable pour le déclencheur"
 
 #: libraries/rte/rte_triggers.lib.php:439
 #, fuzzy
