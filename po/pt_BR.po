@@ -2333,9 +2333,8 @@ msgstr "Fechado"
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:122 libraries/export/texytext.php:24
 #: libraries/import.lib.php:1107
-#, fuzzy
 msgid "structure"
-msgstr "Estrutura"
+msgstr "estrutura"
 
 #: libraries/config.values.php:97 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
