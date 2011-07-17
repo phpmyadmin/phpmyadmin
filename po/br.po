@@ -3286,7 +3286,7 @@ msgstr "Arabat paouez gant an enporzhiañ pa vez ur fazi gant INSERT"
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
-msgstr ""
+msgstr "Erlec'hiañ roadennoù an daolenn gant re ar restr"
 
 #: libraries/config/messages.inc.php:246
 msgid ""
