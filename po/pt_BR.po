@@ -3070,9 +3070,8 @@ msgid "Servers"
 msgstr "Servidores"
 
 #: libraries/config/messages.inc.php:182
-#, fuzzy
 msgid "Servers display options"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Opções de exibição de servidores"
 
 #: libraries/config/messages.inc.php:184
 #, fuzzy
