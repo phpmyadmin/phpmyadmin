@@ -2682,6 +2682,7 @@ msgstr "Exibir bancos de dados como uma lista"
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
+"Exibir lista de servidores como uma lista ao invés de uma caixa de seleção"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
