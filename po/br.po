@@ -3327,7 +3327,7 @@ msgstr "Niver a rekedoù da lezel a-gostez adalek ar penn-kentañ"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Enporzhiañ darnek : lezel ar rekedoù a gostez"
 
 #: libraries/config/messages.inc.php:261
 msgid "Do not use AUTO_INCREMENT for zero values"
