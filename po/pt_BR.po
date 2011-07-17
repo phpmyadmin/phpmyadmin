@@ -3033,9 +3033,8 @@ msgid "Import"
 msgstr "Importar"
 
 #: libraries/config/messages.inc.php:171
-#, fuzzy
 msgid "Import defaults"
-msgstr "Importar arquivos"
+msgstr "Padrões de importação"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
