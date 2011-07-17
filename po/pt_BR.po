@@ -2925,7 +2925,6 @@ msgid "Maximal length of created query"
 msgstr "Tamanho máximo da consulta gerada"
 
 #: libraries/config/messages.inc.php:138
-#, fuzzy
 msgid "Export type"
 msgstr "Tipo de exportação"
 
