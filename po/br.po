@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 21:39+0200\n"
+"PO-Revision-Date: 2011-07-17 21:40+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -3339,7 +3339,7 @@ msgstr "Talvoud dre ziouer evit an takadoù riklañ"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "An niver a linennoù a c'haller ober ganto war un dro"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
