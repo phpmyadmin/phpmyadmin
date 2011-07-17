@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 20:01+0200\n"
+"PO-Revision-Date: 2011-07-17 20:02+0200\n"
 "Last-Translator:  <rds_ralison@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3058,7 +3058,7 @@ msgstr "Opções de exibição de bancos de dados"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Quadro de navegação"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation frame"
