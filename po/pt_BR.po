@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 19:48+0200\n"
+"PO-Revision-Date: 2011-07-17 19:49+0200\n"
 "Last-Translator:  <rds_ralison@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2831,10 +2831,9 @@ msgstr "Modelo de nome da tabela"
 #: libraries/config/messages.inc.php:143 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:116 libraries/export/texytext.php:23
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s tabela(s)"
+msgstr "Esvaziar tabela"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
