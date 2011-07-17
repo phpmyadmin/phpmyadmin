@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 19:47+0200\n"
+"PO-Revision-Date: 2011-07-17 19:48+0200\n"
 "Last-Translator:  <rds_ralison@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2823,9 +2823,8 @@ msgid "Server name template"
 msgstr "Nome do arquivo do modelo"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 msgid "Table name template"
-msgstr "Nome do arquivo do modelo"
+msgstr "Modelo de nome da tabela"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
