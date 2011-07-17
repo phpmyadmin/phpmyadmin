@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-03 07:35-0400\n"
-"PO-Revision-Date: 2011-06-29 20:12+0200\n"
+"POT-Creation-Date: 2011-07-14 09:21-0400\n"
+"PO-Revision-Date: 2011-07-11 20:39+0200\n"
 "Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Show all"
 msgstr "Diskouez pep tra"
 
-#: browse_foreigners.php:70 libraries/common.lib.php:2183
+#: browse_foreigners.php:70 libraries/common.lib.php:2173
 #: libraries/export/pdf.php:135
 #: libraries/schema/Pdf_Relation_Schema.class.php:240
 #: libraries/schema/Pdf_Relation_Schema.class.php:1089
@@ -43,49 +43,52 @@ msgstr ""
 "serret ar prenestr orin ganeoc'h pe stanket eo an hizivadurioù etre "
 "prenestroù gant ho merdeer evit abegoù surentez."
 
-#: browse_foreigners.php:151 libraries/common.lib.php:2648
-#: libraries/common.lib.php:2655 libraries/common.lib.php:2836
-#: libraries/common.lib.php:2837 libraries/db_links.inc.php:60
+#: browse_foreigners.php:151 libraries/common.lib.php:2720
+#: libraries/common.lib.php:2727 libraries/common.lib.php:2908
+#: libraries/common.lib.php:2909 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Klask"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:421
 #: db_operations.php:531 db_operations.php:559 db_search.php:335
-#: db_structure.php:528 enum_editor.php:63 js/messages.php:90
+#: db_structure.php:529 enum_editor.php:63 js/messages.php:90
 #: libraries/Config.class.php:1186 libraries/Theme_Manager.class.php:300
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1263
-#: libraries/common.lib.php:2160 libraries/core.lib.php:498
-#: libraries/db_routines.lib.php:760 libraries/db_routines.lib.php:882
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1257
+#: libraries/common.lib.php:2150 libraries/core.lib.php:504
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:566 libraries/display_tbl.lib.php:661
 #: libraries/replication_gui.lib.php:75 libraries/replication_gui.lib.php:370
+#: libraries/rte/rte_events.lib.php:517
+#: libraries/rte/rte_routines.lib.php:1019
+#: libraries/rte/rte_routines.lib.php:1502
+#: libraries/rte/rte_triggers.lib.php:391
 #: libraries/schema/User_Schema.class.php:120
 #: libraries/schema/User_Schema.class.php:172
 #: libraries/schema/User_Schema.class.php:406
 #: libraries/schema/User_Schema.class.php:445
 #: libraries/select_server.lib.php:94 libraries/sql_query_form.lib.php:350
 #: libraries/sql_query_form.lib.php:414 libraries/sql_query_form.lib.php:466
-#: libraries/tbl_properties.inc.php:607 libraries/tbl_properties.inc.php:777
+#: libraries/tbl_properties.inc.php:610 libraries/tbl_properties.inc.php:780
 #: main.php:109 navigation.php:172 navigation.php:210 pmd_pdf.php:124
 #: prefs_manage.php:265 prefs_manage.php:316 server_binlog.php:109
 #: server_privileges.php:646 server_privileges.php:1694
 #: server_privileges.php:2051 server_privileges.php:2098
 #: server_privileges.php:2138 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
-#: server_synchronize.php:1220 tbl_change.php:332 tbl_change.php:1024
-#: tbl_change.php:1061 tbl_indexes.php:266 tbl_operations.php:280
+#: server_synchronize.php:1220 tbl_change.php:335 tbl_change.php:1027
+#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:280
 #: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:291 tbl_structure.php:698
+#: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
 msgstr "Mont"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
-#: libraries/Index.class.php:431 tbl_tracking.php:313
+#: libraries/Index.class.php:432 tbl_tracking.php:313
 msgid "Keyname"
 msgstr "Anv ar meneger"
 
@@ -132,61 +135,62 @@ msgid "Database comment: "
 msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
-#: libraries/tbl_properties.inc.php:714 tbl_operations.php:362
+#: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Evezhiadennoù diwar-benn an daolenn"
 
-#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:435
-#: libraries/export/htmlword.php:248 libraries/export/latex.php:375
-#: libraries/export/odt.php:302 libraries/export/texytext.php:227
+#: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:436
+#: libraries/export/htmlword.php:254 libraries/export/latex.php:364
+#: libraries/export/odt.php:291 libraries/export/texytext.php:233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1230
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
-#: libraries/tbl_properties.inc.php:274 tbl_change.php:310 tbl_chart.php:86
-#: tbl_indexes.php:194 tbl_printview.php:139 tbl_relation.php:399
+#: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
+#: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
 msgstr "Bann"
 
-#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:432
-#: libraries/db_events.inc.php:69 libraries/db_routines.lib.php:637
-#: libraries/db_routines.lib.php:662 libraries/db_routines.lib.php:808
-#: libraries/db_routines.lib.php:1158 libraries/db_structure.lib.php:46
-#: libraries/export/htmlword.php:249 libraries/export/latex.php:375
-#: libraries/export/odt.php:305 libraries/export/texytext.php:228
+#: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:433
+#: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:255
+#: libraries/export/latex.php:364 libraries/export/odt.php:294
+#: libraries/export/texytext.php:234 libraries/rte/rte_list.lib.php:51
+#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_routines.lib.php:885
+#: libraries/rte/rte_routines.lib.php:910
+#: libraries/rte/rte_routines.lib.php:1420
 #: libraries/schema/Pdf_Relation_Schema.class.php:1231
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
-#: libraries/tbl_properties.inc.php:100 server_privileges.php:2151
-#: tbl_change.php:289 tbl_change.php:316 tbl_printview.php:140
+#: libraries/tbl_properties.inc.php:103 server_privileges.php:2151
+#: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
-#: tbl_structure.php:796 tbl_tracking.php:267 tbl_tracking.php:314
+#: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "Seurt"
 
-#: db_datadict.php:169 libraries/Index.class.php:438
-#: libraries/export/htmlword.php:250 libraries/export/latex.php:375
-#: libraries/export/odt.php:308 libraries/export/texytext.php:229
+#: db_datadict.php:169 libraries/Index.class.php:439
+#: libraries/export/htmlword.php:256 libraries/export/latex.php:364
+#: libraries/export/odt.php:297 libraries/export/texytext.php:235
 #: libraries/schema/Pdf_Relation_Schema.class.php:1233
 #: libraries/schema/Pdf_Relation_Schema.class.php:1254
-#: libraries/tbl_properties.inc.php:109 tbl_change.php:325
+#: libraries/tbl_properties.inc.php:112 tbl_change.php:328
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:170 db_structure.php:453 libraries/export/htmlword.php:251
-#: libraries/export/latex.php:375 libraries/export/odt.php:311
-#: libraries/export/texytext.php:230
+#: db_datadict.php:170 db_structure.php:454 libraries/export/htmlword.php:257
+#: libraries/export/latex.php:364 libraries/export/odt.php:300
+#: libraries/export/texytext.php:236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1234
 #: libraries/schema/Pdf_Relation_Schema.class.php:1255
-#: libraries/tbl_properties.inc.php:106 tbl_printview.php:143
+#: libraries/tbl_properties.inc.php:109 tbl_printview.php:143
 #: tbl_structure.php:209 tbl_tracking.php:270
 msgid "Default"
 msgstr "Dre ziouer"
 
-#: db_datadict.php:174 libraries/export/htmlword.php:253
-#: libraries/export/latex.php:377 libraries/export/odt.php:315
-#: libraries/export/texytext.php:232
+#: db_datadict.php:174 libraries/export/htmlword.php:259
+#: libraries/export/latex.php:366 libraries/export/odt.php:304
+#: libraries/export/texytext.php:238
 #: libraries/schema/Pdf_Relation_Schema.class.php:1236
 #: libraries/schema/Pdf_Relation_Schema.class.php:1257 tbl_printview.php:147
 msgid "Links to"
@@ -194,21 +198,21 @@ msgstr "Liammet ouzh"
 
 #: db_datadict.php:176 db_printview.php:110
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
-#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:256
-#: libraries/export/latex.php:380 libraries/export/odt.php:320
-#: libraries/export/texytext.php:235
+#: libraries/config/messages.inc.php:131 libraries/export/htmlword.php:262
+#: libraries/export/latex.php:369 libraries/export/odt.php:309
+#: libraries/export/texytext.php:241
 #: libraries/schema/Pdf_Relation_Schema.class.php:1247
 #: libraries/schema/Pdf_Relation_Schema.class.php:1258
-#: libraries/tbl_properties.inc.php:129 tbl_printview.php:149
+#: libraries/tbl_properties.inc.php:132 tbl_printview.php:149
 msgid "Comments"
 msgstr "Evezhiadennoù"
 
-#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:348
-#: libraries/Index.class.php:375 libraries/Index.class.php:673
+#: db_datadict.php:259 js/messages.php:109 libraries/Index.class.php:349
+#: libraries/Index.class.php:376 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:326
-#: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:287
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:330
+#: libraries/export/latex.php:434 libraries/export/odt.php:365
+#: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:287
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
 #: libraries/user_preferences.lib.php:270 prefs_manage.php:130
 #: server_privileges.php:1381 server_privileges.php:1392
@@ -219,12 +223,12 @@ msgstr "Evezhiadennoù"
 msgid "No"
 msgstr "Ket"
 
-#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:349
-#: libraries/Index.class.php:374 libraries/Index.class.php:673
+#: db_datadict.php:259 js/messages.php:108 libraries/Index.class.php:350
+#: libraries/Index.class.php:375 libraries/Index.class.php:674
 #: libraries/config.values.php:45 libraries/config.values.php:51
-#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:326
-#: libraries/export/latex.php:445 libraries/export/odt.php:376
-#: libraries/export/texytext.php:305 libraries/mult_submits.inc.php:46
+#: libraries/config/FormDisplay.tpl.php:198 libraries/export/htmlword.php:330
+#: libraries/export/latex.php:434 libraries/export/odt.php:365
+#: libraries/export/texytext.php:311 libraries/mult_submits.inc.php:46
 #: libraries/mult_submits.inc.php:78 libraries/mult_submits.inc.php:87
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
@@ -250,7 +254,7 @@ msgid "View dump (schema) of database"
 msgstr "Gwelet un ezporzhiadenn (chema) eus an diaz roadennoù"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
-#: export.php:371 navigation.php:299
+#: export.php:370 navigation.php:299
 msgid "No tables found in database."
 msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
 
@@ -337,12 +341,12 @@ msgstr "Ouzhpennañ ar strishadurioù"
 msgid "Switch to copied database"
 msgstr "Mont d'an diaz roadennoù eilet"
 
-#: db_operations.php:552 libraries/Index.class.php:437
+#: db_operations.php:552 libraries/Index.class.php:438
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
-#: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:107
-#: libraries/tbl_properties.inc.php:720 server_collations.php:53
+#: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
+#: libraries/tbl_properties.inc.php:723 server_collations.php:53
 #: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
-#: tbl_structure.php:206 tbl_structure.php:904 tbl_tracking.php:268
+#: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
 msgstr "Etrerummadiñ"
@@ -362,8 +366,9 @@ msgstr "Embann pe ezporzhiañ ur chema kar"
 
 #: db_printview.php:102 db_tracking.php:85 db_tracking.php:186
 #: libraries/config/messages.inc.php:499 libraries/db_structure.lib.php:32
-#: libraries/display_triggers.inc.php:74 libraries/export/pdf.php:102
-#: libraries/export/xml.php:331 libraries/header.inc.php:152
+#: libraries/export/pdf.php:102 libraries/export/xml.php:313
+#: libraries/header.inc.php:152 libraries/rte/rte_list.lib.php:56
+#: libraries/rte/rte_triggers.lib.php:330
 #: libraries/schema/User_Schema.class.php:233 server_privileges.php:1745
 #: server_privileges.php:1801 server_privileges.php:2065
 #: server_synchronize.php:418 server_synchronize.php:861 tbl_tracking.php:643
@@ -374,41 +379,41 @@ msgstr "Taolenn"
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:62
 #: libraries/import.lib.php:146 navigation.php:593 navigation.php:615
 #: tbl_printview.php:391 tbl_structure.php:395 tbl_structure.php:501
-#: tbl_structure.php:914
+#: tbl_structure.php:910
 msgid "Rows"
 msgstr "Linennoù"
 
-#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:195
+#: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:197
 msgid "Size"
 msgstr "Ment"
 
-#: db_printview.php:160 db_structure.php:409 libraries/export/sql.php:750
-#: libraries/export/sql.php:1077
+#: db_printview.php:160 db_structure.php:410 libraries/export/sql.php:743
+#: libraries/export/sql.php:1058
 msgid "in use"
 msgstr "en implij"
 
 #: db_printview.php:185 libraries/db_info.inc.php:61
-#: libraries/export/sql.php:705
+#: libraries/export/sql.php:698
 #: libraries/schema/Pdf_Relation_Schema.class.php:1209 tbl_printview.php:431
-#: tbl_structure.php:946
+#: tbl_structure.php:942
 msgid "Creation"
 msgstr "Krouiñ"
 
 #: db_printview.php:194 libraries/db_info.inc.php:66
-#: libraries/export/sql.php:710
+#: libraries/export/sql.php:703
 #: libraries/schema/Pdf_Relation_Schema.class.php:1214 tbl_printview.php:441
-#: tbl_structure.php:954
+#: tbl_structure.php:950
 msgid "Last update"
 msgstr "Hizivadenn ziwezhañ"
 
 #: db_printview.php:203 libraries/db_info.inc.php:71
-#: libraries/export/sql.php:715
+#: libraries/export/sql.php:708
 #: libraries/schema/Pdf_Relation_Schema.class.php:1219 tbl_printview.php:451
-#: tbl_structure.php:962
+#: tbl_structure.php:958
 msgid "Last check"
 msgstr "Gwiriadenn ziwezhañ"
 
-#: db_printview.php:220 db_structure.php:432
+#: db_printview.php:220 db_structure.php:433
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -435,19 +440,19 @@ msgstr "Urzhiañ"
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:557 libraries/display_tbl.lib.php:898
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:275
-#: tbl_select.php:278
+#: tbl_select.php:304
 msgid "Ascending"
 msgstr "War gresk"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:562 libraries/display_tbl.lib.php:895
 #: server_databases.php:158 server_databases.php:175 tbl_operations.php:276
-#: tbl_select.php:279
+#: tbl_select.php:305
 msgid "Descending"
 msgstr "War zigresk"
 
 #: db_qbe.php:286 db_tracking.php:91 libraries/display_tbl.lib.php:435
-#: tbl_change.php:279 tbl_tracking.php:648
+#: tbl_change.php:282 tbl_tracking.php:648
 msgid "Show"
 msgstr "Diskouez"
 
@@ -468,8 +473,8 @@ msgid "Del"
 msgstr "Diverk."
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
-#: server_privileges.php:307 tbl_change.php:887 tbl_indexes.php:262
-#: tbl_select.php:252
+#: server_privileges.php:307 tbl_change.php:890 tbl_indexes.php:264
+#: tbl_select.php:278
 msgid "Or"
 msgstr "Pe"
 
@@ -498,110 +503,9 @@ msgstr "Implijout taolennoù"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1121
+#: db_qbe.php:955 libraries/common.lib.php:1116
 msgid "Submit Query"
 msgstr "Kas ar reked"
-
-#: db_routines.php:154 import.php:452 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2235 libraries/sql_query_form.lib.php:113
-#: tbl_operations.php:228 tbl_relation.php:289 tbl_row_action.php:126
-#: view_operations.php:60
-msgid "Your SQL query has been executed successfully"
-msgstr "Sevenet eo bet ho reked SQL ervat"
-
-#: db_routines.php:157
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
-msgstr[1] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
-
-#: db_routines.php:167
-#, php-format
-msgid "Execution results of routine %s"
-msgstr "Disoc'hoù seveniñ an argerzh %s"
-
-#: db_routines.php:187 libraries/import.lib.php:152 sql.php:685
-#: tbl_change.php:180 tbl_get_field.php:34
-msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
-
-#: db_routines.php:192 db_routines.php:297 db_routines.php:302
-#: db_routines.php:326
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "C'hwitet eo bet ar reked da-heul : \"%s\""
-
-#: db_routines.php:193 db_routines.php:298 db_routines.php:303
-#: db_routines.php:313 db_routines.php:327 libraries/common.lib.php:581
-msgid "MySQL said: "
-msgstr "respontet eo bet gant MySQL : "
-
-#: db_routines.php:210 db_routines.php:242 db_routines.php:270
-#: db_routines.php:409
-msgid "Error in processing request"
-msgstr "Fazi en ur seveniñ ar reked"
-
-#: db_routines.php:211 db_routines.php:243 db_routines.php:271
-#: db_routines.php:410
-#, php-format
-msgid "No routine with name %1$s found in database %2$s"
-msgstr ""
-"N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
-
-#: db_routines.php:232 db_routines.php:236
-msgid "Execute routine"
-msgstr "Seveniñ an argerzh"
-
-#: db_routines.php:261 db_routines.php:265
-#, php-format
-msgid "Export of routine %s"
-msgstr "Ezporzhiañ an argerzh %s"
-
-#: db_routines.php:290 libraries/db_routines.lib.php:911
-#, php-format
-msgid "Invalid routine type: \"%s\""
-msgstr "Seurt argerzh faziek : \"%s\""
-
-#: db_routines.php:311
-msgid "Sorry, we failed to restore the dropped routine."
-msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
-
-#: db_routines.php:312
-msgid "The backed up query was:"
-msgstr "Setu amañ ar reked a oa bet miret :"
-
-#: db_routines.php:316
-#, php-format
-msgid "Routine %1$s has been modified."
-msgstr "Kemmet eo bet an argerzh %1s."
-
-#: db_routines.php:329
-#, php-format
-msgid "Routine %1$s has been created."
-msgstr "Krouet eo bet an argerzh %1s."
-
-#: db_routines.php:337
-msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
-
-#: db_routines.php:381
-msgid "Create routine"
-msgstr "Krouiñ un argerzh"
-
-#: db_routines.php:385
-msgid "Edit routine"
-msgstr "Kemmañ un argerzh"
-
-#: db_routines.php:436
-msgid ""
-"You are using PHP's deprecated 'mysql' extension, which is not capable of "
-"handling multi queries. <b>The execution of some stored routines may fail!</"
-"b> Please use the improved 'mysqli' extension to avoid any problems."
-msgstr ""
-"Emaoc'h oc'h implijout an astenn PHP 'mysql' a zo dispredet. N'hall ket "
-"merañ ar rekedoù lies. <b>Gallout a ra ar seveniñ argerzhioù stoket zo "
-"c'hwitañ !</b> Grit gant an astenn 'mysqli' gwellaet, kuit da gaout kudennoù."
 
 #: db_search.php:30 libraries/auth/config.auth.lib.php:83
 #: libraries/auth/config.auth.lib.php:102
@@ -638,8 +542,8 @@ msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s glotadenn en daolenn <i>%s</i> "
 msgstr[1] "%s klotadenn en daolenn <i>%s</i> "
 
-#: db_search.php:231 libraries/common.lib.php:2650
-#: libraries/common.lib.php:2834 libraries/common.lib.php:2835
+#: db_search.php:231 libraries/common.lib.php:2722
+#: libraries/common.lib.php:2906 libraries/common.lib.php:2907
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:599
 msgid "Browse"
 msgstr "Furchal"
@@ -692,34 +596,34 @@ msgstr "E diabarzh an taolennoù"
 msgid "Inside column:"
 msgstr "Er bann : "
 
-#: db_structure.php:60
+#: db_structure.php:61
 msgid "No tables found in database"
 msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
 
-#: db_structure.php:270 tbl_operations.php:688
+#: db_structure.php:271 tbl_operations.php:688
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Goullonderet eo bet an daolenn %s"
 
-#: db_structure.php:279 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Diverket eo bet ar Gweled %s"
 
-#: db_structure.php:279 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Diverket eo bet an daolenn %s"
 
-#: db_structure.php:286 tbl_create.php:269
+#: db_structure.php:287 tbl_create.php:269
 msgid "Tracking is active."
 msgstr "Oberiant eo an heuliañ."
 
-#: db_structure.php:288 tbl_create.php:271
+#: db_structure.php:289 tbl_create.php:271
 msgid "Tracking is not active."
 msgstr "N'eo ket oberiant an heuliañ."
 
-#: db_structure.php:372 libraries/display_tbl.lib.php:2198
+#: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
@@ -728,27 +632,27 @@ msgstr ""
 "Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an %"
 "steulioù titouriñ%s."
 
-#: db_structure.php:386 db_structure.php:400 libraries/header.inc.php:152
+#: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
 msgid "View"
 msgstr "Gwelet"
 
-#: db_structure.php:437 libraries/db_structure.lib.php:35
+#: db_structure.php:438 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:271
 msgid "Replication"
 msgstr "Eilañ"
 
-#: db_structure.php:441
+#: db_structure.php:442
 msgid "Sum"
 msgstr "Sammad"
 
-#: db_structure.php:448 libraries/StorageEngine.class.php:313
+#: db_structure.php:449 libraries/StorageEngine.class.php:313
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "War ar servijer MySQL-mañ ez eo %s ar c'heflusker stokañ dre ziouer."
 
-#: db_structure.php:476 db_structure.php:493 db_structure.php:494
+#: db_structure.php:477 db_structure.php:494 db_structure.php:495
 #: libraries/display_tbl.lib.php:2339 libraries/display_tbl.lib.php:2344
 #: libraries/mult_submits.inc.php:15 server_databases.php:260
 #: server_databases.php:265 server_privileges.php:1666 tbl_structure.php:587
@@ -756,24 +660,24 @@ msgstr "War ar servijer MySQL-mañ ez eo %s ar c'heflusker stokañ dre ziouer."
 msgid "With selected:"
 msgstr "Evit ar re zo diuzet : "
 
-#: db_structure.php:479 libraries/display_tbl.lib.php:2334
+#: db_structure.php:480 libraries/display_tbl.lib.php:2334
 #: server_databases.php:262 server_privileges.php:583
 #: server_privileges.php:1669 tbl_structure.php:590
 msgid "Check All"
 msgstr "Askañ pep tra"
 
-#: db_structure.php:483 libraries/display_tbl.lib.php:2335
+#: db_structure.php:484 libraries/display_tbl.lib.php:2335
 #: libraries/replication_gui.lib.php:35 server_databases.php:264
 #: server_privileges.php:586 server_privileges.php:1673 tbl_structure.php:594
 msgid "Uncheck All"
 msgstr "Diaskañ pep tra"
 
-#: db_structure.php:488
+#: db_structure.php:489
 msgid "Check tables having overhead"
 msgstr "Askañ an taolennoù gant dilerc'hioù"
 
-#: db_structure.php:496 libraries/common.lib.php:2847
-#: libraries/common.lib.php:2848 libraries/config/messages.inc.php:164
+#: db_structure.php:497 libraries/common.lib.php:2919
+#: libraries/common.lib.php:2920 libraries/config/messages.inc.php:164
 #: libraries/db_links.inc.php:56 libraries/display_tbl.lib.php:2352
 #: libraries/display_tbl.lib.php:2488 libraries/server_links.inc.php:65
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:288
@@ -781,54 +685,54 @@ msgstr "Askañ an taolennoù gant dilerc'hioù"
 msgid "Export"
 msgstr "Ezporzhiañ"
 
-#: db_structure.php:498 db_structure.php:553
+#: db_structure.php:499 db_structure.php:554
 #: libraries/display_tbl.lib.php:2439 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
 msgstr "Stumm da voullañ"
 
-#: db_structure.php:502 libraries/common.lib.php:2843
-#: libraries/common.lib.php:2844
+#: db_structure.php:503 libraries/common.lib.php:2915
+#: libraries/common.lib.php:2916
 msgid "Empty"
 msgstr "Goullonderiñ"
 
-#: db_structure.php:504 db_tracking.php:104 libraries/Index.class.php:481
-#: libraries/common.lib.php:2841 libraries/common.lib.php:2842
+#: db_structure.php:505 db_tracking.php:104 libraries/Index.class.php:482
+#: libraries/common.lib.php:2913 libraries/common.lib.php:2914
 #: server_databases.php:266 tbl_structure.php:153 tbl_structure.php:154
 #: tbl_structure.php:603
 msgid "Drop"
 msgstr "Diverkañ"
 
-#: db_structure.php:506 tbl_operations.php:604
+#: db_structure.php:507 tbl_operations.php:604
 msgid "Check table"
 msgstr "Gwiriañ an daolenn"
 
-#: db_structure.php:508 tbl_operations.php:653 tbl_structure.php:846
-#: tbl_structure.php:848
+#: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
+#: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "Lakaat an daolenn diouzh ar gwellañ"
 
-#: db_structure.php:510 tbl_operations.php:640
+#: db_structure.php:511 tbl_operations.php:640
 msgid "Repair table"
 msgstr "Dresañ an daolenn"
 
-#: db_structure.php:512 tbl_operations.php:627
+#: db_structure.php:513 tbl_operations.php:627
 msgid "Analyze table"
 msgstr "Dielfennañ an daolenn"
 
-#: db_structure.php:514
+#: db_structure.php:515
 msgid "Add prefix to table"
 msgstr "Ouzhpennañ ur rakger d'an daolenn"
 
-#: db_structure.php:516 libraries/mult_submits.inc.php:251
+#: db_structure.php:517 libraries/mult_submits.inc.php:251
 msgid "Replace table prefix"
 msgstr "Erlec'hiañ rakger an daolenn"
 
-#: db_structure.php:518 libraries/mult_submits.inc.php:251
+#: db_structure.php:519 libraries/mult_submits.inc.php:251
 msgid "Copy table with prefix"
 msgstr "Eilañ an daolenn enni ur rakger"
 
-#: db_structure.php:560 libraries/schema/User_Schema.class.php:383
+#: db_structure.php:561 libraries/schema/User_Schema.class.php:383
 msgid "Data Dictionary"
 msgstr "Geriadur roadennoù"
 
@@ -837,10 +741,10 @@ msgid "Tracked tables"
 msgstr "Taolennoù heuliet-pizh"
 
 #: db_tracking.php:84 libraries/config/messages.inc.php:493
-#: libraries/export/htmlword.php:90 libraries/export/latex.php:163
-#: libraries/export/odt.php:121 libraries/export/pdf.php:102
-#: libraries/export/sql.php:569 libraries/export/texytext.php:78
-#: libraries/export/xml.php:258 libraries/header.inc.php:139
+#: libraries/export/htmlword.php:78 libraries/export/latex.php:151
+#: libraries/export/odt.php:109 libraries/export/pdf.php:102
+#: libraries/export/sql.php:570 libraries/export/texytext.php:66
+#: libraries/export/xml.php:246 libraries/header.inc.php:139
 #: libraries/header_printview.inc.php:57 server_databases.php:157
 #: server_privileges.php:1740 server_privileges.php:1801
 #: server_privileges.php:2059 server_status.php:798
@@ -861,14 +765,15 @@ msgstr "Krouet"
 msgid "Updated"
 msgstr "Hizivaet"
 
-#: db_tracking.php:89 libraries/server_links.inc.php:51 server_status.php:801
-#: sql.php:942 tbl_tracking.php:647
+#: db_tracking.php:89 libraries/rte/rte_events.lib.php:404
+#: libraries/rte/rte_list.lib.php:63 libraries/server_links.inc.php:51
+#: server_status.php:801 sql.php:942 tbl_tracking.php:647
 msgid "Status"
 msgstr "Statud"
 
-#: db_tracking.php:90 libraries/Index.class.php:429
-#: libraries/db_events.inc.php:68 libraries/db_routines.lib.php:1157
-#: libraries/db_structure.lib.php:39 libraries/display_triggers.inc.php:76
+#: db_tracking.php:90 libraries/Index.class.php:430
+#: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:50
+#: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:64
 #: server_databases.php:191 server_privileges.php:1612
 #: server_privileges.php:1805 server_privileges.php:2154 tbl_structure.php:214
 msgid "Action"
@@ -911,12 +816,12 @@ msgstr "Heuliañ an daolenn"
 msgid "Database Log"
 msgstr "Marilh an diaz roadennoù"
 
-#: enum_editor.php:21 libraries/tbl_properties.inc.php:773
+#: enum_editor.php:21 libraries/tbl_properties.inc.php:776
 #, php-format
 msgid "Values for the column \"%s\""
 msgstr "Talvoudoù evit ar bann \"%s\""
 
-#: enum_editor.php:22 libraries/tbl_properties.inc.php:774
+#: enum_editor.php:22 libraries/tbl_properties.inc.php:777
 msgid "Enter each value in a separate field."
 msgstr "Merkañ pep talvoud en ur vaezienn a-ziforc'h."
 
@@ -936,12 +841,12 @@ msgstr "Eilañ an talvoudoù ha pegañ anezho er vaezienn \"Ment/Talvoudoù\""
 msgid "Selected export type has to be saved in file!"
 msgstr "Ret eo enrollañ an diuzadenn ezporzhiañ en ur restr !"
 
-#: export.php:164 export.php:189 export.php:671
+#: export.php:163 export.php:188 export.php:670
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "N'eus ket egor a-walc'h evit gallout enrollañ ar restr %s."
 
-#: export.php:307
+#: export.php:306
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -949,12 +854,12 @@ msgstr ""
 "Emañ ar restr %s war ar servijer dija; cheñch an anv pe klikañ war al log "
 "frikañ ar restroù zo dija."
 
-#: export.php:311 export.php:315
+#: export.php:310 export.php:314
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "N'eo ket aotreet ar servijer web da enrollañ ar restr %s."
 
-#: export.php:673
+#: export.php:672
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Enrollet eo bet ar restr ezporzhiañ e%s."
@@ -1034,6 +939,13 @@ msgstr ""
 "Koulskoude n'eus ket bet dielfennet roadenn ebet er gasadenn ziwezhañ. "
 "Peurliesañ e talvez n'hallo ket PhpMyAdmin echuiñ da enporzhiañ an traoù ma "
 "ne vez ket kresket ganeoc'h bevenn amzer PHP."
+
+#: import.php:452 libraries/Message.class.php:175
+#: libraries/display_tbl.lib.php:2235 libraries/rte/rte_routines.lib.php:1260
+#: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
+#: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
+msgid "Your SQL query has been executed successfully"
+msgstr "Sevenet eo bet ho reked SQL ervat"
 
 #: import_status.php:30 libraries/common.lib.php:622
 #: libraries/schema/Export_Relation_Schema.class.php:203 user_password.php:109
@@ -1141,14 +1053,14 @@ msgstr "Oc'h adkargañ an dreistgwirioù"
 msgid "Removing Selected Users"
 msgstr "O lemel kuit an implijerien diuzet"
 
-#: js/messages.php:59 libraries/tbl_properties.inc.php:772
+#: js/messages.php:59 libraries/tbl_properties.inc.php:775
 #: tbl_tracking.php:244 tbl_tracking.php:409
 msgid "Close"
 msgstr "Serriñ"
 
-#: js/messages.php:62 js/messages.php:134 libraries/Index.class.php:459
-#: libraries/common.lib.php:566 libraries/common.lib.php:1097
-#: libraries/common.lib.php:2845 libraries/common.lib.php:2846
+#: js/messages.php:62 js/messages.php:133 libraries/Index.class.php:460
+#: libraries/common.lib.php:566 libraries/common.lib.php:1092
+#: libraries/common.lib.php:2917 libraries/common.lib.php:2918
 #: libraries/config/messages.inc.php:473 libraries/display_tbl.lib.php:1302
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 #: libraries/schema/User_Schema.class.php:164 setup/frames/index.inc.php:137
@@ -1175,7 +1087,7 @@ msgstr "Roadennoù stadegel"
 #: js/messages.php:70 libraries/build_html_for_db.lib.php:45
 #: libraries/engines/innodb.lib.php:158 server_databases.php:219
 #: server_status.php:701 server_status.php:762 tbl_printview.php:348
-#: tbl_structure.php:833
+#: tbl_structure.php:829
 msgid "Total"
 msgstr "Hollad"
 
@@ -1185,12 +1097,12 @@ msgid "Other"
 msgstr "Udb all"
 
 #. l10n: Thousands separator
-#: js/messages.php:74 libraries/common.lib.php:1322
+#: js/messages.php:74 libraries/common.lib.php:1316
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: js/messages.php:76 libraries/common.lib.php:1324
+#: js/messages.php:76 libraries/common.lib.php:1318
 msgid "."
 msgstr "."
 
@@ -1230,7 +1142,7 @@ msgstr "Rekedoù resevet"
 msgid "Query statistics"
 msgstr "Stadegoù war ar rekedoù"
 
-#: js/messages.php:91 libraries/tbl_properties.inc.php:777 pmd_general.php:388
+#: js/messages.php:91 libraries/tbl_properties.inc.php:780 pmd_general.php:388
 #: pmd_general.php:425 pmd_general.php:545 pmd_general.php:593
 #: pmd_general.php:669 pmd_general.php:723 pmd_general.php:786
 msgid "Cancel"
@@ -1244,8 +1156,8 @@ msgstr "O kargañ"
 msgid "Processing Request"
 msgstr "O plediñ gant ar reked"
 
-#: js/messages.php:96 libraries/db_events.inc.php:39
-#: libraries/display_triggers.inc.php:46 libraries/import/ods.php:80
+#: js/messages.php:96 libraries/import/ods.php:80
+#: libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
 msgstr "Fazi en ur blediñ gant ar reked"
 
@@ -1292,16 +1204,12 @@ msgid "Insert Table"
 msgstr "Ensoc'hañ un daolenn"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "Menegerioù"
+msgstr "Kuzhat menegerioù"
 
 #: js/messages.php:114
-#, fuzzy
-#| msgid "Indexes"
 msgid "Show indexes"
-msgstr "Menegerioù"
+msgstr "Diskouez menegerioù"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -1328,80 +1236,76 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket"
 
-#: js/messages.php:125
-msgid "Value too long in the form!"
-msgstr "Talvoud re hir er furmskrid !"
-
-#: js/messages.php:128
+#: js/messages.php:127
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr "Notenn : ma vez meur a daolenn er restr e vint unanet."
 
-#: js/messages.php:131
+#: js/messages.php:130
 msgid "Hide query box"
 msgstr "Kuzhat ar voest rekedoù SQL"
 
-#: js/messages.php:132
+#: js/messages.php:131
 msgid "Show query box"
 msgstr "Diskouez ar voest rekedoù SQL"
 
-#: js/messages.php:133
+#: js/messages.php:132
 msgid "Inline Edit"
 msgstr "Kemmañ enlinenn"
 
-#: js/messages.php:135 libraries/config/FormDisplay.tpl.php:323
+#: js/messages.php:134 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
-#: libraries/tbl_properties.inc.php:766 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:227 tbl_change.php:976
-#: tbl_gis_visualization.php:222 tbl_indexes.php:259 tbl_relation.php:563
+#: libraries/tbl_properties.inc.php:769 setup/frames/config.inc.php:39
+#: setup/frames/index.inc.php:227 tbl_change.php:979
+#: tbl_gis_visualization.php:222 tbl_indexes.php:261 tbl_relation.php:563
 msgid "Save"
 msgstr "Enrollañ"
 
-#: js/messages.php:136 libraries/display_tbl.lib.php:645 pmd_general.php:158
-#: tbl_change.php:316 tbl_change.php:322
+#: js/messages.php:135 libraries/display_tbl.lib.php:645 pmd_general.php:158
+#: tbl_change.php:319 tbl_change.php:325
 msgid "Hide"
 msgstr "Kuzhat"
 
-#: js/messages.php:137 tbl_row_action.php:28
+#: js/messages.php:136 tbl_row_action.php:28
 msgid "No rows selected"
 msgstr "N'eus bet diuzet linenn ebet"
 
-#: js/messages.php:138 libraries/display_tbl.lib.php:2347 querywindow.php:90
-#: querywindow.php:94 querywindow.php:97 tbl_structure.php:152
-#: tbl_structure.php:602
+#: js/messages.php:137 libraries/common.lib.php:2440
+#: libraries/display_tbl.lib.php:2347 querywindow.php:90 querywindow.php:94
+#: querywindow.php:97 tbl_structure.php:152 tbl_structure.php:602
 msgid "Change"
 msgstr "Kemmañ"
 
-#: js/messages.php:141
+#: js/messages.php:140
 msgid "Hide search criteria"
 msgstr "Kuzhat an dezverkoù klask"
 
-#: js/messages.php:142
+#: js/messages.php:141
 msgid "Show search criteria"
 msgstr "Diskouez an dezverkoù enklask"
 
-#: js/messages.php:145 tbl_change.php:304 tbl_indexes.php:209
-#: tbl_indexes.php:236
+#: js/messages.php:144 tbl_change.php:307 tbl_indexes.php:211
+#: tbl_indexes.php:238
 msgid "Ignore"
 msgstr "Na ober van"
 
-#: js/messages.php:148
+#: js/messages.php:147
 msgid "Select referenced key"
 msgstr "Diuzit an alc'hwez daveet"
 
-#: js/messages.php:149
+#: js/messages.php:148
 msgid "Select Foreign Key"
 msgstr "Diuzit an alc'hwez estren"
 
-#: js/messages.php:150
+#: js/messages.php:149
 msgid "Please select the primary key or a unique key"
 msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
 
-#: js/messages.php:151 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:150 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Dibab ar bann da ziskouez"
 
-#: js/messages.php:152
+#: js/messages.php:151
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1409,27 +1313,27 @@ msgstr ""
 "N'eo ket bet enrollet ar c'hemmoù degaset d'an tres ganeoc'h. Kollet e vint "
 "ma n'o enrollit ket. Kenderc'hel memes tra ?"
 
-#: js/messages.php:155
+#: js/messages.php:154
 msgid "Add an option for column "
 msgstr "Ouzhpennañ un dibarzh evit ar bann "
 
-#: js/messages.php:158
+#: js/messages.php:157
 msgid "Generate password"
 msgstr "Genel ur ger-tremen"
 
-#: js/messages.php:159 libraries/replication_gui.lib.php:364
+#: js/messages.php:158 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Genel"
 
-#: js/messages.php:160
+#: js/messages.php:159
 msgid "Change Password"
 msgstr "Cheñch ger-tremen"
 
-#: js/messages.php:163 tbl_structure.php:497
+#: js/messages.php:162 tbl_structure.php:497
 msgid "More"
 msgstr "Muioc'h"
 
-#: js/messages.php:166 setup/lib/index.lib.php:158
+#: js/messages.php:165 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1439,258 +1343,258 @@ msgstr ""
 "hizivaat ho hini. Setu ar stumm nevesañ %s, embannet eo bet d'an %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:168
+#: js/messages.php:167
 msgid ", latest stable version:"
 msgstr ", stumm stabil diwezhañ"
 
-#: js/messages.php:169
+#: js/messages.php:168
 msgid "up to date"
 msgstr "hizivaet"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:187
+#: js/messages.php:186
 msgid "Done"
 msgstr "Graet"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:189
+#: js/messages.php:188
 msgid "Prev"
 msgstr "Kent"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:191 libraries/common.lib.php:2222
-#: libraries/common.lib.php:2225 libraries/display_tbl.lib.php:366
+#: js/messages.php:190 libraries/common.lib.php:2212
+#: libraries/common.lib.php:2215 libraries/display_tbl.lib.php:366
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
-#: tbl_structure.php:938
+#: tbl_structure.php:934
 msgid "Next"
 msgstr "War-lerc'h"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:193
+#: js/messages.php:192
 msgid "Today"
 msgstr "Hiziv"
 
-#: js/messages.php:196
+#: js/messages.php:195
 msgid "January"
 msgstr "Genver"
 
-#: js/messages.php:197
+#: js/messages.php:196
 msgid "February"
 msgstr "C'hwevrer"
 
-#: js/messages.php:198
+#: js/messages.php:197
 msgid "March"
 msgstr "Meurzh"
 
-#: js/messages.php:199
+#: js/messages.php:198
 msgid "April"
 msgstr "Ebrel"
 
-#: js/messages.php:200
+#: js/messages.php:199
 msgid "May"
 msgstr "Mae"
 
-#: js/messages.php:201
+#: js/messages.php:200
 msgid "June"
 msgstr "Mezheven"
 
-#: js/messages.php:202
+#: js/messages.php:201
 msgid "July"
 msgstr "Gouere"
 
-#: js/messages.php:203
+#: js/messages.php:202
 msgid "August"
 msgstr "Eost"
 
-#: js/messages.php:204
+#: js/messages.php:203
 msgid "September"
 msgstr "Gwengolo"
 
-#: js/messages.php:205
+#: js/messages.php:204
 msgid "October"
 msgstr "Here"
 
-#: js/messages.php:206
+#: js/messages.php:205
 msgid "November"
 msgstr "Du"
 
-#: js/messages.php:207
+#: js/messages.php:206
 msgid "December"
 msgstr "Kerzu"
 
 #. l10n: Short month name
-#: js/messages.php:211 libraries/common.lib.php:1458
+#: js/messages.php:210 libraries/common.lib.php:1450
 msgid "Jan"
 msgstr "Gen"
 
 #. l10n: Short month name
-#: js/messages.php:213 libraries/common.lib.php:1460
+#: js/messages.php:212 libraries/common.lib.php:1452
 msgid "Feb"
 msgstr "C'hwe"
 
 #. l10n: Short month name
-#: js/messages.php:215 libraries/common.lib.php:1462
+#: js/messages.php:214 libraries/common.lib.php:1454
 msgid "Mar"
 msgstr "Meu"
 
 #. l10n: Short month name
-#: js/messages.php:217 libraries/common.lib.php:1464
+#: js/messages.php:216 libraries/common.lib.php:1456
 msgid "Apr"
 msgstr "Ebr"
 
 #. l10n: Short month name
-#: js/messages.php:219 libraries/common.lib.php:1466
+#: js/messages.php:218 libraries/common.lib.php:1458
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mae"
 
 #. l10n: Short month name
-#: js/messages.php:221 libraries/common.lib.php:1468
+#: js/messages.php:220 libraries/common.lib.php:1460
 msgid "Jun"
 msgstr "Mezh"
 
 #. l10n: Short month name
-#: js/messages.php:223 libraries/common.lib.php:1470
+#: js/messages.php:222 libraries/common.lib.php:1462
 msgid "Jul"
 msgstr "Goue"
 
 #. l10n: Short month name
-#: js/messages.php:225 libraries/common.lib.php:1472
+#: js/messages.php:224 libraries/common.lib.php:1464
 msgid "Aug"
 msgstr "Eost"
 
 #. l10n: Short month name
-#: js/messages.php:227 libraries/common.lib.php:1474
+#: js/messages.php:226 libraries/common.lib.php:1466
 msgid "Sep"
 msgstr "Gwen"
 
 #. l10n: Short month name
-#: js/messages.php:229 libraries/common.lib.php:1476
+#: js/messages.php:228 libraries/common.lib.php:1468
 msgid "Oct"
 msgstr "Here"
 
 #. l10n: Short month name
-#: js/messages.php:231 libraries/common.lib.php:1478
+#: js/messages.php:230 libraries/common.lib.php:1470
 msgid "Nov"
 msgstr "Du"
 
 #. l10n: Short month name
-#: js/messages.php:233 libraries/common.lib.php:1480
+#: js/messages.php:232 libraries/common.lib.php:1472
 msgid "Dec"
 msgstr "Kzu"
 
-#: js/messages.php:236
+#: js/messages.php:235
 msgid "Sunday"
 msgstr "Sul"
 
-#: js/messages.php:237
+#: js/messages.php:236
 msgid "Monday"
 msgstr "Lun"
 
-#: js/messages.php:238
+#: js/messages.php:237
 msgid "Tuesday"
 msgstr "Meurzh"
 
-#: js/messages.php:239
+#: js/messages.php:238
 msgid "Wednesday"
 msgstr "Merc'her"
 
-#: js/messages.php:240
+#: js/messages.php:239
 msgid "Thursday"
 msgstr "Yaou"
 
-#: js/messages.php:241
+#: js/messages.php:240
 msgid "Friday"
 msgstr "Gwener"
 
-#: js/messages.php:242
+#: js/messages.php:241
 msgid "Saturday"
 msgstr "Sadorn"
 
 #. l10n: Short week day name
-#: js/messages.php:246 libraries/common.lib.php:1483
+#: js/messages.php:245 libraries/common.lib.php:1475
 msgid "Sun"
 msgstr "Sul"
 
 #. l10n: Short week day name
-#: js/messages.php:248 libraries/common.lib.php:1485
+#: js/messages.php:247 libraries/common.lib.php:1477
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:250 libraries/common.lib.php:1487
+#: js/messages.php:249 libraries/common.lib.php:1479
 msgid "Tue"
 msgstr "Meu"
 
 #. l10n: Short week day name
-#: js/messages.php:252 libraries/common.lib.php:1489
+#: js/messages.php:251 libraries/common.lib.php:1481
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:254 libraries/common.lib.php:1491
+#: js/messages.php:253 libraries/common.lib.php:1483
 msgid "Thu"
 msgstr "Yaou"
 
 #. l10n: Short week day name
-#: js/messages.php:256 libraries/common.lib.php:1493
+#: js/messages.php:255 libraries/common.lib.php:1485
 msgid "Fri"
 msgstr "Gwe"
 
 #. l10n: Short week day name
-#: js/messages.php:258 libraries/common.lib.php:1495
+#: js/messages.php:257 libraries/common.lib.php:1487
 msgid "Sat"
 msgstr "Sad"
 
 #. l10n: Minimal week day name
-#: js/messages.php:262
+#: js/messages.php:261
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
-#: js/messages.php:264
+#: js/messages.php:263
 msgid "Mo"
 msgstr "L"
 
 #. l10n: Minimal week day name
-#: js/messages.php:266
+#: js/messages.php:265
 msgid "Tu"
 msgstr "Mz"
 
 #. l10n: Minimal week day name
-#: js/messages.php:268
+#: js/messages.php:267
 msgid "We"
 msgstr "Mc"
 
 #. l10n: Minimal week day name
-#: js/messages.php:270
+#: js/messages.php:269
 msgid "Th"
 msgstr "Y"
 
 #. l10n: Minimal week day name
-#: js/messages.php:272
+#: js/messages.php:271
 msgid "Fr"
 msgstr "G"
 
 #. l10n: Minimal week day name
-#: js/messages.php:274
+#: js/messages.php:273
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:276
+#: js/messages.php:275
 msgid "Wk"
 msgstr "Sizh."
 
-#: js/messages.php:278
+#: js/messages.php:277
 msgid "Hour"
 msgstr "Eur"
 
-#: js/messages.php:279
+#: js/messages.php:278
 msgid "Minute"
 msgstr "Munut"
 
-#: js/messages.php:280
+#: js/messages.php:279
 msgid "Second"
 msgstr "Eilenn"
 
@@ -1740,44 +1644,45 @@ msgstr ""
 "Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 
-#: libraries/Index.class.php:417 tbl_relation.php:526
+#: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
 msgstr "N'eus bet termenet meneger ebet !"
 
-#: libraries/Index.class.php:422 libraries/build_html_for_db.lib.php:40
+#: libraries/Index.class.php:423 libraries/build_html_for_db.lib.php:40
 #: tbl_tracking.php:309
 msgid "Indexes"
 msgstr "Menegerioù"
 
-#: libraries/Index.class.php:433 libraries/tbl_properties.inc.php:503
+#: libraries/Index.class.php:434 libraries/tbl_properties.inc.php:506
 #: tbl_structure.php:157 tbl_structure.php:162 tbl_structure.php:606
 #: tbl_tracking.php:315
 msgid "Unique"
 msgstr "Dibar"
 
-#: libraries/Index.class.php:434 tbl_tracking.php:316
+#: libraries/Index.class.php:435 tbl_tracking.php:316
 msgid "Packed"
 msgstr "Gwasket"
 
-#: libraries/Index.class.php:436 tbl_tracking.php:318
+#: libraries/Index.class.php:437 tbl_tracking.php:318
 msgid "Cardinality"
 msgstr "Kardinalegezh"
 
-#: libraries/Index.class.php:439 libraries/db_routines.lib.php:748
-#: tbl_tracking.php:272 tbl_tracking.php:321
+#: libraries/Index.class.php:440 libraries/rte/rte_events.lib.php:504
+#: libraries/rte/rte_routines.lib.php:1006 tbl_tracking.php:272
+#: tbl_tracking.php:321
 msgid "Comment"
 msgstr "Evezhiadenn"
 
-#: libraries/Index.class.php:465
+#: libraries/Index.class.php:466
 msgid "The primary key has been dropped"
 msgstr "Diverket eo bet an alc'hwez kentidik"
 
-#: libraries/Index.class.php:469
+#: libraries/Index.class.php:470
 #, php-format
 msgid "Index %s has been dropped"
 msgstr "Diverket eo bet ar meneger %s."
 
-#: libraries/Index.class.php:567
+#: libraries/Index.class.php:568
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -1794,7 +1699,7 @@ msgstr "Diazoù roadennoù"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:533
-#: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:883
+#: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
 #: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Fazi"
@@ -1852,25 +1757,25 @@ msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "N'eo ket skoret al lusker stokañ %s gant ar servijer MySQL-mañ."
 
-#: libraries/Table.class.php:1036
+#: libraries/Table.class.php:1034
 msgid "Invalid database"
 msgstr "Diaz roadennoù direizh"
 
-#: libraries/Table.class.php:1050 tbl_get_field.php:25
+#: libraries/Table.class.php:1048 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Anv taolenn direizh"
 
-#: libraries/Table.class.php:1065
+#: libraries/Table.class.php:1063
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Fazi en ur adenvel %1$s e %2$s"
 
-#: libraries/Table.class.php:1148
+#: libraries/Table.class.php:1146
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "Anv an daolenn %s zo %s bremañ"
 
-#: libraries/Table.class.php:1275
+#: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
 msgstr "N'eus ket bet gallet enrollañ dibaboù etrefas an taolennoù"
 
@@ -2037,23 +1942,23 @@ msgstr "C'hwitet eo bet moned PBMS ouzh an titouroù BLOB :"
 msgid "get BLOB Content-Type failed"
 msgstr "C'hwitet eo bet ar moned ouzh Content-Type ar BLOB"
 
-#: libraries/blobstreaming.lib.php:342
+#: libraries/blobstreaming.lib.php:341
 msgid "View image"
 msgstr "Gwelet ar skeudenn"
 
-#: libraries/blobstreaming.lib.php:346
+#: libraries/blobstreaming.lib.php:345
 msgid "Play audio"
 msgstr "Lenn ar son"
 
-#: libraries/blobstreaming.lib.php:351
+#: libraries/blobstreaming.lib.php:350
 msgid "View video"
 msgstr "Lenn ar video"
 
-#: libraries/blobstreaming.lib.php:355
+#: libraries/blobstreaming.lib.php:354
 msgid "Download file"
 msgstr "Pellgargañ"
 
-#: libraries/blobstreaming.lib.php:416
+#: libraries/blobstreaming.lib.php:415
 #, php-format
 msgid "Could not open file: %s"
 msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
@@ -2075,14 +1980,14 @@ msgstr "Taolennoù"
 #: libraries/config/user_preferences.forms.php:241
 #: libraries/config/user_preferences.forms.php:272
 #: libraries/config/user_preferences.forms.php:277
-#: libraries/export/latex.php:216 libraries/export/sql.php:1058
+#: libraries/export/latex.php:201 libraries/export/sql.php:1039
 #: server_privileges.php:513 server_replication.php:314 tbl_printview.php:314
-#: tbl_structure.php:802
+#: tbl_structure.php:798
 msgid "Data"
 msgstr "Roadennoù"
 
 #: libraries/build_html_for_db.lib.php:50 libraries/db_structure.lib.php:55
-#: tbl_printview.php:333 tbl_structure.php:819
+#: tbl_printview.php:333 tbl_structure.php:815
 msgid "Overhead"
 msgstr "Dilerc'hioù"
 
@@ -2107,11 +2012,11 @@ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Gwiriañ ar gwirioù"
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:588
 msgid "Failed to read configuration file"
 msgstr "Dibosupl lenn ar restr keluniañ"
 
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:589
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -2119,12 +2024,12 @@ msgstr ""
 "Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket ur "
 "fazi o tont war wel a-is."
 
-#: libraries/common.inc.php:595
+#: libraries/common.inc.php:596
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "N'eus ket bet gallet kargañ ar c'hefluniadur dre ziouer adalek %1$s"
 
-#: libraries/common.inc.php:600
+#: libraries/common.inc.php:601
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2132,26 +2037,26 @@ msgstr ""
 "RET eo d'an arventenn <tt>$cfg['PmaAbsoluteUri']</tt> bezañ resisaet er "
 "restr kefluniañ."
 
-#: libraries/common.inc.php:630
+#: libraries/common.inc.php:631
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Meneger servijer faziek : %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Anv ostiz direizh evit ar servijer %1$s. Gwiriit ar c'hefluniadur."
 
-#: libraries/common.inc.php:646 libraries/config/messages.inc.php:497
+#: libraries/common.inc.php:647 libraries/config/messages.inc.php:497
 #: libraries/header.inc.php:129 main.php:161 server_synchronize.php:1170
 msgid "Server"
 msgstr "Servijer"
 
-#: libraries/common.inc.php:825
+#: libraries/common.inc.php:826
 msgid "Invalid authentication method set in configuration:"
 msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh."
 
-#: libraries/common.inc.php:928
+#: libraries/common.inc.php:929
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Ret e vefe deoc'h ober gant ar stumm %s %s pe unan nevesoc'h c'hoazh."
@@ -2195,131 +2100,151 @@ msgstr "Teuliadur"
 msgid "SQL query"
 msgstr "Reked SQL"
 
-#: libraries/common.lib.php:1031
+#: libraries/common.lib.php:581 libraries/rte/rte_events.lib.php:127
+#: libraries/rte/rte_events.lib.php:132 libraries/rte/rte_events.lib.php:142
+#: libraries/rte/rte_events.lib.php:155 libraries/rte/rte_routines.lib.php:280
+#: libraries/rte/rte_routines.lib.php:285
+#: libraries/rte/rte_routines.lib.php:295
+#: libraries/rte/rte_routines.lib.php:309
+#: libraries/rte/rte_routines.lib.php:1310
+#: libraries/rte/rte_triggers.lib.php:100
+#: libraries/rte/rte_triggers.lib.php:105
+#: libraries/rte/rte_triggers.lib.php:115
+#: libraries/rte/rte_triggers.lib.php:128
+msgid "MySQL said: "
+msgstr "respontet eo bet gant MySQL : "
+
+#: libraries/common.lib.php:1026
 msgid "Failed to connect to SQL validator!"
 msgstr "DIbosupl kevreañ d'ar c'hadarnataer SQL !"
 
-#: libraries/common.lib.php:1072 libraries/config/messages.inc.php:474
+#: libraries/common.lib.php:1067 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
 msgstr "Displegañ SQL"
 
-#: libraries/common.lib.php:1076
+#: libraries/common.lib.php:1071
 msgid "Skip Explain SQL"
 msgstr "N'eo ket dav displegañ SQL"
 
-#: libraries/common.lib.php:1110
+#: libraries/common.lib.php:1105
 msgid "Without PHP Code"
 msgstr "Hep kod PHP"
 
-#: libraries/common.lib.php:1113 libraries/config/messages.inc.php:476
+#: libraries/common.lib.php:1108 libraries/config/messages.inc.php:476
 msgid "Create PHP Code"
 msgstr "Krouiñ kod PHP"
 
-#: libraries/common.lib.php:1131 libraries/config/messages.inc.php:475
+#: libraries/common.lib.php:1126 libraries/config/messages.inc.php:475
 #: server_status.php:410 server_status.php:436 server_status.php:457
 msgid "Refresh"
 msgstr "Freskaat"
 
-#: libraries/common.lib.php:1140
+#: libraries/common.lib.php:1135
 msgid "Skip Validate SQL"
 msgstr "N'eo ket dav kadarnaat SQL"
 
-#: libraries/common.lib.php:1143 libraries/config/messages.inc.php:478
+#: libraries/common.lib.php:1138 libraries/config/messages.inc.php:478
 msgid "Validate SQL"
 msgstr "Kadarnaat SQL"
 
-#: libraries/common.lib.php:1198
+#: libraries/common.lib.php:1193
 msgid "Inline edit of this query"
 msgstr "Kemmañ ar reked-mañ enlinenn"
 
-#: libraries/common.lib.php:1200
+#: libraries/common.lib.php:1195
 msgid "Inline"
 msgstr "Enlinenn"
 
-#: libraries/common.lib.php:1262 sql.php:938
+#: libraries/common.lib.php:1256 sql.php:938
 msgid "Profiling"
 msgstr "O profilañ"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "B"
 msgstr "o"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "KiB"
 msgstr "Kio"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "MiB"
 msgstr "Mio"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "GiB"
 msgstr "Gio"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "TiB"
 msgstr "Tio"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "PiB"
 msgstr "Pio"
 
-#: libraries/common.lib.php:1282
+#: libraries/common.lib.php:1276
 msgid "EiB"
 msgstr "Eio"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php to define the format string
-#: libraries/common.lib.php:1499
+#: libraries/common.lib.php:1491
 #: libraries/transformations/text_plain__dateformat.inc.php:33
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%A %d %B %Y da %H:%M"
 
-#: libraries/common.lib.php:1797
+#: libraries/common.lib.php:1789
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s deiz, %s eur, %s munut ha %s eilenn"
 
-#: libraries/common.lib.php:2192 libraries/common.lib.php:2195
+#: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:302
 msgid "Begin"
 msgstr "Kregiñ"
 
-#: libraries/common.lib.php:2193 libraries/common.lib.php:2196
+#: libraries/common.lib.php:2183 libraries/common.lib.php:2186
 #: libraries/display_tbl.lib.php:303 server_binlog.php:135
 #: server_binlog.php:137
 msgid "Previous"
 msgstr "Kent"
 
-#: libraries/common.lib.php:2223 libraries/common.lib.php:2226
-#: libraries/display_tbl.lib.php:381
+#: libraries/common.lib.php:2213 libraries/common.lib.php:2216
+#: libraries/display_tbl.lib.php:381 libraries/rte/rte_events.lib.php:481
 msgid "End"
 msgstr "Fin"
 
-#: libraries/common.lib.php:2288
+#: libraries/common.lib.php:2278
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Mont d'an diaz roadennoù &quot;%s&quot;."
 
-#: libraries/common.lib.php:2304
+#: libraries/common.lib.php:2294
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Direizhet eo an arc'hwel %s gant un draen anavezet, sellit ouzh %s"
 
-#: libraries/common.lib.php:2646 libraries/common.lib.php:2653
-#: libraries/common.lib.php:2840 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:2447
+#, fuzzy
+#| msgid "Click to select"
+msgid "Click to toggle"
+msgstr "Klikañ evit diuzañ"
+
+#: libraries/common.lib.php:2718 libraries/common.lib.php:2725
+#: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:367
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:267
-#: libraries/db_links.inc.php:48 libraries/export/latex.php:352
+#: libraries/db_links.inc.php:48 libraries/export/latex.php:341
 #: libraries/import.lib.php:1102 libraries/tbl_links.inc.php:61
-#: libraries/tbl_properties.inc.php:623 pmd_general.php:151
+#: libraries/tbl_properties.inc.php:626 pmd_general.php:151
 #: server_privileges.php:513 server_replication.php:313 tbl_tracking.php:262
 msgid "Structure"
 msgstr "Framm"
 
-#: libraries/common.lib.php:2647 libraries/common.lib.php:2654
+#: libraries/common.lib.php:2719 libraries/common.lib.php:2726
 #: libraries/config/messages.inc.php:214 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -2327,37 +2252,37 @@ msgstr "Framm"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:2649 libraries/common.lib.php:2838
-#: libraries/common.lib.php:2839 libraries/sql_query_form.lib.php:284
+#: libraries/common.lib.php:2721 libraries/common.lib.php:2910
+#: libraries/common.lib.php:2911 libraries/sql_query_form.lib.php:284
 #: libraries/sql_query_form.lib.php:287 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Ensoc'hañ"
 
-#: libraries/common.lib.php:2656 libraries/db_links.inc.php:86
-#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:113
+#: libraries/common.lib.php:2728 libraries/db_links.inc.php:86
+#: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Oberiadennoù"
 
-#: libraries/common.lib.php:2786
+#: libraries/common.lib.php:2858
 msgid "Browse your computer:"
 msgstr "Furchal en hoc'h urzhiataer"
 
-#: libraries/common.lib.php:2802
+#: libraries/common.lib.php:2874
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Diuzit e-mesk kavlec'h pellgargañ ar servijer web <b>%s</b> :"
 
-#: libraries/common.lib.php:2814 libraries/sql_query_form.lib.php:447
-#: tbl_change.php:884
+#: libraries/common.lib.php:2886 libraries/sql_query_form.lib.php:447
+#: tbl_change.php:887
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Ar c'havlec'h treuzkas n'hall ket bezañ diraezet."
 
-#: libraries/common.lib.php:2822
+#: libraries/common.lib.php:2894
 msgid "There are no files to upload"
 msgstr "N'eus restr ebet da enporzhiañ"
 
-#: libraries/common.lib.php:2849 libraries/common.lib.php:2850
+#: libraries/common.lib.php:2921 libraries/common.lib.php:2922
 msgid "Execute"
 msgstr "Seveniñ"
 
@@ -2411,139 +2336,142 @@ msgstr "Prim - na ziskouez nemet nebeudik-tre a zibarzhioù da gefluniañ"
 
 #: libraries/config.values.php:101
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Personelaet - diskouez an holl zibarzhioù kefluniañ posupl"
 
 #: libraries/config.values.php:102
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Personelaet - evel a-us nemet hep an dibaboù prim/personelaet"
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
-msgstr ""
+msgstr "Ensoc'hadennoù sevenet"
 
 #: libraries/config.values.php:121
 msgid "extended inserts"
-msgstr ""
+msgstr "Ensoc'hadennoù astennet"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
-msgstr ""
+msgstr "Kement dibab zo a-us"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
-msgstr ""
+msgstr "Dibab ebet a-zouez ar re zo a-us"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:412
 msgid "Not a positive number"
-msgstr ""
+msgstr "N'eo ket un niver pozitivel"
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:424
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "N'eo ket un niver annegativel"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:400
 msgid "Not a valid port number"
-msgstr ""
+msgstr "Niverenn borzh direizh"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:535
 #: libraries/config/validate.lib.php:352 libraries/config/validate.lib.php:439
 msgid "Incorrect value"
-msgstr ""
+msgstr "Talvoud direizh"
 
 #: libraries/config/FormDisplay.class.php:87
 #: libraries/config/validate.lib.php:453
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "Rankout a ra an talvoud bezañ par da pe bihanoc'h eget %s"
 
 #: libraries/config/FormDisplay.class.php:499
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "Roadennoù a vank evit %s"
 
 #: libraries/config/FormDisplay.class.php:696
 #: libraries/config/FormDisplay.class.php:700
 msgid "unavailable"
-msgstr ""
+msgstr "N'eo ket hegerz"
 
 #: libraries/config/FormDisplay.class.php:697
 #: libraries/config/FormDisplay.class.php:701
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" zo rekis dezhañ an astenn %s"
 
 #: libraries/config/FormDisplay.class.php:715
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr ""
+msgstr "Ne'z aio ket an enporzhiañ en-dro, un arc'hwel a vank (%s)"
 
 #: libraries/config/FormDisplay.class.php:719
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr ""
+msgstr "Ne'z aio ket an ezporzhiañ en-dro, un arc'hwel a vank (%s)"
 
 #: libraries/config/FormDisplay.class.php:726
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "Diweredekaet eo kadarnataer SQL"
 
 #: libraries/config/FormDisplay.class.php:733
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "N'eo ket bet kavet an astenn SOAP"
 
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "%s d'ar muiañ"
 
 #: libraries/config/FormDisplay.tpl.php:167
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
+"Diweredekaet eo an arventenn; ne vo ket lakaet e pleustr gant ho kefluniadur"
 
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
 #: libraries/relation.lib.php:85 pmd_relation_new.php:68
 msgid "Disabled"
-msgstr ""
+msgstr "Diweredekaet"
 
 #: libraries/config/FormDisplay.tpl.php:242
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Lakaat an talvoud da %s"
 
 #: libraries/config/FormDisplay.tpl.php:247
 #: libraries/config/messages.inc.php:356
 msgid "Restore default value"
-msgstr ""
+msgstr "Adlakaat an talvoud dre ziouer"
 
 #: libraries/config/FormDisplay.tpl.php:263
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Aotren an implijerien da bersonelaat an talvoud-mañ"
 
 #: libraries/config/FormDisplay.tpl.php:324
 #: libraries/schema/User_Schema.class.php:466 prefs_manage.php:320
-#: prefs_manage.php:325 tbl_change.php:1025
+#: prefs_manage.php:325 tbl_change.php:1028
 msgid "Reset"
-msgstr ""
+msgstr "Adderaouekaat"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
-msgstr ""
+msgstr "Gwellaat a ra efeduster ar freskaat skrammoù"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
-msgstr ""
+msgstr "Gweredekaat Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Ma c'hall an implijer aotreet monet e ne vern pe servijer MySQL er furmskrid "
+"kevreañ evit ar gwiriekaat dre doupinoù"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "Aotren kevreañ ouzh ne vern pe servijer MySQL"
 
 #: libraries/config/messages.inc.php:21
 msgid ""
@@ -2551,50 +2479,59 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Gweredekaat kement-mañ a aotre ur bajenn zo en un domani disheñvel da "
+"c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un [strong]"
+"toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Aotren ar frammoù a-berzh tud all"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr ""
+"Diskouez al liamm evit &quot;Skarzhañ un diaz roadennoù&quot; d'an "
+"implijerien voutin"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre [kbd]cookie"
+"[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Kevrin Blow fish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Lakaat al linennoù dibabet da skediñ"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Merker linennoù"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Lakaat al linenn a vuk al logodenn daveti da usskediñ"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Lakaat ar reti da usskediñ"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Aotren ar gwaskañ [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] evit an "
+"oberiadennoù enporzhiañ hag ezporzhiañ"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2602,182 +2539,196 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Spisaat peseurt doare kontrolloù kemmañ a zleer ober ganto evit ar bannoù "
+"CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, [kbd]"
+"textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Kemmañ ar bannoù CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Niver a vannoù evit an takadoù skrid CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Bannoù evit an takadoù skrid CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Niver a linennoù evit an takadoù skrid CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Linennoù evit an takadoù skrid CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Gwiriañ aotreoù ar restr gefluniañ"
 
 #: libraries/config/messages.inc.php:39
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Gwaskañ a ra an ezporzhiadennoù gzip/bzip2 war ar prim hep sunañ nemeur a "
+"vemor; Mar bez kudennoù gant ar restroù gzip/bzip2 krouet, diweredekait an "
+"dibarzh."
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Gwaskañ war ar prim"
 
 #: libraries/config/messages.inc.php:41 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:165
 msgid "Configuration file"
-msgstr ""
+msgstr "Restr gefluniañ"
 
 #: libraries/config/messages.inc.php:42
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Ur gemennadenn (&quot;Ha sur oc'h...&quot;) a zlefe dont war wel pa vezer "
+"war-nes koll roadennoù."
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Kadarnaat ar rekedoù diverkañ DROP"
 
 #: libraries/config/messages.inc.php:44
 msgid "Debug SQL"
-msgstr ""
+msgstr "Dizreinañ SQL"
 
 #: libraries/config/messages.inc.php:45
 msgid "Default display direction"
-msgstr ""
+msgstr "Talvoud dre ziouer durc'hadur an diskwel"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] pe un niver a verk an talvoud "
+"brasañ a vo implijet ar mod a-serzh evitañ"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
-msgstr ""
+msgstr "Durc'hadur an diskwel evit kemmañ/krouiñ bannoù"
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit un diaz roadennoù"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en ur servijer"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit ar servijer"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Ivinell diskouezet pa'z eer tre en un daolenn"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Ivinell dre ziouer evit an taolennoù"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
 
 #: libraries/config/messages.inc.php:55 libraries/display_tbl.lib.php:637
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù)"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Diskouez roll an diazoù roadennoù e-lec'h ul lañser desachañ"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Diskouez a ra an diazoù roadennoù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Diskouez a ra ar servijerioù e stumm ur roll"
 
 #: libraries/config/messages.inc.php:60
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Diweredekaat an oberiadennoù trezalc'h a-vras, evel gwellekaat pe kempenn "
+"taolennoù diuzet un diaz roadennoù."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr ""
+msgstr "Diweredekaat trezalc'h an taolennoù lies."
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Aozañ ar rekedoù SQL en ur prenestr difoupañ"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
-msgstr ""
+msgstr "Aozañ en ur prenestr"
 
 #: libraries/config/messages.inc.php:64
 msgid "Display errors"
-msgstr ""
+msgstr "Diskouez ar fazioù"
 
 #: libraries/config/messages.inc.php:65
 msgid "Gather errors"
-msgstr ""
+msgstr "Dastum ar fazioù"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
-msgstr ""
+msgstr "Diskouez an arlunioù evit ar c'hemennoù diwall, faziañ ha titouriñ"
 
 #: libraries/config/messages.inc.php:67
 msgid "Iconic errors"
-msgstr ""
+msgstr "Arlunioù evit ar fazioù"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Niver a eilennoù lakaet evit seveniñ ar skriptoù ([kbd]0[/kbd] a dalvez hep "
+"bevenn)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Pad seveniñ hirañ"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
-msgstr ""
+msgstr "Enrollañ evel restr"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:239
 msgid "Character set of the file"
-msgstr ""
+msgstr "Strobad arouezennoù ar restr"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:874
+#: tbl_gis_visualization.php:210 tbl_printview.php:373 tbl_structure.php:870
 msgid "Format"
-msgstr ""
+msgstr "Furmad"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compression"
-msgstr ""
+msgstr "Gwaskadur"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
@@ -2789,19 +2740,19 @@ msgstr ""
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 #: libraries/export/xls.php:25 libraries/export/xlsx.php:25
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "Diskouez anvioù ar bannoù diouzhtu el linenn gentañ"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:241
 #: libraries/config/messages.inc.php:248 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr ""
+msgstr "Bannoù gronnet gant"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:242
 #: libraries/config/messages.inc.php:249 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
-msgstr ""
+msgstr "Arouezenn dec'hout"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
@@ -2809,38 +2760,38 @@ msgstr ""
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
 #: libraries/config/messages.inc.php:147 libraries/export/texytext.php:27
 msgid "Replace NULL by"
-msgstr ""
+msgstr "Erlec'hiañ NULL gant"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Tennañ an arouezennoù dibenn linenn e dibarzh ar bannoù"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr ""
+msgstr "Bannoù a echu gant"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:240
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr ""
+msgstr "Linennoù a echu gant"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
-msgstr ""
+msgstr "Stumm Excel"
 
 #: libraries/config/messages.inc.php:85
 msgid "Database name template"
-msgstr ""
+msgstr "Patrom anv diaz roadennoù"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "Patrom anv servijer"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "Patrom anv taolenn"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:137
@@ -2848,74 +2799,74 @@ msgstr ""
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:116 libraries/export/texytext.php:23
 msgid "Dump table"
-msgstr ""
+msgstr "Ezporzhiañ an daolenn"
 
 #: libraries/config/messages.inc.php:92 libraries/export/latex.php:32
 msgid "Include table caption"
-msgstr ""
+msgstr "Enklozañ an istitloù"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 #: libraries/export/latex.php:50 libraries/export/latex.php:74
 msgid "Table caption"
-msgstr ""
+msgstr "Istitl eus an daolenn"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
-msgstr ""
+msgstr "Enklozañ an istitloù"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 #: libraries/export/latex.php:54 libraries/export/latex.php:78
 msgid "Label key"
-msgstr ""
+msgstr "Alc'hwez an dikedenn"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
-#: libraries/config/messages.inc.php:134 libraries/export/odt.php:326
-#: libraries/tbl_properties.inc.php:142
+#: libraries/config/messages.inc.php:134 libraries/export/odt.php:315
+#: libraries/tbl_properties.inc.php:145
 msgid "MIME type"
-msgstr ""
+msgstr "Seurt MIME"
 
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:136 tbl_relation.php:396
 msgid "Relations"
-msgstr ""
+msgstr "Darempredoù"
 
 #: libraries/config/messages.inc.php:105
 msgid "Export method"
-msgstr ""
+msgstr "Doare ezporzhiañ"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
-msgstr ""
+msgstr "Enrollañ war ar servijer"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Frikañ ar restroù zo c'hoazh"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr ""
+msgstr "Derc'hel soñj eus patrom anv ar restr"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Lakaat krochedoù stouet a bep tu da anvioù an taolennoù hag ar bannoù"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:346
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Mod kenglotañ gant SQL"
 
 #: libraries/config/messages.inc.php:122 libraries/export/sql.php:176
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "Dibarzhioù evit <code>CREATE TABLE</code> :"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Deiziad krouiñ/hizivaat/gwiriañ"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "Ensoc'hadennoù gant dale"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
@@ -4544,61 +4495,9 @@ msgctxt "PHP documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/core.lib.php:256
+#: libraries/core.lib.php:258
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
-
-#: libraries/db_events.inc.php:30
-#, php-format
-msgid "Export of event %s"
-msgstr ""
-
-#: libraries/db_events.inc.php:34
-#, php-format
-msgid "Export of event \"%s\""
-msgstr ""
-
-#: libraries/db_events.inc.php:40
-#, php-format
-msgid "No event with name %s found in database %s"
-msgstr ""
-
-#: libraries/db_events.inc.php:56 libraries/db_links.inc.php:101
-#: libraries/export/sql.php:609
-msgid "Events"
-msgstr ""
-
-#: libraries/db_events.inc.php:58 libraries/db_events.inc.php:60
-msgid "There are no events to display."
-msgstr ""
-
-#: libraries/db_events.inc.php:67 libraries/db_routines.lib.php:661
-#: libraries/db_routines.lib.php:807 libraries/db_routines.lib.php:1156
-#: libraries/display_create_table.lib.php:51
-#: libraries/display_triggers.inc.php:70 libraries/tbl_properties.inc.php:99
-#: setup/frames/index.inc.php:125 tbl_structure.php:204
-msgid "Name"
-msgstr ""
-
-#: libraries/db_events.inc.php:129
-msgid "The event scheduler is enabled"
-msgstr ""
-
-#: libraries/db_events.inc.php:129
-msgid "The event scheduler is disabled"
-msgstr ""
-
-#: libraries/db_events.inc.php:131
-msgid "Turn it on"
-msgstr ""
-
-#: libraries/db_events.inc.php:131
-msgid "Turn it off"
-msgstr ""
-
-#: libraries/db_events.inc.php:141
-msgid "Add an event"
 msgstr ""
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
@@ -4625,146 +4524,19 @@ msgstr ""
 msgid "Privileges"
 msgstr ""
 
-#: libraries/db_links.inc.php:97 libraries/db_routines.lib.php:1149
+#: libraries/db_links.inc.php:97 libraries/rte/rte_routines.lib.php:50
 msgid "Routines"
 msgstr ""
 
-#: libraries/db_links.inc.php:105 libraries/display_triggers.inc.php:62
-#: libraries/export/sql.php:987 libraries/export/xml.php:38
+#: libraries/db_links.inc.php:101 libraries/export/sql.php:609
+#: libraries/rte/rte_events.lib.php:65
+msgid "Events"
+msgstr ""
+
+#: libraries/db_links.inc.php:105 libraries/export/sql.php:978
+#: libraries/export/xml.php:38 libraries/rte/rte_triggers.lib.php:46
+#: libraries/tbl_links.inc.php:103
 msgid "Triggers"
-msgstr ""
-
-#: libraries/db_routines.lib.php:630
-msgid "Details"
-msgstr ""
-
-#: libraries/db_routines.lib.php:633
-msgid "Routine name"
-msgstr ""
-
-#: libraries/db_routines.lib.php:650
-#, php-format
-msgid "Change to %s"
-msgstr ""
-
-#: libraries/db_routines.lib.php:655
-msgid "Parameters"
-msgstr ""
-
-#: libraries/db_routines.lib.php:660
-msgid "Direction"
-msgstr ""
-
-#: libraries/db_routines.lib.php:663 libraries/tbl_properties.inc.php:105
-msgid "Length/Values"
-msgstr ""
-
-#: libraries/db_routines.lib.php:664 libraries/display_tbl.lib.php:593
-#: libraries/export/codegen.php:41 libraries/export/csv.php:34
-#: libraries/export/excel.php:37 libraries/export/htmlword.php:33
-#: libraries/export/json.php:29 libraries/export/latex.php:35
-#: libraries/export/mediawiki.php:23 libraries/export/ods.php:29
-#: libraries/export/odt.php:27 libraries/export/pdf.php:29
-#: libraries/export/php_array.php:29 libraries/export/sql.php:83
-#: libraries/export/texytext.php:31 libraries/export/xls.php:29
-#: libraries/export/xlsx.php:29 libraries/export/xml.php:25
-#: libraries/export/yaml.php:30 libraries/import.lib.php:1080
-#: libraries/import.lib.php:1102 libraries/import/csv.php:33
-#: libraries/import/docsql.php:35 libraries/import/ldi.php:49
-#: libraries/import/ods.php:32 libraries/import/sql.php:20
-#: libraries/import/xls.php:28 libraries/import/xlsx.php:28
-#: libraries/import/xml.php:25 tbl_select.php:231 tbl_structure.php:890
-msgid "Options"
-msgstr ""
-
-#: libraries/db_routines.lib.php:678
-msgid "Add parameter"
-msgstr ""
-
-#: libraries/db_routines.lib.php:681
-msgid "Remove last parameter"
-msgstr ""
-
-#: libraries/db_routines.lib.php:686 libraries/db_routines.lib.php:1159
-msgid "Return type"
-msgstr ""
-
-#: libraries/db_routines.lib.php:692
-msgid "Return length/values"
-msgstr ""
-
-#: libraries/db_routines.lib.php:697
-msgid "Return options"
-msgstr ""
-
-#: libraries/db_routines.lib.php:716
-msgid "Definition"
-msgstr ""
-
-#: libraries/db_routines.lib.php:720
-msgid "Is deterministic"
-msgstr ""
-
-#: libraries/db_routines.lib.php:724
-msgid "Definer"
-msgstr ""
-
-#: libraries/db_routines.lib.php:729
-msgid "Security type"
-msgstr ""
-
-#: libraries/db_routines.lib.php:736
-msgid "SQL data access"
-msgstr ""
-
-#: libraries/db_routines.lib.php:800 libraries/db_routines.lib.php:803
-msgid "Routine parameters"
-msgstr ""
-
-#: libraries/db_routines.lib.php:810 tbl_change.php:284 tbl_change.php:322
-msgid "Function"
-msgstr ""
-
-#: libraries/db_routines.lib.php:812 libraries/replication_gui.lib.php:117
-#: pmd_general.php:476 pmd_general.php:535 pmd_general.php:658
-#: pmd_general.php:775 server_status.php:1029 tbl_change.php:326
-#: tbl_printview.php:367 tbl_select.php:117 tbl_structure.php:866
-msgid "Value"
-msgstr ""
-
-#: libraries/db_routines.lib.php:916
-msgid "You must provide a routine name"
-msgstr ""
-
-#: libraries/db_routines.lib.php:935
-#, php-format
-msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
-
-#: libraries/db_routines.lib.php:946 libraries/db_routines.lib.php:987
-msgid ""
-"You must provide length/values for routine parameters of type ENUM, SET, "
-"VARCHAR and VARBINARY."
-msgstr ""
-
-#: libraries/db_routines.lib.php:971
-msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
-
-#: libraries/db_routines.lib.php:1028
-msgid "You must provide a routine definition."
-msgstr ""
-
-#: libraries/db_routines.lib.php:1151
-msgid "There are no routines to display."
-msgstr ""
-
-#: libraries/db_routines.lib.php:1192
-msgid "Add routine"
-msgstr ""
-
-#: libraries/db_routines.lib.php:1195
-msgid "You do not have the necessary privileges to create a new routine"
 msgstr ""
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2084
@@ -4831,6 +4603,15 @@ msgstr ""
 #: libraries/display_create_table.lib.php:46
 #, php-format
 msgid "Create table on database %s"
+msgstr ""
+
+#: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:49
+#: libraries/rte/rte_list.lib.php:55 libraries/rte/rte_list.lib.php:62
+#: libraries/rte/rte_routines.lib.php:909
+#: libraries/rte/rte_routines.lib.php:1419
+#: libraries/tbl_properties.inc.php:102 setup/frames/index.inc.php:125
+#: tbl_structure.php:204
+msgid "Name"
 msgstr ""
 
 #: libraries/display_create_table.lib.php:55
@@ -4946,7 +4727,7 @@ msgid "Compression:"
 msgstr ""
 
 #: libraries/display_export.lib.php:306 libraries/display_tbl.lib.php:564
-#: libraries/export/sql.php:1058 libraries/tbl_properties.inc.php:559
+#: libraries/export/sql.php:1039 libraries/tbl_properties.inc.php:562
 #: pmd_general.php:510 server_privileges.php:1955 server_status.php:835
 msgid "None"
 msgstr ""
@@ -5118,17 +4899,31 @@ msgid "vertical"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:452
-msgid "Headers every"
+#, php-format
+msgid "Headers every %s rows"
 msgstr ""
-
-#: libraries/display_tbl.lib.php:454
-#, fuzzy
-#| msgid "Browse"
-msgid "rows"
-msgstr "Furchal"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
+msgstr ""
+
+#: libraries/display_tbl.lib.php:593 libraries/export/codegen.php:41
+#: libraries/export/csv.php:34 libraries/export/excel.php:37
+#: libraries/export/htmlword.php:33 libraries/export/json.php:29
+#: libraries/export/latex.php:35 libraries/export/mediawiki.php:23
+#: libraries/export/ods.php:29 libraries/export/odt.php:27
+#: libraries/export/pdf.php:29 libraries/export/php_array.php:29
+#: libraries/export/sql.php:83 libraries/export/texytext.php:31
+#: libraries/export/xls.php:29 libraries/export/xlsx.php:29
+#: libraries/export/xml.php:25 libraries/export/yaml.php:30
+#: libraries/import.lib.php:1080 libraries/import.lib.php:1102
+#: libraries/import/csv.php:33 libraries/import/docsql.php:35
+#: libraries/import/ldi.php:49 libraries/import/ods.php:32
+#: libraries/import/sql.php:20 libraries/import/xls.php:28
+#: libraries/import/xlsx.php:28 libraries/import/xml.php:25
+#: libraries/rte/rte_routines.lib.php:912 tbl_select.php:257
+#: tbl_structure.php:886
+msgid "Options"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:598 libraries/display_tbl.lib.php:608
@@ -5156,7 +4951,7 @@ msgid "Show BLOB contents"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:645 libraries/relation.lib.php:112
-#: libraries/tbl_properties.inc.php:143 transformation_overview.php:46
+#: libraries/tbl_properties.inc.php:146 transformation_overview.php:46
 msgid "Browser transformation"
 msgstr ""
 
@@ -5224,37 +5019,6 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr ""
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:120
-msgid "Add a trigger"
 msgstr ""
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
@@ -5687,13 +5451,13 @@ msgstr ""
 msgid "Data dump options"
 msgstr ""
 
-#: libraries/export/htmlword.php:136 libraries/export/odt.php:176
-#: libraries/export/sql.php:1153 libraries/export/texytext.php:124
+#: libraries/export/htmlword.php:121 libraries/export/odt.php:161
+#: libraries/export/sql.php:1134 libraries/export/texytext.php:109
 msgid "Dumping data for table"
 msgstr ""
 
-#: libraries/export/htmlword.php:189 libraries/export/odt.php:246
-#: libraries/export/sql.php:976 libraries/export/texytext.php:171
+#: libraries/export/htmlword.php:195 libraries/export/odt.php:235
+#: libraries/export/sql.php:967 libraries/export/texytext.php:177
 msgid "Table structure for table"
 msgstr ""
 
@@ -5732,8 +5496,8 @@ msgstr ""
 msgid "Display MIME types"
 msgstr ""
 
-#: libraries/export/latex.php:140 libraries/export/sql.php:453
-#: libraries/export/xml.php:105 libraries/header_printview.inc.php:56
+#: libraries/export/latex.php:129 libraries/export/sql.php:456
+#: libraries/export/xml.php:95 libraries/header_printview.inc.php:56
 #: libraries/replication_gui.lib.php:65 libraries/replication_gui.lib.php:176
 #: libraries/replication_gui.lib.php:270 libraries/replication_gui.lib.php:273
 #: libraries/replication_gui.lib.php:330 server_privileges.php:713
@@ -5742,18 +5506,18 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-#: libraries/export/latex.php:145 libraries/export/sql.php:458
-#: libraries/export/xml.php:110 libraries/header_printview.inc.php:58
+#: libraries/export/latex.php:134 libraries/export/sql.php:461
+#: libraries/export/xml.php:100 libraries/header_printview.inc.php:58
 msgid "Generation Time"
 msgstr ""
 
-#: libraries/export/latex.php:146 libraries/export/sql.php:460
-#: libraries/export/xml.php:111 main.php:162
+#: libraries/export/latex.php:135 libraries/export/sql.php:463
+#: libraries/export/xml.php:101 main.php:162
 msgid "Server version"
 msgstr ""
 
-#: libraries/export/latex.php:147 libraries/export/sql.php:461
-#: libraries/export/xml.php:112
+#: libraries/export/latex.php:136 libraries/export/sql.php:464
+#: libraries/export/xml.php:102
 msgid "PHP Version"
 msgstr ""
 
@@ -5872,35 +5636,35 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/export/sql.php:321 libraries/export/xml.php:34
+#: libraries/export/sql.php:322 libraries/export/xml.php:34
 msgid "Procedures"
 msgstr ""
 
-#: libraries/export/sql.php:335 libraries/export/xml.php:32
+#: libraries/export/sql.php:336 libraries/export/xml.php:32
 msgid "Functions"
 msgstr ""
 
-#: libraries/export/sql.php:809
+#: libraries/export/sql.php:802
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/export/sql.php:818
+#: libraries/export/sql.php:811
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/export/sql.php:918
+#: libraries/export/sql.php:909
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:930
+#: libraries/export/sql.php:921
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/export/sql.php:999
+#: libraries/export/sql.php:990
 msgid "Structure for view"
 msgstr ""
 
-#: libraries/export/sql.php:1008
+#: libraries/export/sql.php:999
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -5936,6 +5700,11 @@ msgstr ""
 #: libraries/header_printview.inc.php:59
 msgid "Generated by"
 msgstr ""
+
+#: libraries/import.lib.php:152 libraries/rte/rte_routines.lib.php:1304
+#: sql.php:685 tbl_change.php:183 tbl_get_field.php:34
+msgid "MySQL returned an empty result set (i.e. zero rows)."
+msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
 
 #: libraries/import.lib.php:1076
 msgid ""
@@ -6016,7 +5785,7 @@ msgstr ""
 msgid "DocSQL"
 msgstr ""
 
-#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:598
+#: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:601
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Table name"
 msgstr ""
@@ -6092,7 +5861,7 @@ msgid "Charset"
 msgstr ""
 
 #: libraries/mysql_charsets.lib.php:198 libraries/mysql_charsets.lib.php:399
-#: tbl_change.php:553
+#: tbl_change.php:556
 msgid "Binary"
 msgstr ""
 
@@ -6412,6 +6181,14 @@ msgstr ""
 msgid "Variable"
 msgstr ""
 
+#: libraries/replication_gui.lib.php:117
+#: libraries/rte/rte_routines.lib.php:1424 pmd_general.php:476
+#: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
+#: server_status.php:1029 tbl_change.php:329 tbl_printview.php:367
+#: tbl_select.php:117 tbl_structure.php:862
+msgid "Value"
+msgstr ""
+
 #: libraries/replication_gui.lib.php:175 server_binlog.php:183
 msgid "Server ID"
 msgstr ""
@@ -6463,6 +6240,452 @@ msgstr ""
 msgid "Generate Password"
 msgstr ""
 
+#: libraries/rte/rte_events.lib.php:58
+msgid "Add event"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:60
+#, php-format
+msgid "Export of event %s"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:61
+msgid "event"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:62
+msgid "You do not have the necessary privileges to create an event"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:63
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s"
+msgstr ""
+"N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+
+#: libraries/rte/rte_events.lib.php:64
+msgid "There are no events to display."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:126 libraries/rte/rte_events.lib.php:131
+#: libraries/rte/rte_events.lib.php:154 libraries/rte/rte_routines.lib.php:279
+#: libraries/rte/rte_routines.lib.php:284
+#: libraries/rte/rte_routines.lib.php:308
+#: libraries/rte/rte_routines.lib.php:1309
+#: libraries/rte/rte_triggers.lib.php:99
+#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:127
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "C'hwitet eo bet ar reked da-heul : \"%s\""
+
+#: libraries/rte/rte_events.lib.php:140
+#, fuzzy
+#| msgid "Sorry, we failed to restore the dropped routine."
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
+
+#: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
+#: libraries/rte/rte_triggers.lib.php:114
+msgid "The backed up query was:"
+msgstr "Setu amañ ar reked a oa bet miret :"
+
+#: libraries/rte/rte_events.lib.php:145
+#, fuzzy, php-format
+#| msgid "Routine %1$s has been modified."
+msgid "Event %1$s has been modified."
+msgstr "Kemmet eo bet an argerzh %1s."
+
+#: libraries/rte/rte_events.lib.php:157
+#, fuzzy, php-format
+#| msgid "Routine %1$s has been created."
+msgid "Event %1$s has been created."
+msgstr "Krouet eo bet an argerzh %1s."
+
+#: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
+#: libraries/rte/rte_triggers.lib.php:138
+msgid "<b>One or more errors have occured while processing your request:</b>"
+msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
+
+#: libraries/rte/rte_events.lib.php:205
+#, fuzzy
+#| msgid "Create Table"
+msgid "Create event"
+msgstr "Krouiñ un daolenn"
+
+#: libraries/rte/rte_events.lib.php:209
+msgid "Edit event"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
+#: libraries/rte/rte_routines.lib.php:1331
+#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_triggers.lib.php:211
+msgid "Error in processing request"
+msgstr "Fazi en ur seveniñ ar reked"
+
+#: libraries/rte/rte_events.lib.php:395 libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_triggers.lib.php:322
+msgid "Details"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:398
+msgid "Event name"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
+msgid "Event type"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:440 libraries/rte/rte_routines.lib.php:898
+#, php-format
+msgid "Change to %s"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:446
+#, fuzzy
+#| msgid "Execute"
+msgid "Execute at"
+msgstr "Seveniñ"
+
+#: libraries/rte/rte_events.lib.php:454
+#, fuzzy
+#| msgid "Execute"
+msgid "Execute every"
+msgstr "Seveniñ"
+
+#: libraries/rte/rte_events.lib.php:473
+msgid "Start"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:489 libraries/rte/rte_routines.lib.php:972
+#: libraries/rte/rte_triggers.lib.php:372
+msgid "Definition"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:495
+#, fuzzy
+#| msgid "complete inserts"
+msgid "On completion preserve"
+msgstr "Ensoc'hadennoù sevenet"
+
+#: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
+#: libraries/rte/rte_triggers.lib.php:378
+msgid "Definer"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:542
+#: libraries/rte/rte_routines.lib.php:1044
+#: libraries/rte/rte_triggers.lib.php:416
+msgid "The definer must be in the \"username@hostname\" format"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:549
+msgid "You must provide an event name"
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:561
+msgid "You must provide a valid interval value for the event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:573
+msgid "You must provide a valid execution time for the event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:577
+msgid "You must provide a valid type for the event."
+msgstr ""
+
+#: libraries/rte/rte_events.lib.php:596
+msgid "You must provide an event definition."
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:29
+msgid "New"
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:91
+msgid "OFF"
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:96
+msgid "ON"
+msgstr ""
+
+#: libraries/rte/rte_footer.lib.php:108
+msgid "Event scheduler status"
+msgstr ""
+
+#: libraries/rte/rte_list.lib.php:52
+msgid "Returns"
+msgstr ""
+
+#: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
+#: server_status.php:800 sql.php:943
+msgid "Time"
+msgstr ""
+
+#: libraries/rte/rte_list.lib.php:59 libraries/rte/rte_triggers.lib.php:358
+msgid "Event"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:43
+msgid "Add routine"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:45
+#, php-format
+msgid "Export of routine %s"
+msgstr "Ezporzhiañ an argerzh %s"
+
+#: libraries/rte/rte_routines.lib.php:46
+#, fuzzy
+#| msgid "Edit routine"
+msgid "routine"
+msgstr "Kemmañ un argerzh"
+
+#: libraries/rte/rte_routines.lib.php:47
+msgid "You do not have the necessary privileges to create a routine"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:48
+#, php-format
+msgid "No routine with name %1$s found in database %2$s"
+msgstr ""
+"N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+
+#: libraries/rte/rte_routines.lib.php:49
+msgid "There are no routines to display."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:88
+msgid ""
+"You are using PHP's deprecated 'mysql' extension, which is not capable of "
+"handling multi queries. <b>The execution of some stored routines may fail!</"
+"b> Please use the improved 'mysqli' extension to avoid any problems."
+msgstr ""
+"Emaoc'h oc'h implijout an astenn PHP 'mysql' a zo dispredet. N'hall ket "
+"merañ ar rekedoù lies. <b>Gallout a ra ar seveniñ argerzhioù stoket zo "
+"c'hwitañ !</b> Grit gant an astenn 'mysqli' gwellaet, kuit da gaout kudennoù."
+
+#: libraries/rte/rte_routines.lib.php:272
+#: libraries/rte/rte_routines.lib.php:1052
+#, php-format
+msgid "Invalid routine type: \"%s\""
+msgstr "Seurt argerzh faziek : \"%s\""
+
+#: libraries/rte/rte_routines.lib.php:293
+msgid "Sorry, we failed to restore the dropped routine."
+msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
+
+#: libraries/rte/rte_routines.lib.php:298
+#, php-format
+msgid "Routine %1$s has been modified."
+msgstr "Kemmet eo bet an argerzh %1s."
+
+#: libraries/rte/rte_routines.lib.php:311
+#, php-format
+msgid "Routine %1$s has been created."
+msgstr "Krouet eo bet an argerzh %1s."
+
+#: libraries/rte/rte_routines.lib.php:365
+msgid "Create routine"
+msgstr "Krouiñ un argerzh"
+
+#: libraries/rte/rte_routines.lib.php:369
+msgid "Edit routine"
+msgstr "Kemmañ un argerzh"
+
+#: libraries/rte/rte_routines.lib.php:880
+msgid "Routine name"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:903
+msgid "Parameters"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:908
+msgid "Direction"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:911 libraries/tbl_properties.inc.php:108
+msgid "Length/Values"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:926
+msgid "Add parameter"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:930
+msgid "Remove last parameter"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:935
+msgid "Return type"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:941
+msgid "Return length/values"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:947
+msgid "Return options"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:978
+msgid "Is deterministic"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:987
+msgid "Security type"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:994
+msgid "SQL data access"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1057
+msgid "You must provide a routine name"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1080
+#, php-format
+msgid "Invalid direction \"%s\" given for parameter."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1092
+#: libraries/rte/rte_routines.lib.php:1136
+msgid ""
+"You must provide length/values for routine parameters of type ENUM, SET, "
+"VARCHAR and VARBINARY."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1116
+msgid "You must provide a name and a type for each routine parameter."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1126
+msgid "You must provide a valid return type for the routine."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1176
+msgid "You must provide a routine definition."
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1265
+#, php-format
+msgid "%d row affected by the last statement inside the procedure"
+msgid_plural "%d rows affected by the last statement inside the procedure"
+msgstr[0] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
+msgstr[1] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
+
+#: libraries/rte/rte_routines.lib.php:1281
+#, php-format
+msgid "Execution results of routine %s"
+msgstr "Disoc'hoù seveniñ an argerzh %s"
+
+#: libraries/rte/rte_routines.lib.php:1355
+#: libraries/rte/rte_routines.lib.php:1361
+msgid "Execute routine"
+msgstr "Seveniñ an argerzh"
+
+#: libraries/rte/rte_routines.lib.php:1412
+#: libraries/rte/rte_routines.lib.php:1415
+msgid "Routine parameters"
+msgstr ""
+
+#: libraries/rte/rte_routines.lib.php:1422 tbl_change.php:287
+#: tbl_change.php:325
+msgid "Function"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:39
+#, fuzzy
+#| msgid "Add user"
+msgid "Add trigger"
+msgstr "Ouzhpennañ un implijer"
+
+#: libraries/rte/rte_triggers.lib.php:41
+#, php-format
+msgid "Export of trigger %s"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:42
+msgid "trigger"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:43
+msgid "You do not have the necessary privileges to create a trigger"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:44
+#, fuzzy, php-format
+#| msgid "No routine with name %1$s found in database %2$s"
+msgid "No trigger with name %1$s found in database %2$s"
+msgstr ""
+"N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+
+#: libraries/rte/rte_triggers.lib.php:45
+msgid "There are no triggers to display."
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:113
+#, fuzzy
+#| msgid "Sorry, we failed to restore the dropped routine."
+msgid "Sorry, we failed to restore the dropped trigger."
+msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
+
+#: libraries/rte/rte_triggers.lib.php:118
+#, fuzzy, php-format
+#| msgid "Routine %1$s has been modified."
+msgid "Trigger %1$s has been modified."
+msgstr "Kemmet eo bet an argerzh %1s."
+
+#: libraries/rte/rte_triggers.lib.php:130
+#, fuzzy, php-format
+#| msgid "Routine %1$s has been created."
+msgid "Trigger %1$s has been created."
+msgstr "Krouet eo bet an argerzh %1s."
+
+#: libraries/rte/rte_triggers.lib.php:181
+#, fuzzy
+#| msgid "Create routine"
+msgid "Create trigger"
+msgstr "Krouiñ un argerzh"
+
+#: libraries/rte/rte_triggers.lib.php:185
+#, fuzzy
+#| msgid "Edit routine"
+msgid "Edit trigger"
+msgstr "Kemmañ un argerzh"
+
+#: libraries/rte/rte_triggers.lib.php:325
+msgid "Trigger name"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:423
+msgid "You must provide a trigger name"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:428
+msgid "You must provide a valid timing for the trigger"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:433
+msgid "You must provide a valid event for the trigger"
+msgstr ""
+
+#: libraries/rte/rte_triggers.lib.php:439
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide a valid table name"
+msgstr "Anv taolenn direizh"
+
+#: libraries/rte/rte_triggers.lib.php:445
+msgid "You must provide a trigger definition."
+msgstr ""
+
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
 #: libraries/schema/Pdf_Relation_Schema.class.php:484
@@ -6508,7 +6731,7 @@ msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1232
 #: libraries/schema/Pdf_Relation_Schema.class.php:1253
-#: libraries/tbl_properties.inc.php:108 tbl_printview.php:141
+#: libraries/tbl_properties.inc.php:111 tbl_printview.php:141
 #: tbl_structure.php:207
 msgid "Attributes"
 msgstr ""
@@ -6720,7 +6943,7 @@ msgstr ""
 msgid "Location of the text file"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:450 tbl_change.php:887
+#: libraries/sql_query_form.lib.php:450 tbl_change.php:890
 msgid "web server upload directory"
 msgstr ""
 
@@ -6782,16 +7005,16 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 
-#: libraries/tbl_links.inc.php:117 libraries/tbl_links.inc.php:118
+#: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
 msgstr ""
 
-#: libraries/tbl_links.inc.php:126
+#: libraries/tbl_links.inc.php:127
 #, php-format
 msgid "Tracking of %s.%s is activated."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:105
+#: libraries/tbl_properties.inc.php:108
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -6799,30 +7022,30 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:106
+#: libraries/tbl_properties.inc.php:109
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:116 libraries/tbl_properties.inc.php:509
+#: libraries/tbl_properties.inc.php:119 libraries/tbl_properties.inc.php:512
 #: tbl_printview.php:323 tbl_structure.php:156 tbl_structure.php:161
-#: tbl_structure.php:607 tbl_structure.php:810
+#: tbl_structure.php:607 tbl_structure.php:806
 msgid "Index"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:136
+#: libraries/tbl_properties.inc.php:139
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:144
+#: libraries/tbl_properties.inc.php:147
 msgid "Transformation options"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:145
+#: libraries/tbl_properties.inc.php:148
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -6830,59 +7053,59 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:352
+#: libraries/tbl_properties.inc.php:355
 msgid "ENUM or SET data too long?"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:354
+#: libraries/tbl_properties.inc.php:357
 msgid "Get more editing space"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:377
+#: libraries/tbl_properties.inc.php:380
 msgctxt "for default"
 msgid "None"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:378
+#: libraries/tbl_properties.inc.php:381
 msgid "As defined:"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:497 tbl_structure.php:155
+#: libraries/tbl_properties.inc.php:500 tbl_structure.php:155
 #: tbl_structure.php:160 tbl_structure.php:605
 msgid "Primary"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:515 tbl_structure.php:159
+#: libraries/tbl_properties.inc.php:518 tbl_structure.php:159
 #: tbl_structure.php:164 tbl_structure.php:614
 msgid "Fulltext"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:564 transformation_overview.php:57
+#: libraries/tbl_properties.inc.php:567 transformation_overview.php:57
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:606 tbl_structure.php:678
+#: libraries/tbl_properties.inc.php:609 tbl_structure.php:678
 #, php-format
 msgid "Add %s column(s)"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:608 tbl_structure.php:672
+#: libraries/tbl_properties.inc.php:611 tbl_structure.php:672
 msgid "You have to add at least one column."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:716 server_engines.php:56
+#: libraries/tbl_properties.inc.php:719 server_engines.php:56
 #: tbl_operations.php:370
 msgid "Storage Engine"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:745
+#: libraries/tbl_properties.inc.php:748
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:776
+#: libraries/tbl_properties.inc.php:779
 msgid "+ Add a value"
 msgstr ""
 
@@ -7462,10 +7685,6 @@ msgstr ""
 
 #: server_binlog.php:181
 msgid "Position"
-msgstr ""
-
-#: server_binlog.php:182
-msgid "Event type"
 msgstr ""
 
 #: server_binlog.php:184
@@ -9236,7 +9455,7 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
-#: sql.php:95 tbl_change.php:254 tbl_select.php:27 tbl_select.php:28
+#: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
 #: tbl_select.php:31 tbl_select.php:34
 msgid "Browse foreign values"
 msgstr ""
@@ -9277,60 +9496,60 @@ msgstr ""
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
-#: tbl_change.php:680
+#: tbl_change.php:683
 msgid " Because of its length,<br /> this column might not be editable "
 msgstr ""
 
-#: tbl_change.php:797
+#: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
 msgstr ""
 
-#: tbl_change.php:803
+#: tbl_change.php:806
 msgid "Binary - do not edit"
 msgstr ""
 
-#: tbl_change.php:851
+#: tbl_change.php:854
 msgid "Upload to BLOB repository"
 msgstr ""
 
-#: tbl_change.php:980
+#: tbl_change.php:983
 msgid "Insert as new row"
 msgstr ""
 
-#: tbl_change.php:981
+#: tbl_change.php:984
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: tbl_change.php:982
+#: tbl_change.php:985
 msgid "Show insert query"
 msgstr ""
 
-#: tbl_change.php:993
+#: tbl_change.php:996
 msgid "and then"
 msgstr ""
 
-#: tbl_change.php:997
+#: tbl_change.php:1000
 msgid "Go back to previous page"
 msgstr ""
 
-#: tbl_change.php:998
+#: tbl_change.php:1001
 msgid "Insert another new row"
 msgstr ""
 
-#: tbl_change.php:1002
+#: tbl_change.php:1005
 msgid "Go back to this page"
 msgstr ""
 
-#: tbl_change.php:1010
+#: tbl_change.php:1013
 msgid "Edit next row"
 msgstr ""
 
-#: tbl_change.php:1021
+#: tbl_change.php:1024
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: tbl_change.php:1059
+#: tbl_change.php:1062
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
@@ -9453,33 +9672,33 @@ msgstr ""
 msgid "No index parts defined!"
 msgstr ""
 
-#: tbl_indexes.php:165
+#: tbl_indexes.php:169
 msgid "Create a new index"
 msgstr ""
 
-#: tbl_indexes.php:167
+#: tbl_indexes.php:171
 msgid "Modify an index"
 msgstr ""
 
-#: tbl_indexes.php:173
-msgid "Index name:"
-msgstr ""
-
-#: tbl_indexes.php:179
-msgid "Index type:"
-msgstr ""
-
-#: tbl_indexes.php:189
+#: tbl_indexes.php:176
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
 
-#: tbl_indexes.php:263
+#: tbl_indexes.php:179
+msgid "Index name:"
+msgstr ""
+
+#: tbl_indexes.php:185
+msgid "Index type:"
+msgstr ""
+
+#: tbl_indexes.php:265
 #, php-format
 msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
-#: tbl_indexes.php:268 tbl_structure.php:727 tbl_structure.php:738
+#: tbl_indexes.php:270 tbl_structure.php:727
 msgid "Column count has to be larger than zero."
 msgstr ""
 
@@ -9603,39 +9822,39 @@ msgstr ""
 msgid "Show tables"
 msgstr ""
 
-#: tbl_printview.php:307 tbl_structure.php:793
+#: tbl_printview.php:307 tbl_structure.php:789
 msgid "Space usage"
 msgstr ""
 
-#: tbl_printview.php:311 tbl_structure.php:797
+#: tbl_printview.php:311 tbl_structure.php:793
 msgid "Usage"
 msgstr ""
 
-#: tbl_printview.php:338 tbl_structure.php:824
+#: tbl_printview.php:338 tbl_structure.php:820
 msgid "Effective"
 msgstr ""
 
-#: tbl_printview.php:363 tbl_structure.php:862
+#: tbl_printview.php:363 tbl_structure.php:858
 msgid "Row Statistics"
 msgstr ""
 
-#: tbl_printview.php:366 tbl_structure.php:865
+#: tbl_printview.php:366 tbl_structure.php:861
 msgid "Statements"
 msgstr ""
 
-#: tbl_printview.php:377 tbl_structure.php:877
+#: tbl_printview.php:377 tbl_structure.php:873
 msgid "static"
 msgstr ""
 
-#: tbl_printview.php:379 tbl_structure.php:879
+#: tbl_printview.php:379 tbl_structure.php:875
 msgid "dynamic"
 msgstr ""
 
-#: tbl_printview.php:401 tbl_structure.php:922
+#: tbl_printview.php:401 tbl_structure.php:918
 msgid "Row length"
 msgstr ""
 
-#: tbl_printview.php:411 tbl_structure.php:930
+#: tbl_printview.php:411 tbl_structure.php:926
 msgid " Row size "
 msgstr ""
 
@@ -9662,19 +9881,19 @@ msgstr ""
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr ""
 
-#: tbl_select.php:234
+#: tbl_select.php:260
 msgid "Select columns (at least one):"
 msgstr ""
 
-#: tbl_select.php:252
+#: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr ""
 
-#: tbl_select.php:259
+#: tbl_select.php:285
 msgid "Number of rows per page"
 msgstr ""
 
-#: tbl_select.php:265
+#: tbl_select.php:291
 msgid "Display order:"
 msgstr ""
 
@@ -9762,7 +9981,7 @@ msgstr ""
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr ""
 
-#: tbl_structure.php:893
+#: tbl_structure.php:889
 msgid "partitioned"
 msgstr ""
 
@@ -9958,6 +10177,14 @@ msgstr ""
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr ""
+
+#~ msgid "Value too long in the form!"
+#~ msgstr "Talvoud re hir er furmskrid !"
+
+#, fuzzy
+#~| msgid "Browse"
+#~ msgid "rows"
+#~ msgstr "Furchal"
 
 #~ msgid "Query \"%s\" failed"
 #~ msgstr "C'hwitet eo bet ar reked \"%s\""
