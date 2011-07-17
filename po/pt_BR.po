@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 19:00+0200\n"
+"PO-Revision-Date: 2011-07-17 19:18+0200\n"
 "Last-Translator:  <rds_ralison@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2027,10 +2027,9 @@ msgid "Check Privileges"
 msgstr "Verificar privilégios"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
-msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
+msgstr "Falhou ao ler arquivo de configuração"
 
 #: libraries/common.inc.php:589
 msgid ""
