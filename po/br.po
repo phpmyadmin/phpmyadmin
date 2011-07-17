@@ -3234,7 +3234,7 @@ msgstr "Kemennoù diwall"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Diweredekaat lod eus ar c'hemennoù diwall diskouezet gant phpMyAdmin"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
