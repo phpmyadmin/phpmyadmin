@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 21:38+0200\n"
+"PO-Revision-Date: 2011-07-17 21:39+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -3331,7 +3331,7 @@ msgstr "Enporzhiañ darnek : lezel ar rekedoù a gostez"
 
 #: libraries/config/messages.inc.php:261
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Arabat ober gant AUTO_INCREMENT evit an talvoudoù par da mann"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
