@@ -2278,17 +2278,17 @@ function initTooltips($div) {
 
     $footnotes.hide();
     $footnotes.find('span').each(function() {
-        $div.children("sup").remove();
+        $(this).children("sup").remove();
     });
     // The border and padding must be removed otherwise a thin yellow box remains visible
     $footnotes.css("border", "none");
     $footnotes.css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $div.children("sup[class='footnotemarker']").hide();
-    $div.children("img[class='footnotemarker']").show();
+    $div.find("sup[class='footnotemarker']").hide();
+    $div.find("img[class='footnotemarker']").show();
 
-    $div.children("img[class='footnotemarker']").each(function() {
+    $div.find("img[class='footnotemarker']").each(function() {
         var span_id = $(this).attr("id");
         span_id = span_id.split("_")[1];
         var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
