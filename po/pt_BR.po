@@ -2964,7 +2964,7 @@ msgstr "Uma caixa de seleção será utilizada se poucos itens estiverem present
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limite de chave estrangeira"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
