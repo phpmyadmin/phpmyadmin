@@ -2978,9 +2978,8 @@ msgstr "Personalizar modo de busca"
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
 #: libraries/config/messages.inc.php:229
-#, fuzzy
 msgid "Customize default options"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Personalizar opções padrão"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:237
 #: libraries/config/setup.forms.php:316
