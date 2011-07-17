@@ -2808,7 +2808,6 @@ msgid "Lines terminated by"
 msgstr "Linhas terminadas por"
 
 #: libraries/config/messages.inc.php:82
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Edição do Excel"
