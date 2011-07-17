@@ -3140,7 +3140,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
-msgstr ""
+msgstr "Heuliañ ar c'hemmoù"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
