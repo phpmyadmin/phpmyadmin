@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 21:40+0200\n"
+"PO-Revision-Date: 2011-07-17 21:41+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -3359,7 +3359,7 @@ msgstr "Diskouez al logo"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Diskouez dibab ar servijerioù e laez ar banell gefluniañ"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display servers selection"
