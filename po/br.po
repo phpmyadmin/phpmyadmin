@@ -3347,7 +3347,7 @@ msgstr "Niver a linennoù da ensoc'hañ"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Bukadenn evit an arlun moned prim"
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
