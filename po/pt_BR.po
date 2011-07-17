@@ -3003,7 +3003,7 @@ msgstr "Modo de edição"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Personalizar modo de edição"
 
 #: libraries/config/messages.inc.php:165
 #, fuzzy
