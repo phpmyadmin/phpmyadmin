@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 19:49+0200\n"
+"PO-Revision-Date: 2011-07-17 19:50+0200\n"
 "Last-Translator:  <rds_ralison@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2883,10 +2883,9 @@ msgid "Remember file name template"
 msgstr "Lembrar modelo de nome de arquivo"
 
 #: libraries/config/messages.inc.php:120
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Usar aspas simples nos nomes de tabelas e campos"
+msgstr "Usar crases nos nomes de tabelas e campos"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:346
