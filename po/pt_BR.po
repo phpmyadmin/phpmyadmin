@@ -2879,9 +2879,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Sobrescrever arquivo(s) existente(s)"
 
 #: libraries/config/messages.inc.php:118
-#, fuzzy
 msgid "Remember file name template"
-msgstr "Nome do arquivo do modelo"
+msgstr "Lembrar modelo de nome de arquivo"
 
 #: libraries/config/messages.inc.php:120
 #, fuzzy
