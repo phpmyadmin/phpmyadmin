@@ -23,39 +23,39 @@ $gis_types = array(
     'GEOMETRYCOLLECTION'
 );
 
-$no_visual = true;
+// Extract type from the initial call and make sure that it's a valid one.
+// Extract from field's values if availbale, if not use the column type passed.
 if (! isset($gis_data['gis_type'])) {
     if (isset($_REQUEST['type']) && $_REQUEST['type'] != '') {
         $gis_data['gis_type'] = strtoupper($_REQUEST['type']);
-    } elseif (isset($_REQUEST['value'])) {
+    }
+    if (isset($_REQUEST['value'])) {
         $gis_data['gis_type'] = substr($_REQUEST['value'], 1, strpos($_REQUEST['value'], "(") - 1);
     }
     if(! in_array($gis_data['gis_type'], $gis_types)) {
         $gis_data['gis_type'] = $gis_types[0];
-        $no_visual = true;
     }
 }
 $geom_type = $gis_data['gis_type'];
 
+// Generate parameters from value passed.
 $gis_obj = PMA_GIS_Factory::factory($geom_type);
 if (isset($_REQUEST['value'])) {
     $gis_data = array_merge($gis_data, $gis_obj->generateParams($_REQUEST['value']));
 }
 
-$srid = isset($gis_data['srid']) ? htmlspecialchars($gis_data['srid']) : '';
+// Generate Well Known Text
+$srid = (isset($gis_data['srid']) && $gis_data['srid'] != '') ? htmlspecialchars($gis_data['srid']) : 0;
 $wkt = $gis_obj->generateWkt($gis_data, 0);
+$result = "'" . $wkt . "'," . $srid;
 
-$format = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? 'svg' : 'png';
-$visualizationSettings = array('width' => 400, 'height' => 400,);
-$data = array($wkt);
-if (! $no_visual) {
-    $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
-}
+// Gererate PNG or SVG based visualization
+$format = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? 'png' : 'svg';
+$visualizationSettings = array('width' => 450, 'height' => 300, 'spatialColumn' => 'wkt');
+$data = array(array('wkt' => $wkt, 'srid' => $srid));
+$visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
 
-$result = "'" . $wkt . "'";
-if ($srid != '') {
-    $result .= ',' . $srid;
-}
+// If the call is to update the WKT and visualization make an AJAX response
 if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
     $extra_data = array(
         'result'        => $result,
@@ -64,6 +64,7 @@ if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
     PMA_ajaxResponse(null, true, $extra_data);
 }
 
+// If the call is to get the whole content, start buffering, skipping </head> and <body> tags
 if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     ob_start();
 } else {
@@ -74,9 +75,12 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 }
 ?>
     <form id="gis_data_editor_form" action="gis_data_editor.php" method="post">
+    <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
     <div id="gis_data_editor">
         <h3><?php printf(__('Value for the column "%s"'), htmlspecialchars($_REQUEST['field'])); ?></h3>
+
 <?php   echo('<input type="hidden" name="field" value="' . htmlspecialchars($_REQUEST['field']) . '">');
+        // The input field to which the final result should be added and corresponding null checkbox
         if (isset($_REQUEST['input_name'])) {
             echo('<input type="hidden" name="input_name" value="' . htmlspecialchars($_REQUEST['input_name']) . '">');
         }
@@ -85,9 +89,31 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
         }
         echo PMA_generate_common_hidden_inputs();
 ?>
-        <div id="placeholder">
-             <?php if (! $no_visual) {echo $visualization;} ?>
+        <!-- Visualization section -->
+        <div id="placeholder" style="width:450px;height:300px;
+<?php       if ($srid != 0) {
+                echo('display:none;');
+            }
+?>      ">
+<?php       echo ($visualization);
+?>      </div>
+        <div id="openlayersmap" style="width:450px;height:300px;
+<?php       if ($srid == 0) {
+                echo('display:none;');
+            }
+?>      ">
         </div>
+        <div class="choice" style="float:right;clear:right;">
+            <input type="checkbox" id="choice" value="useBaseLayer"
+<?php       if ($srid != 0) {
+                echo(' checked="checked"');
+            }
+?>          />
+            <label for="choice"><?php echo __("Use OpenStreetMaps as Base Layer"); ?></label>
+        </div>
+        <!-- End of visualization section -->
+
+        <!-- Header section - Inclueds GIS type selector and input field for SRID -->
         <div id="gis_data_header">
             <select name="gis_data[gis_type]" class="gis_type">
 <?php
@@ -104,9 +130,11 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
             <label for="srid"><?php echo __("SRID"); ?>:&nbsp;</label>
             <input name="gis_data[srid]" type="text" value="<?php echo($srid); ?>" />
         </div>
+        <!-- End of header section -->
+
+        <!-- Data section -->
         <div id="gis_data">
-<?php
-        $geom_count = 1;
+<?php   $geom_count = 1;
         if ($geom_type == 'GEOMETRYCOLLECTION') {
             $geom_count = (isset($gis_data[$geom_type]['geom_count'])) ? $gis_data[$geom_type]['geom_count'] : 1;
             if (isset($gis_data[$geom_type]['add_geom'])) {
@@ -271,8 +299,9 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
         if ($geom_type == 'GEOMETRYCOLLECTION') {
 ?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add geom" value="<?php  echo __("Add geometry"); ?>" />
 <?php   }
-?>
-        </div>
+?>      </div>
+        <!-- End of data section -->
+
         <br/><input type="submit" name="gis_data[save]" value="<?php echo __('Go') ?>">
         <div id="gis_data_output">
             <h3><?php echo __('Output'); ?></h3>
@@ -285,6 +314,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     </form>
 <?php
 
+// If the call is to get the whole content, get the content in the buffer and make and AJAX response.
 if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     $extra_data['gis_editor'] = ob_get_contents();
     PMA_ajaxResponse(NULL, ob_end_clean(), $extra_data);

@@ -50,27 +50,18 @@ function zoomAndPan() {
 }
 
 /**
- * Ajax handlers for GIS visualization page
- *
- * Actions Ajaxified here:
- *
- * Zooming in and zooming out on mousewheel movement.
- * Panning the visualization on dragging.
- * Zooming in on double clicking.
- * Zooming out on clicking the zoom out button.
- * Panning on clicking the arrow buttons.
- * Displaying tooltips for GIS objects.
+ * Initialize the visualization.
  */
-$(document).ready(function() {
+function initVisualization() {
     var $placeholder = $('#placeholder');
     var $openlayersmap = $('#openlayersmap');
-
-   if ($('#choice').prop('checked') != true) {
+    
+    if ($('#choice').prop('checked') != true) {
         $openlayersmap.hide();
     } else {
         $placeholder.hide();
     }
-
+    
     var cssObj = {
         'border' : '1px solid #aaa',
         'width' : $placeholder.width(),
@@ -80,25 +71,14 @@ $(document).ready(function() {
     $openlayersmap.css(cssObj);
     drawOpenLayers();
 
-    $('.choice').show();
-    $('#choice').bind('click', function() {
-        if ($(this).prop('checked') == false) {
-            $placeholder.show();
-            $openlayersmap.hide();
-        } else {
-            $placeholder.hide();
-            $openlayersmap.show();
-        }
-    });
-
-    $('#placeholder').svg({
+    $placeholder.svg({
         onLoad: function(svg_ref) {
             svg = svg_ref;
         }
     });
 
     // Removes the second SVG element unnecessarily added due to the above command.
-    $('#placeholder').find('svg:nth-child(2)').remove();
+    $placeholder.find('svg:nth-child(2)').remove();
 
     if ($("#placeholder svg").length > 0) {
         var pmaThemeImage = $('#pmaThemeImage').attr('value');
@@ -113,6 +93,34 @@ $(document).ready(function() {
         $('<img class="button" id="zoom_out" src="' + pmaThemeImage + 'zoom-minus-mini.png">').appendTo($placeholder);
     }
 
+    $('.choice').show();
+}
+
+/**
+ * Ajax handlers for GIS visualization page
+ *
+ * Actions Ajaxified here:
+ *
+ * Zooming in and zooming out on mousewheel movement.
+ * Panning the visualization on dragging.
+ * Zooming in on double clicking.
+ * Zooming out on clicking the zoom out button.
+ * Panning on clicking the arrow buttons.
+ * Displaying tooltips for GIS objects.
+ */
+$(document).ready(function() {
+    initVisualization();   
+    
+    $('#choice').live('click', function() {
+        if ($(this).prop('checked') == false) {
+            $('#placeholder').show();
+            $('#openlayersmap').hide();
+        } else {
+            $('#placeholder').hide();
+            $('#openlayersmap').show();
+        }
+    });
+    
     $('#placeholder').live('mousewheel', function(event, delta) {
         if (delta > 0) {
             //zoom in
@@ -134,13 +142,13 @@ $(document).ready(function() {
 
     var dragX = 0; var dragY = 0;
     $('svg').live('dragstart', function(event, dd) {
-        $placeholder.addClass('placeholderDrag');
+        $('#placeholder').addClass('placeholderDrag');
         dragX = Math.round(dd.offsetX);
         dragY = Math.round(dd.offsetY);
     });
 
     $('svg').live('mouseup', function(event) {
-        $placeholder.removeClass('placeholderDrag');
+        $('#placeholder').removeClass('placeholderDrag');
     });
 
     $('svg').live('drag', function(event, dd) {

@@ -116,6 +116,10 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
  */
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
+$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 /**

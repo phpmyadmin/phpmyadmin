@@ -287,7 +287,7 @@ $(document).ready(function() {
         var windowWidth = document.documentElement.clientWidth;
         var windowHeight = document.documentElement.clientHeight;
         var popupWidth = windowWidth * 0.9;
-        var popupHeight = windowHeight * 0.8;
+        var popupHeight = windowHeight * 0.9;
         var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
         var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
         var $gis_editor = $("#gis_editor");
@@ -302,6 +302,8 @@ $(document).ready(function() {
         // Names of input field and null checkbox
         var input_name = $span.parent('td').children("input[type='text']").attr('name');
         var null_checkbox_name = $span.parents('tr').find('.checkbox_null').attr('name');
+        //Token
+        var token = $("input[name='token']").val();
 
         $.post('gis_data_editor.php', {
             'field' : field,
@@ -310,10 +312,14 @@ $(document).ready(function() {
             'input_name' : input_name,
             'null_checkbox_name' : null_checkbox_name,
             'get_gis_editor' : true,
-            'token' : window.parent.token
+            'token' : token
         }, function(data) {
+            if (! $.isPlainObject(data)) {
+                data = $.parseJSON(data);
+            }
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
+                initVisualization();
                 prepareJSVersion();
             } else {
                 PMA_ajaxShowMessage(data.error);
@@ -338,6 +344,9 @@ $(document).ready(function() {
         var null_checkbox_name = $form.find("input[name='null_checkbox_name']").val();
 
         $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
+            if (! $.isPlainObject(data)) {
+                data = $.parseJSON(data);
+            }
             if(data.success == true) {
                 $("input[name='" + null_checkbox_name + "']").attr('checked', false);
                 $("input[name='" + input_name + "']").val(data.result);
@@ -354,8 +363,13 @@ $(document).ready(function() {
     $('#gis_editor').find("input[type='text']").live('change', function() {
         var $form = $('form#gis_data_editor_form');
         $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
+            if (! $.isPlainObject(data)) {
+                data = $.parseJSON(data);
+            }
             if(data.success == true) {
                 $('#gis_data_textarea').val(data.result);
+                $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
+                initVisualization();
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
@@ -370,8 +384,12 @@ $(document).ready(function() {
         var $form = $('form#gis_data_editor_form');
 
         $.post('gis_data_editor.php', $form.serialize() + "&get_gis_editor=true", function(data) {
+            if (! $.isPlainObject(data)) {
+                data = $.parseJSON(data);
+            }
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
+                initVisualization();
                 prepareJSVersion();
             } else {
                 PMA_ajaxShowMessage(data.error);
