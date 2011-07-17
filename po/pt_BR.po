@@ -2991,7 +2991,7 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr ""
+msgstr "Desenvolvedor"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
