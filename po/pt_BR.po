@@ -2345,10 +2345,9 @@ msgstr "dados"
 #: libraries/config.values.php:98 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:124 libraries/export/texytext.php:24
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Estrutura e dados"
+msgstr "estrutura e dados"
 
 #: libraries/config.values.php:100
 msgid "Quick - display only the minimal options to configure"
