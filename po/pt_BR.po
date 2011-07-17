@@ -2029,7 +2029,7 @@ msgstr "Verificar privilégios"
 #: libraries/common.inc.php:588
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
-msgstr "Falhou ao ler arquivo de configuração"
+msgstr "Falhou ao ler o arquivo de configuração"
 
 #: libraries/common.inc.php:589
 msgid ""
