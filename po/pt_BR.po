@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-17 19:42+0200\n"
+"PO-Revision-Date: 2011-07-17 19:43+0200\n"
 "Last-Translator:  <rds_ralison@yahoo.com.br>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -2697,10 +2697,9 @@ msgstr ""
 "reparar as tabelas selecionadas de um banco de dados."
 
 #: libraries/config/messages.inc.php:61
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Tabela de Manutenção"
+msgstr "Desativar a manutenção múltiplas tabelas"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
