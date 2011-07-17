@@ -3074,9 +3074,8 @@ msgid "Servers display options"
 msgstr "Opções de exibição de servidores"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
 msgid "Tables display options"
-msgstr "Opções de exportação do Banco de Dados"
+msgstr "Opções de exibição de tabelas"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:19
 msgid "Main frame"
