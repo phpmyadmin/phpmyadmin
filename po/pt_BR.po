@@ -1131,7 +1131,6 @@ msgid "Issued queries since last refresh"
 msgstr "Consultas emitidas desde a última atualização"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Issued queries"
 msgstr "Consultas SQL"
