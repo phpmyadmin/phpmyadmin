@@ -2040,7 +2040,7 @@ msgstr ""
 "qualquer erro mostrado abaixo."
 
 #: libraries/common.inc.php:596
-#, fuzzy, php-format
+#, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
