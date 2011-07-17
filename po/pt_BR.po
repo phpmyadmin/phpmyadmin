@@ -251,9 +251,8 @@ msgstr "Ver o esquema do Banco de Dados"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:370 navigation.php:299
-#, fuzzy
 msgid "No tables found in database."
-msgstr "Nenhuma tabela encontrada no Banco de Dados"
+msgstr "Nenhuma tabela encontrada no banco de dados."
 
 #: db_export.php:40 db_search.php:317 server_export.php:26
 msgid "Select All"
