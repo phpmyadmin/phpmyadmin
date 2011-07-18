@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 11:15+0200\n"
+"PO-Revision-Date: 2011-07-18 11:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -7747,7 +7747,7 @@ msgstr "名前でテーブルをフィルタする"
 #: navigation.php:306 navigation.php:307
 msgctxt "short form"
 msgid "Create table"
-msgstr "テーブルを作成"
+msgstr "テーブルを作成する"
 
 #: navigation.php:312 navigation.php:475
 msgid "Please select a database"
