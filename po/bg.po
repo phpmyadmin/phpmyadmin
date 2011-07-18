@@ -7481,7 +7481,7 @@ msgstr "Презареждане"
 
 #: pmd_general.php:93
 msgid "Help"
-msgstr ""
+msgstr "Помощ"
 
 #: pmd_general.php:97
 msgid "Angular links"
