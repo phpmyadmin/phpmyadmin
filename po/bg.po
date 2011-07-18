@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:24+0200\n"
+"PO-Revision-Date: 2011-07-18 08:25+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6403,10 +6403,9 @@ msgid "ON"
 msgstr "Вкл."
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Диспечер на събитията включен"
+msgstr "Състояние на Диспечера на събитията"
 
 #: libraries/rte/rte_list.lib.php:52
 #, fuzzy
