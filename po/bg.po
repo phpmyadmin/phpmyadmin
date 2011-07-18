@@ -6653,10 +6653,9 @@ msgid "Trigger name"
 msgstr "Име на тригер"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете име на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:428
 #, fuzzy
