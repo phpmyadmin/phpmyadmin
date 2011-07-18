@@ -397,7 +397,7 @@ $(document).ready(function() {
     /**
      * Handles adding data points
      */
-    $('.addJs.point').live('click', function() {
+    $('.addJs.addPoint').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
         // Eg. name = gis_data[0][MULTIPOINT][add_point] => prefix = gis_data[0][MULTIPOINT]
@@ -414,7 +414,7 @@ $(document).ready(function() {
     /**
      * Handles adding linestrings and inner rings
      */
-    $('.line.addJs').live('click', function() {
+    $('.addLine.addJs').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
 
@@ -439,7 +439,7 @@ $(document).ready(function() {
         for (i = 0; i < noOfPoints; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
-        html += '<a class="point addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ ' 
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ ' 
             + PMA_messages['strAddPoint'] + '</a><br>';
 
         $a.before(html);
@@ -449,7 +449,7 @@ $(document).ready(function() {
     /**
      * Handles adding polygons
      */
-    $('.addJs.polygon').live('click', function() {
+    $('.addJs.addPolygon').live('click', function() {
         var $a = $(this);
         var name = $a.attr('name');
         // Eg. name = gis_data[0][MULTIPOLYGON][add_polygon] => prefix = gis_data[0][MULTIPOLYGON]
@@ -466,9 +466,9 @@ $(document).ready(function() {
         for (i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
-        html += '<a class="point addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ ' 
-            + PMA_messages['strAddPoint'] + '</a><br>';
-            + '<a class="line addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ ' 
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ ' 
+            + PMA_messages['strAddPoint'] + '</a><br>'
+            + '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ ' 
             + PMA_messages['strAddInnerRing'] + '</a><br><br>';
 
         $a.before(html);
@@ -478,7 +478,7 @@ $(document).ready(function() {
     /**
      * Handles adding geoms
      */
-    $('.addJs.geom').live('click', function() {
+    $('.addJs.addGeom').live('click', function() {
         var $a = $(this);
         var prefix = 'gis_data[GEOMETRYCOLLECTION]';
         // Find the number of geoms

@@ -201,7 +201,7 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 <?php
                 }
 ?>
-               <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_point]" class="add point" value="<?php echo __("Add a point"); ?>">
+               <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_point]" class="add addPoint" value="<?php echo __("Add a point"); ?>">
 <?php
             } elseif ($type == 'MULTILINESTRING' || $type == 'POLYGON') {
 
@@ -245,10 +245,10 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                         <label for="y"><?php echo  __("Y"); ?></label>
                         <input type="text" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][<?php echo($j); ?>][y]" value="<?php echo(isset($gis_data[$a][$type][$i][$j]['x']) ? htmlspecialchars($gis_data[$a][$type][$i][$j]['y']) : ''); ?>" />
 <?php               }
-?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" class="add point" value="<?php echo __("Add a point"); ?>">
+?>                  <input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][<?php echo($i); ?>][add_point]" class="add addPoint" value="<?php echo __("Add a point"); ?>">
 <?php           }
                 $caption = ($type == 'MULTILINESTRING') ? __('Add a linestring') : __('Add an inner ring');
-?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" class="add line" value="<?php echo($caption); ?>">
+?>              <br/><input type="submit" name="gis_data[<?php echo($a); ?>][<?php echo($type); ?>][add_line]" class="add addLine" value="<?php echo($caption); ?>">
 <?php
             } elseif ($type == 'MULTIPOLYGON') {
                 $no_of_polygons = isset($gis_data[$a][$type]['no_of_polygons']) ? $gis_data[$a][$type]['no_of_polygons'] : 1;
@@ -295,15 +295,15 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
                             <label for="y"><?php echo  __("Y"); ?></label>
                             <input type="text" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][" . $j . "][y]"); ?>" value="<?php echo(isset($gis_data[$a][$type][$k][$i][$j]['y']) ? htmlspecialchars($gis_data[$a][$type][$k][$i][$j]['y']) : ''); ?>" />
 <?php                   }
-?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add point" value="<?php echo __("Add a point"); ?>">
+?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add addPoint" value="<?php echo __("Add a point"); ?>">
 <?php               }
-?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class="add line" value="<?php echo __('Add an inner ring') ?>">
+?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class="add addLine" value="<?php echo __('Add an inner ring') ?>">
 <?php           }
-?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class="add polygon" value="<?php echo __('Add a polygon') ?>">
+?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class="add addPolygon" value="<?php echo __('Add a polygon') ?>">
 <?php       }
         }
         if ($geom_type == 'GEOMETRYCOLLECTION') {
-?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add geom" value="<?php  echo __("Add geometry"); ?>" />
+?>          <br/><br/><input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add addGeom" value="<?php  echo __("Add geometry"); ?>" />
 <?php   }
 ?>      </div>
         <!-- End of data section -->
