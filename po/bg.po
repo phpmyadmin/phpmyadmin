@@ -6232,10 +6232,9 @@ msgid "Export of event %s"
 msgstr "Експорт на събитието %s"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Действие"
+msgstr "събитие"
 
 #: libraries/rte/rte_events.lib.php:62
 #| msgid "You do not have the necessary privileges to create a new routine"
