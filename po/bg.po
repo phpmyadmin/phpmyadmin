@@ -6601,10 +6601,9 @@ msgid "Export of trigger %s"
 msgstr "Експорт на тригер %s"
 
 #: libraries/rte/rte_triggers.lib.php:42
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Тригери"
+msgstr "тригер"
 
 #: libraries/rte/rte_triggers.lib.php:43
 #| msgid "You do not have the necessary privileges to create a new routine"
