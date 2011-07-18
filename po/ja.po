@@ -1200,10 +1200,9 @@ msgid "Hide indexes"
 msgstr "インデックスを隠す"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "グリッドを表示"
+msgstr "インデックスを表示する"
 
 #: js/messages.php:117
 msgid "Searching"
