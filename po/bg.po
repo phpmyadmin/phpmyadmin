@@ -7020,7 +7020,7 @@ msgstr "Таблицата изглежда празна!"
 #: libraries/tbl_links.inc.php:127
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Проследяването на %s.%s е активно."
 
 #: libraries/tbl_properties.inc.php:108
 msgid ""
