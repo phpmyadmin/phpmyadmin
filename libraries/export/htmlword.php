@@ -213,9 +213,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      * Gets fields properties
      */
     PMA_DBI_select_db($db);
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-    $result      = PMA_DBI_query($local_query);
-    $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations
     if ($do_relation && ! empty($cfgRelation['relation'])) {
@@ -272,10 +269,11 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         return false;
     }
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    $columns = PMA_DBI_get_columns($db, $table);
+    foreach ($columns as $column) {
 
         $schema_insert = '<tr class="print-category">';
-        $type          = $row['Type'];
+        $type          = $column['Type'];
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
         if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
@@ -295,9 +293,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
                 $type     = '&nbsp;';
             }
 
-            $binary       = preg_match('/BINARY/i', $row['Type']);
-            $unsigned     = preg_match('/UNSIGNED/i', $row['Type']);
-            $zerofill     = preg_match('/ZEROFILL/i', $row['Type']);
+            $binary       = preg_match('/BINARY/i', $column['Type']);
+            $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
+            $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
         }
         $attribute     = '&nbsp;';
         if ($binary) {
@@ -309,28 +307,28 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
         }
-        if (! isset($row['Default'])) {
-            if ($row['Null'] != 'NO') {
-                $row['Default'] = 'NULL';
+        if (! isset($column['Default'])) {
+            if ($column['Null'] != 'NO') {
+                $column['Default'] = 'NULL';
             }
         }
 
         $fmt_pre = '';
         $fmt_post = '';
-        if (in_array($row['Field'], $unique_keys)) {
+        if (in_array($column['Field'], $unique_keys)) {
             $fmt_pre = '<b>' . $fmt_pre;
             $fmt_post = $fmt_post . '</b>';
         }
-        if ($row['Key'] == 'PRI') {
+        if ($column['Key'] == 'PRI') {
             $fmt_pre = '<i>' . $fmt_pre;
             $fmt_post = $fmt_post . '</i>';
         }
-        $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($row['Field']) . $fmt_post . '</td>';
+        $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
         $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-        $schema_insert .= '<td class="print">' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
-        $schema_insert .= '<td class="print">' . htmlspecialchars(isset($row['Default']) ? $row['Default'] : '') . '</td>';
+        $schema_insert .= '<td class="print">' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
+        $schema_insert .= '<td class="print">' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '') . '</td>';
 
-        $field_name = $row['Field'];
+        $field_name = $column['Field'];
 
         if ($do_relation && $have_rel) {
             $schema_insert .= '<td class="print">' . (isset($res_rel[$field_name]) ? htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' (' . $res_rel[$field_name]['foreign_field'] . ')') : '') . '</td>';
