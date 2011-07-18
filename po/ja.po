@@ -6875,7 +6875,6 @@ msgid "Export of trigger %s"
 msgstr "トリガ %s をエクスポートする"
 
 #: libraries/rte/rte_triggers.lib.php:42
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
 msgstr "トリガ"
