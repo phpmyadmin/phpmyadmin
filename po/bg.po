@@ -8346,7 +8346,7 @@ msgstr ""
 
 #: server_replication.php:323
 msgid "Full start"
-msgstr ""
+msgstr "Пълно пускане"
 
 #: server_replication.php:323
 msgid "Full stop"
