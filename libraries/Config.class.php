@@ -353,13 +353,7 @@ class PMA_Config
          * Parses the configuration file
          */
         $old_error_reporting = error_reporting(0);
-        if (function_exists('file_get_contents')) {
-            $eval_result =
-                eval('?' . '>' . trim(file_get_contents($this->getSource())));
-        } else {
-            $eval_result =
-                eval('?' . '>' . trim(implode("\n", file($this->getSource()))));
-        }
+        $eval_result = eval('?' . '>' . trim(file_get_contents($this->getSource())));
         error_reporting($old_error_reporting);
 
         if ($eval_result === false) {
