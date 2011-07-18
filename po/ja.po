@@ -6501,7 +6501,6 @@ msgid "Export of event %s"
 msgstr "イベント %s をエクスポートする"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "イベント"
