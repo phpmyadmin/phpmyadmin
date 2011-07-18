@@ -7465,7 +7465,7 @@ msgstr "Скриване/Показване на лявото меню"
 
 #: pmd_general.php:78
 msgid "Save position"
-msgstr ""
+msgstr "Запазване на позицята"
 
 #: pmd_general.php:81 server_synchronize.php:424 server_synchronize.php:867
 msgid "Create table"
