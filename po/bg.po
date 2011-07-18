@@ -6434,10 +6434,9 @@ msgid "routine"
 msgstr "Процедури"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Не разполагате с права, за да създавате процедури"
+msgstr "Не разполагате с права, за да създадете процедура"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
