@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:31+0200\n"
+"PO-Revision-Date: 2011-07-18 08:32+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6518,7 +6518,7 @@ msgstr "Дължина/стойност на данни при изход"
 
 #: libraries/rte/rte_routines.lib.php:947
 msgid "Return options"
-msgstr ""
+msgstr "Настройки на данни при изход"
 
 #: libraries/rte/rte_routines.lib.php:978
 msgid "Is deterministic"
