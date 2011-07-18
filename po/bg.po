@@ -7551,7 +7551,7 @@ msgstr "Преименуване на"
 
 #: pmd_general.php:482 pmd_general.php:581
 msgid "New name"
-msgstr ""
+msgstr "Ново име"
 
 #: pmd_general.php:485 pmd_general.php:700
 msgid "Aggregate"
