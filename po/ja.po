@@ -6602,10 +6602,9 @@ msgid "Execute at"
 msgstr "実行"
 
 #: libraries/rte/rte_events.lib.php:454
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "実行"
+msgstr "イベントを実行する"
 
 #: libraries/rte/rte_events.lib.php:473
 #, fuzzy
