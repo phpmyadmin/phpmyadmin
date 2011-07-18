@@ -6702,7 +6702,6 @@ msgid "Export of routine %s"
 msgstr "ルーチン %s のエクスポート"
 
 #: libraries/rte/rte_routines.lib.php:46
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
 msgstr "ルーチン"
