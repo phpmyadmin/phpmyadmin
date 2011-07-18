@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 10:19+0200\n"
+"PO-Revision-Date: 2011-07-18 10:20+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6885,10 +6885,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "トリガを作成する特権がありません"
 
 #: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "データベース %2$s に %1$s という名前のルーチンはありません"
+msgstr "データベース %2$s に %1$s という名前のトリガはありません"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
