@@ -8350,7 +8350,7 @@ msgstr ""
 
 #: server_replication.php:323
 msgid "Full stop"
-msgstr ""
+msgstr "Пълно спиране"
 
 #: server_replication.php:324
 msgid "Reset slave"
