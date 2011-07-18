@@ -6530,7 +6530,7 @@ msgstr "Сигурност"
 
 #: libraries/rte/rte_routines.lib.php:994
 msgid "SQL data access"
-msgstr ""
+msgstr "Достъп до SQL данните"
 
 #: libraries/rte/rte_routines.lib.php:1057
 msgid "You must provide a routine name"
