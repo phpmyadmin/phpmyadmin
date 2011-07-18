@@ -8374,7 +8374,7 @@ msgstr ""
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Обработка на грешки:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
