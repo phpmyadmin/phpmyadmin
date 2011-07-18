@@ -6779,7 +6779,7 @@ msgstr "Мрежата видима"
 
 #: libraries/schema/User_Schema.class.php:375
 msgid "Show color"
-msgstr "Покажи цвят"
+msgstr "Показване свят"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
