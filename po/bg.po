@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:23+0200\n"
+"PO-Revision-Date: 2011-07-18 08:24+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6376,10 +6376,9 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Трябва да дадете валидна вътрешна стойност на събитието."
 
 #: libraries/rte/rte_events.lib.php:573
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Трябва да дадете дефиниция на процедурата."
+msgstr "Трябва да дадете валиден интервал за изпълнение на събитието."
 
 #: libraries/rte/rte_events.lib.php:577
 #, fuzzy
