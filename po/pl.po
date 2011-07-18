@@ -5436,44 +5436,6 @@ msgstr "Utwórz związek"
 msgid "Link not found"
 msgstr "Łącze nie znalezione"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export contents"
-msgid "Export of trigger %s"
-msgstr "Eksportuj zawartość"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr ""
-"Nie znaleziono prawidłowej ścieżki do obrazka dla motywu graficznego %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no triggers to display."
-msgstr "Nie podałeś plików do wgrania na serwer"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Czas"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Zdarzenie"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Dodaj nowy serwer"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Informacja o wersji"

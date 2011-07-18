@@ -135,14 +135,13 @@ function displayPasswordGenerateButton() {
  *
  * @param   object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element) {
+function PMA_addDatepicker($this_element, options) {
     var showTimeOption = false;
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-
-    $this_element
-        .datepicker({
+	
+	var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -159,7 +158,9 @@ function PMA_addDatepicker($this_element) {
             $this_element.data('comes_from', 'datepicker');
         },
         constrainInput: false
-     });
+	};
+
+    $this_element.datepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -2285,10 +2286,10 @@ function initTooltips() {
     $(".footnotes").css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $("sup[class='footnotemarker']").hide();
-    $("img[class='footnotemarker']").show();
+    $("sup[class~='footnotemarker']").hide();
+    $("img[class~='footnotemarker']").show();
 
-    $("img[class='footnotemarker']").each(function() {
+    $("img[class~='footnotemarker']").each(function() {
         var span_id = $(this).attr("id");
         span_id = span_id.split("_")[1];
         var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
@@ -2374,7 +2375,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)

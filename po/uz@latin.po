@@ -5655,44 +5655,6 @@ msgstr "Vеrsiyasini tuzish"
 msgid "Link not found"
 msgstr "Aloqa topilmadi"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger %s"
-msgstr "Triggеrlarni eksport qilish"
-
-#: libraries/display_triggers.inc.php:39
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger \"%s\""
-msgstr "Triggеrlarni eksport qilish"
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr " \"%s\" mavzusi rasmlariga to‘g‘ri yo‘l topilmadi!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no triggers to display."
-msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Vaqt"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Hodisa"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Yangi foydalanuvchi qo‘shish"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Versiya haqida ma`lumot"

@@ -42,8 +42,7 @@ if (empty($_REQUEST['engine'])
      */
     echo '<h2>' . "\n"
        . ($GLOBALS['cfg']['MainPageIconic']
-            ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
-                .' width="16" height="16" alt="" />' : '')
+            ? '<img class="icon ic_b_engine" src="themes/dot.gif" alt="" />' : '')
        . "\n" . __('Storage Engines') . "\n"
        . '</h2>' . "\n";
 
@@ -107,8 +106,7 @@ if (empty($_REQUEST['engine'])
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     echo '<h2>' . "\n"
        . ($GLOBALS['cfg']['MainPageIconic']
-            ? '<img class="icon" src="' . $pmaThemeImage . 'b_engine.png"'
-                .' width="16" height="16" alt="" />' : '')
+            ? '<img class="icon ic_b_engine" src="themes/dot.gif" alt="" />' : '')
        . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
        . '    ' . PMA_showMySQLDocu('', $engine_plugin->getMysqlHelpPage()) . "\n"
        . '</h2>' . "\n\n";

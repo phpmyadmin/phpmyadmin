@@ -494,7 +494,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
         ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
-        <?php echo __('More'); ?> <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="<?php echo __('Show more actions'); ?>" />
+        <?php echo __('More'); ?> <img class="icon ic_more" src="themes/dot.gif" alt="<?php echo __('Show more actions'); ?>" />
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
 
             <div class="action_browse">
@@ -625,7 +625,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 ?>
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" width="16" height="16" alt="' . __('Print view') . '"/>';
+    echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="' . __('Print view') . '"/>';
 }
 echo __('Print view');
 ?></a>
@@ -639,7 +639,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'b_relations.png" width="16" height="16" alt="' . __('Relation view') . '"/>';
+            echo '<img class="icon ic_b_relations" src="themes/dot.gif" alt="' . __('Relation view') . '"/>';
         }
         echo __('Relation view');
         ?></a>
@@ -648,7 +648,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . __('Propose table structure') . '" />';
+        echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="' . __('Propose table structure') . '" />';
     }
     echo __('Propose table structure');
     ?></a><?php
@@ -661,7 +661,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
         if ($cfg['PropertiesIconic'])
         {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . __('Track table') . '" /> ';
+            echo '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
         }
         echo __('Track table') . '</a>';
     }
@@ -673,7 +673,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add column') . '"/>';
+        echo '<img class="icon ic_b_insrow" src="themes/dot.gif" alt="' . __('Add column') . '"/>';
     }
     echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
@@ -839,7 +839,7 @@ if ($cfg['ShowStats']) {
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             if ($cfg['PropertiesIconic']) {
-               echo '<img class="icon" src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" alt="' . __('Optimize table'). '" />';
+               echo '<img class="icon ic_b_tbloptimize" src="themes/dot.gif" alt="' . __('Optimize table'). '" />';
             }
             echo __('Optimize table');
             ?></a>

@@ -5095,39 +5095,6 @@ msgstr "تكوين"
 msgid "Link not found"
 msgstr "لم يمكن إيجاد الوصلة"
 
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr ""
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "وقت"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "حدث"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Add a trigger"
-msgstr "أضف مستخدم جديد"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr ""

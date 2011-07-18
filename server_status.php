@@ -210,7 +210,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
                 $type = strtolower($match[1]);
                 // Ignore undefined index warning, just increase counter by one
-                @$return['sum'][$type]++;
+                @$return['sum'][$type] += $row['#'];
+				
                 if($type=='insert' || $type=='update') {
                     // Group inserts if selected
                     if($type=='insert' && isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
@@ -219,8 +220,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
                             
                             // Add a ... to the end of this query to indicate that there's been other queries
-                            $return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.';
-                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                            if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+								$return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
                                 
                             // Group this value, thus do not add to the result list
                             continue;
@@ -240,6 +241,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             }
             
             $return['sum']['TOTAL'] = array_sum($return['sum']);
+			$return['numRows'] = count($return['rows']);
             
             PMA_DBI_free_result($result);
             
@@ -266,6 +268,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
 $GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.sortableTable.js';
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
 // Charting
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
@@ -562,7 +565,7 @@ server_db_isLocal = <?php echo ($server_db_isLocal)?'true':'false'; ?>;
  * Displays the sub-page heading
  */
 if ($GLOBALS['cfg']['MainPageIconic']) {
-    echo '<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" alt="" />';
+    echo '<img class="icon ic_s_status" src="themes/dot.gif" width="16" height="16" alt="" />';
 }
 
 echo __('Runtime Information');
@@ -570,7 +573,7 @@ echo __('Runtime Information');
 ?></h2>
     <div id="serverStatusTabs">
         <ul>
-            <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
+            <li><a href="#statustabs_traffic"><?php echo __('Server'); ?></a></li>
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
             <li><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
@@ -804,7 +807,7 @@ function printServerTraffic() {
     ?>
     </h3>
 
-    <p class="notice">
+    <p>
     <?php
     echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
         PMA_timespanFormat($server_status['Uptime']),
@@ -1273,26 +1276,26 @@ function printMonitor() {
 ?>
     <div class="monitorLinks">
         <a href="#pauseCharts">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>play.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_play" alt="" /> 
             <?php echo __('Start Monitor'); ?>
         </a>
         <a href="#settingsPopup" rel="popupLink" style="display:none;">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_cog.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_s_cog" alt="" /> 
             <?php echo __('Settings'); ?>
         </a>
         <a href="#monitorInstructionsDialog">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_help.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> 
             <?php echo __('Instructions/Setup'); ?>
         </a>
         <a href="#endChartEditMode" style="display:none;">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>s_okay.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_s_okay" alt="" /> 
             <?php echo __('Done rearranging/editing charts'); ?>
         </a>
     </div>
     
     <div class="popupContent settingsPopup">
         <a href="#addNewChart">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_chart.png" alt="" /> 
+            <img src="themes/dot.gif" class="icon ic_b_chart" alt="" /> 
             <?php echo __('Add chart'); ?>
         </a> | 
         <a href="#rearrangeCharts"> <?php echo __('Rearrange/edit charts'); ?></a><br>
@@ -1319,7 +1322,8 @@ function printMonitor() {
     
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
-        queries. For the latter you will need to log_output set to \'TABLE\' and have either the slow_query_log or general_log enabled.'); ?>
+        queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the
+		general_log produces a lot of data and increases server load by up to 15%'); ?>
         <p></p>
         <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
         <div class="ajaxContent">
@@ -1332,11 +1336,15 @@ function printMonitor() {
         using the cog icon on each respective chart.
         <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
         left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
-        activity spike.</p>
-        <p><b>Please note:</b>
-        Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
-        very load intensive task, thus it is advisable to select only a small time span.
-        </p>'); ?>
+        activity spike.</p>');
+		?>
+		<p>
+		<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> 
+		<?php echo __('<b>Please note:</b>
+        Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a 
+        load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.
+        '); ?>
+		</p>
         </div>
     </div>
     

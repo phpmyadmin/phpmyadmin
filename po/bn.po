@@ -5356,41 +5356,6 @@ msgstr "Server version"
 msgid "Link not found"
 msgstr "লিংক পাওয়া যায়নি"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-msgid "Export of trigger %s"
-msgstr "Export type"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "No valid image path for theme %s found!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-msgid "There are no triggers to display."
-msgstr "টেবিল পরীক্ষা কর"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "সময়"
-
-#: libraries/display_triggers.inc.php:78
-#, fuzzy
-msgid "Event"
-msgstr "Sent"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-msgid "Add a trigger"
-msgstr "একটি নতুন ইউজার যোগ করুন"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Version information"

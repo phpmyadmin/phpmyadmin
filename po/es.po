@@ -5272,37 +5272,6 @@ msgstr "Crear vista"
 msgid "Link not found"
 msgstr "No se encontró el enlace"
 
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Exportar disparador %s"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr "Exportar disparador \"%s\""
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr "No se encontró disparador con nombre %s"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr "No hay disparadores para mostrar."
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Tiempo"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Evento"
-
-#: libraries/display_triggers.inc.php:120
-msgid "Add a trigger"
-msgstr "Agregar un disparador"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Acerca de esta versión"

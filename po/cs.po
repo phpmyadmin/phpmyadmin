@@ -5179,37 +5179,6 @@ msgstr "Vytvořit pohled"
 msgid "Link not found"
 msgstr "Odkaz nenalezen"
 
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Exportovat spoušť %s"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr "Export spouště „%s“"
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr "Spoušť se jménem %s nebyla nalezena"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr "Nebyly nalezeny žádné spouště."
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Čas"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Událost"
-
-#: libraries/display_triggers.inc.php:120
-msgid "Add a trigger"
-msgstr "Přidat spoušť"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Informace o verzi"
