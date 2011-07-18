@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 10:41+0200\n"
+"PO-Revision-Date: 2011-07-18 10:42+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -5026,10 +5026,9 @@ msgid "%d is not valid row number."
 msgstr "%d は不正な行番号です"
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "土"
+msgstr "開始行"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
