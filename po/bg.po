@@ -6439,7 +6439,7 @@ msgstr "Не разполагате с права, за да създадете 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Процедурата %1$s не е намерена в БД %2$s"
+msgstr "Няма процедура с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_routines.lib.php:49
 msgid "There are no routines to display."
