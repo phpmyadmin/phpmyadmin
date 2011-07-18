@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:50+0200\n"
+"PO-Revision-Date: 2011-07-18 08:51+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7235,7 +7235,7 @@ msgstr ""
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Форматира текст като SQL заявка със синтактично оцветяване."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
