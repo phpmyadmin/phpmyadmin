@@ -6392,7 +6392,7 @@ msgstr "Трябва да дадете дефиниция на събитиет�
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Нов"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
