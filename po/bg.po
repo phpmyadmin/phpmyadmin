@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:41+0200\n"
+"PO-Revision-Date: 2011-07-18 08:42+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6783,7 +6783,7 @@ msgstr "Показване свят"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
-msgstr "Покажи размерността на таблиците"
+msgstr "Размерите на таблиците видими"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
