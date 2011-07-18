@@ -6221,10 +6221,9 @@ msgid "Generate Password"
 msgstr "Генериране на парола"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
-msgstr "Добавяне на събитие"
+msgstr "Ново събитие"
 
 #: libraries/rte/rte_events.lib.php:60
 #, php-format
