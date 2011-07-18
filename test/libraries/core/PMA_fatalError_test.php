@@ -19,13 +19,6 @@ require_once 'libraries/Config.class.php';
 
 class PMA_fatalError_test extends PHPUnit_Extensions_OutputTestCase
 {
-    public function setUp()
-    {
-        $GLOBALS['PMA_Config'] = new PMA_Config();
-        $GLOBALS['session_name'] = 'test_session';
-        $_COOKIE['test_session'] = 'test_cookie';
-    }
-
     public function testFatalErrorMessage()
     {
         $this->expectOutputRegex("/FatalError!/");
