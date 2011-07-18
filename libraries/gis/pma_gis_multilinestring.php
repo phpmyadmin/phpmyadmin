@@ -229,10 +229,11 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
      *
      * @param array $gis_data GIS data
      * @param int   $index    Index into the parameter object
+     * @param string $empty    Value for empty points
      *
      * @return WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt($gis_data, $index)
+    public function generateWkt($gis_data, $index, $empty = '')
     {
         $no_of_lines = isset($gis_data[$index]['MULTILINESTRING']['no_of_lines'])
             ? $gis_data[$index]['MULTILINESTRING']['no_of_lines'] : 1;
@@ -248,10 +249,12 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             }
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
-                $wkt .= (isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['x'])
-                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['x'] : '')
-                    . ' ' . (isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['y'])
-                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['y'] : '') . ',';
+                $wkt .= ((isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['x'])
+                    && trim($gis_data[$index]['MULTILINESTRING'][$i][$j]['x']) != '')
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['x'] : $empty)
+                    . ' ' . ((isset($gis_data[$index]['MULTILINESTRING'][$i][$j]['y'])
+                    && trim($gis_data[$index]['MULTILINESTRING'][$i][$j]['y']) != '')
+                    ? $gis_data[$index]['MULTILINESTRING'][$i][$j]['y'] : $empty) . ',';
             }
             $wkt = substr($wkt, 0, strlen($wkt) - 1);
             $wkt .= '),';

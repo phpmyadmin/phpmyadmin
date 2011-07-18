@@ -190,12 +190,13 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array $gis_data GIS data
-     * @param int   $index    Index into the parameter object
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
      *
      * @return WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt($gis_data, $index)
+    public function generateWkt($gis_data, $index, $empty = '')
     {
         $no_of_points = isset($gis_data[$index]['MULTIPOINT']['no_of_points'])
             ? $gis_data[$index]['MULTIPOINT']['no_of_points'] : 1;
@@ -204,10 +205,12 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         }
         $wkt = 'MULTIPOINT(';
         for ($i = 0; $i < $no_of_points; $i++) {
-            $wkt .= (isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
-                ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
-                . ' ' . (isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
-                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
+            $wkt .= ((isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
+                && trim($gis_data[$index]['MULTIPOINT'][$i]['x']) != '')
+                ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : $empty)
+                . ' ' . ((isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
+                && trim($gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
+                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : $empty) . ',';
         }
         $wkt = substr($wkt, 0, strlen($wkt) - 1);
         $wkt .= ')';

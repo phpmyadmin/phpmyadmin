@@ -314,9 +314,6 @@ $(document).ready(function() {
             'get_gis_editor' : true,
             'token' : token
         }, function(data) {
-            if (! $.isPlainObject(data)) {
-                data = $.parseJSON(data);
-            }
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
                 initVisualization();
@@ -324,7 +321,7 @@ $(document).ready(function() {
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        })
+        }, 'json')
 
         // Make it appear
         $("#popup_background").css({"opacity":"0.7"});
@@ -344,16 +341,13 @@ $(document).ready(function() {
         var null_checkbox_name = $form.find("input[name='null_checkbox_name']").val();
 
         $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
-            if (! $.isPlainObject(data)) {
-                data = $.parseJSON(data);
-            }
             if(data.success == true) {
                 $("input[name='" + null_checkbox_name + "']").attr('checked', false);
                 $("input[name='" + input_name + "']").val(data.result);
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        });
+        }, 'json');
         closeGISEditor();
     });
 
@@ -363,17 +357,16 @@ $(document).ready(function() {
     $('#gis_editor').find("input[type='text']").live('change', function() {
         var $form = $('form#gis_data_editor_form');
         $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
-            if (! $.isPlainObject(data)) {
-                data = $.parseJSON(data);
-            }
             if(data.success == true) {
                 $('#gis_data_textarea').val(data.result);
                 $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
+                $('#openlayersmap').empty();
+                eval(data.openLayers);
                 initVisualization();
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        });
+        }, 'json');
     });
 
     /**
@@ -384,9 +377,6 @@ $(document).ready(function() {
         var $form = $('form#gis_data_editor_form');
 
         $.post('gis_data_editor.php', $form.serialize() + "&get_gis_editor=true", function(data) {
-            if (! $.isPlainObject(data)) {
-                data = $.parseJSON(data);
-            }
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
                 initVisualization();
@@ -394,7 +384,7 @@ $(document).ready(function() {
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
-        });
+        }, 'json');
     });
 
     /**

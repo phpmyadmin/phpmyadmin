@@ -120,6 +120,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
 $GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 /**
@@ -967,6 +968,7 @@ foreach ($rows as $row_id => $vrow) {
             }
         }
         if (in_array($field['pma_type'], $gis_data_types)) {
+            $gis_exists = true;
             $data_val = isset($vrow[$field['Field']]) ? $vrow[$field['Field']] : '';
             $_url_params = array(
                 'field' => $field['Field_title'],
@@ -991,9 +993,13 @@ foreach ($rows as $row_id => $vrow) {
     $o_rows++;
     echo '  </tbody></table><br />';
 } // end foreach on multi-edit
+
+// Conditionally add OpenStreetMap.js if geometry columns exist
+if (isset($gis_exists) && $gis_exists == true) {
+    echo('<script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js" />');
+}
 ?>
     <br />
-
     <fieldset id="actions_panel">
     <table border="0" cellpadding="5" cellspacing="0">
     <tr>

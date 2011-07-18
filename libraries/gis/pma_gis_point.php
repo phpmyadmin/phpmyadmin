@@ -176,15 +176,19 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array $gis_data GIS data
-     * @param int   $index    Index into the parameter object
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
      *
      * @return WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt($gis_data, $index)
+    public function generateWkt($gis_data, $index, $empty = '')
     {
-         return 'POINT(' . (isset($gis_data[$index]['POINT']['x']) ? $gis_data[$index]['POINT']['x'] : '')
-             . ' ' . (isset($gis_data[$index]['POINT']['y']) ? $gis_data[$index]['POINT']['y'] : '') . ')';
+         return 'POINT('
+             . ((isset($gis_data[$index]['POINT']['x']) && trim($gis_data[$index]['POINT']['x']) != '')
+             ? $gis_data[$index]['POINT']['x'] : $empty) . ' '
+             . ((isset($gis_data[$index]['POINT']['y']) && trim($gis_data[$index]['POINT']['y']) != '')
+             ? $gis_data[$index]['POINT']['y'] : $empty) . ')';
     }
 
     /**
@@ -195,8 +199,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * @return the WKT for the data from ESRI shape files
      */
     public function getShape($row_data) {
-        $gis_data = array(array('POINT' => array('x' => $row_data['x'], 'y' => $row_data['y'])));
-        return $this->generateWkt($gis_data, 0);
+        return 'POINT(' . (isset($row_data['x']) ? $row_data['x'] : '')
+             . ' ' . (isset($row_data['y']) ? $row_data['y'] : '') . ')';
     }
 
     /**

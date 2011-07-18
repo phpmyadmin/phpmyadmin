@@ -118,36 +118,7 @@ $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $f
     <script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
     <script language="javascript" type="text/javascript">
         function drawOpenLayers() {
-            var options = {
-                projection: new OpenLayers.Projection("EPSG:900913"),
-                displayProjection: new OpenLayers.Projection("EPSG:4326"),
-                units: "m",
-                numZoomLevels: 18,
-                maxResolution: 156543.0339,
-                maxExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508),
-                restrictedExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508)
-            };
-            var map = new OpenLayers.Map('openlayersmap', options);
-
-            // create OSM layer
-            var layerNone = new OpenLayers.Layer.Boxes("None", {isBaseLayer: true});
-            var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
-            var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
-            var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
-            map.addLayers([layerMapnik, layerOsmarender, layerCycleMap, layerNone]);
-
-            // create a vector layer
-            var vectorLayer = new OpenLayers.Layer.Vector("Data");
-            var bound;
             <?php echo (PMA_GIS_visualization_results($data, $visualizationSettings, 'ol')); ?>
-            map.addLayer(vectorLayer);
-
-            map.zoomToExtent(bound);
-            if (map.getZoom() < 2) {
-                map.zoomTo(2);
-            }
-            map.addControl(new OpenLayers.Control.LayerSwitcher());
-            map.addControl(new OpenLayers.Control.MousePosition());
         }
     </script>
 

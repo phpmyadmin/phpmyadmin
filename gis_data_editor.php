@@ -47,19 +47,22 @@ if (isset($_REQUEST['value'])) {
 // Generate Well Known Text
 $srid = (isset($gis_data['srid']) && $gis_data['srid'] != '') ? htmlspecialchars($gis_data['srid']) : 0;
 $wkt = $gis_obj->generateWkt($gis_data, 0);
+$wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
 $result = "'" . $wkt . "'," . $srid;
 
 // Gererate PNG or SVG based visualization
 $format = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? 'png' : 'svg';
 $visualizationSettings = array('width' => 450, 'height' => 300, 'spatialColumn' => 'wkt');
-$data = array(array('wkt' => $wkt, 'srid' => $srid));
+$data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
 $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $format);
+$open_layers = PMA_GIS_visualization_results($data, $visualizationSettings, 'ol');
 
 // If the call is to update the WKT and visualization make an AJAX response
 if(isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
     $extra_data = array(
         'result'        => $result,
         'visualization' => $visualization,
+        'openLayers'    => $open_layers,
     );
     PMA_ajaxResponse(null, true, $extra_data);
 }
@@ -111,6 +114,9 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 ?>          />
             <label for="choice"><?php echo __("Use OpenStreetMaps as Base Layer"); ?></label>
         </div>
+        <script language="javascript" type="text/javascript">
+            <?php echo($open_layers); ?>
+        </script>
         <!-- End of visualization section -->
 
         <!-- Header section - Inclueds GIS type selector and input field for SRID -->

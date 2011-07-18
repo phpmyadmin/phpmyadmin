@@ -69,7 +69,9 @@ function initVisualization() {
         'float' : 'right'
     };
     $openlayersmap.css(cssObj);
-    drawOpenLayers();
+    if (typeof drawOpenLayers == 'function') {
+        drawOpenLayers();
+    }
 
     $placeholder.svg({
         onLoad: function(svg_ref) {
