@@ -5357,43 +5357,6 @@ msgstr "Suhte loomine (relation)"
 msgid "Link not found"
 msgstr "Linki ei leitud"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger %s"
-msgstr "Ekspordi tüüp"
-
-#: libraries/display_triggers.inc.php:39
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger \"%s\""
-msgstr "Ekspordi tüüp"
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Ei leia pildi kataloogi teemale %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-msgid "There are no triggers to display."
-msgstr "Kontrolli tabelit"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Aeg"
-
-#: libraries/display_triggers.inc.php:78
-#, fuzzy
-msgid "Event"
-msgstr "Saadetud"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-msgid "Add a trigger"
-msgstr "Lisa uus kasutaja"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Versiooni info"

@@ -5196,39 +5196,6 @@ msgstr "Ustvari pogled"
 msgid "Link not found"
 msgstr "Povezave ni mogoče najti"
 
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Izvoz sprožilca %s"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr "Izvoz sprožilca \"%s\""
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr "Najti ni mogoče nobenega sprožilca z imenom %s"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr "Ni sprožilcev za prikaz."
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Čas"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Dogodek"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new Trigger"
-msgid "Add a trigger"
-msgstr "Dodaj nov sprožilec"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Podatki o različici"

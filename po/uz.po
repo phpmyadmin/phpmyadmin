@@ -5633,44 +5633,6 @@ msgstr "Версиясини тузиш"
 msgid "Link not found"
 msgstr "Алоқа топилмади"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger %s"
-msgstr "Триггерларни экспорт қилиш"
-
-#: libraries/display_triggers.inc.php:39
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger \"%s\""
-msgstr "Триггерларни экспорт қилиш"
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr " \"%s\" мавзуси расмларига тўғри йўл топилмади!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no triggers to display."
-msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Вақт"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Ҳодиса"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Янги фойдаланувчи қўшиш"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Версия ҳақида маълумот"

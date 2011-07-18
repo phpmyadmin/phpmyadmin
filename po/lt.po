@@ -5207,43 +5207,6 @@ msgstr "Sukurti naudotoją"
 msgid "Link not found"
 msgstr "Sąryšis nerastas"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export contents"
-msgid "Export of trigger %s"
-msgstr "Eksportuoti turinį"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Nerasta tinkamo paveiksliukų kelio temai %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no triggers to display."
-msgstr "Nėra failų išsiuntimui"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Laikas"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Įvykis"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Pridėti naują serverį"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Versija"

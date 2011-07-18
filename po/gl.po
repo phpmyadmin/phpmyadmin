@@ -5629,44 +5629,6 @@ msgstr "Crear unha versión"
 msgid "Link not found"
 msgstr "Non se atopou o vínculo"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger %s"
-msgstr "Exportar os disparadores"
-
-#: libraries/display_triggers.inc.php:39
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger \"%s\""
-msgstr "Exportar os disparadores"
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Non hai un camiño válido de imaxe para o tema %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no triggers to display."
-msgstr "Non hai ningún servidor configurado"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Tempo"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Evento"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Engadir un servidor novo"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Información sobre a versión"

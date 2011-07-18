@@ -5247,39 +5247,6 @@ msgstr "Δημιουργία προβολής"
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Εξαγωγή της ενέργειας %s"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr "Εξαγωγή της ενέργειας «%s»"
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr "Δεν βρέθηκε ενέργεια με το όνομα %s"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Χρόνος"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Συμβάν"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new Trigger"
-msgid "Add a trigger"
-msgstr "Προσθήκη μιας νέας Ενέργειας"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Πληροφορίες έκδοσης"

@@ -5391,42 +5391,6 @@ msgstr "Стварыць сувязь"
 msgid "Link not found"
 msgstr "Сувязь ня знойдзеная"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger %s"
-msgstr "Тып экспарту"
-
-#: libraries/display_triggers.inc.php:39
-#, fuzzy, php-format
-#| msgid "Export triggers"
-msgid "Export of trigger \"%s\""
-msgstr "Тып экспарту"
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Дапушчальны шлях да малюнкаў тэмы %s ня знойдзены!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-msgid "There are no triggers to display."
-msgstr "Праверыць табліцу"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Час"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Падзея"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-msgid "Add a trigger"
-msgstr "Дадаць новага карыстальніка"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Інфармацыя пра вэрсію"

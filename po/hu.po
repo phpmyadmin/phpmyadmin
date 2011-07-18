@@ -5300,42 +5300,6 @@ msgstr "Kapcsolat létrehozása"
 msgid "Link not found"
 msgstr "Nem található a hivatkozás"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-msgid "Export of trigger %s"
-msgstr "Exportálás alapértelmezései"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Nincs érvényes kép elérési útja a(z) %s témának!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no triggers to display."
-msgstr "Nincsenek feltöltendő fájlok"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Idő"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Esemény"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Új szerver hozzáadása"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Verziószám"
