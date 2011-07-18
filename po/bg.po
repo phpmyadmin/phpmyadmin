@@ -6510,7 +6510,7 @@ msgstr "Изтриване на последен параметър"
 
 #: libraries/rte/rte_routines.lib.php:935
 msgid "Return type"
-msgstr "Тип връщани данни"
+msgstr "Тип данни при изход"
 
 #: libraries/rte/rte_routines.lib.php:941
 msgid "Return length/values"
