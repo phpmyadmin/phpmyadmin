@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 10:06+0200\n"
+"PO-Revision-Date: 2011-07-18 10:07+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6559,10 +6559,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>リクエストの処理中に 1 つ以上のエラーが発生しました：</b>"
 
 #: libraries/rte/rte_events.lib.php:205
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "ビューを作成する"
+msgstr "イベントを作成する"
 
 #: libraries/rte/rte_events.lib.php:209
 #, fuzzy
