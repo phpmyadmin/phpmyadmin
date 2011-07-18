@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:22+0200\n"
+"PO-Revision-Date: 2011-07-18 08:23+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6371,10 +6371,9 @@ msgid "You must provide an event name"
 msgstr "Трябва да дадете име на събитието"
 
 #: libraries/rte/rte_events.lib.php:561
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
+msgstr "Трябва да дадете валидна вътрешна стойност на събитието."
 
 #: libraries/rte/rte_events.lib.php:573
 #, fuzzy
