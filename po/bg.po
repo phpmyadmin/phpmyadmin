@@ -6709,7 +6709,7 @@ msgstr "Тази страница не съдържа таблици!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ГРЕШКА В СХЕМАТА: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:868
 #: libraries/schema/Pdf_Relation_Schema.class.php:1107
