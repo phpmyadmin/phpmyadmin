@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 10:07+0200\n"
+"PO-Revision-Date: 2011-07-18 10:08+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6564,10 +6564,9 @@ msgid "Create event"
 msgstr "イベントを作成する"
 
 #: libraries/rte/rte_events.lib.php:209
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "サーバの編集"
+msgstr "イベントを編集する"
 
 #: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
 #: libraries/rte/rte_routines.lib.php:1331
