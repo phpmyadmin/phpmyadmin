@@ -6289,7 +6289,7 @@ msgstr "不明"
 #: libraries/navigation_header.inc.php:60
 #: libraries/navigation_header.inc.php:61
 msgid "Home"
-msgstr "メインページへ"
+msgstr "メインページ"
 
 #: libraries/navigation_header.inc.php:70
 #: libraries/navigation_header.inc.php:73
