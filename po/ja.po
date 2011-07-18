@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 10:21+0200\n"
+"PO-Revision-Date: 2011-07-18 10:24+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6937,10 +6937,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "ルーチン名は必須です"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
+msgstr "有効なトリガイベントを指定してください"
 
 #: libraries/rte/rte_triggers.lib.php:439
 #, fuzzy
