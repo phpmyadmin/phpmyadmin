@@ -6673,10 +6673,9 @@ msgid "You must provide a valid table name"
 msgstr "Трябва да дадете име на таблица на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:445
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Трябва да дадете дефиниция на процедурата."
+msgstr "Трябва да дадете дефиниция на тригера."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
