@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:37+0200\n"
+"PO-Revision-Date: 2011-07-18 08:38+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6648,10 +6648,9 @@ msgid "Edit trigger"
 msgstr "Редакция тригер"
 
 #: libraries/rte/rte_triggers.lib.php:325
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Тригери"
+msgstr "Име на тригер"
 
 #: libraries/rte/rte_triggers.lib.php:423
 #, fuzzy
