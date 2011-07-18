@@ -3376,7 +3376,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Включване на синтактично оцветяване"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
