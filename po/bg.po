@@ -6705,7 +6705,7 @@ msgstr "Схема на БД %s - страница %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
-msgstr "Тази страница не съдържа таблици."
+msgstr "Тази страница не съдържа таблици!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
