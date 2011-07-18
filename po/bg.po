@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:59+0200\n"
+"PO-Revision-Date: 2011-07-18 09:00+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7533,7 +7533,7 @@ msgstr "Изтриване на отношение"
 
 #: pmd_general.php:460 pmd_general.php:519
 msgid "Relation operator"
-msgstr ""
+msgstr "Оператор на отношение"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
