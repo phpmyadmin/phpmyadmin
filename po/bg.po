@@ -6296,7 +6296,7 @@ msgstr "<b>Една или повече грешки възникнаха при
 #: libraries/rte/rte_events.lib.php:205
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Създаване на събитие"
+msgstr "Ново събитие"
 
 #: libraries/rte/rte_events.lib.php:209
 #, fuzzy
