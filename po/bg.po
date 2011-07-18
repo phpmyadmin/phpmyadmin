@@ -6469,7 +6469,7 @@ msgstr "Съжаляваме, но възстановяването на изт�
 #: libraries/rte/rte_routines.lib.php:298
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Процедурата%1$s  беше променена."
+msgstr "Процедурата%1$s беше променена."
 
 #: libraries/rte/rte_routines.lib.php:311
 #, php-format
