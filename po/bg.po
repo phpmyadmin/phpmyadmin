@@ -8338,7 +8338,7 @@ msgstr ""
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr "Синхронизиране на БД с главния"
+msgstr "Синхронизиране на БД с главен"
 
 #: server_replication.php:320
 msgid "Control slave:"
