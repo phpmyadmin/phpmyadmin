@@ -6643,10 +6643,9 @@ msgid "Create trigger"
 msgstr "Нов тригер"
 
 #: libraries/rte/rte_triggers.lib.php:185
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Нов тригер"
+msgstr "Редакция тригер"
 
 #: libraries/rte/rte_triggers.lib.php:325
 #, fuzzy
