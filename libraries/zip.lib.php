@@ -9,18 +9,7 @@
  * Zip file creation class.
  * Makes zip files.
  *
- * Based on :
- *
- *  http://www.zend.com/codex.php?id=535&single=1
- *  By Eric Mueller <eric@themepark.com>
- *
- *  http://www.zend.com/codex.php?id=470&single=1
- *  by Denis125 <webmaster@atlant.ru>
- *
- *  a patch from Peter Listiak <mlady@users.sourceforge.net> for last modified
- *  date and time of the compressed file
- *
- * Official ZIP file format: http://www.pkware.com/appnote.txt
+ * @see Official ZIP file format: http://www.pkware.com/support/zip-app-note
  *
  * @access  public
  * @package phpMyAdmin
