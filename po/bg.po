@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:34+0200\n"
+"PO-Revision-Date: 2011-07-18 08:35+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6611,10 +6611,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Не разполагате с права, за да създадете тригер"
 
 #: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Процедурата %1$s не е намерена в БД %2$s"
+msgstr "Няма тригер с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
