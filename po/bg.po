@@ -7089,7 +7089,7 @@ msgstr "Няма"
 
 #: libraries/tbl_properties.inc.php:381
 msgid "As defined:"
-msgstr ""
+msgstr "Дефиниран като:"
 
 #: libraries/tbl_properties.inc.php:500 tbl_structure.php:155
 #: tbl_structure.php:160 tbl_structure.php:605
