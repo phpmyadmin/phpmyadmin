@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:25+0200\n"
+"PO-Revision-Date: 2011-07-18 08:26+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6238,10 +6238,9 @@ msgid "event"
 msgstr "Действие"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Не разполагате с права, за да създавате процедури"
+msgstr "Не разполагате с права, за да създадете събитие"
 
 #: libraries/rte/rte_events.lib.php:63
 #, fuzzy, php-format
