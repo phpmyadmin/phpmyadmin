@@ -6542,10 +6542,10 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "ルーチン %1$s を変更しました。"
+msgstr "イベント %1$s を変更しました。"
 
 #: libraries/rte/rte_events.lib.php:157
 #, fuzzy, php-format
