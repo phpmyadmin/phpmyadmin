@@ -7477,7 +7477,7 @@ msgstr "Създаване на отношение"
 
 #: pmd_general.php:90
 msgid "Reload"
-msgstr ""
+msgstr "Презареждане"
 
 #: pmd_general.php:93
 msgid "Help"
