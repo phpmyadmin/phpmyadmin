@@ -8810,10 +8810,9 @@ msgid "All status variables"
 msgstr "全ての状態変数"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "再描画間隔"
+msgstr "再描画間隔："
 
 #: server_status.php:462
 msgid "Containing the word:"
