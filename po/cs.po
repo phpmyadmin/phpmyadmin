@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-13 14:58+0200\n"
+"PO-Revision-Date: 2011-07-17 20:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6515,7 +6515,6 @@ msgid "event"
 msgstr "událost"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new event"
 msgid "You do not have the necessary privileges to create an event"
 msgstr "Nemáte dostatečná práva pro vytvoření události"
@@ -6693,7 +6692,6 @@ msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "Nemáte dostatečná práva pro vytvoření rutiny"
@@ -6865,10 +6863,9 @@ msgid "trigger"
 msgstr "spoušť"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new trigger"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Nemáte dostatečná práva pro vytvoření spouště."
+msgstr "Nemáte dostatečná práva pro vytvoření spouště"
 
 #: libraries/rte/rte_triggers.lib.php:44
 #, php-format

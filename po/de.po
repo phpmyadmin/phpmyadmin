@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-14 13:46+0200\n"
+"PO-Revision-Date: 2011-07-16 02:40+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -6589,10 +6589,11 @@ msgid "event"
 msgstr "Ereignis"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Sie haben nicht genug Rechte um ein neues Ereignis zu erstellen"
+msgstr ""
+"Sie haben nicht die erforderlichen Rechte, um ein neues Ereignis zu "
+"erstellen"
 
 #: libraries/rte/rte_events.lib.php:63
 #, php-format
@@ -6769,10 +6770,11 @@ msgid "routine"
 msgstr "Prozedur"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Sie haben nicht genug Rechte um eine neue Prozedur zu erstellen"
+msgstr ""
+"Sie haben nicht die erforderlichen Rechte, um eine neue Prozedur zu "
+"erstellen"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
@@ -6946,10 +6948,10 @@ msgid "trigger"
 msgstr "Trigger"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Sie haben nicht genug Rechte um einen neuen Trigger zu erstellen"
+msgstr ""
+"Sie haben nicht die notwendigen Rechte um einen neuen Trigger zu erstellen"
 
 #: libraries/rte/rte_triggers.lib.php:44
 #, php-format

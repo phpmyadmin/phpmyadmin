@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-13 18:06+0200\n"
+"PO-Revision-Date: 2011-07-16 12:12+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6553,10 +6553,9 @@ msgid "event"
 msgstr "olay"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Yeni bir olay oluşturmak için gerekli izinlere sahip değilsiniz"
+msgstr "Bir olay oluşturmak için gerekli izinlere sahip değilsiniz"
 
 #: libraries/rte/rte_events.lib.php:63
 #, php-format
@@ -6731,10 +6730,9 @@ msgid "routine"
 msgstr "yordam"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Yeni bir yordam oluşturmak için gerekli izinlere sahip değilsiniz"
+msgstr "Bir yordam oluşturmak için gerekli izinlere sahip değilsiniz"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
@@ -6902,10 +6900,9 @@ msgid "trigger"
 msgstr "tetikleyici"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Yeni bir tetikleyici oluşturmak için gerekli izinlere sahip değilsiniz"
+msgstr "Bir tetikleyici oluşturmak için gerekli izinlere sahip değilsiniz"
 
 #: libraries/rte/rte_triggers.lib.php:44
 #, php-format

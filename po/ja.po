@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-06-27 12:34+0200\n"
+"PO-Revision-Date: 2011-07-18 09:38+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1195,16 +1195,14 @@ msgid "Insert Table"
 msgstr "テーブルを挿入する"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "インデックスを追加する"
+msgstr "インデックスを隠す"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "グリッドを表示"
+msgstr "インデックスを表示する"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -6493,7 +6491,6 @@ msgid "Generate Password"
 msgstr "パスワードを生成する"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
 msgstr "イベントを追加する"
@@ -6504,7 +6501,6 @@ msgid "Export of event %s"
 msgstr "イベント %s をエクスポートする"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "イベント"
