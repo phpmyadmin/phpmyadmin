@@ -6783,7 +6783,7 @@ msgstr "Показване свят"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
-msgstr "Размерите на таблиците видими"
+msgstr "Размери на таблиците видими"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
