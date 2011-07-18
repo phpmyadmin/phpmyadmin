@@ -982,7 +982,7 @@ $(function() {
                     }
                     
                     if(msg.length == 0) {
-                        icon = 'ic_s_success';
+                        icon = 'ic_s_error';
                         msg = PMA_messages['strBothLogOff'];
                     }
                     
@@ -1528,9 +1528,11 @@ $(function() {
                             tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
                         tableStr += '</tr>';    
                     }
-                    
-                    tableStr+='</tbody></table>';
-                    
+
+                    tableStr += '</tbody><tfoot>';
+                    tableStr += '<tr><th colspan="' + (cols.length - 1) + '">Sum of grouped rows: '+ data.numRows +'<span style="float:right">Total:</span></th><th align="right">' + data.sum.TOTAL + '</th></tr>';
+                    tableStr += '</tfoot></table>';
+            
                     $('#logTable').html(tableStr);
                     
                     // Append a tooltip to the count column, if there exist one
@@ -1553,6 +1555,8 @@ $(function() {
                         })
                     }
                     
+                    
+                    
                     $('div#logTable table').tablesorter({
                         sortList: [[0,1]],
                         widgets: ['zebra']
@@ -1568,6 +1572,64 @@ $(function() {
                         if(key == 'Total') key = '<b>' + key + '</b>';
                         $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
                     });
+                    
+                    if(data.numRows > 12) {
+                        $('div#logTable').prepend(
+                            '<fieldset id="logDataFilter">' +
+                            '	<legend>Filters</legend>' +
+                            '	<div class="formelement">' +
+                            '		<label for="filterQueryText">Filter queries by word/regexp:</label>' +
+                            '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
+                            ((data.numRows > 250) ? ' <button name="startFilterQueryText" id="startFilterQueryText">Filter</button>' : '') +                        
+                            '	</div>' +
+                            '</fieldset>'
+                        );
+                        
+                        if(data.numRows > 250) {
+                            $('div#logTable button#startFilterQueryText').click(filterQueries);
+                        } else {
+                            $('div#logTable input#filterQueryText').keyup(filterQueries);
+                        }
+                        
+                        function filterQueries() {
+                            var odd_row=false, cell, textFilter;
+                            var val = $('div#logTable input#filterQueryText').val();
+                            
+                            if(val.length == 0) textFilter = null;
+                            else textFilter = new RegExp(val, 'i');
+                            
+                            var rowSum = 0, totalSum = 0;
+                            
+                            $('div#logTable table tbody tr').each(function() {
+                                // We just assume the sql text is always in the second last column
+                                cell = $(this).children(':nth-child(' + (cols.length - 1) + ')');
+                                
+                                if(textFilter==null || textFilter.exec(cell.text())) {
+                                    // And that total count is right of the sql text
+                                    totalSum += parseInt(cell.next().text());
+                                    rowSum ++;
+                                    
+                                    odd_row = !odd_row;    
+                                    $(this).css('display','');
+                                    if(odd_row) {
+                                        $(this).addClass('odd');
+                                        $(this).removeClass('even');
+                                    } else {
+                                        $(this).addClass('even');
+                                        $(this).removeClass('odd');
+                                    }
+                                } else {
+                                    $(this).css('display','none');
+                                }
+                            });
+                            
+                            
+                            $('div#logTable table tfoot tr')
+                                .html('<th colspan="' + (cols.length - 1) + 
+                                    '">Sum of grouped rows: '+ rowSum +'<span style="float:right">Total:</span></th><th align="right">' + 
+                                     totalSum + '</th>');
+                        };
+                    }
                     
                     var dlgBtns = {};
                     dlgBtns[PMA_messages['strJumpToTable']] = function() { 

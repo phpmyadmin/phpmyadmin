@@ -210,7 +210,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
                 $type = strtolower($match[1]);
                 // Ignore undefined index warning, just increase counter by one
-                @$return['sum'][$type]++;
+                @$return['sum'][$type] += $row['#'];
+				
                 if($type=='insert' || $type=='update') {
                     // Group inserts if selected
                     if($type=='insert' && isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
@@ -219,8 +220,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
                             
                             // Add a ... to the end of this query to indicate that there's been other queries
-                            $return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.';
-                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                            if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+								$return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
                                 
                             // Group this value, thus do not add to the result list
                             continue;
@@ -240,6 +241,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             }
             
             $return['sum']['TOTAL'] = array_sum($return['sum']);
+			$return['numRows'] = count($return['rows']);
             
             PMA_DBI_free_result($result);
             
@@ -571,7 +573,7 @@ echo __('Runtime Information');
 ?></h2>
     <div id="serverStatusTabs">
         <ul>
-            <li><a href="#statustabs_traffic"><?php echo __('Server traffic'); ?></a></li>
+            <li><a href="#statustabs_traffic"><?php echo __('Server'); ?></a></li>
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
             <li><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
@@ -805,7 +807,7 @@ function printServerTraffic() {
     ?>
     </h3>
 
-    <p class="notice">
+    <p>
     <?php
     echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
         PMA_timespanFormat($server_status['Uptime']),
@@ -1320,7 +1322,8 @@ function printMonitor() {
     
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
-        queries. For the latter you will need to log_output set to \'TABLE\' and have either the slow_query_log or general_log enabled.'); ?>
+        queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the
+		general_log produces a lot of data and increases server load by up to 15%'); ?>
         <p></p>
         <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
         <div class="ajaxContent">
@@ -1333,11 +1336,15 @@ function printMonitor() {
         using the cog icon on each respective chart.
         <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
         left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
-        activity spike.</p>
-        <p><b>Please note:</b>
-        Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
-        very load intensive task, thus it is advisable to select only a small time span.
-        </p>'); ?>
+        activity spike.</p>');
+		?>
+		<p>
+		<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> 
+		<?php echo __('<b>Please note:</b>
+        Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a 
+        load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.
+        '); ?>
+		</p>
         </div>
     </div>
     
