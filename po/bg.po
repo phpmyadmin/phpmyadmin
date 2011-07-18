@@ -6340,7 +6340,6 @@ msgid "Execute every"
 msgstr "Изпълнение на всеки"
 
 #: libraries/rte/rte_events.lib.php:473
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
 msgstr "Начало"
