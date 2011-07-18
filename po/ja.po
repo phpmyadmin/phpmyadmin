@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 10:47+0200\n"
+"PO-Revision-Date: 2011-07-18 10:48+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -6531,7 +6531,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 
 #: libraries/rte/rte_events.lib.php:140
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "申し訳ありませんが、削除されたイベントの復元に失敗しました。"
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
