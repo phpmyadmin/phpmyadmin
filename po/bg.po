@@ -6791,7 +6791,7 @@ msgstr "Всички таблици да бъдат показвани с едн
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
-msgstr ""
+msgstr "Само на ключовете видими"
 
 #: libraries/schema/User_Schema.class.php:387
 msgid "Landscape"
