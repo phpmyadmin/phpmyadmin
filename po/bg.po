@@ -6638,10 +6638,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Тригерът %1$s беше създаден."
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Създаване на изглед"
+msgstr "Нов тригер"
 
 #: libraries/rte/rte_triggers.lib.php:185
 #, fuzzy
