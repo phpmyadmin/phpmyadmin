@@ -7569,7 +7569,7 @@ msgstr "Активни опции"
 
 #: pmd_help.php:22
 msgid "To select relation, click :"
-msgstr ""
+msgstr "За избор на отношение, щракнете:"
 
 #: pmd_help.php:24
 msgid ""
