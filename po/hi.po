@@ -5106,43 +5106,6 @@ msgstr "दृश्य बनाइये"
 msgid "Link not found"
 msgstr "लिंक नहीं मिला"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export contents"
-msgid "Export of trigger %s"
-msgstr "निर्यात सामग्री"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "विषय %s के लिए कोई वैध छवि पथ नहीं पाया है!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no triggers to display."
-msgstr "अपलोड करने के लिए फाइल उपलब्ध नहीं"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "समय"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "घटना"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "एक नया सर्वर जोडें"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "संस्करण जानकारी"

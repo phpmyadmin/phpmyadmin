@@ -5124,13 +5124,8 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:912 tbl_select.php:257
 #: tbl_structure.php:886
 #, fuzzy
-#| msgid "Browse"
-msgid "rows"
-msgstr "Lungsur"
-
-#: libraries/display_tbl.lib.php:546
-msgid "Sort by key"
-msgstr ""
+msgid "Options"
+msgstr "Operasi"
 
 #: libraries/display_tbl.lib.php:598 libraries/display_tbl.lib.php:608
 #, fuzzy
@@ -5236,39 +5231,6 @@ msgstr "Versi Pelayan"
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
 msgstr "Pautan tidak dijumpai"
-
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr ""
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Masa"
-
-#: libraries/display_triggers.inc.php:78
-#, fuzzy
-msgid "Event"
-msgstr "Hantar"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-msgid "Add a trigger"
-msgstr "Tambah Pengguna Baru"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 #, fuzzy

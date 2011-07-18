@@ -4620,27 +4620,6 @@ msgstr "en"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chýba rozšírenie %s. Skontrolujte prosín nastavenia PHP."
 
-#: libraries/db_events.inc.php:129
-msgid "The event scheduler is enabled"
-msgstr ""
-
-#: libraries/db_events.inc.php:129
-msgid "The event scheduler is disabled"
-msgstr ""
-
-#: libraries/db_events.inc.php:131
-msgid "Turn it on"
-msgstr ""
-
-#: libraries/db_events.inc.php:131
-msgid "Turn it off"
-msgstr ""
-
-#: libraries/db_events.inc.php:141
-#, fuzzy
-msgid "Add an event"
-msgstr "Pridať nového používateľa"
-
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
@@ -5186,41 +5165,6 @@ msgstr "Vytvoriť relaciu"
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
 msgstr "Linka nebola nájdená"
-
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr ""
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Nebola nájdená platná cesta k obrázkom pre vzhľad %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no triggers to display."
-msgstr "Žiadny súbor pre nahrávanie"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Čas"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Udalosť"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-msgid "Add a trigger"
-msgstr "Pridať nového používateľa"
 
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"

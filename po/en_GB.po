@@ -5166,37 +5166,6 @@ msgstr "Create view"
 msgid "Link not found"
 msgstr "Link not found"
 
-#: libraries/display_triggers.inc.php:35
-#, php-format
-msgid "Export of trigger %s"
-msgstr "Export of trigger %s"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr "Export of trigger \"%s\""
-
-#: libraries/display_triggers.inc.php:47
-#, php-format
-msgid "No trigger with name %s found"
-msgstr "No trigger with name %s found"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-msgid "There are no triggers to display."
-msgstr "There are no triggers to display."
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Time"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Event"
-
-#: libraries/display_triggers.inc.php:120
-msgid "Add a trigger"
-msgstr "Add a trigger"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Version information"

@@ -5249,43 +5249,6 @@ msgstr "Создать представление"
 msgid "Link not found"
 msgstr "Связь не найдена"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export contents"
-msgid "Export of trigger %s"
-msgstr "Экспортировать содержимое"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Не найден правильный путь к изображениям для темы %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are no triggers to display."
-msgstr "Файлы для загрузки отсутствуют"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Время"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Событие"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Добавить новый сервер"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Информация о версии"

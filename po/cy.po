@@ -5230,43 +5230,6 @@ msgstr "Crëwch fersiwn"
 msgid "Link not found"
 msgstr "Methu â darganfod y cysylltiad"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-#| msgid "Export as %s"
-msgid "Export of trigger %s"
-msgstr "Allforio fel %s"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no triggers to display."
-msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Amser"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Digwyddiad"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-#| msgid "Add a new server"
-msgid "Add a trigger"
-msgstr "Ychwanegwch weinydd newydd"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Gwybodaeth y fersiwn"
@@ -10626,12 +10589,6 @@ msgstr "Enw VIEW"
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "Ailenwch golwg i"
-
-#~ msgid "row(s) starting from row #"
-#~ msgstr "rhes(i) yn dechrau o rhes #"
-
-#~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr "mewn modd %s ac ailadrodd penawdau ar ôl %s cell "
 
 #, fuzzy
 #~| msgid "Missing value in the form!"

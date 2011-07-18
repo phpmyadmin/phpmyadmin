@@ -5355,40 +5355,6 @@ msgstr "Napravi relaciju"
 msgid "Link not found"
 msgstr "Veza nije pronađena"
 
-#: libraries/display_triggers.inc.php:35
-#, fuzzy, php-format
-msgid "Export of trigger %s"
-msgstr "Tip izvoza"
-
-#: libraries/display_triggers.inc.php:39
-#, php-format
-msgid "Export of trigger \"%s\""
-msgstr ""
-
-#: libraries/display_triggers.inc.php:47
-#, fuzzy, php-format
-#| msgid "No valid image path for theme %s found!"
-msgid "No trigger with name %s found"
-msgstr "Nema ispravne putanje do slika za temu %s!"
-
-#: libraries/display_triggers.inc.php:64 libraries/display_triggers.inc.php:66
-#, fuzzy
-msgid "There are no triggers to display."
-msgstr "Proveri tabelu"
-
-#: libraries/display_triggers.inc.php:77 server_status.php:800 sql.php:943
-msgid "Time"
-msgstr "Vreme"
-
-#: libraries/display_triggers.inc.php:78
-msgid "Event"
-msgstr "Događaji"
-
-#: libraries/display_triggers.inc.php:120
-#, fuzzy
-msgid "Add a trigger"
-msgstr "Dodaj novog korisnika"
-
 #: libraries/engines/bdb.lib.php:20 main.php:211
 msgid "Version information"
 msgstr "Informacije o verziji"
