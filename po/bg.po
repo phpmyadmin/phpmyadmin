@@ -6396,7 +6396,7 @@ msgstr "Нов"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Изкл."
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
