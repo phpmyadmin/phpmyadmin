@@ -6299,10 +6299,9 @@ msgid "Create event"
 msgstr "Ново събитие"
 
 #: libraries/rte/rte_events.lib.php:209
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Редакция сървър"
+msgstr "Редакция събитие"
 
 #: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
 #: libraries/rte/rte_routines.lib.php:1331
