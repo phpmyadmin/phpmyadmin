@@ -147,14 +147,6 @@ class zipfile
         // "file data" segment
         $fr .= $zdata;
 
-        // "data descriptor" segment (optional but necessary if archive is not
-        // served as file)
-        // this seems not to be needed at all and causes
-        // problems in some cases (bug #1037737)
-        //$fr .= pack('V', $crc);                 // crc32
-        //$fr .= pack('V', $c_len);               // compressed filesize
-        //$fr .= pack('V', $unc_len);             // uncompressed filesize
-
         // echo this entry on the fly, ...
         if ( $this -> doWrite) {
             echo $fr;
