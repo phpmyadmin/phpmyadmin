@@ -6775,7 +6775,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:373
 msgid "Show grid"
-msgstr "Покажи мрежа"
+msgstr "Мрежата видима"
 
 #: libraries/schema/User_Schema.class.php:375
 msgid "Show color"
