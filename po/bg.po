@@ -8366,7 +8366,7 @@ msgstr ""
 
 #: server_replication.php:331
 msgid "Start IO Thread only"
-msgstr ""
+msgstr "Пускане само на В/И нишка"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
