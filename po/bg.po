@@ -8362,7 +8362,7 @@ msgstr ""
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Спиране само на SQL нишка"
 
 #: server_replication.php:331
 msgid "Start IO Thread only"
