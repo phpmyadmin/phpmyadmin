@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:21+0200\n"
+"PO-Revision-Date: 2011-07-18 08:22+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6316,10 +6316,9 @@ msgid "Details"
 msgstr "Подробности"
 
 #: libraries/rte/rte_events.lib.php:398
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Тип на събитието"
+msgstr "Име на събитие"
 
 #: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
 msgid "Event type"
