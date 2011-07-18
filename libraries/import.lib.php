@@ -865,7 +865,11 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     $sql = array();
 
     if ($create_db) {
-        $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+        if (PMA_DRIZZLE) {
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " COLLATE " . $collation;
+        } else {
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+        }
     }
 
     /**
