@@ -205,7 +205,7 @@ class zipfile
             pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries "on this disk"
             pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries overall
             pack('V', strlen($ctrldir)) .           // size of central dir
-            pack('V', strlen($data)) .              // offset to start of central dir
+            pack('V', $this -> old_offset) .        // offset to start of central dir
             "\x00\x00";                             // .zip file comment length
 
         if ( $this -> doWrite ) {       // Send central directory & end ctrl dir to STDOUT
