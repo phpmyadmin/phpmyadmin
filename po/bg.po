@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 08:33+0200\n"
+"PO-Revision-Date: 2011-07-18 08:34+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6555,10 +6555,9 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
 
 #: libraries/rte/rte_routines.lib.php:1126
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
+msgstr "Трябва да дадете валиден тип на данните при изход на процедурата."
 
 #: libraries/rte/rte_routines.lib.php:1176
 msgid "You must provide a routine definition."
