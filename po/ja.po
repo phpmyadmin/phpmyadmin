@@ -6911,10 +6911,9 @@ msgid "Trigger %1$s has been created."
 msgstr "トリガ %1$s を作成しました。"
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "ビューを作成する"
+msgstr "トリガを作成する"
 
 #: libraries/rte/rte_triggers.lib.php:185
 #, fuzzy
