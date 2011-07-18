@@ -7444,7 +7444,7 @@ msgstr "Няма БД"
 
 #: navigation.php:273
 msgid "Filter"
-msgstr ""
+msgstr "Филтър"
 
 #: navigation.php:273
 msgid "filter tables by name"
