@@ -27,6 +27,7 @@ require_once './libraries/rte/rte_triggers.lib.php';
 /**
  * Do the magic
  */
+$_PMA_RTE = 'TRI';
 require_once './libraries/rte/rte_main.inc.php';
 
 ?>

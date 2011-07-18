@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-15 14:57+0200\n"
+"PO-Revision-Date: 2011-07-18 09:01+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -902,7 +902,7 @@ msgstr ""
 
 #: import.php:395
 msgid "The bookmark has been deleted."
-msgstr "Белязката беше изтриа."
+msgstr "Белязката беше изтрита."
 
 #: import.php:399
 msgid "Showing bookmark"
@@ -2212,10 +2212,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Функционалността %s се влияе от известен дефект, виж %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Щракване за избор"
+msgstr "Щракване за превключване"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -3376,7 +3375,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:287
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Включване на синтактично оцветяване"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum number of recently used tables; set 0 to disable"
@@ -6221,10 +6220,9 @@ msgid "Generate Password"
 msgstr "Генериране на парола"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
-msgstr "Добавяне на събитие"
+msgstr "Ново събитие"
 
 #: libraries/rte/rte_events.lib.php:60
 #, php-format
@@ -6232,22 +6230,20 @@ msgid "Export of event %s"
 msgstr "Експорт на събитието %s"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Действие"
+msgstr "събитие"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Не разполагате с права, за да създавате процедури"
+msgstr "Не разполагате с права, за да създадете събитие"
 
 #: libraries/rte/rte_events.lib.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Няма събитие с име %s в БД %s"
+msgstr "Няма събитие с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_events.lib.php:64
 msgid "There are no events to display."
@@ -6266,10 +6262,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Следната заявка е неуспешна: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:140
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Съжаляваме, но възстановяването на изтритата процедура е неуспешно."
+msgstr "Съжаляваме, но възстановяването на изтритото събитие е неуспешно."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6277,16 +6272,16 @@ msgid "The backed up query was:"
 msgstr "Архивираната заявка е:"
 
 #: libraries/rte/rte_events.lib.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Процедурата%1$s  беше променена."
+msgstr "Събитието %1$s беше променено."
 
 #: libraries/rte/rte_events.lib.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Таблицата %1$s беше създадена."
+msgstr "Събитието %1$s беше създадено."
 
 #: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
 #: libraries/rte/rte_triggers.lib.php:138
@@ -6294,16 +6289,14 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Една или повече грешки възникнаха при обработка на заявката:</b>"
 
 #: libraries/rte/rte_events.lib.php:205
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Създаване на изглед"
+msgstr "Ново събитие"
 
 #: libraries/rte/rte_events.lib.php:209
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Редакция сървър"
+msgstr "Редакция събитие"
 
 #: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
 #: libraries/rte/rte_routines.lib.php:1331
@@ -6318,10 +6311,9 @@ msgid "Details"
 msgstr "Подробности"
 
 #: libraries/rte/rte_events.lib.php:398
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Тип на събитието"
+msgstr "Име на събитие"
 
 #: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
 msgid "Event type"
@@ -6333,19 +6325,16 @@ msgid "Change to %s"
 msgstr "Промяна на %s"
 
 #: libraries/rte/rte_events.lib.php:446
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Изпълнение"
+msgstr "Изпълнение в"
 
 #: libraries/rte/rte_events.lib.php:454
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Изпълнение"
+msgstr "Изпълнение на всеки"
 
 #: libraries/rte/rte_events.lib.php:473
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
 msgstr "Начало"
@@ -6356,10 +6345,9 @@ msgid "Definition"
 msgstr "Описание"
 
 #: libraries/rte/rte_events.lib.php:495
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "пълни INSERT-и"
+msgstr ""
 
 #: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
 #: libraries/rte/rte_triggers.lib.php:378
@@ -6373,58 +6361,51 @@ msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете име на събитието"
 
 #: libraries/rte/rte_events.lib.php:561
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
+msgstr "Трябва да дадете валидна вътрешна стойност на събитието."
 
 #: libraries/rte/rte_events.lib.php:573
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Трябва да дадете дефиниция на процедурата."
+msgstr "Трябва да дадете валиден интервал за изпълнение на събитието."
 
 #: libraries/rte/rte_events.lib.php:577
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
+msgstr "Трябва да дадете валиден тип на събитието."
 
 #: libraries/rte/rte_events.lib.php:596
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Трябва да дадете дефиниция на процедурата."
+msgstr "Трябва да дадете дефиниция на събитието."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Нов"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Изкл."
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Вкл."
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Диспечер на събитията включен"
+msgstr "Състояние на Диспечера на събитията"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Тип връщани данни"
+msgstr "Връща"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
 #: server_status.php:800 sql.php:943
@@ -6445,21 +6426,19 @@ msgid "Export of routine %s"
 msgstr "Експорт на процедура %s"
 
 #: libraries/rte/rte_routines.lib.php:46
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Процедури"
+msgstr "процедура"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Не разполагате с права, за да създавате процедури"
+msgstr "Не разполагате с права, за да създадете процедура"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "Процедурата %1$s не е намерена в БД %2$s"
+msgstr "Няма процедура с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_routines.lib.php:49
 msgid "There are no routines to display."
@@ -6489,7 +6468,7 @@ msgstr "Съжаляваме, но възстановяването на изт�
 #: libraries/rte/rte_routines.lib.php:298
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Процедурата%1$s  беше променена."
+msgstr "Процедурата%1$s беше променена."
 
 #: libraries/rte/rte_routines.lib.php:311
 #, php-format
@@ -6530,15 +6509,15 @@ msgstr "Изтриване на последен параметър"
 
 #: libraries/rte/rte_routines.lib.php:935
 msgid "Return type"
-msgstr "Тип връщани данни"
+msgstr "Тип данни при изход"
 
 #: libraries/rte/rte_routines.lib.php:941
 msgid "Return length/values"
-msgstr ""
+msgstr "Дължина/стойност на данни при изход"
 
 #: libraries/rte/rte_routines.lib.php:947
 msgid "Return options"
-msgstr ""
+msgstr "Настройки на данни при изход"
 
 #: libraries/rte/rte_routines.lib.php:978
 msgid "Is deterministic"
@@ -6550,7 +6529,7 @@ msgstr "Сигурност"
 
 #: libraries/rte/rte_routines.lib.php:994
 msgid "SQL data access"
-msgstr ""
+msgstr "Достъп до SQL данните"
 
 #: libraries/rte/rte_routines.lib.php:1057
 msgid "You must provide a routine name"
@@ -6567,16 +6546,17 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Трябва да дадете дължина/стойност за параметрите на процедурата от тип ENUM, "
+"SET, VARCHAR и VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1116
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
 
 #: libraries/rte/rte_routines.lib.php:1126
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
+msgstr "Трябва да дадете валиден тип на данните при изход на процедурата."
 
 #: libraries/rte/rte_routines.lib.php:1176
 msgid "You must provide a routine definition."
@@ -6610,7 +6590,6 @@ msgid "Function"
 msgstr "Функция"
 
 #: libraries/rte/rte_triggers.lib.php:39
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "Нов тригер"
@@ -6621,92 +6600,81 @@ msgid "Export of trigger %s"
 msgstr "Експорт на тригер %s"
 
 #: libraries/rte/rte_triggers.lib.php:42
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Тригери"
+msgstr "тригер"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Не разполагате с права, за да създавате процедури"
+msgstr "Не разполагате с права, за да създадете тригер"
 
 #: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Процедурата %1$s не е намерена в БД %2$s"
+msgstr "Няма тригер с име %1$s в БД %2$s"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
 msgstr "Няма тригери."
 
 #: libraries/rte/rte_triggers.lib.php:113
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Съжаляваме, но възстановяването на изтритата процедура е неуспешно."
+msgstr "Съжаляваме, но възстановяването на изтрития тригер е неуспешно."
 
 #: libraries/rte/rte_triggers.lib.php:118
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Процедурата%1$s  беше променена."
+msgstr "Тригерът %1$s беше променен."
 
 #: libraries/rte/rte_triggers.lib.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Таблицата %1$s беше създадена."
+msgstr "Тригерът %1$s беше създаден."
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Създаване на изглед"
-
-#: libraries/rte/rte_triggers.lib.php:185
-#, fuzzy
-#| msgid "Add a trigger"
-msgid "Edit trigger"
 msgstr "Нов тригер"
 
+#: libraries/rte/rte_triggers.lib.php:185
+#| msgid "Add a trigger"
+msgid "Edit trigger"
+msgstr "Редакция тригер"
+
 #: libraries/rte/rte_triggers.lib.php:325
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Тригери"
+msgstr "Име на тригер"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете име на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:428
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете график на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Трябва да дадете име и тип за всеки параметър на процедурата."
+msgstr "Трябва да дадете събитие на тригера."
 
 #: libraries/rte/rte_triggers.lib.php:439
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете име на таблица на тригера"
 
 #: libraries/rte/rte_triggers.lib.php:445
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Трябва да дадете дефиниция на процедурата."
+msgstr "Трябва да дадете дефиниция на тригера."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
@@ -6736,11 +6704,11 @@ msgstr "Схема на БД %s - страница %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Тази страница не съдържа таблици!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ГРЕШКА В СХЕМАТА: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:868
 #: libraries/schema/Pdf_Relation_Schema.class.php:1107
@@ -6782,7 +6750,7 @@ msgstr "Вътрешни релации"
 
 #: libraries/schema/User_Schema.class.php:112
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:144
 msgid "Please choose a page to edit"
@@ -6806,15 +6774,15 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:373
 msgid "Show grid"
-msgstr "Покажи мрежа"
+msgstr "Мрежата видима"
 
 #: libraries/schema/User_Schema.class.php:375
 msgid "Show color"
-msgstr "Покажи цвят"
+msgstr "Показване свят"
 
 #: libraries/schema/User_Schema.class.php:377
 msgid "Show dimension of tables"
-msgstr "Покажи размерността на таблиците"
+msgstr "Размери на таблиците видими"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
@@ -6822,7 +6790,7 @@ msgstr "Всички таблици да бъдат показвани с едн
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
-msgstr ""
+msgstr "Само ключовете видими"
 
 #: libraries/schema/User_Schema.class.php:387
 msgid "Landscape"
@@ -6861,7 +6829,7 @@ msgstr "ltr"
 #: libraries/select_lang.lib.php:486
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "Непознат език: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:38
 msgid "Current Server"
@@ -7020,7 +6988,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:363
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Автоматично добавяне на апостроф в края на заявката!"
 
 #: libraries/sqlparser.lib.php:366
 msgid "Unclosed quote"
@@ -7046,12 +7014,12 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Таблицата изглежда празна!"
 
 #: libraries/tbl_links.inc.php:127
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Проследяването на %s.%s е активно."
 
 #: libraries/tbl_properties.inc.php:108
 msgid ""
@@ -7107,11 +7075,11 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:355
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Много ENUM или SET данни?"
 
 #: libraries/tbl_properties.inc.php:357
 msgid "Get more editing space"
-msgstr ""
+msgstr "Още място за редакция"
 
 #: libraries/tbl_properties.inc.php:380
 msgctxt "for default"
@@ -7120,7 +7088,7 @@ msgstr "Няма"
 
 #: libraries/tbl_properties.inc.php:381
 msgid "As defined:"
-msgstr ""
+msgstr "Дефиниран като:"
 
 #: libraries/tbl_properties.inc.php:500 tbl_structure.php:155
 #: tbl_structure.php:160 tbl_structure.php:605
@@ -7261,10 +7229,12 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Обръща (IPv4) Интернет мрежови адрес в низ в стандартен Интернет точков "
+"формат."
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Форматира текст като SQL заявка със синтактично оцветяване."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
@@ -7305,6 +7275,8 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Браузърът ви има настройки на phpMyAdmin за този домейн. Искате ли да бъдат "
+"използвани за текущата сесия?"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
@@ -7362,7 +7334,7 @@ msgstr "Информация за PHP"
 
 #: main.php:213
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: main.php:216
 msgid "Official Homepage"
@@ -7399,6 +7371,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Имате включено mbstring.func_overload в настройките на PHP. Тази опция е "
+"несъвместима с phpMyAdmin и може да причини повреда на данни!"
 
 #: main.php:259
 msgid ""
@@ -7461,6 +7435,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Сървърът е с Suhosin. Прочетете %sдокументацията%s за възможни проблеми."
 
 #: navigation.php:183 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
@@ -7468,7 +7443,7 @@ msgstr "Няма БД"
 
 #: navigation.php:273
 msgid "Filter"
-msgstr ""
+msgstr "Филтър"
 
 #: navigation.php:273
 msgid "filter tables by name"
@@ -7485,11 +7460,11 @@ msgstr "Моля изберете БД"
 
 #: pmd_general.php:74
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Скриване/Показване на лявото меню"
 
 #: pmd_general.php:78
 msgid "Save position"
-msgstr ""
+msgstr "Запазване на позицията"
 
 #: pmd_general.php:81 server_synchronize.php:424 server_synchronize.php:867
 msgid "Create table"
@@ -7497,15 +7472,15 @@ msgstr "Създаване таблица"
 
 #: pmd_general.php:84 pmd_general.php:352
 msgid "Create relation"
-msgstr ""
+msgstr "Създаване на отношение"
 
 #: pmd_general.php:90
 msgid "Reload"
-msgstr ""
+msgstr "Презареждане"
 
 #: pmd_general.php:93
 msgid "Help"
-msgstr ""
+msgstr "Помощ"
 
 #: pmd_general.php:97
 msgid "Angular links"
@@ -7553,11 +7528,11 @@ msgstr "Брой таблици"
 
 #: pmd_general.php:418
 msgid "Delete relation"
-msgstr ""
+msgstr "Изтриване на отношение"
 
 #: pmd_general.php:460 pmd_general.php:519
 msgid "Relation operator"
-msgstr ""
+msgstr "Оператор на отношение"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
@@ -7575,7 +7550,7 @@ msgstr "Преименуване на"
 
 #: pmd_general.php:482 pmd_general.php:581
 msgid "New name"
-msgstr ""
+msgstr "Ново име"
 
 #: pmd_general.php:485 pmd_general.php:700
 msgid "Aggregate"
@@ -7593,7 +7568,7 @@ msgstr "Активни опции"
 
 #: pmd_help.php:22
 msgid "To select relation, click :"
-msgstr ""
+msgstr "За избор на отношение, щракнете:"
 
 #: pmd_help.php:24
 msgid ""
