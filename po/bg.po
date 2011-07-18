@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 14:00+0200\n"
+"PO-Revision-Date: 2011-07-18 14:01+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -8342,7 +8342,7 @@ msgstr ""
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr ""
+msgstr "Контролиране на подчинения:"
 
 #: server_replication.php:323
 msgid "Full start"
