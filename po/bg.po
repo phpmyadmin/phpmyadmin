@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-15 14:57+0200\n"
+"PO-Revision-Date: 2011-07-18 08:18+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -902,7 +902,7 @@ msgstr ""
 
 #: import.php:395
 msgid "The bookmark has been deleted."
-msgstr "Белязката беше изтриа."
+msgstr "Белязката беше изтрита."
 
 #: import.php:399
 msgid "Showing bookmark"
