@@ -6942,10 +6942,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "有効なトリガイベントを指定してください"
 
 #: libraries/rte/rte_triggers.lib.php:439
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "ルーチン名は必須です"
+msgstr "有効なテーブル名を指定してください"
 
 #: libraries/rte/rte_triggers.lib.php:445
 #, fuzzy
