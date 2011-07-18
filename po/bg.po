@@ -6591,7 +6591,6 @@ msgid "Function"
 msgstr "Функция"
 
 #: libraries/rte/rte_triggers.lib.php:39
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "Нов тригер"
