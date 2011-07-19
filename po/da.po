@@ -1296,7 +1296,6 @@ msgid "Change settings"
 msgstr "Ændre indstillinger"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Aktuelle indstillinger"
