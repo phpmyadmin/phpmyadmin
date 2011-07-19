@@ -1190,7 +1190,7 @@ msgstr "Diagram entfernen"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Labels und Serien bearbeiten"
 
 #: js/messages.php:105
 #, fuzzy
