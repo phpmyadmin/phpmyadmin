@@ -170,6 +170,24 @@ $(document).ready(function() {
     $("#sqlqueryresults").live('refreshgrid', function() {
         $('#table_results').refreshgrid();
     })
+    
+    /**
+     * Attach the {@link makegrid} function to a custom event, which will be
+     * triggered manually everytime the table of results is reloaded
+     * @memberOf    jQuery
+     */
+    $("#sqlqueryresults").live('makegrid', function() {
+        $('#table_results').makegrid();
+    })
+    
+    /**
+     * Attach the {@link refreshgrid} function to a custom event, which will be
+     * triggered manually everytime the table of results is manipulated (e.g., by inline edit)
+     * @memberOf    jQuery
+     */
+    $("#sqlqueryresults").live('refreshgrid', function() {
+        $('#table_results').refreshgrid();
+    })
 
     /**
      * Trigger the appendAnchor event to prepare the first table for inline edit
