@@ -4766,7 +4766,7 @@ msgstr "CSV vha. LOAD DATA"
 #: libraries/config/user_preferences.forms.php:248 libraries/export/xls.php:18
 #: libraries/import/xls.php:21
 msgid "Excel 97-2003 XLS Workbook"
-msgstr ""
+msgstr "Excel 97-2003 XLS Workbook"
 
 #: libraries/config/setup.forms.php:257 libraries/config/setup.forms.php:352
 #: libraries/config/user_preferences.forms.php:158
