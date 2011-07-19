@@ -2571,7 +2571,7 @@ msgstr "Komplette indsættelser"
 
 #: libraries/config.values.php:121
 msgid "extended inserts"
-msgstr "Udvidede indsættelser"
+msgstr "udvidede indsættelser"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
