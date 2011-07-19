@@ -3508,7 +3508,7 @@ msgstr "Brug ikoner på hovedsiden"
 
 #: libraries/config/messages.inc.php:305
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "Maksimalt antal tegn brugt, når en SQL-forespørgsel vises"
 
 #: libraries/config/messages.inc.php:306
 msgid "Maximum displayed SQL length"
