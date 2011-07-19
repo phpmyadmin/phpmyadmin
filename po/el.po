@@ -10159,7 +10159,7 @@ msgstr "Εφαρμογή διαιρέτη"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Προσάρτηση μονάδας στις τιμές δεδομένων"
 
 #: server_status.php:1395
 #, fuzzy
