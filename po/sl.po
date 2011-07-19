@@ -9083,10 +9083,9 @@ msgid "Monitor"
 msgstr "Nadziranje"
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Hitrost osveževanja:"
+msgstr "Hitrost osveževanja: "
 
 #: server_status.php:629
 msgid "Containing the word:"
