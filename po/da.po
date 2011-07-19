@@ -6876,7 +6876,7 @@ msgstr "TIL"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Status for hændelsesskeduler"
 
 #: libraries/rte/rte_list.lib.php:52
 #| msgid "Return type"
