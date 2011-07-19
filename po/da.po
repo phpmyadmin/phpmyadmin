@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:12+0200\n"
+"PO-Revision-Date: 2011-07-19 15:13+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10249,7 +10249,7 @@ msgstr "Den sendte formular indeholder fejl"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "Prøv at give de fejlramte felter deres standardværdier"
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
