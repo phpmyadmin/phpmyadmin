@@ -7257,10 +7257,9 @@ msgid "There are no triggers to display."
 msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση"
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
-msgstr "Προσθήκη ενός συμβάντος"
+msgstr "Προσθήκη συμβάντος"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
