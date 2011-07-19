@@ -9976,7 +9976,7 @@ msgstr "Schaubild hinzufügen"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Schaubilder umordnen/bearbeiten"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
