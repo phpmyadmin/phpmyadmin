@@ -5044,7 +5044,7 @@ msgstr "Komplette tekster"
 
 #: libraries/display_tbl.lib.php:625
 msgid "Relational key"
-msgstr ""
+msgstr "Relationel nøgle"
 
 #: libraries/display_tbl.lib.php:626
 #, fuzzy
