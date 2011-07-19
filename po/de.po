@@ -1248,8 +1248,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log ist aktiviert, aber der Server protokolliert nur Anfragen, "
-"die länger als  %d ausgeführt wurden. Es ist ratsam, den Wert "
-"long_query_time auf 0-2 Sekunden einzustellen, abhängig vom System."
+"die länger als %d ausgeführt wurden. Es ist ratsam, den Wert long_query_time "
+"auf 0-2 Sekunden einzustellen, abhängig vom System."
 
 #: js/messages.php:119
 #, php-format
