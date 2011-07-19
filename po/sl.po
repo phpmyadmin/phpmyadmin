@@ -7159,10 +7159,9 @@ msgid "Export of trigger %s"
 msgstr "Izvoz sprožilca %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Sprožilci"
+msgstr "sprožilec"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
