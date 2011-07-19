@@ -5335,7 +5335,7 @@ msgstr "Vis binært indhold"
 
 #: libraries/display_tbl.lib.php:635
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Vis indhold af BLOB"
 
 #: libraries/display_tbl.lib.php:645 libraries/relation.lib.php:112
 #: libraries/tbl_properties.inc.php:146 transformation_overview.php:46
