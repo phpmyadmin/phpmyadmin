@@ -7326,7 +7326,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:465
 msgid "Toggle scratchboard"
-msgstr "tegnebræt til/fra"
+msgstr "Tegnebræt til/fra"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:469
