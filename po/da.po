@@ -10796,7 +10796,7 @@ msgstr ""
 
 #: tbl_operations.php:746
 msgid "Optimize"
-msgstr ""
+msgstr "Optimer"
 
 #: tbl_operations.php:747
 msgid "Rebuild"
