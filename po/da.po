@@ -10034,7 +10034,7 @@ msgstr ""
 
 #: server_synchronize.php:395 server_synchronize.php:834
 msgid "not present"
-msgstr ""
+msgstr "findes ikke"
 
 #: server_synchronize.php:419 server_synchronize.php:862
 msgid "Structure Difference"
