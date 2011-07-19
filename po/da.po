@@ -10502,7 +10502,7 @@ msgstr " På grund af feltets længde,<br /> kan det muligvis ikke ændres "
 
 #: tbl_change.php:800
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Fjern BLOB Repository reference"
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
