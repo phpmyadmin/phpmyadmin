@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:24+0200\n"
+"PO-Revision-Date: 2011-07-19 13:25+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3681,10 +3681,9 @@ msgid "Query window height (in pixels)"
 msgstr "Højde (i pixels) af forespørgselsvindue"
 
 #: libraries/config/messages.inc.php:345
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
-msgstr "Foresp. vindue"
+msgstr "Højde af forspørgselsvindue"
 
 #: libraries/config/messages.inc.php:346
 #, fuzzy
