@@ -3116,7 +3116,7 @@ msgstr "Eksporttype"
 
 #: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
-msgstr "Inkludér eksport i en transaktion"
+msgstr "Indlejr eksport i en transaktion"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
