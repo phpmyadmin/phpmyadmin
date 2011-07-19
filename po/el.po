@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:29+0200\n"
+"PO-Revision-Date: 2011-07-19 21:30+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10026,10 +10026,9 @@ msgid "Start Monitor"
 msgstr "Έναρξη Οθόνης"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Εισαγωγή"
+msgstr "Οδηγίες/Εγκατάσταση"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
