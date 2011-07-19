@@ -10585,7 +10585,7 @@ msgstr "De resterende kolonner"
 
 #: tbl_chart.php:128
 msgid "X-Axis label:"
-msgstr "X-akse betegnelse"
+msgstr "X-akse betegnelse:"
 
 #: tbl_chart.php:128
 #| msgid "Value"
