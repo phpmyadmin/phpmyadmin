@@ -7073,10 +7073,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "Sprožilec %1$s je bil spremenjen."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Tabela %1$s je ustvarjena."
+msgstr "Sprožilec %1$s je ustvarjen."
 
 #: libraries/rte/rte_triggers.lib.php:157
 #, fuzzy
