@@ -157,6 +157,11 @@ function PMA_addDatepicker($this_element) {
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
             $this_element.data('comes_from', 'datepicker');
+
+            // Fix wrong timepicker z-index, doesn't work without timeout
+            setTimeout(function() {
+                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
+            },0);
         },
         constrainInput: false
      });
