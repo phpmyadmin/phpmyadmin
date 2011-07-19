@@ -5480,7 +5480,7 @@ msgstr "Sider med data"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr "Sider der står til at blive tømt"
+msgstr "Sider til udskrift"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
