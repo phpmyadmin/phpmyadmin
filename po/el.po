@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:22+0200\n"
+"PO-Revision-Date: 2011-07-19 21:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7174,10 +7174,9 @@ msgid "Trigger name"
 msgstr "Όνομα ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:399
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα όνομα στην ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:404
 #, fuzzy
