@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 20:21+0200\n"
+"PO-Revision-Date: 2011-07-19 20:22+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1248,6 +1248,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Aşağıdaki ayarlar genel olarak uygulanacak ve sunucu yeniden başlatıldığında "
+"varsayılana sıfırlanacak:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:122
