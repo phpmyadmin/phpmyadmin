@@ -9902,10 +9902,9 @@ msgid "Refresh rate:"
 msgstr "Hitrost osveževanja:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Stolpci grafikona:"
 
 #: server_status.php:1317
 #, fuzzy
