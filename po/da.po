@@ -7222,7 +7222,7 @@ msgstr "Denne side indeholder ingen tabeller!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "SCHEMA ERROR: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:868
 #: libraries/schema/Pdf_Relation_Schema.class.php:1107
