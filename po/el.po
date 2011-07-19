@@ -10176,10 +10176,9 @@ msgid "Series in Chart:"
 msgstr "Σειρά σε Διάγραμμα:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Φόρτωση"
+msgstr "Φόρτωση καταγραφών"
 
 #: server_status.php:1411
 #, fuzzy
