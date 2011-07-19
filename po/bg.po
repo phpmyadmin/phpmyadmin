@@ -4640,7 +4640,7 @@ msgstr "Редове:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr "Схема на няколко ред(а)"
+msgstr "Схема на няколко реда"
 
 #: libraries/display_export.lib.php:152
 msgid "Number of rows:"
