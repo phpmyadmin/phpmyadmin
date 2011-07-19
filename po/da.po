@@ -4215,7 +4215,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Vis phpinfo() link"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show detailed MySQL server information"
