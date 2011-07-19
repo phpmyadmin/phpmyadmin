@@ -10205,7 +10205,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:206
 msgid "- none -"
-msgstr ""
+msgstr "- ingen -"
 
 #: setup/frames/index.inc.php:209
 msgid "Default server"
