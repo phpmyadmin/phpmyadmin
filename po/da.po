@@ -6993,7 +6993,7 @@ msgstr "Du skal angive et navn og en type for hver rutineparameter."
 
 #: libraries/rte/rte_routines.lib.php:1065
 msgid "You must provide a valid return type for the routine."
-msgstr "Du skal angive en gyldig returtype for rutinen"
+msgstr "Du skal angive en gyldig returtype for rutinen."
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
