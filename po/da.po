@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 01:02+0200\n"
+"PO-Revision-Date: 2011-07-20 01:06+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1493,7 +1493,7 @@ msgstr "Vis forespørgselsbox"
 
 #: js/messages.php:194
 msgid "Inline Edit"
-msgstr "Åben redigeringslinje"
+msgstr "Ret linje"
 
 #: js/messages.php:196 libraries/config/FormDisplay.tpl.php:323
 #: libraries/schema/User_Schema.class.php:313
