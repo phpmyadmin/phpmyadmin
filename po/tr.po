@@ -1258,10 +1258,10 @@ msgstr "log_output'u %s'a ayarla"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Etkin"
+msgstr "%s etkin"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:126
