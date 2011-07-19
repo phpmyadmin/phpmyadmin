@@ -6437,7 +6437,6 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:310
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Dette format har ingen indstillinger"
