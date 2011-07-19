@@ -10707,7 +10707,7 @@ msgstr "Indeksnavn&nbsp;:"
 
 #: tbl_indexes.php:185
 msgid "Index type:"
-msgstr "Indekstype&nbsp;:"
+msgstr "Indekstype:"
 
 #: tbl_indexes.php:265
 #, php-format
