@@ -7139,7 +7139,7 @@ msgstr "Ingen trigger med navnet %1$s fundet i databasen %2$s"
 #: libraries/rte/rte_words.lib.php:36
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Der er ingen triggers at vise"
+msgstr "Der er ingen triggers at vise."
 
 #: libraries/rte/rte_words.lib.php:42
 #| msgid "Add a new User"
