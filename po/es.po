@@ -1187,10 +1187,9 @@ msgid "Settings"
 msgstr "Configuración"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Eliminar base de datos"
+msgstr "Eliminar gráfico"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
