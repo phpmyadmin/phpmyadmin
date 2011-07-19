@@ -10024,10 +10024,9 @@ msgid "Start Monitor"
 msgstr "Iniciar monitorización"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Introducción"
+msgstr "Instrucciones/Configuración"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
