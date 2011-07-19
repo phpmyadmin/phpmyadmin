@@ -10055,7 +10055,7 @@ msgstr "Στήλες διαγράμματος:"
 #: server_status.php:1317
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Εκκαθάριση ρύθμισης οθόνης"
+msgstr "Εκκαθάριση ρύθμισης εποπτείας"
 
 #: server_status.php:1320
 #| msgid "1. Introduction"
