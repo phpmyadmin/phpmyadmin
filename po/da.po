@@ -2897,7 +2897,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr "Deaktivér vedligeholdelse af flere tabeller"
+msgstr "Deaktiver vedligeholdelse af flere tabeller"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
