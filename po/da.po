@@ -10054,7 +10054,7 @@ msgstr "Kunne ikke forbinde til målet"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "'%s' database eksisterer ikke"
+msgstr "'%s' database eksisterer ikke."
 
 #: server_synchronize.php:261
 msgid "Structure Synchronization"
