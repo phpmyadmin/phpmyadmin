@@ -9912,7 +9912,7 @@ msgstr ""
 "Antallet af gange en tabellås ikke kunne fås øjeblikkeligt og en wait var "
 "nødvendig. Hvis denne er høj, og du har ydelsesproblemer, bør du først "
 "optimere dine forespørgsler, og derefter enten opdele din tabel eller "
-"tabeller, eller bruge replikering."
+"tabeller, eller bruge replikation."
 
 #: server_status.php:1138
 msgid ""
