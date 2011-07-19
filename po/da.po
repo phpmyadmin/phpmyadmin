@@ -10062,7 +10062,7 @@ msgstr "Fjern indeks(es)"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Brug indeks(es)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Update row(s)"
