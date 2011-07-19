@@ -2893,7 +2893,7 @@ msgid ""
 "the selected tables of a database."
 msgstr ""
 "Deaktivér masseoperationer for tabelvedligeholdelse såsom optimering eller "
-"reperation af tabllerne i en database"
+"reperation af tabllerne i en database."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
