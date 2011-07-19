@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:00+0200\n"
+"PO-Revision-Date: 2011-07-19 14:01+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4424,7 +4424,7 @@ msgstr "Check for den seneste version"
 
 #: libraries/config/messages.inc.php:511
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Aktiverer check for den seneste version på hovedsiden for phpMyAdmin"
 
 #: libraries/config/messages.inc.php:512 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
