@@ -334,16 +334,18 @@ $(document).ready(function() {
         var $msgbox = PMA_ajaxShowMessage();
 
         /**
-         * @var $the_form    Object referring to the form element that paginates the results table
+         * @var $form    Object referring to the form element that paginates the results table
          */
-        var $the_form = $(this).parent("form");
+        var $form = $(this).parent("form");
 
-        $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
+        var $sqlqueryresults = $("#sqlqueryresults");
 
-        $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
-            $("#sqlqueryresults").html(data);
-            $("#sqlqueryresults").trigger('appendAnchor');
-            $("#sqlqueryresults").trigger('makegrid');
+        PMA_prepareForAjaxRequest($form);
+
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            $sqlqueryresults.html(data);
+            $sqlqueryresults.trigger('appendAnchor');
+            $sqlqueryresults.trigger('makegrid');
             PMA_init_slider();
 
             PMA_ajaxRemoveMessage($msgbox);
