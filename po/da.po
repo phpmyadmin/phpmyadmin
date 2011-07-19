@@ -6835,7 +6835,7 @@ msgstr "Længde/Værdi*"
 
 #: libraries/rte/rte_routines.lib.php:866
 msgid "Add parameter"
-msgstr ""
+msgstr "Tilføj parameter"
 
 #: libraries/rte/rte_routines.lib.php:870
 #| msgid "Remove database"
