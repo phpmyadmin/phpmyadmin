@@ -4726,7 +4726,7 @@ msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr "Config  autentifikation"
+msgstr "Config autentifikation"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
