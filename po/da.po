@@ -8830,7 +8830,7 @@ msgstr "Master server ændret til %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Denne server er konfigureret som master i en replicationsproces"
 
 #: server_replication.php:182 server_status.php:459
 msgid "Show master status"
