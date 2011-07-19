@@ -9074,7 +9074,7 @@ msgstr "Alle statusvariable"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: server_status.php:586 server_status.php:608
 #| msgid "Refresh"
