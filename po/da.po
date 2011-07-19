@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:25+0200\n"
+"PO-Revision-Date: 2011-07-19 15:26+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -9151,6 +9151,8 @@ msgstr ""
 #: server_status.php:821
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Denne MySQL server fungerer som <b>master</b> i en <b>replication</b> "
+"proces."
 
 #: server_status.php:823
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
