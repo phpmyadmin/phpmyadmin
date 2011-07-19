@@ -5174,7 +5174,7 @@ msgstr "Fil til import:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "Filen kan være komprimeret (%s) eller ukomprimeret"
+msgstr "Filen kan være komprimeret (%s) eller ukomprimeret."
 
 #: libraries/display_import.lib.php:158
 msgid ""
