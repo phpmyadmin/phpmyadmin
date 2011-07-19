@@ -3778,7 +3778,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:368
 msgid "SweKey config file"
-msgstr ""
+msgstr "SweKey konfigurationsfil"
 
 #: libraries/config/messages.inc.php:369
 msgid "Authentication method to use"
