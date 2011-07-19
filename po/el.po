@@ -1190,10 +1190,9 @@ msgid "Edit labels and series"
 msgstr "Επεξεργασία ετικετών και σειρών"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Συγκράτηση στο πλέγμα"
+msgstr "Προσθήκη διαγράμματος στο πλέγμα"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
