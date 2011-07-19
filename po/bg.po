@@ -4842,7 +4842,7 @@ msgstr "Щракване за маркиране/отмаркиране"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr "Щракнете стрелката,<br/>за да изберете колони"
+msgstr "Щракнете стрелката,<br />за да изберете колони"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
