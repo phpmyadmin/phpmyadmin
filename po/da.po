@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:13+0200\n"
+"PO-Revision-Date: 2011-07-19 18:14+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2650,7 +2650,8 @@ msgstr "maksimum %s"
 #: libraries/config/FormDisplay.tpl.php:167
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr ""
-"Denne indstilling er deaktiveret og din konfiguration vil ikke anvende den"
+"Denne indstilling er deaktiveret og vil ikke blive anvendt i din "
+"konfiguration"
 
 #: libraries/config/FormDisplay.tpl.php:167 libraries/relation.lib.php:78
 #: libraries/relation.lib.php:85 pmd_relation_new.php:68
