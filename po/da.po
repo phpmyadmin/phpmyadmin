@@ -8938,7 +8938,7 @@ msgstr "Start kun IO Thread"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Stop kun IO Thread"
 
 #: server_replication.php:338
 msgid "Error management:"
