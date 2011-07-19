@@ -994,7 +994,7 @@ msgstr "Denne operation kan tage lang tid. Fortsæt alligevel?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "Du er ved at DISABLE (deaktivere) en BLOB-beholder."
+msgstr "Du er ved at DISABLE (deaktivere) en BLOB-beholder!"
 
 #: js/messages.php:41
 #, php-format
