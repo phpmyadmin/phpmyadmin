@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 20:03+0200\n"
+"PO-Revision-Date: 2011-07-19 20:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1180,7 +1180,7 @@ msgstr "Çizelgeyi kaldır"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr "Etiketleri ve serileri düzenle"
+msgstr "Etiketleri ve diziyi düzenle"
 
 #: js/messages.php:105
 #| msgid "Snap to grid"
