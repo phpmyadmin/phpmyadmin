@@ -4837,7 +4837,7 @@ msgstr "en"
 #: libraries/core.lib.php:258
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%s extension mangler. Check din PHP-konfiguration."
+msgstr "%s udvidelsen mangler. Check din PHP-konfiguration."
 
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
