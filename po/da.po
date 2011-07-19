@@ -4705,10 +4705,9 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Eksporterer rækker fra tabellen \"%s\""
 
 #: libraries/display_export.lib.php:90
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Eksporttype"
+msgstr "Eksportmetode"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
