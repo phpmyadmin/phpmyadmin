@@ -7913,7 +7913,7 @@ msgstr "Vis PHP-information"
 
 #: main.php:213
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: main.php:216
 msgid "Official Homepage"
