@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:47+0200\n"
+"PO-Revision-Date: 2011-07-19 15:48+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7771,10 +7771,9 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:112
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
-msgstr "Kunne ikke indlæse standardkonfiguration fra: \"%1$s\""
+msgstr "Kunne ikke gemme konfiguration"
 
 #: libraries/user_preferences.lib.php:268
 msgid ""
