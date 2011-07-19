@@ -9031,7 +9031,7 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Serveren er ikke konfigureret som slave i en replikeringsprocess. Vil du <a "
+"Serveren er ikke konfigureret som slave i en replikationsprocess. Vil du <a "
 "href=\"%s\">konfigurere</a> den?"
 
 #: server_status.php:27
