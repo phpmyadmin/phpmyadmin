@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:49+0200\n"
+"PO-Revision-Date: 2011-07-19 14:50+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10520,10 +10520,9 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:85
-#, fuzzy
 #| msgid "Mar"
 msgid "Bar"
-msgstr "mar"
+msgstr "Søjle"
 
 #: tbl_chart.php:87
 msgid "Line"
