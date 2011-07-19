@@ -7905,7 +7905,7 @@ msgstr "MySQL klientversion"
 
 #: main.php:189
 msgid "PHP extension"
-msgstr ""
+msgstr "PHP udvidelse"
 
 #: main.php:195
 msgid "Show PHP information"
