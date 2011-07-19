@@ -1207,7 +1207,7 @@ msgstr "Καμία"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Επανεκίννηση οθόνης"
 
 #: js/messages.php:110
 msgid "Pause monitor"
