@@ -9138,10 +9138,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Promet omrežja od zagona: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Strežnik MySQL deluje že %s. Zagnal se je %s."
+msgstr "Strežnik MySQL deluje že %1$s. Zagnal se je %2$s."
 
 #: server_status.php:819
 msgid ""
