@@ -1174,10 +1174,9 @@ msgid "Settings"
 msgstr "Ayarlar"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Veritabanını kaldır"
+msgstr "Çizelgeyi kaldır"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
