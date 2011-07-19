@@ -10185,7 +10185,7 @@ msgstr "Oversigt"
 
 #: setup/frames/index.inc.php:108
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Vis skjulte beskeder (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:148
 msgid "There are no configured servers"
