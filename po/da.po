@@ -10612,7 +10612,7 @@ msgstr "Tekst for kolonne"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
-msgstr ""
+msgstr "-- ingen --"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
