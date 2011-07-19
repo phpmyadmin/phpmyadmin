@@ -9888,7 +9888,7 @@ msgstr "Navodila/Namestitev"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Preurejanje/urejanje grafikonov je končano"
 
 #: server_status.php:1296
 #| msgid "Add parameter"
