@@ -6757,7 +6757,6 @@ msgid "The following query has failed: \"%s\""
 msgstr "Naslednja poizvedba je spodletela: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Oprostite, zavrženega dogodka nam ni uspelo obnoviti."
