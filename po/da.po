@@ -11070,7 +11070,7 @@ msgstr "Ingen databaser"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
-msgstr ""
+msgstr "Dato"
 
 #: tbl_tracking.php:455
 msgid "Data definition statement"
