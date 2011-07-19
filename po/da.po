@@ -4287,7 +4287,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "PDF-skematik: tabel coordinates"
 
 #: libraries/config/messages.inc.php:424
 msgid ""
