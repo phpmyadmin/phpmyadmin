@@ -6905,7 +6905,7 @@ msgstr "Rutine \"%1$s\" er blevet ændret."
 #: libraries/rte/rte_routines.lib.php:286
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Rutine %1$s er oprettet,"
+msgstr "Rutine %1$s er oprettet."
 
 #: libraries/rte/rte_routines.lib.php:340
 msgid "Create routine"
