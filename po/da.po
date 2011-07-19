@@ -2933,7 +2933,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
-msgstr "Maksimal ekspeditionstid"
+msgstr "Maksimal eksekveringstid"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:299
 msgid "Save as file"
