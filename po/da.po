@@ -8798,10 +8798,9 @@ msgid "wildcard"
 msgstr "jokertegn"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Visning %s er blevet droppet"
+msgstr "Bruger er blevet tilføjet"
 
 #: server_replication.php:49
 msgid "Unknown error"
