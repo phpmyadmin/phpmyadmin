@@ -4203,7 +4203,7 @@ msgstr "Vis funktionsfelterne i rediger/indsæt tilstand"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show function fields"
-msgstr ""
+msgstr "Vis funktionsfelter"
 
 #: libraries/config/messages.inc.php:459
 msgid ""
