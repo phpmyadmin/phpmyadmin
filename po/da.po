@@ -6576,7 +6576,7 @@ msgstr "SQL-historik"
 
 #: libraries/relation.lib.php:132
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "Vedvarende senest brugte tabeller"
 
 #: libraries/relation.lib.php:136
 msgid "Persistent tables' UI preferences"
