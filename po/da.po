@@ -3462,7 +3462,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Delete all cookies on logout"
-msgstr "Slet alle cookies når der logges ud"
+msgstr "Slet alle cookies, når der logges ud"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
