@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:31+0200\n"
+"PO-Revision-Date: 2011-07-19 21:32+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10058,10 +10058,9 @@ msgid "Clear monitor config"
 msgstr "Εκκαθάριση ρύθμισης οθόνης"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "1. Introduction"
 msgid "Monitor Instructions"
-msgstr "1. Εισαγωγή"
+msgstr "Οδηγίες Οθόνης"
 
 #: server_status.php:1321
 msgid ""
