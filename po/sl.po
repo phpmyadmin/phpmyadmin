@@ -7094,10 +7094,9 @@ msgid "Trigger name"
 msgstr "Ime sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:399
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Navesti morate ime rutine"
+msgstr "Navesti morate ime sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:404
 #, fuzzy
