@@ -5452,7 +5452,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
-msgstr "Buffer Pool"
+msgstr "Bufferpool"
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:484
 msgid "InnoDB Status"
