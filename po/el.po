@@ -6938,10 +6938,9 @@ msgid "The definer must be in the \"username@hostname\" format"
 msgstr "Ο οριστής πρέπει να είναι της μορφής «username@hostname»"
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα όνομα στο συμβάν"
 
 #: libraries/rte/rte_events.lib.php:537
 #, fuzzy
