@@ -9062,7 +9062,7 @@ msgstr "Forsinkede inserts"
 
 #: server_status.php:433
 msgid "Key cache"
-msgstr "Nøglemellemlager (key cache)"
+msgstr "Nøglemellemlager"
 
 #: server_status.php:434
 msgid "Joins"
