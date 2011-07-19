@@ -5038,7 +5038,6 @@ msgid "Partial texts"
 msgstr "Delvise tekster"
 
 #: libraries/display_tbl.lib.php:599 libraries/display_tbl.lib.php:612
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Komplette tekster"
