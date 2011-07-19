@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 20:41+0200\n"
+"PO-Revision-Date: 2011-07-19 20:42+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5360,7 +5360,7 @@ msgstr "Kopier"
 
 #: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
-msgstr "Rækken er slettet!"
+msgstr "Rækken er slettet"
 
 #: libraries/display_tbl.lib.php:1357 libraries/display_tbl.lib.php:2314
 #: server_status.php:1007
