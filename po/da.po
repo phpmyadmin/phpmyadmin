@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 00:55+0200\n"
+"PO-Revision-Date: 2011-07-20 00:56+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6695,7 +6695,7 @@ msgstr "Kun slaver startet med --report-host=host_name er synlige i listen."
 
 #: libraries/replication_gui.lib.php:241 server_replication.php:192
 msgid "Add slave replication user"
-msgstr "Tilføj slave replikationbruger"
+msgstr "Tilføj slave replikationsbruger"
 
 #: libraries/replication_gui.lib.php:255 server_privileges.php:698
 msgid "Any user"
