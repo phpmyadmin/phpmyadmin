@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:04+0200\n"
+"PO-Revision-Date: 2011-07-19 16:05+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6839,10 +6839,9 @@ msgid "Add parameter"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:870
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Fjern database"
+msgstr "Fjern den sidste parameter"
 
 #: libraries/rte/rte_routines.lib.php:875
 msgid "Return type"
