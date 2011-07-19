@@ -10131,10 +10131,9 @@ msgid "Swap Usage"
 msgstr "Χρήση Αδράνειας"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Όλες οι μεταβλητές κατάστασης"
+msgstr "Μεταβλητή(ές) κατάστασης"
 
 #: server_status.php:1359
 #, fuzzy
