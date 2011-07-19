@@ -9971,7 +9971,7 @@ msgstr "Vælg Tabeller"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Almindeligt overvåget"
 
 #: server_status.php:1376
 #| msgid "Invalid table name"
