@@ -10010,10 +10010,9 @@ msgid "Loading logs"
 msgstr "Dnevniki nalaganja"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Pokaži statistiko"
+msgstr "Statistika dnevnikov"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
