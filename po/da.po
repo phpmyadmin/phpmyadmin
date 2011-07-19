@@ -10229,7 +10229,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:240
 msgid "Donate"
-msgstr ""
+msgstr "Doner"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
