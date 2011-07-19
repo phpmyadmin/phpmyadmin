@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:44+0200\n"
+"PO-Revision-Date: 2011-07-19 15:45+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8147,10 +8147,9 @@ msgid "Create a page and export to it"
 msgstr "Lav et nyt indeks"
 
 #: pmd_pdf.php:111
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Brugernavn"
+msgstr "Nyt sidenavn: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
