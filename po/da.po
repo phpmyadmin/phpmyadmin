@@ -4667,7 +4667,7 @@ msgstr "Mappe til uploads"
 
 #: libraries/config/messages.inc.php:504
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "Tillad søgning i hele databasen"
 
 #: libraries/config/messages.inc.php:505
 msgid "Use database search"
