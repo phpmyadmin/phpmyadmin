@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:48+0200\n"
+"PO-Revision-Date: 2011-07-19 21:50+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10369,6 +10369,8 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Denne værdi bør dobbelcheckes for at sikre, at denne mappe er hverken "
+"tilgængelig for alle eller læsbar/skrivbar af andre brugere på din server."
 
 #: setup/lib/index.lib.php:256
 #, php-format
