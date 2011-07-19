@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 19:41+0200\n"
+"PO-Revision-Date: 2011-07-19 19:42+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1288,10 +1288,9 @@ msgid "Change settings"
 msgstr "Ayarları değiştir"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Daha fazla ayarlar"
+msgstr "Şu anki ayarlar"
 
 #: js/messages.php:133 server_status.php:1345
 #, fuzzy
