@@ -2570,7 +2570,7 @@ msgstr ""
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
-msgstr "Komplette indsættelser"
+msgstr "komplette indsættelser"
 
 #: libraries/config.values.php:121
 msgid "extended inserts"
