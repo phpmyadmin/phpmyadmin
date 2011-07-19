@@ -1292,7 +1292,7 @@ msgstr "Deshabilitar %s"
 #: js/messages.php:128
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Definir «long_query_time» a %ds"
 
 #: js/messages.php:129
 msgid ""
