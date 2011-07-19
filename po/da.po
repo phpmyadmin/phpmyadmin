@@ -9437,7 +9437,7 @@ msgid ""
 "reason."
 msgstr ""
 "Antallet af eksklusivt låste (latched) sider i InnoDB buffer pool. Dette er "
-"sider der i øjeblikket læses eller skrives eller som ikke kan flushes eller "
+"sider, der i øjeblikket læses eller skrives eller som ikke kan flushes eller "
 "fjernes af andre årsager."
 
 #: server_status.php:1061
