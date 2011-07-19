@@ -10202,7 +10202,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:156
 msgid "New server"
-msgstr ""
+msgstr "Ny server"
 
 #: setup/frames/index.inc.php:185
 msgid "Default language"
