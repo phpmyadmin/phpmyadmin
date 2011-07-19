@@ -7301,7 +7301,7 @@ msgstr "Lagre"
 
 #: libraries/server_synchronize.lib.php:1279 server_synchronize.php:1111
 msgid "Source database"
-msgstr ""
+msgstr "Kildedatabase"
 
 #: libraries/server_synchronize.lib.php:1281
 #: libraries/server_synchronize.lib.php:1302
