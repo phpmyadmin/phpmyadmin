@@ -6227,7 +6227,7 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 "Invalid kolonne (%s) angivet! Sørg for, at kolonnenavneer stavet korrekt, "
-"adskilt med komma og ikke i citationstegn"
+"adskilt med komma og ikke i citationstegn."
 
 #: libraries/import/csv.php:190 libraries/import/csv.php:437
 #, php-format
