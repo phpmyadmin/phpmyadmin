@@ -4699,10 +4699,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Eksporterer tabeller fra database \"%s\""
 
 #: libraries/display_export.lib.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Opret ny tabel i database %s"
+msgstr "Eksporterer rækker fra tabellen \"%s\""
 
 #: libraries/display_export.lib.php:90
 #, fuzzy
