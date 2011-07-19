@@ -1315,10 +1315,9 @@ msgstr "Τίτλος Διαγράμματος"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Διαφορά"
+msgstr "Διαφορικός"
 
 #: js/messages.php:136
 #, php-format
