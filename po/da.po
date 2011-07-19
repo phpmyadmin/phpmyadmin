@@ -10582,7 +10582,7 @@ msgstr "Stak"
 #: tbl_chart.php:94
 #| msgid "Report title"
 msgid "Chart title"
-msgstr "Korttitel"
+msgstr "Diagramtitel"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
