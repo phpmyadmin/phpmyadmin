@@ -6643,10 +6643,10 @@ msgid "Event %1$s has been modified."
 msgstr "Tabel \"%1$s\" er slettet"
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Rutine %1$s er oprettet,"
+msgstr "Hændelse %1$s er oprettet,"
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
