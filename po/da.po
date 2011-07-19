@@ -4029,7 +4029,7 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Lad være blank for ingen "
+"Lades blank for ingen "
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] understøttelse, "
 "forslag: [kbd]pma_bookmark[/kbd]"
 
