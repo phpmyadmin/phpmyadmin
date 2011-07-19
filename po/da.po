@@ -4064,7 +4064,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Tilføj DROP DATABASE"
 
 #: libraries/config/messages.inc.php:430
 msgid ""
