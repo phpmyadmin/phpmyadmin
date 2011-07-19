@@ -10887,7 +10887,7 @@ msgstr "Tilføj søgekriterier (kroppen af \"WHERE\" sætningen):"
 
 #: tbl_select.php:285
 msgid "Number of rows per page"
-msgstr "poster pr. side"
+msgstr "Rækker pr. side"
 
 #: tbl_select.php:291
 msgid "Display order:"
