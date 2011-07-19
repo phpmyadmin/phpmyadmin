@@ -1211,7 +1211,7 @@ msgstr "Επανεκίννηση οθόνης"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "Παύση οθόνης"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
