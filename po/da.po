@@ -4747,7 +4747,7 @@ msgstr "Begyndelsesrække:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
-msgstr ""
+msgstr "Hent alle rækker"
 
 #: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
