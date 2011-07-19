@@ -4015,7 +4015,7 @@ msgstr "Socket hvorpå MySQL server lytter, lades tom for standard"
 
 #: libraries/config/messages.inc.php:419
 msgid "Server socket"
-msgstr ""
+msgstr "Server socket"
 
 #: libraries/config/messages.inc.php:420
 msgid "Enable SSL for connection to MySQL server"
