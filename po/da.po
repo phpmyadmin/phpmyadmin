@@ -10203,7 +10203,7 @@ msgstr "Usikker forbindelse"
 #: setup/frames/index.inc.php:92
 #| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "Konfigurationen er gemt!"
+msgstr "Konfigurationen er gemt."
 
 #: setup/frames/index.inc.php:93
 msgid ""
