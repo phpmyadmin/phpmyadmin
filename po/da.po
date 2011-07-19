@@ -2575,7 +2575,7 @@ msgstr "udvidede indsættelser"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
-msgstr "Begge de ovenfor anførte"
+msgstr "begge de ovenfor anførte"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
