@@ -10940,7 +10940,7 @@ msgstr "Tilføj unikt indeks"
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add SPATIAL index"
-msgstr ""
+msgstr "Tilføj SPATIAL indeks"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
