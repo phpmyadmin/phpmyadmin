@@ -7711,7 +7711,6 @@ msgstr ""
 "brug af gmdate() funktionen."
 
 #: libraries/transformations/text_plain__external.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the field data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -7738,13 +7737,14 @@ msgstr ""
 "KUN LINUX: Starter en ekstern applikation og føder feltdata via standard "
 "input. Returnerer standardoutputtet for applikationen. Standard er Tidy, for "
 "korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt til "
-"manuelt at redigere filen libraries/transformations/text_plain__external.inc."
-"php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er "
-"så nummeret på det program du vil bruge og den anden indstilling er "
-"parametrene for dette program. Tredie parameter vil, hvis sat til 1, "
-"konvertere outputtet vha. htmlspecialchars() (Standard er 1). Et fjerde "
-"parameter vil, hvis sat til 1, sætte et NOWRAP om cellens indhold så hele "
-"outputtet bliver vist uden omformattering (Standard 1)"
+"manuelt at redigere filen "
+"libraries/transformations/text_plain__external.inc.php og indsætte de "
+"værktøjer du vil tillade kørsel af. Første indstilling er så nummeret på det "
+"program du vil bruge og den anden indstilling er parametrene for dette "
+"program. Tredie parameter vil, hvis sat til 1, konvertere outputtet vha. "
+"htmlspecialchars() (Standard er 1). Et fjerde parameter vil, hvis sat til 1, "
+"sætte et NOWRAP om cellens indhold så hele outputtet bliver vist uden "
+"omformattering (Standard 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:9
 #, fuzzy
