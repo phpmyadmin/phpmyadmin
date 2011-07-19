@@ -10000,10 +10000,9 @@ msgid "Clear series"
 msgstr "Počisti serije"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Serije:"
+msgstr "Serije v grafikonu:"
 
 #: server_status.php:1408
 #, fuzzy
