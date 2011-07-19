@@ -806,7 +806,7 @@ msgstr "Spor tabel"
 
 #: db_tracking.php:229
 msgid "Database Log"
-msgstr "Database log"
+msgstr "Databaselog"
 
 #: enum_editor.php:21 libraries/tbl_properties.inc.php:776
 #, php-format
