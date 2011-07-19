@@ -10005,10 +10005,9 @@ msgid "Series in Chart:"
 msgstr "Serije v grafikonu:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Nalaganje"
+msgstr "Dnevniki nalaganja"
 
 #: server_status.php:1411
 #, fuzzy
