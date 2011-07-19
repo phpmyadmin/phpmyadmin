@@ -3666,7 +3666,7 @@ msgstr "Hvor mange forespørgsler er gemt i historikken"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query history length"
-msgstr ""
+msgstr "Længde på forespørgselshistorik"
 
 #: libraries/config/messages.inc.php:342
 msgid "Tab displayed when opening a new query window"
