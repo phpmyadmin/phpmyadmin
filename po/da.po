@@ -6620,7 +6620,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:361
 msgid "Generate Password"
-msgstr "Generér Kodeord"
+msgstr "Generer kodeord"
 
 #: libraries/rte/rte_events.lib.php:102 libraries/rte/rte_events.lib.php:107
 #: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:254
