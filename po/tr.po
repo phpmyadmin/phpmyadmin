@@ -1293,10 +1293,9 @@ msgid "Current settings"
 msgstr "Şu anki ayarlar"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Çizelge başlığı"
+msgstr "Çizelge Başlığı"
 
 #. l10n: As in differential values
 #: js/messages.php:135
