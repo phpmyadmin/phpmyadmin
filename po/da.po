@@ -6816,10 +6816,9 @@ msgid "Edit routine"
 msgstr "Rediger rutine"
 
 #: libraries/rte/rte_routines.lib.php:820
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "Rutiner"
+msgstr "Rutinenavn"
 
 #: libraries/rte/rte_routines.lib.php:843
 msgid "Parameters"
