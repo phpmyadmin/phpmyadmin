@@ -10221,7 +10221,7 @@ msgstr "Vis"
 
 #: setup/frames/index.inc.php:228
 msgid "Load"
-msgstr ""
+msgstr "Indlæs"
 
 #: setup/frames/index.inc.php:239
 msgid "phpMyAdmin homepage"
