@@ -10082,7 +10082,7 @@ msgstr ""
 
 #: server_synchronize.php:446 server_synchronize.php:891
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Synkroniser databaser"
 
 #: server_synchronize.php:459
 msgid "Selected target tables have been synchronized with source tables."
