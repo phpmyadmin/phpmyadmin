@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:02+0200\n"
+"PO-Revision-Date: 2011-07-19 13:03+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3500,7 +3500,7 @@ msgstr "Dobbelt størrelse for textarea for LONGTEXT kolonner"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Større tekstområde for LONGTEXT"
 
 #: libraries/config/messages.inc.php:304
 msgid "Use icons on main page"
