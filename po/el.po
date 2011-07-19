@@ -1235,7 +1235,7 @@ msgstr "Το log_output δεν έχει οριστεί στο TABLE."
 
 #: js/messages.php:117
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Το log_output έχει οριστεί στο TABLE."
 
 #: js/messages.php:118
 #, php-format
