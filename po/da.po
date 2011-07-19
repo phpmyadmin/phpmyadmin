@@ -10553,7 +10553,7 @@ msgstr "X-akse:"
 
 #: tbl_chart.php:113
 msgid "Series:"
-msgstr ""
+msgstr "Serie:"
 
 #: tbl_chart.php:115
 #| msgid "Add/Delete Field Columns"
