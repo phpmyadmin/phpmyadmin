@@ -1131,7 +1131,7 @@ msgstr "Povezave / Procesi"
 #: js/messages.php:85
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Vprašanj od zadnje osvežitve"
+msgstr "Vprašanja od zadnje osvežitve"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
