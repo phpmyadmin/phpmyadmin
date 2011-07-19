@@ -10052,7 +10052,7 @@ msgstr "Serie auswählen:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Allgemein-überwacht"
 
 #: server_status.php:1376
 #, fuzzy
