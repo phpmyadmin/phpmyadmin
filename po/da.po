@@ -10664,7 +10664,7 @@ msgstr ""
 
 #: tbl_gis_visualization.php:204
 msgid "Redraw"
-msgstr ""
+msgstr "Gentegn"
 
 #: tbl_gis_visualization.php:206
 #| msgid "Save as file"
