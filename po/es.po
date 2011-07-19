@@ -10130,10 +10130,9 @@ msgid "Status variable(s)"
 msgstr "Variable(s) de estado"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Seleccionar tablas"
+msgstr "Seleccionar serie:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
