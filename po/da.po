@@ -3384,7 +3384,7 @@ msgstr "Brug lille version"
 
 #: libraries/config/messages.inc.php:279
 msgid "Maximum table tree depth"
-msgstr "Maksimal dybde på database-træ"
+msgstr "Maksimal dybde på databasetræ"
 
 #: libraries/config/messages.inc.php:280
 msgid "String that separates tables into different tree levels"
