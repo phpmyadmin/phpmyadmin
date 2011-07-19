@@ -3696,9 +3696,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"hvis TRUE vil logout slette cookies for alle servere; når sat til FALSE sker "
+"Hvis TRUE vil logout slette cookies for alle servere; når sat til FALSE sker "
 "logout kun for den aktuelle server.Sættes denne til FALSE, kan man let "
-"glemme at logge ud fra andre servere, når man er forbundet til flere servere."
+"glemme at logge ud fra andre servere, når man er forbundet til flere "
+"servere."
 
 #: libraries/config/messages.inc.php:295
 msgid "Delete all cookies on logout"
