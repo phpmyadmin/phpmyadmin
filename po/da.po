@@ -7166,10 +7166,9 @@ msgid "Create a page"
 msgstr "Opret en ny side"
 
 #: libraries/schema/User_Schema.class.php:95
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
-msgstr "Side nummer:"
+msgstr "Sidenavn"
 
 #: libraries/schema/User_Schema.class.php:99
 #| msgid "Automatic layout"
