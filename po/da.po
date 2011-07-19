@@ -10137,7 +10137,7 @@ msgstr "Valgte måltabeller er blevet synkroniseret med kildetabeller."
 
 #: server_synchronize.php:937
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Måldatabasen er blevet synkroniseret med kildedatabase."
 
 #: server_synchronize.php:998
 msgid "The following queries have been executed:"
