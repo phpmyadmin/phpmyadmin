@@ -4181,7 +4181,7 @@ msgstr "Lades tom hvis du ikke bruger config auth"
 
 #: libraries/config/messages.inc.php:402
 msgid "Password for config auth"
-msgstr ""
+msgstr "Kodeord for config auth"
 
 #: libraries/config/messages.inc.php:403
 msgid ""
