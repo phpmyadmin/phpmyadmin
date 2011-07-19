@@ -8997,7 +8997,7 @@ msgstr ""
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr ""
+msgstr "Overspringning af fejl kan føre til usynkroniseret master og slave!"
 
 #: server_replication.php:342
 msgid "Skip current error"
