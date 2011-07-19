@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-18 14:01+0200\n"
+"PO-Revision-Date: 2011-07-19 08:39+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -7350,7 +7350,7 @@ msgstr "Получаване на помощ"
 
 #: main.php:219
 msgid "List of changes"
-msgstr "Списък с промените"
+msgstr "Списък с промени"
 
 #: main.php:243
 msgid ""
