@@ -6855,7 +6855,7 @@ msgstr "Længde/Værdi*"
 #: libraries/rte/rte_routines.lib.php:887
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Tabel-indstillinger"
+msgstr "Retur-indstillinger"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
