@@ -1362,10 +1362,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Pojdi v zbirko podatkov"
+msgstr "Pojdi v dnevniško tabelo"
 
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
