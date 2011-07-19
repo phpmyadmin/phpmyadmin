@@ -3120,7 +3120,7 @@ msgstr "Indlejr eksport i en transaktion"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
-msgstr "Angiv eksporteringstidspunktet i UTC (Universal Time Coordinated)"
+msgstr "Angiv eksporttidspunktet i UTC (Universal Time Coordinated)"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
