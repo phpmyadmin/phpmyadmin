@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:40+0200\n"
+"PO-Revision-Date: 2011-07-19 21:41+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10506,7 +10506,7 @@ msgstr "Fjern BLOB Repository reference"
 
 #: tbl_change.php:806
 msgid "Binary - do not edit"
-msgstr " Binært - må ikke ændres "
+msgstr " Binært - må ikke ændres"
 
 #: tbl_change.php:854
 msgid "Upload to BLOB repository"
