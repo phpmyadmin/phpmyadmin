@@ -10334,7 +10334,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Ingen nyere stabil version er tilgængelig"
 
 #: setup/lib/index.lib.php:250
 #, php-format
