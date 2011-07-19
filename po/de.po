@@ -7779,7 +7779,7 @@ msgid ""
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
 "Stellt den Inhalt der Spalten in der ursprünglichen Formatierung dar, ohne "
-"dass diese htmlspecialchars() durchläuft.  Das heißt, es wird angenommen, "
+"dass diese htmlspecialchars() durchläuft. Das heißt, es wird angenommen, "
 "dass die Spalte gültiges HTML enthält."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
