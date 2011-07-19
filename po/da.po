@@ -4734,7 +4734,7 @@ msgstr "Cookie autentifikation"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP  autentifikation"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
