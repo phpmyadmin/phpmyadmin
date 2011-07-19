@@ -10060,7 +10060,7 @@ msgstr "Εκκαθάριση ρύθμισης εποπτείας"
 #: server_status.php:1320
 #| msgid "1. Introduction"
 msgid "Monitor Instructions"
-msgstr "Οδηγίες Οθόνης"
+msgstr "Οδηγίες Εποπτείας"
 
 #: server_status.php:1321
 msgid ""
