@@ -6822,7 +6822,7 @@ msgstr "Rutinenavn"
 
 #: libraries/rte/rte_routines.lib.php:843
 msgid "Parameters"
-msgstr ""
+msgstr "Parametre"
 
 #: libraries/rte/rte_routines.lib.php:848
 #| msgid "Direct links"
