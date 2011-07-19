@@ -54,9 +54,9 @@ $(function() {
     var charWidth;
     
     // Global vars
-    editLink = '<a href="#" class="editLink" onclick="return editVariable(this);"><img src="'+pma_theme_image+'b_edit.png" alt="" width="16" height="16"> '+PMA_messages['strEdit']+'</a>';
-    saveLink = '<a href="#" class="saveLink"><img src="'+pma_theme_image+'b_save.png" alt="" width="16" height="16"> '+PMA_messages['strSave']+'</a> ';
-    cancelLink = '<a href="#" class="cancelLink"><img src="'+pma_theme_image+'b_close.png" alt="" width="16" height="16"> '+PMA_messages['strCancel']+'</a> ';
+    editLink = '<a href="#" class="editLink" onclick="return editVariable(this);"><img src="'+pmaThemeImage+'b_edit.png" alt="" width="16" height="16"> '+PMA_messages['strEdit']+'</a>';
+    saveLink = '<a href="#" class="saveLink"><img src="'+pmaThemeImage+'b_save.png" alt="" width="16" height="16"> '+PMA_messages['strSave']+'</a> ';
+    cancelLink = '<a href="#" class="cancelLink"><img src="'+pmaThemeImage+'b_close.png" alt="" width="16" height="16"> '+PMA_messages['strCancel']+'</a> ';
 
 
     $.ajaxSetup({
@@ -129,7 +129,7 @@ $(function() {
     
     $('#filterText').keyup(function(e) {
         if($(this).val().length==0) textFilter=null;
-        else textFilter = new RegExp("(^| )"+$(this).val(),'i');
+        else textFilter = new RegExp("(^| )"+$(this).val().replace('_',' '),'i');
         filterVariables();
     });
     

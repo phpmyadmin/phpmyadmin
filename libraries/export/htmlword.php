@@ -346,7 +346,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             return false;
         }
     } // end while
-    PMA_DBI_free_result($result);
 
     return PMA_exportOutputHandler('</table>');
 }
