@@ -5564,10 +5564,9 @@ msgid "Columns escaped with:"
 msgstr "Felter escaped med"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Linjer afsluttet med"
+msgstr "Linjer afsluttet med:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
