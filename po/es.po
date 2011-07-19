@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 22:24+0200\n"
+"PO-Revision-Date: 2011-07-19 22:29+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10156,10 +10156,9 @@ msgid "Append unit to data values"
 msgstr "Agregar unidad a los valores"
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Agregar disparador"
+msgstr "Agregar esta serie"
 
 #: server_status.php:1397
 msgid "Clear series"
