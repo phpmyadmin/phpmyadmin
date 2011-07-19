@@ -10438,10 +10438,9 @@ msgid "Showing SQL query"
 msgstr "Viser SQL-forespørgsel"
 
 #: sql.php:683
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Validér SQL"
+msgstr "Valideret SQL"
 
 #: sql.php:990
 #, php-format
