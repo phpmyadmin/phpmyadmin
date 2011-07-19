@@ -10553,7 +10553,7 @@ msgstr "Rapporttitel"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-akse:"
 
 #: tbl_chart.php:113
 msgid "Series:"
