@@ -9928,7 +9928,7 @@ msgstr ""
 
 #: server_status.php:1285
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Instruktioner/Opsætning"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
