@@ -9959,7 +9959,7 @@ msgstr "Slet monitorkonfiguration"
 
 #: server_status.php:1320
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "Monitorinstruktioner"
 
 #: server_status.php:1321
 msgid ""
