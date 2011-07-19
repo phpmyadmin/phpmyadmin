@@ -6014,7 +6014,7 @@ msgstr "<code>INSERT DELAYED</code> forespørgsler"
 
 #: libraries/export/sql.php:228
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "<code>INSERT IGNORE</code> forspørgsler"
 
 #: libraries/export/sql.php:238
 msgid "Function to use when dumping data:"
