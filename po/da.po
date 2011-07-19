@@ -5472,7 +5472,7 @@ msgstr "Frie sider"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
-msgstr "Beskidte sider"
+msgstr "Ændrede sider"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
