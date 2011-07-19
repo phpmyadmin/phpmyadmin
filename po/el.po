@@ -6867,10 +6867,9 @@ msgstr ""
 "σας:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Δημιουργία προβολής"
+msgstr "Δημιουργία συμβάντος"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
