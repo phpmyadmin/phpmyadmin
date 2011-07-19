@@ -2921,7 +2921,7 @@ msgstr "Vis ikoner i advarsels-, fejl-, og informationsmeddelelser"
 
 #: libraries/config/messages.inc.php:67
 msgid "Iconic errors"
-msgstr "Ikon-fejl"
+msgstr "Ikonfejl"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
