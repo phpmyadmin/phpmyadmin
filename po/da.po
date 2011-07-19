@@ -9985,7 +9985,7 @@ msgstr "Anvend divisor"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Tilføj enhed til dataværdier"
 
 #: server_status.php:1395
 #| msgid "Add a new User"
