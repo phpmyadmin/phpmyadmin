@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 00:06+0200\n"
+"PO-Revision-Date: 2011-07-20 00:07+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10036,10 +10036,9 @@ msgid "Memory Usage"
 msgstr "Speicher-Auslastung"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Verbrauch"
+msgstr "Auslagerungsdatei-Nutzung"
 
 #: server_status.php:1357
 #, fuzzy
