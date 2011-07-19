@@ -4346,6 +4346,8 @@ msgstr "Tilføj DROP VIEW"
 #: libraries/config/messages.inc.php:434
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Definerer listen af forspørgsler, som auto-creation bruger for nye "
+"sessioner."
 
 #: libraries/config/messages.inc.php:435
 msgid "Statements to track"
