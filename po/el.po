@@ -9239,10 +9239,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Κυκλοφορία δικτύου από την εκκίνηση: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Αυτός ο διακομιστής MySQL λειτουργεί για %s. Ξεκίνησε στις %s."
+msgstr "Αυτός ο διακομιστής MySQL λειτουργεί για %1$s. Ξεκίνησε στις %2$s."
 
 #: server_status.php:819
 msgid ""
