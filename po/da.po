@@ -4500,7 +4500,6 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:192
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database export options"
 msgstr "Database eksportindstillinger"
