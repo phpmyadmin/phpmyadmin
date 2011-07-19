@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:52+0200\n"
+"PO-Revision-Date: 2011-07-19 18:53+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4177,7 +4177,7 @@ msgstr "Vis kun listede databaser"
 
 #: libraries/config/messages.inc.php:401 libraries/config/messages.inc.php:442
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Lades tom hvis du ikke bruger config auth"
 
 #: libraries/config/messages.inc.php:402
 msgid "Password for config auth"
