@@ -7108,7 +7108,7 @@ msgstr "Ingen rutine med navnet %1$s fundet i databasen %2$s"
 #: libraries/rte/rte_words.lib.php:24
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Der er ingen rutiner at vise"
+msgstr "Der er ingen rutiner at vise."
 
 #: libraries/rte/rte_words.lib.php:30
 #| msgid "Add a new User"
