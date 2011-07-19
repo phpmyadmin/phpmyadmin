@@ -5139,7 +5139,7 @@ msgstr "Format:"
 #: libraries/display_export.lib.php:331
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Formatspecifikke optioner:"
+msgstr "Formatspecifikke indstillinger:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
