@@ -10530,10 +10530,9 @@ msgid "Line"
 msgstr ""
 
 #: tbl_chart.php:88
-#, fuzzy
 #| msgid "Engines"
 msgid "Spline"
-msgstr "Lagre"
+msgstr "Spline"
 
 #: tbl_chart.php:89
 #, fuzzy
