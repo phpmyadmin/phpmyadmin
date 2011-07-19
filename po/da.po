@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:03+0200\n"
+"PO-Revision-Date: 2011-07-19 14:04+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4622,7 +4622,7 @@ msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
 
 #: libraries/dbi/mysql.dbi.lib.php:333
 msgid "Details..."
-msgstr ""
+msgstr "Detaljer..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
