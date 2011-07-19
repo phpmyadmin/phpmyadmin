@@ -11068,7 +11068,7 @@ msgstr ""
 
 #: tbl_tracking.php:411
 msgid "Tracking statements"
-msgstr ""
+msgstr "Sporingskommandoer"
 
 #: tbl_tracking.php:427 tbl_tracking.php:555
 #, php-format
