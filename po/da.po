@@ -7162,7 +7162,7 @@ msgstr "Vælg side"
 
 #: libraries/schema/User_Schema.class.php:207
 msgid "Select Tables"
-msgstr "Vælg Tabeller"
+msgstr "Vælg tabeller"
 
 #: libraries/schema/User_Schema.class.php:342
 #| msgid "Relational schema"
