@@ -7537,7 +7537,7 @@ msgstr "Tabel ser ud til at være tom!"
 #: libraries/tbl_links.inc.php:127
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Sporing af %s.%s er aktiveret."
 
 #: libraries/tbl_properties.inc.php:108
 #| msgid ""
