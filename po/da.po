@@ -4383,7 +4383,7 @@ msgstr "Bruger preference storage tabel"
 
 #: libraries/config/messages.inc.php:443
 msgid "User for config auth"
-msgstr ""
+msgstr "Bruger for config auth"
 
 #: libraries/config/messages.inc.php:444
 msgid ""
