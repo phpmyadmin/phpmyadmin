@@ -9096,10 +9096,9 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:651
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Relationer"
+msgstr "Relaterede links:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
