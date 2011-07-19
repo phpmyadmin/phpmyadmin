@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 22:07+0200\n"
+"PO-Revision-Date: 2011-07-19 22:08+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1356,7 +1356,7 @@ msgstr "Del registro general"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analizando y cargando registros. Esto puede demorar."
 
 #: js/messages.php:144
 msgid ""
