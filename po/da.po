@@ -3504,7 +3504,7 @@ msgstr "Større tekstområde for LONGTEXT"
 
 #: libraries/config/messages.inc.php:304
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Brug ikoner på hovedsiden"
 
 #: libraries/config/messages.inc.php:305
 msgid "Maximum number of characters used when a SQL query is displayed"
