@@ -10035,10 +10035,9 @@ msgid "Done rearranging/editing charts"
 msgstr "Ολοκληρώθηκε η επανατοποθέτηση/επεξεργασία διαγραμμάτων"
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Προσθήκη παραμέτρου"
+msgstr "Προσθήκη διαγράμματος"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
