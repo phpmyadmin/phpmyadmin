@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 19:26+0200\n"
+"PO-Revision-Date: 2011-07-19 19:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1183,10 +1183,9 @@ msgid "Edit labels and series"
 msgstr ""
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Kılavuza ayarla"
+msgstr "Çizelgeyi ızgaraya ekle"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
