@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:05+0200\n"
+"PO-Revision-Date: 2011-07-19 23:06+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7164,10 +7164,9 @@ msgid "trigger"
 msgstr "sprožilec"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Nimate zadostnih pravic za ustvarjanje nove rutine"
+msgstr "Nimate zadostnih pravic za ustvarjanje sprožilca"
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
