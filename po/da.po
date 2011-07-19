@@ -7306,7 +7306,7 @@ msgstr ""
 #: libraries/server_synchronize.lib.php:1281
 #: libraries/server_synchronize.lib.php:1302
 msgid "Current server"
-msgstr ""
+msgstr "Aktuel server"
 
 #: libraries/server_synchronize.lib.php:1283
 #: libraries/server_synchronize.lib.php:1304
