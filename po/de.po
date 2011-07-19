@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 00:04+0200\n"
+"PO-Revision-Date: 2011-07-20 00:05+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9961,10 +9961,9 @@ msgid "Start Monitor"
 msgstr "Überwachung starten"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Einführung"
+msgstr "Einführung/Einrichtung"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
