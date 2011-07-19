@@ -4987,7 +4987,7 @@ msgstr "Eksporterer rækker fra tabellen \"%s\""
 #: libraries/display_export.lib.php:90
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Eksportmetode"
+msgstr "Eksportmetode:"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
