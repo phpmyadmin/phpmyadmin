@@ -2606,7 +2606,7 @@ msgstr "Сървърен подпрозорец по подразбиране"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Показваният подпрозорец при отваряне на таблица"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
