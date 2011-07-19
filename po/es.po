@@ -1193,7 +1193,7 @@ msgstr "Eliminar gráfico"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Editar etiquetas y series"
 
 #: js/messages.php:105
 #, fuzzy
