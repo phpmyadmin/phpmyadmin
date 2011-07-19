@@ -5636,7 +5636,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
 msgid "Temp Log Threshold"
-msgstr ""
+msgstr "Midlertidig log tærskel"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
