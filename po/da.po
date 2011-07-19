@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 20:14+0200\n"
+"PO-Revision-Date: 2011-07-19 20:15+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7064,9 +7064,8 @@ msgid "You must provide a trigger name"
 msgstr "Du skal angive et triggernavn"
 
 #: libraries/rte/rte_triggers.lib.php:404
-#, fuzzy
 msgid "You must provide a valid timing for the trigger"
-msgstr "Du skal angive et gyldig tidspunkt for denne trigger"
+msgstr "Du skal angive et gyldig tidsinterval for denne trigger"
 
 #: libraries/rte/rte_triggers.lib.php:409
 msgid "You must provide a valid event for the trigger"
