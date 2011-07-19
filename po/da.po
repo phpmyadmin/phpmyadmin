@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:14+0200\n"
+"PO-Revision-Date: 2011-07-19 13:15+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3584,10 +3584,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Brug naturlig rækkefølge ved sortering af tabeller og databasenavne"
 
 #: libraries/config/messages.inc.php:322
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "Arrangér tabelrækkefølge efter"
+msgstr "Naturlig rækkefølge"
 
 #: libraries/config/messages.inc.php:323 libraries/config/messages.inc.php:333
 msgid "Use only icons, only text or both"
