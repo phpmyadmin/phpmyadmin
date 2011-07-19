@@ -7213,11 +7213,9 @@ msgid "routine"
 msgstr "ρουτίνα"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr ""
-"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ρουτίνα"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
