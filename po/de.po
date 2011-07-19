@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 00:05+0200\n"
+"PO-Revision-Date: 2011-07-20 00:06+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9988,10 +9988,9 @@ msgid "Chart columns:"
 msgstr "Schaubild-Spalten"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Benutzername für config Authentifikation"
+msgstr "Überwachungskonfiguration löschen"
 
 #: server_status.php:1320
 #, fuzzy
