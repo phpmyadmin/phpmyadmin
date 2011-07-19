@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 09:34+0200\n"
+"PO-Revision-Date: 2011-07-19 14:55+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5207,7 +5207,7 @@ msgstr "Преглед за печат (с пълните текстове)"
 
 #: libraries/display_tbl.lib.php:2494 tbl_chart.php:83
 msgid "Display chart"
-msgstr "Показване на диаграма"
+msgstr "Диаграма"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
