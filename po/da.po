@@ -6215,7 +6215,7 @@ msgstr "Send"
 
 #: libraries/mult_submits.inc.php:268
 msgid "Add table prefix"
-msgstr ""
+msgstr "Tilføj tabelpræfiks"
 
 #: libraries/mult_submits.inc.php:271
 msgid "Add prefix"
