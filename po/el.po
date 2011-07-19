@@ -7208,10 +7208,9 @@ msgid "Export of routine %s"
 msgstr "Εξαγωγή της ρουτίνας %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Εργασίες"
+msgstr "ρουτίνα"
 
 #: libraries/rte/rte_words.lib.php:22
 #, fuzzy
