@@ -7179,7 +7179,6 @@ msgid "There are no triggers to display."
 msgstr "Ni sprožilcev za prikaz."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
 msgstr "Dodaj dogodek"
