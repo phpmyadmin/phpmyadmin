@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:12+0200\n"
+"PO-Revision-Date: 2011-07-19 23:13+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9988,7 +9988,7 @@ msgstr "Uporabi delitelja"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Pripni enoto k vrednostim podatkov"
 
 #: server_status.php:1395
 #, fuzzy
