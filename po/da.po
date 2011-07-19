@@ -4587,7 +4587,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:485
 msgid "Suggest new database name"
-msgstr ""
+msgstr "Foreslå nyt databasenavn"
 
 #: libraries/config/messages.inc.php:486
 msgid "A warning is displayed on the main page if Suhosin is detected"
