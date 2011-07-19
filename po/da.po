@@ -3140,7 +3140,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr "Sorter fremmede nøgler i valgboks"
+msgstr "Orden af fremmednøgler i valgboks"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
