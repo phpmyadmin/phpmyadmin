@@ -7189,10 +7189,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Πρέπει να δώσετε ένα έγκυρο συμβάν για την ενέργεια."
 
 #: libraries/rte/rte_triggers.lib.php:415
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα έγκυρο όνομα πίνακα"
 
 #: libraries/rte/rte_triggers.lib.php:421
 #, fuzzy
