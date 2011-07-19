@@ -1182,10 +1182,9 @@ msgid "Settings"
 msgstr "Nastavitve"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Odstrani zbirko podatkov"
+msgstr "Odstrani grafikon"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
