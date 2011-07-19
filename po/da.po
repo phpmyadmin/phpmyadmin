@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 20:13+0200\n"
+"PO-Revision-Date: 2011-07-19 20:14+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6997,7 +6997,7 @@ msgstr "Du skal angive en gyldig returtype for rutinen"
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Du skal angive en rutinedefinition"
 
 #: libraries/rte/rte_routines.lib.php:1198
 #, php-format
