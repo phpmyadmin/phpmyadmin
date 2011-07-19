@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 00:02+0200\n"
+"PO-Revision-Date: 2011-07-20 00:03+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9191,10 +9191,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Netzwerk-Datenverkehr seit Start: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Dieser MySQL-Server läuft bereits %s. Er wurde am %s gestartet."
+msgstr "Dieser MySQL-Server läuft bereits %1$s. Er wurde um %2$s gestartet."
 
 #: server_status.php:819
 msgid ""
