@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:42+0200\n"
+"PO-Revision-Date: 2011-07-19 13:43+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3960,7 +3960,7 @@ msgstr "Databasenavn"
 
 #: libraries/config/messages.inc.php:407
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "Port hvorpå MySQL server lytter, lades tom for standard"
 
 #: libraries/config/messages.inc.php:408
 msgid "Server port"
