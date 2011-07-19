@@ -3229,7 +3229,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"Aktivér [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
+"Aktiver [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] komprimering for "
 "import og eksport-funktionerne"
 
 #: libraries/config/messages.inc.php:233
