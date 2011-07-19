@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:11+0200\n"
+"PO-Revision-Date: 2011-07-19 16:12+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7006,10 +7006,9 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "Ingen rutine med navnet %1$s fundet i databasen %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Der er ikke nogen filer at uploade"
+msgstr "Der er ingen rutiner at vise"
 
 #: libraries/rte/rte_words.lib.php:30
 #| msgid "Add a new User"
