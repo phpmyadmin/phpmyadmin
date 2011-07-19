@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 00:46+0200\n"
+"PO-Revision-Date: 2011-07-20 00:55+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8883,7 +8883,7 @@ msgstr "Master server ændret til %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr "Denne server er konfigureret som master i en replicationsproces."
+msgstr "Denne server er konfigureret som master i en replikationsproces."
 
 #: server_replication.php:182 server_status.php:459
 msgid "Show master status"
