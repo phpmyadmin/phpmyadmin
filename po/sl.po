@@ -1188,7 +1188,7 @@ msgstr "Odstrani grafikon"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Uredi oznake in serije"
 
 #: js/messages.php:105
 #, fuzzy
