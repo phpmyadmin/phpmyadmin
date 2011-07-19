@@ -1334,7 +1334,7 @@ msgstr ""
 
 #: js/messages.php:141
 msgid "From slow log"
-msgstr ""
+msgstr "Fra slow log"
 
 #: js/messages.php:142
 msgid "From general log"
