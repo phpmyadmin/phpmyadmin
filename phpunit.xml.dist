@@ -28,18 +28,18 @@
     </php>
 
     <testsuites>
+        <testsuite name="Classes">
+            <directory suffix="_test.php">test/classes</directory>
+        </testsuite>
         <testsuite name="Unit">
             <file>test/Environment_test.php</file>
             <directory suffix="_test.php">test/libraries/core</directory>
             <directory suffix="_test.php">test/libraries/common</directory>
             <directory suffix="_test.php">test/libraries</directory>
         </testsuite>
-        <testsuite name="Classes">
-            <directory suffix="_test.php">test/classes</directory>
-        </testsuite>
-        <testsuite name="Selenium">
-            <directory suffix="Test.php">test/selenium</directory>
-        </testsuite>
+        <!--<testsuite name="Selenium">-->
+            <!--<directory suffix="Test.php">test/selenium</directory>-->
+        <!--</testsuite>-->
     </testsuites>
 
     <logging>

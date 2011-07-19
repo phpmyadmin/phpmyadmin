@@ -6,14 +6,11 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'PHPUnit/Extensions/OutputTestCase.php';
-
 /*
  * Include to test.
  */
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
-require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Message.class.php';
 
 class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
@@ -207,10 +204,13 @@ class PMA_Message_test extends PHPUnit_Extensions_OutputTestCase
      */
     public function testAddMessages()
     {
-        $this->object->addMessage('test', '');
-        $this->assertEquals(array(PMA_Message::rawNotice('test')), $this->object->getAddedMessages());
-        $this->object->addMessage('test');
-        $this->assertEquals(array(PMA_Message::rawNotice('test'), ' ', PMA_Message::rawNotice('test')), $this->object->getAddedMessages());
+        $messages = array();
+        $messages[] = "Test1";
+        $messages[] = new PMA_Message("PMA_Test2", PMA_Message::ERROR);
+        $messages[] = "Test3";
+        $this->object->addMessages($messages, '');
+
+        $this->assertEquals(array(PMA_Message::rawNotice('Test1'), PMA_Message::error("PMA_Test2"), PMA_Message::rawNotice('Test3')), $this->object->getAddedMessages());
     }
 
     /**
