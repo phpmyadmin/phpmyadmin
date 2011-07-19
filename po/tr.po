@@ -1204,7 +1204,7 @@ msgstr "İzlemeye devam et"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "İzlemeyi duraklat"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
