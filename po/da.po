@@ -7170,7 +7170,7 @@ msgstr "Ingen hændelse med navnet %1$s fundet i database %2$s"
 #: libraries/rte/rte_words.lib.php:48
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Der er ingen hændelser at vise"
+msgstr "Der er ingen hændelser at vise."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
