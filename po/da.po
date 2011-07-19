@@ -9961,7 +9961,7 @@ msgstr "Benyttelse"
 
 #: server_status.php:1357
 msgid "Status variable(s)"
-msgstr ""
+msgstr "Statusvariabel/-ble"
 
 #: server_status.php:1359
 #, fuzzy
