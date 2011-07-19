@@ -7030,7 +7030,7 @@ msgstr "Funktion"
 #: libraries/rte/rte_triggers.lib.php:89
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Beklager, det lykkedes ikke at genetablere den slettede trigger"
+msgstr "Beklager, det lykkedes ikke at genetablere den slettede trigger."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
