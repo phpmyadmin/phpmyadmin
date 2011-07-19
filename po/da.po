@@ -3581,7 +3581,7 @@ msgstr "Hvor links til tablerækker skal vises"
 
 #: libraries/config/messages.inc.php:321
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Brug naturlig rækkefølge ved sortering af tabeller og databasenavne"
 
 #: libraries/config/messages.inc.php:322
 #, fuzzy
