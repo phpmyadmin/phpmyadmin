@@ -7319,7 +7319,7 @@ msgstr "Forskel"
 
 #: libraries/server_synchronize.lib.php:1300 server_synchronize.php:1113
 msgid "Target database"
-msgstr ""
+msgstr "Måldatabase"
 
 #: libraries/sql_query_form.lib.php:189
 #, php-format
