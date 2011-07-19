@@ -4432,7 +4432,7 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "Versionscheck"
 
 #: libraries/config/messages.inc.php:513
 msgid ""
