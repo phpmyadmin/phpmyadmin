@@ -5588,7 +5588,6 @@ msgstr "Excel-udgave:"
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:208
 #: libraries/export/texytext.php:26 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Database export options"
 msgid "Data dump options"
 msgstr "Database eksportindstillinger"
