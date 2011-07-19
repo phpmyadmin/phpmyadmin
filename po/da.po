@@ -3392,7 +3392,7 @@ msgstr "Streng, der inddeler tabeller i træ"
 
 #: libraries/config/messages.inc.php:281
 msgid "Table tree separator"
-msgstr "Separator til tabel-inddeling"
+msgstr "Separator til tabelinddeling"
 
 #: libraries/config/messages.inc.php:282
 msgid "URL where logo in the navigation frame will point to"
