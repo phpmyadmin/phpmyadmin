@@ -769,7 +769,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         $sql = 'SHOW FULL COLUMNS FROM '
             . PMA_backquote($database) . '.' . PMA_backquote($table);
         if (null !== $column) {
-            $sql .= " LIKE '" . $column . "'";
+            $sql .= " LIKE '" . PMA_sqlAddSlashes($column, true) . "'";
         }
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);

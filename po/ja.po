@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-14 09:21-0400\n"
-"PO-Revision-Date: 2011-06-27 12:34+0200\n"
+"POT-Creation-Date: 2011-07-14 18:39+0200\n"
+"PO-Revision-Date: 2011-07-18 11:16+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -619,8 +619,8 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
@@ -860,8 +860,8 @@ msgstr "ダンプをファイル %s に保存しました"
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1195,16 +1195,14 @@ msgid "Insert Table"
 msgstr "テーブルを挿入する"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "インデックスを追加する"
+msgstr "インデックスを隠す"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "グリッドを表示"
+msgstr "インデックスを表示する"
 
 #: js/messages.php:117
 msgid "Searching"
@@ -1816,11 +1814,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2010,7 +2008,7 @@ msgstr "設定ファイルの読み込みに失敗しました"
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
-msgstr ""
+msgstr "通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認してください。"
 
 #: libraries/common.inc.php:596
 #, php-format
@@ -2659,7 +2657,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr "複数テーブルのメンテナンスを無効にする"
+msgstr "複数のテーブルに対してのメンテナンスを無効にする"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -4229,13 +4227,12 @@ msgstr "「新規データベース作成」部分を表示する"
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
-msgstr ""
+msgstr "テーブルを閲覧するときに、表示方向のオプションが表示されるかどうかを定義します。"
 
 #: libraries/config/messages.inc.php:454
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "デフォルトの表示方向"
+msgstr "表示方向を表示する"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -4740,7 +4737,7 @@ msgstr "特権なし"
 #: libraries/display_create_table.lib.php:46
 #, php-format
 msgid "Create table on database %s"
-msgstr "データベース %s に新しいテーブルを作成する"
+msgstr "データベース %s にテーブルを作成する"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:49
 #: libraries/rte/rte_list.lib.php:55 libraries/rte/rte_list.lib.php:62
@@ -4848,8 +4845,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -4986,9 +4983,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"制限時間が近くなったときにスクリプト側でインポートを中断できるようにします。"
-"<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが壊れ"
-"ることもあります。)</i>"
+"制限時間が近くなったときに、スクリプト側でインポートを中断できるようにする。<i>(大きなファイルをインポートする場合には便利ですが、トランザクションが"
+"壊れることもあります。)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
@@ -5029,22 +5025,19 @@ msgid "%d is not valid row number."
 msgstr "%d は不正な行番号です"
 
 #: libraries/display_tbl.lib.php:436
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "土"
+msgstr "開始行"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "行数:"
+msgstr "表示行数"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "その他"
+msgstr "モード"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5061,7 +5054,7 @@ msgstr "垂直"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "%s 行毎にヘッダを表示"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
@@ -5620,8 +5613,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -6295,7 +6288,7 @@ msgstr "不明"
 #: libraries/navigation_header.inc.php:60
 #: libraries/navigation_header.inc.php:61
 msgid "Home"
-msgstr "メインページへ"
+msgstr "メインページ"
 
 #: libraries/navigation_header.inc.php:70
 #: libraries/navigation_header.inc.php:73
@@ -6493,7 +6486,6 @@ msgid "Generate Password"
 msgstr "パスワードを生成する"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
 msgstr "イベントを追加する"
@@ -6504,19 +6496,17 @@ msgid "Export of event %s"
 msgstr "イベント %s をエクスポートする"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
 #| msgid "Event"
 msgid "event"
 msgstr "イベント"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "ルーチンを作成する特権がありません"
+msgstr "イベントを作成する特権がありません"
 
 #: libraries/rte/rte_events.lib.php:63
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "データベース %2$s に %1$s という名前のイベントはありません"
@@ -6539,7 +6529,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 
 #: libraries/rte/rte_events.lib.php:140
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "申し訳ありませんが、削除されたイベントの復元に失敗しました。"
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6547,16 +6537,16 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "ルーチン %1$s を変更しました。"
+msgstr "イベント %1$s を変更しました。"
 
 #: libraries/rte/rte_events.lib.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "テーブル %1$s を作成しました。"
+msgstr "イベント %1$s を作成しました。"
 
 #: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
 #: libraries/rte/rte_triggers.lib.php:138
@@ -6564,16 +6554,14 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>リクエストの処理中に 1 つ以上のエラーが発生しました：</b>"
 
 #: libraries/rte/rte_events.lib.php:205
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "ビューを作成する"
+msgstr "イベントを作成する"
 
 #: libraries/rte/rte_events.lib.php:209
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "サーバの編集"
+msgstr "イベントを編集する"
 
 #: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
 #: libraries/rte/rte_routines.lib.php:1331
@@ -6588,10 +6576,9 @@ msgid "Details"
 msgstr "詳細"
 
 #: libraries/rte/rte_events.lib.php:398
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "イベント種別"
+msgstr "イベント名"
 
 #: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
 msgid "Event type"
@@ -6610,10 +6597,9 @@ msgid "Execute at"
 msgstr "実行"
 
 #: libraries/rte/rte_events.lib.php:454
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "実行"
+msgstr "イベントを実行する"
 
 #: libraries/rte/rte_events.lib.php:473
 #, fuzzy
@@ -6644,10 +6630,9 @@ msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "ルーチン名は必須です"
+msgstr "イベント名は必須です"
 
 #: libraries/rte/rte_events.lib.php:561
 #, fuzzy
@@ -6662,16 +6647,14 @@ msgid "You must provide a valid execution time for the event."
 msgstr "ルーチンの定義は必須です"
 
 #: libraries/rte/rte_events.lib.php:577
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
+msgstr "有効な種別イベントを指定してください"
 
 #: libraries/rte/rte_events.lib.php:596
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "ルーチンの定義は必須です"
+msgstr "イベントの定義は必須です"
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
@@ -6714,13 +6697,11 @@ msgid "Export of routine %s"
 msgstr "ルーチン %s のエクスポート"
 
 #: libraries/rte/rte_routines.lib.php:46
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
 msgstr "ルーチン"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "ルーチンを作成する特権がありません"
@@ -6844,10 +6825,9 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
 
 #: libraries/rte/rte_routines.lib.php:1126
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
+msgstr "ルーチンに対して、有効な返り値の種類を指定してください"
 
 #: libraries/rte/rte_routines.lib.php:1176
 msgid "You must provide a routine definition."
@@ -6880,7 +6860,6 @@ msgid "Function"
 msgstr "関数"
 
 #: libraries/rte/rte_triggers.lib.php:39
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "トリガを追加する"
@@ -6891,22 +6870,20 @@ msgid "Export of trigger %s"
 msgstr "トリガ %s をエクスポートする"
 
 #: libraries/rte/rte_triggers.lib.php:42
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
 msgstr "トリガ"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "ルーチンを作成する特権がありません"
+msgstr "トリガを作成する特権がありません"
 
 #: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "データベース %2$s に %1$s という名前のルーチンはありません"
+msgstr "データベース %2$s に %1$s という名前のトリガはありません"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
@@ -6917,40 +6894,36 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:118
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "ルーチン %1$s を変更しました。"
+msgstr "トリガ %1$s を変更しました。"
 
 #: libraries/rte/rte_triggers.lib.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "テーブル %1$s を作成しました。"
+msgstr "トリガ %1$s を作成しました。"
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "ビューを作成する"
+msgstr "トリガを作成する"
 
 #: libraries/rte/rte_triggers.lib.php:185
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "トリガを追加する"
+msgstr "トリガを編集する"
 
 #: libraries/rte/rte_triggers.lib.php:325
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "トリガ"
+msgstr "トリガ名"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "ルーチン名は必須です"
+msgstr "トリガ名は必須です"
 
 #: libraries/rte/rte_triggers.lib.php:428
 #, fuzzy
@@ -6959,22 +6932,19 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "ルーチン名は必須です"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "ルーチンの各パラメータに対して、名前と種別は必須です"
+msgstr "有効なトリガイベントを指定してください"
 
 #: libraries/rte/rte_triggers.lib.php:439
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "ルーチン名は必須です"
+msgstr "有効なテーブル名を指定してください"
 
 #: libraries/rte/rte_triggers.lib.php:445
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "ルーチンの定義は必須です"
+msgstr "トリガの定義は必須です"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
@@ -7777,7 +7747,7 @@ msgstr "名前でテーブルをフィルタする"
 #: navigation.php:306 navigation.php:307
 msgctxt "short form"
 msgid "Create table"
-msgstr "テーブルを作成"
+msgstr "テーブルを作成する"
 
 #: navigation.php:312 navigation.php:475
 msgid "Please select a database"
@@ -8459,8 +8429,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -8835,10 +8805,9 @@ msgid "All status variables"
 msgstr "全ての状態変数"
 
 #: server_status.php:413 server_status.php:439
-#, fuzzy
 #| msgid "Refresh rate"
 msgid "Refresh rate:"
-msgstr "再描画間隔"
+msgstr "再描画間隔："
 
 #: server_status.php:462
 msgid "Containing the word:"
@@ -9988,10 +9957,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:268
 #, php-format

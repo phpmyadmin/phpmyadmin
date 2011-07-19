@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-14 09:21-0400\n"
-"PO-Revision-Date: 2011-07-09 16:40+0200\n"
+"POT-Creation-Date: 2011-07-14 18:39+0200\n"
+"PO-Revision-Date: 2011-07-16 14:33+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -622,11 +622,11 @@ msgstr "Tracking is not active."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -862,11 +862,11 @@ msgstr "Dump has been saved to file %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 
 #: import.php:277 import.php:330 libraries/File.class.php:459
 #: libraries/File.class.php:543
@@ -1813,11 +1813,11 @@ msgstr "Welcome to %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2212,10 +2212,8 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "The %s functionality is affected by a known bug, see %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Click to select"
+msgstr "Click to toggle"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -4840,12 +4838,12 @@ msgstr ", @TABLE@ will become the table name"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
@@ -5607,11 +5605,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6492,10 +6490,8 @@ msgid "Generate Password"
 msgstr "Generate Password"
 
 #: libraries/rte/rte_events.lib.php:58
-#, fuzzy
-#| msgid "Add an event"
 msgid "Add event"
-msgstr "Add an event"
+msgstr "Add event"
 
 #: libraries/rte/rte_events.lib.php:60
 #, php-format
@@ -6503,22 +6499,18 @@ msgid "Export of event %s"
 msgstr "Export of event %s"
 
 #: libraries/rte/rte_events.lib.php:61
-#, fuzzy
-#| msgid "Event"
 msgid "event"
-msgstr "Event"
+msgstr "event"
 
 #: libraries/rte/rte_events.lib.php:62
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "You do not have the necessary privileges to create a new routine"
+msgstr "You do not have the necessary privileges to create an event"
 
 #: libraries/rte/rte_events.lib.php:63
-#, fuzzy, php-format
-#| msgid "No event with name %s found in database %s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s"
-msgstr "No event with name %s found in database %s"
+msgstr "No event with name %1$s found in database %2$s"
 
 #: libraries/rte/rte_events.lib.php:64
 msgid "There are no events to display."
@@ -6537,10 +6529,8 @@ msgid "The following query has failed: \"%s\""
 msgstr "The following query has failed: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:140
-#, fuzzy
-#| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Sorry, we failed to restore the dropped routine."
+msgstr "Sorry, we failed to restore the dropped event."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6548,16 +6538,14 @@ msgid "The backed up query was:"
 msgstr "The backed up query was:"
 
 #: libraries/rte/rte_events.lib.php:145
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "Routine %1$s has been modified."
+msgstr "Event %1$s has been modified."
 
 #: libraries/rte/rte_events.lib.php:157
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "Table %1$s has been created."
+msgstr "Event %1$s has been created."
 
 #: libraries/rte/rte_events.lib.php:165 libraries/rte/rte_routines.lib.php:319
 #: libraries/rte/rte_triggers.lib.php:138
@@ -6565,16 +6553,12 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>One or more errors have occurred while processing your request:</b>"
 
 #: libraries/rte/rte_events.lib.php:205
-#, fuzzy
-#| msgid "Create view"
 msgid "Create event"
-msgstr "Create view"
+msgstr "Create event"
 
 #: libraries/rte/rte_events.lib.php:209
-#, fuzzy
-#| msgid "Edit server"
 msgid "Edit event"
-msgstr "Edit server"
+msgstr "Edit event"
 
 #: libraries/rte/rte_events.lib.php:236 libraries/rte/rte_routines.lib.php:395
 #: libraries/rte/rte_routines.lib.php:1331
@@ -6589,10 +6573,8 @@ msgid "Details"
 msgstr "Details"
 
 #: libraries/rte/rte_events.lib.php:398
-#, fuzzy
-#| msgid "Event type"
 msgid "Event name"
-msgstr "Event type"
+msgstr "Event name"
 
 #: libraries/rte/rte_events.lib.php:419 server_binlog.php:182
 msgid "Event type"
@@ -6604,22 +6586,16 @@ msgid "Change to %s"
 msgstr "Change to %s"
 
 #: libraries/rte/rte_events.lib.php:446
-#, fuzzy
-#| msgid "Execute"
 msgid "Execute at"
-msgstr "Execute"
+msgstr "Execute at"
 
 #: libraries/rte/rte_events.lib.php:454
-#, fuzzy
-#| msgid "Execute"
 msgid "Execute every"
-msgstr "Execute"
+msgstr "Execute every"
 
 #: libraries/rte/rte_events.lib.php:473
-#, fuzzy
-#| msgid "Startup"
 msgid "Start"
-msgstr "Startup"
+msgstr "Start"
 
 #: libraries/rte/rte_events.lib.php:489 libraries/rte/rte_routines.lib.php:972
 #: libraries/rte/rte_triggers.lib.php:372
@@ -6627,10 +6603,8 @@ msgid "Definition"
 msgstr "Definition"
 
 #: libraries/rte/rte_events.lib.php:495
-#, fuzzy
-#| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "complete inserts"
+msgstr "On completion preserve"
 
 #: libraries/rte/rte_events.lib.php:499 libraries/rte/rte_routines.lib.php:982
 #: libraries/rte/rte_triggers.lib.php:378
@@ -6641,61 +6615,47 @@ msgstr "Definer"
 #: libraries/rte/rte_routines.lib.php:1044
 #: libraries/rte/rte_triggers.lib.php:416
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "The definer must be in the \"username@hostname\" format"
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "You must provide a routine name"
+msgstr "You must provide an event name"
 
 #: libraries/rte/rte_events.lib.php:561
-#, fuzzy
-#| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "You must provide a name and a type for each routine parameter."
+msgstr "You must provide a valid interval value for the event."
 
 #: libraries/rte/rte_events.lib.php:573
-#, fuzzy
-#| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "You must provide a routine definition."
+msgstr "You must provide a valid execution time for the event."
 
 #: libraries/rte/rte_events.lib.php:577
-#, fuzzy
-#| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "You must provide a name and a type for each routine parameter."
+msgstr "You must provide a valid type for the event."
 
 #: libraries/rte/rte_events.lib.php:596
-#, fuzzy
-#| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "You must provide a routine definition."
+msgstr "You must provide an event definition."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "New"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
-#| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "The event scheduler is enabled"
+msgstr "Event scheduler status"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
-#| msgid "Return type"
 msgid "Returns"
-msgstr "Return type"
+msgstr "Returns"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:344
 #: server_status.php:800 sql.php:943
@@ -6716,16 +6676,13 @@ msgid "Export of routine %s"
 msgstr "Export of routine %s"
 
 #: libraries/rte/rte_routines.lib.php:46
-#, fuzzy
-#| msgid "Routines"
 msgid "routine"
-msgstr "Routines"
+msgstr "routine"
 
 #: libraries/rte/rte_routines.lib.php:47
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "You do not have the necessary privileges to create a new routine"
+msgstr "You do not have the necessary privileges to create a routine"
 
 #: libraries/rte/rte_routines.lib.php:48
 #, php-format
@@ -6845,10 +6802,8 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "You must provide a name and a type for each routine parameter."
 
 #: libraries/rte/rte_routines.lib.php:1126
-#, fuzzy
-#| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "You must provide a name and a type for each routine parameter."
+msgstr "You must provide a valid return type for the routine.."
 
 #: libraries/rte/rte_routines.lib.php:1176
 msgid "You must provide a routine definition."
@@ -6882,10 +6837,8 @@ msgid "Function"
 msgstr "Function"
 
 #: libraries/rte/rte_triggers.lib.php:39
-#, fuzzy
-#| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Add a trigger"
+msgstr "Add trigger"
 
 #: libraries/rte/rte_triggers.lib.php:41
 #, php-format
@@ -6893,92 +6846,68 @@ msgid "Export of trigger %s"
 msgstr "Export of trigger %s"
 
 #: libraries/rte/rte_triggers.lib.php:42
-#, fuzzy
-#| msgid "Triggers"
 msgid "trigger"
-msgstr "Triggers"
+msgstr "trigger"
 
 #: libraries/rte/rte_triggers.lib.php:43
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "You do not have the necessary privileges to create a new routine"
+msgstr "You do not have the necessary privileges to create a trigger"
 
 #: libraries/rte/rte_triggers.lib.php:44
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "No routine with name %1$s found in database %2$s"
+msgstr "No trigger with name %1$s found in database %2$s"
 
 #: libraries/rte/rte_triggers.lib.php:45
 msgid "There are no triggers to display."
 msgstr "There are no triggers to display."
 
 #: libraries/rte/rte_triggers.lib.php:113
-#, fuzzy
-#| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Sorry, we failed to restore the dropped routine."
+msgstr "Sorry, we failed to restore the dropped trigger."
 
 #: libraries/rte/rte_triggers.lib.php:118
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Routine %1$s has been modified."
+msgstr "Trigger %1$s has been modified."
 
 #: libraries/rte/rte_triggers.lib.php:130
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Table %1$s has been created."
+msgstr "Trigger %1$s has been created."
 
 #: libraries/rte/rte_triggers.lib.php:181
-#, fuzzy
-#| msgid "Create view"
 msgid "Create trigger"
-msgstr "Create view"
+msgstr "Create trigger"
 
 #: libraries/rte/rte_triggers.lib.php:185
-#, fuzzy
-#| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Add a trigger"
+msgstr "Edit trigger"
 
 #: libraries/rte/rte_triggers.lib.php:325
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Triggers"
+msgstr "Trigger name"
 
 #: libraries/rte/rte_triggers.lib.php:423
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "You must provide a routine name"
+msgstr "You must provide a trigger name"
 
 #: libraries/rte/rte_triggers.lib.php:428
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "You must provide a routine name"
+msgstr "You must provide a valid timing for the trigger"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
-#| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "You must provide a name and a type for each routine parameter."
+msgstr "You must provide a valid event for the trigger"
 
 #: libraries/rte/rte_triggers.lib.php:439
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "You must provide a routine name"
+msgstr "You must provide a valid table name"
 
 #: libraries/rte/rte_triggers.lib.php:445
-#, fuzzy
-#| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "You must provide a routine definition."
+msgstr "You must provide a trigger definition."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
@@ -8464,13 +8393,13 @@ msgstr "Drop the databases that have the same names as the users."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 
 #: server_privileges.php:1764
 msgid "The selected user was not found in the privilege table."

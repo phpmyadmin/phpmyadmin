@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-14 09:21-0400\n"
-"PO-Revision-Date: 2011-07-11 20:39+0200\n"
-"Last-Translator:  <fulup.jakez@ofis-bzh.org>\n"
+"POT-Creation-Date: 2011-07-14 18:39+0200\n"
+"PO-Revision-Date: 2011-07-17 21:41+0200\n"
+"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: br\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -626,11 +626,11 @@ msgstr "N'eo ket oberiant an heuliañ."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2198
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an %"
-"steulioù titouriñ%s."
+"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an "
+"%steulioù titouriñ%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:152
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -867,11 +867,11 @@ msgstr "Enrollet eo bet ar restr ezporzhiañ e%s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an %"
-"steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
+"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an "
+"%steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
 
 #: import.php:277 import.php:330 libraries/File.class.php:459
 #: libraries/File.class.php:543
@@ -1824,11 +1824,11 @@ msgstr "Degemer mat e %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar %"
-"1$sskript kefluniañ%2$s da sevel unan."
+"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar "
+"%1$sskript kefluniañ%2$s da sevel unan."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2226,10 +2226,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Direizhet eo an arc'hwel %s gant un draen anavezet, sellit ouzh %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Klikañ evit diuzañ"
+msgstr "Klikañ evit gwintañ"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -2870,76 +2869,79 @@ msgstr "Ensoc'hadennoù gant dale"
 
 #: libraries/config/messages.inc.php:125 libraries/export/sql.php:79
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Implijout an eizhdekvedennad evit BLOB"
 
 #: libraries/config/messages.inc.php:130
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Arabat ensoc'hañ ul linenn a dalvez kement hag un alc'hwez nemetañ"
 
 #: libraries/config/messages.inc.php:132
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Ereadur d'ober gantañ pa vez ensoc'het roadennoù"
 
 #: libraries/config/messages.inc.php:133 libraries/export/sql.php:268
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Ment vrasañ ar reked krouet"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export type"
-msgstr ""
+msgstr "Seurt ezporzhiadenn"
 
 #: libraries/config/messages.inc.php:139 libraries/export/sql.php:71
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "Enklozañ an ezporzhiadenn en un treuzgread"
 
 #: libraries/config/messages.inc.php:140
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Ezporzhiañ an eur er furmad UTC"
 
 #: libraries/config/messages.inc.php:148
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Rediañ a ra kevreadennoù https etre ar servijer ha phpMyAdmin"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Rediañ ar c'hevreadennoù SSL"
 
 #: libraries/config/messages.inc.php:150
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; "
+"[kbd]content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo evit "
+"talvout an alc'hwez"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Urzh dispakañ an alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Ul lañser desachañ a vo implijet ma vez nebeutoc'h a elfennoù"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Bevenn evit an alc'hwezioù estren"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
-msgstr ""
+msgstr "Mod merdeiñ"
 
 #: libraries/config/messages.inc.php:155
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Personelaat ar mod merdeiñ"
 
 #: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:159
 #: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:187
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:217
 #: libraries/config/messages.inc.php:229
 msgid "Customize default options"
-msgstr ""
+msgstr "Personelaat an dibarzhioù dre ziouer"
 
 #: libraries/config/messages.inc.php:158 libraries/config/setup.forms.php:237
 #: libraries/config/setup.forms.php:316
@@ -2947,119 +2949,119 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:216 libraries/export/csv.php:19
 #: libraries/import/csv.php:22
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:160
 msgid "Developer"
-msgstr ""
+msgstr "Diorroer"
 
 #: libraries/config/messages.inc.php:161
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Arventennoù evit diorroerien phpMyAdmin"
 
 #: libraries/config/messages.inc.php:162
 msgid "Edit mode"
-msgstr ""
+msgstr "Mod aozañ"
 
 #: libraries/config/messages.inc.php:163
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Personelaat ar mod aozañ"
 
 #: libraries/config/messages.inc.php:165
 msgid "Export defaults"
-msgstr ""
+msgstr "Talvoudoù dre ziouer evit an ezporzhiañ"
 
 #: libraries/config/messages.inc.php:166
 msgid "Customize default export options"
-msgstr ""
+msgstr "Personelaat an talvoudoù ezporzhiañ implijet dre ziouer"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:209
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Dezverkoù"
 
 #: libraries/config/messages.inc.php:168
 msgid "General"
-msgstr ""
+msgstr "Dre-vras"
 
 #: libraries/config/messages.inc.php:169
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Termeniñ un nebeud dibarzhioù implijet ingal"
 
 #: libraries/config/messages.inc.php:170 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr ""
+msgstr "Enporzhiañ"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import defaults"
-msgstr ""
+msgstr "Talvoudoù enporzhiañ dre ziouer"
 
 #: libraries/config/messages.inc.php:172
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Personelaat an talvoudoù implijet dre ziouer"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr ""
+msgstr "Enporzhiañ / Ezporzhiañ"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Kefluniañ ar c'havlec'hioù enporzhiañ hag an dibarzhioù gwaskañ"
 
 #: libraries/config/messages.inc.php:175 libraries/export/latex.php:27
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTex"
 
 #: libraries/config/messages.inc.php:178
 msgid "Databases display options"
-msgstr ""
+msgstr "Dibarzhioù diskwel an diazoù roadennoù"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Taolenn verdeiñ"
 
 #: libraries/config/messages.inc.php:180
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Personelaat tres an daolenn verdeiñ"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:36
 #: setup/frames/index.inc.php:110
 msgid "Servers"
-msgstr ""
+msgstr "Servijerioù"
 
 #: libraries/config/messages.inc.php:182
 msgid "Servers display options"
-msgstr ""
+msgstr "Dibarzhioù diskwel ar servijerioù"
 
 #: libraries/config/messages.inc.php:184
 msgid "Tables display options"
-msgstr ""
+msgstr "Dibarzhioù diskwel an taolennoù"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Taolenn bennañ"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:188
 msgid "Open Document"
-msgstr ""
+msgstr "Testenn Open Document"
 
 #: libraries/config/messages.inc.php:190
 msgid "Other core settings"
-msgstr ""
+msgstr "Arventennoù pouezus all"
 
 #: libraries/config/messages.inc.php:191
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Arventennoù a bep seurt"
 
 #: libraries/config/messages.inc.php:192
 msgid "Page titles"
-msgstr ""
+msgstr "Titloù pajennoù"
 
 #: libraries/config/messages.inc.php:193
 msgid ""
@@ -3067,57 +3069,64 @@ msgid ""
 "html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
 "get special values."
 msgstr ""
+"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
+"[a@Documentation.html#cfg_TitleTable]teuliadur[/a] evit an neudennadoù hud a "
+"c'haller ober ganto."
 
 #: libraries/config/messages.inc.php:194
 #: libraries/navigation_header.inc.php:83
 #: libraries/navigation_header.inc.php:86
 #: libraries/navigation_header.inc.php:89
 msgid "Query window"
-msgstr ""
+msgstr "Prenestr klask"
 
 #: libraries/config/messages.inc.php:195
 msgid "Customize query window options"
-msgstr ""
+msgstr "Personelaat dibarzhioù ar prenestr klask"
 
 #: libraries/config/messages.inc.php:196
 msgid "Security"
-msgstr ""
+msgstr "Surentez"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Notennit mat n'eo phpMyAdmin nemet un etrefas ha n'eo ket bevennet e mod "
+"ebet MySQL gant an perzhioù anezhi"
 
 #: libraries/config/messages.inc.php:198
 msgid "Basic settings"
-msgstr ""
+msgstr "Arventennoù diazez"
 
 #: libraries/config/messages.inc.php:199
 msgid "Authentication"
-msgstr ""
+msgstr "Dilesadur"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
-msgstr ""
+msgstr "Arventennoù dilesañ"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
-msgstr ""
+msgstr "Kefluniadur ar servijer"
 
 #: libraries/config/messages.inc.php:202
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Kefluniadur pishoc'h; bezit sur e ouzit ar pezh a rit a-raok mont da gemmañ "
+"tra pe dra"
 
 #: libraries/config/messages.inc.php:203
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Merkañ arventennoù kevreañ ar servijer"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
-msgstr ""
+msgstr "Mirlec'h ar c'hefluniadurioù"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
@@ -3125,53 +3134,58 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
+"Kefluniañ ar stokañ kefluniadurioùl phpMyAdmin evit gweredekaat perzhioù "
+"ouzhpenn, gwelet [a@Documentation.html#linked-tables]phpMyAdmin "
+"configuration storage[/a] en teuliadur"
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
-msgstr ""
+msgstr "Heuliañ ar c'hemmoù"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
+"kefluniadurioù phpMyAdmin."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
-msgstr ""
+msgstr "Personelaat an dibarzhioù ezporzhiañ"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Personelaat an arventennoù enporzhiañ dre ziouer"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Personelaat ar framm merdeiñ"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize main frame"
-msgstr ""
+msgstr "Personelaat ar framm pennañ"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "Rekedoù SQL"
 
 #: libraries/config/messages.inc.php:215
 msgid "SQL Query box"
-msgstr ""
+msgstr "Boest rekedoù SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Personelaat al liammoù diskwelet er boestoù rekedoù SQL"
 
 #: libraries/config/messages.inc.php:219
 msgid "SQL queries settings"
-msgstr ""
+msgstr "Arventennoù ar rekedoù SQL"
 
 #: libraries/config/messages.inc.php:220
 msgid "SQL Validator"
-msgstr ""
+msgstr "Kadarnataer SQL"
 
 #: libraries/config/messages.inc.php:221
 msgid ""
@@ -3180,66 +3194,75 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Ma rit gant ar servij SQL Validator, notit mat e vez miret [strong]an "
+"disklêriadurioù en un doare dizanv evit sevel "
+"stadegoù[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
-msgstr ""
+msgstr "Pajenn deraouiñ"
 
 #: libraries/config/messages.inc.php:223
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personelaat ar bajenn deraouiñ"
 
 #: libraries/config/messages.inc.php:224
 msgid "Tabs"
-msgstr ""
+msgstr "Ivinelloù"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Personelaat an ivinelloù"
 
 #: libraries/config/messages.inc.php:226
 msgid "Text fields"
-msgstr ""
+msgstr "Maeziennoù testenn"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize text input fields"
-msgstr ""
+msgstr "Personelaat ar maeziennoù ebarzhiñ testenn"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "Testenn Texy!"
 
 #: libraries/config/messages.inc.php:230
 msgid "Warnings"
-msgstr ""
+msgstr "Kemennoù diwall"
 
 #: libraries/config/messages.inc.php:231
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Diweredekaat lod eus ar c'hemennoù diwall diskouezet gant phpMyAdmin"
 
 #: libraries/config/messages.inc.php:232
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Gweredekaat ar gwaskañ [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] evit an "
+"oberiadennoù enporzhiañ hag ezporzhiañ"
 
 #: libraries/config/messages.inc.php:233
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:234
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Arventennoù ouzhpenn evit iconv"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Ma vez gweredekaet e kendalc'h phpMyAdmin da blediñ gant ar rekedoù "
+"liesfrazennek ha pa vefe ur fazi gant unan anezho."
 
 #: libraries/config/messages.inc.php:236
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Na ober van ouzh ar fazioù er rekedoù liesfrazennek"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
@@ -3247,91 +3270,96 @@ msgid ""
 "This might be good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Aotren paouez gant an enporzhiañ m'emeur war-nes tizhout ar vevenn amzer. "
+"Gallout a ra sikour da enporzhiañ restroù bras, ha pa c'hallfe terriñ "
+"treuzgreadoù zo."
 
 #: libraries/config/messages.inc.php:238
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Enporzhiañ darnek : aotren paouez"
 
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Arabat paouez gant an enporzhiañ pa vez ur fazi gant INSERT"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
-msgstr ""
+msgstr "Erlec'hiañ roadennoù an daolenn gant re ar restr"
 
 #: libraries/config/messages.inc.php:246
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Furmad dre ziouer; bezit emskiantek ez eo ar roll-mañ diouzh al lec'hiadur "
+"(diaz roadennoù, taolenn) ha n'eus nemet SQL zo hegerz dalc'hmat"
 
 #: libraries/config/messages.inc.php:247
 msgid "Format of imported file"
-msgstr ""
+msgstr "Furmad ar restr enporzhiañ"
 
 #: libraries/config/messages.inc.php:251 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Ober gant ar ger-alc'hwez LOCAL"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
 msgid "Column names in first row"
-msgstr ""
+msgstr "Anvioù bannoù el linenn gentañ"
 
 #: libraries/config/messages.inc.php:255 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Arabat enporzhiañ linennoù goullo"
 
 #: libraries/config/messages.inc.php:256
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Enporzhiañ moneizioù ($5.00 a zeu da vezañ 5.00)"
 
 #: libraries/config/messages.inc.php:257
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Enporzhiañ an dregantadoù evel degelennoù (12.00% a zeu da vezañ .12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "Niver a rekedoù da lezel a-gostez adalek ar penn-kentañ"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Enporzhiañ darnek : lezel ar rekedoù a gostez"
 
 #: libraries/config/messages.inc.php:261
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Arabat ober gant AUTO_INCREMENT evit an talvoudoù par da mann"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Talvoud dre ziouer evit an takadoù riklañ"
 
 #: libraries/config/messages.inc.php:265
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "An niver a linennoù a c'haller ober ganto war un dro"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Niver a linennoù da ensoc'hañ"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Bukadenn evit an arlun moned prim"
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Diskouez al logo er banell verdeiñ gleiz"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display logo"
-msgstr ""
+msgstr "Diskouez al logo"
 
 #: libraries/config/messages.inc.php:270
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Diskouez dibab ar servijerioù e laez ar banell gefluniañ"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display servers selection"
@@ -4709,8 +4737,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:268
@@ -5402,8 +5430,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -8053,8 +8081,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1764

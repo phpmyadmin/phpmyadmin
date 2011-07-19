@@ -1217,6 +1217,7 @@ function changeMIMEType(db, table, reference, mime_type)
  */
 $(document).ready(function(){
     $(".inline_edit_sql").live('click', function(){
+        var server     = $(this).prev().find("input[name='server']").val();
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1232,7 +1233,8 @@ $(document).ready(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
                 window.location.replace("import.php"
-                                      + "?db=" + encodeURIComponent(db)
+                                      + "?server=" + encodeURIComponent(server)
+                                      + "&db=" + encodeURIComponent(db)
                                       + "&table=" + encodeURIComponent(table)
                                       + "&sql_query=" + encodeURIComponent(sql_query)
                                       + "&show_query=1"
@@ -2871,4 +2873,43 @@ $(document).ready(function() {
         }
     }; //end noSelect    
 })(jQuery);
+
+/**
+ * Create default PMA tooltip for the element specified. The default appearance
+ * can be overriden by specifying optional "options" parameter (see qTip options).
+ */
+function PMA_createqTip($elements, content, options) {
+    var o = {
+        content: content,
+        style: {
+            background: '#333',
+            border: {
+                radius: 5
+            },
+            fontSize: '0.8em',
+            padding: '0 0.5em',
+            name: 'dark'
+        },
+        position: {
+            target: 'mouse',
+            corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
+            adjust: { x: 20 }
+        },
+        show: {
+            delay: 0,
+            effect: {
+                type: 'grow',
+                length: 100
+            }
+        },
+        hide: {
+            effect: {
+                type: 'grow',
+                length: 150
+            }
+        }
+    }
+    
+    $elements.qtip($.extend(true, o, options));
+}
 
