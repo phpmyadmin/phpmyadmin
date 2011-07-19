@@ -8561,7 +8561,7 @@ msgstr "Tillader genindlæsning af serverindstillinger og tømning af caches."
 #: server_privileges.php:58 server_privileges.php:208
 #: server_privileges.php:566
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Giver brugeren rettigheder til at spørge hvor Slaves / Masters er."
+msgstr "Giver brugeren rettigheder til at spørge hvor slaves / masters er."
 
 #: server_privileges.php:59 server_privileges.php:207
 #: server_privileges.php:567
