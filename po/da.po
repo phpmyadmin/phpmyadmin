@@ -3834,7 +3834,7 @@ msgstr "brug GZip output buffering til forhøjet hastighed i HTTP overførsler"
 
 #: libraries/config/messages.inc.php:326
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZip output buffering"
 
 #: libraries/config/messages.inc.php:327
 msgid ""
