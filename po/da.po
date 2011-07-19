@@ -3836,7 +3836,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:381
 msgid "Control user"
-msgstr ""
+msgstr "Kontrolbruger"
 
 #: libraries/config/messages.inc.php:382
 msgid "Count tables when showing database list"
