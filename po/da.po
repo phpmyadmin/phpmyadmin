@@ -4354,7 +4354,7 @@ msgstr "Titel for vindue, når en database er valgt"
 
 #: libraries/config/messages.inc.php:494
 msgid "Title of browser window when nothing is selected"
-msgstr ""
+msgstr "Titel for vindue, når ingenting er valgt"
 
 #: libraries/config/messages.inc.php:495
 #| msgid "Default"
