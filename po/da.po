@@ -10432,7 +10432,7 @@ msgstr "Du tillader forbindelse til serveren uden password."
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Nøglen er for kort, den bør have mindst 8 tegn"
+msgstr "Nøglen er for kort, den bør have mindst 8 tegn."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
