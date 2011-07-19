@@ -10033,10 +10033,9 @@ msgid "Done rearranging/editing charts"
 msgstr "Se finalizó la reorganización/edición de gráficos"
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Agregar parámetro"
+msgstr "Agregar gráfico"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
