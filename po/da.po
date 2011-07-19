@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 17:33+0200\n"
+"PO-Revision-Date: 2011-07-19 17:39+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1174,10 +1174,9 @@ msgstr "Trafik"
 
 #: js/messages.php:102 libraries/server_links.inc.php:73
 #: server_status.php:1281
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Generelle relationsmuligheder"
+msgstr "Indstillinger"
 
 #: js/messages.php:103
 #, fuzzy
