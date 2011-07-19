@@ -8288,7 +8288,7 @@ msgstr "Import fra browserens lager."
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
+msgstr "Indstillinger vil blive importeret fra din browsers lokale lager."
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
