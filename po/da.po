@@ -5129,7 +5129,7 @@ msgstr "Visualiser GIS data"
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
-msgstr "Opret"
+msgstr "Opret view"
 
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
