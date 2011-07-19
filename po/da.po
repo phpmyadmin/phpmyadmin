@@ -7577,10 +7577,9 @@ msgid "PARTITION definition"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:779
-#, fuzzy
 #| msgid "Add a new User"
 msgid "+ Add a value"
-msgstr "Tilføj en ny bruger"
+msgstr "+ Tilføj en værdi"
 
 #: libraries/transformations/application_octetstream__download.inc.php:9
 #, fuzzy
