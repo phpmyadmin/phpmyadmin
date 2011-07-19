@@ -711,7 +711,7 @@ msgstr "Reparer tabel"
 
 #: db_structure.php:513 tbl_operations.php:627
 msgid "Analyze table"
-msgstr "Analysér tabel"
+msgstr "Analyser tabel"
 
 #: db_structure.php:515
 msgid "Add prefix to table"
