@@ -10077,7 +10077,7 @@ msgstr ""
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Indsæt række(r)"
 
 #: server_synchronize.php:441 server_synchronize.php:885
 msgid "Would you like to delete all the previous rows from target tables?"
