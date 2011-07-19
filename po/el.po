@@ -7159,10 +7159,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Η ενέργεια %1$s έχει δημιουργηθεί."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Δημιουργία προβολής"
+msgstr "Δημιουργία ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
