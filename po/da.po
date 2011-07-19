@@ -8238,7 +8238,7 @@ msgstr "Fejl ved lagring af koordinater for Designer."
 
 #: pmd_save_pos.php:52
 msgid "Modifications have been saved"
-msgstr "Rettelserne er gemt!"
+msgstr "Rettelserne er gemt"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
