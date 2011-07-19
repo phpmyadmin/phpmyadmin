@@ -8920,7 +8920,7 @@ msgstr "Fuld stop"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Reset slave"
 
 #: server_replication.php:326
 #, fuzzy
