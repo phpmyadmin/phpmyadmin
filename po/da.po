@@ -4173,7 +4173,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:400
 msgid "Show only listed databases"
-msgstr ""
+msgstr "Vis kun listede databaser"
 
 #: libraries/config/messages.inc.php:401 libraries/config/messages.inc.php:442
 msgid "Leave empty if not using config auth"
