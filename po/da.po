@@ -5960,7 +5960,7 @@ msgstr "Rapporttitel"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
-msgstr ""
+msgstr "PHP array"
 
 #: libraries/export/sql.php:38
 msgid ""
