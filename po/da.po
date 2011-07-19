@@ -3846,7 +3846,7 @@ msgstr "Optæl tabeller, når databaselisten vises"
 
 #: libraries/config/messages.inc.php:383
 msgid "Count tables"
-msgstr ""
+msgstr "Optæl tabeller"
 
 #: libraries/config/messages.inc.php:384
 msgid ""
