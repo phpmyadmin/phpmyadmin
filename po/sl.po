@@ -7116,10 +7116,9 @@ msgid "You must provide a valid table name"
 msgstr "Navesti morate veljavno ime tabele"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Navesti morate opredelitev rutine."
+msgstr "Navesti morate opredelitev sprožilca."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
