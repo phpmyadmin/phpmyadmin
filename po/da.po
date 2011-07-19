@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:31+0200\n"
+"PO-Revision-Date: 2011-07-19 21:32+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -11107,7 +11107,7 @@ msgstr "SQL dump"
 
 #: tbl_tracking.php:560
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Denne indstilling vil erstatte dine tabeller og gemt data."
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
