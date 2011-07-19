@@ -8820,7 +8820,7 @@ msgstr ""
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr ""
+msgstr "Ikke muligt at ændre master"
 
 #: server_replication.php:72
 #, php-format
