@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:01+0200\n"
+"PO-Revision-Date: 2011-07-19 13:02+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3496,7 +3496,7 @@ msgstr "Gyldighed for login cookie"
 
 #: libraries/config/messages.inc.php:302
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "Dobbelt størrelse for textarea for LONGTEXT kolonner"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
