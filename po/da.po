@@ -4760,10 +4760,9 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "Gem på serveren i mappen <b>%s</b> "
 
 #: libraries/display_export.lib.php:199
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Send (download)"
+msgstr "Gem output i en fil"
 
 #: libraries/display_export.lib.php:220
 #, fuzzy
