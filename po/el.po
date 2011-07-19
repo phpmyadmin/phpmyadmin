@@ -10126,10 +10126,9 @@ msgid "Memory Usage"
 msgstr "Χρήση Μνήμης"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Χρήση"
+msgstr "Χρήση Αδράνειας"
 
 #: server_status.php:1357
 #, fuzzy
