@@ -8960,7 +8960,7 @@ msgstr "Fuld stop"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr "Reset slave"
+msgstr "Nulstil slave"
 
 #: server_replication.php:326
 #| msgid "Structure only"
