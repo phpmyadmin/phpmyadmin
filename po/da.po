@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:46+0200\n"
+"PO-Revision-Date: 2011-07-19 13:47+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4041,10 +4041,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:425
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Viser kolonne-kommentarer"
+msgstr "Vis kolonnetabel"
 
 #: libraries/config/messages.inc.php:426
 msgid ""
