@@ -9997,7 +9997,7 @@ msgstr "CPU-forbrug"
 
 #: server_status.php:1351
 msgid "Memory Usage"
-msgstr ""
+msgstr "Hukommelsesforbrug"
 
 #: server_status.php:1354
 #| msgid "Usage"
