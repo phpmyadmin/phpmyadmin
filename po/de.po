@@ -9983,10 +9983,9 @@ msgid "Refresh rate:"
 msgstr "Aktualisierungs-Intervall:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Textfeldspalten"
+msgstr "Schaubild-Spalten"
 
 #: server_status.php:1317
 #, fuzzy
