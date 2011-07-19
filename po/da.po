@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 00:56+0200\n"
+"PO-Revision-Date: 2011-07-20 00:57+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -633,7 +633,7 @@ msgstr "Visning"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:435
 msgid "Replication"
-msgstr "Replikering"
+msgstr "Replikation"
 
 #: db_structure.php:442
 msgid "Sum"
