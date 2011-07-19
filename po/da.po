@@ -8230,7 +8230,7 @@ msgstr "anbefalet"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr "Fejl: Relation findes allerede."
+msgstr "Fejl: relation findes allerede."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
