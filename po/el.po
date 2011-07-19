@@ -10168,7 +10168,7 @@ msgstr "Προσθήκη αυτής της σειράς"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Εκκαθάριση σειράς"
 
 #: server_status.php:1400
 #, fuzzy
