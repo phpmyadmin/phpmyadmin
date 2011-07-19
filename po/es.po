@@ -10019,10 +10019,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "El número de procesos que no están en reposo."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Fila de inicio"
+msgstr "Iniciar monitorización"
 
 #: server_status.php:1285
 #, fuzzy
