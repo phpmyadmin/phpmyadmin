@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:52+0200\n"
+"PO-Revision-Date: 2011-07-19 14:53+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10427,7 +10427,7 @@ msgstr ""
 #: sql.php:661 tbl_replace.php:369
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Indsatte række id: %1$d"
 
 #: sql.php:678
 msgid "Showing as PHP code"
