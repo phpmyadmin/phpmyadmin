@@ -4512,7 +4512,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:481
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Aktiver SQL Validator"
 
 #: libraries/config/messages.inc.php:482
 msgid ""
