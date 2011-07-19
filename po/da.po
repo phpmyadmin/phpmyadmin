@@ -9117,7 +9117,7 @@ msgstr "Opdateringsrate:"
 #: server_status.php:629
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Indeholdende ordet"
+msgstr "Indeholdende ordet:"
 
 #: server_status.php:634
 #| msgid "Show open tables"
