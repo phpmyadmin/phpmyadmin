@@ -1004,7 +1004,7 @@ msgstr ""
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Ingen værdi i formularen !"
+msgstr "Ingen værdi i formularen!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
