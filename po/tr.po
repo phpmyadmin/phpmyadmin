@@ -1160,10 +1160,9 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Sürümler"
+msgstr "Sorular"
 
 #: js/messages.php:101 server_status.php:851
 msgid "Traffic"
