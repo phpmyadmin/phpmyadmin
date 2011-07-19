@@ -1220,7 +1220,7 @@ msgstr "slow_query_log etkinleştirildi."
 
 #: js/messages.php:115
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log ve general_log etkisizleştirildi."
 
 #: js/messages.php:116
 msgid "log_output is not set to TABLE."
