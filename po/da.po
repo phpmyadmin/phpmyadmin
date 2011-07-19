@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:54+0200\n"
+"PO-Revision-Date: 2011-07-19 22:55+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5340,10 +5340,9 @@ msgid "Relational key"
 msgstr "Relationel nøgle"
 
 #: libraries/display_tbl.lib.php:626
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Relationel skematik"
+msgstr "Relationel visningskolonne"
 
 #: libraries/display_tbl.lib.php:633
 msgid "Show binary contents"
