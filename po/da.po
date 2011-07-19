@@ -1917,7 +1917,7 @@ msgid ""
 "removed."
 msgstr ""
 "Indeks %1$s ser ud til at være identisk med indeks %2$s, så et af dem kan "
-"sikkert fjernes"
+"sikkert fjernes."
 
 #: libraries/List_Database.class.php:381 libraries/config/messages.inc.php:177
 #: libraries/server_links.inc.php:43 server_databases.php:100
