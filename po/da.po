@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 13:59+0200\n"
+"PO-Revision-Date: 2011-07-19 14:29+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4619,7 +4619,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:507
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Aktiver udviklerfanen i indstillinger"
 
 #: libraries/config/messages.inc.php:508
 msgid ""
@@ -4634,11 +4634,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:510 setup/frames/index.inc.php:241
 msgid "Check for latest version"
-msgstr ""
+msgstr "Check for den seneste version"
 
 #: libraries/config/messages.inc.php:511
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "Aktiverer check for den seneste version på hovedsiden for phpMyAdmin"
 
 #: libraries/config/messages.inc.php:512 setup/lib/index.lib.php:118
 #: setup/lib/index.lib.php:125 setup/lib/index.lib.php:142
@@ -4646,17 +4646,19 @@ msgstr ""
 #: setup/lib/index.lib.php:161 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:200
 msgid "Version check"
-msgstr ""
+msgstr "Versionscheck"
 
 #: libraries/config/messages.inc.php:513
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Aktiver [a@http://en.wikipedia.org/wiki/ZIP_(fil_format)]ZIP[/a] "
+"komprimering ved import and eksport operationer"
 
 #: libraries/config/messages.inc.php:514
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -4712,7 +4714,6 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:192
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database export options"
 msgstr "Database eksportindstillinger"
@@ -4736,7 +4737,7 @@ msgstr "Open Document tekst"
 
 #: libraries/config/validate.lib.php:197 libraries/config/validate.lib.php:204
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Kunne ikke forbinde til MySQL server"
 
 #: libraries/config/validate.lib.php:228
 msgid "Empty username while using config authentication method"
@@ -4761,7 +4762,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:359
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Ukorrekt IP-adresse: %s"
 
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
 #: libraries/core.lib.php:242
@@ -4782,7 +4783,7 @@ msgstr "Database ser ud til at være tom!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:140
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr ""
+msgstr "Sporing"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
@@ -4835,7 +4836,7 @@ msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
 
 #: libraries/dbi/mysql.dbi.lib.php:333
 msgid "Details..."
-msgstr ""
+msgstr "Detaljer..."
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
@@ -4858,14 +4859,12 @@ msgid "Password Hashing"
 msgstr "Kodeord Hashing"
 
 #: libraries/display_change_password.lib.php:65
-#, fuzzy
 #| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL&nbsp;4.0 kompatibel"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "Opret ny database"
@@ -4894,108 +4893,99 @@ msgid "Name"
 msgstr "Navn"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Antal felter"
+msgstr "Antal kolonner"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Kunne ikke indlæse eksportplugins, check venligst din installation!"
 
 #: libraries/display_export.lib.php:80
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "Tillader låsning af tabeller for nuværende tråd."
+msgstr "Eksporterer databaser fra den aktuelle server"
 
 #: libraries/display_export.lib.php:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Opret ny tabel i database %s"
+msgstr "Eksporterer tabeller fra database \"%s\""
 
 #: libraries/display_export.lib.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Opret ny tabel i database %s"
+msgstr "Eksporterer rækker fra tabellen \"%s\""
 
 #: libraries/display_export.lib.php:90
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Eksporttype"
+msgstr "Eksportmetode"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Hurtig - vis kun de minimale optioner"
 
 #: libraries/display_export.lib.php:122
 msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:130
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Databaser"
+msgstr "Database(r):"
 
 #: libraries/display_export.lib.php:132
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Tabeller"
+msgstr "Tabel(ler):"
 
 #: libraries/display_export.lib.php:142
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Rækker"
+msgstr "Rækker:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Hent nogle række(r)"
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Antal felter"
+msgstr "Antal rækker:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Begyndelsesrække:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
-msgstr ""
+msgstr "Hent alle rækker"
 
 #: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Gem på serveren i mappen %s "
+msgstr "Gem på serveren i mappen <b>%s</b> "
 
 #: libraries/display_export.lib.php:199
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Send (download)"
+msgstr "Gem output i en fil"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "Skabelon for filnavn"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ vil blive servernavnet"
 
 #: libraries/display_export.lib.php:224
 msgid ", @DATABASE@ will become the database name"
@@ -5006,7 +4996,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ""
 
 #: libraries/display_export.lib.php:230
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -5018,7 +5008,7 @@ msgid ""
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
-"vil blive bevaret som det er."
+"vil blive bevaret som det er. Se %4$sFAQ%5$s for detaljer."
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
@@ -5030,47 +5020,40 @@ msgid "Character set of the file:"
 msgstr "Tegnsæt for filen:"
 
 #: libraries/display_export.lib.php:304
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Komprimering"
+msgstr "Komprimering:"
 
 #: libraries/display_export.lib.php:308
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"zippet\""
+msgstr "zippet"
 
 #: libraries/display_export.lib.php:310
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzipped\""
+msgstr "gzipped"
 
 #: libraries/display_export.lib.php:312
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzipped\""
+msgstr "bzipped"
 
 #: libraries/display_export.lib.php:321
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Send (download)"
+msgstr "Se output som tekst"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/display_export.lib.php:331
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Transformationsindstillinger"
+msgstr "Formatspecifikke optioner:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
@@ -5091,7 +5074,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Filen behandles, vær tålmodig"
 
 #: libraries/display_import.lib.php:98
 msgid ""
@@ -5100,25 +5083,23 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Kan ikke logge ind på MySQL-serveren"
+msgstr "Importerer til den aktuelle server"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Importing into the database \"%s\""
-msgstr "Ingen databaser"
+msgstr "Importerer ind i databasen \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Importing into the table \"%s\""
-msgstr "Ingen databaser"
+msgstr "Importerer ind i tabellen \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
 msgstr "Fil til import"
@@ -5139,7 +5120,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Fil-uploads er ikke tilladte på denne server."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Delvis import"
@@ -5153,7 +5133,6 @@ msgstr ""
 "%d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -5164,14 +5143,13 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Tillad afbrydelse af import hvis scriptet er tæt på tidsgrænsen. Dette kan "
-"være en god metode til at importere større filer, men kan knække "
+"være en god metode til at importere større filer, men kan ødelægge "
 "transaktioner."
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Antal poster (queries) der skal springes over fra start"
+msgstr "Antal rækker, der skal springes over fra start"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -5183,14 +5161,13 @@ msgid "Language"
 msgstr "Sprog"
 
 #: libraries/display_tbl.lib.php:397
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Tilføj/Slet felt-kolonne"
+msgstr "Gendan kolonneorden"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Træk for at ændre orden"
 
 #: libraries/display_tbl.lib.php:418
 msgid "Click to sort"
@@ -5211,19 +5188,17 @@ msgstr "%d er ikke et gyldigt rækkenummer."
 
 #: libraries/display_tbl.lib.php:436
 msgid "Start row"
-msgstr ""
+msgstr "Startrække"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
-msgstr "Antal felter"
+msgstr "Antal rækker"
 
 #: libraries/display_tbl.lib.php:443
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Mere"
+msgstr "Tilstand"
 
 #: libraries/display_tbl.lib.php:445
 msgid "horizontal"
@@ -5231,7 +5206,7 @@ msgstr "vandret"
 
 #: libraries/display_tbl.lib.php:446
 msgid "horizontal (rotated headers)"
-msgstr "horisontalt (roterede overskrifter)"
+msgstr "vandret (roterede overskrifter)"
 
 #: libraries/display_tbl.lib.php:447
 msgid "vertical"
@@ -5240,7 +5215,7 @@ msgstr "lodret"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Overskrifter for hver %s rows"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
@@ -5266,20 +5241,18 @@ msgid "Options"
 msgstr "Indstillinger"
 
 #: libraries/display_tbl.lib.php:598 libraries/display_tbl.lib.php:608
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Delvise tekster"
 
 #: libraries/display_tbl.lib.php:599 libraries/display_tbl.lib.php:612
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Komplette tekster"
 
 #: libraries/display_tbl.lib.php:625
 msgid "Relational key"
-msgstr ""
+msgstr "Relationel nøgle"
 
 #: libraries/display_tbl.lib.php:626
 #, fuzzy
@@ -5302,7 +5275,7 @@ msgstr "Browser transformation"
 
 #: libraries/display_tbl.lib.php:650
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #: libraries/display_tbl.lib.php:651
 msgid "Well Known Text"
@@ -5313,8 +5286,9 @@ msgid "Well Known Binary"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:1303
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
@@ -5331,7 +5305,7 @@ msgstr "i forespørgsel"
 
 #: libraries/display_tbl.lib.php:2206
 msgid "Showing rows"
-msgstr "Viser poster "
+msgstr "Viser poster"
 
 #: libraries/display_tbl.lib.php:2216
 msgid "total"
@@ -5351,20 +5325,19 @@ msgid "Print view (with full texts)"
 msgstr "Udskrift-visning (med fulde tekster)"
 
 #: libraries/display_tbl.lib.php:2494 tbl_chart.php:83
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Vis PDF-skematik"
+msgstr "Vis kort"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualiser GIS data"
 
 #: libraries/display_tbl.lib.php:2529
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
-msgstr "Opret"
+msgstr "Opret view"
 
 #: libraries/display_tbl.lib.php:2629
 msgid "Link not found"
@@ -5420,7 +5393,7 @@ msgstr "InnoDB status"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr "Buffer Pool Forbrug"
+msgstr "Buffer Pool forbrug"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
@@ -5480,7 +5453,7 @@ msgstr "Write waits i %"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
-msgstr "Data pointer størrelse"
+msgstr "Data pointer-størrelse"
 
 #: libraries/engines/myisam.lib.php:23
 msgid ""
@@ -5633,10 +5606,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Relationer"
+msgstr "Relaterede links"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -5699,7 +5671,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Checkpoint frekvens"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid ""
@@ -5784,16 +5756,14 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Linjer afsluttet med"
+msgstr "Kolonner adskilt med"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Felter indrammet med"
+msgstr "Kolonner indrammet med:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #, fuzzy
@@ -5802,34 +5772,30 @@ msgid "Columns escaped with:"
 msgstr "Felter escaped med"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Linjer afsluttet med"
+msgstr "Linjer afsluttet med:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
 #: libraries/export/xls.php:24 libraries/export/xlsx.php:24
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Erstat NULL med"
+msgstr "Erstat NULL med:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:33
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel-udgave"
+msgstr "Excel-udgave:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:208
 #: libraries/export/texytext.php:26 libraries/export/xml.php:45
-#, fuzzy
 #| msgid "Database export options"
 msgid "Data dump options"
 msgstr "Database eksportindstillinger"
@@ -5864,23 +5830,20 @@ msgid "Object creation options"
 msgstr "Transformationsindstillinger"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Tabeloverskrift"
+msgstr "Tabeloverskrift (fortsat)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:54
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Slå fremmednøgle-checks fra"
+msgstr "Vis fremmednøgle-relationer"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Viser kolonne-kommentarer"
+msgstr "Vis kommentarer"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:61
