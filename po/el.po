@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:21+0200\n"
+"PO-Revision-Date: 2011-07-19 21:22+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7147,10 +7147,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ενέργεια."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
+msgstr "Η ενέργεια %1$s έχει αλλαχτεί."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, fuzzy, php-format
