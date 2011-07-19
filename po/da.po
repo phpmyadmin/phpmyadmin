@@ -6523,7 +6523,7 @@ msgstr "ingen beskrivelse"
 
 #: libraries/replication_gui.lib.php:53
 msgid "Slave configuration"
-msgstr ""
+msgstr "Slavekonfiguration"
 
 #: libraries/replication_gui.lib.php:53 server_replication.php:353
 msgid "Change or reconfigure master server"
