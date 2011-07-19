@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 09:30+0200\n"
+"PO-Revision-Date: 2011-07-19 09:31+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2325,8 +2325,7 @@ msgstr "Потребителско - всички настройки"
 
 #: libraries/config.values.php:102
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
-"Потребителско - като горното, но без показване на избор бързо/потребителско"
+msgstr "Потребителско - като горното, но без избор бързо/потребителско"
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
