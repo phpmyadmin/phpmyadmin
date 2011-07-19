@@ -10145,10 +10145,9 @@ msgid "Commonly monitored"
 msgstr "Συχνά εποπτευόμενα"
 
 #: server_status.php:1376
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "or type variable name:"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "ή όνομα τύπου μεταβλητής"
 
 #: server_status.php:1380
 msgid "Display as differential value"
