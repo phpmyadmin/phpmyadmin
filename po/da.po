@@ -7682,7 +7682,7 @@ msgstr ""
 
 #: libraries/transformations/image_jpeg__link.inc.php:9
 msgid "Displays a link to download this image."
-msgstr "Viser et link til dette billede (f.eks. direkte blob-download)."
+msgstr "Viser et link til dette billede til download."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:9
 #, fuzzy
