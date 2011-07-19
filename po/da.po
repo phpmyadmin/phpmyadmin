@@ -9924,7 +9924,7 @@ msgstr "Antallet af tråde der ikke sover."
 
 #: server_status.php:1277
 msgid "Start Monitor"
-msgstr ""
+msgstr "Start Monitor"
 
 #: server_status.php:1285
 msgid "Instructions/Setup"
