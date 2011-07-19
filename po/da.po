@@ -5169,7 +5169,7 @@ msgstr "Importerer ind i tabellen \"%s\""
 #: libraries/display_import.lib.php:139
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Fil til import"
+msgstr "Fil til import:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
