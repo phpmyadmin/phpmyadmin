@@ -10522,7 +10522,7 @@ msgstr "Indsæt som ny række og ignorer fejl"
 
 #: tbl_change.php:985
 msgid "Show insert query"
-msgstr ""
+msgstr "Vis indsættelsesforespørgsel"
 
 #: tbl_change.php:996
 msgid "and then"
