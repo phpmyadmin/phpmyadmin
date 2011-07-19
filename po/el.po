@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:01+0200\n"
+"PO-Revision-Date: 2011-07-19 21:02+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1309,10 +1309,9 @@ msgid "Current settings"
 msgstr "Τρέχουσες ρυθμίσεις"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Τίτλος διαγράμματος"
+msgstr "Τίτλος Διαγράμματος"
 
 #. l10n: As in differential values
 #: js/messages.php:135
