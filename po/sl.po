@@ -6773,10 +6773,10 @@ msgid "Event %1$s has been modified."
 msgstr "Dogodek %1$s je bil spremenjen."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Tabela %1$s je ustvarjena."
+msgstr "Dogodek %1$s je ustvarjen."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
