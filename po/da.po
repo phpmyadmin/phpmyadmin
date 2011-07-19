@@ -5078,8 +5078,9 @@ msgid "Well Known Binary"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:1303
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
