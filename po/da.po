@@ -10560,10 +10560,9 @@ msgid "Series:"
 msgstr ""
 
 #: tbl_chart.php:115
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "The remaining columns"
-msgstr "Tilføj/Slet felt-kolonne"
+msgstr "De resterende kolonner"
 
 #: tbl_chart.php:128
 msgid "X-Axis label:"
