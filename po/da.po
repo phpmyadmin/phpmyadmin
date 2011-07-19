@@ -3818,7 +3818,7 @@ msgstr "Komprimer forbindelse"
 
 #: libraries/config/messages.inc.php:377
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "Hvordan forbindes til server, behold  [kbd]tcp[/kbd] hvis usikker"
+msgstr "Hvordan forbindes til server, behold [kbd]tcp[/kbd] hvis usikker"
 
 #: libraries/config/messages.inc.php:378
 msgid "Connection type"
