@@ -6903,10 +6903,9 @@ msgid "Change to %s"
 msgstr "Αλλαγή σε %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Εκτέλεση"
+msgstr "Εκτέλεση σε"
 
 #: libraries/rte/rte_events.lib.php:430
 #, fuzzy
