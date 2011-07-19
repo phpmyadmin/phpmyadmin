@@ -5639,10 +5639,9 @@ msgstr "Vis kommentarer"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:61
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Tilgængelige MIME-typer"
+msgstr "Vis MIME-typer"
 
 #: libraries/export/latex.php:129 libraries/export/sql.php:456
 #: libraries/export/xml.php:95 libraries/header_printview.inc.php:56
