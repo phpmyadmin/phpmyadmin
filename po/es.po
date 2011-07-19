@@ -9216,10 +9216,10 @@ msgstr "Enlaces relacionados:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Tráfico de red desde el inicio: %s"
+msgstr "Preguntas desde el inicio: %s"
 
 #: server_status.php:701 server_status.php:736 server_status.php:852
 #: server_status.php:897
