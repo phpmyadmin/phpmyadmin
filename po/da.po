@@ -5262,7 +5262,7 @@ msgstr "Relationel skematik"
 
 #: libraries/display_tbl.lib.php:633
 msgid "Show binary contents"
-msgstr ""
+msgstr "Vis binært indhold"
 
 #: libraries/display_tbl.lib.php:635
 msgid "Show BLOB contents"
