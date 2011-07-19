@@ -4548,7 +4548,7 @@ msgstr ""
 #: libraries/config/validate.lib.php:359
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Ukorrekt IP-adresse: %s"
 
 #. l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation.
 #: libraries/core.lib.php:242
