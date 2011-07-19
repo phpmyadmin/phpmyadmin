@@ -1210,7 +1210,7 @@ msgstr "keine"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Überwachung fortsetzen"
 
 #: js/messages.php:110
 msgid "Pause monitor"
