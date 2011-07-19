@@ -10772,10 +10772,9 @@ msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: tbl_operations.php:712
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Delete the table (DROP)"
-msgstr "Kopiér database til"
+msgstr "Slet tabellen (DROP)"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"
