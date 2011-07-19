@@ -10006,10 +10006,9 @@ msgid "Series in Chart:"
 msgstr ""
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Indlæser"
+msgstr "Indlæser logs"
 
 #: server_status.php:1411
 #, fuzzy
