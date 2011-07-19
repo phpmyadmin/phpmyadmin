@@ -3724,7 +3724,7 @@ msgstr "Reparér tråde"
 
 #: libraries/config/messages.inc.php:354
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Vis hjælpeknap i stedet for dokumentationsteksten"
 
 #: libraries/config/messages.inc.php:355
 msgid "Show help button"
