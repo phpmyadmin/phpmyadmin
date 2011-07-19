@@ -7069,10 +7069,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "Ingen tabeller fundet i databasen"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Der er ikke nogen filer at uploade"
+msgstr "Der er ingen hændelser at vise"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
