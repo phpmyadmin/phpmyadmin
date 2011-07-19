@@ -4593,7 +4593,7 @@ msgstr "Foreslå nyt databasenavn"
 
 #: libraries/config/messages.inc.php:486
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "En advarsel vises på hovedsiden, hvis Suhosin er detekteret"
 
 #: libraries/config/messages.inc.php:487
 msgid "Suhosin warning"
