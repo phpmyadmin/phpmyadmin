@@ -6830,10 +6830,9 @@ msgid "Execute every"
 msgstr "Izvedi vsakih"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Zagon"
+msgstr "Začetek"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:348
