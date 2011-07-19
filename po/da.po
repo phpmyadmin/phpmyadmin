@@ -5835,7 +5835,7 @@ msgstr "Kolonner indrammet med:"
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Kolonner escaped med"
+msgstr "Kolonner escaped med:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 #| msgid "Lines terminated by"
