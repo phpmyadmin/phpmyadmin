@@ -1200,7 +1200,7 @@ msgstr "Yok"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "İzlemeye devam et"
 
 #: js/messages.php:110
 msgid "Pause monitor"
