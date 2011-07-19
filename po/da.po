@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:45+0200\n"
+"PO-Revision-Date: 2011-07-19 15:46+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8188,7 +8188,7 @@ msgstr "Rettelserne er gemt!"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "Kan ikke gemme indstillinger, den sendte formular indeholder fejl"
 
 #: prefs_manage.php:80
 #| msgid "Could not load default configuration from: \"%1$s\""
