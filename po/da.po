@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:33+0200\n"
+"PO-Revision-Date: 2011-07-19 14:34+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5845,7 +5845,7 @@ msgstr "Åbn nyt phpMyAdmin vindue"
 
 #: libraries/gis_visualization.lib.php:129
 msgid "No data found for GIS visualization."
-msgstr ""
+msgstr "Ingen data funder for GIS visualization"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
