@@ -6923,10 +6923,9 @@ msgid "Definition"
 msgstr "Προσδιορισμός"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "πλήρεις εντολές εισαγωγής (Insert)"
+msgstr "Διατήρηση με την ολοκλήρωση"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
