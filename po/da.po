@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:48+0200\n"
+"PO-Revision-Date: 2011-07-19 14:49+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10577,10 +10577,9 @@ msgid "Y-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:129
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Værdi"
+msgstr "Y-værdier"
 
 #: tbl_create.php:30
 #, php-format
