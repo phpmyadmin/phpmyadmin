@@ -6944,10 +6944,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Rutine %1$s er oprettet,"
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create"
 msgid "Create trigger"
-msgstr "Opret"
+msgstr "Opret trigger"
 
 #: libraries/rte/rte_triggers.lib.php:161
 #| msgid "Add a new User"
