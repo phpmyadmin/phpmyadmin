@@ -1205,7 +1205,7 @@ msgstr "Ingen"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Genstart monitor"
 
 #: js/messages.php:110
 msgid "Pause monitor"
