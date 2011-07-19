@@ -10170,10 +10170,9 @@ msgid "Series in Chart:"
 msgstr "Series en el gráfico:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Cargando"
+msgstr "Cargando registros"
 
 #: server_status.php:1411
 #, fuzzy
