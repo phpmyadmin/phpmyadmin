@@ -8912,7 +8912,7 @@ msgstr "Kontrolslave:"
 
 #: server_replication.php:323
 msgid "Full start"
-msgstr ""
+msgstr "Fuld start"
 
 #: server_replication.php:323
 msgid "Full stop"
