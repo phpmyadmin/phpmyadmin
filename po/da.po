@@ -8845,7 +8845,7 @@ msgstr "Ukendt fejl"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "Ikke muligt at forbinde til master %s"
+msgstr "Ikke muligt at forbinde til master %s."
 
 #: server_replication.php:63
 msgid ""
