@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:37+0200\n"
+"PO-Revision-Date: 2011-07-19 16:38+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6071,7 +6071,7 @@ msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 #: libraries/import.lib.php:1076
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du: "
 
 #: libraries/import.lib.php:1077
 msgid "View a structure`s contents by clicking on its name"
