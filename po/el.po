@@ -1181,10 +1181,9 @@ msgid "Settings"
 msgstr "Ρυθμίσεις"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Μετακίνηση βάσης δεδομένων σε"
+msgstr "Απομάκρυνση διαγράμματος"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
