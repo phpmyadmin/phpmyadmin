@@ -8245,7 +8245,7 @@ msgstr ""
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr ""
+msgstr "Flet med aktuel konfiguration"
 
 #: prefs_manage.php:277
 #, php-format
