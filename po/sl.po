@@ -6784,10 +6784,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Ustvari pogled"
+msgstr "Ustvari dogodek"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
