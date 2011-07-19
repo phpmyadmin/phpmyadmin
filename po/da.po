@@ -6800,7 +6800,7 @@ msgstr "Beklager, det lykkedes ikke at genetablere den slettede rutine."
 #: libraries/rte/rte_routines.lib.php:273
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Tabel \"%1$s\" er slettet"
+msgstr "Rutine \"%1$s\" er blevet ændret"
 
 #: libraries/rte/rte_routines.lib.php:286
 #, php-format
