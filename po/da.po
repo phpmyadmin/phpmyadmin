@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:45+0200\n"
+"PO-Revision-Date: 2011-07-19 13:46+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4019,7 +4019,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:420
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Brug SSL til forbindelse til MySQL-serveren"
 
 #: libraries/config/messages.inc.php:421
 msgid "Use SSL"
