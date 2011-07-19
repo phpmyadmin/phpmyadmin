@@ -10823,7 +10823,7 @@ msgstr "Fjern partitionering"
 
 #: tbl_operations.php:786
 msgid "Check referential integrity:"
-msgstr "Check reference-integriteten"
+msgstr "Check reference-integriteten:"
 
 #: tbl_printview.php:72
 msgid "Show tables"
