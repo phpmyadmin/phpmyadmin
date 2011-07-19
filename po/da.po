@@ -3902,7 +3902,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:395
 msgid "Server hostname"
-msgstr ""
+msgstr "Servernavn"
 
 #: libraries/config/messages.inc.php:396
 msgid "Logout URL"
