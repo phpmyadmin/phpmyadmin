@@ -4886,10 +4886,10 @@ msgid "Importing into the database \"%s\""
 msgstr "Importerer ind i databasen \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Importing into the table \"%s\""
-msgstr "Ingen databaser"
+msgstr "Importerer ind i tabellen \"%s\""
 
 #: libraries/display_import.lib.php:139
 #, fuzzy
