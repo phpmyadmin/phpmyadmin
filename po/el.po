@@ -6848,10 +6848,10 @@ msgid "The backed up query was:"
 msgstr "Το εφεδρικό ερώτημα ήταν:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
+msgstr "Το συμβάν %1$s έχει αλλαχτεί."
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
