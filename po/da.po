@@ -3742,7 +3742,7 @@ msgstr "Dobbelt størrelse for tekstboks for LONGTEXT kolonner"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
-msgstr "Større tekstområde for LONGTEXT"
+msgstr "Større tekstboks for LONGTEXT"
 
 #: libraries/config/messages.inc.php:304
 msgid "Use icons on main page"
