@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 00:59+0200\n"
+"PO-Revision-Date: 2011-07-20 01:02+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2400,7 +2400,7 @@ msgstr "I linje"
 
 #: libraries/common.lib.php:1256 sql.php:938
 msgid "Profiling"
-msgstr "Skitsering"
+msgstr "Profilering"
 
 #. l10n: shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa+
 #: libraries/common.lib.php:1276
