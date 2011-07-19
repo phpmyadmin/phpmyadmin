@@ -10155,7 +10155,7 @@ msgstr "Προβολή ως διαφορική τιμή"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Εφαρμογή διαιρέτη"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
