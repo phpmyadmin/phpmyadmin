@@ -4617,7 +4617,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:491
 msgid "Textarea rows"
-msgstr "Textarea rækker"
+msgstr "Tekstboks rækker"
 
 #: libraries/config/messages.inc.php:492
 msgid "Title of browser window when a database is selected"
