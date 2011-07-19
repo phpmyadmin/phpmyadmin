@@ -1282,7 +1282,7 @@ msgstr "Onemogoči %s"
 #: js/messages.php:128
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nastavi long_query_time na %d s"
 
 #: js/messages.php:129
 msgid ""
