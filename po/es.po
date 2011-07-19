@@ -1336,7 +1336,7 @@ msgstr "Rango de tiempo seleccionado:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Agrupar INSERTs en la misma tabla"
 
 #: js/messages.php:140
 msgid ""
