@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:33+0200\n"
+"PO-Revision-Date: 2011-07-19 18:34+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3679,7 +3679,7 @@ msgstr "Lette faner"
 #: libraries/config/messages.inc.php:292
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr "Maksimalt antal tegn vist i ikke-numerisk kolonne på browse view"
+msgstr "Maksimalt antal tegn vist i ikke-numerisk kolonne ved gennemsyn"
 
 # karakterer gives i skolen eller er personer i film
 #: libraries/config/messages.inc.php:293
