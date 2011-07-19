@@ -1341,7 +1341,7 @@ msgstr "Iz splošnega dnevnika"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analiziranje in nalaganje dnevnikov. To lahko traja nekaj časa."
 
 #: js/messages.php:144
 msgid ""
