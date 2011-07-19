@@ -6673,7 +6673,7 @@ msgstr "Fejl i udførsel af forespørgsel"
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
 #: libraries/rte/rte_triggers.lib.php:298
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #: libraries/rte/rte_events.lib.php:374
 #| msgid "Event type"
