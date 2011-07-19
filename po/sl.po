@@ -9955,10 +9955,9 @@ msgid "Memory Usage"
 msgstr "Uporaba pomnilnika"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Uporaba"
+msgstr "Uporaba izmenjevanja"
 
 #: server_status.php:1357
 #, fuzzy
