@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:20+0200\n"
+"PO-Revision-Date: 2011-07-19 16:21+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6545,7 +6545,7 @@ msgstr "Brugernavn"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Master status"
-msgstr ""
+msgstr "Master status"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Slave status"
