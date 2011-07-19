@@ -7153,10 +7153,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "Η ενέργεια %1$s έχει αλλαχτεί."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
+msgstr "Η ενέργεια %1$s έχει δημιουργηθεί."
 
 #: libraries/rte/rte_triggers.lib.php:157
 #, fuzzy
