@@ -1734,7 +1734,7 @@ msgstr "onsdag"
 
 #: js/messages.php:301
 msgid "Thursday"
-msgstr "Torsdag"
+msgstr "torsdag"
 
 #: js/messages.php:302
 msgid "Friday"
