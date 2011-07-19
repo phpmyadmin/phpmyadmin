@@ -6576,7 +6576,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:241 server_replication.php:192
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Tilføj slave replikationbruger"
 
 #: libraries/replication_gui.lib.php:255 server_privileges.php:698
 msgid "Any user"
