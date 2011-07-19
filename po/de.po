@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 00:00+0200\n"
+"PO-Revision-Date: 2011-07-20 00:01+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1379,10 +1379,9 @@ msgstr ""
 "Protokoll-Daten geladen. Innerhalb dieses Zeitaums ausgeführte Abfragen:"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Springe zu Datenbank"
+msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
