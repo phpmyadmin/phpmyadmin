@@ -5123,7 +5123,7 @@ msgstr "Vis kort"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualiser GIS data"
 
 #: libraries/display_tbl.lib.php:2529
 #, fuzzy
