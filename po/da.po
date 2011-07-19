@@ -5626,7 +5626,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Midlertidig Blob timeout"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
