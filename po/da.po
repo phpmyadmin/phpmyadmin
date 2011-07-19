@@ -10606,10 +10606,9 @@ msgid "Height"
 msgstr "Højde"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Label column"
-msgstr "Tilføj/Slet felt-kolonne"
+msgstr "Tekst for kolonne"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
