@@ -6793,8 +6793,8 @@ msgid ""
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
 "Du bruger en forældet PHP 'mysql' udvidelse, som ikke er i stand til at "
-"håndtere multi forespørgsler. <b> Eksekveringen af ​​nogle lagrede rutiner kan "
-"mislykkes! </ b> Brug den forbedrede 'MySQLi \"udvidelse for at undgå "
+"håndtere multiforespørgsler. <b> Eksekveringen af nogle lagrede rutiner kan "
+"mislykkes! </ b> Brug den forbedrede 'mysqli \"udvidelse for at undgå "
 "eventuelle problemer."
 
 #: libraries/rte/rte_routines.lib.php:247
