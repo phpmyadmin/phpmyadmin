@@ -11078,7 +11078,7 @@ msgstr ""
 
 #: tbl_tracking.php:512
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Data manipulerings-udtryk"
 
 #: tbl_tracking.php:558
 msgid "SQL dump (file download)"
