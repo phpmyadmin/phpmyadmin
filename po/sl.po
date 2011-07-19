@@ -9980,7 +9980,7 @@ msgstr "ali vnesite ime spremenljivke:"
 
 #: server_status.php:1380
 msgid "Display as differential value"
-msgstr ""
+msgstr "Prikaži kot vrednost razlike"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
