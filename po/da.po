@@ -980,7 +980,7 @@ msgstr "Du er ved at DESTRUERE en komplet tabel!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Du er ved at slette en hel tabel!"
+msgstr "Du er ved at TRUNCATE (slette) en hel tabel!"
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
