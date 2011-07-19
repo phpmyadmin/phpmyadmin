@@ -2662,7 +2662,7 @@ msgstr "Показване на грешки"
 
 #: libraries/config/messages.inc.php:65
 msgid "Gather errors"
-msgstr ""
+msgstr "Събиране на грешки"
 
 #: libraries/config/messages.inc.php:66
 msgid "Show icons for warning, error and information messages"
