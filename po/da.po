@@ -4713,7 +4713,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:509
 msgid "Verbose multiple statements"
-msgstr ""
+msgstr "Udvidet info for multiple forspørgsler"
 
 #: libraries/config/messages.inc.php:510 setup/frames/index.inc.php:241
 msgid "Check for latest version"
