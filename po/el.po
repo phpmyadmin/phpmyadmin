@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:23+0200\n"
+"PO-Revision-Date: 2011-07-19 21:24+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7184,11 +7184,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Πρέπει να δώσετε ένα έγκυρο χρόνο για την ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:409
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr ""
-"Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
+msgstr "Πρέπει να δώσετε ένα έγκυρο συμβάν για την ενέργεια."
 
 #: libraries/rte/rte_triggers.lib.php:415
 #, fuzzy
