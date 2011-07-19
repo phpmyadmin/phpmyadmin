@@ -10245,7 +10245,7 @@ msgstr "Advarsel"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Den sendte formular indeholder fejl"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Try to revert erroneous fields to their default values"
