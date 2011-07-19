@@ -4616,7 +4616,7 @@ msgid ""
 msgstr ""
 "Tekstboksstørrelse (rækker) i redigeringstilstand; denne værdi vil blive "
 "fremhævet i SQL forespørgselstekstbokse (*2) og for forespørgselsvinduet "
-"(*1,25) "
+"(*1,25)"
 
 #: libraries/config/messages.inc.php:491
 msgid "Textarea rows"
