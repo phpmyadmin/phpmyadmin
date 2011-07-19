@@ -9083,10 +9083,9 @@ msgid "Refresh rate: "
 msgstr "Opdateringsrate:"
 
 #: server_status.php:629
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Kodeord må ikke ændres"
+msgstr "Indeholdende ordet"
 
 #: server_status.php:634
 #| msgid "Show open tables"
