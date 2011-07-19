@@ -7562,10 +7562,9 @@ msgid "Add %s column(s)"
 msgstr "Tilføj %s kolonne(r)"
 
 #: libraries/tbl_properties.inc.php:611 tbl_structure.php:672
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
-msgstr "Du skal tilføje mindst ét felt."
+msgstr "Du skal tilføje mindst en kolonne."
 
 #: libraries/tbl_properties.inc.php:719 server_engines.php:56
 #: tbl_operations.php:370
