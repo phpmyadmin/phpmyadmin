@@ -8851,7 +8851,7 @@ msgstr "Ikke muligt at forbinde til master %s."
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
-"Ikke muligt at læse master log position. Muligt rettighedsproblem på master"
+"Ikke muligt at læse master log position. Muligt rettighedsproblem på master."
 
 #: server_replication.php:69
 msgid "Unable to change master"
