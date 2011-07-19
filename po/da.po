@@ -6985,7 +6985,7 @@ msgid ""
 "VARCHAR and VARBINARY."
 msgstr ""
 "Du skal angive længde/værdier for rutineparametre af typen ENUM, SET, "
-"VARCHAR og VARBINARY"
+"VARCHAR og VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1055
 msgid "You must provide a name and a type for each routine parameter."
