@@ -1183,7 +1183,7 @@ msgstr "Fjern kort"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Rediger overskrifter og serier"
 
 #: js/messages.php:105
 #| msgid "Snap to grid"
