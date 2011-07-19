@@ -3679,7 +3679,7 @@ msgstr "Lette faner"
 #: libraries/config/messages.inc.php:292
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr ""
+msgstr "Maksimalt antal tegn vist i ikke-numerisk kolonne på browse view"
 
 # karakterer gives i skolen eller er personer i film
 #: libraries/config/messages.inc.php:293
