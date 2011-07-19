@@ -2376,7 +2376,7 @@ msgstr "Spring over Validér SQL"
 
 #: libraries/common.lib.php:1138 libraries/config/messages.inc.php:478
 msgid "Validate SQL"
-msgstr "Validér SQL"
+msgstr "Valider SQL"
 
 #: libraries/common.lib.php:1193
 msgid "Inline edit of this query"
