@@ -7142,10 +7142,9 @@ msgid "Function"
 msgstr "Συνάρτηση"
 
 #: libraries/rte/rte_triggers.lib.php:89
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
+msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ενέργεια."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, fuzzy, php-format
