@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:10+0200\n"
+"PO-Revision-Date: 2011-07-19 23:11+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9895,7 +9895,7 @@ msgstr "Dodaj grafikon"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Preuredi/uredi grafikone"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
