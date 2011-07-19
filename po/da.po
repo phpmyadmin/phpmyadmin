@@ -6980,10 +6980,9 @@ msgid "You must provide a trigger definition."
 msgstr "Du skal opgive en triggerdefinition"
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add routine"
-msgstr "Tilføj %s felt(er)"
+msgstr "Tilføj rutine"
 
 #: libraries/rte/rte_words.lib.php:20
 #, php-format
