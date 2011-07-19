@@ -9920,7 +9920,7 @@ msgstr ""
 
 #: server_status.php:1141
 msgid "The number of threads that are not sleeping."
-msgstr "Antallet af tråde der ikke sover."
+msgstr "Antallet af tråde, der ikke sover."
 
 #: server_status.php:1277
 msgid "Start Monitor"
