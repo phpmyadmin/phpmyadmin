@@ -4158,7 +4158,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:449
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Tillad visning af alle rækker"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
