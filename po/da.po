@@ -10237,7 +10237,7 @@ msgstr "Rediger server"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
-msgstr ""
+msgstr "Tilføj ny server"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
