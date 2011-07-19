@@ -3954,10 +3954,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:406
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "databasenavn"
+msgstr "Databasenavn"
 
 #: libraries/config/messages.inc.php:407
 msgid "Port on which MySQL server is listening, leave empty for default"
