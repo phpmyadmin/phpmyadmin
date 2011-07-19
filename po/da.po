@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:34+0200\n"
+"PO-Revision-Date: 2011-07-19 15:35+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8778,7 +8778,7 @@ msgstr "Tildel alle privilegier til jokertegn-navn (brugernavn_%)"
 #: server_privileges.php:2123
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr ""
+msgstr "Tildel alle privilegier på database &quot;%s&quot;"
 
 #: server_privileges.php:2146
 #, php-format
