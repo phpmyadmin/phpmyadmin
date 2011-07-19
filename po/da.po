@@ -4245,7 +4245,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:467
 msgid "Display database comment instead of its name"
-msgstr ""
+msgstr "Vis databasekommentar i stedet for dens navn"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
