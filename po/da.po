@@ -7048,10 +7048,10 @@ msgid "Add event"
 msgstr "Tilføj hændelse"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export/Import to scale"
 msgid "Export of event %s"
-msgstr "Eksporter/Importer til skala"
+msgstr "Eksport af hændelse %s"
 
 #: libraries/rte/rte_words.lib.php:45
 msgid "event"
