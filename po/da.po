@@ -8219,7 +8219,7 @@ msgstr ""
 
 #: prefs_manage.php:225 prefs_manage.php:251
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Gemt den @DATE@"
 
 #: prefs_manage.php:239
 #| msgid "Import files"
