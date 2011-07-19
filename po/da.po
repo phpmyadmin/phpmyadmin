@@ -3738,7 +3738,7 @@ msgstr "Gyldighed for login cookie"
 
 #: libraries/config/messages.inc.php:302
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Dobbelt størrelse for tekstområde for LONGTEXT kolonner"
+msgstr "Dobbelt størrelse for tekstboks for LONGTEXT kolonner"
 
 #: libraries/config/messages.inc.php:303
 msgid "Bigger textarea for LONGTEXT"
