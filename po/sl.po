@@ -1208,7 +1208,7 @@ msgstr "Brez"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Nadaljuj nadziranje"
 
 #: js/messages.php:110
 msgid "Pause monitor"
