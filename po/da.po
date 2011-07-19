@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 19:31+0200\n"
+"PO-Revision-Date: 2011-07-19 19:32+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4809,7 +4809,7 @@ msgstr "Tomt brugernavn ved config autentifikationmetoden"
 
 #: libraries/config/validate.lib.php:232
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "Tomt signon sessionsnavn ved signon autentifikationmetoden"
 
 #: libraries/config/validate.lib.php:236
 msgid "Empty signon URL while using signon authentication method"
