@@ -7169,10 +7169,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Nimate zadostnih pravic za ustvarjanje sprožilca"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Rutine imenovane %1$s ni mogoče najti v zbirki podatkov %2$s"
+msgstr "Sprožilca imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
