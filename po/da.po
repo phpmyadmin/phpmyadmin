@@ -7085,7 +7085,7 @@ msgstr "Du skal angive et gyldig tidsinterval for denne trigger"
 
 #: libraries/rte/rte_triggers.lib.php:409
 msgid "You must provide a valid event for the trigger"
-msgstr "DU skal opgive en gyldig hændelse for denne trigger"
+msgstr "Du skal opgive en gyldig hændelse for denne trigger"
 
 #: libraries/rte/rte_triggers.lib.php:415
 #| msgid "Invalid table name"
