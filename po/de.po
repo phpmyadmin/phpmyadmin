@@ -10081,10 +10081,9 @@ msgid "Clear series"
 msgstr "Serien löschen"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Reihe:"
+msgstr "Serien im Schaubild"
 
 #: server_status.php:1408
 #, fuzzy
