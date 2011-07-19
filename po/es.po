@@ -10056,10 +10056,9 @@ msgid "Clear monitor config"
 msgstr "Vaciar configuración de monitorización"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Introducción"
+msgstr "Instrucciones de monitorización"
 
 #: server_status.php:1321
 msgid ""
