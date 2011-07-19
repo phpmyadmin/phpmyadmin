@@ -6492,7 +6492,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:144
 msgid "User preferences"
-msgstr ""
+msgstr "Brugerpræferencer"
 
 #: libraries/relation.lib.php:148
 msgid "Quick steps to setup advanced features:"
