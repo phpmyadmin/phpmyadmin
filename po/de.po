@@ -10041,10 +10041,9 @@ msgid "Swap Usage"
 msgstr "Auslagerungsdatei-Nutzung"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Alle Status Variablen"
+msgstr "Status Variable(n)"
 
 #: server_status.php:1359
 #, fuzzy
