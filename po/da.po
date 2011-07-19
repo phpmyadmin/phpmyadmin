@@ -5191,7 +5191,7 @@ msgstr "Fil-uploads er ikke tilladte på denne server."
 #: libraries/display_import.lib.php:208
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Delvis import"
+msgstr "Delvis import:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
