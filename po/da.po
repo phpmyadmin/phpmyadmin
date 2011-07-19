@@ -6740,7 +6740,7 @@ msgstr "Generer kodeord"
 #: libraries/rte/rte_triggers.lib.php:103
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Den følgende SQL-forespørgsel fejlede: \"%s\""
+msgstr "Den følgende forespørgsel fejlede: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 #| msgid "Sorry, we failed to restore the dropped routine."
