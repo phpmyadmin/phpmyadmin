@@ -10162,7 +10162,7 @@ msgstr "Agregar esta serie"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Vaciar serie"
 
 #: server_status.php:1400
 #, fuzzy
