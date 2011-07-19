@@ -802,7 +802,7 @@ msgstr "Ikke-sporede tabeller"
 #: db_tracking.php:201 db_tracking.php:203 tbl_structure.php:664
 #: tbl_structure.php:666
 msgid "Track table"
-msgstr "Spor tabel"
+msgstr "Sporingstabel"
 
 #: db_tracking.php:229
 msgid "Database Log"
