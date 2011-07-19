@@ -1327,10 +1327,9 @@ msgid "Divided by %s:"
 msgstr "Geteilt durch %s:"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Seite auswählen"
+msgstr "Ausgewählte Zeit-Spanne:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
