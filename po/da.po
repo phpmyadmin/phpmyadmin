@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:24+0200\n"
+"PO-Revision-Date: 2011-07-19 18:25+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3144,7 +3144,7 @@ msgstr "Orden af fremmednøgler i valgboks"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
-msgstr "Der vil blive brugt en valgboks, hvis der er få elementer til stede"
+msgstr "Der vil blive brugt en valgboks, hvis færre elementer er til stede"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
