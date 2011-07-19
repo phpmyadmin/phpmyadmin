@@ -8141,10 +8141,9 @@ msgid "Export to selected page"
 msgstr "Eksporter til valgt side"
 
 #: pmd_pdf.php:102
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it"
-msgstr "Lav et nyt indeks"
+msgstr "Opret en side og eksporter til den"
 
 #: pmd_pdf.php:111
 #| msgid "User name"
