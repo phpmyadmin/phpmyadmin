@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:56+0200\n"
+"PO-Revision-Date: 2011-07-19 23:01+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4773,7 +4773,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:252
 #: libraries/export/xlsx.php:18 libraries/import/xlsx.php:21
 msgid "Excel 2007 XLSX Workbook"
-msgstr ""
+msgstr "Excel 2007 XLSX Workbook"
 
 #: libraries/config/setup.forms.php:260 libraries/config/setup.forms.php:361
 #: libraries/config/user_preferences.forms.php:161
