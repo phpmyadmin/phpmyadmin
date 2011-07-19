@@ -10653,10 +10653,9 @@ msgid "-- None --"
 msgstr "-- Ingen --"
 
 #: tbl_gis_visualization.php:180
-#, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
-msgstr "Total"
+msgstr "Spatial kolonne"
 
 #: tbl_gis_visualization.php:201
 msgid "Use OpenStreetMaps as Base Layer"
