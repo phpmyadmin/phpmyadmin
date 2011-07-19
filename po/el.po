@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:24+0200\n"
+"PO-Revision-Date: 2011-07-19 21:25+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7194,10 +7194,9 @@ msgid "You must provide a valid table name"
 msgstr "Πρέπει να δώσετε ένα έγκυρο όνομα πίνακα"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
+msgstr "Πρέπει να δώσετε ένα προσδιορισμό ενέργειας."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
