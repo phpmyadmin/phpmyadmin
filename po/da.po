@@ -3826,7 +3826,7 @@ msgstr "Forbindelsestype"
 
 #: libraries/config/messages.inc.php:379
 msgid "Control user password"
-msgstr ""
+msgstr "Password for kontrolbruger"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
