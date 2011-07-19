@@ -5377,7 +5377,7 @@ msgstr "Velkendt binær"
 
 #: libraries/display_tbl.lib.php:1303
 msgid "Copy"
-msgstr "Kopier"
+msgstr "Kopi"
 
 #: libraries/display_tbl.lib.php:1318 libraries/display_tbl.lib.php:1330
 msgid "The row has been deleted"
