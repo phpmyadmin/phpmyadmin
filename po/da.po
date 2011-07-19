@@ -7020,10 +7020,9 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Add a new User"
 msgid "trigger"
-msgstr "Tilføj en ny bruger"
+msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
