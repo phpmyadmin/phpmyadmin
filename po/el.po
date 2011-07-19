@@ -1163,7 +1163,7 @@ msgstr "KB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "Μέσο φορτίο"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
