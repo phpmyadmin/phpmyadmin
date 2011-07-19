@@ -4620,7 +4620,7 @@ msgstr "Тип на експортирането:"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
-msgstr "Бързо - показване на минимум опции"
+msgstr "Бързо - минимум настройки"
 
 #: libraries/display_export.lib.php:122
 msgid "Custom - display all possible options"
