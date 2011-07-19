@@ -6049,6 +6049,8 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"begge af ovenstående<br /> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
+"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:260
 msgid ""
