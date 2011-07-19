@@ -11111,7 +11111,7 @@ msgstr ""
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr "SQL-udførelse"
+msgstr "SQL-kørsel"
 
 #: tbl_tracking.php:572
 #, php-format
