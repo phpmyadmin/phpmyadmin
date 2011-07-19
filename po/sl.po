@@ -7084,10 +7084,9 @@ msgid "Create trigger"
 msgstr "Ustvari sprožilec"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Dodaj sprožilec"
+msgstr "Uredi sprožilec"
 
 #: libraries/rte/rte_triggers.lib.php:301
 #, fuzzy
