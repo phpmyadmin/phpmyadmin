@@ -7156,10 +7156,9 @@ msgid "Please choose a page to edit"
 msgstr "Vælg en side der skal redigeres"
 
 #: libraries/schema/User_Schema.class.php:149
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Vælg Tabeller"
+msgstr "Vælg side"
 
 #: libraries/schema/User_Schema.class.php:207
 msgid "Select Tables"
