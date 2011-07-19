@@ -3214,7 +3214,7 @@ msgstr "Bestem indstillinger for nogle af de mest anvendte valgmuligheder"
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:231 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "Importér"
+msgstr "Importer"
 
 #: libraries/config/messages.inc.php:171
 msgid "Import defaults"
