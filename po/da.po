@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Det angivne browservindue kunne ikke opdateres. Måske har du lukket det "
 "overliggende vindue eller din browser blokerer for tvær-vindue opdateringer "
-"i sikkerhedsindstillingerne"
+"i sikkerhedsindstillingerne."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2720
 #: libraries/common.lib.php:2727 libraries/common.lib.php:2908
