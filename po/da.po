@@ -6100,7 +6100,7 @@ msgstr "Gå til tabel"
 
 #: libraries/import.lib.php:1113
 msgid "Go to view"
-msgstr ""
+msgstr "Gå til view"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:26
 #: libraries/import/xls.php:25 libraries/import/xlsx.php:25
