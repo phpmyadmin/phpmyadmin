@@ -4074,7 +4074,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:431
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Tilføj DROP TABLE"
 
 #: libraries/config/messages.inc.php:432
 msgid ""
