@@ -10026,7 +10026,7 @@ msgstr "'%s' database eksisterer ikke"
 
 #: server_synchronize.php:261
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "Struktursynkronisering"
 
 #: server_synchronize.php:266
 msgid "Data Synchronization"
