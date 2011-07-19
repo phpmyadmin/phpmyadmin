@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:25+0200\n"
+"PO-Revision-Date: 2011-07-19 21:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7242,11 +7242,9 @@ msgid "trigger"
 msgstr "ενέργεια"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr ""
-"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ενέργεια"
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
