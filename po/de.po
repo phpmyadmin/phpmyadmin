@@ -8584,7 +8584,7 @@ msgstr "Gewährt Zugang zur vollständigen Datenbankliste."
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Erlaubt das Ausführen von 'SHOW CREATE VIEW'."
+msgstr "Erlaubt das Ausführen von SHOW CREATE VIEW."
 
 #: server_privileges.php:63 server_privileges.php:197
 #: server_privileges.php:560
