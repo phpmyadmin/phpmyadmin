@@ -9064,10 +9064,9 @@ msgid "Runtime Information"
 msgstr "Runtime-information"
 
 #: server_status.php:573
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic"
-msgstr "Server valg"
+msgstr "Servertrafik"
 
 #: server_status.php:575
 msgid "All status variables"
