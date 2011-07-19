@@ -8367,7 +8367,7 @@ msgstr "Information"
 
 #: server_collations.php:39
 msgid "Character Sets and Collations"
-msgstr "Tegnsæt og kollationer (Collations)"
+msgstr "Tegnsæt og kollationer"
 
 #: server_databases.php:64
 msgid "No databases selected."
