@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:26+0200\n"
+"PO-Revision-Date: 2011-07-19 21:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -7277,10 +7277,10 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε ένα συμβάν"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Κανένα συμβάν με ονομασία %s δεν βρέθηκε στη βάση δεδομένων %s"
+msgstr "Κανένα συμβάν με ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
