@@ -2492,7 +2492,7 @@ msgstr "Gennemse din computer:"
 #: libraries/common.lib.php:2874
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Vælg fra <b>%s</b> - webserverens upload-mappe"
+msgstr "Vælg fra <b>%s</b> - webserverens upload-mappe:"
 
 #: libraries/common.lib.php:2886 libraries/sql_query_form.lib.php:447
 #: tbl_change.php:887
