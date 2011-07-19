@@ -6006,7 +6006,7 @@ msgstr ""
 
 #: libraries/export/sql.php:217
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "I stedet for <code>INSERT</code> forespørgsler, brug:"
 
 #: libraries/export/sql.php:222
 msgid "<code>INSERT DELAYED</code> statements"
