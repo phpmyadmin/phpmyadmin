@@ -3964,7 +3964,7 @@ msgstr "Port hvorpå MySQL server lytter, lades tom for standard"
 
 #: libraries/config/messages.inc.php:408
 msgid "Server port"
-msgstr "Server port"
+msgstr "Serverport"
 
 #: libraries/config/messages.inc.php:409
 msgid ""
