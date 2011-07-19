@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 08:43+0200\n"
+"PO-Revision-Date: 2011-07-19 08:44+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -2602,7 +2602,7 @@ msgstr "Показваният подпрозорец при отваряне н
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr "Сървърен подпрозорец по подразбиране"
+msgstr "Подпрозорец по подразбиране за сървъри"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
