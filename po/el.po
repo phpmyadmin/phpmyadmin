@@ -1299,10 +1299,9 @@ msgstr ""
 "δεδομένων σας."
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Διαχειριστείτε τις ρυθμίσεις σας"
+msgstr "Αλλαγή ρυθμίσεων"
 
 #: js/messages.php:131
 #, fuzzy
