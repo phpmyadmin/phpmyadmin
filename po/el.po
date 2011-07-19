@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:03+0200\n"
+"PO-Revision-Date: 2011-07-19 21:04+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1331,7 +1331,7 @@ msgstr "Επιλεγμένο εύρος χρόνου:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Ομαδοποίηση των εντολών INSERT μέσα στον ίδιο πίνακα"
 
 #: js/messages.php:140
 msgid ""
