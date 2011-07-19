@@ -3914,7 +3914,7 @@ msgstr "Prøv at forbinde uden password"
 
 #: libraries/config/messages.inc.php:398
 msgid "Connect without password"
-msgstr ""
+msgstr "Forbind uden password"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
