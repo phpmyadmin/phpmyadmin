@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:14+0200\n"
+"PO-Revision-Date: 2011-07-19 15:15+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10138,7 +10138,7 @@ msgstr "Global værdi"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:225
 msgid "Download"
-msgstr ""
+msgstr "Udtræk"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
