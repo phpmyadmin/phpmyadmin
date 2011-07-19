@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:49+0200\n"
+"PO-Revision-Date: 2011-07-19 23:50+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1238,7 +1238,7 @@ msgstr "log_output ist nicht auf TABLE eingestellt."
 
 #: js/messages.php:117
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output ist auf TABLE eingestellt."
 
 #: js/messages.php:118
 #, php-format
