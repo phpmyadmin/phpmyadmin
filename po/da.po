@@ -1219,7 +1219,7 @@ msgstr "general_log er aktiveret."
 
 #: js/messages.php:114
 msgid "slow_query_log is enabled."
-msgstr "slow_query_log er aktiveret"
+msgstr "slow_query_log er aktiveret."
 
 #: js/messages.php:115
 msgid "slow_query_log and general_log is disabled."
