@@ -9965,10 +9965,9 @@ msgid "Status variable(s)"
 msgstr "Spremenljivke stanja"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Izberi tabele"
+msgstr "Izberite serije:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
