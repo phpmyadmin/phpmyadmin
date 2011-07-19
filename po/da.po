@@ -6860,7 +6860,7 @@ msgstr "Du skal angive en gyldig type for hændelsen"
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
-msgstr "Du skal angive en hændelsesdefinition"
+msgstr "Du skal angive en hændelsesdefinition."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
