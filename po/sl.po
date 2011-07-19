@@ -6896,10 +6896,9 @@ msgid "ON"
 msgstr "VKL"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Razporejevalnik dogodkov je omogočen"
+msgstr "Stanje razporejevalnika dogodkov"
 
 #: libraries/rte/rte_list.lib.php:52
 #, fuzzy
