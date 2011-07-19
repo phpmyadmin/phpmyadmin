@@ -10262,7 +10262,7 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:47
 msgid "Ignore errors"
-msgstr ""
+msgstr "Ignorer fejl"
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Show form"
