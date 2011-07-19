@@ -9970,10 +9970,9 @@ msgid "Done rearranging/editing charts"
 msgstr "Umordnen/bearbeiten der Schaubilder beendet."
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Parameter hinzufügen"
+msgstr "Schaubild hinzufügen"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
