@@ -7190,10 +7190,9 @@ msgid "Export of event %s"
 msgstr "Izvoz dogodka %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Dogodek"
+msgstr "dogodek"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
