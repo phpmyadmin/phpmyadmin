@@ -4851,7 +4851,7 @@ msgstr "Sporing"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
-msgstr "Foresp. via eks."
+msgstr "Foresp. via eks"
 
 #: libraries/db_links.inc.php:76 libraries/relation.lib.php:128
 msgid "Designer"
