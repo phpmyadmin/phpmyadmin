@@ -2227,7 +2227,7 @@ function displayMoreTableOpts() {
 
 }
 $(document).ready(function(){
-    initTooltips();
+    PMA_convertFootnotesToTooltips();
 });
 
 /**
@@ -2266,7 +2266,7 @@ function checkIndexName(form_id)
 
 
 /* Displays tooltips */
-function initTooltips($div) {
+function PMA_convertFootnotesToTooltips($div) {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
 
@@ -2285,11 +2285,11 @@ function initTooltips($div) {
     $footnotes.css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $div.find("sup[class='footnotemarker']").hide();
-    $div.find("img[class='footnotemarker']").show();
+    $div.find("sup.footnotemarker").hide();
+    $div.find("img.footnotemarker").show();
 
-    $div.find("img[class='footnotemarker']").each(function() {
-        var span_id = $(this).attr("id");
+    $div.find("img.footnotemarker").each(function() {
+        var span_id = $(this).attr("class");
         span_id = span_id.split("_")[1];
         var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
         $(this).qtip({

@@ -118,7 +118,7 @@ $(document).ready(function() {
                 $(".insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
                 $div = $("#insert_table_dialog");
-                initTooltips($div);
+                PMA_convertFootnotesToTooltips($div);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
