@@ -1374,6 +1374,7 @@ msgstr "Pojdi v dnevniško tabelo"
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Dnevnik je analiziran, vendar v tem časovnem razponu nisem našel podatkov."
 
 #: js/messages.php:153 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
