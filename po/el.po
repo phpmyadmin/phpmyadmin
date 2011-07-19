@@ -7267,10 +7267,9 @@ msgid "Export of event %s"
 msgstr "Εξαγωγή του συμβάντος %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Συμβάν"
+msgstr "συμβάν"
 
 #: libraries/rte/rte_words.lib.php:46
 #, fuzzy
