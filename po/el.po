@@ -10021,10 +10021,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Εγγραφή έναρξης"
+msgstr "Έναρξη Οθόνης"
 
 #: server_status.php:1285
 #, fuzzy
