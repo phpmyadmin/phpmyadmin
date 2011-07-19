@@ -10181,7 +10181,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:100 setup/frames/menu.inc.php:15
 msgid "Overview"
-msgstr ""
+msgstr "Oversigt"
 
 #: setup/frames/index.inc.php:108
 msgid "Show hidden messages (#MSG_COUNT)"
