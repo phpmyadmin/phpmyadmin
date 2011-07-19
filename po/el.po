@@ -6908,10 +6908,9 @@ msgid "Execute at"
 msgstr "Εκτέλεση σε"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Εκτέλεση"
+msgstr "Εκτέλεση κάθε"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
