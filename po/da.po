@@ -9934,10 +9934,9 @@ msgid "Refresh rate:"
 msgstr "Opdateringsfrekvens:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Textarea kolonner"
+msgstr "Diagramkolonner:"
 
 #: server_status.php:1317
 msgid "Clear monitor config"
