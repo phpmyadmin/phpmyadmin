@@ -7202,7 +7202,7 @@ msgstr "Nimate zadostnih pravic za ustvarjanje dogodka"
 #, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Dogodka imenovanega %s ni mogoče najti v zbirki podatkov %s"
+msgstr "Dogodka imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
