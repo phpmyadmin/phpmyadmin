@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:09+0200\n"
+"PO-Revision-Date: 2011-07-19 14:10+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4754,10 +4754,10 @@ msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Gem på serveren i mappen %s "
+msgstr "Gem på serveren i mappen <b>%s</b> "
 
 #: libraries/display_export.lib.php:199
 #, fuzzy
