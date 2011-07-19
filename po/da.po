@@ -6264,7 +6264,7 @@ msgstr ""
 
 #: libraries/import/ods.php:29
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Import valutaer <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/import/sql.php:33
 #| msgid "SQL compatibility mode"
