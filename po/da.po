@@ -10534,10 +10534,9 @@ msgid "Spline"
 msgstr "Spline"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "PiB"
 msgid "Pie"
-msgstr "PiB"
+msgstr "Lagkage"
 
 #: tbl_chart.php:91
 msgid "Stacked"
