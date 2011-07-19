@@ -2684,7 +2684,7 @@ msgstr "Forbedrer ydeevnen for skærmopdatering"
 
 #: libraries/config/messages.inc.php:18
 msgid "Enable Ajax"
-msgstr "Aktivér Ajax"
+msgstr "Aktiver Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
