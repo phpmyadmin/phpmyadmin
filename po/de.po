@@ -1324,7 +1324,7 @@ msgstr "Unterschied"
 #: js/messages.php:136
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Geteilt durch %s:"
 
 #: js/messages.php:138
 #, fuzzy
