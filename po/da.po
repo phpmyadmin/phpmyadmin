@@ -6092,7 +6092,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1085 libraries/import.lib.php:1109
 msgid "settings"
-msgstr ""
+msgstr "indstillinger"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
