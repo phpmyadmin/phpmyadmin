@@ -9249,7 +9249,7 @@ msgstr ""
 #: server_status.php:1033
 #| msgid "The number of fsync() writes done to the log file."
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Antal mislykkede forsøg på at forbinde til MySQL server"
+msgstr "Antal mislykkede forsøg på at forbinde til MySQL server."
 
 #: server_status.php:1034
 msgid ""
