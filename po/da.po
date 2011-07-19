@@ -3525,7 +3525,7 @@ msgstr "Maksimalt antal databaser vist i venstre ramme og databaseliste"
 
 #: libraries/config/messages.inc.php:309
 msgid "Maximum databases"
-msgstr ""
+msgstr "Maksimalt antal databaser"
 
 #: libraries/config/messages.inc.php:310
 msgid ""
