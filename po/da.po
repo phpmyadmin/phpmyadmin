@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:31+0200\n"
+"PO-Revision-Date: 2011-07-19 16:32+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6195,7 +6195,7 @@ msgstr "Ingen"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:148
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Konverter til Kana"
 
 #: libraries/mult_submits.inc.php:254
 #| msgid "Fri"
