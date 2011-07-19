@@ -1212,7 +1212,7 @@ msgstr "general_log ve slow_query_log etkinleştirildi."
 
 #: js/messages.php:113
 msgid "general_log is enabled."
-msgstr "general_log etkin."
+msgstr "general_log etkinleştirildi."
 
 #: js/messages.php:114
 msgid "slow_query_log is enabled."
