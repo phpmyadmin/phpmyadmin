@@ -7025,10 +7025,9 @@ msgid "trigger"
 msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Du har ikke tilstrækkelige rettigheder til at være her!"
+msgstr "Du har ikke tilstrækkelige rettigheder til at oprette en trigger"
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
