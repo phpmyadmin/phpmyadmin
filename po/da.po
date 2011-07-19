@@ -4307,7 +4307,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:483 tbl_tracking.php:454
 #: tbl_tracking.php:511
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 #: libraries/config/messages.inc.php:484
 msgid ""
