@@ -9919,10 +9919,9 @@ msgid "Swap Usage"
 msgstr "Takas Kullanımı"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Tüm durum değişkenleri"
+msgstr "Durum değişkeni(leri)"
 
 #: server_status.php:1359
 #, fuzzy
