@@ -4210,6 +4210,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
+"Viser link til [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"output"
 
 #: libraries/config/messages.inc.php:460
 msgid "Show phpinfo() link"
