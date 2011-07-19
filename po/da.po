@@ -5460,7 +5460,7 @@ msgstr "InnoDB status"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr "Buffer Pool forbrug"
+msgstr "Bufferpoolsforbrug"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
