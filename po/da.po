@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:49+0200\n"
+"PO-Revision-Date: 2011-07-19 15:50+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7556,10 +7556,10 @@ msgstr ""
 "forfatteren, hvad %s gør."
 
 #: libraries/tbl_properties.inc.php:609 tbl_structure.php:678
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "Tilføj %s felt(er)"
+msgstr "Tilføj %s kolonne(r)"
 
 #: libraries/tbl_properties.inc.php:611 tbl_structure.php:672
 #, fuzzy
