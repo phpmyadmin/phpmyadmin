@@ -7108,10 +7108,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Navesti morate ime rutine"
 
 #: libraries/rte/rte_triggers.lib.php:409
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
+msgstr "Navesti morate veljavni dogodek sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:415
 #| msgid "You must provide a routine name"
