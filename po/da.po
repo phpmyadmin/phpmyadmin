@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:59+0200\n"
+"PO-Revision-Date: 2011-07-19 16:00+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6661,10 +6661,9 @@ msgid "Create event"
 msgstr "Opret"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit event"
-msgstr "Tilføj en ny bruger"
+msgstr "Rediger hændelse"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1264
