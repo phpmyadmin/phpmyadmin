@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:15+0200\n"
+"PO-Revision-Date: 2011-07-19 15:16+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10016,7 +10016,7 @@ msgstr "Kunne ikke forbinde til kilden"
 
 #: server_synchronize.php:95
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Kunne ikke forbinde til målet"
 
 #: server_synchronize.php:120 server_synchronize.php:123 tbl_create.php:50
 #: tbl_get_field.php:19
