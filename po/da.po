@@ -8922,7 +8922,7 @@ msgstr ""
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr "Slave SQL Thread kører ikke !"
+msgstr "Slave SQL Thread kører ikke!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
