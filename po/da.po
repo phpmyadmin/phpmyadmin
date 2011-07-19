@@ -3691,10 +3691,9 @@ msgid "Query window width (in pixels)"
 msgstr "Bredde (i pixels) af forspørgselsvindue"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
-msgstr "Foresp. vindue"
+msgstr "Bredde af forspørgselsvindue"
 
 #: libraries/config/messages.inc.php:348
 msgid "Select which functions will be used for character set conversion"
