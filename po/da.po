@@ -4235,7 +4235,7 @@ msgstr "Tillad visning af database og databasestatistikker (eks. diskforbrug)"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show statistics"
-msgstr ""
+msgstr "Vis statistik"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
