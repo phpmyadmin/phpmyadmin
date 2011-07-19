@@ -6199,10 +6199,9 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:254
-#, fuzzy
 #| msgid "Fri"
 msgid "From"
-msgstr "fre"
+msgstr "Fra"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
