@@ -6545,7 +6545,7 @@ msgstr "Brugernavn"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Master status"
-msgstr "Master status"
+msgstr "Masterstatus"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Slave status"
