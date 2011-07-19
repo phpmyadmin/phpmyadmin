@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:05+0200\n"
+"PO-Revision-Date: 2011-07-19 15:06+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10050,7 +10050,7 @@ msgstr "Tilføj kolonne(r)"
 
 #: server_synchronize.php:426 server_synchronize.php:869
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Fjern kolonne(r)"
 
 #: server_synchronize.php:427 server_synchronize.php:870
 msgid "Alter column(s)"
