@@ -9080,7 +9080,7 @@ msgstr "Vse spremenljivke stanja"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "Nadziranje"
 
 #: server_status.php:586 server_status.php:608
 #, fuzzy
