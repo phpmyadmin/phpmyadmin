@@ -4387,7 +4387,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:503
 msgid "Upload directory"
-msgstr ""
+msgstr "Mappe til uploads"
 
 #: libraries/config/messages.inc.php:504
 msgid "Allow for searching inside the entire database"
