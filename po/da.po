@@ -4112,10 +4112,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:439
-#, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
-msgstr "Automatisk genopretnings-modus"
+msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:440
 msgid ""
