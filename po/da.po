@@ -1139,7 +1139,7 @@ msgstr "Statistik over forespørgsler"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "System CPU forbrug"
 
 #: js/messages.php:93
 msgid "System memory"
