@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:32+0200\n"
+"PO-Revision-Date: 2011-07-19 14:33+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5721,10 +5721,9 @@ msgid "Add %s statement"
 msgstr "Tilføj %s forespørgsel"
 
 #: libraries/export/sql.php:145
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Erklæringer"
+msgstr "Tilføj forespørgsler"
 
 #: libraries/export/sql.php:197
 msgid ""
