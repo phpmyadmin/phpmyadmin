@@ -9875,10 +9875,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Število niti, ki ne spijo."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Začetna vrstica"
+msgstr "Začni nadziranje"
 
 #: server_status.php:1285
 #, fuzzy
