@@ -4091,10 +4091,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Erklæringer"
+msgstr "SQL-kommandoer, der skal spores"
 
 #: libraries/config/messages.inc.php:436
 msgid ""
