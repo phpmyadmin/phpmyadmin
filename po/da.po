@@ -7094,10 +7094,10 @@ msgstr "Konfigurér venligst koordinaterne for tabel %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:842
 #: libraries/schema/Svg_Relation_Schema.class.php:728
 #: libraries/schema/Visio_Relation_Schema.class.php:497
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
-msgstr "Skematik for databasen \"%s\" - Side %s"
+msgstr "Skema for databasen \"%s\" - Side %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
