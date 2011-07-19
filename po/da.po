@@ -8900,7 +8900,7 @@ msgstr "Serveren er konfigureret som slave i en replikationsproces. Vil du:"
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "Se slave status tabel"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
