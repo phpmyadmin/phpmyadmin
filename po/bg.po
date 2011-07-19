@@ -4624,7 +4624,7 @@ msgstr "Бързо - минимум настройки"
 
 #: libraries/display_export.lib.php:122
 msgid "Custom - display all possible options"
-msgstr "Потребителско - показване на всички опции"
+msgstr "Потребителско - всички настройки"
 
 #: libraries/display_export.lib.php:130
 msgid "Database(s):"
