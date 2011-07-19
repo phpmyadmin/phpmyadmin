@@ -7288,7 +7288,7 @@ msgstr "Vis tabellernes dimensioner"
 
 #: libraries/schema/User_Schema.class.php:380
 msgid "Display all tables with the same width"
-msgstr "vis alle tabeller med samme bredde?"
+msgstr "vis alle tabeller med samme bredde"
 
 #: libraries/schema/User_Schema.class.php:385
 msgid "Only show keys"
