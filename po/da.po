@@ -2579,7 +2579,7 @@ msgstr "begge de ovenfor anførte"
 
 #: libraries/config.values.php:123
 msgid "neither of the above"
-msgstr "Ingen af de ovenfor anførte"
+msgstr "ingen af de ovenfor anførte"
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:412
