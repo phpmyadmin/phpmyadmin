@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:43+0200\n"
+"PO-Revision-Date: 2011-07-19 22:44+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7827,10 +7827,9 @@ msgstr ""
 "outputtet, når en substring returneres (Standard: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "Generelle relationsmuligheder"
+msgstr "Administrer dine indstillinger"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
 #| msgid "Modifications have been saved"
