@@ -7791,10 +7791,9 @@ msgid "Error in ZIP archive:"
 msgstr "Fejl i ZIP arkiv:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Generelle relationsmuligheder"
+msgstr "Generelle indstillinger"
 
 #: main.php:103
 msgid "MySQL connection collation"
