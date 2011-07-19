@@ -7516,7 +7516,7 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr "Tabel ser ud til at være tom"
+msgstr "Tabel ser ud til at være tom!"
 
 #: libraries/tbl_links.inc.php:127
 #, php-format
