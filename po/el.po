@@ -7179,10 +7179,9 @@ msgid "You must provide a trigger name"
 msgstr "Πρέπει να δώσετε ένα όνομα στην ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:404
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα έγκυρο χρόνο για την ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:409
 #, fuzzy
