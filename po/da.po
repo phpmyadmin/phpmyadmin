@@ -4813,7 +4813,7 @@ msgstr "Tomt signon sessionsnavn ved signon autentifikationmetoden"
 
 #: libraries/config/validate.lib.php:236
 msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+msgstr "Tomt signon URL ved signon autentifikationmetoden"
 
 #: libraries/config/validate.lib.php:269
 msgid "Empty phpMyAdmin control user while using pmadb"
