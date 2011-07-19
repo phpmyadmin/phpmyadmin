@@ -9907,10 +9907,9 @@ msgid "Chart columns:"
 msgstr "Stolpci grafikona:"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Uporabnik za overovitev config"
+msgstr "Počisti konfiguracijo nadziranja"
 
 #: server_status.php:1320
 #, fuzzy
