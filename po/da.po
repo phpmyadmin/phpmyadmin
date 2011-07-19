@@ -122,7 +122,7 @@ msgstr ""
 #: db_create.php:58
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Database %1$s er oprettet,"
+msgstr "Database %1$s er oprettet."
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
