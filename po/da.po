@@ -7042,7 +7042,7 @@ msgstr "Trigger \"%1$s\" er blevet ændret."
 #, php-format
 #| msgid "Routine %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Trigger %1$s er oprettet,"
+msgstr "Trigger %1$s er oprettet."
 
 #: libraries/rte/rte_triggers.lib.php:157
 #| msgid "Create"
