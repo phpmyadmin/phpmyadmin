@@ -4738,7 +4738,7 @@ msgstr "HTTP autentifikation"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr ""
+msgstr "Login autentifikation"
 
 #: libraries/config/setup.forms.php:245
 #: libraries/config/user_preferences.forms.php:147 libraries/import/ldi.php:35
