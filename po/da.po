@@ -4439,6 +4439,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Aktiver [a@http://en.wikipedia.org/wiki/ZIP_(fil_format)]ZIP[/a] "
+"komprimering ved import and eksport operationer"
 
 #: libraries/config/messages.inc.php:514
 msgid "ZIP"
