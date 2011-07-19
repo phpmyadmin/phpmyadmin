@@ -3884,7 +3884,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:391
 msgid "Hide databases"
-msgstr ""
+msgstr "Skjul databaser"
 
 #: libraries/config/messages.inc.php:392
 msgid ""
