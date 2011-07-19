@@ -9181,7 +9181,7 @@ msgstr "Όλες οι μεταβλητές κατάστασης"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr "Οθόνη"
+msgstr "Εποπτεία"
 
 #: server_status.php:586 server_status.php:608
 #| msgid "Refresh rate:"
