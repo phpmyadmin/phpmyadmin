@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:35+0200\n"
+"PO-Revision-Date: 2011-07-19 14:36+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -11138,7 +11138,7 @@ msgstr "Spor disse data definition udsagn"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
-msgstr "Spor disse datamanipulations-udsagn:"
+msgstr "Spor disse datamanipulations-forespørgsler:"
 
 #: tbl_tracking.php:740
 msgid "Create version"
