@@ -4678,6 +4678,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
+"Når deaktiveret kan brugere ikke sætte nogen af indstillingerne nedenfor "
+"uafhængig af checkboksen til højre"
 
 #: libraries/config/messages.inc.php:507
 msgid "Enable the Developer tab in settings"
