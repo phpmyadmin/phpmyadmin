@@ -10213,7 +10213,7 @@ msgstr "Standard server"
 
 #: setup/frames/index.inc.php:219
 msgid "End of line"
-msgstr "Slut på linje"
+msgstr "Linjeslutning"
 
 #: setup/frames/index.inc.php:224
 msgid "Display"
