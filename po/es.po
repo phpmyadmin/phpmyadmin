@@ -1213,7 +1213,7 @@ msgstr "Ninguna"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Reanudar monitorización"
 
 #: js/messages.php:110
 msgid "Pause monitor"
