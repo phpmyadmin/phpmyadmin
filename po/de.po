@@ -10086,10 +10086,9 @@ msgid "Series in Chart:"
 msgstr "Serien im Schaubild"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Laden"
+msgstr "Lade Protokolle"
 
 #: server_status.php:1411
 #, fuzzy
