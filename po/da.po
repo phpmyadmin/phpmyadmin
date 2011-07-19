@@ -3759,7 +3759,7 @@ msgstr "Tillad login uden password"
 
 #: libraries/config/messages.inc.php:364
 msgid "Allow root login"
-msgstr ""
+msgstr "Tillad root login"
 
 #: libraries/config/messages.inc.php:365
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
