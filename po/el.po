@@ -6964,7 +6964,7 @@ msgstr "Πρέπει να δώσετε έναν προσδιορισμό συμ�
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Νέο"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
