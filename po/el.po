@@ -10053,10 +10053,9 @@ msgid "Chart columns:"
 msgstr "Στήλες διαγράμματος:"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Χρήστης για ρυθμισμένη επικύρωση"
+msgstr "Εκκαθάριση ρύθμισης οθόνης"
 
 #: server_status.php:1320
 #, fuzzy
