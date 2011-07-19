@@ -8041,7 +8041,6 @@ msgid "filter tables by name"
 msgstr "filtrer tabeller efter navn"
 
 #: navigation.php:306 navigation.php:307
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
