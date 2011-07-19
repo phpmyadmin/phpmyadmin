@@ -10601,10 +10601,9 @@ msgid "Width"
 msgstr "Bredde"
 
 #: tbl_gis_visualization.php:161
-#, fuzzy
 #| msgid "Right"
 msgid "Height"
-msgstr "Højre"
+msgstr "Højde"
 
 #: tbl_gis_visualization.php:165
 #, fuzzy
