@@ -6655,10 +6655,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Der er opstået fejl under behandling af anmodningen:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create"
 msgid "Create event"
-msgstr "Opret"
+msgstr "Opret hændelse"
 
 #: libraries/rte/rte_events.lib.php:185
 #| msgid "Add a new User"
