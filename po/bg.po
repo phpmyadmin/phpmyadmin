@@ -2590,7 +2590,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr "Показвания подпрозорец при отваряне на БД"
+msgstr "Показваният подпрозорец при отваряне на БД"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
