@@ -8284,10 +8284,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Tabel <b>%s</b> findes ikke eller er ikke sat i %s"
 
 #: schema_export.php:45
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "Tabellen \"%s\" findes ikke!"
+msgstr "Filen eksisterer ikke"
 
 #: server_binlog.php:87
 msgid "Select binary log to view"
