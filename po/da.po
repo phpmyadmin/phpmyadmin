@@ -4145,6 +4145,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"En brugervenlig beskrivelse af serveren. Lad stå tom for at vise hostnavnet "
+"i stedet."
 
 #: libraries/config/messages.inc.php:447
 msgid "Verbose name of this server"
