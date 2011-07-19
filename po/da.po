@@ -4843,10 +4843,9 @@ msgid "Format:"
 msgstr "Format:"
 
 #: libraries/display_export.lib.php:331
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Transformationsindstillinger"
+msgstr "Formatspecifikke optioner:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
