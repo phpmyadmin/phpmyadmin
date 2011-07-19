@@ -1360,7 +1360,7 @@ msgstr ""
 
 #: js/messages.php:146
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Logdata er indlæst. Forespørgsler udført i dette tidsinterval:"
 
 #: js/messages.php:148
 #| msgid "Jump to database"
