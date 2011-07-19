@@ -10598,7 +10598,7 @@ msgstr ""
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
-msgstr ""
+msgstr "Bredde"
 
 #: tbl_gis_visualization.php:161
 #, fuzzy
