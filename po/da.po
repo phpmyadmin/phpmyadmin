@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 17:31+0200\n"
+"PO-Revision-Date: 2011-07-19 17:33+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3830,7 +3830,7 @@ msgstr "Navigationsbjælke med ikoner"
 
 #: libraries/config/messages.inc.php:325
 msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgstr ""
+msgstr "brug GZip output buffering til forhøjet hastighed i HTTP overførsler"
 
 #: libraries/config/messages.inc.php:326
 msgid "GZip output buffering"
