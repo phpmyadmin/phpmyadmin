@@ -9950,10 +9950,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Tetikleyici ekle"
+msgstr "Bu serileri ekle"
 
 #: server_status.php:1397
 msgid "Clear series"
