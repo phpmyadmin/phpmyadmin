@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:39+0200\n"
+"PO-Revision-Date: 2011-07-19 16:40+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5785,7 +5785,7 @@ msgstr "Erstat NULL med:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "Fjern vognretur/linjeskift tegn i kolonnedata"
 
 #: libraries/export/excel.php:33
 #| msgid "Excel edition"
