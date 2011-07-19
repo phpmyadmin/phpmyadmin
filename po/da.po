@@ -7036,7 +7036,7 @@ msgstr "Beklager, det lykkedes ikke at genetablere den slettede trigger."
 #, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Trigger \"%1$s\" er blevet ændret"
+msgstr "Trigger \"%1$s\" er blevet ændret."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, php-format
