@@ -10054,7 +10054,7 @@ msgstr "Fjern kolonne(r)"
 
 #: server_synchronize.php:427 server_synchronize.php:870
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Ændre kolonne(r)"
 
 #: server_synchronize.php:428 server_synchronize.php:871
 msgid "Remove index(s)"
