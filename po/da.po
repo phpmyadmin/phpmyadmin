@@ -4011,7 +4011,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:418
 msgid "Socket on which MySQL server is listening, leave empty for default"
-msgstr ""
+msgstr "Socket hvorpå MySQL server lytter, lades tom for standard"
 
 #: libraries/config/messages.inc.php:419
 msgid "Server socket"
