@@ -3806,7 +3806,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:374
 msgid "Column information table"
-msgstr ""
+msgstr "Tabel for kolonneinformation"
 
 #: libraries/config/messages.inc.php:375
 msgid "Compress connection to MySQL server"
