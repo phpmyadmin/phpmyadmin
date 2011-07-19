@@ -5517,7 +5517,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
-msgstr "Sorterings-bufferstørrelse"
+msgstr "Sorteringsbufferstørrelse"
 
 #: libraries/engines/myisam.lib.php:47
 msgid ""
