@@ -6549,7 +6549,7 @@ msgstr "Master status"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Slave status"
-msgstr ""
+msgstr "Slavestatus"
 
 #: libraries/replication_gui.lib.php:116 libraries/sql_query_form.lib.php:382
 #: server_status.php:1205 server_variables.php:107
