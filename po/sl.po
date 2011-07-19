@@ -1301,7 +1301,6 @@ msgid "Current settings"
 msgstr "Trenutne nastavitve"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Naslov grafikona"
