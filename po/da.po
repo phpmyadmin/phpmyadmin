@@ -10481,7 +10481,7 @@ msgstr "Indsæt som ny række"
 
 #: tbl_change.php:984
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Indsæt som ny række og ignorer fejl"
 
 #: tbl_change.php:985
 msgid "Show insert query"
