@@ -8073,10 +8073,9 @@ msgid "subquery"
 msgstr "underforespørgsel"
 
 #: pmd_general.php:480 pmd_general.php:576
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Rename to"
-msgstr "Omdøb tabel til"
+msgstr "Omdøb til"
 
 #: pmd_general.php:482 pmd_general.php:581
 #, fuzzy
