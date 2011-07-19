@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:18+0200\n"
+"PO-Revision-Date: 2011-07-19 16:19+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6724,7 +6724,7 @@ msgstr "Opretter"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:392
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr "Oprettet skal være i formatet \"username@hostname\" "
+msgstr "Opretter skal være i formatet \"username@hostname\" "
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
