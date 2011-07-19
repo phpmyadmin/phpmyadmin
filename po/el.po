@@ -6872,10 +6872,9 @@ msgid "Create event"
 msgstr "Δημιουργία συμβάντος"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Επεξεργασία διακομιστή"
+msgstr "Επεξεργασία συμβάντος"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1264
