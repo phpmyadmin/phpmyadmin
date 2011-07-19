@@ -4983,10 +4983,9 @@ msgid "Start row"
 msgstr "Startrække"
 
 #: libraries/display_tbl.lib.php:438
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
-msgstr "Antal felter"
+msgstr "Antal rækker"
 
 #: libraries/display_tbl.lib.php:443
 #, fuzzy
