@@ -9889,10 +9889,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Dodaj parameter"
+msgstr "Dodaj grafikon"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
