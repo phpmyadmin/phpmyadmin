@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:24+0200\n"
+"PO-Revision-Date: 2011-07-19 16:25+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6518,6 +6518,7 @@ msgstr ""
 #: libraries/relation.lib.php:153
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Re-login til phpMyAdmin for at indlæse den opdaterede konfigurationsfil."
 
 #: libraries/relation.lib.php:1076
 msgid "no description"
