@@ -6814,7 +6814,7 @@ msgstr "Definition"
 #: libraries/rte/rte_events.lib.php:471
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "Efter udførsel gem"
+msgstr "Efter udførsel bevar"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
