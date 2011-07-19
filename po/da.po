@@ -10800,7 +10800,7 @@ msgstr ""
 
 #: tbl_operations.php:747
 msgid "Rebuild"
-msgstr ""
+msgstr "Genopbyg"
 
 #: tbl_operations.php:748
 msgid "Repair"
