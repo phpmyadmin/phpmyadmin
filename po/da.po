@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 23:06+0200\n"
+"PO-Revision-Date: 2011-07-19 23:07+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4544,7 +4544,7 @@ msgstr "Vis tabelkommentar stedet for dens navn"
 
 #: libraries/config/messages.inc.php:470
 msgid "Display table comments in tooltips"
-msgstr ""
+msgstr "Vis tabelkommentarer i tooltips"
 
 #: libraries/config/messages.inc.php:471
 msgid ""
