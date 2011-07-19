@@ -7650,7 +7650,7 @@ msgstr "Datalager"
 
 #: libraries/tbl_properties.inc.php:748
 msgid "PARTITION definition"
-msgstr ""
+msgstr "PARTITION definition"
 
 #: libraries/tbl_properties.inc.php:779
 #| msgid "Add a new User"
