@@ -3309,7 +3309,7 @@ msgstr "Importer procenter med korrekte decimaler (12.00% bliver til .12)"
 
 #: libraries/config/messages.inc.php:258
 msgid "Number of queries to skip from start"
-msgstr "Antal SQL-forespørgsler der skal springes over fra start"
+msgstr "Antal SQL-forespørgsler, der skal springes over fra start"
 
 #: libraries/config/messages.inc.php:259
 msgid "Partial import: skip queries"
