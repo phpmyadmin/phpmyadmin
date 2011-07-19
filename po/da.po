@@ -3488,7 +3488,7 @@ msgstr "Fil for login cookiel"
 
 #: libraries/config/messages.inc.php:300
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "Definerer hvor længe (i sekunder) en login cookie er gyldig"
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie validity"
