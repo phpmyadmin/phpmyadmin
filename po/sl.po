@@ -9912,10 +9912,9 @@ msgid "Clear monitor config"
 msgstr "Počisti konfiguracijo nadziranja"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Uvod"
+msgstr "Navodila nadziranja"
 
 #: server_status.php:1321
 msgid ""
