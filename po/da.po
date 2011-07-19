@@ -10574,7 +10574,7 @@ msgstr "X værdier"
 
 #: tbl_chart.php:129
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Y-akse betegnelse"
 
 #: tbl_chart.php:129
 #| msgid "Value"
