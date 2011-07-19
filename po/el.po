@@ -7272,11 +7272,9 @@ msgid "event"
 msgstr "συμβάν"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr ""
-"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε ένα συμβάν"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
