@@ -7164,10 +7164,9 @@ msgid "Create trigger"
 msgstr "Δημιουργία ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Προσθήκη μιας ενέργειας"
+msgstr "Επεξεργασία ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:301
 #, fuzzy
