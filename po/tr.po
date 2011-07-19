@@ -9961,7 +9961,7 @@ msgstr "Diziyi temizle"
 #: server_status.php:1400
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Çizelgedeki Seriler:"
+msgstr "Çizelgedeki Dizi:"
 
 #: server_status.php:1408
 #| msgid "Loading"
