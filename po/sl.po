@@ -7089,10 +7089,9 @@ msgid "Edit trigger"
 msgstr "Uredi sprožilec"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Sprožilci"
+msgstr "Ime sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:399
 #, fuzzy
