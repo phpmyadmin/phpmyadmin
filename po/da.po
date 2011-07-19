@@ -2241,7 +2241,7 @@ msgstr "Check privilegier for database &quot;%s&quot;."
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Check Privileges"
-msgstr "Check Privilegier"
+msgstr "Check privilegier"
 
 #: libraries/common.inc.php:588
 msgid "Failed to read configuration file"
