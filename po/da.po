@@ -6740,7 +6740,7 @@ msgstr "Den gemte forespørgsel var:"
 #, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Hændelse \"%1$s\" er blevet ændret"
+msgstr "Hændelse \"%1$s\" er blevet ændret."
 
 #: libraries/rte/rte_events.lib.php:133
 #, php-format
