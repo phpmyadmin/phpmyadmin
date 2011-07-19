@@ -1343,7 +1343,7 @@ msgstr ""
 
 #: js/messages.php:141
 msgid "From slow log"
-msgstr ""
+msgstr "Από την αργή καταγραφή"
 
 #: js/messages.php:142
 msgid "From general log"
