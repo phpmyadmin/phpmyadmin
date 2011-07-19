@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:43+0200\n"
+"PO-Revision-Date: 2011-07-19 14:44+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10779,7 +10779,7 @@ msgstr "Kopiér database til"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Vedligehold af partition"
 
 #: tbl_operations.php:741
 #, php-format
