@@ -4193,10 +4193,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
-msgstr "Vis åbne tabeller"
+msgstr "Vis felttyper"
 
 #: libraries/config/messages.inc.php:457
 msgid "Display the function fields in edit/insert mode"
