@@ -4774,7 +4774,7 @@ msgstr "Hurtig"
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:172
 msgid "Custom"
-msgstr "Tilrettet"
+msgstr "Brugerdefineret"
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:192
