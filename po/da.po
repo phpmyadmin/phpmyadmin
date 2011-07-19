@@ -11121,7 +11121,7 @@ msgstr "Deaktiver nu"
 #: tbl_tracking.php:705
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr "Aktiver tracking af %s.%s"
+msgstr "Aktiver sporing af %s.%s"
 
 #: tbl_tracking.php:707
 msgid "Activate now"
