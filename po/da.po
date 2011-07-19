@@ -11138,7 +11138,7 @@ msgstr "Spor disse data definition udsagn"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
-msgstr "Spor disse data manipulation udsagn:"
+msgstr "Spor disse datamanipulations-udsagn:"
 
 #: tbl_tracking.php:740
 msgid "Create version"
