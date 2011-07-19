@@ -10022,7 +10022,7 @@ msgstr ""
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "'%s' database eksisterer ikke"
 
 #: server_synchronize.php:261
 msgid "Structure Synchronization"
