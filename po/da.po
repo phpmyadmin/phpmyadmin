@@ -8916,7 +8916,7 @@ msgstr "Fuld start"
 
 #: server_replication.php:323
 msgid "Full stop"
-msgstr ""
+msgstr "Fuld stop"
 
 #: server_replication.php:324
 msgid "Reset slave"
