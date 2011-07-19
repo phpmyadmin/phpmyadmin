@@ -5845,7 +5845,7 @@ msgstr "Åbn nyt phpMyAdmin vindue"
 
 #: libraries/gis_visualization.lib.php:129
 msgid "No data found for GIS visualization."
-msgstr "Ingen data funder for GIS visualization"
+msgstr "Ingen data fundet for GIS visualization"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
