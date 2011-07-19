@@ -8397,7 +8397,7 @@ msgstr "Databasestatistik"
 #: server_databases.php:183 server_replication.php:179
 #: server_replication.php:207
 msgid "Master replication"
-msgstr ""
+msgstr "Master replikering"
 
 #: server_databases.php:185 server_replication.php:246
 msgid "Slave replication"
