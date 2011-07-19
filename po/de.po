@@ -1317,7 +1317,6 @@ msgstr "Schaubild-Titel"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Unterschied"
