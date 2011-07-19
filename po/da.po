@@ -3747,7 +3747,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:361
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Lades blank for standardværdi"
 
 #: libraries/config/messages.inc.php:362
 msgid "Host authorization rules"
