@@ -6627,10 +6627,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Den følgende SQL-forespørgsel fejlede: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Beklager, det lykkedes ikke at genetablere den slettede rutine."
+msgstr "Beklager, det lykkedes ikke at genetablere den slettede hændelse"
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
