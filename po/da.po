@@ -3591,7 +3591,7 @@ msgstr "Arrangér tabelrækkefølge efter"
 
 #: libraries/config/messages.inc.php:323 libraries/config/messages.inc.php:333
 msgid "Use only icons, only text or both"
-msgstr "Brug kun ikoner, kun tekst, eller begge"
+msgstr "Brug kun ikoner, kun tekst eller begge"
 
 #: libraries/config/messages.inc.php:324
 msgid "Iconic navigation bar"
