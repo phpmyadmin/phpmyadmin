@@ -8870,7 +8870,7 @@ msgstr ""
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr ""
+msgstr "Vælg databaser:"
 
 #: server_replication.php:226
 msgid ""
