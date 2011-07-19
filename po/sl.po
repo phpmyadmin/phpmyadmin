@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:00+0200\n"
+"PO-Revision-Date: 2011-07-19 23:01+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -6768,10 +6768,10 @@ msgid "The backed up query was:"
 msgstr "Varnostno kopirana poizvedba je bila:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Rutina %1$s je bila spremenjena."
+msgstr "Dogodek %1$s je bil spremenjen."
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
