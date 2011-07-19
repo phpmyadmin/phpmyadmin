@@ -10804,7 +10804,7 @@ msgstr ""
 
 #: tbl_operations.php:748
 msgid "Repair"
-msgstr ""
+msgstr "Reparer"
 
 #: tbl_operations.php:760
 msgid "Remove partitioning"
