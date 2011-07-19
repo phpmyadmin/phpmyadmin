@@ -4022,7 +4022,7 @@ msgstr "Metode for autentifikation"
 
 #: libraries/config/messages.inc.php:370 setup/frames/index.inc.php:126
 msgid "Authentication type"
-msgstr "Autenticeringstype"
+msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:371
 msgid ""
