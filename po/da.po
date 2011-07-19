@@ -9565,7 +9565,7 @@ msgstr "Antallet af fysiske skrivninger til log filen."
 
 #: server_status.php:1082
 msgid "The number of fsync() writes done to the log file."
-msgstr "Antallet af fsyncs skrivninger lavet til log filen."
+msgstr "Antallet af fsyncs skrivninger lavet til logfilen."
 
 #: server_status.php:1083
 msgid "The number of pending log file fsyncs."
