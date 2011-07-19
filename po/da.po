@@ -4771,7 +4771,7 @@ msgstr "Skabelon for filnavn"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ vil blive servernavnet"
 
 #: libraries/display_export.lib.php:224
 msgid ", @DATABASE@ will become the database name"
