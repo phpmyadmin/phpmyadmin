@@ -10023,7 +10023,7 @@ msgstr "Ο αριθμός των διεργασιών που δεν είναι �
 #: server_status.php:1277
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Έναρξη Οθόνης"
+msgstr "Έναρξη Εποπτείας"
 
 #: server_status.php:1285
 #| msgid "Introduction"
