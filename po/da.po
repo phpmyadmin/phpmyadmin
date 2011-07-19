@@ -4827,10 +4827,9 @@ msgid "gzipped"
 msgstr "gzipped"
 
 #: libraries/display_export.lib.php:312
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzipped\""
+msgstr "bzipped"
 
 #: libraries/display_export.lib.php:321
 #, fuzzy
