@@ -3868,7 +3868,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:387
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "Deaktiver brug af INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:388
 msgid "What PHP extension to use; you should use mysqli if supported"
