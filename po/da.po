@@ -11038,10 +11038,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr "Sporing af data definition slettet"
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "Forespørgselstype"
+msgstr "Query fejl"
 
 #: tbl_tracking.php:399
 msgid "Tracking data manipulation successfully deleted"
