@@ -1147,7 +1147,7 @@ msgstr "Χρήση Επεξεργαστή Συστήματος"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Μνήμη συστήματος"
 
 #: js/messages.php:94
 msgid "System swap"
