@@ -4965,7 +4965,7 @@ msgstr "Hent alle rækker"
 
 #: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
-msgstr ""
+msgstr "Output:"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:207
 #, php-format
