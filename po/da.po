@@ -2487,7 +2487,7 @@ msgstr "Operationer"
 
 #: libraries/common.lib.php:2858
 msgid "Browse your computer:"
-msgstr "Gennemse din computer"
+msgstr "Gennemse din computer:"
 
 #: libraries/common.lib.php:2874
 #, php-format
