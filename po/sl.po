@@ -9997,7 +9997,7 @@ msgstr "Dodaj serijo"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Počisti serije"
 
 #: server_status.php:1400
 #, fuzzy
