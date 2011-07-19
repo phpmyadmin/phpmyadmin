@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 20:58+0200\n"
+"PO-Revision-Date: 2011-07-19 20:59+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -9094,7 +9094,7 @@ msgstr "Vis slavestatus"
 
 #: server_status.php:467
 msgid "Flush query cache"
-msgstr "Flush forespørgsel-mellemlager (query cache)"
+msgstr "Tøm forespørgsel-mellemlager"
 
 #: server_status.php:568
 msgid "Runtime Information"
