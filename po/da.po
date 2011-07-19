@@ -9994,7 +9994,7 @@ msgstr "Tilføj denne serie"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Slet serie"
 
 #: server_status.php:1400
 msgid "Series in Chart:"
