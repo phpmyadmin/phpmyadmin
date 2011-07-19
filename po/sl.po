@@ -6877,10 +6877,9 @@ msgid "You must provide a valid execution time for the event."
 msgstr "Navesti morate veljavni čas izvedbe dogodka."
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
+msgstr "Navesti morate veljavno vrsto dogodka."
 
 #: libraries/rte/rte_events.lib.php:572
 #| msgid "You must provide a routine definition."
