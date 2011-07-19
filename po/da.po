@@ -9955,7 +9955,7 @@ msgstr "Diagramkolonner:"
 
 #: server_status.php:1317
 msgid "Clear monitor config"
-msgstr ""
+msgstr "Slet monitorkonfiguration"
 
 #: server_status.php:1320
 msgid "Monitor Instructions"
