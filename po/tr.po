@@ -1189,7 +1189,7 @@ msgstr "Çizelgeyi ızgaraya ekle"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
-msgstr "Lütfen serilere en az bir değişken ekleyin"
+msgstr "Lütfen diziye en az bir değişken ekleyin"
 
 #: js/messages.php:108 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:564 libraries/export/sql.php:1039
