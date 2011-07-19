@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:11+0200\n"
+"PO-Revision-Date: 2011-07-19 14:12+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4782,7 +4782,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ""
 
 #: libraries/display_export.lib.php:230
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 #| "formatting strings. Additionally the following transformations will "
@@ -4794,7 +4794,7 @@ msgid ""
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
-"vil blive bevaret som det er."
+"vil blive bevaret som det er. Se %4$sFAQ%5$s for detaljer."
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
