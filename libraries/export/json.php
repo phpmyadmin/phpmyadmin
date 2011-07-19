@@ -74,7 +74,7 @@ function PMA_exportHeader()
  */
 function PMA_exportDBHeader($db)
 {
-    PMA_exportOutputHandler('/* Database \'' . $db . '\' */ ' . $GLOBALS['crlf'] );
+    PMA_exportOutputHandler('// Database \'' . $db . '\'' . $GLOBALS['crlf'] );
     return true;
 }
 
@@ -134,7 +134,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
         // Output table name as comment if this is the first record of the table
         if ($record_cnt == 1) {
-            $buffer .= '/* ' . $db . '.' . $table . ' */' . $crlf . $crlf;
+            $buffer .= '// ' . $db . '.' . $table . $crlf . $crlf;
             $buffer .= '[{';
         } else {
             $buffer .= ', {';
@@ -147,18 +147,20 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             $column = $columns[$i];
 
             if (is_null($record[$i])) {
-                $buffer .= '"' . $column . '": null' . (! $isLastLine ? ',' : '');
+                $buffer .= '"' . addslashes($column) . '": null' . (! $isLastLine ? ',' : '');
             } elseif (is_numeric($record[$i])) {
-                $buffer .= '"' . $column . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
+                $buffer .= '"' . addslashes($column) . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
             } else {
-                $buffer .= '"' . $column . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
+                $buffer .= '"' . addslashes($column) . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
             }
         }
 
         $buffer .= '}';
     }
 
-    $buffer .=  ']';
+    if ($record_cnt) {
+        $buffer .=  ']';
+    }
     if (! PMA_exportOutputHandler($buffer)) {
         return false;
     }

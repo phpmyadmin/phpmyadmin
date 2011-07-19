@@ -438,7 +438,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             <?php echo __('Number of rows') . ': ' . "\n"; ?>
             <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" class="textfield" onfocus="this.select()" />
         <?php
-        if ($GLOBALS['cfg']['ShowDisplayDir']) {
+        if ($GLOBALS['cfg']['ShowDisplayDirection']) {
             // Display mode (horizontal/vertical and repeat headers)
             echo __('Mode') . ': ' . "\n";
             $choices = array(
@@ -1391,7 +1391,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class . ' ' . $hide_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $relation_class; //' ' . $alternating_color_class . 
 
             //  See if this column should get highlight because it's used in the
             //  where-query.

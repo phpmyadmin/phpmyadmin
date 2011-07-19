@@ -723,13 +723,13 @@ var last_shift_clicked_row = -1;
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
     });
-})
+})*/
 
 /**
  * This array is used to remember mark status of rows in browse mode
@@ -1217,6 +1217,7 @@ function changeMIMEType(db, table, reference, mime_type)
  */
 $(document).ready(function(){
     $(".inline_edit_sql").live('click', function(){
+        var server     = $(this).prev().find("input[name='server']").val();
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1232,7 +1233,8 @@ $(document).ready(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
                 window.location.replace("import.php"
-                                      + "?db=" + encodeURIComponent(db)
+                                      + "?server=" + encodeURIComponent(server)
+                                      + "&db=" + encodeURIComponent(db)
                                       + "&table=" + encodeURIComponent(table)
                                       + "&sql_query=" + encodeURIComponent(sql_query)
                                       + "&show_query=1"
@@ -1459,20 +1461,26 @@ function PMA_createChart(passedSettings) {
         chart: {
             type: 'spline',
             marginRight: 10,
+            backgroundColor: 'transparent',
             events: {
+                /* Live charting support */
                 load: function() {
                     var thisChart = this;
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    // No realtime updates for graphs that are being exported, and disabled when no callback is set
+                    
+                    // No realtime updates for graphs that are being exported, and disabled when realtime is not set
+                    // Also don't do live charting if we don't have the server time
                     if(thisChart.options.chart.forExport == true || 
-                        ! passedSettings.realtime || 
-                        ! passedSettings.realtime.callback) return;
+                        ! thisChart.options.realtime || 
+                        ! thisChart.options.realtime.callback ||
+                        ! server_time_diff) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.post(passedSettings.realtime.url,
-                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                        thisChart.options.realtime.postRequest = $.post(
+                            thisChart.options.realtime.url,
+                            thisChart.options.realtime.postData,
                             function(data) {
                                 curValue = jQuery.parseJSON(data);
                                 
@@ -1485,13 +1493,13 @@ function PMA_createChart(passedSettings) {
                                     false
                                 );
                                 
-                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
                                 
                                 lastValue = curValue;
                                 numLoadedPoints++;
                                 
                                 // Timeout has been cleared => don't start a new timeout
-                                if(chart_activeTimeouts[container]==null) return;
+                                if(chart_activeTimeouts[container] == null) return;
                                 
                                 chart_activeTimeouts[container] = setTimeout(
                                     thisChart.options.realtime.timeoutCallBack, 
@@ -1500,7 +1508,7 @@ function PMA_createChart(passedSettings) {
                         });
                     }
                     
-                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
         },
@@ -1542,15 +1550,20 @@ function PMA_createChart(passedSettings) {
     }
     
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {
+    if(passedSettings.realtime) {        
         if(!passedSettings.realtime.refreshRate) 
             passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
         
-        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
+        // Allow custom POST vars to be added
+        passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
+        
+        if(server_time_diff) {
+            settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+            settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
+        }
     }
 
     // Overwrite/Merge default settings with passedsettings
@@ -2389,7 +2402,7 @@ $(function() {
  * Get the row number from the classlist (for example, row_1)
  */
 function PMA_getRowNumber(classlist) {
-    return parseInt(classlist.split(/row_/)[1]);
+    return parseInt(classlist.split(/\s+row_/)[1]);
 }
 
 /**
@@ -2426,16 +2439,146 @@ function PMA_init_slider() {
 }
 
 /**
+ * var  toggleButton  This is a function that creates a toggle
+ *                    sliding button given a jQuery reference
+ *                    to the correct DOM element
+ */
+var toggleButton = function ($obj) {
+    // In rtl mode the toggle switch is flipped horizontally
+    // so we need to take that into account
+    if ($('.text_direction', $obj).text() == 'ltr') {
+        var right = 'right';
+    } else {
+        var right = 'left';
+    }
+	/**
+	 *  var  h  Height of the button, used to scale the
+	 *          background image and position the layers
+	 */
+	var h = $obj.height();
+	$('img', $obj).height(h);
+	$('table', $obj).css('bottom', h-1);
+	/**
+	 *  var  on   Width of the "ON" part of the toggle switch
+	 *  var  off  Width of the "OFF" part of the toggle switch
+	 */
+	var on  = $('.toggleOn', $obj).width();
+	var off = $('.toggleOff', $obj).width();
+	// Make the "ON" and "OFF" parts of the switch the same size
+	$('.toggleOn > div', $obj).width(Math.max(on, off));
+	$('.toggleOff > div', $obj).width(Math.max(on, off));
+	/**
+	 *  var  w  Width of the central part of the switch
+	 */
+	var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+	// Resize the central part of the switch on the top
+	// layer to match the background
+	$('table td:nth-child(2) > div', $obj).width(w);
+	/**
+	 *  var  imgw    Width of the background image
+	 *  var  tblw    Width of the foreground layer
+	 *  var  offset  By how many pixels to move the background
+	 *               image, so that it matches the top layer
+	 */
+	var imgw = $('img', $obj).width();
+	var tblw = $('table', $obj).width();
+	var offset = parseInt(((imgw - tblw) / 2), 10);
+	// Move the background to match the layout of the top layer
+	$obj.find('img').css(right, offset);
+	/**
+	 *  var  offw    Outer width of the "ON" part of the toggle switch
+	 *  var  btnw    Outer width of the central part of the switch
+	 */
+	var offw = $('.toggleOff', $obj).outerWidth();
+	var btnw = $('table td:nth-child(2)', $obj).outerWidth();
+	// Resize the main div so that exactly one side of
+	// the switch plus the central part fit into it.
+	$obj.width(offw + btnw + 2);
+	/**
+	 *  var  move  How many pixels to move the
+	 *             switch by when toggling
+	 */
+	var move = $('.toggleOff', $obj).outerWidth();
+	// If the switch is initialized to the
+	// OFF state we need to move it now.
+	if ($('.container', $obj).hasClass('off')) {
+        if (right == 'right') {
+    		$('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+        } else {
+    		$('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+        }
+	}
+	// Attach an 'onclick' event to the switch
+	$('.container', $obj).click(function () {
+        if ($(this).hasClass('isActive')) {
+            return false;
+        } else {
+            $(this).addClass('isActive');
+        }
+        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
+        var $container = $(this);
+        var callback = $('.callback', this).text();
+		// Perform the actual toggle
+		if ($(this).hasClass('on')) {
+            if (right == 'right') {
+                var operator = '-=';
+            } else {
+                var operator = '+=';
+            }
+            var url = $(this).find('.toggleOff > span').text();
+            var removeClass = 'on';
+            var addClass = 'off';
+		} else {
+            if (right == 'right') {
+                var operator = '+=';
+            } else {
+                var operator = '-=';
+            }
+            var url = $(this).find('.toggleOn > span').text();
+            var removeClass = 'off';
+            var addClass = 'on';
+        }
+        $.post(url, {'ajax_request': true}, function(data) {
+            if(data.success == true) {
+                PMA_ajaxRemoveMessage($msg);
+		        $container
+		        .removeClass(removeClass)
+		        .addClass(addClass)
+		        .animate({'left': operator + move + 'px'}, function () {
+                    $container.removeClass('isActive');
+                });
+                eval(callback);
+            } else {
+                PMA_ajaxShowMessage(data.error);
+                $container.removeClass('isActive');
+            }
+        });
+	});
+};
+
+/**
+ * Initialise all toggle buttons
+ */
+$(window).load(function () {
+    $('.toggleAjax').each(function () {
+        $(this)
+        .show()
+        .find('.toggleButton')
+		toggleButton($(this));
+	});
+});
+
+/**
  * Vertical pointer
  */
 $(document).ready(function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
-        var $this_td = $(this);
-        var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle hover
-        $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
+            var $this_td = $(this);
+            var row_num = PMA_getRowNumber($this_td.attr('class'));
+            // for all td of the same vertical row, toggle hover
+            $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
 }) // end of $(document).ready() for vertical pointer
@@ -2445,11 +2588,35 @@ $(document).ready(function() {
      * Vertical marker
      */
     $('.vmarker').live('click', function(e) {
+        // do not trigger when clicked on anchor
+        if ($(e.target).is('a, img, a *')) {
+            return;
+        }
+
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle the marked class
-        $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
-        });
+
+        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+        var $tr = $(this);
+        var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
+        if ($checkbox.length) {
+            // checkbox in a row, add or remove class depending on checkbox state
+            var checked = $checkbox.attr('checked');
+            if (!$(e.target).is(':checkbox, label')) {
+                checked = !checked;
+                $checkbox.attr('checked', checked);
+            }
+            // for all td of the same vertical row, toggle the marked class
+            if (checked) {      
+                $('.vmarker').filter('.row_' + row_num).addClass('marked');
+            } else {
+                $('.vmarker').filter('.row_' + row_num).removeClass('marked');
+            }
+        } else {
+            // normaln data table, just toggle class
+            $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
+        }
+    });
 
     /**
      * Reveal visual builder anchor
@@ -2529,44 +2696,6 @@ $(document).ready(function() {
 }) // end of $(document).ready()
 
 /**
- * Attach Ajax event handlers for Export of Routines, Triggers and Events.
- *
- * @uses    PMA_ajaxShowMessage()
- * @uses    PMA_ajaxRemoveMessage()
- *
- * @see $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $('.export_routine_anchor, .export_trigger_anchor, .export_event_anchor').live('click', function(event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
-                PMA_ajaxRemoveMessage($msg);
-                /**
-                 * @var button_options  Object containing options for jQueryUI dialog buttons
-                 */
-                var button_options = {};
-                button_options[PMA_messages['strClose']] = function() {$(this).dialog("close").remove();}
-                /**
-                 * Display the dialog to the user
-                 */
-                var $ajaxDialog = $('<div>'+data.message+'</div>').dialog({
-                                      width: 500,
-                                      buttons: button_options,
-                                      title: data.title
-                                  });
-                // Attach syntax highlited editor to export dialog
-                var elm = $ajaxDialog.find('textarea');
-                CodeMirror.fromTextArea(elm[0], {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"});
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }) // end $.get()
-    }); // end $.live()
-}); // end of $(document).ready() for Export of Routines, Triggers and Events.
-
-/**
  * Creates a message inside an object with a sliding effect
  *
  * @param   msg    A string containing the text to display
@@ -2642,69 +2771,6 @@ function PMA_slidingMessage(msg, $obj) {
     }
     return true;
 } // end PMA_slidingMessage()
-
-/**
- * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
- *
- * @uses    $.PMA_confirm()
- * @uses    PMA_ajaxShowMessage()
- * @see     $cfg['AjaxEnable']
- */
-$(document).ready(function() {
-    $('.drop_routine_anchor, .drop_trigger_anchor, .drop_event_anchor').live('click', function(event) {
-        event.preventDefault();
-        /**
-         * @var $curr_row    Object containing reference to the current row
-         */
-        var $curr_row = $(this).parents('tr');
-        /**
-         * @var question    String containing the question to be asked for confirmation
-         */
-        var question = $('<div></div>').text($curr_row.children('td').children('.drop_sql').html());
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-            /**
-             * @var    $msg    jQuery object containing the reference to
-             *                 the AJAX message shown to the user.
-             */
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
-                    /**
-                     * @var $table    Object containing reference to the main list of elements.
-                     */
-                    var $table = $curr_row.parent();
-                    if ($table.find('tr').length == 2) {
-                        $table.hide("slow", function () {
-                            $(this).find('tr.even, tr.odd').remove();
-                            $('#nothing2display').show("slow");
-                        });
-                    } else {
-                        $curr_row.hide("slow", function () {
-                            $(this).remove();
-                            // Now we have removed the row from the list, but maybe
-                            // some row classes are wrong now. So we will itirate
-                            // throught all rows and assign correct classes to them.
-                            /**
-                             * @var    ct    Count of processed rows.
-                             */
-                            var ct = 0;
-                            $table.find('tr').has('td').each(function() {
-                                rowclass = (ct % 2 == 0) ? 'even' : 'odd';
-                                $(this).removeClass().addClass(rowclass);
-                                ct++;
-                            });
-                        });
-                    }
-                    // Show the query that we just executed
-                    PMA_ajaxRemoveMessage($msg);
-                    PMA_slidingMessage(data.sql_query);
-                } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error);
-                }
-            }) // end $.get()
-        }) // end $.PMA_confirm()
-    }); // end $.live()
-}); //end $(document).ready() for Drop functionality of Routines, Triggers and Events.
 
 /**
  * Attach Ajax event handlers for Drop Table.
@@ -2807,4 +2873,43 @@ $(document).ready(function() {
         }
     }; //end noSelect    
 })(jQuery);
+
+/**
+ * Create default PMA tooltip for the element specified. The default appearance
+ * can be overriden by specifying optional "options" parameter (see qTip options).
+ */
+function PMA_createqTip($elements, content, options) {
+    var o = {
+        content: content,
+        style: {
+            background: '#333',
+            border: {
+                radius: 5
+            },
+            fontSize: '0.8em',
+            padding: '0 0.5em',
+            name: 'dark'
+        },
+        position: {
+            target: 'mouse',
+            corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
+            adjust: { x: 20 }
+        },
+        show: {
+            delay: 0,
+            effect: {
+                type: 'grow',
+                length: 100
+            }
+        },
+        hide: {
+            effect: {
+                type: 'grow',
+                length: 150
+            }
+        }
+    }
+    
+    $elements.qtip($.extend(true, o, options));
+}
 
