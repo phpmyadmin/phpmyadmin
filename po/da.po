@@ -6030,7 +6030,7 @@ msgstr "Funktioner der bruges, når data udtrækkes:"
 
 #: libraries/export/sql.php:251
 msgid "Syntax to use when inserting data:"
-msgstr "Syntaks der bruges, når data indsættes"
+msgstr "Syntaks der bruges, når data indsættes:"
 
 #: libraries/export/sql.php:257
 msgid ""
