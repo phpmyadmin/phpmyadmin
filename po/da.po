@@ -4743,7 +4743,7 @@ msgstr "Antal rækker:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Begyndelsesrække:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
