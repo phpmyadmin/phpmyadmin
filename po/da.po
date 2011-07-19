@@ -5140,7 +5140,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr "Filen behandles, vær tålmodig"
+msgstr "Filen behandles, vær tålmodig."
 
 #: libraries/display_import.lib.php:98
 msgid ""
