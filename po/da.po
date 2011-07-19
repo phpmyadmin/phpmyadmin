@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:09+0200\n"
+"PO-Revision-Date: 2011-07-19 18:10+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2368,7 +2368,7 @@ msgstr "Fremstil PHP-kode"
 #: libraries/common.lib.php:1126 libraries/config/messages.inc.php:475
 #: server_status.php:583 server_status.php:605 server_status.php:624
 msgid "Refresh"
-msgstr "Opdatér"
+msgstr "Opdater"
 
 #: libraries/common.lib.php:1135
 msgid "Skip Validate SQL"
