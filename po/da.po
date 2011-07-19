@@ -3662,7 +3662,7 @@ msgstr "Permanent forespørgselshistorie"
 
 #: libraries/config/messages.inc.php:340
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Hvor mange forespørgsler er gemt i historikken"
 
 #: libraries/config/messages.inc.php:341
 msgid "Query history length"
