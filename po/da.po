@@ -6959,7 +6959,7 @@ msgstr "Triggernavn"
 
 #: libraries/rte/rte_triggers.lib.php:399
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "Du skal angive et triggernavn"
 
 #: libraries/rte/rte_triggers.lib.php:404
 msgid "You must provide a valid timing for the trigger"
