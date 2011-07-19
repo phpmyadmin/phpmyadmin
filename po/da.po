@@ -10323,7 +10323,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:150
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Versionsstrengen kan ikke parses"
 
 #: setup/lib/index.lib.php:162
 #, php-format
