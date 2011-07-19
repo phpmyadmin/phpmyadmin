@@ -7149,7 +7149,6 @@ msgid "There are no routines to display."
 msgstr "Ni rutin za prikaz."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "Dodaj sprožilec"
