@@ -10125,10 +10125,9 @@ msgid "Swap Usage"
 msgstr "Uso del área de intercambio"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Todas las variables de estado"
+msgstr "Variable(s) de estado"
 
 #: server_status.php:1359
 #, fuzzy
