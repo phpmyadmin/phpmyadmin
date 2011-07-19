@@ -6716,7 +6716,7 @@ msgstr "Opstart"
 #: libraries/rte/rte_triggers.lib.php:348
 #| msgid "Description"
 msgid "Definition"
-msgstr "Beskrivelse"
+msgstr "Definition"
 
 #: libraries/rte/rte_events.lib.php:471
 #, fuzzy
