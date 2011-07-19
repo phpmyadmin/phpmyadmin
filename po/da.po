@@ -3960,7 +3960,7 @@ msgstr "Mappe, hvor eksporterede data kan gemmes på serveren"
 
 #: libraries/config/messages.inc.php:358
 msgid "Save directory"
-msgstr ""
+msgstr "Gemmemappe"
 
 #: libraries/config/messages.inc.php:359
 msgid "Leave blank if not used"
