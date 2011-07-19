@@ -6931,10 +6931,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Beklager, det lykkedes ikke at genetablere den slettede trigger"
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Tabel \"%1$s\" er slettet"
+msgstr "Trigger \"%1$s\" er blevet ændret"
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, php-format
