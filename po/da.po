@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:22+0200\n"
+"PO-Revision-Date: 2011-07-19 16:23+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6500,7 +6500,7 @@ msgstr "Hurtige trin for at opsætte avancerede muligheder:"
 #: libraries/relation.lib.php:150
 msgid ""
 "Create the needed tables with the <code>script/create_tables.sql</code>."
-msgstr ""
+msgstr "Opret de nødvendige tabeller med <code>script/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:151
 msgid "Create a pma user and give access to these tables."
