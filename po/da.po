@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:57+0200\n"
+"PO-Revision-Date: 2011-07-19 13:58+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4350,7 +4350,7 @@ msgstr "Textarea rækker"
 
 #: libraries/config/messages.inc.php:492
 msgid "Title of browser window when a database is selected"
-msgstr ""
+msgstr "Titel for vindue, når en database er valgt"
 
 #: libraries/config/messages.inc.php:494
 msgid "Title of browser window when nothing is selected"
