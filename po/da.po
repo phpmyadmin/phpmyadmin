@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:28+0200\n"
+"PO-Revision-Date: 2011-07-19 16:29+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6141,10 +6141,10 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Ugyldigt format for CSV-input på linie %d."
 
 #: libraries/import/csv.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Ugyldigt feltantal i CSV-input på linie %d."
+msgstr "Ugyldigt kolonneantal i CSV-input på linie %d."
 
 #: libraries/import/docsql.php:28
 msgid "DocSQL"
