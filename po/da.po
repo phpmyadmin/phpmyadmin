@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 19:39+0200\n"
+"PO-Revision-Date: 2011-07-19 19:40+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5248,7 +5248,7 @@ msgstr "Klik for at markere/afmarkere"
 
 #: libraries/display_tbl.lib.php:420
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Klik på pilen for valgboks<br />for at skifte kolonnens synlighed"
 
 #: libraries/display_tbl.lib.php:431
 #, php-format
