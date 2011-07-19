@@ -4705,7 +4705,7 @@ msgstr "Open Document regneark"
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
-msgstr ""
+msgstr "Hurtig"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:172
