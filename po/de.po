@@ -1346,7 +1346,7 @@ msgstr ""
 # Eigenname der MySQL-Funktion
 #: js/messages.php:141
 msgid "From slow log"
-msgstr "Vom slow log"
+msgstr "Vom slow Log"
 
 #: js/messages.php:142
 msgid "From general log"
