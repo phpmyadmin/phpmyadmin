@@ -4693,7 +4693,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:268
 msgid "use this for future exports"
-msgstr ""
+msgstr "прилагане и към бъдещи експорти"
 
 #: libraries/display_export.lib.php:274 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:463
