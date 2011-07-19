@@ -7288,7 +7288,7 @@ msgstr "Vis relationel skema"
 
 #: libraries/schema/User_Schema.class.php:352
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Vælg Export Relational Type"
 
 #: libraries/schema/User_Schema.class.php:373
 msgid "Show grid"
