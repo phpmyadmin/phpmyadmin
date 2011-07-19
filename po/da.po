@@ -4652,7 +4652,6 @@ msgstr "MySQL&nbsp;4.0 kompatibel"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "Opret ny database"
