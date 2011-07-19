@@ -3388,7 +3388,7 @@ msgstr "Maksimal dybde på database-træ"
 
 #: libraries/config/messages.inc.php:280
 msgid "String that separates tables into different tree levels"
-msgstr "Streng der inddeler tabeller i træ"
+msgstr "Streng, der inddeler tabeller i træ"
 
 #: libraries/config/messages.inc.php:281
 msgid "Table tree separator"
