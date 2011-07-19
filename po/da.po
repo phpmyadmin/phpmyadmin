@@ -5047,7 +5047,7 @@ msgstr "Gem output i en fil"
 #: libraries/display_export.lib.php:220
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Skabelon for filnavn"
+msgstr "Skabelon for filnavn:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
