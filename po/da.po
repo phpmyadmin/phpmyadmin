@@ -4734,7 +4734,7 @@ msgstr "Rækker:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr "Vis nogle række(r)"
+msgstr "Hent nogle række(r)"
 
 #: libraries/display_export.lib.php:152
 #| msgid "Number of fields"
