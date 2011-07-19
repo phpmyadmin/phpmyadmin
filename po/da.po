@@ -10233,7 +10233,7 @@ msgstr "Doner"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "Rediger server"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
