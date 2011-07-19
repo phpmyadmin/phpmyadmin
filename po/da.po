@@ -4679,10 +4679,9 @@ msgid "Name"
 msgstr "Navn"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Antal felter"
+msgstr "Antal kolonner"
 
 #: libraries/display_export.lib.php:35
 msgid "Could not load export plugins, please check your installation!"
