@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:07+0200\n"
+"PO-Revision-Date: 2011-07-19 13:08+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3536,7 +3536,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Maksimalt antal viste rækker"
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of tables displayed in table list"
