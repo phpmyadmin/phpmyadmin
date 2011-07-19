@@ -6844,7 +6844,7 @@ msgstr "Opretter skal være i formatet \"username@hostname\" "
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
-msgstr ""
+msgstr "Du skal angive et hændelsesnavn"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
