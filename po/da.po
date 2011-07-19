@@ -8033,7 +8033,7 @@ msgstr "Ingen databaser"
 
 #: navigation.php:273
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: navigation.php:273
 #, fuzzy
