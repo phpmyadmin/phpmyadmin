@@ -5700,7 +5700,7 @@ msgstr ""
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
 "Ekstra kommentarer i headeren (\n"
-" deler linjer)"
+" deler linjer):"
 
 #: libraries/export/sql.php:48
 msgid ""
