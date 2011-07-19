@@ -7808,7 +7808,7 @@ msgstr ""
 "over fra begyndelsen af en streng (Standard 0). Andet parameter er antal "
 "tegn der returneres (Standard indtil enden af strengen). Det tredie "
 "parameter definerer hvilke tegn der skal føjes til foran eller efter "
-"outputtet når en substring (understreng) returneres (Standard: \"...\") ."
+"outputtet når en substring (understreng) returneres (Standard: \"...\")."
 
 #: libraries/user_preferences.inc.php:32
 #, fuzzy
