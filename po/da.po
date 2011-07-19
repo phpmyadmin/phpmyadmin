@@ -1291,10 +1291,9 @@ msgstr ""
 "venligst ind som root eller kontakt din database administrator."
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
-msgstr "Generelle relationsmuligheder"
+msgstr "Ændre indstillinger"
 
 #: js/messages.php:131
 #, fuzzy
