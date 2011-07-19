@@ -4260,7 +4260,7 @@ msgstr "Login sessionsnavn"
 
 #: libraries/config/messages.inc.php:417
 msgid "Signon URL"
-msgstr ""
+msgstr "Login URL"
 
 #: libraries/config/messages.inc.php:418
 msgid "Socket on which MySQL server is listening, leave empty for default"
