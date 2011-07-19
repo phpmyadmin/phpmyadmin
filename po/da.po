@@ -10526,7 +10526,7 @@ msgstr "Søjle"
 
 #: tbl_chart.php:87
 msgid "Line"
-msgstr ""
+msgstr "Linje"
 
 #: tbl_chart.php:88
 #| msgid "Engines"
