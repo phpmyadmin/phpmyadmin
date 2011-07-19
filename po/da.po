@@ -7416,10 +7416,9 @@ msgid "Clear"
 msgstr "Ryd"
 
 #: libraries/sql_query_form.lib.php:267
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Kolonnenavne"
+msgstr "Kolonner"
 
 #: libraries/sql_query_form.lib.php:302 sql.php:1016 sql.php:1017 sql.php:1034
 msgid "Bookmark this SQL query"
