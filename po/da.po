@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:44+0200\n"
+"PO-Revision-Date: 2011-07-19 22:45+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7789,7 +7789,6 @@ msgstr ""
 "pixel, tredie er højden."
 
 #: libraries/transformations/text_plain__link.inc.php:9
-#, fuzzy
 #| msgid ""
 #| "Displays a link; the field contains the filename. The first option is a "
 #| "URL prefix like \"http://www.example.com/\". The second option is a title "
@@ -7799,8 +7798,8 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks "
-"som \"http://domain.com/\", anden indstilling er en titel på linket."
+"Viser et link; feltet indeholder filnavnet. Første indstilling er et præfiks "
+"som \"http://domain.com/\". Anden indstilling er en titel på linket."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:9
 msgid ""
