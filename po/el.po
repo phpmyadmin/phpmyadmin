@@ -10136,10 +10136,9 @@ msgid "Status variable(s)"
 msgstr "Μεταβλητή(ές) κατάστασης"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Επιλογή Πινάκων"
+msgstr "Επιλογή σειρών:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
