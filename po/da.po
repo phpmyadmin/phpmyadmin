@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:48+0200\n"
+"PO-Revision-Date: 2011-07-19 15:49+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7758,10 +7758,9 @@ msgid "Manage your settings"
 msgstr "Generelle relationsmuligheder"
 
 #: libraries/user_preferences.inc.php:47 prefs_manage.php:291
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Rettelserne er gemt!"
+msgstr "Konfigurationen er gemt"
 
 #: libraries/user_preferences.inc.php:68
 #, php-format
