@@ -4724,7 +4724,7 @@ msgstr "bzip-нато"
 
 #: libraries/display_export.lib.php:321
 msgid "View output as text"
-msgstr ""
+msgstr "Показване на изхода като текст"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
