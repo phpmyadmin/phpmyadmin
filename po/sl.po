@@ -9971,7 +9971,7 @@ msgstr "Izberite serije:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Pogosto nadzirano"
 
 #: server_status.php:1376
 #, fuzzy
