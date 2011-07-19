@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 20:15+0200\n"
+"PO-Revision-Date: 2011-07-19 20:35+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -343,7 +343,7 @@ msgstr "Skift til den kopierede database"
 #: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
-msgstr "Kollation (Collation)"
+msgstr "Tegnsæt (sortering)"
 
 #: db_operations.php:565
 #, php-format
