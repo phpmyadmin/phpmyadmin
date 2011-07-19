@@ -7078,7 +7078,7 @@ msgstr "Der er ingen hændelser at vise"
 #: libraries/schema/Pdf_Relation_Schema.class.php:484
 #: libraries/schema/Svg_Relation_Schema.class.php:364
 #: libraries/schema/Visio_Relation_Schema.class.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabellen \"%s\" findes ikke!"
