@@ -8806,7 +8806,7 @@ msgstr "Visning %s er blevet droppet"
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "Ukendt fejl"
 
 #: server_replication.php:56
 #, php-format
