@@ -10116,7 +10116,7 @@ msgstr "maks. samtidige forbindelser"
 #: server_synchronize.php:1163
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Konfiguration: %s"
 
 #: server_synchronize.php:1178
 msgid "Socket"
