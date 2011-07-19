@@ -1304,10 +1304,9 @@ msgstr ""
 "datos."
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Administrar tu configuración"
+msgstr "Cambiar configuraciones"
 
 #: js/messages.php:131
 #, fuzzy
