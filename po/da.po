@@ -3796,7 +3796,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:372
 msgid "Bookmark table"
-msgstr "Bogmærk tabel"
+msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:373
 msgid ""
