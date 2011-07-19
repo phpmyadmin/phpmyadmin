@@ -2163,7 +2163,7 @@ msgstr "PBMS-fejl"
 
 #: libraries/blobstreaming.lib.php:262
 msgid "PBMS connection failed:"
-msgstr "Det lykkedes ikke at oprette forbindelse til PBMS"
+msgstr "Det lykkedes ikke at oprette forbindelse til PBMS:"
 
 #: libraries/blobstreaming.lib.php:307
 msgid "PBMS get BLOB info failed:"
