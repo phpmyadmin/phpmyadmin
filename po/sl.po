@@ -1337,7 +1337,7 @@ msgstr "Iz počasnega dnevnika"
 
 #: js/messages.php:142
 msgid "From general log"
-msgstr ""
+msgstr "Iz splošnega dnevnika"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
