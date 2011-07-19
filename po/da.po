@@ -9981,7 +9981,7 @@ msgstr "Vis som forskelsværdi"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Anvend divisor"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
