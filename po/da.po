@@ -10166,7 +10166,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
-msgstr ""
+msgstr "Usikker forbindelse"
 
 #: setup/frames/index.inc.php:92
 #| msgid "Modifications have been saved"
