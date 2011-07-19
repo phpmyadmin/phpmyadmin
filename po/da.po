@@ -10101,10 +10101,9 @@ msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1134
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Current connection"
-msgstr "maks. samtidige forbindelser"
+msgstr "Aktuel forbindelse"
 
 #: server_synchronize.php:1163
 #, php-format
