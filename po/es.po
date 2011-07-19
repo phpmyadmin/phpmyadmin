@@ -1364,6 +1364,9 @@ msgid ""
 "together. However only the SQL Text is being compared, thus the queries "
 "other attributes such as start time may differ."
 msgstr ""
+"Esta columna muestra la cantidad de consultas idénticas que fueron "
+"agrupadas. Sin embargo, sólo el texto SQL es comparado, por lo que los demás "
+"atributos de las consultas como el tiempo de inicio podría diferir."
 
 #: js/messages.php:145
 msgid ""
