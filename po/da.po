@@ -9151,8 +9151,8 @@ msgstr ""
 #: server_status.php:821
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Denne MySQL server fungerer som <b>master</b> i en <b>replication</b> "
-"proces."
+"Denne MySQL server fungerer som <b>master</b> i en "
+"<b>replikation</b>sproces."
 
 #: server_status.php:823
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
