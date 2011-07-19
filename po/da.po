@@ -6206,7 +6206,7 @@ msgstr "fre"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
-msgstr ""
+msgstr "Til"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:276
 #: libraries/sql_query_form.lib.php:399
