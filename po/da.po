@@ -3910,7 +3910,7 @@ msgstr "Log ud URL"
 
 #: libraries/config/messages.inc.php:397
 msgid "Try to connect without password"
-msgstr ""
+msgstr "Prøv at forbinde uden password"
 
 #: libraries/config/messages.inc.php:398
 msgid "Connect without password"
