@@ -5007,7 +5007,7 @@ msgstr "lodret"
 #: libraries/display_tbl.lib.php:452
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Overskrifter for hver %s rows"
 
 #: libraries/display_tbl.lib.php:546
 msgid "Sort by key"
