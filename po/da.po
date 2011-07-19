@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:30+0200\n"
+"PO-Revision-Date: 2011-07-19 22:31+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8773,8 +8773,7 @@ msgstr "Tilføj privilegier på følgende database"
 #: server_privileges.php:2023
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Jokertegn % og _ skal escapes med en \\  for brug af dem som almindelige "
-"tegn."
+"Jokertegn % og _ skal escapes med en \\ for brug af dem som almindelige tegn."
 
 #: server_privileges.php:2026
 msgid "Add privileges on the following table"
