@@ -2905,7 +2905,7 @@ msgstr "Redigér SQL-forespørgsler i et popup vindue"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
-msgstr "Redigér i et vindue"
+msgstr "Rediger i et vindue"
 
 #: libraries/config/messages.inc.php:64
 msgid "Display errors"
