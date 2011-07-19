@@ -1936,8 +1936,8 @@ msgstr "Fejl"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d række påvirket"
-msgstr[1] "%1$d rækker påvirket"
+msgstr[0] "%1$d række påvirket."
+msgstr[1] "%1$d rækker påvirket."
 
 #: libraries/Message.class.php:257
 #, php-format
