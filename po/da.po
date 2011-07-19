@@ -10225,7 +10225,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:239
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "phpMyAdmin hjemmeside"
 
 #: setup/frames/index.inc.php:240
 msgid "Donate"
