@@ -7079,10 +7079,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Sprožilec %1$s je ustvarjen."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Ustvari pogled"
+msgstr "Ustvari sprožilec"
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
