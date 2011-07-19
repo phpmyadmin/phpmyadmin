@@ -4334,10 +4334,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "Tilføj/Slet felt-kolonne"
+msgstr "Textarea kolonner"
 
 #: libraries/config/messages.inc.php:490
 msgid ""
