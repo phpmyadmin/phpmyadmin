@@ -10577,7 +10577,7 @@ msgstr "Lagkage"
 
 #: tbl_chart.php:91
 msgid "Stacked"
-msgstr ""
+msgstr "Stak"
 
 #: tbl_chart.php:94
 #| msgid "Report title"
