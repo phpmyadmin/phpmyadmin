@@ -10039,7 +10039,7 @@ msgstr "Agregar gráfico"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Reorganizar/editar gráficos"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
