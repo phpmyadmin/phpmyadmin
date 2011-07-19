@@ -9964,10 +9964,9 @@ msgid "Series in Chart:"
 msgstr "Çizelgedeki Seriler:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Yükleniyor"
+msgstr "Günlükler yükleniyor"
 
 #: server_status.php:1411
 #, fuzzy
