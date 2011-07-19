@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 21:43+0200\n"
+"PO-Revision-Date: 2011-07-19 21:44+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10121,10 +10121,9 @@ msgid "CPU Usage"
 msgstr "Χρήση Επεξεργαστή"
 
 #: server_status.php:1351
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. Χρήση"
+msgstr "Χρήση Μνήμης"
 
 #: server_status.php:1354
 #, fuzzy
