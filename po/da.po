@@ -1299,7 +1299,7 @@ msgstr "Ændre indstillinger"
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
-msgstr "Generelle relationsmuligheder"
+msgstr "Aktuelle indstillinger"
 
 #: js/messages.php:133 server_status.php:1345
 #, fuzzy
