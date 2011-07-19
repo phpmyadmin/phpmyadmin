@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 20:06+0200\n"
+"PO-Revision-Date: 2011-07-19 20:07+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9952,7 +9952,7 @@ msgstr ""
 #: server_status.php:1395
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Bu serileri ekle"
+msgstr "Bu diziyi ekle"
 
 #: server_status.php:1397
 msgid "Clear series"
