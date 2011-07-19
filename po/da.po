@@ -5956,7 +5956,7 @@ msgstr "(Genererer en rapport indeholdende dataene fra en enkelt tabel)"
 #: libraries/export/pdf.php:25
 #| msgid "Report title"
 msgid "Report title:"
-msgstr "Rapporttitel"
+msgstr "Rapporttitel:"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
