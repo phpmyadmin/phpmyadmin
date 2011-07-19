@@ -3362,7 +3362,7 @@ msgstr "Streng, der inddeler databaser i træ"
 
 #: libraries/config/messages.inc.php:274
 msgid "Database tree separator"
-msgstr "Separator til database-inddeling"
+msgstr "Separator til databaseinddeling"
 
 #: libraries/config/messages.inc.php:275
 msgid ""
