@@ -10048,10 +10048,9 @@ msgid "Refresh rate:"
 msgstr "Ρυθμός ανανέωσης:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Στήλες περιοχής κειμένου (textarea)"
+msgstr "Στήλες διαγράμματος:"
 
 #: server_status.php:1317
 #, fuzzy
