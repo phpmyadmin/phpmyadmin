@@ -7271,10 +7271,9 @@ msgid "Unknown language: %1$s."
 msgstr "Ukendt sprog: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:38
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Server"
+msgstr "Aktuel server"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1087
 #: server_synchronize.php:1095
