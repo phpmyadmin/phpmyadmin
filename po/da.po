@@ -7012,10 +7012,9 @@ msgid "There are no routines to display."
 msgstr "Der er ikke nogen filer at uploade"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add trigger"
-msgstr "Tilføj en ny bruger"
+msgstr "Tilføj trigger"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
