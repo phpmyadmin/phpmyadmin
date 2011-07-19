@@ -9971,7 +9971,7 @@ msgstr "Günlükler yükleniyor"
 #: server_status.php:1411
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Gümlük istatistikleri"
+msgstr "Günlük istatistikleri"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
