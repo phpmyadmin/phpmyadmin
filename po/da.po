@@ -3571,7 +3571,7 @@ msgstr "Antal indsatte rækker"
 
 #: libraries/config/messages.inc.php:267
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Mål for hurtigt valg ikon"
 
 #: libraries/config/messages.inc.php:268
 msgid "Show logo in left frame"
