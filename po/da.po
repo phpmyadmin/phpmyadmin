@@ -10858,7 +10858,7 @@ msgstr ""
 #: tbl_relation.php:402
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Interne relationer"
+msgstr "Intern relation"
 
 #: tbl_relation.php:404
 msgid ""
