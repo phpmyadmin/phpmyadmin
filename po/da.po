@@ -707,7 +707,7 @@ msgstr "Optimer tabel"
 
 #: db_structure.php:511 tbl_operations.php:640
 msgid "Repair table"
-msgstr "Reparér tabel"
+msgstr "Reparer tabel"
 
 #: db_structure.php:513 tbl_operations.php:627
 msgid "Analyze table"
