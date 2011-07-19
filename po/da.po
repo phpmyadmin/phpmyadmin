@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:52+0200\n"
+"PO-Revision-Date: 2011-07-19 22:53+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6848,7 +6848,7 @@ msgstr "Du skal angive et hændelsesnavn"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
-msgstr "Du skal angive en gyldig intervalværdi for hændelsen"
+msgstr "Du skal angive en gyldig intervalværdi for hændelsen."
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
