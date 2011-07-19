@@ -3054,7 +3054,7 @@ msgstr "Relationer"
 
 #: libraries/config/messages.inc.php:105
 msgid "Export method"
-msgstr "Eksport-type"
+msgstr "Eksporttype"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
