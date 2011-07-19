@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:32+0200\n"
+"PO-Revision-Date: 2011-07-19 22:33+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8484,7 +8484,7 @@ msgstr "Tillader at droppe tabeller."
 #: server_privileges.php:44 server_privileges.php:210
 #: server_privileges.php:548
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "Tillader at oprette hændelser til hændelsesskeduleren"
 
 #: server_privileges.php:45 server_privileges.php:220
 #: server_privileges.php:536
