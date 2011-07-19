@@ -6096,7 +6096,7 @@ msgstr "indstillinger"
 
 #: libraries/import.lib.php:1104
 msgid "Go to table"
-msgstr ""
+msgstr "Gå til tabel"
 
 #: libraries/import.lib.php:1113
 msgid "Go to view"
