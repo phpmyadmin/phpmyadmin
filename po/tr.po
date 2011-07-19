@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 19:48+0200\n"
+"PO-Revision-Date: 2011-07-19 19:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9871,10 +9871,9 @@ msgid "Clear monitor config"
 msgstr "İzleme yapılandırmasını temizle"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Başlangıç"
+msgstr "İzleme Yönergeleri"
 
 #: server_status.php:1321
 msgid ""
