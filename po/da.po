@@ -7804,10 +7804,9 @@ msgid "Appearance Settings"
 msgstr ""
 
 #: main.php:146 prefs_manage.php:274
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "Generelle relationsmuligheder"
+msgstr "Flere indstillinger"
 
 #: main.php:163
 msgid "Protocol version"
