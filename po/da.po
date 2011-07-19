@@ -4150,7 +4150,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:447
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Udvidet navn for denne server"
 
 #: libraries/config/messages.inc.php:448
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
