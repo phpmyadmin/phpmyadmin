@@ -1347,7 +1347,7 @@ msgstr "Από την αργή καταγραφή"
 
 #: js/messages.php:142
 msgid "From general log"
-msgstr ""
+msgstr "Από την γενική καταγραφή"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
