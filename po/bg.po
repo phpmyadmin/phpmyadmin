@@ -8575,7 +8575,7 @@ msgstr ""
 
 #: server_status.php:659
 msgid "Replication status"
-msgstr "Статус репликация"
+msgstr "Състояние на репликацията"
 
 #: server_status.php:675
 msgid "Traffic"
