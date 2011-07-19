@@ -6504,7 +6504,7 @@ msgstr "Opret de nødvendige tabeller med <code>script/create_tables.sql</code>.
 
 #: libraries/relation.lib.php:151
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Opret en pma bruger og giv adgang til disse tabeller"
 
 #: libraries/relation.lib.php:152
 msgid ""
