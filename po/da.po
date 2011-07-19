@@ -3148,7 +3148,7 @@ msgstr "Der vil blive brugt en valgboks, hvis færre elementer er til stede"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr "Øvre grænse for fremmed nøgle"
+msgstr "Øvre grænse for fremmednøgle"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
