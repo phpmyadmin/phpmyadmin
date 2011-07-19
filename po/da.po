@@ -11082,7 +11082,7 @@ msgstr ""
 
 #: tbl_tracking.php:558
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL-udtræk (hentning af fil)"
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
