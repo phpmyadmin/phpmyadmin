@@ -9991,10 +9991,9 @@ msgid "Append unit to data values"
 msgstr "Pripni enoto k vrednostim podatkov"
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add this series"
-msgstr "Dodaj sprožilec"
+msgstr "Dodaj serijo"
 
 #: server_status.php:1397
 msgid "Clear series"
