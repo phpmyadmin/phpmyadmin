@@ -6976,7 +6976,7 @@ msgstr "Du skal angive et rutinenavn"
 #: libraries/rte/rte_routines.lib.php:1025
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "Ugyldig retning \"%s\" givet for parameter"
+msgstr "Ugyldig retning \"%s\" givet for parameter."
 
 #: libraries/rte/rte_routines.lib.php:1037
 #: libraries/rte/rte_routines.lib.php:1075
