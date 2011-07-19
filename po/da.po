@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:29+0200\n"
+"PO-Revision-Date: 2011-07-19 21:30+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10969,10 +10969,9 @@ msgid "An index has been added on %s"
 msgstr "Der er tilføjet et indeks til %s"
 
 #: tbl_structure.php:497
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "Vis PHP-information"
+msgstr "Vis flere operationer"
 
 #: tbl_structure.php:642 tbl_structure.php:644
 msgid "Relation view"
