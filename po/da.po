@@ -9811,7 +9811,7 @@ msgstr "Totalt antal blokke i forespørgsels-mellemlageret."
 
 #: server_status.php:1121
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Status på failsafe replikering (endnu ikke implementeret)."
+msgstr "Status på fejlsikker replikation (endnu ikke implementeret)."
 
 #: server_status.php:1122
 msgid ""
