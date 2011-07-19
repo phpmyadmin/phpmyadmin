@@ -4821,7 +4821,7 @@ msgstr "Tom phpMyAdmin kontrolbruger ved brug af pmadb"
 
 #: libraries/config/validate.lib.php:273
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "Tomt phpMyAdmin kodeord for kontrolbruger ved brug af pmadb"
 
 #: libraries/config/validate.lib.php:359
 #, php-format
