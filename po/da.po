@@ -9078,10 +9078,9 @@ msgid "Monitor"
 msgstr ""
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Opdatér"
+msgstr "Opdateringsrate:"
 
 #: server_status.php:629
 #, fuzzy
