@@ -7133,7 +7133,7 @@ msgstr "Skematik for databasen \"%s\" - Side %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:170
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Denne side indeholder ingen tabeller!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
