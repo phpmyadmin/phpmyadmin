@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:38+0200\n"
+"PO-Revision-Date: 2011-07-19 16:39+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5766,10 +5766,9 @@ msgid "Columns enclosed with:"
 msgstr "Kolonner indrammet med:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Felter escaped med"
+msgstr "Kolonner escaped med"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 #| msgid "Lines terminated by"
