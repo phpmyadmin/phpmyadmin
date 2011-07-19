@@ -3710,7 +3710,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:297
 msgid "Recall user name"
-msgstr ""
+msgstr "Genskab brugernavn"
 
 #: libraries/config/messages.inc.php:298
 msgid ""
