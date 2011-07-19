@@ -10906,7 +10906,7 @@ msgstr "Vælg mindst een kolonne"
 
 #: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Tilføj søgekriterier (kroppen af \"WHERE\" sætningen):"
+msgstr "Tilføj søgekriterier (kroppen af \"where\" sætningen):"
 
 #: tbl_select.php:285
 msgid "Number of rows per page"
