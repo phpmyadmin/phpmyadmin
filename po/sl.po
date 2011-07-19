@@ -1152,7 +1152,7 @@ msgstr "Sistemski pomnilnik"
 
 #: js/messages.php:94
 msgid "System swap"
-msgstr ""
+msgstr "Sistemska izmenjava"
 
 #: js/messages.php:95 libraries/common.lib.php:1276 server_status.php:1385
 msgid "MiB"
