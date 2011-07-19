@@ -6980,10 +6980,9 @@ msgid "Event scheduler status"
 msgstr "Κατάσταση προγραμματισμού συμβάντων"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Τύπος επιστροφής"
+msgstr "Επιστροφές"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:320
 #: server_status.php:976 sql.php:943
