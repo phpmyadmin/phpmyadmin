@@ -6932,10 +6932,9 @@ msgstr "Udfør rutine"
 
 #: libraries/rte/rte_routines.lib.php:1345
 #: libraries/rte/rte_routines.lib.php:1348
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Rutiner"
+msgstr "Rutineparametre"
 
 #: libraries/rte/rte_routines.lib.php:1355 tbl_change.php:287
 #: tbl_change.php:325
