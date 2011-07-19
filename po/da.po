@@ -1123,10 +1123,9 @@ msgstr "Forbindelser / Opgaver"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Forbindelser siden sidste visning"
+msgstr "Spørgsmål siden sidste visning"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
