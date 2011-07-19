@@ -8187,7 +8187,7 @@ msgstr ""
 #: pmd_pdf.php:89
 #| msgid "pages"
 msgid "Page"
-msgstr "side"
+msgstr "Side"
 
 #: pmd_pdf.php:99
 #| msgid "Import files"
