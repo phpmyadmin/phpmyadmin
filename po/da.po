@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 19:51+0200\n"
+"PO-Revision-Date: 2011-07-19 19:52+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6018,7 +6018,7 @@ msgstr "<code>INSERT IGNORE</code> forspørgsler"
 
 #: libraries/export/sql.php:238
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Funktioner der bruges når data udtrækkes"
 
 #: libraries/export/sql.php:251
 msgid "Syntax to use when inserting data:"
