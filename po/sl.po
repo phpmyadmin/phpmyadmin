@@ -1323,7 +1323,7 @@ msgstr "Izbrano časovno območje:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Združi INSERT-e skupaj v eno tabelo"
 
 #: js/messages.php:140
 msgid ""
