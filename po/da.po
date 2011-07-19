@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:58+0200\n"
+"PO-Revision-Date: 2011-07-19 21:59+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10121,7 +10121,7 @@ msgstr "Indsæt række(r)"
 
 #: server_synchronize.php:441 server_synchronize.php:885
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Vil du slette alle de tidligere rækker fra måltabeller ?"
 
 #: server_synchronize.php:444 server_synchronize.php:889
 msgid "Apply Selected Changes"
