@@ -4122,7 +4122,7 @@ msgstr "PHP extension der skal bruges"
 
 #: libraries/config/messages.inc.php:390
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Gem databaser som matcher regulært udtryk (PCRE)"
 
 #: libraries/config/messages.inc.php:391
 msgid "Hide databases"
