@@ -2627,7 +2627,7 @@ msgstr "\"%s\" er afhængig af udvidelsen %s"
 #: libraries/config/FormDisplay.class.php:715
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr "importeringen kommer ikke til at fungere, funktionen (%s) mangler"
+msgstr "importen kommer ikke til at fungere, funktionen (%s) mangler"
 
 #: libraries/config/FormDisplay.class.php:719
 #, php-format
