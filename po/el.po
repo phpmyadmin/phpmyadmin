@@ -6972,7 +6972,7 @@ msgstr "ΑΝΕΝΕΡΓΟ"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ΕΝΕΡΓΟ"
 
 #: libraries/rte/rte_footer.lib.php:108
 #, fuzzy
