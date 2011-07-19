@@ -7849,10 +7849,9 @@ msgid "Official Homepage"
 msgstr "Officiel phpMyAdmin hjemmeside "
 
 #: main.php:217
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Attributter"
+msgstr "Deltag"
 
 #: main.php:218
 msgid "Get support"
