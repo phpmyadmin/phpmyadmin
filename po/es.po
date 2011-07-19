@@ -1352,7 +1352,7 @@ msgstr "Del registro de consultas lentas"
 
 #: js/messages.php:142
 msgid "From general log"
-msgstr ""
+msgstr "Del registro general"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
