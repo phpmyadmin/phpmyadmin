@@ -6893,7 +6893,7 @@ msgstr "IZKL"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "VKL"
 
 #: libraries/rte/rte_footer.lib.php:108
 #, fuzzy
