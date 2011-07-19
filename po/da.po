@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:33+0200\n"
+"PO-Revision-Date: 2011-07-19 15:34+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8834,7 +8834,7 @@ msgstr ""
 
 #: server_replication.php:182 server_status.php:459
 msgid "Show master status"
-msgstr ""
+msgstr "Vis master status"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
