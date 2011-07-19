@@ -1465,7 +1465,7 @@ msgstr "Sletter"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "Ifølge definitionen på en stored function, skal denne indeholde et RETURN-"
-"udtryk."
+"udtryk!"
 
 #: js/messages.php:189
 msgid ""
