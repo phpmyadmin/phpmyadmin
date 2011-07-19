@@ -4980,7 +4980,7 @@ msgstr "%d er ikke et gyldigt rækkenummer."
 
 #: libraries/display_tbl.lib.php:436
 msgid "Start row"
-msgstr ""
+msgstr "Startrække"
 
 #: libraries/display_tbl.lib.php:438
 #, fuzzy
