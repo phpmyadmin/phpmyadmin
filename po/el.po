@@ -10032,7 +10032,7 @@ msgstr "Οδηγίες/Εγκατάσταση"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Ολοκληρώθηκε η επανατοποθέτηση/επεξεργασία διαγραμμάτων"
 
 #: server_status.php:1296
 #, fuzzy
