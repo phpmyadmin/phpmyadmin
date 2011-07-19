@@ -3731,7 +3731,7 @@ msgstr "Vis hjælpeknap"
 
 #: libraries/config/messages.inc.php:357
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Mappe, hvor eksporterede data kan gemmes på serveren"
 
 #: libraries/config/messages.inc.php:358
 msgid "Save directory"
