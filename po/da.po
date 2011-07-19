@@ -10005,7 +10005,7 @@ msgstr "Almindeligt overvåget"
 #: server_status.php:1376
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "eller indtast variabelnavn"
+msgstr "eller indtast variabelnavn:"
 
 #: server_status.php:1380
 msgid "Display as differential value"
