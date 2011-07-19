@@ -4652,7 +4652,7 @@ msgstr "Ред започва от:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
-msgstr "Дъмп-ни всички редове"
+msgstr "Схема на всички редове"
 
 #: libraries/display_export.lib.php:174 libraries/display_export.lib.php:195
 msgid "Output:"
