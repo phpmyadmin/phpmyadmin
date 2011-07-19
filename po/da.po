@@ -4052,10 +4052,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:427
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Defragmentér tabel"
+msgstr "UI preferencetabel"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
