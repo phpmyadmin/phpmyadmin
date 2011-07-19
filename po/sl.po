@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:04+0200\n"
+"PO-Revision-Date: 2011-07-19 23:05+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -7111,10 +7111,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
 
 #: libraries/rte/rte_triggers.lib.php:415
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Navesti morate ime rutine"
+msgstr "Navesti morate veljavno ime tabele"
 
 #: libraries/rte/rte_triggers.lib.php:421
 #, fuzzy
