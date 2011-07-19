@@ -10961,10 +10961,9 @@ msgid "Propose table structure"
 msgstr "Foreslå tabelstruktur"
 
 #: tbl_structure.php:676
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "Tilføj %s felt(er)"
+msgstr "Tilføj kolonne"
 
 #: tbl_structure.php:690
 msgid "At End of Table"
