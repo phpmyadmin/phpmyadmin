@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:33+0200\n"
+"PO-Revision-Date: 2011-07-19 21:34+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10878,7 +10878,7 @@ msgstr " Rækkestørrelse "
 #: tbl_relation.php:276
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "Fejl ved dannelse af fremmednøgle på %1$s (check datatyper)"
 
 #: tbl_relation.php:402
 #| msgid "Internal relations"
