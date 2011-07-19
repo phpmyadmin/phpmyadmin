@@ -723,13 +723,13 @@ var last_shift_clicked_row = -1;
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
     });
-})
+})*/
 
 /**
  * This array is used to remember mark status of rows in browse mode
@@ -1461,20 +1461,26 @@ function PMA_createChart(passedSettings) {
         chart: {
             type: 'spline',
             marginRight: 10,
+            backgroundColor: 'transparent',
             events: {
+                /* Live charting support */
                 load: function() {
                     var thisChart = this;
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    // No realtime updates for graphs that are being exported, and disabled when no callback is set
+                    
+                    // No realtime updates for graphs that are being exported, and disabled when realtime is not set
+                    // Also don't do live charting if we don't have the server time
                     if(thisChart.options.chart.forExport == true || 
-                        ! passedSettings.realtime || 
-                        ! passedSettings.realtime.callback) return;
+                        ! thisChart.options.realtime || 
+                        ! thisChart.options.realtime.callback ||
+                        ! server_time_diff) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.post(passedSettings.realtime.url,
-                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                        thisChart.options.realtime.postRequest = $.post(
+                            thisChart.options.realtime.url,
+                            thisChart.options.realtime.postData,
                             function(data) {
                                 curValue = jQuery.parseJSON(data);
                                 
@@ -1487,13 +1493,13 @@ function PMA_createChart(passedSettings) {
                                     false
                                 );
                                 
-                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
                                 
                                 lastValue = curValue;
                                 numLoadedPoints++;
                                 
                                 // Timeout has been cleared => don't start a new timeout
-                                if(chart_activeTimeouts[container]==null) return;
+                                if(chart_activeTimeouts[container] == null) return;
                                 
                                 chart_activeTimeouts[container] = setTimeout(
                                     thisChart.options.realtime.timeoutCallBack, 
@@ -1502,7 +1508,7 @@ function PMA_createChart(passedSettings) {
                         });
                     }
                     
-                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
         },
@@ -1544,15 +1550,20 @@ function PMA_createChart(passedSettings) {
     }
     
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {
+    if(passedSettings.realtime) {        
         if(!passedSettings.realtime.refreshRate) 
             passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
         
-        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
+        // Allow custom POST vars to be added
+        passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
+        
+        if(server_time_diff) {
+            settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+            settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
+        }
     }
 
     // Overwrite/Merge default settings with passedsettings
@@ -2573,10 +2584,10 @@ $(document).ready(function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
-        var $this_td = $(this);
-        var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle hover
-        $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
+            var $this_td = $(this);
+            var row_num = PMA_getRowNumber($this_td.attr('class'));
+            // for all td of the same vertical row, toggle hover
+            $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
 }) // end of $(document).ready() for vertical pointer
@@ -2586,11 +2597,35 @@ $(document).ready(function() {
      * Vertical marker
      */
     $('.vmarker').live('click', function(e) {
+        // do not trigger when clicked on anchor
+        if ($(e.target).is('a, img, a *')) {
+            return;
+        }
+
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle the marked class
-        $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
-        });
+
+        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+        var $tr = $(this);
+        var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
+        if ($checkbox.length) {
+            // checkbox in a row, add or remove class depending on checkbox state
+            var checked = $checkbox.attr('checked');
+            if (!$(e.target).is(':checkbox, label')) {
+                checked = !checked;
+                $checkbox.attr('checked', checked);
+            }
+            // for all td of the same vertical row, toggle the marked class
+            if (checked) {      
+                $('.vmarker').filter('.row_' + row_num).addClass('marked');
+            } else {
+                $('.vmarker').filter('.row_' + row_num).removeClass('marked');
+            }
+        } else {
+            // normaln data table, just toggle class
+            $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
+        }
+    });
 
     /**
      * Reveal visual builder anchor

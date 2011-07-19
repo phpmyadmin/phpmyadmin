@@ -9,18 +9,7 @@
  * Zip file creation class.
  * Makes zip files.
  *
- * Based on :
- *
- *  http://www.zend.com/codex.php?id=535&single=1
- *  By Eric Mueller <eric@themepark.com>
- *
- *  http://www.zend.com/codex.php?id=470&single=1
- *  by Denis125 <webmaster@atlant.ru>
- *
- *  a patch from Peter Listiak <mlady@users.sourceforge.net> for last modified
- *  date and time of the compressed file
- *
- * Official ZIP file format: http://www.pkware.com/appnote.txt
+ * @see Official ZIP file format: http://www.pkware.com/support/zip-app-note
  *
  * @access  public
  * @package phpMyAdmin
@@ -147,14 +136,6 @@ class zipfile
         // "file data" segment
         $fr .= $zdata;
 
-        // "data descriptor" segment (optional but necessary if archive is not
-        // served as file)
-        // this seems not to be needed at all and causes
-        // problems in some cases (bug #1037737)
-        //$fr .= pack('V', $crc);                 // crc32
-        //$fr .= pack('V', $c_len);               // compressed filesize
-        //$fr .= pack('V', $unc_len);             // uncompressed filesize
-
         // echo this entry on the fly, ...
         if ( $this -> doWrite) {
             echo $fr;
@@ -205,7 +186,7 @@ class zipfile
             pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries "on this disk"
             pack('v', sizeof($this -> ctrl_dir)) .  // total # of entries overall
             pack('V', strlen($ctrldir)) .           // size of central dir
-            pack('V', strlen($data)) .              // offset to start of central dir
+            pack('V', $this -> old_offset) .        // offset to start of central dir
             "\x00\x00";                             // .zip file comment length
 
         if ( $this -> doWrite ) {       // Send central directory & end ctrl dir to STDOUT

@@ -37,16 +37,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if(isset($_REQUEST['type'])) {
         switch($_REQUEST['type']) {
             case 'getval':
-                $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.$_REQUEST['varName'].'";','NUM');
+                $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.PMA_sqlAddslashes($_REQUEST['varName']).'";','NUM');
                 exit($varValue[1]);
                 break;
             case 'setval':
-                $value = $_REQUEST['varValue'];
+                $value = PMA_sqlAddslashes($_REQUEST['varValue']);
                 if(!is_numeric($value)) $value="'".$value."'";
                 
-                if(PMA_DBI_query('SET GLOBAL '.PMA_backquote($_REQUEST['varName']).' = '.$value))
+                if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value))
                     // Some values are rounded down etc.
-                    $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.$_REQUEST['varName'].'";','NUM');
+                    $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.PMA_sqlAddslashes($_REQUEST['varName']).'";','NUM');
                     
                     exit(json_encode(array( 
                         'success' => true,
@@ -92,7 +92,6 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo str_replace('&amp;','&',$url_query);?>';
-pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
 isSuperuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
 </script>
 

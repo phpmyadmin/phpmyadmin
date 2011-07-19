@@ -1391,7 +1391,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class . ' ' . $hide_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $relation_class; //' ' . $alternating_color_class . 
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
