@@ -10171,10 +10171,9 @@ msgid "Clear series"
 msgstr "Εκκαθάριση σειράς"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Σειρές:"
+msgstr "Σειρά σε Διάγραμμα:"
 
 #: server_status.php:1408
 #, fuzzy
