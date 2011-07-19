@@ -11074,7 +11074,7 @@ msgstr ""
 
 #: tbl_tracking.php:455
 msgid "Data definition statement"
-msgstr "Data definitions-udstryk"
+msgstr "Datadefinitionsudstryk"
 
 #: tbl_tracking.php:512
 msgid "Data manipulation statement"
