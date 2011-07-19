@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:12+0200\n"
+"PO-Revision-Date: 2011-07-19 18:13+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2594,7 +2594,7 @@ msgstr "Ikke et ikke-negativt tal"
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:400
 msgid "Not a valid port number"
-msgstr "Ikke et gyldigt port-nummer"
+msgstr "Ikke et gyldigt portnummer"
 
 #: libraries/config/FormDisplay.class.php:86
 #: libraries/config/FormDisplay.class.php:535
