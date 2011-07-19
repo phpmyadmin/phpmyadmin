@@ -10139,10 +10139,9 @@ msgid "Commonly monitored"
 msgstr "Monitorizaciones comunes"
 
 #: server_status.php:1376
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "Debe proveer un nombre de tabla válido"
+msgstr "o ingrese el nombre de variable:"
 
 #: server_status.php:1380
 msgid "Display as differential value"
