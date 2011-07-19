@@ -4569,7 +4569,7 @@ msgstr "Database ser ud til at være tom!"
 #: libraries/db_links.inc.php:66 libraries/relation.lib.php:140
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr ""
+msgstr "Sporing"
 
 #: libraries/db_links.inc.php:71
 msgid "Query"
