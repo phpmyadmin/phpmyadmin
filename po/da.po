@@ -10098,7 +10098,7 @@ msgstr ""
 
 #: server_synchronize.php:1126
 msgid "Enter manually"
-msgstr ""
+msgstr "Indtast manuelt"
 
 #: server_synchronize.php:1134
 #| msgid "max. concurrent connections"
