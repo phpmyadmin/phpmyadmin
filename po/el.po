@@ -7237,10 +7237,9 @@ msgid "Export of trigger %s"
 msgstr "Εξαγωγή της ενέργειας %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Δείκτες"
+msgstr "ενέργεια"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
