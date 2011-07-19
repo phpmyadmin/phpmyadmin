@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:13+0200\n"
+"PO-Revision-Date: 2011-07-19 14:14+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4838,10 +4838,9 @@ msgstr "Se output som tekst"
 
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/display_export.lib.php:331
 #, fuzzy
