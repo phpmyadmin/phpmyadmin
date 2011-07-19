@@ -5117,10 +5117,9 @@ msgid "Print view (with full texts)"
 msgstr "Udskrift-visning (med fulde tekster)"
 
 #: libraries/display_tbl.lib.php:2494 tbl_chart.php:83
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Vis PDF-skematik"
+msgstr "Vis kort"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
