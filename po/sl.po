@@ -7130,10 +7130,9 @@ msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Rutina"
+msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:22
 #, fuzzy
