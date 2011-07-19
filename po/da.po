@@ -4809,7 +4809,7 @@ msgstr "Tomt brugernavn ved config autentifikationmetoden"
 
 #: libraries/config/validate.lib.php:232
 msgid "Empty signon session name while using signon authentication method"
-msgstr "Tomt signon sessionsnavn ved signon autentifikationmetoden"
+msgstr "Tomt signon sessionsnavn ved brug af signon autentifikation"
 
 #: libraries/config/validate.lib.php:236
 msgid "Empty signon URL while using signon authentication method"
