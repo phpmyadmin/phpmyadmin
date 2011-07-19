@@ -3814,7 +3814,7 @@ msgstr "Komprimer forbindelse til MySQL server"
 
 #: libraries/config/messages.inc.php:376
 msgid "Compress connection"
-msgstr ""
+msgstr "Komprimer forbindelse"
 
 #: libraries/config/messages.inc.php:377
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
