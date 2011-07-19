@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:02+0200\n"
+"PO-Revision-Date: 2011-07-19 14:03+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4523,7 +4523,7 @@ msgstr "Open Document tekst"
 
 #: libraries/config/validate.lib.php:197 libraries/config/validate.lib.php:204
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Kunne ikke forbinde til MySQL server"
 
 #: libraries/config/validate.lib.php:228
 msgid "Empty username while using config authentication method"
