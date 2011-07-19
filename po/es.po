@@ -10110,10 +10110,9 @@ msgstr ""
 "</p>"
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Uso"
+msgstr "Uso de CPU"
 
 #: server_status.php:1351
 #, fuzzy
