@@ -7062,10 +7062,9 @@ msgid "Function"
 msgstr "Funkcija"
 
 #: libraries/rte/rte_triggers.lib.php:89
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Oprostite, zavržene rutine nam ni uspelo obnoviti."
+msgstr "Oprostite, zavrženega sprožilca nam ni uspelo obnoviti."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, fuzzy, php-format
