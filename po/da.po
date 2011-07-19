@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:23+0200\n"
+"PO-Revision-Date: 2011-07-19 14:24+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5185,7 +5185,7 @@ msgstr "InnoDB status"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr "Buffer Pool Forbrug"
+msgstr "Buffer Pool forbrug"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
