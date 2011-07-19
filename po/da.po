@@ -3564,6 +3564,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"Antallet af bytes et script må allokere, fx. [kbd]32M[/kbd] ([kbd]0[/kbd] "
+"for ubegrænset)"
 
 #: libraries/config/messages.inc.php:318
 msgid "Memory limit"
