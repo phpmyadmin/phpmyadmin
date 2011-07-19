@@ -10461,7 +10461,7 @@ msgstr "Bladre i fremmedværdier"
 #: sql.php:189
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Bruger bogmærke \"%s\" som standard gennemsynsforespørgsel"
 
 #: sql.php:661 tbl_replace.php:369
 #, php-format
