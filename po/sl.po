@@ -6820,10 +6820,9 @@ msgid "Change to %s"
 msgstr "Spremeni v %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Izvedi"
+msgstr "Izvedi ob"
 
 #: libraries/rte/rte_events.lib.php:430
 #, fuzzy
