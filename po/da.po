@@ -6495,7 +6495,7 @@ msgstr "Brugerpræferencer"
 
 #: libraries/relation.lib.php:148
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Hurtige trin for at opsætte avancerede muligheder:"
 
 #: libraries/relation.lib.php:150
 msgid ""
