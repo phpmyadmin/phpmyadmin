@@ -9926,7 +9926,7 @@ msgstr "Durum değişkeni(leri)"
 #: server_status.php:1359
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Serileri seç:"
+msgstr "Dizi seç:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
