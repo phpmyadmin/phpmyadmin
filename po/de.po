@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 00:01+0200\n"
+"PO-Revision-Date: 2011-07-20 00:02+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1386,6 +1386,8 @@ msgstr "Springe zur Protokoll-Tabelle"
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Protokoll wurde analysiert, es wurden jedoch keine Daten im angegebenen "
+"Zeitraum gefunden."
 
 #: js/messages.php:153 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
