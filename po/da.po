@@ -5240,7 +5240,7 @@ msgstr "Træk for at ændre orden"
 
 #: libraries/display_tbl.lib.php:418
 msgid "Click to sort"
-msgstr ""
+msgstr "Klik for at sortere"
 
 #: libraries/display_tbl.lib.php:419
 msgid "Click to mark/unmark"
