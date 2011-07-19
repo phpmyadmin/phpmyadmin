@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 19:50+0200\n"
+"PO-Revision-Date: 2011-07-19 19:51+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6010,7 +6010,7 @@ msgstr "I stedet for <code>INSERT</code> forespørgsler, brug:"
 
 #: libraries/export/sql.php:222
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code>INSERT DELAYED</code> forespørgsler"
 
 #: libraries/export/sql.php:228
 msgid "<code>INSERT IGNORE</code> statements"
