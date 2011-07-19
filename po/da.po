@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:07+0200\n"
+"PO-Revision-Date: 2011-07-19 16:08+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6938,10 +6938,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "Tabel \"%1$s\" er slettet"
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Rutine %1$s er oprettet,"
+msgstr "Trigger %1$s er oprettet,"
 
 #: libraries/rte/rte_triggers.lib.php:157
 #| msgid "Create"
