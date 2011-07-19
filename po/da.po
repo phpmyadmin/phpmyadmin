@@ -6853,7 +6853,6 @@ msgid "Return length/values"
 msgstr "Længde/Værdi*"
 
 #: libraries/rte/rte_routines.lib.php:887
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "Tabel-indstillinger"
