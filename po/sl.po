@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 23:07+0200\n"
+"PO-Revision-Date: 2011-07-19 23:08+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -9105,10 +9105,10 @@ msgstr "Sorodne povezave:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Promet omrežja od zagona: %s"
+msgstr "Vprašanja od zagona: %s"
 
 #: server_status.php:701 server_status.php:736 server_status.php:852
 #: server_status.php:897
