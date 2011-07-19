@@ -6162,7 +6162,7 @@ msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du: "
 
 #: libraries/import.lib.php:1077
 msgid "View a structure`s contents by clicking on its name"
-msgstr ""
+msgstr "Vis en strukturs indhold ved at klikke på dens navn"
 
 #: libraries/import.lib.php:1078
 msgid ""
