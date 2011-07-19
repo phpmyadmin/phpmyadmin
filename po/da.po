@@ -4023,7 +4023,7 @@ msgstr "Brug SSL til forbindelse til MySQL-serveren"
 
 #: libraries/config/messages.inc.php:421
 msgid "Use SSL"
-msgstr ""
+msgstr "Brug SSL"
 
 #: libraries/config/messages.inc.php:422
 msgid ""
