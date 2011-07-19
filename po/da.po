@@ -6856,7 +6856,7 @@ msgstr "Du skal angive et gyldigt kørselstidspunkt for hændelsen"
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
-msgstr "Du skal angive en gyldig type for hændelsen"
+msgstr "Du skal angive en gyldig type for hændelsen."
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
