@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 23:50+0200\n"
+"PO-Revision-Date: 2011-07-19 23:51+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -703,7 +703,7 @@ msgstr "Tjek tabel"
 #: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
 #: tbl_structure.php:844
 msgid "Optimize table"
-msgstr "Optimér tabel"
+msgstr "Optimer tabel"
 
 #: db_structure.php:511 tbl_operations.php:640
 msgid "Repair table"
