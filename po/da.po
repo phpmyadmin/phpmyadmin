@@ -4806,7 +4806,7 @@ msgstr "Rutiner"
 #: libraries/db_links.inc.php:101 libraries/export/sql.php:609
 #: libraries/rte/rte_words.lib.php:49
 msgid "Events"
-msgstr ""
+msgstr "Hændelser"
 
 #: libraries/db_links.inc.php:105 libraries/export/sql.php:978
 #: libraries/export/xml.php:38 libraries/rte/rte_words.lib.php:37
