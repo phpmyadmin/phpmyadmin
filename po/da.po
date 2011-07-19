@@ -8465,7 +8465,7 @@ msgstr "Tillader oprettelse, sletning og omdøbning af brugerkonti."
 #: server_privileges.php:213 server_privileges.php:540
 #: server_privileges.php:544
 msgid "Allows creating new views."
-msgstr "Tillader oprettelse af nye Allows creating new views."
+msgstr "Tillader oprettelse af nye views."
 
 #: server_privileges.php:41 server_privileges.php:193
 #: server_privileges.php:520
