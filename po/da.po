@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 13:35+0200\n"
+"PO-Revision-Date: 2011-07-19 13:36+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3767,7 +3767,7 @@ msgstr "HTTP Basic Auth Realm navn, der vises ved HTTP Auth"
 
 #: libraries/config/messages.inc.php:366
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:367
 msgid ""
