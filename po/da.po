@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 21:26+0200\n"
+"PO-Revision-Date: 2011-07-19 21:27+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4367,7 +4367,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:435
 msgid "Statements to track"
-msgstr "SQL-kommandoer, der skal spores"
+msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:436
 msgid ""
