@@ -4420,7 +4420,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:510 setup/frames/index.inc.php:241
 msgid "Check for latest version"
-msgstr ""
+msgstr "Check for den seneste version"
 
 #: libraries/config/messages.inc.php:511
 msgid "Enables check for latest version on main phpMyAdmin page"
