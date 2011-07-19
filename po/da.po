@@ -4270,7 +4270,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:472
 msgid "Skip locked tables"
-msgstr ""
+msgstr "Spring over låste tabeller"
 
 #: libraries/config/messages.inc.php:477
 msgid "Requires SQL Validator to be enabled"
