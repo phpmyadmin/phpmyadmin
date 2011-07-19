@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:18+0200\n"
+"PO-Revision-Date: 2011-07-19 15:19+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -9167,7 +9167,7 @@ msgstr ""
 
 #: server_status.php:835
 msgid "Replication status"
-msgstr ""
+msgstr "Status for replikation"
 
 #: server_status.php:851
 msgid ""
