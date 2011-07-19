@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 18:17+0200\n"
+"PO-Revision-Date: 2011-07-19 18:18+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -2901,7 +2901,7 @@ msgstr "Deaktivér vedligeholdelse af flere tabeller"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr "Redigér SQL-forespørgsler i et popup vindue"
+msgstr "Rediger SQL-forespørgsler i et popup vindue"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
