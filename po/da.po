@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 22:48+0200\n"
+"PO-Revision-Date: 2011-07-19 22:49+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7270,7 +7270,7 @@ msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:144
 msgid "Please choose a page to edit"
-msgstr "Vælg en side der skal redigeres"
+msgstr "Vælg en side, der skal redigeres"
 
 #: libraries/schema/User_Schema.class.php:149
 #| msgid "Select Tables"
