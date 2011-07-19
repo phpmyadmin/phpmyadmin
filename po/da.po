@@ -6977,7 +6977,7 @@ msgstr "Du skal opgive et gyldigt tabelnavn"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Du skal opgive en triggerdefinition"
 
 #: libraries/rte/rte_words.lib.php:18
 #, fuzzy
