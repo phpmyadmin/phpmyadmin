@@ -1291,10 +1291,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Upravljajte svoje nastavitve"
+msgstr "Spremeni nastavitve"
 
 #: js/messages.php:131
 #, fuzzy
