@@ -6219,7 +6219,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:271
 msgid "Add prefix"
-msgstr ""
+msgstr "Tilføj præfiks"
 
 #: libraries/mult_submits.inc.php:488 tbl_replace.php:313
 msgid "No change"
