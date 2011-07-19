@@ -5222,7 +5222,7 @@ msgstr "Antal rækker, der skal springes over fra start:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr "Formatspecifikke indstillinger"
+msgstr "Formatspecifikke indstillinger:"
 
 #: libraries/display_select_lang.lib.php:44
 #: libraries/display_select_lang.lib.php:45 setup/frames/index.inc.php:71
