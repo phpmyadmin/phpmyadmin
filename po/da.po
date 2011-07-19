@@ -5218,7 +5218,7 @@ msgstr ""
 #: libraries/display_import.lib.php:228
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Antal rækker, der skal springes over fra start"
+msgstr "Antal rækker, der skal springes over fra start:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
