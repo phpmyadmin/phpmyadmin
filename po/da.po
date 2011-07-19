@@ -10857,7 +10857,7 @@ msgstr "Effektiv"
 
 #: tbl_printview.php:363 tbl_structure.php:858
 msgid "Row Statistics"
-msgstr "Række-statistik"
+msgstr "Rækkestatistik"
 
 #: tbl_printview.php:377 tbl_structure.php:873
 msgid "static"
