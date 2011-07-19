@@ -10033,7 +10033,7 @@ msgstr "CPU-Auslastung"
 
 #: server_status.php:1351
 msgid "Memory Usage"
-msgstr ""
+msgstr "Speicher-Auslastung"
 
 #: server_status.php:1354
 #, fuzzy
