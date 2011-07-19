@@ -8412,7 +8412,7 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Bemærk: Aktivering af databasestatistikkerne hér kan forårsage tung trafik "
+"Bemærk: Aktivering af databasestatistikkerne her kan forårsage tung trafik "
 "mellem webserveren og MySQL-serveren."
 
 #: server_engines.php:47
