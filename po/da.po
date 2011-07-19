@@ -7826,7 +7826,7 @@ msgstr "MySQL Tegnsæt"
 
 #: main.php:181
 msgid "Web server"
-msgstr ""
+msgstr "Webserver"
 
 #: main.php:187
 msgid "MySQL client version"
