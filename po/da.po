@@ -10218,7 +10218,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:209
 msgid "Default server"
-msgstr ""
+msgstr "Standard server"
 
 #: setup/frames/index.inc.php:219
 msgid "End of line"
