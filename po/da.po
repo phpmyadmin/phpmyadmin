@@ -3359,7 +3359,7 @@ msgid ""
 msgstr ""
 "Konfigurer phpMyAdmin configuration storage for at få adgang til flere "
 "funktioner. Se dokumentationen for [a@Documentation.html#linked-"
-"tables]phpMyAdmin configuration storage[/a]."
+"tables]phpMyAdmin configuration storage[/a]"
 
 #: libraries/config/messages.inc.php:206
 msgid "Changes tracking"
