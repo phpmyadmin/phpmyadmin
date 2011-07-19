@@ -8598,7 +8598,7 @@ msgid ""
 msgstr ""
 "Tillader forbindelse, selv hvis maksimalt antal forbindelser er nået; "
 "nødvendigt for de fleste administrative operationer som indstilling af "
-"globale variabler eller for at dræbe andre brugeres tråde."
+"globale variable eller for at dræbe andre brugeres tråde."
 
 #: server_privileges.php:65 server_privileges.php:211
 #: server_privileges.php:549
