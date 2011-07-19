@@ -6825,10 +6825,9 @@ msgid "Execute at"
 msgstr "Izvedi ob"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Izvedi"
+msgstr "Izvedi vsakih"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
