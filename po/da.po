@@ -6801,7 +6801,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:994
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Server-indekset \"%s\" er ugyldigt"
+msgstr "Invalid rutinetype: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:268
 msgid "Sorry, we failed to restore the dropped routine."
