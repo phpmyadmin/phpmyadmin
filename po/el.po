@@ -7227,10 +7227,9 @@ msgid "There are no routines to display."
 msgstr "Δεν υπάρχουν ρουτίνες για εμφάνιση."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Προσθήκη μιας ενέργειας"
+msgstr "Προσθήκη ενέργειας"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
