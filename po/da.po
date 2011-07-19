@@ -1871,7 +1871,9 @@ msgstr "Ukendt fejl i filupload."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Fejl ved flytning af den uploadede fil, se FAQ 1.11"
+msgstr ""
+"Fejl ved flytning af den uploadede fil, se "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
