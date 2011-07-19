@@ -3717,10 +3717,9 @@ msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr "Gentag overskrifter for hver X celler, [kbd]0[/kbd] deaktiverer dette"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Repair threads"
 msgid "Repeat headers"
-msgstr "Reparér tråde"
+msgstr "Gentag overskrifter"
 
 #: libraries/config/messages.inc.php:354
 msgid "Show help button instead of Documentation text"
