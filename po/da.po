@@ -10788,7 +10788,7 @@ msgstr ""
 
 #: tbl_operations.php:744
 msgid "Analyze"
-msgstr ""
+msgstr "Analyser"
 
 #: tbl_operations.php:745
 msgid "Check"
