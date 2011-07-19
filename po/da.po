@@ -9009,7 +9009,7 @@ msgstr ""
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "fejl."
 
 #: server_replication.php:361
 #, php-format
