@@ -1375,8 +1375,8 @@ msgstr ""
 #: js/messages.php:146
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
-"Τα δεδομένα καταγραφής φορτώθηκαν. Τα ερωτήματα που εκτελέστηκαν αυτό το "
-"διάστημα επεκτείνουν."
+"Τα δεδομένα καταγραφής φορτώθηκαν. Τα ερωτήματα που εκτελέστηκαν σε αυτή την "
+"επέκταση χρόνου."
 
 #: js/messages.php:148
 #| msgid "Jump to database"
