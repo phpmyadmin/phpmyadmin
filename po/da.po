@@ -1143,7 +1143,7 @@ msgstr "System CPU forbrug"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Systemhukommelse"
 
 #: js/messages.php:94
 msgid "System swap"
