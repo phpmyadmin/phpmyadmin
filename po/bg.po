@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 09:26+0200\n"
+"PO-Revision-Date: 2011-07-19 09:29+0200\n"
 "Last-Translator:  <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -4665,7 +4665,7 @@ msgstr "Записване на сървъра в директория <b>%s</b>
 
 #: libraries/display_export.lib.php:199
 msgid "Save output to a file"
-msgstr "Запазване изхода във файл"
+msgstr "Запазване на изхода във файл"
 
 #: libraries/display_export.lib.php:220
 msgid "File name template:"
