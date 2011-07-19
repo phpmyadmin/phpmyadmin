@@ -5629,10 +5629,9 @@ msgstr "Tabeloverskrift"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:54
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Slå fremmednøgle-checks fra"
+msgstr "Vis fremmednøgle-relationer"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
 #, fuzzy
