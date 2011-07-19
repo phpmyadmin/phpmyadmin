@@ -10197,7 +10197,7 @@ msgstr "Variablen blev ikke sat"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
-msgstr "Server-variabler og indstillinger"
+msgstr "Servervariable og indstillinger"
 
 #: server_variables.php:110 server_variables.php:133
 msgid "Session value"
