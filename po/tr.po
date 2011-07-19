@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 19:42+0200\n"
+"PO-Revision-Date: 2011-07-19 19:43+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1299,10 +1299,9 @@ msgstr "Çizelge Başlığı"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Farkı"
+msgstr "Ayırdedici"
 
 #: js/messages.php:136
 #, php-format
