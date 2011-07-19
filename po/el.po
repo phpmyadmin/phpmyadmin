@@ -6958,10 +6958,9 @@ msgid "You must provide a valid type for the event."
 msgstr "Πρέπει να δώσετε έναν έγκυρο τύπο συμβάντος."
 
 #: libraries/rte/rte_events.lib.php:572
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
+msgstr "Πρέπει να δώσετε έναν προσδιορισμό συμβάντος."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
