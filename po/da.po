@@ -5348,7 +5348,7 @@ msgstr "Geometri"
 
 #: libraries/display_tbl.lib.php:651
 msgid "Well Known Text"
-msgstr ""
+msgstr "Velkendt tekst"
 
 #: libraries/display_tbl.lib.php:652
 msgid "Well Known Binary"
