@@ -9952,7 +9952,7 @@ msgstr "Uporaba CPU"
 
 #: server_status.php:1351
 msgid "Memory Usage"
-msgstr ""
+msgstr "Uporaba pomnilnika"
 
 #: server_status.php:1354
 #, fuzzy
