@@ -773,7 +773,7 @@ msgstr "Handling"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Slet sporingsdata for denne tabel."
+msgstr "Slet sporingsdata for denne tabel"
 
 #: db_tracking.php:119 tbl_tracking.php:599 tbl_tracking.php:657
 msgid "active"
