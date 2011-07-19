@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 15:35+0200\n"
+"PO-Revision-Date: 2011-07-19 15:36+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8810,7 +8810,7 @@ msgstr "Ukendt fejl"
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Ikke muligt at forbinde til master %s"
 
 #: server_replication.php:63
 msgid ""
