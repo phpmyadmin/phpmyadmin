@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-19 22:51+0200\n"
+"PO-Revision-Date: 2011-07-19 22:52+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1148,7 +1148,7 @@ msgstr "Uporaba sistemskega CPU"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Sistemski pomnilnik"
 
 #: js/messages.php:94
 msgid "System swap"
