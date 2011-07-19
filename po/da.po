@@ -8192,7 +8192,7 @@ msgstr "Side er blevet oprettet"
 
 #: pmd_pdf.php:37
 msgid "Page creation failed"
-msgstr ""
+msgstr "Sideoprettelse fejlede"
 
 #: pmd_pdf.php:89
 #| msgid "pages"
