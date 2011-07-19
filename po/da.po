@@ -10762,10 +10762,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "Flush tabellen (\"FLUSH\")"
 
 #: tbl_operations.php:677
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Data dump for tabellen"
+msgstr "Slet data eller tabel"
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
