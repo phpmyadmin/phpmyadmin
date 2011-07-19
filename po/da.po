@@ -8560,7 +8560,6 @@ msgid "No privileges."
 msgstr "Ingen privilegier."
 
 #: server_privileges.php:312 server_privileges.php:313
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
