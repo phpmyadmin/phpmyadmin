@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 00:20+0200\n"
+"PO-Revision-Date: 2011-07-20 00:36+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -675,7 +675,7 @@ msgstr "Check tabeller der har overhead"
 #: libraries/tbl_links.inc.php:80 prefs_manage.php:288
 #: server_privileges.php:1354 setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr "Eksportér"
+msgstr "Eksporter"
 
 #: db_structure.php:499 db_structure.php:554
 #: libraries/display_tbl.lib.php:2439 tbl_structure.php:628
