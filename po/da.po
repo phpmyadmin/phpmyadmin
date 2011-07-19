@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 17:43+0200\n"
+"PO-Revision-Date: 2011-07-19 17:45+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1242,6 +1242,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log er aktiveret, men serveren logger kun forespørgsler, som "
+"varer længere end %d sekunder. Det tilrådes at sætte denne long_query_time "
+"til 0-2 sekunder, afhængig af dit system."
 
 #: js/messages.php:119
 #, php-format
