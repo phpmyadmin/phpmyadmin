@@ -8904,7 +8904,7 @@ msgstr "Se slave status tabel"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Synkroniser databaser med master"
 
 #: server_replication.php:320
 msgid "Control slave:"
