@@ -7067,10 +7067,10 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Oprostite, zavrženega sprožilca nam ni uspelo obnoviti."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Rutina %1$s je bila spremenjena."
+msgstr "Sprožilec %1$s je bil spremenjen."
 
 #: libraries/rte/rte_triggers.lib.php:106
 #, fuzzy, php-format
