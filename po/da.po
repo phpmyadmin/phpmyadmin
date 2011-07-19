@@ -8405,7 +8405,7 @@ msgstr "Slave replikering"
 
 #: server_databases.php:272 server_databases.php:273
 msgid "Enable Statistics"
-msgstr "Slå Statistikker til"
+msgstr "Slå statistikker til"
 
 #: server_databases.php:275
 msgid ""
