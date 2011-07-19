@@ -7172,10 +7172,9 @@ msgid "Page name"
 msgstr "Side nummer:"
 
 #: libraries/schema/User_Schema.class.php:99
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Automatisk layout"
+msgstr "Automatisk layout baseret på"
 
 #: libraries/schema/User_Schema.class.php:102
 msgid "Internal relations"
