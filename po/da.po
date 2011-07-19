@@ -8849,7 +8849,7 @@ msgstr ""
 
 #: server_replication.php:215
 msgid "Master configuration"
-msgstr ""
+msgstr "Masterkonfiguration"
 
 #: server_replication.php:216
 msgid ""
