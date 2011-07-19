@@ -10784,7 +10784,7 @@ msgstr "Vedligehold af partition"
 #: tbl_operations.php:741
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Partition %s"
 
 #: tbl_operations.php:744
 msgid "Analyze"
