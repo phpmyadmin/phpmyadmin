@@ -9946,10 +9946,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Uporaba"
+msgstr "Uporaba CPU"
 
 #: server_status.php:1351
 msgid "Memory Usage"
