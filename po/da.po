@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:21+0200\n"
+"PO-Revision-Date: 2011-07-19 16:22+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -6434,7 +6434,7 @@ msgstr "Log af"
 #: libraries/navigation_header.inc.php:112
 #: libraries/navigation_header.inc.php:114
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Genindlæs navigationsramme"
 
 #: libraries/plugin_interface.lib.php:310
 #| msgid "This format has no options"
