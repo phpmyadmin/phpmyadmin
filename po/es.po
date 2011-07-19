@@ -10153,7 +10153,7 @@ msgstr "Aplicar una división"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Agregar unidad a los valores"
 
 #: server_status.php:1395
 #, fuzzy
