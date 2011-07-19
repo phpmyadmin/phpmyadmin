@@ -4993,7 +4993,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:226
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ vil blive tabelnavnet"
 
 #: libraries/display_export.lib.php:230
 #, php-format
