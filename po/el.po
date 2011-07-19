@@ -1143,7 +1143,7 @@ msgstr "Στατιστικά ερωτήματος"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Χρήση Επεξεργαστή Συστήματος"
 
 #: js/messages.php:93
 msgid "System memory"
