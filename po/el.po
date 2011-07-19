@@ -6948,10 +6948,9 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Πρέπει να δώσετε μια έγκυρη τιμή διαστήματος για το συμβάν."
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
+msgstr "Πρέπει να δώσετε μια έγκυρη τιμή εκτέλεσης για το συμβάν."
 
 #: libraries/rte/rte_events.lib.php:553
 #, fuzzy
