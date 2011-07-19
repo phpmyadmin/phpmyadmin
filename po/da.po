@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 16:40+0200\n"
+"PO-Revision-Date: 2011-07-19 16:41+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5505,7 +5505,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
-msgstr "Reparér tråde"
+msgstr "Reparer tråde"
 
 #: libraries/engines/myisam.lib.php:42
 msgid ""
