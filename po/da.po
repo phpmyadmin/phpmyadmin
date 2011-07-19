@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-19 14:17+0200\n"
+"PO-Revision-Date: 2011-07-19 14:18+0200\n"
 "Last-Translator:  <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4925,7 +4925,6 @@ msgstr ""
 "%d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. This might be good way to import large "
@@ -4936,7 +4935,7 @@ msgid ""
 "however it can break transactions.)</i>"
 msgstr ""
 "Tillad afbrydelse af import hvis scriptet er tæt på tidsgrænsen. Dette kan "
-"være en god metode til at importere større filer, men kan knække "
+"være en god metode til at importere større filer, men kan ødelægge "
 "transaktioner."
 
 #: libraries/display_import.lib.php:228
