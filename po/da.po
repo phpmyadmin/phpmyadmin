@@ -2359,7 +2359,7 @@ msgstr "Spring over Forklar SQL"
 
 #: libraries/common.lib.php:1105
 msgid "Without PHP Code"
-msgstr "uden PHP-kode"
+msgstr "Uden PHP-kode"
 
 #: libraries/common.lib.php:1108 libraries/config/messages.inc.php:476
 msgid "Create PHP Code"
