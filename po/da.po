@@ -6002,7 +6002,7 @@ msgstr "Tilføj %s forespørgsel"
 #: libraries/export/sql.php:145
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Tilføj forespørgsler"
+msgstr "Tilføj forespørgsler:"
 
 #: libraries/export/sql.php:197
 msgid ""
