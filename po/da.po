@@ -4428,7 +4428,7 @@ msgstr "Vis formular til kodeordsændring"
 
 #: libraries/config/messages.inc.php:452
 msgid "Show create database form"
-msgstr ""
+msgstr "Vis formular til databaseoprettelse"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
