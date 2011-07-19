@@ -9956,7 +9956,7 @@ msgstr "Bu diziyi ekle"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Diziyi temizle"
 
 #: server_status.php:1400
 #| msgid "Series:"
