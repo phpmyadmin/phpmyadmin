@@ -10932,7 +10932,7 @@ msgstr "Tilføj primær nøgle"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add index"
-msgstr ""
+msgstr "Tilføj indeks"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add unique index"
