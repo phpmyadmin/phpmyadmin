@@ -1943,8 +1943,8 @@ msgstr[1] "%1$d rækker påvirket."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d række slettet"
-msgstr[1] "%1$d rækker slettet"
+msgstr[0] "%1$d række slettet."
+msgstr[1] "%1$d rækker slettet."
 
 #: libraries/Message.class.php:273
 #, php-format
