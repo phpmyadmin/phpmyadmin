@@ -10066,7 +10066,7 @@ msgstr "Brug indeks(es)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Update row(s)"
-msgstr ""
+msgstr "Opdater række(r)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Insert row(s)"
