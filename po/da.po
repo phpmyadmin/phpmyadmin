@@ -4357,10 +4357,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:495
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
-msgstr "Standardværdi"
+msgstr "Standardtitel"
 
 #: libraries/config/messages.inc.php:496
 msgid "Title of browser window when a server is selected"
