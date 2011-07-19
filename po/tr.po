@@ -1140,7 +1140,7 @@ msgstr "Sistem İşlemcisi Kullanımı"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Sistem belleği"
 
 #: js/messages.php:94
 msgid "System swap"
