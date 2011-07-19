@@ -10936,7 +10936,7 @@ msgstr "Tilføj indeks"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add unique index"
-msgstr ""
+msgstr "Tilføj unikt indeks"
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add SPATIAL index"
