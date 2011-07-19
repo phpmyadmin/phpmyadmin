@@ -3739,7 +3739,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:359
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Lades blank, hvis ikke brugt"
 
 #: libraries/config/messages.inc.php:360
 msgid "Host authorization order"
