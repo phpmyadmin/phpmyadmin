@@ -4468,7 +4468,7 @@ msgid ""
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
 "Bemærk, at aktivering af denne har ingen betydning i [kbd]config[/kbd] "
-"autentifikationstilstand, fordi kodeordet er fast indlagt i "
+"autentifikationstilstand, fordi adgangskoden er fast indlagt i "
 "konfigurationsfilen; dette begrænser ikke muligheden for at udføre den samme "
 "kommando direkte"
 
