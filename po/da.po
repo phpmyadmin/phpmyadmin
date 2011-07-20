@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-21 01:00+0200\n"
+"PO-Revision-Date: 2011-07-21 01:01+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4871,7 +4871,7 @@ msgstr "Tom phpMyAdmin kontrolbruger ved brug af pmadb"
 
 #: libraries/config/validate.lib.php:273
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr "Tomt phpMyAdmin kodeord for kontrolbruger ved brug af pmadb"
+msgstr "Tom phpMyAdmin adgangskode for kontrolbruger ved brug af pmadb"
 
 #: libraries/config/validate.lib.php:359
 #, php-format
