@@ -2112,7 +2112,7 @@ msgstr "Brugernavn:"
 
 #: libraries/auth/cookie.auth.lib.php:220
 msgid "Password:"
-msgstr "Kodeord:"
+msgstr "Adgangskode:"
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Server Choice"
