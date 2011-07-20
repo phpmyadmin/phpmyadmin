@@ -215,9 +215,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
  */
 function PMA_lookForUse($buffer, $db, $reload)
 {
-    if (preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $buffer, $match)) {
+    if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match)) {
         $db = trim($match[1]);
-        $db = trim($db,';'); // for example, USE abc;
+        $db = trim($db, ';'); // for example, USE abc;
         $reload = true;
     }
     return(array($db, $reload));
