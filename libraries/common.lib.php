@@ -2846,7 +2846,9 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     header("Content-Type: application/json");
 
     echo json_encode($response);
-    exit;
+
+    if(!defined('TESTSUITE'))
+        exit;
 }
 
 /**

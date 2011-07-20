@@ -10460,7 +10460,7 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Hvis du bruger cookie autentifikation og %sLogin cookie sletning%s ikke er "
-"0, så skal %Login cookie gyldighed% være en værdi mindre end eller lig med "
+"0, så skal %sLogin cookie gyldighed%s være en værdi mindre end eller lig med "
 "den."
 
 #: setup/lib/index.lib.php:266
