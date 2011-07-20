@@ -10515,6 +10515,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sGZip komprimering og dekomprimering%s kræver funktioner (%s) som ikke er "
+"tilgængelige på dette system."
 
 #: setup/lib/index.lib.php:260
 #, php-format
