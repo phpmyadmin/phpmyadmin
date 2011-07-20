@@ -4183,7 +4183,7 @@ msgstr "Prøv at forbinde uden adganskode"
 
 #: libraries/config/messages.inc.php:398
 msgid "Connect without password"
-msgstr "Forbind uden password"
+msgstr "Forbind uden adgangskode"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
