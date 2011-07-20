@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 23:55+0200\n"
+"PO-Revision-Date: 2011-07-20 23:56+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5837,7 +5837,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
-msgstr ""
+msgstr "Tærskel for garbage"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid ""
