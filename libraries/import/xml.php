@@ -28,8 +28,8 @@ if (isset($plugin_list)) {
     return;
 }
 
-ini_set('memory_limit', '128M');
-set_time_limit(120);
+@ini_set('memory_limit', '128M');
+@set_time_limit(120);
 
 $i = 0;
 $len = 0;

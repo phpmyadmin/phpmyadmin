@@ -31,8 +31,8 @@ if (isset($plugin_list)) {
     return;
 }
 
-ini_set('memory_limit', '256M');
-set_time_limit(120);
+@ini_set('memory_limit', '256M');
+@set_time_limit(120);
 
 /* Append the PHPExcel directory to the include path variable */
 set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/PHPExcel/');
