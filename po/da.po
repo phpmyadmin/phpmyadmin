@@ -4090,7 +4090,7 @@ msgstr "Forbindelsestype"
 
 #: libraries/config/messages.inc.php:379
 msgid "Control user password"
-msgstr "Password for kontrolbruger"
+msgstr "Adkangskode for kontrolbruger"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
