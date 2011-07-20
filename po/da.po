@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 23:21+0200\n"
+"PO-Revision-Date: 2011-07-20 23:22+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5416,7 +5416,7 @@ msgstr "Udskrift-visning (med fulde tekster)"
 #: libraries/display_tbl.lib.php:2494 tbl_chart.php:83
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Vis kort"
+msgstr "Vis diagram"
 
 #: libraries/display_tbl.lib.php:2509
 msgid "Visualize GIS data"
