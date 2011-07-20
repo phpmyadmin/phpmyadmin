@@ -8040,7 +8040,7 @@ msgstr ""
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
-msgstr ""
+msgstr "Server med Suhosin.Se %sdocumentation%s for mulige problemer."
 
 #: navigation.php:183 server_databases.php:281 server_synchronize.php:1202
 msgid "No databases"
