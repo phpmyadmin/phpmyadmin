@@ -579,7 +579,7 @@ msgstr "Find:"
 
 #: db_search.php:284 db_search.php:285
 msgid "Words are separated by a space character (\" \")."
-msgstr "Ord adskilles af mellemrums-karakter (\" \")."
+msgstr "Ord adskilles af mellemrumstegn (\" \")."
 
 #: db_search.php:298
 msgid "Inside tables:"
