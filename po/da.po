@@ -4007,7 +4007,7 @@ msgstr "Lades blank for standardværdi"
 
 #: libraries/config/messages.inc.php:362
 msgid "Host authorization rules"
-msgstr "Host autoriseringsregler"
+msgstr "Host autorisationsregler"
 
 #: libraries/config/messages.inc.php:363
 msgid "Allow logins without a password"
