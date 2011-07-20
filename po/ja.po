@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 10:35+0200\n"
+"PO-Revision-Date: 2011-07-20 10:36+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1209,7 +1209,7 @@ msgstr "モニタ再開"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "モニタ一時中断"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
