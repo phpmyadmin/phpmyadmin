@@ -557,7 +557,8 @@ $server = 1;
 if(isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
 
 $server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost' 
-                              || $cfg['Servers'][$server]['host'] == '127.0.0.1';
+                              || $cfg['Servers'][$server]['host'] == '127.0.0.1'
+                              || $cfg['Servers'][$server]['host'] == '::1';
 
 ?>
 <script type="text/javascript">
