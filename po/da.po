@@ -2999,7 +2999,7 @@ msgstr "Erstat NULL med"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr "Fjern CRLF-karakterer i kolonner"
+msgstr "Fjern CRLF-tegn i kolonner"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:245
 #: libraries/config/messages.inc.php:253 libraries/import/csv.php:63
