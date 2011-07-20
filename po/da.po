@@ -7204,7 +7204,7 @@ msgstr "Tilføj trigger"
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
 msgid "Export of trigger %s"
-msgstr ""
+msgstr "Eksport af trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
 #| msgid "Add a new User"
