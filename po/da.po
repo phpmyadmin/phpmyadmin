@@ -5780,6 +5780,8 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"Mængden af hukommelse allokeret til mellemlageret for transaktionslogdata. "
+"Standard er 16MB"
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
