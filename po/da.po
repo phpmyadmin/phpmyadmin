@@ -3342,7 +3342,7 @@ msgstr "Autentifikation"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
-msgstr "Indstillinger for godkendelse"
+msgstr "Indstillinger for autentifikation"
 
 #: libraries/config/messages.inc.php:201
 msgid "Server configuration"
