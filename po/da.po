@@ -10592,6 +10592,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip dekomprimering%s kræver funktioner (%s) som ikke er tilgængelige på "
+"dette system."
 
 #: setup/lib/index.lib.php:296
 msgid "You should use SSL connections if your web server supports it."
