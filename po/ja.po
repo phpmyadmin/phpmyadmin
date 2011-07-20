@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 12:01+0200\n"
+"PO-Revision-Date: 2011-07-20 12:02+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9898,10 +9898,9 @@ msgid "Clear series"
 msgstr "系列をクリアする"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "SQL クエリ"
+msgstr "グラフの系列"
 
 #: server_status.php:1408
 #, fuzzy
