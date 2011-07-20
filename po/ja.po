@@ -1205,7 +1205,7 @@ msgstr "なし"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "モニタ再開"
 
 #: js/messages.php:110
 msgid "Pause monitor"
