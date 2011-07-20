@@ -4972,7 +4972,7 @@ msgstr "Skriv igen"
 
 #: libraries/display_change_password.lib.php:51
 msgid "Password Hashing"
-msgstr "Kodeordshashing"
+msgstr "Adgangskodehashing"
 
 #: libraries/display_change_password.lib.php:65
 #| msgid "MySQL&nbsp;4.0 compatible"
