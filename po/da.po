@@ -3720,7 +3720,7 @@ msgid ""
 "authentication mode"
 msgstr ""
 "Definer om den foregående login skal gentages eller ej i cookie "
-"autentificeringstilstand "
+"autentifikationstilstand "
 
 #: libraries/config/messages.inc.php:297
 msgid "Recall user name"
