@@ -5878,7 +5878,7 @@ msgstr "Voksestørrelsen af rækkepointerfiler (.xtr)"
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
-msgstr ""
+msgstr "Logfilantal"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid ""
