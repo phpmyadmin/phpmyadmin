@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 11:02+0200\n"
+"PO-Revision-Date: 2011-07-20 11:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1138,7 +1138,7 @@ msgstr "クエリの統計"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "システム CPU の使用状況"
 
 #: js/messages.php:93
 msgid "System memory"
