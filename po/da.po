@@ -5170,7 +5170,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "Inkodningskonvertering"
 
 #: libraries/display_import.lib.php:66
 msgid ""
