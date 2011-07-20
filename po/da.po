@@ -7999,7 +7999,7 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
-"Mappen  [code]config[/code], som bruges af setip scriptet, eksisterer stadig "
+"Mappen [code]config[/code], som bruges af setip scriptet, eksisterer stadig "
 "i din phpMyAdmin mappe. Du bør slette den, når phpMyAdmin er blevet "
 "konfigureret."
 
