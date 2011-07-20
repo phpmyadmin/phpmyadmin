@@ -8,7 +8,9 @@
  */
 
 var x = 0;
+var default_x = 0;
 var y = 0;
+var default_y = 0;
 var scale = 1;
 var svg;
 
@@ -61,7 +63,26 @@ function initVisualization() {
     } else {
         $placeholder.hide();
     }
-    
+
+    // Resizing the visualization
+    if ($('.gis_table').length > 0) {  // If we are in GIS data visualization
+        // Hide inputs for width and height
+        $("input[name='visualizationSettings[width]']").parents('tr').remove();
+        $("input[name='visualizationSettings[height]']").parents('tr').remove();
+
+        var old_width = $placeholder.width();
+        var extra = 100;
+        var leftWidth = $('.gis_table').width();
+        var windowWidth = document.documentElement.clientWidth;
+        var visWidth = windowWidth - extra - leftWidth;
+        // assign new value for width
+        $placeholder.width(visWidth);
+        $('svg').attr('width', visWidth);
+        // assign the offset created due to resizing to default_x and center the svg.
+        default_x = (visWidth - old_width) / 2;
+        x = default_x;
+    }
+
     var cssObj = {
         'border' : '1px solid #aaa',
         'width' : $placeholder.width(),
@@ -96,6 +117,7 @@ function initVisualization() {
     }
 
     $('.choice').show();
+    zoomAndPan();
 }
 
 /**
@@ -111,7 +133,10 @@ function initVisualization() {
  * Displaying tooltips for GIS objects.
  */
 $(document).ready(function() {
-    initVisualization();   
+    // If we are in GIS data visualization
+    if ($('.gis_table').length > 0) {
+        initVisualization();
+    }
     
     $('#choice').live('click', function() {
         if ($(this).prop('checked') == false) {
@@ -187,8 +212,8 @@ $(document).ready(function() {
     $('#zoom_world').live('click', function(e) {
         e.preventDefault();
         scale = 1;
-        x = 0;
-        y = 0;
+        x = default_x;
+        y = default_y;
         zoomAndPan();
     });
     
