@@ -19,6 +19,8 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 // non-js-compatible stuff like DOCTYPE
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
+// Close session early as we won't write anything there
+session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
