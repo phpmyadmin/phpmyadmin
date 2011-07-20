@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 12:00+0200\n"
+"PO-Revision-Date: 2011-07-20 12:01+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9889,10 +9889,9 @@ msgid "Append unit to data values"
 msgstr "データ値に単位を追加する"
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "トリガを追加する"
+msgstr "この系列を追加する"
 
 #: server_status.php:1397
 msgid "Clear series"
