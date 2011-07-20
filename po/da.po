@@ -10348,7 +10348,7 @@ msgid ""
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
 "Du bruger ikke en sikker forbindelse; alle data (inklusive potentielt følsom "
-"information, som kodeord) sendes ukrypteret!"
+"information, som adgangskode) sendes ukrypteret!"
 
 #: setup/frames/index.inc.php:60
 #, php-format
