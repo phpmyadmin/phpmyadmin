@@ -5870,7 +5870,7 @@ msgstr "Voksestørrelsen af handle data filer (.xtd)."
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
-msgstr ""
+msgstr "Voksestørrelsen af rækkefil"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "The grow size of the row pointer (.xtr) files."
