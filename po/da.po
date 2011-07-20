@@ -8782,7 +8782,7 @@ msgstr "Du har tilbagekaldt privilegierne for %s"
 #: server_privileges.php:1236
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "Kodeordet for %s blev korrekt udskiftet."
+msgstr "Adgangskoden for %s blev korrekt udskiftet."
 
 #: server_privileges.php:1256
 #, php-format
