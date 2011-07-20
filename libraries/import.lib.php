@@ -704,7 +704,7 @@ function PMA_detectType($last_cumulative_type, &$cell) {
      */
 
     if (! strcmp('NULL', $cell)) {
-        if ($last_cumulative_type === NULL || $last_cumulative_type == NONE) {
+        if ($last_cumulative_type === null || $last_cumulative_type == NONE) {
             return NONE;
         } else {
             return $last_cumulative_type;
@@ -816,7 +816,7 @@ function PMA_analyzeTable(&$table) {
 }
 
 /* Needed to quell the beast that is PMA_Message */
-$import_notice = NULL;
+$import_notice = null;
 
 /**
  * Builds and executes SQL statements to create the database and tables
@@ -833,7 +833,7 @@ $import_notice = NULL;
  * @param   array   $options          Associative array of options
  * @return  void
  */
-function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = NULL, $options = NULL) {
+function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null) {
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];
@@ -876,7 +876,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     unset($sql);
 
     /* Run the $additional_sql statements supplied by the caller plug-in */
-    if ($additional_sql != NULL) {
+    if ($additional_sql != null) {
         /* Clean the SQL first */
         $additional_sql_len = count($additional_sql);
 
@@ -902,7 +902,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
         }
     }
 
-    if ($analyses != NULL) {
+    if ($analyses != null) {
         $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint");
 
         /* TODO: Do more checking here to make sure they really are matched */
@@ -967,7 +967,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
             $tempSQLStr .= "(";
 
 			for ($k = 0; $k < $num_cols; ++$k) {
-                if ($analyses != NULL) {
+                if ($analyses != null) {
                     $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
                 } else {
                     $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);

@@ -258,7 +258,7 @@ while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
             // Need to strip trailing enclosing char?
             if ($need_end && $ch == $csv_enclosed) {
                 if ($finished && $i == $len - 1) {
-                    $ch = NULL;
+                    $ch = null;
                 } elseif ($i == $len - 1) {
                     $i = $fallbacki;
                     $ch = $buffer[$i];
@@ -417,11 +417,11 @@ if ($analyze) {
         $options = array('create_db' => false);
     } else {
         $db_name = 'CSV_DB';
-        $options = NULL;
+        $options = null;
     }
 
     /* Non-applicable parameters */
-    $create = NULL;
+    $create = null;
 
     /* Created and execute necessary SQL statements from data */
     PMA_buildSQL($db_name, $tables, $analyses, $create, $options);

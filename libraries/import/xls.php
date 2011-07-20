@@ -130,11 +130,11 @@ if (strlen($db)) {
     $options = array('create_db' => false);
 } else {
     $db_name = 'XLS_DB';
-    $options = NULL;
+    $options = null;
 }
 
 /* Non-applicable parameters */
-$create = NULL;
+$create = null;
 
 /* Created and execute necessary SQL statements from data */
 PMA_buildSQL($db_name, $tables, $analyses, $create, $options);
