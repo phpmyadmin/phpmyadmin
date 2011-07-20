@@ -4595,7 +4595,7 @@ msgstr "Kræver SQL Validator bliver aktiveret"
 #: server_privileges.php:782 server_privileges.php:793
 #: server_privileges.php:1608 server_synchronize.php:1186
 msgid "Password"
-msgstr "Kodeord"
+msgstr "Adgangskode"
 
 #: libraries/config/messages.inc.php:480
 msgid ""
