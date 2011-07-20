@@ -135,9 +135,6 @@ $js_messages['strChartTitle'] = __('Chart Title');
 $js_messages['strDifferential'] = __('Differential');
 $js_messages['strDividedBy'] = __('Divided by %s:');
 
-$js_messages['strSelectedTimeRange'] = __('Selected time range:');
-$js_messages['strGroupInserts'] = __('Group together INSERTs into same table');
-$js_messages['strLogAnalyseInfo'] = __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.');
 $js_messages['strFromSlowLog'] = __('From slow log');
 $js_messages['strFromGeneralLog'] = __('From general log');
 $js_messages['strAnalysingLogs'] = __('Analysing & loading logs. This may take a while.');
@@ -147,6 +144,15 @@ $js_messages['strLogDataLoaded'] = __('Log data loaded. Queries executed in this
 
 $js_messages['strJumpToTable'] = __('Jump to Log table');
 $js_messages['strNoDataFound'] = __('Log analysed, but not data found in this time span.');
+
+/* l10n: A collection of available filters */
+$js_messages['strFilters'] = __('Filters');
+/* l10n: Filter as in "Start Filtering" */
+$js_messages['strFilter'] = __('Filter');
+$js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
+$js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE statements');
+$js_messages['strSumRows'] = __('Sum of grouped rows:');
+$js_messages['strTotal'] = __('Total:');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');

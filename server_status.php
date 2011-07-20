@@ -194,9 +194,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         }
         
         if($_REQUEST['type'] == 'general') {
-            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
+            $limitTypes = (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes']) 
+                            ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
+            
+            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' '.
+                 'FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
                  'AND event_time > FROM_UNIXTIME('.$start.') AND event_time < FROM_UNIXTIME('.$end.') '.
-                 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument'; // HAVING count > 1';
+                 $limitTypes . 'GROUP by argument'; // HAVING count > 1';
             
             $result = PMA_DBI_try_query($q);
             
@@ -205,43 +209,52 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $insertTables = array();
             $insertTablesFirst = -1;
             $i = 0;
+            $removeVars = isset($_REQUEST['removeVariables']) && $_REQUEST['removeVariables'];
             
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
                 $type = strtolower($match[1]);
                 // Ignore undefined index warning, just increase counter by one
                 @$return['sum'][$type] += $row['#'];
-				
-                if($type=='insert' || $type=='update') {
-                    // Group inserts if selected
-                    if($type=='insert' && isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
-                        $insertTables[$matches[2]]++;
-                        if ($insertTables[$matches[2]] > 1) {
-                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
-                            
-                            // Add a ... to the end of this query to indicate that there's been other queries
-                            if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
-								$return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                
+                switch($type) {
+                    case 'insert':
+                        // Group inserts if selected
+                        if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
+                            $insertTables[$matches[2]]++;
+                            if ($insertTables[$matches[2]] > 1) {
+                                $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
                                 
-                            // Group this value, thus do not add to the result list
-                            continue;
-                        } else {
-                            $insertTablesFirst = $i;
-                            $insertTables[$matches[2]] += $row['#'] - 1;
+                                // Add a ... to the end of this query to indicate that there's been other queries
+                                if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+                                    $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                                    
+                                // Group this value, thus do not add to the result list
+                                continue;
+                            } else {
+                                $insertTablesFirst = $i;
+                                $insertTables[$matches[2]] += $row['#'] - 1;
+                            }
                         }
-                    }
+                        // No break here
                         
-                    // Cut off big selects, but append byte count therefor
-                    if(strlen($row['argument']) > 180)
-                        $row['argument'] = substr($row['argument'],0,160) . '... [' . 
-                                            PMA_formatByteDown(strlen($row['argument']), 2).']';
+                    case 'update':
+                        // Cut off big inserts and updates, but append byte count therefor
+                        if(strlen($row['argument']) > 180)
+                            $row['argument'] = substr($row['argument'],0,160) . '... [' . 
+                                                PMA_formatByteDown(strlen($row['argument']), 2).']';
+                                                
+                        break;
+                    
+                    default: break;
                 }
+                
                 $return['rows'][] = $row;
                 $i++;
             }
             
             $return['sum']['TOTAL'] = array_sum($return['sum']);
-			$return['numRows'] = count($return['rows']);
+            $return['numRows'] = count($return['rows']);
             
             PMA_DBI_free_result($result);
             
@@ -1323,7 +1336,7 @@ function printMonitor() {
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
         queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the
-		general_log produces a lot of data and increases server load by up to 15%'); ?>
+        general_log produces a lot of data and increases server load by up to 15%'); ?>
         <p></p>
         <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
         <div class="ajaxContent">
@@ -1337,14 +1350,14 @@ function printMonitor() {
         <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
         left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
         activity spike.</p>');
-		?>
-		<p>
-		<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> 
-		<?php echo __('<b>Please note:</b>
+        ?>
+        <p>
+        <img class="icon ic_s_attention" src="themes/dot.gif" alt=""> 
+        <?php echo __('<b>Please note:</b>
         Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a 
         load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.
         '); ?>
-		</p>
+        </p>
         </div>
     </div>
     
@@ -1416,8 +1429,21 @@ function printMonitor() {
     <div id="loadingLogsDialog" title="<?php echo __('Loading logs'); ?>" style="display:none;">
     </div>
     
-    <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>">
+    <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">
+        <p> <?php echo __('Selected time range:'); ?>
+        <input type="text" name="dateStart" class="datetimefield" value="" /> - 
+        <input type="text" name="dateEnd" class="datetimefield" value="" /></p>
+        <input type="checkbox" id="limitTypes" value="1" checked="checked" />
+        <label for="limitTypes">  
+            <?php echo __('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements'); ?>
+        </label>
+        <br/>
+        <input type="checkbox" id="removeVariables" value="1" checked="checked" />
+        <label for="removeVariables">  
+            <?php echo __('Remove variable data in INSERT statements for better grouping'); ?>
+        </label>
         
+        <?php echo __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.'); ?>        
     </div>
     
     <table border="0" class="clearfloat" id="chartGrid">

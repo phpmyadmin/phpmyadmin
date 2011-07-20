@@ -574,7 +574,7 @@ $(function() {
         redrawCharts: false,
         // Object that contains a list of nodes that need to be retrieved from the server for chart updates
         dataList: []
-    }
+    };
     
     var monitorSettings = null;
     
@@ -585,7 +585,7 @@ $(function() {
         gridMaxPoints: 'auto', 
         /* Refresh rate of all grid charts in ms */
         gridRefresh: 5000
-    }
+    };
     
     // Allows drag and drop rearrange and print/edit icons on charts
     var editMode = false;
@@ -663,7 +663,7 @@ $(function() {
                 }
             }
         }
-    }
+    };
     
     // Default setting
     defaultChartGrid = {
@@ -691,7 +691,7 @@ $(function() {
         defaultChartGrid['c5'] = presetCharts['swap-' + server_os];
     }
     
-    var gridbuttons = { 
+    var gridbuttons = {
         cogButton: {
             //enabled: true,
             symbol: 'url(' + pmaThemeImage  + 's_cog.png)',
@@ -1259,24 +1259,10 @@ $(function() {
                             min = extremesObject.min,
                             max = extremesObject.max;
                         
-                        $('#logAnalyseDialog').html(
-                            '<p>' + PMA_messages['strSelectedTimeRange']
-                            + '<input type="text" name="dateStart" class="datetimefield" value="' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S',new Date(min)) + '" /> - ' 
-                            + '<input type="text" name="dateEnd" class="datetimefield" value="' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S',new Date(max)) + '" /></p>'
-                            + '<input type="checkbox" id="groupInserts" value="1" checked="checked" />'
-                            + '<label for="groupData">' + PMA_messages['strGroupInserts'] + '</label>'
-                            + PMA_messages['strLogAnalyseInfo']
-                        );
-                        
-                        PMA_addDatepicker($('#logAnalyseDialog').find('input[name="dateStart"],input[name="dateEnd"]'), { 
-                            showOn: 'focus',
-                            beforeShow: function() {
-                                // Fix wrong timepicker z-index, doesn't work without timeout
-                                setTimeout(function() {
-                                    $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
-                                },0);
-                            }
-                        });
+                        $('#logAnalyseDialog input[name="dateStart"]')
+                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(min)));
+                        $('#logAnalyseDialog input[name="dateEnd"]')
+                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(max)));
                         
                         var dlgBtns = { };
                         
@@ -1284,9 +1270,13 @@ $(function() {
                             var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
                             var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
                             
-                            loadLogStatistics(
-                                { src: 'slow', start: dateStart, end: dateEnd, groupInserts: $('input#groupInserts').attr('checked') } 
-                            );
+                            loadLogStatistics({
+                                src: 'slow',
+                                start: dateStart,
+                                end: dateEnd,
+                                removeVariables: $('input#removeVariables').prop('checked'),
+                                limitTypes: $('input#limitTypes').prop('checked')
+                            });
                                 
                             $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                             
@@ -1297,9 +1287,13 @@ $(function() {
                             var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
                             var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
                             
-                            loadLogStatistics(
-                                { src: 'general', start: dateStart, end: dateEnd, groupInserts: $('input#groupInserts').attr('checked') }
-                            );
+                            loadLogStatistics({
+                                src: 'general',
+                                start: dateStart,
+                                end: dateEnd,
+                                removeVariables: $('input#removeVariables').prop('checked'),
+                                limitTypes: $('input#limitTypes').prop('checked')
+                            });
                                 
                             $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                             
@@ -1474,10 +1468,11 @@ $(function() {
     function loadLogStatistics(opts) {
         var tableStr = '';
         var logRequest = null;
-        var groupInsert = false;
         
-        if(opts.groupInserts)
-            groupInserts = true;
+        if(! opts.removeVariables)
+            opts.removeVariables = false;
+        if(! opts.limitTypes)
+            opts.limitTypes = false;
         
         $('#loadingLogsDialog').html(PMA_messages['strAnalysingLogs'] + ' <img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
@@ -1495,140 +1490,58 @@ $(function() {
         });
         
         
-        var formatValue = function(name, value) {
-            switch(name) {
-                case 'user_host': 
-                    return value.replace(/(\[.*?\])+/g,'');
-            }
-            return value;
-        }
-        
         logRequest = $.get('server_status.php?'+url_query, 
-            { ajax_request: true, log_data: 1, type: opts.src, time_start: Math.round(opts.start / 1000), time_end: Math.round(opts.end / 1000), groupInserts: groupInserts },
+            {   ajax_request: true,
+                log_data: 1,
+                type: opts.src,
+                time_start: Math.round(opts.start / 1000),
+                time_end: Math.round(opts.end / 1000),
+                removeVariables: opts.removeVariables,
+                limitTypes: opts.limitTypes
+            },
             function(data) { 
-                var data = $.parseJSON(data);
-                var rows = data.rows;
-                var cols = new Array();
+                runtime.logData = $.parseJSON(data);
                 
-                if(rows.length != 0) {
-                    tableStr = '<table border="0" class="sortable">';
+                if(runtime.logData.rows.length != 0) {
+                    runtime.logDataCols = buildLogTable(runtime.logData);
                     
-                    for(var i=0; i < rows.length; i++) {
-                        if(i == 0) {
-                            tableStr += '<thead>';
-                            $.each(rows[0],function(key, value) {
-                                cols.push(key);
-                            });
-                            tableStr += '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>';
-                            tableStr += '</thead><tbody>';
-                        }
-                        
-                        tableStr += '<tr>';
-                        for(var j=0; j < cols.length; j++)
-                            tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
-                        tableStr += '</tr>';    
-                    }
-
-                    tableStr += '</tbody><tfoot>';
-                    tableStr += '<tr><th colspan="' + (cols.length - 1) + '">Sum of grouped rows: '+ data.numRows +'<span style="float:right">Total:</span></th><th align="right">' + data.sum.TOTAL + '</th></tr>';
-                    tableStr += '</tfoot></table>';
-            
-                    $('#logTable').html(tableStr);
-                    
-                    // Append a tooltip to the count column, if there exist one
-                    if($('#logTable th:last').html() == '#') {
-                        $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon icon ic_b_docs" src="themes/dot.gif" alt="" />');
-                    
-                        var qtipContent = PMA_messages['strCountColumnExplanation'];
-                        if(groupInserts) qtipContent += '<p>' + PMA_messages['strMoreCountColumnExplanation'] + '</p>';
-                        
-                        $('img.qroupedQueryInfoIcon').qtip({
-                            content: qtipContent,
-                            position: {
-                                corner: {
-                                    target: 'bottomMiddle',
-                                    tooltip: 'topRight'
-                                }
-                                
-                            },
-                            hide: { delay: 1000 }
-                        })
-                    }
-                    
-                    
-                    
-                    $('div#logTable table').tablesorter({
-                        sortList: [[0,1]],
-                        widgets: ['zebra']
-                    });
-                    
-                    $('div#logTable table thead th')
-                        .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
-
-                    
+                    /* Show some stats in the dialog */
                     $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
-                    $.each(data.sum, function(key, value) {
+                    $.each(runtime.logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                         if(key == 'Total') key = '<b>' + key + '</b>';
                         $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
                     });
                     
-                    if(data.numRows > 12) {
+                    /* Add filter options if more than a bunch of rows there to filter */
+                    if(runtime.logData.numRows > 12) {
                         $('div#logTable').prepend(
                             '<fieldset id="logDataFilter">' +
-                            '	<legend>Filters</legend>' +
+                            '	<legend>' + PMA_messages['strFilters'] + '</legend>' +
                             '	<div class="formelement">' +
-                            '		<label for="filterQueryText">Filter queries by word/regexp:</label>' +
+                            '		<label for="filterQueryText">' + PMA_messages['strFilterByWordRegexp'] + '</label>' +
                             '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
-                            ((data.numRows > 250) ? ' <button name="startFilterQueryText" id="startFilterQueryText">Filter</button>' : '') +                        
                             '	</div>' +
+                            ((runtime.logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + PMA_messages['strFilter'] + '</button></div>' : '') +
+                            '	<div class="formelement">' +
+                            '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1" /> ' +
+                            '       <label for="noWHEREData"> ' + PMA_messages['strIgnoreWhereAndGroup'] + '</label>' +
+                            '   </div' +
                             '</fieldset>'
                         );
                         
-                        if(data.numRows > 250) {
+                        $('div#logTable input#noWHEREData').change(function() {
+                            filterQueries(true);
+                        });
+                        
+                        //preg_replace('/\s+([^=]+)=(\d+|((\'|"|)(?U)(.+)(?<!\\\)\4(\s+|$)))/i',' $1={} ',$str);
+                        
+                        if(runtime.logData.numRows > 250) {
                             $('div#logTable button#startFilterQueryText').click(filterQueries);
                         } else {
                             $('div#logTable input#filterQueryText').keyup(filterQueries);
                         }
                         
-                        function filterQueries() {
-                            var odd_row=false, cell, textFilter;
-                            var val = $('div#logTable input#filterQueryText').val();
-                            
-                            if(val.length == 0) textFilter = null;
-                            else textFilter = new RegExp(val, 'i');
-                            
-                            var rowSum = 0, totalSum = 0;
-                            
-                            $('div#logTable table tbody tr').each(function() {
-                                // We just assume the sql text is always in the second last column
-                                cell = $(this).children(':nth-child(' + (cols.length - 1) + ')');
-                                
-                                if(textFilter==null || textFilter.exec(cell.text())) {
-                                    // And that total count is right of the sql text
-                                    totalSum += parseInt(cell.next().text());
-                                    rowSum ++;
-                                    
-                                    odd_row = !odd_row;    
-                                    $(this).css('display','');
-                                    if(odd_row) {
-                                        $(this).addClass('odd');
-                                        $(this).removeClass('even');
-                                    } else {
-                                        $(this).addClass('even');
-                                        $(this).removeClass('odd');
-                                    }
-                                } else {
-                                    $(this).css('display','none');
-                                }
-                            });
-                            
-                            
-                            $('div#logTable table tfoot tr')
-                                .html('<th colspan="' + (cols.length - 1) + 
-                                    '">Sum of grouped rows: '+ rowSum +'<span style="float:right">Total:</span></th><th align="right">' + 
-                                     totalSum + '</th>');
-                        };
                     }
                     
                     var dlgBtns = {};
@@ -1651,6 +1564,167 @@ $(function() {
                 }
             }
         );
+            
+        function filterQueries(varFilterChange) {
+            var odd_row=false, cell, textFilter;
+            var val = $('div#logTable input#filterQueryText').val();
+            
+            if(val.length == 0) textFilter = null;
+            else textFilter = new RegExp(val, 'i');
+            
+            var rowSum = 0, totalSum = 0;
+            
+            var i=0, q;
+            var noVars = $('div#logTable input#noWHEREData').attr('checked');
+            var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
+            var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
+            var filteredQueries = {};
+            var filteredQueriesLines = {};
+            var hide = false;
+            var queryColumnName = runtime.logDataCols[runtime.logDataCols.length - 2];
+            var sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
+
+            // We just assume the sql text is always in the second last column, and that the total count is right of it
+            $('div#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
+                if(varFilterChange && $(this).html().match(/^SELECT/i)) {
+                    if(noVars) {
+                        q = $(this).text().replace(equalsFilter, '$1=...$6').trim();
+                        q = q.replace(functionFilter, ' $1(...)');
+                        
+                        // Js does not specify a limit on property name length, so we can abuse it as index :-)
+                        if(filteredQueries[q]) {
+                            filteredQueries[q] += parseInt($(this).next().text());
+                            totalSum += parseInt($(this).next().text());
+                            rowSum ++;
+                            hide = true;
+                        } else {
+                            filteredQueries[q] = parseInt($(this).next().text());;
+                            filteredQueriesLines[q] = i;
+                            $(this).text(q);
+                        }
+                        
+                    } else {
+                        $(this).text(runtime.logData.rows[i][queryColumnName]);
+                        $(this).next().text('' + runtime.logData.rows[i][sumColumnName]);
+                    }
+                }
+                
+                if(! hide && (textFilter != null && ! textFilter.exec($(this).text()))) hide = true;
+                
+                if(hide) {
+                    $(this).parent().css('display','none');
+                } else {
+                    totalSum += parseInt($(this).next().text());
+                    rowSum ++;
+                    
+                    odd_row = ! odd_row;    
+                    $(this).parent().css('display','');
+                    if(odd_row) {
+                        $(this).parent().addClass('odd');
+                        $(this).parent().removeClass('even');
+                    } else {
+                        $(this).parent().addClass('even');
+                        $(this).parent().removeClass('odd');
+                    }
+                }
+                
+                hide = false;
+                i++;
+            });
+            
+            if(varFilterChange) {
+                if(noVars) {
+                    $.each(filteredQueriesLines, function(key,value) {
+                        if(filteredQueries[value] <= 1) return;
+                        
+                        var numCol = $('div#logTable table tbody tr:nth-child(' + (value+1) + ')')
+                                        .children(':nth-child(' + (runtime.logDataCols.length) + ')');
+                        
+                        numCol.text(filteredQueries[key]);
+                    });
+                }
+                
+                $('div#logTable table').trigger("update"); 
+                setTimeout(function() {
+                    
+                    $('div#logTable table').trigger('sorton',[[[runtime.logDataCols.length - 1,1]]]);
+                }, 0);
+            }
+            
+            $('div#logTable table tfoot tr')
+                .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' + 
+                      PMA_messages['strSumRows'] + ' '+ rowSum +'<span style="float:right">' + 
+                      PMA_messages['strTotal'] + ':</span></th><th align="right">' + totalSum + '</th>');
+        }
+    }
+    
+    function buildLogTable(data) {
+        var rows = data.rows;
+        var cols = new Array();
+        
+        var tableStr = '<table border="0" class="sortable">';
+        
+        var formatValue = function(name, value) {
+            switch(name) {
+                case 'user_host': 
+                    return value.replace(/(\[.*?\])+/g,'');
+            }
+            return value;
+        }
+        
+        for(var i=0; i < rows.length; i++) {
+            if(i == 0) {
+                tableStr += '<thead>';
+                $.each(rows[0],function(key, value) {
+                    cols.push(key);
+                });
+                tableStr += '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>';
+                tableStr += '</thead><tbody>';
+            }
+            
+            tableStr += '<tr>';
+            for(var j=0; j < cols.length; j++)
+                tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
+            tableStr += '</tr>';
+        }
+        
+        tableStr += '</tbody><tfoot>';
+        tableStr += '<tr><th colspan="' + (cols.length - 1) + '">' + PMA_messages['strSumRows'] + 
+                    ' '+ data.numRows +'<span style="float:right">' + PMA_messages['strTotal'] + 
+                    '</span></th><th align="right">' + data.sum.TOTAL + '</th></tr>';
+        tableStr += '</tfoot></table>';
+        
+        $('#logTable').html(tableStr);
+        
+        // Append a tooltip to the count column, if there exist one
+        if($('#logTable th:last').html() == '#') {
+            $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon icon ic_b_docs" src="themes/dot.gif" alt="" />');
+        
+            var qtipContent = PMA_messages['strCountColumnExplanation'];
+            if(groupInserts) qtipContent += '<p>' + PMA_messages['strMoreCountColumnExplanation'] + '</p>';
+            
+            $('img.qroupedQueryInfoIcon').qtip({
+                content: qtipContent,
+                position: {
+                    corner: {
+                        target: 'bottomMiddle',
+                        tooltip: 'topRight'
+                    }
+                    
+                },
+                hide: { delay: 1000 }
+            })
+        }
+        
+        $('div#logTable table').tablesorter({
+            sortList: [[cols.length - 1,1]],
+            widgets: ['zebra']
+        });
+        
+        $('div#logTable table thead th')
+            .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
+
+        return cols;
     }
     
     function saveMonitor() {
