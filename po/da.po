@@ -3338,7 +3338,7 @@ msgstr "Grundlæggende indstillinger"
 
 #: libraries/config/messages.inc.php:199
 msgid "Authentication"
-msgstr "Godkendelse"
+msgstr "Autentifikation"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication settings"
