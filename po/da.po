@@ -4957,7 +4957,7 @@ msgstr "Detaljer..."
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
 msgid "Change password"
-msgstr "Ændre kodeord"
+msgstr "Ændre adgangskode"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:346 server_privileges.php:789
