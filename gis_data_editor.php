@@ -297,9 +297,9 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
 <?php                   }
 ?>                      <input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][" . $i . "][add_point]"); ?>" class="add addPoint" value="<?php echo __("Add a point"); ?>">
 <?php               }
-?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class="add addLine" value="<?php echo __('Add an inner ring') ?>">
+?>                  <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][" . $k . "][add_line]"); ?>" class="add addLine" value="<?php echo __('Add an inner ring') ?>"><br/>
 <?php           }
-?>              <br/><br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class="add addPolygon" value="<?php echo __('Add a polygon') ?>">
+?>              <br/><input type="submit" name="<?php echo("gis_data[" . $a . "][" . $type . "][add_polygon]"); ?>" class="add addPolygon" value="<?php echo __('Add a polygon') ?>">
 <?php       }
         }
         if ($geom_type == 'GEOMETRYCOLLECTION') {

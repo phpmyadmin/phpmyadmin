@@ -52,47 +52,36 @@ function zoomAndPan() {
 }
 
 /**
- * Initialize the visualization.
+ * Initially loads either SVG or OSM visualization based on the choice.
  */
-function initVisualization() {
-    var $placeholder = $('#placeholder');
-    var $openlayersmap = $('#openlayersmap');
-    
+function selectVisualization() {
     if ($('#choice').prop('checked') != true) {
-        $openlayersmap.hide();
+        $('#openlayersmap').hide();
     } else {
-        $placeholder.hide();
+        $('#placeholder').hide();
     }
+    $('.choice').show();
+}
 
-    // Resizing the visualization
-    if ($('.gis_table').length > 0) {  // If we are in GIS data visualization
-        // Hide inputs for width and height
-        $("input[name='visualizationSettings[width]']").parents('tr').remove();
-        $("input[name='visualizationSettings[height]']").parents('tr').remove();
-
-        var old_width = $placeholder.width();
-        var extra = 100;
-        var leftWidth = $('.gis_table').width();
-        var windowWidth = document.documentElement.clientWidth;
-        var visWidth = windowWidth - extra - leftWidth;
-        // assign new value for width
-        $placeholder.width(visWidth);
-        $('svg').attr('width', visWidth);
-        // assign the offset created due to resizing to default_x and center the svg.
-        default_x = (visWidth - old_width) / 2;
-        x = default_x;
-    }
-
+/**
+ * Adds necessary styles to the div that coontains the openStreetMap.
+ */
+function styleOSM() {
+    var $placeholder = $('#placeholder');
     var cssObj = {
         'border' : '1px solid #aaa',
         'width' : $placeholder.width(),
         'height' : $placeholder.height(),
         'float' : 'right'
     };
-    $openlayersmap.css(cssObj);
-    if (typeof drawOpenLayers == 'function') {
-        drawOpenLayers();
-    }
+    $('#openlayersmap').css(cssObj);
+}
+
+/**
+ * Loads the SVG element and make a reference to it.
+ */
+function loadSVG() {
+    var $placeholder = $('#placeholder');
 
     $placeholder.svg({
         onLoad: function(svg_ref) {
@@ -100,9 +89,15 @@ function initVisualization() {
         }
     });
 
-    // Removes the second SVG element unnecessarily added due to the above command.
+    // Removes the second SVG element unnecessarily added due to the above command
     $placeholder.find('svg:nth-child(2)').remove();
+}
 
+/**
+ * Adds controllers for zooming and panning.
+ */
+function addZoomPanControllers() {
+    var $placeholder = $('#placeholder');
     if ($("#placeholder svg").length > 0) {
         var pmaThemeImage = $('#pmaThemeImage').attr('value');
         // add panning arrows
@@ -115,8 +110,49 @@ function initVisualization() {
         $('<img class="button" id="zoom_world" src="' + pmaThemeImage + 'zoom-world-mini.png">').appendTo($placeholder);
         $('<img class="button" id="zoom_out" src="' + pmaThemeImage + 'zoom-minus-mini.png">').appendTo($placeholder);
     }
+}
 
-    $('.choice').show();
+/**
+ * Resizes the GIS visualization to fit into the space available.
+ */
+function resizeGISVisualization() {
+    var $placeholder = $('#placeholder');
+
+    // Hide inputs for width and height
+    $("input[name='visualizationSettings[width]']").parents('tr').remove();
+    $("input[name='visualizationSettings[height]']").parents('tr').remove();
+
+    var old_width = $placeholder.width();
+    var extraPadding = 100;
+    var leftWidth = $('.gis_table').width();
+    var windowWidth = document.documentElement.clientWidth;
+    var visWidth = windowWidth - extraPadding - leftWidth;
+
+    // Assign new value for width
+    $placeholder.width(visWidth);
+    $('svg').attr('width', visWidth);
+
+    // Assign the offset created due to resizing to default_x and center the svg.
+    default_x = (visWidth - old_width) / 2;
+    x = default_x;
+}
+
+/**
+ * Initialize the GIS visualization.
+ */
+function initGISVisualization() {
+    // Loads either SVG or OSM visualization based on the choice
+    selectVisualization();
+    // Resizes the GIS visualization to fit into the space available
+    resizeGISVisualization();
+    // Adds necessary styles to the div that coontains the openStreetMap
+    styleOSM();
+    // Draws openStreetMap with openLayers
+    drawOpenLayers();
+    // Loads the SVG element and make a reference to it
+    loadSVG();
+    // Adds controllers for zooming and panning
+    addZoomPanControllers();
     zoomAndPan();
 }
 
@@ -133,9 +169,10 @@ function initVisualization() {
  * Displaying tooltips for GIS objects.
  */
 $(document).ready(function() {
-    // If we are in GIS data visualization
+
+    // If we are in GIS visualization, initialize it
     if ($('.gis_table').length > 0) {
-        initVisualization();
+        initGISVisualization();
     }
     
     $('#choice').live('click', function() {

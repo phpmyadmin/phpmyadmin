@@ -270,6 +270,21 @@ function addDataPoint(pointNumber, prefix) {
 }
 
 /**
+ * Initialize the visualization in the GIS data editor.
+ */
+function initGISEditorVisualization() {
+    // Loads either SVG or OSM visualization based on the choice
+     selectVisualization();
+    // Adds necessary styles to the div that coontains the openStreetMap
+    styleOSM();
+    // Loads the SVG element and make a reference to it
+    loadSVG();
+    // Adds controllers for zooming and panning
+    addZoomPanControllers();
+    zoomAndPan();
+}
+
+/**
  * Ajax handlers for Change Table page
  *
  * Actions Ajaxified here:
@@ -316,7 +331,7 @@ $(document).ready(function() {
         }, function(data) {
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
-                initVisualization();
+                initGISEditorVisualization();
                 prepareJSVersion();
             } else {
                 PMA_ajaxShowMessage(data.error);
@@ -362,7 +377,7 @@ $(document).ready(function() {
                 $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
                 $('#openlayersmap').empty();
                 eval(data.openLayers);
-                initVisualization();
+                initGISEditorVisualization();
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
@@ -379,7 +394,7 @@ $(document).ready(function() {
         $.post('gis_data_editor.php', $form.serialize() + "&get_gis_editor=true", function(data) {
             if(data.success == true) {
                 $gis_editor.html(data.gis_editor);
-                initVisualization();
+                initGISEditorVisualization();
                 prepareJSVersion();
             } else {
                 PMA_ajaxShowMessage(data.error);
