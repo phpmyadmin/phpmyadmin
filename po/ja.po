@@ -9857,10 +9857,9 @@ msgid "Memory Usage"
 msgstr "メモリ使用状況"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "使用量"
+msgstr "スワップ状況"
 
 #: server_status.php:1357
 #, fuzzy
