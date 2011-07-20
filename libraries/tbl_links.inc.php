@@ -101,7 +101,7 @@ if (!$db_is_information_schema && !PMA_DRIZZLE) {
     if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
         $tabs['triggers']['link'] = 'tbl_triggers.php';
         $tabs['triggers']['text'] = __('Triggers');
-        $tabs['triggers']['icon'] = 'b_triggers.png';
+        $tabs['triggers']['icon'] = 'ic_b_triggers';
     }
 }
 

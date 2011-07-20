@@ -28,8 +28,8 @@ if (isset($plugin_list)) {
     return;
 }
 
-ini_set('memory_limit', '128M');
-set_time_limit(120);
+@ini_set('memory_limit', '128M');
+@set_time_limit(120);
 
 $i = 0;
 $len = 0;
@@ -119,14 +119,14 @@ if ($db_attr instanceof SimpleXMLElement) {
      */
     $db_attr = $xml->children()->attributes();
     $db_name = (string)$db_attr['name'];
-    $collation = NULL;
-    $charset = NULL;
+    $collation = null;
+    $charset = null;
 }
 
 /**
  * The XML was malformed
  */
-if ($db_name === NULL) {
+if ($db_name === null) {
     PMA_Message::error(__('The XML file specified was either malformed or incomplete. Please correct the issue and try again.'))->display();
     unset($xml);
     $GLOBALS['finished'] = false;
@@ -259,9 +259,9 @@ if ($data_present) {
      * to maintain PMA_buildSQL() call integrity
      */
     if (! isset($analyses)) {
-        $analyses = NULL;
+        $analyses = null;
         if (! $struct_present) {
-            $create = NULL;
+            $create = null;
         }
     }
 }
@@ -286,7 +286,7 @@ if (strlen($db)) {
     $db_name = $db;
     $options = array('create_db' => false);
 } else {
-    if ($db_name === NULL) {
+    if ($db_name === null) {
         $db_name = 'XML_DB';
     }
 

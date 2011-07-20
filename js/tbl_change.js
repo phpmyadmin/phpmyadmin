@@ -274,7 +274,7 @@ function addDataPoint(pointNumber, prefix) {
  */
 function initGISEditorVisualization() {
     // Loads either SVG or OSM visualization based on the choice
-     selectVisualization();
+    selectVisualization();
     // Adds necessary styles to the div that coontains the openStreetMap
     styleOSM();
     // Loads the SVG element and make a reference to it

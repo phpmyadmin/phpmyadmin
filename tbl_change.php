@@ -517,7 +517,7 @@ foreach ($rows as $row_id => $vrow) {
             //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
             if (isset($default_action) && $default_action === 'insert') {
                 if ($field['Key'] === 'PRI' && strpos($field['Extra'], 'auto_increment') !== false) {
-                    $data = $special_chars_encoded = $special_chars = NULL;
+                    $data = $special_chars_encoded = $special_chars = null;
                 }
             }
             // If a timestamp field value is not included in an update
