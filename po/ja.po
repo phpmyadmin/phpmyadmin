@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 11:05+0200\n"
+"PO-Revision-Date: 2011-07-20 11:06+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1158,7 +1158,7 @@ msgstr "KiB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "平均負荷"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
