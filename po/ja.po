@@ -9782,7 +9782,7 @@ msgstr "はじめに"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "グラフの再配置／変更完了"
 
 #: server_status.php:1296
 #| msgid "Add parameter"
