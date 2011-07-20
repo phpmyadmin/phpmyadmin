@@ -9895,7 +9895,7 @@ msgstr "この系列を追加する"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "系列をクリアする"
 
 #: server_status.php:1400
 #, fuzzy
