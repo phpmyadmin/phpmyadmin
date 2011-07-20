@@ -128,7 +128,7 @@ $js_messages['strEnableVar'] = __('Enable %s');
 $js_messages['strDisableVar'] = __('Disable %s');
 /* l10n: %d seconds */
 $js_messages['setSetLongQueryTime'] = __('Set long_query_time to %ds');
-$js_messages['strNoSuperUser'] = __('You don\'t have super user rights to change this variables. Please log in as root account or contact your database administrator.');
+$js_messages['strNoSuperUser'] = __('You can\'t change these variables. Please log in as root or contact your database administrator.');
 $js_messages['strChangeSettings'] = __('Change settings');
 $js_messages['strCurrentSettings'] = __('Current settings');
 

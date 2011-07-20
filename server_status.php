@@ -1366,7 +1366,7 @@ function printMonitor() {
     
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive
-        queries. For the latter you will need to log_output set to \'TABLE\' and have either the slow_query_log or general_log enabled.'); ?>
+        queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled.'); ?>
         <p></p>
         <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
         <div class="ajaxContent">
