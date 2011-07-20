@@ -25,6 +25,8 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'rte/common.js';
 $GLOBALS['js_include'][] = 'rte/routines.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * Include all other files

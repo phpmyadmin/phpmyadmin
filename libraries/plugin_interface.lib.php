@@ -138,7 +138,7 @@ function PMA_pluginIsActive($section, $opt, $val)
  * @param   string  $cfgname    name of config value, if none same as $name
  * @return  string              html select tag
  */
-function PMA_pluginGetChoice($section, $name, &$list, $cfgname = NULL)
+function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 {
     if (! isset($cfgname)) {
         $cfgname = $name;

@@ -531,7 +531,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                 $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
 
                 if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
-                        && $each_tables[$table_name]['Engine'] == NULL) {
+                        && $each_tables[$table_name]['Engine'] == null) {
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
                     /**

@@ -1386,7 +1386,7 @@ class PMA_Table
      * @param string $table_create_time Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
      * @return boolean|PMA_Message
      */
-    public function setUiProp($property, $value, $table_create_time = NULL)
+    public function setUiProp($property, $value, $table_create_time = null)
     {
         if (! isset($this->uiprefs)) {
             $this->loadUiPrefs();

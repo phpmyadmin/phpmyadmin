@@ -198,7 +198,7 @@ function checkBLOBStreamingPlugins()
         $PMA_Config->set('FILEINFO_EXISTS', false);
 
         // check if PECL's fileinfo library exist
-        $finfo = NULL;
+        $finfo = null;
 
         if (function_exists("finfo_open")) {
             $finfo = finfo_open(FILEINFO_MIME);
