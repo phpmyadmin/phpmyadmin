@@ -4011,7 +4011,7 @@ msgstr "Host autorisationsregler"
 
 #: libraries/config/messages.inc.php:363
 msgid "Allow logins without a password"
-msgstr "Tillad login uden password"
+msgstr "Tillad login uden adgangskode"
 
 #: libraries/config/messages.inc.php:364
 msgid "Allow root login"
