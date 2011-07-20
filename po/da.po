@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-20 23:23+0200\n"
+"PO-Revision-Date: 2011-07-20 23:24+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3956,7 +3956,7 @@ msgstr "Vælg hvilke funktioner, der vil blive brugt for tegnsætskonvertering"
 
 #: libraries/config/messages.inc.php:349
 msgid "Recoding engine"
-msgstr ""
+msgstr "Omkodningsværktøj"
 
 #: libraries/config/messages.inc.php:350
 msgid "When browsing tables, the sorting of each table is remembered"
