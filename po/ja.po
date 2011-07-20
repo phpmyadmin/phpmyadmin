@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-18 11:16+0200\n"
+"PO-Revision-Date: 2011-07-20 10:34+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -8996,7 +8996,7 @@ msgstr "全ての状態変数"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "モニタ"
 
 #: server_status.php:586 server_status.php:608
 #, fuzzy
