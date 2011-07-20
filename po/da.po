@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-21 00:59+0200\n"
+"PO-Revision-Date: 2011-07-21 01:00+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4474,7 +4474,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:451
 msgid "Show password change form"
-msgstr "Vis formular til kodeordsændring"
+msgstr "Vis formular til ændring af adgangskode"
 
 #: libraries/config/messages.inc.php:452
 msgid "Show create database form"
