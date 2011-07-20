@@ -1190,7 +1190,7 @@ msgstr "Rediger overskrifter og serier"
 #: js/messages.php:105
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Snap kort til gitter"
+msgstr "Snap diagram til gitter"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
