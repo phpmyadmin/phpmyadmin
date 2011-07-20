@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-16 12:12+0200\n"
+"PO-Revision-Date: 2011-07-19 20:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1121,15 +1121,14 @@ msgstr "Bağlantılar / İşlemler"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Son yenilemeden bu yana bağlantılar"
+msgstr "Son yenilemeden bu yana sorular"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Sorular (sunucu tarafından çalıştırılan ifadeler)"
 
 #: js/messages.php:89 server_status.php:574
 msgid "Query statistics"
@@ -1137,15 +1136,15 @@ msgstr "Sorgu istatistikleri"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Sistem İşlemcisi Kullanımı"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Sistem belleği"
 
 #: js/messages.php:94
 msgid "System swap"
-msgstr ""
+msgstr "Sistem takası"
 
 #: js/messages.php:95 libraries/common.lib.php:1276 server_status.php:1385
 msgid "MiB"
@@ -1157,14 +1156,13 @@ msgstr "KiB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "Ortalama yükleme"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Sürümler"
+msgstr "Sorular"
 
 #: js/messages.php:101 server_status.php:851
 msgid "Traffic"
@@ -1176,24 +1174,22 @@ msgid "Settings"
 msgstr "Ayarlar"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Veritabanını kaldır"
+msgstr "Çizelgeyi kaldır"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Etiketleri ve diziyi düzenle"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Kılavuza ayarla"
+msgstr "Çizelgeyi ızgaraya ekle"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Lütfen diziye en az bir değişken ekleyin"
 
 #: js/messages.php:108 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:564 libraries/export/sql.php:1039
@@ -1204,35 +1200,35 @@ msgstr "Yok"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "İzlemeye devam et"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "İzlemeyi duraklat"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log ve slow_query_log etkinleştirildi."
 
 #: js/messages.php:113
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log etkinleştirildi."
 
 #: js/messages.php:114
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log etkinleştirildi."
 
 #: js/messages.php:115
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log ve general_log etkisizleştirildi."
 
 #: js/messages.php:116
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output, TABLE olarak ayarlı değil."
 
 #: js/messages.php:117
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output, TABLE olarak ayarlı."
 
 #: js/messages.php:118
 #, php-format
@@ -1245,40 +1241,42 @@ msgstr ""
 #: js/messages.php:119
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time %d saniyeye ayarlı."
 
 #: js/messages.php:120
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Aşağıdaki ayarlar genel olarak uygulanacak ve sunucu yeniden başlatıldığında "
+"varsayılana sıfırlanacak:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Çıktıyı dosyaya kaydet"
+msgstr "log_output'u %s'a ayarla"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Etkin"
+msgstr "%s etkin"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Etkisiz"
+msgstr "%s etkisiz"
 
 #. l10n: %d seconds
 #: js/messages.php:128
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time'ı %ds ayarla"
 
 #: js/messages.php:129
 msgid ""
@@ -1287,29 +1285,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Ayarlarınızı yönetin"
+msgstr "Ayarları değiştir"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Daha fazla ayarlar"
+msgstr "Şu anki ayarlar"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Çizelge başlığı"
+msgstr "Çizelge Başlığı"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Farkı"
+msgstr "Ayırdedici"
 
 #: js/messages.php:136
 #, php-format
@@ -1317,10 +1311,9 @@ msgid "Divided by %s:"
 msgstr ""
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Sayfa seç"
+msgstr "Seçili zaman aralığı:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
@@ -1363,10 +1356,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Veritabanına git"
+msgstr "Günlük tablosuna atla"
 
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
@@ -9050,10 +9042,9 @@ msgid "Monitor"
 msgstr ""
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Yenileme oranı:"
+msgstr "Yenileme oranı: "
 
 #: server_status.php:629
 msgid "Containing the word:"
@@ -9073,10 +9064,10 @@ msgstr "İlgili bağlantılar:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Başlangıçtan bu yana ağ trafiği: %s"
+msgstr "Başlangıçtan bu yana sorular: %s"
 
 #: server_status.php:701 server_status.php:736 server_status.php:852
 #: server_status.php:897
@@ -9106,10 +9097,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Başlangıçtan bu yana ağ trafiği: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Bu MySQL sunucusunun çalışma süresi: %s. Başlatıldığı zaman: %s."
+msgstr "Bu MySQL sunucusunun çalışma süresi: %1$s. Başlatıldığı zaman: %2$s."
 
 #: server_status.php:819
 msgid ""
@@ -9845,26 +9836,23 @@ msgid "The number of threads that are not sleeping."
 msgstr "Hala faaliyette olan işlemler sayısıdır."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Başlangıç satırı"
+msgstr "Başlangıç İzleyici"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Başlangıç"
+msgstr "Yönergeler/Ayarlama"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Parametre ekle"
+msgstr "Çizelge ekle"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
@@ -9875,22 +9863,19 @@ msgid "Refresh rate:"
 msgstr "Yenileme oranı:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Metin alanı sütunları"
+msgstr "Çizelge sütunları:"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Yapılandırma kimlik den. için kullanıcı"
+msgstr "İzleme yapılandırmasını temizle"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Başlangıç"
+msgstr "İzleme Yönergeleri"
 
 #: server_status.php:1321
 msgid ""
@@ -9922,42 +9907,37 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Kullanım"
+msgstr "İşlemci Kullanımı"
 
 #: server_status.php:1351
 msgid "Memory Usage"
 msgstr ""
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Kullanım"
+msgstr "Takas Kullanımı"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Tüm durum değişkenleri"
+msgstr "Durum değişkeni(leri)"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Tabloları seç"
+msgstr "Dizi seç:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1376
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "Geçerli bir tablo adı vermek zorundasınız"
+msgstr "veya değişken adını yazın:"
 
 #: server_status.php:1380
 msgid "Display as differential value"
@@ -9972,32 +9952,28 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Tetikleyici ekle"
+msgstr "Bu diziyi ekle"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Diziyi temizle"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Dizi:"
+msgstr "Çizelgedeki Dizi:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Yükleniyor"
+msgstr "Günlükler yükleniyor"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "İstatistikleri göster"
+msgstr "Günlük istatistikleri"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"

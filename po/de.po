@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-16 02:40+0200\n"
+"PO-Revision-Date: 2011-07-20 00:23+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1131,15 +1131,14 @@ msgstr "Verbindungen / Prozesse"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Verbindungen seit der letzten Aktualisierung"
+msgstr "Anfragen seit der letzten Aktualisierung"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Anfragen (Serverseitig ausgeführte SQL-Befehle)"
 
 #: js/messages.php:89 server_status.php:574
 msgid "Query statistics"
@@ -1147,15 +1146,15 @@ msgstr "Abfrage-Statistiken"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "CPU-Auslastung"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Arbeitsspeicher"
 
 #: js/messages.php:94
 msgid "System swap"
-msgstr ""
+msgstr "System-Swap"
 
 #: js/messages.php:95 libraries/common.lib.php:1276 server_status.php:1385
 msgid "MiB"
@@ -1167,14 +1166,13 @@ msgstr "KiB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "Durchschnittliche Auslastung"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versionen"
+msgstr "Anfragen"
 
 #: js/messages.php:101 server_status.php:851
 msgid "Traffic"
@@ -1186,24 +1184,22 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Datenbank entfernen"
+msgstr "Skala entfernen"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Beschriftungen und Serien bearbeiten"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Am Gitter anordnen"
+msgstr "Skala dem Raster hinzufügen"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Bitte fügen Sie mindestens eine Variable der Serie hinzu"
 
 #: js/messages.php:108 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:564 libraries/export/sql.php:1039
@@ -1214,35 +1210,35 @@ msgstr "keine"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Überwachung fortsetzen"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "Überwachung pausieren"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log und slow_query_log sind aktiviert."
 
 #: js/messages.php:113
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log ist aktiviert."
 
 #: js/messages.php:114
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log ist aktiviert."
 
 #: js/messages.php:115
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log und general_log sind deaktiviert."
 
 #: js/messages.php:116
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output ist nicht auf TABLE eingestellt."
 
 #: js/messages.php:117
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output ist auf TABLE eingestellt."
 
 #: js/messages.php:118
 #, php-format
@@ -1251,72 +1247,76 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log ist aktiviert, aber der Server protokolliert nur Anfragen, "
+"die länger als %d ausgeführt wurden. Es ist ratsam, den Wert long_query_time "
+"auf 0-2 Sekunden einzustellen, abhängig vom System."
 
 #: js/messages.php:119
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time ist auf %d Sekunde(n) eingestellt."
 
 #: js/messages.php:120
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Die folgenden Einstellungen werden global übernommen, und auf ihre "
+"Ursprungswerte zurückgesetzt bei einem Server Neustart."
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Speichere Ausgabe in Datei"
+msgstr "Setze log_output auf %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Aktiviert"
+msgstr "Aktiviere %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Deaktiviert"
+msgstr "Deaktiviere %s"
 
 #. l10n: %d seconds
 #: js/messages.php:128
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Setze long_query_time auf %ds"
 
 #: js/messages.php:129
 msgid ""
 "You don't have super user rights to change this variables. Please log in as "
 "root account or contact your database administrator."
 msgstr ""
+"Sie haben keine super user Rechte um diese Variable zu ändern. Bitte melden "
+"Sie sich mit einem Root-Benutzer ein, oder kontaktieren Sie Ihren Datenbank-"
+"Administrator."
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Deine Einstellungen verwalten"
+msgstr "Einstellungen ändern"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Weitere Einstellungen"
+msgstr "Aktuelle Einstellungen"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Titel des Reports"
+msgstr "Schaubild-Titel"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Unterschied"
@@ -1324,35 +1324,37 @@ msgstr "Unterschied"
 #: js/messages.php:136
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Geteilt durch %s:"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Seite auswählen"
+msgstr "Ausgewählte Zeit-Spanne:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "INSERTs in der selben Tabelle zusammenfassen"
 
 #: js/messages.php:140
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Bitte wählen Sie das log aus, von dem Statistiken generiert werden "
+"sollen</p> Ergebnisse sind nach Abfrage-Text zusammengefasst."
 
+# Eigenname der MySQL-Funktion
 #: js/messages.php:141
 msgid "From slow log"
-msgstr ""
+msgstr "Vom slow Log"
 
 #: js/messages.php:142
 msgid "From general log"
-msgstr ""
+msgstr "Vom allgemeinen Log"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analysiere und Lade Protokolle. Dies kann eine Weile dauern."
 
 #: js/messages.php:144
 msgid ""
@@ -1360,6 +1362,9 @@ msgid ""
 "together. However only the SQL Text is being compared, thus the queries "
 "other attributes such as start time may differ."
 msgstr ""
+"Diese Spalte zeigt die Anzahl der identischen Abfragen an, die gruppiert "
+"wurden. Dennoch wird nur der SQL-Text verglichen, daher kann die Angabe von "
+"anderen Werten der Abfrage, wie die Startzeit, unterschiedlich sein."
 
 #: js/messages.php:145
 msgid ""
@@ -1367,20 +1372,25 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Da Gruppieren von INSERT-Abfragen ausgewählt wurde, werden auch INSERT "
+"Befehle in die gleiche Tabelle zusammengefasst, unabhängig von den "
+"eingefügten Daten."
 
 #: js/messages.php:146
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Protokoll-Daten geladen. Innerhalb dieses Zeitaums ausgeführte Abfragen:"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Springe zu Datenbank"
+msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Protokoll wurde analysiert, es wurden jedoch keine Daten im angegebenen "
+"Zeitraum gefunden."
 
 #: js/messages.php:153 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -2586,11 +2596,11 @@ msgstr "Angepasst – Wie oben, aber ohne die Schnell-/Angepasst-Auswahl"
 
 #: libraries/config.values.php:120
 msgid "complete inserts"
-msgstr "Vollständige 'INSERT's"
+msgstr "Vollständige INSERTs"
 
 #: libraries/config.values.php:121
 msgid "extended inserts"
-msgstr "Erweiterte 'INSERT's"
+msgstr "Erweiterte INSERTs"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
@@ -6957,10 +6967,10 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
-"Sie verwenden die von PHP als 'veraltet' gekennzeichnete 'mysql'-"
-"Erweiterung, die nicht in der Lage ist, mehrere Abfragen zu verarbeiten. "
-"<b>Die Ausführung von einigen gespeicherten Prozeduren könnte fehlschlagen!</"
-"b> Bitte verwenden Sie die neuere 'mysqli'-Erweiterung um Probleme zu "
+"Sie verwenden die von PHP als veraltet gekennzeichnete 'mysql'-Erweiterung, "
+"die nicht in der Lage ist, mehrere Abfragen zu verarbeiten. <b>Die "
+"Ausführung von einigen gespeicherten Prozeduren könnte fehlschlagen!</b> "
+"Bitte verwenden Sie die neuere 'mysqli'-Erweiterung um Probleme zu "
 "vermeiden."
 
 #: libraries/rte/rte_routines.lib.php:247
@@ -7769,7 +7779,7 @@ msgid ""
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
 "Stellt den Inhalt der Spalten in der ursprünglichen Formatierung dar, ohne "
-"dass diese htmlspecialchars() durchläuft.  Das heißt, es wird angenommen, "
+"dass diese htmlspecialchars() durchläuft. Das heißt, es wird angenommen, "
 "dass die Spalte gültiges HTML enthält."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:9
@@ -8574,7 +8584,7 @@ msgstr "Gewährt Zugang zur vollständigen Datenbankliste."
 #: server_privileges.php:62 server_privileges.php:214
 #: server_privileges.php:216 server_privileges.php:533
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Erlaubt das Ausführen von 'SHOW CREATE VIEW'."
+msgstr "Erlaubt das Ausführen von SHOW CREATE VIEW."
 
 #: server_privileges.php:63 server_privileges.php:197
 #: server_privileges.php:560
@@ -9126,10 +9136,9 @@ msgstr "Alle Status Variablen"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "Überwachung"
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
 msgstr "Aktualisierungs-Intervall:"
@@ -9152,10 +9161,10 @@ msgstr "Verwandte Links:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Netzwerk-Datenverkehr seit Start: %s"
+msgstr "Verbindungen seit Start: %s"
 
 #: server_status.php:701 server_status.php:736 server_status.php:852
 #: server_status.php:897
@@ -9185,10 +9194,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Netzwerk-Datenverkehr seit Start: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Dieser MySQL-Server läuft bereits %s. Er wurde am %s gestartet."
+msgstr "Dieser MySQL-Server läuft bereits %1$s. Er wurde um %2$s gestartet."
 
 #: server_status.php:819
 msgid ""
@@ -9263,6 +9272,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Die Anzahl der Verbindungen die aufgrund einer nicht richtig geschlossenen "
+"Verbindung zu einem nicht mehr erreichbaren Client abgebrochen wurden."
 
 #: server_status.php:1033
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9948,52 +9959,46 @@ msgid "The number of threads that are not sleeping."
 msgstr "Anzahl der Prozesse, die nicht schlafen."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Anfangs-Datensatz"
+msgstr "Überwachung starten"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Einführung"
+msgstr "Einführung/Einrichtung"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Umordnen/bearbeiten der Schaubilder beendet."
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Parameter hinzufügen"
+msgstr "Schaubild hinzufügen"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Schaubilder umordnen/bearbeiten"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
 msgstr "Aktualisierungs-Intervall:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Textfeldspalten"
+msgstr "Schaubild-Spalten"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Benutzername für config Authentifikation"
+msgstr "Überwachungskonfiguration löschen"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Einführung"
+msgstr "Einführung zur Überwachung"
 
 #: server_status.php:1321
 msgid ""
@@ -10002,6 +10007,10 @@ msgid ""
 "        queries. For the latter you will need to log_output set to 'TABLE' "
 "and have either the slow_query_log or general_log enabled."
 msgstr ""
+"Die phpMyAdmin-Überwachung kann Sie bei der Server-Konfiguration, und auch "
+"beim Aufspühren von zeitintensiven Abfragen unterstützen. Für das Letztere "
+"müssen Sie log_output auf 'TABLE' stellen, und entweder slow_query_log oder "
+"general_log aktivieren."
 
 #: server_status.php:1329
 msgid ""
@@ -10023,84 +10032,93 @@ msgid ""
 "small time span.\n"
 "        </p>"
 msgstr ""
+"<b>Verwendung der Überwachung</b><br />\n"
+"OK, Sie sind bereit zum Starten! Sobald Sie 'Überwachung starten' angeklickt "
+"haben, wird ihr Browser in regelmäßigen Intervallen alle angezeigten "
+"Schaubilder aktualisieren. Unter 'Einstellungen' können Sie Schaubilder "
+"hinzufügen und den Aktualisierungs-Intervall ändern, oder beliebige "
+"Schaubilder entfernen, wenn Sie das Zahnrad-Icon des entsprechenden "
+"Schaubilds verwenden.\n"
+"<p>Wenn Sie eine plötzliche Spitze in der Aktivität feststellen, wählen Sie "
+"den entsprechenden Zeitraum in einem beliebigen Schaubild, in dem Sie die\n"
+"linke Maustaste gedrückt halten und über das Schaubild ziehen. Dies wird "
+"Statistiken aus den Protokollen laden um Sie bei der Auffindung der \n"
+"Aktivitätsspitze zu unterstützen.</p>\n"
+"<p><b>Bitte beachten Sie:</b>\n"
+"Das aktivieren des general_log kann die Serverlast um 5-15% steigern. Seien "
+"Sie es sich bewusst, dass das erzeigen von Statistiken aus den Logs ein \n"
+"sehr Lasten-Intensiver prozess ist. Deshalb ist es ratsam, nur einen kleinen "
+"Zeitraum auszuwählen.\n"
+"</p> "
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Verbrauch"
+msgstr "CPU-Auslastung"
 
 #: server_status.php:1351
 msgid "Memory Usage"
-msgstr ""
+msgstr "Speicher-Auslastung"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Verbrauch"
+msgstr "Auslagerungsdatei-Nutzung"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Alle Status Variablen"
+msgstr "Status Variable(n)"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Tabellenauswahl"
+msgstr "Serie auswählen:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Allgemein-überwacht"
 
 #: server_status.php:1376
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "Sie müssen einen gültigen Tabellen-Namen angeben"
+msgstr "oder Variablen-Namen eingeben:"
 
 #: server_status.php:1380
 msgid "Display as differential value"
-msgstr ""
+msgstr "Den Wert als Unterschied zeigen"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Divisor hinzufügen"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Einheiten an Datenwerte anfügen."
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Einen Trigger hinzufügen"
+msgstr "Diese Serie hinzufügen"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Serien löschen"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Reihe:"
+msgstr "Serien im Schaubild"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Laden"
+msgstr "Lade Protokolle"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Zeige Statistik"
+msgstr "Protokoll Statistik"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
