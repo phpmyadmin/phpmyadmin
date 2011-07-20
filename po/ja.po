@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 10:59+0200\n"
+"PO-Revision-Date: 2011-07-20 11:02+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9791,7 +9791,7 @@ msgstr "グラフの追加"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "グラフの再配置／変更"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
