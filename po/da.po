@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-21 00:12+0200\n"
+"PO-Revision-Date: 2011-07-21 00:14+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10525,6 +10525,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"%sLogin cookie gyldighed%s større end 1440 sekunder kan forårsage tilfældig "
+"afslutning af session hvis %ssession.gc_maxlifetime%s er mindre end dens "
+"værdi (aktuelt %d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format
