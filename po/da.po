@@ -5742,7 +5742,7 @@ msgstr "The PrimeBase Media Streaming Blog af Barry Leslie"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "PrimeBase XT hjemmeside"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
