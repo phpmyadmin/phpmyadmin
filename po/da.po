@@ -2145,7 +2145,7 @@ msgstr "Kan ikke logge ind på MySQL-serveren"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "Forkert brugernavn/kodeord. Adgang nægtet."
+msgstr "Forkert brugernavn/adgangskode. Adgang nægtet."
 
 #: libraries/auth/signon.auth.lib.php:87
 msgid "Can not find signon authentication script:"
