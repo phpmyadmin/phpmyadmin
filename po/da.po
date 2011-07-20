@@ -5816,6 +5816,8 @@ msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"Mængden af data skrevet til transaktionsloggen før et checkpoint udføres. "
+"Standardværdien er 24MB."
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
