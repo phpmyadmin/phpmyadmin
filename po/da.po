@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-21 00:19+0200\n"
+"PO-Revision-Date: 2011-07-21 00:20+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -4481,11 +4481,11 @@ msgid "Show create database form"
 msgstr "Vis formular til databaseoprettelse"
 
 #: libraries/config/messages.inc.php:453
-#, fuzzy
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
-msgstr "Definerer om display retning indstilling vises, når en tabel gennemses"
+msgstr ""
+"Definerer om type display retning indstilling vises, når en tabel gennemses"
 
 #: libraries/config/messages.inc.php:454
 msgid "Show display direction"
