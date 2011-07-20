@@ -5694,6 +5694,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Den maksimale størrelse af en midlertidig BLOB logfil. Du kan bruge Kb, MB "
+"eller GB for at angive værdiens enhed. En værdi i bytes antages, når ingen "
+"enhed angives"
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
