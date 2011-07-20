@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-14 18:39+0200\n"
-"PO-Revision-Date: 2011-07-21 00:14+0200\n"
+"PO-Revision-Date: 2011-07-21 00:15+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -10535,6 +10535,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sLogin cookie validity%s bør højst sættes til 1800 sekunder (30 minutter). "
+"Værdier større end 1800 kan udgøre en sikkerhedsrisiko som fx overtagelse af "
+"identitet."
 
 #: setup/lib/index.lib.php:264
 #, php-format
