@@ -3811,7 +3811,7 @@ msgid ""
 "cookie authentication"
 msgstr ""
 "Deaktiver standardadvarslen som vises, hvis mcrypt mangler til cookie "
-"autentificering"
+"autentifikation"
 
 #: libraries/config/messages.inc.php:316
 msgid "mcrypt warning"
