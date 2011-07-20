@@ -2080,9 +2080,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin forsøgte at forbinde til MySQL-serveren, og serveren afviste "
-"forbindelsen. Du bør tjekke host, brugernavn og kodeord i config.inc.php og "
-"sikre dig at de svarer til den information du har fået af administratoren af "
-"MySQL-serveren."
+"forbindelsen. Du bør tjekke host, brugernavn og adgangskode i config.inc.php "
+"og sikre dig at de svarer til den information du har fået af "
+"administratoren af MySQL-serveren."
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
