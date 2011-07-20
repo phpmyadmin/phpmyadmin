@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-20 10:34+0200\n"
+"PO-Revision-Date: 2011-07-20 10:35+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9773,10 +9773,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数"
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "開始行"
+msgstr "モニタ開始"
 
 #: server_status.php:1285
 #, fuzzy
