@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:22+0200\n"
+"PO-Revision-Date: 2011-07-21 17:23+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -5362,10 +5362,9 @@ msgid "Language"
 msgstr "Lingua"
 
 #: libraries/display_tbl.lib.php:394
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Restore column order"
-msgstr "Campi di aree di testo"
+msgstr "Ripristina l'ordine dei campi"
 
 #: libraries/display_tbl.lib.php:414
 msgid "Drag to reorder"
