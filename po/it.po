@@ -11167,6 +11167,7 @@ msgid "Add unique index"
 msgstr "Aggiungi un indice unico"
 
 #: tbl_structure.php:176 tbl_structure.php:177
+#, fuzzy
 #| msgid "Add index"
 msgid "Add SPATIAL index"
 msgstr "Aggiungi indice SPATIAL"
