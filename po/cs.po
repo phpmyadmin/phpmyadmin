@@ -1279,7 +1279,7 @@ msgstr "Vypnout %s"
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nastavit long_query_time na %ds"
 
 #: js/messages.php:131
 msgid ""
