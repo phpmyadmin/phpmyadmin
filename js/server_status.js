@@ -1658,14 +1658,6 @@ $(function() {
         }
     }
     
-    loadLogStatistics({
-        src: 'general',
-        start:1311076210*1000,
-        end:1311162689*1000,
-        removeVariables: true,
-        limitTypes: true
-    });
-    
     function buildLogTable(data) {
         var rows = data.rows;
         var cols = new Array();
