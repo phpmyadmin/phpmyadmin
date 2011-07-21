@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-18 11:16+0200\n"
+"PO-Revision-Date: 2011-07-20 12:03+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1138,15 +1138,15 @@ msgstr "クエリの統計"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "システム CPU の使用状況"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "システムメモリ"
 
 #: js/messages.php:94
 msgid "System swap"
-msgstr ""
+msgstr "システムスワップ"
 
 #: js/messages.php:95 libraries/common.lib.php:1276 server_status.php:1385
 msgid "MiB"
@@ -1158,7 +1158,7 @@ msgstr "KiB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "平均負荷"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
@@ -1177,20 +1177,18 @@ msgid "Settings"
 msgstr "設定"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "データベースの削除"
+msgstr "グラフの削除"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
 msgstr ""
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "グリッドにあわせる"
+msgstr "モニタリンググラフを追加する"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
@@ -1205,11 +1203,11 @@ msgstr "なし"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "モニタ再開"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "モニタ一時中断"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
@@ -1300,7 +1298,6 @@ msgid "Current settings"
 msgstr "詳細設定"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "グラフの題名"
@@ -8996,10 +8993,9 @@ msgstr "全ての状態変数"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "モニタ"
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
 msgstr "再描画間隔："
@@ -9134,7 +9130,7 @@ msgstr "ID"
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
-msgstr ""
+msgstr "クライアントが適切に接続を閉じなかったために中断された接続数。"
 
 #: server_status.php:1033
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9773,10 +9769,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数"
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "開始行"
+msgstr "モニタ開始"
 
 #: server_status.php:1285
 #, fuzzy
@@ -9786,33 +9781,30 @@ msgstr "はじめに"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "グラフの再配置／変更完了"
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "パラメータを追加する"
+msgstr "グラフの追加"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "グラフの再配置／変更"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
 msgstr "再描画間隔："
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "textarea の 1 行の文字数"
+msgstr "1 段のグラフ数"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "config 認証用のユーザ"
+msgstr "モニタ設定のクリア"
 
 #: server_status.php:1320
 #, fuzzy
@@ -9850,34 +9842,29 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "使用量"
+msgstr "CPU 使用状況"
 
 #: server_status.php:1351
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. 使い方"
+msgstr "メモリ使用状況"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "使用量"
+msgstr "スワップ状況"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "全ての状態変数"
+msgstr "状態変数"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "テーブルを選択してください"
+msgstr "系列の選択："
 
 #: server_status.php:1361
 msgid "Commonly monitored"
@@ -9891,31 +9878,29 @@ msgstr "有効なテーブル名を指定してください"
 
 #: server_status.php:1380
 msgid "Display as differential value"
-msgstr ""
+msgstr "差分値として表示する"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
-msgstr ""
+msgstr "除数を適用する"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "データ値に単位を追加する"
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "トリガを追加する"
+msgstr "この系列を追加する"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "系列をクリアする"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "SQL クエリ"
+msgstr "グラフの系列"
 
 #: server_status.php:1408
 #, fuzzy
@@ -10506,10 +10491,9 @@ msgid "X-Axis:"
 msgstr "横軸："
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "SQL クエリ"
+msgstr "系列："
 
 #: tbl_chart.php:115
 #, fuzzy

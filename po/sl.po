@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-11 21:13+0200\n"
+"PO-Revision-Date: 2011-07-19 23:21+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -1129,15 +1129,14 @@ msgstr "Povezave / Procesi"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Povezav od zadnje osvežitve"
+msgstr "Vprašanja od zadnje osvežitve"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Vprašanja (izvedene poizvedbe strežnika)"
 
 #: js/messages.php:89 server_status.php:574
 msgid "Query statistics"
@@ -1145,15 +1144,15 @@ msgstr "Statistika poizvedb"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Uporaba sistemskega CPU"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Sistemski pomnilnik"
 
 #: js/messages.php:94
 msgid "System swap"
-msgstr ""
+msgstr "Sistemska izmenjava"
 
 #: js/messages.php:95 libraries/common.lib.php:1276 server_status.php:1385
 msgid "MiB"
@@ -1165,14 +1164,13 @@ msgstr "KiB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "Povprečno nalaganje"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Različice"
+msgstr "Vprašanja"
 
 #: js/messages.php:101 server_status.php:851
 msgid "Traffic"
@@ -1184,24 +1182,22 @@ msgid "Settings"
 msgstr "Nastavitve"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Odstrani zbirko podatkov"
+msgstr "Odstrani grafikon"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Uredi oznake in serije"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Pripni na mrežo"
+msgstr "Dodaj grafikon na mrežo"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Prosimo, v serijo dodajte vsaj eno spremenljivko"
 
 #: js/messages.php:108 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:564 libraries/export/sql.php:1039
@@ -1212,35 +1208,35 @@ msgstr "Brez"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Nadaljuj nadziranje"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "Postoj nadziranje"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log in slow_query_log sta omogočena."
 
 #: js/messages.php:113
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log je omogočen."
 
 #: js/messages.php:114
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log je omogočen."
 
 #: js/messages.php:115
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log in general_log sta onemogočena."
 
 #: js/messages.php:116
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output ni nastavljen na TABLE."
 
 #: js/messages.php:117
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output je nastavljen na TABLE."
 
 #: js/messages.php:118
 #, php-format
@@ -1253,40 +1249,42 @@ msgstr ""
 #: js/messages.php:119
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time je nastavljen na %d sekund(o)."
 
 #: js/messages.php:120
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Naslednje nastavitve bodo uveljavljene globalno in bodo ponastavljene na "
+"privzeto vrednost ob ponovnem zagonu strežnika:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Shrani izhod v datoteko"
+msgstr "Nastavi log_output na %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Omogočeno"
+msgstr "Omogoči %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Onemogočeno"
+msgstr "Onemogoči %s"
 
 #. l10n: %d seconds
 #: js/messages.php:128
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nastavi long_query_time na %d s"
 
 #: js/messages.php:129
 msgid ""
@@ -1295,26 +1293,22 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Upravljajte svoje nastavitve"
+msgstr "Spremeni nastavitve"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Več nastavitev"
+msgstr "Trenutne nastavitve"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Naslov grafikona"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Razlika"
@@ -1322,35 +1316,36 @@ msgstr "Razlika"
 #: js/messages.php:136
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Deljeno z %s:"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Izberi stran"
+msgstr "Izbrano časovno območje:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Združi INSERT-e skupaj v eno tabelo"
 
 #: js/messages.php:140
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Izberite dnevnike, iz katerih želite ustvariti statistiko.</p> Rezultati "
+"so zbrani po besedilu poizvedbe."
 
 #: js/messages.php:141
 msgid "From slow log"
-msgstr ""
+msgstr "Iz počasnega dnevnika"
 
 #: js/messages.php:142
 msgid "From general log"
-msgstr ""
+msgstr "Iz splošnega dnevnika"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analiziranje in nalaganje dnevnikov. To lahko traja nekaj časa."
 
 #: js/messages.php:144
 msgid ""
@@ -1369,16 +1364,17 @@ msgstr ""
 #: js/messages.php:146
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Podatki dnevnika so naloženi. Poizvedbe, izvedene v tem časovnem razponu:"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Pojdi v zbirko podatkov"
+msgstr "Pojdi v dnevniško tabelo"
 
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Dnevnik je analiziran, vendar v tem časovnem razponu nisem našel podatkov."
 
 #: js/messages.php:153 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -2458,10 +2454,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Na funkcionalnost %s vpliva znan hrošč, glej %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Kliknite za označitev"
+msgstr "Kliknite za preklop"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -6768,10 +6763,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Naslednja poizvedba je spodletela: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Oprostite, zavržene rutine nam ni uspelo obnoviti."
+msgstr "Oprostite, zavrženega dogodka nam ni uspelo obnoviti."
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
@@ -6779,16 +6773,16 @@ msgid "The backed up query was:"
 msgstr "Varnostno kopirana poizvedba je bila:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Rutina %1$s je bila spremenjena."
+msgstr "Dogodek %1$s je bil spremenjen."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Tabela %1$s je ustvarjena."
+msgstr "Dogodek %1$s je ustvarjen."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6796,16 +6790,14 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Ustvari pogled"
+msgstr "Ustvari dogodek"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Uredi strežnik"
+msgstr "Uredi dogodek"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1264
@@ -6820,10 +6812,9 @@ msgid "Details"
 msgstr "Podrobnosti"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Vrsta dogodka"
+msgstr "Ime dogodka"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
@@ -6835,22 +6826,19 @@ msgid "Change to %s"
 msgstr "Spremeni v %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Izvedi"
+msgstr "Izvedi ob"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Izvedi"
+msgstr "Izvedi vsakih"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Zagon"
+msgstr "Začetek"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:348
@@ -6858,10 +6846,9 @@ msgid "Definition"
 msgstr "Opredelitev"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "popolne poizvedbe insert"
+msgstr "Ob dokončanju ohrani"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
@@ -6871,13 +6858,12 @@ msgstr "Opredeljevalec"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:392
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Opredeljevalec mora biti oblike \"uporabniškoime@imegostitelja\""
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Navesti morate ime rutine"
+msgstr "Navesti morate ime dogodka"
 
 #: libraries/rte/rte_events.lib.php:537
 #, fuzzy
@@ -6886,46 +6872,41 @@ msgid "You must provide a valid interval value for the event."
 msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Navesti morate opredelitev rutine."
+msgstr "Navesti morate veljavni čas izvedbe dogodka."
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
+msgstr "Navesti morate veljavno vrsto dogodka."
 
 #: libraries/rte/rte_events.lib.php:572
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Navesti morate opredelitev rutine."
+msgstr "Navesti morate opredelitev dogodka."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "IZKL"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "VKL"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Razporejevalnik dogodkov je omogočen"
+msgstr "Stanje razporejevalnika dogodkov"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Vrnjena vrsta"
+msgstr "Vrnjeno"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:320
 #: server_status.php:976 sql.php:943
@@ -7043,13 +7024,12 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1055
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
+msgstr "Navesti morate ime in vrsto vsakega parametra rutine."
 
 #: libraries/rte/rte_routines.lib.php:1065
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
+msgstr "Navesti morate veljavno vrsto vrnjene vrednosti dogodka."
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
@@ -7085,46 +7065,41 @@ msgid "Function"
 msgstr "Funkcija"
 
 #: libraries/rte/rte_triggers.lib.php:89
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Oprostite, zavržene rutine nam ni uspelo obnoviti."
+msgstr "Oprostite, zavrženega sprožilca nam ni uspelo obnoviti."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Rutina %1$s je bila spremenjena."
+msgstr "Sprožilec %1$s je bil spremenjen."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Tabela %1$s je ustvarjena."
+msgstr "Sprožilec %1$s je ustvarjen."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Ustvari pogled"
+msgstr "Ustvari sprožilec"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Dodaj sprožilec"
+msgstr "Uredi sprožilec"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Sprožilci"
+msgstr "Ime sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:399
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Navesti morate ime rutine"
+msgstr "Navesti morate ime sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:404
 #, fuzzy
@@ -7133,22 +7108,19 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Navesti morate ime rutine"
 
 #: libraries/rte/rte_triggers.lib.php:409
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Navesti morate ine in vrsto vsakega parametra rutine."
+msgstr "Navesti morate veljavni dogodek sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:415
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Navesti morate ime rutine"
+msgstr "Navesti morate veljavno ime tabele"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Navesti morate opredelitev rutine."
+msgstr "Navesti morate opredelitev sprožilca."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
@@ -7160,16 +7132,14 @@ msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Rutina"
+msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Nimate zadostnih pravic za ustvarjanje nove rutine"
+msgstr "Nimate zadostnih pravic za ustvarjanje rutine"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
@@ -7181,7 +7151,6 @@ msgid "There are no routines to display."
 msgstr "Ni rutin za prikaz."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
 msgstr "Dodaj sprožilec"
@@ -7192,29 +7161,26 @@ msgid "Export of trigger %s"
 msgstr "Izvoz sprožilca %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Sprožilci"
+msgstr "sprožilec"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Nimate zadostnih pravic za ustvarjanje nove rutine"
+msgstr "Nimate zadostnih pravic za ustvarjanje sprožilca"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Rutine imenovane %1$s ni mogoče najti v zbirki podatkov %2$s"
+msgstr "Sprožilca imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
 msgstr "Ni sprožilcev za prikaz."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
 msgstr "Dodaj dogodek"
@@ -7225,22 +7191,20 @@ msgid "Export of event %s"
 msgstr "Izvoz dogodka %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Dogodek"
+msgstr "dogodek"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Nimate zadostnih pravic za ustvarjanje nove rutine"
+msgstr "Nimate zadostnih pravic za ustvarjanje dogodka"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Nobenega dogodka imenovanega %s ni mogoče najti v zbirki podatkov %s"
+msgstr "Dogodka imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
@@ -9118,13 +9082,12 @@ msgstr "Vse spremenljivke stanja"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "Nadziranje"
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Hitrost osveževanja:"
+msgstr "Hitrost osveževanja: "
 
 #: server_status.php:629
 msgid "Containing the word:"
@@ -9144,10 +9107,10 @@ msgstr "Sorodne povezave:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Promet omrežja od zagona: %s"
+msgstr "Vprašanja od zagona: %s"
 
 #: server_status.php:701 server_status.php:736 server_status.php:852
 #: server_status.php:897
@@ -9177,10 +9140,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Promet omrežja od zagona: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Strežnik MySQL deluje že %s. Zagnal se je %s."
+msgstr "Strežnik MySQL deluje že %1$s. Zagnal se je %2$s."
 
 #: server_status.php:819
 msgid ""
@@ -9254,6 +9217,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Število prekinjenih povezav zaradi izgube odjemalca, ki ni primerno prekinil "
+"povezave."
 
 #: server_status.php:1033
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9912,52 +9877,46 @@ msgid "The number of threads that are not sleeping."
 msgstr "Število niti, ki ne spijo."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Začetna vrstica"
+msgstr "Začni nadziranje"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Uvod"
+msgstr "Navodila/Namestitev"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Preurejanje/urejanje grafikonov je končano"
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Dodaj parameter"
+msgstr "Dodaj grafikon"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Preuredi/uredi grafikone"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
 msgstr "Hitrost osveževanja:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Stolpcev besedilnega polja"
+msgstr "Stolpci grafikona:"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Uporabnik za overovitev config"
+msgstr "Počisti konfiguracijo nadziranja"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Uvod"
+msgstr "Navodila nadziranja"
 
 #: server_status.php:1321
 msgid ""
@@ -9989,82 +9948,73 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Uporaba"
+msgstr "Uporaba CPU"
 
 #: server_status.php:1351
 msgid "Memory Usage"
-msgstr ""
+msgstr "Uporaba pomnilnika"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Uporaba"
+msgstr "Uporaba izmenjevanja"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Vse spremenljivke stanja"
+msgstr "Spremenljivke stanja"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Izberi tabele"
+msgstr "Izberite serije:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Pogosto nadzirano"
 
 #: server_status.php:1376
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "or type variable name:"
-msgstr "Navesti morate ime rutine"
+msgstr "ali vnesite ime spremenljivke:"
 
 #: server_status.php:1380
 msgid "Display as differential value"
-msgstr ""
+msgstr "Prikaži kot vrednost razlike"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Uporabi delitelja"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Pripni enoto k vrednostim podatkov"
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add this series"
-msgstr "Dodaj sprožilec"
+msgstr "Dodaj serijo"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Počisti serije"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Serije:"
+msgstr "Serije v grafikonu:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Nalaganje"
+msgstr "Dnevniki nalaganja"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Pokaži statistiko"
+msgstr "Statistika dnevnikov"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"

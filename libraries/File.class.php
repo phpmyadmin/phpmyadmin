@@ -73,7 +73,7 @@ class PMA_File
     /**
      * @staticvar string most recent BLOB repository reference
     */
-    static $_recent_bs_reference = NULL;
+    static $_recent_bs_reference = null;
 
     /**
      * constructor
@@ -254,7 +254,7 @@ class PMA_File
             $tmp_file_type = $file['type'];
 
             if (! $tmp_file_type) {
-                $tmp_file_type = NULL;
+                $tmp_file_type = null;
             }
 
             if (! $bs_db || ! $bs_table) {
@@ -384,7 +384,7 @@ class PMA_File
                 }
 
                 if (! $tmp_file_type) {
-                    $tmp_file_type = NULL;
+                    $tmp_file_type = null;
                 }
 
                 if (! $bs_db || !$bs_table) {
@@ -828,7 +828,7 @@ class PMA_File
     static function getRecentBLOBReference()
     {
         $ref = PMA_File::$_recent_bs_reference;
-        PMA_File::$_recent_bs_reference = NULL;
+        PMA_File::$_recent_bs_reference = null;
 
         return $ref;
     }

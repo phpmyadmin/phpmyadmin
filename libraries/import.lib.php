@@ -44,7 +44,7 @@ function PMA_checkTimeout()
 /**
  *  Detects what compression filse uses
  *
- *  @param  string filename to check
+ *  @param  string  $filepath  filename to check
  *  @return string MIME type of compression, none for none
  *  @access public
  */
@@ -73,9 +73,9 @@ function PMA_detectCompression($filepath)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @param  string query to run
- * @param  string query to display, this might be commented
- * @param  bool   whether to use control user for queries
+ * @param  string  $sql          query to run
+ * @param  string  $full         query to display, this might be commented
+ * @param  bool    $controluser  whether to use control user for queries
  * @access public
  */
 function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
@@ -207,17 +207,17 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 /**
  * Looks for the presence of USE to possibly change current db
  *
- * @param  string buffer to examine
- * @param  string current db
- * @param  boolean reload
+ * @param  string  $buffer  buffer to examine
+ * @param  string  $db      current db
+ * @param  bool    $reload  reload
  * @return array (current or new db, whether to reload)
  * @access public
  */
 function PMA_lookForUse($buffer, $db, $reload)
 {
-    if (preg_match('@^[\s]*USE[[:space:]]*([\S]+)@i', $buffer, $match)) {
+    if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match)) {
         $db = trim($match[1]);
-        $db = trim($db,';'); // for example, USE abc;
+        $db = trim($db, ';'); // for example, USE abc;
         $reload = true;
     }
     return(array($db, $reload));
@@ -227,8 +227,7 @@ function PMA_lookForUse($buffer, $db, $reload)
 /**
  * Returns next part of imported file/buffer
  *
- * @param  integer size of buffer to read (this is maximal size
- *                  function will return)
+ * @param  int  $size  size of buffer to read (this is maximal size function will return)
  * @return string part of file/buffer
  * @access public
  */
@@ -436,7 +435,6 @@ define("SIZES",     1);
 /**
  * Obtains the precision (total # of digits) from a size of type decimal
  *
- *
  * @access  public
  *
  * @param   string $last_cumulative_size
@@ -449,7 +447,6 @@ function PMA_getM($last_cumulative_size) {
 /**
  * Obtains the scale (# of digits to the right of the decimal point) from a size of type decimal
  *
- *
  * @access  public
  *
  * @param   string $last_cumulative_size
@@ -461,7 +458,6 @@ function PMA_getD($last_cumulative_size) {
 
 /**
  * Obtains the decimal size of a given cell
- *
  *
  * @access  public
  *
@@ -481,7 +477,6 @@ function PMA_getDecimalSize(&$cell) {
 
 /**
  * Obtains the size of the given cell
- *
  *
  * @todo    Handle the error cases more elegantly
  *
@@ -696,7 +691,6 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
 /**
  * Determines what MySQL type a cell is
  *
- *
  * @access  public
  *
  * @param   int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
@@ -710,7 +704,7 @@ function PMA_detectType($last_cumulative_type, &$cell) {
      */
 
     if (! strcmp('NULL', $cell)) {
-        if ($last_cumulative_type === NULL || $last_cumulative_type == NONE) {
+        if ($last_cumulative_type === null || $last_cumulative_type == NONE) {
             return NONE;
         } else {
             return $last_cumulative_type;
@@ -732,7 +726,6 @@ function PMA_detectType($last_cumulative_type, &$cell) {
 
 /**
  * Determines if the column types are int, decimal, or string
- *
  *
  * @link http://wiki.phpmyadmin.net/pma/Import
  *
@@ -823,25 +816,24 @@ function PMA_analyzeTable(&$table) {
 }
 
 /* Needed to quell the beast that is PMA_Message */
-$import_notice = NULL;
+$import_notice = null;
 
 /**
  * Builds and executes SQL statements to create the database and tables
  * as necessary, as well as insert all the data.
  *
- *
  * @link http://wiki.phpmyadmin.net/pma/Import
  *
  * @access  public
  *
- * @param   string  $db_name                 Name of the database
- * @param   array   &$tables                 Array of tables for the specified database
- * @param   array   &$analyses = NULL        Analyses of the tables
- * @param   array   &$additional_sql = NULL  Additional SQL statements to be executed
- * @param   array   $options = NULL          Associative array of options
+ * @param   string  $db_name          Name of the database
+ * @param   array   &$tables          Array of tables for the specified database
+ * @param   array   &$analyses        Analyses of the tables
+ * @param   array   &$additional_sql  Additional SQL statements to be executed
+ * @param   array   $options          Associative array of options
  * @return  void
  */
-function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = NULL, $options = NULL) {
+function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null) {
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];
@@ -884,7 +876,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
     unset($sql);
 
     /* Run the $additional_sql statements supplied by the caller plug-in */
-    if ($additional_sql != NULL) {
+    if ($additional_sql != null) {
         /* Clean the SQL first */
         $additional_sql_len = count($additional_sql);
 
@@ -910,7 +902,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
         }
     }
 
-    if ($analyses != NULL) {
+    if ($analyses != null) {
         $type_array = array(NONE => "NULL", VARCHAR => "varchar", INT => "int", DECIMAL => "decimal", BIGINT => "bigint");
 
         /* TODO: Do more checking here to make sure they really are matched */
@@ -975,7 +967,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = NULL, &$additional_sql = 
             $tempSQLStr .= "(";
 
 			for ($k = 0; $k < $num_cols; ++$k) {
-                if ($analyses != NULL) {
+                if ($analyses != null) {
                     $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
                 } else {
                     $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);

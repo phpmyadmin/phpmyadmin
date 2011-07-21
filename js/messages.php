@@ -19,6 +19,8 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 // non-js-compatible stuff like DOCTYPE
 define('PMA_MINIMUM_COMMON', true);
 require_once './libraries/common.inc.php';
+// Close session early as we won't write anything there
+session_write_close();
 // But this one is needed for PMA_escapeJsString()
 require_once './libraries/js_escape.lib.php';
 
@@ -126,7 +128,7 @@ $js_messages['strEnableVar'] = __('Enable %s');
 $js_messages['strDisableVar'] = __('Disable %s');
 /* l10n: %d seconds */
 $js_messages['setSetLongQueryTime'] = __('Set long_query_time to %ds');
-$js_messages['strNoSuperUser'] = __('You don\'t have super user rights to change this variables. Please log in as root account or contact your database administrator.');
+$js_messages['strNoSuperUser'] = __('You can\'t change these variables. Please log in as root or contact your database administrator.');
 $js_messages['strChangeSettings'] = __('Change settings');
 $js_messages['strCurrentSettings'] = __('Current settings');
 

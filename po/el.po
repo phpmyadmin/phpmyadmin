@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-19 14:25+0200\n"
-"PO-Revision-Date: 2011-07-13 09:17+0200\n"
+"PO-Revision-Date: 2011-07-20 11:01+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1128,15 +1128,14 @@ msgstr "Συνδέσεις / Διεργασίες"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Συνδέσεις από την τελευταία ανανέωση"
+msgstr "Ερωτήσεις από την τελευταία ανανέωση"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Ερωτήσεις (εκτελεσμένες δηλώσεις από τον διακομιστή)"
 
 #: js/messages.php:89 server_status.php:574
 msgid "Query statistics"
@@ -1144,15 +1143,15 @@ msgstr "Στατιστικά ερωτήματος"
 
 #: js/messages.php:92
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Χρήση Επεξεργαστή Συστήματος"
 
 #: js/messages.php:93
 msgid "System memory"
-msgstr ""
+msgstr "Μνήμη συστήματος"
 
 #: js/messages.php:94
 msgid "System swap"
-msgstr ""
+msgstr "Αδράνεια συστήματος"
 
 #: js/messages.php:95 libraries/common.lib.php:1276 server_status.php:1385
 msgid "MiB"
@@ -1164,14 +1163,13 @@ msgstr "KB"
 
 #: js/messages.php:98
 msgid "Average load"
-msgstr ""
+msgstr "Μέσο φορτίο"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Suggestions:"
 msgid "Questions"
-msgstr "Προτάσεις:"
+msgstr "Ερωτήσεις:"
 
 #: js/messages.php:101 server_status.php:851
 msgid "Traffic"
@@ -1183,24 +1181,22 @@ msgid "Settings"
 msgstr "Ρυθμίσεις"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Μετακίνηση βάσης δεδομένων σε"
+msgstr "Απομάκρυνση διαγράμματος"
 
 #: js/messages.php:104
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Επεξεργασία ετικετών και σειρών"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Συγκράτηση στο πλέγμα"
+msgstr "Προσθήκη διαγράμματος στο πλέγμα"
 
 #: js/messages.php:107
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές"
 
 #: js/messages.php:108 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:564 libraries/export/sql.php:1039
@@ -1211,35 +1207,35 @@ msgstr "Καμία"
 
 #: js/messages.php:109
 msgid "Resume monitor"
-msgstr ""
+msgstr "Επανεκίννηση εποπτείας"
 
 #: js/messages.php:110
 msgid "Pause monitor"
-msgstr ""
+msgstr "Παύση εποπτείας"
 
 #: js/messages.php:112
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "Το general_log και το slow_query_log είναι ενεργοποιημένα."
 
 #: js/messages.php:113
 msgid "general_log is enabled."
-msgstr ""
+msgstr "Το general_log είναι ενεργοποιημένο."
 
 #: js/messages.php:114
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "Το slow_query_log είναι ενεργοποιημένα."
 
 #: js/messages.php:115
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "Το slow_query_log και το general_log είναι απενεργοποιημένα."
 
 #: js/messages.php:116
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "Το log_output δεν έχει οριστεί στο TABLE."
 
 #: js/messages.php:117
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "Το log_output έχει οριστεί στο TABLE."
 
 #: js/messages.php:118
 #, php-format
@@ -1248,108 +1244,114 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"Το slow_query_log είναι ενεργοποιημένο ο διακομιστής καταγράφει μόνο "
+"ερωτήματα που διαρκούν περισσότερα από %d δευτερόλεπτα. Σας προτείνεται να "
+"ορίσετε το long_query_time μεταξύ 0-2 δευτερόλεπτα, κάτι που εξαρτάται από "
+"το σύστημά σας."
 
 #: js/messages.php:119
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "Το long_query_time έχει οριστεί στο(α) %d δευτερόλεπτο(α).."
 
 #: js/messages.php:120
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Οι ακόλουθες ρυθμίσεις θα εφαρμοστούν καθολικά και θα επανέλθουν στις "
+"προεπιλογές με την επανεκκίνηση του διακομιστή:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:122
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
+msgstr "Ορισμός του log_output σε %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Ενεργοποιημένη"
+msgstr "Ενεργοποίηση %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Απενεργοποιημένη"
+msgstr "Απενεργοποίηση %s"
 
 #. l10n: %d seconds
 #: js/messages.php:128
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Ορισμός του long_query_time σε %dδ"
 
 #: js/messages.php:129
 msgid ""
 "You don't have super user rights to change this variables. Please log in as "
 "root account or contact your database administrator."
 msgstr ""
+"Δεν έχετε δικαιώματα υπερχρήστη για να αλλάξετε αυτές τις μεταβλητές. "
+"Συνδεθείτε ως λογαριασμός root ή επικοινωνήστε με τον διαχειριστή της βάσης "
+"δεδομένων σας."
 
 #: js/messages.php:130
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Διαχειριστείτε τις ρυθμίσεις σας"
+msgstr "Αλλαγή ρυθμίσεων"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Περισσότερες ρυθμίσεις"
+msgstr "Τρέχουσες ρυθμίσεις"
 
 #: js/messages.php:133 server_status.php:1345
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Τίτλος διαγράμματος"
+msgstr "Τίτλος Διαγράμματος"
 
 #. l10n: As in differential values
 #: js/messages.php:135
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Διαφορά"
+msgstr "Διαφορικός"
 
 #: js/messages.php:136
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Διαιρεμένος με %s:"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Επιλογή σελίδας"
+msgstr "Επιλεγμένο εύρος χρόνου:"
 
 #: js/messages.php:139
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Ομαδοποίηση των εντολών INSERT μέσα στον ίδιο πίνακα"
 
 #: js/messages.php:140
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Επιλέξτε από ποια καταγραφή θέλετε να προκύψουν τα στατιστικά.</p> Τα "
+"αποτελέσματα ομοδοποιούνται ανά κείμενο ερωτήματος."
 
 #: js/messages.php:141
 msgid "From slow log"
-msgstr ""
+msgstr "Από την αργή καταγραφή"
 
 #: js/messages.php:142
 msgid "From general log"
-msgstr ""
+msgstr "Από την γενική καταγραφή"
 
 #: js/messages.php:143
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως διαρκέσει λίγο."
 
 #: js/messages.php:144
 msgid ""
@@ -1357,6 +1359,9 @@ msgid ""
 "together. However only the SQL Text is being compared, thus the queries "
 "other attributes such as start time may differ."
 msgstr ""
+"Αυτές οι στήλες δείχνουν τον αριθμό των μοναδικών ερωτημάτων που "
+"ομαδοποιήθηκαν. Ωστόσο, μόνο το Κείμενο SQL συγκρίνεται έτσι οι ιδιότητες "
+"των ερωτημάτων όπως ο χρόνο εκκίνησης μπορεί να διαφέρουν."
 
 #: js/messages.php:145
 msgid ""
@@ -1364,20 +1369,25 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Αφού επιλέχθηκε η ομαδοποίηση των εντολών INSERT, τα ερωτήματα INSERT εντός "
+"του ίδιου πίνακα επίσης ομαδοποιηούνται ανεξάρτητα από εισαγόμενα δεδομένα."
 
 #: js/messages.php:146
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Τα δεδομένα καταγραφής φορτώθηκαν. Τα ερωτήματα που εκτελέστηκαν σε αυτή την "
+"επέκταση χρόνου."
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Μετάβαση στη βάση δεδομένων"
+msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
 #: js/messages.php:149
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση "
+"χρόνου."
 
 #: js/messages.php:153 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -2461,10 +2471,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Η λειτουργία %s έχει επηρρεαστεί από ένα γνωστό σφάλμα. Δείτε %s"
 
 #: libraries/common.lib.php:2447
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Πατήστε για επιλογή"
+msgstr "Πατήστε για εναλλαγή"
 
 #: libraries/common.lib.php:2718 libraries/common.lib.php:2725
 #: libraries/common.lib.php:2912 libraries/config/setup.forms.php:296
@@ -6829,10 +6838,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
+msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε το συμβάν διαγραφής."
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
@@ -6840,16 +6848,16 @@ msgid "The backed up query was:"
 msgstr "Το εφεδρικό ερώτημα ήταν:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
+msgstr "Το συμβάν %1$s έχει αλλαχτεί."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
+msgstr "Το συμβάν %1$s έχει δημιουργηθεί."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6859,16 +6867,14 @@ msgstr ""
 "σας:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Δημιουργία προβολής"
+msgstr "Δημιουργία συμβάντος"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Επεξεργασία διακομιστή"
+msgstr "Επεξεργασία συμβάντος"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1264
@@ -6883,10 +6889,9 @@ msgid "Details"
 msgstr "Λεπτομέρειες"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Τύπος συμβάντος"
+msgstr "Όνομα συμβάντος"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
@@ -6898,22 +6903,19 @@ msgid "Change to %s"
 msgstr "Αλλαγή σε %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Εκτέλεση"
+msgstr "Εκτέλεση σε"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Εκτέλεση"
+msgstr "Εκτέλεση κάθε"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Εκκίνηση"
+msgstr "Έναρξη"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:348
@@ -6921,10 +6923,9 @@ msgid "Definition"
 msgstr "Προσδιορισμός"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "πλήρεις εντολές εισαγωγής (Insert)"
+msgstr "Διατήρηση με την ολοκλήρωση"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
@@ -6934,63 +6935,54 @@ msgstr "Προσδιοριστής"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:392
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Ο οριστής πρέπει να είναι της μορφής «username@hostname»"
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα όνομα στο συμβάν"
 
 #: libraries/rte/rte_events.lib.php:537
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr ""
-"Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
+msgstr "Πρέπει να δώσετε μια έγκυρη τιμή διαστήματος για το συμβάν."
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
+msgstr "Πρέπει να δώσετε μια έγκυρη τιμή εκτέλεσης για το συμβάν."
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr ""
-"Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
+msgstr "Πρέπει να δώσετε έναν έγκυρο τύπο συμβάντος."
 
 #: libraries/rte/rte_events.lib.php:572
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
+msgstr "Πρέπει να δώσετε έναν προσδιορισμό συμβάντος."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Νέο"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "ΑΝΕΝΕΡΓΟ"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ΕΝΕΡΓΟ"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Ο προγραμματισμός συμβάντων είναι ενεργοποιημένος"
+msgstr "Κατάσταση προγραμματισμού συμβάντων"
 
 #: libraries/rte/rte_list.lib.php:52
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Τύπος επιστροφής"
+msgstr "Επιστροφές"
 
 #: libraries/rte/rte_list.lib.php:58 libraries/rte/rte_triggers.lib.php:320
 #: server_status.php:976 sql.php:943
@@ -7112,11 +7104,9 @@ msgstr ""
 "Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
 
 #: libraries/rte/rte_routines.lib.php:1065
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr ""
-"Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
+msgstr "Πρέπει να δώσετε ένα έγκυρο τύπο επιστροφής για τη ρουτίνα."
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
@@ -7152,71 +7142,61 @@ msgid "Function"
 msgstr "Συνάρτηση"
 
 #: libraries/rte/rte_triggers.lib.php:89
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
+msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ενέργεια."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
+msgstr "Η ενέργεια %1$s έχει αλλαχτεί."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
+msgstr "Η ενέργεια %1$s έχει δημιουργηθεί."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Δημιουργία προβολής"
+msgstr "Δημιουργία ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Προσθήκη μιας ενέργειας"
+msgstr "Επεξεργασία ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Δείκτες"
+msgstr "Όνομα ενέργειας"
 
 #: libraries/rte/rte_triggers.lib.php:399
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα όνομα στην ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:404
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα έγκυρο χρόνο για την ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:409
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr ""
-"Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
+msgstr "Πρέπει να δώσετε ένα έγκυρο συμβάν για την ενέργεια."
 
 #: libraries/rte/rte_triggers.lib.php:415
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "Πρέπει να δώσετε ένα έγκυρο όνομα πίνακα"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
+msgstr "Πρέπει να δώσετε ένα προσδιορισμό ενέργειας."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
@@ -7228,17 +7208,14 @@ msgid "Export of routine %s"
 msgstr "Εξαγωγή της ρουτίνας %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Εργασίες"
+msgstr "ρουτίνα"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr ""
-"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ρουτίνα"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
@@ -7250,10 +7227,9 @@ msgid "There are no routines to display."
 msgstr "Δεν υπάρχουν ρουτίνες για εμφάνιση."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Προσθήκη μιας ενέργειας"
+msgstr "Προσθήκη ενέργειας"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
@@ -7261,33 +7237,29 @@ msgid "Export of trigger %s"
 msgstr "Εξαγωγή της ενέργειας %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Δείκτες"
+msgstr "ενέργεια"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr ""
-"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ενέργεια"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Καμιά ρουτίνα με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
+msgstr "Καμιά ενέργεια με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
 msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση"
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
-msgstr "Προσθήκη ενός συμβάντος"
+msgstr "Προσθήκη συμβάντος"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
@@ -7295,23 +7267,20 @@ msgid "Export of event %s"
 msgstr "Εξαγωγή του συμβάντος %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Συμβάν"
+msgstr "συμβάν"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr ""
-"Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια νέα ρουτίνα"
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε ένα συμβάν"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Κανένα συμβάν με ονομασία %s δεν βρέθηκε στη βάση δεδομένων %s"
+msgstr "Κανένα συμβάν με ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
@@ -9212,13 +9181,12 @@ msgstr "Όλες οι μεταβλητές κατάστασης"
 
 #: server_status.php:576
 msgid "Monitor"
-msgstr ""
+msgstr "Εποπτεία"
 
 #: server_status.php:586 server_status.php:608
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Ρυθμός ανανέωσης:"
+msgstr "Ρυθμός ανανέωσης: "
 
 #: server_status.php:629
 msgid "Containing the word:"
@@ -9238,10 +9206,10 @@ msgstr "Σχετικοί σύνδεσμοι:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:695
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Κυκλοφορία δικτύου από την εκκίνηση: %s"
+msgstr "Ερωτήσεις από την εκκίνηση: %s"
 
 #: server_status.php:701 server_status.php:736 server_status.php:852
 #: server_status.php:897
@@ -9271,10 +9239,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Κυκλοφορία δικτύου από την εκκίνηση: %s"
 
 #: server_status.php:809
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Αυτός ο διακομιστής MySQL λειτουργεί για %s. Ξεκίνησε στις %s."
+msgstr "Αυτός ο διακομιστής MySQL λειτουργεί για %1$s. Ξεκίνησε στις %2$s."
 
 #: server_status.php:819
 msgid ""
@@ -9350,6 +9318,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Ο αριθμός των συνδέσεων που διακόπηκαν επειδή ο πελάτης παρετήθηκε χωρίς να "
+"κλείσει σωστά τη σύνδεση."
 
 #: server_status.php:1033
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -10051,52 +10021,46 @@ msgid "The number of threads that are not sleeping."
 msgstr "Ο αριθμός των διεργασιών που δεν είναι σε νάρκη."
 
 #: server_status.php:1277
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Εγγραφή έναρξης"
+msgstr "Έναρξη Εποπτείας"
 
 #: server_status.php:1285
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Εισαγωγή"
+msgstr "Οδηγίες/Εγκατάσταση"
 
 #: server_status.php:1289
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Ολοκληρώθηκε η επανατοποθέτηση/επεξεργασία διαγραμμάτων"
 
 #: server_status.php:1296
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Προσθήκη παραμέτρου"
+msgstr "Προσθήκη διαγράμματος"
 
 #: server_status.php:1298
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Επανατοποθέτηση/επεξεργασία διαγραμμάτων"
 
 #: server_status.php:1300
 msgid "Refresh rate:"
 msgstr "Ρυθμός ανανέωσης:"
 
 #: server_status.php:1303
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Στήλες περιοχής κειμένου (textarea)"
+msgstr "Στήλες διαγράμματος:"
 
 #: server_status.php:1317
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Χρήστης για ρυθμισμένη επικύρωση"
+msgstr "Εκκαθάριση ρύθμισης εποπτείας"
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "1. Introduction"
 msgid "Monitor Instructions"
-msgstr "1. Εισαγωγή"
+msgstr "Οδηγίες Εποπτείας"
 
 #: server_status.php:1321
 msgid ""
@@ -10105,6 +10069,10 @@ msgid ""
 "        queries. For the latter you will need to log_output set to 'TABLE' "
 "and have either the slow_query_log or general_log enabled."
 msgstr ""
+"Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
+"του διακομιστή και να καταγράφει χρονοβόρα\n"
+"        ερωτήματα. Για το τελευταίο θα χρειαστείτε να ορίσετε το log_output "
+"σε «TABLE» και να έχετε ενεργοποιήσει το slow_query_log ή το general_log."
 
 #: server_status.php:1329
 msgid ""
@@ -10126,86 +10094,96 @@ msgid ""
 "small time span.\n"
 "        </p>"
 msgstr ""
+"<b>Χρήση της εποπτείας:</b><br/>\n"
+"        Εντάξει, είστε έτοιμοι! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
+"φυλλομετρητής σας θα ανανεώσει όλα τα εμφανιζόμενα διαγράμματα\n"
+"        ανά ένα τακτικό διάστημα. Μπορείτε να προσθέσετε διαγράμματα και να "
+"αλλάξετε τον ρυθμό ανανέωσης από τις «Ρυθμίσεις», ή να απομακρύνετε κάποιο "
+"διάγραμμα\n"
+"        χρησιμοποιώντας το εικονίδιο γρανάζι για κάθε διάγραμμα.\n"
+"        <p>Όταν δείτε ένα ξαφνικό μέγιστο, επιλέξτε την αντίστοιχη επέκταση "
+"χρόνου σε οποιοδήποτε διάγραμμα έχοντας πατημένο το\n"
+"        αριστερό πλήκτρο του ποντικιού και μετακινηθείτε μέσα στο διάγραμμα. "
+"Αυτό θα φορτώσει τα απαιτούμενα στατιστικά από τις καταγραφές βοηθόντας να "
+"βρείτε τι προκάλεσε αυτή\n"
+"        την έντονη δραστηριότητα.</p>\n"
+"        <p><b>Σημειώστε:</b>\n"
+"        Ενεργοποιώντας το general_log ίσως αυξήσει τη φόρτωση του διακομιστή "
+"μεταξύ 5-15%. Επίσης, έχετε υπόψη ότι η δημιουργία στατιστικών από τις "
+"καταγραφές είναι μια \n"
+"        πολύ απαιτητική σε πόρους εργασία, έτσι σας προτείνουμε να επιλέξετε "
+"μια μικρή επέκταση χρόνου.\n"
+"        </p>"
 
 #: server_status.php:1348
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Χρήση"
+msgstr "Χρήση Επεξεργαστή"
 
 #: server_status.php:1351
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. Χρήση"
+msgstr "Χρήση Μνήμης"
 
 #: server_status.php:1354
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Χρήση"
+msgstr "Χρήση Αδράνειας"
 
 #: server_status.php:1357
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Όλες οι μεταβλητές κατάστασης"
+msgstr "Μεταβλητή(ές) κατάστασης"
 
 #: server_status.php:1359
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Επιλογή Πινάκων"
+msgstr "Επιλογή σειρών:"
 
 #: server_status.php:1361
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Συχνά εποπτευόμενα"
 
 #: server_status.php:1376
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "or type variable name:"
-msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα"
+msgstr "ή όνομα τύπου μεταβλητής"
 
 #: server_status.php:1380
 msgid "Display as differential value"
-msgstr ""
+msgstr "Προβολή ως διαφορική τιμή"
 
 #: server_status.php:1382
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Εφαρμογή διαιρέτη"
 
 #: server_status.php:1389
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Προσάρτηση μονάδας στις τιμές δεδομένων"
 
 #: server_status.php:1395
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add this series"
-msgstr "Προσθήκη μιας ενέργειας"
+msgstr "Προσθήκη αυτής της σειράς"
 
 #: server_status.php:1397
 msgid "Clear series"
-msgstr ""
+msgstr "Εκκαθάριση σειράς"
 
 #: server_status.php:1400
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Σειρές:"
+msgstr "Σειρά σε Διάγραμμα:"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Φόρτωση"
+msgstr "Φόρτωση καταγραφών"
 
 #: server_status.php:1411
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Εμφάνιση στατιστικών"
+msgstr "Στατιστικά καταγραφών"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
