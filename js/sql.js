@@ -281,10 +281,11 @@ $(document).ready(function() {
                 if ($zero_row_results.length > 0) {
                     $('#sqlquery').val($zero_row_results.val());
                 } else {
-                    $sqlqueryresults.show();
-                    $sqlqueryresults.html(data);
-                    $sqlqueryresults.trigger('appendAnchor');
-                    $sqlqueryresults.trigger('makegrid');
+                    $sqlqueryresults
+                     .show()
+                     .html(data)
+                     .trigger('appendAnchor')
+                     .trigger('makegrid');
                     $('#togglequerybox').show();
                     if ($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
@@ -320,14 +321,13 @@ $(document).ready(function() {
          */
         var $form = $(this).parent("form");
 
-        var $sqlqueryresults = $("#sqlqueryresults");
-
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function(data) {
-            $sqlqueryresults.html(data);
-            $sqlqueryresults.trigger('appendAnchor');
-            $sqlqueryresults.trigger('makegrid');
+            $("#sqlqueryresults")
+             .html(data)
+             .trigger('appendAnchor')
+             .trigger('makegrid');
             PMA_init_slider();
 
             PMA_ajaxRemoveMessage($msgbox);
@@ -341,22 +341,23 @@ $(document).ready(function() {
      * @see         $cfg['AjaxEnable']
      */
     $("#pageselector").live('change', function(event) {
-        var $the_form = $(this).parent("form");
+        var $form = $(this).parent("form");
 
         if ($(this).hasClass('ajax')) {
             event.preventDefault();
 
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
-                $("#sqlqueryresults").html(data);
-                $("#sqlqueryresults").trigger('appendAnchor');
-                $("#sqlqueryresults").trigger('makegrid');
+            $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
+                $("#sqlqueryresults")
+                 .html(data)
+                 .trigger('appendAnchor')
+                 .trigger('makegrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox);
             }) // end $.post()
         } else {
-            $the_form.submit();
+            $form.submit();
         }
 
     })// end Paginate results with Page Selector
