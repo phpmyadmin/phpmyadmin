@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:57+0200\n"
+"PO-Revision-Date: 2011-07-21 18:58+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10126,10 +10126,9 @@ msgid "Clear monitor config"
 msgstr "Cancella la configurazione di monitoraggio"
 
 #: server_status.php:1333
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Introduzione"
+msgstr "Istruzioni per monitoraggio"
 
 #: server_status.php:1334
 msgid ""
