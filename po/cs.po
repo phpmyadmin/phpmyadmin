@@ -1145,7 +1145,7 @@ msgstr "Využití CPU"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Operační paměť"
 
 #: js/messages.php:96
 msgid "System swap"
