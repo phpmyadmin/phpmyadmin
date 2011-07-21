@@ -9171,12 +9171,12 @@ msgstr[0] "%d minuto"
 msgstr[1] "%d minuti"
 
 #: server_status.php:33 server_status.php:1458
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Secondo"
-msgstr[1] "Secondo"
+msgstr[0] "%d secondo"
+msgstr[1] "%d secondi"
 
 #: server_status.php:309
 #, php-format
