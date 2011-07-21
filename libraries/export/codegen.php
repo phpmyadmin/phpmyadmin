@@ -295,10 +295,8 @@ class TableProperty
         $lines[] = '    <class name="' . cgMakeIdentifier($table) . '" table="' . cgMakeIdentifier($table) . '">';
         $result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
-            $tableProperties = array();
-            while ($row = PMA_DBI_fetch_row($result))
-                $tableProperties[] = new TableProperty($row);
-            foreach ($tableProperties as $tablePropertie) {
+            while ($row = PMA_DBI_fetch_row($result)) {
+                $tablePropertie = new TableProperty($row);
                 if ($tablePropertie->isPK())
                     $lines[] = $tablePropertie->formatXml('        <id name="#ucfirstName#" type="#dotNetObjectType#" unsaved-value="0">\n            <column name="#name#" sql-type="#type#" not-null="#notNull#" unique="#unique#" index="PRIMARY"/>\n            <generator class="native" />\n        </id>');
                 else
