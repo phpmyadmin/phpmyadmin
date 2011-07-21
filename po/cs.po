@@ -9906,7 +9906,7 @@ msgstr "Vynásobit"
 
 #: server_status.php:1402
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Přidat jednoty"
 
 #: server_status.php:1408
 #| msgid "Add trigger"
