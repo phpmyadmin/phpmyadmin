@@ -52,8 +52,7 @@ function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommo
 {
     for ($c=0; $c<sizeof($trg_tables); $c++) {
         $match = false;
-        for ($d=0; $d < sizeof($matching_tables); $d++)
-        {
+        for ($d=0; $d < sizeof($matching_tables); $d++) {
             if ($trg_tables[$c] === $matching_tables[$d]) {
                 $match=true;
             }
