@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:08+0200\n"
+"PO-Revision-Date: 2011-07-21 15:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9802,10 +9802,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1309
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Přidat parametr"
+msgstr "Přidat graf"
 
 #: server_status.php:1311
 msgid "Rearrange/edit charts"
