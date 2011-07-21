@@ -9788,10 +9788,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Počet vláken, která nespí."
 
 #: server_status.php:1290
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Počáteční řádek"
+msgstr "Spustit monitor"
 
 #: server_status.php:1298
 #, fuzzy
