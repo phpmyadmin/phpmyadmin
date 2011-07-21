@@ -5484,8 +5484,9 @@ msgid "Well Known Text"
 msgstr "Well Known Text"
 
 #: libraries/display_tbl.lib.php:649
+#, fuzzy
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Well Known Binary"
 
 #: libraries/display_tbl.lib.php:1300
 msgid "Copy"
