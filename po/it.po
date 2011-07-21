@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:02+0200\n"
+"PO-Revision-Date: 2011-07-21 18:03+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7179,7 +7179,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1065
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "È necessario fornire un valido tipo del risultato."
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
