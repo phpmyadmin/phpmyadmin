@@ -1256,7 +1256,7 @@ msgid ""
 msgstr ""
 "slow_query_log é abilitato, ma il server registra solo query che impiegano "
 "piú di %d secondi. É consigliato di impostare long_query_time a 0-2 seconds, "
-"a secondi del tipo di server."
+"a secondi del tipo di sistema."
 
 #: js/messages.php:121
 #, php-format
