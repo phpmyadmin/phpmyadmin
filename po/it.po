@@ -7152,7 +7152,7 @@ msgstr "Tipo di sicurezza"
 
 #: libraries/rte/rte_routines.lib.php:934
 msgid "SQL data access"
-msgstr ""
+msgstr "Tipo di accesso dati SQL"
 
 #: libraries/rte/rte_routines.lib.php:999
 msgid "You must provide a routine name"
