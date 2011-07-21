@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:20+0200\n"
+"PO-Revision-Date: 2011-07-21 18:21+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7300,10 +7300,9 @@ msgid "No routine with name %1$s found in database %2$s"
 msgstr "Non é stata trovata alcuna routine con nome %1$s nel database %2$s"
 
 #: libraries/rte/rte_words.lib.php:24
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no routines to display."
-msgstr "Nessun file da caricare"
+msgstr "Non ci sono routine da visualizzare."
 
 #: libraries/rte/rte_words.lib.php:30
 #| msgid "Add a new server"
