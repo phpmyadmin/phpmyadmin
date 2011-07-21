@@ -1176,9 +1176,8 @@ msgstr "Carico medio"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 msgid "Questions"
-msgstr "Suggestions:"
+msgstr "Questions"
 
 #: js/messages.php:103 server_status.php:864
 msgid "Traffic"
