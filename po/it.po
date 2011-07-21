@@ -7266,7 +7266,7 @@ msgstr "È necessario fornire un valido evento per il trigger"
 #: libraries/rte/rte_triggers.lib.php:415
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "È necessario fornire il nome di una tabella valida"
+msgstr "È necessario fornire un valido nome di tabella"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a trigger definition."
