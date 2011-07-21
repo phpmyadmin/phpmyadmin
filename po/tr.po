@@ -1882,7 +1882,7 @@ msgstr "Gönderilmiş dosya taşınırken hata oldu."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Gönderilen dosya okunamıyor (taşınamadı)."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
