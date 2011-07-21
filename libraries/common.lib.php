@@ -9,10 +9,10 @@
 /**
  * Exponential expression / raise number into power
  *
- * @param   string  $base
- * @param   string  $exp
- * @param   mixed   $use_function  pow function to use, or false for auto-detect
- * @return  mixed  string or float
+ * @param string $base         base to raise
+ * @param string $exp          exponent to use
+ * @param mixed  $use_function pow function to use, or false for auto-detect
+ * @return mixed string or float
  */
 function PMA_pow($base, $exp, $use_function = false)
 {
