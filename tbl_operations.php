@@ -488,7 +488,7 @@ $innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
 $innodb_plugin_version = $innodb_engine_plugin->getInnodbPluginVersion();
 if (!empty($innodb_plugin_version)) {
     $innodb_file_format = $innodb_engine_plugin->getInnodbFileFormat();
-}  else {
+} else {
     $innodb_file_format = '';
 }
 if ('Barracuda' == $innodb_file_format && $innodb_engine_plugin->supportsFilePerTable()) {

@@ -979,7 +979,7 @@ $(document).ready(function() {
                 }
                 PMA_ajaxRemoveMessage($msgbox);
             }) // end $.get()
-        }  else {
+        } else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });
