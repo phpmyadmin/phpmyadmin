@@ -97,9 +97,9 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     $button .= '<span class="nowrap">';
 
     if ($include_icon) {
-        $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+        $button .= '<img src="themes/dot.gif"'
             . ' title="' . $alternate . '" alt="' . $alternate . '"'
-            . ' class="icon" width="16" height="16" />';
+            . ' class="icon ic_' . str_replace('.png','',$icon) . '" />';
     }
 
     if ($include_icon && $include_text) {
@@ -393,9 +393,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
     } elseif ($big_icon) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . PMA_linkURL($url) . '" target="mysql_doc">' . __('Documentation') . '</a>]';
     }
@@ -412,7 +412,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  */
 function PMA_showDocu($anchor) {
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -430,7 +430,7 @@ function PMA_showPHPDocu($target) {
     $url = PMA_getPHPDocLink($target);
 
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . $url . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . $url . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -474,8 +474,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 
     // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker">' . $nr . '</sup>' .
-    '<img class="footnotemarker footnote_' . $nr . '" src="' .
-    $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
+    '<img class="footnotemarker ic_b_help footnote_' . $nr . '" src="themes/dot.gif" alt="" />';
 }
 
 /**
@@ -1506,7 +1505,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array())
+function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
 {
     // default values
     $defaults = array(
@@ -1568,8 +1567,8 @@ function PMA_generate_html_tab($tab, $url_params = array())
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
-        $image = '<img class="icon" src="' . htmlentities($GLOBALS['pmaThemeImage'])
-            .'%1$s" width="16" height="16" alt="" />%2$s';
+        $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
+            .' width="16" height="16" alt="" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
     }
     // check to not display an empty link-text
@@ -1604,7 +1603,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
  * @param   string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params)
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir='')
 {
     $tag_id = 'topmenu';
     $tab_navigation =
@@ -1612,7 +1611,7 @@ function PMA_generate_html_tabs($tabs, $url_params)
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
     }
 
     $tab_navigation .=

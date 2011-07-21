@@ -28,13 +28,13 @@ function toggle(id, only_open) {
     if (el.style.display == 'none' || only_open) {
         el.style.display = '';
         if (img) {
-            img.src = image_minus;
+            img.className = 'icon ic_b_minus';
             img.alt = '-';
         }
     } else {
         el.style.display = 'none';
         if (img) {
-            img.src = image_plus;
+            img.className = 'icon ic_b_plus';
             img.alt = '+';
         }
     }

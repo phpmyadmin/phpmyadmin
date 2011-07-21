@@ -1013,7 +1013,7 @@ $(document).ready(createProfilingChart);
 <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
 <fieldset>
     <legend><?php
-     echo ($cfg['PropertiesIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 'b_bookmark.png" width="16" height="16" alt="' . __('Bookmark this SQL query') . '" />' : '')
+     echo ($cfg['PropertiesIconic'] ? '<img class="icon ic_b_bookmark" src="themes/dot.gif" alt="' . __('Bookmark this SQL query') . '" />' : '')
         . __('Bookmark this SQL query');
 ?>
     </legend>
