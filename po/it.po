@@ -7284,10 +7284,9 @@ msgid "Export of routine %s"
 msgstr "Esportazione della routine %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Routines"
+msgstr "routine"
 
 #: libraries/rte/rte_words.lib.php:22
 #| msgid "You don't have sufficient privileges to be here right now!"
