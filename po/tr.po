@@ -9951,7 +9951,7 @@ msgstr "veya değişken adını yazın:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
-msgstr "Ayrık değer olarak görüntüle"
+msgstr "Ayırtedici değer olarak görüntüle"
 
 #: server_status.php:1395
 msgid "Apply a divisor"
