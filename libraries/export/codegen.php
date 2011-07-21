@@ -123,8 +123,8 @@ function PMA_exportDBCreate($db)
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
-    global $CG_FORMATS, $CG_HANDLERS;
-    $format = cgGetOption("format");
+    global $CG_FORMATS, $CG_HANDLERS, $what;
+    $format = $GLOBALS[$what . '_format'];
     if (isset($CG_FORMATS[$format])) {
         return PMA_exportOutputHandler($CG_HANDLERS[$format]($db, $table, $crlf));
     }
@@ -287,7 +287,7 @@ class TableProperty
 
     function handleNHibernateXMLBody($db, $table, $crlf)
     {
-        $lines=array();
+        $lines = array();
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
             . 'namespace="' . cgMakeIdentifier($db) . '" '
@@ -307,12 +307,6 @@ class TableProperty
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';
         return implode("\n", $lines);
-    }
-
-    function cgGetOption($optionName)
-    {
-        global $what;
-        return $GLOBALS[$what . "_" . $optionName];
     }
 }
 ?>
