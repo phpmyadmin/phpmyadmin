@@ -1339,7 +1339,7 @@ function PMA_localizeNumber($value)
  * @param   integer  $digits_left      number of digits left of the comma
  * @param   integer  $digits_right     number of digits right of the comma
  * @param   boolean  $only_down        do not reformat numbers below 1
- * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
+ * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true)
  *
  * @return  string   the formatted value and its unit
  *
@@ -1348,13 +1348,13 @@ function PMA_localizeNumber($value)
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
     if($value==0) return '0';
-    
+
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
         if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
-        
+
         return PMA_localizeNumber($value);
     }
 
@@ -1388,7 +1388,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     }
 
     $dh = PMA_pow(10, $digits_right);
-    
+
     // This gives us the right SI prefix already, but $digits_left parameter not incorporated
     $d = floor(log10($value) / 3);
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
@@ -1397,18 +1397,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     if($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
     }
-	
+
     if($d<0 && $only_down) $d=0;
-    
+
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
-    
+
     // If we dont want any zeros after the comma just add the thousand seperator
     if($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
         $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
-    
+
     if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
