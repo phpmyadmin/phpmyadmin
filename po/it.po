@@ -1900,7 +1900,7 @@ msgstr "Caricamento del file interrotto per estensione errata."
 
 #: libraries/File.class.php:295
 msgid "Unknown error in file upload."
-msgstr "Errore sconosciuto nel caricamento del file."
+msgstr "Si é verificato un errore sconosciuto durante il caricamento del file."
 
 #: libraries/File.class.php:495
 msgid ""
