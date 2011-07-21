@@ -124,10 +124,9 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                             htmlspecialchars($GLOBALS['db']),
                             __('Database'),
                             's_db.png');
-                    // if the table is being dropped, $_REQUEST['purge'] is set
-                    // (it always contains "1")
+                    // if the table is being dropped, $_REQUEST['purge'] is set to '1'
                     // so do not display the table name in upper div
-                    if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']))) {
+                    if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')) {
                         require_once './libraries/tbl_info.inc.php';
 
                         echo $separator;
