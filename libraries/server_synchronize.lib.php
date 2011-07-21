@@ -7,11 +7,10 @@
  */
 
 /**
- * PMA_getMatchingTables places matching tables in source
- * and target databases in $matching_tables array whereas
- * $uncommon_source_tables array gets the tables present in
- * source database but are absent from target database.
- * Criterion for matching tables is just comparing their names.
+ * Places matching tables in source and target databases in $matching_tables
+ * array whereas $uncommon_source_tables array gets the tables present in
+ * source database but are absent from target database.  Criterion for
+ * matching tables is just comparing their names.
  *
  * @param array $trg_tables              array of target database table names,
  * @param array $src_tables              array of source database table names,
@@ -38,8 +37,7 @@ function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$un
 }
 
 /**
- * PMA_getNonMatchingTargetTables() places tables present
- * in target database but are absent from source database
+ * Places tables present in target database but are absent from source database
  *
  * @param array $trg_tables              array of target database table names,
  * @param array $matching_tables         matching tables array containing names
@@ -64,14 +62,13 @@ function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommo
 }
 
 /**
- * PMA_dataDiffInTables() finds the difference in source and target matching tables by
+ * Finds the difference in source and target matching tables by
  * first comparing source table's primary key entries with target table enteries.
  * It gets the field names for the matching table also for comparisons.
  * If the entry is found in target table also then it is checked for the remaining
  * field values also, in order to check whether update is required or not.
  * If update is required, it is placed in $update_array
  * Otherwise that entry is placed in the $insert_array.
- *
  *
  * @param string  $src_db                  name of source database
  * @param string  $trg_db                  name of target database
@@ -294,7 +291,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 }
 
 /**
- * PMA_findDeleteRowsFromTargetTables finds the rows which are to be deleted from target table.
+ * Finds the rows which are to be deleted from target table.
  *
  * @param array   &$delete_array        array containing rows that are to be deleted
  * @param array   $matching_table       array containing matching table names
@@ -306,7 +303,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
  * @param string  $src_db               name of source database
  * @param db_link $src_link             connection established with source server
  */
-function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link,$src_db, $src_link)
+function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link, $src_db, $src_link)
 {
     if (isset($trg_keys[$matching_table_index])) {
         $target_key_values = PMA_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);
