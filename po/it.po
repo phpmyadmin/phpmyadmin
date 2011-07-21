@@ -5476,7 +5476,7 @@ msgstr "Trasformazione del browser"
 
 #: libraries/display_tbl.lib.php:647
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: libraries/display_tbl.lib.php:648
 msgid "Well Known Text"
