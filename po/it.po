@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:27+0200\n"
+"PO-Revision-Date: 2011-07-21 18:28+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10191,10 +10191,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1389
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Nome tabella non valido"
+msgstr "or scrivi il nome di una variabile:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
