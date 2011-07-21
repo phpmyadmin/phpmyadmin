@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 - bug #3367993 [usability] Missing "Generate Password" button
 - bug #3363221 [display] Missing Server Parameter on inline sql query
 - bug #3367986 [navi] Drop field -> lost active table
+- remove misleading comment on the "Rename database" interface
 
 3.4.3.1 (2011-07-02)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5
