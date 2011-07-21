@@ -1298,7 +1298,6 @@ msgid "Current settings"
 msgstr "Aktuální nastavení"
 
 #: js/messages.php:135 server_status.php:1358
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Název grafu"
