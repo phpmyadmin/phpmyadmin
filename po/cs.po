@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 09:33+0200\n"
+"PO-Revision-Date: 2011-07-21 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1133,7 +1133,7 @@ msgstr "Dotazů od poslední aktualizace"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Dotazy (příkazy spuštěné na serveru)"
 
 #: js/messages.php:91 server_status.php:587
 msgid "Query statistics"
@@ -1145,11 +1145,11 @@ msgstr "Využití CPU"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Operační paměť"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Odkládací oblast"
 
 #: js/messages.php:97 libraries/common.lib.php:1276 server_status.php:1398
 msgid "MiB"
@@ -1161,14 +1161,13 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Průměrné zatížení"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Verze"
+msgstr "Dotazy"
 
 #: js/messages.php:103 server_status.php:864
 msgid "Traffic"
@@ -1180,24 +1179,22 @@ msgid "Settings"
 msgstr "Nastavení"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Odstranit databázi"
+msgstr "Odstranit graf"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Upravit popisky a série"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Zachytávat na mřížku"
+msgstr "Přidat graf do mřížky"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Prosím přidejte do série alespoň jednu hodnotu"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1039
@@ -1208,35 +1205,35 @@ msgstr "Žádná"
 
 #: js/messages.php:111
 msgid "Resume monitor"
-msgstr ""
+msgstr "Obnovit monitor"
 
 #: js/messages.php:112
 msgid "Pause monitor"
-msgstr ""
+msgstr "Přerušit monitor"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log a slow_query_log jsou povoleny."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log je povolen."
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log je povolen."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log a general_log jsou zakázány."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output není nastaven na tabulku."
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output je nastaven na tabulku."
 
 #: js/messages.php:120
 #, php-format
@@ -1259,24 +1256,24 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Uložit do souboru"
+msgstr "Nastavit log_output na %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Zapnuto"
+msgstr "Zapnout %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Vypnuto"
+msgstr "Vypnout %s"
 
 #. l10n: %d seconds
 #: js/messages.php:130
@@ -1291,26 +1288,22 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Spravujte svoje nastavení"
+msgstr "Změnit nastavení"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Více nastavení"
+msgstr "Aktuální nastavení"
 
 #: js/messages.php:135 server_status.php:1358
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
 msgstr "Název grafu"
 
 #. l10n: As in differential values
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Rozdíly"
@@ -1321,10 +1314,9 @@ msgid "Divided by %s:"
 msgstr ""
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Zvolte stránku"
+msgstr "Zvolený časový rozsah:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
@@ -1367,10 +1359,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Přejít na databázi"
+msgstr "Přejít na tabulku se záznamem"
 
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
@@ -1838,10 +1829,9 @@ msgstr "Velikost písma"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Soubor nebyl nahrán."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Neznámá chyba při nahrávání souboru."
@@ -1889,11 +1879,11 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Chyba při přesouvání nahraného souboru."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Nahraný soubor nelze přečíst (přesunout)."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
@@ -2443,10 +2433,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dnů, %s hodin, %s minut a %s sekund"
 
 #: libraries/common.lib.php:1876
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Parametry rutiny"
+msgstr "Chybějící parametr:"
 
 #: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:299
@@ -9022,13 +9011,12 @@ msgstr "Všechny stavové proměnné"
 
 #: server_status.php:589
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: server_status.php:599 server_status.php:621
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Obnovovací frekvence:"
+msgstr "Obnovovací frekvence: "
 
 #: server_status.php:642
 msgid "Containing the word:"
@@ -9048,10 +9036,10 @@ msgstr "Související odkazy:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:708
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Síťový provoz od spuštění: %s"
+msgstr "Dotazů od spuštění: %s"
 
 #: server_status.php:714 server_status.php:749 server_status.php:865
 #: server_status.php:910
@@ -9081,10 +9069,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Síťový provoz od spuštění: %s"
 
 #: server_status.php:822
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Tento MySQL server běží %s. Čas spuštění: %s."
+msgstr "Tento MySQL server běží %1$s. Čas spuštění: %2$s."
 
 #: server_status.php:832
 msgid ""
@@ -9800,16 +9788,14 @@ msgid "The number of threads that are not sleeping."
 msgstr "Počet vláken, která nespí."
 
 #: server_status.php:1290
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Počáteční řádek"
+msgstr "Spustit monitor"
 
 #: server_status.php:1298
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Úvod"
+msgstr "Návod/Nastavení"
 
 #: server_status.php:1302
 msgid "Done rearranging/editing charts"
