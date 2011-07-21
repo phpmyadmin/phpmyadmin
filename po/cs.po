@@ -1229,7 +1229,7 @@ msgstr "slow_query_log a general_log jsou zakázány."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output je nastaven na tabulku."
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
