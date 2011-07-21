@@ -185,8 +185,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
                 $type = strtolower($match[1]);
-                // Ignore undefined index warning, just increase counter by one
-                @$return['sum'][$type] += $row['#'];
+                
+                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                $return['sum'][$type] += $row['#'];
                 
                 switch($type) {
                     case 'insert':
@@ -201,7 +202,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                     $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
                                     
                                 // Group this value, thus do not add to the result list
-                                continue;
+                                continue 2;
                             } else {
                                 $insertTablesFirst = $i;
                                 $insertTables[$matches[2]] += $row['#'] - 1;
@@ -253,23 +254,23 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         if ($profiling = PMA_profilingSupported())
             PMA_DBI_query('SET PROFILING=1;');
         
-		// Do not cache query
-		$query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
-		
+        // Do not cache query
+        $query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
+        
         $result = PMA_DBI_try_query('EXPLAIN ' . $query);
         $return['explain'] = PMA_DBI_fetch_assoc($result);
-		
-		// In case an error happened
-		$return['error'] = PMA_DBI_getError();
-		
+        
+        // In case an error happened
+        $return['error'] = PMA_DBI_getError();
+        
         PMA_DBI_free_result($result);        
         
         if($profiling) {
-			$return['profiling'] = array();
+            $return['profiling'] = array();
             $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
-			while ($row = PMA_DBI_fetch_assoc($result)) {
-            	$return['profiling'][]= $row;
-			}
+            while ($row = PMA_DBI_fetch_assoc($result)) {
+                $return['profiling'][]= $row;
+            }
             PMA_DBI_free_result($result);
         }
         
@@ -1462,8 +1463,8 @@ function printMonitor() {
     
     <div id="queryAnalyzerDialog" title="<?php echo __('Query analyzer'); ?>" style="display:none;">
         <textarea id="sqlquery"> </textarea>
-		<p></p>
-		<div class="placeHolder"></div>
+        <p></p>
+        <div class="placeHolder"></div>
     </div>
     
     <table border="0" class="clearfloat" id="chartGrid">
