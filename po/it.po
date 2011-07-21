@@ -1023,7 +1023,7 @@ msgstr "Questo non è un numero!"
 #: js/messages.php:51
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Numero totale"
+msgstr "Totale"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
