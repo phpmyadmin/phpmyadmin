@@ -209,7 +209,10 @@ class PMA_GIS_Visualization
 
         // fill the background
         $bg = imagecolorallocate($image, 229, 229, 229);
-        imagefilledrectangle($image, 0, 0, $this->_settings['width'] - 1, $this->_settings['height'] - 1, $bg);
+        imagefilledrectangle(
+            $image, 0, 0, $this->_settings['width'] - 1,
+            $this->_settings['height'] - 1, $bg
+        );
 
         $scale_data = $this->_scaleDataSet($this->_data);
         $image = $this->_prepareDataSet($this->_data, 0, $scale_data, 'png', $image);

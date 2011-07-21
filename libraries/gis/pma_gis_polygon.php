@@ -206,7 +206,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       Spatial reference ID

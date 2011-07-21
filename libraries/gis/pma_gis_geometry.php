@@ -45,7 +45,8 @@ abstract class PMA_GIS_Geometry
     public abstract function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
     /**
-     * Prepares the JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares the JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial     GIS data object
      * @param int    $srid        Spatial reference ID
@@ -77,9 +78,11 @@ abstract class PMA_GIS_Geometry
     protected function getBoundsForOl($srid, $scale_data)
     {
         return 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat('
-            . $scale_data['minX'] . ', ' . $scale_data['minY'] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $scale_data['minX'] . ', ' . $scale_data['minY']
+            . ').transform(new OpenLayers.Projection("EPSG:'
             . $srid . '"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat('
-            . $scale_data['maxX'] . ', ' . $scale_data['maxY'] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $scale_data['maxX'] . ', ' . $scale_data['maxY']
+            . ').transform(new OpenLayers.Projection("EPSG:'
             . $srid . '"), map.getProjectionObject()));';
     }
 
@@ -173,8 +176,10 @@ abstract class PMA_GIS_Geometry
             $points_arr = $this->extractPoints($polygon, null);
             $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
             foreach ($points_arr as $point) {
-                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                $row .= '(new OpenLayers.Geometry.Point('
+                    . $point[0] . ', ' . $point[1] . '))'
+                    . '.transform(new OpenLayers.Projection("EPSG:'
+                    . $srid . '"), map.getProjectionObject()), ';
             }
             $row = substr($row, 0, strlen($row) - 2);
             $row .= '))';
@@ -185,8 +190,10 @@ abstract class PMA_GIS_Geometry
                 $points_arr = $this->extractPoints($ring, null);
                 $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
                 foreach ($points_arr as $point) {
-                    $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                    $row .= '(new OpenLayers.Geometry.Point('
+                        . $point[0] . ', ' . $point[1] . '))'
+                        . '.transform(new OpenLayers.Projection("EPSG:'
+                        . $srid . '"), map.getProjectionObject()), ';
                 }
                 $row = substr($row, 0, strlen($row) - 2);
                 $row .= ')), ';

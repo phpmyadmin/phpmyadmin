@@ -154,7 +154,8 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
 
                 foreach ($inner as $inner_poly) {
                     $points_arr = array_merge(
-                        $points_arr, $this->extractPoints($inner_poly, $scale_data, true)
+                        $points_arr,
+                        $this->extractPoints($inner_poly, $scale_data, true)
                     );
                 }
             }
@@ -223,7 +224,8 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS MULTIPOLYGON object
      * @param int    $srid       Spatial reference ID

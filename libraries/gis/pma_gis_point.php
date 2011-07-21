@@ -136,7 +136,8 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial     GIS POINT object
      * @param int    $srid        Spatial reference ID
@@ -167,9 +168,10 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $points_arr = $this->extractPoints($point, null);
 
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(('
-            . 'new OpenLayers.Geometry.Point(' . $points_arr[0][0] . ', ' . $points_arr[0][1] . ')'
-            . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject())),'
-            . ' null, ' . json_encode($style_options) . '));';
+            . 'new OpenLayers.Geometry.Point(' . $points_arr[0][0] . ', '
+            . $points_arr[0][1] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $srid . '"), map.getProjectionObject())), null, '
+            . json_encode($style_options) . '));';
         return $result;
     }
 }

@@ -179,7 +179,8 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS MULTILINESTRING object
      * @param int    $srid       Spatial reference ID
@@ -213,8 +214,9 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             $points_arr = $this->extractPoints($linestring, null);
             $row .= 'new OpenLayers.Geometry.LineString(new Array(';
             foreach ($points_arr as $point) {
-                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', '
+                    . $point[1] . ')).transform(new OpenLayers.Projection("EPSG:'
+                    . $srid . '"), map.getProjectionObject()), ';
             }
             $row = substr($row, 0, strlen($row) - 2);
             $row .= ')), ';
