@@ -1828,7 +1828,7 @@ msgstr "Yazı Tipi boyutu"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Dosya gönderilmiş bir dosya değil."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #| msgid "Unknown error in file upload."
