@@ -10206,7 +10206,7 @@ msgstr "Applica un divisore"
 
 #: server_status.php:1402
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Aggiungi un unitá ai valori dei dati"
 
 #: server_status.php:1408
 #, fuzzy
