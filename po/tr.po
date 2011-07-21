@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:06+0200\n"
+"PO-Revision-Date: 2011-07-21 18:08+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1354,7 +1354,7 @@ msgstr ""
 
 #: js/messages.php:148
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Günlük verisi yüklendi. Sorgular bu zaman aralığında çalıştırıldı:"
 
 #: js/messages.php:150
 msgid "Jump to Log table"
