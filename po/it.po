@@ -9156,10 +9156,9 @@ msgstr ""
 "Vorresti <a href=\"%s\">configurarlo ora</a>?"
 
 #: server_status.php:27
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Aggiorna"
+msgstr "Ritmo di aggiornamenti"
 
 #: server_status.php:31 server_status.php:1460
 #, php-format
