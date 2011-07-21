@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 16:14+0200\n"
+"PO-Revision-Date: 2011-07-21 16:15+0200\n"
 "Last-Translator:  <teunome@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1337,7 +1337,7 @@ msgstr "Tabelas selecionadas"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Agrupar INSERTs na mesma tabela"
 
 #: js/messages.php:142
 msgid ""
