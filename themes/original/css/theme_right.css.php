@@ -2290,3 +2290,5 @@ span.mysql-number {
 .navigation select {
     margin: 0 0.8em;
 }
+/* Timepicker */
+#ui-timepicker-div { z-index: 1003; }
