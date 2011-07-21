@@ -10159,10 +10159,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1361
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Utilizzo"
+msgstr "Utilizzo della CPU"
 
 #: server_status.php:1364
 #, fuzzy
