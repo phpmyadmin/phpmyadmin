@@ -57,10 +57,10 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    var currrent_insert_table;
+    var current_insert_table;
     $("td.insert_table a.ajax").live('click', function(event){
         event.preventDefault();
-        currrent_insert_table = $(this);
+        current_insert_table = $(this);
         var $url = $(this).attr("href");
         if ($url.substring(0, 15) == "tbl_change.php?") {
             $url = $url.substring(15);
@@ -144,7 +144,7 @@ $(document).ready(function() {
                 $("#insert_table_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
-            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+            current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -170,7 +170,7 @@ $(document).ready(function() {
                 }
                 if (selected_after_insert == "new_insert") {
                     /**Trigger the insert dialog for new_insert option*/
-                    currrent_insert_table.trigger('click');
+                    current_insert_table.trigger('click');
                 }
 
             } else {
@@ -180,7 +180,7 @@ $(document).ready(function() {
                 $("#insert_table_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
-            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+            current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
         }) // end $.post()
     });
 
