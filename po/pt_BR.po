@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-17 20:04+0200\n"
-"Last-Translator:  <rds_ralison@yahoo.com.br>\n"
+"PO-Revision-Date: 2011-07-21 16:15+0200\n"
+"Last-Translator:  <teunome@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1147,11 +1147,11 @@ msgstr ""
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Memória do sistema"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Swap do sistema"
 
 #: js/messages.php:97 libraries/common.lib.php:1276 server_status.php:1398
 msgid "MiB"
@@ -1163,7 +1163,7 @@ msgstr "KB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Carga média"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
@@ -1191,7 +1191,7 @@ msgstr "Remover Banco de Dados"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Editar rótulos e séries."
 
 #: js/messages.php:107
 #, fuzzy
@@ -1201,7 +1201,7 @@ msgstr "Ajustar à grade"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Por favor adicione ao menos uma variável a série"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1039
@@ -1220,19 +1220,19 @@ msgstr ""
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log e slow_query_log estão ativados."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log está ativado."
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log está ativado."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log e general_log estão desativados."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
@@ -1249,17 +1249,22 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log está ativado, mas o servidor faz o log apenas de queries que "
+"demoram mais do que %d segundos. É aconselhado alterar essa long_query_time "
+"0-2 segundos, dependendo do seu sistema."
 
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time está definida para %d segundo(s)."
 
 #: js/messages.php:122
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"As seguintes configurações serão aplicadas globalmente e restauradas para o "
+"padrão quando o servidor reiniciar:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
@@ -1286,13 +1291,15 @@ msgstr "Desabilitado"
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Definir long_query_time para %ds"
 
 #: js/messages.php:131
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Você não pode alterar essas variáveis. Por favor faça o log como root ou "
+"entre em contato com o administrador."
 
 #: js/messages.php:132
 #, fuzzy
@@ -1320,7 +1327,7 @@ msgstr ""
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Dividido por %s:"
 
 #: js/messages.php:140
 #, fuzzy
@@ -1330,7 +1337,7 @@ msgstr "Tabelas selecionadas"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Agrupar INSERTs na mesma tabela"
 
 #: js/messages.php:142
 msgid ""
@@ -1348,7 +1355,7 @@ msgstr ""
 
 #: js/messages.php:145
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analisando e carregando logs. Isso pode demorar."
 
 #: js/messages.php:146
 msgid ""
@@ -5016,7 +5023,7 @@ msgstr "Número de linhas:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Começar na linha:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
@@ -5044,15 +5051,15 @@ msgstr "Nome do arquivo do modelo:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ se tornará o nome do servidor"
 
 #: libraries/display_export.lib.php:224
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ se tornará o nome do banco de dados"
 
 #: libraries/display_export.lib.php:226
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ se tornará o nome da tabela"
 
 #: libraries/display_export.lib.php:230
 #, fuzzy, php-format
@@ -5120,6 +5127,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Role para baixo para preencher as opções para o formato selecionado e "
+"ignorar as opções de outros formatos."
 
 #: libraries/display_export.lib.php:340 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
@@ -5165,13 +5174,15 @@ msgstr "Arquivo para importar:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Arquivo pode ser compactado (%s) ou descompactado."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"O nome de um arquivo compactado deve terminar em "
+"<b>.[formato].[compactação]</b>. Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -5220,7 +5231,7 @@ msgstr "Adicionar/Remover colunas"
 
 #: libraries/display_tbl.lib.php:414
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Arraste para reordenar"
 
 #: libraries/display_tbl.lib.php:415
 #, fuzzy
@@ -5230,11 +5241,11 @@ msgstr "Clique para selecionar"
 
 #: libraries/display_tbl.lib.php:416
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Clique para marcar/desmarcar"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
 
 #: libraries/display_tbl.lib.php:428
 #, php-format
@@ -5336,7 +5347,7 @@ msgstr "Transformações do navegador"
 
 #: libraries/display_tbl.lib.php:647
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: libraries/display_tbl.lib.php:648
 msgid "Well Known Text"
@@ -5390,7 +5401,7 @@ msgstr "Exibir gráfico"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualisar dados GIS"
 
 #: libraries/display_tbl.lib.php:2526
 #, fuzzy
