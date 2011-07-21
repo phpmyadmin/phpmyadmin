@@ -36,13 +36,13 @@ abstract class PMA_GIS_Geometry
      *
      * @param string $spatial    GIS data object
      * @param string $label      Label for the GIS data object
-     * @param string $line_color Color for the GIS data object
+     * @param string $color      Color for the GIS data object
      * @param array  $scale_data Array containing data related to scaling
      * @param image  $pdf        TCPDF instance
      *
      * @return the modified TCPDF instance
      */
-    public abstract function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+    public abstract function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
     /**
      * Prepares the JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
@@ -50,12 +50,12 @@ abstract class PMA_GIS_Geometry
      * @param string $spatial     GIS data object
      * @param int    $srid        Spatial reference ID
      * @param string $label       Label for the GIS data object
-     * @param string $point_color Color for the GIS data object
+     * @param string $color       Color for the GIS data object
      * @param array  $scale_data  Array containing data related to scaling
      *
      * @return the JavaScript related to a row in the GIS dataset
      */
-    public abstract function prepareRowAsOl($spatial, $srid, $label, $point_color, $scale_data);
+    public abstract function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
 
     /**
      * Scales each row.

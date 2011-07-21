@@ -77,10 +77,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
     {
         // allocate colors
-        $r = hexdec(substr($fill_color, 1, 2));
-        $g = hexdec(substr($fill_color, 3, 2));
-        $b = hexdec(substr($fill_color, 4, 2));
-        $color = imagecolorallocate($image, $r, $g, $b);
+        $red   = hexdec(substr($fill_color, 1, 2));
+        $green = hexdec(substr($fill_color, 3, 2));
+        $blue  = hexdec(substr($fill_color, 4, 2));
+        $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
@@ -122,10 +122,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
         // allocate colors
-        $r = hexdec(substr($fill_color, 1, 2));
-        $g = hexdec(substr($fill_color, 3, 2));
-        $b = hexdec(substr($fill_color, 4, 2));
-        $color = array($r, $g, $b);
+        $red   = hexdec(substr($fill_color, 1, 2));
+        $green = hexdec(substr($fill_color, 3, 2));
+        $blue  = hexdec(substr($fill_color, 4, 2));
+        $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));

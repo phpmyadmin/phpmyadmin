@@ -59,10 +59,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
     {
         // allocate colors
-        $r = hexdec(substr($line_color, 1, 2));
-        $g = hexdec(substr($line_color, 3, 2));
-        $b = hexdec(substr($line_color, 4, 2));
-        $color = imagecolorallocate($image, $r, $g, $b);
+        $red   = hexdec(substr($line_color, 1, 2));
+        $green = hexdec(substr($line_color, 3, 2));
+        $blue  = hexdec(substr($line_color, 4, 2));
+        $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
@@ -94,10 +94,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
     {
         // allocate colors
-        $r = hexdec(substr($line_color, 1, 2));
-        $g = hexdec(substr($line_color, 3, 2));
-        $b = hexdec(substr($line_color, 4, 2));
-        $line = array('width' => 1.5, 'color' => array($r, $g, $b));
+        $red   = hexdec(substr($line_color, 1, 2));
+        $green = hexdec(substr($line_color, 3, 2));
+        $blue  = hexdec(substr($line_color, 4, 2));
+        $line  = array('width' => 1.5, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
