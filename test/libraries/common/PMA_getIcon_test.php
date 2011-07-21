@@ -30,7 +30,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase{
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
         $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            . 'b_comment.png" title="" alt="" class="icon" width="16" height="16" /></span>',
+                            . 'dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
                             PMA_getIcon('b_comment.png') );
     }
 
@@ -41,8 +41,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase{
         $alternate_text = 'alt_str';
 
         $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            .'b_comment.png" title="' . $alternate_text . '" alt="' . $alternate_text
-                            . '" class="icon" width="16" height="16" /></span>',
+                            .'dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
+                            . '" class="icon ic_b_comment" /></span>',
                             PMA_getIcon('b_comment.png',$alternate_text) );
     }
 
@@ -53,8 +53,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase{
         $alternate_text = 'alt_str';
 
         $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            .'b_comment.png" title="' . $alternate_text . '" alt="' . $alternate_text
-                            . '" class="icon" width="16" height="16" /></span>',
+                            .'dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
+                            . '" class="icon ic_b_comment" /></span>',
                             PMA_getIcon('b_comment.png',$alternate_text, true) );
 
     }
@@ -66,8 +66,8 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase{
         $alternate_text = 'alt_str';
 
         $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            .'b_comment.png" title="' . $alternate_text . '" alt="' . $alternate_text
-                            . '" class="icon" width="16" height="16" /> ' . $alternate_text . '</span>',
+                            .'dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
+                            . '" class="icon ic_b_comment" /> ' . $alternate_text . '</span>',
                             PMA_getIcon('b_comment.png',$alternate_text, true, true) );
 
     }
