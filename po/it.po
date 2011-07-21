@@ -6960,10 +6960,10 @@ msgid "Event type"
 msgstr "Tipo di evento"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:838
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Modifica"
+msgstr "Cambia a %s"
 
 #: libraries/rte/rte_events.lib.php:422
 #, fuzzy
