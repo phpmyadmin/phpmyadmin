@@ -7231,10 +7231,10 @@ msgid "Trigger %1$s has been modified."
 msgstr "Il trigger %1$s é stato modificato."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "La tabella %1$s è stata creata."
+msgstr "Il trigger %1$s é stato creato."
 
 #: libraries/rte/rte_triggers.lib.php:157
 #, fuzzy
