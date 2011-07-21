@@ -1466,7 +1466,7 @@ function PMA_createChart(passedSettings) {
         chart: {
             type: 'spline',
             marginRight: 10,
-            backgroundColor: 'transparent',
+            backgroundColor: 'none',
             events: {
                 /* Live charting support */
                 load: function() {
