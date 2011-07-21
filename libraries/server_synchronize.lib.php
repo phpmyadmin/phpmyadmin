@@ -67,21 +67,21 @@ function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommo
  * Otherwise that entry is placed in the $insert_array.
  *
  *
- * @param    $src_db    name of source database
- * @param    $trg_db    name of target database
- * @param    $src_link  connection established with source server
- * @param    $trg_link  connection established with target server
- * @param    $matching_table   array containing matching table names
- * @param    &$matching_tables_fields    A two dimensional array passed by reference to contain names of fields for each matching table
- * @param    $update_array    A three dimensional array passed by reference to
- *                            contain updates required for each matching table
- * @param    $insert_array    A three dimensional array passed by reference to
- *                            contain inserts required for each matching table
- * @param    $delete_array    Unused
- * @param    $fields_num      A two dimensional array passed by reference to
- *                            contain number of fields for each matching table
+ * @param    $src_db                  name of source database
+ * @param    $trg_db                  name of target database
+ * @param    $src_link                connection established with source server
+ * @param    $trg_link                connection established with target server
+ * @param    $matching_table          array containing matching table names
+ * @param    &$matching_tables_fields A two dimensional array passed by reference to contain names of fields for each matching table
+ * @param    $update_array            A three dimensional array passed by reference to
+ *                                    contain updates required for each matching table
+ * @param    $insert_array            A three dimensional array passed by reference to
+ *                                    contain inserts required for each matching table
+ * @param    $delete_array            Unused
+ * @param    $fields_num              A two dimensional array passed by reference to
+ *                                    contain number of fields for each matching table
  * @param    $matching_table_index    Index of a table from $matching_table array
- * @param    &$matching_tables_keys     A two dimensional array passed by reference to contain names of keys for each matching table
+ * @param    &$matching_tables_keys   A two dimensional array passed by reference to contain names of keys for each matching table
  */
 function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching_table, &$matching_tables_fields,
     &$update_array, &$insert_array, &$delete_array, &$fields_num, $matching_table_index, &$matching_tables_keys)
