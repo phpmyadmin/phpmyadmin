@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:15+0200\n"
+"PO-Revision-Date: 2011-07-21 17:16+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2474,10 +2474,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s giorni, %s ore, %s minuti e %s secondi"
 
 #: libraries/common.lib.php:1876
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Routines"
+msgstr "Parametro mancante:"
 
 #: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:299
