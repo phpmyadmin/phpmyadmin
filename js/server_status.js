@@ -439,7 +439,7 @@ $(function() {
                     });
                     
                 $('#serverstatusqueriesdetails tr:first th')
-                    .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
+                    .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
                     
                 break;
             
@@ -453,7 +453,7 @@ $(function() {
                     });
                     
                 $('#serverstatusvariables tr:first th')
-                    .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
+                    .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
                     
                 break;
         }
@@ -942,9 +942,9 @@ $(function() {
     $('a[href="#pauseCharts"]').click(function() {
         runtime.redrawCharts = ! runtime.redrawCharts;
         if(! runtime.redrawCharts)
-            $(this).html('<img src="' + pmaThemeImage + 'play.png" alt="" /> ' + PMA_messages['strResumeMonitor']);
+            $(this).html('<img src="themes/dot.gif" class="icon ic_play" alt="" /> ' + PMA_messages['strResumeMonitor']);
         else {
-            $(this).html('<img src="' + pmaThemeImage + 'pause.png" alt="" /> ' + PMA_messages['strPauseMonitor']);
+            $(this).html('<img src="themes/dot.gif" class="icon ic_pause" alt="" /> ' + PMA_messages['strPauseMonitor']);
             if(runtime.charts == null) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -968,7 +968,7 @@ $(function() {
             $.get('server_status.php?' + url_query, vars,
                 function(data) {
                     var logVars = $.parseJSON(data),
-                        icon = 's_success.png', msg='', str='';
+                        icon = 'ic_s_success', msg='', str='';
                     
                     if(logVars['general_log'] == 'ON') {
                         if(logVars['slow_query_log'] == 'ON') 
@@ -982,26 +982,26 @@ $(function() {
                     }
                     
                     if(msg.length == 0) {
-                        icon = 's_error.png';
+                        icon = 'ic_s_error';
                         msg = PMA_messages['strBothLogOff'];
                     }
                     
                     str = '<b>' + PMA_messages['strCurrentSettings'] + '</b><br><div class="smallIndent">';
-                    str += '<img src="' + pmaThemeImage + icon + '" alt=""/> ' + msg + '<br />';
+                    str += '<img src="themes/dot.gif" class="icon ' + icon + '" alt=""/> ' + msg + '<br />';
                     
                     if(logVars['log_output'] != 'TABLE')
-                        str += '<img src="' + pmaThemeImage + 's_error.png" alt=""/> ' + PMA_messages['strLogOutNotTable'] + '<br />';
+                        str += '<img src="themes/dot.gif" class="icon ic_s_error" alt=""/> ' + PMA_messages['strLogOutNotTable'] + '<br />';
                     else 
-                        str += '<img src="' + pmaThemeImage + 's_success.png" alt=""/> ' + PMA_messages['strLogOutIsTable'] + '<br />';
+                        str += '<img src="themes/dot.gif" class="icon ic_s_success" alt=""/> ' + PMA_messages['strLogOutIsTable'] + '<br />';
                     
                     if(logVars['slow_query_log'] == 'ON') {
                         if(logVars['long_query_time'] > 2)
-                            str += '<img src="' + pmaThemeImage + 's_attention.png" alt=""/> '
+                            str += '<img src="themes/dot.gif" class="icon ic_s_attention" alt=""/> '
                                 + $.sprintf(PMA_messages['strSmallerLongQueryTimeAdvice'], logVars['long_query_time'])
                                 + '<br />';
                         
                         if(logVars['long_query_time'] < 2)
-                            str += '<img src="' + pmaThemeImage + 's_success.png" alt=""/> '
+                            str += '<img src="themes/dot.gif" class="icon ic_s_success" alt=""/> '
                                 + $.sprintf(PMA_messages['strLongQueryTimeSet'], logVars['long_query_time'])
                                 + '<br />';
                     }
@@ -1261,27 +1261,47 @@ $(function() {
                         
                         $('#logAnalyseDialog').html(
                             '<p>' + PMA_messages['strSelectedTimeRange']
-                            + Highcharts.dateFormat('%H:%M:%S',new Date(min)) + ' - ' 
-                            + Highcharts.dateFormat('%H:%M:%S',new Date(max)) + '</p>'
+                            + '<input type="text" name="dateStart" class="datetimefield" value="' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S',new Date(min)) + '" /> - ' 
+                            + '<input type="text" name="dateEnd" class="datetimefield" value="' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S',new Date(max)) + '" /></p>'
                             + '<input type="checkbox" id="groupInserts" value="1" checked="checked" />'
                             + '<label for="groupData">' + PMA_messages['strGroupInserts'] + '</label>'
                             + PMA_messages['strLogAnalyseInfo']
                         );
                         
+                        PMA_addDatepicker($('#logAnalyseDialog').find('input[name="dateStart"],input[name="dateEnd"]'), { 
+                            showOn: 'focus',
+                            beforeShow: function() {
+                                // Fix wrong timepicker z-index, doesn't work without timeout
+                                setTimeout(function() {
+                                    $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
+                                },0);
+                            }
+                        });
+                        
                         var dlgBtns = { };
                         
                         dlgBtns[PMA_messages['strFromSlowLog']] = function() {
+                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
+                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
+                            
                             loadLogStatistics(
-                                { src: 'slow', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') } 
+                                { src: 'slow', start: dateStart, end: dateEnd, groupInserts: $('input#groupInserts').attr('checked') } 
                             );
+                                
+                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                             
                             $(this).dialog("close");
                         }
                         
                         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
+                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
+                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
+                            
                             loadLogStatistics(
-                                { src: 'general', start: min, end: max, groupInserts: $('input#groupInserts').attr('checked') }
+                                { src: 'general', start: dateStart, end: dateEnd, groupInserts: $('input#groupInserts').attr('checked') }
                             );
+                                
+                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                             
                             $(this).dialog("close");
                         }
@@ -1508,14 +1528,16 @@ $(function() {
                             tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
                         tableStr += '</tr>';    
                     }
-                    
-                    tableStr+='</tbody></table>';
-                    
+
+                    tableStr += '</tbody><tfoot>';
+                    tableStr += '<tr><th colspan="' + (cols.length - 1) + '">Sum of grouped rows: '+ data.numRows +'<span style="float:right">Total:</span></th><th align="right">' + data.sum.TOTAL + '</th></tr>';
+                    tableStr += '</tfoot></table>';
+            
                     $('#logTable').html(tableStr);
                     
                     // Append a tooltip to the count column, if there exist one
                     if($('#logTable th:last').html() == '#') {
-                        $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon" src="' + pmaThemeImage + 'b_docs.png" alt="" />');
+                        $('#logTable th:last').append('&nbsp;<img class="qroupedQueryInfoIcon icon ic_b_docs" src="themes/dot.gif" alt="" />');
                     
                         var qtipContent = PMA_messages['strCountColumnExplanation'];
                         if(groupInserts) qtipContent += '<p>' + PMA_messages['strMoreCountColumnExplanation'] + '</p>';
@@ -1533,13 +1555,15 @@ $(function() {
                         })
                     }
                     
+                    
+                    
                     $('div#logTable table').tablesorter({
                         sortList: [[0,1]],
                         widgets: ['zebra']
                     });
                     
                     $('div#logTable table thead th')
-                        .append('<img class="sortableIcon" src="' + pmaThemeImage + 'cleardot.gif" alt="">');
+                        .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
 
                     
                     $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
@@ -1548,6 +1572,64 @@ $(function() {
                         if(key == 'Total') key = '<b>' + key + '</b>';
                         $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
                     });
+                    
+                    if(data.numRows > 12) {
+                        $('div#logTable').prepend(
+                            '<fieldset id="logDataFilter">' +
+                            '	<legend>Filters</legend>' +
+                            '	<div class="formelement">' +
+                            '		<label for="filterQueryText">Filter queries by word/regexp:</label>' +
+                            '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
+                            ((data.numRows > 250) ? ' <button name="startFilterQueryText" id="startFilterQueryText">Filter</button>' : '') +                        
+                            '	</div>' +
+                            '</fieldset>'
+                        );
+                        
+                        if(data.numRows > 250) {
+                            $('div#logTable button#startFilterQueryText').click(filterQueries);
+                        } else {
+                            $('div#logTable input#filterQueryText').keyup(filterQueries);
+                        }
+                        
+                        function filterQueries() {
+                            var odd_row=false, cell, textFilter;
+                            var val = $('div#logTable input#filterQueryText').val();
+                            
+                            if(val.length == 0) textFilter = null;
+                            else textFilter = new RegExp(val, 'i');
+                            
+                            var rowSum = 0, totalSum = 0;
+                            
+                            $('div#logTable table tbody tr').each(function() {
+                                // We just assume the sql text is always in the second last column
+                                cell = $(this).children(':nth-child(' + (cols.length - 1) + ')');
+                                
+                                if(textFilter==null || textFilter.exec(cell.text())) {
+                                    // And that total count is right of the sql text
+                                    totalSum += parseInt(cell.next().text());
+                                    rowSum ++;
+                                    
+                                    odd_row = !odd_row;    
+                                    $(this).css('display','');
+                                    if(odd_row) {
+                                        $(this).addClass('odd');
+                                        $(this).removeClass('even');
+                                    } else {
+                                        $(this).addClass('even');
+                                        $(this).removeClass('odd');
+                                    }
+                                } else {
+                                    $(this).css('display','none');
+                                }
+                            });
+                            
+                            
+                            $('div#logTable table tfoot tr')
+                                .html('<th colspan="' + (cols.length - 1) + 
+                                    '">Sum of grouped rows: '+ rowSum +'<span style="float:right">Total:</span></th><th align="right">' + 
+                                     totalSum + '</th>');
+                        };
+                    }
                     
                     var dlgBtns = {};
                     dlgBtns[PMA_messages['strJumpToTable']] = function() { 

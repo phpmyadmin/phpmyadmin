@@ -94,19 +94,19 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         if ($requested_sort_order == 'ASC') {
             $future_sort_order = 'DESC';
             // current sort order is ASC
-            $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="sort_arrow" />';
+            $order_img  = ' <img class="icon ic_s_asc" src="themes/dot.gif" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="sort_arrow" />';
             // but on mouse over, show the reverse order (DESC)
-            $order_link_params['onmouseover'] = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+            $order_link_params['onmouseover'] = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
             // on mouse out, show current sort order (ASC)
-            $order_link_params['onmouseout']  = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+            $order_link_params['onmouseout']  = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
         } else {
             $future_sort_order = 'ASC';
             // current sort order is DESC
-            $order_img  = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="sort_arrow" />';
+            $order_img  = ' <img class="icon ic_s_desc" src="themes/dot.gif" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="sort_arrow" />';
             // but on mouse over, show the reverse order (ASC)
-            $order_link_params['onmouseover'] = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+            $order_link_params['onmouseover']  = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
             // on mouse out, show current sort order (DESC)
-            $order_link_params['onmouseout']  = 'if(document.getElementById(\'sort_arrow\')){ document.getElementById(\'sort_arrow\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+            $order_link_params['onmouseout'] = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
         }
     }
 
