@@ -56,8 +56,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     echo '<a href="main.php?' . $query_url . '"'
         .' title="' . __('Home') . '">'
         .($GLOBALS['cfg']['MainPageIconic']
-            ? '<img class="icon" src="' . $pmaThemeImage . 'b_home.png" width="16" '
-                .' height="16" alt="' . __('Home') . '" />'
+            ? '<img class="icon ic_b_home" src="themes/dot.gif" alt="' . __('Home') . '" />'
             : __('Home'))
         .'</a>' . "\n";
     // if we have chosen server
@@ -69,8 +68,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
                 .urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . __('Log out') . '" >'
                 .($GLOBALS['cfg']['MainPageIconic']
-                    ? '<img class="icon" src="' . $pmaThemeImage . 's_loggoff.png" '
-                     .' width="16" height="16" alt="' . __('Log out') . '" />'
+                    ? '<img class="icon ic_s_loggoff" src="themes/dot.gif" alt="' . __('Log out') . '" />'
                     : __('Log out'))
                 .'</a>' . "\n";
         } // end if ($GLOBALS['cfg']['Server']['auth_type'] != 'config'
@@ -79,8 +77,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
 
         if ($GLOBALS['cfg']['MainPageIconic']) {
             $query_frame_link_text =
-                '<img class="icon" src="' . $pmaThemeImage . 'b_selboard.png"'
-                .' width="16" height="16" alt="' . __('Query window') . '" />';
+                '<img class="icon ic_b_selboard" src="themes/dot.gif" alt="' . __('Query window') . '" />';
         } else {
             echo '<br />' . "\n";
             $query_frame_link_text = __('Query window');
@@ -95,7 +92,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
         .' title="' . __('phpMyAdmin documentation') . '" >';
 
     if ($GLOBALS['cfg']['MainPageIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_docs.png" width="16" height="16"'
+        echo '<img class="icon ic_b_docs" src="themes/dot.gif"'
             .' alt="' . __('phpMyAdmin documentation') . '" />';
     }
     echo '</a>';
@@ -107,7 +104,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     }
     echo '<a href="navigation.php?' . PMA_generate_common_url($params) . '" target="frame_navigation">';
     if ($GLOBALS['cfg']['MainPageIconic']) {
-        echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_reload.png"'
+        echo '<img class="icon ic_s_reload" src="themes/dot.gif"'
             . ' title="' . __('Reload navigation frame') . '"'
             . ' alt="' . __('Reload navigation frame') . '" />';
     } else {

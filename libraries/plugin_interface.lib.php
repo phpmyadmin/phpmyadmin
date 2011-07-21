@@ -89,7 +89,7 @@ function PMA_pluginGetDefault($section, $opt)
         /* Possibly replace localised texts */
         if (preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', $GLOBALS['cfg'][$section][$opt], $matches)) {
             $val = $GLOBALS['cfg'][$section][$opt];
-            foreach($matches[0] as $match) {
+            foreach ($matches[0] as $match) {
                 if (isset($GLOBALS[$match])) {
                     $val = str_replace($match, $GLOBALS[$match], $val);
                 }
@@ -217,7 +217,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '<select name="' . $plugin_name . '_' . $opt['name'] . '"'
             . ' id="select_' . $plugin_name . '_' . $opt['name'] . '">';
         $default = PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']);
-        foreach($opt['values'] as $key => $val) {
+        foreach ($opt['values'] as $key => $val) {
             $ret .= '<option value="' . $key . '"';
             if ($key == $default) {
                 $ret .= ' selected="selected"';
@@ -227,7 +227,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         $ret .= '</select>';
     } elseif ($opt['type'] == 'radio') {
         $default = PMA_pluginGetDefault($section, $plugin_name . '_' . $opt['name']);
-        foreach($opt['values'] as $key => $val) {
+        foreach ($opt['values'] as $key => $val) {
             $ret .= '<li><input type="radio" name="' . $plugin_name . '_' . $opt['name'] . '" value="' . $key
             . '" id="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '"';
             if($key == $default) {

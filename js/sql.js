@@ -65,8 +65,8 @@ function appendInlineAnchor() {
 
             var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
             if ($img_object.length != 0) {
-                var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
-                $img_object.attr('src', img_src);
+                var img_class = $img_object.attr('class').replace(/b_edit/,'b_inline_edit');
+                $img_object.attr('class', img_class);
                 $cloned_anchor.find('a').attr('href', '#');
                 var $edit_span = $cloned_anchor.find('span:contains("' + PMA_messages['strEdit'] + '")');
                 var $span = $cloned_anchor.find('a').find('span');
@@ -85,8 +85,8 @@ function appendInlineAnchor() {
                 // the link was too big so <input type="image"> is there
                 $img_object = $cloned_anchor.find('input:image').attr('title', PMA_messages['strInlineEdit']);
                 if ($img_object.length > 0) {
-                    var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
-                    $img_object.attr('src', img_src);
+                    var img_class = $img_object.attr('class').replace(/b_edit/,'b_inline_edit');
+                    $img_object.attr('class', img_class);
                 }
                 $cloned_anchor
                  .find('.clickprevimage')
@@ -143,7 +143,7 @@ $(document).ready(function() {
             .parent()
             .toggle($(this).attr('value').length > 0);
     }).trigger('keyup');
-    
+
     /**
      * Attach the {@link appendInlineAnchor} function to a custom event, which
      * will be triggered manually everytime the table of results is reloaded
@@ -152,7 +152,7 @@ $(document).ready(function() {
     $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor();
     })
-    
+
     /**
      * Attach the {@link makegrid} function to a custom event, which will be
      * triggered manually everytime the table of results is reloaded
@@ -161,7 +161,7 @@ $(document).ready(function() {
     $("#sqlqueryresults").live('makegrid', function() {
         $('#table_results').makegrid();
     })
-    
+
     /**
      * Attach the {@link refreshgrid} function to a custom event, which will be
      * triggered manually everytime the table of results is manipulated (e.g., by inline edit)
@@ -281,10 +281,11 @@ $(document).ready(function() {
                 if ($zero_row_results.length > 0) {
                     $('#sqlquery').val($zero_row_results.val());
                 } else {
-                    $sqlqueryresults.show();
-                    $sqlqueryresults.html(data);
-                    $sqlqueryresults.trigger('appendAnchor');
-                    $sqlqueryresults.trigger('makegrid');
+                    $sqlqueryresults
+                     .show()
+                     .html(data)
+                     .trigger('appendAnchor')
+                     .trigger('makegrid');
                     $('#togglequerybox').show();
                     if ($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
@@ -320,14 +321,13 @@ $(document).ready(function() {
          */
         var $form = $(this).parent("form");
 
-        var $sqlqueryresults = $("#sqlqueryresults");
-
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function(data) {
-            $sqlqueryresults.html(data);
-            $sqlqueryresults.trigger('appendAnchor');
-            $sqlqueryresults.trigger('makegrid');
+            $("#sqlqueryresults")
+             .html(data)
+             .trigger('appendAnchor')
+             .trigger('makegrid');
             PMA_init_slider();
 
             PMA_ajaxRemoveMessage($msgbox);
@@ -341,22 +341,23 @@ $(document).ready(function() {
      * @see         $cfg['AjaxEnable']
      */
     $("#pageselector").live('change', function(event) {
-        var $the_form = $(this).parent("form");
+        var $form = $(this).parent("form");
 
         if ($(this).hasClass('ajax')) {
             event.preventDefault();
 
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.post($the_form.attr('action'), $the_form.serialize() + '&ajax_request=true', function(data) {
-                $("#sqlqueryresults").html(data);
-                $("#sqlqueryresults").trigger('appendAnchor');
-                $("#sqlqueryresults").trigger('makegrid');
+            $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
+                $("#sqlqueryresults")
+                 .html(data)
+                 .trigger('appendAnchor')
+                 .trigger('makegrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox);
             }) // end $.post()
         } else {
-            $the_form.submit();
+            $form.submit();
         }
 
     })// end Paginate results with Page Selector
@@ -444,8 +445,8 @@ $(document).ready(function() {
         // If icons are displayed. See $cfg['PropertiesIconic']
         if ($img_object.length > 0) {
             $img_object.attr('title', PMA_messages['strSave']);
-            var img_src = $img_object.attr('src').replace(/b_inline_edit/,'b_save');
-            $img_object.attr('src', img_src);
+            var img_class = $img_object.attr('class').replace(/b_inline_edit/,'b_save');
+            $img_object.attr('class', img_class);
             $this_children.prepend($img_object);
         }
 
@@ -464,8 +465,8 @@ $(document).ready(function() {
         // If icons are displayed. See $cfg['PropertiesIconic']
         if ($img_object.length > 0) {
             $img_object.attr('title', PMA_messages['strHide']);
-            var img_src = $img_object.attr('src').replace(/b_save/,'b_close');
-            $img_object.attr('src', img_src);
+            var img_class = $img_object.attr('class').replace(/b_save/,'b_close');
+            $img_object.attr('class', img_class);
             $hide_span.prepend($img_object);
         }
 
@@ -496,7 +497,7 @@ $(document).ready(function() {
             $(this).prev().prev().remove();
             $(this).prev().remove();
             $(this).remove();
-            
+
             // refresh the grid
             $("#sqlqueryresults").trigger('refreshgrid');
         });
@@ -710,10 +711,10 @@ $(document).ready(function() {
                 $this_field.data('original_data', 'NULL');
             }
         });
-        
+
         // refresh the grid
         $("#sqlqueryresults").trigger('refreshgrid');
-        
+
     }) // End On click, replace the current field with an input/textarea
 
     /**
@@ -979,13 +980,13 @@ $(document).ready(function() {
                 }
                 PMA_ajaxRemoveMessage($msgbox);
             }) // end $.get()
-        }  else {
+        } else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });
 
 /**
- * Click action for "Go" button in ajax dialog insertForm -> insertRowTable 
+ * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
  */
     $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
         event.preventDefault();
@@ -1230,7 +1231,9 @@ $(document).ready(function() {
  * Profiling Chart
  */
 function createProfilingChart() {
-    if($('#profilingchart').length==0) return;
+    if ($('#profilingchart').length == 0) {
+        return;
+    }
 
     var cdata = new Array();
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {

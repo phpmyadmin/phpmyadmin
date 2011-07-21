@@ -20,6 +20,8 @@ class PMA_checkParameters_test extends PHPUnit_Extensions_OutputTestCase
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['cfg'] = array('ReplaceHelpImg' => true, 'ServerDefault' => 1);
+        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     function testCheckParameterMissing()
@@ -36,6 +38,7 @@ class PMA_checkParameters_test extends PHPUnit_Extensions_OutputTestCase
     {
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['db'] = "dbDatabase";
         $GLOBALS['table'] = "tblTable";
         $GLOBALS['field'] = "test_field";
         $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";

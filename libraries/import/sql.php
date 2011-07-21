@@ -22,7 +22,7 @@ if (isset($plugin_list)) {
     $compats = PMA_DBI_getCompatibilities();
     if (count($compats) > 0) {
         $values = array();
-        foreach($compats as $val) {
+        foreach ($compats as $val) {
             $values[$val] = $val;
         }
         $plugin_list['sql']['options'] = array(

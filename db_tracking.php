@@ -98,7 +98,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . __('Delete tracking data for this table') . '" title="' . __('Delete tracking data for this table') . '" />';
+        $drop_image_or_text .= '<img class="icon ic_b_drop" src="themes/dot.gif" alt="' . __('Delete tracking data for this table') . '" title="' . __('Delete tracking data for this table') . '" />';
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= __('Drop');
@@ -198,7 +198,7 @@ if (isset($my_tables)) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($tablename) .'">';
 
             if ($cfg['PropertiesIconic']) {
-                $my_link .= '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . __('Track table') . '" /> ';
+                $my_link .= '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
             }
             $my_link .= __('Track table') . '</a>';
         ?>

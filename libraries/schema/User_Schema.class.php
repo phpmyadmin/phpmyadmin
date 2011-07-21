@@ -336,8 +336,7 @@ class PMA_User_Schema
             <?php
             echo PMA_generate_common_hidden_inputs($db);
             if ($cfg['PropertiesIconic']) {
-                echo '<img class="icon" src="' . $pmaThemeImage . 'b_view.png"'
-                .' alt="" width="16" height="16" />';
+                echo '<img class="icon ic_b_views" src="themes/dot.gif" />';
             }
             echo __('Display relational schema');
             ?>:
@@ -638,7 +637,7 @@ class PMA_User_Schema
              */
             $tables = PMA_DBI_get_tables_full($db);
             $foreignkey_tables = array();
-            foreach($tables as $table_name => $table_properties) {
+            foreach ($tables as $table_name => $table_properties) {
                    if (PMA_foreignkey_supported($table_properties['ENGINE'])) {
                         $foreignkey_tables[] = $table_name;
                     }

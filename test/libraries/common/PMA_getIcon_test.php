@@ -18,57 +18,58 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase{
     function testGetIconWithoutPropertiesIconic(){
 
         $GLOBALS['cfg']['PropertiesIconic'] = false;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
 
-        $this->assertEquals('<span class="nowrap"></span>',
-                            PMA_getIcon('b_comment.png') );
+        $this->assertEquals(
+            '<span class="nowrap"></span>',
+            PMA_getIcon('b_comment.png') 
+            );
     }
 
     function testGetIconWithPropertiesIconic(){
         
         $GLOBALS['cfg']['PropertiesIconic'] = true;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
 
-        $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            . 'b_comment.png" title="" alt="" class="icon" width="16" height="16" /></span>',
-                            PMA_getIcon('b_comment.png') );
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
+            PMA_getIcon('b_comment.png') 
+            );
     }
 
     function testGetIconAlternate(){
 
         $GLOBALS['cfg']['PropertiesIconic'] = true;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $alternate_text = 'alt_str';
 
-        $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            .'b_comment.png" title="' . $alternate_text . '" alt="' . $alternate_text
-                            . '" class="icon" width="16" height="16" /></span>',
-                            PMA_getIcon('b_comment.png',$alternate_text) );
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
+            . '" class="icon ic_b_comment" /></span>',
+            PMA_getIcon('b_comment.png', $alternate_text)
+            );
     }
 
     function testGetIconWithContainer(){
 
         $GLOBALS['cfg']['PropertiesIconic'] = true;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $alternate_text = 'alt_str';
 
-        $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            .'b_comment.png" title="' . $alternate_text . '" alt="' . $alternate_text
-                            . '" class="icon" width="16" height="16" /></span>',
-                            PMA_getIcon('b_comment.png',$alternate_text, true) );
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
+            . '" class="icon ic_b_comment" /></span>',
+            PMA_getIcon('b_comment.png', $alternate_text, true) 
+            );
 
     }
 
     function testGetIconWithContainerAndForceText(){
 
         $GLOBALS['cfg']['PropertiesIconic'] = true;
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $alternate_text = 'alt_str';
 
-        $this->assertEquals('<span class="nowrap"><img src="'.$GLOBALS['pmaThemeImage']
-                            .'b_comment.png" title="' . $alternate_text . '" alt="' . $alternate_text
-                            . '" class="icon" width="16" height="16" /> ' . $alternate_text . '</span>',
-                            PMA_getIcon('b_comment.png',$alternate_text, true, true) );
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
+            . '" class="icon ic_b_comment" /> ' . $alternate_text . '</span>',
+            PMA_getIcon('b_comment.png', $alternate_text, true, true)
+            );
 
     }
 }
