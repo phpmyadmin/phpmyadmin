@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:51+0200\n"
+"PO-Revision-Date: 2011-07-21 15:55+0200\n"
 "Last-Translator:  <teunome@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5023,7 +5023,7 @@ msgstr "Número de linhas:"
 
 #: libraries/display_export.lib.php:155
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Começar na linha:"
 
 #: libraries/display_export.lib.php:166
 msgid "Dump all rows"
