@@ -399,8 +399,7 @@ if ($db != 'mysql') {
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-            .' alt="" width="16" height="16" />';
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
     }
     echo __('Rename database to') . ':';
     ?>
@@ -437,8 +436,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
 <fieldset class="caution">
  <legend><?php
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon" src="' . $pmaThemeImage . 'b_deltbl.png"'
-        .' alt="" width="16" height="16" />';
+    echo '<img class="icon ic_b_deltbl" src="themes/dot.gif" alt="" />';
 }
 echo __('Remove database');
 ?></legend>
@@ -484,8 +482,7 @@ echo __('Remove database');
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-            .' alt="" width="16" height="16" />';
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
     }
     echo __('Copy database to') . ':';
     $drop_clause = 'DROP TABLE / DROP VIEW';
@@ -549,8 +546,7 @@ echo __('Remove database');
        . '<fieldset>' . "\n"
        . '    <legend>';
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 's_asci.png"'
-            .' alt="" width="16" height="16" />';
+        echo '<img class="icon ic_s_asci" src="themes/dot.gif" alt="" />';
     }
     echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
@@ -597,8 +593,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
      */
     echo '<div class="operations_full_width"><fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_edit.png"'
-            .' alt="" width="16" height="16" />';
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="" />';
     }
     echo __('Edit or export relational schema') . '</a></fieldset></div>';
 } // end if

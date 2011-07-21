@@ -113,9 +113,6 @@ require_once './libraries/header_http.inc.php';
     ?>
     <script type="text/javascript">
     // <![CDATA[
-    var image_minus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_minus.png';
-    var image_plus = '<?php echo $GLOBALS['pmaThemeImage']; ?>b_plus.png';
-
     // INIT PMA_setFrameSize
     var onloadCnt = 0;
     var onLoadHandler = window.onload;
@@ -230,9 +227,9 @@ if (! $GLOBALS['server']) {
 //    or $GLOBALS['cfg']['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 
-$img_plus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_plus.png"'
+$img_plus = '<img class="icon ic_b_plus" id="el%dImg" src="themes/dot.gif"'
     .' alt="+" />';
-$img_minus = '<img class="icon" id="el%dImg" src="' . $pmaThemeImage . 'b_minus.png"'
+$img_minus = '<img class="icon ic_b_minus" id="el%dImg" src="themes/dot.gif"'
     .' alt="-" />';
 
 $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
@@ -303,7 +300,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         $class = '';
         $GLOBALS['cfg']['AjaxEnable'] ? $class="ajax" : '';
         echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php' . PMA_generate_common_url(array('db' => $GLOBALS['db'])) . '"  class="'.$class .'" >'
-            .'<img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_snewtbl.png" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
+            .'<img class="icon ic_b_snewtbl" src="themes/dot.gif" id="icon_newtable" alt="' . _pgettext('short form', 'Create table') . '" />'
             . _pgettext('short form', 'Create table') . '</a></li></ul>';
     }
 } elseif ($GLOBALS['cfg']['LeftFrameLight']) {
@@ -597,11 +594,11 @@ function PMA_displayTableList($tables, $visible = false,
                 .'&amp;table=' . urlencode($table['Name'])
                 .'&amp;goto=' . $GLOBALS['cfg']['LeftDefaultTabTable']
                 . '" >'
-                .'<img class="icon"';
+                .'<img src="themes/dot.gif"';
             if ('VIEW' === strtoupper($table['Comment'])) {
-                echo ' src="' . $GLOBALS['pmaThemeImage'] . 's_views.png"';
+                echo ' class="icon ic_s_views"';
             } else {
-                echo ' src="' . $GLOBALS['pmaThemeImage'] . 'b_sbrowse.png"';
+                echo ' class="icon ic_b_sbrowse"';
             }
             echo ' id="icon_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
                 .' alt="' . htmlspecialchars($link_title) . '" /></a>' . "\n";

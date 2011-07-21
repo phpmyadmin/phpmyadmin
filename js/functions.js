@@ -135,14 +135,13 @@ function displayPasswordGenerateButton() {
  *
  * @param   object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element) {
+function PMA_addDatepicker($this_element, options) {
     var showTimeOption = false;
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-
-    $this_element
-        .datepicker({
+	
+	var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -164,7 +163,9 @@ function PMA_addDatepicker($this_element) {
             },0);
         },
         constrainInput: false
-     });
+	};
+
+    $this_element.datepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -2283,10 +2284,10 @@ function checkIndexName(form_id)
 /**
  * function to convert the footnotes to tooltips
  *
- * @param   jquery-Object   $div    a div jquery object which crries the domain
- *                                  for searching footnootes. If we ommit this
- *                                  parameter the function searches the footnotes
- *                                  in the whole body
+ * @param   jquery-Object   $div    a div jquery object which specifies the 
+ *                                  domain for searching footnootes. If we 
+ *                                  ommit this parameter the function searches 
+ *                                  the footnotes in the whole body
  **/
 function PMA_convertFootnotesToTooltips($div) {
     // Hide the footnotes from the footer (which are displayed for
@@ -2312,8 +2313,8 @@ function PMA_convertFootnotesToTooltips($div) {
 
     $div.find("img.footnotemarker").each(function() {
         var img_class = $(this).attr("class");
-        /** img contains two classes, as example "footnotemarker footnote_1_1".
-         *  We spit it by second classs and take it for the id of span
+        /** img contains two classes, as example "footnotemarker footnote_1".
+         *  We split it by second class and take it for the id of span
         */
         img_class = img_class.split(" ");
         for (i = 0; i < img_class.length; i++) {
@@ -2323,7 +2324,7 @@ function PMA_convertFootnotesToTooltips($div) {
         }
         /**
          * Now we get the #id of the span with span_id variable. As an example if we
-         * initially get the img class as "footnotemarker footnote_2_3", now we get
+         * initially get the img class as "footnotemarker footnote_2", now we get
          * #2 as the span_id. Using that we can find footnote_2 in footnotes.
          * */
         var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
@@ -2409,7 +2410,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)

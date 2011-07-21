@@ -429,7 +429,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     // Prepare delete link content here
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . __('Delete tracking data row from report') . '" title="' . __('Delete tracking data row from report') . '" />';
+        $drop_image_or_text .= '<img class="icon ic_b_drop" src="themes/dot.gif" alt="' . __('Delete tracking data row from report') . '" title="' . __('Delete tracking data row from report') . '" />';
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= __('Delete');
