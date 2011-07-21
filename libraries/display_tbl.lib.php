@@ -251,10 +251,10 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
 /**
  * Displays a navigation bar to browse among the results of a SQL query
  *
- * @param   integer  the offset for the "next" page
- * @param   integer  the offset for the "previous" page
- * @param   string   the URL-encoded query
- * @param   string   the id for the direction dropdown
+ * @param integer $pos_next                  the offset for the "next" page
+ * @param integer $pos_prev                  the offset for the "previous" page
+ * @param string  $sql_query                 the URL-encoded query
+ * @param string  $id_for_direction_dropdown the id for the direction dropdown
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
