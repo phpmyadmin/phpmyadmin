@@ -10182,10 +10182,9 @@ msgid "Status variable(s)"
 msgstr "Vedi la tabella di stato dello slave"
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Seleziona Tables"
+msgstr "Seleziona serie:"
 
 #: server_status.php:1374
 msgid "Commonly monitored"
