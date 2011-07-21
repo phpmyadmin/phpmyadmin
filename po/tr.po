@@ -1326,7 +1326,7 @@ msgstr "Yavaş günlükten"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "Genel günlükten"
 
 #: js/messages.php:145
 msgid "Analysing & loading logs. This may take a while."
