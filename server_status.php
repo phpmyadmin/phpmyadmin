@@ -312,6 +312,8 @@ $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * flush status variables if requested

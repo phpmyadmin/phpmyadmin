@@ -368,7 +368,7 @@ $(function() {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
                 if(data != null) tab.find('.tabInnerContent').html(data);
-                initTooltips();
+                PMA_convertFootnotesToTooltips();
                 break;
             case 'statustabs_queries':
                 if(data != null) {
@@ -1595,7 +1595,6 @@ $(function() {
                         if(filteredQueries[q]) {
                             filteredQueries[q] += parseInt($(this).next().text());
                             totalSum += parseInt($(this).next().text());
-                            rowSum ++;
                             hide = true;
                         } else {
                             filteredQueries[q] = parseInt($(this).next().text());;
@@ -1654,7 +1653,7 @@ $(function() {
             $('div#logTable table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' + 
                       PMA_messages['strSumRows'] + ' '+ rowSum +'<span style="float:right">' + 
-                      PMA_messages['strTotal'] + ':</span></th><th align="right">' + totalSum + '</th>');
+                      PMA_messages['strTotal'] + '</span></th><th align="right">' + totalSum + '</th>');
         }
     }
     
@@ -1714,7 +1713,8 @@ $(function() {
                - Any string appearance containing a MySQL Keyword, surrounded by whitespaces
                - Subqueries too probably
             */
-            var sLists = query.match(/SELECT\s+[^]+\s+FROM\s+/gi);
+            // .* selector doesn't includde whitespace, [^] doesn't work in IE8, thus we use [^\0] since the zero-byte char (hopefully) doesn't appear in table names ;)
+            var sLists = query.match(/SELECT\s+[^\0]+\s+FROM\s+/gi);
             if(sLists) {
                 for(var i=0; i < sLists.length; i++) {
                     query = query.replace(sLists[i],sLists[i].replace(/\s*((`|'|"|).*?\1,)\s*/gi,'$1\n\t'));
