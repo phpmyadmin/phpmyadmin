@@ -1843,7 +1843,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * Not sure we could use a strMissingParameter message here,
  * would have to check if the error message file is always available
  *
- * @todo    localize error message
  * @todo    use PMA_fatalError() if $die === true?
  * @param   array  $params  The names of the parameters needed by the calling script.
  * @param   bool   $die Stop the execution?
@@ -1874,7 +1873,8 @@ function PMA_checkParameters($params, $die = true, $request = true)
 
         if (! isset($GLOBALS[$param])) {
             $error_message .= $reported_script_name
-                . ': Missing parameter: ' . $param
+                . ': ' . __('Missing parameter:') . ' '
+                . $param
                 . PMA_showDocu('faqmissingparameters')
                 . '<br />';
             $found_error = true;
