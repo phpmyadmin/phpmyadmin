@@ -10218,10 +10218,9 @@ msgid "Clear series"
 msgstr ""
 
 #: server_status.php:1413
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
-msgstr "Query SQL"
+msgstr "Serie del grafico:"
 
 #: server_status.php:1421
 #, fuzzy
