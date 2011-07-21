@@ -1391,6 +1391,8 @@ msgstr "Vai alla tabella di Log"
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Il log é stato analizzato, nessun dato é stato trovato per questo intervallo "
+"di tempo."
 
 #: js/messages.php:155 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
