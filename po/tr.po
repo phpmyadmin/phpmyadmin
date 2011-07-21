@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 20:41+0200\n"
+"PO-Revision-Date: 2011-07-21 20:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9904,6 +9904,17 @@ msgstr ""
 "olabilir. Sonrası için log_output'u 'TABLE'a ayarlamanız gerekecektir ve ya "
 "slow_query_log ya da general_log etkinleştirilir."
 
+# <b>İzleyici kullanımı:</b><br/>\n
+#         Ok, you are good to go! Once you click 'Start monitor' your browser will refresh all displayed charts
+#         in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart
+#         using the cog icon on each respective chart.
+#         <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
+#         left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
+#         activity spike.</p>
+#         <p><b>Please note:</b>
+#         Enabling the general_log may increase the server load by up to 5-15%. Also be aware that generating statistics out of the logs is a 
+#         very load intensive task, thus it is advisable to select only a small time span.
+#         </p>
 #: server_status.php:1342
 msgid ""
 "<b>Using the monitor:</b><br/>\n"
