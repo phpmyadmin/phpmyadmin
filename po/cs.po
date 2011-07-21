@@ -1149,7 +1149,7 @@ msgstr "Operační paměť"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Odkládací oblast"
 
 #: js/messages.php:97 libraries/common.lib.php:1276 server_status.php:1398
 msgid "MiB"
