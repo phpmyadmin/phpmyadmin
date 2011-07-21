@@ -130,7 +130,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
-            $image = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
+            $pdf = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
         }
         return $pdf;
     }
