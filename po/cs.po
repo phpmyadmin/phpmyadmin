@@ -1188,10 +1188,9 @@ msgid "Edit labels and series"
 msgstr "Upravit popisky a série"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Zachytávat na mřížku"
+msgstr "Přidat graf do mřížky"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
