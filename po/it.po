@@ -1356,7 +1356,7 @@ msgstr "Dal slow log"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "Dal general log"
 
 #: js/messages.php:145
 msgid "Analysing & loading logs. This may take a while."
