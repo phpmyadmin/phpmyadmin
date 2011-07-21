@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:38+0200\n"
+"PO-Revision-Date: 2011-07-21 17:39+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7076,10 +7076,10 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Il campo %s è stato eliminato"
+msgstr "La routine %1$s é stata modificata."
 
 #: libraries/rte/rte_routines.lib.php:286
 #, fuzzy, php-format
