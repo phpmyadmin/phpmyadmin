@@ -10095,7 +10095,7 @@ msgstr "Avvia monitoraggio"
 #: server_status.php:1298
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Istruzioni/Installazione"
+msgstr "Istruzioni/Configurazione"
 
 #: server_status.php:1302
 msgid "Done rearranging/editing charts"
