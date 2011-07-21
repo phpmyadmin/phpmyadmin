@@ -8,7 +8,6 @@
 
 /**
  *
- * @todo replace error messages with localized string
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
  * @package phpMyAdmin
@@ -258,7 +257,7 @@ class PMA_File
             }
 
             if (! $bs_db || ! $bs_table) {
-                $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                $this->_error_message = __('Unknown error while uploading.');
                 return false;
             }
             $blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
@@ -388,7 +387,7 @@ class PMA_File
                 }
 
                 if (! $bs_db || !$bs_table) {
-                    $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                    $this->_error_message = __('Unknown error while uploading.');
                     return false;
                 }
                 $blob_url = PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
