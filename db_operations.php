@@ -405,17 +405,6 @@ if ($db != 'mysql') {
     ?>
         </legend>
         <input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" />
-        <?php
-    echo '(' . __('Command') . ': ';
-    /**
-     * @todo (see explanations above in a previous todo)
-     */
-    //if (PMA_MYSQL_INT_VERSION >= XYYZZ) {
-    //    echo 'RENAME DATABASE';
-    //} else {
-        echo 'INSERT INTO ... SELECT';
-    //}
-    echo ')'; ?>
     </fieldset>
     <fieldset class="tblFooters">
         <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />
