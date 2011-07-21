@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 16:27+0200\n"
+"PO-Revision-Date: 2011-07-21 16:28+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1273,10 +1273,10 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Salva l'output in un file"
+msgstr "Imposta log_output a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
