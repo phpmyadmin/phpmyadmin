@@ -1225,7 +1225,7 @@ msgstr "Arresta il monitoraggio"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log e slow_query_log sono abilitati."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
