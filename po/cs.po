@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 09:04+0200\n"
-"PO-Revision-Date: 2011-07-17 20:07+0200\n"
+"PO-Revision-Date: 2011-07-21 09:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: libraries/display_tbl.lib.php:354 libraries/display_tbl.lib.php:421
 #: server_privileges.php:1583
 msgid "Show all"
-msgstr "Zobrazit vše"
+msgstr "Zobrazit vše "
 
 #: browse_foreigners.php:70 libraries/common.lib.php:2173
 #: libraries/export/pdf.php:135
@@ -1127,10 +1127,9 @@ msgstr "Připojení / Procesů"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Spojení od posledního obnovaní"
+msgstr "Dotazů od poslední aktualizace"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
@@ -1143,7 +1142,7 @@ msgstr "Statistika dotazů"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Využití CPU"
 
 #: js/messages.php:95
 msgid "System memory"
