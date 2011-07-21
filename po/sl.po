@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 19:35+0200\n"
+"PO-Revision-Date: 2011-07-21 19:36+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
@@ -1832,7 +1832,7 @@ msgstr "Velikost pisave"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Datoteka ni naložen datoteka."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #, fuzzy
