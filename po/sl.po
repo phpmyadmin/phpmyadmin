@@ -2439,10 +2439,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dni, %s ur, %s minut in %s sekund"
 
 #: libraries/common.lib.php:1876
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Parametri rutine"
+msgstr "Manjkajoč parameter:"
 
 #: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:299
