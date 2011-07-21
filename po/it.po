@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 16:11+0200\n"
+"PO-Revision-Date: 2011-07-21 16:12+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1071,7 +1071,7 @@ msgstr "Modifica"
 #: js/messages.php:66 server_status.php:604
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Grafico di traffico in tempo reale"
+msgstr "Grafico del traffico in tempo reale"
 
 #: js/messages.php:67 server_status.php:607
 msgid "Live conn./process chart"
