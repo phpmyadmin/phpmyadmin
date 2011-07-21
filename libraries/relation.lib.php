@@ -48,7 +48,7 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 function PMA_getRelationsParam($verbose = false)
 {
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
-        $_SESSION['relation'][$GLOBALS['server']] = PMA_getRelationsParam();
+        $_SESSION['relation'][$GLOBALS['server']] = PMA__getRelationsParam();
     }
 
     // just for BC but needs to be before PMA_printRelationsParamDiagnostic()
@@ -196,7 +196,7 @@ function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $
  * @access  protected
  * @return  array    the relation parameters for the current user
  */
-function PMA_getRelationsParam()
+function PMA__getRelationsParam()
 {
     $cfgRelation                = array();
     $cfgRelation['relwork']     = false;
@@ -277,7 +277,7 @@ function PMA_getRelationsParam()
                 $cfgRelation['displaywork'] = true;
         }
     }
-
+    
     if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
         $cfgRelation['pdfwork']     = true;
     }
@@ -766,7 +766,7 @@ function PMA_purgeHistory($username)
  *
  * @access  protected
  */
-function PMA_foreignDropdownBuild($foreign, $data, $mode)
+function PMA__foreignDropdownBuild($foreign, $data, $mode)
 {
     $reloptions = array();
 
@@ -816,7 +816,7 @@ function PMA_foreignDropdownBuild($foreign, $data, $mode)
     } // end foreach
 
     return $reloptions;
-} // end of 'PMA_foreignDropdownBuild' function
+} // end of 'PMA__foreignDropdownBuild' function
 
 /**
  * Outputs dropdown with values of foreign fields
@@ -857,19 +857,19 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
     if ($foreign_display) {
         if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
             if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
-                $top = PMA_foreignDropdownBuild($foreign, $data,
+                $top = PMA__foreignDropdownBuild($foreign, $data,
                     $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]);
             }
             if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
-                $bottom = PMA_foreignDropdownBuild($foreign, $data,
+                $bottom = PMA__foreignDropdownBuild($foreign, $data,
                     $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]);
             }
         } else {
-            $top = PMA_foreignDropdownBuild($foreign, $data, 'id-content');
-            $bottom = PMA_foreignDropdownBuild($foreign, $data, 'content-id');
+            $top = PMA__foreignDropdownBuild($foreign, $data, 'id-content');
+            $bottom = PMA__foreignDropdownBuild($foreign, $data, 'content-id');
         }
     } else {
-        $top = PMA_foreignDropdownBuild($foreign, $data, 'id-only');
+        $top = PMA__foreignDropdownBuild($foreign, $data, 'id-only');
     }
 
     // beginning of dropdown
