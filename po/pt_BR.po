@@ -1201,7 +1201,7 @@ msgstr "Ajustar à grade"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Por favor adicione ao menos uma variável a série"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1039
