@@ -6893,10 +6893,10 @@ msgstr "Genera Password"
 #: libraries/rte/rte_routines.lib.php:1242
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
 #: libraries/rte/rte_triggers.lib.php:103
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "Le seguenti query sono state eseguite:"
+msgstr "La seguente query é fallita: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
 msgid "Sorry, we failed to restore the dropped event."
