@@ -5368,7 +5368,7 @@ msgstr "Ripristina l'ordine dei campi"
 
 #: libraries/display_tbl.lib.php:414
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Trascina per riordinare"
 
 #: libraries/display_tbl.lib.php:415
 #, fuzzy
