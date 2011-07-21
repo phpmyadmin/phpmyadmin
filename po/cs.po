@@ -1225,7 +1225,7 @@ msgstr "slow_query_log je povolen."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log a general_log jsou zakázány."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
