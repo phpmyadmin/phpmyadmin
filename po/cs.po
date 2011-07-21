@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:14+0200\n"
+"PO-Revision-Date: 2011-07-21 15:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1357,6 +1357,8 @@ msgstr ""
 #: js/messages.php:148
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Záznamy byly načteny. V tomto časovém rozmezí byly spuštěny následující "
+"dotazy:"
 
 #: js/messages.php:150
 #| msgid "Jump to database"
