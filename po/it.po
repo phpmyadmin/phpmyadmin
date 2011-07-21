@@ -7261,7 +7261,7 @@ msgstr "È necessario fornire il timing del trigger"
 
 #: libraries/rte/rte_triggers.lib.php:409
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "È necessario fornire un valido evento per il trigger"
 
 #: libraries/rte/rte_triggers.lib.php:415
 #, fuzzy
