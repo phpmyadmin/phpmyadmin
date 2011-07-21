@@ -9888,10 +9888,9 @@ msgid "Commonly monitored"
 msgstr "Obvykle monitorované"
 
 #: server_status.php:1389
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "Musíte zadat platné jméno tabulky"
+msgstr "nebo zadejte jméno proměnné:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
