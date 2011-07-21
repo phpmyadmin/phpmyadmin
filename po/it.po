@@ -586,10 +586,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Le parole sono separate da spazi (\" \")."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Nella/e tabella/e:"
+msgstr "Nelle tabelle:"
 
 #: db_search.php:328
 msgid "Inside column:"
