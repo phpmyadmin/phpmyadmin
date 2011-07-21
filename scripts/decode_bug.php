@@ -87,9 +87,9 @@ if (!empty($bug_encoded)) {
     $bug_decoded     = base64_decode($bug_encoded);
     if (substr($bug_encoded, 0, 2) == 'eN') {
         if (function_exists('gzuncompress')) {
-            $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
+                $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
             } else {
-            $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
+                $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
         }
     } else {
         $result  = PMA_printDecodedBug($bug_decoded);
