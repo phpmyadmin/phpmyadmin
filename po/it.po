@@ -7344,10 +7344,10 @@ msgid "Add event"
 msgstr "Aggiungi un nuovo server"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "Esporta contenuti"
+msgstr "Esportazione dell'evento %s"
 
 #: libraries/rte/rte_words.lib.php:45
 #, fuzzy
