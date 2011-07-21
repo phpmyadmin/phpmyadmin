@@ -1311,7 +1311,7 @@ msgstr "Rozdíly"
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Vyděleno %s:"
 
 #: js/messages.php:140
 #| msgid "Select page"
