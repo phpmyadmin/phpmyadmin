@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:58+0200\n"
+"PO-Revision-Date: 2011-07-21 18:59+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10352,7 +10352,7 @@ msgstr ""
 
 #: server_variables.php:58
 msgid "Setting variable failed"
-msgstr ""
+msgstr "L'impostazione della variablile é fallita"
 
 #: server_variables.php:77
 msgid "Server variables and settings"
