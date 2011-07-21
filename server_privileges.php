@@ -139,7 +139,7 @@ $random_n = mt_rand(0,1000000); // a random number that will be appended to the 
  * @param   string   $tablename
  * @return  string   the escaped (if necessary) $db_and_table
  */
-function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
+function PMA_wildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
 
     if (! strlen($dbname)) {
         $db_and_table = '*.*';
@@ -161,7 +161,7 @@ function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
  * @param   string   the user's initial
  * @return  string   the generated condition
  */
-function PMA_RangeOfUsers($initial = '')
+function PMA_rangeOfUsers($initial = '')
 {
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
@@ -588,7 +588,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n";
 
         // Output the Global privilege tables with checkboxes
-        foreach($privTable as $i => $table) {
+        foreach ($privTable as $i => $table) {
             echo '    <fieldset>' . "\n"
                 . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
             foreach ($table as $priv)
@@ -1106,7 +1106,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (!empty($update_privs)) {
-    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, (isset($tablename) ? $tablename : ''));
+    $db_and_table = PMA_wildcardEscapeForGrant($db_and_table, $dbname, (isset($tablename) ? $tablename : ''));
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1182,7 +1182,7 @@ if (!empty($update_privs)) {
  * Revokes Privileges
  */
 if (isset($_REQUEST['revokeall'])) {
-    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, isset($tablename) ? $tablename : '');
+    $db_and_table = PMA_wildcardEscapeForGrant($db_and_table, $dbname, isset($tablename) ? $tablename : '');
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1358,7 +1358,7 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
  * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
  * show $message and exit.
  */
-if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
+if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if(isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
@@ -1452,12 +1452,12 @@ if (isset($_REQUEST['export'])) {
     echo '<h2>' . __('User') . ' \'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</h2>';
     echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($username) . "'@'" . PMA_sqlAddSlashes($hostname) . "'");
-    foreach($grants as $one_grant) {
+    foreach ($grants as $one_grant) {
         echo $one_grant . ";\n\n";
     }
     echo '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
-    if( $GLOBALS['is_ajax_request']) {
+    if ($GLOBALS['is_ajax_request']) {
         exit;
     }
 }
@@ -1475,7 +1475,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
             '  FROM `mysql`.`user`';
 
-        $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
+        $sql_query .= (isset($initial) ? PMA_rangeOfUsers($initial) : '');
 
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
         $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
@@ -1516,7 +1516,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $db_rights_sqls = array();
             foreach ($tables_to_search_for_users as $table_search_in) {
                 if (in_array($table_search_in, $tables)) {
-                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_RangeOfUsers($initial) : '');
+                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_rangeOfUsers($initial) : '');
                 }
             }
 
@@ -1552,7 +1552,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
              * In an Ajax request, we don't need to show this. Also not necassary if there is less than 20 privileges
              */
 
-            if( $GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
+            if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
 
                 // initialize to false the letters A-Z
                 for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -1704,7 +1704,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
 
-            if( $GLOBALS['is_ajax_request'] ) {
+            if ($GLOBALS['is_ajax_request']) {
                 exit;
             }
 
@@ -2119,7 +2119,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         '1' => __('Create database with same name and grant all privileges'),
         '2' => __('Grant all privileges on wildcard name (username\\_%)'));
 
-    if ( !empty($dbname) ) {
+    if (! empty($dbname) ) {
         $choices['3'] = sprintf( __('Grant all privileges on database &quot;%s&quot;'),  htmlspecialchars($dbname));
         $default_choice = 3;
         echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";

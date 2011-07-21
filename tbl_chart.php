@@ -99,7 +99,7 @@ url_query = '<?php echo $url_query;?>';
             echo __('X-Axis:'); ?> <select name="chartXAxis">
             <?php
             
-            foreach($keys as $idx=>$key) {
+            foreach ($keys as $idx=>$key) {
                 if($yaxis==-1 && ($idx==count($data[0])-1 || preg_match("/(date|time)/i",$key))) {
                     echo '<option value="'.$idx.'" selected>'.$key.'</option>';
                     $yaxis=$idx;
@@ -114,7 +114,7 @@ url_query = '<?php echo $url_query;?>';
         <select name="chartSeries">
             <option value="columns"><?php echo __('The remaining columns'); ?></option>
             <?php
-            foreach($keys as $idx=>$key) {
+            foreach ($keys as $idx=>$key) {
                 echo '<option>'.$key.'</option>';
             }
         ?>

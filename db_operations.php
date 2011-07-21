@@ -78,7 +78,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         // the db name
         $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
         if ($procedure_names) {
-            foreach($procedure_names as $procedure_name) {
+            foreach ($procedure_names as $procedure_name) {
                 PMA_DBI_select_db($db);
                 $tmp_query = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name);
                 // collect for later display
@@ -90,7 +90,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
         $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
         if ($function_names) {
-            foreach($function_names as $function_name) {
+            foreach ($function_names as $function_name) {
                 PMA_DBI_select_db($db);
                 $tmp_query = PMA_DBI_get_definition($db, 'FUNCTION', $function_name);
                 // collect for later display
@@ -235,7 +235,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // the db name
             $event_names = PMA_DBI_fetch_result('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db,true) . '\';');
             if ($event_names) {
-                foreach($event_names as $event_name) {
+                foreach ($event_names as $event_name) {
                     PMA_DBI_select_db($db);
                     $tmp_query = PMA_DBI_get_definition($db, 'EVENT', $event_name);
                     // collect for later display

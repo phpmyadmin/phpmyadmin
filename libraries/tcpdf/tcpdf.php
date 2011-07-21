@@ -8437,7 +8437,7 @@ class TCPDF {
         //Pages root
         $out = $this->_getobj(1)."\n";
         $out .= '<< /Type /Pages /Kids [';
-        foreach($this->page_obj_id as $page_obj) {
+        foreach ($this->page_obj_id as $page_obj) {
             $out .= ' '.$page_obj.' 0 R';
         }
         $out .= ' ] /Count '.$nb.' >>';
@@ -8902,7 +8902,7 @@ class TCPDF {
                                 }
                                 if (isset($pl['opt']['mk']['bc']) AND (is_array($pl['opt']['mk']['bc']))) {
                                     $annots .= ' /BC [';
-                                    foreach($pl['opt']['mk']['bc'] AS $col) {
+                                    foreach ($pl['opt']['mk']['bc'] AS $col) {
                                         $col = intval($col);
                                         $color = $col <= 0 ? 0 : ($col >= 255 ? 1 : $col / 255);
                                         $annots .= sprintf(' %.2F', $color);
@@ -8911,7 +8911,7 @@ class TCPDF {
                                 }
                                 if (isset($pl['opt']['mk']['bg']) AND (is_array($pl['opt']['mk']['bg']))) {
                                     $annots .= ' /BG [';
-                                    foreach($pl['opt']['mk']['bg'] AS $col) {
+                                    foreach ($pl['opt']['mk']['bg'] AS $col) {
                                         $col = intval($col);
                                         $color = $col <= 0 ? 0 : ($col >= 255 ? 1 : $col / 255);
                                         $annots .= sprintf(' %.2F', $color);
@@ -8988,7 +8988,7 @@ class TCPDF {
                                 if (is_array($pl['opt']['ff'])) {
                                     // array of bit settings
                                     $flag = 0;
-                                    foreach($pl['opt']['ff'] as $val) {
+                                    foreach ($pl['opt']['ff'] as $val) {
                                         $flag += 1 << ($val - 1);
                                     }
                                 } else {
@@ -9052,7 +9052,7 @@ class TCPDF {
                             }
                             if (isset($pl['opt']['opt']) AND (is_array($pl['opt']['opt'])) AND !empty($pl['opt']['opt'])) {
                                 $annots .= ' /Opt [';
-                                foreach($pl['opt']['opt'] AS $copt) {
+                                foreach ($pl['opt']['opt'] AS $copt) {
                                     if (is_array($copt)) {
                                         $annots .= ' ['.$this->_textstring($copt[0], $annot_obj_id).' '.$this->_textstring($copt[1], $annot_obj_id).']';
                                     } else {
@@ -9066,7 +9066,7 @@ class TCPDF {
                             }
                             if (isset($pl['opt']['i']) AND (is_array($pl['opt']['i'])) AND !empty($pl['opt']['i'])) {
                                 $annots .= ' /I [';
-                                foreach($pl['opt']['i'] AS $copt) {
+                                foreach ($pl['opt']['i'] AS $copt) {
                                     $annots .= intval($copt).' ';
                                 }
                                 $annots .= ']';
@@ -10595,7 +10595,7 @@ class TCPDF {
                 $objrefs .= $this->sig_obj_id.' 0 R';
             }
             if (!empty($this->form_obj_id)) {
-                foreach($this->form_obj_id as $objid) {
+                foreach ($this->form_obj_id as $objid) {
                     $objrefs .= ' '.$objid.' 0 R';
                 }
             }
@@ -17875,7 +17875,7 @@ class TCPDF {
     protected function getTagStyleFromCSS($dom, $key, $css) {
         $tagstyle = ''; // style to be returned
         // get all styles that apply
-        foreach($css as $selector => $style) {
+        foreach ($css as $selector => $style) {
             // remove specificity
             $selector = substr($selector, strpos($selector, ' '));
             // check if this selector apply to current tag
@@ -23789,7 +23789,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
         $patterns_array = preg_split('/[\s]+/', $data);
         // create new language array of patterns
         $patterns = array();
-        foreach($patterns_array as $val) {
+        foreach ($patterns_array as $val) {
             if (!$this->empty_string($val)) {
                 $val = trim($val);
                 $val = str_replace('\'', '\\\'', $val);
@@ -25077,12 +25077,12 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
                     $gradient['coords'][4] /= $w;
                 }
             } elseif ($gradient['mode'] == 'percentage') {
-                foreach($gradient['coords'] as $key => $val) {
+                foreach ($gradient['coords'] as $key => $val) {
                     $gradient['coords'][$key] = (intval($val) / 100);
                 }
             }
             // fix values
-            foreach($gradient['coords'] as $key => $val) {
+            foreach ($gradient['coords'] as $key => $val) {
                 if ($val < 0) {
                     $gradient['coords'][$key] = 0;
                 } elseif ($val > 1) {

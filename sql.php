@@ -118,7 +118,7 @@ if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) 
     $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
 
     $dropdown = '<option value="">&nbsp;</option>';
-    foreach($values as $value) {
+    foreach ($values as $value) {
         $dropdown .= '<option value="' . htmlspecialchars($value) . '"';
         if($value == $_REQUEST['curr_value']) {
             $dropdown .= ' selected="selected"';
@@ -146,7 +146,7 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
 
     $select = '';
-    foreach($values as $value) {
+    foreach ($values as $value) {
         $select .= '<option value="' . htmlspecialchars($value) . '"';
         if(in_array($value, $selected_values, true)) {
             $select .= ' selected="selected"';
@@ -712,7 +712,7 @@ if (0 == $num_rows || $is_affected) {
             $rel_fields = array();
             parse_str($_REQUEST['rel_fields_list'], $rel_fields);
 
-            foreach( $rel_fields as $rel_field => $rel_field_value) {
+            foreach ( $rel_fields as $rel_field => $rel_field_value) {
 
                 $where_comparison = "='" . $rel_field_value . "'";
                 $display_field = PMA_getDisplayField($map[$rel_field]['foreign_db'], $map[$rel_field]['foreign_table']);
@@ -779,7 +779,7 @@ if (0 == $num_rows || $is_affected) {
             $edited_values = array();
             parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
-            foreach($mime_map as $transformation) {
+            foreach ($mime_map as $transformation) {
                 $include_file = $transformation['transformation'];
                 $column_name = $transformation['column_name'];
                 $column_data = $edited_values[$column_name];
@@ -821,7 +821,7 @@ if (0 == $num_rows || $is_affected) {
         $goto = PMA_securePath($goto);
         // Checks for a valid target script
         $is_db = $is_table = false;
-        if (isset($_REQUEST['purge'])) {
+        if (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1') {
             $table = '';
             unset($url_params['table']);
         }
@@ -944,7 +944,7 @@ $(document).ready(createProfilingChart);
         echo ' </tr>' .  "\n";
 
         $chart_json = Array();
-        foreach($profiling_results as $one_result) {
+        foreach ($profiling_results as $one_result) {
             echo ' <tr>' .  "\n";
             echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
             echo '<td align="right">' . (PMA_formatNumber($one_result['Duration'],3,1)) . 's</td>' .  "\n";

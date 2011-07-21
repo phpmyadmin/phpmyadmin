@@ -965,7 +965,7 @@ img.sortableIcon {
 }
 
 h3#serverstatusqueries span {
-    font-size:60%;    
+    font-size:60%;
     display:inline;
 }
 
@@ -1046,9 +1046,9 @@ div#serverstatus table .tblFooters a:after {
 }
 
 div.liveChart {
-    clear:both; 
-    min-width:500px; 
-    height:400px; 
+    clear:both;
+    min-width:500px;
+    height:400px;
     padding-bottom:80px;
 }
 

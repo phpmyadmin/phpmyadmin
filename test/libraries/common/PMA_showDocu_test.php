@@ -15,6 +15,11 @@ require_once 'libraries/common.lib.php';
 
 class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 {
+    function setup()
+    {
+        $GLOBALS['pmaThemeImage'] = 'theme/';
+    }
+
     function testShowDocuReplaceHelpImg()
     {
         $GLOBALS['cfg']['ReplaceHelpImg'] = true;

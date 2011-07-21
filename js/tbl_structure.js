@@ -160,7 +160,7 @@ $(document).ready(function() {
             var url = $form.serialize()+"&ajax_request=true&submit_mult=change";
             /*Calling for the changeColumns fucntion*/
             changeColumns(action,url);
-        }  else {
+        } else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });

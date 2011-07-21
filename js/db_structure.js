@@ -63,9 +63,12 @@ $(document).ready(function() {
         currrent_insert_table = $(this);
         var $url = $(this).attr("href");
         if ($url.substring(0, 15) == "tbl_change.php?") {
-             $url = $url.substring(15);
+            $url = $url.substring(15);
         }
 
+        if ($("#insert_table_dialog").length > 0) {
+            $("#insert_table_dialog").remove();
+        }
        	var $div = $('<div id="insert_table_dialog"></div>');
        	var target = "tbl_change.php";
 
@@ -110,10 +113,12 @@ $(document).ready(function() {
                 $dialog.find("#topmenucontainer").hide();
                 //Adding the datetime pikers for the dialog
                 $dialog.find('.datefield, .datetimefield').each(function () {
-                       PMA_addDatepicker($(this));
+                    PMA_addDatepicker($(this));
                 });
                 $(".insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
+                $div = $("#insert_table_dialog");
+                PMA_convertFootnotesToTooltips($div);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()

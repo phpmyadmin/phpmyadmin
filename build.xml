@@ -60,8 +60,8 @@
 
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, PHPExcel, tcpdf directories">
   <exec executable="phpcs">
-   <arg line="-v
-              --ignore=*/PHPExcel/*,*/php-gettext/*,*/tcpdf/*
+   <arg line="
+              --ignore=*/PHPExcel/*,*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/highcharts/*,*/openlayers/*,*/jquery/*
               --report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
               --standard=PEAR
