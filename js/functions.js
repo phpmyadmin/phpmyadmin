@@ -135,14 +135,13 @@ function displayPasswordGenerateButton() {
  *
  * @param   object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element) {
+function PMA_addDatepicker($this_element, options) {
     var showTimeOption = false;
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-
-    $this_element
-        .datepicker({
+	
+	var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -157,9 +156,16 @@ function PMA_addDatepicker($this_element) {
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
             $this_element.data('comes_from', 'datepicker');
+
+            // Fix wrong timepicker z-index, doesn't work without timeout
+            setTimeout(function() {
+                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
+            },0);
         },
         constrainInput: false
-     });
+	};
+
+    $this_element.datepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -723,13 +729,13 @@ var last_shift_clicked_row = -1;
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
     });
-})
+})*/
 
 /**
  * This array is used to remember mark status of rows in browse mode
@@ -1461,20 +1467,26 @@ function PMA_createChart(passedSettings) {
         chart: {
             type: 'spline',
             marginRight: 10,
+            backgroundColor: 'transparent',
             events: {
+                /* Live charting support */
                 load: function() {
                     var thisChart = this;
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    // No realtime updates for graphs that are being exported, and disabled when no callback is set
+                    
+                    // No realtime updates for graphs that are being exported, and disabled when realtime is not set
+                    // Also don't do live charting if we don't have the server time
                     if(thisChart.options.chart.forExport == true || 
-                        ! passedSettings.realtime || 
-                        ! passedSettings.realtime.callback) return;
+                        ! thisChart.options.realtime || 
+                        ! thisChart.options.realtime.callback ||
+                        ! server_time_diff) return;
                             
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.post(passedSettings.realtime.url,
-                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                        thisChart.options.realtime.postRequest = $.post(
+                            thisChart.options.realtime.url,
+                            thisChart.options.realtime.postData,
                             function(data) {
                                 curValue = jQuery.parseJSON(data);
                                 
@@ -1487,13 +1499,13 @@ function PMA_createChart(passedSettings) {
                                     false
                                 );
                                 
-                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+                                thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
                                 
                                 lastValue = curValue;
                                 numLoadedPoints++;
                                 
                                 // Timeout has been cleared => don't start a new timeout
-                                if(chart_activeTimeouts[container]==null) return;
+                                if(chart_activeTimeouts[container] == null) return;
                                 
                                 chart_activeTimeouts[container] = setTimeout(
                                     thisChart.options.realtime.timeoutCallBack, 
@@ -1502,7 +1514,7 @@ function PMA_createChart(passedSettings) {
                         });
                     }
                     
-                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
         },
@@ -1544,15 +1556,20 @@ function PMA_createChart(passedSettings) {
     }
     
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {
+    if(passedSettings.realtime) {        
         if(!passedSettings.realtime.refreshRate) 
             passedSettings.realtime.refreshRate = 5000;
         
         if(!passedSettings.realtime.numMaxPoints) 
             passedSettings.realtime.numMaxPoints = 30;
         
-        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
+        // Allow custom POST vars to be added
+        passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
+        
+        if(server_time_diff) {
+            settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+            settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
+        }
     }
 
     // Overwrite/Merge default settings with passedsettings
@@ -2226,7 +2243,9 @@ function displayMoreTableOpts() {
     }
 
 }
-$(document).ready(initTooltips);
+$(document).ready(function(){
+    PMA_convertFootnotesToTooltips();
+});
 
 /**
  * Ensures indexes names are valid according to their type and, for a primary
@@ -2262,27 +2281,53 @@ function checkIndexName(form_id)
     return true;
 } // end of the 'checkIndexName()' function
 
-
-/* Displays tooltips */
-function initTooltips() {
+/**
+ * function to convert the footnotes to tooltips
+ *
+ * @param   jquery-Object   $div    a div jquery object which specifies the 
+ *                                  domain for searching footnootes. If we 
+ *                                  ommit this parameter the function searches 
+ *                                  the footnotes in the whole body
+ **/
+function PMA_convertFootnotesToTooltips($div) {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
-    $(".footnotes").hide();
-    $(".footnotes span").each(function() {
+
+    if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
+        $div = $("#serverinfo").parent();
+    }
+
+    $footnotes = $div.find(".footnotes");
+
+    $footnotes.hide();
+    $footnotes.find('span').each(function() {
         $(this).children("sup").remove();
     });
     // The border and padding must be removed otherwise a thin yellow box remains visible
-    $(".footnotes").css("border", "none");
-    $(".footnotes").css("padding", "0px");
+    $footnotes.css("border", "none");
+    $footnotes.css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $("sup[class='footnotemarker']").hide();
-    $("img[class='footnotemarker']").show();
+    $div.find("sup.footnotemarker").hide();
+    $div.find("img.footnotemarker").show();
 
-    $("img[class='footnotemarker']").each(function() {
-        var span_id = $(this).attr("id");
-        span_id = span_id.split("_")[1];
-        var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
+    $div.find("img.footnotemarker").each(function() {
+        var img_class = $(this).attr("class");
+        /** img contains two classes, as example "footnotemarker footnote_1".
+         *  We split it by second class and take it for the id of span
+        */
+        img_class = img_class.split(" ");
+        for (i = 0; i < img_class.length; i++) {
+            if (img_class[i].split("_")[0] == "footnote") {
+                var span_id = img_class[i].split("_")[1];
+            }
+        }
+        /**
+         * Now we get the #id of the span with span_id variable. As an example if we
+         * initially get the img class as "footnotemarker footnote_2", now we get
+         * #2 as the span_id. Using that we can find footnote_2 in footnotes.
+         * */
+        var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
         $(this).qtip({
             content: tooltip_text,
             show: { delay: 0 },
@@ -2365,7 +2410,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)
@@ -2564,10 +2609,10 @@ $(document).ready(function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
-        var $this_td = $(this);
-        var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle hover
-        $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
+            var $this_td = $(this);
+            var row_num = PMA_getRowNumber($this_td.attr('class'));
+            // for all td of the same vertical row, toggle hover
+            $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
 }) // end of $(document).ready() for vertical pointer
@@ -2577,11 +2622,35 @@ $(document).ready(function() {
      * Vertical marker
      */
     $('.vmarker').live('click', function(e) {
+        // do not trigger when clicked on anchor
+        if ($(e.target).is('a, img, a *')) {
+            return;
+        }
+
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle the marked class
-        $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
-        });
+
+        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+        var $tr = $(this);
+        var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
+        if ($checkbox.length) {
+            // checkbox in a row, add or remove class depending on checkbox state
+            var checked = $checkbox.attr('checked');
+            if (!$(e.target).is(':checkbox, label')) {
+                checked = !checked;
+                $checkbox.attr('checked', checked);
+            }
+            // for all td of the same vertical row, toggle the marked class
+            if (checked) {      
+                $('.vmarker').filter('.row_' + row_num).addClass('marked');
+            } else {
+                $('.vmarker').filter('.row_' + row_num).removeClass('marked');
+            }
+        } else {
+            // normaln data table, just toggle class
+            $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
+        }
+    });
 
     /**
      * Reveal visual builder anchor

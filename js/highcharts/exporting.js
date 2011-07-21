@@ -46,7 +46,7 @@ var HC = Highcharts,
             downloadPDF: 'Download PDF document',
             downloadSVG: 'Download SVG vector image',
             exportButtonTitle: 'Export to raster or vector image',
-            printButtonTitle: 'Print the chart'
+            printButton: 'Print the chart'
         }
     });
 
@@ -106,7 +106,7 @@ defaultOptions.exporting = {
     type: 'image/png',
     url: 'chart_export.php',
     width: 800,
-    buttons: {
+    buttons:  {
         exportButton: {
             //enabled: true,
             symbol: 'exportIcon',
@@ -114,54 +114,26 @@ defaultOptions.exporting = {
             symbolFill: '#A8BF77',
             hoverSymbolFill: '#768F3E',
             _titleKey: 'exportButtonTitle',
+            menuName: 'export',
             menuItems: [{
                 textKey: 'downloadPNG',
                 onclick: function() {
                     this.exportChart();
                 }
-            },/* {
-                textKey: 'downloadJPEG',
-                onclick: function() {
-                    this.exportChart({
-                        type: 'image/jpeg'
-                    });
-                }
-            }, {
-                textKey: 'downloadPDF',
-                onclick: function() {
-                    this.exportChart({
-                        type: 'application/pdf'
-                    });
-                }
-            }, */{
+            },{
                 textKey: 'downloadSVG',
                 onclick: function() {
                     this.exportChart({
                         type: 'image/svg+xml'
                     });
                 }
-            }/*, {
-                text: 'View SVG',
+            },{
+                textKey: 'printButton',
                 onclick: function() {
-                    var svg = this.getSVG()
-                        .replace(/</g, '\n&lt;')
-                        .replace(/>/g, '&gt;');
-                        
-                    doc.body.innerHTML = '<pre>'+ svg +'</pre>';
-                }
-            }*/]
+                    this.print();
+                }                
+            }]
             
-        },
-        printButton: {
-            //enabled: true,
-            symbol: 'printIcon',
-            x: -36,
-            symbolFill: '#B5C9DF',
-            hoverSymbolFill: '#779ABF',
-            _titleKey: 'printButtonTitle',
-            onclick: function() {
-                this.print();
-            }
         }
     }
 };
@@ -522,8 +494,8 @@ extend(Chart.prototype, {
             btnOptions = merge(chart.options.navigation.buttonOptions, options),
             onclick = btnOptions.onclick,
             menuItems = btnOptions.menuItems,
-            /*position = chart.getAlignment(btnOptions),
-            buttonLeft = position.x,
+            //position = chart.getAlignment(btnOptions),
+            /*buttonLeft = position.x,
             buttonTop = position.y,*/
             buttonWidth = btnOptions.width,
             buttonHeight = btnOptions.height,
@@ -543,7 +515,7 @@ extend(Chart.prototype, {
         if (btnOptions.enabled === false) {
             return;
         }
-            
+        
         // element to capture the click
         function revert() {
             symbol.attr(symbolAttr);
@@ -603,7 +575,7 @@ extend(Chart.prototype, {
             onclick = function(e) {
                 revert();
                 var bBox = button.getBBox();
-                chart.contextMenu('export-menu', menuItems, bBox.x, bBox.y, buttonWidth, buttonHeight);
+                chart.contextMenu(btnOptions.menuName, menuItems, bBox.x, bBox.y, buttonWidth, buttonHeight);
             };
         }
         /*addEvent(button.element, 'click', function() {
@@ -612,7 +584,7 @@ extend(Chart.prototype, {
         button.on('click', function() {
             onclick.apply(chart, arguments);
         });
-        
+                
         // the icon
         symbol = renderer.symbol(
                 btnOptions.symbol, 
@@ -653,33 +625,6 @@ HC.Renderer.prototype.symbols.exportIcon = function(x, y, radius) {
         'Z'
     ];
 };
-// Create the print icon
-HC.Renderer.prototype.symbols.printIcon = function(x, y, radius) {
-    return [
-        M, // the printer
-        x - radius, y + radius * 0.5,
-        L,
-        x + radius, y + radius * 0.5,
-        x + radius, y - radius / 3,
-        x - radius, y - radius / 3,
-        'Z',
-        M, // the upper sheet
-        x - radius * 0.5, y - radius / 3,
-        L,
-        x - radius * 0.5, y - radius,
-        x + radius * 0.5, y - radius,
-        x + radius * 0.5, y - radius / 3,
-        'Z',
-        M, // the lower sheet
-        x - radius * 0.5, y + radius * 0.5,
-        L,
-        x - radius * 0.75, y + radius,
-        x + radius * 0.75, y + radius,
-        x + radius * 0.5, y + radius * 0.5,
-        'Z'
-    ];
-};
-
 
 // Add the buttons on chart load
 Chart.prototype.callbacks.push(function(chart) {
@@ -692,6 +637,10 @@ Chart.prototype.callbacks.push(function(chart) {
         for (n in buttons) {
             chart.addButton(buttons[n]);
         }
+        for (n in chart.options.buttons) {
+            chart.addButton(chart.options.buttons[n]);
+        }
+
     }
 });
 

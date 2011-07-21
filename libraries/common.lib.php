@@ -9,10 +9,10 @@
 /**
  * Exponential expression / raise number into power
  *
- * @param   string  $base
- * @param   string  $exp
- * @param   mixed   $use_function  pow function to use, or false for auto-detect
- * @return  mixed  string or float
+ * @param string $base         base to raise
+ * @param string $exp          exponent to use
+ * @param mixed  $use_function pow function to use, or false for auto-detect
+ * @return mixed string or float
  */
 function PMA_pow($base, $exp, $use_function = false)
 {
@@ -62,10 +62,10 @@ function PMA_pow($base, $exp, $use_function = false)
 /**
  * string PMA_getIcon(string $icon)
  *
- * @param   string  $icon       name of icon file
- * @param   string  $alternate  alternate text
- * @param   boolean $container  include in container
- * @param   boolean $force_text whether to force alternate text to be displayed
+ * @param string  $icon       name of icon file
+ * @param string  $alternate  alternate text
+ * @param boolean $container  include in container
+ * @param boolean $force_text whether to force alternate text to be displayed
  * @return html img tag
  */
 function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false)
@@ -97,9 +97,9 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     $button .= '<span class="nowrap">';
 
     if ($include_icon) {
-        $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+        $button .= '<img src="themes/dot.gif"'
             . ' title="' . $alternate . '" alt="' . $alternate . '"'
-            . ' class="icon" width="16" height="16" />';
+            . ' class="icon ic_' . str_replace('.png','',$icon) . '" />';
     }
 
     if ($include_icon && $include_text) {
@@ -118,8 +118,8 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @param   integer $max_upload_size  the size
- * @return  string   the message
+ * @param integer $max_upload_size the size
+ * @return string the message
  *
  * @access  public
  */
@@ -135,8 +135,8 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  * Generates a hidden field which should indicate to the browser
  * the maximum size for upload
  *
- * @param   integer  $max_size  the size
- * @return  string   the INPUT field
+ * @param integer $max_size the size
+ * @return string the INPUT field
  *
  * @access  public
  */
@@ -149,13 +149,13 @@ function PMA_generateHiddenMaxFileSize($max_size)
  * Add slashes before "'" and "\" characters so a value containing them can
  * be used in a sql comparison.
  *
- * @param   string  $a_string  the string to slash
- * @param   bool    $is_like   whether the string will be used in a 'LIKE' clause
- *                             (it then requires two more escaped sequences) or not
- * @param   bool    $crlf      whether to treat cr/lfs as escape-worthy entities
- *                             (converts \n to \\n, \r to \\r)
- * @param   bool    $php_code  whether this function is used as part of the
- *                             "Create PHP code" dialog
+ * @param string  $a_string the string to slash
+ * @param bool    $is_like  whether the string will be used in a 'LIKE' clause
+ *                          (it then requires two more escaped sequences) or not
+ * @param bool    $crlf     whether to treat cr/lfs as escape-worthy entities
+ *                          (converts \n to \\n, \r to \\r)
+ * @param bool    $php_code whether this function is used as part of the
+ *                          "Create PHP code" dialog
  *
  * @return  string   the slashed string
  *
@@ -190,8 +190,8 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
  * database, table and field names.
  * Note: This function does not escape backslashes!
  *
- * @param   string  $name  the string to escape
- * @return  string   the escaped string
+ * @param string $name the string to escape
+ * @return string the escaped string
  *
  * @access  public
  */
@@ -224,9 +224,9 @@ function PMA_unescape_mysql_wildcards($name)
  *
  * checks if the sting is quoted and removes this quotes
  *
- * @param   string  $quoted_string  string to remove quotes from
- * @param   string  $quote          type of quote to remove
- * @return  string  unqoted string
+ * @param string $quoted_string string to remove quotes from
+ * @param string $quote         type of quote to remove
+ * @return string unqoted string
  */
 function PMA_unQuote($quoted_string, $quote = null)
 {
@@ -257,8 +257,8 @@ function PMA_unQuote($quoted_string, $quote = null)
  * format sql strings
  *
  * @todo    move into PMA_Sql
- * @param  mixed   $parsed_sql    pre-parsed SQL structure
- * @param  string  $unparsed_sql
+ * @param mixed  $parsed_sql   pre-parsed SQL structure
+ * @param string $unparsed_sql raw SQL string
  * @return string  the formatted sql
  *
  * @global  array    the configuration array
@@ -314,11 +314,11 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 /**
  * Displays a link to the official MySQL documentation
  *
- * @param string  $chapter    chapter of "HTML, one page per chapter" documentation
- * @param string  $link       contains name of page/anchor that is being linked
- * @param bool    $big_icon   whether to use big icon (like in left frame)
- * @param string  $anchor     anchor to page part
- * @param bool    $just_open  whether only the opening <a> tag should be returned
+ * @param string $chapter   chapter of "HTML, one page per chapter" documentation
+ * @param string $link      contains name of page/anchor that is being linked
+ * @param bool   $big_icon  whether to use big icon (like in left frame)
+ * @param string $anchor    anchor to page part
+ * @param bool   $just_open whether only the opening <a> tag should be returned
  *
  * @return  string  the html link
  *
@@ -393,9 +393,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
     } elseif ($big_icon) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . PMA_linkURL($url) . '" target="mysql_doc">' . __('Documentation') . '</a>]';
     }
@@ -412,7 +412,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  */
 function PMA_showDocu($anchor) {
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -430,7 +430,7 @@ function PMA_showPHPDocu($target) {
     $url = PMA_getPHPDocLink($target);
 
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . $url . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . $url . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -459,18 +459,13 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
             $GLOBALS['footnotes'] = array();
         }
         $nr = count($GLOBALS['footnotes']) + 1;
-        // this is the first instance of this message
-        $instance = 1;
         $GLOBALS['footnotes'][$key] = array(
             'note'      => $message,
             'type'      => $type,
             'nr'        => $nr,
-            'instance'  => $instance
         );
     } else {
         $nr = $GLOBALS['footnotes'][$key]['nr'];
-        // another instance of this message (to ensure ids are unique)
-        $instance = ++$GLOBALS['footnotes'][$key]['instance'];
     }
 
     if ($bbcode) {
@@ -479,8 +474,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 
     // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker">' . $nr . '</sup>' .
-    '<img class="footnotemarker" id="footnote_' . $nr . '_' . $instance . '" src="' .
-    $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
+    '<img class="footnotemarker ic_b_help footnote_' . $nr . '" src="themes/dot.gif" alt="" />';
 }
 
 /**
@@ -1339,7 +1333,7 @@ function PMA_localizeNumber($value)
  * @param   integer  $digits_left      number of digits left of the comma
  * @param   integer  $digits_right     number of digits right of the comma
  * @param   boolean  $only_down        do not reformat numbers below 1
- * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
+ * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true)
  *
  * @return  string   the formatted value and its unit
  *
@@ -1348,13 +1342,13 @@ function PMA_localizeNumber($value)
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
     if($value==0) return '0';
-    
+
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
         if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
-        
+
         return PMA_localizeNumber($value);
     }
 
@@ -1388,7 +1382,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     }
 
     $dh = PMA_pow(10, $digits_right);
-    
+
     // This gives us the right SI prefix already, but $digits_left parameter not incorporated
     $d = floor(log10($value) / 3);
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
@@ -1397,18 +1391,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     if($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
     }
-	
+
     if($d<0 && $only_down) $d=0;
-    
+
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
-    
+
     // If we dont want any zeros after the comma just add the thousand seperator
     if($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
         $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
-    
+
     if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
@@ -1511,7 +1505,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array())
+function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
 {
     // default values
     $defaults = array(
@@ -1573,8 +1567,8 @@ function PMA_generate_html_tab($tab, $url_params = array())
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
-        $image = '<img class="icon" src="' . htmlentities($GLOBALS['pmaThemeImage'])
-            .'%1$s" width="16" height="16" alt="" />%2$s';
+        $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
+            .' width="16" height="16" alt="" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
     }
     // check to not display an empty link-text
@@ -1609,7 +1603,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
  * @param   string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params)
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir='')
 {
     $tag_id = 'topmenu';
     $tab_navigation =
@@ -1617,7 +1611,7 @@ function PMA_generate_html_tabs($tabs, $url_params)
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
     }
 
     $tab_navigation .=
@@ -1843,7 +1837,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * Not sure we could use a strMissingParameter message here,
  * would have to check if the error message file is always available
  *
- * @todo    localize error message
  * @todo    use PMA_fatalError() if $die === true?
  * @param   array  $params  The names of the parameters needed by the calling script.
  * @param   bool   $die Stop the execution?
@@ -1874,7 +1867,8 @@ function PMA_checkParameters($params, $die = true, $request = true)
 
         if (! isset($GLOBALS[$param])) {
             $error_message .= $reported_script_name
-                . ': Missing parameter: ' . $param
+                . ': ' . __('Missing parameter:') . ' '
+                . $param
                 . PMA_showDocu('faqmissingparameters')
                 . '<br />';
             $found_error = true;
@@ -2749,7 +2743,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
     $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
     /* Update forced variables */
-    foreach($updates as $key => $val) {
+    foreach ($updates as $key => $val) {
         $vars[$key] = $val;
     }
 
@@ -2773,7 +2767,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
 
     /* Optional escaping */
     if (!is_null($escape)) {
-        foreach($replace as $key => $val) {
+        foreach ($replace as $key => $val) {
             $replace[$key] = $escape($val);
         }
     }
@@ -2846,7 +2840,9 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     header("Content-Type: application/json");
 
     echo json_encode($response);
-    exit;
+
+    if(!defined('TESTSUITE'))
+        exit;
 }
 
 /**

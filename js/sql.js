@@ -65,8 +65,8 @@ function appendInlineAnchor() {
 
             var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
             if ($img_object.length != 0) {
-                var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
-                $img_object.attr('src', img_src);
+                var img_class = $img_object.attr('class').replace(/b_edit/,'b_inline_edit');
+                $img_object.attr('class', img_class);
                 $cloned_anchor.find('a').attr('href', '#');
                 var $edit_span = $cloned_anchor.find('span:contains("' + PMA_messages['strEdit'] + '")');
                 var $span = $cloned_anchor.find('a').find('span');
@@ -85,8 +85,8 @@ function appendInlineAnchor() {
                 // the link was too big so <input type="image"> is there
                 $img_object = $cloned_anchor.find('input:image').attr('title', PMA_messages['strInlineEdit']);
                 if ($img_object.length > 0) {
-                    var img_src = $img_object.attr('src').replace(/b_edit/,'b_inline_edit');
-                    $img_object.attr('src', img_src);
+                    var img_class = $img_object.attr('class').replace(/b_edit/,'b_inline_edit');
+                    $img_object.attr('class', img_class);
                 }
                 $cloned_anchor
                  .find('.clickprevimage')
@@ -223,7 +223,7 @@ $(document).ready(function() {
     $("#sqlqueryform.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        $form = $(this);
+        var $form = $(this);
         if (! checkSqlQuery($form[0])) {
             return false;
         }
@@ -232,11 +232,12 @@ $(document).ready(function() {
         $('.error').remove();
 
         var $msgbox = PMA_ajaxShowMessage();
+        var $sqlqueryresults = $('#sqlqueryresults');
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($(this).attr('action'), $(this).serialize() , function(data) {
-            if(data.success == true) {
+        $.post($form.attr('action'), $form.serialize() , function(data) {
+            if (data.success == true) {
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
@@ -250,7 +251,7 @@ $(document).ready(function() {
                 } else {
                     $('#sqlqueryform').before(data.message);
                 }
-                $('#sqlqueryresults').show();
+                $sqlqueryresults.show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
                     // Unbind the submit event before reloading. See bug #3295529
@@ -267,25 +268,25 @@ $(document).ready(function() {
             else if (data.success == false ) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
-                $('#sqlqueryresults').hide();
+                $sqlqueryresults.hide();
             }
             else {
                 // real results are returned
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
-                $received_data = $(data);
-                $zero_row_results = $received_data.find('textarea[name="sql_query"]');
+                var $received_data = $(data);
+                var $zero_row_results = $received_data.find('textarea[name="sql_query"]');
                 // if zero rows are returned from the query execution
                 if ($zero_row_results.length > 0) {
                     $('#sqlquery').val($zero_row_results.val());
                 } else {
-                    $('#sqlqueryresults').show();
-                    $("#sqlqueryresults").html(data);
-                    $("#sqlqueryresults").trigger('appendAnchor');
-                    $("#sqlqueryresults").trigger('makegrid');
+                    $sqlqueryresults.show();
+                    $sqlqueryresults.html(data);
+                    $sqlqueryresults.trigger('appendAnchor');
+                    $sqlqueryresults.trigger('makegrid');
                     $('#togglequerybox').show();
-                    if($("#togglequerybox").siblings(":visible").length > 0) {
+                    if ($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
                     }
                     PMA_init_slider();
@@ -315,16 +316,18 @@ $(document).ready(function() {
         var $msgbox = PMA_ajaxShowMessage();
 
         /**
-         * @var $the_form    Object referring to the form element that paginates the results table
+         * @var $form    Object referring to the form element that paginates the results table
          */
-        var $the_form = $(this).parent("form");
+        var $form = $(this).parent("form");
 
-        $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
+        var $sqlqueryresults = $("#sqlqueryresults");
 
-        $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
-            $("#sqlqueryresults").html(data);
-            $("#sqlqueryresults").trigger('appendAnchor');
-            $("#sqlqueryresults").trigger('makegrid');
+        PMA_prepareForAjaxRequest($form);
+
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            $sqlqueryresults.html(data);
+            $sqlqueryresults.trigger('appendAnchor');
+            $sqlqueryresults.trigger('makegrid');
             PMA_init_slider();
 
             PMA_ajaxRemoveMessage($msgbox);
@@ -441,8 +444,8 @@ $(document).ready(function() {
         // If icons are displayed. See $cfg['PropertiesIconic']
         if ($img_object.length > 0) {
             $img_object.attr('title', PMA_messages['strSave']);
-            var img_src = $img_object.attr('src').replace(/b_inline_edit/,'b_save');
-            $img_object.attr('src', img_src);
+            var img_class = $img_object.attr('class').replace(/b_inline_edit/,'b_save');
+            $img_object.attr('class', img_class);
             $this_children.prepend($img_object);
         }
 
@@ -461,8 +464,8 @@ $(document).ready(function() {
         // If icons are displayed. See $cfg['PropertiesIconic']
         if ($img_object.length > 0) {
             $img_object.attr('title', PMA_messages['strHide']);
-            var img_src = $img_object.attr('src').replace(/b_save/,'b_close');
-            $img_object.attr('src', img_src);
+            var img_class = $img_object.attr('class').replace(/b_save/,'b_close');
+            $img_object.attr('class', img_class);
             $hide_span.prepend($img_object);
         }
 
@@ -976,7 +979,7 @@ $(document).ready(function() {
                 }
                 PMA_ajaxRemoveMessage($msgbox);
             }) // end $.get()
-        }  else {
+        } else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });

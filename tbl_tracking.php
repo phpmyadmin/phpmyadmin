@@ -63,7 +63,7 @@ if (isset($_REQUEST['report_export'])) {
     function PMA_filter_tracking($data, $filter_ts_from, $filter_ts_to, $filter_users) {
         $tmp_entries = array();
         $id = 0;
-        foreach( $data as $entry ) {
+        foreach ( $data as $entry ) {
             $timestamp = strtotime($entry['date']);
 
             if ($timestamp >= $filter_ts_from && $timestamp <= $filter_ts_to &&
@@ -108,7 +108,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
 
     $dump = "# " . sprintf(__('Tracking report for table `%s`'), htmlspecialchars($_REQUEST['table'])) . "\n" .
             "# " . date('Y-m-d H:i:s') . "\n";
-    foreach($entries as $entry) {
+    foreach ($entries as $entry) {
         $dump .= $entry['statement'];
     }
     $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
@@ -202,7 +202,7 @@ if (isset($_REQUEST['submit_activate_now'])) {
 
 // Export as SQL execution
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
-    foreach($entries as $entry) {
+    foreach ($entries as $entry) {
         $sql_result = PMA_DBI_query( "/*NOTRACK*/\n" . $entry['statement'] );
     }
     $msg = PMA_Message::success(__('SQL statements executed.'));
@@ -218,7 +218,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') 
                     "USE pma_temp_db; \n" .
                     "\n";
 
-    foreach($entries as $entry) {
+    foreach ($entries as $entry) {
         $new_query .= $entry['statement'];
     }
     $msg = PMA_Message::success(__('SQL statements exported. Please copy the dump or execute it.'));
@@ -275,7 +275,7 @@ if (isset($_REQUEST['snapshot'])) {
     <tbody>
 <?php
     $style = 'odd';
-    foreach($columns as $field_index => $field) {
+    foreach ($columns as $field_index => $field) {
 ?>
         <tr class="noclick <?php echo $style; ?>">
             <?php
@@ -429,7 +429,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     // Prepare delete link content here
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . __('Delete tracking data row from report') . '" title="' . __('Delete tracking data row from report') . '" />';
+        $drop_image_or_text .= '<img class="icon ic_b_drop" src="themes/dot.gif" alt="' . __('Delete tracking data row from report') . '" title="' . __('Delete tracking data row from report') . '" />';
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= __('Delete');

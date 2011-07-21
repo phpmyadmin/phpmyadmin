@@ -16,6 +16,8 @@ require_once './libraries/common.inc.php';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 require './libraries/tbl_common.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';

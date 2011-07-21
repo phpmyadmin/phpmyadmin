@@ -110,8 +110,8 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                            );
             $item = '<a href="%1$s?%2$s" class="item">';
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $separator = '        <span class="separator"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'item_' . $GLOBALS['text_dir'] . '.png" width="5" height="9" alt="-" /></span>' . "\n";
-                $item .= '        <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . '%5$s" width="16" height="16" alt="" /> ' . "\n";
+                $separator = '        <span class="separator"><img class="icon ic_item_' . $GLOBALS['text_dir'] . '" src="themes/dot.gif" alt="-" /></span>' . "\n";
+                $item .= '        <img class="icon %5$s" src="themes/dot.gif" alt="" /> ' . "\n";
             } else {
                 $separator = '        <span class="separator"> - </span>' . "\n";
             }
@@ -127,7 +127,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                         PMA_generate_common_url(),
                         htmlspecialchars($server_info),
                         __('Server'),
-                        's_host.png');
+                        'ic_s_host');
 
                 if (strlen($GLOBALS['db'])) {
 
@@ -137,11 +137,10 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                             PMA_generate_common_url($GLOBALS['db']),
                             htmlspecialchars($GLOBALS['db']),
                             __('Database'),
-                            's_db.png');
-                    // if the table is being dropped, $_REQUEST['purge'] is set
-                    // (it always contains "1")
+                            'ic_s_db');
+                    // if the table is being dropped, $_REQUEST['purge'] is set to '1'
                     // so do not display the table name in upper div
-                    if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']))) {
+                    if (strlen($GLOBALS['table']) && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')) {
                         require_once './libraries/tbl_info.inc.php';
 
                         echo $separator;
@@ -150,7 +149,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
                             PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']),
                             str_replace(' ', '&nbsp;', htmlspecialchars($GLOBALS['table'])),
                             (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? __('View') : __('Table')),
-                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'b_views' : 's_tbl') . '.png');
+                            (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view'] ? 'ic_b_views' : 'ic_s_tbl'));
 
                         /**
                          * Displays table comment

@@ -71,8 +71,6 @@ require_once './libraries/List.class.php';
 
     /**
      * checks if the configuration wants to hide some databases
-     *
-     * @todo temporaly use this docblock to test how to doc $GLOBALS
      */
     protected function _checkHideDatabase()
     {
@@ -128,14 +126,14 @@ require_once './libraries/List.class.php';
                 $this->_show_databases_disabled = true;
             }
         }
-            
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             natsort($database_list);
         } else {
             // need to sort anyway, otherwise information_schema
             // goes at the top
             sort($database_list);
-        } 
+        }
 
         return $database_list;
     }
@@ -255,7 +253,7 @@ require_once './libraries/List.class.php';
 
             $pos = false;
 
-            foreach($separators as $separator) {
+            foreach ($separators as $separator) {
                 // use strpos instead of strrpos; it seems more common to
                 // have the db name, the separator, then the rest which
                 // might contain a separator
