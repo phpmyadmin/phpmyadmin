@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:10+0200\n"
+"PO-Revision-Date: 2011-07-21 15:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9879,10 +9879,9 @@ msgid "Status variable(s)"
 msgstr "Stavové proměnné"
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Vybrat tabulky"
+msgstr "Vyberte série:"
 
 #: server_status.php:1374
 msgid "Commonly monitored"
