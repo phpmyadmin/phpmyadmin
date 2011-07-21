@@ -7205,7 +7205,7 @@ msgstr "Risultato di esecuzione della routine %s"
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
 msgid "Execute routine"
-msgstr ""
+msgstr "Esegui routine"
 
 #: libraries/rte/rte_routines.lib.php:1345
 #: libraries/rte/rte_routines.lib.php:1348
