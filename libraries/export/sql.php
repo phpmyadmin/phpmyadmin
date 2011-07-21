@@ -27,7 +27,9 @@ if (isset($plugin_list)) {
             'mime_type' => 'text/x-sql',
             'options' => array());
 
-        $plugin_list['sql']['options'][] = array('type' => 'begin_group', 'name' => 'general_opts');
+        $plugin_list['sql']['options'][] = array(
+            'type' => 'begin_group',
+            'name' => 'general_opts');
 
         /* comments */
         $plugin_list['sql']['options'][] = array(
@@ -77,7 +79,10 @@ if (isset($plugin_list)) {
             'type' => 'bool',
             'name' => 'disable_fk',
             'text' => __('Disable foreign key checks'),
-            'doc' => array('manual_MySQL_Database_Administration', 'server-system-variables', 'sysvar_foreign_key_checks')
+            'doc' => array(
+                'manual_MySQL_Database_Administration',
+                'server-system-variables',
+                'sysvar_foreign_key_checks')
             );
 
         $plugin_list['sql']['options_text'] = __('Options');
@@ -94,7 +99,9 @@ if (isset($plugin_list)) {
                 'name' => 'compatibility',
                 'text' => __('Database system or older MySQL server to maximize output compatibility with:'),
                 'values' => $values,
-                'doc' => array('manual_MySQL_Database_Administration', 'Server_SQL_mode')
+                'doc' => array(
+                    'manual_MySQL_Database_Administration',
+                    'Server_SQL_mode')
                 );
             unset($values);
         }
@@ -324,9 +331,12 @@ function PMA_exportRoutines($db) {
 
         foreach ($procedure_names as $procedure_name) {
             if (! empty($GLOBALS['sql_drop_table'])) {
-                $text .= 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
+                $text .= 'DROP PROCEDURE IF EXISTS '
+                    . PMA_backquote($procedure_name)
+                    . $delimiter . $crlf;
             }
-            $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name) . $delimiter . $crlf . $crlf;
+            $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name)
+                . $delimiter . $crlf . $crlf;
         }
     }
 
@@ -338,9 +348,12 @@ function PMA_exportRoutines($db) {
 
         foreach ($function_names as $function_name) {
             if (! empty($GLOBALS['sql_drop_table'])) {
-                $text .= 'DROP FUNCTION IF EXISTS ' . PMA_backquote($function_name) . $delimiter . $crlf;
+                $text .= 'DROP FUNCTION IF EXISTS '
+                    . PMA_backquote($function_name)
+                    . $delimiter . $crlf;
             }
-            $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name) . $delimiter . $crlf . $crlf;
+            $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name)
+                . $delimiter . $crlf . $crlf;
         }
     }
 
