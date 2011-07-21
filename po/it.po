@@ -8973,10 +8973,9 @@ msgid "wildcard"
 msgstr "wildcard"
 
 #: server_privileges.php:2295
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "La vista %s è stata eliminata"
+msgstr "L'utente é stato aggiunto."
 
 #: server_replication.php:49
 msgid "Unknown error"
