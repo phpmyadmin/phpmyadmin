@@ -7137,10 +7137,9 @@ msgid "Return length/values"
 msgstr "Lunghezza/valori del risultato"
 
 #: libraries/rte/rte_routines.lib.php:887
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Opzioni della tabella"
+msgstr "Opzioni del risultato"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
