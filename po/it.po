@@ -7033,7 +7033,7 @@ msgstr "Disattivato"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Attivato"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
