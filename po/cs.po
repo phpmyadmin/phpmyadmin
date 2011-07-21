@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:05+0200\n"
+"PO-Revision-Date: 2011-07-21 15:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1314,10 +1314,9 @@ msgid "Divided by %s:"
 msgstr ""
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Zvolte stránku"
+msgstr "Zvolený časový rozsah:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
