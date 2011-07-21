@@ -7333,10 +7333,9 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Non é stata trovato alcun trigger con nome %1$s nel database %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Nessun file da caricare"
+msgstr "Non ci sono trigger da visualizzare."
 
 #: libraries/rte/rte_words.lib.php:42
 #, fuzzy
