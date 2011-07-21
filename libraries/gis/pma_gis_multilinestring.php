@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS MULTILINESTRING objects.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
 {

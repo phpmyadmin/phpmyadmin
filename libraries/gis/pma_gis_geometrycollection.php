@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS GEOMETRYCOLLECTION objects.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
 {

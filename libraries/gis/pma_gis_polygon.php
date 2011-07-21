@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS POLYGON objects.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Polygon extends PMA_GIS_Geometry
 {

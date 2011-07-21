@@ -2,7 +2,7 @@
 /**
  * Generates the JavaScripts needed to visualize GIS data.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Visualization
 {
