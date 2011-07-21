@@ -1883,7 +1883,7 @@ msgstr "Chyba při přesouvání nahraného souboru."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Nahraný soubor nelze přečíst (přesunout)."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
