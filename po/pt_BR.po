@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 16:06+0200\n"
+"PO-Revision-Date: 2011-07-21 16:07+0200\n"
 "Last-Translator:  <teunome@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5347,7 +5347,7 @@ msgstr "Transformações do navegador"
 
 #: libraries/display_tbl.lib.php:647
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: libraries/display_tbl.lib.php:648
 msgid "Well Known Text"
