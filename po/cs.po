@@ -9898,7 +9898,7 @@ msgstr "nebo zadejte jméno proměnné:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
-msgstr ""
+msgstr "Zobrazit jako rozdíl"
 
 #: server_status.php:1395
 msgid "Apply a divisor"
