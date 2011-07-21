@@ -9273,10 +9273,9 @@ msgid "Refresh rate: "
 msgstr "Ritmo dell'aggiornamento: "
 
 #: server_status.php:642
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "Non cambiare la password"
+msgstr "Contenente la parola:"
 
 #: server_status.php:647
 #, fuzzy
