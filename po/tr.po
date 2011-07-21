@@ -9866,7 +9866,7 @@ msgstr "Yönergeler/Ayarlama"
 
 #: server_status.php:1302
 msgid "Done rearranging/editing charts"
-msgstr "Çizelgeleri düzenlemeyi/yeniden düzenlemeyi bitir"
+msgstr "Çizelgeleri düzenlemeyi/yeniden düzeltmeyi bitir"
 
 #: server_status.php:1309
 msgid "Add chart"
