@@ -296,15 +296,15 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 /**
  * PMA_findDeleteRowsFromTargetTables finds the rows which are to be deleted from target table.
  *
- * @param  $delete_array          array containing rows that are to be deleted
- * @param  $matching_table        array containing matching table names
- * @param  $matching_table_index  index of a table from $matching_table array
- * @param  $trg_keys              array of target table keys
- * @param  $src_keys              array of source table keys
- * @param  $trg_db                name of target database
- * @param  $trg_link              connection established with target server
- * @param  $src_db                name of source database
- * @param  $src_link              connection established with source server
+ * @param array   &$delete_array        array containing rows that are to be deleted
+ * @param array   $matching_table       array containing matching table names
+ * @param int     $matching_table_index index of a table from $matching_table array
+ * @param array   $trg_keys             array of target table keys
+ * @param array   $src_keys             array of source table keys
+ * @param string  $trg_db               name of target database
+ * @param db_link $trg_link             connection established with target server
+ * @param string  $src_db               name of source database
+ * @param db_link $src_link             connection established with source server
  */
 function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link,$src_db, $src_link)
 {
