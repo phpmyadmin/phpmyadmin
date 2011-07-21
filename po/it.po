@@ -7095,10 +7095,9 @@ msgid "Create routine"
 msgstr "Crea routine"
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Modalitá di modifica"
+msgstr "Modifica routine"
 
 #: libraries/rte/rte_routines.lib.php:820
 #, fuzzy
