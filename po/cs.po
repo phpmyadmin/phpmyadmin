@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:11+0200\n"
+"PO-Revision-Date: 2011-07-21 15:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9914,10 +9914,9 @@ msgid "Clear series"
 msgstr "Odstranit série"
 
 #: server_status.php:1413
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Série:"
+msgstr "Série v grafu::"
 
 #: server_status.php:1421
 #, fuzzy
