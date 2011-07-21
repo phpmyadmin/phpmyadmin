@@ -28,9 +28,9 @@ require_once './libraries/Index.class.php';
  *     the "display printable view" option.
  *     Of course '0'/'1' means the feature won't/will be enabled.
  *
- * @param   &$the_disp_mode string   the synthetic value for display_mode (see a few
+ * @param   string  &$the_disp_mode  the synthetic value for display_mode (see a few
  *                                   lines above for explanations)
- * @param   &$the_total integer  the total number of rows returned by the SQL query
+ * @param  integer  &$the_total  the total number of rows returned by the SQL query
  *                               without any programmatically appended "LIMIT" clause
  *                               (just a copy of $unlim_num_rows if it exists, else
  *                               computed inside this function)
