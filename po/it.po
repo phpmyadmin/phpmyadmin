@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:26+0200\n"
+"PO-Revision-Date: 2011-07-21 17:27+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -5401,10 +5401,9 @@ msgid "Number of rows"
 msgstr "Numero di righe"
 
 #: libraries/display_tbl.lib.php:440
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Più"
+msgstr "Modalitá"
 
 #: libraries/display_tbl.lib.php:442
 msgid "horizontal"
