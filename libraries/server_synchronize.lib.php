@@ -39,10 +39,9 @@ function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$un
 * PMA_getNonMatchingTargetTables() places tables present
 * in target database but are absent from source database
 *
-* @param    $trg_tables   array of target database table names,
-*
-* @param    $matching_tables           $matching tables array containing names of matching tables,
-* @param    &$uncommon_target_tables    empty array passed by reference to save names of tables presnet in
+* @param array $trg_tables              array of target database table names,
+* @param array $matching_tables         $matching tables array containing names of matching tables,
+* @param array &$uncommon_target_tables empty array passed by reference to save names of tables presnet in
 *                                       target database but absent from source database
 */
 function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommon_target_tables)
