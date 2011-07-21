@@ -9011,7 +9011,7 @@ msgstr "Všechny stavové proměnné"
 
 #: server_status.php:589
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: server_status.php:599 server_status.php:621
 #, fuzzy
