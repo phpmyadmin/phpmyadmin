@@ -7367,10 +7367,9 @@ msgid "No event with name %1$s found in database %2$s"
 msgstr "Non é stata trovato alcun evento con nome %1$s nel database %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
-msgstr "Nessun file da caricare"
+msgstr "Non ci sono eventi da visualizzare."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:222
 #: libraries/schema/Eps_Relation_Schema.class.php:395
