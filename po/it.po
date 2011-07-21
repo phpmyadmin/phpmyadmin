@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 16:39+0200\n"
+"PO-Revision-Date: 2011-07-21 16:47+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1391,6 +1391,8 @@ msgstr "Vai alla tabella di Log"
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Il log é stato analizzato, nessun dato é stato trovato per questo intervallo "
+"di tempo."
 
 #: js/messages.php:155 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1457,16 +1459,14 @@ msgid "Insert Table"
 msgstr "Utilizza tabelle"
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Aggiungi indice"
+msgstr "Nascondi gli indici"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Mostra la griglia"
+msgstr "Mostra gli indici"
 
 #: js/messages.php:181
 msgid "Searching"
@@ -1491,6 +1491,8 @@ msgstr "Cancellazione"
 #: js/messages.php:188
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"La definizione delle funzioni memorizzate deve contenere un istruzione "
+"RETURN."
 
 #: js/messages.php:191
 msgid ""
@@ -1862,13 +1864,12 @@ msgstr "Dimensione font"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Il file non era un file caricato."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Errore sconosciuto nel caricamento del file."
+msgstr "Errore sconosciuto durante il caricamento del file."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1899,7 +1900,7 @@ msgstr "Caricamento del file interrotto per estensione errata."
 
 #: libraries/File.class.php:295
 msgid "Unknown error in file upload."
-msgstr "Errore sconosciuto nel caricamento del file."
+msgstr "Si é verificato un errore sconosciuto durante il caricamento del file."
 
 #: libraries/File.class.php:495
 msgid ""
@@ -1911,7 +1912,7 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Si é verificato un errore durante lo spostamento del file."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
@@ -1999,20 +2000,18 @@ msgstr[0] "%1$d riga inserita."
 msgstr[1] "%1$d righe inserite."
 
 #: libraries/RecentTable.class.php:107
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Impossibile salvare la configurazione"
+msgstr "Impossibile salvare la tabella recente"
 
 #: libraries/RecentTable.class.php:142
 msgid "Recent tables"
-msgstr "Conta tabelle"
+msgstr "Tabelle recenti"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Non ci sono server configurati"
+msgstr "Non ci sono tabelle recenti"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
