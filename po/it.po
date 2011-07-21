@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:00+0200\n"
+"PO-Revision-Date: 2011-07-21 18:01+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7161,7 +7161,7 @@ msgstr "È necessario fornire il nome della routine"
 #: libraries/rte/rte_routines.lib.php:1025
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Direzione invalida \"%s\" é stata fornita per un parametro."
 
 #: libraries/rte/rte_routines.lib.php:1037
 #: libraries/rte/rte_routines.lib.php:1075
