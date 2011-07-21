@@ -70,8 +70,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
     // 2. Display mode is not "false for all elements" -> updates the
     // display mode
     if ($the_disp_mode != 'nnnn000000') {
-        // 2.0 Print view -> set all elements to false!
         if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
+            // 2.0 Print view -> set all elements to false!
             $do_display['edit_lnk']  = 'nn'; // no edit link
             $do_display['del_lnk']   = 'nn'; // no delete link
             $do_display['sort_lnk']  = (string) '0';
@@ -80,10 +80,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '0';
             $do_display['text_btn']  = (string) '0';
             $do_display['pview_lnk'] = (string) '0';
-        // 2.1 Statement is a "SELECT COUNT", a
-        //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
-        //     contains a "PROC ANALYSE" part
         } elseif ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
+            // 2.1 Statement is a "SELECT COUNT", a
+            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
+            //     contains a "PROC ANALYSE" part
             $do_display['edit_lnk']  = 'nn'; // no edit link
             $do_display['del_lnk']   = 'nn'; // no delete link
             $do_display['sort_lnk']  = (string) '0';
@@ -96,8 +96,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                 $do_display['text_btn']  = (string) '0';
             }
             $do_display['pview_lnk'] = (string) '1';
-        // 2.2 Statement is a "SHOW..."
         } elseif ($GLOBALS['is_show']) {
+            // 2.2 Statement is a "SHOW..."
             /**
              * 2.2.1
              * @todo defines edit/delete links depending on show statement
@@ -118,10 +118,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '1';
             $do_display['text_btn']  = (string) '1';
             $do_display['pview_lnk'] = (string) '1';
-        // 2.3 Other statements (ie "SELECT" ones) -> updates
-        //     $do_display['edit_lnk'], $do_display['del_lnk'] and
-        //     $do_display['text_btn'] (keeps other default values)
         } else {
+            // 2.3 Other statements (ie "SELECT" ones) -> updates
+            //     $do_display['edit_lnk'], $do_display['del_lnk'] and
+            //     $do_display['text_btn'] (keeps other default values)
             $prev_table = $fields_meta[0]->table;
             $do_display['text_btn']  = (string) '1';
             for ($i = 0; $i < $GLOBALS['fields_cnt']; $i++) {
