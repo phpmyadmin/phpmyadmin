@@ -10102,10 +10102,9 @@ msgid "Done rearranging/editing charts"
 msgstr "Ho finito di modificare/muovere i grafici"
 
 #: server_status.php:1309
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add chart"
-msgstr "Aggiungi prefisso"
+msgstr "Aggiungi grafico"
 
 #: server_status.php:1311
 msgid "Rearrange/edit charts"
