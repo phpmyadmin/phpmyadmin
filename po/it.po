@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:31+0200\n"
+"PO-Revision-Date: 2011-07-21 18:32+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -9294,10 +9294,10 @@ msgstr "Collegamenti associati:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:708
-#, fuzzy, php-format
+#, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
-msgstr "Personalizza la pagina di avvio"
+msgstr "Questions eseguiti dall'avvio: %s"
 
 #: server_status.php:714 server_status.php:749 server_status.php:865
 #: server_status.php:910
