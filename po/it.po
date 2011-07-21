@@ -7175,6 +7175,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1055
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
+"È necessario fornire un nome ed un tipo per ogni parametro della routine."
 
 #: libraries/rte/rte_routines.lib.php:1065
 msgid "You must provide a valid return type for the routine."
