@@ -248,6 +248,7 @@ class TableProperty
             while ($row = PMA_DBI_fetch_row($result)) {
                 $tableProperties[] = new TableProperty($row);
             }
+            PMA_DBI_free_result($result);
             $lines[] = 'using System;';
             $lines[] = 'using System.Collections;';
             $lines[] = 'using System.Collections.Generic;';
@@ -293,7 +294,6 @@ class TableProperty
             $lines[] = '    }';
             $lines[] = '    #endregion';
             $lines[] = '}';
-            PMA_DBI_free_result($result);
         }
         return implode("\n", $lines);
     }
