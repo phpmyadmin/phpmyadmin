@@ -9911,7 +9911,7 @@ msgstr "Přidat tuto sérii"
 
 #: server_status.php:1410
 msgid "Clear series"
-msgstr ""
+msgstr "Odstranit série"
 
 #: server_status.php:1413
 #, fuzzy
