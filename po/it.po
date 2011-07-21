@@ -10168,10 +10168,9 @@ msgid "Memory Usage"
 msgstr "Utilizzo della memoria"
 
 #: server_status.php:1367
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Utilizzo"
+msgstr "Utilizzo dello swap"
 
 #: server_status.php:1370
 #, fuzzy
