@@ -139,7 +139,7 @@ $random_n = mt_rand(0,1000000); // a random number that will be appended to the 
  * @param   string   $tablename
  * @return  string   the escaped (if necessary) $db_and_table
  */
-function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
+function PMA_wildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
 
     if (! strlen($dbname)) {
         $db_and_table = '*.*';
@@ -1106,7 +1106,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (!empty($update_privs)) {
-    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, (isset($tablename) ? $tablename : ''));
+    $db_and_table = PMA_wildcardEscapeForGrant($db_and_table, $dbname, (isset($tablename) ? $tablename : ''));
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1182,7 +1182,7 @@ if (!empty($update_privs)) {
  * Revokes Privileges
  */
 if (isset($_REQUEST['revokeall'])) {
-    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, isset($tablename) ? $tablename : '');
+    $db_and_table = PMA_wildcardEscapeForGrant($db_and_table, $dbname, isset($tablename) ? $tablename : '');
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
