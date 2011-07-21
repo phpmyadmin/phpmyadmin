@@ -2417,10 +2417,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s gün, %s saat, %s dakika ve %s saniye"
 
 #: libraries/common.lib.php:1876
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Yordam parametreleri"
+msgstr "Eksik parametreler:"
 
 #: libraries/common.lib.php:2182 libraries/common.lib.php:2185
 #: libraries/display_tbl.lib.php:299
