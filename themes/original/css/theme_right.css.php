@@ -2225,7 +2225,7 @@ span.mysql-number {
     font-weight: bold;
 }
 
-.navigation input[type=submit]:hover {
+.navigation input[type=submit]:hover, .navigation input.edit_mode_active {
     background: #333;
     color: white;
     cursor: pointer;
@@ -2234,3 +2234,39 @@ span.mysql-number {
 .navigation select {
     margin: 0 0.8em;
 }
+
+.cEdit {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.cEdit input[type=text] {
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_more.png) no-repeat right;
+    height: 100%;
+    margin: 0;
+    padding: 0 16px 0 0;
+}
+
+.cEdit .edit_area {
+    background: #FFF;
+    border: 1px solid #CCC;
+    min-width: 10em;
+    padding: 0.3em 0.5em;
+}
+
+.cEdit .edit_area select, .cEdit .edit_area textarea {
+    width: 97%;
+}
+
+.cEdit .cell_edit_hint {
+    color: #555;
+    font-size: 0.8em;
+    margin: 0.3em 0.2em;
+}
+
+.edit_area_loading {
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center;
+    height: 10em;
+}
+

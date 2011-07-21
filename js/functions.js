@@ -2741,3 +2741,16 @@ function PMA_createqTip($elements, content, options) {
     $elements.qtip($.extend(true, o, options));
 }
 
+/**
+ * Return value of a cell in a table.
+ */
+function PMA_getCellValue(td) {
+    if ($(td).is('.null')) {
+        return '';
+    } else if ($(td).is(':not(.truncated, .transformed, .relation, .enum, .set, .null)')) {
+        return $(td).find('span').html().replace(/<br>/g, "\n");
+    } else {
+        return $(td).text();
+    }
+}
+

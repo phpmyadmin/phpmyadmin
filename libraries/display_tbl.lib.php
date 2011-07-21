@@ -393,6 +393,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     }
     ?>
     <td>
+        <div class="edit_mode hide">
+            <input type="submit" value="<?php echo __('Edit mode'); ?>" />
+            <div class="navigation_separator">|</div>
+        </div>
+        <?php echo '<input id="cell_edit_hint" type="hidden" value="' . __('Press escape to cancel editing') . '" />'; ?>
+    </td>
+    <td>
         <div class="restore_column hide">
             <input type="submit" value="<?php echo __('Restore column order'); ?>" />
             <div class="navigation_separator">|</div>
