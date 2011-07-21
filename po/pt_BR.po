@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:56+0200\n"
+"PO-Revision-Date: 2011-07-21 15:57+0200\n"
 "Last-Translator:  <teunome@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5055,7 +5055,7 @@ msgstr "@SERVER@ se tornará o nome do servidor"
 
 #: libraries/display_export.lib.php:224
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ se tornará o nome do banco de dados"
 
 #: libraries/display_export.lib.php:226
 msgid ", @TABLE@ will become the table name"
