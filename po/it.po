@@ -7306,10 +7306,9 @@ msgid "There are no routines to display."
 msgstr "Nessun file da caricare"
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Aggiungi un nuovo server"
+msgstr "Aggiungi trigger"
 
 #: libraries/rte/rte_words.lib.php:32
 #, fuzzy, php-format
