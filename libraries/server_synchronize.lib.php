@@ -1,5 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Server synchronisation functions.
+ *
+ * @package phpMyAdmin
+ */
 
 /**
 * PMA_getMatchingTables places matching tables in source
