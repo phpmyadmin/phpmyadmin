@@ -7109,10 +7109,9 @@ msgid "Parameters"
 msgstr "Parametri"
 
 #: libraries/rte/rte_routines.lib.php:848
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Link diretti"
+msgstr "Direzione"
 
 #: libraries/rte/rte_routines.lib.php:851 libraries/tbl_properties.inc.php:108
 msgid "Length/Values"
