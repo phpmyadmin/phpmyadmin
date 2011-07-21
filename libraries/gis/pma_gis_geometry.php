@@ -48,11 +48,11 @@ abstract class PMA_GIS_Geometry
      * Prepares the JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial     GIS data object
-     * @param int    $srid        Spatial reference ID
-     * @param string $label       Label for the GIS data object
-     * @param string $color       Color for the GIS data object
-     * @param array  $scale_data  Array containing data related to scaling
+     * @param string $spatial    GIS data object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS data object
+     * @param string $color      Color for the GIS data object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return the JavaScript related to a row in the GIS dataset
      */
