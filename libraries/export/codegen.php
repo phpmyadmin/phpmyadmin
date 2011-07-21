@@ -245,8 +245,9 @@ class TableProperty
         $result=PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
             $tableProperties=array();
-            while ($row = PMA_DBI_fetch_row($result))
+            while ($row = PMA_DBI_fetch_row($result)) {
                 $tableProperties[] = new TableProperty($row);
+            }
             $lines[] = "using System;";
             $lines[] = "using System.Collections;";
             $lines[] = "using System.Collections.Generic;";
@@ -257,25 +258,37 @@ class TableProperty
             $lines[] = "    public class ".cgMakeIdentifier($table);
             $lines[] = "    {";
             $lines[] = "        #region Member Variables";
-            foreach ($tableProperties as $tablePropertie)
+            foreach ($tableProperties as $tablePropertie) {
                 $lines[] = $tablePropertie->formatCs("        protected #dotNetPrimitiveType# _#name#;");
+            }
             $lines[] = "        #endregion";
             $lines[] = "        #region Constructors";
             $lines[] = "        public ".cgMakeIdentifier($table)."() { }";
             $temp = array();
-            foreach ($tableProperties as $tablePropertie)
-                if (! $tablePropertie->isPK())
+            foreach ($tableProperties as $tablePropertie) {
+                if (! $tablePropertie->isPK()) {
                     $temp[] = $tablePropertie->formatCs("#dotNetPrimitiveType# #name#");
+                }
+            }
             $lines[] = "        public ".cgMakeIdentifier($table)."(".implode(", ", $temp).")";
             $lines[] = "        {";
-            foreach ($tableProperties as $tablePropertie)
-                if (! $tablePropertie->isPK())
+            foreach ($tableProperties as $tablePropertie) {
+                if (! $tablePropertie->isPK()) {
                     $lines[] = $tablePropertie->formatCs("            this._#name#=#name#;");
+                }
+            }
             $lines[] = "        }";
             $lines[] = "        #endregion";
             $lines[] = "        #region Public Properties";
-            foreach ($tableProperties as $tablePropertie)
-                $lines[] = $tablePropertie->formatCs("        public virtual #dotNetPrimitiveType# #ucfirstName#\n        {\n            get {return _#name#;}\n            set {_#name#=value;}\n        }");
+            foreach ($tableProperties as $tablePropertie) {
+                $lines[] = $tablePropertie->formatCs(''
+                    . '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
+                    . '        {' . "\n"
+                    . '            get {return _#name#;}' . "\n"
+                    . '            set {_#name#=value;}' . "\n"
+                    . '        }'
+                    );
+            }
             $lines[] = "        #endregion";
             $lines[] = "    }";
             $lines[] = "    #endregion";
@@ -292,7 +305,9 @@ class TableProperty
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
             . 'namespace="' . cgMakeIdentifier($db) . '" '
             . 'assembly="' . cgMakeIdentifier($db) . '">';
-        $lines[] = '    <class name="' . cgMakeIdentifier($table) . '" table="' . cgMakeIdentifier($table) . '">';
+        $lines[] = '    <class '
+            . 'name="' . cgMakeIdentifier($table) . '" '
+            . 'table="' . cgMakeIdentifier($table) . '">';
         $result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
             while ($row = PMA_DBI_fetch_row($result)) {
