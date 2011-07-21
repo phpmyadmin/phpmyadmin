@@ -1021,10 +1021,9 @@ msgstr "Questo non è un numero!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Numero dei file di log"
+msgstr "Numero totale"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
