@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 15:08+0200\n"
+"PO-Revision-Date: 2011-07-21 15:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1246,13 +1246,14 @@ msgstr ""
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time je nastaven na %d sekund."
 
 #: js/messages.php:122
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Budou provedeny následující změny, které budou platné do restartu serveru:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
@@ -1279,13 +1280,15 @@ msgstr "Vypnout %s"
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Nastavit long_query_time na %ds"
 
 #: js/messages.php:131
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Nemůžete změnit uvedené proměnné. Prosím přihlašte se jako root nebo "
+"kontaktujte vašeho správce databáze."
 
 #: js/messages.php:132
 #| msgid "Manage your settings"
@@ -1311,7 +1314,7 @@ msgstr "Rozdíly"
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Vyděleno %s:"
 
 #: js/messages.php:140
 #| msgid "Select page"
@@ -1320,7 +1323,7 @@ msgstr "Zvolený časový rozsah:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Sloučit dotazy INSERT pro stejné tabulky"
 
 #: js/messages.php:142
 msgid ""
@@ -1330,15 +1333,15 @@ msgstr ""
 
 #: js/messages.php:143
 msgid "From slow log"
-msgstr ""
+msgstr "Ze zánamu pomalých dotazů"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "Z obecného zánamu dotazů"
 
 #: js/messages.php:145
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Načítám a analyzuji záznamy. To může chvíli trvat."
 
 #: js/messages.php:146
 msgid ""
@@ -1357,6 +1360,8 @@ msgstr ""
 #: js/messages.php:148
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Záznamy byly načteny. V tomto časovém rozmezí byly spuštěny následující "
+"dotazy:"
 
 #: js/messages.php:150
 #| msgid "Jump to database"
@@ -1366,6 +1371,8 @@ msgstr "Přejít na tabulku se záznamem"
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Záznamy byly načteny, ale v tomto časovém rozmezí nebyly nalezeny žádné "
+"dotazy."
 
 #: js/messages.php:155 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -9799,39 +9806,35 @@ msgstr "Návod/Nastavení"
 
 #: server_status.php:1302
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Ukončit upravování grafů"
 
 #: server_status.php:1309
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Přidat parametr"
+msgstr "Přidat graf"
 
 #: server_status.php:1311
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Upravit/Uspořádat grafy"
 
 #: server_status.php:1313
 msgid "Refresh rate:"
 msgstr "Obnovovací frekvence:"
 
 #: server_status.php:1316
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Sloupců v textové oblasti"
+msgstr "Sloupců grafů:"
 
 #: server_status.php:1330
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Uživatel pro přihlašování config"
+msgstr "Odstranit nastavení monitoru"
 
 #: server_status.php:1333
-#, fuzzy
 #| msgid "1. Introduction"
 msgid "Monitor Instructions"
-msgstr "1. Úvod"
+msgstr "Instrukce monitoru"
 
 #: server_status.php:1334
 msgid ""
@@ -9863,84 +9866,74 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1361
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Používá"
+msgstr "Využití procesoru"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. Použití"
+msgstr "Využití paměti"
 
 #: server_status.php:1367
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Používá"
+msgstr "Využití odkládacího prostoru"
 
 #: server_status.php:1370
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Všechny stavové proměnné"
+msgstr "Stavové proměnné"
 
 #: server_status.php:1372
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Vybrat tabulky"
+msgstr "Vyberte série:"
 
 #: server_status.php:1374
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Obvykle monitorované"
 
 #: server_status.php:1389
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "Musíte zadat platné jméno tabulky"
+msgstr "nebo zadejte jméno proměnné:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
-msgstr ""
+msgstr "Zobrazit jako rozdíl"
 
 #: server_status.php:1395
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Vynásobit"
 
 #: server_status.php:1402
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Přidat jednoty"
 
 #: server_status.php:1408
-#, fuzzy
 #| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Přidat spoušť"
+msgstr "Přidat tuto sérii"
 
 #: server_status.php:1410
 msgid "Clear series"
-msgstr ""
+msgstr "Odstranit série"
 
 #: server_status.php:1413
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Série:"
+msgstr "Série v grafu::"
 
 #: server_status.php:1421
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Nahrávám"
+msgstr "Nahrávám záznamy"
 
 #: server_status.php:1424
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Zobrazit statistiky"
+msgstr "Statistiky záznamů"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
