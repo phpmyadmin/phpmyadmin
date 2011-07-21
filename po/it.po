@@ -2011,7 +2011,7 @@ msgstr "Tabelle recenti"
 #: libraries/RecentTable.class.php:148
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Nessuna tabella recente"
+msgstr "Non ci sono tabelle recenti"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""
