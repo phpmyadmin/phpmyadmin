@@ -9069,10 +9069,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Síťový provoz od spuštění: %s"
 
 #: server_status.php:822
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Tento MySQL server běží %s. Čas spuštění: %s."
+msgstr "Tento MySQL server běží %1$s. Čas spuštění: %2$s."
 
 #: server_status.php:832
 msgid ""
