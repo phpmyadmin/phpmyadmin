@@ -9864,10 +9864,9 @@ msgid "CPU Usage"
 msgstr "Využití procesoru"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. Použití"
+msgstr "Využití paměti"
 
 #: server_status.php:1367
 #, fuzzy
