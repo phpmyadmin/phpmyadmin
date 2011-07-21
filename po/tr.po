@@ -9900,7 +9900,7 @@ msgid ""
 "and have either the slow_query_log or general_log enabled."
 msgstr ""
 "phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
-"iz sürme süresinde size yardımcı \n"
+"iz sürme süresinde size yardımcı\n"
 "olabilir. Sonrası için log_output'u 'TABLE'a ayarlamanız gerekecektir ve ya "
 "slow_query_log ya da general_log etkinleştirilir."
 
