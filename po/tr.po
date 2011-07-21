@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:59+0200\n"
+"PO-Revision-Date: 2011-07-21 18:00+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1310,7 +1310,7 @@ msgstr "Seçili zaman aralığı:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
-msgstr "Kümelemek aynı tablo içine INSERT'ler"
+msgstr "Aynı tablo içinde INSERT'ler birlikte gruplanır"
 
 #: js/messages.php:142
 msgid ""
