@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Parser BUG decoder
+ * Parser bug report decoder
  *
  * This is the parser bug decoder system
  * Throw the bug data in teh query box, and hit submit for output.
@@ -23,7 +23,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin - Parser BUG decoder</title>
+    <title>phpMyAdmin - Parser bug report decoder</title>
     <style type="text/css">
     <!--
     body, p {
@@ -42,7 +42,7 @@
 
 
 <body bgcolor="#FFFFFF">
-<h1>Parser BUG decoder</h1>
+<h1>Parser bug report decoder</h1>
 <br />
 
 <form method="post" action="./decode_bug.php">
