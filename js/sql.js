@@ -1227,45 +1227,18 @@ $(document).ready(function() {
 /*
  * Profiling Chart
  */
-function createProfilingChart() {
+function makeProfilingChart() {
     if($('#profilingchart').length==0) return;
 
-    var cdata = new Array();
+    var data = new Array();
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
-        cdata.push([key,parseFloat(value)]);
+        data.push([key,parseFloat(value)]);
     });
 
     // Prevent the user from seeing the JSON code
     $('div#profilingchart').html('').show();
 
-    PMA_createChart({
-        chart: {
-            renderTo: 'profilingchart',
-            backgroundColor: $('#sqlqueryresults fieldset').css('background-color')
-        },
-        title: { text:'', margin:0 },
-        series: [{
-            type:'pie',
-            name: 'Query execution time',
-            data: cdata
-        }],
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    distance: 35,
-                    formatter: function() {
-                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
-                   }
-                }
-            }
-        },
-        tooltip: {
-            formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+this.y+'s<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
-        }
-    });
+    PMA_createProfilingChart(data);
 }
 
 

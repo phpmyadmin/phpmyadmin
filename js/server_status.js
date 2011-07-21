@@ -1500,21 +1500,21 @@ $(function() {
                 limitTypes: opts.limitTypes
             },
             function(data) { 
-                runtime.logData = $.parseJSON(data);
+                var logData = $.parseJSON(data);
                 
-                if(runtime.logData.rows.length != 0) {
-                    runtime.logDataCols = buildLogTable(runtime.logData);
+                if(logData.rows.length != 0) {
+                    runtime.logDataCols = buildLogTable(logData);
                     
                     /* Show some stats in the dialog */
                     $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
-                    $.each(runtime.logData.sum, function(key, value) {
+                    $.each(logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                         if(key == 'Total') key = '<b>' + key + '</b>';
                         $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
                     });
                     
                     /* Add filter options if more than a bunch of rows there to filter */
-                    if(runtime.logData.numRows > 12) {
+                    if(logData.numRows > 12) {
                         $('div#logTable').prepend(
                             '<fieldset id="logDataFilter">' +
                             '	<legend>' + PMA_messages['strFilters'] + '</legend>' +
@@ -1522,7 +1522,7 @@ $(function() {
                             '		<label for="filterQueryText">' + PMA_messages['strFilterByWordRegexp'] + '</label>' +
                             '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
                             '	</div>' +
-                            ((runtime.logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + PMA_messages['strFilter'] + '</button></div>' : '') +
+                            ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + PMA_messages['strFilter'] + '</button></div>' : '') +
                             '	<div class="formelement">' +
                             '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1" /> ' +
                             '       <label for="noWHEREData"> ' + PMA_messages['strIgnoreWhereAndGroup'] + '</label>' +
@@ -1536,7 +1536,7 @@ $(function() {
                         
                         //preg_replace('/\s+([^=]+)=(\d+|((\'|"|)(?U)(.+)(?<!\\\)\4(\s+|$)))/i',' $1={} ',$str);
                         
-                        if(runtime.logData.numRows > 250) {
+                        if(logData.numRows > 250) {
                             $('div#logTable button#startFilterQueryText').click(filterQueries);
                         } else {
                             $('div#logTable input#filterQueryText').keyup(filterQueries);
@@ -1604,8 +1604,8 @@ $(function() {
                         }
                         
                     } else {
-                        $(this).text(runtime.logData.rows[i][queryColumnName]);
-                        $(this).next().text('' + runtime.logData.rows[i][sumColumnName]);
+                        $(this).text($(this).parent().data('query')[queryColumnName]);
+                        $(this).next().text($(this).parent().data('query')[sumColumnName]);
                     }
                 }
                 
@@ -1658,11 +1658,21 @@ $(function() {
         }
     }
     
+    loadLogStatistics({
+        src: 'general',
+        start:1311076210*1000,
+        end:1311162689*1000,
+        removeVariables: true,
+        limitTypes: true
+    });
+    
     function buildLogTable(data) {
         var rows = data.rows;
         var cols = new Array();
+        var $table = $('<table border="0" class="sortable"></table>');
+        var $tBody, $tRow, $tCell;
         
-        var tableStr = '<table border="0" class="sortable">';
+        $('#logTable').html($table);
         
         var formatValue = function(name, value) {
             switch(name) {
@@ -1674,27 +1684,152 @@ $(function() {
         
         for(var i=0; i < rows.length; i++) {
             if(i == 0) {
-                tableStr += '<thead>';
                 $.each(rows[0],function(key, value) {
                     cols.push(key);
                 });
-                tableStr += '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>';
-                tableStr += '</thead><tbody>';
+                $table.append( '<thead>' +
+                               '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>' +   
+                               '</thead>');
+                
+                $table.append($tBody = $('<tbody></tbody>'));
             }
             
-            tableStr += '<tr>';
-            for(var j=0; j < cols.length; j++)
-                tableStr += '<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>';
-            tableStr += '</tr>';
+            $tBody.append($tRow = $('<tr class="noclick"></tr>'));
+            var cl=''
+            for(var j=0; j < cols.length; j++) {
+                // Assuming the query column is the second last
+                if(j == cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
+                    $tRow.append($tCell=$('<td class="analyzableQuery">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
+                    $tCell.click(queryAnalyzer);
+                } else
+                    $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
+                
+                
+                $tRow.data('query',rows[i]);
+            }
         }
         
-        tableStr += '</tbody><tfoot>';
-        tableStr += '<tr><th colspan="' + (cols.length - 1) + '">' + PMA_messages['strSumRows'] + 
+        $table.append('<tfoot>' +
+                    '<tr><th colspan="' + (cols.length - 1) + '">' + PMA_messages['strSumRows'] + 
                     ' '+ data.numRows +'<span style="float:right">' + PMA_messages['strTotal'] + 
-                    '</span></th><th align="right">' + data.sum.TOTAL + '</th></tr>';
-        tableStr += '</tfoot></table>';
+                    '</span></th><th align="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
         
-        $('#logTable').html(tableStr);
+        
+        function queryAnalyzer() {
+            var query = $(this).parent().data('query')[cols[cols.length-2]];
+            
+            /* A very basic SQL Formatter. Totally fails in the cases of 
+               - Any string appearance containing a MySQL Keyword, surrounded by whitespaces
+               - Subqueries too probably
+            */
+            var sLists = query.match(/SELECT\s+[^]+\s+FROM\s+/gi);
+            if(sLists) {
+                for(var i=0; i < sLists.length; i++) {
+                    query = query.replace(sLists[i],sLists[i].replace(/\s*((`|'|"|).*?\1,)\s*/gi,'$1\n\t'));
+                }
+                query = query
+                  .replace(/(\s+|^)(SELECT|FROM|WHERE|GROUP BY|HAVING|ORDER BY|LIMIT)(\s+|$)/gi,'\n$2\n\t')
+                  .replace(/\s+UNION\s+/gi,'\n\nUNION\n\n')
+                  .replace(/\s+(AND)\s+/gi,' $1\n\t')
+                  .trim();                    
+            }
+            
+            codemirror_editor.setValue(query);
+            
+            var profilingChart = null;
+            
+            $('div#queryAnalyzerDialog').dialog({
+                width: 'auto',
+                height: 'auto',
+                resizable: false,
+                buttons: {
+                    'Analyse Query' : function() {
+                        $('div#queryAnalyzerDialog div.placeHolder').html('Analyzing... ' + '<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+                        
+                        $.post('server_status.php?'+url_query, {
+                            ajax_request: true,
+                            query_analyzer: true,
+                            query: codemirror_editor.getValue()
+                        }, function(data) {
+                            data = $.parseJSON(data);
+                            var totalTime = 0;
+                            
+                            if(data.error) {
+                                $('div#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
+                                return;
+                            }
+                            
+                            // Float sux, I'll use table :(
+                            $('div#queryAnalyzerDialog div.placeHolder')
+                                .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
+                            
+                            var explain = '<b>Explain output</b><p></p>';
+                            $.each(data.explain, function(key,value) {
+                                value = (value==null)?'null':value;
+                                
+                                explain += key+': ' + value + '<br />';
+                            });
+                            $('div#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
+                            
+                            if(data.profiling) {
+                                var chartData = [];
+                                var numberTable = '<table class="queryNums"><thead><tr><th>Status</th><th>Time</th></tr></thead><tbody>';
+                                var duration;
+                                
+                                for(var i=0; i < data.profiling.length; i++) {
+                                    duration = parseFloat(data.profiling[i].duration);
+                                    
+                                    chartData.push([data.profiling[i].state, duration]);
+                                    totalTime+=duration;
+                                    
+                                    numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + PMA_prettyProfilingNum(duration,2) + '</td></tr>';
+                                }
+                                numberTable += '<tr><td><b>Total time:</b></td><td>' + PMA_prettyProfilingNum(totalTime,2) + '</td></tr>';
+                                numberTable += '</tbody></table>';
+                                
+                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results</b> (<a href="#showNums">Table</a> | <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
+                                
+                                $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
+                                    $('div#queryAnalyzerDialog div#queryProfiling').hide();
+                                    $('div#queryAnalyzerDialog table.queryNums').show();
+                                    return false;
+                                });
+                                
+                                $('div#queryAnalyzerDialog div.placeHolder a[href="#showChart"]').click(function() {
+                                    $('div#queryAnalyzerDialog div#queryProfiling').show();
+                                    $('div#queryAnalyzerDialog table.queryNums').hide();
+                                    return false;
+                                });
+                                
+                                profilingChart = PMA_createProfilingChart(chartData, { 
+                                    chart: { 
+                                        renderTo: 'queryProfiling'
+                                    },
+                                    plotOptions: {
+                                        pie: {
+                                            size: '50%'
+                                        }
+                                    }
+                                });
+                                
+                                
+                                $('div#queryProfiling').resizable();
+                            }
+                            
+                        });
+                    },
+                    'Close' : function() {
+                        if(profilingChart != null) {
+                            profilingChart.destroy();
+                        }
+                        $('div#queryAnalyzerDialog div.placeHolder').html('');
+                        codemirror_editor.setValue('');
+                        
+                        $(this).dialog("close"); 
+                    }
+                }
+            });
+        }
         
         // Append a tooltip to the count column, if there exist one
         if($('#logTable th:last').html() == '#') {
@@ -1715,7 +1850,7 @@ $(function() {
                 hide: { delay: 1000 }
             })
         }
-        
+
         $('div#logTable table').tablesorter({
             sortList: [[cols.length - 1,1]],
             widgets: ['zebra']

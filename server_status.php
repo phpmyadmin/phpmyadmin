@@ -21,41 +21,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
 require_once './libraries/common.inc.php';
 
 /**
- * Function to output refresh rate selection.
- */
-function PMA_choose_refresh_rate() {
-    echo '<option value="5">' . __('Refresh rate') . '</option>';
-    foreach (array(1, 2, 5, 20, 40, 60, 120, 300, 600) as $rate) {
-        if ($rate % 60 == 0) {
-            $minrate = $rate / 60;
-            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d minute', '%d minutes', $minrate), $minrate) . '</option>';
-        } else {
-            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
-        }
-    }
-}
-
-/**
  * Ajax request
  */
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
-
-    if (isset($_REQUEST['logging_vars'])) {
-        if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-            if(!is_numeric($value)) $value="'".$value."'";
-            
-            if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']))
-                PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value);
-            
-        }
-    
-        $loggingVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")', 0, 1);
-        exit(json_encode($loggingVars));
-    }
 
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
@@ -260,6 +231,49 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             
             exit(json_encode($return));
         }
+    }
+    
+    if (isset($_REQUEST['logging_vars'])) {
+        if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
+            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
+            if(!is_numeric($value)) $value="'".$value."'";
+            
+            if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']))
+                PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value);
+            
+        }
+    
+        $loggingVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")', 0, 1);
+        exit(json_encode($loggingVars));
+    }
+
+    if(isset($_REQUEST['query_analyzer'])) {
+        $return = array();
+        
+        if ($profiling = PMA_profilingSupported())
+            PMA_DBI_query('SET PROFILING=1;');
+        
+		// Do not cache query
+		$query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
+		
+        $result = PMA_DBI_try_query('EXPLAIN ' . $query);
+        $return['explain'] = PMA_DBI_fetch_assoc($result);
+		
+		// In case an error happened
+		$return['error'] = PMA_DBI_getError();
+		
+        PMA_DBI_free_result($result);        
+        
+        if($profiling) {
+			$return['profiling'] = array();
+            $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
+			while ($row = PMA_DBI_fetch_assoc($result)) {
+            	$return['profiling'][]= $row;
+			}
+            PMA_DBI_free_result($result);
+        }
+        
+        exit(json_encode($return));
     }
 }
 
@@ -1444,6 +1458,12 @@ function printMonitor() {
         </label>
         
         <?php echo __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.'); ?>        
+    </div>
+    
+    <div id="queryAnalyzerDialog" title="<?php echo __('Query analyzer'); ?>" style="display:none;">
+        <textarea id="sqlquery"> </textarea>
+		<p></p>
+		<div class="placeHolder"></div>
     </div>
     
     <table border="0" class="clearfloat" id="chartGrid">

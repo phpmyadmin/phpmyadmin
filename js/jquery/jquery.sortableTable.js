@@ -10,21 +10,31 @@
  */
 
 /* Options:
-	$('table').sortableTable({
-		ignoreRect: { top, left, width, height }  - relative coordinates on each element. If the user clicks 
-												    in this area, it is not seen as a drag&drop request. Useful for toolbars etc.
-		events: {
-			start: callback function when the user starts dragging
-			drop: callback function after an element has been dropped
-		}
-	})
+
+$('table').sortableTable({
+    ignoreRect: { top, left, width, height }  - relative coordinates on each element. If the user clicks 
+                                               in this area, it is not seen as a drag&drop request. Useful for toolbars etc.
+    events: {
+       start: callback function when the user starts dragging
+       drop: callback function after an element has been dropped
+    }
+})
 */
 
 /* Commands:
-	$('table').sortableTable('init')  		- equivalent to $('table').sortableTable()
-	$('table').sortableTable('refresh')  	- if the table has been changed, refresh correctly assigns all events again
-	$('table').sortableTable('destroy')  	- removes all events from the table
+
+$('table').sortableTable('init')      - equivalent to $('table').sortableTable()
+$('table').sortableTable('refresh')   - if the table has been changed, refresh correctly assigns all events again
+$('table').sortableTable('destroy')   - removes all events from the table
+
 */ 
+
+/* Setup: 
+
+  Can be applied on any table, there is just one convention. 
+  Each cell (<td>) has to contain one and only one element (preferably div or span) 
+  which is the actually draggable element.
+*/
 (function($) {
 	jQuery.fn.sortableTable = function(method) {
 	

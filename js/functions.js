@@ -140,8 +140,8 @@ function PMA_addDatepicker($this_element, options) {
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-	
-	var defaultOptions = {
+    
+    var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -163,7 +163,7 @@ function PMA_addDatepicker($this_element, options) {
             },0);
         },
         constrainInput: false
-	};
+    };
 
     $this_element.datepicker($.extend(defaultOptions, options));
 }
@@ -1455,12 +1455,13 @@ function PMA_createTableDialog( div, url , target) {
  *                                      - the current response value of the GET request, JSON parsed
  *                                      - the previous response value of the GET request, JSON parsed
  *                                      - the number of added points
+ *                              }
  * 
  * @return  object   The created highcharts instance
  */
 function PMA_createChart(passedSettings) {
     var container = passedSettings.chart.renderTo;
-    
+
     var settings = {
         chart: {
             type: 'spline',
@@ -1574,6 +1575,53 @@ function PMA_createChart(passedSettings) {
     $.extend(true,settings,passedSettings);
 
     return new Highcharts.Chart(settings);
+}
+
+
+/*
+ * Creates a Profiling Chart. Used in sql.php and server_status.js
+ */
+function PMA_createProfilingChart(data, options) {
+    return PMA_createChart($.extend(true, {
+        chart: {
+            renderTo: 'profilingchart',
+            type: 'pie'
+        },
+        title: { text:'', margin:0 },
+        series: [{
+            type: 'pie',
+            name: PMA_messages['strQueryExecutionTime'],
+            data: data
+        }],
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    distance: 35,
+                    formatter: function() {
+                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
+                   }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() { 
+                return '<b>'+ this.point.name +'</b><br/>'+PMA_prettyProfilingNum(this.y)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; 
+            }
+        }
+    },options));
+}
+
+// Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
+function PMA_prettyProfilingNum(num, acc) {
+	if(!acc) acc = 1;
+	acc = Math.pow(10,acc);
+	if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ'
+	else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm'
+	
+	return num + 's';
 }
 
 /**
@@ -2455,65 +2503,65 @@ var toggleButton = function ($obj) {
     } else {
         var right = 'left';
     }
-	/**
-	 *  var  h  Height of the button, used to scale the
-	 *          background image and position the layers
-	 */
-	var h = $obj.height();
-	$('img', $obj).height(h);
-	$('table', $obj).css('bottom', h-1);
-	/**
-	 *  var  on   Width of the "ON" part of the toggle switch
-	 *  var  off  Width of the "OFF" part of the toggle switch
-	 */
-	var on  = $('.toggleOn', $obj).width();
-	var off = $('.toggleOff', $obj).width();
-	// Make the "ON" and "OFF" parts of the switch the same size
-	$('.toggleOn > div', $obj).width(Math.max(on, off));
-	$('.toggleOff > div', $obj).width(Math.max(on, off));
-	/**
-	 *  var  w  Width of the central part of the switch
-	 */
-	var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
-	// Resize the central part of the switch on the top
-	// layer to match the background
-	$('table td:nth-child(2) > div', $obj).width(w);
-	/**
-	 *  var  imgw    Width of the background image
-	 *  var  tblw    Width of the foreground layer
-	 *  var  offset  By how many pixels to move the background
-	 *               image, so that it matches the top layer
-	 */
-	var imgw = $('img', $obj).width();
-	var tblw = $('table', $obj).width();
-	var offset = parseInt(((imgw - tblw) / 2), 10);
-	// Move the background to match the layout of the top layer
-	$obj.find('img').css(right, offset);
-	/**
-	 *  var  offw    Outer width of the "ON" part of the toggle switch
-	 *  var  btnw    Outer width of the central part of the switch
-	 */
-	var offw = $('.toggleOff', $obj).outerWidth();
-	var btnw = $('table td:nth-child(2)', $obj).outerWidth();
-	// Resize the main div so that exactly one side of
-	// the switch plus the central part fit into it.
-	$obj.width(offw + btnw + 2);
-	/**
-	 *  var  move  How many pixels to move the
-	 *             switch by when toggling
-	 */
-	var move = $('.toggleOff', $obj).outerWidth();
-	// If the switch is initialized to the
-	// OFF state we need to move it now.
-	if ($('.container', $obj).hasClass('off')) {
+    /**
+     *  var  h  Height of the button, used to scale the
+     *          background image and position the layers
+     */
+    var h = $obj.height();
+    $('img', $obj).height(h);
+    $('table', $obj).css('bottom', h-1);
+    /**
+     *  var  on   Width of the "ON" part of the toggle switch
+     *  var  off  Width of the "OFF" part of the toggle switch
+     */
+    var on  = $('.toggleOn', $obj).width();
+    var off = $('.toggleOff', $obj).width();
+    // Make the "ON" and "OFF" parts of the switch the same size
+    $('.toggleOn > div', $obj).width(Math.max(on, off));
+    $('.toggleOff > div', $obj).width(Math.max(on, off));
+    /**
+     *  var  w  Width of the central part of the switch
+     */
+    var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+    // Resize the central part of the switch on the top
+    // layer to match the background
+    $('table td:nth-child(2) > div', $obj).width(w);
+    /**
+     *  var  imgw    Width of the background image
+     *  var  tblw    Width of the foreground layer
+     *  var  offset  By how many pixels to move the background
+     *               image, so that it matches the top layer
+     */
+    var imgw = $('img', $obj).width();
+    var tblw = $('table', $obj).width();
+    var offset = parseInt(((imgw - tblw) / 2), 10);
+    // Move the background to match the layout of the top layer
+    $obj.find('img').css(right, offset);
+    /**
+     *  var  offw    Outer width of the "ON" part of the toggle switch
+     *  var  btnw    Outer width of the central part of the switch
+     */
+    var offw = $('.toggleOff', $obj).outerWidth();
+    var btnw = $('table td:nth-child(2)', $obj).outerWidth();
+    // Resize the main div so that exactly one side of
+    // the switch plus the central part fit into it.
+    $obj.width(offw + btnw + 2);
+    /**
+     *  var  move  How many pixels to move the
+     *             switch by when toggling
+     */
+    var move = $('.toggleOff', $obj).outerWidth();
+    // If the switch is initialized to the
+    // OFF state we need to move it now.
+    if ($('.container', $obj).hasClass('off')) {
         if (right == 'right') {
-    		$('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-    		$('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
-	}
-	// Attach an 'onclick' event to the switch
-	$('.container', $obj).click(function () {
+    }
+    // Attach an 'onclick' event to the switch
+    $('.container', $obj).click(function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -2522,8 +2570,8 @@ var toggleButton = function ($obj) {
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         var $container = $(this);
         var callback = $('.callback', this).text();
-		// Perform the actual toggle
-		if ($(this).hasClass('on')) {
+        // Perform the actual toggle
+        if ($(this).hasClass('on')) {
             if (right == 'right') {
                 var operator = '-=';
             } else {
@@ -2532,7 +2580,7 @@ var toggleButton = function ($obj) {
             var url = $(this).find('.toggleOff > span').text();
             var removeClass = 'on';
             var addClass = 'off';
-		} else {
+        } else {
             if (right == 'right') {
                 var operator = '+=';
             } else {
@@ -2545,10 +2593,10 @@ var toggleButton = function ($obj) {
         $.post(url, {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
-		        $container
-		        .removeClass(removeClass)
-		        .addClass(addClass)
-		        .animate({'left': operator + move + 'px'}, function () {
+                $container
+                .removeClass(removeClass)
+                .addClass(addClass)
+                .animate({'left': operator + move + 'px'}, function () {
                     $container.removeClass('isActive');
                 });
                 eval(callback);
@@ -2557,7 +2605,7 @@ var toggleButton = function ($obj) {
                 $container.removeClass('isActive');
             }
         });
-	});
+    });
 };
 
 /**
@@ -2568,8 +2616,8 @@ $(window).load(function () {
         $(this)
         .show()
         .find('.toggleButton')
-		toggleButton($(this));
-	});
+        toggleButton($(this));
+    });
 });
 
 /**

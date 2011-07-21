@@ -932,7 +932,7 @@ else {
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo isset($url_query)?$url_query:PMA_generate_common_url($db);?>';
-$(document).ready(createProfilingChart);
+$(document).ready(makeProfilingChart);
 </script>
 <?php
         echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
