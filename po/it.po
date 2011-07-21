@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:28+0200\n"
+"PO-Revision-Date: 2011-07-21 18:29+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10827,10 +10827,9 @@ msgid "X-Axis:"
 msgstr ""
 
 #: tbl_chart.php:113
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
-msgstr "Query SQL"
+msgstr "Serie:"
 
 #: tbl_chart.php:115
 #, fuzzy
