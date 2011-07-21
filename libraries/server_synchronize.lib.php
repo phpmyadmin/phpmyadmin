@@ -7,18 +7,18 @@
  */
 
 /**
-* PMA_getMatchingTables places matching tables in source
-* and target databases in $matching_tables array whereas
-* $uncommon_source_tables array gets the tables present in
-* source database but are absent from target database.
-* Criterion for matching tables is just comparing their names.
-*
-* @param array $trg_tables              array of target database table names,
-* @param array $src_tables              array of source database table names,
-* @param array &$matching_tables        empty array passed by reference to save names of matching tables,
-* @param array &$uncommon_source_tables empty array passed by reference to save names of tables present in
-*                                       source database but absent from target database
-*/
+ * PMA_getMatchingTables places matching tables in source
+ * and target databases in $matching_tables array whereas
+ * $uncommon_source_tables array gets the tables present in
+ * source database but are absent from target database.
+ * Criterion for matching tables is just comparing their names.
+ *
+ * @param array $trg_tables              array of target database table names,
+ * @param array $src_tables              array of source database table names,
+ * @param array &$matching_tables        empty array passed by reference to save names of matching tables,
+ * @param array &$uncommon_source_tables empty array passed by reference to save names of tables present in
+ *                                       source database but absent from target database
+ */
 function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$uncommon_source_tables)
 {
     for ($k=0; $k< sizeof($src_tables); $k++) {
@@ -36,14 +36,14 @@ function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$un
 }
 
 /**
-* PMA_getNonMatchingTargetTables() places tables present
-* in target database but are absent from source database
-*
-* @param array $trg_tables              array of target database table names,
-* @param array $matching_tables         $matching tables array containing names of matching tables,
-* @param array &$uncommon_target_tables empty array passed by reference to save names of tables presnet in
-*                                       target database but absent from source database
-*/
+ * PMA_getNonMatchingTargetTables() places tables present
+ * in target database but are absent from source database
+ *
+ * @param array $trg_tables              array of target database table names,
+ * @param array $matching_tables         $matching tables array containing names of matching tables,
+ * @param array &$uncommon_target_tables empty array passed by reference to save names of tables presnet in
+ *                                       target database but absent from source database
+ */
 function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommon_target_tables)
 {
     for ($c=0; $c<sizeof($trg_tables) ;$c++) {
