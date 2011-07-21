@@ -6983,10 +6983,9 @@ msgstr "Avvio"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:348
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Descrizione"
+msgstr "Definizione"
 
 #: libraries/rte/rte_events.lib.php:471
 #, fuzzy
