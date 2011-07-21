@@ -1358,7 +1358,7 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
  * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
  * show $message and exit.
  */
-if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
+if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if(isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
@@ -1457,7 +1457,7 @@ if (isset($_REQUEST['export'])) {
     }
     echo '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
-    if( $GLOBALS['is_ajax_request']) {
+    if ($GLOBALS['is_ajax_request']) {
         exit;
     }
 }
@@ -1552,7 +1552,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
              * In an Ajax request, we don't need to show this. Also not necassary if there is less than 20 privileges
              */
 
-            if( $GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
+            if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
 
                 // initialize to false the letters A-Z
                 for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -1704,7 +1704,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
 
-            if( $GLOBALS['is_ajax_request'] ) {
+            if ($GLOBALS['is_ajax_request']) {
                 exit;
             }
 
@@ -2119,7 +2119,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         '1' => __('Create database with same name and grant all privileges'),
         '2' => __('Grant all privileges on wildcard name (username\\_%)'));
 
-    if ( !empty($dbname) ) {
+    if (! empty($dbname) ) {
         $choices['3'] = sprintf( __('Grant all privileges on database &quot;%s&quot;'),  htmlspecialchars($dbname));
         $default_choice = 3;
         echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
