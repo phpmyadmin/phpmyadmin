@@ -9825,10 +9825,9 @@ msgid "Clear monitor config"
 msgstr "Odstranit nastavení monitoru"
 
 #: server_status.php:1333
-#, fuzzy
 #| msgid "1. Introduction"
 msgid "Monitor Instructions"
-msgstr "1. Úvod"
+msgstr "Instrukce monitoru"
 
 #: server_status.php:1334
 msgid ""
