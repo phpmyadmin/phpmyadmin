@@ -1325,7 +1325,7 @@ msgstr "Titolo del diagramma"
 #: js/messages.php:137
 #| msgid "Difference"
 msgid "Differential"
-msgstr "differenziali"
+msgstr "Differenziali"
 
 #: js/messages.php:138
 #, php-format
