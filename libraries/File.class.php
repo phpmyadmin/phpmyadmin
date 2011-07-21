@@ -317,7 +317,6 @@ class PMA_File
      * $file['error'] = [value]
      * </code>
      *
-     * @todo re-check if requirements changes to PHP >= 4.2.0
      * @access  public
      * @static
      * @param   array   $file       the array
