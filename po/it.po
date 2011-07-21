@@ -5377,7 +5377,7 @@ msgstr "Clicca per ordinare"
 
 #: libraries/display_tbl.lib.php:416
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Clicca per selezionare/deselezionare"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
