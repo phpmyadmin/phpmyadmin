@@ -10906,10 +10906,9 @@ msgid "Save to file"
 msgstr "Salva nel file"
 
 #: tbl_gis_visualization.php:207
-#, fuzzy
 #| msgid "Table name"
 msgid "File name"
-msgstr "Nome tabella"
+msgstr "Nome del file"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
