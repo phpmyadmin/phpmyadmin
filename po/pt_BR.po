@@ -5059,7 +5059,7 @@ msgstr ", @DATABASE@ se tornará o nome do banco de dados"
 
 #: libraries/display_export.lib.php:226
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ se tornará o nome da tabela"
 
 #: libraries/display_export.lib.php:230
 #, fuzzy, php-format
