@@ -1084,7 +1084,7 @@ msgstr "Grafico delle query in tempo reale"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Dati statici"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
