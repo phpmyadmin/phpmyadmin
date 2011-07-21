@@ -2275,8 +2275,14 @@ function checkIndexName(form_id)
     return true;
 } // end of the 'checkIndexName()' function
 
-
-/* Displays tooltips */
+/**
+ * function to convert the footnotes to tooltips
+ *
+ * @param   jquery-Object   $div    a div jquery object which crries the domain
+ *                                  for searching footnootes. If we ommit this
+ *                                  parameter the function searches the footnotes
+ *                                  in the whole body
+ **/
 function PMA_convertFootnotesToTooltips($div) {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
@@ -2300,8 +2306,21 @@ function PMA_convertFootnotesToTooltips($div) {
     $div.find("img.footnotemarker").show();
 
     $div.find("img.footnotemarker").each(function() {
-        var span_id = $(this).attr("class");
-        span_id = span_id.split("_")[1];
+        var img_class = $(this).attr("class");
+        /** img contains two classes, as example "footnotemarker footnote_1_1".
+         *  We spit it by second classs and take it for the id of span
+        */
+        img_class = img_class.split(" ");
+        for (i = 0; i < img_class.length; i++) {
+            if (img_class[i].split("_")[0] == "footnote") {
+                var span_id = img_class[i].split("_")[1];
+            }
+        }
+        /**
+         * Now we get the #id of the span with span_id variable. As an example if we
+         * initially get the img class as "footnotemarker footnote_2_3", now we get
+         * #2 as the span_id. Using that we can find footnote_2 in footnotes.
+         * */
         var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
         $(this).qtip({
             content: tooltip_text,

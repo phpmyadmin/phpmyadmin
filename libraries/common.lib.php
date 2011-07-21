@@ -459,18 +459,13 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
             $GLOBALS['footnotes'] = array();
         }
         $nr = count($GLOBALS['footnotes']) + 1;
-        // this is the first instance of this message
-        $instance = 1;
         $GLOBALS['footnotes'][$key] = array(
             'note'      => $message,
             'type'      => $type,
             'nr'        => $nr,
-            'instance'  => $instance
         );
     } else {
         $nr = $GLOBALS['footnotes'][$key]['nr'];
-        // another instance of this message (to ensure ids are unique)
-        $instance = ++$GLOBALS['footnotes'][$key]['instance'];
     }
 
     if ($bbcode) {
@@ -479,7 +474,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 
     // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker">' . $nr . '</sup>' .
-    '<img class="footnotemarker footnote_' . $nr . '_' . $instance . '" src="' .
+    '<img class="footnotemarker footnote_' . $nr . '" src="' .
     $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
 }
 
