@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:30+0200\n"
+"PO-Revision-Date: 2011-07-21 19:04+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9866,7 +9866,7 @@ msgstr "Yönergeler/Ayarlama"
 
 #: server_status.php:1302
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Çizelgeleri düzenlemeyi/yeniden düzenlemeyi bitir"
 
 #: server_status.php:1309
 msgid "Add chart"
