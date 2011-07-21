@@ -7183,7 +7183,7 @@ msgstr "È necessario fornire un valido tipo del risultato."
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "È necessario fornire una definizione per la routine."
 
 #: libraries/rte/rte_routines.lib.php:1198
 #, php-format
