@@ -78,14 +78,14 @@ function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommo
  * @param string  $trg_db                  name of target database
  * @param db_link $src_link                connection established with source server
  * @param db_link $trg_link                connection established with target server
- * @param array   $matching_table          array containing matching table names
+ * @param array   &$matching_table         array containing matching table names
  * @param array   &$matching_tables_fields A two dimensional array passed by reference to contain names of fields for each matching table
- * @param array   $update_array            A three dimensional array passed by reference to
+ * @param array   &$update_array           A three dimensional array passed by reference to
  *                                         contain updates required for each matching table
- * @param array   $insert_array            A three dimensional array passed by reference to
+ * @param array   &$insert_array           A three dimensional array passed by reference to
  *                                         contain inserts required for each matching table
- * @param array   $delete_array            Unused
- * @param array   $fields_num              A two dimensional array passed by reference to
+ * @param array   &$delete_array           Unused
+ * @param array   &$fields_num             A two dimensional array passed by reference to
  *                                         contain number of fields for each matching table
  * @param array   $matching_table_index    Index of a table from $matching_table array
  * @param array   &$matching_tables_keys   A two dimensional array passed by reference to contain names of keys for each matching table
