@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 19:03+0200\n"
+"PO-Revision-Date: 2011-07-21 19:04+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10189,7 +10189,7 @@ msgstr "Seleziona serie:"
 
 #: server_status.php:1374
 msgid "Commonly monitored"
-msgstr "Comunemente monitorate"
+msgstr "Monitorate di solito"
 
 #: server_status.php:1389
 #| msgid "Invalid table name"
