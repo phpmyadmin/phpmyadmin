@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 19:08+0200\n"
+"PO-Revision-Date: 2011-07-21 19:09+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -9260,9 +9260,8 @@ msgid "All status variables"
 msgstr "Tutte le variabili di stato"
 
 #: server_status.php:589
-#, fuzzy
 msgid "Monitor"
-msgstr "Monitora"
+msgstr "Monitoraggio"
 
 #: server_status.php:599 server_status.php:621
 #| msgid "Refresh"
