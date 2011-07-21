@@ -10818,10 +10818,9 @@ msgid "Stacked"
 msgstr "Sovrapposti"
 
 #: tbl_chart.php:94
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart title"
-msgstr "Titolo del report:"
+msgstr "Titolo del grafico"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
