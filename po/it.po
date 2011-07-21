@@ -10198,7 +10198,7 @@ msgstr "or scrivi il nome di una variabile:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
-msgstr ""
+msgstr "Visualizzare come valore differenziale"
 
 #: server_status.php:1395
 msgid "Apply a divisor"
