@@ -7298,10 +7298,9 @@ msgid "routine"
 msgstr "Routines"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Non hai i permessi per effettuare questa operazione!"
+msgstr "Non hai i necessari privilegi per creare una routine."
 
 #: libraries/rte/rte_words.lib.php:23
 #, fuzzy, php-format
