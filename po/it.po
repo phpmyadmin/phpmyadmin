@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:11+0200\n"
+"PO-Revision-Date: 2011-07-21 17:13+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -2058,6 +2058,7 @@ msgstr "La tabella %s è stata rinominata %s"
 #: libraries/Table.class.php:1274
 msgid "Could not save table UI preferences"
 msgstr ""
+"Impossibile salvare la tabella delle preferenze per l'interfaccia utente"
 
 #: libraries/Theme.class.php:143
 #, php-format
