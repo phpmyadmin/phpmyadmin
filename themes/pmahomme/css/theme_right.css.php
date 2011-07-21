@@ -1185,9 +1185,10 @@ th.headerSortDown img.sortableIcon, th.headerSortDown img.sortableIcon {
     background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
 }
 
-.statuslinks {
+.buttonlinks {
     float: <?php echo $right; ?>;
     white-space: nowrap;
+    display: none; /* Made visible with js */
 }
 
 /* Also used for the variables page */
@@ -1210,8 +1211,12 @@ div#serverstatusquerieschart {
     padding-<?php echo $left; ?>: 30px;
 }
 
-div#serverstatus table#serverstatusqueriesdetails {
+table#serverstatusqueriesdetails, table#serverstatustraffic {
     float: <?php echo $left; ?>;
+}
+
+table#serverstatusqueriesdetails th {
+    min-width: 35px;
 }
 
 .clearfloat {
@@ -1227,9 +1232,6 @@ table#serverstatusvariables .name {
 }
 table#serverstatusvariables .value {
     width: 6em;
-}
-table#serverstatustraffic {
-    float: <?php echo $left; ?>;
 }
 table#serverstatusconnections {
     float: <?php echo $left; ?>;
@@ -1247,6 +1249,52 @@ div.liveChart {
     height:400px; 
     padding-bottom:80px;
 }
+
+#addChartDialog input[type="text"] {
+    margin:0px;
+    padding:3px;
+}
+
+div#chartVariableSettings {
+    border:1px solid #ddd;
+    background-color:#E6E6E6;
+    margin-left:10px;
+}
+
+table#chartGrid div.monitorChart {
+    background: #EBEBEB;
+}
+
+div#statustabs_charting div.monitorLinks {
+    float:<?php echo $left; ?>;
+}
+
+.popupContent {
+    display: none;
+    position: absolute;
+    border: 1px solid #CCC;
+    margin:0;
+    padding:3px;
+    -moz-box-shadow:    1px 1px 6px #ddd;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow:         2px 2px 3px #666;
+    background-color:white;
+    z-index: 2;
+}
+
+div#logTable {
+    padding-top: 10px;
+    clear: both;
+}
+
+div#logTable table {
+	width:100%;
+}
+
+.smallIndent {
+    padding-left: 7px;
+}
+
 /* end serverstatus */
 
 /* server variables */
@@ -1257,23 +1305,23 @@ a.editLink {
 }
 
 table.serverVariableEditTable {
-	border:0;
-	margin:0;
-	padding:0;
-	width:100%;
+    border:0;
+    margin:0;
+    padding:0;
+    width:100%;
 }
 table.serverVariableEditTable td {
-	border:0;
-	margin:0;
-	padding:0;
+    border:0;
+    margin:0;
+    padding:0;
 }
 table.serverVariableEditTable td:first-child {
-	white-space:nowrap;
-	vertical-align:middle;
+    white-space:nowrap;
+    vertical-align:middle;
 }
 
 table.serverVariableEditTable input {
-	width:95%;
+    width:95%;
 }
 
 table#serverVariables td {
@@ -1281,6 +1329,37 @@ table#serverVariables td {
 }
 
 /* end server variables */
+
+
+p.notice {
+    margin:             1.5em 0px;
+    border:             1px solid #000;
+    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
+    background-repeat:  no-repeat;
+        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    background-position: 10px 50%;
+    padding:            10px 10px 10px 25px;
+        <?php } else { ?>
+    background-position: 99% 50%;
+    padding:            25px 10px 10px 10px
+        <?php } ?>
+    <?php } else { ?>
+    padding:            0.3em;
+    <?php } ?>
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    -moz-box-shadow: 0px 1px 2px #fff inset;
+    -webkit-box-shadow: 0px 1px 2px #fff inset;
+    box-shadow:0px 1px 2px #fff; inset;
+    background:#555;
+    color:#d4fb6a;
+}
+
+p.notice a {
+    color:#fff;
+    text-decoration:underline;
+}
 
 /* querywindow */
 body#bodyquerywindow {
@@ -1326,32 +1405,6 @@ div#profilingchart {
 
 #togglequerybox{margin:0 10px}
 
-#serverstatus p {
-
-    margin:             1.5em 0px;
-    border:             1px solid #000;
-    <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
-    background-repeat:  no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 10px 50%;
-    padding:            10px 10px 10px 25px;
-        <?php } else { ?>
-    background-position: 99% 50%;
-    padding:            25px 10px 10px 10px
-        <?php } ?>
-    <?php } else { ?>
-    padding:            0.3em;
-    <?php } ?>
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
-    -moz-box-shadow: 0px 1px 2px #fff inset;
-    -webkit-box-shadow: 0px 1px 2px #fff inset;
-    box-shadow:0px 1px 2px #fff; inset;
-    background:#555;
-    color:#d4fb6a;
-}
-#serverstatus p a{color:#fff;text-decoration:underline;}
 #serverstatus h3
 {
     margin: 15px 0;
@@ -1370,7 +1423,7 @@ div#profilingchart {
     -webkit-box-shadow:0px 1px 1px #fff inset;
     -moz-box-shadow:0px 1px 1px #fff inset;
 }
-#sectionlinks a, .statuslinks a{
+#sectionlinks a, .buttonlinks a, a.button {
     font-size:0.88em;
     font-weight:bold;
     text-shadow: 0px 1px 0px #fff;
@@ -1398,7 +1451,7 @@ div#profilingchart {
     background: -o-linear-gradient(top,  #ffffff,  #cccccc);
     <?php echo PMA_ieFilter('#ffffff', '#cccccc'); ?>
 }
-#sectionlinks a:hover, .statuslinks a:hover{
+#sectionlinks a:hover, .buttonlinks a:hover, a.button:hover {
     background-image: url(./themes/svg_gradient.php?from=cccccc&to=dddddd);
     background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#dddddd));

@@ -255,7 +255,7 @@ require_once './libraries/List.class.php';
 
             $pos = false;
 
-            foreach($separators as $separator) {
+            foreach ($separators as $separator) {
                 // use strpos instead of strrpos; it seems more common to
                 // have the db name, the separator, then the rest which
                 // might contain a separator

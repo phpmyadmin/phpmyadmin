@@ -362,7 +362,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             if (class_exists('PMA_Message') && $GLOBALS['is_ajax_request'] != true) {
                                 PMA_Message::notice(__('Automatically appended backtick to the end of query!'))->display();
                             }
-                        }  else {
+                        } else {
                             $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
                                       . 'STR: ' . htmlspecialchars($quotetype);
                             PMA_SQP_throwError($debugstr, $sql);

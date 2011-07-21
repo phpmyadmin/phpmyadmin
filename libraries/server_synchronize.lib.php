@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
@@ -17,9 +17,9 @@
 */
 function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$uncommon_source_tables)
 {
-    for($k=0; $k< sizeof($src_tables); $k++) {
+    for ($k=0; $k< sizeof($src_tables); $k++) {
         $present_in_target = false;
-        for($l=0; $l < sizeof($trg_tables); $l++) {
+        for ($l=0; $l < sizeof($trg_tables); $l++) {
             if ($src_tables[$k] === $trg_tables[$l]) {
                 $present_in_target = true;
                 $matching_tables[] = $src_tables[$k];
@@ -34,7 +34,7 @@ function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$un
 /**
 * PMA_getNonMatchingTargetTables() places tables present
 * in target database but are absent from source database
-* 
+*
 * @param    $trg_tables   array of target database table names,
 *
 * @param    $matching_tables           $matching tables array containing names of matching tables,
@@ -43,9 +43,9 @@ function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$un
 */
 function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommon_target_tables)
 {
-    for($c=0; $c<sizeof($trg_tables) ;$c++) {
+    for ($c=0; $c<sizeof($trg_tables) ;$c++) {
         $match = false;
-        for($d=0; $d < sizeof($matching_tables); $d++)
+        for ($d=0; $d < sizeof($matching_tables); $d++)
         {
             if ($trg_tables[$c] === $matching_tables[$d]) {
                 $match=true;
@@ -67,21 +67,21 @@ function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables, &$uncommo
  * Otherwise that entry is placed in the $insert_array.
  *
  *
- * @param    $src_db    name of source database
- * @param    $trg_db    name of target database
- * @param    $src_link  connection established with source server
- * @param    $trg_link  connection established with target server
- * @param    $matching_table   array containing matching table names
- * @param    $matching_tables_fields    A two dimensional array passed by reference to contain names of fields for each matching table
- * @param    $update_array    A three dimensional array passed by reference to
- *                            contain updates required for each matching table
- * @param    $insert_array    A three dimensional array passed by reference to
- *                            contain inserts required for each matching table
- * @param    $delete_array    Unused
- * @param    $fields_num      A two dimensional array passed by reference to
- *                            contain number of fields for each matching table
- * @param    $matching_table_index    Index of a table from $matching_table array
- * @param    $matching_tables_keys     A two dimensional array passed by reference to contain names of keys for each matching table
+ * @param string  $src_db                  name of source database
+ * @param string  $trg_db                  name of target database
+ * @param db_link $src_link                connection established with source server
+ * @param db_link $trg_link                connection established with target server
+ * @param array   $matching_table          array containing matching table names
+ * @param array   &$matching_tables_fields A two dimensional array passed by reference to contain names of fields for each matching table
+ * @param array   $update_array            A three dimensional array passed by reference to
+ *                                         contain updates required for each matching table
+ * @param array   $insert_array            A three dimensional array passed by reference to
+ *                                         contain inserts required for each matching table
+ * @param array   $delete_array            Unused
+ * @param array   $fields_num              A two dimensional array passed by reference to
+ *                                         contain number of fields for each matching table
+ * @param array   $matching_table_index    Index of a table from $matching_table array
+ * @param array   &$matching_tables_keys   A two dimensional array passed by reference to contain names of keys for each matching table
  */
 function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching_table, &$matching_tables_fields,
     &$update_array, &$insert_array, &$delete_array, &$fields_num, $matching_table_index, &$matching_tables_keys)
@@ -99,7 +99,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                 $fld[] = $field_name;
             }
         }
-        $matching_tables_fields[$matching_table_index] = $fld; 
+        $matching_tables_fields[$matching_table_index] = $fld;
         $fields_num[$matching_table_index] = sizeof($fld);
         $matching_tables_keys[$matching_table_index] = $is_key;
 
@@ -128,38 +128,38 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 
         for ($j = 0; $j < $source_size; $j++) {
             $starting_index = 0;
-			$update_field = 0;
+            $update_field = 0;
 
-			if (isset($source_result_set[$j]) && ($all_keys_match)) {
+            if (isset($source_result_set[$j]) && ($all_keys_match)) {
 
-				// Query the target server to see which rows already exist
+                // Query the target server to see which rows already exist
                 $trg_select_query = "SELECT * FROM " . PMA_backquote($trg_db) . "."
-        	        . PMA_backquote($matching_table[$matching_table_index]) . " WHERE ";
+                    . PMA_backquote($matching_table[$matching_table_index]) . " WHERE ";
 
                 if (sizeof($is_key) == 1) {
                     $trg_select_query .= $is_key[0]. "='" . $source_result_set[$j] . "'";
                 } elseif (sizeof($is_key) > 1){
                     for ($k=0; $k < sizeof($is_key); $k++) {
                         $trg_select_query .= $is_key[$k] . "='" . $source_result_set[$j][$is_key[$k]] . "'";
-                        if ($k < (sizeof($is_key)-1)){
+                        if ($k < (sizeof($is_key)-1)) {
                             $trg_select_query .= " AND ";
                         }
                     }
                 }
 
                 $target_result_set = PMA_DBI_fetch_result($trg_select_query, null, null, $trg_link);
-				if ($target_result_set) {
+                if ($target_result_set) {
 
-					// Fetch the row from the source server to do a comparison
+                    // Fetch the row from the source server to do a comparison
                     $src_select_query = "SELECT * FROM " . PMA_backquote($src_db) . "."
-                 	   . PMA_backquote($matching_table[$matching_table_index]) . " WHERE ";
+                        . PMA_backquote($matching_table[$matching_table_index]) . " WHERE ";
 
                     if (sizeof($is_key) == 1) {
                         $src_select_query .= $is_key[0] . "='" . $source_result_set[$j] . "'";
-                    } else if(sizeof($is_key) > 1){
+                    } elseif (sizeof($is_key) > 1) {
                         for ($k=0; $k< sizeof($is_key); $k++) {
                             $src_select_query .= $is_key[$k] . "='" . $source_result_set[$j][$is_key[$k]] . "'";
-                            if ($k < (sizeof($is_key) - 1)){
+                            if ($k < (sizeof($is_key) - 1)) {
                                 $src_select_query .= " AND ";
                             }
                         }
@@ -174,37 +174,36 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                     */
                     for ($m = 0; ($m < $fields_num[$matching_table_index]) && ($starting_index == 0) ; $m++) {
                         if (isset($src_result_set[0][$fld[$m]])) {
-                          if (isset($target_result_set[0][$fld[$m]])) {
-                            if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
+                            if (isset($target_result_set[0][$fld[$m]])) {
+                                if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
+                                    if (sizeof($is_key) == 1) {
+                                        if ($source_result_set[$j]) {
+                                            $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
+                                        }
+                                    } elseif (sizeof($is_key) > 1) {
+                                        for ($n=0; $n < sizeof($is_key); $n++) {
+                                            if (isset($src_result_set[0][$is_key[$n]])) {
+                                                $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
+                                            }
+                                        }
+                                    }
+
+                                    $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+
+                                    $update_field++;
+                                    if (isset($src_result_set[0][$fld[$m]])) {
+                                        $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                        $update_field++;
+                                    }
+                                    $starting_index = $m;
+                                    $update_row++;
+                                }
+                            } else {
                                 if (sizeof($is_key) == 1) {
                                     if ($source_result_set[$j]) {
                                         $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
                                     }
-                                } elseif (sizeof($is_key) > 1) {  
-                                    for ($n=0; $n < sizeof($is_key); $n++) {
-                                        if (isset($src_result_set[0][$is_key[$n]])) {
-                                            $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
-                                        }
-                                    }
-                                }
-
-                                $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-
-                                $update_field++;
-                                if (isset($src_result_set[0][$fld[$m]])) {
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                    $update_field++;
-                                }
-                                $starting_index = $m;
-                                $update_row++;
-                            }
-                        } else {
-                               if (sizeof($is_key) == 1) {
-                                    if ($source_result_set[$j]) {
-                                        $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
-
-                                    }
-                                } elseif (sizeof($is_key) > 1) {  
+                                } elseif (sizeof($is_key) > 1) {
                                     for ($n = 0; $n < sizeof($is_key); $n++) {
                                         if (isset($src_result_set[0][$is_key[$n]])) {
                                             $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
@@ -221,14 +220,23 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                                 }
                                 $starting_index = $m;
                                 $update_row++;
+                            }
                         }
-                      }
                     }
-                    for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++)
-                    {
+                    for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++) {
                         if (isset($src_result_set[0][$fld[$m]])) {
                             if (isset($target_result_set[0][$fld[$m]])) {
                                 if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (!(in_array($fld[$m], $is_key)))) {
+                                    $update_row--;
+                                    $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+                                    $update_field++;
+                                    if ($src_result_set[0][$fld[$m]]) {
+                                        $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                        $update_field++;
+                                    }
+                                    $update_row++;
+                                }
+                            } else {
                                 $update_row--;
                                 $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
                                 $update_field++;
@@ -238,28 +246,18 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                                 }
                                 $update_row++;
                             }
-                        } else {
-                               $update_row--;
-                                $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-                                $update_field++;
-                                if ($src_result_set[0][$fld[$m]]) {
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                    $update_field++;
-                                }
-                                $update_row++;
-                            }
                         }
                     }
-				} else {
-					/**
-					 * Placing the primary key, and the value of primary key of the row that is to be inserted in the target table
-					 */
+                } else {
+                    /**
+                     * Placing the primary key, and the value of primary key of the row that is to be inserted in the target table
+                     */
                     if (sizeof($is_key) == 1) {
                         if (isset($source_result_set[$j])) {
                             $insert_array[$matching_table_index][$insert_row][$is_key[0]] = $source_result_set[$j];
                         }
                     } elseif (sizeof($is_key) > 1) {
-                        for($l = 0; $l < sizeof($is_key); $l++) {
+                        for ($l = 0; $l < sizeof($is_key); $l++) {
                             if (isset($source_result_set[$j][$matching_tables_fields[$matching_table_index][$l]])) {
                                 $insert_array[$matching_table_index][$insert_row][$is_key[$l]] = $source_result_set[$j][$matching_tables_fields[$matching_table_index][$l]];
                             }
@@ -305,11 +303,11 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link,$src_db, $src_link)
 {
     if (isset($trg_keys[$matching_table_index])) {
-        $target_key_values = PMA_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);      
+        $target_key_values = PMA_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);
         $target_row_size = sizeof($target_key_values);
     }
     if (isset($src_keys[$matching_table_index])) {
-        $source_key_values = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);      
+        $source_key_values = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);
         $source_size = sizeof($source_key_values);
     }
     $all_keys_match = 1;
@@ -480,7 +478,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                         $select_query .= $array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][$i]] . "'" ;
 
                         if ($i < (sizeof($matching_tables_keys[$matching_table_index]) - 1)) {
-                            $select_query.= " AND ";    
+                            $select_query.= " AND ";
                         }
                     }
                     $select_query .= "; ";
@@ -518,15 +516,15 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                                        PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_index[0], $target_tables_keys, $delete_array, $display);
                                        unset($delete_array[$table_index[0]]);
                                     }
-                                    PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_columns, $add_column_array, 
+                                    PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $matching_tables, $source_columns, $add_column_array,
                                     $matching_tables_fields, $criteria, $matching_tables_keys, $target_tables_keys, $uncommon_tables,$uncommon_tables_fields,
                                     $table_index[0], $uncommon_cols, $display);
                                     unset($add_column_array[$table_index[0]]);
                                 }
-                                if (isset($add_indexes_array[$table_index[0]]) || isset($remove_indexes_array[$table_index[0]]) 
+                                if (isset($add_indexes_array[$table_index[0]]) || isset($remove_indexes_array[$table_index[0]])
                                     || isset($alter_indexes_array[$table_index[0]])) {
-                                    PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array, 
-                                    $remove_indexes_array, $table_index[0], $display); 
+                                    PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_indexes, $target_indexes, $add_indexes_array, $alter_indexes_array,
+                                    $remove_indexes_array, $table_index[0], $display);
 
                                     unset($add_indexes_array[$table_index[0]]);
                                     unset($alter_indexes_array[$table_index[0]]);
@@ -651,7 +649,7 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncom
         while ($one_row = PMA_DBI_fetch_row($unbuffered_result)) {
             $insert_query .= '(';
             $key_of_last_value = count($one_row) - 1;
-            foreach($one_row as $key => $value) {
+            foreach ($one_row as $key => $value) {
                 $insert_query .= "'" . PMA_sqlAddSlashes($value) . "'";
                 if ($key < $key_of_last_value) {
                     $insert_query .= ",";
@@ -669,7 +667,7 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncom
 }
 
 /**
-* PMA_deleteFromTargetTable() delete rows from target table 
+* PMA_deleteFromTargetTable() delete rows from target table
 *
 * @param  $trg_db                 name of target database
 * @param  $trg_link               connection established with target server
@@ -681,10 +679,10 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncom
 */
 function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_index, $target_tables_keys, $delete_array, $display)
 {
-    for($i = 0; $i < sizeof($delete_array[$table_index]); $i++) {
+    for ($i = 0; $i < sizeof($delete_array[$table_index]); $i++) {
         if (isset($target_tables_keys[$table_index])) {
             $delete_query = 'DELETE FROM ' . PMA_backquote($trg_db) . '.' .PMA_backquote($matching_tables[$table_index]) . ' WHERE ';
-            for($y = 0; $y < sizeof($target_tables_keys[$table_index]); $y++) {
+            for ($y = 0; $y < sizeof($target_tables_keys[$table_index]); $y++) {
                 $delete_query .= $target_tables_keys[$table_index][$y] . " = '";
 
                 if (sizeof($target_tables_keys[$table_index]) == 1) {
@@ -734,9 +732,9 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_
 * @param    $matching_tables       array containing names of matching tables
 * @param    $source_columns        array containing columns information of the source tables
 * @param    $target_columns        array containing columns information of the target tables
-* @param    $alter_str_array       three dimensional associative array first index being the matching table index, second index being column name for which target 
+* @param    $alter_str_array       three dimensional associative array first index being the matching table index, second index being column name for which target
 *                                  column have some criteria different and third index containing the criteria which is different.
-* @param    $add_column_array      two dimensional associative array, first index of the array contain the matching table number and second index contain the 
+* @param    $add_column_array      two dimensional associative array, first index of the array contain the matching table number and second index contain the
 *                                  column name which is to be added in the target table
 * @param    $uncommon_columns      array containing the columns that are present in the target table but not in the source table
 * @param    $criteria              array containing the criterias which are to be checked for field that is present in source table and target table
@@ -788,7 +786,7 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matc
 }
 /**
 * PMA_addColumnsInTargetTable() adds column that are present in source table but not in target table
-* 
+*
 * @param   $src_db                 name of source database
 * @param   $trg_db                 name of target database
 * @param   $src_link               connection established with source server
@@ -813,7 +811,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
         if (isset($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]])) {
             $query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]). " ADD COLUMN " .
             $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . " " . $source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Type'];
- 
+
             if($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'NO') {
                 $query .= ' Not Null ';
             } elseif ($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'YES') {
@@ -864,7 +862,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
 
             $is_fk_result = PMA_DBI_fetch_result($is_fk_query, null, null, $src_link);
 
-            //If column is a foreign key then it is checked that referenced table exist in target db. If referenced table does not exist in target db then 
+            //If column is a foreign key then it is checked that referenced table exist in target db. If referenced table does not exist in target db then
             //it is created first.
             if (isset($is_fk_result)) {
                 if (in_array($is_fk_result[0]['REFERENCED_TABLE_NAME'], $uncommon_tables)) {
@@ -873,8 +871,8 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
                     PMA_createTargetTables($src_db, $trg_db, $trg_link, $src_link, $uncommon_tables, $table_index[0], $uncommon_tables_fields);
                     unset($uncommon_tables[$table_index[0]]);
                 }
-                $fk_query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]) . 
-                            "ADD CONSTRAINT FOREIGN KEY " . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . " 
+                $fk_query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]) .
+                            "ADD CONSTRAINT FOREIGN KEY " . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . "
                             (" . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . ") REFERENCES " . PMA_backquote($trg_db) .
                              '.' . PMA_backquote($is_fk_result[0]['REFERENCED_TABLE_NAME']) . " (" . $is_fk_result[0]['REFERENCED_COLUMN_NAME'] . ");";
 
@@ -1000,7 +998,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
                     } elseif($criteria[$i] == 'Default') {
                         if(! (isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
                             $sql_query .= " Not Null " ;
-                        } 
+                        }
                         if (is_string($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]])) {
                             if ($source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'] != 'timestamp') {
                                 $sql_query .=  " DEFAULT '" . $alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]] . "'";
@@ -1030,7 +1028,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
     }
     $check = false;
     $query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$matching_table_index]);
-    for($p = 0; $p < sizeof($matching_tables_keys[$matching_table_index]); $p++) {
+    for ($p = 0; $p < sizeof($matching_tables_keys[$matching_table_index]); $p++) {
         if ((isset($alter_str_array[$matching_table_index][$matching_tables_keys[$matching_table_index][$p]]['Key']))) {
             $check = true;
             $query .= ' MODIFY ' . $matching_tables_keys[$matching_table_index][$p] . ' '
@@ -1340,7 +1338,7 @@ function PMA_syncDisplayBeginTableRow($odd_row) {
 function PMA_get_column_values($database, $table, $column, $link = null)
 {
     $query = 'SELECT ';
-    for($i=0; $i< sizeof($column); $i++)
+    for ($i=0; $i< sizeof($column); $i++)
     {
         $query.= PMA_backquote($column[$i]);
         if($i < (sizeof($column)-1))

@@ -31,8 +31,8 @@ if (isset($plugin_list)) {
     return;
 }
 
-ini_set('memory_limit', '256M');
-set_time_limit(120);
+@ini_set('memory_limit', '256M');
+@set_time_limit(120);
 
 /* Append the PHPExcel directory to the include path variable */
 set_include_path(get_include_path() . PATH_SEPARATOR . getcwd() . '/libraries/PHPExcel/');
@@ -130,11 +130,11 @@ if (strlen($db)) {
     $options = array('create_db' => false);
 } else {
     $db_name = 'XLSX_DB';
-    $options = NULL;
+    $options = null;
 }
 
 /* Non-applicable parameters */
-$create = NULL;
+$create = null;
 
 /* Created and execute necessary SQL statements from data */
 PMA_buildSQL($db_name, $tables, $analyses, $create, $options);

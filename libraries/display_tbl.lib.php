@@ -28,12 +28,12 @@ require_once './libraries/Index.class.php';
  *     the "display printable view" option.
  *     Of course '0'/'1' means the feature won't/will be enabled.
  *
- * @param   string   the synthetic value for display_mode (see a few
- *                   lines above for explanations)
- * @param   integer  the total number of rows returned by the SQL query
- *                   without any programmatically appended "LIMIT" clause
- *                   (just a copy of $unlim_num_rows if it exists, else
- *                   computed inside this function)
+ * @param   string  &$the_disp_mode  the synthetic value for display_mode (see a few
+ *                                   lines above for explanations)
+ * @param  integer  &$the_total  the total number of rows returned by the SQL query
+ *                               without any programmatically appended "LIMIT" clause
+ *                               (just a copy of $unlim_num_rows if it exists, else
+ *                               computed inside this function)
  *
  * @return  array    an array with explicit indexes for all the display
  *                   elements
@@ -80,11 +80,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '0';
             $do_display['text_btn']  = (string) '0';
             $do_display['pview_lnk'] = (string) '0';
-        }
         // 2.1 Statement is a "SELECT COUNT", a
         //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
         //     contains a "PROC ANALYSE" part
-        elseif ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
+        } elseif ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
             $do_display['edit_lnk']  = 'nn'; // no edit link
             $do_display['del_lnk']   = 'nn'; // no delete link
             $do_display['sort_lnk']  = (string) '0';
@@ -97,9 +96,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                 $do_display['text_btn']  = (string) '0';
             }
             $do_display['pview_lnk'] = (string) '1';
-        }
         // 2.2 Statement is a "SHOW..."
-        elseif ($GLOBALS['is_show']) {
+        } elseif ($GLOBALS['is_show']) {
             /**
              * 2.2.1
              * @todo defines edit/delete links depending on show statement
@@ -120,11 +118,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '1';
             $do_display['text_btn']  = (string) '1';
             $do_display['pview_lnk'] = (string) '1';
-        }
         // 2.3 Other statements (ie "SELECT" ones) -> updates
         //     $do_display['edit_lnk'], $do_display['del_lnk'] and
         //     $do_display['text_btn'] (keeps other default values)
-        else {
+        } else {
             $prev_table = $fields_meta[0]->table;
             $do_display['text_btn']  = (string) '1';
             for ($i = 0; $i < $GLOBALS['fields_cnt']; $i++) {
@@ -310,7 +307,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         $pageNow = @floor($_SESSION['tmp_user_values']['pos'] / $_SESSION['tmp_user_values']['max_rows']) + 1;
         $nbTotalPage = @ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']);
 
-        if ($nbTotalPage > 1){ //if2
+        if ($nbTotalPage > 1) { //if2
        ?>
    <td>
         <?php
@@ -388,7 +385,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     } // end move toward
 
     // show separator if pagination happen
-    if ($nbTotalPage > 1){
+    if ($nbTotalPage > 1) {
         echo '<td><div class="navigation_separator">|</div></td>';
     }
     ?>
@@ -1398,7 +1395,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             $is_field_truncated = false;
             //If the previous column had blob data, we need to reset the class
             // to $inline_edit_class
-            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $alternating_color_class . ' ' . $relation_class . ' ' . $hide_class;
+            $class = 'data ' . $inline_edit_class . ' ' . $not_null_class . ' ' . $relation_class; //' ' . $alternating_color_class .
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -2146,7 +2143,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         // find the sorted column index in row result
         // (this might be a multi-table query)
         $sorted_column_index = false;
-        foreach($fields_meta as $key => $meta) {
+        foreach ($fields_meta as $key => $meta) {
             if ($meta->table == $sort_table && $meta->name == $sort_column) {
                 $sorted_column_index = $key;
                 break;
