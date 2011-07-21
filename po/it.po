@@ -7066,10 +7066,10 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:247
 #: libraries/rte/rte_routines.lib.php:994
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type: \"%s\""
-msgstr "Indice server non valido: %s"
+msgstr "Tipo di routine non valido: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:268
 msgid "Sorry, we failed to restore the dropped routine."
