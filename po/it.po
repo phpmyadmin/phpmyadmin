@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 16:26+0200\n"
+"PO-Revision-Date: 2011-07-21 16:39+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1268,97 +1268,102 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Le seguenti impostazioni verranno applicate globalmente e reimpostate ai "
+"valori predefiniti durante il riavvio del server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Salva l'output in un file"
+msgstr "Imposta log_output a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Abilitata"
+msgstr "Abilita %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Disabilitata"
+msgstr "Disabilita %s"
 
 #. l10n: %d seconds
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Imposta long_query_time a %ds"
 
 #: js/messages.php:131
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Non puoi cambiare i valori di queste variabili. Prega effettua il login come "
+"root o contatta l'amministratore del database."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Gestisci le tue impostazioni"
+msgstr "Modifica impostazioni"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Ulteriori impostazioni"
+msgstr "Impostazioni attuali"
 
 #: js/messages.php:135 server_status.php:1358
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "Titolo del report:"
+msgstr "Titolo del diagramma"
 
 #. l10n: As in differential values
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Differenza"
+msgstr "Differenziali"
 
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Diviso per %s:"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Seleziona pagina"
+msgstr "Intervallo di tempo selezionato:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
 msgstr ""
 
 #: js/messages.php:142
+#, fuzzy
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Scegli il log dal quale generare le statistiche.</p> Results are grouped "
+"by query text."
 
 #: js/messages.php:143
 msgid "From slow log"
-msgstr ""
+msgstr "Dal slow log"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "Dal general log"
 
 #: js/messages.php:145
+#, fuzzy
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
+"L'analisi e il caricamento dei log in corso. Questa operazione potrebbe "
+"richiedere del tempo."
 
 #: js/messages.php:146
 msgid ""
@@ -1376,13 +1381,12 @@ msgstr ""
 
 #: js/messages.php:148
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Dati di log caricati. Le query eseguite in questo intervallo di tempo:"
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Vai al database"
+msgstr "Vai alla tabella di Log"
 
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
