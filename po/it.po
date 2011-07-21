@@ -5479,8 +5479,9 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: libraries/display_tbl.lib.php:648
+#, fuzzy
 msgid "Well Known Text"
-msgstr ""
+msgstr "Well Known Text"
 
 #: libraries/display_tbl.lib.php:649
 msgid "Well Known Binary"
