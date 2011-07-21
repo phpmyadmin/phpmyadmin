@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:57+0200\n"
+"PO-Revision-Date: 2011-07-21 17:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1342,6 +1342,7 @@ msgstr ""
 "SQL Metin karşılaştırılır, böylece başlama zamanı gibi sorgular diğer "
 "öznitelikler farklı olabilir."
 
+# INSERT'lerin gruplanmasından bu yana sorgular seçilir, aynı tablo içindeki INSERT sorguları aynı zamanda kümelendirilir
 #: js/messages.php:147
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
