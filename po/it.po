@@ -10108,7 +10108,7 @@ msgstr "Aggiungi grafico"
 
 #: server_status.php:1311
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Muovi/modifica i grafici"
 
 #: server_status.php:1313
 #| msgid "Refresh"
