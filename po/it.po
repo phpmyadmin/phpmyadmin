@@ -10824,7 +10824,7 @@ msgstr "Titolo del grafico"
 
 #: tbl_chart.php:99
 msgid "X-Axis:"
-msgstr ""
+msgstr "Asse X:"
 
 #: tbl_chart.php:113
 #| msgid "SQL queries"
