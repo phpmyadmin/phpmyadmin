@@ -1327,7 +1327,7 @@ msgstr ""
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Dividido por %s:"
 
 #: js/messages.php:140
 #, fuzzy
