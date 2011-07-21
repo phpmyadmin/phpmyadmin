@@ -1209,7 +1209,7 @@ msgstr "Obnovit monitor"
 
 #: js/messages.php:112
 msgid "Pause monitor"
-msgstr ""
+msgstr "Přerušit monitor"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log is enabled."
