@@ -2006,7 +2006,7 @@ msgstr "Impossibile salvare la tabella recente"
 
 #: libraries/RecentTable.class.php:142
 msgid "Recent tables"
-msgstr "Conta tabelle"
+msgstr "Tabelle recenti"
 
 #: libraries/RecentTable.class.php:148
 #, fuzzy
