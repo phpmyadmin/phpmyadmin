@@ -234,34 +234,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
 
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.Polygon(new Array(';
-        // If the polygon doesnt have an inner polygon
-        if (strpos($polygon, "),(") === false) {
-            $points_arr = $this->extractPoints($polygon, null);
-            $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
-            foreach ($points_arr as $point) {
-                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
-            $row .= '))';
-        } else {
-            // Seperate outer and inner polygons
-            $parts = explode("),(", $polygon);
-            foreach ($parts as $ring) {
-                $points_arr = $this->extractPoints($ring, null);
-                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
-                foreach ($points_arr as $point) {
-                    $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                        . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
-                }
-                $row = substr($row, 0, strlen($row) - 2);
-                $row .= ')), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
-        }
-        $row .= ')), null, ' . json_encode($style_options) . '));';
+        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(';
+        $row .= $this->addPointsForOpenLayersPolygon($polygon, $srid);
+        $row .= 'null, ' . json_encode($style_options) . '));';
         return $row;
     }
 

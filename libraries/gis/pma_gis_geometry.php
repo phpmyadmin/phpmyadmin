@@ -156,5 +156,45 @@ abstract class PMA_GIS_Geometry
 
         return $points_arr;
     }
+
+    /**
+     * Generates JavaScriipt for adding points for OpenLayers polygon.
+     *
+     * @param string $polygon points of a polygon in WKT form
+     * @param string $srid    spatial reference id
+     *
+     * @return JavaScriipt for adding points for OpenLayers polygon
+     */
+    protected function addPointsForOpenLayersPolygon($polygon, $srid)
+    {
+        $row = 'new OpenLayers.Geometry.Polygon(new Array(';
+        // If the polygon doesnt have an inner polygon
+        if (strpos($polygon, "),(") === false) {
+            $points_arr = $this->extractPoints($polygon, null);
+            $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+            foreach ($points_arr as $point) {
+                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+            $row .= '))';
+        } else {
+            // Seperate outer and inner polygons
+            $parts = explode("),(", $polygon);
+            foreach ($parts as $ring) {
+                $points_arr = $this->extractPoints($ring, null);
+                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+                foreach ($points_arr as $point) {
+                    $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
+                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+                }
+                $row = substr($row, 0, strlen($row) - 2);
+                $row .= ')), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+        }
+        $row .= ')), ';
+        return $row;
+    }
 }
 ?>
