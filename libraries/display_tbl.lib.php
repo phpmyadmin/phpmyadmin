@@ -204,19 +204,19 @@ function PMA_isSelect()
  * Displays a navigation button
  *
  *
- * @param   string   iconic caption for button
- * @param   string   text for button
- * @param   integer  position for next query
- * @param   string   query ready for display
- * @param   string   optional onsubmit clause
- * @param   string   optional hidden field for special treatment
- * @param   string   optional onclick clause
+ * @param string  $caption            iconic caption for button
+ * @param string  $title              text for button
+ * @param integer $pos                position for next query
+ * @param string  $html_sql_query     query ready for display
+ * @param string  $onsubmit           optional onsubmit clause
+ * @param string  $input_for_real_end optional hidden field for special treatment
+ * @param string  $onclick            optional onclick clause
  *
- * @global  string   $db             the database name
- * @global  string   $table          the table name
- * @global  string   $goto           the URL to go back in case of errors
+ * @global string   $db             the database name
+ * @global string   $table          the table name
+ * @global string   $goto           the URL to go back in case of errors
  *
- * @access  private
+ * @access private
  *
  * @see     PMA_displayTableNavigation()
  */
