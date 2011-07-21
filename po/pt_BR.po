@@ -5241,7 +5241,7 @@ msgstr "Clique para selecionar"
 
 #: libraries/display_tbl.lib.php:416
 msgid "Click to mark/unmark"
-msgstr "clique para marcar/desmarcar"
+msgstr "Clique para marcar/desmarcar"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
