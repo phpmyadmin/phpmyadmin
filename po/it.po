@@ -1461,7 +1461,7 @@ msgstr "Utilizza tabelle"
 #: js/messages.php:177
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Nascondi indici"
+msgstr "Nascondi gli indici"
 
 #: js/messages.php:178
 #| msgid "Show grid"
