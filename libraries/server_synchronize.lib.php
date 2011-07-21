@@ -141,7 +141,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                 } elseif (sizeof($is_key) > 1){
                     for ($k=0; $k < sizeof($is_key); $k++) {
                         $trg_select_query .= $is_key[$k] . "='" . $source_result_set[$j][$is_key[$k]] . "'";
-                        if ($k < (sizeof($is_key)-1)){
+                        if ($k < (sizeof($is_key)-1)) {
                             $trg_select_query .= " AND ";
                         }
                     }
@@ -156,10 +156,10 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 
                     if (sizeof($is_key) == 1) {
                         $src_select_query .= $is_key[0] . "='" . $source_result_set[$j] . "'";
-                    } else if(sizeof($is_key) > 1){
+                    } elseif (sizeof($is_key) > 1) {
                         for ($k=0; $k< sizeof($is_key); $k++) {
                             $src_select_query .= $is_key[$k] . "='" . $source_result_set[$j][$is_key[$k]] . "'";
-                            if ($k < (sizeof($is_key) - 1)){
+                            if ($k < (sizeof($is_key) - 1)) {
                                 $src_select_query .= " AND ";
                             }
                         }
