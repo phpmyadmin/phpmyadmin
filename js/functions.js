@@ -135,14 +135,13 @@ function displayPasswordGenerateButton() {
  *
  * @param   object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element) {
+function PMA_addDatepicker($this_element, options) {
     var showTimeOption = false;
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-
-    $this_element
-        .datepicker({
+	
+	var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -164,7 +163,9 @@ function PMA_addDatepicker($this_element) {
             },0);
         },
         constrainInput: false
-     });
+	};
+
+    $this_element.datepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -2409,7 +2410,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)

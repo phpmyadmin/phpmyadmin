@@ -218,7 +218,7 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.message);
                     //Fetch inner span of this anchor
                     //and replace the icon with its disabled version
-                    var span = $this_anchor.html().replace(/b_empty.png/, 'bd_empty.png');
+                    var span = $this_anchor.html().replace(/ic_b_empty/, 'ic_bd_empty');
                     PMA_adjustTotals($this_anchor);
 
                     //To disable further attempts to truncate the table,

@@ -74,7 +74,7 @@ if(isset($_GET['sql_query'])) {
 
 <div class="exportoptions" id="header">
     <h2>
-        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_export.png" alt="export" />
+        <img class="icon ic_b_export" src="themes/dot.gif" alt="export" />
         <?php
         if($export_type == 'server') {
             echo __('Exporting databases from the current server');
