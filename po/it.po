@@ -4578,7 +4578,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "Orientamento del display"
+msgstr "Mostra la direzione della visualizzazione"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
