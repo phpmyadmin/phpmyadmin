@@ -13,11 +13,10 @@
 * source database but are absent from target database.
 * Criterion for matching tables is just comparing their names.
 *
-* @param    $trg_tables   array of target database table names,
-* @param    $src_tables   array of source database table names,
-*
-* @param    &$matching_tables           empty array passed by reference to save names of matching tables,
-* @param    &$uncommon_source_tables    empty array passed by reference to save names of tables present in
+* @param array $trg_tables              array of target database table names,
+* @param array $src_tables              array of source database table names,
+* @param array &$matching_tables        empty array passed by reference to save names of matching tables,
+* @param array &$uncommon_source_tables empty array passed by reference to save names of tables present in
 *                                       source database but absent from target database
 */
 function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables, &$uncommon_source_tables)
