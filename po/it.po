@@ -10878,10 +10878,9 @@ msgid "Height"
 msgstr "Altezza"
 
 #: tbl_gis_visualization.php:165
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
-msgstr "Campi di aree di testo"
+msgstr "Etichetta del campo"
 
 #: tbl_gis_visualization.php:167
 #| msgid "- none -"
