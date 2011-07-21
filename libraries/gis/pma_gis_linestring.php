@@ -24,8 +24,8 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public static function singleton()
     {
         if (!isset(self::$_instance)) {
-            $c = __CLASS__;
-            self::$_instance = new $c;
+            $class = __CLASS__;
+            self::$_instance = new $class;
         }
 
         return self::$_instance;
