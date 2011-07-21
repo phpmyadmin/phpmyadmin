@@ -7348,10 +7348,9 @@ msgid "Export of event %s"
 msgstr "Esportazione dell'evento %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Eventi"
+msgstr "evento"
 
 #: libraries/rte/rte_words.lib.php:46
 #| msgid "You don't have sufficient privileges to be here right now!"
