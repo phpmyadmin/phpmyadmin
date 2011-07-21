@@ -1307,10 +1307,9 @@ msgstr ""
 "root o contatta l'amministratore del database."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Gestisci le tue impostazioni"
+msgstr "Modifica impostazioni"
 
 #: js/messages.php:133
 #, fuzzy
