@@ -21,6 +21,11 @@
             showColVisibHint: false,
             showAllColText: '',         // string, text for "show all" button under column visibility list
             visibleHeadersCount: 0,     // number of visible data headers
+            isCellEditActive: false,    // true if current focus is in edit cell
+            isEditCellTextEditable: false,  // true if current edit cell is editable in the text input box (not textarea)
+            currentEditCell: null,      // reference to <td> that currently being edited
+            inEditMode: false,          // true if grid is in edit mode
+            cellEditHint: '',           // text hint when doing grid edit
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -34,6 +39,9 @@
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
+                if (g.isInEditMode) {
+                    g.hideEditCell();
+                }
             },
             
             dragStartMove: function(e, obj) {   // start column move
@@ -65,6 +73,9 @@
                 this.qtip.hide();
                 $('body').css('cursor', 'move');
                 $('body').noSelect();
+                if (g.isInEditMode) {
+                    g.hideEditCell();
+                }
             },
             
             dragMove: function(e) {
@@ -437,6 +448,534 @@
                     }
                 }
                 this.afterToggleCol();
+            },
+            
+            /**
+             * Show edit cell, if it can be shown or it is forced.
+             */
+            showEditCell: function(cell, force) {
+                if (g.isInEditMode &&
+                    $(cell).is('.inline_edit') &&
+                    !g.colRsz && !g.colMov)
+                {
+                    if (!g.isCellEditActive || force) {
+                        $cell = $(cell);
+                        // remove all edit area and hide it
+                        $(g.cEdit).find('.edit_area').empty().hide();
+                        // reposition the cEdit element
+                        $(g.cEdit).css({
+                                top: $cell.position().top,
+                                left: $cell.position().left,
+                            })
+                            .show()
+                            .find('input')
+                            .css({
+                                width: $cell.outerWidth() - 16,
+                                height: $cell.outerHeight()
+                            });
+                        // fill the cell edit with text from <td>, if it is not null
+                        var value = $cell.is(':not(.null)') ? PMA_getCellValue(cell) : '';
+                        $(g.cEdit).find('input')
+                            .val(value);
+                        
+                        g.isCellEditActive = false;
+                        g.currentEditCell = cell;
+                    }
+                } else {
+                    g.hideEditCell();
+                }
+            },
+            
+            /**
+             * Remove edit cell and the edit area, if it is shown.
+             *
+             * @param force Optional, force to hide edit cell without saving edited field.
+             * @param data  Optional, data from the POST AJAX request to save the edited field.
+             */
+            hideEditCell: function(force, data) {
+                if (g.isCellEditActive && !force) {
+                    // cell is being edited, post the edited data
+                    g.isCellEditActive = false;
+                    g.postEditedCell();
+                    return;
+                }
+                $(g.cEdit).hide();
+                $(g.cEdit).find('input[type=text]').blur();
+                g.isCellEditActive = false;
+                
+                if (data) {
+                    // Cell edit post has been successful.
+                    $this_field = $(g.currentEditCell);
+                    $this_field_span = $this_field.children('span');
+
+                    var is_null = $(g.cEdit).find('input:checkbox').is(':checked');
+                    if (is_null) {
+                        $this_field_span.html('NULL');
+                        $this_field.addClass('null');
+                    } else {
+                        $this_field.removeClass('null');
+                        if($this_field.is(':not(.relation, .enum, .set)')) {
+                            /**
+                             * @var new_html    String containing value of the data field after edit
+                             */
+                            var new_html = $(g.cEdit).find('textarea').val();
+
+                            if($this_field.is('.transformed')) {
+                                var field_name = getFieldName($this_field);
+                                if (typeof data.transformations != 'undefined') {
+                                    $.each(data.transformations, function(key, value) {
+                                        if(key == field_name) {
+                                            if($this_field.is('.text_plain, .application_octetstream')) {
+                                                new_html = value;
+                                                return false;
+                                            } else {
+                                                var new_value = $(g.cEdit).find('textarea').val();
+                                                new_html = $(value).append(new_value);
+                                                return false;
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                            // replace '\n' with <br>
+                            new_html = new_html.replace(/\n/g, '<br />');
+                        } else {
+                            var new_html = '';
+                            var new_value = '';
+                            $test_element = $(g.cEdit).find('select');
+                            if ($test_element.length != 0) {
+                                new_value = $test_element.val();
+                            }
+                            $test_element = $this_field.find('span.curr_value');
+                            if ($test_element.length != 0) {
+                                new_value = $test_element.text();
+                            }
+
+                            if($this_field.is('.relation')) {
+                                var field_name = getFieldName($this_field);
+                                if (typeof data.relations != 'undefined') {
+                                    $.each(data.relations, function(key, value) {
+                                        if(key == field_name) {
+                                            new_html = $(value);
+                                            return false;
+                                        }
+                                    })
+                                }
+                            } else if ($this_field.is('.enum')) {
+                                new_html = new_value;
+                            } else if ($this_field.is('.set')) {
+                                if (new_value != null) {
+                                    $.each(new_value, function(key, value) {
+                                        new_html = new_html + value + ',';
+                                    })
+                                    new_html = new_html.substring(0, new_html.length-1);
+                                }
+                            }
+                        }
+                        $this_field_span.html(new_html);
+                    }
+                    // refresh the grid
+                    this.reposRsz();
+                    this.reposDrop();
+                }   // end of if "data" is defined, i.e. post successful
+            },
+            
+            /**
+             * Show drop-down edit area when edit cell is clicked.
+             */
+            showEditArea: function() {
+                if (!this.isCellEditActive) {   // make sure we don't have focus on other edit cell
+                    g.isCellEditActive = true;
+                    g.isEditCellTextEditable = false;
+                    var $td = $(g.currentEditCell);
+                    var $editArea = $(this.cEdit).find('.edit_area');
+                    var where_clause = $td.parent('tr').find('.where_clause').val();
+                    /**
+                     * @var field_name  String containing the name of this field.
+                     * @see getFieldName()
+                     */
+                    var field_name = getFieldName($td);
+                    /**
+                     * @var relation_curr_value String current value of the field (for fields that are foreign keyed).
+                     */
+                    var relation_curr_value = $td.find('a').text();
+                    /**
+                     * @var relation_key_or_display_column String relational key if in 'Relational display column' mode,
+                     * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
+                     */
+                    var relation_key_or_display_column = $td.find('a').attr('title');
+                    
+                    // empty all edit area, then rebuild it based on $td classes
+                    $editArea.empty();
+                    
+                    if ($td.is(':not(.not_null)')) {
+                        // append a null checkbox
+                        $editArea.append('<div class="null_div">Null :<input type="checkbox"></div>');
+                        var $checkbox = $editArea.find('.null_div input');
+                        // check if current <td> is NULL
+                        if ($td.is('.null')) {
+                            $checkbox.attr('checked', true);
+                        }
+                        
+                        // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
+                        if ($td.is('.enum, .set')) {
+                            $editArea.find('select').live('change', function(e) {
+                                $checkbox.attr('checked', false);
+                            })
+                        } else if ($td.is('.relation')) {
+                            $editArea.find('select').live('change', function(e) {
+                                $checkbox.attr('checked', false);
+                            })
+                            $editArea.find('.browse_foreign').live('click', function(e) {
+                                $checkbox.attr('checked', false);
+                            })
+                        } else {
+                            $(g.cEdit).find('input[type=text]').live('change', function(e) {
+                                $checkbox.attr('checked', false);
+                            })
+                            $editArea.find('textarea').live('keydown', function(e) {
+                                $checkbox.attr('checked', false);
+                            })
+                        }
+                        
+                        // if 'checkbox_null_<field_name>_<row_index>' is clicked empty the corresponding select/editor.
+                        $checkbox.click(function(e) {
+                            if ($td.is('.enum')) {
+                                $editArea.find('select').attr('value', '');
+                            } else if ($td.is('.set')) {
+                                $editArea.find('select').find('option').each(function() {
+                                    var $option = $(this);
+                                    $option.attr('selected', false);
+                                })
+                            } else if ($td.is('.relation')) {
+                                // if the dropdown is there to select the foreign value
+                                if ($editArea.find('select').length > 0) {
+                                    $editArea.find('select').attr('value', '');
+                                }
+                            } else {
+                                $editArea.find('textarea').val('');
+                            }
+                            $(g.cEdit).find('input[type=text]').val('');
+                        })
+                    }
+                    
+                    if($td.is('.truncated, .transformed')) {
+                        /** @lends jQuery */
+                        //handle truncated/transformed values values
+                        $editArea.addClass('edit_area_loading');
+
+                        /**
+                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                         */
+                        var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
+
+                        // Make the Ajax call and get the data, wrap it and insert it
+                        $.post('sql.php', {
+                            'token' : window.parent.token,
+                            'db' : window.parent.db,
+                            'ajax_request' : true,
+                            'sql_query' : sql_query,
+                            'inline_edit' : true
+                        }, function(data) {
+                            $editArea.removeClass('edit_area_loading');
+                            if(data.success == true) {
+                                $(g.cEdit).find('input[type=text]').val(data.value);
+                                $editArea.append('<textarea>'+data.value+'</textarea>');
+                                $editArea.find('textarea').live('keyup', function(e) {
+                                    $(g.cEdit).find('input[type=text]').val($(this).val());
+                                });
+                                $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
+                                    $editArea.find('textarea').val($(this).val());
+                                });
+                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                            }
+                            else {
+                                PMA_ajaxShowMessage(data.error);
+                            }
+                        }) // end $.post()
+                        g.isEditCellTextEditable = true;
+                    }
+                    else if($td.is('.relation')) {
+                        /** @lends jQuery */
+                        //handle relations
+                        $editArea.addClass('edit_area_loading');
+
+                        /**
+                         * @var post_params Object containing parameters for the POST request
+                         */
+                        var post_params = {
+                                'ajax_request' : true,
+                                'get_relational_values' : true,
+                                'db' : window.parent.db,
+                                'table' : window.parent.table,
+                                'column' : field_name,
+                                'token' : window.parent.token,
+                                'curr_value' : relation_curr_value,
+                                'relation_key_or_display_column' : relation_key_or_display_column
+                        }
+
+                        $.post('sql.php', post_params, function(data) {
+                            $editArea.removeClass('edit_area_loading');
+                            $editArea.append(data.dropdown);
+                            $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        }) // end $.post()
+                        
+                        $editArea.find('select').live('change', function(e) {
+                            $(g.cEdit).find('input[type=text]').val($(this).val());
+                        })
+                    }
+                    else if($td.is('.enum')) {
+                        /** @lends jQuery */
+                        //handle enum fields
+                        $editArea.addClass('edit_area_loading');
+
+                        /**
+                         * @var post_params Object containing parameters for the POST request
+                         */
+                        var post_params = {
+                                'ajax_request' : true,
+                                'get_enum_values' : true,
+                                'db' : window.parent.db,
+                                'table' : window.parent.table,
+                                'column' : field_name,
+                                'token' : window.parent.token,
+                                'curr_value' : curr_value
+                        }
+                        $.post('sql.php', post_params, function(data) {
+                            $editArea.removeClass('edit_area_loading');
+                            $editArea.append(data.dropdown);
+                            $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        }) // end $.post()
+                        
+                        $editArea.find('select').live('change', function(e) {
+                            $(g.cEdit).find('input[type=text]').val($(this).val());
+                        })
+                    }
+                    else if($td.is('.set')) {
+                        /** @lends jQuery */
+                        //handle set fields
+                        $editArea.addClass('edit_area_loading');
+
+                        /**
+                         * @var post_params Object containing parameters for the POST request
+                         */
+                        var post_params = {
+                                'ajax_request' : true,
+                                'get_set_values' : true,
+                                'db' : window.parent.db,
+                                'table' : window.parent.table,
+                                'column' : field_name,
+                                'token' : window.parent.token,
+                                'curr_value' : curr_value
+                        }
+
+                        $.post('sql.php', post_params, function(data) {
+                            $editArea.removeClass('edit_area_loading');
+                            $editArea.append(data.select);
+                            $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        }) // end $.post()
+                        
+                        $editArea.find('select').live('change', function(e) {
+                            $(g.cEdit).find('input[type=text]').val($(this).val());
+                        })
+                    } else {
+                        $editArea.append('<textarea>' + PMA_getCellValue(g.currentEditCell) + '</textarea>');
+                        $editArea.find('textarea').live('keyup', function(e) {
+                            $(g.cEdit).find('input[type=text]').val($(this).val());
+                        });
+                        $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
+                            $editArea.find('textarea').val($(this).val());
+                        });
+                        $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        g.isEditCellTextEditable = true;
+                    }
+                    
+                    $editArea.show();
+                }
+            },
+            
+            /**
+             * Post the content of edited cell.
+             */
+            postEditedCell: function() {
+            
+                event.preventDefault();
+
+                /**
+                 * @var $this_field    Object referring to the td that is being edited
+                 */
+                var $this_field = $(g.currentEditCell);
+                var $test_element = ''; // to test the presence of a element
+
+                // Initialize variables
+                var where_clause = $this_field.parent('tr').find('.where_clause').val();
+
+                /**
+                 * @var nonunique   Boolean, whether this row is unique or not
+                 */
+                var nonunique = $this_field.is('.nonunique') ? 0 : 1;
+                /**
+                 * @var relation_fields Array containing the name/value pairs of relational fields
+                 */
+                var relation_fields = {};
+                /**
+                 * @var relational_display string 'K' if relational key, 'D' if relational display column
+                 */
+                var relational_display = $("#relational_display_K").attr('checked') ? 'K' : 'D';
+                /**
+                 * @var transform_fields    Array containing the name/value pairs for transformed fields
+                 */
+                var transform_fields = {};
+                /**
+                 * @var transformation_fields   Boolean, if there are any transformed fields in this row
+                 */
+                var transformation_fields = false;
+
+                /**
+                 * @var sql_query String containing the SQL query to update this row
+                 */
+                var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
+
+                var need_to_post = false;
+
+                var new_clause = '';
+
+                /**
+                 * @var field_name  String containing the name of this field.
+                 * @see getFieldName()
+                 */
+                var field_name = getFieldName($this_field);
+
+                /**
+                 * @var this_field_params   Array temporary storage for the name/value of current field
+                 */
+                var this_field_params = {};
+
+                if($this_field.is('.transformed')) {
+                    transformation_fields =  true;
+                }
+                /**
+                 * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
+                 */
+                var is_null = $(g.cEdit).find('input:checkbox').is(':checked');
+                var value;
+                var addQuotes = true;
+
+                if (is_null) {
+                    sql_query += ' `' + field_name + "`=NULL , ";
+                    need_to_post = true;
+                } else {
+                    if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
+                        this_field_params[field_name] = $(g.cEdit).find('textarea').val();
+                        if($this_field.is('.transformed')) {
+                            $.extend(transform_fields, this_field_params);
+                        }
+                    } else if ($this_field.is('.bit')) {
+                        this_field_params[field_name] = '0b' + $(g.cEdit).find('textarea').val();
+                        addQuotes = false;
+                    } else if ($this_field.is('.set')) {
+                        $test_element = $(g.cEdit).find('select');
+                        this_field_params[field_name] = $test_element.map(function(){
+                            return $(this).val();
+                        }).get().join(",");
+                    } else {
+                        // results from a drop-down
+                        $test_element = $(g.cEdit).find('select');
+                        if ($test_element.length != 0) {
+                            this_field_params[field_name] = $test_element.val();
+                        }
+
+                        // results from Browse foreign value
+                        $test_element = $(g.cEdit).find('textarea');
+                        if ($test_element.length != 0) {
+                            this_field_params[field_name] = $test_element.val();
+                        }
+
+                        if($this_field.is('.relation')) {
+                            $.extend(relation_fields, this_field_params);
+                        }
+                    }
+                    if (where_clause.indexOf(field_name) > -1) {
+                        new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
+                    }
+                    if (this_field_params[field_name] != PMA_getCellValue(g.currentEditCell)) {
+                        if (addQuotes == true) {
+                            sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "', ";
+                        } else {
+                            sql_query += ' `' + field_name + "`=" + this_field_params[field_name].replace(/'/g, "''") + ", ";
+                        }
+                        need_to_post = true;
+                    }
+                }
+
+                /*
+                 * update the where_clause, remove the last appended ' AND '
+                 * */
+
+                //Remove the last ',' appended in the above loop
+                sql_query = sql_query.replace(/,\s$/, '');
+                //Fix non-escaped backslashes
+                sql_query = sql_query.replace(/\\/g, '\\\\');
+                new_clause = new_clause.substring(0, new_clause.length-5);
+                new_clause = PMA_urlencode(new_clause);
+                sql_query += ' WHERE ' + PMA_urldecode(where_clause);
+                // Avoid updating more than one row in case there is no primary key
+                // (happened only for duplicate rows)
+                sql_query += ' LIMIT 1';
+                /**
+                 * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
+                 */
+                var rel_fields_list = $.param(relation_fields);
+
+                /**
+                 * @var transform_fields_list  String, url encoded representation of {@link transform_fields}
+                 */
+                var transform_fields_list = $.param(transform_fields);
+
+                if (need_to_post) {
+                    // Make the Ajax post after setting all parameters
+                    /**
+                     * @var post_params Object containing parameters for the POST request
+                     */
+                    var post_params = {'ajax_request' : true,
+                                    'sql_query' : sql_query,
+                                    'token' : window.parent.token,
+                                    'db' : window.parent.db,
+                                    'table' : window.parent.table,
+                                    'clause_is_unique' : nonunique,
+                                    'where_clause' : where_clause,
+                                    'rel_fields_list' : rel_fields_list,
+                                    'do_transformations' : transformation_fields,
+                                    'transform_fields_list' : transform_fields_list,
+                                    'relational_display' : relational_display,
+                                    'goto' : 'sql.php',
+                                    'submit_type' : 'save'
+                                  };
+
+                    $.post('tbl_replace.php', post_params, function(data) {
+                        if(data.success == true) {
+                            PMA_ajaxShowMessage(data.message);
+                            if (new_clause != '') {
+                                $this_field.parent('tr').find('.where_clause').attr('value', new_clause);
+                            }
+                            // remove possible previous feedback message
+                            $('#result_query').remove();
+                            if (typeof data.sql_query != 'undefined') {
+                                // display feedback
+                                $('#sqlqueryresults').prepend(data.sql_query);
+                            }
+                            //PMA_unInlineEditRow($del_hide, $chg_submit, $this_field, $input_siblings, data);
+                            g.hideEditCell(true, data);
+                        } else {
+                            PMA_ajaxShowMessage(data.error);
+                        };
+                    }) // end $.post()
+                } else {
+                    // no posting was done but still need to display the row
+                    // in its previous format
+                    //PMA_unInlineEditRow($del_hide, $chg_submit, $this_field, $input_siblings, '');
+                    g.hideEditCell();
+                }
             }
         }
         
@@ -450,6 +989,7 @@
         g.cPointer = document.createElement('div'); // column pointer, used when reordering column
         g.cDrop = document.createElement('div');    // column drop-down arrows
         g.cList = document.createElement('div');    // column visibility list
+        g.cEdit = document.createElement('div');    // cell edit
         
         // adjust g.cCpy
         g.cCpy.className = 'cCpy';
@@ -465,6 +1005,11 @@
         // adjust g.cList
         g.cList.className = 'cList';
         $(g.cList).hide();
+        
+        // adjust g.cEdit
+        g.cEdit.className = 'cEdit';
+        $(g.cEdit).html('<input type="text" /><div class="edit_area" />');
+        $(g.cEdit).hide();
         
         // chain table and grid together
         t.grid = g;
@@ -493,6 +1038,9 @@
         g.markHint = $('#col_mark_hint').val();
         g.colVisibHint = $('#col_visib_hint').val();
         g.showAllColText = $('#show_all_col_text').val();
+        
+        // assign cell editing hint
+        g.cellEditHint = $('#cell_edit_hint').val();
         
         // initialize column order
         $col_order = $('#col_order');
@@ -596,6 +1144,16 @@
         // create qtip for each <th> with draggable class
         PMA_createqTip($(t).find('th.draggable'));
         
+        // enable "Edit table" button
+        $('.edit_mode').removeClass('hide')
+            .click(function(e) {
+                g.isInEditMode = !g.isInEditMode;
+                $('.edit_mode input').toggleClass('edit_mode_active', g.isInEditMode);
+                if (!g.isInEditMode) {
+                    g.hideEditCell();
+                }
+            });
+        
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
@@ -662,7 +1220,50 @@
         $(t).find('td, th.draggable').mouseenter(function() {
             g.hideColList();
         });
-        
+        // edit cell event
+        $(t).find('td.data')
+            .mouseenter(function() {
+                g.showEditCell(this);
+            })
+            .click(function(e) {
+                if (g.isCellEditActive) {
+                    g.postEditedCell();
+                    e.stopPropagation();
+                } else {
+                    g.showEditCell(this);
+                    $(g.cEdit).find('input[type=text]').focus();
+                    e.stopPropagation();
+                }
+            });
+        $(g.cEdit).find('input[type=text]').focus(function(e) {
+            g.showEditArea();
+        });
+        $(g.cEdit).find('input[type=text], select').live('keydown', function(e) {
+            if (e.which == 13) {
+                // post on pressing "Enter"
+                e.preventDefault();
+                g.postEditedCell();
+            }
+        });
+        $(g.cEdit).keydown(function(e) {
+            if (e.which == 27) {
+                // cancel on pressing "Esc"
+                g.hideEditCell(true);
+            } else if (!g.isEditCellTextEditable) {
+                // prevent text editing
+                e.preventDefault();
+            }
+        });
+        $(g.cEdit).click(function(e) {
+            // prevent click to be handled by $('html').click below
+            e.stopPropagation();
+        });
+        $('html').click(function(e) {
+            // post edited cell
+            if (g.isCellEditActive) {
+                g.postEditedCell();
+            }
+        });
         // add table class
         $(t).addClass('pma_table');
         
@@ -674,6 +1275,7 @@
         $(g.gDiv).append(g.cDrop);
         $(g.gDiv).append(g.cList);
         $(g.gDiv).append(g.cCpy);
+        $(g.gDiv).append(g.cEdit);
 
         // some adjustment
         g.refreshRestoreButton();
