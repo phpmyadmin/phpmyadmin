@@ -15,17 +15,12 @@ require_once 'libraries/common.lib.php';
 
 class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 {
-    function setup()
-    {
-        $GLOBALS['pmaThemeImage'] = 'theme/';
-    }
-
     function testShowDocuReplaceHelpImg()
     {
         $GLOBALS['cfg']['ReplaceHelpImg'] = true;
 
         $anchor = "relation";
-        $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="' . $GLOBALS['pmaThemeImage'] . 'dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
 
         $this->assertEquals($expected, PMA_showDocu($anchor));
 
