@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:42+0200\n"
+"PO-Revision-Date: 2011-07-21 18:43+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -9255,10 +9255,9 @@ msgid "Server traffic"
 msgstr "Traffico del server"
 
 #: server_status.php:588
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Vedi la tabella di stato dello slave"
+msgstr "Tutte le variabili di stato"
 
 #: server_status.php:589
 msgid "Monitor"
