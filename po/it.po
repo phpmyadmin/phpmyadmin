@@ -9282,7 +9282,7 @@ msgstr "Mostra solo i valori di allarme"
 
 #: server_status.php:651
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtra per categoria..."
 
 #: server_status.php:664
 #| msgid "Related Links"
