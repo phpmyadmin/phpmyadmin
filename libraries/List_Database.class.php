@@ -71,8 +71,6 @@ require_once './libraries/List.class.php';
 
     /**
      * checks if the configuration wants to hide some databases
-     *
-     * @todo temporaly use this docblock to test how to doc $GLOBALS
      */
     protected function _checkHideDatabase()
     {
