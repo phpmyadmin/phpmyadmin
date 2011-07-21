@@ -161,7 +161,7 @@ function PMA_wildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
  * @param   string   the user's initial
  * @return  string   the generated condition
  */
-function PMA_RangeOfUsers($initial = '')
+function PMA_rangeOfUsers($initial = '')
 {
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
@@ -1475,7 +1475,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
             '  FROM `mysql`.`user`';
 
-        $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
+        $sql_query .= (isset($initial) ? PMA_rangeOfUsers($initial) : '');
 
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
         $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
@@ -1516,7 +1516,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $db_rights_sqls = array();
             foreach ($tables_to_search_for_users as $table_search_in) {
                 if (in_array($table_search_in, $tables)) {
-                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_RangeOfUsers($initial) : '');
+                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_rangeOfUsers($initial) : '');
                 }
             }
 
