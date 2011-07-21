@@ -1368,6 +1368,8 @@ msgstr "Přejít na tabulku se záznamem"
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Záznamy byly načteny, ale v tomto časovém rozmezí nebyly nalezeny žádné "
+"dotazy."
 
 #: js/messages.php:155 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
