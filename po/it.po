@@ -1075,7 +1075,7 @@ msgstr "Grafico del traffico in tempo reale"
 
 #: js/messages.php:67 server_status.php:607
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Grafico delle connessioni e processi in tempo reale"
 
 #: js/messages.php:68 server_status.php:625
 #, fuzzy
