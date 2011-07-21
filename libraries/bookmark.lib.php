@@ -69,7 +69,7 @@ function PMA_Bookmark_getList($db)
             . ' ORDER BY label';
     $global = PMA_DBI_fetch_result($query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE);
 
-    foreach($global as $key => $val) {
+    foreach ($global as $key => $val) {
         $global[$key] = $val . ' (' . __('shared') . ')';
     }
 

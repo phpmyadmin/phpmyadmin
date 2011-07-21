@@ -145,7 +145,7 @@ if (isset($namespaces['pma'])) {
     $create = array();
 
     foreach ($struct as $tier1 => $val1) {
-        foreach($val1 as $tier2 => $val2) {
+        foreach ($val1 as $tier2 => $val2) {
             /* Need to select the correct database for the creation of tables, views, triggers, etc. */
             /**
              * @todo    Generating a USE here blocks importing of a table

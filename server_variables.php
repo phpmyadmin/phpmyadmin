@@ -73,7 +73,7 @@ require './libraries/server_links.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($cfg['MainPageIconic'] ? '<img class="icon" src="' . $pmaThemeImage . 's_vars.png" width="16" height="16" alt="" />' : '')
+   . ($cfg['MainPageIconic'] ? '<img class="icon ic_s_vars" src="themes/dot.gif" alt="" />' : '')
    . '' . __('Server variables and settings') . "\n"
    . PMA_showMySQLDocu('server_system_variables','server_system_variables')
    . '</h2>' . "\n";

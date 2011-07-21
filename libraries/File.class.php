@@ -8,7 +8,6 @@
 
 /**
  *
- * @todo replace error messages with localized string
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
  * @package phpMyAdmin
@@ -208,7 +207,6 @@ class PMA_File
     }
 
     /**
-     * @todo replace error message with localized string
      * @access  public
      * @param   string  name of file uploaded
      * @return  boolean success
@@ -219,7 +217,7 @@ class PMA_File
 
         if (! $this->isUploaded()) {
             $this->setName(null);
-            $this->_error_message = 'not an uploaded file';
+            $this->_error_message = __('File was not an uploaded file.');
             return false;
         }
 
@@ -258,7 +256,7 @@ class PMA_File
             }
 
             if (! $bs_db || ! $bs_table) {
-                $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                $this->_error_message = __('Unknown error while uploading.');
                 return false;
             }
             $blob_url =  PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
@@ -319,7 +317,6 @@ class PMA_File
      * $file['error'] = [value]
      * </code>
      *
-     * @todo re-check if requirements changes to PHP >= 4.2.0
      * @access  public
      * @static
      * @param   array   $file       the array
@@ -388,7 +385,7 @@ class PMA_File
                 }
 
                 if (! $bs_db || !$bs_table) {
-                    $this->_error_message = $GLOBALS['strUploadErrorUnknown'];
+                    $this->_error_message = __('Unknown error while uploading.');
                     return false;
                 }
                 $blob_url = PMA_BS_UpLoadFile($bs_db, $bs_table, $tmp_file_type, $tmp_filename);
@@ -483,7 +480,6 @@ class PMA_File
      * before opening it. The FAQ 1.11 explains how to create the "./tmp"
      * directory - if needed
      *
-     * @todo replace error message with localized string
      * @todo move check of $cfg['TempDir'] into PMA_Config?
      * @access  public
      * @return  boolean whether uploaded fiel is fine or not
@@ -508,7 +504,7 @@ class PMA_File
         $move_uploaded_file_result = move_uploaded_file($this->getName(), $new_file_to_upload);
         ob_end_clean();
         if (! $move_uploaded_file_result) {
-            $this->_error_message = 'error while moving uploaded file';
+            $this->_error_message = __('Error while moving uploaded file.');
             return false;
         }
 
@@ -516,7 +512,7 @@ class PMA_File
         $this->isTemp(true);
 
         if (! $this->isReadable()) {
-            $this->_error_message = 'cannot read (moved) upload file';
+            $this->_error_message = __('Cannot read (moved) upload file.');
             return false;
         }
 

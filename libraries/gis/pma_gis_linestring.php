@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS LINESTRING objects.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Linestring extends PMA_GIS_Geometry
 {
@@ -24,8 +24,8 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public static function singleton()
     {
         if (!isset(self::$_instance)) {
-            $c = __CLASS__;
-            self::$_instance = new $c;
+            $class = __CLASS__;
+            self::$_instance = new $class;
         }
 
         return self::$_instance;
@@ -59,10 +59,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
     {
         // allocate colors
-        $r = hexdec(substr($line_color, 1, 2));
-        $g = hexdec(substr($line_color, 3, 2));
-        $b = hexdec(substr($line_color, 4, 2));
-        $color = imagecolorallocate($image, $r, $g, $b);
+        $red   = hexdec(substr($line_color, 1, 2));
+        $green = hexdec(substr($line_color, 3, 2));
+        $blue  = hexdec(substr($line_color, 4, 2));
+        $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
@@ -94,10 +94,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
     {
         // allocate colors
-        $r = hexdec(substr($line_color, 1, 2));
-        $g = hexdec(substr($line_color, 3, 2));
-        $b = hexdec(substr($line_color, 4, 2));
-        $line = array('width' => 1.5, 'color' => array($r, $g, $b));
+        $red   = hexdec(substr($line_color, 1, 2));
+        $green = hexdec(substr($line_color, 3, 2));
+        $blue  = hexdec(substr($line_color, 4, 2));
+        $line  = array('width' => 1.5, 'color' => array($red, $green, $blue));
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = substr($spatial, 11, (strlen($spatial) - 12));
@@ -154,7 +154,8 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       Spatial reference ID
@@ -183,8 +184,9 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
 
         $row = 'new Array(';
         foreach ($points_arr as $point) {
-            $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
+            $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', '
+                . $point[1] . ')).transform(new OpenLayers.Projection("EPSG:'
+                . $srid . '"), map.getProjectionObject()), ';
         }
         $row = substr($row, 0, strlen($row) - 2);
         $row .= ')';
