@@ -7237,10 +7237,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Il trigger %1$s é stato creato."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Crea vista"
+msgstr "Crea trigger"
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
