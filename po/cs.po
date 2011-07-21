@@ -1270,10 +1270,10 @@ msgstr "Povolit %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Vypnuto"
+msgstr "Vypnout %s"
 
 #. l10n: %d seconds
 #: js/messages.php:130
