@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 18:05+0200\n"
+"PO-Revision-Date: 2011-07-21 18:14+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7253,7 +7253,7 @@ msgstr "Nome del trigger"
 
 #: libraries/rte/rte_triggers.lib.php:399
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "È necessario fornire il nome del trigger"
 
 #: libraries/rte/rte_triggers.lib.php:404
 msgid "You must provide a valid timing for the trigger"
