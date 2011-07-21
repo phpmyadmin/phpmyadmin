@@ -9885,7 +9885,7 @@ msgstr "Vyberte série:"
 
 #: server_status.php:1374
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Obvykle monitorované"
 
 #: server_status.php:1389
 #, fuzzy
