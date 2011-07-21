@@ -9793,10 +9793,9 @@ msgid "Start Monitor"
 msgstr "Spustit monitor"
 
 #: server_status.php:1298
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Úvod"
+msgstr "Návod/Nastavení"
 
 #: server_status.php:1302
 msgid "Done rearranging/editing charts"
