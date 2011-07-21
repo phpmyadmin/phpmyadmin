@@ -1323,10 +1323,9 @@ msgstr "Titolo del diagramma"
 
 #. l10n: As in differential values
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Differenza"
+msgstr "differenziali"
 
 #: js/messages.php:138
 #, php-format
