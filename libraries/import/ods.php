@@ -35,8 +35,8 @@ if (isset($plugin_list)) {
     return;
 }
 
-ini_set('memory_limit', '128M');
-set_time_limit(120);
+@ini_set('memory_limit', '128M');
+@set_time_limit(120);
 
 $i = 0;
 $len = 0;
@@ -275,11 +275,11 @@ if (strlen($db)) {
     $options = array('create_db' => false);
 } else {
     $db_name = 'ODS_DB';
-    $options = NULL;
+    $options = null;
 }
 
 /* Non-applicable parameters */
-$create = NULL;
+$create = null;
 
 /* Created and execute necessary SQL statements from data */
 PMA_buildSQL($db_name, $tables, $analyses, $create, $options);

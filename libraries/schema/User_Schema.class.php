@@ -637,7 +637,7 @@ class PMA_User_Schema
              */
             $tables = PMA_DBI_get_tables_full($db);
             $foreignkey_tables = array();
-            foreach($tables as $table_name => $table_properties) {
+            foreach ($tables as $table_name => $table_properties) {
                    if (PMA_foreignkey_supported($table_properties['ENGINE'])) {
                         $foreignkey_tables[] = $table_name;
                     }

@@ -32,7 +32,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     if (isset($_REQUEST['chart_data'])) {
         switch($_REQUEST['type']) {
             case 'proc':
-                $c = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Connections"', 0, 1);
+                $c = PMA_DBI_fetch_result("SHOW GLOBAL STATUS WHERE Variable_name = 'Connections'", 0, 1);
                 $result = PMA_DBI_query('SHOW PROCESSLIST');
                 $num_procs = PMA_DBI_num_rows($result);
 
@@ -45,7 +45,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 exit(json_encode($ret));
                 
             case 'queries':
-                $queries = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name LIKE "Com_%" OR Variable_name="Questions" AND Value>0', 0, 1);
+                $queries = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
+                        AND Value > 0'", 0, 1);
                 cleanDeprecated($queries);
                 // admin commands are not queries
                 unset($queries['Com_admin_commands']);
@@ -62,7 +65,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 exit(json_encode($ret));
                 
             case 'traffic':
-                $traffic = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="Bytes_received" OR Variable_name="Bytes_sent"', 0, 1);
+                $traffic = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE Variable_name = 'Bytes_received'
+                        OR Variable_name = 'Bytes_sent'", 0, 1);
 
                 $ret = array(
                     'x'          => microtime(true)*1000,
@@ -73,16 +79,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 exit(json_encode($ret));
             
             case 'chartgrid':
-                $ret = json_decode($_REQUEST['requiredData'],true);
-                $statusVars = Array();
+                $ret = json_decode($_REQUEST['requiredData'], true);
+                $statusVars = array();
                 $sysinfo = $cpuload = $memory = 0;
                 
-                foreach($ret as $chart_id=>$chartNodes) {
-                    foreach($chartNodes as $node_id=>$node) {
-                        switch($node['dataType']) {
+                foreach ($ret as $chart_id => $chartNodes) {
+                    foreach ($chartNodes as $node_id => $node) {
+                        switch ($node['dataType']) {
                             case 'statusvar':
                                 // Some white list filtering
-                                if(! preg_match('/[^a-zA-Z_]+/',$node['name']))
+                                if (!preg_match('/[^a-zA-Z_]+/',$node['name']))
                                     $statusVars[] = $node['name'];
                                 break;
                                 
@@ -92,14 +98,14 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 break;
                                 
                             case 'cpu':
-                                if(! $sysinfo) {
+                                if (!$sysinfo) {
                                     require_once('libraries/sysinfo.lib.php');
                                     $sysinfo = getSysInfo();
                                 }
-                                if(! $cpuload) 
+                                if (!$cpuload)
                                     $cpuload = $sysinfo->loadavg();
                                 
-                                if(PHP_OS == 'Linux') {
+                                if (PHP_OS == 'Linux') {
                                     $ret[$chart_id][$node_id]['idle'] = $cpuload['idle'];
                                     $ret[$chart_id][$node_id]['busy'] = $cpuload['busy'];
                                 } else 
@@ -108,11 +114,11 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 break;
 
                             case 'memory':
-                                if(! $sysinfo) {
+                                if (!$sysinfo) {
                                     require_once('libraries/sysinfo.lib.php');
                                     $sysinfo = getSysInfo();
                                 }
-                                if(! $memory) 
+                                if (!$memory)
                                     $memory  = $sysinfo->memory();
                             
                                 $ret[$chart_id][$node_id]['y'] = $memory[$node['name']];
@@ -121,11 +127,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     }
                 }
 
-                $vars = PMA_DBI_fetch_result('SHOW GLOBAL STATUS WHERE Variable_name="' . implode('" OR Variable_name="',$statusVars) . '"', 0, 1);
+                $vars = PMA_DBI_fetch_result(
+                    "SHOW GLOBAL STATUS
+                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1);
 
-                foreach($ret as $chart_id=>$chartNodes) {
-                    foreach($chartNodes as $node_id=>$node) {
-                        if($node['dataType'] == 'statusvar')
+                foreach ($ret as $chart_id => $chartNodes) {
+                    foreach ($chartNodes as $node_id => $node) {
+                        if ($node['dataType'] == 'statusvar')
                             $ret[$chart_id][$node_id]['y'] = $vars[$node['name']];
                     }
                 }
@@ -136,11 +144,11 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         }
     }
     
-    if(isset($_REQUEST['log_data'])) {
+    if (isset($_REQUEST['log_data'])) {
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);
         
-        if($_REQUEST['type'] == 'slow') {
+        if ($_REQUEST['type'] == 'slow') {
             $q = 'SELECT SUM(query_time) AS TIME(query_time), SUM(lock_time) as lock_time, '.
                  'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, sql_text, COUNT(sql_text) AS \'#\' '.
                  'FROM `mysql`.`slow_log` WHERE event_time > FROM_UNIXTIME('.$start.') '.
@@ -148,7 +156,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                  
             $result = PMA_DBI_try_query($q);
             
-            $return = array( 'rows' => array(), 'sum' => array());
+            $return = array('rows' => array(), 'sum' => array());
             $type = '';
             
             while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -175,7 +183,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             
             $result = PMA_DBI_try_query($q);
             
-            $return = array( 'rows' => array(), 'sum' => array());
+            $return = array('rows' => array(), 'sum' => array());
             $type = '';
             $insertTables = array();
             $insertTablesFirst = -1;
@@ -356,43 +364,44 @@ cleanDeprecated($server_status);
  */
 // Key_buffer_fraction
 if (isset($server_status['Key_blocks_unused'])
-  && isset($server_variables['key_cache_block_size'])
-  && isset($server_variables['key_buffer_size'])) {
+        && isset($server_variables['key_cache_block_size'])
+        && isset($server_variables['key_buffer_size'])) {
     $server_status['Key_buffer_fraction_%'] =
         100
-      - $server_status['Key_blocks_unused']
-      * $server_variables['key_cache_block_size']
-      / $server_variables['key_buffer_size']
-      * 100;
-} elseif (
-     isset($server_status['Key_blocks_used'])
-  && isset($server_variables['key_buffer_size'])) {
+        - $server_status['Key_blocks_unused']
+        * $server_variables['key_cache_block_size']
+        / $server_variables['key_buffer_size']
+        * 100;
+} elseif (isset($server_status['Key_blocks_used'])
+        && isset($server_variables['key_buffer_size'])) {
     $server_status['Key_buffer_fraction_%'] =
         $server_status['Key_blocks_used']
-      * 1024
-      / $server_variables['key_buffer_size'];
+        * 1024
+        / $server_variables['key_buffer_size'];
   }
 
 // Ratio for key read/write
 if (isset($server_status['Key_writes'])
-    && isset($server_status['Key_write_requests'])
-    && $server_status['Key_write_requests'] > 0)
-        $server_status['Key_write_ratio_%'] = 100 * $server_status['Key_writes'] / $server_status['Key_write_requests'];
+        && isset($server_status['Key_write_requests'])
+        && $server_status['Key_write_requests'] > 0) {
+    $server_status['Key_write_ratio_%'] = 100 * $server_status['Key_writes'] / $server_status['Key_write_requests'];
+}
 
 if (isset($server_status['Key_reads'])
-    && isset($server_status['Key_read_requests'])
-    && $server_status['Key_read_requests'] > 0)
-        $server_status['Key_read_ratio_%'] = 100 * $server_status['Key_reads'] / $server_status['Key_read_requests'];
+        && isset($server_status['Key_read_requests'])
+        && $server_status['Key_read_requests'] > 0) {
+    $server_status['Key_read_ratio_%'] = 100 * $server_status['Key_reads'] / $server_status['Key_read_requests'];
+}
 
 // Threads_cache_hitrate
 if (isset($server_status['Threads_created'])
-  && isset($server_status['Connections'])
-  && $server_status['Connections'] > 0) {
+        && isset($server_status['Connections'])
+        && $server_status['Connections'] > 0) {
     $server_status['Threads_cache_hitrate_%'] =
         100
-      - $server_status['Threads_created']
-      / $server_status['Connections']
-      * 100;
+        - $server_status['Threads_created']
+        / $server_status['Connections']
+        * 100;
 }
 
 // Format Uptime_since_flush_status : show as days, hours, minutes, seconds
@@ -481,23 +490,23 @@ $links['table'][__('Flush (close) all tables')]
     = $PMA_PHP_SELF . '?flush=TABLES&amp;' . PMA_generate_common_url();
 $links['table'][__('Show open tables')]
     = 'sql.php?sql_query=' . urlencode('SHOW OPEN TABLES') .
-      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+        '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
 
 if ($server_master_status) {
-  $links['repl'][__('Show slave hosts')]
-    = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
-      '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
-  $links['repl'][__('Show master status')] = '#replication_master';
+    $links['repl'][__('Show slave hosts')]
+        = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
+            '&amp;goto=server_status.php&amp;' . PMA_generate_common_url();
+    $links['repl'][__('Show master status')] = '#replication_master';
 }
 if ($server_slave_status) {
-  $links['repl'][__('Show slave status')] = '#replication_slave';
+    $links['repl'][__('Show slave status')] = '#replication_slave';
 }
 
 $links['repl']['doc'] = 'replication';
 
 $links['qcache'][__('Flush query cache')]
     = $PMA_PHP_SELF . '?flush=' . urlencode('QUERY CACHE') . '&amp;' .
-      PMA_generate_common_url();
+        PMA_generate_common_url();
 $links['qcache']['doc'] = 'query_cache';
 
 //$links['threads'][__('Show processes')]
@@ -514,7 +523,7 @@ $links['innodb'][__('Variables')]
     = 'server_engines.php?engine=InnoDB&amp;' . PMA_generate_common_url();
 $links['innodb'][__('InnoDB Status')]
     = 'server_engines.php?engine=InnoDB&amp;page=Status&amp;' .
-      PMA_generate_common_url();
+        PMA_generate_common_url();
 $links['innodb']['doc'] = 'innodb';
 
 
@@ -576,7 +585,8 @@ $server = 1;
 if(isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
 
 $server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost' 
-                              || $cfg['Servers'][$server]['host'] == '127.0.0.1';
+                              || $cfg['Servers'][$server]['host'] == '127.0.0.1'
+                              || $cfg['Servers'][$server]['host'] == '::1';
 
 ?>
 <script type="text/javascript">
@@ -668,7 +678,7 @@ echo __('Runtime Information');
                     <select id="filterCategory" name="filterCategory">
                         <option value=''><?php echo __('Filter by category...'); ?></option>
                 <?php
-                        foreach($sections as $section_id => $section_name) {
+                        foreach ($sections as $section_id => $section_name) {
                 ?>
                             <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
                 <?php
@@ -1477,7 +1487,7 @@ function printMonitor() {
     <script type="text/javascript">
         variableNames = [ <?php
             $i=0;
-            foreach($server_status as $name=>$value) {
+            foreach ($server_status as $name=>$value) {
                 if(is_numeric($value)) {
                     if($i++ > 0) echo ", ";
                     echo "'".$name."'";
@@ -1493,7 +1503,7 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
 ?>
     <select name="<?php echo $name; ?>">
         <?php
-            foreach($refreshRates as $rate) {
+            foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
                 
                 if($rate<60)
@@ -1508,6 +1518,8 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
 
 /**
  * cleanup of some deprecated values
+ *
+ * @param array &$server_status
  */
 function cleanDeprecated(&$server_status) {
     $deprecated = array(
@@ -1517,8 +1529,7 @@ function cleanDeprecated(&$server_status) {
     );
 
     foreach ($deprecated as $old => $new) {
-        if (isset($server_status[$old])
-          && isset($server_status[$new])) {
+        if (isset($server_status[$old]) && isset($server_status[$new])) {
             unset($server_status[$old]);
         }
     }

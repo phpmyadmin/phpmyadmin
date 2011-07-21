@@ -332,7 +332,7 @@ function PMA_auth_check()
     // END Swekey Integration
 
     if (defined('PMA_CLEAR_COOKIES')) {
-        foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
+        foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
             $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
             $GLOBALS['PMA_Config']->removeCookie('pmaServer-' . $key);
             $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
@@ -352,7 +352,7 @@ function PMA_auth_check()
         session_destroy();
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
-            foreach($GLOBALS['cfg']['Servers'] as $key => $val) {
+            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
                 $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $key);
                 if (isset($_COOKIE['pmaPass-' . $key])) {
                     unset($_COOKIE['pmaPass-' . $key]);

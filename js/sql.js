@@ -223,7 +223,7 @@ $(document).ready(function() {
     $("#sqlqueryform.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        $form = $(this);
+        var $form = $(this);
         if (! checkSqlQuery($form[0])) {
             return false;
         }
@@ -232,11 +232,12 @@ $(document).ready(function() {
         $('.error').remove();
 
         var $msgbox = PMA_ajaxShowMessage();
+        var $sqlqueryresults = $('#sqlqueryresults');
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($(this).attr('action'), $(this).serialize() , function(data) {
-            if(data.success == true) {
+        $.post($form.attr('action'), $form.serialize() , function(data) {
+            if (data.success == true) {
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
@@ -250,7 +251,7 @@ $(document).ready(function() {
                 } else {
                     $('#sqlqueryform').before(data.message);
                 }
-                $('#sqlqueryresults').show();
+                $sqlqueryresults.show();
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
                     // Unbind the submit event before reloading. See bug #3295529
@@ -267,25 +268,25 @@ $(document).ready(function() {
             else if (data.success == false ) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
-                $('#sqlqueryresults').hide();
+                $sqlqueryresults.hide();
             }
             else {
                 // real results are returned
                 // fade out previous messages, if any
                 $('.success').fadeOut();
                 $('.sqlquery_message').fadeOut();
-                $received_data = $(data);
-                $zero_row_results = $received_data.find('textarea[name="sql_query"]');
+                var $received_data = $(data);
+                var $zero_row_results = $received_data.find('textarea[name="sql_query"]');
                 // if zero rows are returned from the query execution
                 if ($zero_row_results.length > 0) {
                     $('#sqlquery').val($zero_row_results.val());
                 } else {
-                    $('#sqlqueryresults').show();
-                    $("#sqlqueryresults").html(data);
-                    $("#sqlqueryresults").trigger('appendAnchor');
-                    $("#sqlqueryresults").trigger('makegrid');
+                    $sqlqueryresults.show();
+                    $sqlqueryresults.html(data);
+                    $sqlqueryresults.trigger('appendAnchor');
+                    $sqlqueryresults.trigger('makegrid');
                     $('#togglequerybox').show();
-                    if($("#togglequerybox").siblings(":visible").length > 0) {
+                    if ($("#togglequerybox").siblings(":visible").length > 0) {
                         $("#togglequerybox").trigger('click');
                     }
                     PMA_init_slider();
@@ -315,16 +316,18 @@ $(document).ready(function() {
         var $msgbox = PMA_ajaxShowMessage();
 
         /**
-         * @var $the_form    Object referring to the form element that paginates the results table
+         * @var $form    Object referring to the form element that paginates the results table
          */
-        var $the_form = $(this).parent("form");
+        var $form = $(this).parent("form");
 
-        $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
+        var $sqlqueryresults = $("#sqlqueryresults");
 
-        $.post($the_form.attr('action'), $the_form.serialize(), function(data) {
-            $("#sqlqueryresults").html(data);
-            $("#sqlqueryresults").trigger('appendAnchor');
-            $("#sqlqueryresults").trigger('makegrid');
+        PMA_prepareForAjaxRequest($form);
+
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            $sqlqueryresults.html(data);
+            $sqlqueryresults.trigger('appendAnchor');
+            $sqlqueryresults.trigger('makegrid');
             PMA_init_slider();
 
             PMA_ajaxRemoveMessage($msgbox);
@@ -976,7 +979,7 @@ $(document).ready(function() {
                 }
                 PMA_ajaxRemoveMessage($msgbox);
             }) // end $.get()
-        }  else {
+        } else {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });
@@ -1174,9 +1177,10 @@ function PMA_unInlineEditRow($del_hide, $chg_submit, $this_td, $input_siblings, 
 }
 
 /**
- * Starting from some th, change the class of all td under it
+ * Starting from some th, change the class of all td under it.
+ * If isAddClass is specified, it will be used to determine whether to add or remove the class.
  */
-function PMA_changeClassForColumn($this_th, newclass) {
+function PMA_changeClassForColumn($this_th, newclass, isAddClass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     var has_big_t = !$this_th.closest('tr').children(':first').hasClass('column_heading');
@@ -1185,12 +1189,10 @@ function PMA_changeClassForColumn($this_th, newclass) {
         th_index--;
     }
     var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
-    if ($this_th.data('has_class_'+newclass)) {
-        $tds.removeClass(newclass);
-        $this_th.data('has_class_'+newclass, false);
+    if (isAddClass == undefined) {
+        $tds.toggleClass(newclass);
     } else {
-        $tds.addClass(newclass);
-        $this_th.data('has_class_'+newclass, true);
+        $tds.toggleClass(newclass, isAddClass);
     }
 }
 
@@ -1207,8 +1209,8 @@ $(document).ready(function() {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $('.column_heading.pointer').live('hover', function() {
-        PMA_changeClassForColumn($(this), 'hover');
+    $('.column_heading.pointer').live('hover', function(e) {
+        PMA_changeClassForColumn($(this), 'hover', e.type == 'mouseenter');
         });
 
     /**

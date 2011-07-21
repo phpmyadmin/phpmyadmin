@@ -1223,6 +1223,7 @@ function changeMIMEType(db, table, reference, mime_type)
  */
 $(document).ready(function(){
     $(".inline_edit_sql").live('click', function(){
+        var server     = $(this).prev().find("input[name='server']").val();
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1238,7 +1239,8 @@ $(document).ready(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
                 window.location.replace("import.php"
-                                      + "?db=" + encodeURIComponent(db)
+                                      + "?server=" + encodeURIComponent(server)
+                                      + "&db=" + encodeURIComponent(db)
                                       + "&table=" + encodeURIComponent(table)
                                       + "&sql_query=" + encodeURIComponent(sql_query)
                                       + "&show_query=1"
@@ -2289,7 +2291,9 @@ function displayMoreTableOpts() {
     }
 
 }
-$(document).ready(initTooltips);
+$(document).ready(function(){
+    PMA_convertFootnotesToTooltips();
+});
 
 /**
  * Ensures indexes names are valid according to their type and, for a primary
@@ -2325,27 +2329,53 @@ function checkIndexName(form_id)
     return true;
 } // end of the 'checkIndexName()' function
 
-
-/* Displays tooltips */
-function initTooltips() {
+/**
+ * function to convert the footnotes to tooltips
+ *
+ * @param   jquery-Object   $div    a div jquery object which specifies the 
+ *                                  domain for searching footnootes. If we 
+ *                                  ommit this parameter the function searches 
+ *                                  the footnotes in the whole body
+ **/
+function PMA_convertFootnotesToTooltips($div) {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
-    $(".footnotes").hide();
-    $(".footnotes span").each(function() {
+
+    if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
+        $div = $("#serverinfo").parent();
+    }
+
+    $footnotes = $div.find(".footnotes");
+
+    $footnotes.hide();
+    $footnotes.find('span').each(function() {
         $(this).children("sup").remove();
     });
     // The border and padding must be removed otherwise a thin yellow box remains visible
-    $(".footnotes").css("border", "none");
-    $(".footnotes").css("padding", "0px");
+    $footnotes.css("border", "none");
+    $footnotes.css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $("sup[class~='footnotemarker']").hide();
-    $("img[class~='footnotemarker']").show();
+    $div.find("sup.footnotemarker").hide();
+    $div.find("img.footnotemarker").show();
 
-    $("img[class~='footnotemarker']").each(function() {
-        var span_id = $(this).attr("id");
-        span_id = span_id.split("_")[1];
-        var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
+    $div.find("img.footnotemarker").each(function() {
+        var img_class = $(this).attr("class");
+        /** img contains two classes, as example "footnotemarker footnote_1".
+         *  We split it by second class and take it for the id of span
+        */
+        img_class = img_class.split(" ");
+        for (i = 0; i < img_class.length; i++) {
+            if (img_class[i].split("_")[0] == "footnote") {
+                var span_id = img_class[i].split("_")[1];
+            }
+        }
+        /**
+         * Now we get the #id of the span with span_id variable. As an example if we
+         * initially get the img class as "footnotemarker footnote_2", now we get
+         * #2 as the span_id. Using that we can find footnote_2 in footnotes.
+         * */
+        var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
         $(this).qtip({
             content: tooltip_text,
             show: { delay: 0 },
@@ -2925,4 +2955,43 @@ $(document).ready(function() {
         }
     }; //end noSelect    
 })(jQuery);
+
+/**
+ * Create default PMA tooltip for the element specified. The default appearance
+ * can be overriden by specifying optional "options" parameter (see qTip options).
+ */
+function PMA_createqTip($elements, content, options) {
+    var o = {
+        content: content,
+        style: {
+            background: '#333',
+            border: {
+                radius: 5
+            },
+            fontSize: '0.8em',
+            padding: '0 0.5em',
+            name: 'dark'
+        },
+        position: {
+            target: 'mouse',
+            corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
+            adjust: { x: 20 }
+        },
+        show: {
+            delay: 0,
+            effect: {
+                type: 'grow',
+                length: 100
+            }
+        },
+        hide: {
+            effect: {
+                type: 'grow',
+                length: 150
+            }
+        }
+    }
+    
+    $elements.qtip($.extend(true, o, options));
+}
 

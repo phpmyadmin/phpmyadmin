@@ -8,7 +8,7 @@
  */
 
 // unplanned execution path
-if (!defined('PMA_MINIMUM_COMMON')) {
+if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
     exit();
 }
 
@@ -1094,7 +1094,7 @@ div#tablestatistics table {
 /* serverstatus */
 
 h3#serverstatusqueries span {
-    font-size:60%;    
+    font-size:60%;
     display:inline;
 }
 
@@ -1168,9 +1168,9 @@ div#serverstatus table .tblFooters a {
 }
 
 div.liveChart {
-    clear:both; 
-    min-width:500px; 
-    height:400px; 
+    clear:both;
+    min-width:500px;
+    height:400px;
     padding-bottom:80px;
 }
 

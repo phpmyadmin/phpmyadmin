@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
+ * Configuration handling.
  *
  * @package phpMyAdmin
  */
@@ -350,21 +350,16 @@ class PMA_Config
         $cfg = array();
 
         /**
-         * Parses the configuration file
+         * Parses the configuration file, the eval is used here to avoid
+         * problems with trailing whitespace, what is often a problem.
          */
         $old_error_reporting = error_reporting(0);
-        if (function_exists('file_get_contents')) {
-            $eval_result =
-                eval('?' . '>' . trim(file_get_contents($this->getSource())));
-        } else {
-            $eval_result =
-                eval('?' . '>' . trim(implode("\n", file($this->getSource()))));
-        }
+        $eval_result = eval('?' . '>' . trim(file_get_contents($this->getSource())));
         error_reporting($old_error_reporting);
 
         if ($eval_result === false) {
             $this->error_config_file = true;
-        } else  {
+        } else {
             $this->error_config_file = false;
             $this->source_mtime = filemtime($this->getSource());
         }
@@ -679,7 +674,7 @@ class PMA_Config
      * or the theme changes
      * must also check the pma_fontsize cookie in case there is no
      * config file
-     * @return  int  Unix timestamp
+     * @return int Summary of unix timestamps and fontsize, to be unique on theme parameters change
      */
     function getThemeUniqueValue()
     {
@@ -696,8 +691,7 @@ class PMA_Config
             $this->default_source_mtime +
             $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
-            $_SESSION['PMA_Theme']->filesize_info)
-            . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
+            $_SESSION['PMA_Theme']->filesize_info);
     }
 
     /**
@@ -980,7 +974,7 @@ class PMA_Config
         // At first we try to parse REQUEST_URI, it might contain full URL,
         if (PMA_getenv('REQUEST_URI')) {
             $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-            if($url === false) {
+            if ($url === false) {
                 $url = array();
             }
         }
@@ -1073,7 +1067,9 @@ class PMA_Config
     /**
      * @todo finish
      */
-    function save() {}
+    function save()
+    {
+    }
 
     /**
      * returns options for font size selection

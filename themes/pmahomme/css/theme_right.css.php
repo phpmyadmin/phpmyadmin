@@ -1315,7 +1315,7 @@ div#logTable table td.analyzableQuery:hover {
 }
 
 h3#serverstatusqueries span {
-    font-size:60%;    
+    font-size:60%;
     display:inline;
 }
 
@@ -1384,9 +1384,9 @@ div#serverstatus table .tblFooters a {
 }
 
 div.liveChart {
-    clear:both; 
-    min-width:500px; 
-    height:400px; 
+    clear:both;
+    min-width:500px;
+    height:400px;
     padding-bottom:80px;
 }
 
@@ -2843,7 +2843,7 @@ span.mysql-number {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    
+
     background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
     background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));

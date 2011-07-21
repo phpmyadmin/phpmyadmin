@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 + AJAX for table Structure column Change
 + [interface] Improved support for events
 + [interface] Improved support for triggers
++ [interface] Improved server monitoring
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
@@ -48,6 +49,10 @@ phpMyAdmin - ChangeLog
 - bug #3350790 [interface] JS error in Table->Structure->Index->Edit
 - bug #3353811 [interface] Info message has "error" class
 - bug #3357837 [interface] TABbing through a NULL field in the inline mode resets NULL
+- remove version number in /setup
+- bug #3367993 [usability] Missing "Generate Password" button
+- bug #3363221 [display] Missing Server Parameter on inline sql query
+- bug #3367986 [navi] Drop field -> lost active table
 
 3.4.3.1 (2011-07-02)
 - [security] Fixed possible session manipulation in swekey authentication, see PMASA-2011-5

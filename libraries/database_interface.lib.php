@@ -364,7 +364,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         unset($sql_where_table, $sql);
         if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
             // here, the array's first key is by schema name
-            foreach($tables as $one_database_name => $one_database_tables) {
+            foreach ($tables as $one_database_name => $one_database_tables) {
                 uksort($one_database_tables, 'strnatcasecmp');
 
                 if ($sort_order == 'DESC') {
@@ -472,7 +472,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                 $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
 
                 if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
-                        && $each_tables[$table_name]['Engine'] == NULL) {
+                        && $each_tables[$table_name]['Engine'] == null) {
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
                     /**
@@ -494,7 +494,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // Note 2: Instead of array_merge(), simply use the + operator because
     //  array_merge() renumbers numeric keys starting with 0, therefore
     //  we would lose a db name thats consists only of numbers
-    foreach($tables as $one_database => $its_tables) {
+    foreach ($tables as $one_database => $its_tables) {
         if (isset(PMA_Table::$cache[$one_database])) {
             PMA_Table::$cache[$one_database] = PMA_Table::$cache[$one_database] + $tables[$one_database];
         } else {
@@ -769,7 +769,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         $sql = 'SHOW FULL COLUMNS FROM '
             . PMA_backquote($database) . '.' . PMA_backquote($table);
         if (null !== $column) {
-            $sql .= " LIKE '" . $column . "'";
+            $sql .= " LIKE '" . PMA_sqlAddSlashes($column, true) . "'";
         }
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
@@ -1341,7 +1341,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 
     // Sort results by name
     $name = array();
-    foreach($result as $key => $value) {
+    foreach ($result as $key => $value) {
         $name[] = $value['name'];
     }
     array_multisort($name, SORT_ASC, $result);

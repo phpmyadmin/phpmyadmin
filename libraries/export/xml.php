@@ -74,7 +74,7 @@ function PMA_exportHeader() {
     global $db;
     global $table;
     global $tables;
-
+    
     $export_struct = isset($GLOBALS['xml_export_functions']) || isset($GLOBALS['xml_export_procedures'])
         || isset($GLOBALS['xml_export_tables']) || isset($GLOBALS['xml_export_triggers'])
         || isset($GLOBALS['xml_export_views']);
@@ -114,7 +114,7 @@ function PMA_exportHeader() {
         $head .= '    -->' . $crlf;
         $head .= '    <pma:structure_schemas>' . $crlf;
         $head .= '        <pma:database name="' . htmlspecialchars($db) . '" collation="' . $db_collation . '" charset="' . $db_charset . '">' . $crlf;
-
+        
         if (count($tables) == 0) {
             $tables[] = $table;
         }
@@ -131,23 +131,23 @@ function PMA_exportHeader() {
             } else {
                 $type = 'table';
             }
-
+            
             if ($is_view && ! isset($GLOBALS['xml_export_views'])) {
                 continue;
             }
-
+            
             if (! $is_view && ! isset($GLOBALS['xml_export_tables'])) {
                 continue;
             }
 
             $head .= '            <pma:' . $type . ' name="' . $table . '">' . $crlf;
-
+            
             $tbl = "                " . htmlspecialchars($tbl);
             $tbl = str_replace("\n", "\n                ", $tbl);
 
             $head .= $tbl . ';' . $crlf;
             $head .= '            </pma:' . $type . '>' . $crlf;
-
+            
             if (isset($GLOBALS['xml_export_triggers']) && $GLOBALS['xml_export_triggers']) {
                 // Export triggers
                 $triggers = PMA_DBI_get_triggers($db, $table);
@@ -170,7 +170,7 @@ function PMA_exportHeader() {
                 }
             }
         }
-
+        
         if (isset($GLOBALS['xml_export_functions']) && $GLOBALS['xml_export_functions']) {
             // Export functions
             $functions = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
@@ -193,7 +193,7 @@ function PMA_exportHeader() {
                 unset($functions);
             }
         }
-
+        
         if (isset($GLOBALS['xml_export_procedures']) && $GLOBALS['xml_export_procedures']) {
             // Export procedures
             $procedures = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
@@ -240,13 +240,13 @@ function PMA_exportHeader() {
  */
 function PMA_exportDBHeader($db) {
     global $crlf;
-
+    
     if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
         $head = '    <!--' . $crlf
               . '    - ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
               . '    -->' . $crlf
               . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
-
+        
         return PMA_exportOutputHandler($head);
     }
     else
@@ -265,7 +265,7 @@ function PMA_exportDBHeader($db) {
  */
 function PMA_exportDBFooter($db) {
     global $crlf;
-
+    
     if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
         return PMA_exportOutputHandler('    </database>' . $crlf);
     }
@@ -300,6 +300,7 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
+
     if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
         $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
