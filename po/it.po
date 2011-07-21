@@ -10088,10 +10088,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Il numero di processi non in attesa."
 
 #: server_status.php:1290
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start Monitor"
-msgstr "Righe con aree di testo"
+msgstr "Avvia monitoraggio"
 
 #: server_status.php:1298
 #, fuzzy
