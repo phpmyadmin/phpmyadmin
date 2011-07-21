@@ -5396,10 +5396,9 @@ msgid "Start row"
 msgstr "Riga iniziale"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Numero di righi:"
+msgstr "Numero di righe"
 
 #: libraries/display_tbl.lib.php:440
 #, fuzzy
