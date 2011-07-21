@@ -20,7 +20,7 @@ class PMA_checkParameters_test extends PHPUnit_Extensions_OutputTestCase
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        $GLOBALS['cfg'] = array('ReplaceHelpImg' => true);
+        $GLOBALS['cfg'] = array('ReplaceHelpImg' => true, 'ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
