@@ -1829,7 +1829,7 @@ msgstr "Velikost písma"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Soubor nebyl nahrán."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #, fuzzy
