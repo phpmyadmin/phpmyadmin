@@ -15,6 +15,11 @@ require_once 'libraries/common.lib.php';
 
 class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase{
 
+    function setup()
+    {
+        $GLOBALS['cfg'] = array('PropertiesIconic' => 'both');
+    }
+
     function testBuildActionTitles(){
         $titles = array();
 
