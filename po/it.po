@@ -9260,8 +9260,9 @@ msgid "All status variables"
 msgstr "Tutte le variabili di stato"
 
 #: server_status.php:589
+#, fuzzy
 msgid "Monitor"
-msgstr ""
+msgstr "Monitora"
 
 #: server_status.php:599 server_status.php:621
 #| msgid "Refresh"
