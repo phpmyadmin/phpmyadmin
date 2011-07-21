@@ -1334,7 +1334,7 @@ msgstr "Ze zánamu pomalých dotazů"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "Z obecného zánamu dotazů"
 
 #: js/messages.php:145
 msgid "Analysing & loading logs. This may take a while."
