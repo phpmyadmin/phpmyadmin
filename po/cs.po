@@ -9859,10 +9859,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1361
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Používá"
+msgstr "Využití procesoru"
 
 #: server_status.php:1364
 #, fuzzy
