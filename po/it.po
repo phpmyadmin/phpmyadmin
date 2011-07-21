@@ -6945,10 +6945,9 @@ msgstr "Errore nel processare la richiesta"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:817
 #: libraries/rte/rte_triggers.lib.php:298
-#, fuzzy
 #| msgid "Details..."
 msgid "Details"
-msgstr "Dettagli..."
+msgstr "Dettagli"
 
 #: libraries/rte/rte_events.lib.php:374
 #, fuzzy
