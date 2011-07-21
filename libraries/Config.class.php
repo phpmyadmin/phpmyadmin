@@ -359,7 +359,7 @@ class PMA_Config
 
         if ($eval_result === false) {
             $this->error_config_file = true;
-        } else  {
+        } else {
             $this->error_config_file = false;
             $this->source_mtime = filemtime($this->getSource());
         }
@@ -692,7 +692,7 @@ class PMA_Config
             $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
             $_SESSION['PMA_Theme']->filesize_info)
-            . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
+            . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'], 1, 6) : '');
     }
 
     /**
@@ -975,7 +975,7 @@ class PMA_Config
         // At first we try to parse REQUEST_URI, it might contain full URL,
         if (PMA_getenv('REQUEST_URI')) {
             $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-            if($url === false) {
+            if ($url === false) {
                 $url = array();
             }
         }
@@ -1068,7 +1068,9 @@ class PMA_Config
     /**
      * @todo finish
      */
-    function save() {}
+    function save()
+    {
+    }
 
     /**
      * returns options for font size selection
