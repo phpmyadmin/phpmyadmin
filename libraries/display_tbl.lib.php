@@ -321,14 +321,14 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             // and also to know what to execute when the selector changes
             echo '<form action="sql.php' . PMA_generate_common_url($_url_params). '" method="post">';
             echo PMA_pageselector(
-                    $_SESSION['tmp_user_values']['max_rows'],
-                    $pageNow,
-                    $nbTotalPage,
-                    200,
-                    5,
-                    5,
-                    20,
-                    10
+                $_SESSION['tmp_user_values']['max_rows'],
+                $pageNow,
+                $nbTotalPage,
+                200,
+                5,
+                5,
+                20,
+                10
             );
         ?>
         </form>
