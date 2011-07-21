@@ -588,7 +588,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n";
 
         // Output the Global privilege tables with checkboxes
-        foreach($privTable as $i => $table) {
+        foreach ($privTable as $i => $table) {
             echo '    <fieldset>' . "\n"
                 . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
             foreach ($table as $priv)
@@ -1452,7 +1452,7 @@ if (isset($_REQUEST['export'])) {
     echo '<h2>' . __('User') . ' \'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</h2>';
     echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($username) . "'@'" . PMA_sqlAddSlashes($hostname) . "'");
-    foreach($grants as $one_grant) {
+    foreach ($grants as $one_grant) {
         echo $one_grant . ";\n\n";
     }
     echo '</textarea>';

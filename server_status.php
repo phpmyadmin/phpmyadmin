@@ -650,7 +650,7 @@ echo __('Runtime Information');
                     <select id="filterCategory" name="filterCategory">
                         <option value=''><?php echo __('Filter by category...'); ?></option>
                 <?php
-                        foreach($sections as $section_id => $section_name) {
+                        foreach ($sections as $section_id => $section_name) {
                 ?>
                             <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
                 <?php
@@ -1435,7 +1435,7 @@ function printMonitor() {
     <script type="text/javascript">
         variableNames = [ <?php
             $i=0;
-            foreach($server_status as $name=>$value) {
+            foreach ($server_status as $name=>$value) {
                 if(is_numeric($value)) {
                     if($i++ > 0) echo ", ";
                     echo "'".$name."'";
@@ -1451,7 +1451,7 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
 ?>
     <select name="<?php echo $name; ?>">
         <?php
-            foreach($refreshRates as $rate) {
+            foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
                 
                 if($rate<60)

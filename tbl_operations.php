@@ -733,7 +733,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
  <legend><?php echo __('Partition maintenance'); ?></legend>
 <?php
         $html_select = '<select name="partition_name">' . "\n";
-        foreach($partition_names as $one_partition) {
+        foreach ($partition_names as $one_partition) {
             $one_partition = htmlspecialchars($one_partition);
             $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
         }

@@ -2749,7 +2749,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
     $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
     /* Update forced variables */
-    foreach($updates as $key => $val) {
+    foreach ($updates as $key => $val) {
         $vars[$key] = $val;
     }
 
@@ -2773,7 +2773,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
 
     /* Optional escaping */
     if (!is_null($escape)) {
-        foreach($replace as $key => $val) {
+        foreach ($replace as $key => $val) {
             $replace[$key] = $escape($val);
         }
     }

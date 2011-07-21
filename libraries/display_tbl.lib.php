@@ -2139,7 +2139,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         // find the sorted column index in row result
         // (this might be a multi-table query)
         $sorted_column_index = false;
-        foreach($fields_meta as $key => $meta) {
+        foreach ($fields_meta as $key => $meta) {
             if ($meta->table == $sort_table && $meta->name == $sort_column) {
                 $sorted_column_index = $key;
                 break;

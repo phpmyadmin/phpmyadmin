@@ -651,7 +651,7 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncom
         while ($one_row = PMA_DBI_fetch_row($unbuffered_result)) {
             $insert_query .= '(';
             $key_of_last_value = count($one_row) - 1;
-            foreach($one_row as $key => $value) {
+            foreach ($one_row as $key => $value) {
                 $insert_query .= "'" . PMA_sqlAddSlashes($value) . "'";
                 if ($key < $key_of_last_value) {
                     $insert_query .= ",";

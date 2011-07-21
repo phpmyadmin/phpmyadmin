@@ -86,7 +86,7 @@ if (isset($plugin_list)) {
         $compats = PMA_DBI_getCompatibilities();
         if (count($compats) > 0) {
             $values = array();
-            foreach($compats as $val) {
+            foreach ($compats as $val) {
                 $values[$val] = $val;
             }
             $plugin_list['sql']['options'][] = array(
@@ -322,7 +322,7 @@ function PMA_exportRoutines($db) {
           . PMA_exportComment(__('Procedures'))
           . PMA_exportComment();
 
-        foreach($procedure_names as $procedure_name) {
+        foreach ($procedure_names as $procedure_name) {
             if (! empty($GLOBALS['sql_drop_table'])) {
                 $text .= 'DROP PROCEDURE IF EXISTS ' . PMA_backquote($procedure_name) . $delimiter . $crlf;
             }
@@ -336,7 +336,7 @@ function PMA_exportRoutines($db) {
           . PMA_exportComment(__('Functions'))
           . PMA_exportComment();
 
-        foreach($function_names as $function_name) {
+        foreach ($function_names as $function_name) {
             if (! empty($GLOBALS['sql_drop_table'])) {
                 $text .= 'DROP FUNCTION IF EXISTS ' . PMA_backquote($function_name) . $delimiter . $crlf;
             }
@@ -469,7 +469,7 @@ function PMA_exportHeader()
         // backslash and n, as explained on the export interface
         $lines = explode('\n', $GLOBALS['sql_header_comment']);
         $head .= PMA_exportComment();
-        foreach($lines as $one_line) {
+        foreach ($lines as $one_line) {
             $head .= PMA_exportComment($one_line);
         }
         $head .= PMA_exportComment();
@@ -609,7 +609,7 @@ function PMA_exportDBFooter($db)
               . PMA_exportComment(__('Events'))
               . PMA_exportComment();
 
-            foreach($event_names as $event_name) {
+            foreach ($event_names as $event_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
             $text .= 'DROP EVENT ' . PMA_backquote($event_name) . $delimiter . $crlf;
                 }
@@ -650,7 +650,7 @@ function PMA_getTableDefStandIn($db, $view, $crlf) {
     $create_query .= PMA_backquote($view) . ' (' . $crlf;
     $tmp = array();
     $columns = PMA_DBI_get_columns_full($db, $view);
-    foreach($columns as $column_name => $definition) {
+    foreach ($columns as $column_name => $definition) {
         $tmp[] = PMA_backquote($column_name) . ' ' . $definition['Type'] . $crlf;
     }
     $create_query .= implode(',', $tmp) . ');';
