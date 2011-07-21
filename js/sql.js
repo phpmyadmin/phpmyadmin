@@ -1230,7 +1230,9 @@ $(document).ready(function() {
  * Profiling Chart
  */
 function createProfilingChart() {
-    if($('#profilingchart').length==0) return;
+    if ($('#profilingchart').length == 0) {
+        return;
+    }
 
     var cdata = new Array();
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
