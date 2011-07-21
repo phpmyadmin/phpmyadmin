@@ -9808,7 +9808,7 @@ msgstr "Přidat graf"
 
 #: server_status.php:1311
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Upravit/Uspořádat grafy"
 
 #: server_status.php:1313
 msgid "Refresh rate:"
