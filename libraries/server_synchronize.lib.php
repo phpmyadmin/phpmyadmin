@@ -174,35 +174,34 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                     */
                     for ($m = 0; ($m < $fields_num[$matching_table_index]) && ($starting_index == 0) ; $m++) {
                         if (isset($src_result_set[0][$fld[$m]])) {
-                          if (isset($target_result_set[0][$fld[$m]])) {
-                            if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
+                            if (isset($target_result_set[0][$fld[$m]])) {
+                                if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
+                                    if (sizeof($is_key) == 1) {
+                                        if ($source_result_set[$j]) {
+                                            $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
+                                        }
+                                    } elseif (sizeof($is_key) > 1) {
+                                        for ($n=0; $n < sizeof($is_key); $n++) {
+                                            if (isset($src_result_set[0][$is_key[$n]])) {
+                                                $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
+                                            }
+                                        }
+                                    }
+
+                                    $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+
+                                    $update_field++;
+                                    if (isset($src_result_set[0][$fld[$m]])) {
+                                        $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                        $update_field++;
+                                    }
+                                    $starting_index = $m;
+                                    $update_row++;
+                                }
+                            } else {
                                 if (sizeof($is_key) == 1) {
                                     if ($source_result_set[$j]) {
                                         $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
-                                    }
-                                } elseif (sizeof($is_key) > 1) {
-                                    for ($n=0; $n < sizeof($is_key); $n++) {
-                                        if (isset($src_result_set[0][$is_key[$n]])) {
-                                            $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
-                                        }
-                                    }
-                                }
-
-                                $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-
-                                $update_field++;
-                                if (isset($src_result_set[0][$fld[$m]])) {
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                    $update_field++;
-                                }
-                                $starting_index = $m;
-                                $update_row++;
-                            }
-                        } else {
-                               if (sizeof($is_key) == 1) {
-                                    if ($source_result_set[$j]) {
-                                        $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
-
                                     }
                                 } elseif (sizeof($is_key) > 1) {
                                     for ($n = 0; $n < sizeof($is_key); $n++) {
@@ -221,25 +220,24 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
                                 }
                                 $starting_index = $m;
                                 $update_row++;
+                            }
                         }
-                      }
                     }
-                    for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++)
-                    {
+                    for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++) {
                         if (isset($src_result_set[0][$fld[$m]])) {
                             if (isset($target_result_set[0][$fld[$m]])) {
                                 if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (!(in_array($fld[$m], $is_key)))) {
-                                $update_row--;
-                                $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-                                $update_field++;
-                                if ($src_result_set[0][$fld[$m]]) {
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                    $update_row--;
+                                    $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
                                     $update_field++;
+                                    if ($src_result_set[0][$fld[$m]]) {
+                                        $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                        $update_field++;
+                                    }
+                                    $update_row++;
                                 }
-                                $update_row++;
-                            }
-                        } else {
-                               $update_row--;
+                            } else {
+                                $update_row--;
                                 $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
                                 $update_field++;
                                 if ($src_result_set[0][$fld[$m]]) {
