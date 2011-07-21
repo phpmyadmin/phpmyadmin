@@ -1213,7 +1213,7 @@ msgstr "Přerušit monitor"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log a slow_query_log je povolen."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
