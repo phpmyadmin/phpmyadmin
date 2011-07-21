@@ -152,7 +152,6 @@ abstract class PMA_GIS_Geometry
                 $points_arr[] = $x;
                 $points_arr[] = $y;
             }
-            unset($cordinate_arr);
         }
 
         return $points_arr;
