@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 17:40+0200\n"
+"PO-Revision-Date: 2011-07-21 17:41+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7333,10 +7333,9 @@ msgid "trigger"
 msgstr "Triggers"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Non hai i permessi per effettuare questa operazione!"
+msgstr "Non hai i necessari privilegi per creare un trigger"
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
