@@ -7017,7 +7017,7 @@ msgstr "È necessario fornire una data valida per l'esecuzione dell'evento."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "È necessario fornire un valido tipo per l'evento."
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
