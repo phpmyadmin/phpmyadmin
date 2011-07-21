@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-13 13:55+0200\n"
+"PO-Revision-Date: 2011-07-21 16:47+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -573,10 +573,9 @@ msgid "Search in database"
 msgstr "Cerca nel database"
 
 #: db_search.php:275
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Parola/e o valore/i da cercare (carattere jolly: \"%\"):"
+msgstr "Parole o valori da cercare (carattere jolly: \"%\"):"
 
 #: db_search.php:280
 msgid "Find:"
@@ -587,10 +586,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Le parole sono separate da spazi (\" \")."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Nella/e tabella/e:"
+msgstr "Nelle tabelle:"
 
 #: db_search.php:328
 msgid "Inside column:"
@@ -1023,10 +1021,9 @@ msgstr "Questo non è un numero!"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
-msgstr "Numero dei file di log"
+msgstr "Totale"
 
 #: js/messages.php:54
 msgid "The host name is empty!"
@@ -1072,24 +1069,22 @@ msgid "Edit"
 msgstr "Modifica"
 
 #: js/messages.php:66 server_status.php:604
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Scelta del server"
+msgstr "Grafico del traffico in tempo reale"
 
 #: js/messages.php:67 server_status.php:607
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Grafico delle connessioni e processi in tempo reale"
 
 #: js/messages.php:68 server_status.php:625
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "Mostra il diagramma della query"
+msgstr "Grafico delle query in tempo reale"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "Dati statici"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:45
@@ -1116,41 +1111,39 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB inviati dall'ultimo aggiornamento"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB ricevuti dall'ultimo aggiornamento"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Scelta del server"
+msgstr "Traffico del server (in KiB)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Numero di connessioni dall'ultimo aggiornamento"
 
 #: js/messages.php:84 server_status.php:983
 msgid "Processes"
 msgstr "Processi"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Connessioni"
+msgstr "Connessioni / Processi"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Numero di 'questions' dall'ultimo aggiornamento"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Questions (instruzioni eseguiti dal server)"
 
 #: js/messages.php:91 server_status.php:587
 msgid "Query statistics"
@@ -1158,15 +1151,15 @@ msgstr "Statistiche query"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Utilizzo della CPU"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Memoria"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Swap"
 
 #: js/messages.php:97 libraries/common.lib.php:1276 server_status.php:1398
 msgid "MiB"
@@ -1177,14 +1170,14 @@ msgid "KiB"
 msgstr "KiB"
 
 #: js/messages.php:100
+#, fuzzy
 msgid "Average load"
-msgstr ""
+msgstr "Carico medio"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 msgid "Questions"
-msgstr "Suggestions:"
+msgstr "Questions"
 
 #: js/messages.php:103 server_status.php:864
 msgid "Traffic"
@@ -1196,24 +1189,22 @@ msgid "Settings"
 msgstr "Impostazioni"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Rimuovi il database"
+msgstr "Rimuovi il diagramma"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Modifica le etichette e le serie"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Calamita alla griglia"
+msgstr "Aggiungi diagramma alla griglia"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Aggiungi almeno una variabile alla serie"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1039
@@ -1223,36 +1214,38 @@ msgid "None"
 msgstr "Nessuno"
 
 #: js/messages.php:111
+#, fuzzy
 msgid "Resume monitor"
-msgstr ""
+msgstr "Avvia il monitoraggio"
 
 #: js/messages.php:112
+#, fuzzy
 msgid "Pause monitor"
-msgstr ""
+msgstr "Arresta il monitoraggio"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log is enabled."
-msgstr ""
+msgstr "general_log e slow_query_log sono abilitati."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log é abilitato."
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log é abilitato."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log is disabled."
-msgstr ""
+msgstr "slow_query_log e general_log sono disabilitati."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output non é impostato su TABLE."
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output é impostato su TABLE."
 
 #: js/messages.php:120
 #, php-format
@@ -1261,108 +1254,116 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log é abilitato, ma il server registra solo query che impiegano "
+"piú di %d secondi. É consigliato di impostare long_query_time a 0-2 seconds, "
+"a secondi del tipo di sistema."
 
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time é impostato a %d secondi."
 
 #: js/messages.php:122
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Le seguenti impostazioni verranno applicate globalmente e reimpostate ai "
+"valori predefiniti durante il riavvio del server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Salva l'output in un file"
+msgstr "Imposta log_output a %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Abilitata"
+msgstr "Abilita %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Disabilitata"
+msgstr "Disabilita %s"
 
 #. l10n: %d seconds
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Imposta long_query_time a %ds"
 
 #: js/messages.php:131
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Non puoi cambiare i valori di queste variabili. Prega effettua il login come "
+"root o contatta l'amministratore del database."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Gestisci le tue impostazioni"
+msgstr "Modifica impostazioni"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Ulteriori impostazioni"
+msgstr "Impostazioni attuali"
 
 #: js/messages.php:135 server_status.php:1358
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "Titolo del report:"
+msgstr "Titolo del diagramma"
 
 #. l10n: As in differential values
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Differenza"
+msgstr "Differenziali"
 
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Diviso per %s:"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Seleziona pagina"
+msgstr "Intervallo di tempo selezionato:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
 msgstr ""
 
 #: js/messages.php:142
+#, fuzzy
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Scegli il log dal quale generare le statistiche.</p> Results are grouped "
+"by query text."
 
 #: js/messages.php:143
 msgid "From slow log"
-msgstr ""
+msgstr "Dal slow log"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "Dal general log"
 
 #: js/messages.php:145
+#, fuzzy
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
+"L'analisi e il caricamento dei log in corso. Questa operazione potrebbe "
+"richiedere del tempo."
 
 #: js/messages.php:146
 msgid ""
@@ -1380,17 +1381,18 @@ msgstr ""
 
 #: js/messages.php:148
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Dati di log caricati. Le query eseguite in questo intervallo di tempo:"
 
 #: js/messages.php:150
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Vai al database"
+msgstr "Vai alla tabella di Log"
 
 #: js/messages.php:151
 msgid "Log analysed, but not data found in this time span."
 msgstr ""
+"Il log é stato analizzato, nessun dato é stato trovato per questo intervallo "
+"di tempo."
 
 #: js/messages.php:155 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1457,16 +1459,14 @@ msgid "Insert Table"
 msgstr "Utilizza tabelle"
 
 #: js/messages.php:177
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "Aggiungi indice"
+msgstr "Nascondi gli indici"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Mostra la griglia"
+msgstr "Mostra gli indici"
 
 #: js/messages.php:181
 msgid "Searching"
@@ -1491,6 +1491,8 @@ msgstr "Cancellazione"
 #: js/messages.php:188
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"La definizione delle funzioni memorizzate deve contenere un istruzione "
+"RETURN."
 
 #: js/messages.php:191
 msgid ""
@@ -1862,13 +1864,12 @@ msgstr "Dimensione font"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Il file non era un file caricato."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Errore sconosciuto nel caricamento del file."
+msgstr "Errore sconosciuto durante il caricamento del file."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1899,7 +1900,7 @@ msgstr "Caricamento del file interrotto per estensione errata."
 
 #: libraries/File.class.php:295
 msgid "Unknown error in file upload."
-msgstr "Errore sconosciuto nel caricamento del file."
+msgstr "Si é verificato un errore sconosciuto durante il caricamento del file."
 
 #: libraries/File.class.php:495
 msgid ""
@@ -1911,7 +1912,7 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Si é verificato un errore durante lo spostamento del file."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
@@ -1999,20 +2000,18 @@ msgstr[0] "%1$d riga inserita."
 msgstr[1] "%1$d righe inserite."
 
 #: libraries/RecentTable.class.php:107
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Impossibile salvare la configurazione"
+msgstr "Impossibile salvare la tabella recente"
 
 #: libraries/RecentTable.class.php:142
 msgid "Recent tables"
-msgstr "Conta tabelle"
+msgstr "Tabelle recenti"
 
 #: libraries/RecentTable.class.php:148
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Non ci sono server configurati"
+msgstr "Non ci sono tabelle recenti"
 
 #: libraries/StorageEngine.class.php:180
 msgid ""

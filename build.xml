@@ -46,6 +46,7 @@
   <exec executable="phpcpd">
    <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml
               --exclude test
+              --exclude build
               --exclude libraries/PHPExcel
               --exclude libraries/tcpdf
               ${source}" />
@@ -61,7 +62,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, PHPExcel, tcpdf directories">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/PHPExcel/*,*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/highcharts/*,*/openlayers/*,*/jquery/*
+              --ignore=*/PHPExcel/*,*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/highcharts/*,*/openlayers/*,*/jquery/*,*/build/*
               --report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
               --standard=PEAR
