@@ -1335,10 +1335,12 @@ function printMonitor() {
             <img src="themes/dot.gif" class="icon ic_s_cog" alt="" /> 
             <?php echo __('Settings'); ?>
         </a>
+        <?php if (!PMA_DRIZZLE) { ?>
         <a href="#monitorInstructionsDialog">
             <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> 
             <?php echo __('Instructions/Setup'); ?>
         </a>
+        <?php } ?>
         <a href="#endChartEditMode" style="display:none;">
             <img src="themes/dot.gif" class="icon ic_s_okay" alt="" /> 
             <?php echo __('Done rearranging/editing charts'); ?>
@@ -1467,10 +1469,11 @@ function printMonitor() {
     
     <div id="loadingLogsDialog" title="<?php echo __('Loading logs'); ?>" style="display:none;">
     </div>
-    
+
+    <?php if (!PMA_DRIZZLE) { ?>
     <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>">
-        
     </div>
+    <?php } ?>
     
     <table border="0" class="clearfloat" id="chartGrid">
 

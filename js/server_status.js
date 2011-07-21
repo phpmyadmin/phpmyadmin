@@ -1254,12 +1254,17 @@ $(function() {
                 events: {
                     selection: function(event) {
                         if(editMode) return false;
-                        
+
+                        var $logAnalyseDialog = $('#logAnalyseDialog');
+                        if ($logAnalyseDialog.length == 0) {
+                            return false;
+                        }
+
                         var extremesObject = event.xAxis[0], 
                             min = extremesObject.min,
                             max = extremesObject.max;
                         
-                        $('#logAnalyseDialog').html(
+                        $logAnalyseDialog.html(
                             '<p>' + PMA_messages['strSelectedTimeRange']
                             + '<input type="text" name="dateStart" class="datetimefield" value="' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S',new Date(min)) + '" /> - ' 
                             + '<input type="text" name="dateEnd" class="datetimefield" value="' + Highcharts.dateFormat('%Y-%m-%d %H:%M:%S',new Date(max)) + '" /></p>'
@@ -1268,7 +1273,7 @@ $(function() {
                             + PMA_messages['strLogAnalyseInfo']
                         );
                         
-                        PMA_addDatepicker($('#logAnalyseDialog').find('input[name="dateStart"],input[name="dateEnd"]'), { 
+                        PMA_addDatepicker($logAnalyseDialog.find('input[name="dateStart"],input[name="dateEnd"]'), {
                             showOn: 'focus',
                             beforeShow: function() {
                                 // Fix wrong timepicker z-index, doesn't work without timeout
@@ -1281,32 +1286,32 @@ $(function() {
                         var dlgBtns = { };
                         
                         dlgBtns[PMA_messages['strFromSlowLog']] = function() {
-                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
-                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
+                            var dateStart = Date.parse($logAnalyseDialog.find('input[name="dateStart"]').attr('value')) || min;
+                            var dateEnd = Date.parse($logAnalyseDialog.find('input[name="dateEnd"]').attr('value')) || max;
                             
                             loadLogStatistics(
                                 { src: 'slow', start: dateStart, end: dateEnd, groupInserts: $('input#groupInserts').attr('checked') } 
                             );
                                 
-                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
+                            $logAnalyseDialog.find('dateStart,dateEnd').datepicker('destroy');
                             
                             $(this).dialog("close");
                         }
                         
                         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
-                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
-                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
+                            var dateStart = Date.parse($logAnalyseDialog.find('input[name="dateStart"]').attr('value')) || min;
+                            var dateEnd = Date.parse($logAnalyseDialog.find('input[name="dateEnd"]').attr('value')) || max;
                             
                             loadLogStatistics(
                                 { src: 'general', start: dateStart, end: dateEnd, groupInserts: $('input#groupInserts').attr('checked') }
                             );
                                 
-                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
+                            $logAnalyseDialog.find('dateStart,dateEnd').datepicker('destroy');
                             
                             $(this).dialog("close");
                         }
                         
-                        $('#logAnalyseDialog').dialog({
+                        $logAnalyseDialog.dialog({
                             width: 'auto',
                             height: 'auto',
                             buttons: dlgBtns
