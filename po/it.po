@@ -4302,9 +4302,8 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "Database utilizzato per relazioni, segnalibri and funzionalitá PDF. Vedi "
-"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] per per tutti dettagli. "
-"Lascia vuoto per disabilitarne il supporto. Consigliato: [kbd]phpmyadmin[/"
-"kbd]"
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] per tutti dettagli. Lascia "
+"vuoto per disabilitarne il supporto. Consigliato: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:406
 msgid "Database name"
