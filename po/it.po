@@ -6966,10 +6966,9 @@ msgid "Change to %s"
 msgstr "Cambia a %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Esegui"
+msgstr "Esegui il"
 
 #: libraries/rte/rte_events.lib.php:430
 #, fuzzy
