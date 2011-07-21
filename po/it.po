@@ -7106,7 +7106,7 @@ msgstr "Nome della routine"
 
 #: libraries/rte/rte_routines.lib.php:843
 msgid "Parameters"
-msgstr ""
+msgstr "Parametri"
 
 #: libraries/rte/rte_routines.lib.php:848
 #, fuzzy
