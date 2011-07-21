@@ -17,12 +17,13 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 {
     function setup()
     {
-        $GLOBALS['cfg']['ReplaceHelpImg'] = true;
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     function testShowDocuReplaceHelpImg()
     {
+        $GLOBALS['cfg']['ReplaceHelpImg'] = true;
+
         $anchor = "relation";
         $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
 
@@ -32,6 +33,8 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 
     function testShowDocuNotReplaceHelpImg()
     {
+        $GLOBALS['cfg']['ReplaceHelpImg'] = false;
+
         $anchor = "relation";
         $expected = '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
 
