@@ -9409,10 +9409,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1046
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Impossibile effettuare la connessione al server MySQL"
+msgstr "Il numero di tentativi falliti di connettere al server MySQL."
 
 #: server_status.php:1047
 msgid ""
