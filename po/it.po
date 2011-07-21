@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 19:09+0200\n"
+"PO-Revision-Date: 2011-07-21 19:10+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -10173,10 +10173,9 @@ msgid "Swap Usage"
 msgstr "Utilizzo dello swap"
 
 #: server_status.php:1370
-#, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
-msgstr "Vedi la tabella di stato dello slave"
+msgstr "Variabili di stato"
 
 #: server_status.php:1372
 #| msgid "Select Tables"
