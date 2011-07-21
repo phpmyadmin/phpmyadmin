@@ -368,7 +368,7 @@ $(function() {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
                 if(data != null) tab.find('.tabInnerContent').html(data);
-                initTooltips();
+                PMA_convertFootnotesToTooltips(); 
                 break;
             case 'statustabs_queries':
                 if(data != null) {
