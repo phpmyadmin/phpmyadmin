@@ -6928,10 +6928,9 @@ msgstr ""
 "richiesta:</b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Crea vista"
+msgstr "Crea evento"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
