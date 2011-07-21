@@ -668,7 +668,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 
     <br />
-<form method="post" action="tbl_addfield.php"
+<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
     onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);

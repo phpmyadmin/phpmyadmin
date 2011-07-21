@@ -1870,16 +1870,20 @@ $(document).ready(function() {
                         $("#result_query").prepend((data.message));
                         if ($("#change_column_dialog").length > 0) {
                             $("#change_column_dialog").dialog("close").remove();
+                        } else if ($("#add_columns").length > 0) {
+                            $("#add_columns").dialog("close").remove();
                         }
                         /*Reload the field form*/
                         $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
                             $("#fieldsForm").remove();
+                            $("#addColumns").remove();
                             var $temp_div = $("<div id='temp_div'><div>").append(form_data);
                             if ($("#sqlqueryresults").length != 0) {
                                 $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
                             } else {
                                 $temp_div.find("#fieldsForm").insertAfter(".error");
                             }
+                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
                             /*Call the function to display the more options in table*/
                             displayMoreTableOpts();
                         });
