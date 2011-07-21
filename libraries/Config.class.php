@@ -674,7 +674,7 @@ class PMA_Config
      * or the theme changes
      * must also check the pma_fontsize cookie in case there is no
      * config file
-     * @return  int  Unix timestamp
+     * @return int Summary of unix timestamps and fontsize, to be unique on theme parameters change
      */
     function getThemeUniqueValue()
     {
@@ -691,8 +691,7 @@ class PMA_Config
             $this->default_source_mtime +
             $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
-            $_SESSION['PMA_Theme']->filesize_info)
-            . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'], 1, 6) : '');
+            $_SESSION['PMA_Theme']->filesize_info);
     }
 
     /**
