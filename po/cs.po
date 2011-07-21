@@ -1293,10 +1293,9 @@ msgid "Change settings"
 msgstr "Změnit nastavení"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Více nastavení"
+msgstr "Aktuální nastavení"
 
 #: js/messages.php:135 server_status.php:1358
 #, fuzzy
