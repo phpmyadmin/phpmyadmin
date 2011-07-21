@@ -1266,7 +1266,7 @@ msgstr "Nastavit log_output na %s"
 #, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Povolit %s"
+msgstr "Zapnout %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
