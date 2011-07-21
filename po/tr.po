@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-21 14:00+0200\n"
-"PO-Revision-Date: 2011-07-21 19:26+0200\n"
+"PO-Revision-Date: 2011-07-21 19:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9951,7 +9951,7 @@ msgstr "veya değişken adını yazın:"
 
 #: server_status.php:1393
 msgid "Display as differential value"
-msgstr ""
+msgstr "Ayrık değer olarak görüntüle"
 
 #: server_status.php:1395
 msgid "Apply a divisor"
