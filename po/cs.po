@@ -9036,10 +9036,10 @@ msgstr "Související odkazy:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:708
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Síťový provoz od spuštění: %s"
+msgstr "Dotazů od spuštění: %s"
 
 #: server_status.php:714 server_status.php:749 server_status.php:865
 #: server_status.php:910
