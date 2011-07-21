@@ -242,44 +242,44 @@ class TableProperty
     function handleNHibernateCSBody($db, $table, $crlf)
     {
         $lines=array();
-        $result=PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
+        $result=PMA_DBI_query(sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
             $tableProperties=array();
             while ($row = PMA_DBI_fetch_row($result)) {
                 $tableProperties[] = new TableProperty($row);
             }
-            $lines[] = "using System;";
-            $lines[] = "using System.Collections;";
-            $lines[] = "using System.Collections.Generic;";
-            $lines[] = "using System.Text;";
-            $lines[] = "namespace ".cgMakeIdentifier($db);
-            $lines[] = "{";
-            $lines[] = "    #region ".cgMakeIdentifier($table);
-            $lines[] = "    public class ".cgMakeIdentifier($table);
-            $lines[] = "    {";
-            $lines[] = "        #region Member Variables";
+            $lines[] = 'using System;';
+            $lines[] = 'using System.Collections;';
+            $lines[] = 'using System.Collections.Generic;';
+            $lines[] = 'using System.Text;';
+            $lines[] = 'namespace ' . cgMakeIdentifier($db);
+            $lines[] = '{';
+            $lines[] = '    #region ' . cgMakeIdentifier($table);
+            $lines[] = '    public class ' . cgMakeIdentifier($table);
+            $lines[] = '    {';
+            $lines[] = '        #region Member Variables';
             foreach ($tableProperties as $tablePropertie) {
-                $lines[] = $tablePropertie->formatCs("        protected #dotNetPrimitiveType# _#name#;");
+                $lines[] = $tablePropertie->formatCs('        protected #dotNetPrimitiveType# _#name#;');
             }
-            $lines[] = "        #endregion";
-            $lines[] = "        #region Constructors";
-            $lines[] = "        public ".cgMakeIdentifier($table)."() { }";
+            $lines[] = '        #endregion';
+            $lines[] = '        #region Constructors';
+            $lines[] = '        public ' . cgMakeIdentifier($table).'() { }';
             $temp = array();
             foreach ($tableProperties as $tablePropertie) {
                 if (! $tablePropertie->isPK()) {
-                    $temp[] = $tablePropertie->formatCs("#dotNetPrimitiveType# #name#");
+                    $temp[] = $tablePropertie->formatCs('#dotNetPrimitiveType# #name#');
                 }
             }
-            $lines[] = "        public ".cgMakeIdentifier($table)."(".implode(", ", $temp).")";
-            $lines[] = "        {";
+            $lines[] = '        public ' . cgMakeIdentifier($table) . '(' . implode(', ', $temp) . ')';
+            $lines[] = '        {';
             foreach ($tableProperties as $tablePropertie) {
                 if (! $tablePropertie->isPK()) {
-                    $lines[] = $tablePropertie->formatCs("            this._#name#=#name#;");
+                    $lines[] = $tablePropertie->formatCs('            this._#name#=#name#;');
                 }
             }
-            $lines[] = "        }";
-            $lines[] = "        #endregion";
-            $lines[] = "        #region Public Properties";
+            $lines[] = '        }';
+            $lines[] = '        #endregion';
+            $lines[] = '        #region Public Properties';
             foreach ($tableProperties as $tablePropertie) {
                 $lines[] = $tablePropertie->formatCs(''
                     . '        public virtual #dotNetPrimitiveType# #ucfirstName#' . "\n"
@@ -289,10 +289,10 @@ class TableProperty
                     . '        }'
                     );
             }
-            $lines[] = "        #endregion";
-            $lines[] = "    }";
-            $lines[] = "    #endregion";
-            $lines[] = "}";
+            $lines[] = '        #endregion';
+            $lines[] = '    }';
+            $lines[] = '    #endregion';
+            $lines[] = '}';
             PMA_DBI_free_result($result);
         }
         return implode("\n", $lines);
