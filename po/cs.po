@@ -9869,10 +9869,9 @@ msgid "Memory Usage"
 msgstr "Využití paměti"
 
 #: server_status.php:1367
-#, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Používá"
+msgstr "Využití odkládacího prostoru"
 
 #: server_status.php:1370
 #, fuzzy
