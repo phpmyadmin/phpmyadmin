@@ -128,14 +128,14 @@ require_once './libraries/List.class.php';
                 $this->_show_databases_disabled = true;
             }
         }
-            
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             natsort($database_list);
         } else {
             // need to sort anyway, otherwise information_schema
             // goes at the top
             sort($database_list);
-        } 
+        }
 
         return $database_list;
     }
