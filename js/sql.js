@@ -143,7 +143,7 @@ $(document).ready(function() {
             .parent()
             .toggle($(this).attr('value').length > 0);
     }).trigger('keyup');
-    
+
     /**
      * Attach the {@link appendInlineAnchor} function to a custom event, which
      * will be triggered manually everytime the table of results is reloaded
@@ -152,7 +152,7 @@ $(document).ready(function() {
     $("#sqlqueryresults").live('appendAnchor',function() {
         appendInlineAnchor();
     })
-    
+
     /**
      * Attach the {@link makegrid} function to a custom event, which will be
      * triggered manually everytime the table of results is reloaded
@@ -161,7 +161,7 @@ $(document).ready(function() {
     $("#sqlqueryresults").live('makegrid', function() {
         $('#table_results').makegrid();
     })
-    
+
     /**
      * Attach the {@link refreshgrid} function to a custom event, which will be
      * triggered manually everytime the table of results is manipulated (e.g., by inline edit)
@@ -496,7 +496,7 @@ $(document).ready(function() {
             $(this).prev().prev().remove();
             $(this).prev().remove();
             $(this).remove();
-            
+
             // refresh the grid
             $("#sqlqueryresults").trigger('refreshgrid');
         });
@@ -710,10 +710,10 @@ $(document).ready(function() {
                 $this_field.data('original_data', 'NULL');
             }
         });
-        
+
         // refresh the grid
         $("#sqlqueryresults").trigger('refreshgrid');
-        
+
     }) // End On click, replace the current field with an input/textarea
 
     /**
@@ -985,7 +985,7 @@ $(document).ready(function() {
     });
 
 /**
- * Click action for "Go" button in ajax dialog insertForm -> insertRowTable 
+ * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
  */
     $("#insertForm .insertRowTable.ajax input[value=Go]").live('click', function(event) {
         event.preventDefault();
