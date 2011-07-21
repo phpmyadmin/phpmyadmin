@@ -1835,10 +1835,9 @@ msgid "File was not an uploaded file."
 msgstr "Datoteka ni naložen datoteka."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Neznana napaka pri nalaganju datoteke."
+msgstr "Neznana napaka pri nalaganju."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
