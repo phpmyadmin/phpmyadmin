@@ -9919,10 +9919,9 @@ msgid "Series in Chart:"
 msgstr "Série v grafu::"
 
 #: server_status.php:1421
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Nahrávám"
+msgstr "Nahrávám záznamy"
 
 #: server_status.php:1424
 #, fuzzy
