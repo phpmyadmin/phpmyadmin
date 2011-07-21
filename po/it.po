@@ -7201,10 +7201,10 @@ msgstr[1] ""
 "procedura"
 
 #: libraries/rte/rte_routines.lib.php:1214
-#, fuzzy, php-format
+#, php-format
 #| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
-msgstr "Permette l'esecuzione di routines memorizzate."
+msgstr "Risultato di esecuzione della routine %s"
 
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
