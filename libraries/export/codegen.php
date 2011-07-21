@@ -243,8 +243,7 @@ class TableProperty
     {
         $lines=array();
         $result=PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
-        if ($result)
-        {
+        if ($result) {
             $tableProperties=array();
             while ($row = PMA_DBI_fetch_row($result))
                 $tableProperties[] = new TableProperty($row);
@@ -293,13 +292,11 @@ class TableProperty
         $lines[] = "<hibernate-mapping xmlns=\"urn:nhibernate-mapping-2.2\" namespace=\"".cgMakeIdentifier($db)."\" assembly=\"".cgMakeIdentifier($db)."\">";
         $lines[] = "    <class name=\"".cgMakeIdentifier($table)."\" table=\"".cgMakeIdentifier($table)."\">";
         $result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
-        if ($result)
-        {
+        if ($result) {
             $tableProperties = array();
             while ($row = PMA_DBI_fetch_row($result))
                 $tableProperties[] = new TableProperty($row);
-            foreach ($tableProperties as $tablePropertie)
-            {
+            foreach ($tableProperties as $tablePropertie) {
                 if ($tablePropertie->isPK())
                     $lines[] = $tablePropertie->formatXml("        <id name=\"#ucfirstName#\" type=\"#dotNetObjectType#\" unsaved-value=\"0\">\n            <column name=\"#name#\" sql-type=\"#type#\" not-null=\"#notNull#\" unique=\"#unique#\" index=\"PRIMARY\"/>\n            <generator class=\"native\" />\n        </id>");
                 else
