@@ -10113,10 +10113,9 @@ msgid "Refresh rate:"
 msgstr "Ritmo di aggiornamenti:"
 
 #: server_status.php:1316
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Campi di aree di testo"
+msgstr "Campi del grafico:"
 
 #: server_status.php:1330
 #, fuzzy
