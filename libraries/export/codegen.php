@@ -288,9 +288,11 @@ class TableProperty
     function handleNHibernateXMLBody($db, $table, $crlf)
     {
         $lines=array();
-        $lines[] = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
-        $lines[] = "<hibernate-mapping xmlns=\"urn:nhibernate-mapping-2.2\" namespace=\"".cgMakeIdentifier($db)."\" assembly=\"".cgMakeIdentifier($db)."\">";
-        $lines[] = "    <class name=\"".cgMakeIdentifier($table)."\" table=\"".cgMakeIdentifier($table)."\">";
+        $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
+        $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
+            . 'namespace="' . cgMakeIdentifier($db) . '" '
+            . 'assembly="' . cgMakeIdentifier($db) . '">';
+        $lines[] = '    <class name="' . cgMakeIdentifier($table) . '" table="' . cgMakeIdentifier($table) . '">';
         $result = PMA_DBI_query(sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table)));
         if ($result) {
             $tableProperties = array();
