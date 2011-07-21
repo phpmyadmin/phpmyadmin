@@ -9874,10 +9874,9 @@ msgid "Swap Usage"
 msgstr "Využití odkládacího prostoru"
 
 #: server_status.php:1370
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "Všechny stavové proměnné"
+msgstr "Stavové proměnné"
 
 #: server_status.php:1372
 #, fuzzy
