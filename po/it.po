@@ -5420,7 +5420,7 @@ msgstr "verticale"
 #: libraries/display_tbl.lib.php:449
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Intestazioni ogni %s righe"
 
 #: libraries/display_tbl.lib.php:543
 msgid "Sort by key"
