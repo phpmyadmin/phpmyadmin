@@ -1881,7 +1881,7 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Napaka pri premikanju naložene datoteke."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
