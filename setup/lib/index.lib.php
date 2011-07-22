@@ -264,7 +264,7 @@ function perform_config_checks()
     $strLoginCookieValidityWarning3 = __('If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin cookie validity%s must be set to a value less or equal to it.');
     $strLoginCookieValidityWarning3 = sprintf($strLoginCookieValidityWarning3, '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
     $strSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
-    $strSecurityInfoMsg = sprintf($strSecurityInfoMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '%s');
+    $strSecurityInfoMsg = sprintf($strSecurityInfoMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]', '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]', '[/a]');
     $strServerAuthConfigMsg = __('You set the [kbd]config[/kbd] authentication type and included username and password for auto-login, which is not a desirable option for live hosts. Anyone who knows or guesses your phpMyAdmin URL can directly access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]http[/kbd].');
     $strServerAuthConfigMsg = sprintf($strServerAuthConfigMsg, '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]', '[/a]');
     $strZipDumpExportWarning = __('%sZip compression%s requires functions (%s) which are unavailable on this system.');
