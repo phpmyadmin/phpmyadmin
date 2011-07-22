@@ -19,7 +19,7 @@
  * // }
  * </code>
  *
- * @param   string  $option_string  comma separated options
+ * @param string  $option_string  comma separated options
  * @return  array   options
  */
 function PMA_transformation_getOptions($option_string)
@@ -118,9 +118,9 @@ function PMA_getAvailableMIMEtypes()
  * Gets the mimetypes for all columns of a table
  *
  * @access  public
- * @param   string   $db        the name of the db to check for
- * @param   string   $table     the name of the table to check for
- * @param   string   $strict    whether to include only results having a mimetype set
+ * @param string   $db        the name of the db to check for
+ * @param string   $table     the name of the table to check for
+ * @param string   $strict    whether to include only results having a mimetype set
  * @return  array    [field_name][field_key] = field_value
  */
 function PMA_getMIME($db, $table, $strict = false)
@@ -149,13 +149,13 @@ function PMA_getMIME($db, $table, $strict = false)
  * Set a single mimetype to a certain value.
  *
  * @access  public
- * @param   string   $db        the name of the db
- * @param   string   $table     the name of the table
- * @param   string   $key       the name of the column
- * @param   string   $mimetype  the mimetype of the column
- * @param   string   $transformation    the transformation of the column
- * @param   string   $transformation_options    the transformation options of the column
- * @param   string   $forcedelete   force delete, will erase any existing comments for this column
+ * @param string   $db        the name of the db
+ * @param string   $table     the name of the table
+ * @param string   $key       the name of the column
+ * @param string   $mimetype  the mimetype of the column
+ * @param string   $transformation    the transformation of the column
+ * @param string   $transformation_options    the transformation options of the column
+ * @param string   $forcedelete   force delete, will erase any existing comments for this column
  * @return  boolean  true, if comment-query was made.
  */
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
@@ -208,7 +208,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                    . '\'' . PMA_sqlAddSlashes($transformation_options) . '\')';
     }
 
-    if (isset($upd_query)){
+    if (isset($upd_query)) {
         return PMA_query_as_controluser($upd_query);
     } else {
         return false;

@@ -70,7 +70,7 @@ if (!$GLOBALS['is_ajax_request']) {
 <?php
 if (empty($GLOBALS['error_message'])) {
     ?>
-$(document).ready(function(){
+$(document).ready(function() {
 // updates current settings
 if (window.parent.setAll) {
     window.parent.setAll('<?php
@@ -162,7 +162,7 @@ setURLHash("<?php echo PMA_generate_common_url($url_params, 'text', ''); ?>");
     echo '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
         . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 'window-new.png"'
+        echo '<img class="icon ic_window-new" src="themes/dot.gif"'
             . ' alt="' . __('Open new phpMyAdmin window') . '" />';
     }
     if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {

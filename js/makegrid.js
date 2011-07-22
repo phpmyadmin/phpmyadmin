@@ -10,17 +10,16 @@
             colOrder: new Array(),      // array of column order
             colVisib: new Array(),      // array of column visibility
             tableCreateTime: null,      // table creation time, only available in "Browse tab"
-            hintShown: false,           // true if hint balloon is shown, used by updateHint() method
+            qtip: null,                 // qtip API
             reorderHint: '',            // string, hint for column reordering
             sortHint: '',               // string, hint for column sorting
             markHint: '',               // string, hint for column marking
             colVisibHint: '',           // string, hint for column visibility drop-down
-            showAllColText: '',         // string, text for "show all" button under column visibility list
             showReorderHint: false,
             showSortHint: false,
             showMarkHint: false,
             showColVisibHint: false,
-            hintIsHiding: false,        // true when hint is still shown, but hideHint() already called
+            showAllColText: '',         // string, text for "show all" button under column visibility list
             visibleHeadersCount: 0,     // number of visible data headers
             
             // functions
@@ -63,16 +62,17 @@
                     objTop: objPos.top,
                     objLeft: objPos.left
                 };
+                this.qtip.hide();
                 $('body').css('cursor', 'move');
-                this.hideHint();
                 $('body').noSelect();
             },
             
             dragMove: function(e) {
                 if (this.colRsz) {
                     var dx = e.pageX - this.colRsz.x0;
-                    if (this.colRsz.objWidth + dx > this.minColWidth)
+                    if (this.colRsz.objWidth + dx > this.minColWidth) {
                         $(this.colRsz.obj).css('left', this.colRsz.objLeft + dx + 'px');
+                    }
                 } else if (this.colMov) {
                     // dragged column animation
                     var dx = e.pageX - this.colMov.x0;
@@ -166,7 +166,7 @@
              */
             reposRsz: function() {
                 $(this.cRsz).find('div').hide();
-                $firstRowCols = $(this.t).find('tr:first th.draggable:visible');
+                var $firstRowCols = $(this.t).find('tr:first th.draggable:visible');
                 for (var n = 0; n < $firstRowCols.length; n++) {
                     $this = $($firstRowCols[n]);
                     $cb = $(g.cRsz).find('div:eq(' + n + ')');   // column border
@@ -301,9 +301,10 @@
             },
             
             /**
-             * Show hint with the text supplied.
+             * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
+             * It will hide the hint if all the boolean values is false.
              */
-            showHint: function(e) {
+            updateHint: function(e) {
                 if (!this.colRsz && !this.colMov) {     // if not resizing or dragging
                     var text = '';
                     if (this.showReorderHint && this.reorderHint) {
@@ -325,53 +326,14 @@
                     }
                     
                     // hide the hint if no text
-                    if (!text) {
-                        this.hideHint();
-                        return;
-                    }
+                    this.qtip.disable(!text && e.type == 'mouseenter');
                     
-                    $(this.dHint).html(text);
-                    if (!this.hintShown || this.hintIsHiding) {
-                        $(this.dHint)
-                            .stop(true, true)
-                            .css({
-                                top: e.clientY,
-                                left: e.clientX + 15
-                            })
-                            .show('fast');
-                        this.hintShown = true;
-                        this.hintIsHiding = false;
-                    }
+                    this.qtip.updateContent(text, false);
+                } else {
+                    this.qtip.disable(true);
                 }
             },
             
-            /**
-             * Hide the hint.
-             */
-            hideHint: function() {
-                if (this.hintShown) {
-                    $(this.dHint)
-                        .stop(true, true)
-                        .hide(300, function() {
-                            g.hintShown = false;
-                            g.hintIsHiding = false;
-                        });
-                    this.hintIsHiding = true;
-                }
-            },
-            
-            /**
-             * Update hint position.
-             */
-            updateHint: function(e) {
-                if (this.hintShown) {
-                    $(this.dHint).css({
-                        top: e.clientY,
-                        left: e.clientX + 15
-                    });
-                }
-            },
-
             /**
              * Toggle column's visibility.
              * After calling this function and it returns true, afterToggleCol() must be called.
@@ -487,7 +449,6 @@
         g.cRsz = document.createElement('div');     // column resizer
         g.cCpy = document.createElement('div');     // column copy, to store copy of dragged column header
         g.cPointer = document.createElement('div'); // column pointer, used when reordering column
-        g.dHint = document.createElement('div');    // draggable hint
         g.cDrop = document.createElement('div');    // column drop-down arrows
         g.cList = document.createElement('div');    // column visibility list
         
@@ -498,10 +459,6 @@
         // adjust g.cPoint
         g.cPointer.className = 'cPointer';
         $(g.cPointer).css('visibility', 'hidden');
-        
-        // adjust g.dHint
-        g.dHint.className = 'dHint';
-        $(g.dHint).hide();
         
         // adjust g.cDrop
         g.cDrop.className = 'cDrop';
@@ -632,6 +589,14 @@
         });
         g.reposRsz();
         
+        // bind event to update currently hovered qtip API
+        $(t).find('th').mouseenter(function(e) {
+            g.qtip = $(this).qtip('api');
+        });
+        
+        // create qtip for each <th> with draggable class
+        PMA_createqTip($(t).find('th.draggable'));
+        
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
@@ -647,46 +612,47 @@
                     } else {
                         $(this).css('cursor', 'inherit');
                     }
-                    g.showHint(e);
+                    g.updateHint(e);
                 })
                 .mouseleave(function(e) {
                     g.showReorderHint = false;
-                    g.showHint(e);
+                    g.updateHint(e);
                 });
         }
         if ($firstRowCols.length > 1) {
-            $(t).find('th:not(.draggable)')
-                .mouseenter(function(e) {
+            var $colVisibTh = $(t).find('th:not(.draggable)');
+            
+            PMA_createqTip($colVisibTh);
+            $colVisibTh.mouseenter(function(e) {
                     g.showColVisibHint = true;
-                    g.showHint(e);
+                    g.updateHint(e);
                 })
                 .mouseleave(function(e) {
                     g.showColVisibHint = false;
-                    g.showHint(e);
+                    g.updateHint(e);
                 });
         }
         $(t).find('th.draggable a')
             .attr('title', '')          // hide default tooltip for sorting
             .mouseenter(function(e) {
                 g.showSortHint = true;
-                g.showHint(e);
+                g.updateHint(e);
             })
             .mouseleave(function(e) {
                 g.showSortHint = false;
-                g.showHint(e);
+                g.updateHint(e);
             });
         $(t).find('th.marker')
             .mouseenter(function(e) {
                 g.showMarkHint = true;
-                g.showHint(e);
+                g.updateHint(e);
             })
             .mouseleave(function(e) {
                 g.showMarkHint = false;
-                g.showHint(e);
+                g.updateHint(e);
             });
         $(document).mousemove(function(e) {
             g.dragMove(e);
-            g.updateHint(e);
         });
         $(document).mouseup(function(e) {
             g.dragEnd(e);
@@ -708,7 +674,6 @@
         $(g.gDiv).append(g.cPointer);
         $(g.gDiv).append(g.cDrop);
         $(g.gDiv).append(g.cList);
-        $(g.gDiv).append(g.dHint);
         $(g.gDiv).append(g.cCpy);
 
         // some adjustment

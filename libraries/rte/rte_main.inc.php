@@ -13,6 +13,7 @@ if (! defined('PHPMYADMIN')) {
  * Include all other files that are common
  * to routines, triggers and events.
  */
+require_once './libraries/rte/rte_words.lib.php';
 require_once './libraries/rte/rte_export.lib.php';
 require_once './libraries/rte/rte_list.lib.php';
 require_once './libraries/rte/rte_footer.lib.php';
@@ -71,14 +72,21 @@ $titles = PMA_buildActionTitles();
  */
 $errors = array();
 
+
 /**
- * The below function is defined in rte_routines.lib.php,
- * rte_triggers.lib.php and rte_events.lib.php
- *
- * The appropriate function will now be called based on which one
- * of these files was included earlier in the top-level folder
+ * Call the appropriate main function
  */
-PMA_RTE_main();
+switch ($_PMA_RTE) {
+case 'RTN':
+    PMA_RTN_main();
+    break;
+case 'TRI':
+    PMA_TRI_main();
+    break;
+case 'EVN':
+    PMA_EVN_main();
+    break;
+}
 
 /**
  * Display the footer, if necessary

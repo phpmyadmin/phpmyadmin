@@ -9,10 +9,10 @@
 /**
  * Exponential expression / raise number into power
  *
- * @param   string  $base
- * @param   string  $exp
- * @param   mixed   $use_function  pow function to use, or false for auto-detect
- * @return  mixed  string or float
+ * @param string $base         base to raise
+ * @param string $exp          exponent to use
+ * @param mixed  $use_function pow function to use, or false for auto-detect
+ * @return mixed string or float
  */
 function PMA_pow($base, $exp, $use_function = false)
 {
@@ -62,10 +62,10 @@ function PMA_pow($base, $exp, $use_function = false)
 /**
  * string PMA_getIcon(string $icon)
  *
- * @param   string  $icon       name of icon file
- * @param   string  $alternate  alternate text
- * @param   boolean $container  include in container
- * @param   boolean $force_text whether to force alternate text to be displayed
+ * @param string  $icon       name of icon file
+ * @param string  $alternate  alternate text
+ * @param boolean $container  include in container
+ * @param boolean $force_text whether to force alternate text to be displayed
  * @return html img tag
  */
 function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false)
@@ -97,9 +97,9 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     $button .= '<span class="nowrap">';
 
     if ($include_icon) {
-        $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+        $button .= '<img src="themes/dot.gif"'
             . ' title="' . $alternate . '" alt="' . $alternate . '"'
-            . ' class="icon" width="16" height="16" />';
+            . ' class="icon ic_' . str_replace('.png','',$icon) . '" />';
     }
 
     if ($include_icon && $include_text) {
@@ -118,8 +118,8 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @param   integer $max_upload_size  the size
- * @return  string   the message
+ * @param integer $max_upload_size the size
+ * @return string the message
  *
  * @access  public
  */
@@ -135,8 +135,8 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  * Generates a hidden field which should indicate to the browser
  * the maximum size for upload
  *
- * @param   integer  $max_size  the size
- * @return  string   the INPUT field
+ * @param integer $max_size the size
+ * @return string the INPUT field
  *
  * @access  public
  */
@@ -149,13 +149,13 @@ function PMA_generateHiddenMaxFileSize($max_size)
  * Add slashes before "'" and "\" characters so a value containing them can
  * be used in a sql comparison.
  *
- * @param   string  $a_string  the string to slash
- * @param   bool    $is_like   whether the string will be used in a 'LIKE' clause
- *                             (it then requires two more escaped sequences) or not
- * @param   bool    $crlf      whether to treat cr/lfs as escape-worthy entities
- *                             (converts \n to \\n, \r to \\r)
- * @param   bool    $php_code  whether this function is used as part of the
- *                             "Create PHP code" dialog
+ * @param string  $a_string the string to slash
+ * @param bool    $is_like  whether the string will be used in a 'LIKE' clause
+ *                          (it then requires two more escaped sequences) or not
+ * @param bool    $crlf     whether to treat cr/lfs as escape-worthy entities
+ *                          (converts \n to \\n, \r to \\r)
+ * @param bool    $php_code whether this function is used as part of the
+ *                          "Create PHP code" dialog
  *
  * @return  string   the slashed string
  *
@@ -190,8 +190,8 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
  * database, table and field names.
  * Note: This function does not escape backslashes!
  *
- * @param   string  $name  the string to escape
- * @return  string   the escaped string
+ * @param string $name the string to escape
+ * @return string the escaped string
  *
  * @access  public
  */
@@ -207,7 +207,7 @@ function PMA_escape_mysql_wildcards($name)
  * removes slashes before "_" and "%" characters
  * Note: This function does not unescape backslashes!
  *
- * @param   string   $name  the string to escape
+ * @param string   $name  the string to escape
  * @return  string   the escaped string
  * @access  public
  */
@@ -224,9 +224,9 @@ function PMA_unescape_mysql_wildcards($name)
  *
  * checks if the sting is quoted and removes this quotes
  *
- * @param   string  $quoted_string  string to remove quotes from
- * @param   string  $quote          type of quote to remove
- * @return  string  unqoted string
+ * @param string $quoted_string string to remove quotes from
+ * @param string $quote         type of quote to remove
+ * @return string unqoted string
  */
 function PMA_unQuote($quoted_string, $quote = null)
 {
@@ -257,8 +257,8 @@ function PMA_unQuote($quoted_string, $quote = null)
  * format sql strings
  *
  * @todo    move into PMA_Sql
- * @param  mixed   $parsed_sql    pre-parsed SQL structure
- * @param  string  $unparsed_sql
+ * @param mixed  $parsed_sql   pre-parsed SQL structure
+ * @param string $unparsed_sql raw SQL string
  * @return string  the formatted sql
  *
  * @global  array    the configuration array
@@ -314,11 +314,11 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 /**
  * Displays a link to the official MySQL documentation
  *
- * @param string  $chapter    chapter of "HTML, one page per chapter" documentation
- * @param string  $link       contains name of page/anchor that is being linked
- * @param bool    $big_icon   whether to use big icon (like in left frame)
- * @param string  $anchor     anchor to page part
- * @param bool    $just_open  whether only the opening <a> tag should be returned
+ * @param string $chapter   chapter of "HTML, one page per chapter" documentation
+ * @param string $link      contains name of page/anchor that is being linked
+ * @param bool   $big_icon  whether to use big icon (like in left frame)
+ * @param string $anchor    anchor to page part
+ * @param bool   $just_open whether only the opening <a> tag should be returned
  *
  * @return  string  the html link
  *
@@ -393,9 +393,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
     } elseif ($big_icon) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . PMA_linkURL($url) . '" target="mysql_doc">' . __('Documentation') . '</a>]';
     }
@@ -412,7 +412,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  */
 function PMA_showDocu($anchor) {
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -430,7 +430,7 @@ function PMA_showPHPDocu($target) {
     $url = PMA_getPHPDocLink($target);
 
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . $url . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . $url . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -439,9 +439,9 @@ function PMA_showPHPDocu($target) {
 /**
  * returns HTML for a footnote marker and add the messsage to the footnotes
  *
- * @param   string  $message the error message
- * @param   bool    $bbcode
- * @param   string  $type
+ * @param string  $message the error message
+ * @param bool    $bbcode
+ * @param string  $type
  * @return  string html code for a footnote marker
  * @access  public
  */
@@ -459,18 +459,13 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
             $GLOBALS['footnotes'] = array();
         }
         $nr = count($GLOBALS['footnotes']) + 1;
-        // this is the first instance of this message
-        $instance = 1;
         $GLOBALS['footnotes'][$key] = array(
             'note'      => $message,
             'type'      => $type,
             'nr'        => $nr,
-            'instance'  => $instance
         );
     } else {
         $nr = $GLOBALS['footnotes'][$key]['nr'];
-        // another instance of this message (to ensure ids are unique)
-        $instance = ++$GLOBALS['footnotes'][$key]['instance'];
     }
 
     if ($bbcode) {
@@ -479,18 +474,17 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 
     // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker">' . $nr . '</sup>' .
-    '<img class="footnotemarker" id="footnote_' . $nr . '_' . $instance . '" src="' .
-    $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
+    '<img class="footnotemarker ic_b_help footnote_' . $nr . '" src="themes/dot.gif" alt="" />';
 }
 
 /**
  * Displays a MySQL error message in the right frame.
  *
- * @param   string  $error_message   the error message
- * @param   string  $the_query       the sql query that failed
- * @param   bool    $is_modify_link  whether to show a "modify" link or not
- * @param   string  $back_url        the "back" link url (full path is not required)
- * @param   bool    $exit            EXIT the page?
+ * @param string  $error_message   the error message
+ * @param string  $the_query       the sql query that failed
+ * @param bool    $is_modify_link  whether to show a "modify" link or not
+ * @param string  $back_url        the "back" link url (full path is not required)
+ * @param bool    $exit            EXIT the page?
  *
  * @global  string    the curent table
  * @global  string    the current db
@@ -606,7 +600,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         * - avoid displaying a Back link
         * - use PMA_ajaxResponse() to transmit the message and exit
         */
-       if($GLOBALS['is_ajax_request'] == true) {
+       if ($GLOBALS['is_ajax_request'] == true) {
            PMA_ajaxResponse($error_msg_output, false);
        }
         if (! empty($back_url)) {
@@ -636,10 +630,10 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
 /**
  * returns array with tables of given db with extended information and grouped
  *
- * @param   string   $db     name of db
- * @param   string   $tables name of tables
- * @param   integer  $limit_offset   list offset
- * @param   int|bool $limit_count    max tables to return
+ * @param string   $db     name of db
+ * @param string   $tables name of tables
+ * @param integer  $limit_offset   list offset
+ * @param int|bool $limit_count    max tables to return
  * @return  array    (recursive) grouped table list
  */
 function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count = false)
@@ -766,9 +760,9 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
  *
  * </code>
  *
- * @param   mixed    $a_name    the database, table or field name to "backquote"
+ * @param mixed    $a_name    the database, table or field name to "backquote"
  *                              or array of it
- * @param   boolean  $do_it     a flag to bypass this function (used by dump
+ * @param boolean  $do_it     a flag to bypass this function (used by dump
  *                              functions)
  * @return  mixed    the "backquoted" database, table or field name
  * @access  public
@@ -785,7 +779,7 @@ function PMA_backquote($a_name, $do_it = true)
     if (! $do_it) {
         global $PMA_SQPdata_forbidden_word;
 
-        if(! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
+        if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
             return $a_name;
         }
     }
@@ -860,10 +854,10 @@ if (!$jsonly)
  * displays the message and the query
  * usually the message is the result of the query executed
  *
- * @param   string  $message    the message to display
- * @param   string  $sql_query  the query to display
- * @param   string  $type       the type (level) of the message
- * @param   boolean $is_view    is this a message after a VIEW operation?
+ * @param string  $message    the message to display
+ * @param string  $sql_query  the query to display
+ * @param string  $type       the type (level) of the message
+ * @param boolean $is_view    is this a message after a VIEW operation?
  * @return  string
  * @access  public
  */
@@ -875,7 +869,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
      * in a string.  In some special cases on sql.php, buffering has to be disabled
      * and hence we check with $GLOBALS['buffer_message']
      */
-    if( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
+    if ( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
         ob_start();
     }
     global $cfg;
@@ -1208,7 +1202,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     // If we are in an Ajax request, we have most probably been called in
     // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
     // to PMA_ajaxResponse(), which will encode it for JSON.
-    if( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
+    if ( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
         $buffer_contents =  ob_get_contents();
         ob_end_clean();
         return $buffer_contents;
@@ -1243,7 +1237,7 @@ function PMA_profilingSupported()
 /**
  * Displays a form with the Profiling checkbox
  *
- * @param   string  $sql_query
+ * @param string  $sql_query
  * @access  public
  */
 function PMA_profilingCheckbox($sql_query)
@@ -1335,11 +1329,11 @@ function PMA_localizeNumber($value)
  * echo PMA_formatNumber(0, 6);             //       0
  *
  * </code>
- * @param   double   $value            the value to format
- * @param   integer  $digits_left      number of digits left of the comma
- * @param   integer  $digits_right     number of digits right of the comma
- * @param   boolean  $only_down        do not reformat numbers below 1
- * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
+ * @param double   $value            the value to format
+ * @param integer  $digits_left      number of digits left of the comma
+ * @param integer  $digits_right     number of digits right of the comma
+ * @param boolean  $only_down        do not reformat numbers below 1
+ * @param boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true)
  *
  * @return  string   the formatted value and its unit
  *
@@ -1347,14 +1341,14 @@ function PMA_localizeNumber($value)
  */
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
-    if($value==0) return '0';
-    
+    if ($value==0) return '0';
+
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
-        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
-        
+        if ($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
+
         return PMA_localizeNumber($value);
     }
 
@@ -1388,28 +1382,28 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     }
 
     $dh = PMA_pow(10, $digits_right);
-    
+
     // This gives us the right SI prefix already, but $digits_left parameter not incorporated
     $d = floor(log10($value) / 3);
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
     // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
     $cur_digits = floor(log10($value / PMA_pow(1000, $d, 'pow'))+1);
-    if($digits_left > $cur_digits) {
+    if ($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
     }
-	
-    if($d<0 && $only_down) $d=0;
-    
+
+    if ($d<0 && $only_down) $d=0;
+
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
-    
+
     // If we dont want any zeros after the comma just add the thousand seperator
-    if($noTrailingZero)
+    if ($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
         $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
-    
-    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
+
+    if ($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
@@ -1417,7 +1411,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
 /**
  * Returns the number of bytes when a formatted size is given
  *
- * @param   string  $formatted_size  the size expression (for example 8MB)
+ * @param string  $formatted_size  the size expression (for example 8MB)
  * @return  integer  The numerical part of the expression (for example 8)
  */
 function PMA_extractValueFromFormattedSize($formatted_size)
@@ -1506,12 +1500,12 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * returns a tab for tabbed navigation.
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
- * @param   array   $tab    array with all options
- * @param   array   $url_params
+ * @param array   $tab    array with all options
+ * @param array   $url_params
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array())
+function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
 {
     // default values
     $defaults = array(
@@ -1547,7 +1541,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
     }
 
     // If there are any tab specific URL parameters, merge those with the general URL parameters
-    if(! empty($tab['url_params']) && is_array($tab['url_params'])) {
+    if (! empty($tab['url_params']) && is_array($tab['url_params'])) {
         $url_params = array_merge($url_params, $tab['url_params']);
     }
 
@@ -1573,8 +1567,8 @@ function PMA_generate_html_tab($tab, $url_params = array())
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
-        $image = '<img class="icon" src="' . htmlentities($GLOBALS['pmaThemeImage'])
-            .'%1$s" width="16" height="16" alt="" />%2$s';
+        $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
+            .' width="16" height="16" alt="" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
     }
     // check to not display an empty link-text
@@ -1605,11 +1599,11 @@ function PMA_generate_html_tab($tab, $url_params = array())
 /**
  * returns html-code for a tab navigation
  *
- * @param   array   $tabs   one element per tab
- * @param   string  $url_params
+ * @param array   $tabs   one element per tab
+ * @param string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params)
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir='')
 {
     $tag_id = 'topmenu';
     $tab_navigation =
@@ -1617,7 +1611,7 @@ function PMA_generate_html_tabs($tabs, $url_params)
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
     }
 
     $tab_navigation .=
@@ -1633,14 +1627,14 @@ function PMA_generate_html_tabs($tabs, $url_params)
  * Displays a link, or a button if the link's URL is too large, to
  * accommodate some browsers' limitations
  *
- * @param  string  $url the URL
- * @param  string  $message the link message
- * @param  mixed   $tag_params  string: js confirmation
+ * @param string  $url the URL
+ * @param string  $message the link message
+ * @param mixed   $tag_params  string: js confirmation
  *                              array: additional tag params (f.e. style="")
- * @param  boolean $new_form    we set this to false when we are already in
+ * @param boolean $new_form    we set this to false when we are already in
  *                              a  form, to avoid generating nested forms
- * @param  boolean $strip_img
- * @param  string  $target
+ * @param boolean $strip_img
+ * @param string  $target
  *
  * @return string  the results to be echoed or saved in an array
  */
@@ -1768,7 +1762,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 /**
  * Returns a given timespan value in a readable format.
  *
- * @param  int  $seconds  the timespan
+ * @param int  $seconds  the timespan
  *
  * @return string  the formatted value
  */
@@ -1797,8 +1791,8 @@ function PMA_timespanFormat($seconds)
  * http://sf.net/tracker/?func=detail&aid=544361&group_id=23067&atid=377411
  *
  * @todo    add a multibyte safe function PMA_STR_split()
- * @param   string  $string     The string
- * @param   string  $Separator  The Separator (defaults to "<br />\n")
+ * @param string  $string     The string
+ * @param string  $Separator  The Separator (defaults to "<br />\n")
  *
  * @access  public
  * @return  string      The flipped string
@@ -1843,13 +1837,12 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * Not sure we could use a strMissingParameter message here,
  * would have to check if the error message file is always available
  *
- * @todo    localize error message
  * @todo    use PMA_fatalError() if $die === true?
- * @param   array  $params  The names of the parameters needed by the calling script.
- * @param   bool   $die Stop the execution?
+ * @param array  $params  The names of the parameters needed by the calling script.
+ * @param bool   $die Stop the execution?
  *                  (Set this manually to false in the calling script
  *                   until you know all needed parameters to check).
- * @param   bool   $request Whether to include this list in checking for special params.
+ * @param bool   $request Whether to include this list in checking for special params.
  * @global  string  path to current script
  * @global  boolean flag whether any special variable was required
  *
@@ -1874,7 +1867,8 @@ function PMA_checkParameters($params, $die = true, $request = true)
 
         if (! isset($GLOBALS[$param])) {
             $error_message .= $reported_script_name
-                . ': Missing parameter: ' . $param
+                . ': ' . __('Missing parameter:') . ' '
+                . $param
                 . PMA_showDocu('faqmissingparameters')
                 . '<br />';
             $found_error = true;
@@ -1895,11 +1889,11 @@ function PMA_checkParameters($params, $die = true, $request = true)
 /**
  * Function to generate unique condition for specified row.
  *
- * @param   resource    $handle         current query result
- * @param   integer     $fields_cnt     number of fields
- * @param   array       $fields_meta    meta information about fields
- * @param   array       $row            current row
- * @param   boolean     $force_unique   generate condition only on pk or unique
+ * @param resource    $handle         current query result
+ * @param integer     $fields_cnt     number of fields
+ * @param array       $fields_meta    meta information about fields
+ * @param array       $row            current row
+ * @param boolean     $force_unique   generate condition only on pk or unique
  *
  * @access  public
  * @return  array     the calculated condition and whether condition is unique
@@ -2017,12 +2011,12 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
 /**
  * Generate a button or image tag
  *
- * @param   string  $button_name    name of button element
- * @param   string  $button_class   class of button element
- * @param   string  $image_name     name of image element
- * @param   string  $text           text to display
- * @param   string  $image          image to display
- * @param   string  $value
+ * @param string  $button_name    name of button element
+ * @param string  $button_class   class of button element
+ * @param string  $image_name     name of image element
+ * @param string  $text           text to display
+ * @param string  $image          image to display
+ * @param string  $value
  *
  * @access  public
  */
@@ -2058,17 +2052,17 @@ function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
 /**
  * Generate a pagination selector for browsing resultsets
  *
- * @param  int     $rows         Number of rows in the pagination set
- * @param  int     $pageNow      current page number
- * @param  int     $nbTotalPage  number of total pages
- * @param  int     $showAll      If the number of pages is lower than this
+ * @param int     $rows         Number of rows in the pagination set
+ * @param int     $pageNow      current page number
+ * @param int     $nbTotalPage  number of total pages
+ * @param int     $showAll      If the number of pages is lower than this
  *                               variable, no pages will be omitted in pagination
- * @param  int     $sliceStart   How many rows at the beginning should always be shown?
- * @param  int     $sliceEnd     How many rows at the end should always be shown?
- * @param  int     $percent      Percentage of calculation page offsets to hop to a next page
- * @param  int     $range        Near the current page, how many pages should
+ * @param int     $sliceStart   How many rows at the beginning should always be shown?
+ * @param int     $sliceEnd     How many rows at the end should always be shown?
+ * @param int     $percent      Percentage of calculation page offsets to hop to a next page
+ * @param int     $range        Near the current page, how many pages should
  *                               be considered "nearby" and displayed as well?
- * @param  string  $prompt       The prompt to display (sometimes empty)
+ * @param string  $prompt       The prompt to display (sometimes empty)
  *
  * @return string
  * @access  public
@@ -2157,12 +2151,12 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @param   int    $count        number of elements in the list
- * @param   int    $pos          current position in the list
- * @param   array  $_url_params  url parameters
- * @param   string $script       script name for form target
- * @param   string $frame        target frame
- * @param   int    $max_count    maximum number of elements to display from the list
+ * @param int    $count        number of elements in the list
+ * @param int    $pos          current position in the list
+ * @param array  $_url_params  url parameters
+ * @param string $script       script name for form target
+ * @param string $frame        target frame
+ * @param int    $max_count    maximum number of elements to display from the list
  *
  * @access  public
  */
@@ -2244,7 +2238,7 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
  * $user_dir = PMA_userDir('/var/pma_tmp/%u/'); // '/var/pma_tmp/root/'
  *
  * </code>
- * @param   string  $dir with wildcard for user
+ * @param string  $dir with wildcard for user
  * @return  string  per user directory
  */
 function PMA_userDir($dir)
@@ -2260,7 +2254,7 @@ function PMA_userDir($dir)
 /**
  * returns html code for db link to default db page
  *
- * @param   string  $database
+ * @param string  $database
  * @return  string  html link to default db page
  */
 function PMA_getDbLink($database = null)
@@ -2283,10 +2277,10 @@ function PMA_getDbLink($database = null)
  * Displays a lightbulb hint explaining a known external bug
  * that affects a functionality
  *
- * @param   string  $functionality localized message explaining the func.
- * @param   string  $component  'mysql' (eventually, 'php')
- * @param   string  $minimum_version of this component
- * @param   string  $bugref  bug reference for this component
+ * @param string  $functionality localized message explaining the func.
+ * @param string  $component  'mysql' (eventually, 'php')
+ * @param string  $minimum_version of this component
+ * @param string  $bugref  bug reference for this component
  */
 function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 {
@@ -2298,10 +2292,10 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 /**
  * Generates and echoes an HTML checkbox
  *
- * @param   string  $html_field_name the checkbox HTML field
- * @param   string  $label
- * @param   boolean $checked is it initially checked?
- * @param   boolean $onclick should it submit the form on click?
+ * @param string  $html_field_name the checkbox HTML field
+ * @param string  $label
+ * @param boolean $checked is it initially checked?
+ * @param boolean $onclick should it submit the form on click?
  */
 function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick) {
 
@@ -2311,12 +2305,12 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 /**
  * Generates and echoes a set of radio HTML fields
  *
- * @param   string  $html_field_name the radio HTML field
- * @param   array   $choices the choices values and labels
- * @param   string  $checked_choice the choice to check by default
- * @param   boolean $line_break whether to add an HTML line break after a choice
- * @param   boolean $escape_label whether to use htmlspecialchars() on label
- * @param   string  $class enclose each choice with a div of this class
+ * @param string  $html_field_name the radio HTML field
+ * @param array   $choices the choices values and labels
+ * @param string  $checked_choice the choice to check by default
+ * @param boolean $line_break whether to add an HTML line break after a choice
+ * @param boolean $escape_label whether to use htmlspecialchars() on label
+ * @param string  $class enclose each choice with a div of this class
  */
 function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='') {
     foreach ($choices as $choice_value => $choice_label) {
@@ -2343,10 +2337,10 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
 /**
  * Generates and returns an HTML dropdown
  *
- * @param   string  $select_name
- * @param   array   $choices        choices values
- * @param   string  $active_choice  the choice to select by default
- * @param   string  $id             id of the select element; can be different in case
+ * @param string  $select_name
+ * @param array   $choices        choices values
+ * @param string  $active_choice  the choice to select by default
+ * @param string  $id             id of the select element; can be different in case
  *                                  the dropdown is present more than once on the page
  * @return string
  * @todo    support titles
@@ -2371,8 +2365,8 @@ function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
  * controlling the slider; you have to generate the </div> yourself
  * after the sliding section.
  *
- * @param   string  $id the id of the <div> on which to apply the effect
- * @param   string  $message the message to show as a link
+ * @param string  $id the id of the <div> on which to apply the effect
+ * @param string  $message the message to show as a link
  */
 function PMA_generate_slider_effect($id, $message)
 {
@@ -2395,10 +2389,10 @@ function PMA_generate_slider_effect($id, $message)
 /**
  * Creates an AJAX sliding toggle button (or and equivalent form when AJAX is disabled)
  *
- * @param    string   $action        The URL for the request to be executed
- * @param    string   $select_name   The name for the dropdown box
- * @param    array    $options       An array of options (see rte_footer.lib.php)
- * @param    string   $callback      A JS snippet to execute when the request is
+ * @param string   $action        The URL for the request to be executed
+ * @param string   $select_name   The name for the dropdown box
+ * @param array    $options       An array of options (see rte_footer.lib.php)
+ * @param string   $callback      A JS snippet to execute when the request is
  *                                   successfully processed
  *
  * @return   string   HTML code for the toggle button
@@ -2549,8 +2543,8 @@ function PMA_cacheUnset($var, $server = 0)
  * in MySQL a BIT field can be from 1 to 64 bits so we need this
  * function because in PHP, decbin() supports only 32 bits
  *
- * @param   numeric $value coming from a BIT field
- * @param   integer $length
+ * @param numeric $value coming from a BIT field
+ * @param integer $length
  * @return  string  the printable value
  */
 function PMA_printable_bit_value($value, $length) {
@@ -2565,7 +2559,7 @@ function PMA_printable_bit_value($value, $length) {
 /**
  * Verifies whether the value contains a non-printable character
  *
- * @param   string $value
+ * @param string $value
  * @return  boolean
  */
 function PMA_contains_nonprintable_ascii($value) {
@@ -2576,7 +2570,7 @@ function PMA_contains_nonprintable_ascii($value) {
  * Converts a BIT type default value
  * for example, b'010' becomes 010
  *
- * @param   string $bit_default_value
+ * @param string $bit_default_value
  * @return  string the converted value
  */
 function PMA_convert_bit_default_value($bit_default_value) {
@@ -2586,7 +2580,7 @@ function PMA_convert_bit_default_value($bit_default_value) {
 /**
  * Extracts the various parts from a field type spec
  *
- * @param   string $fieldspec
+ * @param string $fieldspec
  * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
  */
@@ -2662,7 +2656,7 @@ function PMA_extractFieldSpec($fieldspec) {
 /**
  * Verifies if this table's engine supports foreign keys
  *
- * @param   string $engine
+ * @param string $engine
  * @return  boolean
  */
 function PMA_foreignkey_supported($engine) {
@@ -2677,7 +2671,7 @@ function PMA_foreignkey_supported($engine) {
 /**
  * Replaces some characters by a displayable equivalent
  *
- * @param   string $content
+ * @param string $content
  * @return  string the content with characters replaced
  */
 function PMA_replace_binary_contents($content) {
@@ -2698,7 +2692,7 @@ function PMA_replace_binary_contents($content) {
 
 function PMA_duplicateFirstNewline($string) {
     $first_occurence = strpos($string, "\r\n");
-    if ($first_occurence === 0){
+    if ($first_occurence === 0) {
         $string = "\n".$string;
     }
     return $string;
@@ -2749,7 +2743,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
     $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
     /* Update forced variables */
-    foreach($updates as $key => $val) {
+    foreach ($updates as $key => $val) {
         $vars[$key] = $val;
     }
 
@@ -2773,7 +2767,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
 
     /* Optional escaping */
     if (!is_null($escape)) {
-        foreach($replace as $key => $val) {
+        foreach ($replace as $key => $val) {
             $replace[$key] = $escape($val);
         }
     }
@@ -2804,15 +2798,15 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
  * function that generates a json output for an ajax request and ends script
  * execution
  *
- * @param  bool   $message     message string containing the html of the message
- * @param  bool   $success success whether the ajax request was successfull
- * @param  array  $extra_data  extra_data  optional - any other data as part of the json request
+ * @param bool   $message     message string containing the html of the message
+ * @param bool   $success success whether the ajax request was successfull
+ * @param array  $extra_data  extra_data  optional - any other data as part of the json request
  *
  */
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
     $response = array();
-    if( $success == true ) {
+    if ( $success == true ) {
         $response['success'] = true;
         if ($message instanceof PMA_Message) {
             $response['message'] = $message->getDisplay();
@@ -2823,7 +2817,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
     else {
         $response['success'] = false;
-        if($message instanceof PMA_Message) {
+        if ($message instanceof PMA_Message) {
             $response['error'] = $message->getDisplay();
         }
         else {
@@ -2832,7 +2826,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
 
     // If extra_data has been provided, append it to the response array
-    if( ! empty($extra_data) && count($extra_data) > 0 ) {
+    if ( ! empty($extra_data) && count($extra_data) > 0 ) {
         $response = array_merge($response, $extra_data);
     }
 
@@ -2846,7 +2840,9 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     header("Content-Type: application/json");
 
     echo json_encode($response);
-    exit;
+
+    if (!defined('TESTSUITE'))
+        exit;
 }
 
 /**
@@ -2928,8 +2924,8 @@ function PMA_buildActionTitles() {
  * $cfg['ColumnTypes'] and either returns an array (useful for quickly checking
  * if a datatype is supported) or an HTML snippet that creates a drop-down list.
  *
- * @param   bool    $html       Whether to generate an html snippet or an array
- * @param   string  $selected   The value to mark as selected in HTML mode
+ * @param bool    $html       Whether to generate an html snippet or an array
+ * @param string  $selected   The value to mark as selected in HTML mode
  *
  * @return  mixed   An HTML snippet or an array of datatypes.
  *
@@ -3011,9 +3007,9 @@ function PMA_unsupportedDatatypes() {
 /**
  * Creates a dropdown box with MySQL functions for a particular column.
  *
- * @param    array    $field          Data about the column for which
+ * @param array    $field          Data about the column for which
  *                                    to generate the dropdown
- * @param    bool     $insert_mode    Whether the operation is 'insert'
+ * @param bool     $insert_mode    Whether the operation is 'insert'
  *
  * @global   array    $cfg            PMA configuration
  * @global   array    $analyzed_sql   Analyzed SQL query
@@ -3069,7 +3065,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // Create the output
     $retval = '                <option></option>' . "\n";
     // loop on the dropdown array and print all available options for that field.
-    foreach ($dropdown as $each_dropdown){
+    foreach ($dropdown as $each_dropdown) {
         $retval .= '                ';
         $retval .= '<option';
         if ($default_function === $each_dropdown) {
@@ -3116,10 +3112,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
  *            // user has this privilege on database 'mydb'.
  *
  *
- * @param   string   $priv   The privilege to check
- * @param   mixed    $db     null, to only check global privileges
+ * @param string   $priv   The privilege to check
+ * @param mixed    $db     null, to only check global privileges
  *                           string, db name where to also check for privileges
- * @param   mixed    $tbl    null, to only check global privileges
+ * @param mixed    $tbl    null, to only check global privileges
  *                           string, db name where to also check for privileges
  * @return bool
  */

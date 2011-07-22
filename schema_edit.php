@@ -53,7 +53,7 @@ if (! $cfgRelation['displaywork']) {
     require_once './libraries/footer.inc.php';
 }
 
-if (! isset($cfgRelation['table_coords'])){
+if (! isset($cfgRelation['table_coords'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
          . PMA_showDocu('table_coords') . "\n";
     require_once './libraries/footer.inc.php';
@@ -83,7 +83,7 @@ if ($cfgRelation['pdfwork']) {
      * @param string $do It tells what the Schema is supposed to do
      *                  create and select a page, generate schema etc             
      */
-    if(isset($_REQUEST['do'])){
+    if (isset($_REQUEST['do'])) {
         $user_schema->setAction($_REQUEST['do']);
         $user_schema->processUserChoice();
     }    

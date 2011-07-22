@@ -16,7 +16,7 @@ $GLOBALS['js_include'][] = 'db_structure.js';
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
-if($GLOBALS['is_ajax_request'] != true) {
+if ($GLOBALS['is_ajax_request'] != true) {
     require './libraries/db_common.inc.php';
 }
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
@@ -34,7 +34,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
      * If in an Ajax request, generate the success message and use
      * {@link PMA_ajaxResponse()} to send the output
      */
-    if($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true) {
         $message = PMA_Message::success();
         PMA_ajaxResponse($message, true);
     }
@@ -98,7 +98,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= '<img class="icon" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . __('Delete tracking data for this table') . '" title="' . __('Delete tracking data for this table') . '" />';
+        $drop_image_or_text .= '<img class="icon ic_b_drop" src="themes/dot.gif" alt="' . __('Delete tracking data for this table') . '" title="' . __('Delete tracking data for this table') . '" />';
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= __('Drop');
@@ -198,7 +198,7 @@ if (isset($my_tables)) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . htmlspecialchars($tablename) .'">';
 
             if ($cfg['PropertiesIconic']) {
-                $my_link .= '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . __('Track table') . '" /> ';
+                $my_link .= '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
             }
             $my_link .= __('Track table') . '</a>';
         ?>

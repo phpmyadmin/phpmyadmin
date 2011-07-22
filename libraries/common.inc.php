@@ -176,7 +176,7 @@ $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
 /**
  * just to be sure there was no import (registering) before here
  * we empty the global space (but avoid unsetting $variables_list
- * and $key in the foreach(), we still need them!)
+ * and $key in the foreach (), we still need them!)
  */
 $variables_whitelist = array (
     'GLOBALS',
@@ -313,7 +313,7 @@ if (isset($_COOKIE)
  && (isset($_COOKIE['pmaCookieVer'])
   && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
     // delete all cookies
-    foreach($_COOKIE as $cookie_name => $tmp) {
+    foreach ($_COOKIE as $cookie_name => $tmp) {
         $GLOBALS['PMA_Config']->removeCookie($cookie_name);
     }
     $_COOKIE = array();
@@ -997,9 +997,9 @@ PMA_Tracker::enable();
  * true
  */
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-	$GLOBALS['is_ajax_request'] = true;
+    $GLOBALS['is_ajax_request'] = true;
 } else {
-	$GLOBALS['is_ajax_request'] = false;
+    $GLOBALS['is_ajax_request'] = false;
 }
 
 /**
@@ -1008,7 +1008,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
  * Set to true if this is a request made during an inline edit process.  This
  * request is made to retrieve the non-truncated/transformed values.
  */
-if(isset($_REQUEST['inline_edit']) && $_REQUEST['inline_edit'] == true) {
+if (isset($_REQUEST['inline_edit']) && $_REQUEST['inline_edit'] == true) {
     $GLOBALS['inline_edit'] = true;
 }
 else {

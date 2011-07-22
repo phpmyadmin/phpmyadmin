@@ -13,7 +13,7 @@ require_once './libraries/common.inc.php';
 PMA_checkParameters(array('reference', 'c_type'));
 
 // Increase time limit, because fetching blob might take some time
-set_time_limit(0);
+@set_time_limit(0);
 
 $reference = $_REQUEST['reference'];
 /*

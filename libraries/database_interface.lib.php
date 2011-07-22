@@ -22,7 +22,7 @@ define('PMA_DBI_GETVAR_GLOBAL',     2);
 /**
  * Checks one of the mysql extensions
  *
- * @param   string  $extension  mysql extension to check
+ * @param string  $extension  mysql extension to check
  */
 function PMA_DBI_checkMysqlExtension($extension = 'mysql') {
     if (! function_exists($extension . '_connect')) {
@@ -145,7 +145,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0, $cache_affected_r
  * uses language to charset mapping from mysql/share/errmsg.txt
  * and charset names to ISO charset from information_schema.CHARACTER_SETS
  *
- * @param   string  $message
+ * @param string  $message
  * @return  string  $message
  */
 function PMA_DBI_convert_message($message) {
@@ -218,8 +218,8 @@ function PMA_DBI_convert_message($message) {
 /**
  * returns array with table names for given db
  *
- * @param   string  $database   name of database
- * @param   mixed   $link       mysql link resource|object
+ * @param string  $database   name of database
+ * @param mixed   $link       mysql link resource|object
  * @return  array   tables names
  */
 function PMA_DBI_get_tables($database, $link = null)
@@ -231,8 +231,8 @@ function PMA_DBI_get_tables($database, $link = null)
 /**
  * usort comparison callback
  *
- * @param   string  $a first argument to sort
- * @param   string  $b second argument to sort
+ * @param string  $a first argument to sort
+ * @param string  $b second argument to sort
  *
  * @return  integer  a value representing whether $a should be before $b in the
  *                   sorted array or not
@@ -275,14 +275,14 @@ function PMA_usort_comparison_callback($a, $b)
  * </code>
  *
  * @todo    move into PMA_Table
- * @param   string          $database       database
- * @param   string|false    $table          table
- * @param   boolean|string  $tbl_is_group   $table is a table group
- * @param   resource        $link           mysql link
- * @param   integer         $limit_offset   zero-based offset for the count
- * @param   boolean|integer $limit_count    number of tables to return
- * @param   string          $sort_by        table attribute to sort by
- * @param   string          $sort_order     direction to sort (ASC or DESC)
+ * @param string          $database       database
+ * @param string|false    $table          table
+ * @param boolean|string  $tbl_is_group   $table is a table group
+ * @param resource        $link           mysql link
+ * @param integer         $limit_offset   zero-based offset for the count
+ * @param boolean|integer $limit_count    number of tables to return
+ * @param string          $sort_by        table attribute to sort by
+ * @param string          $sort_order     direction to sort (ASC or DESC)
  * @return  array           list of tables in given db(s)
  */
 function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = false, $link = null,
@@ -364,7 +364,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         unset($sql_where_table, $sql);
         if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
             // here, the array's first key is by schema name
-            foreach($tables as $one_database_name => $one_database_tables) {
+            foreach ($tables as $one_database_name => $one_database_tables) {
                 uksort($one_database_tables, 'strnatcasecmp');
 
                 if ($sort_order == 'DESC') {
@@ -472,7 +472,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                 $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
 
                 if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
-                        && $each_tables[$table_name]['Engine'] == NULL) {
+                        && $each_tables[$table_name]['Engine'] == null) {
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
                     /**
@@ -494,7 +494,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // Note 2: Instead of array_merge(), simply use the + operator because
     //  array_merge() renumbers numeric keys starting with 0, therefore
     //  we would lose a db name thats consists only of numbers
-    foreach($tables as $one_database => $its_tables) {
+    foreach ($tables as $one_database => $its_tables) {
         if (isset(PMA_Table::$cache[$one_database])) {
             PMA_Table::$cache[$one_database] = PMA_Table::$cache[$one_database] + $tables[$one_database];
         } else {
@@ -526,13 +526,13 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
  * returns array with databases containing extended infos about them
  *
  * @todo    move into PMA_List_Database?
- * @param   string      $database      database
- * @param   boolean     $force_stats    retrieve stats also for MySQL < 5
- * @param   resource    $link           mysql link
- * @param   string      $sort_by        column to order by
- * @param   string      $sort_order     ASC or DESC
- * @param   integer     $limit_offset   starting offset for LIMIT
- * @param   bool|int    $limit_count    row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
+ * @param string      $database      database
+ * @param boolean     $force_stats    retrieve stats also for MySQL < 5
+ * @param resource    $link           mysql link
+ * @param string      $sort_by        column to order by
+ * @param string      $sort_order     ASC or DESC
+ * @param integer     $limit_offset   starting offset for LIMIT
+ * @param bool|int    $limit_count    row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
  * @return  array       $databases
  */
 function PMA_DBI_get_databases_full($database = null, $force_stats = false,
@@ -698,10 +698,10 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
  * returns detailed array with all columns for given table in database,
  * or all tables/databases
  *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   string  $column     name of specific column
- * @param   mixed   $link       mysql link resource
+ * @param string  $database   name of database
+ * @param string  $table      name of table to retrieve columns from
+ * @param string  $column     name of specific column
+ * @param mixed   $link       mysql link resource
  * @return array
  */
 function PMA_DBI_get_columns_full($database = null, $table = null,
@@ -769,7 +769,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         $sql = 'SHOW FULL COLUMNS FROM '
             . PMA_backquote($database) . '.' . PMA_backquote($table);
         if (null !== $column) {
-            $sql .= " LIKE '" . $column . "'";
+            $sql .= " LIKE '" . PMA_sqlAddSlashes($column, true) . "'";
         }
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
@@ -825,10 +825,10 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 /**
  * array PMA_DBI_get_columns(string $database, string $table, bool $full = false, mysql db link $link = null)
  *
- * @param   string  $database   name of database
- * @param   string  $table      name of table to retrieve columns from
- * @param   boolean $full       whether to return full info or only column names
- * @param   mixed   $link       mysql link resource
+ * @param string  $database   name of database
+ * @param string  $table      name of table to retrieve columns from
+ * @param boolean $full       whether to return full info or only column names
+ * @param mixed   $link       mysql link resource
  * @return  array   column names
  */
 function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
@@ -846,9 +846,9 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
  /**
  * returns value of given mysql server variable
  *
- * @param   string  $var    mysql server variable name
- * @param   int     $type   PMA_DBI_GETVAR_SESSION|PMA_DBI_GETVAR_GLOBAL
- * @param   mixed   $link   mysql link resource|object
+ * @param string  $var    mysql server variable name
+ * @param int     $type   PMA_DBI_GETVAR_SESSION|PMA_DBI_GETVAR_GLOBAL
+ * @param mixed   $link   mysql link resource|object
  * @return  mixed   value for mysql server variable
  */
 
@@ -881,8 +881,8 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  *  Function called just after a connection to the MySQL database server has been established
  *  It sets the connection collation, and determins the version of MySQL which is running.
  *
- * @param   mixed   $link   mysql link resource|object
- * @param   boolean $is_controluser
+ * @param mixed   $link   mysql link resource|object
+ * @param boolean $is_controluser
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
@@ -938,13 +938,13 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * // $user_name = 'John Doe'
  * </code>
  *
- * @param   string|mysql_result $result query or mysql result
- * @param   integer             $row_number row to fetch the value from,
+ * @param string|mysql_result $result query or mysql result
+ * @param integer             $row_number row to fetch the value from,
  *                                      starting at 0, with 0 beeing default
- * @param   integer|string      $field  field to fetch the value from,
+ * @param integer|string      $field  field to fetch the value from,
  *                                      starting at 0, with 0 beeing default
- * @param   resource            $link   mysql link
- * @param   mixed               $options
+ * @param resource            $link   mysql link
+ * @param mixed               $options
  * @return  mixed               value of first field in first row from result
  *                              or false if not found
  */
@@ -993,12 +993,12 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
  * // $user = array('id' => 123, 'name' => 'John Doe')
  * </code>
  *
- * @param   string|mysql_result $result query or mysql result
- * @param   string              $type   NUM|ASSOC|BOTH
+ * @param string|mysql_result $result query or mysql result
+ * @param string              $type   NUM|ASSOC|BOTH
  *                                      returned array should either numeric
  *                                      associativ or booth
- * @param   resource            $link   mysql link
- * @param   mixed               $options
+ * @param resource            $link   mysql link
+ * @param mixed               $options
  * @return  array|boolean       first row from result
  *                              or false if result is empty
  */
@@ -1072,13 +1072,13 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $optio
  * // $users['admin']['John Doe'] = '123'
  * </code>
  *
- * @param   string|mysql_result $result query or mysql result
- * @param   string|integer      $key    field-name or offset
+ * @param string|mysql_result $result query or mysql result
+ * @param string|integer      $key    field-name or offset
  *                                      used as key for array
- * @param   string|integer      $value  value-name or offset
+ * @param string|integer      $value  value-name or offset
  *                                      used as value for array
- * @param   resource            $link   mysql link
- * @param   mixed               $options
+ * @param resource            $link   mysql link
+ * @param mixed               $options
  * @return  array               resultrows or values indexed by $key
  */
 function PMA_DBI_fetch_result($result, $key = null, $value = null,
@@ -1202,7 +1202,7 @@ function PMA_DBI_getCompatibilities()
 /**
  * returns warnings for last query
  *
- * @param   resource $link   mysql link resource
+ * @param resource $link   mysql link resource
  * @return  array   warnings
  */
 function PMA_DBI_get_warnings($link = null)
@@ -1245,9 +1245,9 @@ function PMA_isSuperuser()
 /**
  * returns an array of PROCEDURE or FUNCTION names for a db
  *
- * @param   string              $db     db name
- * @param   string              $which  PROCEDURE | FUNCTION
- * @param   resource            $link   mysql link
+ * @param string              $db     db name
+ * @param string              $which  PROCEDURE | FUNCTION
+ * @param resource            $link   mysql link
  *
  * @return  array   the procedure names or function names
  */
@@ -1266,10 +1266,10 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 /**
  * returns the definition of a specific PROCEDURE, FUNCTION or EVENT
  *
- * @param   string              $db     db name
- * @param   string              $which  PROCEDURE | FUNCTION | EVENT
- * @param   string              $name  the procedure|function|event name
- * @param   resource            $link   mysql link
+ * @param string              $db     db name
+ * @param string              $which  PROCEDURE | FUNCTION | EVENT
+ * @param string              $name  the procedure|function|event name
+ * @param resource            $link   mysql link
  *
  * @return  string              the definition
  */
@@ -1287,9 +1287,9 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
 /**
  * returns details about the TRIGGERs for a specific table or database
  *
- * @param   string              $db     db name
- * @param   string              $table  table name
- * @param   string              $delimiter  the delimiter to use (may be empty)
+ * @param string              $db     db name
+ * @param string              $table  table name
+ * @param string              $delimiter  the delimiter to use (may be empty)
  *
  * @return  array               information about triggers (may be empty)
  */
@@ -1341,7 +1341,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 
     // Sort results by name
     $name = array();
-    foreach($result as $key => $value) {
+    foreach ($result as $key => $value) {
         $name[] = $value['name'];
     }
     array_multisort($name, SORT_ASC, $result);
@@ -1352,8 +1352,8 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 /**
  * Returns true if $db.$view_name is a view, false if not
  *
- * @param  string $db         database name
- * @param  string $view_name  view/table name
+ * @param string $db         database name
+ * @param string $view_name  view/table name
  *
  * @return bool               true if $db.$view_name is a view, false if not
  */

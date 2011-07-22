@@ -134,12 +134,11 @@ $random_n = mt_rand(0,1000000); // a random number that will be appended to the 
  * no escaping (for example test_db) but in mysql.db you'll see test\_db
  * for a db-specific privilege.
  *
- * @param   string   $db_and_table
- * @param   string   $dbname
- * @param   string   $tablename
- * @return  string   the escaped (if necessary) $db_and_table
+ * @param string $dbname       Database name
+ * @param string $tablename    Table name
+ * @return string the escaped (if necessary) database.table
  */
-function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
+function PMA_wildcardEscapeForGrant($dbname, $tablename) {
 
     if (! strlen($dbname)) {
         $db_and_table = '*.*';
@@ -158,10 +157,10 @@ function PMA_WildcardEscapeForGrant($db_and_table, $dbname, $tablename) {
 /**
  * Generates a condition on the user name
  *
- * @param   string   the user's initial
+ * @param string   the user's initial
  * @return  string   the generated condition
  */
-function PMA_RangeOfUsers($initial = '')
+function PMA_rangeOfUsers($initial = '')
 {
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
@@ -177,8 +176,8 @@ function PMA_RangeOfUsers($initial = '')
 /**
  * Extracts the privilege information of a priv table row
  *
- * @param   array   $row        the row
- * @param   boolean $enableHTML add <dfn> tag with tooltips
+ * @param array   $row        the row
+ * @param boolean $enableHTML add <dfn> tag with tooltips
  *
  * @global  resource $user_link the database connection
  *
@@ -187,37 +186,124 @@ function PMA_RangeOfUsers($initial = '')
 function PMA_extractPrivInfo($row = '', $enableHTML = false)
 {
     $grants = array(
-        array('Select_priv', 'SELECT', __('Allows reading data.')),
-        array('Insert_priv', 'INSERT', __('Allows inserting and replacing data.')),
-        array('Update_priv', 'UPDATE', __('Allows changing data.')),
-        array('Delete_priv', 'DELETE', __('Allows deleting data.')),
-        array('Create_priv', 'CREATE', __('Allows creating new databases and tables.')),
-        array('Drop_priv', 'DROP', __('Allows dropping databases and tables.')),
-        array('Reload_priv', 'RELOAD', __('Allows reloading server settings and flushing the server\'s caches.')),
-        array('Shutdown_priv', 'SHUTDOWN', __('Allows shutting down the server.')),
-        array('Process_priv', 'PROCESS', __('Allows viewing processes of all users')),
-        array('File_priv', 'FILE', __('Allows importing data from and exporting data into files.')),
-        array('References_priv', 'REFERENCES', __('Has no effect in this MySQL version.')),
-        array('Index_priv', 'INDEX', __('Allows creating and dropping indexes.')),
-        array('Alter_priv', 'ALTER', __('Allows altering the structure of existing tables.')),
-        array('Show_db_priv', 'SHOW DATABASES', __('Gives access to the complete list of databases.')),
-        array('Super_priv', 'SUPER', __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')),
-        array('Create_tmp_table_priv', 'CREATE TEMPORARY TABLES', __('Allows creating temporary tables.')),
-        array('Lock_tables_priv', 'LOCK TABLES', __('Allows locking tables for the current thread.')),
-        array('Repl_slave_priv', 'REPLICATION SLAVE', __('Needed for the replication slaves.')),
-        array('Repl_client_priv', 'REPLICATION CLIENT', __('Allows the user to ask where the slaves / masters are.')),
-        array('Create_view_priv', 'CREATE VIEW', __('Allows creating new views.')),
-        array('Event_priv', 'EVENT', __('Allows to set up events for the event scheduler')),
-        array('Trigger_priv', 'TRIGGER', __('Allows creating and dropping triggers')),
+        array(
+            'Select_priv',
+            'SELECT',
+            __('Allows reading data.')),
+        array(
+            'Insert_priv',
+            'INSERT',
+            __('Allows inserting and replacing data.')),
+        array(
+            'Update_priv',
+            'UPDATE',
+            __('Allows changing data.')),
+        array(
+            'Delete_priv',
+            'DELETE',
+            __('Allows deleting data.')),
+        array(
+            'Create_priv',
+            'CREATE',
+            __('Allows creating new databases and tables.')),
+        array(
+            'Drop_priv',
+            'DROP',
+            __('Allows dropping databases and tables.')),
+        array(
+            'Reload_priv',
+            'RELOAD',
+            __('Allows reloading server settings and flushing the server\'s caches.')),
+        array(
+            'Shutdown_priv',
+            'SHUTDOWN',
+            __('Allows shutting down the server.')),
+        array(
+            'Process_priv',
+            'PROCESS',
+            __('Allows viewing processes of all users')),
+        array(
+            'File_priv',
+            'FILE',
+            __('Allows importing data from and exporting data into files.')),
+        array(
+            'References_priv',
+            'REFERENCES',
+            __('Has no effect in this MySQL version.')),
+        array(
+            'Index_priv',
+            'INDEX',
+            __('Allows creating and dropping indexes.')),
+        array(
+            'Alter_priv',
+            'ALTER',
+            __('Allows altering the structure of existing tables.')),
+        array(
+            'Show_db_priv',
+            'SHOW DATABASES',
+            __('Gives access to the complete list of databases.')),
+        array(
+            'Super_priv',
+            'SUPER',
+            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')),
+        array(
+            'Create_tmp_table_priv',
+            'CREATE TEMPORARY TABLES',
+            __('Allows creating temporary tables.')),
+        array(
+            'Lock_tables_priv',
+            'LOCK TABLES',
+            __('Allows locking tables for the current thread.')),
+        array(
+            'Repl_slave_priv',
+            'REPLICATION SLAVE',
+            __('Needed for the replication slaves.')),
+        array(
+            'Repl_client_priv',
+            'REPLICATION CLIENT',
+            __('Allows the user to ask where the slaves / masters are.')),
+        array(
+            'Create_view_priv',
+            'CREATE VIEW',
+            __('Allows creating new views.')),
+        array(
+            'Event_priv',
+            'EVENT',
+            __('Allows to set up events for the event scheduler')),
+        array(
+            'Trigger_priv',
+            'TRIGGER',
+            __('Allows creating and dropping triggers')),
         // for table privs:
-        array('Create View_priv', 'CREATE VIEW', __('Allows creating new views.')),
-        array('Show_view_priv', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
+        array(
+            'Create View_priv',
+            'CREATE VIEW',
+            __('Allows creating new views.')),
+        array(
+            'Show_view_priv',
+            'SHOW VIEW',
+            __('Allows performing SHOW CREATE VIEW queries.')),
         // for table privs:
-        array('Show view_priv', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
-        array('Create_routine_priv', 'CREATE ROUTINE', __('Allows creating stored routines.')),
-        array('Alter_routine_priv', 'ALTER ROUTINE', __('Allows altering and dropping stored routines.')),
-        array('Create_user_priv', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.')),
-        array('Execute_priv', 'EXECUTE', __('Allows executing stored routines.')),
+        array(
+            'Show view_priv',
+            'SHOW VIEW',
+            __('Allows performing SHOW CREATE VIEW queries.')),
+        array(
+            'Create_routine_priv',
+            'CREATE ROUTINE',
+            __('Allows creating stored routines.')),
+        array(
+            'Alter_routine_priv',
+            'ALTER ROUTINE',
+            __('Allows altering and dropping stored routines.')),
+        array(
+            'Create_user_priv',
+            'CREATE USER',
+            __('Allows creating, dropping and renaming user accounts.')),
+        array(
+            'Execute_priv',
+            'EXECUTE',
+            __('Allows executing stored routines.')),
     );
 
     if (!empty($row) && isset($row['Table_priv'])) {
@@ -318,9 +404,9 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
 /**
  * Displays the privileges form table
  *
- * @param   string  $db     the database
- * @param   string  $table  the table
- * @param   boolean $submit wheather to display the submit button or not
+ * @param string  $db     the database
+ * @param string  $table  the table
+ * @param boolean $submit wheather to display the submit button or not
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
  *
@@ -588,7 +674,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
            . '    <p><small><i>' . __(' Note: MySQL privilege names are expressed in English ') . '</i></small></p>' . "\n";
 
         // Output the Global privilege tables with checkboxes
-        foreach($privTable as $i => $table) {
+        foreach ($privTable as $i => $table) {
             echo '    <fieldset>' . "\n"
                 . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
             foreach ($table as $priv)
@@ -653,7 +739,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
  *
- * @param   string     $mode    are we creating a new user or are we just
+ * @param string     $mode    are we creating a new user or are we just
  *                              changing  one? (allowed values: 'new', 'change')
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  ressource  $user_link the database connection
@@ -960,7 +1046,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     /**
                      * If we are not in an Ajax request, we can't reload navigation now
                      */
-                    if($GLOBALS['is_ajax_request'] != true) {
+                    if ($GLOBALS['is_ajax_request'] != true) {
                         // this is needed in case tracking is on:
                         $GLOBALS['db'] = $username;
                         $GLOBALS['reload'] = true;
@@ -984,7 +1070,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     if (! PMA_DBI_try_query($q)) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                     }
-					break;
+                    break;
                 case '3' :
                     // Grant all privileges on the specified database to the new user
                     $q = 'GRANT ALL PRIVILEGES ON '
@@ -1106,7 +1192,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (!empty($update_privs)) {
-    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, (isset($tablename) ? $tablename : ''));
+    $db_and_table = PMA_wildcardEscapeForGrant($dbname, (isset($tablename) ? $tablename : ''));
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1182,7 +1268,7 @@ if (!empty($update_privs)) {
  * Revokes Privileges
  */
 if (isset($_REQUEST['revokeall'])) {
-    $db_and_table = PMA_WildcardEscapeForGrant($db_and_table, $dbname, isset($tablename) ? $tablename : '');
+    $db_and_table = PMA_wildcardEscapeForGrant($dbname, isset($tablename) ? $tablename : '');
 
     $sql_query0 =
         'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1260,7 +1346,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
             $GLOBALS['reload'] = true;
 
-            if($GLOBALS['is_ajax_request'] != true) {
+            if ($GLOBALS['is_ajax_request'] != true) {
                 PMA_reloadNavigation();
             }
         }
@@ -1358,13 +1444,13 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
  * If we are in an Ajax request for Create User/Edit User/Revoke User/Flush Privileges,
  * show $message and exit.
  */
-if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
+if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
-    if(isset($sql_query)) {
+    if (isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
     }
 
-    if(isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         /**
          * generate html on the fly for the new user that was just created.
          */
@@ -1374,7 +1460,7 @@ if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
                            .'<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
         $new_user_string .= '<td>';
 
-        if(!empty($password) || isset($pma_pw)) {
+        if (!empty($password) || isset($pma_pw)) {
             $new_user_string .= __('Yes');
         }
         else {
@@ -1385,7 +1471,7 @@ if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
         $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo('', true)) . '</tt></td>'; //Fill in privileges here
         $new_user_string .= '<td>';
 
-        if((isset($Grant_priv) && $Grant_priv == 'Y')) {
+        if ((isset($Grant_priv) && $Grant_priv == 'Y')) {
             $new_user_string .= __('Yes');
         }
         else {
@@ -1412,7 +1498,7 @@ if( $GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
     }
 
-    if(isset($update_privs)) {
+    if (isset($update_privs)) {
         $extra_data['db_specific_privs'] = false;
         if (isset($dbname_is_wildcard)) {
             $extra_data['db_specific_privs'] = !$dbname_is_wildcard;
@@ -1452,12 +1538,12 @@ if (isset($_REQUEST['export'])) {
     echo '<h2>' . __('User') . ' \'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</h2>';
     echo '<textarea cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($username) . "'@'" . PMA_sqlAddSlashes($hostname) . "'");
-    foreach($grants as $one_grant) {
+    foreach ($grants as $one_grant) {
         echo $one_grant . ";\n\n";
     }
     echo '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
-    if( $GLOBALS['is_ajax_request']) {
+    if ($GLOBALS['is_ajax_request']) {
         exit;
     }
 }
@@ -1475,7 +1561,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
             '  FROM `mysql`.`user`';
 
-        $sql_query .= (isset($initial) ? PMA_RangeOfUsers($initial) : '');
+        $sql_query .= (isset($initial) ? PMA_rangeOfUsers($initial) : '');
 
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
         $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
@@ -1516,7 +1602,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             $db_rights_sqls = array();
             foreach ($tables_to_search_for_users as $table_search_in) {
                 if (in_array($table_search_in, $tables)) {
-                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_RangeOfUsers($initial) : '');
+                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_rangeOfUsers($initial) : '');
                 }
             }
 
@@ -1552,7 +1638,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
              * In an Ajax request, we don't need to show this. Also not necassary if there is less than 20 privileges
              */
 
-            if( $GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
+            if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
 
                 // initialize to false the letters A-Z
                 for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -1704,7 +1790,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '    </fieldset>' . "\n";
             } // end if (display overview)
 
-            if( $GLOBALS['is_ajax_request'] ) {
+            if ($GLOBALS['is_ajax_request']) {
                 exit;
             }
 
@@ -1720,7 +1806,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         // A user was selected -> display the user's properties
 
         // In an Ajax request, prevent cached values from showing
-        if($GLOBALS['is_ajax_request'] == true) {
+        if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
 
@@ -2052,9 +2138,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                . '</fieldset>' . "\n"
                . '</form>' . "\n";
 
-		}
+        }
 
-		// Provide a line with links to the relevant database and table
+        // Provide a line with links to the relevant database and table
         if (isset($dbname) && empty($dbname_is_wildcard)) {
             echo '[ ' . __('Database')
                 . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
@@ -2119,7 +2205,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         '1' => __('Create database with same name and grant all privileges'),
         '2' => __('Grant all privileges on wildcard name (username\\_%)'));
 
-    if ( !empty($dbname) ) {
+    if (! empty($dbname) ) {
         $choices['3'] = sprintf( __('Grant all privileges on database &quot;%s&quot;'),  htmlspecialchars($dbname));
         $default_choice = 3;
         echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
@@ -2290,7 +2376,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     $user_form .= '</tbody>' . "\n"
        . '</table></form>' . "\n";
 
-    if($GLOBALS['is_ajax_request'] == true){
+    if ($GLOBALS['is_ajax_request'] == true) {
         $extra_data['user_form'] = $user_form;
         $message = PMA_Message::success(__('User has been added.'));
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);

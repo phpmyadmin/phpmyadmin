@@ -28,7 +28,7 @@ var codemirror_editor = false;
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
  */
 var chart_activeTimeouts = new Object();
-    
+
 
 /**
  * Add a hidden field to the form to indicate that this will be an
@@ -135,14 +135,13 @@ function displayPasswordGenerateButton() {
  *
  * @param   object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element) {
+function PMA_addDatepicker($this_element, options) {
     var showTimeOption = false;
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
 
-    $this_element
-        .datepicker({
+    var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -157,9 +156,16 @@ function PMA_addDatepicker($this_element) {
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
             $this_element.data('comes_from', 'datepicker');
+
+            // Fix wrong timepicker z-index, doesn't work without timeout
+            setTimeout(function() {
+                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
+            },0);
         },
         constrainInput: false
-     });
+    };
+
+    $this_element.datepicker($.extend(defaultOptions, options));
 }
 
 /**
@@ -624,13 +630,13 @@ $(document).ready(function() {
             return;
         }
         var $tr = $(this);
-        
+
         // make the table unselectable (to prevent default highlighting when shift+click)
         $tr.parents('table').noSelect();
-        
+
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
-            
+
             // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
             var $checkbox = $tr.find(':checkbox');
             if ($checkbox.length) {
@@ -651,14 +657,14 @@ $(document).ready(function() {
                 $tr.toggleClass('marked');
                 last_click_checked = false;
             }
-            
+
             // remember the last clicked row
             last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
             var start, end;
-            
+
             // clear last shift click result
             if (last_shift_clicked_row >= 0) {
                 if (last_shift_clicked_row >= last_clicked_row) {
@@ -674,7 +680,7 @@ $(document).ready(function() {
                     .find(':checkbox')
                     .attr('checked', false);
             }
-            
+
             // handle new shift click
             var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
             if (curr_row >= last_clicked_row) {
@@ -689,7 +695,7 @@ $(document).ready(function() {
                 .addClass('marked')
                 .find(':checkbox')
                 .attr('checked', true);
-            
+
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
         }
@@ -723,13 +729,13 @@ var last_shift_clicked_row = -1;
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
         $tr.children().toggleClass('hover',event.type=='mouseover');
     });
-})
+})*/
 
 /**
  * This array is used to remember mark status of rows in browse mode
@@ -1217,6 +1223,7 @@ function changeMIMEType(db, table, reference, mime_type)
  */
 $(document).ready(function(){
     $(".inline_edit_sql").live('click', function(){
+        var server     = $(this).prev().find("input[name='server']").val();
         var db         = $(this).prev().find("input[name='db']").val();
         var table      = $(this).prev().find("input[name='table']").val();
         var token      = $(this).prev().find("input[name='token']").val();
@@ -1232,7 +1239,8 @@ $(document).ready(function(){
             $(this).click(function(){
                 sql_query = $(this).prev().val();
                 window.location.replace("import.php"
-                                      + "?db=" + encodeURIComponent(db)
+                                      + "?server=" + encodeURIComponent(server)
+                                      + "&db=" + encodeURIComponent(db)
                                       + "&table=" + encodeURIComponent(table)
                                       + "&sql_query=" + encodeURIComponent(sql_query)
                                       + "&show_query=1"
@@ -1444,63 +1452,69 @@ function PMA_createTableDialog( div, url , target) {
  *                              realtime: {
  *                                  url: adress to get the data from (will always add token, ajax_request=1 and chart_data=1 to the GET request)
  *                                  type: the GET request will also add type=[value of the type property] to the request
- *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order: 
+ *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order:
  *                                      - the chart object
  *                                      - the current response value of the GET request, JSON parsed
  *                                      - the previous response value of the GET request, JSON parsed
  *                                      - the number of added points
- * 
+ *
  * @return  object   The created highcharts instance
  */
 function PMA_createChart(passedSettings) {
     var container = passedSettings.chart.renderTo;
-    
+
     var settings = {
         chart: {
             type: 'spline',
             marginRight: 10,
+            backgroundColor: 'transparent',
             events: {
+                /* Live charting support */
                 load: function() {
                     var thisChart = this;
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    // No realtime updates for graphs that are being exported, and disabled when no callback is set
-                    if(thisChart.options.chart.forExport == true || 
-                        ! passedSettings.realtime || 
-                        ! passedSettings.realtime.callback) return;
-                            
+
+                    // No realtime updates for graphs that are being exported, and disabled when realtime is not set
+                    // Also don't do live charting if we don't have the server time
+                    if(thisChart.options.chart.forExport == true ||
+                        ! thisChart.options.realtime ||
+                        ! thisChart.options.realtime.callback ||
+                        ! server_time_diff) return;
+
                     thisChart.options.realtime.timeoutCallBack = function() {
-                        $.post(passedSettings.realtime.url,
-                            { ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },
+                        thisChart.options.realtime.postRequest = $.post(
+                            thisChart.options.realtime.url,
+                            thisChart.options.realtime.postData,
                             function(data) {
                                 curValue = jQuery.parseJSON(data);
-                                
+
                                 if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
                                 else diff = parseInt(curValue.x - lastValue.x);
-                                
+
                                 thisChart.xAxis[0].setExtremes(
-                                    thisChart.xAxis[0].getExtremes().min+diff, 
-                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    thisChart.xAxis[0].getExtremes().min+diff,
+                                    thisChart.xAxis[0].getExtremes().max+diff,
                                     false
                                 );
-                                
-                                passedSettings.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                                
+
+                                thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
+
                                 lastValue = curValue;
                                 numLoadedPoints++;
-                                
+
                                 // Timeout has been cleared => don't start a new timeout
-                                if(chart_activeTimeouts[container]==null) return;
-                                
+                                if(chart_activeTimeouts[container] == null) return;
+
                                 chart_activeTimeouts[container] = setTimeout(
-                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.timeoutCallBack,
                                     thisChart.options.realtime.refreshRate
-                                ); 
+                                );
                         });
                     }
-                    
-                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 0);
+
+                    chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
         },
@@ -1531,7 +1545,7 @@ function PMA_createChart(passedSettings) {
         tooltip: {
             formatter: function() {
                     return '<b>' + this.series.name +'</b><br/>' +
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                     Highcharts.numberFormat(this.y, 2);
             }
         },
@@ -1540,17 +1554,22 @@ function PMA_createChart(passedSettings) {
         },
         series: []
     }
-    
+
     /* Set/Get realtime chart default values */
     if(passedSettings.realtime) {
-        if(!passedSettings.realtime.refreshRate) 
+        if(!passedSettings.realtime.refreshRate)
             passedSettings.realtime.refreshRate = 5000;
-        
-        if(!passedSettings.realtime.numMaxPoints) 
+
+        if(!passedSettings.realtime.numMaxPoints)
             passedSettings.realtime.numMaxPoints = 30;
-        
-        settings.xAxis.min = new Date().getTime() - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
-        settings.xAxis.max = new Date().getTime() + passedSettings.realtime.refreshRate / 4;
+
+        // Allow custom POST vars to be added
+        passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
+
+        if(server_time_diff) {
+            settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
+            settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
+        }
     }
 
     // Overwrite/Merge default settings with passedsettings
@@ -2224,7 +2243,9 @@ function displayMoreTableOpts() {
     }
 
 }
-$(document).ready(initTooltips);
+$(document).ready(function(){
+    PMA_convertFootnotesToTooltips();
+});
 
 /**
  * Ensures indexes names are valid according to their type and, for a primary
@@ -2260,27 +2281,53 @@ function checkIndexName(form_id)
     return true;
 } // end of the 'checkIndexName()' function
 
-
-/* Displays tooltips */
-function initTooltips() {
+/**
+ * function to convert the footnotes to tooltips
+ *
+ * @param   jquery-Object   $div    a div jquery object which specifies the
+ *                                  domain for searching footnootes. If we
+ *                                  ommit this parameter the function searches
+ *                                  the footnotes in the whole body
+ **/
+function PMA_convertFootnotesToTooltips($div) {
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
-    $(".footnotes").hide();
-    $(".footnotes span").each(function() {
+
+    if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
+        $div = $("#serverinfo").parent();
+    }
+
+    $footnotes = $div.find(".footnotes");
+
+    $footnotes.hide();
+    $footnotes.find('span').each(function() {
         $(this).children("sup").remove();
     });
     // The border and padding must be removed otherwise a thin yellow box remains visible
-    $(".footnotes").css("border", "none");
-    $(".footnotes").css("padding", "0px");
+    $footnotes.css("border", "none");
+    $footnotes.css("padding", "0px");
 
     // Replace the superscripts with the help icon
-    $("sup[class='footnotemarker']").hide();
-    $("img[class='footnotemarker']").show();
+    $div.find("sup.footnotemarker").hide();
+    $div.find("img.footnotemarker").show();
 
-    $("img[class='footnotemarker']").each(function() {
-        var span_id = $(this).attr("id");
-        span_id = span_id.split("_")[1];
-        var tooltip_text = $(".footnotes span[id='footnote_" + span_id + "']").html();
+    $div.find("img.footnotemarker").each(function() {
+        var img_class = $(this).attr("class");
+        /** img contains two classes, as example "footnotemarker footnote_1".
+         *  We split it by second class and take it for the id of span
+        */
+        img_class = img_class.split(" ");
+        for (i = 0; i < img_class.length; i++) {
+            if (img_class[i].split("_")[0] == "footnote") {
+                var span_id = img_class[i].split("_")[1];
+            }
+        }
+        /**
+         * Now we get the #id of the span with span_id variable. As an example if we
+         * initially get the img class as "footnotemarker footnote_2", now we get
+         * #2 as the span_id. Using that we can find footnote_2 in footnotes.
+         * */
+        var tooltip_text = $footnotes.find("span[id='footnote_" + span_id + "']").html();
         $(this).qtip({
             content: tooltip_text,
             show: { delay: 0 },
@@ -2363,7 +2410,7 @@ $(function() {
         });
     var img = topmenu.find('li:first-child img');
     if (img.length) {
-        img.clone().attr('src', img.attr('src').replace(/\/[^\/]+$/, '/b_more.png')).prependTo(link);
+        img.clone().attr('class', 'icon ic_b_more').prependTo(link);
     }
     var submenu = $('<li />', {'class': 'submenu'})
         .append(link)
@@ -2438,65 +2485,65 @@ var toggleButton = function ($obj) {
     } else {
         var right = 'left';
     }
-	/**
-	 *  var  h  Height of the button, used to scale the
-	 *          background image and position the layers
-	 */
-	var h = $obj.height();
-	$('img', $obj).height(h);
-	$('table', $obj).css('bottom', h-1);
-	/**
-	 *  var  on   Width of the "ON" part of the toggle switch
-	 *  var  off  Width of the "OFF" part of the toggle switch
-	 */
-	var on  = $('.toggleOn', $obj).width();
-	var off = $('.toggleOff', $obj).width();
-	// Make the "ON" and "OFF" parts of the switch the same size
-	$('.toggleOn > div', $obj).width(Math.max(on, off));
-	$('.toggleOff > div', $obj).width(Math.max(on, off));
-	/**
-	 *  var  w  Width of the central part of the switch
-	 */
-	var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
-	// Resize the central part of the switch on the top
-	// layer to match the background
-	$('table td:nth-child(2) > div', $obj).width(w);
-	/**
-	 *  var  imgw    Width of the background image
-	 *  var  tblw    Width of the foreground layer
-	 *  var  offset  By how many pixels to move the background
-	 *               image, so that it matches the top layer
-	 */
-	var imgw = $('img', $obj).width();
-	var tblw = $('table', $obj).width();
-	var offset = parseInt(((imgw - tblw) / 2), 10);
-	// Move the background to match the layout of the top layer
-	$obj.find('img').css(right, offset);
-	/**
-	 *  var  offw    Outer width of the "ON" part of the toggle switch
-	 *  var  btnw    Outer width of the central part of the switch
-	 */
-	var offw = $('.toggleOff', $obj).outerWidth();
-	var btnw = $('table td:nth-child(2)', $obj).outerWidth();
-	// Resize the main div so that exactly one side of
-	// the switch plus the central part fit into it.
-	$obj.width(offw + btnw + 2);
-	/**
-	 *  var  move  How many pixels to move the
-	 *             switch by when toggling
-	 */
-	var move = $('.toggleOff', $obj).outerWidth();
-	// If the switch is initialized to the
-	// OFF state we need to move it now.
-	if ($('.container', $obj).hasClass('off')) {
+    /**
+     *  var  h  Height of the button, used to scale the
+     *          background image and position the layers
+     */
+    var h = $obj.height();
+    $('img', $obj).height(h);
+    $('table', $obj).css('bottom', h-1);
+    /**
+     *  var  on   Width of the "ON" part of the toggle switch
+     *  var  off  Width of the "OFF" part of the toggle switch
+     */
+    var on  = $('.toggleOn', $obj).width();
+    var off = $('.toggleOff', $obj).width();
+    // Make the "ON" and "OFF" parts of the switch the same size
+    $('.toggleOn > div', $obj).width(Math.max(on, off));
+    $('.toggleOff > div', $obj).width(Math.max(on, off));
+    /**
+     *  var  w  Width of the central part of the switch
+     */
+    var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+    // Resize the central part of the switch on the top
+    // layer to match the background
+    $('table td:nth-child(2) > div', $obj).width(w);
+    /**
+     *  var  imgw    Width of the background image
+     *  var  tblw    Width of the foreground layer
+     *  var  offset  By how many pixels to move the background
+     *               image, so that it matches the top layer
+     */
+    var imgw = $('img', $obj).width();
+    var tblw = $('table', $obj).width();
+    var offset = parseInt(((imgw - tblw) / 2), 10);
+    // Move the background to match the layout of the top layer
+    $obj.find('img').css(right, offset);
+    /**
+     *  var  offw    Outer width of the "ON" part of the toggle switch
+     *  var  btnw    Outer width of the central part of the switch
+     */
+    var offw = $('.toggleOff', $obj).outerWidth();
+    var btnw = $('table td:nth-child(2)', $obj).outerWidth();
+    // Resize the main div so that exactly one side of
+    // the switch plus the central part fit into it.
+    $obj.width(offw + btnw + 2);
+    /**
+     *  var  move  How many pixels to move the
+     *             switch by when toggling
+     */
+    var move = $('.toggleOff', $obj).outerWidth();
+    // If the switch is initialized to the
+    // OFF state we need to move it now.
+    if ($('.container', $obj).hasClass('off')) {
         if (right == 'right') {
-    		$('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-    		$('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
-	}
-	// Attach an 'onclick' event to the switch
-	$('.container', $obj).click(function () {
+    }
+    // Attach an 'onclick' event to the switch
+    $('.container', $obj).click(function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -2505,8 +2552,8 @@ var toggleButton = function ($obj) {
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         var $container = $(this);
         var callback = $('.callback', this).text();
-		// Perform the actual toggle
-		if ($(this).hasClass('on')) {
+        // Perform the actual toggle
+        if ($(this).hasClass('on')) {
             if (right == 'right') {
                 var operator = '-=';
             } else {
@@ -2515,7 +2562,7 @@ var toggleButton = function ($obj) {
             var url = $(this).find('.toggleOff > span').text();
             var removeClass = 'on';
             var addClass = 'off';
-		} else {
+        } else {
             if (right == 'right') {
                 var operator = '+=';
             } else {
@@ -2528,10 +2575,10 @@ var toggleButton = function ($obj) {
         $.post(url, {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
-		        $container
-		        .removeClass(removeClass)
-		        .addClass(addClass)
-		        .animate({'left': operator + move + 'px'}, function () {
+                $container
+                .removeClass(removeClass)
+                .addClass(addClass)
+                .animate({'left': operator + move + 'px'}, function () {
                     $container.removeClass('isActive');
                 });
                 eval(callback);
@@ -2540,7 +2587,7 @@ var toggleButton = function ($obj) {
                 $container.removeClass('isActive');
             }
         });
-	});
+    });
 };
 
 /**
@@ -2551,8 +2598,8 @@ $(window).load(function () {
         $(this)
         .show()
         .find('.toggleButton')
-		toggleButton($(this));
-	});
+        toggleButton($(this));
+    });
 });
 
 /**
@@ -2562,10 +2609,10 @@ $(document).ready(function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
-        var $this_td = $(this);
-        var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle hover
-        $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
+            var $this_td = $(this);
+            var row_num = PMA_getRowNumber($this_td.attr('class'));
+            // for all td of the same vertical row, toggle hover
+            $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
 }) // end of $(document).ready() for vertical pointer
@@ -2575,11 +2622,35 @@ $(document).ready(function() {
      * Vertical marker
      */
     $('.vmarker').live('click', function(e) {
+        // do not trigger when clicked on anchor
+        if ($(e.target).is('a, img, a *')) {
+            return;
+        }
+
         var $this_td = $(this);
         var row_num = PMA_getRowNumber($this_td.attr('class'));
-        // for all td of the same vertical row, toggle the marked class
-        $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
-        });
+
+        // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
+        var $tr = $(this);
+        var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
+        if ($checkbox.length) {
+            // checkbox in a row, add or remove class depending on checkbox state
+            var checked = $checkbox.attr('checked');
+            if (!$(e.target).is(':checkbox, label')) {
+                checked = !checked;
+                $checkbox.attr('checked', checked);
+            }
+            // for all td of the same vertical row, toggle the marked class
+            if (checked) {
+                $('.vmarker').filter('.row_' + row_num).addClass('marked');
+            } else {
+                $('.vmarker').filter('.row_' + row_num).removeClass('marked');
+            }
+        } else {
+            // normaln data table, just toggle class
+            $('.vmarker').filter('.row_' + row_num).toggleClass('marked');
+        }
+    });
 
     /**
      * Reveal visual builder anchor
@@ -2834,6 +2905,45 @@ $(document).ready(function() {
                 else $(this).removeAttr('unselectable', 'on');
             });
         }
-    }; //end noSelect    
+    }; //end noSelect
 })(jQuery);
+
+/**
+ * Create default PMA tooltip for the element specified. The default appearance
+ * can be overriden by specifying optional "options" parameter (see qTip options).
+ */
+function PMA_createqTip($elements, content, options) {
+    var o = {
+        content: content,
+        style: {
+            background: '#333',
+            border: {
+                radius: 5
+            },
+            fontSize: '0.8em',
+            padding: '0 0.5em',
+            name: 'dark'
+        },
+        position: {
+            target: 'mouse',
+            corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
+            adjust: { x: 20 }
+        },
+        show: {
+            delay: 0,
+            effect: {
+                type: 'grow',
+                length: 100
+            }
+        },
+        hide: {
+            effect: {
+                type: 'grow',
+                length: 150
+            }
+        }
+    }
+
+    $elements.qtip($.extend(true, o, options));
+}
 

@@ -59,17 +59,17 @@ $titles = PMA_buildActionTitles();
 // 1. No tables
 
 if ($num_tables == 0) {
-	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
+    echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
-	if (empty($db_is_information_schema)) {
-		require './libraries/display_create_table.lib.php';
-	} // end if (Create Table dialog)
+    if (empty($db_is_information_schema)) {
+        require './libraries/display_create_table.lib.php';
+    } // end if (Create Table dialog)
 
-	/**
-	 * Displays the footer
-	 */
-	require_once './libraries/footer.inc.php';
-	exit;
+    /**
+     * Displays the footer
+     */
+    require_once './libraries/footer.inc.php';
+    exit;
 }
 
 // else
@@ -177,7 +177,7 @@ foreach ($tables as $keyname => $each_table) {
             }
             //$display_rows                   =  ' - ';
             break;
-	    // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
+        // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
         // Both are aliases for MERGE
         case 'MRG_MyISAM' :
         case 'MRG_MYISAM' :
@@ -285,9 +285,9 @@ foreach ($tables as $keyname => $each_table) {
     $tracking_icon = '';
     if (PMA_Tracker::isActive()) {
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
-            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query.'&amp;table=' . $truename . '"><img class="icon" width="14" height="14" src="' . $pmaThemeImage . 'eye.png" alt="' . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
+            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query.'&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Tracking is active.') . '" title="' . __('Tracking is active.') . '" /></a>';
         } elseif (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
-            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . $truename . '"><img class="icon" width="14" height="14" src="' . $pmaThemeImage . 'eye_grey.png" alt="' . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
+            $tracking_icon = '<a href="tbl_tracking.php?' . $url_query . '&amp;table=' . $truename . '"><img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Tracking is not active.') . '" title="' . __('Tracking is not active.') . '" /></a>';
         }
     }
 
@@ -342,7 +342,7 @@ foreach ($tables as $keyname => $each_table) {
     <th><?php echo $browse_table_label; ?>
         <?php echo (! empty($tracking_icon) ? $tracking_icon : ''); ?>
     </th>
-   <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon" src="' . $pmaThemeImage . 's_cancel.png" width="16" height="16"  alt="NOT REPLICATED" />' : ''. $do ? ' <img class="icon" src="' . $pmaThemeImage . 's_success.png" width="16" height="16"  alt="REPLICATED" />' : ''; ?></td><?php } ?>
+   <?php if ($server_slave_status) { ?><td align="center"><?php echo $ignored ? ' <img class="icon ic_s_cancel" src="themes/dot.gif" alt="NOT REPLICATED" />' : ''. $do ? ' <img class="icon ic_s_success" src="themes/dot.gif" alt="REPLICATED" />' : ''; ?></td><?php } ?>
     <td align="center"><?php echo $browse_table; ?></td>
     <td align="center">
         <a href="tbl_structure.php?<?php echo $tbl_url_query; ?>">
@@ -368,12 +368,12 @@ foreach ($tables as $keyname => $each_table) {
     //  that needs to be repaired
     if (isset($each_table['TABLE_ROWS']) && ($each_table['ENGINE'] != null || $table_is_view)) {
         if ($table_is_view) {
-            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']){
+            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']) {
                 $row_count_pre = '~';
                 $sum_row_count_pre = '~';
                 $show_superscript = PMA_showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
             }
-        } elseif($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
+        } elseif ($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
             // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
@@ -549,15 +549,13 @@ PMA_listNavigator($total_num_tables, $pos, $_url_params, 'db_structure.php', 'fr
 echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
 if ($cfg['PropertiesIconic']) {
-     echo '<img class="icon" src="' . $pmaThemeImage
-        .'b_print.png" width="16" height="16" alt="" />';
+     echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="" />';
 }
 echo __('Print view') . '</a> ';
 
 echo '<a href="./db_datadict.php?' . $url_query . '">';
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon" src="' . $pmaThemeImage
-        .'b_tblanalyse.png" width="16" height="16" alt="" />';
+    echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="" />';
 }
 echo __('Data Dictionary') . '</a>';
 echo '</p>';

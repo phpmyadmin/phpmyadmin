@@ -70,14 +70,14 @@ $table_alters = array();
 /**
  * If the table has to be moved to some other database
  */
-if(isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
+if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
     $_message = '';
     require_once './tbl_move_copy.php';
 }
 /**
  * If the table has to be maintained
  */
-if(isset($_REQUEST['table_maintenance'])) {
+if (isset($_REQUEST['table_maintenance'])) {
     require_once './sql.php';
     unset($result);
 }
@@ -488,7 +488,7 @@ $innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
 $innodb_plugin_version = $innodb_engine_plugin->getInnodbPluginVersion();
 if (!empty($innodb_plugin_version)) {
     $innodb_file_format = $innodb_engine_plugin->getInnodbFileFormat();
-}  else {
+} else {
     $innodb_file_format = '';
 }
 if ('Barracuda' == $innodb_file_format && $innodb_engine_plugin->supportsFilePerTable()) {
@@ -733,7 +733,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
  <legend><?php echo __('Partition maintenance'); ?></legend>
 <?php
         $html_select = '<select name="partition_name">' . "\n";
-        foreach($partition_names as $one_partition) {
+        foreach ($partition_names as $one_partition) {
             $one_partition = htmlspecialchars($one_partition);
             $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
         }

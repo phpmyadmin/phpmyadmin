@@ -107,7 +107,7 @@ class PMA_Theme {
      *
      * @static
      * @access  public
-     * @param   string  $folder path to theme
+     * @param string  $folder path to theme
      * @return  object  PMA_Theme
      */
     static public function load($folder)
@@ -172,7 +172,7 @@ class PMA_Theme {
      * set path to theme
      *
      * @access  public
-     * @param   string  $path   path to theme
+     * @param string  $path   path to theme
      */
     function setPath($path)
     {
@@ -183,7 +183,7 @@ class PMA_Theme {
      * sets version
      *
      * @access  public
-     * @param   string new version
+     * @param string new version
      */
     function setVersion($version)
     {
@@ -206,7 +206,7 @@ class PMA_Theme {
      * returns true if theme version is equal or higher to $version
      *
      * @access  public
-     * @param   string  $version    version to compare to
+     * @param string  $version    version to compare to
      * @return  boolean
      */
     function checkVersion($version)
@@ -218,7 +218,7 @@ class PMA_Theme {
      * sets name
      *
      * @access  public
-     * @param   string  $name   new name
+     * @param string  $name   new name
      */
     function setName($name)
     {
@@ -240,7 +240,7 @@ class PMA_Theme {
      * sets id
      *
      * @access  public
-     * @param   string  $id   new id
+     * @param string  $id   new id
      */
     function setId($id)
     {
@@ -260,7 +260,7 @@ class PMA_Theme {
 
     /**
      * @access  public
-     * @param   string  path to images for this theme
+     * @param string  path to images for this theme
      */
     function setImgPath($path)
     {
@@ -280,7 +280,7 @@ class PMA_Theme {
      * load css (send to stdout, normally the browser)
      *
      * @access  public
-     * @param   string  $type   left, right or print
+     * @param string  $type   left, right or print
      */
     function loadCss(&$type)
     {

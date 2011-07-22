@@ -60,22 +60,22 @@ if ((isset($_REQUEST['submit_connect']))) {
         ${"{$con}_port"}     = $_REQUEST[$con . '_port'];
         ${"{$con}_socket"}   = $_REQUEST[$con . '_socket'];
         ${"{$con}_db"}       = $_REQUEST[$con . '_db'];
-        ${"{$con}_type"}	 = $_REQUEST[$con . '_type'];
+        ${"{$con}_type"}     = $_REQUEST[$con . '_type'];
 
         if (${"{$con}_type"} == 'cur') {
-	        ${"{$con}_connection"} = null;
-	        ${"{$con}_server"} = null;
-	        ${"{$con}_db"}       = $_REQUEST[$con . '_db_sel'];
-	        continue;
+            ${"{$con}_connection"} = null;
+            ${"{$con}_server"} = null;
+            ${"{$con}_db"}       = $_REQUEST[$con . '_db_sel'];
+            continue;
         }
 
         if (isset(${"{$con}_socket"}) && ! empty(${"{$con}_socket"})) {
-	        ${"{$con}_server"}['socket'] = ${"{$con}_socket"};
+            ${"{$con}_server"}['socket'] = ${"{$con}_socket"};
         } else {
-	        ${"{$con}_server"}['host'] = ${"{$con}_host"};
-	        if (isset(${"{$con}_port"}) && ! empty(${"{$con}_port"}) && ((int)${"{$con}_port"} * 1) > 0) {
-	            ${"{$con}_server"}['port'] = (int)${"{$con}_port"};
-	        }
+            ${"{$con}_server"}['host'] = ${"{$con}_host"};
+            if (isset(${"{$con}_port"}) && ! empty(${"{$con}_port"}) && ((int)${"{$con}_port"} * 1) > 0) {
+                ${"{$con}_server"}['port'] = (int)${"{$con}_port"};
+            }
         }
 
         ${"{$con}_connection"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"}, $auxiliary_connection = true);
@@ -88,10 +88,10 @@ if ((isset($_REQUEST['submit_connect']))) {
         */
 
         echo '<div class="error">';
-        if(! $src_connection && $src_type != 'cur') {
+        if (! $src_connection && $src_type != 'cur') {
             echo __('Could not connect to the source') . '<br />';
         }
-        if(! $trg_connection && $trg_type != 'cur'){
+        if (! $trg_connection && $trg_type != 'cur') {
             echo __('Could not connect to the target');
         }
         echo '</div>';
@@ -102,14 +102,14 @@ if ((isset($_REQUEST['submit_connect']))) {
         * Creating the link object for both source and target databases and
         * selecting the source and target databases using these links
         */
-	    foreach ($cons as $con) {
-	        if (${"{$con}_connection"} != null) {
-	            ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
-	        } else {
+        foreach ($cons as $con) {
+            if (${"{$con}_connection"} != null) {
+                ${"{$con}_link"} = PMA_DBI_connect(${"{$con}_username"}, ${"{$con}_password"}, $is_controluser = false, ${"{$con}_server"});
+            } else {
                 ${"{$con}_link"} = null;
             }
-	        ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
-	    } // end foreach ($cons as $con)
+            ${"{$con}_db_selected"} = PMA_DBI_select_db(${"{$con}_db"}, ${"{$con}_link"});
+        } // end foreach ($cons as $con)
 
         if (($src_db_selected != 1) || ($trg_db_selected != 1)) {
             /**
@@ -225,10 +225,10 @@ if ((isset($_REQUEST['submit_connect']))) {
             $_SESSION['src_password'] = $src_password;
             $_SESSION['trg_password'] = $trg_password;
             $_SESSION['trg_password'] = $trg_password;
-    	    $_SESSION['src_server']   = $src_server;
-	        $_SESSION['trg_server']   = $trg_server;
-	        $_SESSION['src_type']     = $src_type;
-    	    $_SESSION['trg_type']     = $trg_type;
+            $_SESSION['src_server']   = $src_server;
+            $_SESSION['trg_server']   = $trg_server;
+            $_SESSION['src_type']     = $src_type;
+            $_SESSION['trg_type']     = $trg_type;
             $_SESSION['matching_tables_keys'] = $matching_tables_keys;
             $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
             $_SESSION['uncommon_tables_row_count'] = $row_count;
@@ -731,7 +731,7 @@ if (isset($_REQUEST['Table_ids'])) {
 
         if (($num_alter_cols > 0) || ($num_insert_cols > 0) || ($num_remove_cols > 0) || ($num_add_index > 0) || ($num_remove_index > 0)) {
             echo '<img class="icon struct_img" src="' . $pmaThemeImage .  'new_struct.jpg" width="29"  height="29"
-            alt="' . __('Click to select') . '" 
+            alt="' . __('Click to select') . '"
             onclick="showDetails(' . "'MS" . $i . "','" . $num_alter_cols . "','" . $num_insert_cols . "','" . $num_remove_cols . "','" . $num_add_index . "','" . $num_remove_index . "'" .',
             this ,' . "'" . htmlspecialchars($matching_tables[$i]) . "'" . ')"/>';
         }
@@ -799,7 +799,7 @@ if (isset($_REQUEST['Table_ids'])) {
         if (!(in_array($j, $uncommon_table_data_diff))) {
             if (isset($row_count[$j]) && ($row_count > 0)) {
                 echo '<img class="icon data_img" src="' . $pmaThemeImage . 'new_data.jpg" width="29" height="29"
-                alt="' . __('Click to select') . '" 
+                alt="' . __('Click to select') . '"
                 onclick="showDetails(' . "'UD" . $j . "','" . null ."','" . $row_count[$j] ."','"
                 . null . "','" . null . "','" . null . "'" . ', this ,' . "'". htmlspecialchars($source_tables_uncommon[$j]) . "'" . ')" />';
             }
@@ -1081,8 +1081,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 * Displays the sub-page heading
 */
     echo '<h2>' . ($GLOBALS['cfg']['MainPageIconic']
-    ? '<img class="icon" src="' . $pmaThemeImage . 's_sync.png" width="18"'
-        . ' height="18" alt="" />'
+    ? '<img class="icon ic_s_sync" src="themes/dot.gif" alt="" />'
     : '')
     . __('Synchronize')
     .'</h2>';
@@ -1118,8 +1117,8 @@ if (isset($_REQUEST['synchronize_db'])) {
       <table id="serverconnection_<?php echo $type; ?>_remote" class="data">
       <caption class="tblHeaders"><?php echo $database_header; ?></caption>
       <tr class="odd">
-	  <td colspan="2" style="text-align: center">
-	     <select name="<?php echo $type; ?>_type" id="<?php echo $type; ?>_type" class="server_selector">
+      <td colspan="2" style="text-align: center">
+         <select name="<?php echo $type; ?>_type" id="<?php echo $type; ?>_type" class="server_selector">
 <?php
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             $preselected_option = 'rmt';
@@ -1163,53 +1162,53 @@ if (isset($_REQUEST['synchronize_db'])) {
                 . htmlspecialchars(sprintf(__('Configuration: %s'), $label)) . '</option>';
         } // end foreach
 ?>
-	     </select>
-	  </td>
+         </select>
+      </td>
       </tr>
-	<tr class="even toggler remote-server">
-	    <td><?php echo __('Server'); ?></td>
+    <tr class="even toggler remote-server">
+        <td><?php echo __('Server'); ?></td>
         <td><input type="text" name="<?php echo $type; ?>_host" class="server-host" <?php echo $possibly_readonly; ?>/></td>
-	</tr>
-	<tr class="odd toggler remote-server">
-	    <td><?php echo __('Port'); ?></td>
+    </tr>
+    <tr class="odd toggler remote-server">
+        <td><?php echo __('Port'); ?></td>
         <td><input type="text" name="<?php echo $type; ?>_port" class="server-port" <?php echo $possibly_readonly; ?> value="3306" maxlength="5" size="5" /></td>
-	</tr>
-	<tr class="even toggler remote-server">
-	    <td><?php echo __('Socket'); ?></td>
+    </tr>
+    <tr class="even toggler remote-server">
+        <td><?php echo __('Socket'); ?></td>
         <td><input type="text" name="<?php echo $type; ?>_socket" class="server-socket" <?php echo $possibly_readonly; ?>/></td>
-	</tr>
-	<tr class="odd toggler remote-server">
-	    <td><?php echo __('User name'); ?></td>
+    </tr>
+    <tr class="odd toggler remote-server">
+        <td><?php echo __('User name'); ?></td>
         <td><input type="text" name="<?php echo $type; ?>_username" class="server-user" /></td>
-	</tr>
-	<tr class="even toggler remote-server">
-	    <td><?php echo __('Password'); ?></td>
+    </tr>
+    <tr class="even toggler remote-server">
+        <td><?php echo __('Password'); ?></td>
         <td><input type="password" name="<?php echo $type; ?>_pass" class="server-pass" /> </td>
-	</tr>
-	<tr class="odd toggler remote-server">
-	    <td><?php echo __('Database'); ?></td>
+    </tr>
+    <tr class="odd toggler remote-server">
+        <td><?php echo __('Database'); ?></td>
         <td><input type="text" name="<?php echo $type; ?>_db" class="server-db" /></td>
-	</tr>
-	<tr class="even toggler current-server" style="display: none;">
-	    <td><?php echo __('Database'); ?></td>
-	    <td>
+    </tr>
+    <tr class="even toggler current-server" style="display: none;">
+        <td><?php echo __('Database'); ?></td>
+        <td>
 <?php
       // these unset() do not complain if the elements do not exist
     unset($databases['mysql']);
     unset($databases['information_schema']);
 
-	if (count($databases) == 0) {
-		echo __('No databases');
-	} else {
-		echo '
-	      	<select name="' . $type . '_db_sel">
-		';
-		foreach ($databases as $db) {
-            echo '		<option>' . htmlspecialchars($db['SCHEMA_NAME']) . '</option>';
-		}
+    if (count($databases) == 0) {
+        echo __('No databases');
+    } else {
+        echo '
+              <select name="' . $type . '_db_sel">
+        ';
+        foreach ($databases as $db) {
+            echo '        <option>' . htmlspecialchars($db['SCHEMA_NAME']) . '</option>';
+        }
         echo '</select>';
-	}
-	echo '</td> </tr>
+    }
+    echo '</td> </tr>
       </table>';
    }
    unset ($types, $type);

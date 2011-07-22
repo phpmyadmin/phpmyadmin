@@ -9,7 +9,7 @@
 /**
  *
  */
-require_once 'PHPUnit/Framework.php';
+require_once 'config.sample.inc.php';
 
 /**
  * @package phpMyAdmin-test
@@ -24,12 +24,28 @@ class Environment_test extends PHPUnit_Framework_TestCase
 
     public function testMySQL()
     {
-        $this->markTestIncomplete();
+        try{
+            $pdo = new PDO("mysql:host=".TESTSUITE_SERVER.";dbname=".TESTSUITE_DATABASE, TESTSUITE_USER, TESTSUITE_PASSWORD);
+            $this->assertNull($pdo->errorCode(),"Error when trying to connect to database");
+
+            //$pdo->beginTransaction();
+            $test = $pdo->exec("SHOW TABLES;");
+            //$pdo->commit();
+            $this->assertEquals(0, $pdo->errorCode(), 'Error trying to show tables for database');
+        }
+        catch (Exception $e){
+            $this->fail("Error: ".$e->getMessage());
+        }
+
+        // Check id MySQL server is 5 version
+        preg_match("/^(\d+)?\.(\d+)?\.(\*|\d+)/", $pdo->getAttribute(constant("PDO::ATTR_SERVER_VERSION")), $version_parts);
+        $this->assertEquals(5, $version_parts[1]);
     }
 
-    public function testSession()
-    {
-        $this->markTestIncomplete();
-    }
+    //TODO: Think about this test
+//    public function testSession()
+//    {
+//        $this->markTestIncomplete();
+//    }
 }
 ?>

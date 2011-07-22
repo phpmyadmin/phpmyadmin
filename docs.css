@@ -18,8 +18,8 @@ img {
 #header {
     margin: 0px;
     padding: 1em 0.5em 0.5em 1em;
-	background: #036;
-	border: 0px;
+    background: #036;
+    border: 0px;
     border-bottom: 1px solid black;
 }
 
@@ -31,16 +31,16 @@ img {
 }
 
 #header h1 a {
-	color: #7584b3;
+    color: #7584b3;
 }
 
 #header h1 a .myadmin {
-	color: #ffad17;
+    color: #ffad17;
 }
 
 #body {
-	margin: 2em 1em 1em 1em;
-	padding: 0px;
+    margin: 2em 1em 1em 1em;
+    padding: 0px;
     padding-right: 13em;
 }
 
@@ -54,13 +54,13 @@ ul#footer {
     font-size: smaller;
     list-style: none;
     float: left;
-	padding: 1em;
+    padding: 1em;
     color: gray;
     border: none;
 }
 
 #footer a {
-	color: #c19e66;
+    color: #c19e66;
 }
 
 abbr, acronym {
@@ -73,12 +73,12 @@ abbr, acronym {
 
 a {
     text-decoration: none;
-	color: #c17d11;
+    color: #c17d11;
 }
 
 a:hover {
-	text-decoration: underline;
-	color: #8f5902;
+    text-decoration: underline;
+    color: #8f5902;
 }
 
 sup {
@@ -128,22 +128,22 @@ ul.header a:hover {
 }
 
 h2 {
-	color: #727e0a;
+    color: #727e0a;
     max-width: 70em;
 }
 
 h3 {
-	color: #727e0a;
+    color: #727e0a;
     max-width: 70em;
 }
 
 h4, h5 {
-	color: #727e0a;
+    color: #727e0a;
     max-width: 70em;
 }
 
 h4 a {
-	color: #727e0a;
+    color: #727e0a;
 }
 
 p {

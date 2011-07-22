@@ -100,7 +100,7 @@ function PMA_exportHeader() {
 /**
  * Outputs database header
  *
- * @param   string  $db Database name
+ * @param string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -113,7 +113,7 @@ function PMA_exportDBHeader($db) {
 /**
  * Outputs database footer
  *
- * @param   string  $db Database name
+ * @param string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -125,7 +125,7 @@ function PMA_exportDBFooter($db) {
 /**
  * Outputs CREATE DATABASE statement
  *
- * @param   string  $db Database name
+ * @param string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -137,11 +137,11 @@ function PMA_exportDBCreate($db) {
 /**
  * Outputs the content of a table in ODT format
  *
- * @param   string  $db         database name
- * @param   string  $table      table name
- * @param   string  $crlf       the end of line sequence
- * @param   string  $error_url  the url to go back in case of error
- * @param   string  $sql_query  SQL query for obtaining data
+ * @param string  $db         database name
+ * @param string  $table      table name
+ * @param string  $crlf       the end of line sequence
+ * @param string  $error_url  the url to go back in case of error
+ * @param string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -209,20 +209,20 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 /**
  * Outputs table's structure
  *
- * @param   string  $db           database name
- * @param   string  $table        table name
- * @param   string  $crlf         the end of line sequence
- * @param   string  $error_url    the url to go back in case of error
- * @param   bool    $do_relation  whether to include relation comments
- * @param   bool    $do_comments  whether to include the pmadb-style column comments
+ * @param string  $db           database name
+ * @param string  $table        table name
+ * @param string  $crlf         the end of line sequence
+ * @param string  $error_url    the url to go back in case of error
+ * @param bool    $do_relation  whether to include relation comments
+ * @param bool    $do_comments  whether to include the pmadb-style column comments
  *                                as comments in the structure; this is deprecated
  *                                but the parameter is left here because export.php
  *                                calls PMA_exportStructure() also for other export
  *                                types which use this parameter
- * @param   bool    $do_mime      whether to include mime comments
- * @param   bool    $dates        whether to include creation/update/check dates
- * @param   string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
- * @param   string  $export_type  'server', 'database', 'table'
+ * @param bool    $do_mime      whether to include mime comments
+ * @param bool    $dates        whether to include creation/update/check dates
+ * @param string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
+ * @param string  $export_type  'server', 'database', 'table'
  * @return  bool      Whether it suceeded
  *
  * @access  public
@@ -251,9 +251,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      * Gets fields properties
      */
     PMA_DBI_select_db($db);
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-    $result      = PMA_DBI_query($local_query);
-    $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations
     if ($do_relation && !empty($cfgRelation['relation'])) {
@@ -318,16 +315,17 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     }
     $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    $columns = PMA_DBI_get_columns($db, $table);
+    foreach ($columns as $column) {
 
+        $field_name = $column['Field'];
         $GLOBALS['odt_buffer'] .= '<table:table-row>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars($row['Field']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
             . '</table:table-cell>';
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
-        $field_name = $row['Field'];
-        $type = $row['Type'];
+        $type = $column['Type'];
         if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
             $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
             $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
@@ -345,27 +343,27 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
                 $type     = '&nbsp;';
             }
 
-            $binary       = preg_match('/BINARY/i', $row['Type']);
-            $unsigned     = preg_match('/UNSIGNED/i', $row['Type']);
-            $zerofill     = preg_match('/ZEROFILL/i', $row['Type']);
+            $binary       = preg_match('/BINARY/i', $column['Type']);
+            $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
+            $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
         }
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . htmlspecialchars($type) . '</text:p>'
             . '</table:table-cell>';
-        if (!isset($row['Default'])) {
-            if ($row['Null'] != 'NO') {
-                $row['Default'] = 'NULL';
+        if (!isset($column['Default'])) {
+            if ($column['Null'] != 'NO') {
+                $column['Default'] = 'NULL';
             } else {
-                $row['Default'] = '';
+                $column['Default'] = '';
             }
         } else {
-            $row['Default'] = $row['Default'];
+            $column['Default'] = $column['Default'];
         }
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
+            . '<text:p>' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars($row['Default']) . '</text:p>'
+            . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
             . '</table:table-cell>';
 
         if ($do_relation && $have_rel) {
@@ -399,7 +397,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         }
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
     } // end while
-    PMA_DBI_free_result($result);
 
     $GLOBALS['odt_buffer'] .= '</table:table>';
     return true;

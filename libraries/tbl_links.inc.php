@@ -51,30 +51,30 @@ if (! isset($db_is_information_schema)) {
  */
 $tabs = array();
 
-$tabs['browse']['icon'] = 'b_browse.png';
+$tabs['browse']['icon'] = 'ic_b_browse';
 $tabs['browse']['text'] = __('Browse');
 $tabs['browse']['link'] = 'sql.php';
 $tabs['browse']['args']['pos'] = 0;
 
-$tabs['structure']['icon'] = 'b_props.png';
+$tabs['structure']['icon'] = 'ic_b_props';
 $tabs['structure']['link'] = 'tbl_structure.php';
 $tabs['structure']['text'] = __('Structure');
 
-$tabs['sql']['icon'] = 'b_sql.png';
+$tabs['sql']['icon'] = 'ic_b_sql';
 $tabs['sql']['link'] = 'tbl_sql.php';
 $tabs['sql']['text'] = __('SQL');
 
-$tabs['search']['icon'] = 'b_search.png';
+$tabs['search']['icon'] = 'ic_b_search';
 $tabs['search']['text'] = __('Search');
 $tabs['search']['link'] = 'tbl_select.php';
 
 if (!$db_is_information_schema) {
-    $tabs['insert']['icon'] = 'b_insrow.png';
+    $tabs['insert']['icon'] = 'ic_b_insrow';
     $tabs['insert']['link'] = 'tbl_change.php';
     $tabs['insert']['text'] = __('Insert');
 }
 
-$tabs['export']['icon'] = 'b_tblexport.png';
+$tabs['export']['icon'] = 'ic_b_tblexport';
 $tabs['export']['link'] = 'tbl_export.php';
 $tabs['export']['args']['single_table'] = 'true';
 $tabs['export']['text'] = __('Export');
@@ -84,16 +84,16 @@ $tabs['export']['text'] = __('Export');
  * for views and information_schema
  */
 if (! $tbl_is_view && !$db_is_information_schema) {
-    $tabs['import']['icon'] = 'b_tblimport.png';
+    $tabs['import']['icon'] = 'ic_b_tblimport';
     $tabs['import']['link'] = 'tbl_import.php';
     $tabs['import']['text'] = __('Import');
 
-    $tabs['operation']['icon'] = 'b_tblops.png';
+    $tabs['operation']['icon'] = 'ic_b_tblops';
     $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = __('Operations');
 }
-if(PMA_Tracker::isActive()) {
-    $tabs['tracking']['icon'] = 'eye.png';
+if (PMA_Tracker::isActive()) {
+    $tabs['tracking']['icon'] = 'ic_eye';
     $tabs['tracking']['text'] = __('Tracking');
     $tabs['tracking']['link'] = 'tbl_tracking.php';
 }
@@ -101,7 +101,7 @@ if (!$db_is_information_schema && !PMA_DRIZZLE) {
     if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
         $tabs['triggers']['link'] = 'tbl_triggers.php';
         $tabs['triggers']['text'] = __('Triggers');
-        $tabs['triggers']['icon'] = 'b_triggers.png';
+        $tabs['triggers']['icon'] = 'ic_b_triggers';
     }
 }
 
@@ -109,7 +109,7 @@ if (!$db_is_information_schema && !PMA_DRIZZLE) {
  * Views support a limited number of operations
  */
 if ($tbl_is_view && !$db_is_information_schema) {
-    $tabs['operation']['icon'] = 'b_tblops.png';
+    $tabs['operation']['icon'] = 'ic_b_tblops';
     $tabs['operation']['link'] = 'view_operations.php';
     $tabs['operation']['text'] = __('Operations');
 }
@@ -122,7 +122,7 @@ if ($table_info_num_rows == 0 && !$tbl_is_view) {
 echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
 
-if(PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"]))
+if (PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"]))
 {
     $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf(__('Tracking of %s.%s is activated.'), htmlspecialchars($GLOBALS["db"]), htmlspecialchars($GLOBALS["table"])).'</a>');
     $msg->display();

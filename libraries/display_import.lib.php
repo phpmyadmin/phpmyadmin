@@ -123,11 +123,11 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
 
     <div class="exportoptions" id="header">
         <h2>
-            <img src="<?php echo $GLOBALS['pmaThemeImage'];?>b_import.png" alt="import" />
+            <img class="icon ic_b_import" src="themes/dot.gif" alt="import" />
             <?php
-            if($import_type == 'server') {
+            if ($import_type == 'server') {
                 echo __('Importing into the current server');
-            } elseif($import_type == 'database') {
+            } elseif ($import_type == 'database') {
                 printf(__('Importing into the database "%s"'), htmlspecialchars($db));
             } else {
                 printf(__('Importing into the table "%s"'), htmlspecialchars($table));
@@ -160,7 +160,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         }?>
 
         <div class="formelementrow" id="upload_form">
-        <?php if($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
+        <?php if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
                 <input type="radio" name="file_location" id="radio_import_file" />

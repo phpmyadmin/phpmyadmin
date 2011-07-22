@@ -34,7 +34,7 @@ require './libraries/server_links.inc.php';
  */
 echo '<h2>' . "\n"
    . '    ' . ($GLOBALS['cfg']['MainPageIconic']
-    ? '<img class="icon" src="'. $GLOBALS['pmaThemeImage'] . 's_asci.png" alt="" />'
+    ? '<img class="icon ic_s_asci" src="themes/dot.gif" alt="" />'
     : '')
    . '' . __('Character Sets and Collations') . "\n"
    . '</h2>' . "\n";

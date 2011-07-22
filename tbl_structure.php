@@ -188,7 +188,7 @@ $i = 0;
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table);
     echo '<input type="hidden" name="table_type" value=';
-    if($db_is_information_schema) {
+    if ($db_is_information_schema) {
          echo '"information_schema" />';
     } else if ($tbl_is_view) {
          echo '"view" />';
@@ -257,7 +257,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
-        if(strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
             $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
         }
 
@@ -494,7 +494,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         echo "\n";
         ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
-        <?php echo __('More'); ?> <img src="<?php echo $pmaThemeImage . 'more.png'; ?>" alt="<?php echo __('Show more actions'); ?>" />
+        <?php echo __('More'); ?> <img class="icon ic_more" src="themes/dot.gif" alt="<?php echo __('Show more actions'); ?>" />
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
 
             <div class="action_browse">
@@ -504,8 +504,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="action_primary"' : ''); ?>>
                 <?php
-                if(isset($primary_enabled)) {
-                     if($primary_enabled) { ?>
+                if (isset($primary_enabled)) {
+                     if ($primary_enabled) { ?>
                           <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Primary']; ?>
                          </a>
@@ -517,8 +517,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_unique">
                 <?php
-                if(isset($unique_enabled)) {
-                     if($unique_enabled) { ?>
+                if (isset($unique_enabled)) {
+                     if ($unique_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Unique']; ?>
                          </a>
@@ -530,8 +530,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_index">
                <?php
-                if(isset($index_enabled)) {
-                     if($index_enabled) { ?>
+                if (isset($index_enabled)) {
+                     if ($index_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Index']; ?>
                          </a>
@@ -543,8 +543,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_spatial">
                <?php
-                if(isset($spatial_enabled)) {
-                     if($spatial_enabled) { ?>
+                if (isset($spatial_enabled)) {
+                     if ($spatial_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Spatial']; ?>
                          </a>
@@ -556,8 +556,8 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             </div>
             <div class="action_fulltext">
                 <?php
-                if(isset($fulltext_enabled)) {
-                     if($fulltext_enabled) { ?>
+                if (isset($fulltext_enabled)) {
+                     if ($fulltext_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['IdxFulltext']; ?>
                          </a>
@@ -625,7 +625,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 ?>
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
 if ($cfg['PropertiesIconic']) {
-    echo '<img class="icon" src="' . $pmaThemeImage . 'b_print.png" width="16" height="16" alt="' . __('Print view') . '"/>';
+    echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="' . __('Print view') . '"/>';
 }
 echo __('Print view');
 ?></a>
@@ -639,7 +639,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'b_relations.png" width="16" height="16" alt="' . __('Relation view') . '"/>';
+            echo '<img class="icon ic_b_relations" src="themes/dot.gif" alt="' . __('Relation view') . '"/>';
         }
         echo __('Relation view');
         ?></a>
@@ -648,20 +648,20 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     ?>
 <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_tblanalyse.png" width="16" height="16" alt="' . __('Propose table structure') . '" />';
+        echo '<img class="icon ic_b_tblanalyse" src="themes/dot.gif" alt="' . __('Propose table structure') . '" />';
     }
     echo __('Propose table structure');
     ?></a><?php
     echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
 
 
-    if(PMA_Tracker::isActive())
+    if (PMA_Tracker::isActive())
     {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
 
         if ($cfg['PropertiesIconic'])
         {
-            echo '<img class="icon" src="' . $pmaThemeImage . 'eye.png" width="16" height="16" alt="' . __('Track table') . '" /> ';
+            echo '<img class="icon ic_eye" src="themes/dot.gif" alt="' . __('Track table') . '" /> ';
         }
         echo __('Track table') . '</a>';
     }
@@ -673,7 +673,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon" src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" alt="' . __('Add column') . '"/>';
+        echo '<img class="icon ic_b_insrow" src="themes/dot.gif" alt="' . __('Add column') . '"/>';
     }
     echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
@@ -839,7 +839,7 @@ if ($cfg['ShowStats']) {
         <td colspan="3" align="center">
             <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
             if ($cfg['PropertiesIconic']) {
-               echo '<img class="icon" src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" alt="' . __('Optimize table'). '" />';
+               echo '<img class="icon ic_b_tbloptimize" src="themes/dot.gif" alt="' . __('Optimize table'). '" />';
             }
             echo __('Optimize table');
             ?></a>

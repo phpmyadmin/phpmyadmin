@@ -94,8 +94,7 @@ require './libraries/server_links.inc.php';
  */
 echo '<h2>' . "\n"
    . ($GLOBALS['cfg']['MainPageIconic']
-      ? '<img class="icon" src="' . $pmaThemeImage . 's_db.png" width="16"'
-        .' height="16" alt="" />'
+      ? '<img class="icon ic_s_db" src="themes/dot.gif" alt="" />'
       : '')
    . ($dbstats ? __('Databases statistics') : __('Databases')) . "\n"
    .'</h2>' . "\n";
@@ -155,7 +154,7 @@ if ($databases_count > 0) {
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th></th>' . "\n" : '')
        . '    <th><a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
        . '            ' . __('Database') . "\n"
-       . ($sort_by == 'SCHEMA_NAME' ? '                <img class="icon" src="' . $pmaThemeImage . 's_' . $sort_order . '.png" width="11" height="9"  alt="' . ($sort_order == 'asc' ? __('Ascending') : __('Descending')) . '" />' . "\n" : '')
+       . ($sort_by == 'SCHEMA_NAME' ? '                <img class="icon ic_s_' . $sort_order . '" src="themes/dot.gif"  alt="' . ($sort_order == 'asc' ? __('Ascending') : __('Descending')) . '" />' . "\n" : '')
        . '        </a></th>' . "\n";
     $table_columns = 3;
     foreach ($column_order as $stat_name => $stat) {
@@ -172,7 +171,7 @@ if ($databases_count > 0) {
             echo '    <th' . $colspan . '>'
                 .'<a href="./server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
                 .'            ' . $stat['disp_name'] . "\n"
-                .($sort_by == $stat_name ? '            <img class="icon" src="' . $pmaThemeImage . 's_' . $sort_order . '.png" width="11" height="9"  alt="' . ($sort_order == 'asc' ? __('Ascending') : __('Descending')) . '" />' . "\n" : '')
+                .($sort_by == $stat_name ? '            <img class="icon ic_s_' . $sort_order . '" src="themes/dot.gif"  alt="' . ($sort_order == 'asc' ? __('Ascending') : __('Descending')) . '" />' . "\n" : '')
                 .'        </a></th>' . "\n";
         }
     }
@@ -181,7 +180,7 @@ if ($databases_count > 0) {
     {
       if ($type=="master")
         $name = __('Master replication');
-      elseif($type == "slave")
+      elseif ($type == "slave")
         $name = __('Slave replication');
       if (${"server_{$type}_status"})
         echo '    <th>'. $name .'</th>' . "\n";

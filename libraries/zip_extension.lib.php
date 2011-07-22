@@ -9,7 +9,7 @@
 /**
   * Gets zip file contents
   *
-  * @param   string  $file
+  * @param string  $file
   * @return  array  ($error_message, $file_data); $error_message
   *                  is empty if no error
   */
@@ -71,7 +71,7 @@ function PMA_getZipContents($file)
 /**
   * Gets zip error message
   *
-  * @param   integer  error code
+  * @param integer  error code
   * @return  string  error message
  */
 function PMA_getZipError($code)

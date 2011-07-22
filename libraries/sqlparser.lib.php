@@ -72,7 +72,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             global $timer;
 
             $t     = $timer;
-            $arr[] = array('type' => $type, 'data' => $data, 'pos' => $pos, 'time' => $t);
+            $arr[] = array(
+                'type' => $type,
+                'data' => $data,
+                'pos' => $pos,
+                'time' => $t);
             $timer = microtime();
             $arrsize++;
         } // end of the "PMA_SQP_arrayAdd()" function
@@ -120,8 +124,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Set an error message for the system
      *
-     * @param  string  The error message
-     * @param  string  The failing SQL query
+     * @param string  The error message
+     * @param string  The failing SQL query
      *
      * @access private
      * @scope SQL Parser internal
@@ -141,8 +145,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Do display the bug report
      *
-     * @param  string  The error message
-     * @param  string  The failing SQL query
+     * @param string  The error message
+     * @param string  The failing SQL query
      *
      * @access public
      */
@@ -151,7 +155,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         global $SQP_errorString;
         $debugstr = 'ERROR: ' . $message . "\n";
         $debugstr .= 'MySQL: '.PMA_MYSQL_STR_VERSION . "\n";
-        $debugstr .= 'USR OS, AGENT, VER: ' . PMA_USR_OS . ' ' . PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n";
+        $debugstr .= 'USR OS, AGENT, VER: ' . PMA_USR_OS . ' ';
+        $debugstr .= PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n";
         $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
         $debugstr .= 'PHP VER,OS: ' . PMA_PHP_STR_VERSION . ' ' . PHP_OS . "\n";
         $debugstr .= 'LANG: ' . $GLOBALS['lang'] . "\n";
@@ -161,7 +166,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (@function_exists('gzcompress')) {
             $encodedstr = gzcompress($debugstr, 9);
         }
-        $encodedstr     = preg_replace("/(\015\012)|(\015)|(\012)/", '<br />' . "\n", chunk_split(base64_encode($encodedstr)));
+        $encodedstr     = preg_replace(
+            "/(\015\012)|(\015)|(\012)/",
+            '<br />' . "\n",
+            chunk_split(base64_encode($encodedstr)));
 
 
         $SQP_errorString .= __('There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:')
@@ -182,7 +190,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Parses the SQL queries
      *
-     * @param  string   The SQL query list
+     * @param string   The SQL query list
      *
      * @return mixed    Most of times, nothing...
      *
@@ -362,7 +370,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             if (class_exists('PMA_Message') && $GLOBALS['is_ajax_request'] != true) {
                                 PMA_Message::notice(__('Automatically appended backtick to the end of query!'))->display();
                             }
-                        }  else {
+                        } else {
                             $debugstr = __('Unclosed quote') . ' @ ' . $startquotepos. "\n"
                                       . 'STR: ' . htmlspecialchars($quotetype);
                             PMA_SQP_throwError($debugstr, $sql);
@@ -795,8 +803,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
    /**
     * Checks for token types being what we want...
     *
-    * @param  string String of type that we have
-    * @param  string String of type that we want
+    * @param string String of type that we have
+    * @param string String of type that we want
     *
     * @return boolean result of check
     *
@@ -820,7 +828,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Analyzes SQL queries
      *
-     * @param  array   The SQL queries
+     * @param array   The SQL queries
      *
      * @return array   The analyzed SQL queries
      *
@@ -1523,7 +1531,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $subresult['queryflags']['need_confirm'] = 1;
                     }
 
-                    if ($first_reserved_word=='SELECT'){
+                    if ($first_reserved_word=='SELECT') {
                         $position_of_first_select = $i;
                     }
 
@@ -2046,7 +2054,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @todo check why adding a "\n" after the </span> would cause extra blanks
      * to be displayed: SELECT p . person_name
-     * @param  array   The SQL queries html formatted
+     * @param array   The SQL queries html formatted
      *
      * @return array   The colorized SQL queries
      *
@@ -2069,10 +2077,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Formats SQL queries to html
      *
-     * @param  array   The SQL queries
-     * @param  string  mode
-     * @param  integer starting token
-     * @param  integer number of tokens to format, -1 = all
+     * @param array   The SQL queries
+     * @param string  mode
+     * @param integer starting token
+     * @param integer number of tokens to format, -1 = all
      *
      * @return string  The formatted SQL queries
      *
@@ -2550,7 +2558,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             }
                             break;
                         default:
-                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))){
+                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))) {
                                 $after .= '</a>';
                                 $close_docu_link = false;
                             } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
@@ -2663,9 +2671,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 /**
  * Builds a CSS rule used for html formatted SQL queries
  *
- * @param  string  The class name
- * @param  string  The property name
- * @param  string  The property value
+ * @param string  The class name
+ * @param string  The property name
+ * @param string  The property value
  *
  * @return string  The CSS rule
  *
@@ -2706,7 +2714,9 @@ function PMA_SQP_buildCssData()
     }
 
     for ($i = 0; $i < 8; $i++) {
-        $css_string .= PMA_SQP_buildCssRule('syntax_indent' . $i, 'margin-left', ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']);
+        $css_string .= PMA_SQP_buildCssRule(
+            'syntax_indent' . $i, 'margin-left',
+            ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']);
     }
 
     return $css_string;
@@ -2716,7 +2726,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Gets SQL queries with no format
      *
-     * @param  array   The SQL queries list
+     * @param array   The SQL queries list
      *
      * @return string  The SQL queries with no format
      *
@@ -2725,7 +2735,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatNone($arr)
     {
         $formatted_sql = htmlspecialchars($arr['raw']);
-        $formatted_sql = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $formatted_sql);
+        $formatted_sql = preg_replace(
+            "@((\015\012)|(\015)|(\012)){3,}@",
+            "\n\n",
+            $formatted_sql);
 
         return $formatted_sql;
     } // end of the "PMA_SQP_formatNone()" function

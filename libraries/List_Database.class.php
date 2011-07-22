@@ -56,8 +56,8 @@ require_once './libraries/List.class.php';
     /**
      * Constructor
      *
-     * @param   mixed   $db_link_user       user database link resource|object
-     * @param   mixed   $db_link_control    control database link resource|object
+     * @param mixed   $db_link_user       user database link resource|object
+     * @param mixed   $db_link_control    control database link resource|object
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -71,8 +71,6 @@ require_once './libraries/List.class.php';
 
     /**
      * checks if the configuration wants to hide some databases
-     *
-     * @todo temporaly use this docblock to test how to doc $GLOBALS
      */
     protected function _checkHideDatabase()
     {
@@ -91,7 +89,7 @@ require_once './libraries/List.class.php';
      * retrieves database list from server
      *
      * @todo    we could also search mysql tables if all fail?
-     * @param   string  $like_db_name   usally a db_name containing wildcards
+     * @param string  $like_db_name   usally a db_name containing wildcards
      */
     protected function _retrieve($like_db_name = null)
     {
@@ -128,14 +126,14 @@ require_once './libraries/List.class.php';
                 $this->_show_databases_disabled = true;
             }
         }
-            
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             natsort($database_list);
         } else {
             // need to sort anyway, otherwise information_schema
             // goes at the top
             sort($database_list);
-        } 
+        }
 
         return $database_list;
     }
@@ -221,8 +219,8 @@ require_once './libraries/List.class.php';
     /**
      * returns array with dbs grouped with extended infos
      *
-     * @param   integer $offset
-     * @param   integer $count
+     * @param integer $offset
+     * @param integer $count
      * @return  array   db list
      */
     public function getGroupedDetails($offset, $count)
@@ -255,7 +253,7 @@ require_once './libraries/List.class.php';
 
             $pos = false;
 
-            foreach($separators as $separator) {
+            foreach ($separators as $separator) {
                 // use strpos instead of strrpos; it seems more common to
                 // have the db name, the separator, then the rest which
                 // might contain a separator
@@ -299,8 +297,8 @@ require_once './libraries/List.class.php';
     /**
      * returns a part of the items
      *
-     * @param   integer $offset
-     * @param   integer $count
+     * @param integer $offset
+     * @param integer $count
      * @return  array  some items
      */
     public function getLimitedItems($offset, $count)

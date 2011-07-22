@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
+ * Configuration handling.
  *
  * @package phpMyAdmin
  */
@@ -75,7 +75,7 @@ class PMA_Config
     /**
      * constructor
      *
-     * @param   string  source to read config from
+     * @param string  source to read config from
      */
     function __construct($source = null)
     {
@@ -333,7 +333,7 @@ class PMA_Config
      * loads configuration from $source, usally the config file
      * should be called on object creation
      *
-     * @param   string $source  config file
+     * @param string $source  config file
      */
     function load($source = null)
     {
@@ -350,21 +350,16 @@ class PMA_Config
         $cfg = array();
 
         /**
-         * Parses the configuration file
+         * Parses the configuration file, the eval is used here to avoid
+         * problems with trailing whitespace, what is often a problem.
          */
         $old_error_reporting = error_reporting(0);
-        if (function_exists('file_get_contents')) {
-            $eval_result =
-                eval('?' . '>' . trim(file_get_contents($this->getSource())));
-        } else {
-            $eval_result =
-                eval('?' . '>' . trim(implode("\n", file($this->getSource()))));
-        }
+        $eval_result = eval('?' . '>' . trim(file_get_contents($this->getSource())));
         error_reporting($old_error_reporting);
 
         if ($eval_result === false) {
             $this->error_config_file = true;
-        } else  {
+        } else {
             $this->error_config_file = false;
             $this->source_mtime = filemtime($this->getSource());
         }
@@ -568,7 +563,7 @@ class PMA_Config
 
     /**
      * set source
-     * @param   string  $source
+     * @param string  $source
      */
     function setSource($source)
     {
@@ -640,7 +635,7 @@ class PMA_Config
 
     /**
      * returns specific config setting
-     * @param   string  $setting
+     * @param string  $setting
      * @return  mixed   value
      */
     function get($setting)
@@ -654,8 +649,8 @@ class PMA_Config
     /**
      * sets configuration variable
      *
-     * @param   string  $setting    configuration option
-     * @param   string  $value      new value for configuration option
+     * @param string  $setting    configuration option
+     * @param string  $value      new value for configuration option
      */
     function set($setting, $value)
     {
@@ -679,7 +674,7 @@ class PMA_Config
      * or the theme changes
      * must also check the pma_fontsize cookie in case there is no
      * config file
-     * @return  int  Unix timestamp
+     * @return int Summary of unix timestamps and fontsize, to be unique on theme parameters change
      */
     function getThemeUniqueValue()
     {
@@ -696,8 +691,7 @@ class PMA_Config
             $this->default_source_mtime +
             $this->get('user_preferences_mtime') +
             $_SESSION['PMA_Theme']->mtime_info +
-            $_SESSION['PMA_Theme']->filesize_info)
-            . (isset($_SESSION['tmp_user_values']['custom_color']) ? substr($_SESSION['tmp_user_values']['custom_color'],1,6) : '');
+            $_SESSION['PMA_Theme']->filesize_info);
     }
 
     /**
@@ -980,7 +974,7 @@ class PMA_Config
         // At first we try to parse REQUEST_URI, it might contain full URL,
         if (PMA_getenv('REQUEST_URI')) {
             $url = @parse_url(PMA_getenv('REQUEST_URI')); // produces E_WARNING if it cannot get parsed, e.g. '/foobar:/'
-            if($url === false) {
+            if ($url === false) {
                 $url = array();
             }
         }
@@ -1073,13 +1067,15 @@ class PMA_Config
     /**
      * @todo finish
      */
-    function save() {}
+    function save()
+    {
+    }
 
     /**
      * returns options for font size selection
      *
      * @static
-     * @param   string  $current_size   current selected font size with unit
+     * @param string  $current_size   current selected font size with unit
      * @return  array   selectable font sizes
      */
     static protected function _getFontsizeOptions($current_size = '82%')
@@ -1139,7 +1135,7 @@ class PMA_Config
      * returns html selectbox for font sizes
      *
      * @static
-     * @param   string  $current_size   currently slected font size with unit
+     * @param string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
     static protected function _getFontsizeSelection()
@@ -1173,7 +1169,7 @@ class PMA_Config
      * return complete font size selection form
      *
      * @static
-     * @param   string  $current_size   currently slected font size with unit
+     * @param string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
     static public function getFontsizeForm()
@@ -1191,7 +1187,7 @@ class PMA_Config
     /**
      * removes cookie
      *
-     * @param   string  $cookie     name of cookie to remove
+     * @param string  $cookie     name of cookie to remove
      * @return  boolean result of setcookie()
      */
     function removeCookie($cookie)
@@ -1204,11 +1200,11 @@ class PMA_Config
      * sets cookie if value is different from current cokkie value,
      * or removes if value is equal to default
      *
-     * @param   string  $cookie     name of cookie to remove
-     * @param   mixed   $value      new cookie value
-     * @param   string  $default    default value
-     * @param   int     $validity   validity of cookie in seconds (default is one month)
-     * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
+     * @param string  $cookie     name of cookie to remove
+     * @param mixed   $value      new cookie value
+     * @param string  $default    default value
+     * @param int     $validity   validity of cookie in seconds (default is one month)
+     * @param bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
      * @return  boolean result of setcookie()
      */
     function setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
