@@ -389,7 +389,10 @@ $(document).ready(function() {
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
+                
                 $div = $("#add_columns");
+                /*changed the z-index of the enum editor to allow the edit*/
+                $("#enum_editor").css("z-index", "1100");
                 PMA_convertFootnotesToTooltips($div);
             }
             PMA_ajaxRemoveMessage($msgbox);

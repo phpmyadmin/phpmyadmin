@@ -1836,12 +1836,12 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * jQuery coding for 'Change Table'.  Used on tbl_structure.php *
+ * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
 $(document).ready(function() {
     /**
-     *Ajax action for submitting the column change form
+     *Ajax action for submitting the "Column Change" and "Add Column" form
     **/
     $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
