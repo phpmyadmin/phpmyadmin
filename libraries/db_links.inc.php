@@ -61,7 +61,7 @@ $tab_search['text']     = __('Search');
 $tab_search['icon']     = 'ic_b_search';
 $tab_search['link']     = 'db_search.php';
 
-if(PMA_Tracker::isActive())
+if (PMA_Tracker::isActive())
 {
     $tab_tracking['text'] = __('Tracking');
     $tab_tracking['icon'] = 'ic_eye';

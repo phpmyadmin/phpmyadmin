@@ -185,7 +185,7 @@ $i = 0;
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
     <?php echo PMA_generate_common_hidden_inputs($db, $table);
     echo '<input type="hidden" name="table_type" value=';
-    if($db_is_information_schema) {
+    if ($db_is_information_schema) {
          echo '"information_schema" />';
     } else if ($tbl_is_view) {
          echo '"view" />';
@@ -254,7 +254,7 @@ foreach ($fields as $row) {
 
         // for the case ENUM('&#8211;','&ldquo;')
         $type         = htmlspecialchars($type);
-        if(strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
             $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
         }
 
@@ -501,8 +501,8 @@ foreach ($fields as $row) {
             </div>
             <div <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="action_primary"' : ''); ?>>
                 <?php
-                if(isset($primary_enabled)) {
-                     if($primary_enabled) { ?>
+                if (isset($primary_enabled)) {
+                     if ($primary_enabled) { ?>
                           <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Primary']; ?>
                          </a>
@@ -514,8 +514,8 @@ foreach ($fields as $row) {
             </div>
             <div class="action_unique">
                 <?php
-                if(isset($unique_enabled)) {
-                     if($unique_enabled) { ?>
+                if (isset($unique_enabled)) {
+                     if ($unique_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Unique']; ?>
                          </a>
@@ -527,8 +527,8 @@ foreach ($fields as $row) {
             </div>
             <div class="action_index">
                <?php
-                if(isset($index_enabled)) {
-                     if($index_enabled) { ?>
+                if (isset($index_enabled)) {
+                     if ($index_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Index']; ?>
                          </a>
@@ -541,8 +541,8 @@ foreach ($fields as $row) {
 	    <?php if (!PMA_DRIZZLE) { ?>
 	    <div class="action_spatial">
                <?php
-                if(isset($spatial_enabled)) {
-                     if($spatial_enabled) { ?>
+                if (isset($spatial_enabled)) {
+                     if ($spatial_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Spatial']; ?>
                          </a>
@@ -554,8 +554,8 @@ foreach ($fields as $row) {
             </div>
             <div class="action_fulltext">
                 <?php
-                if(isset($fulltext_enabled)) {
-                     if($fulltext_enabled) { ?>
+                if (isset($fulltext_enabled)) {
+                     if ($fulltext_enabled) { ?>
                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['IdxFulltext']; ?>
                          </a>
@@ -657,7 +657,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
     }
 
-    if(PMA_Tracker::isActive())
+    if (PMA_Tracker::isActive())
     {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
 

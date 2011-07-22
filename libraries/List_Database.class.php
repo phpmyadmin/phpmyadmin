@@ -56,8 +56,8 @@ require_once './libraries/List.class.php';
     /**
      * Constructor
      *
-     * @param   mixed   $db_link_user       user database link resource|object
-     * @param   mixed   $db_link_control    control database link resource|object
+     * @param mixed   $db_link_user       user database link resource|object
+     * @param mixed   $db_link_control    control database link resource|object
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -89,7 +89,7 @@ require_once './libraries/List.class.php';
      * retrieves database list from server
      *
      * @todo    we could also search mysql tables if all fail?
-     * @param   string  $like_db_name   usally a db_name containing wildcards
+     * @param string  $like_db_name   usally a db_name containing wildcards
      */
     protected function _retrieve($like_db_name = null)
     {
@@ -219,8 +219,8 @@ require_once './libraries/List.class.php';
     /**
      * returns array with dbs grouped with extended infos
      *
-     * @param   integer $offset
-     * @param   integer $count
+     * @param integer $offset
+     * @param integer $count
      * @return  array   db list
      */
     public function getGroupedDetails($offset, $count)
@@ -297,8 +297,8 @@ require_once './libraries/List.class.php';
     /**
      * returns a part of the items
      *
-     * @param   integer $offset
-     * @param   integer $count
+     * @param integer $offset
+     * @param integer $count
      * @return  array  some items
      */
     public function getLimitedItems($offset, $count)

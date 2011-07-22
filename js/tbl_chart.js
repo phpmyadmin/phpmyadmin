@@ -22,7 +22,7 @@ $(document).ready(function() {
                 false
             );
         }
-    });	
+    });    
     
     var currentSettings = {
         chart: { 

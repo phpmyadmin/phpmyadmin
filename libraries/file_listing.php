@@ -10,8 +10,8 @@
 /**
  * Returns array of filtered file names
  *
- * @param   string  directory to list
- * @param   string  regular expression to match files
+ * @param string  directory to list
+ * @param string  regular expression to match files
  * @returns array   sorted file list on success, false on failure
  */
 function PMA_getDirContent($dir, $expression = '')
@@ -39,9 +39,9 @@ function PMA_getDirContent($dir, $expression = '')
 /**
  * Returns options of filtered file names
  *
- * @param   string  directory to list
- * @param   string  regullar expression to match files
- * @param   string  currently active choice
+ * @param string  directory to list
+ * @param string  regullar expression to match files
+ * @param string  currently active choice
  * @returns array   sorted file list on success, false on failure
  */
 function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')

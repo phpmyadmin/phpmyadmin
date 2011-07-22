@@ -12,8 +12,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Executes a query as controluser if possible, otherwise as normal user
  *
- * @param   string    the query to execute
- * @param   boolean   whether to display SQL error messages or not
+ * @param string    the query to execute
+ * @param boolean   whether to display SQL error messages or not
  *
  * @return  integer   the result set, or false if no result set
  *
@@ -42,7 +42,7 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_controluser()" function
 
 /**
- * @param   bool    $verbose    whether to print diagnostic info
+ * @param bool    $verbose    whether to print diagnostic info
  * @return  array   $cfgRelation
  */
 function PMA_getRelationsParam($verbose = false)
@@ -65,7 +65,7 @@ function PMA_getRelationsParam($verbose = false)
 /**
  * prints out diagnostic info for pma relation feature
  *
- * @param   array   $cfgRelation
+ * @param array   $cfgRelation
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
@@ -157,10 +157,10 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
 /**
  * prints out one diagnostic message for a feature
  *
- * @param   string  feature name in a message string
- * @param   string  the $GLOBALS['cfgRelation'] parameter to check
- * @param   array   utility messages
- * @param   boolean whether to skip a line after the message
+ * @param string  feature name in a message string
+ * @param string  the $GLOBALS['cfgRelation'] parameter to check
+ * @param array   utility messages
+ * @param boolean whether to skip a line after the message
  */
 function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
 {
@@ -175,10 +175,10 @@ function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $mes
 /**
  * prints out one diagnostic message for a configuration parameter
  *
- * @param   string  config parameter name to display
- * @param   boolean whether this parameter is set
- * @param   array   utility messages
- * @param   string  anchor in Documentation.html
+ * @param string  config parameter name to display
+ * @param boolean whether this parameter is set
+ * @param array   utility messages
+ * @param string  anchor in Documentation.html
  */
 function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor)
 {
@@ -360,10 +360,10 @@ function PMA__getRelationsParam()
  * optionally a given column in a table
  *
  * @access  public
- * @param   string   $db        the name of the db to check for
- * @param   string   $table     the name of the table to check for
- * @param   string   $column    the name of the column to check for
- * @param   string   $source    the source for foreign key information
+ * @param string   $db        the name of the db to check for
+ * @param string   $table     the name of the table to check for
+ * @param string   $column    the name of the column to check for
+ * @param string   $source    the source for foreign key information
  * @return  array    db,table,column
  */
 function PMA_getForeigners($db, $table, $column = '', $source = 'both')
@@ -462,8 +462,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
  * Gets the display field of a table
  *
  * @access  public
- * @param   string   $db    the name of the db to check for
- * @param   string   $table the name of the table to check for
+ * @param string   $db    the name of the db to check for
+ * @param string   $table the name of the table to check for
  * @return  string   field name
  */
 function PMA_getDisplayField($db, $table)
@@ -507,8 +507,8 @@ function PMA_getDisplayField($db, $table)
  * Gets the comments for all rows of a table or the db itself
  *
  * @access  public
- * @param   string   the name of the db to check for
- * @param   string   the name of the table to check for
+ * @param string   the name of the db to check for
+ * @param string   the name of the table to check for
  * @return  array    [field_name] = comment
  */
 function PMA_getComments($db, $table = '')
@@ -536,7 +536,7 @@ function PMA_getComments($db, $table = '')
  * Gets the comment for a db
  *
  * @access  public
- * @param   string   the name of the db to check for
+ * @param string   the name of the db to check for
  * @return  string   comment
  */
 function PMA_getDbComment($db)
@@ -568,7 +568,7 @@ function PMA_getDbComment($db)
  * Gets the comment for a db
  *
  * @access  public
- * @param   string   the name of the db to check for
+ * @param string   the name of the db to check for
  * @return  string   comment
  */
 function PMA_getDbComments()
@@ -599,8 +599,8 @@ function PMA_getDbComments()
  * Set a database comment to a certain value.
  *
  * @access  public
- * @param   string   $db        the name of the db
- * @param   string   $comment   the value of the column
+ * @param string   $db        the name of the db
+ * @param string   $comment   the value of the column
  * @return  boolean  true, if comment-query was made.
  */
 function PMA_setDbComment($db, $comment = '')
@@ -632,7 +632,7 @@ function PMA_setDbComment($db, $comment = '')
                 AND `column_name` = \'(db_comment)\'';
     }
 
-    if (isset($upd_query)){
+    if (isset($upd_query)) {
         return PMA_query_as_controluser($upd_query);
     }
 
@@ -642,10 +642,10 @@ function PMA_setDbComment($db, $comment = '')
 /**
  * Set a SQL history entry
  *
- * @param   string   $db        the name of the db
- * @param   string   $table     the name of the table
- * @param   string   $username  the username
- * @param   string   $sqlquery  the sql query
+ * @param string   $db        the name of the db
+ * @param string   $table     the name of the table
+ * @param string   $username  the username
+ * @param string   $sqlquery  the sql query
  * @access  public
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
@@ -700,7 +700,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
 /**
  * Gets a SQL history entry
  *
- * @param   string   $username  the username
+ * @param string   $username  the username
  * @return  array    list of history items
  * @access  public
  */
@@ -729,7 +729,7 @@ function PMA_getHistory($username)
  * deletes entries that exceeds $cfg['QueryHistoryMax'], oldest first, for the
  * given user
  *
- * @param   string   $username  the username
+ * @param string   $username  the username
  * @access  public
  */
 function PMA_purgeHistory($username)
@@ -762,9 +762,9 @@ function PMA_purgeHistory($username)
 /**
  * Prepares the dropdown for one mode
  *
- * @param   array    $foreign   the keys and values for foreigns
- * @param   string   $data      the current data of the dropdown
- * @param   string   $mode      the needed mode
+ * @param array    $foreign   the keys and values for foreigns
+ * @param string   $data      the current data of the dropdown
+ * @param string   $mode      the needed mode
  *
  * @return  array   the <option value=""><option>s
  *
@@ -825,10 +825,10 @@ function PMA__foreignDropdownBuild($foreign, $data, $mode)
 /**
  * Outputs dropdown with values of foreign fields
  *
- * @param   array    array of the displayed row
- * @param   string   the foreign field
- * @param   string   the foreign field to display
- * @param   string   the current data of the dropdown (field in row)
+ * @param array    array of the displayed row
+ * @param string   the foreign field
+ * @param string   the foreign field to display
+ * @param string   the current data of the dropdown (field in row)
  * @return  string   the <option value=""><option>s
  * @access  public
  */
@@ -897,11 +897,11 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 /**
  * Gets foreign keys in preparation for a drop-down selector
  *
- * @param   array    array of the foreign keys
- * @param   string   the foreign field name
- * @param   bool     whether to override the total
- * @param   string   a possible filter
- * @param   string   a possible LIMIT clause
+ * @param array    array of the foreign keys
+ * @param string   the foreign field name
+ * @param bool     whether to override the total
+ * @param string   a possible filter
+ * @param string   a possible LIMIT clause
  * @return  array    data about the foreign keys
  * @access  public
  */
@@ -980,7 +980,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
 /**
  * Finds all related tables
  *
- * @param   string   whether to go from master to foreign or vice versa
+ * @param string   whether to go from master to foreign or vice versa
  * @return  boolean  always true
  * @global  array    $tab_left the list of tables that we still couldn't connect
  * @global  array    $tab_know the list of allready connected tables

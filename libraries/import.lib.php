@@ -44,7 +44,7 @@ function PMA_checkTimeout()
 /**
  *  Detects what compression filse uses
  *
- *  @param  string  $filepath  filename to check
+ *  @param string  $filepath  filename to check
  *  @return string MIME type of compression, none for none
  *  @access public
  */
@@ -73,9 +73,9 @@ function PMA_detectCompression($filepath)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @param  string  $sql          query to run
- * @param  string  $full         query to display, this might be commented
- * @param  bool    $controluser  whether to use control user for queries
+ * @param string  $sql          query to run
+ * @param string  $full         query to display, this might be commented
+ * @param bool    $controluser  whether to use control user for queries
  * @access public
  */
 function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
@@ -207,9 +207,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 /**
  * Looks for the presence of USE to possibly change current db
  *
- * @param  string  $buffer  buffer to examine
- * @param  string  $db      current db
- * @param  bool    $reload  reload
+ * @param string  $buffer  buffer to examine
+ * @param string  $db      current db
+ * @param bool    $reload  reload
  * @return array (current or new db, whether to reload)
  * @access public
  */
@@ -227,7 +227,7 @@ function PMA_lookForUse($buffer, $db, $reload)
 /**
  * Returns next part of imported file/buffer
  *
- * @param  int  $size  size of buffer to read (this is maximal size function will return)
+ * @param int  $size  size of buffer to read (this is maximal size function will return)
  * @return string part of file/buffer
  * @access public
  */
@@ -331,40 +331,40 @@ function PMA_importGetNextChunk($size = 32768)
  *
  * @access  public
  *
- * @param   int $num
+ * @param int $num
  * @return  string The column's "Excel" name
  */
 function PMA_getColumnAlphaName($num)
 {
-	$A = 65; // ASCII value for capital "A"
-	$col_name = "";
+    $A = 65; // ASCII value for capital "A"
+    $col_name = "";
 
-	if ($num > 26) {
-		$div = (int)($num / 26);
-		$remain = (int)($num % 26);
+    if ($num > 26) {
+        $div = (int)($num / 26);
+        $remain = (int)($num % 26);
 
-		// subtract 1 of divided value in case the modulus is 0,
-		// this is necessary because A-Z has no 'zero'
-		if ($remain == 0) {
-			$div--;
-		}
+        // subtract 1 of divided value in case the modulus is 0,
+        // this is necessary because A-Z has no 'zero'
+        if ($remain == 0) {
+            $div--;
+        }
 
-		// recursive function call
-		$col_name = PMA_getColumnAlphaName($div);
-		// use modulus as new column number
-		$num = $remain;
-	}
+        // recursive function call
+        $col_name = PMA_getColumnAlphaName($div);
+        // use modulus as new column number
+        $num = $remain;
+    }
 
-	if ($num == 0) {
-		// use 'Z' if column number is 0,
-		// this is necessary because A-Z has no 'zero'
-		$col_name .= chr(($A + 26) - 1);
-	} else {
-		// convert column number to ASCII character
-		$col_name .= chr(($A + $num) - 1);
-	}
+    if ($num == 0) {
+        // use 'Z' if column number is 0,
+        // this is necessary because A-Z has no 'zero'
+        $col_name .= chr(($A + 26) - 1);
+    } else {
+        // convert column number to ASCII character
+        $col_name .= chr(($A + $num) - 1);
+    }
 
-	return $col_name;
+    return $col_name;
 }
 
 /**
@@ -378,7 +378,7 @@ function PMA_getColumnAlphaName($num)
  *
  * @access  public
  *
- * @param   string $name (i.e. "A", or "BC", etc.)
+ * @param string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
 function PMA_getColumnNumberFromName($name) {
@@ -387,19 +387,19 @@ function PMA_getColumnNumberFromName($name) {
         $num_chars = strlen($name);
         $column_number = 0;
         for ($i = 0; $i < $num_chars; ++$i) {
-		// read string from back to front
-		$char_pos = ($num_chars - 1) - $i;
+        // read string from back to front
+        $char_pos = ($num_chars - 1) - $i;
 
-		// convert capital character to ASCII value
-		// and subtract 64 to get corresponding decimal value
-		// ASCII value of "A" is 65, "B" is 66, etc.
-		// Decimal equivalent of "A" is 1, "B" is 2, etc.
-		$number = (ord($name[$char_pos]) - 64);
+        // convert capital character to ASCII value
+        // and subtract 64 to get corresponding decimal value
+        // ASCII value of "A" is 65, "B" is 66, etc.
+        // Decimal equivalent of "A" is 1, "B" is 2, etc.
+        $number = (ord($name[$char_pos]) - 64);
 
-		// base26 to base10 conversion : multiply each number
-		// with corresponding value of the position, in this case
-		// $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
-		$column_number += $number * pow(26,$i);
+        // base26 to base10 conversion : multiply each number
+        // with corresponding value of the position, in this case
+        // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
+        $column_number += $number * pow(26,$i);
         }
         return $column_number;
     } else {
@@ -437,7 +437,7 @@ define("SIZES",     1);
  *
  * @access  public
  *
- * @param   string $last_cumulative_size
+ * @param string $last_cumulative_size
  * @return  int Precision of the given decimal size notation
  */
 function PMA_getM($last_cumulative_size) {
@@ -449,11 +449,11 @@ function PMA_getM($last_cumulative_size) {
  *
  * @access  public
  *
- * @param   string $last_cumulative_size
+ * @param string $last_cumulative_size
  * @return  int Scale of the given decimal size notation
  */
 function PMA_getD($last_cumulative_size) {
-	return (int)substr($last_cumulative_size, (strpos($last_cumulative_size, ",") + 1), (strlen($last_cumulative_size) - strpos($last_cumulative_size, ",")));
+    return (int)substr($last_cumulative_size, (strpos($last_cumulative_size, ",") + 1), (strlen($last_cumulative_size) - strpos($last_cumulative_size, ",")));
 }
 
 /**
@@ -461,7 +461,7 @@ function PMA_getD($last_cumulative_size) {
  *
  * @access  public
  *
- * @param   string &$cell
+ * @param string &$cell
  * @return  array Contains the precision, scale, and full size representation of the given decimal cell
  */
 function PMA_getDecimalSize(&$cell) {
@@ -482,14 +482,14 @@ function PMA_getDecimalSize(&$cell) {
  *
  * @access  public
  *
- * @param   string $last_cumulative_size    Last cumulative column size
- * @param   int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT or BIGINT)
- * @param   int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
- * @param   string &$cell                   The current cell
+ * @param string $last_cumulative_size    Last cumulative column size
+ * @param int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+ * @param int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+ * @param string &$cell                   The current cell
  * @return  string                          Size of the given cell in the type-appropriate format
  */
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type, &$cell) {
-	$curr_size = strlen((string)$cell);
+    $curr_size = strlen((string)$cell);
 
     /**
      * If the cell is NULL, don't treat it as a varchar
@@ -500,17 +500,17 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
     /**
      * What to do if the current cell is of type VARCHAR
      */
-	elseif ($curr_type == VARCHAR) {
+    elseif ($curr_type == VARCHAR) {
         /**
          * The last cumulative type was VARCHAR
          */
-		if ($last_cumulative_type == VARCHAR) {
-			if ($curr_size >= $last_cumulative_size) {
-				return $curr_size;
+        if ($last_cumulative_type == VARCHAR) {
+            if ($curr_size >= $last_cumulative_size) {
+                return $curr_size;
             } else {
-				return $last_cumulative_size;
+                return $last_cumulative_size;
             }
-		}
+        }
         /**
          * The last cumulative type was DECIMAL
          */
@@ -522,7 +522,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return $oldM;
             }
-		}
+        }
         /**
          * The last cumulative type was BIGINT or INT
          */
@@ -532,7 +532,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
             } else {
                 return $last_cumulative_size;
             }
-		}
+        }
         /**
          * This is the first row to be analyzed
          */
@@ -549,7 +549,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
 
             return -1;
         }
-	}
+    }
     /**
      * What to do if the current cell is of type DECIMAL
      */
@@ -557,66 +557,66 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumulative type was VARCHAR
          */
-		if ($last_cumulative_type == VARCHAR) {
+        if ($last_cumulative_type == VARCHAR) {
             /* Convert $last_cumulative_size from varchar to decimal format */
-		    $size = PMA_getDecimalSize($cell);
+            $size = PMA_getDecimalSize($cell);
 
-		    if ($size[M] >= $last_cumulative_size) {
-		        return $size[M];
+            if ($size[M] >= $last_cumulative_size) {
+                return $size[M];
             } else {
-	            return $last_cumulative_size;
+                return $last_cumulative_size;
             }
-		}
+        }
         /**
          * The last cumulative type was DECIMAL
          */
         elseif ($last_cumulative_type == DECIMAL) {
-		    $size = PMA_getDecimalSize($cell);
+            $size = PMA_getDecimalSize($cell);
 
-		    $oldM = PMA_getM($last_cumulative_size);
-		    $oldD = PMA_getD($last_cumulative_size);
+            $oldM = PMA_getM($last_cumulative_size);
+            $oldD = PMA_getD($last_cumulative_size);
 
-		    /* New val if M or D is greater than current largest */
-		    if ($size[M] > $oldM || $size[D] > $oldD) {
-			    /* Take the largest of both types */
-			    return (string)((($size[M] > $oldM) ? $size[M] : $oldM) . "," . (($size[D] > $oldD) ? $size[D] : $oldD));
+            /* New val if M or D is greater than current largest */
+            if ($size[M] > $oldM || $size[D] > $oldD) {
+                /* Take the largest of both types */
+                return (string)((($size[M] > $oldM) ? $size[M] : $oldM) . "," . (($size[D] > $oldD) ? $size[D] : $oldD));
             } else {
-			    return $last_cumulative_size;
+                return $last_cumulative_size;
             }
-		}
+        }
         /**
          * The last cumulative type was BIGINT or INT
          */
         elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
-		    /* Convert $last_cumulative_size from int to decimal format */
-		    $size = PMA_getDecimalSize($cell);
+            /* Convert $last_cumulative_size from int to decimal format */
+            $size = PMA_getDecimalSize($cell);
 
-		    if ($size[M] >= $last_cumulative_size) {
-		        return $size[FULL];
+            if ($size[M] >= $last_cumulative_size) {
+                return $size[FULL];
             } else {
-	            return ($last_cumulative_size.",".$size[D]);
+                return ($last_cumulative_size.",".$size[D]);
             }
-		}
+        }
         /**
          * This is the first row to be analyzed
          */
         elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
             /* First row of the column */
-		    $size = PMA_getDecimalSize($cell);
+            $size = PMA_getDecimalSize($cell);
 
-		    return $size[FULL];
-		}
+            return $size[FULL];
+        }
         /**
          * An error has DEFINITELY occurred
          */
-		else {
+        else {
             /**
              * TODO: Handle this MUCH more elegantly
              */
 
             return -1;
         }
-	}
+    }
     /**
      * What to do if the current cell is of type BIGINT or INT
      */
@@ -624,41 +624,41 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * The last cumulative type was VARCHAR
          */
-		if ($last_cumulative_type == VARCHAR) {
-		    if ($curr_size >= $last_cumulative_size) {
-		        return $curr_size;
+        if ($last_cumulative_type == VARCHAR) {
+            if ($curr_size >= $last_cumulative_size) {
+                return $curr_size;
             } else {
-	            return $last_cumulative_size;
+                return $last_cumulative_size;
             }
-		}
+        }
         /**
          * The last cumulative type was DECIMAL
          */
         elseif ($last_cumulative_type == DECIMAL) {
             $oldM = PMA_getM($last_cumulative_size);
-		    $oldD = PMA_getD($last_cumulative_size);
-		    $oldInt = $oldM - $oldD;
-		    $newInt = strlen((string)$cell);
+            $oldD = PMA_getD($last_cumulative_size);
+            $oldInt = $oldM - $oldD;
+            $newInt = strlen((string)$cell);
 
-		    /* See which has the larger integer length */
-		    if ($oldInt >= $newInt) {
-			    /* Use old decimal size */
-			    return $last_cumulative_size;
+            /* See which has the larger integer length */
+            if ($oldInt >= $newInt) {
+                /* Use old decimal size */
+                return $last_cumulative_size;
             } else {
-			    /* Use $newInt + $oldD as new M */
-			    return (($newInt + $oldD) . "," . $oldD);
+                /* Use $newInt + $oldD as new M */
+                return (($newInt + $oldD) . "," . $oldD);
             }
-	    }
+        }
         /**
          * The last cumulative type was BIGINT or INT
          */
         elseif ($last_cumulative_type == BIGINT || $last_cumulative_type == INT) {
-		    if ($curr_size >= $last_cumulative_size) {
-		        return $curr_size;
+            if ($curr_size >= $last_cumulative_size) {
+                return $curr_size;
             } else {
-	            return $last_cumulative_size;
+                return $last_cumulative_size;
             }
-		}
+        }
         /**
          * This is the first row to be analyzed
          */
@@ -668,18 +668,18 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
         /**
          * An error has DEFINITELY occurred
          */
-		else {
+        else {
             /**
              * TODO: Handle this MUCH more elegantly
              */
 
             return -1;
         }
-	}
+    }
     /**
      * An error has DEFINITELY occurred
      */
-	else {
+    else {
         /**
          * TODO: Handle this MUCH more elegantly
          */
@@ -693,8 +693,8 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  *
  * @access  public
  *
- * @param   int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
- * @param   string &$cell                 String representation of the cell for which a best-fit type is to be determined
+ * @param int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
+ * @param string &$cell                 String representation of the cell for which a best-fit type is to be determined
  * @return  int                           The MySQL type representation (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  */
 function PMA_detectType($last_cumulative_type, &$cell) {
@@ -713,11 +713,11 @@ function PMA_detectType($last_cumulative_type, &$cell) {
         if ($cell == (string)(float)$cell && strpos($cell, ".") !== false && substr_count($cell, ".") == 1) {
             return DECIMAL;
         } else {
-		if (abs($cell) > 2147483647) {
-			return BIGINT;
-		} else {
-			return INT;
-		}
+        if (abs($cell) > 2147483647) {
+            return BIGINT;
+        } else {
+            return INT;
+        }
         }
     } else {
         return VARCHAR;
@@ -733,66 +733,66 @@ function PMA_detectType($last_cumulative_type, &$cell) {
  *
  * @access  public
  *
- * @param   &$table  array(string $table_name, array $col_names, array $rows)
+ * @param &$table  array(string $table_name, array $col_names, array $rows)
  * @return  array    array(array $types, array $sizes)
  */
 function PMA_analyzeTable(&$table) {
-	/* Get number of rows in table */
-	$numRows = count($table[ROWS]);
-	/* Get number of columns */
-	$numCols = count($table[COL_NAMES]);
-	/* Current type for each column */
-	$types = array();
-	$sizes = array();
+    /* Get number of rows in table */
+    $numRows = count($table[ROWS]);
+    /* Get number of columns */
+    $numCols = count($table[COL_NAMES]);
+    /* Current type for each column */
+    $types = array();
+    $sizes = array();
 
-	/* Initialize $sizes to all 0's */
-	for ($i = 0; $i < $numCols; ++$i) {
-		$sizes[$i] = 0;
-	}
+    /* Initialize $sizes to all 0's */
+    for ($i = 0; $i < $numCols; ++$i) {
+        $sizes[$i] = 0;
+    }
 
     /* Initialize $types to NONE */
     for ($i = 0; $i < $numCols; ++$i) {
         $types[$i] = NONE;
     }
 
-	/* Temp vars */
-	$curr_type = NONE;
-	$curr_size = 0;
+    /* Temp vars */
+    $curr_type = NONE;
+    $curr_size = 0;
 
-	/* If the passed array is not of the correct form, do not process it */
-	if (is_array($table) && ! is_array($table[TBL_NAME]) && is_array($table[COL_NAMES]) && is_array($table[ROWS])) {
-		/* Analyze each column */
-		for ($i = 0; $i < $numCols; ++$i) {
-			/* Analyze the column in each row */
-			for ($j = 0; $j < $numRows; ++$j) {
-				/* Determine type of the current cell */
-				$curr_type = PMA_detectType($types[$i], $table[ROWS][$j][$i]);
-				/* Determine size of the current cell */
-				$sizes[$i] = PMA_detectSize($sizes[$i], $types[$i], $curr_type, $table[ROWS][$j][$i]);
+    /* If the passed array is not of the correct form, do not process it */
+    if (is_array($table) && ! is_array($table[TBL_NAME]) && is_array($table[COL_NAMES]) && is_array($table[ROWS])) {
+        /* Analyze each column */
+        for ($i = 0; $i < $numCols; ++$i) {
+            /* Analyze the column in each row */
+            for ($j = 0; $j < $numRows; ++$j) {
+                /* Determine type of the current cell */
+                $curr_type = PMA_detectType($types[$i], $table[ROWS][$j][$i]);
+                /* Determine size of the current cell */
+                $sizes[$i] = PMA_detectSize($sizes[$i], $types[$i], $curr_type, $table[ROWS][$j][$i]);
 
-				/**
-				 * If a type for this column has already been declared,
-				 * only alter it if it was a number and a varchar was found
-				 */
-				if ($curr_type != NONE) {
-					if ($curr_type == VARCHAR) {
-						$types[$i] = VARCHAR;
-					} else if ($curr_type == DECIMAL) {
-						if ($types[$i] != VARCHAR) {
-							$types[$i] = DECIMAL;
-						}
-					} else if ($curr_type == BIGINT) {
-						if ($types[$i] != VARCHAR && $types[$i] != DECIMAL) {
-							$types[$i] = BIGINT;
-						}
-					} else if ($curr_type == INT) {
-						if ($types[$i] != VARCHAR && $types[$i] != DECIMAL && $types[$i] != BIGINT) {
-							$types[$i] = INT;
-						}
-					}
-				}
-			}
-		}
+                /**
+                 * If a type for this column has already been declared,
+                 * only alter it if it was a number and a varchar was found
+                 */
+                if ($curr_type != NONE) {
+                    if ($curr_type == VARCHAR) {
+                        $types[$i] = VARCHAR;
+                    } else if ($curr_type == DECIMAL) {
+                        if ($types[$i] != VARCHAR) {
+                            $types[$i] = DECIMAL;
+                        }
+                    } else if ($curr_type == BIGINT) {
+                        if ($types[$i] != VARCHAR && $types[$i] != DECIMAL) {
+                            $types[$i] = BIGINT;
+                        }
+                    } else if ($curr_type == INT) {
+                        if ($types[$i] != VARCHAR && $types[$i] != DECIMAL && $types[$i] != BIGINT) {
+                            $types[$i] = INT;
+                        }
+                    }
+                }
+            }
+        }
 
         /* Check to ensure that all types are valid */
         $len = count($types);
@@ -803,16 +803,16 @@ function PMA_analyzeTable(&$table) {
             }
         }
 
-		return array($types, $sizes);
-	}
-	else
-	{
+        return array($types, $sizes);
+    }
+    else
+    {
         /**
          * TODO: Handle this better
          */
 
-		return false;
-	}
+        return false;
+    }
 }
 
 /* Needed to quell the beast that is PMA_Message */
@@ -826,11 +826,11 @@ $import_notice = null;
  *
  * @access  public
  *
- * @param   string  $db_name          Name of the database
- * @param   array   &$tables          Array of tables for the specified database
- * @param   array   &$analyses        Analyses of the tables
- * @param   array   &$additional_sql  Additional SQL statements to be executed
- * @param   array   $options          Associative array of options
+ * @param string  $db_name          Name of the database
+ * @param array   &$tables          Array of tables for the specified database
+ * @param array   &$analyses        Analyses of the tables
+ * @param array   &$additional_sql  Additional SQL statements to be executed
+ * @param array   $options          Associative array of options
  * @return  void
  */
 function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null) {
@@ -948,10 +948,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
      *
      * Only one insert query is formed for each table
      */
-	$tempSQLStr = "";
-	$col_count = 0;
+    $tempSQLStr = "";
+    $col_count = 0;
     $num_tables = count($tables);
-	for ($i = 0; $i < $num_tables; ++$i) {
+    for ($i = 0; $i < $num_tables; ++$i) {
         $num_cols = count($tables[$i][COL_NAMES]);
         $num_rows = count($tables[$i][ROWS]);
 
@@ -967,10 +967,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
         $tempSQLStr .= ") VALUES ";
 
-		for ($j = 0; $j < $num_rows; ++$j) {
+        for ($j = 0; $j < $num_rows; ++$j) {
             $tempSQLStr .= "(";
 
-			for ($k = 0; $k < $num_cols; ++$k) {
+            for ($k = 0; $k < $num_cols; ++$k) {
                 if ($analyses != null) {
                     $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
                 } else {
@@ -983,22 +983,22 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                 }
 
                 $tempSQLStr .= (($is_varchar) ? "'" : "");
-				$tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
-				$tempSQLStr .= (($is_varchar) ? "'" : "");
+                $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
+                $tempSQLStr .= (($is_varchar) ? "'" : "");
 
-				if ($k != ($num_cols - 1)) {
-					$tempSQLStr .= ", ";
+                if ($k != ($num_cols - 1)) {
+                    $tempSQLStr .= ", ";
                 }
 
-				if ($col_count == ($num_cols - 1)) {
-					$col_count = 0;
-				} else {
-					$col_count++;
+                if ($col_count == ($num_cols - 1)) {
+                    $col_count = 0;
+                } else {
+                    $col_count++;
                 }
 
                 /* Delete the cell after we are done with it */
                 unset($tables[$i][ROWS][$j][$k]);
-			}
+            }
 
             $tempSQLStr .= ")";
 
@@ -1006,10 +1006,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                 $tempSQLStr .= ",\n ";
             }
 
-			$col_count = 0;
+            $col_count = 0;
             /* Delete the row after we are done with it */
             unset($tables[$i][ROWS][$j]);
-		}
+        }
 
         $tempSQLStr .= ";";
 
@@ -1019,7 +1019,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
          * to store them in a (possibly large) buffer
          */
         PMA_importRunQuery($tempSQLStr, $tempSQLStr);
-	}
+    }
 
     /* No longer needed */
     unset($tempSQLStr);

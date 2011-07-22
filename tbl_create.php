@@ -216,7 +216,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been created.'));
         $message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
 
-        if($GLOBALS['is_ajax_request'] == true) {
+        if ($GLOBALS['is_ajax_request'] == true) {
 
             /**
              * construct the html for the newly created table's row to be appended
@@ -296,7 +296,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
             $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'. $tbl_stats['Collation'] .'</dfn></td>' . "\n";
 
-            if($is_show_stats) {
+            if ($is_show_stats) {
                 $new_table_string .= '<td class="value"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" >' . $formatted_size . ' ' . $unit . '</a> </td>' . "\n" ;
                 $new_table_string .= '<td class="value">' . $overhead . '</td>' . "\n" ;
             }
@@ -342,7 +342,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 
 // This div is used to show the content(eg: create table form with more columns) fetched with AJAX subsequently.
-if($GLOBALS['is_ajax_request'] != true) {
+if ($GLOBALS['is_ajax_request'] != true) {
     echo('<div id="create_table_div">');
 }
 
@@ -350,7 +350,7 @@ require './libraries/tbl_properties.inc.php';
 // Displays the footer
 require './libraries/footer.inc.php';
 
-if($GLOBALS['is_ajax_request'] != true) {
+if ($GLOBALS['is_ajax_request'] != true) {
     echo('</div>');
 }
 ?>

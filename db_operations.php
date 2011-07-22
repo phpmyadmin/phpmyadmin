@@ -301,7 +301,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
      * Database has been successfully renamed/moved.  If in an Ajax request,
      * generate the output with {@link PMA_ajaxResponse} and exit
      */
-    if( $GLOBALS['is_ajax_request'] == true) {
+    if ( $GLOBALS['is_ajax_request'] == true) {
         $extra_data['newname'] = $newname;
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);

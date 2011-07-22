@@ -406,7 +406,7 @@ $(function() {
                                }
                             }
                         }
-                    },		
+                    },        
                     tooltip: {
                         formatter: function() { 
                             return '<b>' + this.point.name + '</b><br/>' + Highcharts.numberFormat(this.y, 2) + '<br/>(' + Highcharts.numberFormat(this.percentage, 2) + ' %)'; 
@@ -1581,12 +1581,12 @@ $(function() {
                     if(data.numRows > 12) {
                         $('div#logTable').prepend(
                             '<fieldset id="logDataFilter">' +
-                            '	<legend>Filters</legend>' +
-                            '	<div class="formelement">' +
-                            '		<label for="filterQueryText">Filter queries by word/regexp:</label>' +
-                            '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
+                            '    <legend>Filters</legend>' +
+                            '    <div class="formelement">' +
+                            '        <label for="filterQueryText">Filter queries by word/regexp:</label>' +
+                            '        <input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
                             ((data.numRows > 250) ? ' <button name="startFilterQueryText" id="startFilterQueryText">Filter</button>' : '') +                        
-                            '	</div>' +
+                            '    </div>' +
                             '</fieldset>'
                         );
                         

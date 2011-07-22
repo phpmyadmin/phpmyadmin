@@ -62,17 +62,17 @@ $titles = PMA_buildActionTitles();
 
 // 1. No tables
 if ($num_tables == 0) {
-	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
+    echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
-	if (empty($db_is_information_schema)) {
-		require './libraries/display_create_table.lib.php';
-	} // end if (Create Table dialog)
+    if (empty($db_is_information_schema)) {
+        require './libraries/display_create_table.lib.php';
+    } // end if (Create Table dialog)
 
-	/**
-	 * Displays the footer
-	 */
-	require_once './libraries/footer.inc.php';
-	exit;
+    /**
+     * Displays the footer
+     */
+    require_once './libraries/footer.inc.php';
+    exit;
 }
 
 // else
@@ -183,7 +183,7 @@ foreach ($tables as $keyname => $each_table) {
             }
             //$display_rows                   =  ' - ';
             break;
-	    // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
+        // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
         // Both are aliases for MERGE
         case 'MRG_MyISAM' :
         case 'MRG_MYISAM' :
@@ -384,7 +384,7 @@ foreach ($tables as $keyname => $each_table) {
                 $sum_row_count_pre = '~';
                 $show_superscript = PMA_showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
             }
-        } elseif($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
+        } elseif ($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
             // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';
             $sum_row_count_pre = '~';

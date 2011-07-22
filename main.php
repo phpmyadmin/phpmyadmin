@@ -290,7 +290,7 @@ if (file_exists('./config')) {
 
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
-    if(! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+    if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
         $message = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
         $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
         $message->addParam('</a>', false);
@@ -364,14 +364,14 @@ if (file_exists('./libraries/language_stats.inc.php')) {
 /**
  * prints list item for main page
  *
- * @param   string  $name   displayed text
- * @param   string  $id     id, used for css styles
- * @param   string  $url    make item as link with $url as target
- * @param   string  $mysql_help_page  display a link to MySQL's manual
- * @param   string  $target special target for $url
- * @param   string  $a_id   id for the anchor, used for jQuery to hook in functions
- * @param   string  $class  class for the li element
- * @param   string  $a_class  class for the anchor element
+ * @param string  $name   displayed text
+ * @param string  $id     id, used for css styles
+ * @param string  $url    make item as link with $url as target
+ * @param string  $mysql_help_page  display a link to MySQL's manual
+ * @param string  $target special target for $url
+ * @param string  $a_id   id for the anchor, used for jQuery to hook in functions
+ * @param string  $class  class for the li element
+ * @param string  $a_class  class for the anchor element
  */
 function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null, $class = null, $a_class = null)
 {

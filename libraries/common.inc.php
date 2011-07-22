@@ -1004,9 +1004,9 @@ PMA_Tracker::enable();
  * true
  */
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-	$GLOBALS['is_ajax_request'] = true;
+    $GLOBALS['is_ajax_request'] = true;
 } else {
-	$GLOBALS['is_ajax_request'] = false;
+    $GLOBALS['is_ajax_request'] = false;
 }
 
 /**
@@ -1015,7 +1015,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
  * Set to true if this is a request made during an inline edit process.  This
  * request is made to retrieve the non-truncated/transformed values.
  */
-if(isset($_REQUEST['inline_edit']) && $_REQUEST['inline_edit'] == true) {
+if (isset($_REQUEST['inline_edit']) && $_REQUEST['inline_edit'] == true) {
     $GLOBALS['inline_edit'] = true;
 }
 else {

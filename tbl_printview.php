@@ -277,7 +277,7 @@ foreach ($the_tables as $key => $table) {
             if ($nonisam == false) {
                 // Gets some sizes
 
-		$mergetable = PMA_Table::isMerge($db, $table);
+        $mergetable = PMA_Table::isMerge($db, $table);
 
                 list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
                 if ($mergetable == false) {

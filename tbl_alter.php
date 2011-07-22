@@ -130,7 +130,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
-        if( $GLOBALS['is_ajax_request'] == true) {
+        if ( $GLOBALS['is_ajax_request'] == true) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
             PMA_ajaxResponse($message, $message->isSuccess(),$extra_data);
         }

@@ -121,7 +121,7 @@ function PMA_auth_check()
             }
         }
         if (isset($_SESSION['PMA_single_signon_host'])) {
-	        $single_signon_host = $_SESSION['PMA_single_signon_host'];
+            $single_signon_host = $_SESSION['PMA_single_signon_host'];
         }
 
         if (isset($_SESSION['PMA_single_signon_port'])) {

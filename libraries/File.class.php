@@ -78,7 +78,7 @@ class PMA_File
      * constructor
      *
      * @access  public
-     * @param   string  $name   file name
+     * @param string  $name   file name
      */
     function __construct($name = false)
     {
@@ -129,7 +129,7 @@ class PMA_File
      * file objects with temp flags are deleted with object destruction
      *
      * @access  public
-     * @param   boolean sets the temp flag
+     * @param boolean sets the temp flag
      * @return  boolean PMA_File::$_is_temp
      */
     function isTemp($is_temp = null)
@@ -145,7 +145,7 @@ class PMA_File
      * accessor
      *
      * @access  public
-     * @param   string  $name   file name
+     * @param string  $name   file name
      */
     function setName($name)
     {
@@ -208,7 +208,7 @@ class PMA_File
 
     /**
      * @access  public
-     * @param   string  name of file uploaded
+     * @param string  name of file uploaded
      * @return  boolean success
      */
     function setUploadedFile($name)
@@ -226,8 +226,8 @@ class PMA_File
 
     /**
      * @access  public
-     * @param   string  $key the md5 hash of the column name
-     * @param   string  $rownumber
+     * @param string  $key the md5 hash of the column name
+     * @param string  $rownumber
      * @return  boolean success
      */
     function setUploadedFromTblChangeRequest($key, $rownumber)
@@ -319,9 +319,9 @@ class PMA_File
      *
      * @access  public
      * @static
-     * @param   array   $file       the array
-     * @param   string  $rownumber
-     * @param   string  $key
+     * @param array   $file       the array
+     * @param string  $rownumber
+     * @param string  $key
      * @return  array
      */
     function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
@@ -341,8 +341,8 @@ class PMA_File
      * sets the name if the file to the one selected in the tbl_change form
      *
      * @access  public
-     * @param   string  $key the md5 hash of the column name
-     * @param   string  $rownumber
+     * @param string  $key the md5 hash of the column name
+     * @param string  $rownumber
      * @return  boolean success
      */
     function setSelectedFromTblChangeRequest($key, $rownumber = null)
@@ -421,8 +421,8 @@ class PMA_File
      * and uses the submitted/selected file
      *
      * @access  public
-     * @param   string  $key the md5 hash of the column name
-     * @param   string  $rownumber
+     * @param string  $key the md5 hash of the column name
+     * @param string  $rownumber
      * @return  boolean success
      */
     function checkTblChangeForm($key, $rownumber)
@@ -444,7 +444,7 @@ class PMA_File
     /**
      *
      * @access  public
-     * @param   string  $name
+     * @param string  $name
      * @return  boolean success
      */
     function setLocalSelectedFile($name)
@@ -672,7 +672,7 @@ class PMA_File
     /**
      * advances the file pointer in the file handle by $length bytes/chars
      *
-     * @param   integer $length numbers of chars/bytes to skip
+     * @param integer $length numbers of chars/bytes to skip
      * @return  boolean
      * @todo this function is unused
      */
@@ -808,7 +808,7 @@ class PMA_File
      * sets reference to most recent BLOB repository reference
      *
      * @access  public
-     * @param   string - BLOB repository reference
+     * @param string - BLOB repository reference
     */
     static function setRecentBLOBReference($ref)
     {

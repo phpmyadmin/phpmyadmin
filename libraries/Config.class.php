@@ -75,7 +75,7 @@ class PMA_Config
     /**
      * constructor
      *
-     * @param   string  source to read config from
+     * @param string  source to read config from
      */
     function __construct($source = null)
     {
@@ -333,7 +333,7 @@ class PMA_Config
      * loads configuration from $source, usally the config file
      * should be called on object creation
      *
-     * @param   string $source  config file
+     * @param string $source  config file
      */
     function load($source = null)
     {
@@ -563,7 +563,7 @@ class PMA_Config
 
     /**
      * set source
-     * @param   string  $source
+     * @param string  $source
      */
     function setSource($source)
     {
@@ -635,7 +635,7 @@ class PMA_Config
 
     /**
      * returns specific config setting
-     * @param   string  $setting
+     * @param string  $setting
      * @return  mixed   value
      */
     function get($setting)
@@ -649,8 +649,8 @@ class PMA_Config
     /**
      * sets configuration variable
      *
-     * @param   string  $setting    configuration option
-     * @param   string  $value      new value for configuration option
+     * @param string  $setting    configuration option
+     * @param string  $value      new value for configuration option
      */
     function set($setting, $value)
     {
@@ -1075,7 +1075,7 @@ class PMA_Config
      * returns options for font size selection
      *
      * @static
-     * @param   string  $current_size   current selected font size with unit
+     * @param string  $current_size   current selected font size with unit
      * @return  array   selectable font sizes
      */
     static protected function _getFontsizeOptions($current_size = '82%')
@@ -1135,7 +1135,7 @@ class PMA_Config
      * returns html selectbox for font sizes
      *
      * @static
-     * @param   string  $current_size   currently slected font size with unit
+     * @param string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
     static protected function _getFontsizeSelection()
@@ -1169,7 +1169,7 @@ class PMA_Config
      * return complete font size selection form
      *
      * @static
-     * @param   string  $current_size   currently slected font size with unit
+     * @param string  $current_size   currently slected font size with unit
      * @return  string  html selectbox
      */
     static public function getFontsizeForm()
@@ -1187,7 +1187,7 @@ class PMA_Config
     /**
      * removes cookie
      *
-     * @param   string  $cookie     name of cookie to remove
+     * @param string  $cookie     name of cookie to remove
      * @return  boolean result of setcookie()
      */
     function removeCookie($cookie)
@@ -1200,11 +1200,11 @@ class PMA_Config
      * sets cookie if value is different from current cokkie value,
      * or removes if value is equal to default
      *
-     * @param   string  $cookie     name of cookie to remove
-     * @param   mixed   $value      new cookie value
-     * @param   string  $default    default value
-     * @param   int     $validity   validity of cookie in seconds (default is one month)
-     * @param   bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
+     * @param string  $cookie     name of cookie to remove
+     * @param mixed   $value      new cookie value
+     * @param string  $default    default value
+     * @param int     $validity   validity of cookie in seconds (default is one month)
+     * @param bool    $httponlt   whether cookie is only for HTTP (and not for scripts)
      * @return  boolean result of setcookie()
      */
     function setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)

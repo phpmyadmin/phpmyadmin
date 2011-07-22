@@ -83,10 +83,10 @@ class PMA_Error_Handler
      * Do not use the context parameter as we want to avoid storing the
      * complete $GLOBALS inside $_SESSION['errors']
      *
-     * @param   integer $errno
-     * @param   string  $errstr
-     * @param   string  $errfile
-     * @param   integer $errline
+     * @param integer $errno
+     * @param string  $errstr
+     * @param string  $errfile
+     * @param integer $errline
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
@@ -126,7 +126,7 @@ class PMA_Error_Handler
      * log error to configured log facility
      *
      * @todo    finish!
-     * @param   PMA_Error $error
+     * @param PMA_Error $error
      */
     protected function _logError($error)
     {
@@ -136,10 +136,10 @@ class PMA_Error_Handler
     /**
      * trigger a custom error
      *
-     * @param   string  $errorInfo
-     * @param   integer $errorNumber
-     * @param   string  $file
-     * @param   integer $line
+     * @param string  $errorInfo
+     * @param integer $errorNumber
+     * @param string  $file
+     * @param integer $line
      */
     public function triggerError($errorInfo, $errorNumber = null, $file = null, $line = null)
     {
@@ -150,7 +150,7 @@ class PMA_Error_Handler
     /**
      * display fatal error and exit
      *
-     * @param   PMA_Error $error
+     * @param PMA_Error $error
      */
     protected function _dispFatalError($error)
     {
@@ -191,7 +191,7 @@ class PMA_Error_Handler
     /**
      * display HTML header
      *
-     * @param   PMA_error $error
+     * @param PMA_error $error
      */
     protected function _dispPageStart($error = null)
     {

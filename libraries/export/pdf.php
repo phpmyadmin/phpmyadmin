@@ -213,7 +213,7 @@ class PMA_PDF extends TCPDF
 
     function setAttributes($attr = array())
     {
-        foreach ($attr as $key => $val){
+        foreach ($attr as $key => $val) {
             $this->$key = $val ;
         }
     }
@@ -246,20 +246,20 @@ class PMA_PDF extends TCPDF
 
         // loop through results header and set initial col widths/ titles/ alignment
         // if a col title is less than the starting col width, reduce that column size
-        for ($i = 0; $i < $this->numFields; $i++){
+        for ($i = 0; $i < $this->numFields; $i++) {
             $stringWidth = $this->getstringwidth($this->fields[$i]->name) + 6 ;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
             $totalTitleWidth += $stringWidth;
 
             // set any column titles less than the start width to the column title width
-            if ($stringWidth < $this->sColWidth){
+            if ($stringWidth < $this->sColWidth) {
                 $colFits[$i] = $stringWidth ;
             }
             $this->colTitles[$i] = $this->fields[$i]->name;
             $this->display_column[$i] = true;
 
-            switch ($this->fields[$i]->type){
+            switch ($this->fields[$i]->type) {
             case 'int':
                 $this->colAlign[$i] = 'R';
                 break;
@@ -317,7 +317,7 @@ class PMA_PDF extends TCPDF
         }
 
         $totAlreadyFitted = 0;
-        foreach ($colFits as $key => $val){
+        foreach ($colFits as $key => $val) {
             // set fitted columns to smallest size
             $this->tablewidths[$key] = $val;
             // to work out how much (if any) space has been freed up
@@ -408,7 +408,7 @@ function PMA_exportHeader()
 /**
  * Outputs database header
  *
- * @param   string  $db Database name
+ * @param string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -421,7 +421,7 @@ function PMA_exportDBHeader($db)
 /**
  * Outputs database footer
  *
- * @param   string  $db Database name
+ * @param string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -434,7 +434,7 @@ function PMA_exportDBFooter($db)
 /**
  * Outputs CREATE DATABASE statement
  *
- * @param   string  $db Database name
+ * @param string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -447,11 +447,11 @@ function PMA_exportDBCreate($db)
 /**
  * Outputs the content of a table in PDF format
  *
- * @param   string  $db         database name
- * @param   string  $table      table name
- * @param   string  $crlf       the end of line sequence
- * @param   string  $error_url  the url to go back in case of error
- * @param   string  $sql_query  SQL query for obtaining data
+ * @param string  $db         database name
+ * @param string  $table      table name
+ * @param string  $crlf       the end of line sequence
+ * @param string  $error_url  the url to go back in case of error
+ * @param string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public
