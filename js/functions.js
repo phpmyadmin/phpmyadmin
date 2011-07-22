@@ -2111,7 +2111,7 @@ $(document).ready(function() {
         $("#popup_background").css({"opacity":"0.7"});
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
-        /**Replacing the column name in the enum editor hearder*/
+        /**Replacing the column name in the enum editor header*/
         var column_name = $("#append_fields_form").find("input[id=field_0_1]").attr("value");
         var h3_text = $("#enum_editor h3").html();
         $("#enum_editor h3").html(h3_text.split('"')[0]+'"'+column_name+'"');
