@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-21 19:45+0200\n"
+"PO-Revision-Date: 2011-07-22 11:14+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -1159,7 +1159,7 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr "Povprečno nalaganje"
+msgstr "Povprečna obremenitev"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
@@ -9882,7 +9882,6 @@ msgid "Monitor Instructions"
 msgstr "Navodila nadziranja"
 
 #: server_status.php:1337
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -9900,7 +9899,9 @@ msgstr ""
 "Nadziranje phpMyAdmin vam lahko pomaga pri optimiziranju konfiguracije "
 "strežnika in izsleditvi časovno zahtevnih\n"
 "        poizvedb. Za slednje morate nastaviti log_output na 'TABLE' in imeti "
-"ali slow_query_log ali general_log omogočeno."
+"ali slow_query_log ali general_log omogočeno. Vendar pomnite, da\n"
+"        general_log ustvari ogromno podatkov in poveča obremenitev strežnika "
+"do 15 %."
 
 #: server_status.php:1346
 msgid ""
@@ -9916,6 +9917,18 @@ msgid ""
 "statistics from the logs helping you find what caused the\n"
 "        activity spike.</p>"
 msgstr ""
+"<b>Uporaba nadziranja:</b><br/>\n"
+"        V redu, pripravljeni ste! Ko kliknete 'Začni nadziranje', se bo vaš "
+"brskalnik osvežil in prikazal grafikone\n"
+"        v rednih razmikih. Dodajate lahko grafikone in spremenite pogostost "
+"osveževanja pod 'Nastavitve' ali pa\n"
+"        odstranite kateri koli grafikon s klikom na ikono zobnika ob "
+"ustreznem grafikonu.\n"
+"        <p>Ko opazite nenavadno povečanje dejavnosti, izberite ustrezno "
+"časovno obdobje na katerem koli grafikonu tako, da pridržite\n"
+"        levi miškin gumb in kazalec povlečete čez grafikon. To bo naložilo "
+"statistike iz dnevnikov, kar vam bo pomagalo odkriti vzrok\n"
+"        povečane dejavnosti.</p>"
 
 #: server_status.php:1356
 msgid ""
@@ -9927,6 +9940,13 @@ msgid ""
 "not required any more.\n"
 "        "
 msgstr ""
+"<b>Pomnite:</b>\n"
+"        Omogočitev general_log lahko poveča obremenitev strežnika za 5–15 %. "
+"Zavedajte se tudi, da je ustvarjanje statistik iz dnevnikov\n"
+"        zelo obremenjujoče opravilo, zato je priporočljivo, da izberete samo "
+"majhen časovni razpon ter onemogočite general_log in počistite njene "
+"tabele, ko nadziranja ne potrebujete več.\n"
+"        "
 
 #: server_status.php:1369
 msgid "CPU Usage"
