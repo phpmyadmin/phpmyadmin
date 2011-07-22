@@ -81,8 +81,9 @@
             dragMove: function(e) {
                 if (this.colRsz) {
                     var dx = e.pageX - this.colRsz.x0;
-                    if (this.colRsz.objWidth + dx > this.minColWidth)
+                    if (this.colRsz.objWidth + dx > this.minColWidth) {
                         $(this.colRsz.obj).css('left', this.colRsz.objLeft + dx + 'px');
+                    }
                 } else if (this.colMov) {
                     // dragged column animation
                     var dx = e.pageX - this.colMov.x0;

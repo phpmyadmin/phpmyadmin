@@ -20,6 +20,7 @@ function PMA_ieFilter($start_color, $end_color)
 }
 ?>
 /******************************************************************************/
+
 /* general tags */
 html {
     font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : (
@@ -58,14 +59,15 @@ h2 {
     padding:			10px 0 10px 3px;
     color:				#777;
 }
+
 /* Hiding icons in the page titles */
 h2 img{display:none;}
 h2 a img{display:inline;}
 
 
 .data{
-margin: 0 0 12px 0;
-position: relative;
+    margin: 0 0 12px 0;
+    position: relative;
 }
 
 h3 {
@@ -317,6 +319,151 @@ select[multiple] {
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#f2f2f2");
 }
 
+/* Icon sprites */
+
+.icon, .footnotemarker {
+    vertical-align: -3px;
+    margin-right:       0.3em;
+    margin-left:        0.3em;
+    width:16px;
+    height:16px;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>iconsprites.png) no-repeat top left;
+}
+
+.ic_asc_order, .ic_s_desc { background-position: 0 0; } 
+.ic_b_bookmark { background-position: -17px 0; } 
+.ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; } 
+.ic_b_calendar { background-position: -51px 0; } 
+.ic_b_chart, .ic_b_dbstatistics { background-position: -68px 0; } 
+.ic_b_close { background-position: -85px 0; } 
+.ic_b_comment { background-position: -102px 0; } 
+.ic_b_deltbl { background-position: -119px 0; } 
+.ic_b_docs { background-position: -136px 0; } 
+.ic_b_docsql { background-position: -153px 0; } 
+.ic_b_drop { background-position: -170px 0; } 
+.ic_b_edit { background-position: -187px 0; } 
+.ic_b_empty { background-position: -204px 0; } 
+.ic_b_engine { background-position: -221px 0; } 
+.ic_b_event_add { background-position: -238px 0; } 
+.ic_b_events { background-position: -255px 0; } 
+.ic_b_export, .ic_b_tblexport { background-position: -272px 0; } 
+.ic_b_firstpage { background-position: -289px 0; } 
+.ic_b_ftext { background-position: -306px 0; } 
+.ic_b_globe { background-position: -323px 0; } 
+.ic_b_help { background-position: -340px 0; } 
+.ic_b_help_s { background-position: -340px 0; } 
+.ic_b_home { background-position: -357px 0; } 
+.ic_b_import, .ic_b_tblimport { background-position: -374px 0; } 
+.ic_b_index { background-position: -391px 0; } 
+.ic_b_info { background-position: -408px 0; width: 11px; height: 11px; } 
+.ic_b_inline_edit { background-position: -420px 0; } 
+.ic_b_insrow { background-position: -437px 0; } 
+.ic_b_lastpage { background-position: -454px 0; } 
+.ic_b_minus { background-position: -471px 0; } 
+.ic_b_more, .ic_col_drop { background-position: -488px 0; } 
+.ic_b_newdb { background-position: -505px 0; } 
+.ic_b_newtbl { background-position: -522px 0; } 
+.ic_b_nextpage, .ic_play { background-position: -539px 0; } 
+.ic_b_pdfdoc { background-position: -556px 0; } 
+.ic_b_plus { background-position: -573px 0; } 
+.ic_b_prevpage { background-position: -590px 0; } 
+.ic_b_primary { background-position: -607px 0; } 
+.ic_b_print { background-position: -624px 0; } 
+.ic_b_props { background-position: -641px 0; } 
+.ic_b_relations { background-position: -658px 0; } 
+.ic_b_routine_add { background-position: -675px 0; } 
+.ic_b_routines { background-position: -692px 0; } 
+.ic_b_save { background-position: -709px 0; } 
+.ic_b_sdb { background-position: -726px 0; width: 10px; height: 10px; } 
+.ic_b_search { background-position: -737px 0; } 
+.ic_b_selboard { background-position: -754px 0; } 
+.ic_b_select { background-position: -771px 0; } 
+.ic_b_snewtbl { background-position: -788px 0; } 
+.ic_b_spatial { background-position: -805px 0; } 
+.ic_b_sql { background-position: -822px 0; } 
+.ic_b_sqldoc { background-position: -839px 0; } 
+.ic_b_sqlhelp { background-position: -856px 0; } 
+.ic_b_tblanalyse { background-position: -873px 0; } 
+.ic_b_tblops { background-position: -890px 0; } 
+.ic_b_tbloptimize { background-position: -907px 0; } 
+.ic_b_tipp { background-position: -924px 0; } 
+.ic_b_trigger_add { background-position: -941px 0; } 
+.ic_b_triggers { background-position: -958px 0; } 
+.ic_b_unique { background-position: -975px 0; } 
+.ic_b_usradd { background-position: -992px 0; } 
+.ic_b_usrcheck { background-position: -1009px 0; } 
+.ic_b_usrdrop { background-position: -1026px 0; } 
+.ic_b_usredit { background-position: -1043px 0; } 
+.ic_b_usrlist { background-position: -1060px 0; } 
+.ic_b_view { background-position: -1077px 0; } 
+.ic_b_views, .ic_s_views { background-position: -1094px 0; } 
+.ic_bd_browse { background-position: -1111px 0; } 
+.ic_bd_deltbl { background-position: -1128px 0; } 
+.ic_bd_drop { background-position: -1145px 0; } 
+.ic_bd_edit { background-position: -1162px 0; } 
+.ic_bd_empty { background-position: -1179px 0; } 
+.ic_bd_export { background-position: -1196px 0; } 
+.ic_bd_firstpage { background-position: -1213px 0; width: 16px; height: 13px; } 
+.ic_bd_ftext { background-position: -1230px 0; } 
+.ic_bd_index { background-position: -1247px 0; } 
+.ic_bd_insrow { background-position: -1264px 0; } 
+.ic_bd_lastpage { background-position: -1281px 0; width: 16px; height: 13px; } 
+.ic_bd_nextpage { background-position: -1298px 0; width: 8px; height: 13px; } 
+.ic_bd_prevpage { background-position: -1307px 0; width: 8px; height: 13px; } 
+.ic_bd_primary { background-position: -1316px 0; } 
+.ic_bd_sbrowse { background-position: -1333px 0; width: 10px; height: 10px; } 
+.ic_bd_select { background-position: -1344px 0; } 
+.ic_bd_spatial { background-position: -1361px 0; } 
+.ic_bd_unique { background-position: -1378px 0; } 
+.ic_database, .ic_s_db { background-position: -1395px 0; } 
+.ic_eye { background-position: -1412px 0; } 
+.ic_eye_grey { background-position: -1429px 0; } 
+.ic_item { background-position: -1446px 0; width: 9px; height: 9px; } 
+.ic_item_ltr { background-position: -1456px 0; width: 5px; height: 9px; } 
+.ic_item_rtl { background-position: -1462px 0; width: 5px; height: 9px; } 
+.ic_more { background-position: -1468px 0; width: 13px; height: 8px; } 
+.ic_pause { background-position: -1482px 0; } 
+.ic_php_sym { background-position: -1499px 0; } 
+.ic_s_asc { background-position: -1516px 0; } 
+.ic_s_asci { background-position: -1533px 0; } 
+.ic_s_attention, .ic_s_notice { background-position: -1550px 0; } 
+.ic_s_cancel { background-position: -1567px 0; } 
+.ic_s_cancel2 { background-position: -1584px 0; } 
+.ic_s_cog { background-position: -1601px 0; } 
+.ic_s_error { background-position: -1618px 0; } 
+.ic_s_error2 { background-position: -1635px 0; width: 11px; height: 11px; } 
+.ic_s_host { background-position: -1647px 0; } 
+.ic_s_info { background-position: -1664px 0; } 
+.ic_s_lang { background-position: -1681px 0; } 
+.ic_s_loggoff { background-position: -1698px 0; } 
+.ic_s_okay { background-position: -1715px 0; } 
+.ic_s_passwd { background-position: -1732px 0; } 
+.ic_s_really { background-position: -1749px 0; width: 11px; height: 11px; } 
+.ic_s_reload { background-position: -1761px 0; } 
+.ic_s_replication { background-position: -1778px 0; } 
+.ic_s_rights { background-position: -1795px 0; } 
+.ic_s_sortable { background-position: -1812px 0; } 
+.ic_s_status { background-position: -1829px 0; } 
+.ic_s_success { background-position: -1846px 0; } 
+.ic_s_sync { background-position: -1863px 0; } 
+.ic_s_tbl { background-position: -1880px 0; } 
+.ic_s_theme { background-position: -1897px 0; } 
+.ic_s_vars { background-position: -1914px 0; } 
+.ic_window-new { background-position: -1931px 0; } 
+
+/* Same as ic_b_help, but applied to place where width=11, height=11 attributes were used */
+.ic_b_help_s { background-position: -340px 0; } 
+
+/* Same as ic_s_sortable */
+img.sortableIcon { background-position: -1812px 0; }
+
+/* Same as s_asc */
+th.headerSortUp img.sortableIcon { background-position: -1516px 0; }
+
+/* Same as s_desc */
+th.headerSortDown img.sortableIcon { background-position: 0 0; }
+
+
 /******************************************************************************/
 /* classes */
 div.tools {
@@ -555,12 +702,6 @@ img.lightbulb {
 }
 
 /* leave some space between icons and text */
-.icon, img.footnotemarker {
-    vertical-align: -3px;
-    margin-right:       0.3em;
-    margin-left:        0.3em;
-}
-
 img.footnotemarker {
     display: none;
 }
@@ -622,8 +763,8 @@ div.footnotes {
     color:              #000000;
     background-color:   #ebf8a4;
 }
-h1.success,
-div.success {
+
+h1.success, div.success {
     border-color:       #a2d246;
     <?php if ($GLOBALS['cfg']['ErrorIconic']) { ?>
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
@@ -643,6 +784,7 @@ div.success {
     color:              #000;
     background-color:   #e8eef1;
 }
+
 h1.notice,
 div.notice,
 div.footnotes {
@@ -657,6 +799,7 @@ div.footnotes {
         <?php } ?>
     <?php } ?>
 }
+
 .notice h1 {
     border-color:       #ffb10a;
 }
@@ -680,24 +823,23 @@ div.error {
         <?php } ?>
     <?php } ?>
 }
+
 div.error h1 {
     border-color:       #ff0000;
 }
-
-
 
 .confirmation {
     color:              #000000;
     background-color:   pink;
 }
+
 fieldset.confirmation {
-
 }
+
 fieldset.confirmation legend {
-
 }
-/* end messageboxes */
 
+/* end messageboxes */
 
 .tblcomment {
     font-size:          70%;
@@ -802,9 +944,13 @@ form.login label {
 /* specific elements */
 
 /* topmenu */
-#topmenu a {text-shadow:0px 1px 0px #fff;}
+#topmenu a { 
+    text-shadow:0px 1px 0px #fff; 
+}
 
-#topmenu .error{background:#eee;border:0px !important;color:#aaa;}
+#topmenu .error { 
+    background:#eee;border:0px !important;color:#aaa; 
+}
 
 ul#topmenu, ul#topmenu2, ul.tabs {
     font-weight:        bold;
@@ -831,7 +977,10 @@ ul#topmenu li, ul#topmenu2 li {
     vertical-align:-3px;
 }
 
-#topmenucontainer{background:url(./themes/pmahomme/img/tab_bg.png) repeat-x;    border-top:1px solid #aaa;}
+#topmenucontainer{ 
+    background:url(./themes/pmahomme/img/tab_bg.png) repeat-x;
+    border-top:1px solid #aaa;
+}
 
 /* default tab styles */
 .tabactive {
@@ -851,8 +1000,8 @@ ul#topmenu ul a {
 }
 
 ul#topmenu .submenu {
-    display:	        none;
-    position:	        relative;
+    display:           none;
+    position:          relative;
 }
 
 ul#topmenu .shown {
@@ -878,7 +1027,6 @@ ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
     display:            block;
     font-weight:3em;
     background:#fff;
-
 }
 
 ul#topmenu ul li {
@@ -947,12 +1095,10 @@ ul#topmenu ul a {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius:      0;
-
 }
 
 ul#topmenu ul li:first-child a {
     border-width:       0;
-
 }
 
 /* enabled hover/active tabs */
@@ -1048,16 +1194,15 @@ div#tablestatistics table {
 /* END server privileges */
 
 
-
 /* Heading */
 #serverinfo {
-border-bottom:1px solid #fff;
--moz-border-radius: 4px 4px 0 0;
--webkit-border-radius: 4px 4px 0 0;
-border-radius:4px 4px 0 0;
-background:#888;
-padding:10px;
-text-shadow:0 1px 0 #000000;
+    border-bottom:1px solid #fff;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius:4px 4px 0 0;
+    background:#888;
+    padding:10px;
+    text-shadow:0 1px 0 #000000;
 }
 
 #serverinfo .item {
@@ -1163,26 +1308,15 @@ text-shadow:0 1px 0 #000000;
 
 /* serverstatus */
 
-img.sortableIcon {
-    width:16px;
-    height:16px;
-    float:right;
-    background-repeat:no-repeat;
-}
-
 h3#serverstatusqueries span {
-    font-size:60%;    
+    font-size:60%;
     display:inline;
 }
 
-th img.sortableIcon, th img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_sortable.png);
-}
-th.headerSortUp img.sortableIcon, th.headerSortUp img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_desc.png);
-}
-th.headerSortDown img.sortableIcon, th.headerSortDown img.sortableIcon {
-    background-image:url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asc.png);
+img.sortableIcon {
+    float:right;
+    background-repeat:no-repeat;
+	margin:0;
 }
 
 .buttonlinks {
@@ -1244,9 +1378,9 @@ div#serverstatus table .tblFooters a {
 }
 
 div.liveChart {
-    clear:both; 
-    min-width:500px; 
-    height:400px; 
+    clear:both;
+    min-width:500px;
+    height:400px;
     padding-bottom:80px;
 }
 
@@ -1288,7 +1422,7 @@ div#logTable {
 }
 
 div#logTable table {
-	width:100%;
+    width:100%;
 }
 
 .smallIndent {
@@ -2680,7 +2814,7 @@ span.mysql-number {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    
+
     background-image: url(./themes/svg_gradient.php?from=eeeeee&to=cccccc);
     background-size: 100% 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));

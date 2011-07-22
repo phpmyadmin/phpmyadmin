@@ -1081,8 +1081,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 * Displays the sub-page heading
 */
     echo '<h2>' . ($GLOBALS['cfg']['MainPageIconic']
-    ? '<img class="icon" src="' . $pmaThemeImage . 's_sync.png" width="18"'
-        . ' height="18" alt="" />'
+    ? '<img class="icon ic_s_sync" src="themes/dot.gif" alt="" />'
     : '')
     . __('Synchronize')
     .'</h2>';

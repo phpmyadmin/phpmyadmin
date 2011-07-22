@@ -70,8 +70,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
     // 2. Display mode is not "false for all elements" -> updates the
     // display mode
     if ($the_disp_mode != 'nnnn000000') {
-        // 2.0 Print view -> set all elements to false!
         if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
+            // 2.0 Print view -> set all elements to false!
             $do_display['edit_lnk']  = 'nn'; // no edit link
             $do_display['del_lnk']   = 'nn'; // no delete link
             $do_display['sort_lnk']  = (string) '0';
@@ -80,10 +80,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '0';
             $do_display['text_btn']  = (string) '0';
             $do_display['pview_lnk'] = (string) '0';
-        // 2.1 Statement is a "SELECT COUNT", a
-        //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
-        //     contains a "PROC ANALYSE" part
         } elseif ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
+            // 2.1 Statement is a "SELECT COUNT", a
+            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
+            //     contains a "PROC ANALYSE" part
             $do_display['edit_lnk']  = 'nn'; // no edit link
             $do_display['del_lnk']   = 'nn'; // no delete link
             $do_display['sort_lnk']  = (string) '0';
@@ -96,8 +96,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                 $do_display['text_btn']  = (string) '0';
             }
             $do_display['pview_lnk'] = (string) '1';
-        // 2.2 Statement is a "SHOW..."
         } elseif ($GLOBALS['is_show']) {
+            // 2.2 Statement is a "SHOW..."
             /**
              * 2.2.1
              * @todo defines edit/delete links depending on show statement
@@ -118,10 +118,10 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '1';
             $do_display['text_btn']  = (string) '1';
             $do_display['pview_lnk'] = (string) '1';
-        // 2.3 Other statements (ie "SELECT" ones) -> updates
-        //     $do_display['edit_lnk'], $do_display['del_lnk'] and
-        //     $do_display['text_btn'] (keeps other default values)
         } else {
+            // 2.3 Other statements (ie "SELECT" ones) -> updates
+            //     $do_display['edit_lnk'], $do_display['del_lnk'] and
+            //     $do_display['text_btn'] (keeps other default values)
             $prev_table = $fields_meta[0]->table;
             $do_display['text_btn']  = (string) '1';
             for ($i = 0; $i < $GLOBALS['fields_cnt']; $i++) {
@@ -204,19 +204,19 @@ function PMA_isSelect()
  * Displays a navigation button
  *
  *
- * @param   string   iconic caption for button
- * @param   string   text for button
- * @param   integer  position for next query
- * @param   string   query ready for display
- * @param   string   optional onsubmit clause
- * @param   string   optional hidden field for special treatment
- * @param   string   optional onclick clause
+ * @param string  $caption            iconic caption for button
+ * @param string  $title              text for button
+ * @param integer $pos                position for next query
+ * @param string  $html_sql_query     query ready for display
+ * @param string  $onsubmit           optional onsubmit clause
+ * @param string  $input_for_real_end optional hidden field for special treatment
+ * @param string  $onclick            optional onclick clause
  *
- * @global  string   $db             the database name
- * @global  string   $table          the table name
- * @global  string   $goto           the URL to go back in case of errors
+ * @global string   $db             the database name
+ * @global string   $table          the table name
+ * @global string   $goto           the URL to go back in case of errors
  *
- * @access  private
+ * @access private
  *
  * @see     PMA_displayTableNavigation()
  */
@@ -251,10 +251,10 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
 /**
  * Displays a navigation bar to browse among the results of a SQL query
  *
- * @param   integer  the offset for the "next" page
- * @param   integer  the offset for the "previous" page
- * @param   string   the URL-encoded query
- * @param   string   the id for the direction dropdown
+ * @param integer $pos_next                  the offset for the "next" page
+ * @param integer $pos_prev                  the offset for the "previous" page
+ * @param string  $sql_query                 the URL-encoded query
+ * @param string  $id_for_direction_dropdown the id for the direction dropdown
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
@@ -321,14 +321,14 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             // and also to know what to execute when the selector changes
             echo '<form action="sql.php' . PMA_generate_common_url($_url_params). '" method="post">';
             echo PMA_pageselector(
-                    $_SESSION['tmp_user_values']['max_rows'],
-                    $pageNow,
-                    $nbTotalPage,
-                    200,
-                    5,
-                    5,
-                    20,
-                    10
+                $_SESSION['tmp_user_values']['max_rows'],
+                $pageNow,
+                $nbTotalPage,
+                200,
+                5,
+                5,
+                20,
+                10
             );
         ?>
         </form>
@@ -896,10 +896,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $order_img   = '';
             } elseif ('DESC' == $sort_direction) {
                 $sort_order .= ' ASC';
-                $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" width="11" height="9" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="soimg' . $i . '" />';
+                $order_img   = ' <img class="icon ic_s_desc" src="themes/dot.gif" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="soimg' . $i . '" />';
             } else {
                 $sort_order .= ' DESC';
-                $order_img   = ' <img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" width="11" height="9" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="soimg' . $i . '" />';
+                $order_img   = ' <img class="icon ic_s_asc" src="themes/dot.gif" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="soimg' . $i . '" />';
             }
 
             if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3)) {
@@ -920,11 +920,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img, 'asc')) {
-                    $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
-                    $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
+                    $order_link_params['onmouseover'] = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
+                    $order_link_params['onmouseout']  = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
                 } elseif (strstr($order_img, 'desc')) {
-                    $order_link_params['onmouseover'] = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }';
-                    $order_link_params['onmouseout']  = 'if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }';
+                    $order_link_params['onmouseover'] = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
+                    $order_link_params['onmouseout']  = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
                 }
             }
             if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {
