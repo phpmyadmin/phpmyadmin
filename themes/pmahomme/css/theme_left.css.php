@@ -113,15 +113,22 @@ ul#databaseList span {
 }
 
 ul#databaseList a {
+    color: #333;
+    background: url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
     display: block;
-    padding:5px;
+    padding: 5px;
     font-style: normal;
 }
 
+div#navidbpageselector {
+    margin: 0.1em;
+    text-align: center;
+}
+
 div#navidbpageselector a,
-ul#databaseList a {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
-    color:              #333;
+div#navidbpageselector select{
+    color: #333;
+    margin: 0.2em;
 }
 
 ul#databaseList ul {

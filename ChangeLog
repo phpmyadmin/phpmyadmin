@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 3.4.5.0 (not yet released)
+- bug #3375325 [interface] Page list in navigation frame looks odd
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
