@@ -952,8 +952,12 @@
                                     'goto' : 'sql.php',
                                     'submit_type' : 'save'
                                   };
+                    
+                    var $editArea = $(g.cEdit).find('.edit_area');
+                    $editArea.addClass('edit_area_posting');
 
                     $.post('tbl_replace.php', post_params, function(data) {
+                        $editArea.removeClass('edit_area_posting');
                         if(data.success == true) {
                             PMA_ajaxShowMessage(data.message);
                             if (new_clause != '') {
@@ -1249,10 +1253,7 @@
             }
         });
         $(g.cEdit).keydown(function(e) {
-            if (e.which == 27) {
-                // cancel on pressing "Esc"
-                g.hideEditCell(true);
-            } else if (!g.isEditCellTextEditable) {
+            if (!g.isEditCellTextEditable) {
                 // prevent text editing
                 e.preventDefault();
             }
@@ -1260,9 +1261,13 @@
         $('html').click(function(e) {
             // hide edit cell if the click is not from g.cEdit
             if ($(e.target).parents().index(g.cEdit) == -1) {
-                if (g.isCellEditActive) {
-                    g.hideEditCell();
-                }
+                g.hideEditCell();
+            }
+        });
+        $('html').keydown(function(e) {
+            if (e.which == 27 && g.isCellEditActive) {
+                // cancel on pressing "Esc"
+                g.hideEditCell(true);
             }
         });
         // add table class
