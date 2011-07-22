@@ -1264,9 +1264,7 @@
         $('html').click(function(e) {
             // hide edit cell if the click is not from g.cEdit
             if ($(e.target).parents().index(g.cEdit) == -1) {
-                if (g.isCellEditActive) {
-                    g.hideEditCell();
-                }
+                g.hideEditCell();
             }
         });
         // add table class
