@@ -47,7 +47,7 @@ $save_on_server = false;
 $buffer_needed = false;
 
 // Is it a quick or custom export?
-if($_REQUEST['quick_or_custom'] == 'quick') {
+if ($_REQUEST['quick_or_custom'] == 'quick') {
     $quick_export = true;
 } else {
     $quick_export = false;
@@ -62,7 +62,7 @@ if ($_REQUEST['output_format'] == 'astext') {
         $buffer_needed = true;
     }
     if (($quick_export && !empty($_REQUEST['quick_export_onserver'])) || (!$quick_export && !empty($_REQUEST['onserver']))) {
-        if($quick_export) {
+        if ($quick_export) {
             $onserver = $_REQUEST['quick_export_onserver'];
         } else {
             $onserver = $_REQUEST['onserver'];
@@ -283,7 +283,7 @@ if ($asfile) {
     $extension_start_pos = strlen($filename) - strlen($export_list[$type]['extension']) - 1;
     $user_extension = substr($filename, $extension_start_pos, strlen($filename));
     $required_extension = "." . $export_list[$type]['extension'];
-    if(strtolower($user_extension) != $required_extension) {
+    if (strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
     $mime_type  = $export_list[$type]['mime_type'];
@@ -398,9 +398,9 @@ if (!$save_on_server) {
         }
 
         // Convert the multiple select elements from an array to a string
-        if($export_type == 'server' && isset($_REQUEST['db_select'])) {
+        if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
             $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
-        } elseif($export_type == 'database' && isset($_REQUEST['table_select'])) {
+        } elseif ($export_type == 'database' && isset($_REQUEST['table_select'])) {
             $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
         }
 
