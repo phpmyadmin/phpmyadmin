@@ -799,9 +799,6 @@
              * Post the content of edited cell.
              */
             postEditedCell: function() {
-            
-                event.preventDefault();
-
                 /**
                  * @var $this_field    Object referring to the td that is being edited
                  */
