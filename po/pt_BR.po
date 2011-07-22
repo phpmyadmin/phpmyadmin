@@ -2376,43 +2376,47 @@ msgstr "Permitir elaboração de terceiros"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Exibir link &quot;Apagar banco de dados&quot; para usuários normais"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Frase secreta utilizada para encriptar cookies na autenticação por [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Segredo Blowfish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr ""
+msgstr "Destacar linhas selecionadas"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "Marcador de linha"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Destacar linha apontada pelo cursor do mouse"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Destacar apontador"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Habilitar compressão [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
+"operações de importar e exportar"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -2420,14 +2424,17 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Define que tipo de controles de edição devem ser utilizados pelas colunas "
+"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, [kbd]"
+"textarea[/kbd] - permite quebra de linhas em colunas"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Número de colunas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
@@ -2435,7 +2442,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Número de linhas para caixas de texto CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
@@ -2450,6 +2457,9 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Comprime exportações gzip/bzip2 imediatamente sem a necessidade de muita "
+"memória; se você encontrar problemas com arquivos gzip/bzip2 criados "
+"desabilite este recurso"
 
 #: libraries/config/messages.inc.php:40
 msgid "Compress on the fly"
@@ -2465,6 +2475,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Exibir aviso (&quot;Você tem certeza...&quot;) quando estiver prestes a "
+"perder dados"
 
 #: libraries/config/messages.inc.php:43
 msgid "Confirm DROP queries"
@@ -2484,6 +2496,8 @@ msgid ""
 "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 "maximum number for which vertical model is used"
 msgstr ""
+"[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o número "
+"máximo para o qual o modelo vertical é usado"
 
 #: libraries/config/messages.inc.php:47
 msgid "Display direction for altering/creating columns"
@@ -2491,7 +2505,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Aba que é exibida quando entrar em um banco de dados"
 
 #: libraries/config/messages.inc.php:49
 #, fuzzy
@@ -2500,7 +2514,7 @@ msgstr "Renomear Banco de Dados para"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Aba que é exibida quando entrar em um servidor"
 
 #: libraries/config/messages.inc.php:51
 #, fuzzy
@@ -2509,7 +2523,7 @@ msgstr "Renomear Banco de Dados para"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Aba que é exibida quando entrar em uma tabela"
 
 #: libraries/config/messages.inc.php:53
 #, fuzzy
@@ -2526,23 +2540,24 @@ msgstr "Mostrar conteúdo binário como HEX"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Exibir bancos de dados como uma lista ao invés de uma caixa de seleção"
 
 #: libraries/config/messages.inc.php:57
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Exibir bancos de dados como uma lista"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
+"Exibir lista de servidores como uma lista ao invés de uma caixa de seleção"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Exibir servidores como uma lista"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Editar consultas SQL em uma janela popup"
 
 #: libraries/config/messages.inc.php:61
 msgid "Edit in window"
@@ -2569,6 +2584,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Define o número de segundos que um script é executado ([kbd]0[/kbd] para sem "
+"limite)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
@@ -2632,7 +2649,7 @@ msgstr "Substituir NULL por"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Remover caracteres CRLF em colunas"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:62
@@ -2715,7 +2732,7 @@ msgstr "Tipo de exportação"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr ""
+msgstr "Salvar no servidor"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:195 libraries/display_export.lib.php:221
@@ -2740,7 +2757,7 @@ msgstr "Modo de compatibilidade SQL"
 
 #: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Sintaxe a utilizar ao inserir dados"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -2782,7 +2799,7 @@ msgstr "Tipo de exportação"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Forçar conexão segura quando usar phpMyAdmin"
 
 #: libraries/config/messages.inc.php:147
 msgid "Force SSL connection"
@@ -2793,26 +2810,30 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Ordem de classificação para itens em um caixa de seleção de chave "
+"estrangeira; [kbd]conteúdo[/kbd] é o dado referenciado, [kbd]id[/kbd] é o "
+"valor da chave"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Ordem da caixa de seleção de chave estrangeira"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
 msgstr ""
+"Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limite de chave estrangeira"
 
 #: libraries/config/messages.inc.php:152
 msgid "Browse mode"
-msgstr ""
+msgstr "Modo de busca"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Personalizar modo de busca"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
@@ -2832,19 +2853,19 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:158
 msgid "Developer"
-msgstr ""
+msgstr "Desenvolvedor"
 
 #: libraries/config/messages.inc.php:159
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Configurações para desenvolvedores phpMyAdmin"
 
 #: libraries/config/messages.inc.php:160
 msgid "Edit mode"
-msgstr ""
+msgstr "Modo de edição"
 
 #: libraries/config/messages.inc.php:161
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Personalizar modo de edição"
 
 #: libraries/config/messages.inc.php:163
 #, fuzzy
@@ -2867,7 +2888,7 @@ msgstr "Geral"
 
 #: libraries/config/messages.inc.php:167
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Define algumas opções comumente utilizadas"
 
 #: libraries/config/messages.inc.php:168 libraries/db_links.inc.php:83
 #: libraries/server_links.inc.php:73 libraries/tbl_links.inc.php:82
@@ -2903,7 +2924,7 @@ msgstr "Opções de exportação do Banco de Dados"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Quadro de navegação"
 
 #: libraries/config/messages.inc.php:178
 msgid "Customize appearance of the navigation frame"
@@ -2926,7 +2947,7 @@ msgstr "Opções de exportação do Banco de Dados"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Quadro principal"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -2942,7 +2963,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Configurações que não se encaixavam em nenhum outro lugar"
 
 #: libraries/config/messages.inc.php:190
 #, fuzzy
@@ -4579,7 +4600,7 @@ msgstr "Número de arquivos"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Começar na linha:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
@@ -4609,15 +4630,15 @@ msgstr "Nome do arquivo do modelo"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ se tornará o nome do servidor"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ se tornará o nome do banco de dados"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ se tornará o nome da tabela"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
@@ -4697,6 +4718,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Role para baixo para preencher as opções para o formato selecionado e "
+"ignorar as opções de outros formatos."
 
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:260
 #, fuzzy
@@ -4745,13 +4768,15 @@ msgstr "Arquivo para importar"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Arquivo pode ser compactado (%s) ou descompactado."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"O nome de um arquivo compactado deve terminar em <b>.[formato].[compactação]"
+"</b>. Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."

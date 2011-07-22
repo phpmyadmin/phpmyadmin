@@ -3075,42 +3075,42 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
-msgstr ""
+msgstr "تعقب التغيرات"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
+msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
 
 #: libraries/config/messages.inc.php:206
 msgid "Customize export options"
-msgstr ""
+msgstr "تخصيص خيارات التصدير"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize import defaults"
-msgstr ""
+msgstr "تخصيص خيارات الإستيراد"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "تخصيص اطار التصفح"
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize main frame"
-msgstr ""
+msgstr "تخصيص الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:17
 msgid "SQL queries"
-msgstr ""
+msgstr "إستعلام SQL"
 
 #: libraries/config/messages.inc.php:213
 msgid "SQL Query box"
-msgstr ""
+msgstr "صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "تخصيص الروابط الموجودة في صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:217
 #, fuzzy
@@ -3134,19 +3134,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
-msgstr ""
+msgstr "بدء التشغيل"
 
 #: libraries/config/messages.inc.php:221
 msgid "Customize startup page"
-msgstr ""
+msgstr "تخصيص صفحة بدء التشغيل"
 
 #: libraries/config/messages.inc.php:222
 msgid "Tabs"
-msgstr ""
+msgstr "التبويبات"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "إختر الطريقة التي تعمل بها التبويبات"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
@@ -3162,7 +3162,7 @@ msgstr "استخدم حقل نص"
 
 #: libraries/config/messages.inc.php:226 libraries/export/texytext.php:17
 msgid "Texy! text"
-msgstr ""
+msgstr "نص"
 
 #: libraries/config/messages.inc.php:228
 #, fuzzy
@@ -3172,31 +3172,35 @@ msgstr "تحذير"
 
 #: libraries/config/messages.inc.php:229
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "إلغاء عرض بعض التحذيرات في phpMyAdmin"
 
 #: libraries/config/messages.inc.php:230
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"تفعيل ضغط [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] لعمليات التصدير "
+"والإستيراد"
 
 #: libraries/config/messages.inc.php:231
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:232
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "مدخلات إضافية لـ iconv"
 
 #: libraries/config/messages.inc.php:233
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"إذا كان مفعل , فإن phpMyAdmin  سوف تستمر في تنفيذ الإستعلامات المتعددة حتى "
+"لو فشل بعضها"
 
 #: libraries/config/messages.inc.php:234
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "تجاهل أخطاء الجمل المتعددة"
 
 #: libraries/config/messages.inc.php:235
 msgid ""
@@ -3207,12 +3211,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:236
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "الإستيراد الجزئي: السماح بالمقاطعة"
 
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:248
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "لاتحبط عندما يكون الخطأ في جمل الإدخال INSERT"
 
 #: libraries/config/messages.inc.php:242 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:25 libraries/import/ldi.php:38
@@ -3224,14 +3228,16 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"الهيئة الإفتراضي ; كن مدرك بأن هذه القائمة تعتمد على مكان (قاعدة البيانات "
+"والجدول)"
 
 #: libraries/config/messages.inc.php:245
 msgid "Format of imported file"
-msgstr ""
+msgstr "هيئة الملفات المستوردة"
 
 #: libraries/config/messages.inc.php:249 libraries/import/ldi.php:45
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "إستعمل الجملة LOCAL"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/config/messages.inc.php:261
@@ -3242,23 +3248,23 @@ msgstr "ضع أسماء الحقول في السطر الأول"
 
 #: libraries/config/messages.inc.php:253 libraries/import/ods.php:27
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "لاتستورد صفوف فارغة"
 
 #: libraries/config/messages.inc.php:254
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "عملات الإستيراد ($5.00 إلى 5.00)"
 
 #: libraries/config/messages.inc.php:255
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "النسبة المئوية للإستيراد كرقم عشري (12.00% إلى .12)"
 
 #: libraries/config/messages.inc.php:256
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "عدد الإستعلامات التي يتخطاها من البداية"
 
 #: libraries/config/messages.inc.php:257
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "إستيراد جزئي: تخطي الإستعلامات"
 
 #: libraries/config/messages.inc.php:259
 #, fuzzy
@@ -3268,39 +3274,39 @@ msgstr "أضف قيمة AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:262
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "الحالة الأولية"
 
 #: libraries/config/messages.inc.php:263
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "كم عدد الصفوف التي يمكن إدخالها مرة واحدة"
 
 #: libraries/config/messages.inc.php:264
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "عدد الصفوف المدخلة"
 
 #: libraries/config/messages.inc.php:265
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "الهدف لإيقونة الوصول السريع"
 
 #: libraries/config/messages.inc.php:266
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "عرض الشعار في الإطار الأيسر"
 
 #: libraries/config/messages.inc.php:267
 msgid "Display logo"
-msgstr ""
+msgstr "عرض الشعار"
 
 #: libraries/config/messages.inc.php:268
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "عرض إختيار الخادم في الجزء العلوي من الإطار الأيسر"
 
 #: libraries/config/messages.inc.php:269
 msgid "Display servers selection"
-msgstr ""
+msgstr "عرض إختيار الخوادم"
 
 #: libraries/config/messages.inc.php:270
 msgid "Minimum number of tables to display the table filter box"
-msgstr ""
+msgstr "اقل عدد جداول تعرض في صندوق تصفية الجداول"
 
 #: libraries/config/messages.inc.php:271
 msgid "String that separates databases into different tree levels"
@@ -3308,7 +3314,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:272
 msgid "Database tree separator"
-msgstr ""
+msgstr "فاصل شجرة قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:273
 msgid ""
@@ -3318,19 +3324,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:274
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "عرض قواعد البيانات في شجرة"
 
 #: libraries/config/messages.inc.php:275
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "تعطيل هذا إذا كنت تريد رؤية قواعد البيانات كلٌ على حدا"
 
 #: libraries/config/messages.inc.php:276
 msgid "Use light version"
-msgstr ""
+msgstr "إستخدم نسخة light"
 
 #: libraries/config/messages.inc.php:277
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "أقصى عمق لشجرة الجدول"
 
 #: libraries/config/messages.inc.php:278
 msgid "String that separates tables into different tree levels"
@@ -3338,33 +3344,35 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:279
 msgid "Table tree separator"
-msgstr ""
+msgstr "فاصل شجرة الجدول"
 
 #: libraries/config/messages.inc.php:280
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "إعمل رابط للمكان الذي يشير اليه الشعار"
 
 #: libraries/config/messages.inc.php:281
 msgid "Logo link URL"
-msgstr ""
+msgstr "رابط الشعار"
 
 #: libraries/config/messages.inc.php:282
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"فتح الصفحة المرتبطة في النافذة الرئيسية ([kbd]main[/kbd]) أو في نافذة جديدة "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:283
 msgid "Logo link target"
-msgstr ""
+msgstr "هدف رابط الشعار"
 
 #: libraries/config/messages.inc.php:284
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "توضيح الخادم تحت مؤشر الفأرة"
 
 #: libraries/config/messages.inc.php:285
 msgid "Enable highlighting"
-msgstr ""
+msgstr "تفعيل التوضيح (highlighting)"
 
 #: libraries/config/messages.inc.php:286
 msgid "Use less graphically intense tabs"
@@ -3381,7 +3389,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:289
 msgid "Limit column characters"
-msgstr ""
+msgstr "حد أحرف العمود"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -3392,17 +3400,17 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:291
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "حذف كل الكوكيز عند الخروج"
 
 #: libraries/config/messages.inc.php:292
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr ""
+msgstr "تعريف ما إذا كان سوف يتذكر تسجيل الدخول الأخير من تحقق الكوكيز أم لا"
 
 #: libraries/config/messages.inc.php:293
 msgid "Recall user name"
-msgstr ""
+msgstr "تذكر إسم المستخدم"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -3418,15 +3426,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:296
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "تحديد كم المدة التي يبقى فيها الكوكيز"
 
 #: libraries/config/messages.inc.php:297
 msgid "Login cookie validity"
-msgstr ""
+msgstr "صلاحية دخول الكوكيز"
 
 #: libraries/config/messages.inc.php:298
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr ""
+msgstr "مضاعفة حجم مربع النص لأعمدة LONGTEXT"
 
 #: libraries/config/messages.inc.php:299
 msgid "Bigger textarea for LONGTEXT"

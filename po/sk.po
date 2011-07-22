@@ -3786,11 +3786,11 @@ msgstr "Povoliť prihlásenia užívateľa root"
 
 #: libraries/config/messages.inc.php:360
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "Názov pre zobrazenie pri použití HTTP autorizácie"
 
 #: libraries/config/messages.inc.php:361
 msgid "HTTP Realm"
-msgstr ""
+msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:362
 msgid ""
@@ -4229,6 +4229,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
+"Berte prosím na vedomie, že povolenie tejto voľby nemá žiadny vplyv na "
+"prihlasovaciu metódu [kbd]config[/kbd], pretože heslo je uložené v "
+"konfiguračnom súbore; toto nemá vplyv na možnosť vykonať rovnaký príkaz "
+"priamo"
 
 #: libraries/config/messages.inc.php:442
 msgid "Show password change form"
@@ -4325,6 +4329,8 @@ msgstr "Zobraziť komentáre tabuľky vo vyskakovacom okne nápovedy"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
+"Označiť použité tabuľky a umožniť zobrazovanie databáz s uzamknutými "
+"tabuľkami"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
@@ -4376,6 +4382,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
+"Navrhnúť mano novej databázy vo formulári pre vytváranie databázy (pokiaľ je "
+"to možné) alebo nechať prázdne pole"
 
 #: libraries/config/messages.inc.php:474
 msgid "Suggest new database name"
@@ -4384,6 +4392,8 @@ msgstr "Navrhnúť meno novej databázy"
 #: libraries/config/messages.inc.php:475
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
+"Na hlavnej stránke je zobrazené varovanie pokiaľ je detekované rozšírenie "
+"Suhosin"
 
 #: libraries/config/messages.inc.php:476
 msgid "Suhosin warning"
@@ -4394,6 +4404,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Veľkosť editačného okna (počet stĺpcov). Táto hodnota bude zväčšená pre okná "
+"SQL dopytov (*2) a pre dopytové okno (*1,25)"
 
 #: libraries/config/messages.inc.php:478
 #, fuzzy
@@ -4406,6 +4418,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
+"Veľkosť editačného okna (počet riadkov). Táto hodnota bude zväčšená pre okná "
+"SQL dopytov (*2) a pre dopytové okno (*1,25)"
 
 #: libraries/config/messages.inc.php:480
 msgid "Textarea rows"
@@ -4443,7 +4457,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:490
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Zoznam dôveryhodných proxy pre povolenie/zakázanie IP adresy"
 
 #: libraries/config/messages.inc.php:491
 msgid "Directory on server where you can upload files for import"
@@ -4466,6 +4480,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
+"Pokiaľ je vypnuté, užívatelia nemôžu zmeniť žiadne z nižšie uvedených "
+"nastavení, bez ohľadu na zaškrtávacie pole vpravo"
 
 #: libraries/config/messages.inc.php:496
 msgid "Enable the Developer tab in settings"
@@ -4503,6 +4519,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"Povoliť [a@http://en.wikipedia.org/wiki/ZIP_(súborový_formát)]ZIP[/a] "
+"kompresiu pre import a export operácie"
 
 #: libraries/config/messages.inc.php:503
 msgid "ZIP"
@@ -4523,8 +4541,9 @@ msgid "HTTP authentication"
 msgstr "HTTP overovanie"
 
 #: libraries/config/setup.forms.php:51
+#, fuzzy
 msgid "Signon authentication"
-msgstr ""
+msgstr "Signon authentication"
 
 #: libraries/config/setup.forms.php:240
 #: libraries/config/user_preferences.forms.php:144 libraries/import/ldi.php:34
@@ -4594,6 +4613,7 @@ msgstr "Nepodarilo sa pripojiť k zdroju"
 #: libraries/config/validate.lib.php:234
 msgid "Empty username while using config authentication method"
 msgstr ""
+"Pri použití nastavenej autorizačnej metódy nebolo vyplnené užívateľské meno"
 
 #: libraries/config/validate.lib.php:238
 msgid "Empty signon session name while using signon authentication method"
@@ -4625,7 +4645,7 @@ msgstr "en"
 #: libraries/core.lib.php:278
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Chýba rozšírenie %s. Skontrolujte prosín nastavenia PHP."
 
 #: libraries/db_events.inc.php:14 libraries/db_events.inc.php:16
 #: libraries/export/sql.php:493
@@ -4664,7 +4684,7 @@ msgstr "Oprávnenia"
 
 #: libraries/db_routines.inc.php:24 libraries/db_routines.inc.php:26
 msgid "Routines"
-msgstr ""
+msgstr "Rutiny"
 
 #: libraries/db_routines.inc.php:37
 msgid "Return type"
@@ -4779,7 +4799,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:129
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "Vlastné - zobrazí všetky voľby nastavení"
 
 #: libraries/display_export.lib.php:137
 #, fuzzy
@@ -4817,7 +4837,7 @@ msgstr "Začať od riadku:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
-msgstr ""
+msgstr "Vypísať všetky riadky"
 
 #: libraries/display_export.lib.php:181 libraries/display_export.lib.php:202
 msgid "Output:"
@@ -4843,15 +4863,15 @@ msgstr "Vzor pre názov súboru"
 
 #: libraries/display_export.lib.php:229
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "Meno servera bude zmenené na @SERVER@"
 
 #: libraries/display_export.lib.php:231
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", meno databázy bude zmenené na @DATABASE@"
 
 #: libraries/display_export.lib.php:233
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", meno tabuľky bude zmenené na @TABLE@"
 
 #: libraries/display_export.lib.php:237
 #, fuzzy, php-format
@@ -4931,6 +4951,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Posuňte sa nižšie pre nastavenie vybraného formátu a ignorujte nastavenia "
+"ostatných."
 
 #: libraries/display_export.lib.php:347 libraries/display_import.lib.php:260
 #, fuzzy
@@ -4956,6 +4978,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Súbor sa načítava, buďte prosím trpezliví. Podrobnosti o nahrávaní nie sú "
+"dostupné."
 
 #: libraries/display_import.lib.php:129
 #, fuzzy
@@ -4991,6 +5015,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Meno komprimovaného súboru musí končiť na <b>.[formát].[kompresia]</b>. "
+"Napríklad: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -5115,11 +5141,11 @@ msgstr "Relačná schéma"
 
 #: libraries/display_tbl.lib.php:586
 msgid "Show binary contents"
-msgstr ""
+msgstr "Zobraziť binárny obsah"
 
 #: libraries/display_tbl.lib.php:588
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Zobraziť obsah BLOBu"
 
 #: libraries/display_tbl.lib.php:598 libraries/relation.lib.php:123
 #: libraries/tbl_properties.inc.php:142 transformation_overview.php:46
@@ -5128,7 +5154,7 @@ msgstr "Transformácia pri prehliadaní"
 
 #: libraries/display_tbl.lib.php:1194
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: libraries/display_tbl.lib.php:1209 libraries/display_tbl.lib.php:1221
 msgid "The row has been deleted"
@@ -5370,11 +5396,12 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr ""
+msgstr "Hranica odpadu"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
+"Percentuílny podiel odpadu v úložnom súbore predtým, než je súbor zhustený."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:69
 #: server_synchronize.php:1178
@@ -5389,7 +5416,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Hranica veľkosti úložiska"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -5882,7 +5909,7 @@ msgstr "PREPOJENIA PRE TABUĽKU"
 #: libraries/export/sql.php:873 libraries/export/xml.php:38
 #: libraries/tbl_triggers.lib.php:18
 msgid "Triggers"
-msgstr ""
+msgstr "Spúšťače"
 
 #: libraries/export/sql.php:885
 #, fuzzy

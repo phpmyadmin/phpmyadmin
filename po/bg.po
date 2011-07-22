@@ -2427,27 +2427,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:48
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Показваният подпрозорец при отваряне на БД"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr ""
+msgstr "Подпрозорец по подразбиране за БД"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Показваният подпрозорец при отваряне на сървър"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr ""
+msgstr "Подпрозорец по подразбиране за сървъри"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Показваният подпрозорец при отваряне на таблица"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr ""
+msgstr "Подпрозорец по подразбиране за таблици"
 
 #: libraries/config/messages.inc.php:54
 msgid "Show binary contents as HEX by default"
@@ -2475,7 +2475,7 @@ msgstr "Показване на сървърите в списък"
 
 #: libraries/config/messages.inc.php:60
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Редактиране на SQL заявки в отделен прозорец"
 
 #: libraries/config/messages.inc.php:61
 msgid "Edit in window"
@@ -2487,15 +2487,16 @@ msgstr "Показване на грешки"
 
 #: libraries/config/messages.inc.php:63
 msgid "Gather errors"
-msgstr ""
+msgstr "Събиране на грешки"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show icons for warning, error and information messages"
 msgstr ""
+"Показване на пиктограми при предупреждения, грешки и информативни съобщения"
 
 #: libraries/config/messages.inc.php:65
 msgid "Iconic errors"
-msgstr ""
+msgstr "Пиктограми при грешките"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
@@ -2593,7 +2594,7 @@ msgstr "Шаблон за име на таблица"
 #: libraries/export/latex.php:39 libraries/export/odt.php:31
 #: libraries/export/sql.php:77 libraries/export/texytext.php:22
 msgid "Dump table"
-msgstr ""
+msgstr "Схема на таблица"
 
 #: libraries/config/messages.inc.php:90 libraries/export/latex.php:31
 msgid "Include table caption"
@@ -3196,7 +3197,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Включване на синтактично оцветяване"
 
 #: libraries/config/messages.inc.php:286
 msgid "Use less graphically intense tabs"
@@ -4413,7 +4414,7 @@ msgstr "Редове:"
 
 #: libraries/display_export.lib.php:157
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Схема на няколко реда"
 
 #: libraries/display_export.lib.php:159
 msgid "Number of rows:"
@@ -4421,7 +4422,7 @@ msgstr "Брой редове:"
 
 #: libraries/display_export.lib.php:162
 msgid "Row to begin at:"
-msgstr ""
+msgstr "Ред започва от:"
 
 #: libraries/display_export.lib.php:173
 msgid "Dump all rows"
@@ -4466,7 +4467,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:275
 msgid "use this for future exports"
-msgstr ""
+msgstr "прилагане и към бъдещи експорти"
 
 #: libraries/display_export.lib.php:281 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:516
@@ -4497,7 +4498,7 @@ msgstr "bzip-нато"
 
 #: libraries/display_export.lib.php:328
 msgid "View output as text"
-msgstr ""
+msgstr "Показване на изхода като текст"
 
 #: libraries/display_export.lib.php:333 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:37
@@ -4506,7 +4507,7 @@ msgstr "Формат:"
 
 #: libraries/display_export.lib.php:338
 msgid "Format-specific options:"
-msgstr ""
+msgstr "Формат-специфични настройки:"
 
 #: libraries/display_export.lib.php:339
 msgid ""
@@ -4556,13 +4557,15 @@ msgstr "Файл за импортиране:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Файлът може да е компресиран (%s) или некомпресиран"
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Компресираният файл трябва да завършва на <b>.[format].[compression]</b>. "
+"Например: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -4736,11 +4739,11 @@ msgstr "Информация за весията"
 
 #: libraries/engines/innodb.lib.php:22
 msgid "Data home directory"
-msgstr ""
+msgstr "Папка с данни"
 
 #: libraries/engines/innodb.lib.php:23
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Общата част от пътя до папката с всички InnoDB файлове."
 
 #: libraries/engines/innodb.lib.php:26
 msgid "Data files"
@@ -4784,11 +4787,11 @@ msgstr "страници"
 
 #: libraries/engines/innodb.lib.php:180
 msgid "Free pages"
-msgstr ""
+msgstr "Свободни страници"
 
 #: libraries/engines/innodb.lib.php:186
 msgid "Dirty pages"
-msgstr ""
+msgstr "Мръсни страници"
 
 #: libraries/engines/innodb.lib.php:192
 msgid "Pages containing data"
@@ -4796,15 +4799,15 @@ msgstr "Страници съдържащи данни"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Страници за изчистване"
 
 #: libraries/engines/innodb.lib.php:204
 msgid "Busy pages"
-msgstr ""
+msgstr "Заети страници"
 
 #: libraries/engines/innodb.lib.php:213
 msgid "Latched pages"
-msgstr ""
+msgstr "Заключени страници"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Buffer Pool Activity"
@@ -4812,27 +4815,27 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:228
 msgid "Read requests"
-msgstr ""
+msgstr "Заявки за четене"
 
 #: libraries/engines/innodb.lib.php:234
 msgid "Write requests"
-msgstr ""
+msgstr "Заявки за запис"
 
 #: libraries/engines/innodb.lib.php:240
 msgid "Read misses"
-msgstr ""
+msgstr "Пропуснати прочитания"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Write waits"
-msgstr ""
+msgstr "Изчаквания за запис"
 
 #: libraries/engines/innodb.lib.php:252
 msgid "Read misses in %"
-msgstr ""
+msgstr "Пропуснати прочитания в %"
 
 #: libraries/engines/innodb.lib.php:260
 msgid "Write waits in %"
-msgstr ""
+msgstr "Изчаквания за запис в %"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
@@ -4959,7 +4962,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Заглавки на метаданните"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
@@ -4988,7 +4991,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr ""
+msgstr "Размер на буфера за индекси"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
@@ -4998,7 +5001,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr ""
+msgstr "Размер на буфера за записи"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
@@ -5009,7 +5012,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
-msgstr ""
+msgstr "Размер на буфера на дневника"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
@@ -5963,11 +5966,11 @@ msgstr "Схема на база данни %s - страница %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:174
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Тази страница не съдържа таблици!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:207
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ГРЕШКА В СХЕМАТА: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:877
 #: libraries/schema/Pdf_Relation_Schema.class.php:1116
@@ -6011,7 +6014,7 @@ msgstr "Вътрешни релации"
 
 #: libraries/schema/User_Schema.class.php:116
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:148
 msgid "Please choose a page to edit"
@@ -6055,7 +6058,7 @@ msgstr "Всички таблици да бъдат показвани с едн
 
 #: libraries/schema/User_Schema.class.php:389
 msgid "Only show keys"
-msgstr ""
+msgstr "Само ключовете видими"
 
 #: libraries/schema/User_Schema.class.php:391
 msgid "Landscape"
@@ -6096,7 +6099,7 @@ msgstr "ltr"
 #: libraries/select_lang.lib.php:502
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "Непознат език: %1$s."
 
 #: libraries/select_server.lib.php:38 libraries/select_server.lib.php:44
 #, fuzzy
@@ -6272,7 +6275,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:364
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Автоматично добавяне на апостроф в края на заявката!"
 
 #: libraries/sqlparser.lib.php:367
 msgid "Unclosed quote"
@@ -6298,12 +6301,12 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:106 libraries/tbl_links.inc.php:107
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Таблицата изглежда празна!"
 
 #: libraries/tbl_links.inc.php:115
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Проследяването на %s.%s е активно."
 
 #: libraries/tbl_properties.inc.php:104
 msgid "Length/Values"
@@ -6363,11 +6366,11 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:371
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Много ENUM или SET данни?"
 
 #: libraries/tbl_properties.inc.php:373
 msgid "Get more editing space"
-msgstr ""
+msgstr "Още място за редакция"
 
 #: libraries/tbl_properties.inc.php:396
 #, fuzzy
@@ -6378,7 +6381,7 @@ msgstr "Няма"
 
 #: libraries/tbl_properties.inc.php:397
 msgid "As defined:"
-msgstr ""
+msgstr "Дефиниран като:"
 
 #: libraries/tbl_properties.inc.php:516 tbl_structure.php:153
 #: tbl_structure.php:157 tbl_structure.php:566
@@ -6524,10 +6527,12 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Обръща (IPv4) Интернет мрежови адрес в низ в стандартен Интернет точков "
+"формат."
 
 #: libraries/transformations/text_plain__sql.inc.php:9
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Форматира текст като SQL заявка със синтактично оцветяване."
 
 #: libraries/transformations/text_plain__substr.inc.php:9
 msgid ""
@@ -6572,6 +6577,8 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Браузърът ви има настройки на phpMyAdmin за този домейн. Искате ли да бъдат "
+"използвани за текущата сесия?"
 
 #: libraries/zip_extension.lib.php:25
 msgid "No files found inside ZIP archive!"
@@ -6635,7 +6642,7 @@ msgstr "Информация за PHP"
 
 #: main.php:213
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: main.php:216
 msgid "Official Homepage"
@@ -6649,7 +6656,7 @@ msgstr "Атрибути"
 
 #: main.php:218
 msgid "Get support"
-msgstr ""
+msgstr "Получаване на помощ"
 
 #: main.php:219
 #, fuzzy
@@ -6676,6 +6683,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Имате включено mbstring.func_overload в настройките на PHP. Тази опция е "
+"несъвместима с phpMyAdmin и може да причини повреда на данни!"
 
 #: main.php:259
 msgid ""
@@ -6738,6 +6747,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Сървърът е с кръпка Suhosin. Прочетете %sдокументацията%s за възможни "
+"проблеми."
 
 #: navigation.php:187 server_databases.php:277 server_synchronize.php:1206
 msgid "No databases"
@@ -6745,7 +6756,7 @@ msgstr "Няма бази от данни"
 
 #: navigation.php:277
 msgid "Filter"
-msgstr ""
+msgstr "Филтър"
 
 #: navigation.php:277
 #, fuzzy
@@ -6765,11 +6776,11 @@ msgstr "Моля изберете база от данни"
 
 #: pmd_general.php:74
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Скриване/Показване на лявото меню"
 
 #: pmd_general.php:78
 msgid "Save position"
-msgstr ""
+msgstr "Запазване на позицията"
 
 #: pmd_general.php:81 server_synchronize.php:428 server_synchronize.php:871
 #, fuzzy
@@ -6778,15 +6789,15 @@ msgstr "Създай нова Страница"
 
 #: pmd_general.php:84 pmd_general.php:352
 msgid "Create relation"
-msgstr ""
+msgstr "Създаване на отношение"
 
 #: pmd_general.php:90
 msgid "Reload"
-msgstr ""
+msgstr "Презареждане"
 
 #: pmd_general.php:93
 msgid "Help"
-msgstr ""
+msgstr "Помощ"
 
 #: pmd_general.php:97
 msgid "Angular links"
@@ -6838,7 +6849,7 @@ msgstr "Брой полета"
 
 #: pmd_general.php:418
 msgid "Delete relation"
-msgstr ""
+msgstr "Изтриване на отношение"
 
 #: pmd_general.php:460 pmd_general.php:519
 #, fuzzy
@@ -6891,7 +6902,7 @@ msgstr "Опции на таблицата"
 
 #: pmd_help.php:26
 msgid "To select relation, click :"
-msgstr ""
+msgstr "За избор на отношение, щракнете:"
 
 #: pmd_help.php:28
 msgid ""
@@ -7697,11 +7708,11 @@ msgstr ""
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Синхронизиране на БД с главен"
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr ""
+msgstr "Контролиране на подчинения:"
 
 #: server_replication.php:323
 #, fuzzy
@@ -7710,47 +7721,49 @@ msgstr "Пълнотекстово"
 
 #: server_replication.php:323
 msgid "Full stop"
-msgstr ""
+msgstr "Пълно спиране"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Нулиране на подчинения"
 
 #: server_replication.php:326
 msgid "Start SQL Thread only"
-msgstr ""
+msgstr "Пускане само на SQL нишка"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Спиране само на SQL нишка"
 
 #: server_replication.php:331
 msgid "Start IO Thread only"
-msgstr ""
+msgstr "Пускане само на В/И нишка"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Спиране само на В/И нишка"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Обработка на грешки:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Прескачане на грешки може да доведе до десинхронизация между главния и "
+"подчинените сървъри!"
 
 #: server_replication.php:342
 msgid "Skip current error"
-msgstr ""
+msgstr "Прескачане на текущата"
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Прескачане на следващата"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "грешки."
 
 #: server_replication.php:361
 #, php-format
@@ -8064,7 +8077,7 @@ msgstr ""
 
 #: server_status.php:106
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "Броят изтрити редове от InnoDB таблици."
 
 #: server_status.php:107
 #, fuzzy
@@ -8073,7 +8086,7 @@ msgstr "Брой заявки за вмъкване на ред в таблиц�
 
 #: server_status.php:108
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "Броят прочетени редове от InnoDB таблици."
 
 #: server_status.php:109
 #, fuzzy
@@ -8155,7 +8168,7 @@ msgstr ""
 
 #: server_status.php:124
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "Количеството свободна памет за буфер за заявки."
 
 #: server_status.php:125
 #, fuzzy
@@ -8164,7 +8177,7 @@ msgstr "Брой на сортираните редове."
 
 #: server_status.php:126
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Броят заявки добавени към буфера."
 
 #: server_status.php:127
 msgid ""
@@ -8182,11 +8195,11 @@ msgstr ""
 
 #: server_status.php:129
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Броят заявки регистрирани в буфера."
 
 #: server_status.php:130
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Общият брой блокове в буфера за заявки."
 
 #: server_status.php:131
 msgctxt "$strShowStatusReset"
@@ -8363,7 +8376,7 @@ msgstr ""
 
 #: server_status.php:415
 msgid "Flush query cache"
-msgstr ""
+msgstr "Изчистване на буфера за заявки"
 
 #: server_status.php:420
 msgid "Show processes"
@@ -8497,79 +8510,79 @@ msgstr ""
 
 #: server_synchronize.php:263
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "Синхронизиране на структурата"
 
 #: server_synchronize.php:270
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Синхронизиране на данните"
 
 #: server_synchronize.php:399 server_synchronize.php:838
 msgid "not present"
-msgstr ""
+msgstr "не съществува"
 
 #: server_synchronize.php:423 server_synchronize.php:866
 msgid "Structure Difference"
-msgstr ""
+msgstr "Структурни различия"
 
 #: server_synchronize.php:424 server_synchronize.php:867
 msgid "Data Difference"
-msgstr ""
+msgstr "Различия в данните"
 
 #: server_synchronize.php:429 server_synchronize.php:872
 msgid "Add column(s)"
-msgstr ""
+msgstr "Добавяне на колона(и)"
 
 #: server_synchronize.php:430 server_synchronize.php:873
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Изтриване на колона(и)"
 
 #: server_synchronize.php:431 server_synchronize.php:874
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Промяна на колона(и)"
 
 #: server_synchronize.php:432 server_synchronize.php:875
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Изтриване на индекс(и)"
 
 #: server_synchronize.php:433 server_synchronize.php:876
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Добавяне на индекс(и)"
 
 #: server_synchronize.php:434 server_synchronize.php:877
 msgid "Update row(s)"
-msgstr ""
+msgstr "Обновяване на ред(ове)"
 
 #: server_synchronize.php:435 server_synchronize.php:878
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Вмъкване на ред(ове)"
 
 #: server_synchronize.php:445 server_synchronize.php:889
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Да бъде ли изтрито предишното съдържание на таблиците?"
 
 #: server_synchronize.php:448 server_synchronize.php:893
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Прилагане на избраните промените"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Синхронизиране на БД"
 
 #: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "Избраните целеви таблици бяха синхронизирани с изходните."
 
 #: server_synchronize.php:941
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Целевата БД беше синхронизирана с изходната"
 
 #: server_synchronize.php:1002
 msgid "The following queries have been executed:"
-msgstr ""
+msgstr "Следните заявки бяха изпълнени:"
 
 #: server_synchronize.php:1130
 msgid "Enter manually"
-msgstr ""
+msgstr "Ръчно въвеждане"
 
 #: server_synchronize.php:1138
 #, fuzzy
@@ -8580,11 +8593,11 @@ msgstr "Максимален брой на едновременните коне
 #: server_synchronize.php:1167
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Настройка: %s"
 
 #: server_synchronize.php:1182
 msgid "Socket"
-msgstr ""
+msgstr "Сокет"
 
 #: server_synchronize.php:1228
 msgid ""
