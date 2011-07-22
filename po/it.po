@@ -1323,7 +1323,7 @@ msgid ""
 "Results are grouped by query text."
 msgstr ""
 "<p>Scegli il log dal quale generare le statistiche.</p> I risultati verranno "
-"ragruppati secondo il testo di query."
+"raggruppati secondo il testo di query."
 
 #: js/messages.php:143
 msgid "From slow log"
