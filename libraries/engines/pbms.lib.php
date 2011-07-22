@@ -23,7 +23,7 @@ class PMA_StorageEngine_pbms extends PMA_StorageEngine
         $this->support = PMA_ENGINE_SUPPORT_YES;
     }
 
-   function getVariables()
+    function getVariables()
     {
         return array(
             'pbms_garbage_threshold' => array(
