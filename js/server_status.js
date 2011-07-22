@@ -616,6 +616,9 @@ $(function() {
                   name: PMA_messages['strAverageLoad'], 
                   unit: '%',
                   transformFn: function(cur, prev) {
+                      console.log('cpu-linux chart, transformFn()');
+                      console.log(cur);
+                      console.log(prev);
                       if(prev == null) return undefined;
                       var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
                       var diff_idle = cur.idle - prev.idle;
@@ -1131,7 +1134,7 @@ $(function() {
         var serie = {
             dataType:'statusvar',
             name: $('input#variableInput').attr('value'),
-            display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : '',
+            display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : ''
         };
         
         if(serie.name == 'Processes') serie.dataType='proc';
@@ -1338,7 +1341,7 @@ $(function() {
             },
             series: series,
             buttons: gridbuttons,
-            title: { text: chartObj.title },
+            title: { text: chartObj.title }
         };
         
         if(chartObj.settings)
@@ -1656,6 +1659,14 @@ $(function() {
                       PMA_messages['strTotal'] + '</span></th><th align="right">' + totalSum + '</th>');
         }
     }
+
+    /*loadLogStatistics({
+        src: 'general',
+        start:1311076210*1000,
+        end:1311162689*1000,
+        removeVariables: true,
+        limitTypes: true
+    });*/
     
     function buildLogTable(data) {
         var rows = data.rows;
