@@ -621,6 +621,7 @@ $(document).ready(function() {
                 // Make the Ajax call and get the data, wrap it and insert it
                 $.post('sql.php', {
                     'token' : window.parent.token,
+                    'server' : window.parent.server,
                     'db' : window.parent.db,
                     'ajax_request' : true,
                     'sql_query' : sql_query,
@@ -646,6 +647,7 @@ $(document).ready(function() {
                 var post_params = {
                         'ajax_request' : true,
                         'get_relational_values' : true,
+                        'server' : window.parent.server,
                         'db' : window.parent.db,
                         'table' : window.parent.table,
                         'column' : field_name,
@@ -670,6 +672,7 @@ $(document).ready(function() {
                 var post_params = {
                         'ajax_request' : true,
                         'get_enum_values' : true,
+                        'server' : window.parent.server,
                         'db' : window.parent.db,
                         'table' : window.parent.table,
                         'column' : field_name,
@@ -692,6 +695,7 @@ $(document).ready(function() {
                 var post_params = {
                         'ajax_request' : true,
                         'get_set_values' : true,
+                        'server' : window.parent.server,
                         'db' : window.parent.db,
                         'table' : window.parent.table,
                         'column' : field_name,
@@ -893,6 +897,7 @@ $(document).ready(function() {
             var post_params = {'ajax_request' : true,
                             'sql_query' : sql_query,
                             'token' : window.parent.token,
+                            'server' : window.parent.server,
                             'db' : window.parent.db,
                             'table' : window.parent.table,
                             'clause_is_unique' : nonunique,
