@@ -186,37 +186,124 @@ function PMA_rangeOfUsers($initial = '')
 function PMA_extractPrivInfo($row = '', $enableHTML = false)
 {
     $grants = array(
-        array('Select_priv', 'SELECT', __('Allows reading data.')),
-        array('Insert_priv', 'INSERT', __('Allows inserting and replacing data.')),
-        array('Update_priv', 'UPDATE', __('Allows changing data.')),
-        array('Delete_priv', 'DELETE', __('Allows deleting data.')),
-        array('Create_priv', 'CREATE', __('Allows creating new databases and tables.')),
-        array('Drop_priv', 'DROP', __('Allows dropping databases and tables.')),
-        array('Reload_priv', 'RELOAD', __('Allows reloading server settings and flushing the server\'s caches.')),
-        array('Shutdown_priv', 'SHUTDOWN', __('Allows shutting down the server.')),
-        array('Process_priv', 'PROCESS', __('Allows viewing processes of all users')),
-        array('File_priv', 'FILE', __('Allows importing data from and exporting data into files.')),
-        array('References_priv', 'REFERENCES', __('Has no effect in this MySQL version.')),
-        array('Index_priv', 'INDEX', __('Allows creating and dropping indexes.')),
-        array('Alter_priv', 'ALTER', __('Allows altering the structure of existing tables.')),
-        array('Show_db_priv', 'SHOW DATABASES', __('Gives access to the complete list of databases.')),
-        array('Super_priv', 'SUPER', __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')),
-        array('Create_tmp_table_priv', 'CREATE TEMPORARY TABLES', __('Allows creating temporary tables.')),
-        array('Lock_tables_priv', 'LOCK TABLES', __('Allows locking tables for the current thread.')),
-        array('Repl_slave_priv', 'REPLICATION SLAVE', __('Needed for the replication slaves.')),
-        array('Repl_client_priv', 'REPLICATION CLIENT', __('Allows the user to ask where the slaves / masters are.')),
-        array('Create_view_priv', 'CREATE VIEW', __('Allows creating new views.')),
-        array('Event_priv', 'EVENT', __('Allows to set up events for the event scheduler')),
-        array('Trigger_priv', 'TRIGGER', __('Allows creating and dropping triggers')),
+        array(
+            'Select_priv',
+            'SELECT',
+            __('Allows reading data.')),
+        array(
+            'Insert_priv',
+            'INSERT',
+            __('Allows inserting and replacing data.')),
+        array(
+            'Update_priv',
+            'UPDATE',
+            __('Allows changing data.')),
+        array(
+            'Delete_priv',
+            'DELETE',
+            __('Allows deleting data.')),
+        array(
+            'Create_priv',
+            'CREATE',
+            __('Allows creating new databases and tables.')),
+        array(
+            'Drop_priv',
+            'DROP',
+            __('Allows dropping databases and tables.')),
+        array(
+            'Reload_priv',
+            'RELOAD',
+            __('Allows reloading server settings and flushing the server\'s caches.')),
+        array(
+            'Shutdown_priv',
+            'SHUTDOWN',
+            __('Allows shutting down the server.')),
+        array(
+            'Process_priv',
+            'PROCESS',
+            __('Allows viewing processes of all users')),
+        array(
+            'File_priv',
+            'FILE',
+            __('Allows importing data from and exporting data into files.')),
+        array(
+            'References_priv',
+            'REFERENCES',
+            __('Has no effect in this MySQL version.')),
+        array(
+            'Index_priv',
+            'INDEX',
+            __('Allows creating and dropping indexes.')),
+        array(
+            'Alter_priv',
+            'ALTER',
+            __('Allows altering the structure of existing tables.')),
+        array(
+            'Show_db_priv',
+            'SHOW DATABASES',
+            __('Gives access to the complete list of databases.')),
+        array(
+            'Super_priv',
+            'SUPER',
+            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')),
+        array(
+            'Create_tmp_table_priv',
+            'CREATE TEMPORARY TABLES',
+            __('Allows creating temporary tables.')),
+        array(
+            'Lock_tables_priv',
+            'LOCK TABLES',
+            __('Allows locking tables for the current thread.')),
+        array(
+            'Repl_slave_priv',
+            'REPLICATION SLAVE',
+            __('Needed for the replication slaves.')),
+        array(
+            'Repl_client_priv',
+            'REPLICATION CLIENT',
+            __('Allows the user to ask where the slaves / masters are.')),
+        array(
+            'Create_view_priv',
+            'CREATE VIEW',
+            __('Allows creating new views.')),
+        array(
+            'Event_priv',
+            'EVENT',
+            __('Allows to set up events for the event scheduler')),
+        array(
+            'Trigger_priv',
+            'TRIGGER',
+            __('Allows creating and dropping triggers')),
         // for table privs:
-        array('Create View_priv', 'CREATE VIEW', __('Allows creating new views.')),
-        array('Show_view_priv', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
+        array(
+            'Create View_priv',
+            'CREATE VIEW',
+            __('Allows creating new views.')),
+        array(
+            'Show_view_priv',
+            'SHOW VIEW',
+            __('Allows performing SHOW CREATE VIEW queries.')),
         // for table privs:
-        array('Show view_priv', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
-        array('Create_routine_priv', 'CREATE ROUTINE', __('Allows creating stored routines.')),
-        array('Alter_routine_priv', 'ALTER ROUTINE', __('Allows altering and dropping stored routines.')),
-        array('Create_user_priv', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.')),
-        array('Execute_priv', 'EXECUTE', __('Allows executing stored routines.')),
+        array(
+            'Show view_priv',
+            'SHOW VIEW',
+            __('Allows performing SHOW CREATE VIEW queries.')),
+        array(
+            'Create_routine_priv',
+            'CREATE ROUTINE',
+            __('Allows creating stored routines.')),
+        array(
+            'Alter_routine_priv',
+            'ALTER ROUTINE',
+            __('Allows altering and dropping stored routines.')),
+        array(
+            'Create_user_priv',
+            'CREATE USER',
+            __('Allows creating, dropping and renaming user accounts.')),
+        array(
+            'Execute_priv',
+            'EXECUTE',
+            __('Allows executing stored routines.')),
     );
 
     if (!empty($row) && isset($row['Table_priv'])) {
