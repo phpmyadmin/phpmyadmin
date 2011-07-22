@@ -57,7 +57,13 @@
 
  <target name="phploc" description="Generate phploc.csv">
   <exec executable="phploc">
-   <arg line="--log-csv ${basedir}/build/logs/phploc.csv ${source}" />
+   <arg line="--log-csv ${basedir}/build/logs/phploc.csv
+              --exclude test
+              --exclude build
+              --exclude libraries/PHPExcel
+              --exclude libraries/tcpdf
+              --exclude libraries/php-gettext
+              ${source}" />
   </exec>
  </target>
 
