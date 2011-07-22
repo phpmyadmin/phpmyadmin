@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-22 19:11+0200\n"
+"PO-Revision-Date: 2011-07-22 19:12+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -7069,7 +7069,7 @@ msgstr "Opzioni del risultato"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Is deterministic"
-msgstr "è deterministica"
+msgstr "É deterministica"
 
 #: libraries/rte/rte_routines.lib.php:927
 msgid "Security type"
