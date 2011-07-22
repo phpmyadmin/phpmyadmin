@@ -30,12 +30,12 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @usedby  tbl_structure.php
  * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
- * @param   boolean|string  $query          query to display in the textarea
+ * @param boolean|string  $query          query to display in the textarea
  *                                          or true to display last executed
- * @param   boolean|string  $display_tab    sql|files|history|full|false
+ * @param boolean|string  $display_tab    sql|files|history|full|false
  *                                          what part to display
  *                                          false if not inside querywindow
- * @param   string          $delimiter
+ * @param string          $delimiter
  */
 function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 {
@@ -157,9 +157,9 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  * prints querybox fieldset
  *
  * @usedby  PMA_sqlQueryForm()
- * @param   string      $query          query to display in the textarea
- * @param   boolean     $is_querywindow if inside querywindow or not
- * @param   string      $delimiter      default delimiter to use
+ * @param string      $query          query to display in the textarea
+ * @param boolean     $is_querywindow if inside querywindow or not
+ * @param string      $delimiter      default delimiter to use
  */
 function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
 {
@@ -252,7 +252,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .'  dir="' . $GLOBALS['text_dir'] . '"'
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
     // Add buttons to generate query easily for select all,single select,insert,update and delete
-    if(count($fields_list)) {
+    if (count($fields_list)) {
         echo '<input type="button" value="SELECT *" id="selectall" class="sqlbutton" />';
         echo '<input type="button" value="SELECT" id="select" class="sqlbutton" />';
         echo '<input type="button" value="INSERT" id="insert" class="sqlbutton" />';
@@ -420,7 +420,7 @@ function PMA_sqlQueryFormBookmark()
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormUpload(){
+function PMA_sqlQueryFormUpload() {
     $errors = array ();
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here

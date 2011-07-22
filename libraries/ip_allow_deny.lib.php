@@ -4,6 +4,8 @@
  * This library is used with the server IP allow/deny host authentication
  * feature
  *
+ * @todo Broken for IPv6
+ *
  * @package phpMyAdmin
  */
 
@@ -46,7 +48,7 @@ function PMA_getIp()
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
  * Found on <http://www.php.net/manual/en/function.ip2long.php>
- * Modified for phpMyAdmin 
+ * Modified for phpMyAdmin
  *
  * Matches:
  * xxx.xxx.xxx.xxx        (exact)
@@ -56,8 +58,8 @@ function PMA_getIp()
  * Does not match:
  * xxx.xxx.xxx.xx[yyy-zzz]  (range, partial octets not supported)
  *
- * @param   string   string of IP range to match
- * @param   string   string of IP to test against range
+ * @param string   string of IP range to match
+ * @param string   string of IP to test against range
  *
  * @return  boolean    always true
  *
@@ -112,7 +114,7 @@ function PMA_ipMaskTest($testRange, $ipToTest)
 /**
  * Runs through IP Allow/Deny rules the use of it below for more information
  *
- * @param   string 'allow' | 'deny' type of rule to match
+ * @param string 'allow' | 'deny' type of rule to match
  *
  * @return  bool   Matched a rule ?
  *

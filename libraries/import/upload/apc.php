@@ -30,7 +30,7 @@ function PMA_getUploadStatus($id) {
                     'percent'  => 0,
                     'total'    => 0,
                     'complete' => 0,
-		            'plugin'   => $ID_KEY
+                    'plugin'   => $ID_KEY
          );
     }
     $ret = $_SESSION[$SESSION_KEY][$id];

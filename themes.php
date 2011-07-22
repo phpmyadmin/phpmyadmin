@@ -22,7 +22,7 @@ require './libraries/header_meta_style.inc.php';
 ?>
 <script type="text/javascript" language="javascript">
 // <![CDATA[
-function takeThis(what){
+function takeThis(what) {
     if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
         window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
         window.opener.document.forms['setTheme'].submit();

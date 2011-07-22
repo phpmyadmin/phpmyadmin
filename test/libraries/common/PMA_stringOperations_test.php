@@ -36,9 +36,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
         global $GLOBALS, $_SESSION;
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
-        
+
     }
-    
+
     /**
      * data provider for flipstring test
      */
@@ -110,8 +110,8 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
         return array(
             array('test', 'test'),
             array("\r\ntest", "\n\r\ntest"),
-			array("\ntest", "\ntest"),
-			array("\n\r\ntest", "\n\r\ntest")
+            array("\ntest", "\ntest"),
+            array("\n\r\ntest", "\n\r\ntest")
         );
     }
 

@@ -15,9 +15,9 @@ if (! defined('PHPMYADMIN')) {
 /**
  * copy values from one array to another, usually from a superglobal into $GLOBALS
  *
- * @param   array   $array      values from
- * @param   array   $target     values to
- * @param   boolean $sanitize   prevent importing key names in $_import_blacklist
+ * @param array   $array      values from
+ * @param array   $target     values to
+ * @param boolean $sanitize   prevent importing key names in $_import_blacklist
  */
 function PMA_recursive_extract($array, &$target, $sanitize = true)
 {

@@ -48,9 +48,9 @@ $options_array = array(
 /**
  * Generate dropdown choices
  *
- * @param   string   Message to display
- * @param   string   Name of the <select> field
- * @param   array    Choices for dropdown
+ * @param string   Message to display
+ * @param string   Name of the <select> field
+ * @param array    Choices for dropdown
  * @return  string   The existing value (for selected)
  *
  * @access  public
@@ -74,7 +74,7 @@ function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $sele
 /**
  * Split a string on backquote pairs 
  *
- * @param   string  original string 
+ * @param string  original string 
  * @return  array   containing the elements (and their surrounding backquotes)
  *
  * @access  public

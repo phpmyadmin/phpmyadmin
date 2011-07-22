@@ -17,7 +17,7 @@ require_once './libraries/bookmark.lib.php';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'tbl_change.js';
 
-if(isset($_SESSION['profiling'])) {
+if (isset($_SESSION['profiling'])) {
     $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
     /* Files required for chart exporting */
     $GLOBALS['js_include'][] = 'highcharts/exporting.js';
@@ -108,7 +108,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
  *
  * Logic taken from libraries/display_tbl_lib.php
  */
-if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
+if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
     $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
 
     $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
@@ -120,7 +120,7 @@ if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) 
     $dropdown = '<option value="">&nbsp;</option>';
     foreach ($values as $value) {
         $dropdown .= '<option value="' . htmlspecialchars($value) . '"';
-        if($value == $_REQUEST['curr_value']) {
+        if ($value == $_REQUEST['curr_value']) {
             $dropdown .= ' selected="selected"';
         }
         $dropdown .= '>' . $value . '</option>';
@@ -135,7 +135,7 @@ if(isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) 
 /**
  * Find possible values for set fields during inline edit.
  */
-if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
+if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $field_info_query = 'SHOW FIELDS FROM `' . $db . '`.`' . $table . '` LIKE \'' . $_REQUEST['column'] . '\' ;';
 
     $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
@@ -148,7 +148,7 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $select = '';
     foreach ($values as $value) {
         $select .= '<option value="' . htmlspecialchars($value) . '"';
-        if(in_array($value, $selected_values, true)) {
+        if (in_array($value, $selected_values, true)) {
             $select .= ' selected="selected"';
         }
         $select .= '>' . $value . '</option>';
@@ -164,7 +164,7 @@ if(isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 /**
  * Check ajax request to set the column order
  */
-if(isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
+if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
     $pmatable = new PMA_Table($table, $db);
 
     // set column order
@@ -459,7 +459,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.
     while (true) {
-        if(! PMA_DBI_more_results()) {
+        if (! PMA_DBI_more_results()) {
             break;
         }
         PMA_DBI_next_result();
@@ -478,7 +478,7 @@ if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
             $active_page = $goto;
             $message = PMA_Message::rawError($error);
 
-            if( $GLOBALS['is_ajax_request'] == true) {
+            if ($GLOBALS['is_ajax_request'] == true) {
                 PMA_ajaxResponse($message, false);
             }
 
@@ -693,7 +693,7 @@ if (0 == $num_rows || $is_affected) {
         $message->addMessage(')');
     }
 
-    if( $GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true) {
 
         /**
          * If we are in inline editing, we need to process the relational and
@@ -703,7 +703,7 @@ if (0 == $num_rows || $is_affected) {
          * Logic taken from libraries/display_tbl.lib.php
          */
 
-        if(isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
+        if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
             //handle relations work here for updated row.
             require_once './libraries/relation.lib.php';
 
@@ -767,7 +767,7 @@ if (0 == $num_rows || $is_affected) {
             }
         }
 
-        if(isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
+        if (isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
             require_once './libraries/transformations.lib.php';
             //if some posted fields need to be transformed, generate them here.
             $mime_map = PMA_getMIME($db, $table);
@@ -859,7 +859,7 @@ if (0 == $num_rows || $is_affected) {
 else {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if( $GLOBALS['inline_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
+    if ($GLOBALS['inline_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
         $row = PMA_DBI_fetch_row($result);
         $extra_data = array();
         $extra_data['value'] = $row[0];
@@ -880,7 +880,7 @@ else {
 
         unset($message);
 
-        if( ! $GLOBALS['is_ajax_request'] || ! $GLOBALS['cfg']['AjaxEnable']) {
+        if (! $GLOBALS['is_ajax_request'] || ! $GLOBALS['cfg']['AjaxEnable']) {
             if (strlen($table)) {
                 require './libraries/tbl_common.php';
                 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
@@ -912,7 +912,7 @@ else {
         $fields_cnt  = count($fields_meta);
     }
 
-    if( ! $GLOBALS['is_ajax_request']) {
+    if (! $GLOBALS['is_ajax_request']) {
         //begin the sqlqueryresults div here. container div
         echo '<div id="sqlqueryresults"';
         if ($GLOBALS['cfg']['AjaxEnable']) {
@@ -927,7 +927,7 @@ else {
     }
 
     if (isset($profiling_results)) {
-		// pma_token/url_query needed for chart export
+        // pma_token/url_query needed for chart export
 ?>
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
@@ -1054,7 +1054,7 @@ window.onload = function()
         <?php
     } // end print case
 
-    if( $GLOBALS['is_ajax_request'] != true) {
+    if ($GLOBALS['is_ajax_request'] != true) {
         echo '</div>'; // end sqlqueryresults div
     }
 } // end rows returned
@@ -1062,7 +1062,7 @@ window.onload = function()
 /**
  * Displays the footer
  */
-if(! isset($_REQUEST['table_maintenance'])) {
+if (! isset($_REQUEST['table_maintenance'])) {
     require './libraries/footer.inc.php';
 }
 ?>

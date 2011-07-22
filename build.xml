@@ -38,6 +38,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
+              --exclude test,build,PHPExcel,tcpdf,php-gettext
               --reportfile ${basedir}/build/logs/pmd.xml" />
   </exec>
  </target>
@@ -49,13 +50,20 @@
               --exclude build
               --exclude libraries/PHPExcel
               --exclude libraries/tcpdf
+              --exclude libraries/php-gettext
               ${source}" />
   </exec>
  </target>
 
  <target name="phploc" description="Generate phploc.csv">
   <exec executable="phploc">
-   <arg line="--log-csv ${basedir}/build/logs/phploc.csv ${source}" />
+   <arg line="--log-csv ${basedir}/build/logs/phploc.csv
+              --exclude test
+              --exclude build
+              --exclude libraries/PHPExcel
+              --exclude libraries/tcpdf
+              --exclude libraries/php-gettext
+              ${source}" />
   </exec>
  </target>
 

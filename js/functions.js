@@ -28,7 +28,7 @@ var codemirror_editor = false;
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
  */
 var chart_activeTimeouts = new Object();
-    
+
 
 /**
  * Add a hidden field to the form to indicate that this will be an
@@ -140,8 +140,8 @@ function PMA_addDatepicker($this_element, options) {
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-	
-	var defaultOptions = {
+
+    var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -159,11 +159,11 @@ function PMA_addDatepicker($this_element, options) {
 
             // Fix wrong timepicker z-index, doesn't work without timeout
             setTimeout(function() {
-                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
+                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
             },0);
         },
         constrainInput: false
-	};
+    };
 
     $this_element.datepicker($.extend(defaultOptions, options));
 }
@@ -630,13 +630,13 @@ $(document).ready(function() {
             return;
         }
         var $tr = $(this);
-        
+
         // make the table unselectable (to prevent default highlighting when shift+click)
         $tr.parents('table').noSelect();
-        
+
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
-            
+
             // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
             var $checkbox = $tr.find(':checkbox');
             if ($checkbox.length) {
@@ -657,14 +657,14 @@ $(document).ready(function() {
                 $tr.toggleClass('marked');
                 last_click_checked = false;
             }
-            
+
             // remember the last clicked row
             last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
             var start, end;
-            
+
             // clear last shift click result
             if (last_shift_clicked_row >= 0) {
                 if (last_shift_clicked_row >= last_clicked_row) {
@@ -680,7 +680,7 @@ $(document).ready(function() {
                     .find(':checkbox')
                     .attr('checked', false);
             }
-            
+
             // handle new shift click
             var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
             if (curr_row >= last_clicked_row) {
@@ -695,7 +695,7 @@ $(document).ready(function() {
                 .addClass('marked')
                 .find(':checkbox')
                 .attr('checked', true);
-            
+
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
         }
@@ -1452,17 +1452,17 @@ function PMA_createTableDialog( div, url , target) {
  *                              realtime: {
  *                                  url: adress to get the data from (will always add token, ajax_request=1 and chart_data=1 to the GET request)
  *                                  type: the GET request will also add type=[value of the type property] to the request
- *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order: 
+ *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order:
  *                                      - the chart object
  *                                      - the current response value of the GET request, JSON parsed
  *                                      - the previous response value of the GET request, JSON parsed
  *                                      - the number of added points
- * 
+ *
  * @return  object   The created highcharts instance
  */
 function PMA_createChart(passedSettings) {
     var container = passedSettings.chart.renderTo;
-    
+
     var settings = {
         chart: {
             type: 'spline',
@@ -1475,45 +1475,45 @@ function PMA_createChart(passedSettings) {
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    
+
                     // No realtime updates for graphs that are being exported, and disabled when realtime is not set
                     // Also don't do live charting if we don't have the server time
-                    if(thisChart.options.chart.forExport == true || 
-                        ! thisChart.options.realtime || 
+                    if(thisChart.options.chart.forExport == true ||
+                        ! thisChart.options.realtime ||
                         ! thisChart.options.realtime.callback ||
                         ! server_time_diff) return;
-                            
+
                     thisChart.options.realtime.timeoutCallBack = function() {
                         thisChart.options.realtime.postRequest = $.post(
                             thisChart.options.realtime.url,
                             thisChart.options.realtime.postData,
                             function(data) {
                                 curValue = jQuery.parseJSON(data);
-                                
+
                                 if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
                                 else diff = parseInt(curValue.x - lastValue.x);
-                                
+
                                 thisChart.xAxis[0].setExtremes(
-                                    thisChart.xAxis[0].getExtremes().min+diff, 
-                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    thisChart.xAxis[0].getExtremes().min+diff,
+                                    thisChart.xAxis[0].getExtremes().max+diff,
                                     false
                                 );
-                                
+
                                 thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                                
+
                                 lastValue = curValue;
                                 numLoadedPoints++;
-                                
+
                                 // Timeout has been cleared => don't start a new timeout
                                 if(chart_activeTimeouts[container] == null) return;
-                                
+
                                 chart_activeTimeouts[container] = setTimeout(
-                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.timeoutCallBack,
                                     thisChart.options.realtime.refreshRate
-                                ); 
+                                );
                         });
                     }
-                    
+
                     chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
@@ -1545,7 +1545,7 @@ function PMA_createChart(passedSettings) {
         tooltip: {
             formatter: function() {
                     return '<b>' + this.series.name +'</b><br/>' +
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                     Highcharts.numberFormat(this.y, 2);
             }
         },
@@ -1554,18 +1554,18 @@ function PMA_createChart(passedSettings) {
         },
         series: []
     }
-    
+
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {        
-        if(!passedSettings.realtime.refreshRate) 
+    if(passedSettings.realtime) {
+        if(!passedSettings.realtime.refreshRate)
             passedSettings.realtime.refreshRate = 5000;
-        
-        if(!passedSettings.realtime.numMaxPoints) 
+
+        if(!passedSettings.realtime.numMaxPoints)
             passedSettings.realtime.numMaxPoints = 30;
-        
+
         // Allow custom POST vars to be added
         passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
-        
+
         if(server_time_diff) {
             settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
             settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
@@ -2292,9 +2292,9 @@ function checkIndexName(form_id)
 /**
  * function to convert the footnotes to tooltips
  *
- * @param   jquery-Object   $div    a div jquery object which specifies the 
- *                                  domain for searching footnootes. If we 
- *                                  ommit this parameter the function searches 
+ * @param   jquery-Object   $div    a div jquery object which specifies the
+ *                                  domain for searching footnootes. If we
+ *                                  ommit this parameter the function searches
  *                                  the footnotes in the whole body
  **/
 function PMA_convertFootnotesToTooltips($div) {
@@ -2493,65 +2493,65 @@ var toggleButton = function ($obj) {
     } else {
         var right = 'left';
     }
-	/**
-	 *  var  h  Height of the button, used to scale the
-	 *          background image and position the layers
-	 */
-	var h = $obj.height();
-	$('img', $obj).height(h);
-	$('table', $obj).css('bottom', h-1);
-	/**
-	 *  var  on   Width of the "ON" part of the toggle switch
-	 *  var  off  Width of the "OFF" part of the toggle switch
-	 */
-	var on  = $('.toggleOn', $obj).width();
-	var off = $('.toggleOff', $obj).width();
-	// Make the "ON" and "OFF" parts of the switch the same size
-	$('.toggleOn > div', $obj).width(Math.max(on, off));
-	$('.toggleOff > div', $obj).width(Math.max(on, off));
-	/**
-	 *  var  w  Width of the central part of the switch
-	 */
-	var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
-	// Resize the central part of the switch on the top
-	// layer to match the background
-	$('table td:nth-child(2) > div', $obj).width(w);
-	/**
-	 *  var  imgw    Width of the background image
-	 *  var  tblw    Width of the foreground layer
-	 *  var  offset  By how many pixels to move the background
-	 *               image, so that it matches the top layer
-	 */
-	var imgw = $('img', $obj).width();
-	var tblw = $('table', $obj).width();
-	var offset = parseInt(((imgw - tblw) / 2), 10);
-	// Move the background to match the layout of the top layer
-	$obj.find('img').css(right, offset);
-	/**
-	 *  var  offw    Outer width of the "ON" part of the toggle switch
-	 *  var  btnw    Outer width of the central part of the switch
-	 */
-	var offw = $('.toggleOff', $obj).outerWidth();
-	var btnw = $('table td:nth-child(2)', $obj).outerWidth();
-	// Resize the main div so that exactly one side of
-	// the switch plus the central part fit into it.
-	$obj.width(offw + btnw + 2);
-	/**
-	 *  var  move  How many pixels to move the
-	 *             switch by when toggling
-	 */
-	var move = $('.toggleOff', $obj).outerWidth();
-	// If the switch is initialized to the
-	// OFF state we need to move it now.
-	if ($('.container', $obj).hasClass('off')) {
+    /**
+     *  var  h  Height of the button, used to scale the
+     *          background image and position the layers
+     */
+    var h = $obj.height();
+    $('img', $obj).height(h);
+    $('table', $obj).css('bottom', h-1);
+    /**
+     *  var  on   Width of the "ON" part of the toggle switch
+     *  var  off  Width of the "OFF" part of the toggle switch
+     */
+    var on  = $('.toggleOn', $obj).width();
+    var off = $('.toggleOff', $obj).width();
+    // Make the "ON" and "OFF" parts of the switch the same size
+    $('.toggleOn > div', $obj).width(Math.max(on, off));
+    $('.toggleOff > div', $obj).width(Math.max(on, off));
+    /**
+     *  var  w  Width of the central part of the switch
+     */
+    var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+    // Resize the central part of the switch on the top
+    // layer to match the background
+    $('table td:nth-child(2) > div', $obj).width(w);
+    /**
+     *  var  imgw    Width of the background image
+     *  var  tblw    Width of the foreground layer
+     *  var  offset  By how many pixels to move the background
+     *               image, so that it matches the top layer
+     */
+    var imgw = $('img', $obj).width();
+    var tblw = $('table', $obj).width();
+    var offset = parseInt(((imgw - tblw) / 2), 10);
+    // Move the background to match the layout of the top layer
+    $obj.find('img').css(right, offset);
+    /**
+     *  var  offw    Outer width of the "ON" part of the toggle switch
+     *  var  btnw    Outer width of the central part of the switch
+     */
+    var offw = $('.toggleOff', $obj).outerWidth();
+    var btnw = $('table td:nth-child(2)', $obj).outerWidth();
+    // Resize the main div so that exactly one side of
+    // the switch plus the central part fit into it.
+    $obj.width(offw + btnw + 2);
+    /**
+     *  var  move  How many pixels to move the
+     *             switch by when toggling
+     */
+    var move = $('.toggleOff', $obj).outerWidth();
+    // If the switch is initialized to the
+    // OFF state we need to move it now.
+    if ($('.container', $obj).hasClass('off')) {
         if (right == 'right') {
-    		$('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-    		$('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
-	}
-	// Attach an 'onclick' event to the switch
-	$('.container', $obj).click(function () {
+    }
+    // Attach an 'onclick' event to the switch
+    $('.container', $obj).click(function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -2560,8 +2560,8 @@ var toggleButton = function ($obj) {
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         var $container = $(this);
         var callback = $('.callback', this).text();
-		// Perform the actual toggle
-		if ($(this).hasClass('on')) {
+        // Perform the actual toggle
+        if ($(this).hasClass('on')) {
             if (right == 'right') {
                 var operator = '-=';
             } else {
@@ -2570,7 +2570,7 @@ var toggleButton = function ($obj) {
             var url = $(this).find('.toggleOff > span').text();
             var removeClass = 'on';
             var addClass = 'off';
-		} else {
+        } else {
             if (right == 'right') {
                 var operator = '+=';
             } else {
@@ -2583,10 +2583,10 @@ var toggleButton = function ($obj) {
         $.post(url, {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
-		        $container
-		        .removeClass(removeClass)
-		        .addClass(addClass)
-		        .animate({'left': operator + move + 'px'}, function () {
+                $container
+                .removeClass(removeClass)
+                .addClass(addClass)
+                .animate({'left': operator + move + 'px'}, function () {
                     $container.removeClass('isActive');
                 });
                 eval(callback);
@@ -2595,7 +2595,7 @@ var toggleButton = function ($obj) {
                 $container.removeClass('isActive');
             }
         });
-	});
+    });
 };
 
 /**
@@ -2606,8 +2606,8 @@ $(window).load(function () {
         $(this)
         .show()
         .find('.toggleButton')
-		toggleButton($(this));
-	});
+        toggleButton($(this));
+    });
 });
 
 /**
@@ -2649,7 +2649,7 @@ $(document).ready(function() {
                 $checkbox.attr('checked', checked);
             }
             // for all td of the same vertical row, toggle the marked class
-            if (checked) {      
+            if (checked) {
                 $('.vmarker').filter('.row_' + row_num).addClass('marked');
             } else {
                 $('.vmarker').filter('.row_' + row_num).removeClass('marked');
@@ -2913,7 +2913,7 @@ $(document).ready(function() {
                 else $(this).removeAttr('unselectable', 'on');
             });
         }
-    }; //end noSelect    
+    }; //end noSelect
 })(jQuery);
 
 /**
@@ -2951,7 +2951,7 @@ function PMA_createqTip($elements, content, options) {
             }
         }
     }
-    
+
     $elements.qtip($.extend(true, o, options));
 }
 

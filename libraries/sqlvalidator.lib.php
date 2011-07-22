@@ -49,7 +49,7 @@ if ($cfg['SQLValidator']['use'] == true)  {
  *
  * <http://developer.mimer.com/validator/index.htm>
  *
- * @param   string   SQL query to validate
+ * @param string   SQL query to validate
  *
  * @return  string   Validator result string
  *

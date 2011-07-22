@@ -31,14 +31,14 @@ $multi_values .= '<select name="db_select[]" id="db_select" size="10" multiple="
 $multi_values .= "\n";
 
 // Check if the selected databases are defined in $_GET (from clicking Back button on export.php)
-if(isset($_GET['db_select'])) {
+if (isset($_GET['db_select'])) {
     $_GET['db_select'] = urldecode($_GET['db_select']);
     $_GET['db_select'] = explode(",", $_GET['db_select']);
 }
 
 foreach ($GLOBALS['pma']->databases as $current_db) {
-    if(isset($_GET['db_select'])) {
-        if(in_array($current_db, $_GET['db_select'])) {
+    if (isset($_GET['db_select'])) {
+        if (in_array($current_db, $_GET['db_select'])) {
             $is_selected = ' selected="selected"';
         } else {
             $is_selected = '';
