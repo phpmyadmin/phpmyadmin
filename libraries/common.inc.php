@@ -413,6 +413,7 @@ $goto_whitelist = array(
     'tbl_replace.php',
     'tbl_row_action.php',
     'tbl_select.php',
+    'tbl_zoom_select.php',
     //'themes.php',
     'transformation_overview.php',
     'transformation_wrapper.php',
