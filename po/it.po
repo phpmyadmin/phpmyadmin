@@ -10102,10 +10102,9 @@ msgid "Loading logs"
 msgstr "Caricamento dei log in corso"
 
 #: server_status.php:1432
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Mostra statistiche"
+msgstr "Registra statistiche"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
