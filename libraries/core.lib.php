@@ -224,8 +224,10 @@ function PMA_fatalError($error_message, $message_args = null)
     }
 
     require('./libraries/error.inc.php');
-
-    exit;
+    
+    if (!defined('TESTSUITE')) {
+        exit;
+    }
 }
 
 /**
@@ -253,7 +255,13 @@ function PMA_getPHPDocLink($target) {
  */
 function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
-    $message = sprintf(__('The %s extension is missing. Please check your PHP configuration.'),
+    /* Gettext does not have to be loaded yet here */
+    if (function_exists('__')) {
+        $message = __('The %s extension is missing. Please check your PHP configuration.');
+    } else {
+        $message = 'The %s extension is missing. Please check your PHP configuration.';
+    }
+    $message = sprintf($message,
         '[a@' . PMA_getPHPDocLink('book.' . $extension . '.php') . '@Documentation][em]' . $extension . '[/em][/a]');
     if ($extra != '') {
         $message .= ' ' . $extra;

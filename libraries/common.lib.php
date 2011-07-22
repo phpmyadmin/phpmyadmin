@@ -9,10 +9,10 @@
 /**
  * Exponential expression / raise number into power
  *
- * @param   string  $base
- * @param   string  $exp
- * @param   mixed   $use_function  pow function to use, or false for auto-detect
- * @return  mixed  string or float
+ * @param string $base         base to raise
+ * @param string $exp          exponent to use
+ * @param mixed  $use_function pow function to use, or false for auto-detect
+ * @return mixed string or float
  */
 function PMA_pow($base, $exp, $use_function = false)
 {
@@ -62,10 +62,10 @@ function PMA_pow($base, $exp, $use_function = false)
 /**
  * string PMA_getIcon(string $icon)
  *
- * @param   string  $icon       name of icon file
- * @param   string  $alternate  alternate text
- * @param   boolean $container  include in container
- * @param   boolean $force_text whether to force alternate text to be displayed
+ * @param string  $icon       name of icon file
+ * @param string  $alternate  alternate text
+ * @param boolean $container  include in container
+ * @param boolean $force_text whether to force alternate text to be displayed
  * @return html img tag
  */
 function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false)
@@ -97,9 +97,9 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     $button .= '<span class="nowrap">';
 
     if ($include_icon) {
-        $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+        $button .= '<img src="themes/dot.gif"'
             . ' title="' . $alternate . '" alt="' . $alternate . '"'
-            . ' class="icon" width="16" height="16" />';
+            . ' class="icon ic_' . str_replace('.png','',$icon) . '" />';
     }
 
     if ($include_icon && $include_text) {
@@ -118,8 +118,8 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 /**
  * Displays the maximum size for an upload
  *
- * @param   integer $max_upload_size  the size
- * @return  string   the message
+ * @param integer $max_upload_size the size
+ * @return string the message
  *
  * @access  public
  */
@@ -135,27 +135,27 @@ function PMA_displayMaximumUploadSize($max_upload_size)
  * Generates a hidden field which should indicate to the browser
  * the maximum size for upload
  *
- * @param   integer  $max_size  the size
- * @return  string   the INPUT field
+ * @param integer $max_size the size
+ * @return string the INPUT field
  *
  * @access  public
  */
- function PMA_generateHiddenMaxFileSize($max_size)
- {
-     return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
- }
+function PMA_generateHiddenMaxFileSize($max_size)
+{
+    return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
+}
 
 /**
  * Add slashes before "'" and "\" characters so a value containing them can
  * be used in a sql comparison.
  *
- * @param   string  $a_string  the string to slash
- * @param   bool    $is_like   whether the string will be used in a 'LIKE' clause
- *                             (it then requires two more escaped sequences) or not
- * @param   bool    $crlf      whether to treat cr/lfs as escape-worthy entities
- *                             (converts \n to \\n, \r to \\r)
- * @param   bool    $php_code  whether this function is used as part of the
- *                             "Create PHP code" dialog
+ * @param string  $a_string the string to slash
+ * @param bool    $is_like  whether the string will be used in a 'LIKE' clause
+ *                          (it then requires two more escaped sequences) or not
+ * @param bool    $crlf     whether to treat cr/lfs as escape-worthy entities
+ *                          (converts \n to \\n, \r to \\r)
+ * @param bool    $php_code whether this function is used as part of the
+ *                          "Create PHP code" dialog
  *
  * @return  string   the slashed string
  *
@@ -190,8 +190,8 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false, $php
  * database, table and field names.
  * Note: This function does not escape backslashes!
  *
- * @param   string  $name  the string to escape
- * @return  string   the escaped string
+ * @param string $name the string to escape
+ * @return string the escaped string
  *
  * @access  public
  */
@@ -224,9 +224,9 @@ function PMA_unescape_mysql_wildcards($name)
  *
  * checks if the sting is quoted and removes this quotes
  *
- * @param   string  $quoted_string  string to remove quotes from
- * @param   string  $quote          type of quote to remove
- * @return  string  unqoted string
+ * @param string $quoted_string string to remove quotes from
+ * @param string $quote         type of quote to remove
+ * @return string unqoted string
  */
 function PMA_unQuote($quoted_string, $quote = null)
 {
@@ -257,8 +257,8 @@ function PMA_unQuote($quoted_string, $quote = null)
  * format sql strings
  *
  * @todo    move into PMA_Sql
- * @param  mixed   $parsed_sql    pre-parsed SQL structure
- * @param  string  $unparsed_sql
+ * @param mixed  $parsed_sql   pre-parsed SQL structure
+ * @param string $unparsed_sql raw SQL string
  * @return string  the formatted sql
  *
  * @global  array    the configuration array
@@ -314,11 +314,11 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
 /**
  * Displays a link to the official MySQL documentation
  *
- * @param string  $chapter    chapter of "HTML, one page per chapter" documentation
- * @param string  $link       contains name of page/anchor that is being linked
- * @param bool    $big_icon   whether to use big icon (like in left frame)
- * @param string  $anchor     anchor to page part
- * @param bool    $just_open  whether only the opening <a> tag should be returned
+ * @param string $chapter   chapter of "HTML, one page per chapter" documentation
+ * @param string $link      contains name of page/anchor that is being linked
+ * @param bool   $big_icon  whether to use big icon (like in left frame)
+ * @param string $anchor    anchor to page part
+ * @param bool   $just_open whether only the opening <a> tag should be returned
  *
  * @return  string  the html link
  *
@@ -377,7 +377,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
                     $mysql = '5.1';
                     /* l10n: Language to use for MySQL 5.1 documentation, please use only languages which do exist in official documentation.  */
                     $lang = _pgettext('MySQL 5.1 documentation language', 'en');
-                } elseif (PMA_MYSQL_INT_VERSION >= 50000) {
+                } else {
                     $mysql = '5.0';
                     /* l10n: Language to use for MySQL 5.0 documentation, please use only languages which do exist in official documentation. */
                     $lang = _pgettext('MySQL 5.0 documentation language', 'en');
@@ -393,9 +393,9 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
     if ($just_open) {
         return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc">';
     } elseif ($big_icon) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_sqlhelp.png" width="16" height="16" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_sqlhelp" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } elseif ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . PMA_linkURL($url) . '" target="mysql_doc"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . PMA_linkURL($url) . '" target="mysql_doc">' . __('Documentation') . '</a>]';
     }
@@ -412,7 +412,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  */
 function PMA_showDocu($anchor) {
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="Documentation.html#' . $anchor . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -430,7 +430,7 @@ function PMA_showPHPDocu($target) {
     $url = PMA_getPHPDocLink($target);
 
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-        return '<a href="' . $url . '" target="documentation"><img class="icon" src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        return '<a href="' . $url . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
         return '[<a href="' . $url . '" target="documentation">' . __('Documentation') . '</a>]';
     }
@@ -459,18 +459,13 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
             $GLOBALS['footnotes'] = array();
         }
         $nr = count($GLOBALS['footnotes']) + 1;
-        // this is the first instance of this message
-        $instance = 1;
         $GLOBALS['footnotes'][$key] = array(
             'note'      => $message,
             'type'      => $type,
             'nr'        => $nr,
-            'instance'  => $instance
         );
     } else {
         $nr = $GLOBALS['footnotes'][$key]['nr'];
-        // another instance of this message (to ensure ids are unique)
-        $instance = ++$GLOBALS['footnotes'][$key]['instance'];
     }
 
     if ($bbcode) {
@@ -479,8 +474,7 @@ function PMA_showHint($message, $bbcode = false, $type = 'notice')
 
     // footnotemarker used in js/tooltip.js
     return '<sup class="footnotemarker">' . $nr . '</sup>' .
-    '<img class="footnotemarker" id="footnote_' . $nr . '_' . $instance . '" src="' .
-    $GLOBALS['pmaThemeImage'] . 'b_help.png" alt="" />';
+    '<img class="footnotemarker ic_b_help footnote_' . $nr . '" src="themes/dot.gif" alt="" />';
 }
 
 /**
@@ -707,7 +701,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
             $group_name_full = '';
             $parts_cnt = count($parts) - 1;
             while ($i < $parts_cnt
-              && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
+                    && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
                 $group_name = $parts[$i] . $sep;
                 $group_name_full .= $group_name;
 
@@ -739,7 +733,7 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0, $limit_count =
 
 
         if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-          && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
+                && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested') {
             // switch tooltip and name
             $table['Comment'] = $table['Name'];
             $table['disp_name'] = $table['Comment'];
@@ -807,8 +801,6 @@ function PMA_backquote($a_name, $do_it = true)
  */
 function PMA_whichCrlf()
 {
-    $the_crlf = "\n";
-
     // The 'PMA_USR_OS' constant is defined in "./libraries/Config.class.php"
     // Win case
     if (PMA_USR_OS == 'Win') {
@@ -825,15 +817,12 @@ function PMA_whichCrlf()
 /**
  * Reloads navigation if needed.
  *
- * @param   $jsonly prints out pure JavaScript
- * @global  array  configuration
+ * @param bool $jsonly prints out pure JavaScript
  *
  * @access  public
  */
 function PMA_reloadNavigation($jsonly=false)
 {
-    global $cfg;
-
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
         // one of the reasons for a reload is when a table is dropped
@@ -869,7 +858,7 @@ if (!$jsonly)
  * @param   string  $sql_query  the query to display
  * @param   string  $type       the type (level) of the message
  * @param   boolean $is_view    is this a message after a VIEW operation?
- * @global  array   the configuration array
+ * @return  string
  * @access  public
  */
 function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view = false)
@@ -1218,6 +1207,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         ob_end_clean();
         return $buffer_contents;
     }
+    return null;
 } // end of the 'PMA_showMessage()' function
 
 /**
@@ -1225,7 +1215,6 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
  *
  * @access  public
  * @return  boolean whether profiling is supported
- *
  */
 function PMA_profilingSupported()
 {
@@ -1250,7 +1239,6 @@ function PMA_profilingSupported()
  *
  * @param   string  $sql_query
  * @access  public
- *
  */
 function PMA_profilingCheckbox($sql_query)
 {
@@ -1345,24 +1333,22 @@ function PMA_localizeNumber($value)
  * @param   integer  $digits_left      number of digits left of the comma
  * @param   integer  $digits_right     number of digits right of the comma
  * @param   boolean  $only_down        do not reformat numbers below 1
- * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true) 
+ * @param   boolean  $noTrailingZero   removes trailing zeros right of the comma (default: true)
  *
  * @return  string   the formatted value and its unit
  *
  * @access  public
- *
- * @version 1.1.0 - 2005-10-27
  */
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
     if($value==0) return '0';
-    
+
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
         if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
-        
+
         return PMA_localizeNumber($value);
     }
 
@@ -1396,7 +1382,7 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     }
 
     $dh = PMA_pow(10, $digits_right);
-    
+
     // This gives us the right SI prefix already, but $digits_left parameter not incorporated
     $d = floor(log10($value) / 3);
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
@@ -1405,18 +1391,18 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     if($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
     }
-	
+
     if($d<0 && $only_down) $d=0;
-    
+
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
-    
+
     // If we dont want any zeros after the comma just add the thousand seperator
     if($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
         $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
-    
+
     if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
@@ -1519,7 +1505,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * @return  string  html code for one tab, a link if valid otherwise a span
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array())
+function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
 {
     // default values
     $defaults = array(
@@ -1581,8 +1567,8 @@ function PMA_generate_html_tab($tab, $url_params = array())
         // avoid generating an alt tag, because it only illustrates
         // the text that follows and if browser does not display
         // images, the text is duplicated
-        $image = '<img class="icon" src="' . htmlentities($GLOBALS['pmaThemeImage'])
-            .'%1$s" width="16" height="16" alt="" />%2$s';
+        $image = '<img class="icon %1$s" src="' . $base_dir . 'themes/dot.gif"'
+            .' width="16" height="16" alt="" />%2$s';
         $tab['text'] = sprintf($image, htmlentities($tab['icon']), $tab['text']);
     }
     // check to not display an empty link-text
@@ -1617,7 +1603,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
  * @param   string  $url_params
  * @return  string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params)
+function PMA_generate_html_tabs($tabs, $url_params, $base_dir='')
 {
     $tag_id = 'topmenu';
     $tab_navigation =
@@ -1625,7 +1611,7 @@ function PMA_generate_html_tabs($tabs, $url_params)
         .'<ul id="' . htmlentities($tag_id) . '">' . "\n";
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
     }
 
     $tab_navigation .=
@@ -1769,7 +1755,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         }
     } // end if... else...
 
-        return $ret;
+    return $ret;
 } // end of the 'PMA_linkOrButton()' function
 
 
@@ -1843,7 +1829,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
     return $format_string;
 }
 
-
 /**
  * Function added to avoid path disclosures.
  * Called by each script that needs parameters, it displays
@@ -1852,7 +1837,6 @@ function PMA_flipstring($string, $Separator = "<br />\n")
  * Not sure we could use a strMissingParameter message here,
  * would have to check if the error message file is always available
  *
- * @todo    localize error message
  * @todo    use PMA_fatalError() if $die === true?
  * @param   array  $params  The names of the parameters needed by the calling script.
  * @param   bool   $die Stop the execution?
@@ -1883,7 +1867,8 @@ function PMA_checkParameters($params, $die = true, $request = true)
 
         if (! isset($GLOBALS[$param])) {
             $error_message .= $reported_script_name
-                . ': Missing parameter: ' . $param
+                . ': ' . __('Missing parameter:') . ' '
+                . $param
                 . PMA_showDocu('faqmissingparameters')
                 . '<br />';
             $found_error = true;
@@ -1930,9 +1915,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
             $meta->orgname = $meta->name;
 
             if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
-              && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])) {
-                foreach ($GLOBALS['analyzed_sql'][0]['select_expr']
-                  as $select_expr) {
+                    && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])) {
+                foreach ($GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr) {
                     // need (string) === (string)
                     // '' !== 0 but '' == 0
                     if ((string) $select_expr['alias'] === (string) $meta->name) {
@@ -1980,18 +1964,18 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                 $condition .= '= ' . $row[$i] . ' AND';
             } elseif (($meta->type == 'blob' || $meta->type == 'string')
                 // hexify only if this is a true not empty BLOB or a BINARY
-                 && stristr($field_flags, 'BINARY')
-                 && !empty($row[$i])) {
-                    // do not waste memory building a too big condition
-                    if (strlen($row[$i]) < 1000) {
-                        // use a CAST if possible, to avoid problems
-                        // if the field contains wildcard characters % or _
-                        $condition .= '= CAST(0x' . bin2hex($row[$i])
-                            . ' AS BINARY) AND';
-                    } else {
-                        // this blob won't be part of the final condition
-                        $condition = '';
-                    }
+                    && stristr($field_flags, 'BINARY')
+                    && !empty($row[$i])) {
+                // do not waste memory building a too big condition
+                if (strlen($row[$i]) < 1000) {
+                    // use a CAST if possible, to avoid problems
+                    // if the field contains wildcard characters % or _
+                    $condition .= '= CAST(0x' . bin2hex($row[$i])
+                        . ' AS BINARY) AND';
+                } else {
+                    // this blob won't be part of the final condition
+                    $condition = '';
+                }
             } elseif ($meta->type == 'bit') {
                 $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
             } else {
@@ -2167,12 +2151,12 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  * Generate navigation for a list
  *
  * @todo    use $pos from $_url_params
- * @param   integer     number of elements in the list
- * @param   integer     current position in the list
- * @param   array       url parameters
- * @param   string      script name for form target
- * @param   string      target frame
- * @param   integer     maximum number of elements to display from the list
+ * @param   int    $count        number of elements in the list
+ * @param   int    $pos          current position in the list
+ * @param   array  $_url_params  url parameters
+ * @param   string $script       script name for form target
+ * @param   string $frame        target frame
+ * @param   int    $max_count    maximum number of elements to display from the list
  *
  * @access  public
  */
@@ -2354,10 +2338,11 @@ function PMA_display_html_radio($html_field_name, $choices, $checked_choice = ''
  * Generates and returns an HTML dropdown
  *
  * @param   string  $select_name
- * @param   array   $choices the choices values
- * @param   string  $active_choice the choice to select by default
- * @param   string  $id the id of the select element; can be different in case
- *                  the dropdown is present more than once on the page
+ * @param   array   $choices        choices values
+ * @param   string  $active_choice  the choice to select by default
+ * @param   string  $id             id of the select element; can be different in case
+ *                                  the dropdown is present more than once on the page
+ * @return string
  * @todo    support titles
  */
 function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
@@ -2402,6 +2387,87 @@ function PMA_generate_slider_effect($id, $message)
 }
 
 /**
+ * Creates an AJAX sliding toggle button (or and equivalent form when AJAX is disabled)
+ *
+ * @param    string   $action        The URL for the request to be executed
+ * @param    string   $select_name   The name for the dropdown box
+ * @param    array    $options       An array of options (see rte_footer.lib.php)
+ * @param    string   $callback      A JS snippet to execute when the request is
+ *                                   successfully processed
+ *
+ * @return   string   HTML code for the toggle button
+ */
+function PMA_toggleButton($action, $select_name, $options, $callback)
+{
+    // Do the logic first
+    $link_on = "$action&amp;$select_name=" . urlencode($options[1]['value']);
+    $link_off = "$action&amp;$select_name=" . urlencode($options[0]['value']);
+    if ($options[1]['selected'] == true) {
+        $state = 'on';
+    } else if ($options[0]['selected'] == true) {
+        $state = 'off';
+    } else {
+        $state = 'on';
+    }
+    $selected1 = '';
+    $selected0 = '';
+    if ($options[1]['selected'] == true) {
+        $selected1 = " selected='selected'";
+    } else if ($options[0]['selected'] == true) {
+        $selected0 = " selected='selected'";
+    }
+    // Generate output
+    $retval  = "<!-- TOGGLE START -->\n";
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $retval .= "<noscript>\n";
+    }
+    $retval .= "<div class='wrapper'>\n";
+    $retval .= "    <form action='$action' method='post'>\n";
+    $retval .= "        <select name='$select_name'>\n";
+    $retval .= "            <option value='{$options[1]['value']}'$selected1>";
+    $retval .= "                {$options[1]['label']}\n";
+    $retval .= "            </option>\n";
+    $retval .= "            <option value='{$options[0]['value']}'$selected0>";
+    $retval .= "                {$options[0]['label']}\n";
+    $retval .= "            </option>\n";
+    $retval .= "        </select>\n";
+    $retval .= "        <input type='submit' value='" . __('Change') . "'/>\n";
+    $retval .= "    </form>\n";
+    $retval .= "</div>\n";
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $retval .= "</noscript>\n";
+        $retval .= "<div class='wrapper toggleAjax hide'>\n";
+        $retval .= "    <div class='toggleButton'>\n";
+        $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
+        $retval .= "            <img src='{$GLOBALS['pmaThemeImage']}toggle-{$GLOBALS['text_dir']}.png'\n";
+        $retval .= "                 alt='' />\n";
+        $retval .= "            <table cellspacing='0' cellpadding='0'><tr>\n";
+        $retval .= "                <tbody>\n";
+        $retval .= "                <td class='toggleOn'>\n";
+        $retval .= "                    <span class='hide'>$link_on</span>\n";
+        $retval .= "                    <div>";
+        $retval .= str_replace(' ', '&nbsp;', $options[1]['label']) . "</div>\n";
+        $retval .= "                </td>\n";
+        $retval .= "                <td><div>&nbsp;</div></td>\n";
+        $retval .= "                <td class='toggleOff'>\n";
+        $retval .= "                    <span class='hide'>$link_off</span>\n";
+        $retval .= "                    <div>";
+        $retval .= str_replace(' ', '&nbsp;', $options[0]['label']) . "</div>\n";
+        $retval .= "                    </div>\n";
+        $retval .= "                </tbody>\n";
+        $retval .= "            </tr></table>\n";
+        $retval .= "            <span class='hide callback'>$callback</span>\n";
+        $retval .= "            <span class='hide text_direction'>{$GLOBALS['text_dir']}</span>\n";
+        $retval .= "        </div>\n";
+        $retval .= "    </div>\n";
+        $retval .= "</div>\n";
+    }
+    $retval .= "<!-- TOGGLE END -->";
+
+    return $retval;
+} // end PMA_toggleButton()
+
+/**
  * Clears cache content which needs to be refreshed on user change.
  */
 function PMA_clearUserCache() {
@@ -2411,8 +2477,8 @@ function PMA_clearUserCache() {
 /**
  * Verifies if something is cached in the session
  *
- * @param string $var
- * @param scalar $server
+ * @param string   $var
+ * @param int|true $server
  * @return boolean
  */
 function PMA_cacheExists($var, $server = 0)
@@ -2426,8 +2492,8 @@ function PMA_cacheExists($var, $server = 0)
 /**
  * Gets cached information from the session
  *
- * @param string $var
- * @param scalar $server
+ * @param string   $var
+ * @param int|true $server
  * @return mixed
  */
 function PMA_cacheGet($var, $server = 0)
@@ -2445,9 +2511,9 @@ function PMA_cacheGet($var, $server = 0)
 /**
  * Caches information in the session
  *
- * @param string $var
- * @param mixed $val
- * @param integer $server
+ * @param string   $var
+ * @param mixed    $val
+ * @param int|true $server
  * @return mixed
  */
 function PMA_cacheSet($var, $val = null, $server = 0)
@@ -2461,8 +2527,8 @@ function PMA_cacheSet($var, $val = null, $server = 0)
 /**
  * Removes cached information from the session
  *
- * @param string $var
- * @param scalar $server
+ * @param string   $var
+ * @param int|true $server
  */
 function PMA_cacheUnset($var, $server = 0)
 {
@@ -2677,7 +2743,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
     $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
     /* Update forced variables */
-    foreach($updates as $key => $val) {
+    foreach ($updates as $key => $val) {
         $vars[$key] = $val;
     }
 
@@ -2701,7 +2767,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
 
     /* Optional escaping */
     if (!is_null($escape)) {
-        foreach($replace as $key => $val) {
+        foreach ($replace as $key => $val) {
             $replace[$key] = $escape($val);
         }
     }
@@ -2774,7 +2840,9 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     header("Content-Type: application/json");
 
     echo json_encode($response);
-    exit;
+
+    if(!defined('TESTSUITE'))
+        exit;
 }
 
 /**
@@ -3049,6 +3117,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
  *                           string, db name where to also check for privileges
  * @param   mixed    $tbl    null, to only check global privileges
  *                           string, db name where to also check for privileges
+ * @return bool
  */
 function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
 {

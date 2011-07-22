@@ -39,10 +39,10 @@ header('Content-Type: text/html; charset=utf-8');
 
 
 $separator = '<span class="separator">'
-    .'<img class="icon" src=../"' . $GLOBALS['pmaThemeImage'] . 'item_ltr.png"'
+    .'<img class="icon ic_item_ltr" src="../themes/dot.gif"'
     .' width="5" height="9" alt="-" /></span>' . "\n";
 $item = '<a href="%1$s?%2$s" class="item">'
-    .' <img class="icon" src="../' . $GLOBALS['pmaThemeImage'] . '%5$s"'
+    .' <img class="icon %5$s" src="../themes/dot.gif"'
     .' width="16" height="16" alt="" /> ' . "\n"
     .'%4$s: %3$s</a>' . "\n";
 
@@ -52,7 +52,7 @@ printf($item,
         PMA_generate_common_url(),
         'Server',
         __('Server'),
-        's_host.png');
+        'ic_s_host');
 
 echo $separator;
 printf($item,
@@ -60,7 +60,7 @@ printf($item,
         '',
         'Database',
         __('Database'),
-        's_db.png');
+        'ic_s_db');
 
 echo $separator;
 printf($item,
@@ -71,8 +71,8 @@ printf($item,
             ? __('View')
             : __('Table')),
         (isset($GLOBALS['tbl_is_view']) && $GLOBALS['tbl_is_view']
-            ? 'b_views'
-            : 's_tbl') . '.png');
+            ? 'ic_b_views'
+            : 'ic_s_tbl'));
 
 echo '<span class="table_comment" id="span_table_comment">'
     .'&quot;Table comment&quot</span>' . "\n";
@@ -85,56 +85,56 @@ echo '</div>';
  */
 $tabs = array();
 
-$tabs['databases']['icon'] = '../../../../' . $pmaThemeImage . 's_db.png';
+$tabs['databases']['icon'] = 'ic_s_db';
 $tabs['databases']['link'] = 'server_databases.php';
 $tabs['databases']['text'] = __('Databases');
 
-$tabs['sql']['icon'] = '../../../../' . $pmaThemeImage . 'b_sql.png';
+$tabs['sql']['icon'] = 'b_sql.png';
 $tabs['sql']['link'] = 'server_sql.php';
 $tabs['sql']['text'] = __('SQL');
 
-$tabs['status']['icon'] = '../../../../' . $pmaThemeImage . 's_status.png';
+$tabs['status']['icon'] = 'ic_s_status';
 $tabs['status']['link'] = 'server_status.php';
 $tabs['status']['text'] = __('Status');
 
-$tabs['vars']['icon'] = '../../../../' . $pmaThemeImage . 's_vars.png';
+$tabs['vars']['icon'] = 'ic_s_vars';
 $tabs['vars']['link'] = 'server_variables.php';
 $tabs['vars']['text'] = __('Variables');
 
-$tabs['charset']['icon'] = '../../../../' . $pmaThemeImage . 's_asci.png';
+$tabs['charset']['icon'] = 'ic_s_asci';
 $tabs['charset']['link'] = 'server_collations.php';
 $tabs['charset']['text'] = __('Charsets');
 
-$tabs['engine']['icon'] = '../../../../' . $pmaThemeImage . 'b_engine.png';
+$tabs['engine']['icon'] = 'ic_b_engine';
 $tabs['engine']['link'] = 'server_engines.php';
 $tabs['engine']['text'] = __('Engines');
 
-$tabs['rights']['icon'] = '../../../../' . $pmaThemeImage . 's_rights.png';
+$tabs['rights']['icon'] = 'ic_s_rights';
 $tabs['rights']['link'] = 'server_privileges.php';
 $tabs['rights']['text'] = __('Privileges');
 
-$tabs['binlog']['icon'] = '../../../../' . $pmaThemeImage . 's_tbl.png';
+$tabs['binlog']['icon'] = 'ic_s_tbl';
 $tabs['binlog']['link'] = 'server_binlog.php';
 $tabs['binlog']['text'] = __('Binary log');
 
-$tabs['process']['icon'] = '../../../../' . $pmaThemeImage . 's_process.png';
+$tabs['process']['icon'] =  'ic_s_process';
 $tabs['process']['link'] = 'server_processlist.php';
 $tabs['process']['text'] = 'caution';
 $tabs['process']['class'] = 'caution';
 
-$tabs['export']['icon'] = '../../../../' . $pmaThemeImage . 'b_export.png';
+$tabs['export']['icon'] = 'ic_b_export';
 $tabs['export']['text'] = 'disabled';
 
-$tabs['export2']['icon'] = '../../../../' . $pmaThemeImage . 'b_export.png';
+$tabs['export2']['icon'] = 'ic_b_export';
 $tabs['export2']['text'] = 'disabled caution';
 $tabs['export2']['class'] = 'caution';
 
-$tabs['import']['icon'] = '../../../../' . $pmaThemeImage . 'b_import.png';
+$tabs['import']['icon'] = 'ic_b_import';
 $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = 'active';
 $tabs['import']['class'] = 'active';
 
-echo PMA_generate_html_tabs($tabs, array());
+echo PMA_generate_html_tabs($tabs, array(), '../../../../');
 unset($tabs);
 
 if (@file_exists($pmaThemeImage . 'logo_right.png')) {
@@ -260,12 +260,9 @@ echo sprintf(__('Welcome to %s'),
                     value="1" /></td>
             <th><label for="checkbox_1">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
@@ -273,12 +270,9 @@ echo sprintf(__('Welcome to %s'),
                     value="1" /></td>
             <th><label for="checkbox_2">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
             <td>table.data tbody tr.even td</td>
         </tr>
         <tr class="odd">
@@ -286,12 +280,9 @@ echo sprintf(__('Welcome to %s'),
                     value="1" /></td>
             <th><label for="checkbox_3">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
             <td>table.data tbody tr.odd td</td>
         </tr>
         <tr class="even">
@@ -299,12 +290,9 @@ echo sprintf(__('Welcome to %s'),
                     value="1" /></td>
             <th><label for="checkbox_4">th label</label></th>
             <td class="value">td.value</td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
-            <td><img class="icon" src="../<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/bd_drop.png"
-                    width="16" height="16" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
+            <td><img class="icon ic_bd_drop" src="../themes/dot.gif" alt="drop" /></td>
             <td>table.data tbody tr.even td</td>
         </tr>
     </tbody>

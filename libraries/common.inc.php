@@ -176,7 +176,7 @@ $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
 /**
  * just to be sure there was no import (registering) before here
  * we empty the global space (but avoid unsetting $variables_list
- * and $key in the foreach(), we still need them!)
+ * and $key in the foreach (), we still need them!)
  */
 $variables_whitelist = array (
     'GLOBALS',
@@ -313,7 +313,7 @@ if (isset($_COOKIE)
  && (isset($_COOKIE['pmaCookieVer'])
   && $_COOKIE['pmaCookieVer'] < $pma_cookie_version)) {
     // delete all cookies
-    foreach($_COOKIE as $cookie_name => $tmp) {
+    foreach ($_COOKIE as $cookie_name => $tmp) {
         $GLOBALS['PMA_Config']->removeCookie($cookie_name);
     }
     $_COOKIE = array();
@@ -363,6 +363,7 @@ $goto_whitelist = array(
     'db_create.php',
     'db_datadict.php',
     'db_sql.php',
+    'db_events.php',
     'db_export.php',
     'db_importdocsql.php',
     'db_qbe.php',

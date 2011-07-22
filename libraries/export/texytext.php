@@ -33,17 +33,6 @@ if (isset($plugin_list)) {
 } else {
 
 /**
- * Outputs comment
- *
- * @param   string      Text of comment
- *
- * @return  bool        Whether it suceeded
- */
-function PMA_exportComment($text) {
-    return true;
-}
-
-/**
  * Outputs export footer
  *
  * @return  bool        Whether it suceeded
@@ -68,8 +57,7 @@ function PMA_exportHeader() {
 /**
  * Outputs database header
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -81,8 +69,7 @@ function PMA_exportDBHeader($db) {
 /**
  * Outputs database footer
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -92,10 +79,9 @@ function PMA_exportDBFooter($db) {
 }
 
 /**
- * Outputs create database database
+ * Outputs CREATE DATABASE statement
  *
- * @param   string      Database name
- *
+ * @param   string  $db Database name
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -105,14 +91,13 @@ function PMA_exportDBCreate($db) {
 }
 
 /**
- * Outputs the content of a table in CSV format
+ * Outputs the content of a table in Texy format
  *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
+ * @param   string  $db         database name
+ * @param   string  $table      table name
+ * @param   string  $crlf       the end of line sequence
+ * @param   string  $error_url  the url to go back in case of error
+ * @param   string  $sql_query  SQL query for obtaining data
  * @return  bool        Whether it suceeded
  *
  * @access  public
@@ -164,7 +149,28 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     return true;
 }
 
-function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $dummy)
+/**
+ * Outputs table's structure
+ *
+ * @param   string  $db           database name
+ * @param   string  $table        table name
+ * @param   string  $crlf         the end of line sequence
+ * @param   string  $error_url    the url to go back in case of error
+ * @param   bool    $do_relation  whether to include relation comments
+ * @param   bool    $do_comments  whether to include the pmadb-style column comments
+ *                                as comments in the structure; this is deprecated
+ *                                but the parameter is left here because export.php
+ *                                calls PMA_exportStructure() also for other export
+ *                                types which use this parameter
+ * @param   bool    $do_mime      whether to include mime comments
+ * @param   bool    $dates        whether to include creation/update/check dates
+ * @param   string  $export_mode  'create_table', 'triggers', 'create_view', 'stand_in'
+ * @param   string  $export_type  'server', 'database', 'table'
+ * @return  bool      Whether it suceeded
+ *
+ * @access  public
+ */
+function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false, $dates = false, $export_mode, $export_type)
 {
     global $cfgRelation;
 
@@ -189,9 +195,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
      * Gets fields properties
      */
     PMA_DBI_select_db($db);
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-    $result      = PMA_DBI_query($local_query);
-    $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations
     if ($do_relation && ! empty($cfgRelation['relation'])) {
@@ -245,10 +248,11 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         return false;
     }
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    $columns = PMA_DBI_get_columns($db, $table);
+    foreach ($columns as $column) {
 
         $text_output = '';
-        $type             = $row['Type'];
+        $type             = $column['Type'];
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
         if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
@@ -268,9 +272,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
                 $type     = '&nbsp;';
             }
 
-            $binary       = preg_match('/BINARY/i', $row['Type']);
-            $unsigned     = preg_match('/UNSIGNED/i', $row['Type']);
-            $zerofill     = preg_match('/ZEROFILL/i', $row['Type']);
+            $binary       = preg_match('/BINARY/i', $column['Type']);
+            $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
+            $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
         }
         $attribute     = '&nbsp;';
         if ($binary) {
@@ -282,30 +286,28 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
         }
-        if (! isset($row['Default'])) {
-            if ($row['Null'] != 'NO') {
-                $row['Default'] = 'NULL';
+        if (! isset($column['Default'])) {
+            if ($column['Null'] != 'NO') {
+                $column['Default'] = 'NULL';
             }
-        } else {
-            $row['Default'] = $row['Default'];
         }
 
         $fmt_pre = '';
         $fmt_post = '';
-        if (in_array($row['Field'], $unique_keys)) {
+        if (in_array($column['Field'], $unique_keys)) {
             $fmt_pre = '**' . $fmt_pre;
             $fmt_post = $fmt_post . '**';
         }
-        if ($row['Key']=='PRI') {
+        if ($column['Key']=='PRI') {
             $fmt_pre = '//' . $fmt_pre;
             $fmt_post = $fmt_post . '//';
         }
-        $text_output .= '|' . $fmt_pre . htmlspecialchars($row['Field']) . $fmt_post;
+        $text_output .= '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
         $text_output .= '|' . htmlspecialchars($type);
-        $text_output .= '|' . htmlspecialchars(($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'));
-        $text_output .= '|' . htmlspecialchars(isset($row['Default']) ? $row['Default'] : '');
+        $text_output .= '|' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
+        $text_output .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
 
-        $field_name = $row['Field'];
+        $field_name = $column['Field'];
 
         if ($do_relation && $have_rel) {
             $text_output .= '|' . (isset($res_rel[$field_name]) ? htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' (' . $res_rel[$field_name]['foreign_field'] . ')') : '');
@@ -323,7 +325,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
             return false;
         }
     } // end while
-    PMA_DBI_free_result($result);
 
     return true;
 }

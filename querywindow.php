@@ -60,17 +60,17 @@ if ($no_js) {
     $tabs = false;
 } else {
     $tabs = array();
-    $tabs['sql']['icon']   = 'b_sql.png';
+    $tabs['sql']['icon']   = 'ic_b_sql';
     $tabs['sql']['text']   = __('SQL');
     $tabs['sql']['fragment']   = '#';
     $tabs['sql']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'sql\');return false;"';
     $tabs['sql']['active'] = (bool) ($querydisplay_tab == 'sql');
-    $tabs['import']['icon']   = 'b_import.png';
+    $tabs['import']['icon']   = 'ic_b_import';
     $tabs['import']['text']   = __('Import files');
     $tabs['import']['fragment']   = '#';
     $tabs['import']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'files\');return false;"';
     $tabs['import']['active'] = (bool) ($querydisplay_tab == 'files');
-    $tabs['history']['icon']   = 'b_bookmark.png';
+    $tabs['history']['icon']   = 'ic_b_bookmark';
     $tabs['history']['text']   = __('SQL history'); 
     $tabs['history']['fragment']   = '#';
     $tabs['history']['attr']   = 'onclick="javascript:PMA_querywindowCommit(\'history\');return false;"';
@@ -86,8 +86,8 @@ if ($no_js) {
 
 if ($GLOBALS['cfg']['PropertiesIconic']) {
     $titles['Change'] =
-         '<img class="icon" width="16" height="16" src="' . $pmaThemeImage
-        . 'b_edit.png" alt="' . __('Change') . '" title="' . __('Change')
+         '<img class="icon ic_b_edit" src="themes/dot.gif" alt="' 
+        . __('Change') . '" title="' . __('Change')
         . '" />';
 
     if ('both' === $GLOBALS['cfg']['PropertiesIconic']) {

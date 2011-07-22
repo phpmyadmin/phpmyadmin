@@ -2315,7 +2315,7 @@ $cfg['ShowPropertyComments']= true;
 /**
  * shows table display direction.
  */
-$cfg['ShowDisplayDir'] = false;
+$cfg['ShowDisplayDirection'] = false;
 
 /**
  * repeat header names every X cells? (0 = deactivate)

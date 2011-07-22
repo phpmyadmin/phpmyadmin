@@ -210,7 +210,7 @@ $(document).ready(function() {
                         /* post request for get the updated userForm table */
                         $.post($form.attr('action' ), url, function(priv_data) {
 
-                       	    /*Remove the old userForm table*/
+                            /*Remove the old userForm table*/
                             if ($('#userFormDiv').length != 0) {
                                 $('#userFormDiv').remove();
                             } else {
@@ -527,6 +527,7 @@ $(document).ready(function() {
         }
     });
 
+    displayPasswordGenerateButton();
 }, 'top.frame_content'); //end $(document).ready()
 
 /**#@- */

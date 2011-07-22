@@ -125,8 +125,7 @@ $time_start = time();
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.
  *
- * @param   string  the insert statement
- *
+ * @param   string  $line  the insert statement
  * @return  bool    Whether output suceeded
  */
 function PMA_exportOutputHandler($line)
@@ -401,7 +400,7 @@ if (!$save_on_server) {
             $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
         }
 
-        foreach($_REQUEST as $name => $value) {
+        foreach ($_REQUEST as $name => $value) {
             $back_button .= '&' . urlencode($name) . '=' . urlencode($value);
         }
         $back_button .= '&repopulate=1">Back</a> ]</p>';
@@ -493,7 +492,7 @@ if ($export_type == 'server') {
                     }
                 }
             }
-            foreach($views as $view) {
+            foreach ($views as $view) {
                 // no data export for a view
                 if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
                     if (!PMA_exportStructure($current_db, $view, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates, 'create_view', $export_type)) {
@@ -512,7 +511,7 @@ if ($export_type == 'server') {
     }
 
     if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
-            PMA_exportRoutines($db);
+        PMA_exportRoutines($db);
     }
 
     $i = 0;

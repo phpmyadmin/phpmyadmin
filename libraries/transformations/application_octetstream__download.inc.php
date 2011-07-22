@@ -20,7 +20,7 @@ function PMA_transformation_application_octetstream__download(&$buffer, $options
         $cn = $options[0]; // filename
     } else {
         if (isset($options[1]) && !empty($options[1])) {
-            foreach($fields_meta as $key => $val) {
+            foreach ($fields_meta as $key => $val) {
                 if ($val->name == $options[1]) {
                     $pos = $key;
                     break;

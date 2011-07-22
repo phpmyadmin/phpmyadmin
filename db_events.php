@@ -1,40 +1,36 @@
 <?php
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Events management.
  *
  * @package phpMyAdmin
  */
+
+/**
+ * Include required files
+ */
 require_once './libraries/common.inc.php';
 require_once './libraries/common.lib.php';
 
+/**
+ * Include JavaScript libraries
+ */
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
-$GLOBALS['js_include'][] = 'db_events.js';
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$GLOBALS['js_include'][] = 'rte/common.js';
+$GLOBALS['js_include'][] = 'rte/events.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
- * Create labels for the list
+ * Include all other files
  */
-$titles = PMA_buildActionTitles();
+require_once './libraries/rte/rte_events.lib.php';
 
 /**
- * Displays the header
+ * Do the magic
  */
-require_once './libraries/db_common.inc.php';
-
-/**
- * Displays the tabs
- */
-require_once './libraries/db_info.inc.php';
-
-/**
- * Displays the list of events
- */
-require_once './libraries/db_events.inc.php';
-
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-
+$_PMA_RTE = 'EVN';
+require_once './libraries/rte/rte_main.inc.php';
 
 ?>

@@ -364,7 +364,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
         unset($sql_where_table, $sql);
         if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
             // here, the array's first key is by schema name
-            foreach($tables as $one_database_name => $one_database_tables) {
+            foreach ($tables as $one_database_name => $one_database_tables) {
                 uksort($one_database_tables, 'strnatcasecmp');
 
                 if ($sort_order == 'DESC') {
@@ -472,7 +472,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
                 $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
 
                 if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
-                        && $each_tables[$table_name]['Engine'] == NULL) {
+                        && $each_tables[$table_name]['Engine'] == null) {
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
                     /**
@@ -494,7 +494,7 @@ function PMA_DBI_get_tables_full($database, $table = false, $tbl_is_group = fals
     // Note 2: Instead of array_merge(), simply use the + operator because
     //  array_merge() renumbers numeric keys starting with 0, therefore
     //  we would lose a db name thats consists only of numbers
-    foreach($tables as $one_database => $its_tables) {
+    foreach ($tables as $one_database => $its_tables) {
         if (isset(PMA_Table::$cache[$one_database])) {
             PMA_Table::$cache[$one_database] = PMA_Table::$cache[$one_database] + $tables[$one_database];
         } else {
@@ -769,7 +769,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         $sql = 'SHOW FULL COLUMNS FROM '
             . PMA_backquote($database) . '.' . PMA_backquote($table);
         if (null !== $column) {
-            $sql .= " LIKE '" . $column . "'";
+            $sql .= " LIKE '" . PMA_sqlAddSlashes($column, true) . "'";
         }
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
@@ -1300,7 +1300,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
         // Note: in http://dev.mysql.com/doc/refman/5.0/en/faqs-triggers.html
         // their example uses WHERE TRIGGER_SCHEMA='dbname' so let's use this
         // instead of WHERE EVENT_OBJECT_SCHEMA='dbname'
-        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddSlashes($db,true) . "';";
+        $query = "SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= '" . PMA_sqlAddSlashes($db,true) . "';";
         if (! empty($table)) {
             $query .= " AND EVENT_OBJECT_TABLE = '" . PMA_sqlAddSlashes($table, true) . "';";
         }
@@ -1319,12 +1319,15 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
                 $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
                 $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
                 $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
+                $trigger['DEFINER'] = $trigger['Definer'];
             }
             $one_result = array();
             $one_result['name'] = $trigger['TRIGGER_NAME'];
             $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
             $one_result['action_timing'] = $trigger['ACTION_TIMING'];
             $one_result['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
+            $one_result['definition'] = $trigger['ACTION_STATEMENT'];
+            $one_result['definer'] = $trigger['DEFINER'];
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
@@ -1335,6 +1338,14 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
             $result[] = $one_result;
         }
     }
+
+    // Sort results by name
+    $name = array();
+    foreach ($result as $key => $value) {
+        $name[] = $value['name'];
+    }
+    array_multisort($name, SORT_ASC, $result);
+
     return($result);
 }
 

@@ -8,7 +8,7 @@
  */
 
 // unplanned execution path
-if (!defined('PMA_MINIMUM_COMMON')) {
+if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
     exit();
 }
 ?>
@@ -64,16 +64,32 @@ button {
     display:            inline;
 }
 
+/* Icon sprites */
 
-/******************************************************************************/
-/* classes */
-
-/* leave some space between icons and text */
 .icon {
+    /* leave some space between icons and text */
     vertical-align:     middle;
     margin-right:       0.3em;
     margin-left:        0.3em;
+    width:16px;
+    height:16px;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>iconsprites.png) no-repeat top left;
 }
+
+/* 2 px more on the menu icons, for being centered */
+.ic_b_home { background-position: 2px -335px; } 
+.ic_b_selboard { background-position: 2px -688px; }
+.ic_b_docs { background-position: 2px -142px; } 
+.ic_b_sqlhelp { background-position: 2px -772px; } 
+.ic_s_reload { background-position: 2px -1671px; } 
+.ic_s_loggoff { background-position: 2px -1604px; }
+
+.ic_b_browse { background-position: 0 -18px; } 
+.ic_b_sbrowse { background-position: 0 -660px; width: 10px; height: 10px; } 
+.ic_b_view { background-position: 0 -1044px; } 
+
+/******************************************************************************/
+/* classes */
 
 /******************************************************************************/
 /* specific elements */
@@ -141,12 +157,12 @@ div#leftframelinks .icon {
 
 div#leftframelinks a img.icon {
     margin:             0;
-    padding:            0.2em;
     border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    padding:            2px;
 }
 
 div#leftframelinks a:hover img {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+    background-color:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 

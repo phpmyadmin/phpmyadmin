@@ -57,16 +57,19 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      * @see     $cfg['AjaxEnable']
      */
-    var currrent_insert_table;
+    var current_insert_table;
     $("td.insert_table a.ajax").live('click', function(event){
         event.preventDefault();
-        currrent_insert_table = $(this);
-        var url = $(this).attr("href");
-        if (url.substring(0, 15) == "tbl_change.php?") {
-             url = url.substring(15);
+        current_insert_table = $(this);
+        var $url = $(this).attr("href");
+        if ($url.substring(0, 15) == "tbl_change.php?") {
+            $url = $url.substring(15);
         }
 
-       	var div = $('<div id="insert_table_dialog"></div>');
+        if ($("#insert_table_dialog").length > 0) {
+            $("#insert_table_dialog").remove();
+        }
+       	var $div = $('<div id="insert_table_dialog"></div>');
        	var target = "tbl_change.php";
 
         /**
@@ -75,40 +78,47 @@ $(document).ready(function() {
          */
         var button_options = {};
         // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {$(this).parent().dialog('close').remove();}
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {$(this).parent().dialog('close').remove();}
+        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
 
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get( target , url+"&ajax_request=true" ,  function(data) {
+        $.get( target , $url+"&ajax_request=true" ,  function(data) {
             //in the case of an error, show the error message returned.
             if (data.success != undefined && data.success == false) {
-                div
+                $div
                 .append(data.error)
                 .dialog({
                     title: PMA_messages['strInsertTable'],
                     height: 230,
                     width: 900,
+                    modal: true,
                     open: PMA_verifyTypeOfAllColumns,
                     buttons : button_options_error
                 })// end dialog options
             } else {
-                div
-                .append(data)
-                .dialog({
-                    title: PMA_messages['strInsertTable'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyTypeOfAllColumns,
-                    buttons : button_options
-                })
+                var $dialog = $div
+                    .append(data)
+                    .dialog({
+                        title: PMA_messages['strInsertTable'],
+                        height: 600,
+                        width: 900,
+                        modal: true,
+                        open: PMA_verifyTypeOfAllColumns,
+                        buttons : button_options
+                    });// end dialog options
                 //Remove the top menu container from the dialog
-                .find("#topmenucontainer").hide()
-                ; // end dialog options
+                $dialog.find("#topmenucontainer").hide();
+                //Adding the datetime pikers for the dialog
+                $dialog.find('.datefield, .datetimefield').each(function () {
+                    PMA_addDatepicker($(this));
+                });
                 $(".insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
+                $div = $("#insert_table_dialog");
+                PMA_convertFootnotesToTooltips($div);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get()
@@ -134,7 +144,7 @@ $(document).ready(function() {
                 $("#insert_table_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
-            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+            current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
         }) // end $.post()
     }) // end insert table button "Go"
 
@@ -160,7 +170,7 @@ $(document).ready(function() {
                 }
                 if (selected_after_insert == "new_insert") {
                     /**Trigger the insert dialog for new_insert option*/
-                    currrent_insert_table.trigger('click');
+                    current_insert_table.trigger('click');
                 }
 
             } else {
@@ -170,7 +180,7 @@ $(document).ready(function() {
                 $("#insert_table_dialog").dialog("close").remove();
             }
             /**Update the row count at the tableForm*/
-            currrent_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
+            current_insert_table.closest('tr').find('.value.tbl_rows').html(data.row_count);
         }) // end $.post()
     });
 
@@ -208,7 +218,7 @@ $(document).ready(function() {
                     PMA_ajaxShowMessage(data.message);
                     //Fetch inner span of this anchor
                     //and replace the icon with its disabled version
-                    var span = $this_anchor.html().replace(/b_empty.png/, 'bd_empty.png');
+                    var span = $this_anchor.html().replace(/ic_b_empty/, 'ic_bd_empty');
                     PMA_adjustTotals($this_anchor);
 
                     //To disable further attempts to truncate the table,

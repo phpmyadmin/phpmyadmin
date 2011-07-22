@@ -20,12 +20,12 @@ if (! isset($forms[$form_param])) {
     $form_param = array_shift($forms_keys);
 }
 $tabs_icons = array(
-    'Features'    => 'b_tblops.png',
-    'Sql_queries' => 'b_sql.png',
-    'Left_frame'  => 'b_select.png',
-    'Main_frame'  => 'b_props.png',
-    'Import'      => 'b_import.png',
-    'Export'      => 'b_export.png');
+    'Features'    => 'ic_b_tblops',
+    'Sql_queries' => 'ic_b_sql',
+    'Left_frame'  => 'ic_b_select',
+    'Main_frame'  => 'ic_b_props',
+    'Import'      => 'ic_b_import',
+    'Export'      => 'ic_b_export');
 echo '<ul id="topmenu2">';
 echo PMA_generate_html_tab(array(
     'link' => 'prefs_manage.php',
