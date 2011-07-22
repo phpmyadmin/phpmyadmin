@@ -11,8 +11,8 @@
  *
  * Reads all plugin information from directory $plugins_dir.
  *
- * @param   string  $plugins_dir    directrory with plugins
- * @param   mixed   $plugin_param   parameter to plugin by which they can decide whether they can work
+ * @param string  $plugins_dir    directrory with plugins
+ * @param mixed   $plugin_param   parameter to plugin by which they can decide whether they can work
  * @return  array                   list of plugins
  */
 function PMA_getPlugins($plugins_dir, $plugin_param)
@@ -40,7 +40,7 @@ function PMA_getPlugins($plugins_dir, $plugin_param)
  *
  * returns locale string for $name or $name if no locale is found
  *
- * @param   string  $name   for local string
+ * @param string  $name   for local string
  * @return  string          locale string for $name
  */
 function PMA_getString($name)
@@ -53,9 +53,9 @@ function PMA_getString($name)
  *
  * returns html input tag option 'checked' if plugin $opt should be set by config or request
  *
- * @param   string  $section    name of config section in
+ * @param string  $section    name of config section in
  *                              $GLOBALS['cfg'][$section] for plugin
- * @param   string  $opt        name of option
+ * @param string  $opt        name of option
  * @return  string              hmtl input tag option 'checked'
  */
 function PMA_pluginCheckboxCheck($section, $opt)
@@ -73,9 +73,9 @@ function PMA_pluginCheckboxCheck($section, $opt)
  *
  * returns default value for option $opt
  *
- * @param   string  $section    name of config section in
+ * @param string  $section    name of config section in
  *                              $GLOBALS['cfg'][$section] for plugin
- * @param   string  $opt        name of option
+ * @param string  $opt        name of option
  * @return  string              default value for option $opt
  */
 function PMA_pluginGetDefault($section, $opt)
@@ -107,10 +107,10 @@ function PMA_pluginGetDefault($section, $opt)
  *
  * returns html input tag option 'checked' if option $opt should be set by config or request
  *
- * @param   string  $section    name of config section in
+ * @param string  $section    name of config section in
  *                              $GLOBALS['cfg'][$section] for plugin
- * @param   string  $opt        name of option
- * @param   string  $val        value of option to check against
+ * @param string  $opt        name of option
+ * @param string  $val        value of option to check against
  * @return  string              html input tag option 'checked'
  */
 function PMA_pluginIsActive($section, $opt, $val)
@@ -131,11 +131,11 @@ function PMA_pluginIsActive($section, $opt, $val)
  * returns html select form element for plugin choice
  * and hidden fields denoting whether each plugin must be exported as a file
  *
- * @param   string  $section    name of config section in
+ * @param string  $section    name of config section in
  *                              $GLOBALS['cfg'][$section] for plugin
- * @param   string  $name       name of select element
- * @param   array   &$list      array with plugin configuration defined in plugin file
- * @param   string  $cfgname    name of config value, if none same as $name
+ * @param string  $name       name of select element
+ * @param array   &$list      array with plugin configuration defined in plugin file
+ * @param string  $cfgname    name of config value, if none same as $name
  * @return  string              html select tag
  */
 function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
@@ -173,11 +173,11 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
  *
  * returns single option in a list element
  *
- * @param   string  $section        name of config section in
+ * @param string  $section        name of config section in
  *                                  $GLOBALS['cfg'][$section] for plugin
- * @param   string  $plugin_name    unique plugin name
- * @param   string  $id             option id
- * @param   array   &$opt           plugin option details
+ * @param string  $plugin_name    unique plugin name
+ * @param string  $id             option id
+ * @param array   &$opt           plugin option details
  * @return  string                  table row with option
  */
 function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
@@ -285,8 +285,8 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
  *
  * return html div with editable options for plugin
  *
- * @param   string  $section    name of config section in $GLOBALS['cfg'][$section]
- * @param   array   &$list      array with plugin configuration defined in plugin file
+ * @param string  $section    name of config section in $GLOBALS['cfg'][$section]
+ * @param array   &$list      array with plugin configuration defined in plugin file
  * @return  string              html fieldset with plugin options
  */
 function PMA_pluginGetOptions($section, &$list)

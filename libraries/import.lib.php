@@ -44,7 +44,7 @@ function PMA_checkTimeout()
 /**
  *  Detects what compression filse uses
  *
- *  @param  string  $filepath  filename to check
+ *  @param string  $filepath  filename to check
  *  @return string MIME type of compression, none for none
  *  @access public
  */
@@ -73,9 +73,9 @@ function PMA_detectCompression($filepath)
  * Runs query inside import buffer. This is needed to allow displaying
  * of last SELECT, SHOW or HANDLER results and similar nice stuff.
  *
- * @param  string  $sql          query to run
- * @param  string  $full         query to display, this might be commented
- * @param  bool    $controluser  whether to use control user for queries
+ * @param string  $sql          query to run
+ * @param string  $full         query to display, this might be commented
+ * @param bool    $controluser  whether to use control user for queries
  * @access public
  */
 function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
@@ -207,9 +207,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 /**
  * Looks for the presence of USE to possibly change current db
  *
- * @param  string  $buffer  buffer to examine
- * @param  string  $db      current db
- * @param  bool    $reload  reload
+ * @param string  $buffer  buffer to examine
+ * @param string  $db      current db
+ * @param bool    $reload  reload
  * @return array (current or new db, whether to reload)
  * @access public
  */
@@ -227,7 +227,7 @@ function PMA_lookForUse($buffer, $db, $reload)
 /**
  * Returns next part of imported file/buffer
  *
- * @param  int  $size  size of buffer to read (this is maximal size function will return)
+ * @param int  $size  size of buffer to read (this is maximal size function will return)
  * @return string part of file/buffer
  * @access public
  */
@@ -331,7 +331,7 @@ function PMA_importGetNextChunk($size = 32768)
  *
  * @access  public
  *
- * @param   int $num
+ * @param int $num
  * @return  string The column's "Excel" name
  */
 function PMA_getColumnAlphaName($num)
@@ -378,7 +378,7 @@ function PMA_getColumnAlphaName($num)
  *
  * @access  public
  *
- * @param   string $name (i.e. "A", or "BC", etc.)
+ * @param string $name (i.e. "A", or "BC", etc.)
  * @return  int The column number
  */
 function PMA_getColumnNumberFromName($name) {
@@ -437,7 +437,7 @@ define("SIZES",     1);
  *
  * @access  public
  *
- * @param   string $last_cumulative_size
+ * @param string $last_cumulative_size
  * @return  int Precision of the given decimal size notation
  */
 function PMA_getM($last_cumulative_size) {
@@ -449,7 +449,7 @@ function PMA_getM($last_cumulative_size) {
  *
  * @access  public
  *
- * @param   string $last_cumulative_size
+ * @param string $last_cumulative_size
  * @return  int Scale of the given decimal size notation
  */
 function PMA_getD($last_cumulative_size) {
@@ -461,7 +461,7 @@ function PMA_getD($last_cumulative_size) {
  *
  * @access  public
  *
- * @param   string &$cell
+ * @param string &$cell
  * @return  array Contains the precision, scale, and full size representation of the given decimal cell
  */
 function PMA_getDecimalSize(&$cell) {
@@ -482,10 +482,10 @@ function PMA_getDecimalSize(&$cell) {
  *
  * @access  public
  *
- * @param   string $last_cumulative_size    Last cumulative column size
- * @param   int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT or BIGINT)
- * @param   int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
- * @param   string &$cell                   The current cell
+ * @param string $last_cumulative_size    Last cumulative column size
+ * @param int    $last_cumulative_type    Last cumulative column type  (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+ * @param int    $curr_type               Type of the current cell     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+ * @param string &$cell                   The current cell
  * @return  string                          Size of the given cell in the type-appropriate format
  */
 function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type, &$cell) {
@@ -693,8 +693,8 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type
  *
  * @access  public
  *
- * @param   int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
- * @param   string &$cell                 String representation of the cell for which a best-fit type is to be determined
+ * @param int    $last_cumulative_type  Last cumulative column type  (VARCHAR or INT or BIGINT or DECIMAL or NONE)
+ * @param string &$cell                 String representation of the cell for which a best-fit type is to be determined
  * @return  int                           The MySQL type representation (VARCHAR or INT or BIGINT or DECIMAL or NONE)
  */
 function PMA_detectType($last_cumulative_type, &$cell) {
@@ -733,7 +733,7 @@ function PMA_detectType($last_cumulative_type, &$cell) {
  *
  * @access  public
  *
- * @param   &$table  array(string $table_name, array $col_names, array $rows)
+ * @param &$table  array(string $table_name, array $col_names, array $rows)
  * @return  array    array(array $types, array $sizes)
  */
 function PMA_analyzeTable(&$table) {
@@ -826,11 +826,11 @@ $import_notice = null;
  *
  * @access  public
  *
- * @param   string  $db_name          Name of the database
- * @param   array   &$tables          Array of tables for the specified database
- * @param   array   &$analyses        Analyses of the tables
- * @param   array   &$additional_sql  Additional SQL statements to be executed
- * @param   array   $options          Associative array of options
+ * @param string  $db_name          Name of the database
+ * @param array   &$tables          Array of tables for the specified database
+ * @param array   &$analyses        Analyses of the tables
+ * @param array   &$additional_sql  Additional SQL statements to be executed
+ * @param array   $options          Associative array of options
  * @return  void
  */
 function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null) {

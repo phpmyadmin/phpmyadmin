@@ -157,7 +157,7 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename) {
 /**
  * Generates a condition on the user name
  *
- * @param   string   the user's initial
+ * @param string   the user's initial
  * @return  string   the generated condition
  */
 function PMA_rangeOfUsers($initial = '')
@@ -176,8 +176,8 @@ function PMA_rangeOfUsers($initial = '')
 /**
  * Extracts the privilege information of a priv table row
  *
- * @param   array   $row        the row
- * @param   boolean $enableHTML add <dfn> tag with tooltips
+ * @param array   $row        the row
+ * @param boolean $enableHTML add <dfn> tag with tooltips
  *
  * @global  resource $user_link the database connection
  *
@@ -404,9 +404,9 @@ function PMA_display_column_privs($columns, $row, $name_for_select,
 /**
  * Displays the privileges form table
  *
- * @param   string  $db     the database
- * @param   string  $table  the table
- * @param   boolean $submit wheather to display the submit button or not
+ * @param string  $db     the database
+ * @param string  $table  the table
+ * @param boolean $submit wheather to display the submit button or not
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
  *
@@ -739,7 +739,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
  *
- * @param   string     $mode    are we creating a new user or are we just
+ * @param string     $mode    are we creating a new user or are we just
  *                              changing  one? (allowed values: 'new', 'change')
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  ressource  $user_link the database connection

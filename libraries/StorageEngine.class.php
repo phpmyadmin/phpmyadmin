@@ -68,10 +68,10 @@ class PMA_StorageEngine
      * returns HTML code for storage engine select box
      *
      * @static
-     * @param   string  $name       The name of the select form element
-     * @param   string  $id         The ID of the form field
-     * @param   string  $selected   The selected engine
-     * @param   boolean $offerUnavailableEngines
+     * @param string  $name       The name of the select form element
+     * @param string  $id         The ID of the form field
+     * @param string  $selected   The selected engine
+     * @param boolean $offerUnavailableEngines
      *                              Should unavailable storage engines be offered?
      * @return  string  html selectbox
      */
@@ -106,7 +106,7 @@ class PMA_StorageEngine
      *
      * Loads the corresponding engine plugin, if available.
      *
-     * @param   string  $engine   The engine ID
+     * @param string  $engine   The engine ID
      * @return  object  The engine plugin
      */
     static public function getEngine($engine)
@@ -127,7 +127,7 @@ class PMA_StorageEngine
      * return true if given engine name is supported/valid, otherwise false
      *
      * @static
-     * @param   string  $engine name of engine
+     * @param string  $engine name of engine
      * @return  boolean whether $engine is valid or not
      */
     static public function isValid($engine)
@@ -248,7 +248,7 @@ class PMA_StorageEngine
     /**
      * Constructor
      *
-     * @param   string  $engine The engine ID
+     * @param string  $engine The engine ID
      */
     function __construct($engine)
     {
@@ -381,7 +381,7 @@ class PMA_StorageEngine
      * Generates the requested information page
      *
      * @abstract
-     * @param   string  $id The page ID
+     * @param string  $id The page ID
      *
      * @return  string      The page
      *          boolean     or false on error.

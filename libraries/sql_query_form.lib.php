@@ -30,12 +30,12 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  * @usedby  tbl_structure.php
  * @usedby  tbl_tracking.php
  * @usedby  querywindow.php
- * @param   boolean|string  $query          query to display in the textarea
+ * @param boolean|string  $query          query to display in the textarea
  *                                          or true to display last executed
- * @param   boolean|string  $display_tab    sql|files|history|full|false
+ * @param boolean|string  $display_tab    sql|files|history|full|false
  *                                          what part to display
  *                                          false if not inside querywindow
- * @param   string          $delimiter
+ * @param string          $delimiter
  */
 function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
 {
@@ -157,9 +157,9 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  * prints querybox fieldset
  *
  * @usedby  PMA_sqlQueryForm()
- * @param   string      $query          query to display in the textarea
- * @param   boolean     $is_querywindow if inside querywindow or not
- * @param   string      $delimiter      default delimiter to use
+ * @param string      $query          query to display in the textarea
+ * @param boolean     $is_querywindow if inside querywindow or not
+ * @param string      $delimiter      default delimiter to use
  */
 function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
 {

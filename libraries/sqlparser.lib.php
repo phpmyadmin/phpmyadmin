@@ -120,8 +120,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Set an error message for the system
      *
-     * @param  string  The error message
-     * @param  string  The failing SQL query
+     * @param string  The error message
+     * @param string  The failing SQL query
      *
      * @access private
      * @scope SQL Parser internal
@@ -141,8 +141,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Do display the bug report
      *
-     * @param  string  The error message
-     * @param  string  The failing SQL query
+     * @param string  The error message
+     * @param string  The failing SQL query
      *
      * @access public
      */
@@ -182,7 +182,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Parses the SQL queries
      *
-     * @param  string   The SQL query list
+     * @param string   The SQL query list
      *
      * @return mixed    Most of times, nothing...
      *
@@ -795,8 +795,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
    /**
     * Checks for token types being what we want...
     *
-    * @param  string String of type that we have
-    * @param  string String of type that we want
+    * @param string String of type that we have
+    * @param string String of type that we want
     *
     * @return boolean result of check
     *
@@ -820,7 +820,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Analyzes SQL queries
      *
-     * @param  array   The SQL queries
+     * @param array   The SQL queries
      *
      * @return array   The analyzed SQL queries
      *
@@ -2046,7 +2046,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @todo check why adding a "\n" after the </span> would cause extra blanks
      * to be displayed: SELECT p . person_name
-     * @param  array   The SQL queries html formatted
+     * @param array   The SQL queries html formatted
      *
      * @return array   The colorized SQL queries
      *
@@ -2069,10 +2069,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Formats SQL queries to html
      *
-     * @param  array   The SQL queries
-     * @param  string  mode
-     * @param  integer starting token
-     * @param  integer number of tokens to format, -1 = all
+     * @param array   The SQL queries
+     * @param string  mode
+     * @param integer starting token
+     * @param integer number of tokens to format, -1 = all
      *
      * @return string  The formatted SQL queries
      *
@@ -2663,9 +2663,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 /**
  * Builds a CSS rule used for html formatted SQL queries
  *
- * @param  string  The class name
- * @param  string  The property name
- * @param  string  The property value
+ * @param string  The class name
+ * @param string  The property name
+ * @param string  The property value
  *
  * @return string  The CSS rule
  *
@@ -2716,7 +2716,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Gets SQL queries with no format
      *
-     * @param  array   The SQL queries list
+     * @param array   The SQL queries list
      *
      * @return string  The SQL queries with no format
      *

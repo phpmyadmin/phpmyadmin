@@ -93,10 +93,10 @@ class PMA_Error extends PMA_Message
     /**
      * Constructor
      *
-     * @param   integer $errno
-     * @param   string  $errstr
-     * @param   string  $errfile
-     * @param   integer $errline
+     * @param integer $errno
+     * @param string  $errstr
+     * @param string  $errfile
+     * @param integer $errline
      */
     public function __construct($errno, $errstr, $errfile, $errline)
     {
@@ -116,7 +116,7 @@ class PMA_Error extends PMA_Message
     /**
      * sets PMA_Error::$_backtrace
      *
-     * @param   array $backtrace
+     * @param array $backtrace
      */
     public function setBacktrace($backtrace)
     {
@@ -126,7 +126,7 @@ class PMA_Error extends PMA_Message
     /**
      * sets PMA_Error::$_line
      *
-     * @param   integer $line
+     * @param integer $line
      */
     public function setLine($line)
     {
@@ -136,7 +136,7 @@ class PMA_Error extends PMA_Message
     /**
      * sets PMA_Error::$_file
      *
-     * @param   string $file
+     * @param string $file
      */
     public function setFile($file)
     {
@@ -147,7 +147,7 @@ class PMA_Error extends PMA_Message
     /**
      * returns unique PMA_Error::$_hash, if not exists it will be created
      *
-     * @param   string $file
+     * @param string $file
      * @return  string PMA_Error::$_hash
      */
     public function getHash()
@@ -329,7 +329,7 @@ class PMA_Error extends PMA_Message
      * and make users feel save to submit error reports
      *
      * @static
-     * @param   string $dest  path to be shorten
+     * @param string $dest  path to be shorten
      * @return  string shortened path
      */
     static function relPath($dest)

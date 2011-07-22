@@ -13,8 +13,8 @@ if (! defined('PHPMYADMIN')) {
  * void PMA_TableHeader([bool $db_is_information_schema = false])
  * display table header (<table><thead>...</thead><tbody>)
  *
- * @param   boolean $db_is_information_schema
- * @param   boolean $replication
+ * @param boolean $db_is_information_schema
+ * @param boolean $replication
  */
 function PMA_TableHeader($db_is_information_schema = false, $replication = false)
 {
@@ -65,9 +65,9 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
 /**
  * Creates a clickable column header for table information
  *
- * @param   string  title to use for the link
- * @param   string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
- * @param   string  initial sort order
+ * @param string  title to use for the link
+ * @param string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
+ * @param string  initial sort order
  * @returns string  link to be displayed in the table header
  */
 function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')

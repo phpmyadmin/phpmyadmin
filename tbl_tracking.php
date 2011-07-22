@@ -52,10 +52,10 @@ if (isset($_REQUEST['report_export'])) {
 /**
  * Filters tracking entries
  *
- * @param   array   the entries to filter
- * @param   string  "from" date
- * @param   string  "to" date
- * @param   string  users
+ * @param array   the entries to filter
+ * @param string  "from" date
+ * @param string  "to" date
+ * @param string  users
  *
  * @return  array   filtered entries
  *

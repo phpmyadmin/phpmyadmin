@@ -10,11 +10,11 @@
  * Generates text with hidden inputs.
  *
  * @see     PMA_generate_common_url()
- * @param   string   optional database name
+ * @param string   optional database name
  *                   (can also be an array of parameters)
- * @param   string   optional table name
- * @param   int      indenting level
- * @param   string   do not generate a hidden field for this parameter
+ * @param string   optional table name
+ * @param int      indenting level
+ * @param string   do not generate a hidden field for this parameter
  *                  (can be an array of strings)
  *
  * @return  string   string with input fields
@@ -160,16 +160,16 @@ function PMA_getHiddenFields($values, $pre = '')
  * // script.php?server=1&amp;lang=en
  * </code>
  *
- * @param   mixed    assoc. array with url params or optional string with database name
+ * @param mixed    assoc. array with url params or optional string with database name
  *                   if first param is an array there is also an ? prefixed to the url
  *
- * @param   string   - if first param is array: 'html' to use htmlspecialchars()
+ * @param string   - if first param is array: 'html' to use htmlspecialchars()
  *                   on the resulting URL (for a normal URL displayed in HTML)
  *                   or something else to avoid using htmlspecialchars() (for
  *                   a URL sent via a header); if not set,'html' is assumed
  *                   - if first param is not array:  optional table name
  *
- * @param   string   - if first param is array: optional character to
+ * @param string   - if first param is array: optional character to
  *                   use instead of '?'
  *                   - if first param is not array: optional character to use
  *                    instead of '&amp;' for dividing URL parameters
@@ -256,7 +256,7 @@ function PMA_generate_common_url()
  * extracted from arg_separator.input as set in php.ini
  * we do not use arg_separator.output to avoid problems with &amp; and &
  *
- * @param   string  whether to encode separator or not, currently 'none' or 'html'
+ * @param string  whether to encode separator or not, currently 'none' or 'html'
  * @return  string  character used for separating url parts usally ; or &
  * @access  public
  */

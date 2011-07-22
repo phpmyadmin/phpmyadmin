@@ -167,7 +167,7 @@ function get_pk_or_unique_keys()
 /**
  * returns all indizes
  *
- * @param   boolean whether to include ony unique ones
+ * @param boolean whether to include ony unique ones
  * @return  array indizes
  */
 function get_all_keys($unique_only = false)

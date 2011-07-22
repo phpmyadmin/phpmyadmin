@@ -18,8 +18,8 @@
  *
  * <a title="<?php echo PMA_sanitize($foo, true); ?>">bar</a>
  *
- * @param   string   the message
- * @param   boolean  whether to escape html in result
+ * @param string   the message
+ * @param boolean  whether to escape html in result
  *
  * @return  string   the sanitized message
  *

@@ -129,7 +129,7 @@ $time_start = time();
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.
  *
- * @param   string  $line  the insert statement
+ * @param string  $line  the insert statement
  * @return  bool    Whether output suceeded
  */
 function PMA_exportOutputHandler($line)
