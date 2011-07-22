@@ -2305,15 +2305,10 @@ SVGRenderer.prototype = {
 							
 							// Webkit and opera sometimes return 'normal' as the line height. In that
 							// case, webkit uses offsetHeight, while Opera falls back to 18
-<<<<<<< HEAD
-							lineHeight = pInt(window.getComputedStyle(lastLine, null).getPropertyValue('line-height'));
-							if (isNaN(lineHeight)) {
-=======
 							lineHeight = win[GET_COMPUTED_STYLE] &&
 								win[GET_COMPUTED_STYLE](lastLine, null).getPropertyValue('line-height');
 							
 							if (!lineHeight || isNaN(lineHeight)) {
->>>>>>> phpmyadmin/master
 								lineHeight = textLineHeight || lastLine.offsetHeight || 18;
 							}
 							attr(tspan, 'dy', lineHeight);
