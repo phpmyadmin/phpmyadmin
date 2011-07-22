@@ -952,8 +952,12 @@
                                     'goto' : 'sql.php',
                                     'submit_type' : 'save'
                                   };
+                    
+                    var $editArea = $(g.cEdit).find('.edit_area');
+                    $editArea.addClass('edit_area_posting');
 
                     $.post('tbl_replace.php', post_params, function(data) {
+                        $editArea.removeClass('edit_area_posting');
                         if(data.success == true) {
                             PMA_ajaxShowMessage(data.message);
                             if (new_clause != '') {
