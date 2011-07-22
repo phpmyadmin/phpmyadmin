@@ -58,17 +58,17 @@ $titles = PMA_buildActionTitles();
 
 // 1. No tables
 if ($num_tables == 0) {
-	echo '<p>' . __('No tables found in database') . '</p>' . "\n";
+    echo '<p>' . __('No tables found in database') . '</p>' . "\n";
 
-	if (empty($db_is_information_schema)) {
-		require './libraries/display_create_table.lib.php';
-	} // end if (Create Table dialog)
+    if (empty($db_is_information_schema)) {
+        require './libraries/display_create_table.lib.php';
+    } // end if (Create Table dialog)
 
-	/**
-	 * Displays the footer
-	 */
-	require_once './libraries/footer.inc.php';
-	exit;
+    /**
+     * Displays the footer
+     */
+    require_once './libraries/footer.inc.php';
+    exit;
 }
 
 // else
@@ -176,7 +176,7 @@ foreach ($tables as $keyname => $each_table) {
             }
             //$display_rows                   =  ' - ';
             break;
-	    // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
+        // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
         // Both are aliases for MERGE
         case 'MRG_MyISAM' :
         case 'MRG_MYISAM' :
