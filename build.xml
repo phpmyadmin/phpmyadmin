@@ -38,6 +38,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
+              --exclude test,build,PHPExcel,tcpdf
               --reportfile ${basedir}/build/logs/pmd.xml" />
   </exec>
  </target>
