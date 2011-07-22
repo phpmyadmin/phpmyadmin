@@ -93,7 +93,7 @@ url_query = '<?php echo $url_query;?>';
         <br>
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
         <?php $keys = array_keys($data[0]);
-		$yaxis=-1;
+        $yaxis=-1;
         if (count($keys)>1) {
             echo '<br>';
             echo __('X-Axis:'); ?> <select name="chartXAxis">

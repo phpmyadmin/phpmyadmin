@@ -997,9 +997,9 @@ PMA_Tracker::enable();
  * true
  */
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-	$GLOBALS['is_ajax_request'] = true;
+    $GLOBALS['is_ajax_request'] = true;
 } else {
-	$GLOBALS['is_ajax_request'] = false;
+    $GLOBALS['is_ajax_request'] = false;
 }
 
 /**

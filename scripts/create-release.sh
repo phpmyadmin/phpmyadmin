@@ -156,10 +156,10 @@ cd ..
 # Prepare all kits
 for kit in $KITS ; do
     # Copy all files
-	name=phpMyAdmin-$version-$kit
-	cp -r phpMyAdmin-$version $name
+    name=phpMyAdmin-$version-$kit
+    cp -r phpMyAdmin-$version $name
 
-	# Cleanup translations
+    # Cleanup translations
     cd phpMyAdmin-$version-$kit
     scripts/lang-cleanup.sh $kit
     rm -f scripts/lang-cleanup.sh

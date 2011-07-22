@@ -186,20 +186,20 @@ class PMA_StorageEngine
         return $ret;
     }
 
-	/**
-	 * returns the engine specific handling for
-	 * PMA_ENGINE_DETAILS_TYPE_SIZE type variables.
-	 *
-	 * This function should be overridden when
-	 * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
-	 * handled differently for a particular engine.
-	 *
-	 * @return string the formatted value and its unit
-	 */
-	function resolveTypeSize($value)
-	{
-		return PMA_formatByteDown($value);
-	}
+    /**
+     * returns the engine specific handling for
+     * PMA_ENGINE_DETAILS_TYPE_SIZE type variables.
+     *
+     * This function should be overridden when
+     * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
+     * handled differently for a particular engine.
+     *
+     * @return string the formatted value and its unit
+     */
+    function resolveTypeSize($value)
+    {
+        return PMA_formatByteDown($value);
+    }
 
     /**
      * returns array with detailed info about engine specific server variables
@@ -276,7 +276,7 @@ class PMA_StorageEngine
             }
         } else {
             $this->engine_init();
-		}
+        }
     }
 
     /**

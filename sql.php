@@ -927,7 +927,7 @@ else {
     }
 
     if (isset($profiling_results)) {
-		// pma_token/url_query needed for chart export
+        // pma_token/url_query needed for chart export
 ?>
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';

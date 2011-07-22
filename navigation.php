@@ -41,12 +41,12 @@ if (! isset($_SESSION['tmp_user_values']['table_limit_offset']) || $_SESSION['tm
     $_SESSION['tmp_user_values']['table_limit_offset_db'] = $db;
 }
 if (isset($_REQUEST['pos'])) {
-	if (isset($_REQUEST['tpos'])) {
-		$_SESSION['tmp_user_values']['table_limit_offset'] = (int) $_REQUEST['pos'];
-	}
-	else {
-		$_SESSION['tmp_user_values']['navi_limit_offset'] = (int) $_REQUEST['pos'];
-	}
+    if (isset($_REQUEST['tpos'])) {
+        $_SESSION['tmp_user_values']['table_limit_offset'] = (int) $_REQUEST['pos'];
+    }
+    else {
+        $_SESSION['tmp_user_values']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+    }
 }
 $pos = $_SESSION['tmp_user_values']['navi_limit_offset'];
 $tpos = $_SESSION['tmp_user_values']['table_limit_offset'];

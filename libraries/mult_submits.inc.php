@@ -278,17 +278,17 @@ if (!empty($submit_mult) && !empty($what)) {
     <?php
         }
         else { ?>
-	<fieldset class="confirmation">
-	    <legend><?php echo ($what == 'drop_db' ? __('You are about to DESTROY a complete database!') . '&nbsp;' : '') . __('Do you really want to '); ?>:</legend>
-	    <tt><?php echo $full_query; ?></tt>
-	</fieldset>
-	<fieldset class="tblFooters">
-	    <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />
-	    <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
-	</fieldset>
+    <fieldset class="confirmation">
+        <legend><?php echo ($what == 'drop_db' ? __('You are about to DESTROY a complete database!') . '&nbsp;' : '') . __('Do you really want to '); ?>:</legend>
+        <tt><?php echo $full_query; ?></tt>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />
+        <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
+    </fieldset>
     <?php
-	}
-	require './libraries/footer.inc.php';
+    }
+    require './libraries/footer.inc.php';
 
 } // end if
 
@@ -422,7 +422,7 @@ elseif ($mult_btn == __('Yes')) {
                            . (($i == $selected_cnt-1) ? ');' : '');
                 break;
 
-	    case 'add_prefix_tbl':
+        case 'add_prefix_tbl':
                 $newtablename = $add_prefix . $selected[$i];
                 $a_query = 'ALTER TABLE ' . PMA_backquote($selected[$i]) . ' RENAME ' . PMA_backquote($newtablename) ; // ADD PREFIX TO TABLE NAME
                 $run_parts = true;

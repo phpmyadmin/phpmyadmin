@@ -42,8 +42,8 @@ class PmaSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase
     }
 
     /**
-     *	perform a login
-     */ 
+     * perform a login
+     */
     public function doLogin()
     {
         $this->open(TESTSUITE_PHPMYADMIN_URL);
@@ -58,7 +58,7 @@ class PmaSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase
     }
 
     /*
-     * 	Just a dummy to show some example statements
+     * Just a dummy to show some example statements
      *
      public function mockTest()
      {

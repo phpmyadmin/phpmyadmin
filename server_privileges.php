@@ -1070,7 +1070,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     if (! PMA_DBI_try_query($q)) {
                         $message = PMA_Message::rawError(PMA_DBI_getError());
                     }
-					break;
+                    break;
                 case '3' :
                     // Grant all privileges on the specified database to the new user
                     $q = 'GRANT ALL PRIVILEGES ON '
@@ -2138,9 +2138,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                . '</fieldset>' . "\n"
                . '</form>' . "\n";
 
-		}
+        }
 
-		// Provide a line with links to the relevant database and table
+        // Provide a line with links to the relevant database and table
         if (isset($dbname) && empty($dbname_is_wildcard)) {
             echo '[ ' . __('Database')
                 . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'

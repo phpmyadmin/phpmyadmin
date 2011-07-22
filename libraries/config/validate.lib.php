@@ -132,7 +132,7 @@ function PMA_config_validate($validator_id, &$values, $isPostSource)
 
 /**
  * Empty error handler, used to temporarily restore PHP internal error handler
- * 
+ *
  * @return bool
  */
 function PMA_null_error_handler()
@@ -337,8 +337,8 @@ function validate_trusted_proxies($path, $values)
         $lines = array();
         foreach ($values[$path] as $ip => $v) {
             $lines[] = preg_match('/^-\d+$/', $ip)
-            	? $v
-            	: $ip . ': ' . $v;
+                ? $v
+                : $ip . ': ' . $v;
         }
     } else {
         // AJAX validation
@@ -441,7 +441,7 @@ function validate_by_regex($path, $values, $regex)
 
 /**
  * Validates upper bound for numeric inputs
- * 
+ *
  * @param string $path
  * @param array  $values
  * @param int    $max_value

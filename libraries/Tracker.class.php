@@ -472,7 +472,7 @@ class PMA_Tracker
      * @param string $dbname       name of database
      * @param string $tablename    name of table
      * @param string $version      version
-     * @param string $type      	type of data(DDL || DML)
+     * @param string $type          type of data(DDL || DML)
      * @param string || array $new_data   the new tracking data
      *
      * @return bool result of change

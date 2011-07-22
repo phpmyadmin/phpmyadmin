@@ -12,7 +12,7 @@
  * @param FormDisplay $form_display
  */
 function process_formset(FormDisplay $form_display) {
-	if (filter_input(INPUT_GET, 'mode') == 'revert') {
+    if (filter_input(INPUT_GET, 'mode') == 'revert') {
         // revert erroneous fields to their default values
         $form_display->fixErrors();
         // drop post data
@@ -33,8 +33,8 @@ function process_formset(FormDisplay $form_display) {
             $formset = $formset ? "{$separator}formset=$formset" : '';
             $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             if ($id === null && $page == 'servers') {
-            	// we've just added a new server, get it's id
-            	$id = ConfigFile::getInstance()->getServerCount();
+                // we've just added a new server, get it's id
+                $id = ConfigFile::getInstance()->getServerCount();
             }
             $id = $id ? "{$separator}id=$id" : '';
             ?>
