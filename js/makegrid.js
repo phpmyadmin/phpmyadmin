@@ -1253,10 +1253,7 @@
             }
         });
         $(g.cEdit).keydown(function(e) {
-            if (e.which == 27) {
-                // cancel on pressing "Esc"
-                g.hideEditCell(true);
-            } else if (!g.isEditCellTextEditable) {
+            if (!g.isEditCellTextEditable) {
                 // prevent text editing
                 e.preventDefault();
             }
@@ -1265,6 +1262,12 @@
             // hide edit cell if the click is not from g.cEdit
             if ($(e.target).parents().index(g.cEdit) == -1) {
                 g.hideEditCell();
+            }
+        });
+        $('html').keydown(function(e) {
+            if (e.which == 27 && g.isCellEditActive) {
+                // cancel on pressing "Esc"
+                g.hideEditCell(true);
             }
         });
         // add table class
