@@ -15,6 +15,8 @@ phpMyAdmin - ChangeLog
 - bug #3363221 [display] Missing Server Parameter on inline sql query
 - bug #3367986 [navi] Drop field -> lost active table
 - remove misleading comment on the "Rename database" interface
+- bug #3374374 [interface] Fix footnote for inexact count while browsing
+- bug #3372807 [interface] Fix security warning link in setup
 - bug #3374347 [display] Backquotes in normal text on import page
 
 3.4.3.1 (2011-07-02)
