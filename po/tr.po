@@ -1233,7 +1233,7 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log etkinleştirildi ama sunucu sadece %s saniyeden daha uzun "
+"slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
 "süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
 "0-2 saniyeye ayarlanması tavsiye edilir."
 
