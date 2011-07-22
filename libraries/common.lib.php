@@ -567,7 +567,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     } // end if
 
     if (!empty($error_message)) {
-        $error_message = preg_replace("@((\015\012)|(\015)|(\012)) {3,}@", "\n\n", $error_message);
+        $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
     }
     // modified to show the help on error-returns
     // (now error-messages-server)

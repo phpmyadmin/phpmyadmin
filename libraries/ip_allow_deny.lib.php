@@ -30,7 +30,7 @@ function PMA_getIp()
         $trusted_header_value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
         $matches = array();
         // the $ checks that the header contains only one IP address, ?: makes sure the () don't capture
-        $is_ip = preg_match('|^(?:[0-9]{1,3}\.) {3,3}[0-9]{1,3}$|', $trusted_header_value, $matches);
+        $is_ip = preg_match('|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|', $trusted_header_value, $matches);
         if ($is_ip && (count($matches) == 1)) {
             // True IP behind a proxy
             return $matches[0];
@@ -46,7 +46,7 @@ function PMA_getIp()
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
  * Found on <http://www.php.net/manual/en/function.ip2long.php>
- * Modified for phpMyAdmin 
+ * Modified for phpMyAdmin
  *
  * Matches:
  * xxx.xxx.xxx.xxx        (exact)
