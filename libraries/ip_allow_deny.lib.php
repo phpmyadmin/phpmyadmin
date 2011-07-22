@@ -4,6 +4,8 @@
  * This library is used with the server IP allow/deny host authentication
  * feature
  *
+ * @todo Broken for IPv6
+ *
  * @package phpMyAdmin
  */
 
