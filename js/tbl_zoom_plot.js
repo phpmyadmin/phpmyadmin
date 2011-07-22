@@ -61,6 +61,28 @@ function scrollToChart() {
    $('html,body').animate({scrollTop: x}, 500);
 }
 
+/**
+ ** Displays the query result display section
+ ** @param modal: type of dialog
+ **/
+function ShowDialog(modal) {
+      $("#overlay").show();
+      $("#dialog").fadeIn(300);
+      $("#overlay").click(function (e)
+      {
+          HideDialog();
+      });
+}
+
+/**
+ ** Hides the query result display section
+ ** @param modal : type of dialog
+ **/
+function HideDialog() {
+    $("#overlay").hide();
+    $("#dialog").fadeOut(300);
+}
+
 $(document).ready(function() {
 
    /**
@@ -122,23 +144,12 @@ $(document).ready(function() {
 	     // avoid default click action
 	    return false;
 	 });
-    
-    /** 
-     ** Set dialog properties for the data display form
-     **/
-    $("#dataDisplay").dialog({
-        autoOpen: false,
-	title: 'Data point content',
-        modal: false, //false otherwise other dialogues like timepicker may not function properly
-        height: $('#dataDisplay').height() + 80,
-        width: $('#dataDisplay').width() + 80
-    });
-
+   
     /*
      * Handle submit of zoom_display_form 
      */
      
-    $("#submitForm").click(function(event) {
+    $("#zoom_display_form.ajax").live('submit', function(event) {
 	
         //Prevent default submission of form
         event.preventDefault();
@@ -212,7 +223,6 @@ $(document).ready(function() {
 	                PMA_ajaxShowMessage(data.error);
 	    })//End $.post
 	}//End database update
-        $("#dataDisplay").dialog("close");	
     });//End submit handler 
 
     /*
@@ -227,6 +237,9 @@ $(document).ready(function() {
          .text(PMA_messages['strShowSearchCriteria'])
 	$('#togglesearchformdiv').show();
         
+        ShowDialog(false);
+	//$('#resizer').height($('#dataDisplay').height() + 50); 
+
     	var columnNames = new Array();
     	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
     	var series = new Array();
@@ -287,7 +300,6 @@ $(document).ready(function() {
 					j++;
 				} 
 				currentData = id;
-			        $("#dataDisplay").dialog("open");	
                             },
                         }
 	            }
@@ -303,6 +315,7 @@ $(document).ready(function() {
 	    xAxis: {
 		type: 'linear',
 	        title: { text: $('#tableid_0').val() },
+		type: 'linear',
 	        max: Array.max(xCord) + 2,
 	        min: Array.min(xCord) - 2
             },
