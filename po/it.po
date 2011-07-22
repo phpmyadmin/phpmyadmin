@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-22 19:01+0200\n"
+"PO-Revision-Date: 2011-07-22 19:03+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
 "Language: it\n"
@@ -1318,13 +1318,12 @@ msgid "Group together INSERTs into same table"
 msgstr "Gruppa le query INSERT effettuate nella stessa tabella"
 
 #: js/messages.php:142
-#, fuzzy
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
-"<p>Scegli il log dal quale generare le statistiche.</p> Results are grouped "
-"by query text."
+"<p>Scegli il log dal quale generare le statistiche.</p> I risultati verranno "
+"ragruppati secondo il testo di query."
 
 #: js/messages.php:143
 msgid "From slow log"
