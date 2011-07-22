@@ -10269,7 +10269,7 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr "Você não está usando conexão segura; todos dados (incluindo "
-possíveis informações sensíveis, como senhas) são transferidos sem criptografia."
+"possíveis informações sensíveis, como senhas) são transferidos sem criptografia."
 
 #: setup/frames/index.inc.php:60
 #, php-format
@@ -10277,7 +10277,7 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr "Se o seu servidor também está configurado para aceitar requisições HTTPS "
-siga [a@%s]este link[/a] para usar uma conexão segura."
+"siga [a@%s]este link[/a] para usar uma conexão segura."
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
