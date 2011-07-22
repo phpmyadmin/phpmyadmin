@@ -1204,7 +1204,6 @@ msgid "Resume monitor"
 msgstr "Avvia il monitoraggio"
 
 #: js/messages.php:112
-#, fuzzy
 msgid "Pause monitor"
 msgstr "Arresta il monitoraggio"
 
