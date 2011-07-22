@@ -72,7 +72,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             global $timer;
 
             $t     = $timer;
-            $arr[] = array('type' => $type, 'data' => $data, 'pos' => $pos, 'time' => $t);
+            $arr[] = array(
+                'type' => $type,
+                'data' => $data,
+                'pos' => $pos,
+                'time' => $t);
             $timer = microtime();
             $arrsize++;
         } // end of the "PMA_SQP_arrayAdd()" function
@@ -151,7 +155,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         global $SQP_errorString;
         $debugstr = 'ERROR: ' . $message . "\n";
         $debugstr .= 'MySQL: '.PMA_MYSQL_STR_VERSION . "\n";
-        $debugstr .= 'USR OS, AGENT, VER: ' . PMA_USR_OS . ' ' . PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n";
+        $debugstr .= 'USR OS, AGENT, VER: ' . PMA_USR_OS . ' ';
+        $debugstr .= PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n";
         $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
         $debugstr .= 'PHP VER,OS: ' . PMA_PHP_STR_VERSION . ' ' . PHP_OS . "\n";
         $debugstr .= 'LANG: ' . $GLOBALS['lang'] . "\n";
@@ -161,7 +166,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (@function_exists('gzcompress')) {
             $encodedstr = gzcompress($debugstr, 9);
         }
-        $encodedstr     = preg_replace("/(\015\012)|(\015)|(\012)/", '<br />' . "\n", chunk_split(base64_encode($encodedstr)));
+        $encodedstr     = preg_replace(
+            "/(\015\012)|(\015)|(\012)/",
+            '<br />' . "\n",
+            chunk_split(base64_encode($encodedstr)));
 
 
         $SQP_errorString .= __('There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:')
@@ -2706,7 +2714,9 @@ function PMA_SQP_buildCssData()
     }
 
     for ($i = 0; $i < 8; $i++) {
-        $css_string .= PMA_SQP_buildCssRule('syntax_indent' . $i, 'margin-left', ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']);
+        $css_string .= PMA_SQP_buildCssRule(
+            'syntax_indent' . $i, 'margin-left',
+            ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']);
     }
 
     return $css_string;
@@ -2725,7 +2735,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatNone($arr)
     {
         $formatted_sql = htmlspecialchars($arr['raw']);
-        $formatted_sql = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $formatted_sql);
+        $formatted_sql = preg_replace(
+            "@((\015\012)|(\015)|(\012)){3,}@",
+            "\n\n",
+            $formatted_sql);
 
         return $formatted_sql;
     } // end of the "PMA_SQP_formatNone()" function
