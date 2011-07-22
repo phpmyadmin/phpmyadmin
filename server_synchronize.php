@@ -91,7 +91,7 @@ if ((isset($_REQUEST['submit_connect']))) {
         if (! $src_connection && $src_type != 'cur') {
             echo __('Could not connect to the source') . '<br />';
         }
-        if (! $trg_connection && $trg_type != 'cur'){
+        if (! $trg_connection && $trg_type != 'cur') {
             echo __('Could not connect to the target');
         }
         echo '</div>';

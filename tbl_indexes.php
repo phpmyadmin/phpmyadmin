@@ -87,7 +87,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
     } // end while
 
-    if (empty($index_fields)){
+    if (empty($index_fields)) {
         $error = PMA_Message::error(__('No index parts defined!'));
     } else {
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';

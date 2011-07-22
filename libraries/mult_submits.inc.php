@@ -246,7 +246,7 @@ if (!empty($submit_mult) && !empty($what)) {
     <?php
     echo PMA_generate_common_hidden_inputs($_url_params);
     ?>
-<?php if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix'){ ?>
+<?php if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') { ?>
         <fieldset class = "input">
                 <legend><?php echo ($what == 'replace_prefix_tbl' ? __('Replace table prefix') : __('Copy table with prefix')) ?>:</legend>
                 <table>
@@ -263,7 +263,7 @@ if (!empty($submit_mult) && !empty($what)) {
         </fieldset>
     <?php
         }
-        elseif ($what == 'add_prefix_tbl'){ ?>
+        elseif ($what == 'add_prefix_tbl') { ?>
         <fieldset class = "input">
                 <legend><?php echo __('Add table prefix') ?>:</legend>
                 <table>

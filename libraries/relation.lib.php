@@ -628,7 +628,7 @@ function PMA_setDbComment($db, $comment = '')
                 AND `column_name` = \'(db_comment)\'';
     }
 
-    if (isset($upd_query)){
+    if (isset($upd_query)) {
         return PMA_query_as_controluser($upd_query);
     }
 

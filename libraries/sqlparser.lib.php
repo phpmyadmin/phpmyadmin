@@ -1523,7 +1523,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                         $subresult['queryflags']['need_confirm'] = 1;
                     }
 
-                    if ($first_reserved_word=='SELECT'){
+                    if ($first_reserved_word=='SELECT') {
                         $position_of_first_select = $i;
                     }
 
@@ -2550,7 +2550,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                             }
                             break;
                         default:
-                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))){
+                            if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))) {
                                 $after .= '</a>';
                                 $close_docu_link = false;
                             } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
@@ -2725,7 +2725,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     function PMA_SQP_formatNone($arr)
     {
         $formatted_sql = htmlspecialchars($arr['raw']);
-        $formatted_sql = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $formatted_sql);
+        $formatted_sql = preg_replace("@((\015\012)|(\015)|(\012)) {3,}@", "\n\n", $formatted_sql);
 
         return $formatted_sql;
     } // end of the "PMA_SQP_formatNone()" function

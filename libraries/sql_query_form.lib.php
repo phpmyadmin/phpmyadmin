@@ -420,7 +420,7 @@ function PMA_sqlQueryFormBookmark()
  *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormUpload(){
+function PMA_sqlQueryFormUpload() {
     $errors = array ();
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here

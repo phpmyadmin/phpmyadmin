@@ -2376,7 +2376,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     $user_form .= '</tbody>' . "\n"
        . '</table></form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true){
+    if ($GLOBALS['is_ajax_request'] == true) {
         $extra_data['user_form'] = $user_form;
         $message = PMA_Message::success(__('User has been added.'));
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);

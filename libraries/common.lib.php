@@ -567,7 +567,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
     } // end if
 
     if (!empty($error_message)) {
-        $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
+        $error_message = preg_replace("@((\015\012)|(\015)|(\012)) {3,}@", "\n\n", $error_message);
     }
     // modified to show the help on error-returns
     // (now error-messages-server)
@@ -2692,7 +2692,7 @@ function PMA_replace_binary_contents($content) {
 
 function PMA_duplicateFirstNewline($string) {
     $first_occurence = strpos($string, "\r\n");
-    if ($first_occurence === 0){
+    if ($first_occurence === 0) {
         $string = "\n".$string;
     }
     return $string;
@@ -3065,7 +3065,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // Create the output
     $retval = '                <option></option>' . "\n";
     // loop on the dropdown array and print all available options for that field.
-    foreach ($dropdown as $each_dropdown){
+    foreach ($dropdown as $each_dropdown) {
         $retval .= '                ';
         $retval .= '<option';
         if ($default_function === $each_dropdown) {

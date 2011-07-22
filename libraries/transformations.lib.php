@@ -208,7 +208,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                    . '\'' . PMA_sqlAddSlashes($transformation_options) . '\')';
     }
 
-    if (isset($upd_query)){
+    if (isset($upd_query)) {
         return PMA_query_as_controluser($upd_query);
     } else {
         return false;
