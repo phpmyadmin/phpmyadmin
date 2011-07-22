@@ -673,6 +673,7 @@
                         // Make the Ajax call and get the data, wrap it and insert it
                         $.post('sql.php', {
                             'token' : window.parent.token,
+                            'server' : window.parent.server,
                             'db' : window.parent.db,
                             'ajax_request' : true,
                             'sql_query' : sql_query,
@@ -707,6 +708,7 @@
                         var post_params = {
                                 'ajax_request' : true,
                                 'get_relational_values' : true,
+                                'server' : window.parent.server,
                                 'db' : window.parent.db,
                                 'table' : window.parent.table,
                                 'column' : field_name,
@@ -736,6 +738,7 @@
                         var post_params = {
                                 'ajax_request' : true,
                                 'get_enum_values' : true,
+                                'server' : window.parent.server,
                                 'db' : window.parent.db,
                                 'table' : window.parent.table,
                                 'column' : field_name,
@@ -763,6 +766,7 @@
                         var post_params = {
                                 'ajax_request' : true,
                                 'get_set_values' : true,
+                                'server' : window.parent.server,
                                 'db' : window.parent.db,
                                 'table' : window.parent.table,
                                 'column' : field_name,
@@ -799,9 +803,6 @@
              * Post the content of edited cell.
              */
             postEditedCell: function() {
-            
-                event.preventDefault();
-
                 /**
                  * @var $this_field    Object referring to the td that is being edited
                  */
@@ -941,6 +942,7 @@
                     var post_params = {'ajax_request' : true,
                                     'sql_query' : sql_query,
                                     'token' : window.parent.token,
+                                    'server' : window.parent.server,
                                     'db' : window.parent.db,
                                     'table' : window.parent.table,
                                     'clause_is_unique' : nonunique,
