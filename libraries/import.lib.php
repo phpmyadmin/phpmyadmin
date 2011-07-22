@@ -932,7 +932,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                     $tempSQLStr .= ", ";
                 }
             }
-            $tempSQLStr .= ") DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation . ";";
+            $tempSQLStr .= ")"
+                . (PMA_DRIZZLE ? "" : " DEFAULT CHARACTER SET " . $charset)
+                . " COLLATE " . $collation . ";";
 
             /**
              * Each SQL statement is executed immediately
