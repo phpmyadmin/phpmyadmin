@@ -887,9 +887,9 @@
                         }
 
                         // results from Browse foreign value
-                        $test_element = $(g.cEdit).find('textarea');
+                        $test_element = $(g.cEdit).find('span.curr_value');
                         if ($test_element.length != 0) {
-                            this_field_params[field_name] = $test_element.val();
+                            this_field_params[field_name] = $test_element.text();
                         }
 
                         if($this_field.is('.relation')) {
@@ -1227,13 +1227,15 @@
                 g.showEditCell(this);
             })
             .click(function(e) {
-                if (g.isCellEditActive) {
-                    g.postEditedCell();
-                    e.stopPropagation();
-                } else {
-                    g.showEditCell(this);
-                    $(g.cEdit).find('input[type=text]').focus();
-                    e.stopPropagation();
+                if (g.isInEditMode) {
+                    if (g.isCellEditActive) {
+                        g.postEditedCell();
+                        e.stopPropagation();
+                    } else {
+                        g.showEditCell(this);
+                        $(g.cEdit).find('input[type=text]').focus();
+                        e.stopPropagation();
+                    }
                 }
             });
         $(g.cEdit).find('input[type=text]').focus(function(e) {
@@ -1255,14 +1257,12 @@
                 e.preventDefault();
             }
         });
-        $(g.cEdit).click(function(e) {
-            // prevent click to be handled by $('html').click below
-            e.stopPropagation();
-        });
         $('html').click(function(e) {
-            // post edited cell
-            if (g.isCellEditActive) {
-                g.postEditedCell();
+            // hide edit cell if the click is not from g.cEdit
+            if ($(e.target).parents().index(g.cEdit) == -1) {
+                if (g.isCellEditActive) {
+                    g.hideEditCell();
+                }
             }
         });
         // add table class
