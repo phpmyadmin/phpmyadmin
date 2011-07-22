@@ -1072,15 +1072,15 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
     $message = '<br /><br />';
     $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
-    $message .= '<ul><li>' . __('View a structure`s contents by clicking on its name') . '</li>';
-    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link') . '</li>';
-    $message .= '<li>' . __('Edit its structure by following the "Structure" link') . '</li>';
+    $message .= '<ul><li>' . __("View a structure's contents by clicking on its name") . '</li>';
+    $message .= '<li>' . htmlspecialchars(__('Change any of its settings by clicking the corresponding "Options" link')) . '</li>';
+    $message .= '<li>' . htmlspecialchars(__('Edit structure by following the "Structure" link')) . '</li>';
     $message .= sprintf('<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                         $db_url,
-                        __('Go to database') . ': ' . PMA_backquote($db_name),
-                        $db_name,
+                        __('Go to database') . ': ' . htmlspecialchars(PMA_backquote($db_name)),
+                        htmlspecialchars($db_name),
                         $db_ops_url,
-                        __('Edit') . ' ' . PMA_backquote($db_name) . ' ' . __('settings'));
+                        __('Edit') . ' ' . htmlspecialchars(PMA_backquote($db_name)) . ' ' . __('settings'));
 
     $message .= '<ul>';
 
@@ -1099,17 +1099,17 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         if (! PMA_isView($db_name, $tables[$i][TBL_NAME])) {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __('Structure') . '</a>) (<a href="%s" title="%s">' . __('Options') . '</a>)</li>',
                                 $tbl_url,
-                                __('Go to table') . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
-                                $tables[$i][TBL_NAME],
+                                __('Go to table') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),
+                                htmlspecialchars($tables[$i][TBL_NAME]),
                                 $tbl_struct_url,
-                                PMA_backquote($tables[$i][TBL_NAME]) . ' ' . __('structure'),
+                                htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('structure'),
                                 $tbl_ops_url,
-                                __('Edit') . ' ' . PMA_backquote($tables[$i][TBL_NAME]) . ' ' . __('settings'));
+                                __('Edit') . ' ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('settings'));
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,
-                                __('Go to view') . ': ' . PMA_backquote($tables[$i][TBL_NAME]),
-                                $tables[$i][TBL_NAME]);
+                                __('Go to view') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),
+                                htmlspecialchars($tables[$i][TBL_NAME]));
         }
     }
 

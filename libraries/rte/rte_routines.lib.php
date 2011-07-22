@@ -1356,6 +1356,8 @@ function PMA_RTN_getExecuteForm($routine)
     }
     $retval .= "<th>" . __('Value')    . "</th>\n";
     $retval .= "</tr>\n";
+    // Get a list of data types that are not yet supported.
+    $no_support_types = PMA_unsupportedDatatypes();
     for ($i=0; $i<$routine['item_num_params']; $i++) { // Each parameter
         if ($routine['item_type'] == 'PROCEDURE'
             && $routine['item_param_dir'][$i] == 'OUT'
@@ -1368,8 +1370,6 @@ function PMA_RTN_getExecuteForm($routine)
         $retval .= "<td>{$routine['item_param_type'][$i]}</td>\n";
         if ($cfg['ShowFunctionFields']) {
             $retval .= "<td>\n";
-            // Get a list of data types that are not yet supported.
-            $no_support_types = PMA_unsupportedDatatypes();
             if (stristr($routine['item_param_type'][$i], 'enum')
                 || stristr($routine['item_param_type'][$i], 'set')
                 || in_array(strtolower($routine['item_param_type'][$i]), $no_support_types)
