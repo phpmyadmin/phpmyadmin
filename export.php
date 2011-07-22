@@ -15,7 +15,11 @@ require_once './libraries/plugin_interface.lib.php';
 PMA_checkParameters(array('what', 'export_type'));
 
 // Scan plugins
-$export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $export_type, 'single_table' => isset($single_table)));
+$export_list = PMA_getPlugins(
+    './libraries/export/',
+    array(
+        'export_type' => $export_type,
+        'single_table' => isset($single_table)));
 
 // Backward compatbility
 $type = $what;
