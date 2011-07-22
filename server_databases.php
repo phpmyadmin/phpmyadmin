@@ -180,7 +180,7 @@ if ($databases_count > 0) {
     {
       if ($type=="master")
         $name = __('Master replication');
-      elseif($type == "slave")
+      elseif ($type == "slave")
         $name = __('Slave replication');
       if (${"server_{$type}_status"})
         echo '    <th>'. $name .'</th>' . "\n";

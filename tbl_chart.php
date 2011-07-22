@@ -94,13 +94,13 @@ url_query = '<?php echo $url_query;?>';
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
         <?php $keys = array_keys($data[0]);
 		$yaxis=-1;
-        if(count($keys)>1) {
+        if (count($keys)>1) {
             echo '<br>';
             echo __('X-Axis:'); ?> <select name="chartXAxis">
             <?php
             
             foreach ($keys as $idx=>$key) {
-                if($yaxis==-1 && ($idx==count($data[0])-1 || preg_match("/(date|time)/i",$key))) {
+                if ($yaxis==-1 && ($idx==count($data[0])-1 || preg_match("/(date|time)/i",$key))) {
                     echo '<option value="'.$idx.'" selected>'.$key.'</option>';
                     $yaxis=$idx;
                 } else {

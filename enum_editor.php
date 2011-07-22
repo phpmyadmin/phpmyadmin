@@ -33,7 +33,7 @@ require_once './libraries/header_meta_style.inc.php';
                 // Display the values in text fields, excluding empty strings
                 $field_counter = 0;
                 foreach ($values as $value) {
-                    if(trim($value) != "") {
+                    if (trim($value) != "") {
                         $field_counter++;
                         echo sprintf('<input type="text" size="30" value="%s" name="field' . $field_counter . '" />', htmlspecialchars(str_replace(array("''", '\\\\', "\\'"), array("'", '\\', "'"), substr($value, 1, -1))));
                     }
@@ -41,7 +41,7 @@ require_once './libraries/header_meta_style.inc.php';
 
                 $total_fields = $field_counter;
                 // If extra empty fields are added, display them
-                if(isset($_GET['extra_fields'])) {
+                if (isset($_GET['extra_fields'])) {
                     $total_fields += $_GET['extra_fields'];
                     for($i = $field_counter+1; $i <= $total_fields; $i++) {
                         echo '<input type="text" size="30" name="field' . $i . '"/>';

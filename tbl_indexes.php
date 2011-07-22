@@ -98,7 +98,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
         
-        if( $GLOBALS['is_ajax_request'] == true) {
+        if ( $GLOBALS['is_ajax_request'] == true) {
             $extra_data['index_table'] = PMA_Index::getView($table, $db);
             $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
             PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
@@ -108,7 +108,7 @@ if (isset($_REQUEST['do_save_data'])) {
         require './tbl_structure.php';
         exit;
     } else {
-        if( $GLOBALS['is_ajax_request'] == true) {
+        if ( $GLOBALS['is_ajax_request'] == true) {
             $extra_data['error'] = $error;
             PMA_ajaxResponse($error,false);
         }

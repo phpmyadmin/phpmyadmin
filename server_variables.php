@@ -34,7 +34,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
     
-    if(isset($_REQUEST['type'])) {
+    if (isset($_REQUEST['type'])) {
         switch($_REQUEST['type']) {
             case 'getval':
                 $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.PMA_sqlAddslashes($_REQUEST['varName']).'";','NUM');
@@ -42,9 +42,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 break;
             case 'setval':
                 $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-                if(!is_numeric($value)) $value="'".$value."'";
+                if (!is_numeric($value)) $value="'".$value."'";
                 
-                if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value))
+                if (! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']) && PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value))
                     // Some values are rounded down etc.
                     $varValue = PMA_DBI_fetch_single_row('SHOW GLOBAL VARIABLES WHERE Variable_name="'.PMA_sqlAddslashes($_REQUEST['varName']).'";','NUM');
                     
@@ -153,7 +153,7 @@ function formatVariable($name,$value) {
     global $VARIABLE_DOC_LINKS;
     
     if (is_numeric($value)) {
-        if(isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte')
+        if (isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte')
             return '<abbr title="'.PMA_formatNumber($value, 0).'">'.implode(' ',PMA_formatByteDown($value,3,3)).'</abbr>';
         else return PMA_formatNumber($value, 0);
     }

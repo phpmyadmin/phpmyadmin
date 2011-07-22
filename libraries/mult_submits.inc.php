@@ -263,7 +263,7 @@ if (!empty($submit_mult) && !empty($what)) {
         </fieldset>
     <?php
         }
-        elseif($what == 'add_prefix_tbl'){ ?>
+        elseif ($what == 'add_prefix_tbl'){ ?>
         <fieldset class = "input">
                 <legend><?php echo __('Add table prefix') ?>:</legend>
                 <table>

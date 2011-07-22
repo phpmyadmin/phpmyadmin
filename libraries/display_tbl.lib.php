@@ -913,11 +913,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img, 'asc')) {
-                    $order_link_params['onmouseover'] = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
-                    $order_link_params['onmouseout']  = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
+                    $order_link_params['onmouseover'] = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
+                    $order_link_params['onmouseout']  = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
                 } elseif (strstr($order_img, 'desc')) {
-                    $order_link_params['onmouseover'] = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
-                    $order_link_params['onmouseout']  = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
+                    $order_link_params['onmouseover'] = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
+                    $order_link_params['onmouseout']  = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
                 }
             }
             if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {
@@ -1113,22 +1113,22 @@ function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '') {
 function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated = false, $transform_function = '', $default_function = '') {
     // Define classes to be added to this data field based on the type of data
     $enum_class = '';
-    if(strpos($meta->flags, 'enum') !== false) {
+    if (strpos($meta->flags, 'enum') !== false) {
         $enum_class = ' enum';
     }
 
     $set_class = '';
-    if(strpos($meta->flags, 'set') !== false) {
+    if (strpos($meta->flags, 'set') !== false) {
         $set_class = ' set';
     }
 
     $bit_class = '';
-    if(strpos($meta->type, 'bit') !== false) {
+    if (strpos($meta->type, 'bit') !== false) {
         $bit_class = ' bit';
     }
 
     $mime_type_class = '';
-    if(isset($meta->mimetype)) {
+    if (isset($meta->mimetype)) {
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
     }
 
@@ -1301,7 +1301,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 // Class definitions required for inline editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
-                if( $clause_is_unique == 0) {
+                if ( $clause_is_unique == 0) {
                     $edit_anchor_class .= ' nonunique';
                 }
             } // end if (1.2.1)
@@ -2726,7 +2726,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
          */
-        if(! empty($where_clause)) {
+        if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
         }
         $ret .= '</span></td>';
@@ -2756,7 +2756,7 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
          */
-        if(! empty($where_clause)) {
+        if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
         }
         $ret .= '</span></td>';

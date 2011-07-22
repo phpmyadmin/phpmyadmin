@@ -600,7 +600,7 @@ function PMA_mysqlDie($error_message = '', $the_query = '',
         * - avoid displaying a Back link
         * - use PMA_ajaxResponse() to transmit the message and exit
         */
-       if($GLOBALS['is_ajax_request'] == true) {
+       if ($GLOBALS['is_ajax_request'] == true) {
            PMA_ajaxResponse($error_msg_output, false);
        }
         if (! empty($back_url)) {
@@ -779,7 +779,7 @@ function PMA_backquote($a_name, $do_it = true)
     if (! $do_it) {
         global $PMA_SQPdata_forbidden_word;
 
-        if(! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
+        if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
             return $a_name;
         }
     }
@@ -869,7 +869,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
      * in a string.  In some special cases on sql.php, buffering has to be disabled
      * and hence we check with $GLOBALS['buffer_message']
      */
-    if( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
+    if ( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
         ob_start();
     }
     global $cfg;
@@ -1202,7 +1202,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     // If we are in an Ajax request, we have most probably been called in
     // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
     // to PMA_ajaxResponse(), which will encode it for JSON.
-    if( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
+    if ( $GLOBALS['is_ajax_request'] == true && ! isset($GLOBALS['buffer_message']) ) {
         $buffer_contents =  ob_get_contents();
         ob_end_clean();
         return $buffer_contents;
@@ -1341,13 +1341,13 @@ function PMA_localizeNumber($value)
  */
 function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_down = false, $noTrailingZero = true)
 {
-    if($value==0) return '0';
+    if ($value==0) return '0';
 
     $originalValue = $value;
     //number_format is not multibyte safe, str_replace is safe
     if ($digits_left === 0) {
         $value = number_format($value, $digits_right);
-        if($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
+        if ($originalValue!=0 && floatval($value) == 0) $value = ' <'.(1/PMA_pow(10,$digits_right));
 
         return PMA_localizeNumber($value);
     }
@@ -1388,22 +1388,22 @@ function PMA_formatNumber($value, $digits_left = 3, $digits_right = 0, $only_dow
     // Lowering the SI prefix by 1 gives us an additional 3 zeros
     // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
     $cur_digits = floor(log10($value / PMA_pow(1000, $d, 'pow'))+1);
-    if($digits_left > $cur_digits) {
+    if ($digits_left > $cur_digits) {
         $d-= floor(($digits_left - $cur_digits)/3);
     }
 
-    if($d<0 && $only_down) $d=0;
+    if ($d<0 && $only_down) $d=0;
 
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
     $unit = $units[$d];
 
     // If we dont want any zeros after the comma just add the thousand seperator
-    if($noTrailingZero)
+    if ($noTrailingZero)
         $value = PMA_localizeNumber(preg_replace("/(?<=\d)(?=(\d{3})+(?!\d))/",",",$value));
     else
         $value = PMA_localizeNumber(number_format($value, $digits_right)); //number_format is not multibyte safe, str_replace is safe
 
-    if($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
+    if ($originalValue!=0 && floatval($value) == 0) return ' <'.(1/PMA_pow(10,$digits_right)).' '.$unit;
 
     return $sign . $value . ' ' . $unit;
 } // end of the 'PMA_formatNumber' function
@@ -1541,7 +1541,7 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir='')
     }
 
     // If there are any tab specific URL parameters, merge those with the general URL parameters
-    if(! empty($tab['url_params']) && is_array($tab['url_params'])) {
+    if (! empty($tab['url_params']) && is_array($tab['url_params'])) {
         $url_params = array_merge($url_params, $tab['url_params']);
     }
 
@@ -2806,7 +2806,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
     $response = array();
-    if( $success == true ) {
+    if ( $success == true ) {
         $response['success'] = true;
         if ($message instanceof PMA_Message) {
             $response['message'] = $message->getDisplay();
@@ -2817,7 +2817,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
     else {
         $response['success'] = false;
-        if($message instanceof PMA_Message) {
+        if ($message instanceof PMA_Message) {
             $response['error'] = $message->getDisplay();
         }
         else {
@@ -2826,7 +2826,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     }
 
     // If extra_data has been provided, append it to the response array
-    if( ! empty($extra_data) && count($extra_data) > 0 ) {
+    if ( ! empty($extra_data) && count($extra_data) > 0 ) {
         $response = array_merge($response, $extra_data);
     }
 
@@ -2841,7 +2841,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 
     echo json_encode($response);
 
-    if(!defined('TESTSUITE'))
+    if (!defined('TESTSUITE'))
         exit;
 }
 

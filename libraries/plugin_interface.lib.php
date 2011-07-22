@@ -80,7 +80,7 @@ function PMA_pluginCheckboxCheck($section, $opt)
  */
 function PMA_pluginGetDefault($section, $opt)
 {
-    if(isset($_GET[$opt])) { // If the form is being repopulated using $_GET data, that is priority
+    if (isset($_GET[$opt])) { // If the form is being repopulated using $_GET data, that is priority
         return htmlspecialchars($_GET[$opt]);
     } elseif (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt])) {
         return htmlspecialchars($_REQUEST[$opt]);
@@ -148,7 +148,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     foreach ($list as $plugin_name => $val) {
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
-        if(isset($_GET[$name]) && $plugin_name == $_GET[$name] || ! isset($_GET[$name]) && $plugin_name == $default) {
+        if (isset($_GET[$name]) && $plugin_name == $_GET[$name] || ! isset($_GET[$name]) && $plugin_name == $default) {
             $ret .= ' selected="selected"';
         }
          $ret .= ' value="' . $plugin_name . '">' . PMA_getString($val['text']) . '</option>' . "\n";
@@ -158,7 +158,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     // Whether each plugin has to be saved as a file
     foreach ($list as $plugin_name => $val) {
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name . '" value="';
-        if(isset($val['force_file'])) {
+        if (isset($val['force_file'])) {
             $ret .= 'true';
         } else {
             $ret .= 'false';
@@ -230,7 +230,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
         foreach ($opt['values'] as $key => $val) {
             $ret .= '<li><input type="radio" name="' . $plugin_name . '_' . $opt['name'] . '" value="' . $key
             . '" id="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '"';
-            if($key == $default) {
+            if ($key == $default) {
                 $ret .= 'checked="checked"';
             }
             $ret .= ' />' . '<label for="radio_' . $plugin_name . '_' . $opt['name'] . '_' . $key . '">'
@@ -250,7 +250,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
     } elseif ($opt['type'] == 'begin_subgroup') {
         /* each subgroup can have a header, which may also be a form element */
         $ret .=  PMA_pluginGetOneOption($section, $plugin_name, $id, $opt['subgroup_header']) . '<li class="subgroup"><ul';
-        if(isset($opt['subgroup_header']['name'])) {
+        if (isset($opt['subgroup_header']['name'])) {
             $ret .= ' id="ul_' . $opt['subgroup_header']['name'] . '">';
         } else {
             $ret .= '>';
@@ -273,7 +273,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
     }
 
     // Close the list element after $opt['doc'] link is displayed
-    if($opt['type'] == 'bool' || $opt['type'] == 'text' || $opt['type'] == 'message_only' || $opt['type'] == 'select') {
+    if ($opt['type'] == 'bool' || $opt['type'] == 'text' || $opt['type'] == 'message_only' || $opt['type'] == 'select') {
         $ret .= '</li>';
     }
     $ret .= "\n";

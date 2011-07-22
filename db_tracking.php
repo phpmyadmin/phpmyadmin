@@ -16,7 +16,7 @@ $GLOBALS['js_include'][] = 'db_structure.js';
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
-if($GLOBALS['is_ajax_request'] != true) {
+if ($GLOBALS['is_ajax_request'] != true) {
     require './libraries/db_common.inc.php';
 }
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
@@ -34,7 +34,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
      * If in an Ajax request, generate the success message and use
      * {@link PMA_ajaxResponse()} to send the output
      */
-    if($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true) {
         $message = PMA_Message::success();
         PMA_ajaxResponse($message, true);
     }

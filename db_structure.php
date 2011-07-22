@@ -372,7 +372,7 @@ foreach ($tables as $keyname => $each_table) {
                 $sum_row_count_pre = '~';
                 $show_superscript = PMA_showHint(PMA_sanitize(sprintf(__('This view has at least this number of rows. Please refer to %sdocumentation%s.'), '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]', '[/a]')));
             }
-        } elseif($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
+        } elseif ($each_table['ENGINE'] == 'InnoDB' && (! $each_table['COUNTED'])) {
             // InnoDB table: we did not get an accurate row count
             $row_count_pre = '~';
             $sum_row_count_pre = '~';

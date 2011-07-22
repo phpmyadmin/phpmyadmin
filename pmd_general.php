@@ -42,7 +42,7 @@ echo '
     var db = "' . PMA_escapeJsString($db) . '";
     var token = "' . PMA_escapeJsString($token) . '";';
 	echo "\n";
-	if($_REQUEST['query']) {
+	if ($_REQUEST['query']) {
 	echo '
 	 $(document).ready(function(){
 		$(".trigger").click(function(){
@@ -113,7 +113,7 @@ echo $script_tabs . $script_contr . $script_display_field;
         ><img src="pmd/images/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
          >
-        <?php if($_REQUEST['query']){
+        <?php if ($_REQUEST['query']){
             echo '<a href="#" onClick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
             class="M_butt" target="_self">';
             echo '<img src="pmd/images/query_builder.png" alt="key" width="20" height="20" title="';
@@ -205,7 +205,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <thead>
 <tr>
     <?php
-	if(isset($_REQUEST['query'])) {
+	if (isset($_REQUEST['query'])) {
 		echo '<td class="select_all">';
     	echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
         echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
@@ -238,7 +238,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
         ?></td>
     <?php
-	if(isset($_REQUEST['query'])) {
+	if (isset($_REQUEST['query'])) {
 		echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
         echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
         echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
@@ -274,7 +274,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         }
         ?>)">
     <?php
-	if(isset($_REQUEST['query'])) {
+	if (isset($_REQUEST['query'])) {
     	echo '<td class="select_all">';
 	    echo '<input value="'.htmlspecialchars($t_n_url).urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"';
         echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).'._'.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
@@ -315,7 +315,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         </div>
    </td>
    <?php
-   if(isset($_REQUEST['query'])) {
+   if (isset($_REQUEST['query'])) {
 	   //$temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
 	   echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
 	   echo 'onmouseout="this.className=\'small_tab_pref\';"';
@@ -801,7 +801,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 </table>
 
 <?php
-if($_REQUEST['query']) {
+if ($_REQUEST['query']) {
 	echo '<div class="panel">';
   	echo '<div style="clear:both;"></div>';
    	echo '<div id="ab"></div>';

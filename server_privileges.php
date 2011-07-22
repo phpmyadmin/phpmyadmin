@@ -1046,7 +1046,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     /**
                      * If we are not in an Ajax request, we can't reload navigation now
                      */
-                    if($GLOBALS['is_ajax_request'] != true) {
+                    if ($GLOBALS['is_ajax_request'] != true) {
                         // this is needed in case tracking is on:
                         $GLOBALS['db'] = $username;
                         $GLOBALS['reload'] = true;
@@ -1346,7 +1346,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
             $GLOBALS['reload'] = true;
 
-            if($GLOBALS['is_ajax_request'] != true) {
+            if ($GLOBALS['is_ajax_request'] != true) {
                 PMA_reloadNavigation();
             }
         }
@@ -1446,11 +1446,11 @@ $link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="s
  */
 if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['adduser']) || $_add_user_error) && ! isset($_REQUEST['initial']) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
-    if(isset($sql_query)) {
+    if (isset($sql_query)) {
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
     }
 
-    if(isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
+    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         /**
          * generate html on the fly for the new user that was just created.
          */
@@ -1460,7 +1460,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
                            .'<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
         $new_user_string .= '<td>';
 
-        if(!empty($password) || isset($pma_pw)) {
+        if (!empty($password) || isset($pma_pw)) {
             $new_user_string .= __('Yes');
         }
         else {
@@ -1471,7 +1471,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
         $new_user_string .= '<td><tt>' . join(', ', PMA_extractPrivInfo('', true)) . '</tt></td>'; //Fill in privileges here
         $new_user_string .= '<td>';
 
-        if((isset($Grant_priv) && $Grant_priv == 'Y')) {
+        if ((isset($Grant_priv) && $Grant_priv == 'Y')) {
             $new_user_string .= __('Yes');
         }
         else {
@@ -1498,7 +1498,7 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
     }
 
-    if(isset($update_privs)) {
+    if (isset($update_privs)) {
         $extra_data['db_specific_privs'] = false;
         if (isset($dbname_is_wildcard)) {
             $extra_data['db_specific_privs'] = !$dbname_is_wildcard;
@@ -1806,7 +1806,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         // A user was selected -> display the user's properties
 
         // In an Ajax request, prevent cached values from showing
-        if($GLOBALS['is_ajax_request'] == true) {
+        if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
 
@@ -2376,7 +2376,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     $user_form .= '</tbody>' . "\n"
        . '</table></form>' . "\n";
 
-    if($GLOBALS['is_ajax_request'] == true){
+    if ($GLOBALS['is_ajax_request'] == true){
         $extra_data['user_form'] = $user_form;
         $message = PMA_Message::success(__('User has been added.'));
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);

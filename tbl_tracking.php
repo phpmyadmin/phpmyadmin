@@ -27,7 +27,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     }
     if ($_REQUEST['logtype'] == 'schema') {
         $selection_schema = true;
-    } elseif($_REQUEST['logtype'] == 'data') {
+    } elseif ($_REQUEST['logtype'] == 'data') {
         $selection_data   = true;
     } else {
         $selection_both   = true;
@@ -369,13 +369,13 @@ if (isset($_REQUEST['snapshot'])) {
  */
 if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))) {
 
-    if(isset($_REQUEST['delete_ddlog'])){
+    if (isset($_REQUEST['delete_ddlog'])){
         
         // Delete ddlog row data
         $delete_id = $_REQUEST['delete_ddlog'];
         
         // Only in case of valable id
-        if($delete_id == (int)$delete_id){
+        if ($delete_id == (int)$delete_id){
             unset($data['ddlog'][$delete_id]);
             
             if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DDL', $data['ddlog']))
@@ -386,13 +386,13 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
         }
     }
 
-    if(isset($_REQUEST['delete_dmlog'])){
+    if (isset($_REQUEST['delete_dmlog'])){
         
         // Delete dmlog row data
         $delete_id = $_REQUEST['delete_dmlog'];
         
         // Only in case of valable id
-        if($delete_id == (int)$delete_id){
+        if ($delete_id == (int)$delete_id){
             unset($data['dmlog'][$delete_id]);
             
             if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DML', $data['dmlog']))

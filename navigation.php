@@ -576,7 +576,7 @@ function PMA_displayTableList($tables, $visible = false,
             while (isset($table['is' . $sep . 'group'])) {
                 // get the array with the actual table information
                 foreach ($table as $value) {
-                    if(is_array($value)) {
+                    if (is_array($value)) {
                         $table = $value;
                     }
                 }

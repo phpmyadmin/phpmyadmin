@@ -477,7 +477,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
  $matching_tables_keys, $source_columns, &$add_column_array, $criteria, $target_tables_keys, $uncommon_tables, &$uncommon_tables_fields,$uncommon_cols,
  &$alter_str_array,&$source_indexes, &$target_indexes, &$add_indexes_array, &$alter_indexes_array, &$delete_array, &$update_array, $display)
 {
-    if(isset($array_insert[$matching_table_index])) {
+    if (isset($array_insert[$matching_table_index])) {
         if (sizeof($array_insert[$matching_table_index])) {
             for ($insert_row = 0; $insert_row< sizeof($array_insert[$matching_table_index]); $insert_row++) {
                 if (isset($array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][0]])) {
@@ -828,7 +828,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
             $query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]). " ADD COLUMN " .
             $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . " " . $source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Type'];
 
-            if($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'NO') {
+            if ($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'NO') {
                 $query .= ' Not Null ';
             } elseif ($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'YES') {
                 $query .= ' Null ';
@@ -1004,23 +1004,23 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
                         $sql_query .= " Null "  ;
                     }
                     if ($criteria[$i] == 'Collation') {
-                        if( !(isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
+                        if ( !(isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
                             $sql_query .= " Not Null " ;
                         }
                         $sql_query .=  " COLLATE " . $alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]] ;
                     }
                     if (($criteria[$i] == 'Default') && ($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]] == 'None')) {
-                        if( !(isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
+                        if ( !(isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
                             $sql_query .= " Not Null " ;
                         }
-                    } elseif($criteria[$i] == 'Default') {
-                        if(! (isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
+                    } elseif ($criteria[$i] == 'Default') {
+                        if (! (isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
                             $sql_query .= " Not Null " ;
                         }
                         if (is_string($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]])) {
                             if ($source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'] != 'timestamp') {
                                 $sql_query .=  " DEFAULT '" . $alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]] . "'";
-                            } elseif($source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'] == 'timestamp') {
+                            } elseif ($source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'] == 'timestamp') {
                                 $sql_query .=  " DEFAULT " . $alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]];
                             }
                         } elseif (is_numeric($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]])) {
@@ -1028,7 +1028,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
                         }
                     }
                     if ($criteria[$i] == 'Comment') {
-                        if( !(isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
+                        if ( !(isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[2]]))) {
                             $sql_query .= " Not Null " ;
                         }
                         $sql_query .=  " COMMENT '" . $alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]] . "'" ;
@@ -1162,7 +1162,7 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link, $matchi
             $z++;
         }
         if ($found === false) {
-            if(! ($source_indexes[$table_counter][$a]['Key_name'] == 'PRIMARY')) {
+            if (! ($source_indexes[$table_counter][$a]['Key_name'] == 'PRIMARY')) {
                 $add_indexes_array [$table_counter][] = $source_indexes[$table_counter][$a]['Column_name'];
             }
         }
@@ -1364,7 +1364,7 @@ function PMA_get_column_values($database, $table, $column, $link = null)
     for ($i=0; $i< sizeof($column); $i++)
     {
         $query.= PMA_backquote($column[$i]);
-        if($i < (sizeof($column)-1))
+        if ($i < (sizeof($column)-1))
         {
             $query.= ', ';
         }

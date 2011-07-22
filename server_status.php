@@ -222,15 +222,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 // Ignore undefined index warning, just increase counter by one
                 @$return['sum'][$type] += $row['#'];
 				
-                if($type=='insert' || $type=='update') {
+                if ($type=='insert' || $type=='update') {
                     // Group inserts if selected
-                    if($type=='insert' && isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
+                    if ($type=='insert' && isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
                             
                             // Add a ... to the end of this query to indicate that there's been other queries
-                            if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+                            if ($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
 								$return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
                                 
                             // Group this value, thus do not add to the result list
@@ -557,7 +557,7 @@ require './libraries/server_common.inc.php';
 require './libraries/server_links.inc.php';
 
 $server = 1;
-if(isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
+if (isset($_REQUEST['server']) && intval($_REQUEST['server'])) $server = intval($_REQUEST['server']);
 
 $server_db_isLocal = strtolower($cfg['Servers'][$server]['host']) == 'localhost' 
                               || $cfg['Servers'][$server]['host'] == '127.0.0.1'
@@ -722,7 +722,7 @@ function printQueryStatistics() {
         echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0); 
         echo '<br>';
         
-        if($total_queries / $server_status['Uptime'] >= 1) {
+        if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash; '.__('per second').': ';
             echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0); 
         }
@@ -768,7 +768,7 @@ function printQueryStatistics() {
         $name = str_replace(array('Com_', '_'), array('', ' '), $name);
 
         // Group together values that make out less than 2% into "Other", but only if we have more than 6 fractions already
-        if($value < $query_sum * 0.02 && count($chart_json)>6)
+        if ($value < $query_sum * 0.02 && count($chart_json)>6)
             $other_sum += $value;
         else $chart_json[$name] = $value;
     ?>
@@ -1364,7 +1364,7 @@ function printMonitor() {
     <div id="addChartDialog" title="Add chart" style="display:none;">
         <div id="tabGridVariables">
             <p><input type="text" name="chartTitle" value="<?php echo __('Chart Title'); ?>" /></p>
-            <?php if($server_db_isLocal) { ?>
+            <?php if ($server_db_isLocal) { ?>
             <input type="radio" name="chartType" value="cpu" id="chartCPU"> 
             <label for="chartCPU"><?php echo __('CPU Usage'); ?></label><br/>
             
@@ -1444,8 +1444,8 @@ function printMonitor() {
         variableNames = [ <?php
             $i=0;
             foreach ($server_status as $name=>$value) {
-                if(is_numeric($value)) {
-                    if($i++ > 0) echo ", ";
+                if (is_numeric($value)) {
+                    if ($i++ > 0) echo ", ";
                     echo "'".$name."'";
                 }
             }
@@ -1462,7 +1462,7 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
             foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
                 
-                if($rate<60)
+                if ($rate<60)
                     echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d second', '%d seconds', $rate), $rate).'</option>';
                 else
                     echo '<option value="'.$rate.'"'.$selected.'>'.sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60).'</option>';

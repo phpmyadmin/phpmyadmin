@@ -83,7 +83,7 @@ if ($cfgRelation['pdfwork']) {
      * @param string $do It tells what the Schema is supposed to do
      *                  create and select a page, generate schema etc             
      */
-    if(isset($_REQUEST['do'])){
+    if (isset($_REQUEST['do'])){
         $user_schema->setAction($_REQUEST['do']);
         $user_schema->processUserChoice();
     }    
