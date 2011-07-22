@@ -33,10 +33,10 @@ function PMA_urlencode(str) {
 function getFieldName($this_field, disp_mode) {
 
     if(disp_mode == 'vertical') {
-        var field_name = $this_field.siblings('th').find('a').text();
+        var $field = $this_field.siblings('th').find('a').clone();
         // happens when just one row (headings contain no a)
-        if ("" == field_name) {
-            field_name = $this_field.siblings('th').text();
+        if ($field.length == 0) {
+            $field = $this_field.siblings('th').clone();
         }
     }
     else {
@@ -44,14 +44,14 @@ function getFieldName($this_field, disp_mode) {
         // ltr or rtl direction does not impact how the DOM was generated
         //
         // 5 columns to account for the checkbox, edit, appended inline edit, copy and delete anchors but index is zero-based so substract 4
-        var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-4 )+') a').text();
+        var $field = $('#table_results').find('thead').find('th:nth('+ (this_field_index-4 )+') a').clone();
         // happens when just one row (headings contain no a)
-        if ("" == field_name) {
-            field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index-4 )+')').text();
+        if ($field.length == 0) {
+            $field = $('#table_results').find('thead').find('th:nth('+ (this_field_index-4 )+')').clone();
         }
     }
-
-    field_name = $.trim(field_name);
+    $field.children().remove();
+    var field_name = $.trim($field.text());
 
     return field_name;
 }
