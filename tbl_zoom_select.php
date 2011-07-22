@@ -22,7 +22,6 @@ $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
 /* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
@@ -233,7 +232,7 @@ for($i = 0 ; $i < 4 ; $i++){
         </td>
     </tr>
 
-    <input type="hidden" name="types[<?php echo $i; ?>]"
+    <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
         value="<?php if(isset($tbl_fields_type[$i]))echo $tbl_fields_type[$i]; ?>" />
     <input type="hidden" name="collations[<?php echo $i; ?>]"
         value="<?php if(isset($tbl_fields_collation[$i]))echo $tbl_fields_collation[$i]; ?>" />
@@ -349,14 +348,13 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
-    <div id="overlay" class="web_dialog_overlay"></div>
-    <div id="dialog" class="web_dialog" style="display:none">
     <fieldset id="displaySection">
         <legend><?php echo __('Browse/Edit the points') ?></legend>
+	<center>
         <?php
             //JSON encode the data(query result)
             if(isset($zoom_submit) && !empty($data)){ ?>
-                <div id='resizer' style="width:600px;height:400px;float:right">
+                <div id='resizer' style="width:600px;height:400px">
 	        <?php if (isset($data)) ?><center> <a href="#" onClick="displayHelp();"><?php echo __('How to use'); ?></a> </center>
                 <div id="querydata" style="display:none">
                     <?php if(isset($data)) echo json_encode($data); ?>
@@ -365,9 +363,8 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
                 </div>
                 <?php 
 	    } ?>
-    
-    <fieldset id='dataDisplay'>
-        <legend><?php echo __('Data point content') ?></legend>
+        </center>
+    <fieldset id='dataDisplay' style="display:none">
         <fieldset>
         <table class="data">
             <thead>
@@ -396,12 +393,11 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
         </table>
         </fieldset>
         <fieldset class="tblFooters">
-            <input type="submit" id="buttonID" name="edit_point" value="<?php echo __('Submit'); ?>" />
+            <input type="submit" id="submitForm" name="edit_point" value="<?php echo __('Submit'); ?>" />
         </fieldset>
     </fieldset>
 
     </fieldset>
-    </div>
     <input type="hidden" id="queryID" name="sql_query" />
     </form>
     </fieldset>
