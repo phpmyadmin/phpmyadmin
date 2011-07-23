@@ -87,7 +87,7 @@ function PMA_exportHeader()
  */
 function PMA_exportDBHeader($db)
 {
-    PMA_exportOutputHandler('//' . $GLOBALS['crlf'] . '// Database "' . $db . '"' . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']);
+    PMA_exportOutputHandler('//' . $GLOBALS['crlf'] . '// Database ' . PMA_backquote($db) . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']);
     return true;
 }
 
@@ -163,13 +163,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
         // Output table name as comment if this is the first record of the table
         if ($record_cnt == 1) {
-            $buffer .= $crlf . '// ' . $db . '.' . $table . $crlf;
+            $buffer .= $crlf . '// ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $crlf;
             $buffer .= '$' . $tablefixed . ' = array(' . $crlf;
             $buffer .= '  array(';
         } else {
             $buffer .= ',' . $crlf . '  array(';
         }
-
 
         for ($i = 0; $i < $columns_cnt; $i++) {
             $buffer .= var_export($columns[$i], true) . "=>" . var_export($record[$i], true) . (($i + 1 >= $columns_cnt) ? '' : ',');
