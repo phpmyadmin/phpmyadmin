@@ -9906,7 +9906,7 @@ msgstr ""
 "iz sürme süresinde size yardımcı\n"
 "olabilir. Sonrası için log_output'u 'TABLE'a ayarlamanız gerekecektir ve ya "
 "slow_query_log ya da general_log etkinleştirilir.\n"
-" Ancak unutmayın, general_log çok fazla veri üretir ve sunucu yükünü %15'e "
+"Ancak unutmayın, general_log çok fazla veri üretir ve sunucu yükünü %15'e "
 "kadar arttırır"
 
 #: server_status.php:1346
