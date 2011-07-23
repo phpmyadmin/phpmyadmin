@@ -677,7 +677,7 @@ msgstr "Eksporter"
 #: libraries/display_tbl.lib.php:2436 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
-msgstr "Vis (udskriftvenlig)"
+msgstr "Udskriv"
 
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a state it should translate to "Tom".
 #: db_structure.php:503 libraries/common.lib.php:2911
