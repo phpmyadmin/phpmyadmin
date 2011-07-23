@@ -6848,7 +6848,7 @@ msgstr "Opretter"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:392
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr "Opretter skal være i formatet \"username@hostname\" "
+msgstr "Opretter skal være i formatet \"brugernavn@værtsnavn\" "
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
