@@ -92,6 +92,10 @@ button {
 .ic_s_loggoff { background-position: -1698px 0; } 
 .ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; } 
 .ic_b_view { background-position: -1077px 0; } 
+.ic_b_plus { background-position: -573px 0; } 
+.ic_b_minus { background-position: -471px 0; } 
+
+.ic_b_views, .ic_s_views { background-position: -1094px 0; } 
 
 /******************************************************************************/
 /* classes */

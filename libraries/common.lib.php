@@ -66,9 +66,10 @@ function PMA_pow($base, $exp, $use_function = false)
  * @param string  $alternate  alternate text
  * @param boolean $container  include in container
  * @param boolean $force_text whether to force alternate text to be displayed
+ * @param boolean $noSprite   If true, the image source will be not replaced with a CSS Sprite
  * @return html img tag
  */
-function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false)
+function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false, $noSprite = false)
 {
     $include_icon = false;
     $include_text = false;
@@ -80,14 +81,12 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
          $include_icon = true;
     }
 
-    if ($force_text
-     || ! (true === $GLOBALS['cfg']['PropertiesIconic'])
-     || ! $include_icon) {
+    if ($force_text || true !== $GLOBALS['cfg']['PropertiesIconic']) {
         // $cfg['PropertiesIconic'] is false or both
         // OR we have no $include_icon
         $include_text = true;
     }
-
+    
     if ($include_text && $include_icon && $container) {
         // we have icon, text and request for container
         $include_box = true;
@@ -97,9 +96,14 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
     $button .= '<span class="nowrap">';
 
     if ($include_icon) {
-        $button .= '<img src="themes/dot.gif"'
-            . ' title="' . $alternate . '" alt="' . $alternate . '"'
-            . ' class="icon ic_' . str_replace('.png','',$icon) . '" />';
+        if($noSprite) {
+            $button .= '<img src="' . $GLOBALS['pmaThemeImage'] . $icon . '"'
+                    . ' class="icon" width="16" height="16" />';
+        } else {
+            $button .= '<img src="themes/dot.gif"'
+                . ' title="' . $alternate . '" alt="' . $alternate . '"'
+                . ' class="icon ic_' . str_replace(array('.gif','.png'),array('',''),$icon) . '" />';
+        }
     }
 
     if ($include_icon && $include_text) {
@@ -1648,6 +1652,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         return '';
     }
 
+
     if (! is_array($tag_params)) {
         $tmp = $tag_params;
         $tag_params = array();
@@ -1669,11 +1674,17 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
         $tag_params_strings[] = $par_name . '="' . $par_value . '"';
     }
 
+    $displayed_message = '';
+    // Add text if not already added
+    if (stristr($message, '<img') && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true) && strip_tags($message)==$message) {
+        $displayed_message = '<span>' . htmlspecialchars(preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)) . '</span>';
+    }
+
     if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
         // no whitespace within an <a> else Safari will make it part of the link
         $ret = "\n" . '<a href="' . $url . '" '
             . implode(' ', $tag_params_strings) . '>'
-            . $message . '</a>' . "\n";
+            . $message . $displayed_message . '</a>' . "\n";
     } else {
         // no spaces (linebreaks) at all
         // or after the hidden fields
@@ -1702,7 +1713,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
                  . ' method="post"' . $target . ' style="display: inline;">';
             $subname_open   = '';
             $subname_close  = '';
-            $submit_name    = '';
+            $submit_link    = '#';
         } else {
             $query_parts[] = 'redirect=' . $url_parts['path'];
             if (empty($GLOBALS['subform_counter'])) {
@@ -1712,7 +1723,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
             $ret            = '';
             $subname_open   = 'subform[' . $GLOBALS['subform_counter'] . '][';
             $subname_close  = ']';
-            $submit_name    = ' name="usesubform[' . $GLOBALS['subform_counter'] . ']"';
+            $submit_link    = '#usesubform[' . $GLOBALS['subform_counter'] . ']=1';
         }
         foreach ($query_parts as $query_pair) {
             list($eachvar, $eachval) = explode('=', $query_pair);
@@ -1721,35 +1732,10 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
                 . htmlspecialchars(urldecode($eachval)) . '" />';
         } // end while
 
-        if (stristr($message, '<img')) {
-            if ($strip_img) {
-                $message = trim(strip_tags($message));
-                $ret .= '<input type="submit"' . $submit_name . ' '
-                    . implode(' ', $tag_params_strings)
-                    . ' value="' . htmlspecialchars($message) . '" />';
-            } else {
-                $displayed_message = htmlspecialchars(
-                        preg_replace('/^.*\salt="([^"]*)".*$/si', '\1',
-                            $message));
-                $ret .= '<input type="image"' . $submit_name . ' '
-                    . implode(' ', $tag_params_strings)
-                    . ' src="' . preg_replace(
-                        '/^.*\ssrc="([^"]*)".*$/si', '\1', $message) . '"'
-                        . ' value="' . $displayed_message . '" title="' . $displayed_message . '" />';
-                // Here we cannot obey PropertiesIconic completely as a
-                // generated link would have a length over LinkLengthLimit
-                // but we can at least show the message.
-                // If PropertiesIconic is false or 'both'
-                if ($GLOBALS['cfg']['PropertiesIconic'] !== true) {
-                    $ret .= ' <span class="clickprevimage">' . $displayed_message . '</span>';
-                }
-            }
-        } else {
-            $message = trim(strip_tags($message));
-            $ret .= '<input type="submit"' . $submit_name . ' '
-                . implode(' ', $tag_params_strings)
-                . ' value="' . htmlspecialchars($message) . '" />';
-        }
+        $ret .= "\n" . '<a href="' . $submit_link . '" class="formLinkSubmit" '
+        . implode(' ', $tag_params_strings) . '>'
+        . $message . ' ' . $displayed_message . '</a>' . "\n";	
+
         if ($new_form) {
             $ret .= '</form>';
         }

@@ -210,7 +210,13 @@ function confirmLink(theLink, theSqlQuery)
 
     var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
     if (is_confirmed) {
-        if ( typeof(theLink.href) != 'undefined' ) {
+        if ( $(theLink).hasClass('formLinkSubmit') ) {
+			var name = 'is_js_confirmed';
+            if($(theLink).attr('href').indexOf('usesubform') != -1)
+				name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+			
+            $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
+        } else if ( typeof(theLink.href) != 'undefined' ) {
             theLink.href += '&is_js_confirmed=1';
         } else if ( typeof(theLink.form) != 'undefined' ) {
             theLink.form.action += '?is_js_confirmed=1';
@@ -265,59 +271,51 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // The replace function (js1.2) isn't supported
-    else if (typeof(sqlQuery1.value.replace) == 'undefined') {
-        return true;
-    }
-
-    // js1.2+ -> validation with regular expressions
-    else {
-        // "DROP DATABASE" statement isn't allowed
-        if (PMA_messages['strNoDropDatabases'] != '') {
-            var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
-            if (drop_re.test(sqlQuery1.value)) {
-                alert(PMA_messages['strNoDropDatabases']);
-                theForm1.reset();
-                sqlQuery1.focus();
-                return false;
-            } // end if
+    // "DROP DATABASE" statement isn't allowed
+    if (PMA_messages['strNoDropDatabases'] != '') {
+        var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
+        if (drop_re.test(sqlQuery1.value)) {
+            alert(PMA_messages['strNoDropDatabases']);
+            theForm1.reset();
+            sqlQuery1.focus();
+            return false;
         } // end if
+    } // end if
 
-        // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
-        //
-        // TODO: find a way (if possible) to use the parser-analyser
-        // for this kind of verification
-        // For now, I just added a ^ to check for the statement at
-        // beginning of expression
+    // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
+    //
+    // TODO: find a way (if possible) to use the parser-analyser
+    // for this kind of verification
+    // For now, I just added a ^ to check for the statement at
+    // beginning of expression
 
-        var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
-        var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
-        var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
-        var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
+    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
+    var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
+    var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
+    var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
 
-        if (do_confirm_re_0.test(sqlQuery1.value)
-            || do_confirm_re_1.test(sqlQuery1.value)
-            || do_confirm_re_2.test(sqlQuery1.value)
-            || do_confirm_re_3.test(sqlQuery1.value)) {
-            var message      = (sqlQuery1.value.length > 100)
-                             ? sqlQuery1.value.substr(0, 100) + '\n    ...'
-                             : sqlQuery1.value;
-            var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
-            // statement is confirmed -> update the
-            // "is_js_confirmed" form field so the confirm test won't be
-            // run on the server side and allows to submit the form
-            if (is_confirmed) {
-                theForm1.elements['is_js_confirmed'].value = 1;
-                return true;
-            }
-            // statement is rejected -> do not submit the form
-            else {
-                window.focus();
-                sqlQuery1.focus();
-                return false;
-            } // end if (handle confirm box result)
-        } // end if (display confirm box)
-    } // end confirmation stuff
+    if (do_confirm_re_0.test(sqlQuery1.value)
+        || do_confirm_re_1.test(sqlQuery1.value)
+        || do_confirm_re_2.test(sqlQuery1.value)
+        || do_confirm_re_3.test(sqlQuery1.value)) {
+        var message      = (sqlQuery1.value.length > 100)
+                         ? sqlQuery1.value.substr(0, 100) + '\n    ...'
+                         : sqlQuery1.value;
+        var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
+        // statement is confirmed -> update the
+        // "is_js_confirmed" form field so the confirm test won't be
+        // run on the server side and allows to submit the form
+        if (is_confirmed) {
+            theForm1.elements['is_js_confirmed'].value = 1;
+            return true;
+        }
+        // statement is rejected -> do not submit the form
+        else {
+            window.focus();
+            sqlQuery1.focus();
+            return false;
+        } // end if (handle confirm box result)
+    } // end if (display confirm box)
 
     return true;
 } // end of the 'confirmQuery()' function
@@ -360,47 +358,31 @@ function checkSqlQuery(theForm)
     var sqlQuery = theForm.elements['sql_query'];
     var isEmpty  = 1;
 
-    // The replace function (js1.2) isn't supported -> basic tests
-    if (typeof(sqlQuery.value.replace) == 'undefined') {
-        isEmpty      = (sqlQuery.value == '') ? 1 : 0;
-        if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
-            isEmpty  = (theForm.elements['sql_file'].value == '') ? 1 : 0;
-        }
-        if (isEmpty && typeof(theForm.elements['sql_localfile']) != 'undefined') {
-            isEmpty  = (theForm.elements['sql_localfile'].value == '') ? 1 : 0;
-        }
-        if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
+    var space_re = new RegExp('\\s+');
+    if (typeof(theForm.elements['sql_file']) != 'undefined' &&
+            theForm.elements['sql_file'].value.replace(space_re, '') != '') {
+        return true;
+    }
+    if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
+            theForm.elements['sql_localfile'].value.replace(space_re, '') != '') {
+        return true;
+    }
+    if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
+            (theForm.elements['id_bookmark'].value != null || theForm.elements['id_bookmark'].value != '') &&
+            theForm.elements['id_bookmark'].selectedIndex != 0
+            ) {
+        return true;
+    }
+    // Checks for "DROP/DELETE/ALTER" statements
+    if (sqlQuery.value.replace(space_re, '') != '') {
+        if (confirmQuery(theForm, sqlQuery)) {
+            return true;
+        } else {
+            return false;
         }
     }
-    // js1.2+ -> validation with regular expressions
-    else {
-        var space_re = new RegExp('\\s+');
-        if (typeof(theForm.elements['sql_file']) != 'undefined' &&
-                theForm.elements['sql_file'].value.replace(space_re, '') != '') {
-            return true;
-        }
-        if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
-                theForm.elements['sql_localfile'].value.replace(space_re, '') != '') {
-            return true;
-        }
-        if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
-                (theForm.elements['id_bookmark'].value != null || theForm.elements['id_bookmark'].value != '') &&
-                theForm.elements['id_bookmark'].selectedIndex != 0
-                ) {
-            return true;
-        }
-        // Checks for "DROP/DELETE/ALTER" statements
-        if (sqlQuery.value.replace(space_re, '') != '') {
-            if (confirmQuery(theForm, sqlQuery)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        theForm.reset();
-        isEmpty = 1;
-    }
+    theForm.reset();
+    isEmpty = 1;
 
     if (isEmpty) {
         sqlQuery.select();
@@ -423,19 +405,9 @@ function checkSqlQuery(theForm)
  */
 function emptyCheckTheField(theForm, theFieldName)
 {
-    var isEmpty  = 1;
     var theField = theForm.elements[theFieldName];
-    // Whether the replace function (js1.2) is supported or not
-    var isRegExp = (typeof(theField.value.replace) != 'undefined');
-
-    if (!isRegExp) {
-        isEmpty      = (theField.value == '') ? 1 : 0;
-    } else {
-        var space_re = new RegExp('\\s+');
-        isEmpty      = (theField.value.replace(space_re, '') == '') ? 1 : 0;
-    }
-
-    return isEmpty;
+    var space_re = new RegExp('\\s+');    
+    return (theField.value.replace(space_re, '') == '') ? 1 : 0;
 } // end of the 'emptyCheckTheField()' function
 
 
@@ -1457,6 +1429,7 @@ function PMA_createTableDialog( div, url , target) {
  *                                      - the current response value of the GET request, JSON parsed
  *                                      - the previous response value of the GET request, JSON parsed
  *                                      - the number of added points
+ *                                  error: Callback function when the get request fails. TODO: Apply callback on timeouts aswell
  *                              }
  * 
  * @return  object   The created highcharts instance
@@ -1489,7 +1462,13 @@ function PMA_createChart(passedSettings) {
                             thisChart.options.realtime.url,
                             thisChart.options.realtime.postData,
                             function(data) {
-                                curValue = jQuery.parseJSON(data);
+                                try {
+                                    curValue = jQuery.parseJSON(data);
+                                } catch (err) {
+                                    if(thisChart.options.realtime.error)
+                                        thisChart.options.realtime.error(err);
+                                    return;
+                                }
                                 
                                 if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
                                 else diff = parseInt(curValue.x - lastValue.x);
@@ -1618,12 +1597,12 @@ function PMA_createProfilingChart(data, options) {
 
 // Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
 function PMA_prettyProfilingNum(num, acc) {
-	if(!acc) acc = 1;
-	acc = Math.pow(10,acc);
-	if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ'
-	else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm'
-	
-	return num + 's';
+    if(!acc) acc = 1;
+    acc = Math.pow(10,acc);
+    if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ'
+    else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm'
+    
+    return num + 's';
 }
 
 /**
@@ -2750,22 +2729,15 @@ $(document).ready(function() {
     /**
      * Enables the text generated by PMA_linkOrButton() to be clickable
      */
-    $('.clickprevimage')
-        .css('color', function(index) {
-            return $('a').css('color');
-        })
-        .css('cursor', function(index) {
-            return $('a').css('cursor');
-        }) //todo: hover effect
-        .live('click',function(e) {
-            $this_span = $(this);
-            if ($this_span.closest('td').is('.inline_edit_anchor')) {
-            // this would bind a second click event to the inline edit
-            // anchor and would disturb its behavior
-            } else {
-                $this_span.parent().find('input:image').click();
-            }
-        });
+    $('a[class~="formLinkSubmit"]').live('click',function(e) {
+        
+        if($(this).attr('href').indexOf('=') != -1) {
+            var data = $(this).attr('href').substr($(this).attr('href').indexOf('#')+1).split('=',2);
+            $(this).parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '"/>');
+        }
+        $(this).parents('form').submit();
+        return false;
+    });
 
     $('#update_recent_tables').ready(function() {
         if (window.parent.frame_navigation != undefined

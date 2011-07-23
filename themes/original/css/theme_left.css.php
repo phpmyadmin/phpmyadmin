@@ -87,6 +87,8 @@ button {
 .ic_b_browse { background-position: 0 -18px; } 
 .ic_b_sbrowse { background-position: 0 -660px; width: 10px; height: 10px; } 
 .ic_b_view { background-position: 0 -1044px; } 
+.ic_b_minus { background-position: 0 -440px; width: 9px; height: 9px; } 
+.ic_b_plus { background-position: 0 -523px; width: 9px; height: 9px; } 
 
 /******************************************************************************/
 /* classes */
