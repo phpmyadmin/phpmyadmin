@@ -9110,7 +9110,7 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"For yderligere information om replikationsstatus på servereren gå til <a "
+"For yderligere information om replikationsstatus på serveren gå til <a "
 "href=\"#replication\">replication section</a>."
 
 #: server_status.php:851
