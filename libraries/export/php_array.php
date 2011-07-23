@@ -172,7 +172,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
 
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $buffer .= "'" . $columns[$i]. "'=>" . var_export($record[$i], true) . (($i + 1 >= $columns_cnt) ? '' : ',');
+            $buffer .= var_export($columns[$i], true) . "=>" . var_export($record[$i], true) . (($i + 1 >= $columns_cnt) ? '' : ',');
         }
 
         $buffer .= ')';
