@@ -1835,7 +1835,6 @@ msgid "File was not an uploaded file."
 msgstr "Filen var ikke en uploaded fil."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Ukendt fejl i filupload."
