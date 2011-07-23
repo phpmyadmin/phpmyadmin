@@ -6744,7 +6744,7 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
-"Når tabellen Host bruges, ignoreres dette felt og værdier lagret i Host "
+"Når tabellen host bruges, ignoreres dette felt og værdier lagret i host "
 "bruges i stedet."
 
 #: libraries/replication_gui.lib.php:361
