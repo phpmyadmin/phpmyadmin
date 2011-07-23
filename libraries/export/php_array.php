@@ -142,6 +142,19 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     }
     unset($i);
 
+    // fix variable names (based on http://www.php.net/manual/language.variables.basics.php)
+    if (preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $table) == false) {
+        // fix invalid chars in variable names by replacing them with underscores
+        $tablefixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $table);
+
+        // variable name must not start with a number or dash...
+        if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) == false) {
+            $tablefixed = '_' . $tablefixed;
+        }
+    } else {
+        $table = $tablefixed;
+    }
+
     $buffer = '';
     $record_cnt = 0;
     while ($record = PMA_DBI_fetch_row($result)) {
@@ -151,7 +164,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         // Output table name as comment if this is the first record of the table
         if ($record_cnt == 1) {
             $buffer .= $crlf . '// ' . $db . '.' . $table . $crlf;
-            $buffer .= '$' . $table . ' = array(' . $crlf;
+            $buffer .= '$' . $tablefixed . ' = array(' . $crlf;
             $buffer .= '  array(';
         } else {
             $buffer .= ',' . $crlf . '  array(';
