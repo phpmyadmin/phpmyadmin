@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.4.3.2 (2011-07-XX)
+3.4.3.2 (2011-07-23)
 - [security] Fixed XSS vulnerability, see PMASA-2011-9
 - [security] Fixed local file inclusion vulnerability, see PMASA-2011-10
 - [security] Fixed local file inclusion vulnerability and code execution, see PMASA-2011-11
