@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-23 16:33+0200\n"
+"PO-Revision-Date: 2011-07-23 16:34+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1275,7 +1275,6 @@ msgid "Set long_query_time to %ds"
 msgstr "Sæt long_query_time til %ds"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid ""
 #| "You don't have super user rights to change this variables. Please log in "
 #| "as root account or contact your database administrator."
@@ -1283,7 +1282,7 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"Du har ikke superbruger rettigheder til at ændre denne variabel. Log "
+"Du har ikke superbruger rettigheder til at ændre disse variable. Log "
 "venligst ind som root eller kontakt din database administrator."
 
 #: js/messages.php:132
