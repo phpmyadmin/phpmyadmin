@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-23 17:50+0200\n"
+"PO-Revision-Date: 2011-07-23 18:03+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -7791,7 +7791,7 @@ msgstr "Generelle indstillinger"
 
 #: main.php:103
 msgid "MySQL connection collation"
-msgstr "MySQL forbindelses-sammenkøring"
+msgstr "MySQL forbindelsestegnsæt"
 
 #: main.php:119
 msgid "Appearance Settings"
