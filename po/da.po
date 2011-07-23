@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-23 18:53+0200\n"
+"PO-Revision-Date: 2011-07-23 19:01+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -8684,7 +8684,7 @@ msgstr "Tilføj privileges på følgende tabel"
 
 #: server_privileges.php:2169
 msgid "Change Login Information / Copy User"
-msgstr "Ret Login-information / Kopiér bruger"
+msgstr "Ret Login-information / Kopier bruger"
 
 #: server_privileges.php:2172
 msgid "Create a new user with the same privileges and ..."
