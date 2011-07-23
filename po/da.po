@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-23 16:36+0200\n"
+"PO-Revision-Date: 2011-07-23 16:38+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -9866,7 +9866,6 @@ msgid "Monitor Instructions"
 msgstr "Monitorinstruktioner"
 
 #: server_status.php:1337
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -9884,7 +9883,8 @@ msgstr ""
 "phpMyAdmin Monitor kan hjælpe dig med at optimere serverkonfigurationen og "
 "afsløre tidskrævende\n"
 "forespørgsler. For sidstnævnte kræver det at log_output sættes til 'TABLE' "
-"og at the slow_query_log eller general_log aktiveres."
+"og at slow_query_log eller general_log aktiveres. Bemærk dog, at\n"
+"general_log genererer en mængde data og forøger server load med op til 15%"
 
 #: server_status.php:1346
 #, fuzzy
