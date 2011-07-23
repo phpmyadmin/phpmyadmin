@@ -2247,7 +2247,7 @@ msgstr "Ikke replikeret"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
-msgstr "Gentaget"
+msgstr "Replikeret"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
