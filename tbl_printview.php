@@ -72,7 +72,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote($table);
     }
-    echo '<strong>'.  $strShowTables . ': ' . $tbl_list . '</strong>' . "\n";
+    echo '<strong>'.  $strShowTables . ': ' . htmlspecialchars($tbl_list) . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 
@@ -87,7 +87,7 @@ foreach ($the_tables as $key => $table) {
     }
     $counter++;
     echo '<div' . $breakstyle . '>' . "\n";
-    echo '<h1>' . $table . '</h1>' . "\n";
+    echo '<h1>' .  htmlspecialchars($table) . '</h1>' . "\n";
 
     /**
      * Gets table informations
