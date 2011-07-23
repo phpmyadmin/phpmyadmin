@@ -4006,7 +4006,7 @@ msgstr "Lades blank, hvis ikke brugt"
 
 #: libraries/config/messages.inc.php:360
 msgid "Host authorization order"
-msgstr "Host autorisationsrækkefølge"
+msgstr "Autorisationsrækkefølge for vært"
 
 #: libraries/config/messages.inc.php:361
 msgid "Leave blank for defaults"
