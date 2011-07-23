@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-23 17:49+0200\n"
+"PO-Revision-Date: 2011-07-23 17:50+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5407,7 +5407,7 @@ msgstr "Forespørgselsresultat operationer"
 
 #: libraries/display_tbl.lib.php:2443
 msgid "Print view (with full texts)"
-msgstr "Udskrift (med fulde tekster)"
+msgstr "Udskriv (med fulde tekster)"
 
 #: libraries/display_tbl.lib.php:2491 tbl_chart.php:83
 msgid "Display chart"
