@@ -207,6 +207,9 @@ $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
 
+/* For tbl_structure.js */
+$js_messages['strAddColumns'] = __('Add columns');
+
 /* Designer (pmd/scripts/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
