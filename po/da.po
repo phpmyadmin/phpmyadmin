@@ -6733,7 +6733,7 @@ msgstr "Lokal"
 
 #: libraries/replication_gui.lib.php:313 server_privileges.php:841
 msgid "This Host"
-msgstr "Denne host"
+msgstr "Denne vært"
 
 #: libraries/replication_gui.lib.php:319 server_privileges.php:847
 msgid "Use Host Table"
