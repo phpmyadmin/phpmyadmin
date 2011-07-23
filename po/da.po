@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-23 16:45+0200\n"
+"PO-Revision-Date: 2011-07-23 17:11+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1027,7 +1027,7 @@ msgstr "Der er ikke angivet nogen adgangskode"
 
 #: js/messages.php:57 server_privileges.php:1305 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "De to kodeord er ikke ens!"
+msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:58 server_privileges.php:1765 server_privileges.php:1789
 #: server_privileges.php:2194 server_privileges.php:2388
