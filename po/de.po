@@ -1844,7 +1844,6 @@ msgid "File was not an uploaded file."
 msgstr "Bei der Datei handelt es sich um keine hochgeladene Datei,"
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Unbekannter Fehler beim Dateihochladen."
