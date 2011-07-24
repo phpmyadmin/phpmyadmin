@@ -1139,7 +1139,7 @@ msgstr "System memory"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "System swap"
 
 #: js/messages.php:97 libraries/common.lib.php:1270 server_status.php:1406
 msgid "MiB"
