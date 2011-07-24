@@ -476,10 +476,9 @@ msgid "Add/Delete criteria rows"
 msgstr "เพิ่ม/ลบ แถว"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+msgstr "เพิ่ม/ลบ สดมภ์"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
