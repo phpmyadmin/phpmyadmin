@@ -18,11 +18,11 @@ class PMA_GIS_Visualization
 
         // Array of colors to be used for GIS visualizations.
         'colors' => array(
-            '#BCE02E',
+            '#B02EE0',
             '#E0642E',
             '#E0D62E',
             '#2E97E0',
-            '#B02EE0',
+            '#BCE02E',
             '#E02E75',
             '#5CE02E',
             '#E0B02E',
