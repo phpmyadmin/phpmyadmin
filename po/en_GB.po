@@ -1175,7 +1175,7 @@ msgstr "Remove chart"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Edit labels and series"
 
 #: js/messages.php:107
 #, fuzzy
