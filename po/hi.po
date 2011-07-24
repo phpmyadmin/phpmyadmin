@@ -117,8 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ "
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ "
 
 #: db_create.php:58
 #, php-format
