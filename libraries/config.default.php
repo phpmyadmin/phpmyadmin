@@ -2596,8 +2596,11 @@ $cfg['CheckConfigurationPermissions'] = true;
  * Limit for length of URL in links. When length would be above this limit, it
  * is replaced by form with button.
  * This is required as some web servers (IIS) have problems with long URLs.
+ * The recommended limit is 2000 
+ * (see http://www.boutell.com/newfaq/misc/urllength.html) but we put
+ * 1000 to accommodate Suhosin, see bug #3358750.
  */
-$cfg['LinkLengthLimit'] = 2000;
+$cfg['LinkLengthLimit'] = 1000;
 
 /*******************************************************************************
  * SQL Parser Settings
