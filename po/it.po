@@ -11310,12 +11310,10 @@ msgstr "Nome VISTA"
 msgid "Rename view to"
 msgstr "Rinomina la vista in"
 
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Traffico del server"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "Query SQL"
 
@@ -11323,23 +11321,19 @@ msgstr "Rinomina la vista in"
 #~ msgstr "Tipo di query"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Valore mancante nel form!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Esporta contenuti"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr ""
 #~ "Non è stato trovato nessun percorso per l'immagine valido per il tema %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Mostra"
 

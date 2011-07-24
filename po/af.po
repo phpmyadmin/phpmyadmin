@@ -10989,7 +10989,6 @@ msgid "Rename view to"
 msgstr "Hernoem tabel na"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Bediener Keuse"
 
@@ -10998,17 +10997,14 @@ msgstr "Hernoem tabel na"
 #~ msgstr "SQL-stelling"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Daar ontbreek 'n waarde in die vorm !"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Beloer Data"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "ry(e) beginnende vanaf rekord #"
 
@@ -11031,12 +11027,10 @@ msgstr "Hernoem tabel na"
 #~ "wat leeg is, is alles klopdisselboom."
 
 #, fuzzy
-#~| msgid "Records"
 #~ msgid "seconds"
 #~ msgstr "Rekords"
 
 #, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "SQL resultaat"
 
@@ -11049,7 +11043,6 @@ msgstr "Hernoem tabel na"
 #~ msgstr "Wys prosesse"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Herstel"
@@ -11069,12 +11062,10 @@ msgstr "Hernoem tabel na"
 #~ "the server."
 
 #, fuzzy
-#~| msgid "Export"
 #~ msgid "Bar type"
 #~ msgstr "Export"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Voeg 'n nuwe gebruiker by"
 
@@ -11086,7 +11077,6 @@ msgstr "Hernoem tabel na"
 #~ msgstr "Voeg 'n nuwe gebruiker by"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Stort data vir tabel"
 

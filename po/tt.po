@@ -11295,7 +11295,6 @@ msgid "Rename view to"
 msgstr "Tüşämä adın üzgärtü"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Server Saylaw"
 
@@ -11307,7 +11306,6 @@ msgstr "Tüşämä adın üzgärtü"
 #~ msgstr "Soraw töre"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Bu formıda bäyä kertelmi qalğan!"
 
@@ -11316,22 +11314,18 @@ msgstr "Tüşämä adın üzgärtü"
 #~ msgstr "Çığaru ısulı"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Çığaru ısulı"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "%s digän tışlaw sürätläre urınlaşqan yul tabılmadı!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Küzätü"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "kerem; berençese #"
 

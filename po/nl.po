@@ -11465,7 +11465,6 @@ msgstr "Hernoem view naar"
 #~ msgstr "Serververkeer"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL-queries"
 
@@ -11473,22 +11472,18 @@ msgstr "Hernoem view naar"
 #~ msgstr "Query-type"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Er ontbreekt een waarde in het formulier!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Exporteer inhoud"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Geen geldig afbeeldingen pad voor thema %s gevonden!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Verkennen"
 

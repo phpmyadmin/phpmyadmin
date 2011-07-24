@@ -10992,27 +10992,22 @@ msgid "Rename view to"
 msgstr "Ailenwch golwg i"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Dewis Gweinydd"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Gwerth ar goll yn y ffurflen!"
 
 #, fuzzy
-#~| msgid "Export as %s"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Allforio fel %s"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Pori"
 
@@ -11023,7 +11018,6 @@ msgstr "Ailenwch golwg i"
 #~ msgstr "mewn modd %s ac ailadrodd penawdau ar ôl %s cell "
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Gweithdrefnau"
 

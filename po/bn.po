@@ -11467,7 +11467,6 @@ msgid "Rename view to"
 msgstr "টেবিল রিনেম করুন"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Server Choice"
 
@@ -11479,7 +11478,6 @@ msgstr "টেবিল রিনেম করুন"
 #~ msgstr "Query type"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Missing value in the form!"
 
@@ -11488,17 +11486,14 @@ msgstr "টেবিল রিনেম করুন"
 #~ msgstr "Export type"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "No valid image path for theme %s found!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "ব্রাউজ করুন"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "row(s) starting from record #"
 
@@ -11521,7 +11516,6 @@ msgstr "টেবিল রিনেম করুন"
 #~ "everything is fine."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedures"
 

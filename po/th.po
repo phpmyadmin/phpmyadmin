@@ -11091,7 +11091,6 @@ msgid "Rename view to"
 msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "ตัวเลือกเซิร์ฟเวอร์"
 
@@ -11103,22 +11102,18 @@ msgstr "เปลี่ยนชื่อตารางเป็น"
 #~ msgstr "ชนิดคำค้น"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "ค่าในแบบฟอร์มหายไป !"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "ยังไม่ได้เลือกแถว"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "เปิดดู"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "แถว เริ่มจากแถวที่"
 

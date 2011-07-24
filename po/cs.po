@@ -11125,7 +11125,6 @@ msgstr "Přejmenovat pohled na"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Spoušť se jménem %s nebyla nalezena"
 
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "řádcích"
 

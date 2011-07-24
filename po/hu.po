@@ -11635,12 +11635,10 @@ msgid "Rename view to"
 msgstr "Nézet átnevezése"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Szerver választása"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL-lekérdezések"
 
@@ -11648,7 +11646,6 @@ msgstr "Nézet átnevezése"
 #~ msgstr "Lekérdezés típusa"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Érték hiányzik az űrlapban!"
 
@@ -11657,17 +11654,14 @@ msgstr "Nézet átnevezése"
 #~ msgstr "Exportálás alapértelmezései"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Nincs érvényes kép elérési útja a(z) %s témának!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Tartalom"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "sor a következő számú rekordtól kezdődően:"
 

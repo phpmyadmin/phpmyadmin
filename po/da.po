@@ -11177,27 +11177,22 @@ msgstr "Omdøb view til"
 #~ msgid "Query type"
 #~ msgstr "Forespørgselstype"
 
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Værdien i formularen er for lang!"
 
 #, fuzzy
-#~| msgid "Export/Import to scale"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Eksporter/Importer til skala"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Ingen gyldig billedsti for tema %s fundet!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Vis"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rækker startende fra post #"
 
@@ -11220,7 +11215,6 @@ msgstr "Omdøb view til"
 #~ "er alt i orden."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedurer"
 

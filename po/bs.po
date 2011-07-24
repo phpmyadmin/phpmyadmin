@@ -11171,7 +11171,6 @@ msgid "Rename view to"
 msgstr "Promjeni ime tabele u "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Izbor servera"
 
@@ -11183,17 +11182,14 @@ msgstr "Promjeni ime tabele u "
 #~ msgstr "Vrsta upita"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Nedostaje vrijednost u obrascu!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Pregled"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr " redova počev od reda"
 
@@ -11220,12 +11216,10 @@ msgstr "Promjeni ime tabele u "
 #~ msgstr "Procesi"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "u sekundi"
 
 #, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "SQL rezultat"
 
@@ -11238,7 +11232,6 @@ msgstr "Promjeni ime tabele u "
 #~ msgstr "Prikaži listu procesa"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Resetuj"
@@ -11258,17 +11251,14 @@ msgstr "Promjeni ime tabele u "
 #~ "pokretanja."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Privilegije su uspešno ponovo učitane."
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Vrsta upita"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Dodaj novog korisnika"
 
@@ -11280,7 +11270,6 @@ msgstr "Promjeni ime tabele u "
 #~ msgstr "Dodaj novog korisnika"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Prikaz podataka tabele"
 

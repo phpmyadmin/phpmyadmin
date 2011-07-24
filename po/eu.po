@@ -11195,7 +11195,6 @@ msgid "Rename view to"
 msgstr "Taula berrizendatu izen honetara: "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Zerbitzariaren hautaketa"
 
@@ -11207,17 +11206,14 @@ msgstr "Taula berrizendatu izen honetara: "
 #~ msgstr "Kontsulta mota"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Balioa bat falta da formularioan!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Arakatu"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "errenkada(k) # erregistrotik hasita"
 

@@ -11487,7 +11487,6 @@ msgid "Rename view to"
 msgstr "Промени име табеле у "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Избор сервера"
 
@@ -11499,7 +11498,6 @@ msgstr "Промени име табеле у "
 #~ msgstr "Врста упита"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Недостаје вредност у обрасцу!"
 
@@ -11508,17 +11506,14 @@ msgstr "Промени име табеле у "
 #~ msgstr "Тип извоза"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Нема исправне путање до слика за тему %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Преглед"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr " редова почев од реда"
 
@@ -11541,7 +11536,6 @@ msgstr "Промени име табеле у "
 #~ "је у реду."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Процедуре"
 

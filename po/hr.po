@@ -11566,7 +11566,6 @@ msgid "Rename view to"
 msgstr "Preimenuj prikaz u"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Odabir poslužitelja"
 
@@ -11578,7 +11577,6 @@ msgstr "Preimenuj prikaz u"
 #~ msgstr "Vrsta upita"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "U obrascu nedostaje vrijednost!"
 
@@ -11587,22 +11585,18 @@ msgstr "Preimenuj prikaz u"
 #~ msgstr "Vrsta izvoza"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Vrsta izvoza"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Valjana putanja slika za temu %s nije pronađena!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Pretraživanje"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "redovi koji započinju zapisom #"
 
@@ -11625,7 +11619,6 @@ msgstr "Preimenuj prikaz u"
 #~ "ili točke-zareza.<br />Ako se prikaže prazna stranica, sve je u redu."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Postupci"
 

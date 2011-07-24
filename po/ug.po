@@ -10855,22 +10855,18 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "مۇلازىمىتېر تاللاش"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "بۇ ئورۇننىڭ قىممىتى تولدۇرۇلمىغان !"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "No valid image path for theme %s found!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "كۆزەت"
 

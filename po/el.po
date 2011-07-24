@@ -11411,7 +11411,6 @@ msgstr "Μετονομασία πίνακα σε"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Δεν βρέθηκε ενέργεια με το όνομα %s"
 
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "εγγραφές"
 

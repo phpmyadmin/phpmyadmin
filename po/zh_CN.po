@@ -10979,12 +10979,10 @@ msgid "Rename view to"
 msgstr "将视图改名为"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "选择服务器"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL 查询"
 
@@ -10992,22 +10990,18 @@ msgstr "将视图改名为"
 #~ msgstr "查询方式"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "表单内缺少值！"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "导出内容"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "找不到主题 %s 对应的图片路径！"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "浏览"
 

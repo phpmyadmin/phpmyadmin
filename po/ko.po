@@ -10997,7 +10997,6 @@ msgid "Rename view to"
 msgstr "테이블 이름 바꾸기"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "서버 선택"
 
@@ -11009,17 +11008,14 @@ msgstr "테이블 이름 바꾸기"
 #~ msgstr "질의 종류"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Missing value in the form !"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "보기"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "행. 시작(행)위치"
 

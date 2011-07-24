@@ -11612,7 +11612,6 @@ msgid "Rename view to"
 msgstr "Перайменаваць табліцу ў"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Выбар сэрвэра"
 
@@ -11624,7 +11623,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Тып запыту"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Не зададзенае значэньне ў форме!"
 
@@ -11633,22 +11631,18 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Тып экспарту"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Тып экспарту"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Дапушчальны шлях да малюнкаў тэмы %s ня знойдзены!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Прагляд"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "радкоў, пачынаючы з запісу #"
 
@@ -11672,7 +11666,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ "значыць, усё добра."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Працэдуры"
 
@@ -11680,12 +11673,10 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Тэма / Стыль"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "у сэкунду"
 
 #, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Дзеяньні з вынікамі запытаў"
 
@@ -11700,7 +11691,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Паказаць працэсы"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Скінуць"
@@ -11720,26 +11710,20 @@ msgstr "Перайменаваць табліцу ў"
 #~ "на сэрвэр."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Прывілеі былі пасьпяхова перазагружаныя."
 
 #, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Значэньне можа быць прыблізным. Гл. FAQ 3.11"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Тып запыту"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Дадаць новага карыстальніка"
 
@@ -11751,7 +11735,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Дадаць новага карыстальніка"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Дамп дадзеных табліцы"
 

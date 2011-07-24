@@ -11226,7 +11226,6 @@ msgstr "Görünümü yeniden şuna adlandır"
 #~ msgstr "%s adıyla bulunan tetikleyici yok"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Gözat"
 

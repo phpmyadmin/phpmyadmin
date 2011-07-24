@@ -11295,7 +11295,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Сервэр сонго"
 
@@ -11303,27 +11302,22 @@ msgstr ""
 #~ msgstr "Асуултын төрөл"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Форм дахь утгыг орхисон!"
 
 #, fuzzy
-#~| msgid "Export/Import to scale"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Гаргах/Оруулах хэмжээс"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Сэдэв %s-д олдсон зургийн зам буруу байна!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Хөтлөх"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "мөрийн эхлэх буй дугаар"
 
@@ -11345,7 +11339,6 @@ msgstr ""
 #~ "хоосон хуудас ирвэл – энэ нь зүгээр байна"
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Процедурүүд"
 
@@ -11353,12 +11346,10 @@ msgstr ""
 #~ msgstr "Арьс / Загвар"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "секундэд"
 
 #, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Асуудлын үр дүнгийн үйлдэл"
 
@@ -11370,7 +11361,6 @@ msgstr ""
 #~ msgstr "Процесууд харах"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Да.эхлэх"
@@ -11390,36 +11380,28 @@ msgstr ""
 #~ "илгээгдсэн."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Онцгой эрхүүд дахин дуудагдлаа."
 
 #, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "May be approximate. See FAQ 3.11"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Асуултын төрөл"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Шинэ хэрэглэгч нэмэх"
 
 #, fuzzy
-#~| msgid "Create"
 #~ msgid "Create User"
 #~ msgstr "Үүсгэх"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Хүснэгтийн өгөгдлийг устгах"
 

@@ -12075,12 +12075,10 @@ msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Серверни танланг"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL сўровлари"
 
@@ -12088,32 +12086,26 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ msgstr "Сўров тури"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Форманинг керакли майдонлари тўлдирилмаган!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Таркибини экспорт қилиш"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Триггерларни экспорт қилиш"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr " \"%s\" мавзуси расмларига тўғри йўл топилмади!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Кўриб чиқиш"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "та қатор қуйидаги қатордан бошлаб "
 
@@ -12137,7 +12129,6 @@ msgstr "Кўриниш номини ўзгартириш"
 #~ "демак, ҳаммаси жойида."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Муолажалар"
 

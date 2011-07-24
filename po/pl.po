@@ -11835,12 +11835,10 @@ msgid "Rename view to"
 msgstr "Zmień nazwę perspektywy na"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Wybór serwera"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "Zapytania SQL"
 
@@ -11848,28 +11846,23 @@ msgstr "Zmień nazwę perspektywy na"
 #~ msgstr "Rodzaj zapytania"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Brakująca wartość w formularzu!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Eksportuj zawartość"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr ""
 #~ "Nie znaleziono prawidłowej ścieżki do obrazka dla motywu graficznego %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Przeglądaj"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rekordów począwszy od"
 

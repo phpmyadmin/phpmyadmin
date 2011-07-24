@@ -10693,7 +10693,6 @@ msgstr "Преименуване на изгледа на"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Не открит тригер %s"
 
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "реда"
 

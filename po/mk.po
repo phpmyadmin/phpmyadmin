@@ -11291,7 +11291,6 @@ msgid "Rename view to"
 msgstr "Промени го името на табелата во "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Избор на сервер"
 
@@ -11303,22 +11302,18 @@ msgstr "Промени го името на табелата во "
 #~ msgstr "Вид на упит"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Недостасува вредност во образецот!"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Нема селектирани записи"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Преглед"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr " записи почнувајќи од записот"
 

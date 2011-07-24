@@ -11415,7 +11415,6 @@ msgstr "Переименовать представление в"
 #~ msgstr "Не найден триггер с именем %s"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Обзор"
 

@@ -11580,7 +11580,6 @@ msgid "Rename view to"
 msgstr "Redenumire tabel la"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Alegerea serverului"
 
@@ -11592,7 +11591,6 @@ msgstr "Redenumire tabel la"
 #~ msgstr "Tip interogare"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Valoarea lipsește în formular !"
 
@@ -11601,22 +11599,18 @@ msgstr "Redenumire tabel la"
 #~ msgstr "Modul de export"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Modul de export"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "No valid image path for theme %s found!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Navigare"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "linii începînd cu"
 
@@ -11639,7 +11633,6 @@ msgstr "Redenumire tabel la"
 #~ "goala, totul pare sa fie bine."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Proceduri"
 

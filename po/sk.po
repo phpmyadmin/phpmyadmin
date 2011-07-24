@@ -11106,7 +11106,6 @@ msgid "Rename view to"
 msgstr "Premenovať pohľad na"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Voľba serveru"
 
@@ -11122,17 +11121,14 @@ msgstr "Premenovať pohľad na"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Hodnota vo formulári je príliš dlhá!"
 
-#~| msgid "Export to selected page"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Export udalosti \"%s\""
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Nebola nájdená platná cesta k obrázkom pre vzhľad %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Prechádzať"
 

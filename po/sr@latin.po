@@ -11475,7 +11475,6 @@ msgid "Rename view to"
 msgstr "Promeni ime tabele u "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Izbor servera"
 
@@ -11487,7 +11486,6 @@ msgstr "Promeni ime tabele u "
 #~ msgstr "Vrsta upita"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Nedostaje vrednost u obrascu!"
 
@@ -11496,17 +11494,14 @@ msgstr "Promeni ime tabele u "
 #~ msgstr "Tip izvoza"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Nema ispravne putanje do slika za temu %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Pregled"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr " redova počev od reda"
 
@@ -11529,7 +11524,6 @@ msgstr "Promeni ime tabele u "
 #~ "je u redu."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedure"
 

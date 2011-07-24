@@ -11132,7 +11132,6 @@ msgid "Rename view to"
 msgstr "Renomeia a vista para "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Escolha do Servidor"
 
@@ -11144,7 +11143,6 @@ msgstr "Renomeia a vista para "
 #~ msgstr "Tipo de Query"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Nº de dados insuficiente!\\nPreencha todas as opções!"
 
@@ -11153,12 +11151,10 @@ msgstr "Renomeia a vista para "
 #~ msgstr "Tipo de Exportação"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Visualizar"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "registos começando em"
 

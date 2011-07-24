@@ -11215,7 +11215,6 @@ msgid "Rename view to"
 msgstr "Riemërto tabelën në"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Zgjedhja e serverit"
 
@@ -11227,22 +11226,18 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Lloji i query"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Mungon një vlerë në formular!"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Nuk ka rreshta të zgjedhur"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Shfleto"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rreshta duke filluar nga"
 
@@ -11273,12 +11268,10 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Tema / Stili"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "në sekondë"
 
 #, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "Rezultati SQL"
 
@@ -11291,7 +11284,6 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Shfaq proceset në ekzekutim"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Rinis"
@@ -11311,17 +11303,14 @@ msgstr "Riemërto tabelën në"
 #~ "%s queries."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Të drejtat u përditësuan me sukses."
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Lloji i query"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Shto një përdorues të ri"
 
@@ -11333,7 +11322,6 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Shto një përdorues të ri"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Dump i të dhënave për tabelën"
 

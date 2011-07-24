@@ -11892,12 +11892,10 @@ msgid "Rename view to"
 msgstr "Rename table to"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "სერვერის არჩევა"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL მოთხოვნები"
 
@@ -11905,7 +11903,6 @@ msgstr "Rename table to"
 #~ msgstr "მოთხოვნის ტიპი"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Missing value in the form!"
 
@@ -11914,22 +11911,18 @@ msgstr "Rename table to"
 #~ msgstr "Export defaults"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Export type"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "No valid image path for theme %s found!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "არჩევა"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "row(s) starting from record #"
 
@@ -11952,7 +11945,6 @@ msgstr "Rename table to"
 #~ "everything is fine."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "პროცედურები"
 

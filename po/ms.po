@@ -11030,7 +11030,6 @@ msgid "Rename view to"
 msgstr "Tukarnama jadual ke"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Pilihan Pelayan"
 
@@ -11042,17 +11041,14 @@ msgstr "Tukarnama jadual ke"
 #~ msgstr "Jenis Kueri"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Kehilangan nilai pada borang! !"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Lungsur"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "baris bermula dari rekod #"
 

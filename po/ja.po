@@ -11139,7 +11139,6 @@ msgstr "リネーム後のビューの名前"
 #~ msgstr "%s という名前のトリガが見つかりません"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "表示"
 

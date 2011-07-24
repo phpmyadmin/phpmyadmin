@@ -11579,7 +11579,6 @@ msgid "Rename view to"
 msgstr ""
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Vybar servera"
 
@@ -11587,27 +11586,22 @@ msgstr ""
 #~ msgstr "Typ zapytu"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Nie zadadzienaje značeńnie ŭ formie!"
 
 #, fuzzy
-#~| msgid "Export/Import to scale"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Maštab"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Dapuščalny šlach da malunkaŭ temy %s nia znojdzieny!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Prahlad"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "radkoŭ, pačynajučy z zapisu #"
 
@@ -11631,7 +11625,6 @@ msgstr ""
 #~ "staronku, značyć, usio dobra."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Pracedury"
 

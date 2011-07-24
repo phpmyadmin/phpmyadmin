@@ -12139,12 +12139,10 @@ msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Serverni tanlang"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL so‘rovlari"
 
@@ -12152,32 +12150,26 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ msgstr "So‘rov turi"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Formaning kerakli maydonlari to‘ldirilmagan!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Tarkibini eksport qilish"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Triggеrlarni eksport qilish"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr " \"%s\" mavzusi rasmlariga to‘g‘ri yo‘l topilmadi!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Ko‘rib chiqish"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "ta qator quyidagi qatordan boshlab "
 
@@ -12201,7 +12193,6 @@ msgstr "Ko‘rinish nomini o‘zgartirish"
 #~ "ko‘rsatilsa, demak, hammasi joyida."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Muolajalar"
 

@@ -11333,14 +11333,12 @@ msgid "Rename view to"
 msgstr "Renomear a visão para "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Seleção do Servidor"
 
 #~ msgid "Issued queries since last refresh"
 #~ msgstr "Consultas emitidas desde a última atualização"
 
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "Consultas SQL"
 
@@ -11348,7 +11346,6 @@ msgstr "Renomear a visão para "
 #~ msgstr "Tipo de consulta"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Faltando valores no formulário!"
 
@@ -11357,17 +11354,14 @@ msgstr "Renomear a visão para "
 #~ msgstr "Tipo de exportação"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Nenhum trigger com o nome %s encontrado"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Visualizar"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "registro(s) começando de"
 

@@ -12057,12 +12057,10 @@ msgid "Rename view to"
 msgstr "Mudar o nome da táboa para"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Escolla de servidor"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "Solicitudes SQL"
 
@@ -12070,32 +12068,26 @@ msgstr "Mudar o nome da táboa para"
 #~ msgstr "Tipo de procura"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Falta un valor no formulario!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Exportar o contido"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Exportar os disparadores"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Non hai un camiño válido de imaxe para o tema %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Visualizar"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "fileiras, a comezar pola"
 
@@ -12118,7 +12110,6 @@ msgstr "Mudar o nome da táboa para"
 #~ ">Se recibe unha páxina en branco é que todo está ben."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedementos"
 
@@ -12126,12 +12117,10 @@ msgstr "Mudar o nome da táboa para"
 #~ msgstr "Tema / Estilo"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "por segundo"
 
 #, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Operacións de resultados da procura"
 
@@ -12146,7 +12135,6 @@ msgstr "Mudar o nome da táboa para"
 #~ msgstr "Mostrar os procesos"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Reiniciar"
@@ -12166,31 +12154,24 @@ msgstr "Mudar o nome da táboa para"
 #~ "servidor %s procuras."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Non houbo problemas ao recargar os privilexios."
 
 #, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Pode non ser exacto. Consulte a FAQ 3.11"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Tipo de procura"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Engadir un usuario novo"
 
 #, fuzzy
-#~| msgid "Create version"
 #~ msgid "Create User"
 #~ msgstr "Crear unha versión"
 
@@ -12198,12 +12179,10 @@ msgstr "Mudar o nome da táboa para"
 #~ msgstr "Engadir un usuario novo"
 
 #, fuzzy
-#~| msgid "Show logo in left frame"
 #~ msgid "Show table row links on left side"
 #~ msgstr "Mostrar o logotipo na moldura esquerda"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "A extraer datos da táboa"
 

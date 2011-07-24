@@ -11437,7 +11437,6 @@ msgstr "Cambiar el nombre de la vista a"
 #~ msgstr "No se encontró disparador con nombre %s"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Examinar"
 

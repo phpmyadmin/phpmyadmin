@@ -11175,7 +11175,6 @@ msgstr "Rename view to"
 #~ msgstr "No trigger with name %s found"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Browse"
 

@@ -10606,7 +10606,6 @@ msgstr ""
 #~ msgstr "Talvoud re hir er furmskrid !"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Furchal"
 

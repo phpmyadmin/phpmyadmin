@@ -11116,7 +11116,6 @@ msgid "Rename view to"
 msgstr "שינוי שם טבלה אל"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "בחירת שרת"
 
@@ -11128,22 +11127,18 @@ msgstr "שינוי שם טבלה אל"
 #~ msgstr "סוג שאילתה"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "ערך ריק בטופס!"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "לא נבחרו שורות"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "עיון"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "שורות המתחילות מרשומה #"
 

@@ -11226,7 +11226,6 @@ msgid "Rename view to"
 msgstr "Pārsaukt tabulu uz"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Servera izvēle"
 
@@ -11238,22 +11237,18 @@ msgstr "Pārsaukt tabulu uz"
 #~ msgstr "Vaicājuma tips"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Formā trūkst vērtību!"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Rindas nav iezīmētas"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Apskatīt"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rindas sākot no"
 
@@ -11282,12 +11277,10 @@ msgstr "Pārsaukt tabulu uz"
 #~ msgstr "Tēma / Stils"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "sekundē"
 
 #, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "SQL rezultāts"
 
@@ -11300,7 +11293,6 @@ msgstr "Pārsaukt tabulu uz"
 #~ msgstr "Parādīt procesus"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Atcelt"
@@ -11320,26 +11312,20 @@ msgstr "Pārsaukt tabulu uz"
 #~ "kopš tā palaišanās brīža."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Privilēģijas tika veiksmīgi pārlādētas."
 
 #, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Var būt aptuvens skaits. Skatīt FAQ 3.11"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Vaicājuma tips"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Pievienot jaunu lietotāju"
 
@@ -11351,7 +11337,6 @@ msgstr "Pārsaukt tabulu uz"
 #~ msgstr "Pievienot jaunu lietotāju"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Dati tabulai"
 

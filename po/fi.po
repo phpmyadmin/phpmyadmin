@@ -11812,12 +11812,10 @@ msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Valitse palvelin"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL-kyselyt"
 
@@ -11825,27 +11823,22 @@ msgstr "Nimeä taulu uudelleen"
 #~ msgstr "Kyselyn tyyppi"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Tarvittava tieto puuttuu lomakkeesta!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Vie sisällöt"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Kelvollista polkua teemalle %s ei löytynyt."
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Selaa"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "riviä alkaen rivistä"
 

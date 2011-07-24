@@ -10899,12 +10899,10 @@ msgid "Rename view to"
 msgstr "दृश्य का नाम बदलो"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "सर्वर चुनिये"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL क्वरी"
 
@@ -10912,22 +10910,18 @@ msgstr "दृश्य का नाम बदलो"
 #~ msgstr "क्वरी प्रकार"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "फॉर्म में मूल्य गूम हैं."
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "निर्यात सामग्री"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "विषय %s के लिए कोई वैध छवि पथ नहीं पाया है!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "ब्राउज़"
 

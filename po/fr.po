@@ -11329,7 +11329,6 @@ msgstr "Changer le nom de la vue pour"
 #~ msgstr "Déclencheur %s non trouvé"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Afficher"
 

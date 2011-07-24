@@ -11189,7 +11189,6 @@ msgid "Rename view to"
 msgstr "Cedveli yeniden adlandır"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Quraşdırılmış Serverler"
 
@@ -11201,17 +11200,14 @@ msgstr "Cedveli yeniden adlandır"
 #~ msgstr "Sorğu tipi"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Formda eksik girilmiş deyer var!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "İçindekiler"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "setri göster; başlangıç qeydiyyat nömresi"
 

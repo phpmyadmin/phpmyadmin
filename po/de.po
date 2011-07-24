@@ -11379,7 +11379,6 @@ msgstr "View umbenennen in"
 #~ msgstr "Kein Trigger mit dem Namen %s gefunden"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Anzeigen"
 

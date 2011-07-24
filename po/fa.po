@@ -10952,7 +10952,6 @@ msgid "Rename view to"
 msgstr "بازناميدن جدول به"
 
 #, fuzzy
-#~| msgid "Server version"
 #~ msgid "Server traffic"
 #~ msgstr "نسخه سرور"
 
@@ -10961,17 +10960,14 @@ msgstr "بازناميدن جدول به"
 #~ msgstr "پرس و جوي SQL"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "مقداري در فرم وارد نشده !"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "مشاهده"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "سطر(ها) ابتدا از سطر شماره "
 

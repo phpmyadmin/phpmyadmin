@@ -11267,7 +11267,6 @@ msgstr "Ändra namn till"
 #~ msgstr "Ingen trigger med namn %s hittad"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Visa"
 

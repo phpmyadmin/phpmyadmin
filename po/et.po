@@ -11466,7 +11466,6 @@ msgid "Rename view to"
 msgstr "Nimeta tabel ümber"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Serveri valik"
 
@@ -11478,7 +11477,6 @@ msgstr "Nimeta tabel ümber"
 #~ msgstr "Päringu tüüp"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Puuduv väärtus vormis !"
 
@@ -11487,22 +11485,18 @@ msgstr "Nimeta tabel ümber"
 #~ msgstr "Ekspordi tüüp"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Ekspordi tüüp"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Ei leia pildi kataloogi teemale %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Vaata"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "read alates"
 
@@ -11525,7 +11519,6 @@ msgstr "Nimeta tabel ümber"
 #~ "kuvatakse tühi leht on kõik korras."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Toimingud"
 
@@ -11533,12 +11526,10 @@ msgstr "Nimeta tabel ümber"
 #~ msgstr "Teema / Stiil"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "sekundis"
 
 #, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Päringu tulemuste tegevused"
 
@@ -11553,7 +11544,6 @@ msgstr "Nimeta tabel ümber"
 #~ msgstr "Näita protsesse"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Tühista"
@@ -11573,26 +11563,20 @@ msgstr "Nimeta tabel ümber"
 #~ "serverile."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Privileegid taaslaeti edukalt."
 
 #, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Võib olla umbkaudne. Vaadake FAQ 3.11"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Päringu tüüp"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Lisa uus kasutaja"
 
@@ -11604,7 +11588,6 @@ msgstr "Nimeta tabel ümber"
 #~ msgstr "Lisa uus kasutaja"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Tabeli andmete salvestamine"
 

@@ -11125,12 +11125,10 @@ msgid "Rename view to"
 msgstr "දසුනේ නම වෙනස් කරන්න"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "සේවාදායකයේ තේරීම"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL විමසුම"
 
@@ -11138,7 +11136,6 @@ msgstr "දසුනේ නම වෙනස් කරන්න"
 #~ msgstr "විමසුම් වර්ගය"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "පෝරම‍යේ අස්ථනගත වූ අගයන් ඇත!"
 
@@ -11147,17 +11144,14 @@ msgstr "දසුනේ නම වෙනස් කරන්න"
 #~ msgstr "අපනයන වර්ගය"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "No valid image path for theme %s found!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "පිරික්සන්න"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "row(s) starting from record #"
 

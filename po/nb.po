@@ -11551,12 +11551,10 @@ msgid "Rename view to"
 msgstr "Endre tabellens navn"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Tjenervalg"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL spørringer"
 
@@ -11564,22 +11562,18 @@ msgstr "Endre tabellens navn"
 #~ msgstr "Spørringstype"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Manglende verdi i skjemaet!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Eksporter innhold"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Ingen gyldig bildesti for stilen %s ble funnet!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Se på"
 

@@ -11000,7 +11000,6 @@ msgid "Rename view to"
 msgstr "أعد تسمية العرض الـ"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "اختيار الخادم"
 
@@ -11017,12 +11016,10 @@ msgstr "أعد تسمية العرض الـ"
 #~ msgstr "القيمة كبيرة جداً!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "استعراض"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "صفوف تبدأ من"
 

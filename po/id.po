@@ -11213,7 +11213,6 @@ msgid "Rename view to"
 msgstr "Ubah nama tabel menjadi "
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Pilihan Server"
 
@@ -11224,27 +11223,22 @@ msgstr "Ubah nama tabel menjadi "
 #~ msgstr "Tipe Pencarian"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Data dalam form kurang !"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Ekspor isi"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Lokasi citra yang benar untuk tema %s tidak ditemukan!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Browse"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "baris dimulai dari rekord #"
 

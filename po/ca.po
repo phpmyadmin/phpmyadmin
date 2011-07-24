@@ -11466,12 +11466,10 @@ msgid "Rename view to"
 msgstr "Reanomena la vista a"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Elecció de Servidor"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "Consultes SQL"
 
@@ -11479,22 +11477,18 @@ msgstr "Reanomena la vista a"
 #~ msgstr "Tipus de consulta"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Falta un valor al formulari!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Exporta contingut"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "El camí de les imatges del tema %s és incorrecte!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Navega"
 

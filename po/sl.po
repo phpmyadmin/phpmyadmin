@@ -11220,7 +11220,6 @@ msgstr "Preimenuj pogled v"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Najti ni mogoče nobenega sprožilca z imenom %s"
 
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "vrstic"
 

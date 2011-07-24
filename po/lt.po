@@ -11305,12 +11305,10 @@ msgid "Rename view to"
 msgstr "Pervadinti lentelę į"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Pasirinkti serverį"
 
 #, fuzzy
-#~| msgid "SQL queries"
 #~ msgid "Issued queries"
 #~ msgstr "SQL užklausos"
 
@@ -11318,22 +11316,18 @@ msgstr "Pervadinti lentelę į"
 #~ msgstr "Užklausos tipas"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Trūksta reikšmės formoje!"
 
 #, fuzzy
-#~| msgid "Export contents"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Eksportuoti turinį"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Nerasta tinkamo paveiksliukų kelio temai %s!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Peržiūrėti"
 
