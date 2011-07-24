@@ -1131,7 +1131,7 @@ msgstr "Query statistics"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "System CPU Usage"
 
 #: js/messages.php:95
 msgid "System memory"
