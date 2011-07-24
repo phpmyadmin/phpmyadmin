@@ -1151,7 +1151,7 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Average load"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
