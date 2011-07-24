@@ -111,10 +111,10 @@ $js_messages['strNone'] = __('None');
 $js_messages['strResumeMonitor'] = __('Resume monitor');
 $js_messages['strPauseMonitor'] = __('Pause monitor');
 /* Monitor: Instructions Dialog */
-$js_messages['strBothLogOn'] = __('general_log and slow_query_log is enabled.');
+$js_messages['strBothLogOn'] = __('general_log and slow_query_log are enabled.');
 $js_messages['strGenLogOn'] = __('general_log is enabled.');
 $js_messages['strSlowLogOn'] = __('slow_query_log is enabled.');
-$js_messages['strBothLogOff'] = __('slow_query_log and general_log is disabled.');
+$js_messages['strBothLogOff'] = __('slow_query_log and general_log are disabled.');
 $js_messages['strLogOutNotTable'] = __('log_output is not set to TABLE.');
 $js_messages['strLogOutIsTable'] = __('log_output is set to TABLE.');
 $js_messages['strSmallerLongQueryTimeAdvice'] = __('slow_query_log is enabled, but the server logs only queries that take longer than %d seconds. It is advisable to set this long_query_time 0-2 seconds, depending on your system.');
