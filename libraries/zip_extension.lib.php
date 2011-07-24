@@ -9,8 +9,7 @@
 /**
   * Gets zip file contents
   *
-  * @param   string  $file
-  * @param   string  $specific_entry regular expression to match a file
+  * @param string $specific_entry regular expression to match a file
   * @return  array  ($error_message, $file_data); $error_message
   *                  is empty if no error
   */
@@ -139,7 +138,7 @@ function PMA_zipExtract($zip_path, $destination, $entries) {
 /**
   * Gets zip error message
   *
-  * @param   integer  error code
+  * @param integer  error code
   * @return  string  error message
  */
 function PMA_getZipError($code)

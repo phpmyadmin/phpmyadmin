@@ -70,14 +70,14 @@ $table_alters = array();
 /**
  * If the table has to be moved to some other database
  */
-if(isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
+if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
     $_message = '';
     require_once './tbl_move_copy.php';
 }
 /**
  * If the table has to be maintained
  */
-if(isset($_REQUEST['table_maintenance'])) {
+if (isset($_REQUEST['table_maintenance'])) {
     require_once './sql.php';
     unset($result);
 }

@@ -219,6 +219,9 @@ $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
 $js_messages['strAddPolygon'] = __('Add a polygon');
 
+/* For tbl_structure.js */
+$js_messages['strAddColumns'] = __('Add columns');
+
 /* Designer (pmd/scripts/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');

@@ -20,6 +20,8 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_RTE_getList($type, $items)
 {
+    global $table;
+
     /**
      * Conditional classes switch the list on or off
      */
@@ -53,7 +55,9 @@ function PMA_RTE_getList($type, $items)
         break;
     case 'trigger':
         $retval .= "            <th>" . __('Name') . "</th>\n";
-        $retval .= "            <th>" . __('Table') . "</th>\n";
+        if (empty($table)) {
+            $retval .= "            <th>" . __('Table') . "</th>\n";
+        }
         $retval .= "            <th colspan='3'>" . __('Action') . "</th>\n";
         $retval .= "            <th>" . __('Time') . "</th>\n";
         $retval .= "            <th>" . __('Event') . "</th>\n";
@@ -220,11 +224,13 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     $retval .= "                    " . htmlspecialchars($trigger['name']) . "\n";
     $retval .= "                </strong>\n";
     $retval .= "            </td>\n";
-    $retval .= "            <td>\n";
-    $retval .= "                <a href='db_triggers.php?db={$db}"
-                                 . "&amp;table={$trigger['table']}'>"
-                                 . $trigger['table'] . "</a>\n";
-    $retval .= "            </td>\n";
+    if (empty($table)) {
+        $retval .= "            <td>\n";
+        $retval .= "                <a href='db_triggers.php?db={$db}"
+                                     . "&amp;table={$trigger['table']}'>"
+                                     . $trigger['table'] . "</a>\n";
+        $retval .= "            </td>\n";
+    }
     $retval .= "            <td>\n";
     if (PMA_currentUserHasPrivilege('TRIGGER', $db, $table)) {
         $retval .= '                <a ' . $ajax_class['edit']

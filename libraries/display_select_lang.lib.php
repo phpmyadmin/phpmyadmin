@@ -12,8 +12,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Sorts available languages by their true english names
  *
- * @param   array   the array to be sorted
- * @param   mixed   a required parameter
+ * @param array   the array to be sorted
+ * @param mixed   a required parameter
  * @return  the sorted array
  * @access  private
  */

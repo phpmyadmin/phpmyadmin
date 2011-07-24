@@ -55,7 +55,7 @@ class PMA_Theme_Manager
     /**
      * sets path to folder containing the themes
      *
-     * @param   string  $path   path to themes folder
+     * @param string  $path   path to themes folder
      * @return  boolean success
      */
     function setThemesPath($path)
@@ -80,7 +80,7 @@ class PMA_Theme_Manager
     /**
      * sets if there are different themes per server
      *
-     * @param   boolean $per_server
+     * @param boolean $per_server
      */
     function setThemePerServer($per_server)
     {
@@ -200,7 +200,7 @@ class PMA_Theme_Manager
 
     /**
      * @private
-     * @param   string $folder
+     * @param string $folder
      * @return  boolean
      */
     /*private*/ function _checkThemeFolder($folder)
@@ -252,7 +252,7 @@ class PMA_Theme_Manager
     /**
      * checks if given theme name is a known theme
      *
-     * @param   string  $theme  name fo theme to check for
+     * @param string  $theme  name fo theme to check for
      */
     function checkTheme($theme)
     {
@@ -266,7 +266,7 @@ class PMA_Theme_Manager
     /**
      * returns HTML selectbox, with or without form enclosed
      *
-     * @param   boolean $form   whether enclosed by from tags or not
+     * @param boolean $form   whether enclosed by from tags or not
      */
     function getHtmlSelectBox($form = true)
     {

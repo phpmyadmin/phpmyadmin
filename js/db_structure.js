@@ -69,8 +69,8 @@ $(document).ready(function() {
         if ($("#insert_table_dialog").length > 0) {
             $("#insert_table_dialog").remove();
         }
-       	var $div = $('<div id="insert_table_dialog"></div>');
-       	var target = "tbl_change.php";
+           var $div = $('<div id="insert_table_dialog"></div>');
+           var target = "tbl_change.php";
 
         /**
          *  @var    button_options  Object that stores the options passed to jQueryUI

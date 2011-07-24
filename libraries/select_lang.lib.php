@@ -102,7 +102,7 @@ function PMA_langCheck()
  * checks given lang and sets it if valid
  * returns true on success, otherwise flase
  *
- * @param   string  $lang   language to set
+ * @param string  $lang   language to set
  * @return  bool    success
  */
 function PMA_langSet(&$lang)
@@ -121,8 +121,8 @@ function PMA_langSet(&$lang)
  * Analyzes some PHP environment variables to find the most probable language
  * that should be used
  *
- * @param   string   string to analyze
- * @param   integer  type of the PHP environment variable which value is $str
+ * @param string   string to analyze
+ * @param integer  type of the PHP environment variable which value is $str
  *
  * @return  bool    true on success, otherwise false
  *

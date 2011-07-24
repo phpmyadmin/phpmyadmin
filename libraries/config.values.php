@@ -68,10 +68,10 @@ $cfg_db['DefaultTabTable'] = array(
     'tbl_change.php',    // insert row page
     'sql.php');          // browse page
 $cfg_db['QueryWindowDefTab'] = array(
-	'sql',     // SQL
-	'files',   // Import files
-	'history', // SQL history
-	'full');   // All (SQL and SQL history)
+    'sql',     // SQL
+    'files',   // Import files
+    'history', // SQL history
+    'full');   // All (SQL and SQL history)
 $cfg_db['InitialSlidersState'] = array('open' => __('Open'), 'closed' => __('Closed'));
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV

@@ -26,34 +26,34 @@ if (isset($_POST['eol'])) {
 }
 
 if (PMA_ifSetOr($_POST['submit_clear'], '')) {
-	//
-	// Clear current config and return to main page
-	//
-	ConfigFile::getInstance()->resetConfigData();
+    //
+    // Clear current config and return to main page
+    //
+    ConfigFile::getInstance()->resetConfigData();
     // drop post data
     header('HTTP/1.1 303 See Other');
     header('Location: index.php');
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_download'], '')) {
-	//
-	// Output generated config file
-	//
+    //
+    // Output generated config file
+    //
     header('Content-Type: text/plain');
     header('Content-Disposition: attachment; filename="config.inc.php"');
     echo ConfigGenerator::getConfigFile();
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_save'], '')) {
-	//
-	// Save generated config file on the server
-	//
+    //
+    // Save generated config file on the server
+    //
     file_put_contents($config_file_path, ConfigGenerator::getConfigFile());
     header('HTTP/1.1 303 See Other');
     header('Location: index.php?action_done=config_saved');
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_load'], '')) {
-	//
-	// Load config file from the server
-	//
+    //
+    // Load config file from the server
+    //
     $cfg = array();
     require_once $config_file_path;
     ConfigFile::getInstance()->setConfigData($cfg);
@@ -61,17 +61,17 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     header('Location: index.php');
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_delete'], '')) {
-	//
-	// Delete config file on the server
-	//
+    //
+    // Delete config file on the server
+    //
     @unlink($config_file_path);
     header('HTTP/1.1 303 See Other');
     header('Location: index.php');
     exit;
 } else {
-	//
-	// Show generated config file in a <textarea>
-	//
+    //
+    // Show generated config file in a <textarea>
+    //
     header('HTTP/1.1 303 See Other');
     header('Location: index.php?page=config');
     exit;

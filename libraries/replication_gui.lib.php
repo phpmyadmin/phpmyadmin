@@ -113,8 +113,8 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
     echo '   <table id="server' . $type . 'replicationsummary" class="data"> ';
     echo '   <thead>';
     echo '    <tr>';
-    echo ' 	<th>' . __('Variable') . '</th>';
-    echo '		<th>' . __('Value') . '</th>';
+    echo '     <th>' . __('Variable') . '</th>';
+    echo '        <th>' . __('Value') . '</th>';
     echo '    </tr>';
     echo '   </thead>';
     echo '   <tbody>';
@@ -239,11 +239,11 @@ function PMA_replication_gui_master_addslaveuser() {
     echo PMA_generate_common_hidden_inputs('', '');
     echo '<fieldset id="fieldset_add_user_login">'
         . '<legend>'.__('Add slave replication user').'</legend>'
-	. '<input type="hidden" name="grant_count" value="25" />'
-	. '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
+    . '<input type="hidden" name="grant_count" value="25" />'
+    . '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
         . '<input id="checkbox_Repl_slave_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_slave_priv"/>'
         . '<input id="checkbox_Repl_client_priv" type="hidden" title="Needed for the replication slaves." value="Y" name="Repl_client_priv"/>'
-	. ''
+    . ''
         . '<input type="hidden" name="sr_take_action" value="true" />'
         . '<div class="item">'
         . '<label for="select_pred_username">'
@@ -305,7 +305,7 @@ function PMA_replication_gui_master_addslaveuser() {
         . '        <option value="localhost"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost')
         ? ' selected="selected"' : '') . '>' . __('Local')
-		. '</option>';
+        . '</option>';
 
     if (!empty($thishost)) {
         echo '        <option value="thishost"'

@@ -34,7 +34,7 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
     background:         url(./themes/pmahomme/img/left_nav_bg.png) repeat-y right 0% #f3f3f3;
-    border-right:		1px solid #aaa;    
+    border-right:       1px solid #aaa;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
     padding:            0;
@@ -84,14 +84,14 @@ button {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>iconsprites.png) no-repeat top left;
 }
 
-.ic_b_home { background-position: -357px 0; } 
-.ic_b_selboard { background-position: -754px 0; } 
-.ic_b_docs { background-position: -136px 0; } 
-.ic_b_sqlhelp { background-position: -856px 0; } 
-.ic_s_reload { background-position: -1761px 0; } 
-.ic_s_loggoff { background-position: -1698px 0; } 
-.ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; } 
-.ic_b_view { background-position: -1077px 0; } 
+.ic_b_home { background-position: -357px 0; }
+.ic_b_selboard { background-position: -754px 0; }
+.ic_b_docs { background-position: -136px 0; }
+.ic_b_sqlhelp { background-position: -856px 0; }
+.ic_s_reload { background-position: -1761px 0; }
+.ic_s_loggoff { background-position: -1698px 0; }
+.ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; }
+.ic_b_view { background-position: -1077px 0; }
 
 /******************************************************************************/
 /* classes */
@@ -121,7 +121,7 @@ div#pmalogo,
 div#leftframelinks,
 div#databaseList {
     text-align:         center;
-    margin:      		5px 10px 0px 10px;
+    margin:             5px 10px 0px 10px;
 }
 
 ul#databaseList {
@@ -155,7 +155,7 @@ ul#databaseList li{    list-style:none;text-indent:20px;    margin:0px;
     padding:0px;}
 
 ul#databaseList a:hover {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% #e4e4e4;    
+    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% #e4e4e4;
 }
 
 ul#databaseList li.selected a {

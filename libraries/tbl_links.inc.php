@@ -92,7 +92,7 @@ if (! $tbl_is_view && !$db_is_information_schema) {
     $tabs['operation']['link'] = 'tbl_operations.php';
     $tabs['operation']['text'] = __('Operations');
 }
-if(PMA_Tracker::isActive()) {
+if (PMA_Tracker::isActive()) {
     $tabs['tracking']['icon'] = 'ic_eye';
     $tabs['tracking']['text'] = __('Tracking');
     $tabs['tracking']['link'] = 'tbl_tracking.php';
@@ -122,7 +122,7 @@ if ($table_info_num_rows == 0 && !$tbl_is_view) {
 echo PMA_generate_html_tabs($tabs, $url_params);
 unset($tabs);
 
-if(PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"]))
+if (PMA_Tracker::isActive() and PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"]))
 {
     $msg = PMA_Message::notice('<a href="tbl_tracking.php?'.$url_query.'">'.sprintf(__('Tracking of %s.%s is activated.'), htmlspecialchars($GLOBALS["db"]), htmlspecialchars($GLOBALS["table"])).'</a>');
     $msg->display();

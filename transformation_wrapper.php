@@ -88,7 +88,7 @@ if (! isset($resize)) {
     $ratioWidth = $srcWidth/$newWidth;
     $ratioHeight = $srcHeight/$newHeight;
 
-    if ($ratioWidth < $ratioHeight){
+    if ($ratioWidth < $ratioHeight) {
         $destWidth = $srcWidth/$ratioHeight;
         $destHeight = $newHeight;
     } else {

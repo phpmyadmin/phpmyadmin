@@ -114,5 +114,5 @@ if (!$GLOBALS['is_ajax_request']) {
         PMA_showMessage($message);
         unset($message);
     }
-}// end if($GLOBALS['is_ajax_request'] == true)
+}// end if ($GLOBALS['is_ajax_request'] == true)
 ?>
