@@ -583,10 +583,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "คำถูกแบ่งด้วยช่องว่าง (\" \")."
 
 #: db_search.php:298
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "ในตาราง:"
+msgstr "ภายในตาราง:"
 
 #: db_search.php:328
 msgid "Inside column:"
