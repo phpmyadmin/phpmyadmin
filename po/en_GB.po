@@ -1246,6 +1246,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Following settings will be applied globally and reset to default on server "
+"restart:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
