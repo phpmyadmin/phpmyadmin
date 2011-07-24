@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-24 11:48+0200\n"
+"PO-Revision-Date: 2011-07-24 11:49+0200\n"
 "Last-Translator: Waitaya Krongapiradee <wyte_sk133@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -249,7 +249,7 @@ msgstr "ดูโครงสร้างของฐานข้อมูล"
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:374 navigation.php:296
 msgid "No tables found in database."
-msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
+msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
 
 #: db_export.php:40 db_search.php:317 server_export.php:26
 msgid "Select All"
