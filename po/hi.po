@@ -80,7 +80,7 @@ msgstr "ढूंढें"
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "आगे"
+msgstr "जाएँ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:313
