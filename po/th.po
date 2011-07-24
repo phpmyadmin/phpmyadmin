@@ -401,12 +401,11 @@ msgid "Last check"
 msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
 
 #: db_printview.php:220 db_structure.php:433
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s ตาราง"
-msgstr[1] "%s ตาราง"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
