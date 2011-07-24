@@ -142,11 +142,16 @@ abstract class PMA_GIS_Geometry
             $cordinates = explode(" ", $point);
 
             if ($scale_data != null) {
-                $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
-                $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+                if (trim($cordinates[0]) != '' && trim($cordinates[1]) != '') {
+                    $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
+                    $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
+                } else {
+                    $x = '';
+                    $y = '';
+                }
             } else {
-                $x = $cordinates[0];
-                $y = $cordinates[1];
+                $x = trim($cordinates[0]);
+                $y = trim($cordinates[1]);
             }
 
             if (! $linear) {

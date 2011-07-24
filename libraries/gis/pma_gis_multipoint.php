@@ -70,7 +70,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         foreach ($points_arr as $point) {
             // draw a small circle to mark the point
-            imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+            if ($point[0] != '' && $point[1] != '') {
+                imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+            }
         }
         return $image;
     }
@@ -100,7 +102,9 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         foreach ($points_arr as $point) {
             // draw a small circle to mark the point
-            $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+            if ($point[0] != '' && $point[1] != '') {
+                $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+            }
         }
         return $pdf;
     }
@@ -131,12 +135,14 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         $row = '';
         foreach ($points_arr as $point) {
-            $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
-            $point_options['id'] = $label . rand();
-            foreach ($point_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim($val) . '"';
+            if ($point[0] != '' && $point[1] != '') {
+                $row .= '<circle cx="' . $point[0] . '" cy="' . $point[1] . '" r="3"';
+                $point_options['id'] = $label . rand();
+                foreach ($point_options as $option => $val) {
+                    $row .= ' ' . $option . '="' . trim($val) . '"';
+                }
+                $row .= '/>';
             }
-            $row .= '/>';
         }
 
         return $row;
@@ -176,11 +182,15 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
 
         $row = 'new Array(';
         foreach ($points_arr as $point) {
-            $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1]
-                . ')).transform(new OpenLayers.Projection("EPSG:' . $srid
-                . '"), map.getProjectionObject()), ';
+            if ($point[0] != '' && $point[1] != '') {
+                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1]
+                    . ')).transform(new OpenLayers.Projection("EPSG:' . $srid
+                    . '"), map.getProjectionObject()), ';
+            }
         }
-        $row = substr($row, 0, strlen($row) - 2);
+        if (substr($row, strlen($row) - 2) == ', ') {
+            $row = substr($row, 0, strlen($row) - 2);
+        }
         $row .= ')';
 
         $result .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
@@ -194,7 +204,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
      *
      * @param array  $gis_data GIS data
      * @param int    $index    Index into the parameter object
-     * @param string $empty    Value for empty points
+     * @param string $empty    Multipoint does not adhere to this
      *
      * @return WKT with the set of parameters passed by the GIS editor
      */
@@ -209,10 +219,10 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         for ($i = 0; $i < $no_of_points; $i++) {
             $wkt .= ((isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
                 && trim($gis_data[$index]['MULTIPOINT'][$i]['x']) != '')
-                ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : $empty)
+                ? $gis_data[$index]['MULTIPOINT'][$i]['x'] : '')
                 . ' ' . ((isset($gis_data[$index]['MULTIPOINT'][$i]['y'])
                 && trim($gis_data[$index]['MULTIPOINT'][$i]['y']) != '')
-                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : $empty) . ',';
+                ? $gis_data[$index]['MULTIPOINT'][$i]['y'] : '') . ',';
         }
         $wkt = substr($wkt, 0, strlen($wkt) - 1);
         $wkt .= ')';
