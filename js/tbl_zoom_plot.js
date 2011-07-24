@@ -54,6 +54,32 @@ function isEmpty(obj) {
 }
 
 /**
+ ** Classifies the field type into numeric,timeseries or text
+ ** @param field: field type (as in database structure)
+ **/ 
+function getType(field) {
+	if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1)
+	    return 'numeric';
+	else if(field.toString().search(/time/i) != -1)
+	    return 'text';
+	else
+	    return 'text';
+}
+/** 
+ ** Converts a categorical array into numeric array
+ ** @param array categorical values array
+ **/
+function getCord(arr) {
+    var newCord = new Array();
+    var original = $.extend(true,[],arr);
+    var arr = jQuery.unique(arr).sort();
+    $.each(original, function(index,value) {
+        newCord.push(jQuery.inArray(value,arr));
+    });
+    return [newCord,arr];
+}
+
+/**
  ** Scrolls the view to the display section
  **/
 function scrollToChart() {
@@ -76,6 +102,8 @@ $(document).ready(function() {
     var currentData = null;
     var xLabel = $('#tableid_0').val();
     var yLabel = $('#tableid_1').val();
+    var xType = $('#types_0').val();
+    var yType = $('#types_1').val();
     var dataLabel = $('#dataLabel').val();
 
     // Get query result 
@@ -159,11 +187,11 @@ $(document).ready(function() {
 	}//End data update
 
         //Update the chart series and replot
-        series[currentData].data = {
+        series[0].data[currentData] = {
 	    name : data[currentData][dataLabel],
             x : data[currentData][xLabel],
             y : data[currentData][yLabel],
-	    color : colorCodes[currentData % 8],
+	    marker: {fillColor: colorCodes[it % 8]},
 	    id : currentData,
 	};
 
@@ -177,7 +205,7 @@ $(document).ready(function() {
 	currentSettings.yAxis.min = Array.min(yCord) - 2;
 	
         currentChart = PMA_createChart(currentSettings); 
-	currentChart.series[currentData].data[0].select();
+	currentChart.series[0].data[currentData].select();
 	//End plot update	
 
 	//Generate SQL query for update
@@ -232,31 +260,16 @@ $(document).ready(function() {
     	var series = new Array();
     	var xCord = new Array();
     	var yCord = new Array();
+    	var xCat = new Array();
+    	var yCat = new Array();
 	var temp;
     	var it = 0;
 
-    	// Get column names
-    	for (key in data[0]) columnNames.push(key);
-
-        // Form series 
-    	$.each(data,function(key,value) {
-	    series[it] = new Object();
-            series[it].data = new Array();
-	    series[it].color = colorCodes[it % 8];
-	    series[it].marker = {
-                symbol: 'circle'
-            };
-            xCord.push(value[xLabel]);
-            yCord.push(value[yLabel]);
-            series[it].data.push({ name: value[dataLabel], x:value[xLabel], y:value[yLabel], color: colorCodes[it % 8], id: it } );
-	    it++;   
-        });
-
-        // Set the plot settings
+        // Set the basic plot settings
         var currentSettings = {
             chart: {
             	renderTo: 'querychart',
-            	defaultSeriesType: 'scatter',
+            	type: 'scatter',
 	    	zoomType: 'xy',
 	    	width:$('#resizer').width() -3,
             	height:$('#resizer').height()-20 
@@ -298,18 +311,13 @@ $(document).ready(function() {
 	            return this.point.name;
 	        }
 	    },
-            series: series,
             title: { text: 'Query Results' },
 	    xAxis: {
 		type: 'linear',
 	        title: { text: $('#tableid_0').val() },
-	        max: Array.max(xCord) + 2,
-	        min: Array.min(xCord) - 2
             },
             yAxis: {
 	        title: { text: $('#tableid_1').val() },
-	        max: Array.max(yCord) + 3,
-	        min: Array.min(yCord) - 2
 	    },
         }
 
@@ -323,6 +331,88 @@ $(document).ready(function() {
             }
         });
         
+	xType = getType(xType);
+	yType = getType(yType);
+
+        // Formulate series data for plot
+        series[0] = new Object();
+        series[0].data = new Array();
+	series[0].marker = {
+            symbol: 'circle'
+        };
+	if (xType == 'numeric' && yType == 'numeric') {
+	    $.each(data,function(key,value) {
+                series[0].data.push({ name: value[dataLabel], x: value[xLabel], y: value[yLabel], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+		xCord.push(value[xLabel]);
+		yCord.push(value[yLabel]);
+	        it++;   
+            });
+	    currentSettings.xAxis.max = Array.max(xCord) + 2
+	    currentSettings.xAxis.min = Array.min(xCord) - 2
+	    currentSettings.yAxis.max = Array.max(yCord) + 3
+	    currentSettings.yAxis.min = Array.min(yCord) - 2
+        }
+	
+	else if (xType =='text' && yType =='numeric') {
+	    $.each(data,function(key,value) {
+		xCord.push(value[xLabel]);
+		yCord.push(value[yLabel]);
+	    });
+	    temp = getCord(xCord);	
+	    $.each(data,function(key,value) {
+                series[0].data.push({ name: value[dataLabel], x: temp[0][it], y: value[yLabel], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+	        it++;   
+            });
+	    currentSettings.yAxis.max = Array.max(yCord) + 3
+	    currentSettings.yAxis.min = Array.min(yCord) - 2
+	    currentSettings.xAxis.labels = { formatter : function() {
+	            return temp[1][this.value];
+	        }
+            }
+	}
+	 
+	else if (xType =='numeric' && yType =='text') {
+	    $.each(data,function(key,value) {
+		xCord.push(value[xLabel]);
+		yCord.push(value[yLabel]);
+	    });
+	    temp = getCord(yCord);	
+	    $.each(data,function(key,value) {
+                series[0].data.push({ name: value[dataLabel], x: temp[0][it], y: value[xLabel], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+	        it++;   
+            });
+	    currentSettings.yAxis.max = Array.max(xCord) + 3
+	    currentSettings.yAxis.min = Array.min(xCord) - 2
+	    currentSettings.xAxis.labels = { formatter : function() {
+	            return temp[1][this.value];
+	        }
+            }
+	    currentSettings.xAxis.title.text = $('#tableid_1').val() 
+	    currentSettings.yAxis.title.text = $('#tableid_0').val() 
+	}
+	
+	else if (xType =='text' && yType =='text') {
+	    $.each(data,function(key,value) {
+		xCord.push(value[xLabel]);
+		yCord.push(value[yLabel]);
+	    });
+	    temp = getCord(xCord);	
+	    var temp2 = getCord(yCord);	
+	    $.each(data,function(key,value) {
+                series[0].data.push({ name: value[dataLabel], x: temp[0][it], y: temp2[0][it], marker: {fillColor: colorCodes[it % 8]} , id: it } );
+	        it++;   
+            });
+	    currentSettings.xAxis.labels = { formatter : function() {
+	            return temp[1][this.value];
+	        }
+            }
+	    currentSettings.yAxis.labels = { formatter : function() {
+	            return temp2[1][this.value];
+	        }
+	    }
+	}
+
+	currentSettings.series = series;
         currentChart = PMA_createChart(currentSettings);
 	scrollToChart();
     }
