@@ -90,7 +90,7 @@ msgstr "ชื่อคีย์"
 #: server_collations.php:54 server_collations.php:66 server_engines.php:56
 #: server_status.php:1223
 msgid "Description"
-msgstr "รายละเอียด"
+msgstr "คำอธิบาย"
 
 #: browse_foreigners.php:248 browse_foreigners.php:257
 #: browse_foreigners.php:269 browse_foreigners.php:277
