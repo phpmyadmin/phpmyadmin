@@ -2459,10 +2459,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
 #: libraries/common.lib.php:2441
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "クリックで選択"
+msgstr "クリックでオン／オフ切り替え"
 
 #: libraries/common.lib.php:2712 libraries/common.lib.php:2719
 #: libraries/common.lib.php:2908 libraries/config/setup.forms.php:296
