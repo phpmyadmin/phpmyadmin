@@ -1295,10 +1295,9 @@ msgid "Current settings"
 msgstr "Current settings"
 
 #: js/messages.php:135 server_status.php:1366
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Chart title"
+msgstr "Chart Title"
 
 #. l10n: As in differential values
 #: js/messages.php:137
