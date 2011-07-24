@@ -1308,7 +1308,7 @@ msgstr "Differential"
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Divided by %s:"
 
 #: js/messages.php:140
 #, fuzzy
