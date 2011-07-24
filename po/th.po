@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-24 11:46+0200\n"
+"PO-Revision-Date: 2011-07-24 11:47+0200\n"
 "Last-Translator: Waitaya Krongapiradee <wyte_sk133@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -115,7 +115,7 @@ msgstr "เชื่อมต่อ URL ปลายทางไม่สำเ�
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
+msgstr "ไม่สามารถเปิดไฟล์ %s ได้ เพื่อรายละเอียด กรุณาไป www.phpmyadmin.net"
 
 #: db_create.php:58
 #, fuzzy, php-format
