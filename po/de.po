@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-24 21:47+0200\n"
+"PO-Revision-Date: 2011-07-24 21:48+0200\n"
 "Last-Translator:  <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1892,7 +1892,7 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Fehler beim verschieben der hochgeladenen Datei."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
