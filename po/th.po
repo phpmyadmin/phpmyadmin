@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-24 11:45+0200\n"
+"PO-Revision-Date: 2011-07-24 11:46+0200\n"
 "Last-Translator: Waitaya Krongapiradee <wyte_sk133@hotmail.com>\n"
 "Language-Team: thai <th@li.org>\n"
 "Language: th\n"
@@ -108,7 +108,7 @@ msgstr "การดึงค่าส่วนหัวไม่สำเร็
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr "เชื่อมต่อ url ปลายทางไม่สำเร็จ"
+msgstr "เชื่อมต่อ URL ปลายทางไม่สำเร็จ"
 
 #: changelog.php:32 license.php:28
 #, php-format
