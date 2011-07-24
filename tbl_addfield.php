@@ -184,6 +184,12 @@ if (isset($_REQUEST['do_save_data'])) {
         // Go back to the structure sub-page
         $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
+
+        if( $GLOBALS['is_ajax_request'] == true) {
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            PMA_ajaxResponse($message, $message->isSuccess(),$extra_data);
+        }
+
         $active_page = 'tbl_structure.php';
         require './tbl_structure.php';
     } else {

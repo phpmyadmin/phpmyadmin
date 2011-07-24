@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-22 10:17+0200\n"
+"POT-Creation-Date: 2011-07-24 14:43-0400\n"
 "PO-Revision-Date: 2011-07-16 14:57+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -618,11 +618,11 @@ msgstr "Le suivi n'est pas activé."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
-"%sdocumentation%s."
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
+"sdocumentation%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -861,8 +861,8 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -1219,7 +1219,7 @@ msgid "Pause monitor"
 msgstr ""
 
 #: js/messages.php:114
-msgid "general_log and slow_query_log is enabled."
+msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
 #: js/messages.php:115
@@ -1231,7 +1231,7 @@ msgid "slow_query_log is enabled."
 msgstr ""
 
 #: js/messages.php:117
-msgid "slow_query_log and general_log is disabled."
+msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
 #: js/messages.php:118
@@ -1528,22 +1528,28 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #: js/messages.php:211
+#, fuzzy
+#| msgid "Add column"
+msgid "Add columns"
+msgstr "Ajouter une colonne"
+
+#: js/messages.php:214
 msgid "Select referenced key"
 msgstr "Sélectionnez la clé référencée"
 
-#: js/messages.php:212
+#: js/messages.php:215
 msgid "Select Foreign Key"
 msgstr "Choisissez la clé étrangère"
 
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Please select the primary key or a unique key"
 msgstr "Veuillez choisir la clé primaire ou un index unique"
 
-#: js/messages.php:214 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:217 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Colonne descriptive"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1551,27 +1557,27 @@ msgstr ""
 "Vous n'avez pas sauvegardé les changements. Ils seront perdus si vous ne les "
 "sauvegardez pas. Voulez-vous continuer?"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add an option for column "
 msgstr "Ajouter une option pour la colonne"
 
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Generate password"
 msgstr "Générer un mot de passe"
 
-#: js/messages.php:222 libraries/replication_gui.lib.php:364
+#: js/messages.php:225 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Générer"
 
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Change Password"
 msgstr "Modifier le mot de passe"
 
-#: js/messages.php:226 tbl_structure.php:497
+#: js/messages.php:229 tbl_structure.php:497
 msgid "More"
 msgstr "plus"
 
-#: js/messages.php:229 setup/lib/index.lib.php:158
+#: js/messages.php:232 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1581,26 +1587,26 @@ msgstr ""
 "une mise à niveau. La version la plus récente est %s, publiée le %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:231
+#: js/messages.php:234
 msgid ", latest stable version:"
 msgstr ", dernière version stable :"
 
-#: js/messages.php:232
+#: js/messages.php:235
 msgid "up to date"
 msgstr "à jour"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:250
+#: js/messages.php:253
 msgid "Done"
 msgstr "Fermer"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:252
+#: js/messages.php:255
 msgid "Prev"
 msgstr "Précédent"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:254 libraries/common.lib.php:2206
+#: js/messages.php:257 libraries/common.lib.php:2206
 #: libraries/common.lib.php:2209 libraries/display_tbl.lib.php:363
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
@@ -1608,231 +1614,231 @@ msgid "Next"
 msgstr "Suivant"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "January"
 msgstr "Janvier"
 
-#: js/messages.php:260
+#: js/messages.php:263
 msgid "February"
 msgstr "Février"
 
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "March"
 msgstr "Mars"
 
-#: js/messages.php:262
+#: js/messages.php:265
 msgid "April"
 msgstr "Avril"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:264
+#: js/messages.php:267
 msgid "June"
 msgstr "Juin"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "July"
 msgstr "Juillet"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "August"
 msgstr "Août"
 
-#: js/messages.php:267
+#: js/messages.php:270
 msgid "September"
 msgstr "Septembre"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "October"
 msgstr "Octobre"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid "November"
 msgstr "Novembre"
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "December"
 msgstr "Décembre"
 
 #. l10n: Short month name
-#: js/messages.php:274 libraries/common.lib.php:1444
+#: js/messages.php:277 libraries/common.lib.php:1444
 msgid "Jan"
 msgstr "Janvier"
 
 #. l10n: Short month name
-#: js/messages.php:276 libraries/common.lib.php:1446
+#: js/messages.php:279 libraries/common.lib.php:1446
 msgid "Feb"
 msgstr "Février"
 
 #. l10n: Short month name
-#: js/messages.php:278 libraries/common.lib.php:1448
+#: js/messages.php:281 libraries/common.lib.php:1448
 msgid "Mar"
 msgstr "Mars"
 
 #. l10n: Short month name
-#: js/messages.php:280 libraries/common.lib.php:1450
+#: js/messages.php:283 libraries/common.lib.php:1450
 msgid "Apr"
 msgstr "Avril"
 
 #. l10n: Short month name
-#: js/messages.php:282 libraries/common.lib.php:1452
+#: js/messages.php:285 libraries/common.lib.php:1452
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:284 libraries/common.lib.php:1454
+#: js/messages.php:287 libraries/common.lib.php:1454
 msgid "Jun"
 msgstr "Juin"
 
 #. l10n: Short month name
-#: js/messages.php:286 libraries/common.lib.php:1456
+#: js/messages.php:289 libraries/common.lib.php:1456
 msgid "Jul"
 msgstr "Juillet"
 
 #. l10n: Short month name
-#: js/messages.php:288 libraries/common.lib.php:1458
+#: js/messages.php:291 libraries/common.lib.php:1458
 msgid "Aug"
 msgstr "Août"
 
 #. l10n: Short month name
-#: js/messages.php:290 libraries/common.lib.php:1460
+#: js/messages.php:293 libraries/common.lib.php:1460
 msgid "Sep"
 msgstr "Septembre"
 
 #. l10n: Short month name
-#: js/messages.php:292 libraries/common.lib.php:1462
+#: js/messages.php:295 libraries/common.lib.php:1462
 msgid "Oct"
 msgstr "Octobre"
 
 #. l10n: Short month name
-#: js/messages.php:294 libraries/common.lib.php:1464
+#: js/messages.php:297 libraries/common.lib.php:1464
 msgid "Nov"
 msgstr "Novembre"
 
 #. l10n: Short month name
-#: js/messages.php:296 libraries/common.lib.php:1466
+#: js/messages.php:299 libraries/common.lib.php:1466
 msgid "Dec"
 msgstr "Décembre"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Sunday"
 msgstr "Dimanche"
 
-#: js/messages.php:300
+#: js/messages.php:303
 msgid "Monday"
 msgstr "Lundi"
 
-#: js/messages.php:301
+#: js/messages.php:304
 msgid "Tuesday"
 msgstr "Mardi"
 
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Wednesday"
 msgstr "Mercredi"
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Thursday"
 msgstr "Jeudi"
 
-#: js/messages.php:304
+#: js/messages.php:307
 msgid "Friday"
 msgstr "Vendredi"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Saturday"
 msgstr "Samedi"
 
 #. l10n: Short week day name
-#: js/messages.php:309 libraries/common.lib.php:1469
+#: js/messages.php:312 libraries/common.lib.php:1469
 msgid "Sun"
 msgstr "Dim"
 
 #. l10n: Short week day name
-#: js/messages.php:311 libraries/common.lib.php:1471
+#: js/messages.php:314 libraries/common.lib.php:1471
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:313 libraries/common.lib.php:1473
+#: js/messages.php:316 libraries/common.lib.php:1473
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:315 libraries/common.lib.php:1475
+#: js/messages.php:318 libraries/common.lib.php:1475
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:317 libraries/common.lib.php:1477
+#: js/messages.php:320 libraries/common.lib.php:1477
 msgid "Thu"
 msgstr "Jeu"
 
 #. l10n: Short week day name
-#: js/messages.php:319 libraries/common.lib.php:1479
+#: js/messages.php:322 libraries/common.lib.php:1479
 msgid "Fri"
 msgstr "Ven"
 
 #. l10n: Short week day name
-#: js/messages.php:321 libraries/common.lib.php:1481
+#: js/messages.php:324 libraries/common.lib.php:1481
 msgid "Sat"
 msgstr "Sam"
 
 #. l10n: Minimal week day name
-#: js/messages.php:325
+#: js/messages.php:328
 msgid "Su"
 msgstr "Di"
 
 #. l10n: Minimal week day name
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Mo"
 msgstr "Lu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:329
+#: js/messages.php:332
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:331
+#: js/messages.php:334
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Th"
 msgstr "Je"
 
 #. l10n: Minimal week day name
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Fr"
 msgstr "Ve"
 
 #. l10n: Minimal week day name
-#: js/messages.php:337
+#: js/messages.php:340
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Wk"
 msgstr "Sem"
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid "Hour"
 msgstr "Heure"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Minute"
 msgstr "Minute"
 
-#: js/messages.php:343
+#: js/messages.php:346
 msgid "Second"
 msgstr "Seconde"
 
@@ -2082,8 +2088,8 @@ msgstr "Bienvenue dans %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -2171,16 +2177,16 @@ msgstr "Ne peut trouver le script d'authentification pour le mode signon:"
 msgid "File %s does not contain any key id"
 msgstr "Le fichier %s ne contient pas d'identifiant de clé"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:157
-#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/auth/swekey/swekey.auth.lib.php:159
+#: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
 msgstr "L'authentification matérielle a échoué"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
 msgstr "La clé d'authentification n'est pas branchée"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
 msgstr "Authentification en cours..."
 
@@ -5145,8 +5151,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -5922,8 +5928,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
@@ -6073,8 +6079,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
+msgstr "Commentaires mis en en-tête (séparer les lignes par «\\» suivi de «n») :"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6261,7 +6266,9 @@ msgstr ""
 "Les structures suivanates ont été créées ou modifiées. Ici vous pouvez :"
 
 #: libraries/import.lib.php:1069
-msgid "View a structure`s contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure`s contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name"
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom"
 
 #: libraries/import.lib.php:1070
@@ -6271,7 +6278,9 @@ msgstr ""
 "Modifiez l'un des paramètres en cliquant le lien «Options» correspondant"
 
 #: libraries/import.lib.php:1071
-msgid "Edit its structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit its structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link"
 msgstr "Modifier sa structure via le lien «Structure»"
 
 #: libraries/import.lib.php:1074
@@ -7563,8 +7572,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-"PHP nécessaires ont bien été installées tel que décrit dans la "
-"%sdocumentation%s."
+"PHP nécessaires ont bien été installées tel que décrit dans la %"
+"sdocumentation%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -8325,7 +8334,7 @@ msgstr "Tout"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "La table <b>%s</b> est absente ou non définie dans %s"
 
-#: schema_export.php:45
+#: schema_export.php:47
 msgid "File doesn't exist"
 msgstr "Le fichier n'existe pas"
 
@@ -8747,8 +8756,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -10406,8 +10415,8 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
-"%s."
+"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance%"
+"s."
 
 #: setup/lib/index.lib.php:252
 msgid ""
@@ -10459,8 +10468,8 @@ msgid ""
 msgstr ""
 "Le paramètre %sLogin cookie validity%s avec une valeur de plus de 1440 "
 "secondes peut causer des interruptions de la session de travail si le "
-"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement "
-"%d)."
+"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement %"
+"d)."
 
 #: setup/lib/index.lib.php:262
 #, php-format
@@ -10479,8 +10488,8 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
-"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity"
-"%s doit avoir une valeur plus petite ou égale à celui-ci."
+"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%"
+"s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:266
 #, php-format
@@ -10490,8 +10499,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
-"%sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
+"sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
 "Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
 "appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
 "compris, sont connectés."
@@ -11319,7 +11328,6 @@ msgstr "Changer le nom de la vue pour"
 #~ msgstr "Déclencheur %s non trouvé"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Afficher"
 

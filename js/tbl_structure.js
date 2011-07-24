@@ -336,6 +336,70 @@ $(document).ready(function() {
         });
     } //end show/hide table index
 
+    /**
+     *Ajax event handler for Add column(s)
+    **/
+    $("#addColumns.ajax input[value=Go]").live('click', function(event){
+        event.preventDefault();
+        
+        /*Remove the hidden dialogs if there are*/
+        if ($('#add_columns').length != 0) {
+            $('#add_columns').remove();
+        }
+        var $div = $('<div id="add_columns"></div>');
+
+        var $form = $("#addColumns");
+        
+        /**
+         *  @var    button_options  Object that stores the options passed to jQueryUI
+         *                          dialog
+         */
+        var button_options = {};
+        // in the following function we need to use $(this)
+        button_options[PMA_messages['strCancel']] = function() {$(this).dialog('close').remove();}
+
+        var button_options_error = {};
+        button_options_error[PMA_messages['strOK']] = function() {$(this).dialog('close').remove();}
+        var $msgbox = PMA_ajaxShowMessage();
+
+        $.get( $form.attr('action') , $form.serialize()+"&ajax_request=true" ,  function(data) {
+            //in the case of an error, show the error message returned.
+            if (data.success != undefined && data.success == false) {
+                $div
+                .append(data.error)
+                .dialog({
+                    title: PMA_messages['strAddColumns'],
+                    height: 230,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    modal: true,
+                    buttons : button_options_error
+                })// end dialog options
+            } else {
+                $div
+                .append(data)
+                .dialog({
+                    title: PMA_messages['strAddColumns'],
+                    height: 600,
+                    width: 900,
+                    open: PMA_verifyTypeOfAllColumns,
+                    modal: true,
+                    buttons : button_options
+                })
+                //Remove the top menu container from the dialog
+                .find("#topmenucontainer").hide()
+                ; // end dialog options
+                
+                $div = $("#add_columns");
+                /*changed the z-index of the enum editor to allow the edit*/
+                $("#enum_editor").css("z-index", "1100");
+                PMA_convertFootnotesToTooltips($div);
+            }
+            PMA_ajaxRemoveMessage($msgbox);
+        }) // end $.get()
+    });
+
+    
 
 }) // end $(document).ready()
 
@@ -396,6 +460,8 @@ function changeColumns(action,url) {
             $("#append_fields_form input[name=do_save_data]").addClass("ajax");
             /*changed the z-index of the enum editor to allow the edit*/
             $("#enum_editor").css("z-index", "1100");
+            $div = $("#change_column_dialog");
+            PMA_convertFootnotesToTooltips($div);
         }
         PMA_ajaxRemoveMessage($msgbox);
     }) // end $.get()

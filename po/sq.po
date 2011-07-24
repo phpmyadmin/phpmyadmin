@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-22 10:17+0200\n"
+"POT-Creation-Date: 2011-07-24 14:43-0400\n"
 "PO-Revision-Date: 2010-07-21 14:51+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: albanian <sq@li.org>\n"
-"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -641,8 +641,8 @@ msgstr "Gjurmimi nuk është aktiv."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
@@ -891,8 +891,8 @@ msgstr "Dump u ruajt tek file %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:456
@@ -1248,7 +1248,7 @@ msgid "Pause monitor"
 msgstr ""
 
 #: js/messages.php:114
-msgid "general_log and slow_query_log is enabled."
+msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
 #: js/messages.php:115
@@ -1260,7 +1260,7 @@ msgid "slow_query_log is enabled."
 msgstr ""
 
 #: js/messages.php:117
-msgid "slow_query_log and general_log is disabled."
+msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
 #: js/messages.php:118
@@ -1586,57 +1586,62 @@ msgid "Ignore"
 msgstr "Shpërfill"
 
 #: js/messages.php:211
+#, fuzzy
+msgid "Add columns"
+msgstr "Shto një fushë të re"
+
+#: js/messages.php:214
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:215
 msgid "Select Foreign Key"
 msgstr ""
 
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:214 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:217 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Zgjidh fushën që dëshiron të shohësh"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "Ndrysho fjalëkalimin"
 
-#: js/messages.php:222 libraries/replication_gui.lib.php:364
+#: js/messages.php:225 libraries/replication_gui.lib.php:364
 #, fuzzy
 msgid "Generate"
 msgstr "Gjeneruar nga"
 
-#: js/messages.php:223
+#: js/messages.php:226
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Ndrysho fjalëkalimin"
 
-#: js/messages.php:226 tbl_structure.php:497
+#: js/messages.php:229 tbl_structure.php:497
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Hën"
 
-#: js/messages.php:229 setup/lib/index.lib.php:158
+#: js/messages.php:232 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1644,31 +1649,31 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:231
+#: js/messages.php:234
 msgid ", latest stable version:"
 msgstr ""
 
-#: js/messages.php:232
+#: js/messages.php:235
 #, fuzzy
 msgid "up to date"
 msgstr "Asnjë databazë"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:250
+#: js/messages.php:253
 #, fuzzy
 #| msgid "None"
 msgid "Done"
 msgstr "Asnjë lloj"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:252
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Paraardhësi"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:254 libraries/common.lib.php:2206
+#: js/messages.php:257 libraries/common.lib.php:2206
 #: libraries/common.lib.php:2209 libraries/display_tbl.lib.php:363
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
@@ -1676,96 +1681,96 @@ msgid "Next"
 msgstr "Në vazhdim"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:256
+#: js/messages.php:259
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Gjithsej"
 
-#: js/messages.php:259
+#: js/messages.php:262
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binar"
 
-#: js/messages.php:260
+#: js/messages.php:263
 msgid "February"
 msgstr ""
 
-#: js/messages.php:261
+#: js/messages.php:264
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:262
+#: js/messages.php:265
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Pri"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "May"
 msgstr "Maj"
 
-#: js/messages.php:264
+#: js/messages.php:267
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Qer"
 
-#: js/messages.php:265
+#: js/messages.php:268
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Kor"
 
-#: js/messages.php:266
+#: js/messages.php:269
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Gsh"
 
-#: js/messages.php:267
+#: js/messages.php:270
 msgid "September"
 msgstr ""
 
-#: js/messages.php:268
+#: js/messages.php:271
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Tet"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid "November"
 msgstr ""
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:274 libraries/common.lib.php:1444
+#: js/messages.php:277 libraries/common.lib.php:1444
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:276 libraries/common.lib.php:1446
+#: js/messages.php:279 libraries/common.lib.php:1446
 msgid "Feb"
 msgstr "Shk"
 
 #. l10n: Short month name
-#: js/messages.php:278 libraries/common.lib.php:1448
+#: js/messages.php:281 libraries/common.lib.php:1448
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:280 libraries/common.lib.php:1450
+#: js/messages.php:283 libraries/common.lib.php:1450
 msgid "Apr"
 msgstr "Pri"
 
 #. l10n: Short month name
-#: js/messages.php:282 libraries/common.lib.php:1452
+#: js/messages.php:285 libraries/common.lib.php:1452
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1773,176 +1778,176 @@ msgid "May"
 msgstr "Maj"
 
 #. l10n: Short month name
-#: js/messages.php:284 libraries/common.lib.php:1454
+#: js/messages.php:287 libraries/common.lib.php:1454
 msgid "Jun"
 msgstr "Qer"
 
 #. l10n: Short month name
-#: js/messages.php:286 libraries/common.lib.php:1456
+#: js/messages.php:289 libraries/common.lib.php:1456
 msgid "Jul"
 msgstr "Kor"
 
 #. l10n: Short month name
-#: js/messages.php:288 libraries/common.lib.php:1458
+#: js/messages.php:291 libraries/common.lib.php:1458
 msgid "Aug"
 msgstr "Gsh"
 
 #. l10n: Short month name
-#: js/messages.php:290 libraries/common.lib.php:1460
+#: js/messages.php:293 libraries/common.lib.php:1460
 msgid "Sep"
 msgstr "Sht"
 
 #. l10n: Short month name
-#: js/messages.php:292 libraries/common.lib.php:1462
+#: js/messages.php:295 libraries/common.lib.php:1462
 msgid "Oct"
 msgstr "Tet"
 
 #. l10n: Short month name
-#: js/messages.php:294 libraries/common.lib.php:1464
+#: js/messages.php:297 libraries/common.lib.php:1464
 msgid "Nov"
 msgstr "Nën"
 
 #. l10n: Short month name
-#: js/messages.php:296 libraries/common.lib.php:1466
+#: js/messages.php:299 libraries/common.lib.php:1466
 msgid "Dec"
 msgstr "Dhj"
 
-#: js/messages.php:299
+#: js/messages.php:302
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Djl"
 
-#: js/messages.php:300
+#: js/messages.php:303
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Hën"
 
-#: js/messages.php:301
+#: js/messages.php:304
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Mar"
 
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:304
+#: js/messages.php:307
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pre"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:309 libraries/common.lib.php:1469
+#: js/messages.php:312 libraries/common.lib.php:1469
 msgid "Sun"
 msgstr "Djl"
 
 #. l10n: Short week day name
-#: js/messages.php:311 libraries/common.lib.php:1471
+#: js/messages.php:314 libraries/common.lib.php:1471
 msgid "Mon"
 msgstr "Hën"
 
 #. l10n: Short week day name
-#: js/messages.php:313 libraries/common.lib.php:1473
+#: js/messages.php:316 libraries/common.lib.php:1473
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:315 libraries/common.lib.php:1475
+#: js/messages.php:318 libraries/common.lib.php:1475
 msgid "Wed"
 msgstr "Mër"
 
 #. l10n: Short week day name
-#: js/messages.php:317 libraries/common.lib.php:1477
+#: js/messages.php:320 libraries/common.lib.php:1477
 msgid "Thu"
 msgstr "Enj"
 
 #. l10n: Short week day name
-#: js/messages.php:319 libraries/common.lib.php:1479
+#: js/messages.php:322 libraries/common.lib.php:1479
 msgid "Fri"
 msgstr "Pre"
 
 #. l10n: Short week day name
-#: js/messages.php:321 libraries/common.lib.php:1481
+#: js/messages.php:324 libraries/common.lib.php:1481
 msgid "Sat"
 msgstr "Sht"
 
 #. l10n: Minimal week day name
-#: js/messages.php:325
+#: js/messages.php:328
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Djl"
 
 #. l10n: Minimal week day name
-#: js/messages.php:327
+#: js/messages.php:330
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Hën"
 
 #. l10n: Minimal week day name
-#: js/messages.php:329
+#: js/messages.php:332
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Mar"
 
 #. l10n: Minimal week day name
-#: js/messages.php:331
+#: js/messages.php:334
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Mër"
 
 #. l10n: Minimal week day name
-#: js/messages.php:333
+#: js/messages.php:336
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Enj"
 
 #. l10n: Minimal week day name
-#: js/messages.php:335
+#: js/messages.php:338
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pre"
 
 #. l10n: Minimal week day name
-#: js/messages.php:337
+#: js/messages.php:340
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sht"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:345
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "në përdorim"
 
-#: js/messages.php:343
+#: js/messages.php:346
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2186,8 +2191,8 @@ msgstr "Mirësevini tek %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -2269,16 +2274,16 @@ msgstr ""
 msgid "File %s does not contain any key id"
 msgstr ""
 
-#: libraries/auth/swekey/swekey.auth.lib.php:157
-#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/auth/swekey/swekey.auth.lib.php:159
+#: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
 msgstr ""
 
-#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
 msgstr ""
 
-#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
 msgstr ""
 
@@ -5173,8 +5178,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:268
@@ -5901,8 +5906,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6246,7 +6251,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1069
-msgid "View a structure`s contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
 #: libraries/import.lib.php:1070
@@ -6255,7 +6260,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1071
-msgid "Edit its structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1074
@@ -8396,7 +8401,7 @@ msgstr "Të gjithë"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabela nuk u gjet ose nuk është përcaktuar tek %s"
 
-#: schema_export.php:45
+#: schema_export.php:47
 #, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
@@ -8822,8 +8827,8 @@ msgstr "Elemino databazat që kanë emër të njëjtë me përdoruesit."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Shënim: phpMyAdmin lexon të drejtat e përdoruesve direkt nga tabela e "
 "privilegjeve të MySQL. Përmbajtja e kësaj tabele mund të ndryshojë prej të "
@@ -11210,7 +11215,6 @@ msgid "Rename view to"
 msgstr "Riemërto tabelën në"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Zgjedhja e serverit"
 
@@ -11222,22 +11226,18 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Lloji i query"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Mungon një vlerë në formular!"
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Nuk ka rreshta të zgjedhur"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Shfleto"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rreshta duke filluar nga"
 
@@ -11268,12 +11268,10 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Tema / Stili"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "në sekondë"
 
 #, fuzzy
-#~| msgid "SQL result"
 #~ msgid "Query results"
 #~ msgstr "Rezultati SQL"
 
@@ -11286,7 +11284,6 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Shfaq proceset në ekzekutim"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Rinis"
@@ -11302,21 +11299,18 @@ msgstr "Riemërto tabelën në"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Statistikat e Query</b>: Që nga nisja e tij, serverit i janë dërguar "
-#~ "%s queries."
+#~ "<b>Statistikat e Query</b>: Që nga nisja e tij, serverit i janë dërguar %"
+#~ "s queries."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Të drejtat u përditësuan me sukses."
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Lloji i query"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Shto një përdorues të ri"
 
@@ -11328,7 +11322,6 @@ msgstr "Riemërto tabelën në"
 #~ msgstr "Shto një përdorues të ri"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Dump i të dhënave për tabelën"
 

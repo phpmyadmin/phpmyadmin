@@ -63,7 +63,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                         complete = response.complete;
 
                           if (total==0 && complete==0 && percent==0) {
-                              $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.')); ?>');
+                              $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file being uploaded is probably larger than the maximum allowed size or this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) browsers.'), false); ?>');
                               $('#upload_form_status').css("display", "none");
                           } else {
                               $('#upload_form_status_info').html(' '+Math.round(percent)+'%, '+complete+'/'+total);
@@ -73,7 +73,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                           if (finished==true) {
                                     $('#importmain').css('display', 'none');
                                     $('#import_form_status').css('display', 'inline');
-                                    $('#import_form_status').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file is being processed, please be patient.')); ?> ');
+                                    $('#import_form_status').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file is being processed, please be patient.'), false); ?> ');
                                     $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
                                     <?php
                                     // reload the left sidebar when the import is finished
@@ -95,7 +95,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     <?php
 } else { // no plugin available
     ?>
-                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.')) . PMA_showDocu('faq2_9'); ?>');
+                        $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_showDocu('faq2_9'); ?>');
                         $('#upload_form_status').css("display", "none");
     <?php
 } // else

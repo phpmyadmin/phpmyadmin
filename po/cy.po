@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-22 10:17+0200\n"
+"POT-Creation-Date: 2011-07-24 14:43-0400\n"
 "PO-Revision-Date: 2011-05-19 21:21+0200\n"
 "Last-Translator: <ardavies@tiscali.co.uk>\n"
 "Language-Team: Welsh <cy@li.org>\n"
-"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cy\n"
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -625,8 +625,8 @@ msgstr "Nid yw tracio'n weithredol"
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
@@ -867,8 +867,8 @@ msgstr "Dadlwythiad wedi'i gadw i'r ffeil %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Yn ôl pob tebyg, mae'r ffeil i rhy fawr i'w lanlwytho. Gweler y %sdogfennaeth"
 "%s am ffyrdd i weithio o gwmpas y cyfyngiad hwn."
@@ -1235,7 +1235,7 @@ msgid "Pause monitor"
 msgstr ""
 
 #: js/messages.php:114
-msgid "general_log and slow_query_log is enabled."
+msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
 #: js/messages.php:115
@@ -1247,7 +1247,7 @@ msgid "slow_query_log is enabled."
 msgstr ""
 
 #: js/messages.php:117
-msgid "slow_query_log and general_log is disabled."
+msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
 #: js/messages.php:118
@@ -1587,54 +1587,60 @@ msgid "Ignore"
 msgstr "Anwybyddu"
 
 #: js/messages.php:211
+#, fuzzy
+#| msgid "Add %s column(s)"
+msgid "Add columns"
+msgstr "Ychwanegwch %s colofn"
+
+#: js/messages.php:214
 msgid "Select referenced key"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:215
 msgid "Select Foreign Key"
 msgstr "Dewis Allwedd Estron"
 
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Please select the primary key or a unique key"
 msgstr ""
 
-#: js/messages.php:214 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:217 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Dewis colofn i'w dangos"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generadu Cyfrinair"
 
-#: js/messages.php:222 libraries/replication_gui.lib.php:364
+#: js/messages.php:225 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Generadu"
 
-#: js/messages.php:223
+#: js/messages.php:226
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Newid cyfrinair"
 
-#: js/messages.php:226 tbl_structure.php:497
+#: js/messages.php:229 tbl_structure.php:497
 #, fuzzy
 #| msgid "Mo"
 msgid "More"
 msgstr "Llu"
 
-#: js/messages.php:229 setup/lib/index.lib.php:158
+#: js/messages.php:232 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1642,30 +1648,30 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:231
+#: js/messages.php:234
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Gwiriwch y fersiwn diweddaraf"
 
-#: js/messages.php:232
+#: js/messages.php:235
 #, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
 msgstr "Neidiwch i'r gronfa ddata"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:250
+#: js/messages.php:253
 msgid "Done"
 msgstr "Gorffen"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:252
+#: js/messages.php:255
 msgid "Prev"
 msgstr "Cynt"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:254 libraries/common.lib.php:2206
+#: js/messages.php:257 libraries/common.lib.php:2206
 #: libraries/common.lib.php:2209 libraries/display_tbl.lib.php:363
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
@@ -1673,231 +1679,231 @@ msgid "Next"
 msgstr "Nesaf"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Today"
 msgstr "Heddiw"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "January"
 msgstr "Ionawr"
 
-#: js/messages.php:260
+#: js/messages.php:263
 msgid "February"
 msgstr "Chwefror"
 
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "March"
 msgstr "Mawrth"
 
-#: js/messages.php:262
+#: js/messages.php:265
 msgid "April"
 msgstr "Ebrill"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:264
+#: js/messages.php:267
 msgid "June"
 msgstr "Mehefin"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "July"
 msgstr "Gorffennaf"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "August"
 msgstr "Awst"
 
-#: js/messages.php:267
+#: js/messages.php:270
 msgid "September"
 msgstr "Medi"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "October"
 msgstr "Hydref"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid "November"
 msgstr "Tachwedd"
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "December"
 msgstr "Rhagfyr"
 
 #. l10n: Short month name
-#: js/messages.php:274 libraries/common.lib.php:1444
+#: js/messages.php:277 libraries/common.lib.php:1444
 msgid "Jan"
 msgstr "Ion"
 
 #. l10n: Short month name
-#: js/messages.php:276 libraries/common.lib.php:1446
+#: js/messages.php:279 libraries/common.lib.php:1446
 msgid "Feb"
 msgstr "Chwe"
 
 #. l10n: Short month name
-#: js/messages.php:278 libraries/common.lib.php:1448
+#: js/messages.php:281 libraries/common.lib.php:1448
 msgid "Mar"
 msgstr "Maw"
 
 #. l10n: Short month name
-#: js/messages.php:280 libraries/common.lib.php:1450
+#: js/messages.php:283 libraries/common.lib.php:1450
 msgid "Apr"
 msgstr "Ebr"
 
 #. l10n: Short month name
-#: js/messages.php:282 libraries/common.lib.php:1452
+#: js/messages.php:285 libraries/common.lib.php:1452
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:284 libraries/common.lib.php:1454
+#: js/messages.php:287 libraries/common.lib.php:1454
 msgid "Jun"
 msgstr "Meh"
 
 #. l10n: Short month name
-#: js/messages.php:286 libraries/common.lib.php:1456
+#: js/messages.php:289 libraries/common.lib.php:1456
 msgid "Jul"
 msgstr "Gor"
 
 #. l10n: Short month name
-#: js/messages.php:288 libraries/common.lib.php:1458
+#: js/messages.php:291 libraries/common.lib.php:1458
 msgid "Aug"
 msgstr "Aws"
 
 #. l10n: Short month name
-#: js/messages.php:290 libraries/common.lib.php:1460
+#: js/messages.php:293 libraries/common.lib.php:1460
 msgid "Sep"
 msgstr "Med"
 
 #. l10n: Short month name
-#: js/messages.php:292 libraries/common.lib.php:1462
+#: js/messages.php:295 libraries/common.lib.php:1462
 msgid "Oct"
 msgstr "Hyd"
 
 #. l10n: Short month name
-#: js/messages.php:294 libraries/common.lib.php:1464
+#: js/messages.php:297 libraries/common.lib.php:1464
 msgid "Nov"
 msgstr "Tach"
 
 #. l10n: Short month name
-#: js/messages.php:296 libraries/common.lib.php:1466
+#: js/messages.php:299 libraries/common.lib.php:1466
 msgid "Dec"
 msgstr "Rhag"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Sunday"
 msgstr "Dydd Sul"
 
-#: js/messages.php:300
+#: js/messages.php:303
 msgid "Monday"
 msgstr "Dydd Llun"
 
-#: js/messages.php:301
+#: js/messages.php:304
 msgid "Tuesday"
 msgstr "Dydd Mawrth"
 
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Wednesday"
 msgstr "DYdd Mercher"
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Thursday"
 msgstr "Dydd Iau"
 
-#: js/messages.php:304
+#: js/messages.php:307
 msgid "Friday"
 msgstr "Dydd Gwener"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Saturday"
 msgstr "Dydd Sadwrn"
 
 #. l10n: Short week day name
-#: js/messages.php:309 libraries/common.lib.php:1469
+#: js/messages.php:312 libraries/common.lib.php:1469
 msgid "Sun"
 msgstr "Sul"
 
 #. l10n: Short week day name
-#: js/messages.php:311 libraries/common.lib.php:1471
+#: js/messages.php:314 libraries/common.lib.php:1471
 msgid "Mon"
 msgstr "Llun"
 
 #. l10n: Short week day name
-#: js/messages.php:313 libraries/common.lib.php:1473
+#: js/messages.php:316 libraries/common.lib.php:1473
 msgid "Tue"
 msgstr "Maw"
 
 #. l10n: Short week day name
-#: js/messages.php:315 libraries/common.lib.php:1475
+#: js/messages.php:318 libraries/common.lib.php:1475
 msgid "Wed"
 msgstr "Mer"
 
 #. l10n: Short week day name
-#: js/messages.php:317 libraries/common.lib.php:1477
+#: js/messages.php:320 libraries/common.lib.php:1477
 msgid "Thu"
 msgstr "Iau"
 
 #. l10n: Short week day name
-#: js/messages.php:319 libraries/common.lib.php:1479
+#: js/messages.php:322 libraries/common.lib.php:1479
 msgid "Fri"
 msgstr "Gwe"
 
 #. l10n: Short week day name
-#: js/messages.php:321 libraries/common.lib.php:1481
+#: js/messages.php:324 libraries/common.lib.php:1481
 msgid "Sat"
 msgstr "Sad"
 
 #. l10n: Minimal week day name
-#: js/messages.php:325
+#: js/messages.php:328
 msgid "Su"
 msgstr "Su"
 
 #. l10n: Minimal week day name
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Mo"
 msgstr "Llu"
 
 #. l10n: Minimal week day name
-#: js/messages.php:329
+#: js/messages.php:332
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:331
+#: js/messages.php:334
 msgid "We"
 msgstr "Me"
 
 #. l10n: Minimal week day name
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Th"
 msgstr "Ia"
 
 #. l10n: Minimal week day name
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Fr"
 msgstr "Gw"
 
 #. l10n: Minimal week day name
-#: js/messages.php:337
+#: js/messages.php:340
 msgid "Sa"
 msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Wk"
 msgstr "Wy"
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid "Hour"
 msgstr "Awr"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Minute"
 msgstr "Munud"
 
-#: js/messages.php:343
+#: js/messages.php:346
 msgid "Second"
 msgstr "Eiliad"
 
@@ -2144,11 +2150,11 @@ msgstr "Croeso i %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r "
-"%1$sgript gosod%2$s  er mwyn ei chreu."
+"Rydych chi heb greu ffeil ffurfwedd yn ôl pob tebyg. Gallwch ddefnyddio'r %1"
+"$sgript gosod%2$s  er mwyn ei chreu."
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2235,16 +2241,16 @@ msgstr "Yn dilysu..."
 msgid "File %s does not contain any key id"
 msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:157
-#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/auth/swekey/swekey.auth.lib.php:159
+#: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
 msgstr "Dilysu caledwedd wedi methu"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
 msgstr ""
 
-#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
 msgstr "Yn dilysu..."
 
@@ -5134,8 +5140,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:268
@@ -5865,8 +5871,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6203,7 +6209,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1069
-msgid "View a structure`s contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
 #: libraries/import.lib.php:1070
@@ -6212,7 +6218,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1071
-msgid "Edit its structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1074
@@ -8241,7 +8247,7 @@ msgstr "Pob"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Tabl <b>%s</b> heb ei ddarganfod neu heb ei osod mewn %s"
 
-#: schema_export.php:45
+#: schema_export.php:47
 msgid "File doesn't exist"
 msgstr ""
 
@@ -8637,8 +8643,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:1850
@@ -10986,27 +10992,22 @@ msgid "Rename view to"
 msgstr "Ailenwch golwg i"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Dewis Gweinydd"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Gwerth ar goll yn y ffurflen!"
 
 #, fuzzy
-#~| msgid "Export as %s"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Allforio fel %s"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s."
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Pori"
 
@@ -11017,7 +11018,6 @@ msgstr "Ailenwch golwg i"
 #~ msgstr "mewn modd %s ac ailadrodd penawdau ar ôl %s cell "
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Gweithdrefnau"
 

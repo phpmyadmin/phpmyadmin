@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-22 10:17+0200\n"
+"POT-Creation-Date: 2011-07-24 14:43-0400\n"
 "PO-Revision-Date: 2010-03-12 09:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: belarusian_cyrillic <be@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53
@@ -642,11 +642,11 @@ msgstr ""
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да "
-"%sдакумэнтацыі%s."
+"Гэты прагляд мае толькі такую колькасьць радкоў. Калі ласка, зьвярніцеся да %"
+"sдакумэнтацыі%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -898,8 +898,8 @@ msgstr "Дамп захаваны ў файл %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Вы, мусіць, паспрабавалі загрузіць вельмі вялікі файл. Калі ласка, "
 "зьвярніцеся да %sдакумэнтацыі%s для высьвятленьня спосабаў абыйсьці гэтае "
@@ -918,8 +918,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца "
-"(%s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
+"Вы паспрабавалі загрузіць файл з мэтадам сьціску, які непадтрымліваецца (%"
+"s). Ягоная падтрымка або не рэалізаваная, або адключаная ў вашай "
 "канфігурацыі."
 
 #: import.php:335
@@ -1272,7 +1272,7 @@ msgid "Pause monitor"
 msgstr ""
 
 #: js/messages.php:114
-msgid "general_log and slow_query_log is enabled."
+msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
 #: js/messages.php:115
@@ -1284,7 +1284,7 @@ msgid "slow_query_log is enabled."
 msgstr ""
 
 #: js/messages.php:117
-msgid "slow_query_log and general_log is disabled."
+msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
 #: js/messages.php:118
@@ -1613,56 +1613,62 @@ msgid "Ignore"
 msgstr "Ігнараваць"
 
 #: js/messages.php:211
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add columns"
+msgstr "Дадаць %s новыя палі"
+
+#: js/messages.php:214
 msgid "Select referenced key"
 msgstr "Выберыце спасылкавы ключ"
 
-#: js/messages.php:212
+#: js/messages.php:215
 msgid "Select Foreign Key"
 msgstr "Выберыце зьнешні ключ"
 
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Please select the primary key or a unique key"
 msgstr "Калі ласка, выберыце першасны (PRIMARY) альбо ўнікальны ключ (UNIQUE)"
 
-#: js/messages.php:214 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:217 pmd_general.php:87 tbl_relation.php:545
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Выберыце поле для адлюстраваньня"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add an option for column "
 msgstr ""
 
-#: js/messages.php:221
+#: js/messages.php:224
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Згенэраваць пароль"
 
-#: js/messages.php:222 libraries/replication_gui.lib.php:364
+#: js/messages.php:225 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Згенэраваць"
 
-#: js/messages.php:223
+#: js/messages.php:226
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Зьмяніць пароль"
 
-#: js/messages.php:226 tbl_structure.php:497
+#: js/messages.php:229 tbl_structure.php:497
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Пан"
 
-#: js/messages.php:229 setup/lib/index.lib.php:158
+#: js/messages.php:232 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1670,31 +1676,31 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:231
+#: js/messages.php:234
 #, fuzzy
 msgid ", latest stable version:"
 msgstr "Стварыць сувязь"
 
-#: js/messages.php:232
+#: js/messages.php:235
 #, fuzzy
 msgid "up to date"
 msgstr "Базы дадзеных адсутнічаюць"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:250
+#: js/messages.php:253
 #, fuzzy
 msgid "Done"
 msgstr "Дадзеныя"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:252
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
 msgstr "Папярэдняя старонка"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:254 libraries/common.lib.php:2206
+#: js/messages.php:257 libraries/common.lib.php:2206
 #: libraries/common.lib.php:2209 libraries/display_tbl.lib.php:363
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
@@ -1702,96 +1708,96 @@ msgid "Next"
 msgstr "Наступная старонка"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:256
+#: js/messages.php:259
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Агулам"
 
-#: js/messages.php:259
+#: js/messages.php:262
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Двайковы"
 
-#: js/messages.php:260
+#: js/messages.php:263
 msgid "February"
 msgstr ""
 
-#: js/messages.php:261
+#: js/messages.php:264
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Сак"
 
-#: js/messages.php:262
+#: js/messages.php:265
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Кра"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "May"
 msgstr "Тра"
 
-#: js/messages.php:264
+#: js/messages.php:267
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Чэр"
 
-#: js/messages.php:265
+#: js/messages.php:268
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Ліп"
 
-#: js/messages.php:266
+#: js/messages.php:269
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Жні"
 
-#: js/messages.php:267
+#: js/messages.php:270
 msgid "September"
 msgstr ""
 
-#: js/messages.php:268
+#: js/messages.php:271
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Кас"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid "November"
 msgstr ""
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:274 libraries/common.lib.php:1444
+#: js/messages.php:277 libraries/common.lib.php:1444
 msgid "Jan"
 msgstr "Сту"
 
 #. l10n: Short month name
-#: js/messages.php:276 libraries/common.lib.php:1446
+#: js/messages.php:279 libraries/common.lib.php:1446
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
-#: js/messages.php:278 libraries/common.lib.php:1448
+#: js/messages.php:281 libraries/common.lib.php:1448
 msgid "Mar"
 msgstr "Сак"
 
 #. l10n: Short month name
-#: js/messages.php:280 libraries/common.lib.php:1450
+#: js/messages.php:283 libraries/common.lib.php:1450
 msgid "Apr"
 msgstr "Кра"
 
 #. l10n: Short month name
-#: js/messages.php:282 libraries/common.lib.php:1452
+#: js/messages.php:285 libraries/common.lib.php:1452
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -1799,178 +1805,178 @@ msgid "May"
 msgstr "Тра"
 
 #. l10n: Short month name
-#: js/messages.php:284 libraries/common.lib.php:1454
+#: js/messages.php:287 libraries/common.lib.php:1454
 msgid "Jun"
 msgstr "Чэр"
 
 #. l10n: Short month name
-#: js/messages.php:286 libraries/common.lib.php:1456
+#: js/messages.php:289 libraries/common.lib.php:1456
 msgid "Jul"
 msgstr "Ліп"
 
 #. l10n: Short month name
-#: js/messages.php:288 libraries/common.lib.php:1458
+#: js/messages.php:291 libraries/common.lib.php:1458
 msgid "Aug"
 msgstr "Жні"
 
 #. l10n: Short month name
-#: js/messages.php:290 libraries/common.lib.php:1460
+#: js/messages.php:293 libraries/common.lib.php:1460
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
-#: js/messages.php:292 libraries/common.lib.php:1462
+#: js/messages.php:295 libraries/common.lib.php:1462
 msgid "Oct"
 msgstr "Кас"
 
 #. l10n: Short month name
-#: js/messages.php:294 libraries/common.lib.php:1464
+#: js/messages.php:297 libraries/common.lib.php:1464
 msgid "Nov"
 msgstr "Ліс"
 
 #. l10n: Short month name
-#: js/messages.php:296 libraries/common.lib.php:1466
+#: js/messages.php:299 libraries/common.lib.php:1466
 msgid "Dec"
 msgstr "Сьн"
 
-#: js/messages.php:299
+#: js/messages.php:302
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ндз"
 
-#: js/messages.php:300
+#: js/messages.php:303
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пан"
 
-#: js/messages.php:301
+#: js/messages.php:304
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Аўт"
 
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:304
+#: js/messages.php:307
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пят"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:309 libraries/common.lib.php:1469
+#: js/messages.php:312 libraries/common.lib.php:1469
 msgid "Sun"
 msgstr "Ндз"
 
 #. l10n: Short week day name
-#: js/messages.php:311 libraries/common.lib.php:1471
+#: js/messages.php:314 libraries/common.lib.php:1471
 msgid "Mon"
 msgstr "Пан"
 
 #. l10n: Short week day name
-#: js/messages.php:313 libraries/common.lib.php:1473
+#: js/messages.php:316 libraries/common.lib.php:1473
 msgid "Tue"
 msgstr "Аўт"
 
 #. l10n: Short week day name
-#: js/messages.php:315 libraries/common.lib.php:1475
+#: js/messages.php:318 libraries/common.lib.php:1475
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name
-#: js/messages.php:317 libraries/common.lib.php:1477
+#: js/messages.php:320 libraries/common.lib.php:1477
 msgid "Thu"
 msgstr "Цач"
 
 #. l10n: Short week day name
-#: js/messages.php:319 libraries/common.lib.php:1479
+#: js/messages.php:322 libraries/common.lib.php:1479
 msgid "Fri"
 msgstr "Пят"
 
 #. l10n: Short week day name
-#: js/messages.php:321 libraries/common.lib.php:1481
+#: js/messages.php:324 libraries/common.lib.php:1481
 msgid "Sat"
 msgstr "Суб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:325
+#: js/messages.php:328
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ндз"
 
 #. l10n: Minimal week day name
-#: js/messages.php:327
+#: js/messages.php:330
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пан"
 
 #. l10n: Minimal week day name
-#: js/messages.php:329
+#: js/messages.php:332
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Аўт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:331
+#: js/messages.php:334
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Сер"
 
 #. l10n: Minimal week day name
-#: js/messages.php:333
+#: js/messages.php:336
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Цач"
 
 #. l10n: Minimal week day name
-#: js/messages.php:335
+#: js/messages.php:338
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пят"
 
 #. l10n: Minimal week day name
-#: js/messages.php:337
+#: js/messages.php:340
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Суб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:339
+#: js/messages.php:342
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:345
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "выкарыстоўваецца"
 
-#: js/messages.php:343
+#: js/messages.php:346
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2226,8 +2232,8 @@ msgstr "Запрашаем у %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Імаверна, прычына гэтага ў тым, што ня створаны канфігурацыйны файл. Каб яго "
 "стварыць, можна выкарыстаць %1$sналадачны скрыпт%2$s."
@@ -2314,16 +2320,16 @@ msgstr "Апаратная аўтэнтыфікацыя скончылася н�
 msgid "File %s does not contain any key id"
 msgstr "Файл %s ня ўтрымлівае ніякага ідэнтыфікатара ключа"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:157
-#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/auth/swekey/swekey.auth.lib.php:159
+#: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
 msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
 msgstr "Дзейны ключ аўтэнтыфікацыі не падключаны"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
 msgstr "Аўтэнтыфікацыя..."
 
@@ -5276,8 +5282,8 @@ msgstr ""
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Гэтае значэньне інтэрпрэтуецца з выкарыстаньнем %1$sstrftime%2$s, таму можна "
 "выкарыстоўваць радкі фарматаваньня часу. Апроч гэтага, будуць праведзеныя "
@@ -6076,8 +6082,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6423,7 +6429,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1069
-msgid "View a structure`s contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
 #: libraries/import.lib.php:1070
@@ -6432,7 +6438,7 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1071
-msgid "Edit its structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1074
@@ -8647,7 +8653,7 @@ msgstr "Усе"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Табліца <b>%s</b> ня знойдзеная або ня вызначаная ў %s"
 
-#: schema_export.php:45
+#: schema_export.php:47
 #, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
@@ -9065,8 +9071,8 @@ msgstr "Выдаліць базы дадзеных, якія маюць такі
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Заўвага: phpMyAdmin атрымлівае прывілеі карыстальнікаў наўпростава з табліц "
 "прывілеяў MySQL. Зьмесьціва гэтых табліц можа адрозьнівацца ад прывілеяў, "
@@ -11606,7 +11612,6 @@ msgid "Rename view to"
 msgstr "Перайменаваць табліцу ў"
 
 #, fuzzy
-#~| msgid "Server Choice"
 #~ msgid "Server traffic"
 #~ msgstr "Выбар сэрвэра"
 
@@ -11618,7 +11623,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Тып запыту"
 
 #, fuzzy
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Не зададзенае значэньне ў форме!"
 
@@ -11627,22 +11631,18 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Тып экспарту"
 
 #, fuzzy
-#~| msgid "Export triggers"
 #~ msgid "Export of trigger \"%s\""
 #~ msgstr "Тып экспарту"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Дапушчальны шлях да малюнкаў тэмы %s ня знойдзены!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Прагляд"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "радкоў, пачынаючы з запісу #"
 
@@ -11666,7 +11666,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ "значыць, усё добра."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Працэдуры"
 
@@ -11674,12 +11673,10 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Тэма / Стыль"
 
 #, fuzzy
-#~| msgid "per second"
 #~ msgid "seconds"
 #~ msgstr "у сэкунду"
 
 #, fuzzy
-#~| msgid "Query results operations"
 #~ msgid "Query results"
 #~ msgstr "Дзеяньні з вынікамі запытаў"
 
@@ -11694,7 +11691,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Паказаць працэсы"
 
 #, fuzzy
-#~| msgid "Reset"
 #~ msgctxt "for Show status"
 #~ msgid "Reset"
 #~ msgstr "Скінуць"
@@ -11714,26 +11710,20 @@ msgstr "Перайменаваць табліцу ў"
 #~ "на сэрвэр."
 
 #, fuzzy
-#~| msgid "The privileges were reloaded successfully."
 #~ msgid "Chart generated successfully."
 #~ msgstr "Прывілеі былі пасьпяхова перазагружаныя."
 
 #, fuzzy
-#~| msgid ""
-#~| "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]"
-#~| "FAQ 3.11[/a]"
 #~ msgid ""
 #~ "The result of this query can't be used for a chart. See [a@./"
 #~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
 #~ msgstr "Значэньне можа быць прыблізным. Гл. FAQ 3.11"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Bar type"
 #~ msgstr "Тып запыту"
 
 #, fuzzy
-#~| msgid "Add a new User"
 #~ msgid "Add a New User"
 #~ msgstr "Дадаць новага карыстальніка"
 
@@ -11745,7 +11735,6 @@ msgstr "Перайменаваць табліцу ў"
 #~ msgstr "Дадаць новага карыстальніка"
 
 #, fuzzy
-#~| msgid "Dumping data for table"
 #~ msgid "Delete the matches for the "
 #~ msgstr "Дамп дадзеных табліцы"
 

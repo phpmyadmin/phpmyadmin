@@ -779,8 +779,8 @@ if (0 == $num_rows || $is_affected) {
             $edited_values = array();
             parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
-            foreach ($mime_map as $transformation) {
-                $include_file = $transformation['transformation'];
+            foreach($mime_map as $transformation) {
+                $include_file = PMA_securePath($transformation['transformation']);
                 $column_name = $transformation['column_name'];
                 $column_data = $edited_values[$column_name];
 

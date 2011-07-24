@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-21 01:09+0200\n"
+"POT-Creation-Date: 2011-07-24 14:43-0400\n"
+"PO-Revision-Date: 2011-07-23 21:27+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -615,8 +615,8 @@ msgstr "Sporing er ikke aktiv."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
@@ -677,7 +677,7 @@ msgstr "Eksporter"
 #: libraries/display_tbl.lib.php:2436 tbl_structure.php:628
 #: tbl_structure.php:630
 msgid "Print view"
-msgstr "Vis (udskriftvenlig)"
+msgstr "Udskriv"
 
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a state it should translate to "Tom".
 #: db_structure.php:503 libraries/common.lib.php:2911
@@ -856,11 +856,11 @@ msgstr "Dump er blevet gemt i filen %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst "
-"%sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
+"Du har sandsynligvis forsøgt at uploade en for stor fil. Se venligst %"
+"sdokumentationen%s for måder hvorpå du kan arbejde dig uden om denne "
 "begrænsning."
 
 #: import.php:277 import.php:330 libraries/File.class.php:456
@@ -1027,7 +1027,7 @@ msgstr "Der er ikke angivet nogen adgangskode"
 
 #: js/messages.php:57 server_privileges.php:1305 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "De to kodeord er ikke ens!"
+msgstr "De to adgangskoder er ikke ens!"
 
 #: js/messages.php:58 server_privileges.php:1765 server_privileges.php:1789
 #: server_privileges.php:2194 server_privileges.php:2388
@@ -1203,7 +1203,9 @@ msgid "Pause monitor"
 msgstr "Sæt monitor på pause"
 
 #: js/messages.php:114
-msgid "general_log and slow_query_log is enabled."
+#, fuzzy
+#| msgid "general_log and slow_query_log is enabled."
+msgid "general_log and slow_query_log are enabled."
 msgstr "general_log og slow_query_log er aktiveret."
 
 #: js/messages.php:115
@@ -1215,7 +1217,9 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log er aktiveret."
 
 #: js/messages.php:117
-msgid "slow_query_log and general_log is disabled."
+#, fuzzy
+#| msgid "slow_query_log and general_log is disabled."
+msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log og general_log er deaktiveret."
 
 #: js/messages.php:118
@@ -1275,15 +1279,11 @@ msgid "Set long_query_time to %ds"
 msgstr "Sæt long_query_time til %ds"
 
 #: js/messages.php:131
-#, fuzzy
-#| msgid ""
-#| "You don't have super user rights to change this variables. Please log in "
-#| "as root account or contact your database administrator."
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"Du har ikke superbruger rettigheder til at ændre denne variabel. Log "
+"Du har ikke superbruger rettigheder til at ændre disse variable. Log "
 "venligst ind som root eller kontakt din database administrator."
 
 #: js/messages.php:132
@@ -1519,22 +1519,28 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #: js/messages.php:211
+#, fuzzy
+#| msgid "Add column"
+msgid "Add columns"
+msgstr "Tilføj kolonne"
+
+#: js/messages.php:214
 msgid "Select referenced key"
 msgstr "Vælg refereret nøgle"
 
-#: js/messages.php:212
+#: js/messages.php:215
 msgid "Select Foreign Key"
 msgstr "Vælg fremmednøgle"
 
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Please select the primary key or a unique key"
 msgstr "Vælg venligst den primære nøgle eller en unik nøgle"
 
-#: js/messages.php:214 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:217 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "Vælg kolonne til visning"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1542,27 +1548,27 @@ msgstr ""
 "Du har ikke gemt ændringerne i layoutet. De vil bleve slettet hvis du ikke "
 "gemmer dem. Vil du fortsætte?"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add an option for column "
 msgstr "Tilføj mulighed for kolonne"
 
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Generate password"
 msgstr "Generér adgangskode"
 
-#: js/messages.php:222 libraries/replication_gui.lib.php:364
+#: js/messages.php:225 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "Generér"
 
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Change Password"
 msgstr "Ændre adgangskode"
 
-#: js/messages.php:226 tbl_structure.php:497
+#: js/messages.php:229 tbl_structure.php:497
 msgid "More"
 msgstr "Mere"
 
-#: js/messages.php:229 setup/lib/index.lib.php:158
+#: js/messages.php:232 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1572,26 +1578,26 @@ msgstr ""
 "opgradere. Den nyeste version er %s, udgivet den %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:231
+#: js/messages.php:234
 msgid ", latest stable version:"
 msgstr ", seneste stabile version:"
 
-#: js/messages.php:232
+#: js/messages.php:235
 msgid "up to date"
 msgstr "up-to-date"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:250
+#: js/messages.php:253
 msgid "Done"
 msgstr "Færdig"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:252
+#: js/messages.php:255
 msgid "Prev"
 msgstr "Forrige"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:254 libraries/common.lib.php:2206
+#: js/messages.php:257 libraries/common.lib.php:2206
 #: libraries/common.lib.php:2209 libraries/display_tbl.lib.php:363
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
@@ -1599,231 +1605,231 @@ msgid "Next"
 msgstr "Næste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Today"
 msgstr "I dag"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "January"
 msgstr "januar"
 
-#: js/messages.php:260
+#: js/messages.php:263
 msgid "February"
 msgstr "februar"
 
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "March"
 msgstr "marts"
 
-#: js/messages.php:262
+#: js/messages.php:265
 msgid "April"
 msgstr "april"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "May"
 msgstr "maj"
 
-#: js/messages.php:264
+#: js/messages.php:267
 msgid "June"
 msgstr "juni"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "July"
 msgstr "juli"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "August"
 msgstr "august"
 
-#: js/messages.php:267
+#: js/messages.php:270
 msgid "September"
 msgstr "september"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "October"
 msgstr "oktober"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid "November"
 msgstr "november"
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:274 libraries/common.lib.php:1444
+#: js/messages.php:277 libraries/common.lib.php:1444
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:276 libraries/common.lib.php:1446
+#: js/messages.php:279 libraries/common.lib.php:1446
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:278 libraries/common.lib.php:1448
+#: js/messages.php:281 libraries/common.lib.php:1448
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:280 libraries/common.lib.php:1450
+#: js/messages.php:283 libraries/common.lib.php:1450
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:282 libraries/common.lib.php:1452
+#: js/messages.php:285 libraries/common.lib.php:1452
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:284 libraries/common.lib.php:1454
+#: js/messages.php:287 libraries/common.lib.php:1454
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:286 libraries/common.lib.php:1456
+#: js/messages.php:289 libraries/common.lib.php:1456
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:288 libraries/common.lib.php:1458
+#: js/messages.php:291 libraries/common.lib.php:1458
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:290 libraries/common.lib.php:1460
+#: js/messages.php:293 libraries/common.lib.php:1460
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:292 libraries/common.lib.php:1462
+#: js/messages.php:295 libraries/common.lib.php:1462
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:294 libraries/common.lib.php:1464
+#: js/messages.php:297 libraries/common.lib.php:1464
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:296 libraries/common.lib.php:1466
+#: js/messages.php:299 libraries/common.lib.php:1466
 msgid "Dec"
 msgstr "dec"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Sunday"
 msgstr "søndag"
 
-#: js/messages.php:300
+#: js/messages.php:303
 msgid "Monday"
 msgstr "mandag"
 
-#: js/messages.php:301
+#: js/messages.php:304
 msgid "Tuesday"
 msgstr "tirsdag"
 
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Wednesday"
 msgstr "onsdag"
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Thursday"
 msgstr "torsdag"
 
-#: js/messages.php:304
+#: js/messages.php:307
 msgid "Friday"
 msgstr "fredag"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Saturday"
 msgstr "lørdag"
 
 #. l10n: Short week day name
-#: js/messages.php:309 libraries/common.lib.php:1469
+#: js/messages.php:312 libraries/common.lib.php:1469
 msgid "Sun"
 msgstr "søn"
 
 #. l10n: Short week day name
-#: js/messages.php:311 libraries/common.lib.php:1471
+#: js/messages.php:314 libraries/common.lib.php:1471
 msgid "Mon"
 msgstr "man"
 
 #. l10n: Short week day name
-#: js/messages.php:313 libraries/common.lib.php:1473
+#: js/messages.php:316 libraries/common.lib.php:1473
 msgid "Tue"
 msgstr "tir"
 
 #. l10n: Short week day name
-#: js/messages.php:315 libraries/common.lib.php:1475
+#: js/messages.php:318 libraries/common.lib.php:1475
 msgid "Wed"
 msgstr "ons"
 
 #. l10n: Short week day name
-#: js/messages.php:317 libraries/common.lib.php:1477
+#: js/messages.php:320 libraries/common.lib.php:1477
 msgid "Thu"
 msgstr "tor"
 
 #. l10n: Short week day name
-#: js/messages.php:319 libraries/common.lib.php:1479
+#: js/messages.php:322 libraries/common.lib.php:1479
 msgid "Fri"
 msgstr "fre"
 
 #. l10n: Short week day name
-#: js/messages.php:321 libraries/common.lib.php:1481
+#: js/messages.php:324 libraries/common.lib.php:1481
 msgid "Sat"
 msgstr "lør"
 
 #. l10n: Minimal week day name
-#: js/messages.php:325
+#: js/messages.php:328
 msgid "Su"
 msgstr "sø"
 
 #. l10n: Minimal week day name
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Mo"
 msgstr "ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:329
+#: js/messages.php:332
 msgid "Tu"
 msgstr "ti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:331
+#: js/messages.php:334
 msgid "We"
 msgstr "on"
 
 #. l10n: Minimal week day name
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Th"
 msgstr "to"
 
 #. l10n: Minimal week day name
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Fr"
 msgstr "fr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:337
+#: js/messages.php:340
 msgid "Sa"
 msgstr "lø"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Wk"
 msgstr "uge"
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid "Hour"
 msgstr "Time"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:343
+#: js/messages.php:346
 msgid "Second"
 msgstr "Sekund"
 
@@ -1833,11 +1839,9 @@ msgstr "Skriftstørrelse"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Filen var ikke en uploaded fil."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
-#| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Ukendt fejl i filupload."
 
@@ -1883,11 +1887,11 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Fejl under flytning af uploaded fil."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Kan ikke læse (flyttet) uploaded fil."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
@@ -2071,8 +2075,8 @@ msgstr "Velkommen til %s"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -2161,16 +2165,16 @@ msgstr "Kunne ikke finde scriptet til autentifikation af log ind:"
 msgid "File %s does not contain any key id"
 msgstr "Filen %s indeholder ikke noget nøgle-id"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:157
-#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/auth/swekey/swekey.auth.lib.php:159
+#: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
 msgstr "Hardwareautentifikation mislykkedes"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
 msgstr "Ingen gyldig autorisations-nøgle indkoblet"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
 msgstr "Godkender..."
 
@@ -2245,11 +2249,11 @@ msgstr "Gå til database"
 
 #: libraries/build_html_for_db.lib.php:130
 msgid "Not replicated"
-msgstr "Ikke gentaget"
+msgstr "Ikke replikeret"
 
 #: libraries/build_html_for_db.lib.php:136
 msgid "Replicated"
-msgstr "Gentaget"
+msgstr "Replikeret"
 
 #: libraries/build_html_for_db.lib.php:150
 #, php-format
@@ -2294,7 +2298,7 @@ msgstr "Server indekset %s er ugyldigt"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Ugyldigt hostnavn for server %1$s. Gennemgå venligst din konfiguration."
+"Ugyldigt værtsnavn for server %1$s. Gennemgå venligst din konfiguration."
 
 #: libraries/common.inc.php:647 libraries/config/messages.inc.php:497
 #: libraries/header.inc.php:129 main.php:161 server_status.php:589
@@ -2441,10 +2445,8 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dage, %s timer, %s minutter og %s sekunder"
 
 #: libraries/common.lib.php:1870
-#, fuzzy
-#| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Rutineparametre"
+msgstr "Manglende parameter"
 
 #: libraries/common.lib.php:2176 libraries/common.lib.php:2179
 #: libraries/display_tbl.lib.php:299
@@ -4009,7 +4011,7 @@ msgstr "Lades blank, hvis ikke brugt"
 
 #: libraries/config/messages.inc.php:360
 msgid "Host authorization order"
-msgstr "Host autorisationsrækkefølge"
+msgstr "Autorisationsrækkefølge for vært"
 
 #: libraries/config/messages.inc.php:361
 msgid "Leave blank for defaults"
@@ -4453,8 +4455,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
-"En brugervenlig beskrivelse af serveren. Lad stå tom for at vise hostnavnet "
-"i stedet."
+"En brugervenlig beskrivelse af serveren. Lad stå tom for at vise "
+"værtstnavnet i stedet."
 
 #: libraries/config/messages.inc.php:447
 msgid "Verbose name of this server"
@@ -5108,8 +5110,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -5402,7 +5404,7 @@ msgstr "total"
 #: libraries/display_tbl.lib.php:2221 sql.php:689
 #, php-format
 msgid "Query took %01.4f sec"
-msgstr "Forepørgsel tog %01.4f sek"
+msgstr "forepørgsel tog %01.4f sek"
 
 #: libraries/display_tbl.lib.php:2415
 msgid "Query results operations"
@@ -5410,7 +5412,7 @@ msgstr "Forespørgselsresultat operationer"
 
 #: libraries/display_tbl.lib.php:2443
 msgid "Print view (with full texts)"
-msgstr "Udskrift-visning (med fulde tekster)"
+msgstr "Udskriv (med fulde tekster)"
 
 #: libraries/display_tbl.lib.php:2491 tbl_chart.php:83
 msgid "Display chart"
@@ -5870,8 +5872,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderliger information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s"
@@ -6206,7 +6208,9 @@ msgid ""
 msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du: "
 
 #: libraries/import.lib.php:1069
-msgid "View a structure`s contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure`s contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name"
 msgstr "Vis en strukturs indhold ved at klikke på dens navn"
 
 #: libraries/import.lib.php:1070
@@ -6216,7 +6220,9 @@ msgstr ""
 "Ændr alle indstillinger ved at klikke på det tilhørende \"Indstilling\" link"
 
 #: libraries/import.lib.php:1071
-msgid "Edit its structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit its structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link"
 msgstr "Rediger dens struktur ved at følge linket \"Struktur\""
 
 #: libraries/import.lib.php:1074
@@ -6736,18 +6742,18 @@ msgstr "Lokal"
 
 #: libraries/replication_gui.lib.php:313 server_privileges.php:841
 msgid "This Host"
-msgstr "Denne host"
+msgstr "Denne vært"
 
 #: libraries/replication_gui.lib.php:319 server_privileges.php:847
 msgid "Use Host Table"
-msgstr "Brug Host Tabel"
+msgstr "Brug tabellen host"
 
 #: libraries/replication_gui.lib.php:332 server_privileges.php:860
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
-"Når tabellen Host bruges, ignoreres dette felt og værdier lagret i Host "
+"Når tabellen host bruges, ignoreres dette felt og værdier lagret i host "
 "bruges i stedet."
 
 #: libraries/replication_gui.lib.php:361
@@ -6851,7 +6857,7 @@ msgstr "Opretter"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:392
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr "Opretter skal være i formatet \"username@hostname\" "
+msgstr "Opretter skal være i formatet \"brugernavn@værtsnavn\" "
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
@@ -7794,7 +7800,7 @@ msgstr "Generelle indstillinger"
 
 #: main.php:103
 msgid "MySQL connection collation"
-msgstr "MySQL forbindelses-sammenkøring"
+msgstr "MySQL forbindelsestegnsæt"
 
 #: main.php:119
 msgid "Appearance Settings"
@@ -7917,7 +7923,7 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
-"Mappen [code]config[/code], som bruges af setip scriptet, eksisterer stadig "
+"Mappen [code]config[/code], som bruges af setup scriptet, eksisterer stadig "
 "i din phpMyAdmin mappe. Du bør slette den, når phpMyAdmin er blevet "
 "konfigureret."
 
@@ -7928,8 +7934,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
-"%sher%s."
+"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
+"sher%s."
 
 #: main.php:314
 msgid ""
@@ -8247,7 +8253,7 @@ msgstr "Alle"
 msgid "<b>%s</b> table not found or not set in %s"
 msgstr "Tabel <b>%s</b> findes ikke eller er ikke sat i %s"
 
-#: schema_export.php:45
+#: schema_export.php:47
 msgid "File doesn't exist"
 msgstr "Filen eksisterer ikke"
 
@@ -8655,14 +8661,14 @@ msgstr "Drop databaser der har samme navne som brugernes."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
-"%s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: server_privileges.php:1850
 msgid "The selected user was not found in the privilege table."
@@ -8687,7 +8693,7 @@ msgstr "Tilføj privileges på følgende tabel"
 
 #: server_privileges.php:2169
 msgid "Change Login Information / Copy User"
-msgstr "Ret Login-information / Kopiér bruger"
+msgstr "Ret Login-information / Kopier bruger"
 
 #: server_privileges.php:2172
 msgid "Create a new user with the same privileges and ..."
@@ -8801,7 +8807,7 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Denne serverer ikke konfigureret som master i en replikationsproces. Viol du "
+"Denne server er ikke konfigureret som master i en replikationsproces. Vil du "
 "<a href=\"%s\">konfigurere</a> den?"
 
 #: server_replication.php:215
@@ -9113,8 +9119,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"For yderligere information om replikationsstatus på servereren gå til <a "
-"href=\"#replication\">replication section</a>."
+"For yderligere information om replikationsstatus på serveren gå til <a href="
+"\"#replication\">replication section</a>."
 
 #: server_status.php:851
 msgid "Replication status"
@@ -9869,12 +9875,6 @@ msgid "Monitor Instructions"
 msgstr "Monitorinstruktioner"
 
 #: server_status.php:1337
-#, fuzzy
-#| msgid ""
-#| "The phpMyAdmin Monitor can assist you in optimizing the server "
-#| "configuration and track down time intensive\n"
-#| "        queries. For the latter you will need to log_output set to "
-#| "'TABLE' and have either the slow_query_log or general_log enabled."
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive\n"
@@ -9887,28 +9887,10 @@ msgstr ""
 "phpMyAdmin Monitor kan hjælpe dig med at optimere serverkonfigurationen og "
 "afsløre tidskrævende\n"
 "forespørgsler. For sidstnævnte kræver det at log_output sættes til 'TABLE' "
-"og at the slow_query_log eller general_log aktiveres."
+"og at slow_query_log eller general_log aktiveres. Bemærk dog, at\n"
+"general_log genererer en mængde data og forøger server load med op til 15%"
 
 #: server_status.php:1346
-#, fuzzy
-#| msgid ""
-#| "<b>Using the monitor:</b><br/>\n"
-#| "        Ok, you are good to go! Once you click 'Start monitor' your "
-#| "browser will refresh all displayed charts\n"
-#| "        in a regular interval. You may add charts and change the refresh "
-#| "rate under 'Settings', or remove any chart\n"
-#| "        using the cog icon on each respective chart.\n"
-#| "        <p>When you get to see a sudden spike in activity, select the "
-#| "relevant time span on any chart by holding down the\n"
-#| "        left mouse button and panning over the chart. This will load "
-#| "statistics from the logs helping you find what caused the\n"
-#| "        activity spike.</p>\n"
-#| "        <p><b>Please note:</b>\n"
-#| "        Enabling the general_log may increase the server load by up to "
-#| "5-15%. Also be aware that generating statistics out of the logs is a \n"
-#| "        very load intensive task, thus it is advisable to select only a "
-#| "small time span.\n"
-#| "        </p>"
 msgid ""
 "<b>Using the monitor:</b><br/>\n"
 "        Ok, you are good to go! Once you click 'Start monitor' your browser "
@@ -9922,23 +9904,16 @@ msgid ""
 "statistics from the logs helping you find what caused the\n"
 "        activity spike.</p>"
 msgstr ""
-"<b>Brug af monitorenr:</b><br/>\n"
-" Når du klikker på 'Start monitor' vil din browser opdatere alle viste "
-"diagrammer regelmæssigt.\n"
-" Du kan tilføje diagrammer og ændre opdateringsfrekvensen under "
-"'Indstilinger', eller fjerne diagrammer\n"
+"<b>Brug af monitoren:</b><br/>\n"
+"         Når du klikker på 'Start monitor' vil din browser opdatere alle "
+"viste diagrammer regelmæssigt.\n"
+"         Du kan tilføje diagrammer og ændre opdateringsfrekvensen under "
+"'Indstilinger' eller fjerne diagrammer\n"
 " ved at bruge ikonet cog på det relevante diagram.\n"
-"<p>Når du ser en pludselig forøgelse i aktivitet, så vælg det relevante "
-"tidsinterval på et diagram ved at holde venstre museknap\n"
-" nede og køre hen over diagrammet. Dette vill hente statistik fra logs og "
-"hjælpe dig til at finde årsagen\n"
-" til aktivitetsforøgelsen.</p>\n"
-"<p><b>Please note:</b>\n"
-" Enabling the general_log may increase the server load by up to 5-15%. Also "
-"be aware that generating statistics out of the logs is a \n"
-" very load intensive task, thus it is advisable to select only a small time "
-"span.\n"
-"</p>"
+"        <p>Når du ser en pludselig forøgelse i aktivitet, så vælg det "
+"relevante tidsinterval på et diagram ved at holde venstre museknap\n"
+"         nede og køre hen over diagrammet. Dette vill hente statistik fra "
+"logs og hjælpe dig til at finde årsagen.</p> til aktivitetsforøgelsen.</p>"
 
 #: server_status.php:1356
 msgid ""
@@ -9950,6 +9925,13 @@ msgid ""
 "not required any more.\n"
 "        "
 msgstr ""
+"<b>Bemærk:\n"
+"        Aktivering af general_log kan forøge server load med 5-15%. Vær også "
+"opmærksom på, at statistikgenerering fra logs er en\n"
+"        krævende opgave, så det tilrådes at vælge kun en lille tidsinterval "
+"og at deaktivere general_log og tømme dens tabel, når\n"
+"        der ikke er behov for den længere.\n"
+" "
 
 #: server_status.php:1369
 msgid "CPU Usage"
@@ -10400,8 +10382,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %shost "
-"authentication%s indstillinger og %strusted proxies list%s. IP-baseret "
+" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
+"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
 "beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
 "mange tusinde brugere."
 
@@ -10417,8 +10399,8 @@ msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
-"%sautentifikationtype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
+"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -11199,27 +11181,22 @@ msgstr "Omdøb view til"
 #~ msgid "Query type"
 #~ msgstr "Forespørgselstype"
 
-#~| msgid "Missing value in the form!"
 #~ msgid "Value too long in the form!"
 #~ msgstr "Værdien i formularen er for lang!"
 
 #, fuzzy
-#~| msgid "Export/Import to scale"
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Eksporter/Importer til skala"
 
 #, fuzzy
-#~| msgid "No valid image path for theme %s found!"
 #~ msgid "No trigger with name %s found"
 #~ msgstr "Ingen gyldig billedsti for tema %s fundet!"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "Vis"
 
 #, fuzzy
-#~| msgid "row(s) starting from record #"
 #~ msgid "row(s) starting from row #"
 #~ msgstr "rækker startende fra post #"
 
@@ -11242,7 +11219,6 @@ msgstr "Omdøb view til"
 #~ "er alt i orden."
 
 #, fuzzy
-#~| msgid "Procedures"
 #~ msgid "Dropping Procedure"
 #~ msgstr "Procedurer"
 

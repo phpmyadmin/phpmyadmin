@@ -1836,12 +1836,12 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * jQuery coding for 'Change Table'.  Used on tbl_structure.php *
+ * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
 $(document).ready(function() {
     /**
-     *Ajax action for submitting the column change form
+     *Ajax action for submitting the "Column Change" and "Add Column" form
     **/
     $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
@@ -1876,16 +1876,20 @@ $(document).ready(function() {
                         $("#result_query").prepend((data.message));
                         if ($("#change_column_dialog").length > 0) {
                             $("#change_column_dialog").dialog("close").remove();
+                        } else if ($("#add_columns").length > 0) {
+                            $("#add_columns").dialog("close").remove();
                         }
                         /*Reload the field form*/
                         $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
                             $("#fieldsForm").remove();
+                            $("#addColumns").remove();
                             var $temp_div = $("<div id='temp_div'><div>").append(form_data);
                             if ($("#sqlqueryresults").length != 0) {
                                 $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
                             } else {
                                 $temp_div.find("#fieldsForm").insertAfter(".error");
                             }
+                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
                             /*Call the function to display the more options in table*/
                             displayMoreTableOpts();
                         });
@@ -2107,6 +2111,10 @@ $(document).ready(function() {
         $("#popup_background").css({"opacity":"0.7"});
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
+        /**Replacing the column name in the enum editor header*/
+        var column_name = $("#append_fields_form").find("input[id=field_0_1]").attr("value");
+        var h3_text = $("#enum_editor h3").html();
+        $("#enum_editor h3").html(h3_text.split('"')[0]+'"'+column_name+'"');
 
         // Get the values
         var values = $(this).parent().prev("input").attr("value").split(",");

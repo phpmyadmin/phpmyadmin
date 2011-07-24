@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-22 10:17+0200\n"
-"PO-Revision-Date: 2011-07-20 12:03+0200\n"
+"POT-Creation-Date: 2011-07-24 14:43-0400\n"
+"PO-Revision-Date: 2011-07-24 04:22+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -80,7 +80,7 @@ msgstr "検索"
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "実行する"
+msgstr "実行"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:313
@@ -614,8 +614,8 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
@@ -855,8 +855,8 @@ msgstr "ダンプをファイル %s に保存しました"
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください"
@@ -1204,7 +1204,7 @@ msgid "Pause monitor"
 msgstr "モニタ一時中断"
 
 #: js/messages.php:114
-msgid "general_log and slow_query_log is enabled."
+msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
 #: js/messages.php:115
@@ -1216,7 +1216,7 @@ msgid "slow_query_log is enabled."
 msgstr ""
 
 #: js/messages.php:117
-msgid "slow_query_log and general_log is disabled."
+msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
 #: js/messages.php:118
@@ -1513,22 +1513,28 @@ msgid "Ignore"
 msgstr "無視"
 
 #: js/messages.php:211
+#, fuzzy
+#| msgid "Add column"
+msgid "Add columns"
+msgstr "カラムを追加する"
+
+#: js/messages.php:214
 msgid "Select referenced key"
 msgstr "参照されているキーを選択"
 
-#: js/messages.php:212
+#: js/messages.php:215
 msgid "Select Foreign Key"
 msgstr "外部キーを選択してください"
 
-#: js/messages.php:213
+#: js/messages.php:216
 msgid "Please select the primary key or a unique key"
 msgstr "主キーまたはユニークキーを選択してください"
 
-#: js/messages.php:214 pmd_general.php:87 tbl_relation.php:545
+#: js/messages.php:217 pmd_general.php:87 tbl_relation.php:545
 msgid "Choose column to display"
 msgstr "表示するカラムの選択"
 
-#: js/messages.php:215
+#: js/messages.php:218
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them.Do you want to continue?"
@@ -1536,27 +1542,27 @@ msgstr ""
 "レイアウトの変更を保存されていません。保存していない場合、それらは失われま"
 "す。このまま続けてもよろしいですか？"
 
-#: js/messages.php:218
+#: js/messages.php:221
 msgid "Add an option for column "
 msgstr "カラムに対するオプションを追加する"
 
-#: js/messages.php:221
+#: js/messages.php:224
 msgid "Generate password"
 msgstr "パスワードを生成する"
 
-#: js/messages.php:222 libraries/replication_gui.lib.php:364
+#: js/messages.php:225 libraries/replication_gui.lib.php:364
 msgid "Generate"
 msgstr "生成する"
 
-#: js/messages.php:223
+#: js/messages.php:226
 msgid "Change Password"
 msgstr "パスワードを変更する"
 
-#: js/messages.php:226 tbl_structure.php:497
+#: js/messages.php:229 tbl_structure.php:497
 msgid "More"
 msgstr "その他"
 
-#: js/messages.php:229 setup/lib/index.lib.php:158
+#: js/messages.php:232 setup/lib/index.lib.php:158
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1566,26 +1572,26 @@ msgstr ""
 "します。最新バージョンは %s で、%s にリリースされています。"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:231
+#: js/messages.php:234
 msgid ", latest stable version:"
 msgstr ", 最終安定バージョン:"
 
-#: js/messages.php:232
+#: js/messages.php:235
 msgid "up to date"
 msgstr "最新版"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:250
+#: js/messages.php:253
 msgid "Done"
 msgstr "決定"
 
 #. l10n: Display text for previous month link in calendar
-#: js/messages.php:252
+#: js/messages.php:255
 msgid "Prev"
 msgstr "前へ"
 
 #. l10n: Display text for next month link in calendar
-#: js/messages.php:254 libraries/common.lib.php:2206
+#: js/messages.php:257 libraries/common.lib.php:2206
 #: libraries/common.lib.php:2209 libraries/display_tbl.lib.php:363
 #: server_binlog.php:170 server_binlog.php:172 tbl_printview.php:421
 #: tbl_structure.php:934
@@ -1593,231 +1599,231 @@ msgid "Next"
 msgstr "次へ"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:256
+#: js/messages.php:259
 msgid "Today"
 msgstr "今日"
 
-#: js/messages.php:259
+#: js/messages.php:262
 msgid "January"
 msgstr "1 月"
 
-#: js/messages.php:260
+#: js/messages.php:263
 msgid "February"
 msgstr "2 月"
 
-#: js/messages.php:261
+#: js/messages.php:264
 msgid "March"
 msgstr "3 月"
 
-#: js/messages.php:262
+#: js/messages.php:265
 msgid "April"
 msgstr "4 月"
 
-#: js/messages.php:263
+#: js/messages.php:266
 msgid "May"
 msgstr "5 月"
 
-#: js/messages.php:264
+#: js/messages.php:267
 msgid "June"
 msgstr "6 月"
 
-#: js/messages.php:265
+#: js/messages.php:268
 msgid "July"
 msgstr "7 月"
 
-#: js/messages.php:266
+#: js/messages.php:269
 msgid "August"
 msgstr "8 月"
 
-#: js/messages.php:267
+#: js/messages.php:270
 msgid "September"
 msgstr "9 月"
 
-#: js/messages.php:268
+#: js/messages.php:271
 msgid "October"
 msgstr "10 月"
 
-#: js/messages.php:269
+#: js/messages.php:272
 msgid "November"
 msgstr "11 月"
 
-#: js/messages.php:270
+#: js/messages.php:273
 msgid "December"
 msgstr "12 月"
 
 #. l10n: Short month name
-#: js/messages.php:274 libraries/common.lib.php:1444
+#: js/messages.php:277 libraries/common.lib.php:1444
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name
-#: js/messages.php:276 libraries/common.lib.php:1446
+#: js/messages.php:279 libraries/common.lib.php:1446
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name
-#: js/messages.php:278 libraries/common.lib.php:1448
+#: js/messages.php:281 libraries/common.lib.php:1448
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name
-#: js/messages.php:280 libraries/common.lib.php:1450
+#: js/messages.php:283 libraries/common.lib.php:1450
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name
-#: js/messages.php:282 libraries/common.lib.php:1452
+#: js/messages.php:285 libraries/common.lib.php:1452
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short month name
-#: js/messages.php:284 libraries/common.lib.php:1454
+#: js/messages.php:287 libraries/common.lib.php:1454
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name
-#: js/messages.php:286 libraries/common.lib.php:1456
+#: js/messages.php:289 libraries/common.lib.php:1456
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name
-#: js/messages.php:288 libraries/common.lib.php:1458
+#: js/messages.php:291 libraries/common.lib.php:1458
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name
-#: js/messages.php:290 libraries/common.lib.php:1460
+#: js/messages.php:293 libraries/common.lib.php:1460
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name
-#: js/messages.php:292 libraries/common.lib.php:1462
+#: js/messages.php:295 libraries/common.lib.php:1462
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name
-#: js/messages.php:294 libraries/common.lib.php:1464
+#: js/messages.php:297 libraries/common.lib.php:1464
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name
-#: js/messages.php:296 libraries/common.lib.php:1466
+#: js/messages.php:299 libraries/common.lib.php:1466
 msgid "Dec"
 msgstr "12 月"
 
-#: js/messages.php:299
+#: js/messages.php:302
 msgid "Sunday"
 msgstr "日"
 
-#: js/messages.php:300
+#: js/messages.php:303
 msgid "Monday"
 msgstr "月"
 
-#: js/messages.php:301
+#: js/messages.php:304
 msgid "Tuesday"
 msgstr "火"
 
-#: js/messages.php:302
+#: js/messages.php:305
 msgid "Wednesday"
 msgstr "水"
 
-#: js/messages.php:303
+#: js/messages.php:306
 msgid "Thursday"
 msgstr "木"
 
-#: js/messages.php:304
+#: js/messages.php:307
 msgid "Friday"
 msgstr "金"
 
-#: js/messages.php:305
+#: js/messages.php:308
 msgid "Saturday"
 msgstr "土"
 
 #. l10n: Short week day name
-#: js/messages.php:309 libraries/common.lib.php:1469
+#: js/messages.php:312 libraries/common.lib.php:1469
 msgid "Sun"
 msgstr "日"
 
 #. l10n: Short week day name
-#: js/messages.php:311 libraries/common.lib.php:1471
+#: js/messages.php:314 libraries/common.lib.php:1471
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name
-#: js/messages.php:313 libraries/common.lib.php:1473
+#: js/messages.php:316 libraries/common.lib.php:1473
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name
-#: js/messages.php:315 libraries/common.lib.php:1475
+#: js/messages.php:318 libraries/common.lib.php:1475
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name
-#: js/messages.php:317 libraries/common.lib.php:1477
+#: js/messages.php:320 libraries/common.lib.php:1477
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name
-#: js/messages.php:319 libraries/common.lib.php:1479
+#: js/messages.php:322 libraries/common.lib.php:1479
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name
-#: js/messages.php:321 libraries/common.lib.php:1481
+#: js/messages.php:324 libraries/common.lib.php:1481
 msgid "Sat"
 msgstr "土"
 
 #. l10n: Minimal week day name
-#: js/messages.php:325
+#: js/messages.php:328
 msgid "Su"
 msgstr "日"
 
 #. l10n: Minimal week day name
-#: js/messages.php:327
+#: js/messages.php:330
 msgid "Mo"
 msgstr "月"
 
 #. l10n: Minimal week day name
-#: js/messages.php:329
+#: js/messages.php:332
 msgid "Tu"
 msgstr "火"
 
 #. l10n: Minimal week day name
-#: js/messages.php:331
+#: js/messages.php:334
 msgid "We"
 msgstr "水"
 
 #. l10n: Minimal week day name
-#: js/messages.php:333
+#: js/messages.php:336
 msgid "Th"
 msgstr "木"
 
 #. l10n: Minimal week day name
-#: js/messages.php:335
+#: js/messages.php:338
 msgid "Fr"
 msgstr "金"
 
 #. l10n: Minimal week day name
-#: js/messages.php:337
+#: js/messages.php:340
 msgid "Sa"
 msgstr "土"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:339
+#: js/messages.php:342
 msgid "Wk"
 msgstr "週"
 
-#: js/messages.php:341
+#: js/messages.php:344
 msgid "Hour"
 msgstr "時"
 
-#: js/messages.php:342
+#: js/messages.php:345
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:343
+#: js/messages.php:346
 msgid "Second"
 msgstr "秒"
 
@@ -2061,11 +2067,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:106
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
-"ト%2$s を利用して設定ファイルを作成してください"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
+"$s を利用して設定ファイルを作成してください"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -2148,16 +2154,16 @@ msgstr "サインオン認証スクリプトが見つかりません："
 msgid "File %s does not contain any key id"
 msgstr "ファイル %s にキー ID が含まれていません"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:157
-#: libraries/auth/swekey/swekey.auth.lib.php:180
+#: libraries/auth/swekey/swekey.auth.lib.php:159
+#: libraries/auth/swekey/swekey.auth.lib.php:182
 msgid "Hardware authentication failed"
 msgstr "ハードウェア認証に失敗しました"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:166
+#: libraries/auth/swekey/swekey.auth.lib.php:168
 msgid "No valid authentication key plugged"
 msgstr "有効な認証キーが接続されていません"
 
-#: libraries/auth/swekey/swekey.auth.lib.php:202
+#: libraries/auth/swekey/swekey.auth.lib.php:204
 msgid "Authenticating..."
 msgstr "認証中..."
 
@@ -2459,10 +2465,8 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
 #: libraries/common.lib.php:2441
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "クリックで選択"
+msgstr "クリックでオン／オフ切り替え"
 
 #: libraries/common.lib.php:2712 libraries/common.lib.php:2719
 #: libraries/common.lib.php:2908 libraries/config/setup.forms.php:296
@@ -5093,8 +5097,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -5853,8 +5857,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -6179,7 +6183,9 @@ msgid ""
 msgstr "下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
 #: libraries/import.lib.php:1069
-msgid "View a structure`s contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure`s contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name"
 msgstr "名前をクリックすることで構造内容を表示します。"
 
 #: libraries/import.lib.php:1070
@@ -6189,7 +6195,9 @@ msgstr ""
 "「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
 
 #: libraries/import.lib.php:1071
-msgid "Edit its structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit its structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link"
 msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
 
 #: libraries/import.lib.php:1074
@@ -6795,20 +6803,16 @@ msgid "Change to %s"
 msgstr "変更"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
-#| msgid "Execute"
 msgid "Execute at"
-msgstr "実行"
+msgstr "実行日時"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr "イベントを実行する"
+msgstr "実行間隔"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
-#| msgid "Startup"
 msgid "Start"
-msgstr "スタートアップ"
+msgstr "開始"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:348
@@ -6857,19 +6861,19 @@ msgstr "イベントの定義は必須です"
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "新規作成"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "オフ"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "オン"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "イベントスケジュールの状態"
 
 #: libraries/rte/rte_list.lib.php:54
 #, fuzzy
@@ -8232,7 +8236,7 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 "テーブル <b>%s</b> が見つかりません。あるいは %s には設定されていません"
 
-#: schema_export.php:45
+#: schema_export.php:47
 msgid "File doesn't exist"
 msgstr "ファイルが存在しません"
 
@@ -8634,8 +8638,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -10318,11 +10322,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
-"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
-"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
-"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
-"せん。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
+"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
+"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
+"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
 
 #: setup/lib/index.lib.php:268
 #, php-format
@@ -11135,7 +11138,6 @@ msgstr "リネーム後のビューの名前"
 #~ msgstr "%s という名前のトリガが見つかりません"
 
 #, fuzzy
-#~| msgid "Browse"
 #~ msgid "rows"
 #~ msgstr "表示"
 

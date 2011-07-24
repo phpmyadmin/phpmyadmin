@@ -37,7 +37,9 @@ include_once("./libraries/schema/Export_Relation_Schema.class.php");
  * default is PDF
  */
 global  $db,$export_type;
-$export_type = isset($export_type) ? $export_type : 'pdf';
+if (!isset($export_type) || !preg_match('/^[a-zA-Z]+$/', $export_type)) {
+    $export_type = 'pdf';
+}
 PMA_DBI_select_db($db);
 
 $path = PMA_securePath(ucfirst($export_type));
