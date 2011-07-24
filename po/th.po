@@ -118,9 +118,9 @@ msgid ""
 msgstr "ไม่สามารถเปิดไฟล์ %s ได้ เพื่อรายละเอียด กรุณาไป www.phpmyadmin.net"
 
 #: db_create.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
 #: db_datadict.php:48 db_operations.php:362
 msgid "Database comment: "
