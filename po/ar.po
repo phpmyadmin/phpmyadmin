@@ -10958,7 +10958,7 @@ msgstr "نسخة"
 #: tbl_tracking.php:692
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "تعطيل التتبع لـ %s.%s"
 
 #: tbl_tracking.php:694
 msgid "Deactivate now"
