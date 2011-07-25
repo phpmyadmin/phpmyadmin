@@ -10647,7 +10647,7 @@ msgstr "إعادة بناء"
 
 #: tbl_operations.php:748
 msgid "Repair"
-msgstr "صلح"
+msgstr "إصلاح"
 
 #: tbl_operations.php:760
 msgid "Remove partitioning"
