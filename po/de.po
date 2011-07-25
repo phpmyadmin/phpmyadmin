@@ -10074,7 +10074,7 @@ msgstr ""
 "den entsprechenden Zeitraum in einem beliebigen Diagramm, indem Sie die\n"
 "linke Maustaste gedrückt halten und über das Schaubild ziehen. Dies wird "
 "Statistiken aus den Protokollen laden um Sie bei der Auffindung der \n"
-"Aktivitätsspitze zu unterstützen.</p>\n"
+"Aktivitätsspitze zu unterstützen.</p>"
 
 #: server_status.php:1356
 msgid ""
@@ -10091,6 +10091,7 @@ msgstr ""
 "Sie sich bewusst, dass das Erzeugen von Statistiken aus den Logs ein \n"
 "sehr aufwändiger Prozess ist. Deshalb ist es ratsam, nur einen kleinen "
 "Zeitraum auszuwählen.\n"
+"        "
 
 #: server_status.php:1369
 msgid "CPU Usage"
