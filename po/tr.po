@@ -1348,10 +1348,9 @@ msgstr "Günlük incelendi, ama bu zaman aralığında bulunan veri yok."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Süzgeç"
+msgstr "Süzgeçler"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:153 navigation.php:270
