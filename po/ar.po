@@ -10715,7 +10715,7 @@ msgstr "قيود المفتاح الغريب"
 
 #: tbl_select.php:110
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "تجعل \"استعلام بواسطة المثال\" (wildcard: \"%\")"
+msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
 
 #: tbl_select.php:260
 #| msgid "Select fields (at least one):"
