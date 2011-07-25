@@ -9921,7 +9921,7 @@ msgstr "Zvolený časový rozsah:"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Stáhnout jen příkazy SELECT, INSERT, UPDATE a DELETE"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
