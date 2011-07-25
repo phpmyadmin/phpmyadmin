@@ -11026,7 +11026,7 @@ msgstr "ليس لديك الحقوق الكافية بأن تكون هنا ال�
 
 #: user_password.php:96
 msgid "The profile has been updated."
-msgstr "لقد تم تجديد العرض الجانبي."
+msgstr "لقد تم تجديد الملف الشخصي."
 
 #: view_create.php:141
 msgid "VIEW name"
