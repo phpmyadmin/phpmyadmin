@@ -1218,7 +1218,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log je povolen."
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log a general_log jsou zakázány."
