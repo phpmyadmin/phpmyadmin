@@ -15,14 +15,19 @@
  */
 function PMA_checkLink($url)
 {
-    if (substr($url, 0, 7) == 'http://') {
-        return true;
-    } elseif (substr($url, 0, 8) == 'https://') {
-        return true;
-    } elseif (!defined('PMA_SETUP') && substr($url, 0, 20) == './Documentation.html') {
-        return true;
-    } elseif (defined('PMA_SETUP') && substr($url, 0, 21) == '../Documentation.html') {
-        return true;
+    $valid_starts = array(
+        'http://',
+        'https://',
+    );
+    if (defined('PMA_SETUP')) {
+        $valid_starts[] = '../Documentation.html';
+    } else {
+        $valid_starts[] = './Documentation.html';
+    }
+    foreach($valid_starts as $val) {
+        if (substr($url, 0, strlen($val)) == $val) {
+            return true;
+        }
     }
     return false;
 }
