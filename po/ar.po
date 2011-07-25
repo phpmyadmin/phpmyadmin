@@ -10783,7 +10783,7 @@ msgstr "تم حذف العمود %s"
 #: tbl_structure.php:415 tbl_structure.php:509
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "لقد أُضيف المفتاح الأساسي في %s"
+msgstr "تم إضافة المفتاح الأساسي في %s"
 
 #: tbl_structure.php:430 tbl_structure.php:445 tbl_structure.php:465
 #: tbl_structure.php:480 tbl_structure.php:522 tbl_structure.php:535
