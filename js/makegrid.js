@@ -25,7 +25,8 @@
             isEditCellTextEditable: false,  // true if current edit cell is editable in the text input box (not textarea)
             currentEditCell: null,      // reference to <td> that currently being edited
             inEditMode: false,          // true if grid is in edit mode
-            cellEditHint: '',           // text hint when doing grid edit
+            cellEditHint: '',           // hint shown when doing grid edit
+            gotoLinkText: 'Go to link', // "Go to link" text
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -607,6 +608,15 @@
                     
                     // empty all edit area, then rebuild it based on $td classes
                     $editArea.empty();
+                    
+                    // add goto link, if this cell contains a link
+                    if ($td.find('a').length > 0) {
+                        var gotoLink = document.createElement('div');
+                        gotoLink.className = 'goto_link';
+                        $(gotoLink).append(g.gotoLinkText + ': ')
+                            .append($td.find('a').clone());
+                        $editArea.append(gotoLink);
+                    }
                     
                     if ($td.is(':not(.not_null)')) {
                         // append a null checkbox
@@ -1226,6 +1236,10 @@
                     g.showEditCell(this);
                     $(g.cEdit).find('input[type=text]').focus();
                     e.stopPropagation();
+                }
+                // prevent default action when clicking on "link" in a table
+                if ($(e.target).is('a')) {
+                    e.preventDefault();
                 }
             });
         $(g.cEdit).find('input[type=text]').focus(function(e) {
