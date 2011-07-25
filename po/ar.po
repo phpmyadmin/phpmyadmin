@@ -10799,7 +10799,7 @@ msgstr "عرض المزيد من العمليات"
 
 #: tbl_structure.php:642 tbl_structure.php:644
 msgid "Relation view"
-msgstr "عرض الروابط"
+msgstr "عرض العلاقات"
 
 #: tbl_structure.php:651 tbl_structure.php:653
 msgid "Propose table structure"
