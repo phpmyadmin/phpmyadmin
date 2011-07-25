@@ -13,7 +13,8 @@
  *
  * @return boolean True if string can be used as link.
  */
-function PMA_check_link($url) {
+function PMA_check_link($url)
+{
     if (substr($url, 0, 7) == 'http://') {
         return true;
     } elseif (substr($url, 0, 8) == 'https://') {
@@ -33,7 +34,8 @@ function PMA_check_link($url) {
  *
  * @return string Replaced string
  */
-function PMA_replace_bb_link($found) {
+function PMA_replace_bb_link($found)
+{
     /* Check for valid link */
     if (! PMA_check_link($found[1])) {
         return $found[0];
