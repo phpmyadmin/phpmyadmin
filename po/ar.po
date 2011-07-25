@@ -1157,7 +1157,7 @@ msgstr "كيلوبايت"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "متوسط التحميل"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
