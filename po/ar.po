@@ -10999,7 +10999,7 @@ msgstr "لايوجد سمة مدعومة , فضلا راجع إعدادات ال
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "الحصول على سمات جديدة!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
