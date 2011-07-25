@@ -2465,15 +2465,15 @@ span.mysql-number {
 }
 
 .cEdit input[type=text] {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_more.png) no-repeat right;
+    background: #FFF;
     height: 100%;
     margin: 0;
-    padding: 0 16px 0 0;
+    padding: 0;
 }
 
 .cEdit .edit_area {
     background: #FFF;
-    border: 1px solid #CCC;
+    border: 1px solid #999;
     min-width: 10em;
     padding: 0.3em 0.5em;
 }
@@ -2497,5 +2497,11 @@ span.mysql-number {
 .cEdit .edit_area_posting {
     background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center top;
     padding-top: 1.5em;
+}
+
+.cEdit .goto_link {
+    background: #EEE;
+    color: #555;
+    padding: 0.2em 0.3em;
 }
 

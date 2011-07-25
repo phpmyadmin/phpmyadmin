@@ -1480,10 +1480,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 // TEXT fields type so we have to ensure it's really a BLOB
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
-                // remove 'inline_edit' from $class as we can't edit binary data.
-                $class = str_replace('inline_edit', '', $class);
-
                 if (stristr($field_flags, 'BINARY')) {
+                    // remove 'inline_edit' from $class as we can't edit binary data.
+                    $class = str_replace('inline_edit', '', $class);
+
                     if (! isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i]     =  PMA_buildNullDisplay($class, $condition_field);
                     } else {
@@ -1512,7 +1512,11 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                         // characters for tabulations and <cr>/<lf>
                         $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
 
-                        $vertical_display['data'][$row_no][$i]     =  PMA_buildValueDisplay($class, $condition_field, $row[$i]);
+                        if ($is_field_truncated) {
+                            $class .= ' truncated';
+                        }
+
+                        $vertical_display['data'][$row_no][$i]     = PMA_buildValueDisplay($class, $condition_field, $row[$i]);
                     } else {
                         $vertical_display['data'][$row_no][$i]     = PMA_buildEmptyDisplay($class, $condition_field, $meta);
                     }

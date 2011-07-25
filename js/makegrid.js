@@ -25,7 +25,10 @@
             isEditCellTextEditable: false,  // true if current edit cell is editable in the text input box (not textarea)
             currentEditCell: null,      // reference to <td> that currently being edited
             inEditMode: false,          // true if grid is in edit mode
-            cellEditHint: '',           // text hint when doing grid edit
+            cellEditHint: '',           // hint shown when doing grid edit
+            gotoLinkText: 'Go to link', // "Go to link" text
+            wasEditedCellNull: false,   // true if last value of the edited cell was NULL
+            maxTruncatedLen: 0,         // number of characters that can be displayed in a cell
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -39,7 +42,7 @@
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
-                if (g.isInEditMode) {
+                if (g.isCellEditActive) {
                     g.hideEditCell();
                 }
             },
@@ -73,7 +76,7 @@
                 this.qtip.hide();
                 $('body').css('cursor', 'move');
                 $('body').noSelect();
-                if (g.isInEditMode) {
+                if (g.isCellEditActive) {
                     g.hideEditCell();
                 }
             },
@@ -455,8 +458,7 @@
              * Show edit cell, if it can be shown or it is forced.
              */
             showEditCell: function(cell, force) {
-                if (g.isInEditMode &&
-                    $(cell).is('.inline_edit') &&
+                if ($(cell).is('.inline_edit') &&
                     !g.colRsz && !g.colMov)
                 {
                     if (!g.isCellEditActive || force) {
@@ -471,7 +473,7 @@
                             .show()
                             .find('input')
                             .css({
-                                width: $cell.outerWidth() - 16,
+                                width: $cell.outerWidth(),
                                 height: $cell.outerHeight()
                             });
                         // fill the cell edit with text from <td>, if it is not null
@@ -481,6 +483,7 @@
                         
                         g.isCellEditActive = false;
                         g.currentEditCell = cell;
+                        $(g.cEdit).find('input[type=text]').focus();
                     }
                 } else {
                     g.hideEditCell();
@@ -536,6 +539,10 @@
                                             }
                                         }
                                     })
+                                }
+                            } else if ($this_field.is('.truncated')) {
+                                if (new_html.length > g.maxTruncatedLen) {
+                                    new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
                                 }
                             }
                             // replace '\n' with <br>
@@ -605,10 +612,24 @@
                      * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
                      */
                     var relation_key_or_display_column = $td.find('a').attr('title');
+                    /**
+                     * @var curr_value String current value of the field (for fields that are of type enum or set).
+                     */
+                    var curr_value = $td.find('span').text();
                     
                     // empty all edit area, then rebuild it based on $td classes
                     $editArea.empty();
                     
+                    // add goto link, if this cell contains a link
+                    if ($td.find('a').length > 0) {
+                        var gotoLink = document.createElement('div');
+                        gotoLink.className = 'goto_link';
+                        $(gotoLink).append(g.gotoLinkText + ': ')
+                            .append($td.find('a').clone());
+                        $editArea.append(gotoLink);
+                    }
+                    
+                    g.wasEditedCellNull = false;
                     if ($td.is(':not(.not_null)')) {
                         // append a null checkbox
                         $editArea.append('<div class="null_div">Null :<input type="checkbox"></div>');
@@ -616,6 +637,7 @@
                         // check if current <td> is NULL
                         if ($td.is('.null')) {
                             $checkbox.attr('checked', true);
+                            g.wasEditedCellNull = true;
                         }
                         
                         // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
@@ -660,44 +682,7 @@
                         })
                     }
                     
-                    if($td.is('.truncated, .transformed')) {
-                        /** @lends jQuery */
-                        //handle truncated/transformed values values
-                        $editArea.addClass('edit_area_loading');
-
-                        /**
-                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
-                         */
-                        var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
-
-                        // Make the Ajax call and get the data, wrap it and insert it
-                        $.post('sql.php', {
-                            'token' : window.parent.token,
-                            'server' : window.parent.server,
-                            'db' : window.parent.db,
-                            'ajax_request' : true,
-                            'sql_query' : sql_query,
-                            'inline_edit' : true
-                        }, function(data) {
-                            $editArea.removeClass('edit_area_loading');
-                            if(data.success == true) {
-                                $(g.cEdit).find('input[type=text]').val(data.value);
-                                $editArea.append('<textarea>'+data.value+'</textarea>');
-                                $editArea.find('textarea').live('keyup', function(e) {
-                                    $(g.cEdit).find('input[type=text]').val($(this).val());
-                                });
-                                $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
-                                    $editArea.find('textarea').val($(this).val());
-                                });
-                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                            }
-                            else {
-                                PMA_ajaxShowMessage(data.error);
-                            }
-                        }) // end $.post()
-                        g.isEditCellTextEditable = true;
-                    }
-                    else if($td.is('.relation')) {
+                    if($td.is('.relation')) {
                         /** @lends jQuery */
                         //handle relations
                         $editArea.addClass('edit_area_loading');
@@ -783,6 +768,46 @@
                         $editArea.find('select').live('change', function(e) {
                             $(g.cEdit).find('input[type=text]').val($(this).val());
                         })
+                    }
+                    else if($td.is('.truncated, .transformed')) {
+                        /** @lends jQuery */
+                        //handle truncated/transformed values values
+                        $editArea.addClass('edit_area_loading');
+
+                        /**
+                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                         */
+                        var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
+
+                        // Make the Ajax call and get the data, wrap it and insert it
+                        $.post('sql.php', {
+                            'token' : window.parent.token,
+                            'server' : window.parent.server,
+                            'db' : window.parent.db,
+                            'ajax_request' : true,
+                            'sql_query' : sql_query,
+                            'inline_edit' : true
+                        }, function(data) {
+                            $editArea.removeClass('edit_area_loading');
+                            if(data.success == true) {
+                                // get the truncated data length
+                                g.maxTruncatedLen = PMA_getCellValue(g.currentEditCell).length - 3;
+                                
+                                $(g.cEdit).find('input[type=text]').val(data.value);
+                                $editArea.append('<textarea>'+data.value+'</textarea>');
+                                $editArea.find('textarea').live('keyup', function(e) {
+                                    $(g.cEdit).find('input[type=text]').val($(this).val());
+                                });
+                                $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
+                                    $editArea.find('textarea').val($(this).val());
+                                });
+                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                            }
+                            else {
+                                PMA_ajaxShowMessage(data.error);
+                            }
+                        }) // end $.post()
+                        g.isEditCellTextEditable = true;
                     } else {
                         $editArea.append('<textarea>' + PMA_getCellValue(g.currentEditCell) + '</textarea>');
                         $editArea.find('textarea').live('keyup', function(e) {
@@ -864,8 +889,10 @@
                 var addQuotes = true;
 
                 if (is_null) {
-                    sql_query += ' `' + field_name + "`=NULL , ";
-                    need_to_post = true;
+                    if (!g.wasEditedCellNull) {
+                        sql_query += ' `' + field_name + "`=NULL , ";
+                        need_to_post = true;
+                    }
                 } else {
                     if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
                         this_field_params[field_name] = $(g.cEdit).find('textarea').val();
@@ -900,7 +927,8 @@
                     if (where_clause.indexOf(field_name) > -1) {
                         new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
                     }
-                    if (this_field_params[field_name] != PMA_getCellValue(g.currentEditCell)) {
+                    if (g.wasEditedCellNull || this_field_params[field_name] != PMA_getCellValue(g.currentEditCell))
+                    {
                         if (addQuotes == true) {
                             sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "', ";
                         } else {
@@ -1151,16 +1179,6 @@
         // create qtip for each <th> with draggable class
         PMA_createqTip($(t).find('th.draggable'));
         
-        // enable "Edit table" button
-        $('.edit_mode').removeClass('hide')
-            .click(function(e) {
-                g.isInEditMode = !g.isInEditMode;
-                $('.edit_mode input').toggleClass('edit_mode_active', g.isInEditMode);
-                if (!g.isInEditMode) {
-                    g.hideEditCell();
-                }
-            });
-        
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
@@ -1229,19 +1247,17 @@
         });
         // edit cell event
         $(t).find('td.data')
-            .mouseenter(function() {
-                g.showEditCell(this);
-            })
             .click(function(e) {
-                if (g.isInEditMode) {
-                    if (g.isCellEditActive) {
-                        g.postEditedCell();
-                        e.stopPropagation();
-                    } else {
-                        g.showEditCell(this);
-                        $(g.cEdit).find('input[type=text]').focus();
-                        e.stopPropagation();
-                    }
+                if (g.isCellEditActive) {
+                    g.postEditedCell();
+                    e.stopPropagation();
+                } else {
+                    g.showEditCell(this);
+                    e.stopPropagation();
+                }
+                // prevent default action when clicking on "link" in a table
+                if ($(e.target).is('a')) {
+                    e.preventDefault();
                 }
             });
         $(g.cEdit).find('input[type=text]').focus(function(e) {
