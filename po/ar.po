@@ -10790,7 +10790,7 @@ msgstr "تم إضافة المفتاح الأساسي في %s"
 #: tbl_structure.php:548 tbl_structure.php:561
 #, php-format
 msgid "An index has been added on %s"
-msgstr "لقد أُضيف الفهرس في %s"
+msgstr "تم إضافة الفهرس في %s"
 
 #: tbl_structure.php:497
 #, fuzzy
