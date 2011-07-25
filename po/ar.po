@@ -11030,7 +11030,7 @@ msgstr "لقد تم تجديد الملف الشخصي."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "اسم VIEW"
 
 #: view_operations.php:91
 msgid "Rename view to"
