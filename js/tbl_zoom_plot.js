@@ -110,7 +110,7 @@ $(document).ready(function() {
     var data = jQuery.parseJSON($('#querydata').html());
 
     /**
-     ** Form submit on field change
+     ** Input form submit on field change
      **/
     $('#tableid_0').change(function() {
           $('#zoom_search_form').submit();
@@ -127,6 +127,16 @@ $(document).ready(function() {
     $('#tableid_3').change(function() {
           $('#zoom_search_form').submit();
     })
+
+    /**
+     * Input form validation
+     **/ 
+    $('#inputFormSubmitId').click(function() {
+        if ($('#tableid_0').get(0).selectedIndex == 0 || $('#tableid_1').get(0).selectedIndex == 0)         
+	    PMA_ajaxShowMessage(PMA_messages['strInputNull']);
+	else if (xLabel == yLabel) 
+            PMA_ajaxShowMessage(PMA_messages['strSameInputs']);
+    });
 
     /**
       ** Prepare a div containing a link, otherwise it's incorrectly displayed 

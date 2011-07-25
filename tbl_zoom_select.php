@@ -116,7 +116,7 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 
 <fieldset id="inputSection">
 
-<legend><?php echo __('Do a "query by example" (wildcard: "%") for two columns') ?></legend>
+<legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
 <table class="data">
 <?php echo PMA_tbl_setTableHeader();?>
 <tbody>
@@ -279,7 +279,7 @@ for($i = 0 ; $i < 4 ; $i++){
 <fieldset class="tblFooters">
     <input type="hidden" name="max_number_of_fields"
         value="<?php echo $fields_cnt; ?>" />
-    <input type="submit" name="zoom_submit" id="zoomSubmitId" value="<?php echo __('Go'); ?>" />
+    <input type="submit" name="zoom_submit" id="inputFormSubmitId" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
 
@@ -289,7 +289,7 @@ for($i = 0 ; $i < 4 ; $i++){
  * Handle the input criteria and gerate the query result
  * Form for displaying query results
  */
-if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null')) {
+if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_null') && $inputs[0] != $inputs[1]) {
 
     /*
      * Query generation part

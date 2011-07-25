@@ -137,9 +137,6 @@ $js_messages['strChartTitle'] = __('Chart Title');
 $js_messages['strDifferential'] = __('Differential');
 $js_messages['strDividedBy'] = __('Divided by %s:');
 
-$js_messages['strSelectedTimeRange'] = __('Selected time range:');
-$js_messages['strGroupInserts'] = __('Group together INSERTs into same table');
-$js_messages['strLogAnalyseInfo'] = __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.');
 $js_messages['strFromSlowLog'] = __('From slow log');
 $js_messages['strFromGeneralLog'] = __('From general log');
 $js_messages['strAnalysingLogs'] = __('Analysing & loading logs. This may take a while.');
@@ -149,6 +146,15 @@ $js_messages['strLogDataLoaded'] = __('Log data loaded. Queries executed in this
 
 $js_messages['strJumpToTable'] = __('Jump to Log table');
 $js_messages['strNoDataFound'] = __('Log analysed, but not data found in this time span.');
+
+/* l10n: A collection of available filters */
+$js_messages['strFilters'] = __('Filters');
+/* l10n: Filter as in "Start Filtering" */
+$js_messages['strFilter'] = __('Filter');
+$js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
+$js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE statements');
+$js_messages['strSumRows'] = __('Sum of grouped rows:');
+$js_messages['strTotal'] = __('Total:');
 
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
@@ -174,6 +180,8 @@ $js_messages['strNo'] = __('No');
 
 /* For db_stucture.js */
 $js_messages['strInsertTable'] = __('Insert Table');
+$js_messages['strHideIndexes'] = __('Hide indexes');
+$js_messages['strShowIndexes'] = __('Show indexes');
 
 /* For db_search.js */
 $js_messages['strSearching'] = __('Searching');
@@ -197,16 +205,11 @@ $js_messages['strSave'] = __('Save');
 $js_messages['strHide'] = __('Hide');
 $js_messages['strNoRowSelected'] = __('No rows selected');
 $js_messages['strChangeTbl'] = __('Change');
+$js_messages['strQueryExecutionTime'] = __('Query execution time');
 
 /* For tbl_select.js */
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
-$js_messages['strTableSearch'] = __('Table Search');
-
-/* For tbl_zoom_plot.js */
-$js_messages['strZoomSearch'] = __('Zoom Search');
-$js_messages['strDisplayHelp'] =  __('* Each point represents a data row.<br>* Hovering over a point will show its label.<br>* Drag and select an area in the plot to zoom into it.<br>* Click reset zoom link to come back to original state.<br>*  Click a data point to view and possibly edit the data row.<br>* The plot can be resized by dragging it along the bottom right corner.<br>');
-
 
 /* For tbl_change.js */
 $js_messages['strIgnore'] = __('Ignore');
