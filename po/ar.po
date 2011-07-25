@@ -10831,7 +10831,7 @@ msgstr "إنشاء فهرس للعمود %s"
 
 #: tbl_structure.php:889
 msgid "partitioned"
-msgstr ""
+msgstr "مقسم"
 
 #: tbl_tracking.php:109
 #, php-format
