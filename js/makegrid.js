@@ -605,6 +605,10 @@
                      * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
                      */
                     var relation_key_or_display_column = $td.find('a').attr('title');
+                    /**
+                     * @var curr_value String current value of the field (for fields that are of type enum or set).
+                     */
+                    var curr_value = $td.find('span').text();
                     
                     // empty all edit area, then rebuild it based on $td classes
                     $editArea.empty();
