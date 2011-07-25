@@ -10624,7 +10624,7 @@ msgstr ""
 #: tbl_operations.php:741
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "تقسيم %s"
 
 #: tbl_operations.php:744
 msgid "Analyze"
