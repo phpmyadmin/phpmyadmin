@@ -10835,7 +10835,7 @@ msgstr "Bölüm %s"
 
 #: tbl_operations.php:744
 msgid "Analyze"
-msgstr "İncele"
+msgstr "Çözümle"
 
 #: tbl_operations.php:745
 msgid "Check"
