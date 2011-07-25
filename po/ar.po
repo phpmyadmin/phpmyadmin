@@ -10639,7 +10639,7 @@ msgstr "تحقق"
 
 #: tbl_operations.php:746
 msgid "Optimize"
-msgstr ""
+msgstr "تحسين"
 
 #: tbl_operations.php:747
 msgid "Rebuild"
