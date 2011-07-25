@@ -1366,10 +1366,9 @@ msgid "Group queries, ignoring variable data in WHERE statements"
 msgstr "Sloučit dotazy ignorováním dat ve WHERE"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Počet vkládaných řádků"
+msgstr "Součet sloučených řádků:"
 
 #: js/messages.php:157
 #, fuzzy
