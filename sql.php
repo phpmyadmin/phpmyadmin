@@ -779,8 +779,8 @@ if (0 == $num_rows || $is_affected) {
             $edited_values = array();
             parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
-            foreach ($mime_map as $transformation) {
-                $include_file = $transformation['transformation'];
+            foreach($mime_map as $transformation) {
+                $include_file = PMA_securePath($transformation['transformation']);
                 $column_name = $transformation['column_name'];
                 $column_data = $edited_values[$column_name];
 
@@ -932,7 +932,7 @@ else {
 <script type="text/javascript">
 pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
 url_query = '<?php echo isset($url_query)?$url_query:PMA_generate_common_url($db);?>';
-$(document).ready(createProfilingChart);
+$(document).ready(makeProfilingChart);
 </script>
 <?php
         echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
