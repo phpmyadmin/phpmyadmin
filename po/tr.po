@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 18:51+0200\n"
+"PO-Revision-Date: 2011-07-25 18:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6260,10 +6260,9 @@ msgstr ""
 "değiştirin"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Aşağıdaki \"Yapı\" bağlantısıyla bunun yapısını düzenleyin"
+msgstr "Aşağıdaki \"Yapı\" bağlantısıyla yapısını düzenleyin"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
