@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 15:01+0200\n"
+"PO-Revision-Date: 2011-07-25 15:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6205,10 +6205,9 @@ msgid ""
 msgstr "Následující tabulky byly vytvořeny nebo změněny. Teď můžete:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Zobrazit obsah tabulky kliknutím na její jméno"
+msgstr "Obsah struktury se zobrazí po kliknutí na její jméno"
 
 #: libraries/import.lib.php:1070
 msgid ""
