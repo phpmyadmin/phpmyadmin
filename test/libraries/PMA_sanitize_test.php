@@ -33,6 +33,12 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
             PMA_sanitize('[a@./Documentation.html]doc[/a]'));
     }
 
+    public function testLinkDocXss()
+    {
+        $this->assertEquals('[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
+            PMA_sanitize('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'));
+    }
+
     public function testLinkAndXssInHref()
     {
         $this->assertEquals('<a href="./Documentation.html">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
