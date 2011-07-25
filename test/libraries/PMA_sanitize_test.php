@@ -10,6 +10,7 @@
  * Include to test
  */
 require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 
 class PMA_sanitize_test extends PHPUnit_Framework_TestCase
@@ -20,13 +21,11 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
             PMA_sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]'));
     }
 
-/*
     public function testLink()
     {
-        $this->assertEquals('<a href="http://www.phpmyadmin.net/" target="target">link</a>',
+        $this->assertEquals('<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
     }
-*/
 
     public function testHtmlTags()
     {
