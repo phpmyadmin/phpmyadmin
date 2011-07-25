@@ -9,9 +9,9 @@
 /**
  * Checks whether given link is valid
  *
- * @param $url string URL to check.
+ * @param string $url URL to check.
  *
- * @return bool True if string can be used as link.
+ * @return boolean True if string can be used as link.
  */
 function PMA_check_link($url) {
     if (substr($url, 0, 7) == 'http://') {
@@ -29,7 +29,7 @@ function PMA_check_link($url) {
 /**
  * Callback function for replacing [a@link@target] links in bb code.
  *
- * @param $found array preg matches
+ * @param array $found Array of preg matches
  *
  * @return string Replaced string
  */
@@ -71,8 +71,9 @@ function PMA_replace_bb_link($found) {
  *
  * <a title="<?php echo PMA_sanitize($foo, true); ?>">bar</a>
  *
- * @param string   the message
- * @param boolean  whether to escape html in result
+ * @param string  $message the message
+ * @param boolean $escape  whether to escape html in result
+ * @param boolean $safe    whether string is safe (can keep < and > chars)
  *
  * @return  string   the sanitized message
  *
