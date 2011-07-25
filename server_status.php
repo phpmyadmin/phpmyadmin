@@ -1340,7 +1340,7 @@ function printMonitor() {
         </a> | 
         <a href="#rearrangeCharts"> <?php echo __('Rearrange/edit charts'); ?></a><br>
         <p>
-            <?php echo __('Refresh rate:'); refreshList('gridChartRefresh'); ?><br>
+            <?php echo __('Refresh rate:'); refreshList('gridChartRefresh', 5, Array(2,3,4,5,10,20,40,60,120,300,600,1200)); ?><br>
         </p>
         <p> 
             <?php echo __('Chart columns:'); ?>
@@ -1453,7 +1453,8 @@ function printMonitor() {
         </div>
     </div>
     
-    <div id="loadingLogsDialog" title="<?php echo __('Loading logs'); ?>" style="display:none;">
+    <!-- For generic use -->
+    <div id="emptyDialog" title="Dialog" style="display:none;">
     </div>
     
     <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">

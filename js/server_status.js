@@ -218,7 +218,8 @@ $(function() {
                                     true, 
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );                                            
-                            }
+                            },
+                            error: function() { serverResponseError(); }
                          }
             }
             
@@ -260,7 +261,8 @@ $(function() {
                                     true, 
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );                                            
-                            }
+                            },
+                            error: function() { serverResponseError(); }
                          }
             };
             
@@ -295,7 +297,8 @@ $(function() {
                                     true, 
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
-                            }
+                            },
+                            error: function() { serverResponseError(); }
                          }
             };
         } else {
@@ -615,15 +618,12 @@ $(function() {
                 { dataType: 'cpu', 
                   name: PMA_messages['strAverageLoad'], 
                   unit: '%',
-                  transformFn: function(cur, prev) {
-                      console.log('cpu-linux chart, transformFn()');
-                      console.log(cur);
-                      console.log(prev);
-                      if(prev == null) return undefined;
-                      var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
-                      var diff_idle = cur.idle - prev.idle;
-                      return 100*(diff_total - diff_idle) / diff_total;
-                  }
+                  // Needs to be string so it is not ignored by $.toJSON()
+                  transformFn:
+                      'if(prev == null) return undefined;' +
+                      'var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);' +
+                      'var diff_idle = cur.idle - prev.idle;' +
+                      'return 100*(diff_total - diff_idle) / diff_total;'
                 }
             ]
         },
@@ -922,14 +922,14 @@ $(function() {
             saveMonitor(); // Save settings
 
             $(this).dialog("close");
-        }
+        };
         
         dlgButtons[PMA_messages['strClose']] = function() {
             newChart = null;
             $('span#clearSeriesLink').hide();
             $('#seriesPreview').html('');
             $(this).dialog("close");
-        }
+        };
         
         $('div#addChartDialog').dialog({
             width:'auto',
@@ -1067,7 +1067,7 @@ $(function() {
                     });
                 }
             );
-        }
+        };
         
         
         loadLogVars();
@@ -1284,7 +1284,7 @@ $(function() {
                             $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                             
                             $(this).dialog("close");
-                        }
+                        };
                         
                         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
                             var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
@@ -1301,7 +1301,7 @@ $(function() {
                             $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
                             
                             $(this).dialog("close");
-                        }
+                        };
                         
                         $('#logAnalyseDialog').dialog({
                             width: 'auto',
@@ -1397,7 +1397,12 @@ $(function() {
     function refreshChartGrid() {
         /* Send to server */
         runtime.refreshRequest = $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(runtime.dataList) },function(data) {
-            var chartData = $.parseJSON(data);
+            var chartData;
+            try {
+                chartData = $.parseJSON(data);
+            } catch(err) {
+                return serverResponseError();
+            }
             var value, i=0;
             var diff;
     
@@ -1429,10 +1434,9 @@ $(function() {
                         value = value / elem.nodes[j].valueDivisor;
 
                     if(elem.nodes[j].transformFn) {
-                        value = elem.nodes[j].transformFn(
-                            chartData[key][j],
-                            (oldChartData == null) ? null : oldChartData[key][j]
-                        );
+                        value = eval('(function(cur, prev) { ' + elem.nodes[j].transformFn + '})(' +
+                            'chartData[key][j],' + (oldChartData == null ? 'null' : 'oldChartData[key][j]') + ')');
+                        
                     }
                     
                     if(value != undefined)
@@ -1477,9 +1481,9 @@ $(function() {
         if(! opts.limitTypes)
             opts.limitTypes = false;
         
-        $('#loadingLogsDialog').html(PMA_messages['strAnalysingLogs'] + ' <img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+        $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] + ' <img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $('#loadingLogsDialog').dialog({
+        $('#emptyDialog').dialog({
             width: 'auto',
             height: 'auto',
             buttons: {
@@ -1503,17 +1507,23 @@ $(function() {
                 limitTypes: opts.limitTypes
             },
             function(data) { 
-                var logData = $.parseJSON(data);
+                var logData;
+                try {
+                    logData = $.parseJSON(data);
+                } catch(err) {
+                    return serverResponseError();
+                }
                 
                 if(logData.rows.length != 0) {
                     runtime.logDataCols = buildLogTable(logData);
                     
                     /* Show some stats in the dialog */
-                    $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
+                    $('#emptyDialog').attr('title', PMA_messages['strLoadingLogs']);
+                    $('#emptyDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
                     $.each(logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                         if(key == 'Total') key = '<b>' + key + '</b>';
-                        $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
+                        $('#emptyDialog').append(key + ': ' + value + '<br/>');
                     });
                     
                     /* Add filter options if more than a bunch of rows there to filter */
@@ -1551,19 +1561,19 @@ $(function() {
                     dlgBtns[PMA_messages['strJumpToTable']] = function() { 
                         $(this).dialog("close"); 
                         $(document).scrollTop($('div#logTable').offset().top);
-                    }
+                    };
                     
-                    $('#loadingLogsDialog').dialog( "option", "buttons", dlgBtns);
+                    $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
                     
                 } else {
-                    $('#loadingLogsDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
+                    $('#emptyDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
                     
                     var dlgBtns = {};
                     dlgBtns[PMA_messages['strClose']] = function() { 
                         $(this).dialog("close"); 
-                    }
+                    };
                     
-                    $('#loadingLogsDialog').dialog( "option", "buttons", dlgBtns );
+                    $('#emptyDialog').dialog( "option", "buttons", dlgBtns );
                 }
             }
         );
@@ -1682,7 +1692,7 @@ $(function() {
                     return value.replace(/(\[.*?\])+/g,'');
             }
             return value;
-        }
+        };
         
         for(var i=0; i < rows.length; i++) {
             if(i == 0) {
@@ -1888,5 +1898,15 @@ $(function() {
         window.localStorage.removeItem('monitorSettings');
         $(this).hide();
     });
+    
+    function serverResponseError() {
+        var btns = {};
+        btns[PMA_messages['strReloadPage']] = function() {
+            window.location.reload();
+        };
+        $('#emptyDialog').attr('title',PMA_messages['strRefreshFailed']);
+        $('#emptyDialog').html('<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + PMA_messages['strInvalidResponseExplanation'])
+        $('#emptyDialog').dialog({ buttons: btns });       
+    }
     
 });

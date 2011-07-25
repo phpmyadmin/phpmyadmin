@@ -156,6 +156,11 @@ $js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable da
 $js_messages['strSumRows'] = __('Sum of grouped rows:');
 $js_messages['strTotal'] = __('Total:');
 
+$js_messages['strLoadingLogs'] = __('Loading logs');
+$js_messages['strRefreshFailed'] = __('Monitor refresh failed');
+$js_messages['strInvalidResponseExplanation'] = __('While requesting new chart data the server returned an invalid response. This is most likely because your session expired. Reloading the page and reentering your credentials should help.');
+$js_messages['strReloadPage'] = __('Reload page');
+
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');
