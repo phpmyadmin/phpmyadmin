@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-24 14:43-0400\n"
-"PO-Revision-Date: 2011-07-16 14:33+0200\n"
+"PO-Revision-Date: 2011-07-24 20:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1116,15 +1116,14 @@ msgstr "Connections / Processes"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Connections since last refresh"
+msgstr "Questions since last refresh"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Questions (executed statements by the server)"
 
 #: js/messages.php:91 server_status.php:590
 msgid "Query statistics"
@@ -1132,15 +1131,15 @@ msgstr "Query statistics"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "System CPU Usage"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "System memory"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "System swap"
 
 #: js/messages.php:97 libraries/common.lib.php:1270 server_status.php:1406
 msgid "MiB"
@@ -1152,14 +1151,13 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Average load"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Suggestions:"
 msgid "Questions"
-msgstr "Suggestions:"
+msgstr "Questions"
 
 #: js/messages.php:103 server_status.php:867
 msgid "Traffic"
@@ -1171,24 +1169,22 @@ msgid "Settings"
 msgstr "Settings"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Remove database"
+msgstr "Remove chart"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Edit labels and series"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Snap to grid"
+msgstr "Add chart to grid"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Please add at least one variable to the series"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
@@ -1199,11 +1195,11 @@ msgstr "None"
 
 #: js/messages.php:111
 msgid "Resume monitor"
-msgstr ""
+msgstr "Resume monitor"
 
 #: js/messages.php:112
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pause monitor"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
@@ -1211,11 +1207,11 @@ msgstr ""
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log is enabled."
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log is enabled."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log are disabled."
@@ -1223,11 +1219,11 @@ msgstr ""
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output is not set to TABLE."
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output is set to TABLE."
 
 #: js/messages.php:120
 #, php-format
@@ -1236,108 +1232,112 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log is enabled, but the server logs only queries that take longer "
+"than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
+"depending on your system."
 
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time is set to %d second(s)."
 
 #: js/messages.php:122
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Following settings will be applied globally and reset to default on server "
+"restart:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Save output to a file"
+msgstr "Set log_output to %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Enabled"
+msgstr "Enable %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Disabled"
+msgstr "Disable %s"
 
 #. l10n: %d seconds
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Set long_query_time to %ds"
 
 #: js/messages.php:131
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"You can't change these variables. Please log in as root or contact your "
+"database administrator."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Manage your settings"
+msgstr "Change settings"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "More settings"
+msgstr "Current settings"
 
 #: js/messages.php:135 server_status.php:1366
-#, fuzzy
 #| msgid "Chart title"
 msgid "Chart Title"
-msgstr "Chart title"
+msgstr "Chart Title"
 
 #. l10n: As in differential values
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Difference"
+msgstr "Differential"
 
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Divided by %s:"
 
 #: js/messages.php:140
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Select page"
+msgstr "Selected time range:"
 
 #: js/messages.php:141
 msgid "Group together INSERTs into same table"
-msgstr ""
+msgstr "Group together INSERTs into same table"
 
 #: js/messages.php:142
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Choose from which log you want the statistics to be generated from.</p> "
+"Results are grouped by query text."
 
 #: js/messages.php:143
 msgid "From slow log"
-msgstr ""
+msgstr "From slow log"
 
 #: js/messages.php:144
 msgid "From general log"
-msgstr ""
+msgstr "From general log"
 
 #: js/messages.php:145
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analysing & loading logs. This may take a while."
 
 #: js/messages.php:146
 msgid ""

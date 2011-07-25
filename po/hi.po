@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-24 14:43-0400\n"
-"PO-Revision-Date: 2011-07-18 18:20+0200\n"
+"PO-Revision-Date: 2011-07-24 19:04+0200\n"
 "Last-Translator:  <deadefy@nepalimail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,15 +35,16 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद आपने मूल विंडो बंद कर दिया है,"
-"या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन के लिए कांफिगुर कर रखा है."
+"लक्ष्य ब्राउज़र विंडो को अद्यतन नहीं किया जा सकता है. शायद आपने मूल विंडो "
+"बंद कर दिया है,या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन "
+"के लिए कांफिगुर कर रखा है."
 
 #: browse_foreigners.php:151 libraries/common.lib.php:2714
 #: libraries/common.lib.php:2721 libraries/common.lib.php:2904
 #: libraries/common.lib.php:2905 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
-msgstr "खोजें"
+msgstr "ढूंढें"
 
 #: browse_foreigners.php:154 db_operations.php:369 db_operations.php:409
 #: db_operations.php:517 db_operations.php:544 db_search.php:335
@@ -79,7 +80,7 @@ msgstr "खोजें"
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
-msgstr "आगे"
+msgstr "जाएँ"
 
 #: browse_foreigners.php:169 browse_foreigners.php:173
 #: libraries/Index.class.php:432 tbl_tracking.php:313
@@ -116,8 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ "
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ "
 
 #: db_create.php:58
 #, php-format
@@ -143,7 +144,7 @@ msgstr " टेबल टिप्पणि:"
 #: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
 #: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
-msgstr "कोलम"
+msgstr "स्तम्भ"
 
 #: db_datadict.php:167 db_printview.php:104 libraries/Index.class.php:433
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:252
@@ -158,9 +159,8 @@ msgstr "कोलम"
 #: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
 #: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
 #: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
-#, fuzzy
 msgid "Type"
-msgstr "टाइप"
+msgstr "प्रकार/किस्म"
 
 #: db_datadict.php:169 libraries/Index.class.php:439
 #: libraries/export/htmlword.php:253 libraries/export/latex.php:361
@@ -170,9 +170,8 @@ msgstr "टाइप"
 #: libraries/tbl_properties.inc.php:112 tbl_change.php:328
 #: tbl_printview.php:142 tbl_structure.php:208 tbl_tracking.php:269
 #: tbl_tracking.php:320
-#, fuzzy
 msgid "Null"
-msgstr "अशक्त"
+msgstr "शून्य"
 
 #: db_datadict.php:170 db_structure.php:454 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:361 libraries/export/odt.php:297
@@ -274,11 +273,11 @@ msgstr " डेटाबेस  %s का नाम बदल कर %s रख�
 #: db_operations.php:276
 #, php-format
 msgid "Database %s has been copied to %s"
-msgstr " डेटाबेस %s से %s में कॉपी किया गया है"
+msgstr " डेटाबेस %s से %s में  नकल किया गया है"
 
 #: db_operations.php:403
 msgid "Rename database to"
-msgstr "डेटाबेस का नाम बदल कर ____ रखें"
+msgstr "डेटाबेस का नाम इसमें पुनर्नामकरण करें"
 
 #: db_operations.php:427
 msgid "Remove database"
