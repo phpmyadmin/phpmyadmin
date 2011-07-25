@@ -10884,10 +10884,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "errors."
 msgid "Query error"
-msgstr "أخطاء."
+msgstr "خطأ في الإستعلام"
 
 #: tbl_tracking.php:399
 msgid "Tracking data manipulation successfully deleted"
