@@ -113,7 +113,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     $message = strtr($message, $replace_pairs);
 
     /* Match links in bb code ([a@url@target], where @target is options) */
-    $pattern = '/\[a@([^"@]*)(@([^]"]*))?\]/';
+    $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
     /* Find and replace all links */
     $message = preg_replace_callback($pattern, 'PMA_replace_bb_link', $message);
