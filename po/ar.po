@@ -10976,7 +10976,7 @@ msgstr "تنشيط الآن"
 #: tbl_tracking.php:720
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "انشئ إصدار %s  لـ %s.s%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
