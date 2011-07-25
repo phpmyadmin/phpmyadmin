@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 21:44+0200\n"
+"PO-Revision-Date: 2011-07-25 21:45+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -10846,7 +10846,7 @@ msgstr "تم إنشاء الإصدار %s , التتبع نشط لـ %s.%s"
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "اللتبع لـ %s.%s , الإصدار %s  معطل ."
 
 #: tbl_tracking.php:198
 #, php-format
