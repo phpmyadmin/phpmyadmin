@@ -10945,7 +10945,7 @@ msgstr "تنفيذ SQL"
 #: tbl_tracking.php:572
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "تصدير كـ %s"
 
 #: tbl_tracking.php:612
 msgid "Show versions"
