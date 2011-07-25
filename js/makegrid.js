@@ -27,6 +27,7 @@
             inEditMode: false,          // true if grid is in edit mode
             cellEditHint: '',           // hint shown when doing grid edit
             gotoLinkText: 'Go to link', // "Go to link" text
+            wasEditedCellNull: false,   // true if last value of the edited cell was NULL
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -622,6 +623,7 @@
                         $editArea.append(gotoLink);
                     }
                     
+                    g.wasEditedCellNull = false;
                     if ($td.is(':not(.not_null)')) {
                         // append a null checkbox
                         $editArea.append('<div class="null_div">Null :<input type="checkbox"></div>');
@@ -629,6 +631,7 @@
                         // check if current <td> is NULL
                         if ($td.is('.null')) {
                             $checkbox.attr('checked', true);
+                            g.wasEditedCellNull = true;
                         }
                         
                         // if the select/editor is changed un-check the 'checkbox_null_<field_name>_<row_index>'.
@@ -877,8 +880,10 @@
                 var addQuotes = true;
 
                 if (is_null) {
-                    sql_query += ' `' + field_name + "`=NULL , ";
-                    need_to_post = true;
+                    if (!g.wasEditedCellNull) {
+                        sql_query += ' `' + field_name + "`=NULL , ";
+                        need_to_post = true;
+                    }
                 } else {
                     if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
                         this_field_params[field_name] = $(g.cEdit).find('textarea').val();
@@ -913,7 +918,8 @@
                     if (where_clause.indexOf(field_name) > -1) {
                         new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
                     }
-                    if (this_field_params[field_name] != PMA_getCellValue(g.currentEditCell)) {
+                    if (g.wasEditedCellNull || this_field_params[field_name] != PMA_getCellValue(g.currentEditCell))
+                    {
                         if (addQuotes == true) {
                             sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "', ";
                         } else {
