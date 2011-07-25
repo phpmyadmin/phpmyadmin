@@ -7076,7 +7076,7 @@ msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi"
 #: libraries/rte/rte_routines.lib.php:1214
 #, php-format
 msgid "Execution results of routine %s"
-msgstr "%s yordamı çalıştırma sonuçları"
+msgstr "%s yordamı yürütme sonuçları"
 
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
