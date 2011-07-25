@@ -1212,10 +1212,9 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log etkinleştirildi."
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log ve general_log etkisizleştirildi."
+msgstr "slow_query_log ve general_log etkisiz."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
