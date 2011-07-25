@@ -1171,10 +1171,9 @@ msgstr "بيانات سير"
 
 #: js/messages.php:104 libraries/server_links.inc.php:73
 #: server_status.php:1324
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "الإعدادات"
 
 #: js/messages.php:105
 #, fuzzy
