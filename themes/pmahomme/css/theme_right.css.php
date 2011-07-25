@@ -2876,10 +2876,10 @@ span.mysql-number {
 }
 
 .cEdit input[type=text] {
-    background: #FFF url(./themes/pmahomme/img/b_more.png) no-repeat right;
+    background: #FFF;
     height: 100%;
     margin: 0;
-    padding: 0 16px 0 0;
+    padding: 0;
 }
 
 .cEdit .edit_area {

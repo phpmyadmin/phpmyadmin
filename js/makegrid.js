@@ -471,7 +471,7 @@
                             .show()
                             .find('input')
                             .css({
-                                width: $cell.outerWidth() - 16,
+                                width: $cell.outerWidth(),
                                 height: $cell.outerHeight()
                             });
                         // fill the cell edit with text from <td>, if it is not null
