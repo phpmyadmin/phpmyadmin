@@ -9934,10 +9934,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Typ dotazu"
+msgstr "Analýza dotazu"
 
 #: server_status.php:1512
 #, php-format
