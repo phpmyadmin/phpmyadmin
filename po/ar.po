@@ -10806,10 +10806,9 @@ msgid "Propose table structure"
 msgstr "اقترح بناء الجدول"
 
 #: tbl_structure.php:676
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add column"
-msgstr "أضف إلى الملاحظات"
+msgstr "إضافة عمود"
 
 #: tbl_structure.php:690
 msgid "At End of Table"
