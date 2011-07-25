@@ -13,7 +13,7 @@
  *
  * @return boolean True if string can be used as link.
  */
-function PMA_check_link($url)
+function PMA_checkLink($url)
 {
     if (substr($url, 0, 7) == 'http://') {
         return true;
@@ -34,10 +34,10 @@ function PMA_check_link($url)
  *
  * @return string Replaced string
  */
-function PMA_replace_bb_link($found)
+function PMA_replaceBBLink($found)
 {
     /* Check for valid link */
-    if (! PMA_check_link($found[1])) {
+    if (! PMA_checkLink($found[1])) {
         return $found[0];
     }
     /* a-z and _ allowed in target */
@@ -119,7 +119,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
     /* Find and replace all links */
-    $message = preg_replace_callback($pattern, 'PMA_replace_bb_link', $message);
+    $message = preg_replace_callback($pattern, 'PMA_replaceBBLink', $message);
 
     /* Possibly escape result */
     if ($escape) {
