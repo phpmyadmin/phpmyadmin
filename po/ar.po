@@ -10667,7 +10667,7 @@ msgstr "المساحة المستخدمة"
 
 #: tbl_printview.php:311 tbl_structure.php:793
 msgid "Usage"
-msgstr "المساحة"
+msgstr "الإستخدام"
 
 #: tbl_printview.php:338 tbl_structure.php:820
 msgid "Effective"
