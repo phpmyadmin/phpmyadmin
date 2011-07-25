@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 21:37+0200\n"
+"PO-Revision-Date: 2011-07-25 21:38+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -10775,10 +10775,10 @@ msgid "None"
 msgstr "لا شيء"
 
 #: tbl_structure.php:404
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "جدول %s حذفت"
+msgstr "تم حذف العمود %s"
 
 #: tbl_structure.php:415 tbl_structure.php:509
 #, php-format
