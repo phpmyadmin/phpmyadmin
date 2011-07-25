@@ -96,6 +96,7 @@ button {
 .ic_b_minus { background-position: -471px 0; } 
 
 .ic_b_views, .ic_s_views { background-position: -1094px 0; } 
+.ic_b_snewtbl { background-position: -788px 0; } 
 
 /******************************************************************************/
 /* classes */
