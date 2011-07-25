@@ -11675,7 +11675,6 @@ msgid "Rename view to"
 msgstr "Nézet átnevezése"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Frissítés"
 

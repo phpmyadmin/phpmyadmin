@@ -11251,7 +11251,6 @@ msgid "Rename view to"
 msgstr "Riemërto tabelën në"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Rifresko"
 

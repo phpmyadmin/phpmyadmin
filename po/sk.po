@@ -11146,7 +11146,6 @@ msgid "Rename view to"
 msgstr "Premenovať pohľad na"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Obnoviť"
 

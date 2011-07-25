@@ -11523,7 +11523,6 @@ msgid "Rename view to"
 msgstr "Промени име табеле у "
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Освежи"
 

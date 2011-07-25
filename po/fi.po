@@ -11852,7 +11852,6 @@ msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Päivitä"
 

@@ -11506,7 +11506,6 @@ msgid "Rename view to"
 msgstr "Reanomena la vista a"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Refresca"
 

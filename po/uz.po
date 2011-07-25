@@ -12115,7 +12115,6 @@ msgid "Rename view to"
 msgstr "Кўриниш номини ўзгартириш"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Янгилаш"
 

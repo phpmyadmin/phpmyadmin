@@ -11019,7 +11019,6 @@ msgid "Rename view to"
 msgstr "将视图改名为"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "刷新"
 
