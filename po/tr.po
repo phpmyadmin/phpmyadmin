@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-24 11:06+0200\n"
+"PO-Revision-Date: 2011-07-25 18:43+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1199,10 +1199,9 @@ msgid "Pause monitor"
 msgstr "İzlemeyi duraklat"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log ve slow_query_log etkinleştirildi."
+msgstr "general_log ve slow_query_log etkin."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
