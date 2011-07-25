@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 21:49+0200\n"
+"PO-Revision-Date: 2011-07-25 21:50+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -10725,7 +10725,7 @@ msgstr "اختيار الأعمدة (واحد على الأقل):"
 
 #: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "أضف شروط البحث (جسم من الفقره \"where\" clause):"
+msgstr "أضف شروط البحث (الفقرة \"where\" ):"
 
 #: tbl_select.php:285
 msgid "Number of rows per page"
