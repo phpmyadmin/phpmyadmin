@@ -11130,7 +11130,7 @@ msgstr "Bu seçenek tablolarınızı ve içerdiği veriyi değiştirecektir."
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr "SQL çalıştırma"
+msgstr "SQL yürütme"
 
 #: tbl_tracking.php:572
 #, php-format
