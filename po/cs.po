@@ -1510,10 +1510,9 @@ msgid "Change"
 msgstr "Změnit"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Časový limit běhu skriptu"
+msgstr "Doba běhu dotazu"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
