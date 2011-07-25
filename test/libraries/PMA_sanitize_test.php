@@ -15,12 +15,18 @@ require_once 'libraries/core.lib.php';
 
 class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Tests for proper escaping of XSS.
+     */
     public function testXssInHref()
     {
         $this->assertEquals('[a@javascript:alert(\'XSS\');@target]link</a>',
             PMA_sanitize('[a@javascript:alert(\'XSS\');@target]link[/a]'));
     }
 
+    /**
+     * Tests correct generating of link redirector.
+     */
     public function testLink()
     {
         unset($GLOBALS['server']);
@@ -29,42 +35,63 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
     }
 
+    /**
+     * Tests links to documentation.
+     */
     public function testLinkDoc()
     {
         $this->assertEquals('<a href="./Documentation.html">doc</a>',
             PMA_sanitize('[a@./Documentation.html]doc[/a]'));
     }
 
-    public function testLinkDocTarget()
+    /**
+     * Tests link target validation.
+     */
+    public function testInvalidTarget()
     {
         $this->assertEquals('[a@./Documentation.html@INVALID9]doc</a>',
             PMA_sanitize('[a@./Documentation.html@INVALID9]doc[/a]'));
     }
 
+    /**
+     * Tests XSS escaping after valid link.
+     */
     public function testLinkDocXss()
     {
         $this->assertEquals('[a@./Documentation.html" onmouseover="alert(foo)"]doc</a>',
             PMA_sanitize('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'));
     }
 
+    /**
+     * Tests proper handling of multi link code.
+     */
     public function testLinkAndXssInHref()
     {
         $this->assertEquals('<a href="./Documentation.html">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
             PMA_sanitize('[a@./Documentation.html]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]'));
     }
 
+    /**
+     * Test escaping of HTML tags
+     */
     public function testHtmlTags()
     {
         $this->assertEquals('&lt;div onclick=""&gt;',
             PMA_sanitize('<div onclick="">'));
     }
 
-    public function testBbcoe()
+    /**
+     * Tests basic BB code.
+     */
+    public function testBBCode()
     {
         $this->assertEquals('<strong>strong</strong>',
             PMA_sanitize('[b]strong[/b]'));
     }
 
+    /**
+     * Tests output escaping.
+     */
     public function testEscape()
     {
         $this->assertEquals('&lt;strong&gt;strong&lt;/strong&gt;',
