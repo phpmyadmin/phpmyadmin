@@ -39,7 +39,7 @@
                 };
                 $('body').css('cursor', 'col-resize');
                 $('body').noSelect();
-                if (g.isInEditMode) {
+                if (g.isCellEditActive) {
                     g.hideEditCell();
                 }
             },
@@ -73,7 +73,7 @@
                 this.qtip.hide();
                 $('body').css('cursor', 'move');
                 $('body').noSelect();
-                if (g.isInEditMode) {
+                if (g.isCellEditActive) {
                     g.hideEditCell();
                 }
             },
@@ -455,8 +455,7 @@
              * Show edit cell, if it can be shown or it is forced.
              */
             showEditCell: function(cell, force) {
-                if (g.isInEditMode &&
-                    $(cell).is('.inline_edit') &&
+                if ($(cell).is('.inline_edit') &&
                     !g.colRsz && !g.colMov)
                 {
                     if (!g.isCellEditActive || force) {
@@ -1151,16 +1150,6 @@
         // create qtip for each <th> with draggable class
         PMA_createqTip($(t).find('th.draggable'));
         
-        // enable "Edit table" button
-        $('.edit_mode').removeClass('hide')
-            .click(function(e) {
-                g.isInEditMode = !g.isInEditMode;
-                $('.edit_mode input').toggleClass('edit_mode_active', g.isInEditMode);
-                if (!g.isInEditMode) {
-                    g.hideEditCell();
-                }
-            });
-        
         // register events
         if (g.reorderHint) {    // make sure columns is reorderable
             $(t).find('th.draggable')
@@ -1229,19 +1218,14 @@
         });
         // edit cell event
         $(t).find('td.data')
-            .mouseenter(function() {
-                g.showEditCell(this);
-            })
             .click(function(e) {
-                if (g.isInEditMode) {
-                    if (g.isCellEditActive) {
-                        g.postEditedCell();
-                        e.stopPropagation();
-                    } else {
-                        g.showEditCell(this);
-                        $(g.cEdit).find('input[type=text]').focus();
-                        e.stopPropagation();
-                    }
+                if (g.isCellEditActive) {
+                    g.postEditedCell();
+                    e.stopPropagation();
+                } else {
+                    g.showEditCell(this);
+                    $(g.cEdit).find('input[type=text]').focus();
+                    e.stopPropagation();
                 }
             });
         $(g.cEdit).find('input[type=text]').focus(function(e) {
