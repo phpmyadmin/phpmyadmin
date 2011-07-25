@@ -10599,10 +10599,9 @@ msgid "Table %s has been flushed"
 msgstr "لقد تم إعادة تحميل الجدول %s  بنجاح"
 
 #: tbl_operations.php:668
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "إعادة تحميل الجدول (\"FLUSH\")"
+msgstr "إعادة تحميل الجدول (FLUSH)"
 
 #: tbl_operations.php:677
 #, fuzzy
