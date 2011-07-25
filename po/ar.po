@@ -10841,7 +10841,7 @@ msgstr "تتبع التقرير للجدول %s"
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr "تم إنشاء الإصدار %s , التتبع نشط لـ %s.%s "
+msgstr "تم إنشاء الإصدار %s , التتبع نشط لـ %s.%s"
 
 #: tbl_tracking.php:190
 #, php-format
