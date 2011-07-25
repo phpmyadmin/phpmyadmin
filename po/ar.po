@@ -10651,7 +10651,7 @@ msgstr "إصلاح"
 
 #: tbl_operations.php:760
 msgid "Remove partitioning"
-msgstr ""
+msgstr "إزالة التقسيم"
 
 #: tbl_operations.php:786
 msgid "Check referential integrity:"
