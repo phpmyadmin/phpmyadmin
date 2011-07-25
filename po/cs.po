@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 14:59+0200\n"
+"PO-Revision-Date: 2011-07-25 15:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -6216,10 +6216,9 @@ msgid ""
 msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz „Nastavení“"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Upravit strukturu kliknutím na odkaz „Struktura“"
+msgstr "Strukturu upravíte kliknutím na odkaz „Struktura“"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
