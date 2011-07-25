@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 21:36+0200\n"
+"PO-Revision-Date: 2011-07-25 21:37+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -10908,10 +10908,9 @@ msgid "Delete tracking data row from report"
 msgstr "يسمح بإضافة واستبدال البيانات."
 
 #: tbl_tracking.php:443
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "لايوجد قواعد بيانات"
+msgstr "لايوجد بيانات"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
