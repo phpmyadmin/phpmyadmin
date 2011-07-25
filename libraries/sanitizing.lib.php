@@ -27,6 +27,39 @@ function PMA_check_link($url) {
 }
 
 /**
+ * Callback function for replacing [a@link@target] links in bb code.
+ *
+ * @param $found array preg matches
+ *
+ * @return string Replaced string
+ */
+function PMA_replace_bb_link($found) {
+    /* Check for valid link */
+    if (! PMA_check_link($found[1])) {
+        return $found[0];
+    }
+    /* a-z and _ allowed in target */
+    if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
+        return $found[0];
+    }
+
+    /* Construct target */
+    $target = '';
+    if (! empty($found[3])) {
+        $target = ' target="' . $found[3] . '"';
+    }
+
+    /* Construct url */
+    if (substr($found[1], 0, 4) == 'http') {
+        $url = PMA_linkURL($found[1]);
+    } else {
+        $url = $found[1];
+    }
+
+    return '<a href="' . $url . '"' . $target . '>';
+}
+
+/**
  * Sanitizes $message, taking into account our special codes
  * for formatting.
  *
@@ -82,28 +115,8 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     /* Match links in bb code ([a@url@target], where @target is options) */
     $pattern = '/\[a@([^"@]*)(@([^]"]*))?\]/';
 
-    /* Find all links */
-    if (preg_match_all($pattern, $message, $founds, PREG_SET_ORDER)) {
-
-        /* Validate links and targets */
-        foreach ($founds as $found) {
-            // only http... and ./Do... allowed
-            if (! PMA_check_link($found[1])) {
-                return $message;
-            }
-            // a-z and _ allowed in target
-            if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
-                return $message;
-            }
-        }
-
-        /* Actually replace them */
-        if (substr($found[1], 0, 4) == 'http') {
-            $message = preg_replace($pattern, '<a href="' . PMA_linkURL($found[1]) . '" target="\3">', $message);
-        } else {
-            $message = preg_replace($pattern, '<a href="\1" target="\3">', $message);
-        }
-    }
+    /* Find and replace all links */
+    $message = preg_replace_callback($pattern, 'PMA_replace_bb_link', $message);
 
     /* Possibly escape result */
     if ($escape) {
