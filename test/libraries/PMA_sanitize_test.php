@@ -27,6 +27,12 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
     }
 
+    public function testLinkDoc()
+    {
+        $this->assertEquals('<a href="./Documentation.html">doc</a>',
+            PMA_sanitize('[a@./Documentation.html]doc[/a]'));
+    }
+
     public function testHtmlTags()
     {
         $this->assertEquals('&lt;div onclick=""&gt;',
