@@ -50,6 +50,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     if (!$safe) {
         $message = strtr($message, array('<' => '&lt;', '>' => '&gt;'));
     }
+    /* Interpret bb code */
     $replace_pairs = array(
         '[i]'       => '<em>',      // deprecated by em
         '[/i]'      => '</em>',     // deprecated by em
@@ -70,6 +71,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[sup]'      => '<sup>',
         '[/sup]'      => '</sup>',
     );
+    /* Adjust links for setup, which lives in subfolder */
     if (defined('PMA_SETUP')) {
         $replace_pairs['[a@Documentation.html'] = '[a@../Documentation.html';
     } else {
@@ -77,9 +79,13 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     }
     $message = strtr($message, $replace_pairs);
 
+    /* Match links in bb code ([a@url@target], where @target is options) */
     $pattern = '/\[a@([^"@]*)(@([^]"]*))?\]/';
 
+    /* Find all links */
     if (preg_match_all($pattern, $message, $founds, PREG_SET_ORDER)) {
+
+        /* Validate links and targets */
         foreach ($founds as $found) {
             // only http... and ./Do... allowed
             if (! PMA_check_link($found[1])) {
@@ -91,6 +97,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
             }
         }
 
+        /* Actually replace them */
         if (substr($found[1], 0, 4) == 'http') {
             $message = preg_replace($pattern, '<a href="' . PMA_linkURL($found[1]) . '" target="\3">', $message);
         } else {
@@ -98,6 +105,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         }
     }
 
+    /* Possibly escape result */
     if ($escape) {
         $message = htmlspecialchars($message);
     }
