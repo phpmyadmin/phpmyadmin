@@ -669,44 +669,7 @@
                         })
                     }
                     
-                    if($td.is('.truncated, .transformed')) {
-                        /** @lends jQuery */
-                        //handle truncated/transformed values values
-                        $editArea.addClass('edit_area_loading');
-
-                        /**
-                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
-                         */
-                        var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
-
-                        // Make the Ajax call and get the data, wrap it and insert it
-                        $.post('sql.php', {
-                            'token' : window.parent.token,
-                            'server' : window.parent.server,
-                            'db' : window.parent.db,
-                            'ajax_request' : true,
-                            'sql_query' : sql_query,
-                            'inline_edit' : true
-                        }, function(data) {
-                            $editArea.removeClass('edit_area_loading');
-                            if(data.success == true) {
-                                $(g.cEdit).find('input[type=text]').val(data.value);
-                                $editArea.append('<textarea>'+data.value+'</textarea>');
-                                $editArea.find('textarea').live('keyup', function(e) {
-                                    $(g.cEdit).find('input[type=text]').val($(this).val());
-                                });
-                                $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
-                                    $editArea.find('textarea').val($(this).val());
-                                });
-                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                            }
-                            else {
-                                PMA_ajaxShowMessage(data.error);
-                            }
-                        }) // end $.post()
-                        g.isEditCellTextEditable = true;
-                    }
-                    else if($td.is('.relation')) {
+                    if($td.is('.relation')) {
                         /** @lends jQuery */
                         //handle relations
                         $editArea.addClass('edit_area_loading');
@@ -792,6 +755,43 @@
                         $editArea.find('select').live('change', function(e) {
                             $(g.cEdit).find('input[type=text]').val($(this).val());
                         })
+                    }
+                    else if($td.is('.truncated, .transformed')) {
+                        /** @lends jQuery */
+                        //handle truncated/transformed values values
+                        $editArea.addClass('edit_area_loading');
+
+                        /**
+                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                         */
+                        var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
+
+                        // Make the Ajax call and get the data, wrap it and insert it
+                        $.post('sql.php', {
+                            'token' : window.parent.token,
+                            'server' : window.parent.server,
+                            'db' : window.parent.db,
+                            'ajax_request' : true,
+                            'sql_query' : sql_query,
+                            'inline_edit' : true
+                        }, function(data) {
+                            $editArea.removeClass('edit_area_loading');
+                            if(data.success == true) {
+                                $(g.cEdit).find('input[type=text]').val(data.value);
+                                $editArea.append('<textarea>'+data.value+'</textarea>');
+                                $editArea.find('textarea').live('keyup', function(e) {
+                                    $(g.cEdit).find('input[type=text]').val($(this).val());
+                                });
+                                $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
+                                    $editArea.find('textarea').val($(this).val());
+                                });
+                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                            }
+                            else {
+                                PMA_ajaxShowMessage(data.error);
+                            }
+                        }) // end $.post()
+                        g.isEditCellTextEditable = true;
                     } else {
                         $editArea.append('<textarea>' + PMA_getCellValue(g.currentEditCell) + '</textarea>');
                         $editArea.find('textarea').live('keyup', function(e) {
