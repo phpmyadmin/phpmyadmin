@@ -17,35 +17,9 @@
  */
 function PMA_lang($lang_key)
 {
-    static $search, $replace;
-
-    // some quick cache'ing
-    if ($search === null) {
-        $replace_pairs = array(
-            '<'         => '&lt;',
-            '>'         => '&gt;',
-            '[em]'      => '<em>',
-            '[/em]'     => '</em>',
-            '[strong]'  => '<strong>',
-            '[/strong]' => '</strong>',
-            '[code]'    => '<code>',
-            '[/code]'   => '</code>',
-            '[kbd]'     => '<kbd>',
-            '[/kbd]'    => '</kbd>',
-            '[br]'      => '<br />',
-            '[sup]'     => '<sup>',
-            '[/sup]'    => '</sup>');
-        if (defined('PMA_SETUP')) {
-            $replace_pairs['[a@Documentation.html'] = '[a@../Documentation.html';
-        }
-        $search = array_keys($replace_pairs);
-        $replace = array_values($replace_pairs);
-    }
     $message = isset($GLOBALS["strConfig$lang_key"]) ? $GLOBALS["strConfig$lang_key"] : $lang_key;
-    $message = str_replace($search, $replace, $message);
-    // replace [a@"$1"]$2[/a] with <a href="$1">$2</a>
-    $message = preg_replace('#\[a@("?)([^\]]+)\1\]([^\[]+)\[/a\]#e',
-        "PMA_lang_link_replace('$2', '$3')", $message);
+
+    $message = PMA_sanitize($message);
 
     if (func_num_args() == 1) {
         return $message;

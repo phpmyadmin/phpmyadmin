@@ -50,15 +50,24 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[sup]'      => '<sup>',
         '[/sup]'      => '</sup>',
     );
+    if (defined('PMA_SETUP')) {
+        $replace_pairs['[a@Documentation.html'] = '[a@../Documentation.html';
+    } else {
+        $replace_pairs['[a@Documentation.html'] = '[a@./Documentation.html';
+    }
     $message = strtr($message, $replace_pairs);
 
-    $pattern = '/\[a@([^"@]*)@([^]"]*)\]/';
+    $pattern = '/\[a@([^"@]*)(@([^]"]*))?\]/';
 
     if (preg_match_all($pattern, $message, $founds, PREG_SET_ORDER)) {
         $valid_links = array(
             'http',  // default http:// links (and https://)
-            './Do',  // ./Documentation
         );
+        if (defined('PMA_SETUP')) {
+            $valid_links[] = '../D';  // ./Documentation
+        } else {
+            $valid_links[] = './Do';  // ./Documentation
+        }
 
         foreach ($founds as $found) {
             // only http... and ./Do... allowed
@@ -66,15 +75,15 @@ function PMA_sanitize($message, $escape = false, $safe = false)
                 return $message;
             }
             // a-z and _ allowed in target
-            if (! empty($found[2]) && preg_match('/[^a-z_]+/i', $found[2])) {
+            if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
                 return $message;
             }
         }
 
         if (substr($found[1], 0, 4) == 'http') {
-            $message = preg_replace($pattern, '<a href="' . PMA_linkURL($found[1]) . '" target="\2">', $message);
+            $message = preg_replace($pattern, '<a href="' . PMA_linkURL($found[1]) . '" target="\3">', $message);
         } else {
-            $message = preg_replace($pattern, '<a href="\1" target="\2">', $message);
+            $message = preg_replace($pattern, '<a href="\1" target="\3">', $message);
         }
     }
 
