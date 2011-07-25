@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 18:59+0200\n"
+"PO-Revision-Date: 2011-07-25 19:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1363,7 +1363,7 @@ msgstr "Kelime/düzenli ifadeye göre sorguları süz"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
-msgstr ""
+msgstr "Sorguları grupla, WHERE ifadelerindeki değişken veri yoksayılıyor"
 
 #: js/messages.php:156
 #| msgid "Number of inserted rows"
