@@ -23,6 +23,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     public function testLink()
     {
+        unset($GLOBALS['server']);
+        unset($GLOBALS['lang']);
         $this->assertEquals('<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]'));
     }
