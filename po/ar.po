@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 22:06+0200\n"
+"PO-Revision-Date: 2011-07-25 22:07+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1190,7 +1190,7 @@ msgstr ""
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "فضلا , أضف متغير واحد على الأقل للسلسلة"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
