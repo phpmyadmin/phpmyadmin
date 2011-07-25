@@ -1267,16 +1267,16 @@ $(function() {
                             min = extremesObject.min,
                             max = extremesObject.max;
 
-                        $('#logAnalyseDialog input[name="dateStart"]')
+                        $logAnalyseDialog.find('input[name="dateStart"]')
                             .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(min)));
-                        $('#logAnalyseDialog input[name="dateEnd"]')
+                        $logAnalyseDialog.find('input[name="dateEnd"]')
                             .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(max)));
 
                         var dlgBtns = { };
 
                         dlgBtns[PMA_messages['strFromSlowLog']] = function() {
-                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
-                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
+                            var dateStart = Date.parse($logAnalyseDialog.find('input[name="dateStart"]').attr('value')) || min;
+                            var dateEnd = Date.parse($logAnalyseDialog.find('input[name="dateEnd"]').attr('value')) || max;
 
                             loadLogStatistics({
                                 src: 'slow',
@@ -1286,14 +1286,14 @@ $(function() {
                                 limitTypes: $('input#limitTypes').prop('checked')
                             });
 
-                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
+                            $logAnalyseDialog.find('dateStart,dateEnd').datepicker('destroy');
 
                             $(this).dialog("close");
                         }
 
                         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
-                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
-                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').attr('value')) || max;
+                            var dateStart = Date.parse($logAnalyseDialog.find('input[name="dateStart"]').attr('value')) || min;
+                            var dateEnd = Date.parse($logAnalyseDialog.find('input[name="dateEnd"]').attr('value')) || max;
 
                             loadLogStatistics({
                                 src: 'general',
@@ -1303,12 +1303,12 @@ $(function() {
                                 limitTypes: $('input#limitTypes').prop('checked')
                             });
 
-                            $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
+                            $logAnalyseDialog.find('dateStart,dateEnd').datepicker('destroy');
 
                             $(this).dialog("close");
                         }
 
-                        $('#logAnalyseDialog').dialog({
+                        $logAnalyseDialog.dialog({
                             width: 'auto',
                             height: 'auto',
                             buttons: dlgBtns
