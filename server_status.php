@@ -149,23 +149,26 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $end = intval($_REQUEST['time_end']);
         
         if ($_REQUEST['type'] == 'slow') {
-            $q = 'SELECT SUM(query_time) AS TIME(query_time), SUM(lock_time) as lock_time, '.
+            $q = 'SELECT query_time, SUM(lock_time) as lock_time, '.
                  'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, sql_text, COUNT(sql_text) AS \'#\' '.
-                 'FROM `mysql`.`slow_log` WHERE event_time > FROM_UNIXTIME('.$start.') '.
-                 'AND event_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text';
+                 'FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME('.$start.') '.
+                 'AND start_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text';
                  
             $result = PMA_DBI_try_query($q);
             
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
-            
+            $return['q']=$q;
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $type = substr($row['sql_text'],0,strpos($row['sql_text'],' '));
-                $return['sum'][$type]++;
+                
+                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                $return['sum'][$type] += $row['#'];
                 $return['rows'][] = $row;
             }
             
             $return['sum']['TOTAL'] = array_sum($return['sum']);
+            $return['numRows'] = count($return['rows']);
             
             PMA_DBI_free_result($result);
 
