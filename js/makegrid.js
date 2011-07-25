@@ -28,6 +28,7 @@
             cellEditHint: '',           // hint shown when doing grid edit
             gotoLinkText: 'Go to link', // "Go to link" text
             wasEditedCellNull: false,   // true if last value of the edited cell was NULL
+            maxTruncatedLen: 0,         // number of characters that can be displayed in a cell
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -482,6 +483,7 @@
                         
                         g.isCellEditActive = false;
                         g.currentEditCell = cell;
+                        $(g.cEdit).find('input[type=text]').focus();
                     }
                 } else {
                     g.hideEditCell();
@@ -537,6 +539,10 @@
                                             }
                                         }
                                     })
+                                }
+                            } else if ($this_field.is('.truncated')) {
+                                if (new_html.length > g.maxTruncatedLen) {
+                                    new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
                                 }
                             }
                             // replace '\n' with <br>
@@ -784,6 +790,9 @@
                         }, function(data) {
                             $editArea.removeClass('edit_area_loading');
                             if(data.success == true) {
+                                // get the truncated data length
+                                g.maxTruncatedLen = PMA_getCellValue(g.currentEditCell).length - 3;
+                                
                                 $(g.cEdit).find('input[type=text]').val(data.value);
                                 $editArea.append('<textarea>'+data.value+'</textarea>');
                                 $editArea.find('textarea').live('keyup', function(e) {
@@ -1244,7 +1253,6 @@
                     e.stopPropagation();
                 } else {
                     g.showEditCell(this);
-                    $(g.cEdit).find('input[type=text]').focus();
                     e.stopPropagation();
                 }
                 // prevent default action when clicking on "link" in a table
