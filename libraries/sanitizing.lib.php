@@ -7,6 +7,26 @@
  */
 
 /**
+ * Checks whether given link is valid
+ *
+ * @param $url string URL to check.
+ *
+ * @return bool True if string can be used as link.
+ */
+function PMA_check_link($url) {
+    if (substr($url, 0, 7) == 'http://') {
+        return true;
+    } elseif (substr($url, 0, 8) == 'https://') {
+        return true;
+    } elseif (!defined('PMA_SETUP') && substr($url, 0, 20) == './Documentation.html') {
+        return true;
+    } elseif (defined('PMA_SETUP') && substr($url, 0, 21) == '../Documentation.html') {
+        return true;
+    }
+    return false;
+}
+
+/**
  * Sanitizes $message, taking into account our special codes
  * for formatting.
  *
@@ -60,18 +80,9 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     $pattern = '/\[a@([^"@]*)(@([^]"]*))?\]/';
 
     if (preg_match_all($pattern, $message, $founds, PREG_SET_ORDER)) {
-        $valid_links = array(
-            'http',  // default http:// links (and https://)
-        );
-        if (defined('PMA_SETUP')) {
-            $valid_links[] = '../D';  // ./Documentation
-        } else {
-            $valid_links[] = './Do';  // ./Documentation
-        }
-
         foreach ($founds as $found) {
             // only http... and ./Do... allowed
-            if (! in_array(substr($found[1], 0, 4), $valid_links)) {
+            if (! PMA_check_link($found[1])) {
                 return $message;
             }
             // a-z and _ allowed in target
