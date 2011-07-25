@@ -6911,7 +6911,7 @@ msgstr "Her olay için geçerli aralık değeri vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr "Olay için geçerli bir çalıştırma zamanı vermek zorundasınız."
+msgstr "Olay için geçerli bir yürütme zamanı vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
