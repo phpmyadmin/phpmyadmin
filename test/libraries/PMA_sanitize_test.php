@@ -62,5 +62,11 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
         $this->assertEquals('<strong>strong</strong>',
             PMA_sanitize('[b]strong[/b]'));
     }
+
+    public function testEscape()
+    {
+        $this->assertEquals('&lt;strong&gt;strong&lt;/strong&gt;',
+            PMA_sanitize('[strong]strong[/strong]', true));
+    }
 }
 ?>
