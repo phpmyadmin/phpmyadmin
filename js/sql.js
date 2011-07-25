@@ -55,6 +55,7 @@ function getFieldName($this_field) {
 function appendInlineAnchor() {
     // TODO: remove two lines below if vertical display mode has been completely removed
     var disp_mode = $("#top_direction_dropdown").val();
+
     if (disp_mode != 'vertical') {
         $('.edit_row_anchor').each(function() {
 
@@ -65,8 +66,9 @@ function appendInlineAnchor() {
 
             var $img_object = $cloned_anchor.find('img').attr('title', PMA_messages['strInlineEdit']);
             if ($img_object.length != 0) {
-                var img_class = $img_object.attr('class').replace(/b_edit/,'b_inline_edit');
-                $img_object.attr('class', img_class);
+                $img_object.removeClass('ic_b_edit');
+                $img_object.addClass('ic_b_inline_edit');
+
                 $cloned_anchor.find('a').attr('href', '#');
                 var $edit_span = $cloned_anchor.find('span:contains("' + PMA_messages['strEdit'] + '")');
                 var $span = $cloned_anchor.find('a').find('span');
@@ -85,8 +87,8 @@ function appendInlineAnchor() {
                 // the link was too big so <input type="image"> is there
                 $img_object = $cloned_anchor.find('input:image').attr('title', PMA_messages['strInlineEdit']);
                 if ($img_object.length > 0) {
-                    var img_class = $img_object.attr('class').replace(/b_edit/,'b_inline_edit');
-                    $img_object.attr('class', img_class);
+                    $img_object.removeClass('ic_b_edit');
+                    $img_object.addClass('ic_b_inline_edit');
                 }
                 $cloned_anchor
                  .find('.clickprevimage')
@@ -445,8 +447,8 @@ $(document).ready(function() {
         // If icons are displayed. See $cfg['PropertiesIconic']
         if ($img_object.length > 0) {
             $img_object.attr('title', PMA_messages['strSave']);
-            var img_class = $img_object.attr('class').replace(/b_inline_edit/,'b_save');
-            $img_object.attr('class', img_class);
+            $img_object.removeClass('ic_b_inline_edit');
+            $img_object.addClass('ic_b_save');
             $this_children.prepend($img_object);
         }
 
@@ -465,8 +467,8 @@ $(document).ready(function() {
         // If icons are displayed. See $cfg['PropertiesIconic']
         if ($img_object.length > 0) {
             $img_object.attr('title', PMA_messages['strHide']);
-            var img_class = $img_object.attr('class').replace(/b_save/,'b_close');
-            $img_object.attr('class', img_class);
+            $img_object.removeClass('ic_b_save');
+            $img_object.addClass('ic_b_close');
             $hide_span.prepend($img_object);
         }
 
@@ -1230,47 +1232,20 @@ $(document).ready(function() {
 /*
  * Profiling Chart
  */
-function createProfilingChart() {
+function makeProfilingChart() {
     if ($('#profilingchart').length == 0) {
         return;
     }
 
-    var cdata = new Array();
+    var data = new Array();
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
-        cdata.push([key,parseFloat(value)]);
+        data.push([key,parseFloat(value)]);
     });
 
     // Prevent the user from seeing the JSON code
     $('div#profilingchart').html('').show();
 
-    PMA_createChart({
-        chart: {
-            renderTo: 'profilingchart',
-            backgroundColor: $('#sqlqueryresults fieldset').css('background-color')
-        },
-        title: { text:'', margin:0 },
-        series: [{
-            type:'pie',
-            name: 'Query execution time',
-            data: cdata
-        }],
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    distance: 35,
-                    formatter: function() {
-                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
-                   }
-                }
-            }
-        },
-        tooltip: {
-            formatter: function() { return '<b>'+ this.point.name +'</b><br/>'+this.y+'s<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; }
-        }
-    });
+    PMA_createProfilingChart(data);
 }
 
 

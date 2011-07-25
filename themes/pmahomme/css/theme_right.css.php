@@ -1313,6 +1313,12 @@ div#tablestatistics table {
 
 /* serverstatus */
 
+div#logTable table td.analyzableQuery:hover {
+    text-decoration:    underline;
+    color:              #235a81;
+    cursor: pointer;
+}
+
 h3#serverstatusqueries span {
     font-size:60%;
     display:inline;
@@ -1430,9 +1436,32 @@ div#logTable table {
     width:100%;
 }
 
+div#queryAnalyzerDialog {
+    min-width: 700px;
+}
+
+div#queryAnalyzerDialog div.CodeMirror-scroll {
+    height:auto;
+}
+
+div#queryAnalyzerDialog div#queryProfiling {
+	height: 250px;
+}
+
+div#queryAnalyzerDialog td.explain {
+    width: 250px;
+}
+
+div#queryAnalyzerDialog table.queryNums {
+	display: none;
+	border:0;
+	text-align:left;
+}
+
 .smallIndent {
     padding-left: 7px;
 }
+
 
 /* end serverstatus */
 

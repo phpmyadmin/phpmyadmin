@@ -21,43 +21,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true)
 require_once './libraries/common.inc.php';
 
 /**
- * Function to output refresh rate selection.
- */
-function PMA_choose_refresh_rate() {
-    echo '<option value="5">' . __('Refresh rate') . '</option>';
-    foreach (array(1, 2, 5, 20, 40, 60, 120, 300, 600) as $rate) {
-        if ($rate % 60 == 0) {
-            $minrate = $rate / 60;
-            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d minute', '%d minutes', $minrate), $minrate) . '</option>';
-        } else {
-            echo '<option value="' . $rate . '">' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
-        }
-    }
-}
-
-/**
  * Ajax request
  */
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // Send with correct charset
     header('Content-Type: text/html; charset=UTF-8');
-
-    if (isset($_REQUEST['logging_vars'])) {
-        if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
-            if (!is_numeric($value)) $value="'".$value."'";
-
-            if (!preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']))
-                PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = '.$value);
-
-        }
-
-        $loggingVars = PMA_DBI_fetch_result(
-            "SHOW GLOBAL VARIABLES WHERE Variable_name IN (
-                'general_log', 'slow_query_log', 'long_query_time', 'log_output')", 0, 1);
-        exit(json_encode($loggingVars));
-    }
 
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
@@ -214,10 +183,14 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             exit(json_encode($return));
         }
 
-        if ($_REQUEST['type'] == 'general') {
-            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
+        if($_REQUEST['type'] == 'general') {
+            $limitTypes = (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes'])
+                            ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
+
+            $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, server_id, argument, count(argument) as \'#\' '.
+                 'FROM `mysql`.`general_log` WHERE command_type=\'Query\' '.
                  'AND event_time > FROM_UNIXTIME('.$start.') AND event_time < FROM_UNIXTIME('.$end.') '.
-                 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' GROUP by argument'; // HAVING count > 1';
+                 $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
             $result = PMA_DBI_try_query($q);
 
@@ -226,38 +199,47 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $insertTables = array();
             $insertTablesFirst = -1;
             $i = 0;
+            $removeVars = isset($_REQUEST['removeVariables']) && $_REQUEST['removeVariables'];
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 preg_match('/^(\w+)\s/',$row['argument'],$match);
                 $type = strtolower($match[1]);
-                // Ignore undefined index warning, just increase counter by one
-                @$return['sum'][$type] += $row['#'];
 
-                if ($type=='insert' || $type=='update') {
-                    // Group inserts if selected
-                    if ($type=='insert' && isset($_REQUEST['groupInserts']) && $_REQUEST['groupInserts'] && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
-                        $insertTables[$matches[2]]++;
-                        if ($insertTables[$matches[2]] > 1) {
-                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
+                if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
+                $return['sum'][$type] += $row['#'];
 
-                            // Add a ... to the end of this query to indicate that there's been other queries
-                            if ($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
-                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                switch($type) {
+                    case 'insert':
+                        // Group inserts if selected
+                        if($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',$row['argument'],$matches)) {
+                            $insertTables[$matches[2]]++;
+                            if ($insertTables[$matches[2]] > 1) {
+                                $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
 
-                            // Group this value, thus do not add to the result list
-                            continue;
-                        } else {
-                            $insertTablesFirst = $i;
-                            $insertTables[$matches[2]] += $row['#'] - 1;
+                                // Add a ... to the end of this query to indicate that there's been other queries
+                                if($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.')
+                                    $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+
+                                // Group this value, thus do not add to the result list
+                                continue 2;
+                            } else {
+                                $insertTablesFirst = $i;
+                                $insertTables[$matches[2]] += $row['#'] - 1;
+                            }
                         }
-                    }
+                        // No break here
 
-                    // Cut off big selects, but append byte count therefor
-                    if (strlen($row['argument']) > 180) {
-                        $row['argument'] = substr($row['argument'],0,160) . '... [' .
-                                            PMA_formatByteDown(strlen($row['argument']), 2).']';
-                    }
+                    case 'update':
+                        // Cut off big inserts and updates, but append byte count therefor
+                        if(strlen($row['argument']) > 180)
+                            $row['argument'] = substr($row['argument'],0,160) . '... [' .
+                                                PMA_formatByteDown(strlen($row['argument']), 2).']';
+
+                        break;
+
+                    default: break;
                 }
+
                 $return['rows'][] = $row;
                 $i++;
             }
@@ -269,6 +251,49 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             exit(json_encode($return));
         }
+    }
+
+    if (isset($_REQUEST['logging_vars'])) {
+        if(isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
+            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
+            if(!is_numeric($value)) $value="'".$value."'";
+
+            if(! preg_match("/[^a-zA-Z0-9_]+/",$_REQUEST['varName']))
+                PMA_DBI_query('SET GLOBAL '.$_REQUEST['varName'].' = '.$value);
+
+        }
+
+        $loggingVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")', 0, 1);
+        exit(json_encode($loggingVars));
+    }
+
+    if(isset($_REQUEST['query_analyzer'])) {
+        $return = array();
+
+        if ($profiling = PMA_profilingSupported())
+            PMA_DBI_query('SET PROFILING=1;');
+
+        // Do not cache query
+        $query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
+
+        $result = PMA_DBI_try_query('EXPLAIN ' . $query);
+        $return['explain'] = PMA_DBI_fetch_assoc($result);
+
+        // In case an error happened
+        $return['error'] = PMA_DBI_getError();
+
+        PMA_DBI_free_result($result);
+
+        if($profiling) {
+            $return['profiling'] = array();
+            $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
+            while ($row = PMA_DBI_fetch_assoc($result)) {
+                $return['profiling'][]= $row;
+            }
+            PMA_DBI_free_result($result);
+        }
+
+        exit(json_encode($return));
     }
 }
 
@@ -303,6 +328,8 @@ $GLOBALS['js_include'][] = 'highcharts/exporting.js';
 $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'canvg/rgbcolor.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 /**
  * flush status variables if requested
@@ -1471,7 +1498,27 @@ function printMonitor() {
     </div>
 
     <?php if (!PMA_DRIZZLE) { ?>
-    <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>">
+    <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">
+        <p> <?php echo __('Selected time range:'); ?>
+        <input type="text" name="dateStart" class="datetimefield" value="" /> -
+        <input type="text" name="dateEnd" class="datetimefield" value="" /></p>
+        <input type="checkbox" id="limitTypes" value="1" checked="checked" />
+        <label for="limitTypes">
+            <?php echo __('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements'); ?>
+        </label>
+        <br/>
+        <input type="checkbox" id="removeVariables" value="1" checked="checked" />
+        <label for="removeVariables">
+            <?php echo __('Remove variable data in INSERT statements for better grouping'); ?>
+        </label>
+
+        <?php echo __('<p>Choose from which log you want the statistics to be generated from.</p> Results are grouped by query text.'); ?>
+    </div>
+
+    <div id="queryAnalyzerDialog" title="<?php echo __('Query analyzer'); ?>" style="display:none;">
+        <textarea id="sqlquery"> </textarea>
+        <p></p>
+        <div class="placeHolder"></div>
     </div>
     <?php } ?>
 
