@@ -10663,7 +10663,7 @@ msgstr "عرض الجداول"
 
 #: tbl_printview.php:307 tbl_structure.php:789
 msgid "Space usage"
-msgstr "المساحة المستغلة"
+msgstr "المساحة المستخدمة"
 
 #: tbl_printview.php:311 tbl_structure.php:793
 msgid "Usage"
