@@ -24,7 +24,7 @@ function PMA_checkLink($url)
     } else {
         $valid_starts[] = './Documentation.html';
     }
-    foreach($valid_starts as $val) {
+    foreach ($valid_starts as $val) {
         if (substr($url, 0, strlen($val)) == $val) {
             return true;
         }
