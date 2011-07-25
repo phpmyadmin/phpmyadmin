@@ -10749,10 +10749,9 @@ msgid "Add primary key"
 msgstr "إضافة مفتاح رئيسي"
 
 #: tbl_structure.php:172 tbl_structure.php:173
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة فهرس"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add unique index"
