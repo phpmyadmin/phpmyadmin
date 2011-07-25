@@ -168,7 +168,7 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $string      part of SQL statement
+     * @param string $string      part of SQL statement
      *
      * @return string the name of table
      */
@@ -198,8 +198,8 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname      name of database
-     * @param  string $tablename   name of table
+     * @param string $dbname      name of database
+     * @param string $tablename   name of table
      *
      * @return boolean true or false
      */
@@ -250,11 +250,11 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $tablename    name of table
-     * @param  string $version      version
-     * @param  string $tracking_set set of tracking statements
-     * @param  string $is_view      if table is a view
+     * @param string $dbname       name of database
+     * @param string $tablename    name of table
+     * @param string $version      version
+     * @param string $tracking_set set of tracking statements
+     * @param string $is_view      if table is a view
      *
      * @return int result of version insertion
      */
@@ -357,8 +357,8 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $tablename    name of table 
+     * @param string $dbname       name of database
+     * @param string $tablename    name of table 
      *
      * @return int result of version insertion
      */
@@ -378,10 +378,10 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $version      version
-     * @param  string $query        query
-     * @param  string $tracking_set set of tracking statements
+     * @param string $dbname       name of database
+     * @param string $version      version
+     * @param string $query        query
+     * @param string $tracking_set set of tracking statements
      *
      * @return int result of version insertion
      */
@@ -443,10 +443,10 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $tablename    name of table
-     * @param  string $version      version
-     * @param  integer $new_state   the new state of tracking 
+     * @param string $dbname       name of database
+     * @param string $tablename    name of table
+     * @param string $version      version
+     * @param integer $new_state   the new state of tracking 
      *
      * @return int result of SQL query
      */
@@ -469,11 +469,11 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $tablename    name of table
-     * @param  string $version      version
-     * @param  string $type      	type of data(DDL || DML)
-     * @param  string || array $new_data   the new tracking data
+     * @param string $dbname       name of database
+     * @param string $tablename    name of table
+     * @param string $version      version
+     * @param string $type          type of data(DDL || DML)
+     * @param string || array $new_data   the new tracking data
      *
      * @return bool result of change
      */
@@ -514,9 +514,9 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $tablename    name of table
-     * @param  string $version      version
+     * @param string $dbname       name of database
+     * @param string $tablename    name of table
+     * @param string $version      version
      *
      * @return int result of SQL query
      */
@@ -531,9 +531,9 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname       name of database
-     * @param  string $tablename    name of table
-     * @param  string $version      version
+     * @param string $dbname       name of database
+     * @param string $tablename    name of table
+     * @param string $version      version
      *
      * @return int result of SQL query
      */
@@ -549,9 +549,9 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname      name of database
-     * @param  string $tablename   name of table
-     * @param  string $statement   tracked statement
+     * @param string $dbname      name of database
+     * @param string $tablename   name of table
+     * @param string $statement   tracked statement
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
@@ -581,9 +581,9 @@ class PMA_Tracker
      *
      * @static
      *
-     * @param  string $dbname      name of database
-     * @param  string $tablename   name of table
-     * @param  string $version     version number
+     * @param string $dbname      name of database
+     * @param string $tablename   name of table
+     * @param string $version     version number
      *
      * @return mixed record DDM log, DDL log, structure snapshot, tracked statements.
      */
@@ -892,7 +892,7 @@ class PMA_Tracker
      *
      *
      * @static
-     * @param   string $query a SQL query
+     * @param string $query a SQL query
      */
     static public function handleQuery($query)
     {

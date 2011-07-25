@@ -14,7 +14,7 @@ function getSysInfo() {
 
     $sysinfo = array();
 
-    if(in_array(PHP_OS, $supported)) {
+    if (in_array(PHP_OS, $supported)) {
         return eval("return new ".PHP_OS."();");
     }
     

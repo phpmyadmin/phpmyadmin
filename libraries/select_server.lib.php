@@ -9,8 +9,8 @@
 /**
  * display server selection in list or selectbox form, or option tags only
  *
- * @param   boolean $not_only_options   whether to include form tags or not
- * @param   boolean $ommit_fieldset     whether to ommit fieldset tag or not
+ * @param boolean $not_only_options   whether to include form tags or not
+ * @param boolean $ommit_fieldset     whether to ommit fieldset tag or not
  */
 function PMA_select_server($not_only_options, $ommit_fieldset)
 {

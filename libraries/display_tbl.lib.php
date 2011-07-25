@@ -28,9 +28,9 @@ require_once './libraries/Index.class.php';
  *     the "display printable view" option.
  *     Of course '0'/'1' means the feature won't/will be enabled.
  *
- * @param   string  &$the_disp_mode  the synthetic value for display_mode (see a few
+ * @param string  &$the_disp_mode  the synthetic value for display_mode (see a few
  *                                   lines above for explanations)
- * @param  integer  &$the_total  the total number of rows returned by the SQL query
+ * @param integer  &$the_total  the total number of rows returned by the SQL query
  *                               without any programmatically appended "LIMIT" clause
  *                               (just a copy of $unlim_num_rows if it exists, else
  *                               computed inside this function)
@@ -470,10 +470,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
 /**
  * Displays the headers of the results table
  *
- * @param   array    which elements to display
- * @param   array    the list of fields properties
- * @param   integer  the total number of fields returned by the SQL query
- * @param   array    the analyzed query
+ * @param array    which elements to display
+ * @param array    the list of fields properties
+ * @param integer  the total number of fields returned by the SQL query
+ * @param array    the analyzed query
  *
  * @return  boolean  $clause_is_unique
  *
@@ -920,11 +920,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $order_link_params = array();
             if (isset($order_img) && $order_img!='') {
                 if (strstr($order_img, 'asc')) {
-                    $order_link_params['onmouseover'] = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
-                    $order_link_params['onmouseout']  = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
+                    $order_link_params['onmouseover'] = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
+                    $order_link_params['onmouseout']  = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
                 } elseif (strstr($order_img, 'desc')) {
-                    $order_link_params['onmouseover'] = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
-                    $order_link_params['onmouseout']  = 'if($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
+                    $order_link_params['onmouseover'] = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_asc\'); }';
+                    $order_link_params['onmouseout']  = 'if ($(\'#soimg' . $i . '\').length > 0) { $(\'#soimg' . $i . '\').attr(\'class\', \'icon ic_s_desc\'); }';
                 }
             }
             if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {
@@ -1067,9 +1067,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 /**
  * Prepares the display for a value
  *
- * @param   string  $class
- * @param   string  $condition_field
- * @param   string  $value
+ * @param string  $class
+ * @param string  $condition_field
+ * @param string  $value
  *
  * @return  string  the td
  */
@@ -1080,8 +1080,8 @@ function PMA_buildValueDisplay($class, $condition_field, $value) {
 /**
  * Prepares the display for a null value
  *
- * @param   string  $class
- * @param   string  $condition_field
+ * @param string  $class
+ * @param string  $condition_field
  *
  * @return  string  the td
  */
@@ -1093,9 +1093,9 @@ function PMA_buildNullDisplay($class, $condition_field) {
 /**
  * Prepares the display for an empty value
  *
- * @param   string  $class
- * @param   string  $condition_field
- * @param   string  $align
+ * @param string  $class
+ * @param string  $condition_field
+ * @param string  $align
  *
  * @return  string  the td
  */
@@ -1120,22 +1120,22 @@ function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '') {
 function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated = false, $transform_function = '', $default_function = '') {
     // Define classes to be added to this data field based on the type of data
     $enum_class = '';
-    if(strpos($meta->flags, 'enum') !== false) {
+    if (strpos($meta->flags, 'enum') !== false) {
         $enum_class = ' enum';
     }
 
     $set_class = '';
-    if(strpos($meta->flags, 'set') !== false) {
+    if (strpos($meta->flags, 'set') !== false) {
         $set_class = ' set';
     }
 
     $bit_class = '';
-    if(strpos($meta->type, 'bit') !== false) {
+    if (strpos($meta->type, 'bit') !== false) {
         $bit_class = ' bit';
     }
 
     $mime_type_class = '';
-    if(isset($meta->mimetype)) {
+    if (isset($meta->mimetype)) {
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
     }
 
@@ -1149,11 +1149,11 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
 /**
  * Displays the body of the results table
  *
- * @param   integer  the link id associated to the query which results have
+ * @param integer  the link id associated to the query which results have
  *                   to be displayed
- * @param   array    which elements to display
- * @param   array    the list of relations
- * @param   array    the analyzed query
+ * @param array    which elements to display
+ * @param array    the list of relations
+ * @param array    the analyzed query
  *
  * @return  boolean  always true
  *
@@ -1308,7 +1308,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
 
                 // Class definitions required for inline editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
-                if( $clause_is_unique == 0) {
+                if ( $clause_is_unique == 0) {
                     $edit_anchor_class .= ' nonunique';
                 }
             } // end if (1.2.1)
@@ -2033,10 +2033,10 @@ function PMA_displayTable_checkConfigParams()
  * Displays a table of results returned by a SQL query.
  * This function is called by the "sql.php" script.
  *
- * @param   integer the link id associated to the query which results have
+ * @param integer the link id associated to the query which results have
  *                  to be displayed
- * @param   array   the display mode
- * @param   array   the analyzed query
+ * @param array   the display mode
+ * @param array   the analyzed query
  *
  * @global  string   $db                the database name
  * @global  string   $table             the table name
@@ -2085,7 +2085,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
       || $analyzed_sql[0]['where_clause'] == '1 ')) {
         // "j u s t   b r o w s i n g"
         $pre_count = '~';
-        $after_count = PMA_showHint(PMA_sanitize(__('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')), true);
+        $after_count = PMA_showHint(PMA_sanitize(__('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')));
     } else {
         $pre_count = '';
         $after_count = '';
@@ -2399,8 +2399,8 @@ function default_function($buffer) {
 /**
  * Displays operations that are available on results.
  *
- * @param   array   the display mode
- * @param   array   the analyzed query
+ * @param array   the display mode
+ * @param array   the analyzed query
  *
  * @global  string   $db                the database name
  * @global  string   $table             the table name
@@ -2542,12 +2542,12 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * Verifies what to do with non-printable contents (binary or BLOB)
  * in Browse mode.
  *
- * @param   string  $category BLOB|BINARY|GEOMETRY
- * @param   string  $content  the binary content
- * @param   string  $transform_function
- * @param   string  $transform_options
- * @param   string  $default_function
- * @param   object  $meta   the meta-information about this field
+ * @param string  $category BLOB|BINARY|GEOMETRY
+ * @param string  $content  the binary content
+ * @param string  $transform_function
+ * @param string  $transform_options
+ * @param string  $default_function
+ * @param object  $meta   the meta-information about this field
  * @return  mixed  string or float
  */
 function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array()) {
@@ -2587,17 +2587,17 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * Prepares the displayable content of a data cell in Browse mode,
  * taking into account foreign key description field and transformations
  *
- * @param   string  $class
- * @param   string  $condition_field
- * @param   string  $analyzed_sql
- * @param   object  $meta   the meta-information about this field
- * @param   string  $map
- * @param   string  $data
- * @param   string  $transform_function
- * @param   string  $default_function
- * @param   string  $nowrap
- * @param   string  $where_comparison
- * @param   bool    $is_field_truncated
+ * @param string  $class
+ * @param string  $condition_field
+ * @param string  $analyzed_sql
+ * @param object  $meta   the meta-information about this field
+ * @param string  $map
+ * @param string  $data
+ * @param string  $transform_function
+ * @param string  $default_function
+ * @param string  $nowrap
+ * @param string  $where_comparison
+ * @param bool    $is_field_truncated
  * @return  string  formatted data
  */
 function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
@@ -2688,13 +2688,13 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @param   string  $del_url
- * @param   array   $is_display
- * @param   string  $row_no
- * @param   string  $where_clause_html
- * @param   string  $del_query
- * @param   string  $id_suffix
- * @param   string  $class
+ * @param string  $del_url
+ * @param array   $is_display
+ * @param string  $row_no
+ * @param string  $where_clause_html
+ * @param string  $del_query
+ * @param string  $id_suffix
+ * @param string  $class
  * @return  string  the generated HTML
  */
 
@@ -2717,11 +2717,11 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 /**
  * Generates an Edit link
  *
- * @param   string  $edit_url
- * @param   string  $class
- * @param   string  $edit_str
- * @param   string  $where_clause
- * @param   string  $where_clause_html
+ * @param string  $edit_url
+ * @param string  $class
+ * @param string  $edit_str
+ * @param string  $where_clause
+ * @param string  $where_clause_html
  * @return  string  the generated HTML
  */
 function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html) {
@@ -2733,7 +2733,7 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
          */
-        if(! empty($where_clause)) {
+        if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
         }
         $ret .= '</span></td>';
@@ -2744,10 +2744,10 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 /**
  * Generates an Copy link
  *
- * @param   string  $copy_url
- * @param   string  $copy_str
- * @param   string  $where_clause
- * @param   string  $where_clause_html
+ * @param string  $copy_url
+ * @param string  $copy_str
+ * @param string  $where_clause
+ * @param string  $where_clause_html
  * @return  string  the generated HTML
  */
 function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class) {
@@ -2763,7 +2763,7 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
          * Where clause for selecting this row uniquely is provided as
          * a hidden input. Used by jQuery scripts for handling inline editing
          */
-        if(! empty($where_clause)) {
+        if (! empty($where_clause)) {
             $ret .= '<input type="hidden" class="where_clause" value ="' . $where_clause_html . '" />';
         }
         $ret .= '</span></td>';
@@ -2774,10 +2774,10 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 /**
  * Generates a Delete link
  *
- * @param   string  $del_url
- * @param   string  $del_str
- * @param   string  $js_conf
- * @param   string  $class
+ * @param string  $del_url
+ * @param string  $del_str
+ * @param string  $js_conf
+ * @param string  $class
  * @return  string  the generated HTML
  */
 function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
@@ -2798,20 +2798,20 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * Generates checkbox and links at some position (left or right)
  * (only called for horizontal mode)
  *
- * @param   string  $position
- * @param   string  $del_url
- * @param   array   $is_display
- * @param   string  $row_no
- * @param   string  $where_clause
- * @param   string  $where_clause_html
- * @param   string  $del_query
- * @param   string  $id_suffix
- * @param   string  $edit_url
- * @param   string  $copy_url
- * @param   string  $class
- * @param   string  $edit_str
- * @param   string  $del_str
- * @param   string  $js_conf
+ * @param string  $position
+ * @param string  $del_url
+ * @param array   $is_display
+ * @param string  $row_no
+ * @param string  $where_clause
+ * @param string  $where_clause_html
+ * @param string  $del_query
+ * @param string  $id_suffix
+ * @param string  $edit_url
+ * @param string  $copy_url
+ * @param string  $class
+ * @param string  $edit_str
+ * @param string  $del_str
+ * @param string  $js_conf
  * @return  string  the generated HTML
  */
 function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf) {

@@ -71,7 +71,7 @@ class zipfile
      * Converts an Unix timestamp to a four byte DOS date and time format (date
      * in high two bytes, time in low two bytes allowing magnitude comparison).
      *
-     * @param  integer  the current Unix timestamp
+     * @param integer  the current Unix timestamp
      *
      * @return integer  the current date in a four byte DOS format
      *
@@ -97,9 +97,9 @@ class zipfile
     /**
      * Adds "file" to archive
      *
-     * @param  string   file contents
-     * @param  string   name of the file in the archive (may contains the path)
-     * @param  integer  the current timestamp
+     * @param string   file contents
+     * @param string   name of the file in the archive (may contains the path)
+     * @param integer  the current timestamp
      *
      * @access public
      */

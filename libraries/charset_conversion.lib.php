@@ -58,9 +58,9 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
  * Converts encoding of text according to parameters with detected
  * conversion function.
  *
- * @param   string   source charset
- * @param   string   target charset
- * @param   string   what to convert
+ * @param string   source charset
+ * @param string   target charset
+ * @param string   what to convert
  *
  * @return  string   converted text
  *

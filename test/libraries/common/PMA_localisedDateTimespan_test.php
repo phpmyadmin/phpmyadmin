@@ -25,10 +25,10 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      */
     protected $tmpSession;
 
-	/**
-	 * temporary variable for timezone info
-	 */
-	protected $tmpTimezone;
+    /**
+     * temporary variable for timezone info
+     */
+    protected $tmpTimezone;
 
     /**
      * storing globals and session
@@ -37,8 +37,8 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 
         $this->tmpGlobals = $GLOBALS;
         $this->tmpSession = $_SESSION;
-		$this->tmpTimezone = date_default_timezone_get();
-		date_default_timezone_set('Europe/London');
+        $this->tmpTimezone = date_default_timezone_get();
+        date_default_timezone_set('Europe/London');
     }
 
     /**
@@ -48,7 +48,7 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS = $this->tmpGlobals;
         $_SESSION = $this->tmpSession;
-		date_default_timezone_set($this->tmpTimezone);
+        date_default_timezone_set($this->tmpTimezone);
 
     }
 

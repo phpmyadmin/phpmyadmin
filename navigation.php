@@ -41,12 +41,12 @@ if (! isset($_SESSION['tmp_user_values']['table_limit_offset']) || $_SESSION['tm
     $_SESSION['tmp_user_values']['table_limit_offset_db'] = $db;
 }
 if (isset($_REQUEST['pos'])) {
-	if (isset($_REQUEST['tpos'])) {
-		$_SESSION['tmp_user_values']['table_limit_offset'] = (int) $_REQUEST['pos'];
-	}
-	else {
-		$_SESSION['tmp_user_values']['navi_limit_offset'] = (int) $_REQUEST['pos'];
-	}
+    if (isset($_REQUEST['tpos'])) {
+        $_SESSION['tmp_user_values']['table_limit_offset'] = (int) $_REQUEST['pos'];
+    }
+    else {
+        $_SESSION['tmp_user_values']['navi_limit_offset'] = (int) $_REQUEST['pos'];
+    }
 }
 $pos = $_SESSION['tmp_user_values']['navi_limit_offset'];
 $tpos = $_SESSION['tmp_user_values']['table_limit_offset'];
@@ -327,9 +327,9 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
  * @global  string $href_left
  * @global  string $db_start
  * @global  string $common_url_query
- * @param   array   $ext_dblist extended db list
- * @param   integer $offset
- * @param   integer $count
+ * @param array   $ext_dblist extended db list
+ * @param integer $offset
+ * @param integer $count
  */
 function PMA_displayDbList($ext_dblist, $offset, $count) {
     global $element_counter, $img_minus, $img_plus, $href_left,
@@ -494,10 +494,10 @@ function PMA_displayDbList($ext_dblist, $offset, $count) {
  * @global  string  html code for '-' image
  * @global  string  html code for '+' image
  * @global  string  html code for self link
- * @param   array   $tables         array of tables/tablegroups
- * @param   boolean $visible        whether the list is visible or not
- * @param   string  $tab_group_full full tab group name
- * @param   string  $table_db       db of this table
+ * @param array   $tables         array of tables/tablegroups
+ * @param boolean $visible        whether the list is visible or not
+ * @param string  $tab_group_full full tab group name
+ * @param string  $table_db       db of this table
  */
 function PMA_displayTableList($tables, $visible = false,
     $tab_group_full = '', $table_db = '')
@@ -576,7 +576,7 @@ function PMA_displayTableList($tables, $visible = false,
             while (isset($table['is' . $sep . 'group'])) {
                 // get the array with the actual table information
                 foreach ($table as $value) {
-                    if(is_array($value)) {
+                    if (is_array($value)) {
                         $table = $value;
                     }
                 }

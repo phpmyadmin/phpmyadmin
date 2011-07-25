@@ -28,7 +28,7 @@ var codemirror_editor = false;
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
  */
 var chart_activeTimeouts = new Object();
-    
+
 
 /**
  * Add a hidden field to the form to indicate that this will be an
@@ -140,8 +140,8 @@ function PMA_addDatepicker($this_element, options) {
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-	
-	var defaultOptions = {
+
+    var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
         buttonImageOnly: true,
@@ -159,11 +159,11 @@ function PMA_addDatepicker($this_element, options) {
 
             // Fix wrong timepicker z-index, doesn't work without timeout
             setTimeout(function() {
-                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
+                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
             },0);
         },
         constrainInput: false
-	};
+    };
 
     $this_element.datepicker($.extend(defaultOptions, options));
 }
@@ -210,7 +210,13 @@ function confirmLink(theLink, theSqlQuery)
 
     var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
     if (is_confirmed) {
-        if ( typeof(theLink.href) != 'undefined' ) {
+        if ( $(theLink).hasClass('formLinkSubmit') ) {
+			var name = 'is_js_confirmed';
+            if($(theLink).attr('href').indexOf('usesubform') != -1)
+				name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+
+            $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
+        } else if ( typeof(theLink.href) != 'undefined' ) {
             theLink.href += '&is_js_confirmed=1';
         } else if ( typeof(theLink.form) != 'undefined' ) {
             theLink.form.action += '?is_js_confirmed=1';
@@ -265,59 +271,51 @@ function confirmQuery(theForm1, sqlQuery1)
         return true;
     }
 
-    // The replace function (js1.2) isn't supported
-    else if (typeof(sqlQuery1.value.replace) == 'undefined') {
-        return true;
-    }
-
-    // js1.2+ -> validation with regular expressions
-    else {
-        // "DROP DATABASE" statement isn't allowed
-        if (PMA_messages['strNoDropDatabases'] != '') {
-            var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
-            if (drop_re.test(sqlQuery1.value)) {
-                alert(PMA_messages['strNoDropDatabases']);
-                theForm1.reset();
-                sqlQuery1.focus();
-                return false;
-            } // end if
+    // "DROP DATABASE" statement isn't allowed
+    if (PMA_messages['strNoDropDatabases'] != '') {
+        var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
+        if (drop_re.test(sqlQuery1.value)) {
+            alert(PMA_messages['strNoDropDatabases']);
+            theForm1.reset();
+            sqlQuery1.focus();
+            return false;
         } // end if
+    } // end if
 
-        // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
-        //
-        // TODO: find a way (if possible) to use the parser-analyser
-        // for this kind of verification
-        // For now, I just added a ^ to check for the statement at
-        // beginning of expression
+    // Confirms a "DROP/DELETE/ALTER/TRUNCATE" statement
+    //
+    // TODO: find a way (if possible) to use the parser-analyser
+    // for this kind of verification
+    // For now, I just added a ^ to check for the statement at
+    // beginning of expression
 
-        var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
-        var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
-        var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
-        var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
+    var do_confirm_re_0 = new RegExp('^\\s*DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE|PROCEDURE)\\s', 'i');
+    var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
+    var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
+    var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
 
-        if (do_confirm_re_0.test(sqlQuery1.value)
-            || do_confirm_re_1.test(sqlQuery1.value)
-            || do_confirm_re_2.test(sqlQuery1.value)
-            || do_confirm_re_3.test(sqlQuery1.value)) {
-            var message      = (sqlQuery1.value.length > 100)
-                             ? sqlQuery1.value.substr(0, 100) + '\n    ...'
-                             : sqlQuery1.value;
-            var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
-            // statement is confirmed -> update the
-            // "is_js_confirmed" form field so the confirm test won't be
-            // run on the server side and allows to submit the form
-            if (is_confirmed) {
-                theForm1.elements['is_js_confirmed'].value = 1;
-                return true;
-            }
-            // statement is rejected -> do not submit the form
-            else {
-                window.focus();
-                sqlQuery1.focus();
-                return false;
-            } // end if (handle confirm box result)
-        } // end if (display confirm box)
-    } // end confirmation stuff
+    if (do_confirm_re_0.test(sqlQuery1.value)
+        || do_confirm_re_1.test(sqlQuery1.value)
+        || do_confirm_re_2.test(sqlQuery1.value)
+        || do_confirm_re_3.test(sqlQuery1.value)) {
+        var message      = (sqlQuery1.value.length > 100)
+                         ? sqlQuery1.value.substr(0, 100) + '\n    ...'
+                         : sqlQuery1.value;
+        var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + message);
+        // statement is confirmed -> update the
+        // "is_js_confirmed" form field so the confirm test won't be
+        // run on the server side and allows to submit the form
+        if (is_confirmed) {
+            theForm1.elements['is_js_confirmed'].value = 1;
+            return true;
+        }
+        // statement is rejected -> do not submit the form
+        else {
+            window.focus();
+            sqlQuery1.focus();
+            return false;
+        } // end if (handle confirm box result)
+    } // end if (display confirm box)
 
     return true;
 } // end of the 'confirmQuery()' function
@@ -360,47 +358,31 @@ function checkSqlQuery(theForm)
     var sqlQuery = theForm.elements['sql_query'];
     var isEmpty  = 1;
 
-    // The replace function (js1.2) isn't supported -> basic tests
-    if (typeof(sqlQuery.value.replace) == 'undefined') {
-        isEmpty      = (sqlQuery.value == '') ? 1 : 0;
-        if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
-            isEmpty  = (theForm.elements['sql_file'].value == '') ? 1 : 0;
-        }
-        if (isEmpty && typeof(theForm.elements['sql_localfile']) != 'undefined') {
-            isEmpty  = (theForm.elements['sql_localfile'].value == '') ? 1 : 0;
-        }
-        if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
+    var space_re = new RegExp('\\s+');
+    if (typeof(theForm.elements['sql_file']) != 'undefined' &&
+            theForm.elements['sql_file'].value.replace(space_re, '') != '') {
+        return true;
+    }
+    if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
+            theForm.elements['sql_localfile'].value.replace(space_re, '') != '') {
+        return true;
+    }
+    if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
+            (theForm.elements['id_bookmark'].value != null || theForm.elements['id_bookmark'].value != '') &&
+            theForm.elements['id_bookmark'].selectedIndex != 0
+            ) {
+        return true;
+    }
+    // Checks for "DROP/DELETE/ALTER" statements
+    if (sqlQuery.value.replace(space_re, '') != '') {
+        if (confirmQuery(theForm, sqlQuery)) {
+            return true;
+        } else {
+            return false;
         }
     }
-    // js1.2+ -> validation with regular expressions
-    else {
-        var space_re = new RegExp('\\s+');
-        if (typeof(theForm.elements['sql_file']) != 'undefined' &&
-                theForm.elements['sql_file'].value.replace(space_re, '') != '') {
-            return true;
-        }
-        if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
-                theForm.elements['sql_localfile'].value.replace(space_re, '') != '') {
-            return true;
-        }
-        if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
-                (theForm.elements['id_bookmark'].value != null || theForm.elements['id_bookmark'].value != '') &&
-                theForm.elements['id_bookmark'].selectedIndex != 0
-                ) {
-            return true;
-        }
-        // Checks for "DROP/DELETE/ALTER" statements
-        if (sqlQuery.value.replace(space_re, '') != '') {
-            if (confirmQuery(theForm, sqlQuery)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        theForm.reset();
-        isEmpty = 1;
-    }
+    theForm.reset();
+    isEmpty = 1;
 
     if (isEmpty) {
         sqlQuery.select();
@@ -423,19 +405,9 @@ function checkSqlQuery(theForm)
  */
 function emptyCheckTheField(theForm, theFieldName)
 {
-    var isEmpty  = 1;
     var theField = theForm.elements[theFieldName];
-    // Whether the replace function (js1.2) is supported or not
-    var isRegExp = (typeof(theField.value.replace) != 'undefined');
-
-    if (!isRegExp) {
-        isEmpty      = (theField.value == '') ? 1 : 0;
-    } else {
-        var space_re = new RegExp('\\s+');
-        isEmpty      = (theField.value.replace(space_re, '') == '') ? 1 : 0;
-    }
-
-    return isEmpty;
+    var space_re = new RegExp('\\s+');
+    return (theField.value.replace(space_re, '') == '') ? 1 : 0;
 } // end of the 'emptyCheckTheField()' function
 
 
@@ -630,13 +602,13 @@ $(document).ready(function() {
             return;
         }
         var $tr = $(this);
-        
+
         // make the table unselectable (to prevent default highlighting when shift+click)
         $tr.parents('table').noSelect();
-        
+
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
-            
+
             // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
             var $checkbox = $tr.find(':checkbox');
             if ($checkbox.length) {
@@ -657,14 +629,14 @@ $(document).ready(function() {
                 $tr.toggleClass('marked');
                 last_click_checked = false;
             }
-            
+
             // remember the last clicked row
             last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
             var start, end;
-            
+
             // clear last shift click result
             if (last_shift_clicked_row >= 0) {
                 if (last_shift_clicked_row >= last_clicked_row) {
@@ -680,7 +652,7 @@ $(document).ready(function() {
                     .find(':checkbox')
                     .attr('checked', false);
             }
-            
+
             // handle new shift click
             var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
             if (curr_row >= last_clicked_row) {
@@ -695,7 +667,7 @@ $(document).ready(function() {
                 .addClass('marked')
                 .find(':checkbox')
                 .attr('checked', true);
-            
+
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
         }
@@ -1452,22 +1424,24 @@ function PMA_createTableDialog( div, url , target) {
  *                              realtime: {
  *                                  url: adress to get the data from (will always add token, ajax_request=1 and chart_data=1 to the GET request)
  *                                  type: the GET request will also add type=[value of the type property] to the request
- *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order: 
+ *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order:
  *                                      - the chart object
  *                                      - the current response value of the GET request, JSON parsed
  *                                      - the previous response value of the GET request, JSON parsed
  *                                      - the number of added points
- * 
+ *                                  error: Callback function when the get request fails. TODO: Apply callback on timeouts aswell
+ *                              }
+ *
  * @return  object   The created highcharts instance
  */
 function PMA_createChart(passedSettings) {
     var container = passedSettings.chart.renderTo;
-    
+
     var settings = {
         chart: {
             type: 'spline',
             marginRight: 10,
-            backgroundColor: 'transparent',
+            backgroundColor: 'none',
             events: {
                 /* Live charting support */
                 load: function() {
@@ -1475,45 +1449,51 @@ function PMA_createChart(passedSettings) {
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    
+
                     // No realtime updates for graphs that are being exported, and disabled when realtime is not set
                     // Also don't do live charting if we don't have the server time
-                    if(thisChart.options.chart.forExport == true || 
-                        ! thisChart.options.realtime || 
+                    if(thisChart.options.chart.forExport == true ||
+                        ! thisChart.options.realtime ||
                         ! thisChart.options.realtime.callback ||
                         ! server_time_diff) return;
-                            
+
                     thisChart.options.realtime.timeoutCallBack = function() {
                         thisChart.options.realtime.postRequest = $.post(
                             thisChart.options.realtime.url,
                             thisChart.options.realtime.postData,
                             function(data) {
-                                curValue = jQuery.parseJSON(data);
-                                
+                                try {
+                                    curValue = jQuery.parseJSON(data);
+                                } catch (err) {
+                                    if(thisChart.options.realtime.error)
+                                        thisChart.options.realtime.error(err);
+                                    return;
+                                }
+
                                 if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
                                 else diff = parseInt(curValue.x - lastValue.x);
-                                
+
                                 thisChart.xAxis[0].setExtremes(
-                                    thisChart.xAxis[0].getExtremes().min+diff, 
-                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    thisChart.xAxis[0].getExtremes().min+diff,
+                                    thisChart.xAxis[0].getExtremes().max+diff,
                                     false
                                 );
-                                
+
                                 thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                                
+
                                 lastValue = curValue;
                                 numLoadedPoints++;
-                                
+
                                 // Timeout has been cleared => don't start a new timeout
                                 if(chart_activeTimeouts[container] == null) return;
-                                
+
                                 chart_activeTimeouts[container] = setTimeout(
-                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.timeoutCallBack,
                                     thisChart.options.realtime.refreshRate
-                                ); 
+                                );
                         });
                     }
-                    
+
                     chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
@@ -1545,7 +1525,7 @@ function PMA_createChart(passedSettings) {
         tooltip: {
             formatter: function() {
                     return '<b>' + this.series.name +'</b><br/>' +
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                     Highcharts.numberFormat(this.y, 2);
             }
         },
@@ -1554,18 +1534,18 @@ function PMA_createChart(passedSettings) {
         },
         series: []
     }
-    
+
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {        
-        if(!passedSettings.realtime.refreshRate) 
+    if(passedSettings.realtime) {
+        if(!passedSettings.realtime.refreshRate)
             passedSettings.realtime.refreshRate = 5000;
-        
-        if(!passedSettings.realtime.numMaxPoints) 
+
+        if(!passedSettings.realtime.numMaxPoints)
             passedSettings.realtime.numMaxPoints = 30;
-        
+
         // Allow custom POST vars to be added
         passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
-        
+
         if(server_time_diff) {
             settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
             settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
@@ -1576,6 +1556,53 @@ function PMA_createChart(passedSettings) {
     $.extend(true,settings,passedSettings);
 
     return new Highcharts.Chart(settings);
+}
+
+
+/*
+ * Creates a Profiling Chart. Used in sql.php and server_status.js
+ */
+function PMA_createProfilingChart(data, options) {
+    return PMA_createChart($.extend(true, {
+        chart: {
+            renderTo: 'profilingchart',
+            type: 'pie'
+        },
+        title: { text:'', margin:0 },
+        series: [{
+            type: 'pie',
+            name: PMA_messages['strQueryExecutionTime'],
+            data: data
+        }],
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    distance: 35,
+                    formatter: function() {
+                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
+                   }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.point.name +'</b><br/>'+PMA_prettyProfilingNum(this.y)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)';
+            }
+        }
+    },options));
+}
+
+// Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
+function PMA_prettyProfilingNum(num, acc) {
+    if(!acc) acc = 1;
+    acc = Math.pow(10,acc);
+    if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ'
+    else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm'
+
+    return num + 's';
 }
 
 /**
@@ -1836,12 +1863,12 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * jQuery coding for 'Change Table'.  Used on tbl_structure.php *
+ * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
 $(document).ready(function() {
     /**
-     *Ajax action for submitting the column change form
+     *Ajax action for submitting the "Column Change" and "Add Column" form
     **/
     $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
@@ -1876,16 +1903,20 @@ $(document).ready(function() {
                         $("#result_query").prepend((data.message));
                         if ($("#change_column_dialog").length > 0) {
                             $("#change_column_dialog").dialog("close").remove();
+                        } else if ($("#add_columns").length > 0) {
+                            $("#add_columns").dialog("close").remove();
                         }
                         /*Reload the field form*/
                         $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
                             $("#fieldsForm").remove();
+                            $("#addColumns").remove();
                             var $temp_div = $("<div id='temp_div'><div>").append(form_data);
                             if ($("#sqlqueryresults").length != 0) {
                                 $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
                             } else {
                                 $temp_div.find("#fieldsForm").insertAfter(".error");
                             }
+                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
                             /*Call the function to display the more options in table*/
                             displayMoreTableOpts();
                         });
@@ -2107,6 +2138,10 @@ $(document).ready(function() {
         $("#popup_background").css({"opacity":"0.7"});
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
+        /**Replacing the column name in the enum editor header*/
+        var column_name = $("#append_fields_form").find("input[id=field_0_1]").attr("value");
+        var h3_text = $("#enum_editor h3").html();
+        $("#enum_editor h3").html(h3_text.split('"')[0]+'"'+column_name+'"');
 
         // Get the values
         var values = $(this).parent().prev("input").attr("value").split(",");
@@ -2284,9 +2319,9 @@ function checkIndexName(form_id)
 /**
  * function to convert the footnotes to tooltips
  *
- * @param   jquery-Object   $div    a div jquery object which specifies the 
- *                                  domain for searching footnootes. If we 
- *                                  ommit this parameter the function searches 
+ * @param   jquery-Object   $div    a div jquery object which specifies the
+ *                                  domain for searching footnootes. If we
+ *                                  ommit this parameter the function searches
  *                                  the footnotes in the whole body
  **/
 function PMA_convertFootnotesToTooltips($div) {
@@ -2485,65 +2520,65 @@ var toggleButton = function ($obj) {
     } else {
         var right = 'left';
     }
-	/**
-	 *  var  h  Height of the button, used to scale the
-	 *          background image and position the layers
-	 */
-	var h = $obj.height();
-	$('img', $obj).height(h);
-	$('table', $obj).css('bottom', h-1);
-	/**
-	 *  var  on   Width of the "ON" part of the toggle switch
-	 *  var  off  Width of the "OFF" part of the toggle switch
-	 */
-	var on  = $('.toggleOn', $obj).width();
-	var off = $('.toggleOff', $obj).width();
-	// Make the "ON" and "OFF" parts of the switch the same size
-	$('.toggleOn > div', $obj).width(Math.max(on, off));
-	$('.toggleOff > div', $obj).width(Math.max(on, off));
-	/**
-	 *  var  w  Width of the central part of the switch
-	 */
-	var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
-	// Resize the central part of the switch on the top
-	// layer to match the background
-	$('table td:nth-child(2) > div', $obj).width(w);
-	/**
-	 *  var  imgw    Width of the background image
-	 *  var  tblw    Width of the foreground layer
-	 *  var  offset  By how many pixels to move the background
-	 *               image, so that it matches the top layer
-	 */
-	var imgw = $('img', $obj).width();
-	var tblw = $('table', $obj).width();
-	var offset = parseInt(((imgw - tblw) / 2), 10);
-	// Move the background to match the layout of the top layer
-	$obj.find('img').css(right, offset);
-	/**
-	 *  var  offw    Outer width of the "ON" part of the toggle switch
-	 *  var  btnw    Outer width of the central part of the switch
-	 */
-	var offw = $('.toggleOff', $obj).outerWidth();
-	var btnw = $('table td:nth-child(2)', $obj).outerWidth();
-	// Resize the main div so that exactly one side of
-	// the switch plus the central part fit into it.
-	$obj.width(offw + btnw + 2);
-	/**
-	 *  var  move  How many pixels to move the
-	 *             switch by when toggling
-	 */
-	var move = $('.toggleOff', $obj).outerWidth();
-	// If the switch is initialized to the
-	// OFF state we need to move it now.
-	if ($('.container', $obj).hasClass('off')) {
+    /**
+     *  var  h  Height of the button, used to scale the
+     *          background image and position the layers
+     */
+    var h = $obj.height();
+    $('img', $obj).height(h);
+    $('table', $obj).css('bottom', h-1);
+    /**
+     *  var  on   Width of the "ON" part of the toggle switch
+     *  var  off  Width of the "OFF" part of the toggle switch
+     */
+    var on  = $('.toggleOn', $obj).width();
+    var off = $('.toggleOff', $obj).width();
+    // Make the "ON" and "OFF" parts of the switch the same size
+    $('.toggleOn > div', $obj).width(Math.max(on, off));
+    $('.toggleOff > div', $obj).width(Math.max(on, off));
+    /**
+     *  var  w  Width of the central part of the switch
+     */
+    var w = parseInt(($('img', $obj).height() / 16) * 22, 10);
+    // Resize the central part of the switch on the top
+    // layer to match the background
+    $('table td:nth-child(2) > div', $obj).width(w);
+    /**
+     *  var  imgw    Width of the background image
+     *  var  tblw    Width of the foreground layer
+     *  var  offset  By how many pixels to move the background
+     *               image, so that it matches the top layer
+     */
+    var imgw = $('img', $obj).width();
+    var tblw = $('table', $obj).width();
+    var offset = parseInt(((imgw - tblw) / 2), 10);
+    // Move the background to match the layout of the top layer
+    $obj.find('img').css(right, offset);
+    /**
+     *  var  offw    Outer width of the "ON" part of the toggle switch
+     *  var  btnw    Outer width of the central part of the switch
+     */
+    var offw = $('.toggleOff', $obj).outerWidth();
+    var btnw = $('table td:nth-child(2)', $obj).outerWidth();
+    // Resize the main div so that exactly one side of
+    // the switch plus the central part fit into it.
+    $obj.width(offw + btnw + 2);
+    /**
+     *  var  move  How many pixels to move the
+     *             switch by when toggling
+     */
+    var move = $('.toggleOff', $obj).outerWidth();
+    // If the switch is initialized to the
+    // OFF state we need to move it now.
+    if ($('.container', $obj).hasClass('off')) {
         if (right == 'right') {
-    		$('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '-=' + move + 'px'}, 0);
         } else {
-    		$('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
+            $('table, img', $obj).animate({'left': '+=' + move + 'px'}, 0);
         }
-	}
-	// Attach an 'onclick' event to the switch
-	$('.container', $obj).click(function () {
+    }
+    // Attach an 'onclick' event to the switch
+    $('.container', $obj).click(function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -2552,8 +2587,8 @@ var toggleButton = function ($obj) {
         var $msg = PMA_ajaxShowMessage(PMA_messages['strLoading']);
         var $container = $(this);
         var callback = $('.callback', this).text();
-		// Perform the actual toggle
-		if ($(this).hasClass('on')) {
+        // Perform the actual toggle
+        if ($(this).hasClass('on')) {
             if (right == 'right') {
                 var operator = '-=';
             } else {
@@ -2562,7 +2597,7 @@ var toggleButton = function ($obj) {
             var url = $(this).find('.toggleOff > span').text();
             var removeClass = 'on';
             var addClass = 'off';
-		} else {
+        } else {
             if (right == 'right') {
                 var operator = '+=';
             } else {
@@ -2575,10 +2610,10 @@ var toggleButton = function ($obj) {
         $.post(url, {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msg);
-		        $container
-		        .removeClass(removeClass)
-		        .addClass(addClass)
-		        .animate({'left': operator + move + 'px'}, function () {
+                $container
+                .removeClass(removeClass)
+                .addClass(addClass)
+                .animate({'left': operator + move + 'px'}, function () {
                     $container.removeClass('isActive');
                 });
                 eval(callback);
@@ -2587,7 +2622,7 @@ var toggleButton = function ($obj) {
                 $container.removeClass('isActive');
             }
         });
-	});
+    });
 };
 
 /**
@@ -2598,8 +2633,8 @@ $(window).load(function () {
         $(this)
         .show()
         .find('.toggleButton')
-		toggleButton($(this));
-	});
+        toggleButton($(this));
+    });
 });
 
 /**
@@ -2641,7 +2676,7 @@ $(document).ready(function() {
                 $checkbox.attr('checked', checked);
             }
             // for all td of the same vertical row, toggle the marked class
-            if (checked) {      
+            if (checked) {
                 $('.vmarker').filter('.row_' + row_num).addClass('marked');
             } else {
                 $('.vmarker').filter('.row_' + row_num).removeClass('marked');
@@ -2702,22 +2737,15 @@ $(document).ready(function() {
     /**
      * Enables the text generated by PMA_linkOrButton() to be clickable
      */
-    $('.clickprevimage')
-        .css('color', function(index) {
-            return $('a').css('color');
-        })
-        .css('cursor', function(index) {
-            return $('a').css('cursor');
-        }) //todo: hover effect
-        .live('click',function(e) {
-            $this_span = $(this);
-            if ($this_span.closest('td').is('.inline_edit_anchor')) {
-            // this would bind a second click event to the inline edit
-            // anchor and would disturb its behavior
-            } else {
-                $this_span.parent().find('input:image').click();
-            }
-        });
+    $('a[class~="formLinkSubmit"]').live('click',function(e) {
+
+        if($(this).attr('href').indexOf('=') != -1) {
+            var data = $(this).attr('href').substr($(this).attr('href').indexOf('#')+1).split('=',2);
+            $(this).parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '"/>');
+        }
+        $(this).parents('form').submit();
+        return false;
+    });
 
     $('#update_recent_tables').ready(function() {
         if (window.parent.frame_navigation != undefined
@@ -2905,7 +2933,7 @@ $(document).ready(function() {
                 else $(this).removeAttr('unselectable', 'on');
             });
         }
-    }; //end noSelect    
+    }; //end noSelect
 })(jQuery);
 
 /**
@@ -2943,7 +2971,7 @@ function PMA_createqTip($elements, content, options) {
             }
         }
     }
-    
+
     $elements.qtip($.extend(true, o, options));
 }
 

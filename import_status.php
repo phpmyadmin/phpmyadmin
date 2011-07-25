@@ -18,7 +18,7 @@ if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
     header('Content-type: text/html');
 
     // wait 0.3 sec before we check for $_SESSION variable, which is set inside import.php
-	usleep(300000);
+    usleep(300000);
 
     // wait until message is available
     while ($_SESSION['Import_message']['message'] == null) {
@@ -27,7 +27,7 @@ if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
 
     echo $_SESSION['Import_message']['message'];
     echo '<fieldset class="tblFooters">' . "\n";
-    echo '	[ <a href="' . $_SESSION['Import_message']['go_back_url'] . '">' . __('Back') . '</a> ]' . "\n";
+    echo '    [ <a href="' . $_SESSION['Import_message']['go_back_url'] . '">' . __('Back') . '</a> ]' . "\n";
     echo '</fieldset>'."\n";
 
 } else {

@@ -13,8 +13,8 @@ if (! defined('PHPMYADMIN')) {
  * void PMA_TableHeader([bool $db_is_information_schema = false])
  * display table header (<table><thead>...</thead><tbody>)
  *
- * @param   boolean $db_is_information_schema
- * @param   boolean $replication
+ * @param boolean $db_is_information_schema
+ * @param boolean $replication
  */
 function PMA_TableHeader($db_is_information_schema = false, $replication = false)
 {
@@ -65,9 +65,9 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
 /**
  * Creates a clickable column header for table information
  *
- * @param   string  title to use for the link
- * @param   string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
- * @param   string  initial sort order
+ * @param string  title to use for the link
+ * @param string  corresponds to sortable data name mapped in libraries/db_info.inc.php  
+ * @param string  initial sort order
  * @returns string  link to be displayed in the table header
  */
 function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
@@ -96,17 +96,17 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
             // current sort order is ASC
             $order_img  = ' <img class="icon ic_s_asc" src="themes/dot.gif" alt="'. __('Ascending') . '" title="'. __('Ascending') . '" id="sort_arrow" />';
             // but on mouse over, show the reverse order (DESC)
-            $order_link_params['onmouseover'] = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
+            $order_link_params['onmouseover'] = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
             // on mouse out, show current sort order (ASC)
-            $order_link_params['onmouseout']  = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
+            $order_link_params['onmouseout']  = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
         } else {
             $future_sort_order = 'ASC';
             // current sort order is DESC
             $order_img  = ' <img class="icon ic_s_desc" src="themes/dot.gif" alt="'. __('Descending') . '" title="'. __('Descending') . '" id="sort_arrow" />';
             // but on mouse over, show the reverse order (ASC)
-            $order_link_params['onmouseover']  = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
+            $order_link_params['onmouseover']  = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_asc\'); }';
             // on mouse out, show current sort order (DESC)
-            $order_link_params['onmouseout'] = 'if($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
+            $order_link_params['onmouseout'] = 'if ($(\'#sort_arrow\').length > 0) { $(\'#sort_arrow\').attr(\'class\',\'icon ic_s_desc\'); }';
         }
     }
 

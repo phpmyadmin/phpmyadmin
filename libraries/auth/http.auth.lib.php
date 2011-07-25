@@ -42,7 +42,7 @@ function PMA_auth()
     header('WWW-Authenticate: Basic realm="' . $realm_message .  '"');
     header('HTTP/1.0 401 Unauthorized');
     if (php_sapi_name() !== 'cgi-fcgi') {
-	header('status: 401 Unauthorized');
+        header('status: 401 Unauthorized');
     }
 
     // Defines the charset to be used

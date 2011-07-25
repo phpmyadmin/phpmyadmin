@@ -73,7 +73,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Service opening
          *
-         * @param  string  URL of Mimer SQL Validator WSDL file
+         * @param string  URL of Mimer SQL Validator WSDL file
          *
          * @return object  Object to use
          *
@@ -93,16 +93,16 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Service initializer to connect to server
          *
-         * @param  object   Service object
-         * @param  string   Username
-         * @param  string   Password
-         * @param  string   Name of calling program
-         * @param  string   Version of calling program
-         * @param  string   Target DBMS
-         * @param  string   Version of target DBMS
-         * @param  string   Connection Technology
-         * @param  string   version of Connection Technology
-         * @param  integer  boolean of 1/0 to specify if we are an interactive system
+         * @param object   Service object
+         * @param string   Username
+         * @param string   Password
+         * @param string   Name of calling program
+         * @param string   Version of calling program
+         * @param string   Target DBMS
+         * @param string   Version of target DBMS
+         * @param string   Connection Technology
+         * @param string   version of Connection Technology
+         * @param integer  boolean of 1/0 to specify if we are an interactive system
          *
          * @return object   stdClass return object with data
          *
@@ -139,10 +139,10 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Validator sytem call
          *
-         * @param  object  Service object
-         * @param  object  Session object
-         * @param  string  SQL Query to validate
-         * @param  string  Data return type
+         * @param object  Service object
+         * @param object  Session object
+         * @param string  SQL Query to validate
+         * @param string  Data return type
          *
          * @return object  stClass return with data
          *
@@ -170,7 +170,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Validator sytem call
          *
-         * @param  string  SQL Query to validate
+         * @param string  SQL Query to validate
          *
          * @return object  stdClass return with data
          *
@@ -221,8 +221,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Sets credentials
          *
-         * @param  string  the username
-         * @param  string  the password
+         * @param string  the username
+         * @param string  the password
          *
          * @access public
          */
@@ -236,8 +236,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Sets the calling program
          *
-         * @param  string  the calling program name
-         * @param  string  the calling program revision
+         * @param string  the calling program name
+         * @param string  the calling program revision
          *
          * @access public
          */
@@ -251,8 +251,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Appends the calling program
          *
-         * @param  string  the calling program name
-         * @param  string  the calling program revision
+         * @param string  the calling program name
+         * @param string  the calling program revision
          *
          * @access public
          */
@@ -266,8 +266,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Sets the target DBMS
          *
-         * @param  string  the target DBMS name
-         * @param  string  the target DBMS revision
+         * @param string  the target DBMS name
+         * @param string  the target DBMS revision
          *
          * @access public
          */
@@ -281,8 +281,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Appends the target DBMS
          *
-         * @param  string  the target DBMS name
-         * @param  string  the target DBMS revision
+         * @param string  the target DBMS name
+         * @param string  the target DBMS revision
          *
          * @access public
          */
@@ -296,8 +296,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Sets the connection technology used
          *
-         * @param  string  the connection technology name
-         * @param  string  the connection technology revision
+         * @param string  the connection technology name
+         * @param string  the connection technology revision
          *
          * @access public
          */
@@ -311,8 +311,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Appends the connection technology used
          *
-         * @param  string  the connection technology name
-         * @param  string  the connection technology revision
+         * @param string  the connection technology name
+         * @param string  the connection technology revision
          *
          * @access public
          */
@@ -326,7 +326,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Sets whether interactive mode should be used or not
          *
-         * @param  integer  whether interactive mode should be used or not
+         * @param integer  whether interactive mode should be used or not
          *
          * @access public
          */
@@ -339,7 +339,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Sets the output type to use
          *
-         * @param  string  the output type to use
+         * @param string  the output type to use
          *
          * @access public
          */
@@ -399,7 +399,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Call to determine just if a query is valid or not.
          *
-         * @param  string SQL statement to validate
+         * @param string SQL statement to validate
          *
          * @return string Validator string from Mimer
          *
@@ -415,7 +415,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Call for complete validator response
          *
-         * @param  string SQL statement to validate
+         * @param string SQL statement to validate
          *
          * @return string Validator string from Mimer
          *
