@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-25 14:54+0200\n"
+"PO-Revision-Date: 2011-07-25 14:55+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -581,7 +581,7 @@ msgstr "Die Wörter werden durch Leerzeichen (\" \") getrennt."
 
 #: db_search.php:298
 msgid "Inside tables:"
-msgstr "In der / den Tabelle(n):"
+msgstr "In der/den Tabelle(n):"
 
 #: db_search.php:328
 msgid "Inside column:"
