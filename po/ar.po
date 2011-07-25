@@ -10980,7 +10980,7 @@ msgstr "انشئ إصدار %s  لـ %s.s%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
-msgstr "تتبع جمل تعريف البيانات:"
+msgstr "تتبع تقارير تعريف البيانات:"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
