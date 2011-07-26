@@ -1824,13 +1824,38 @@ $(function() {
                             $('div#queryAnalyzerDialog div.placeHolder')
                                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
                             
-                            var explain = '<b>Explain output</b><p></p>';
-                            $.each(data.explain, function(key,value) {
-                                value = (value==null)?'null':value;
-                                
-                                explain += key+': ' + value + '<br />';
-                            });
+                            var explain = '<b>Explain output</b> '+explain_docu;
+                            if(data.explain.length > 1) {
+                                explain += ' (';
+                                for(var i=0; i < data.explain.length; i++) {
+                                    if(i > 0) explain += ', ';
+                                    explain += '<a href="#showExplain-' + i + '">' + i + '</a>';
+                                }
+                                explain += ')';
+                            }
+                            explain +='<p></p>';
+                            for(var i=0; i < data.explain.length; i++) {
+                                explain += '<div class="explain-' + i + '"' + (i>0? 'style="display:none;"' : '' ) + '>';
+                                $.each(data.explain[i], function(key,value) {
+                                    value = (value==null)?'null':value;
+                                    
+                                    if(key == 'type' && value.toLowerCase() == 'all') value = '<span class="attention">' + value +'</span>';
+                                    if(key == 'Extra') value = value.replace(/(using (temporary|filesort))/gi,'<span class="attention">$1</span>');
+                                    explain += key+': ' + value + '<br />';
+                                });
+                                explain += '</div>';
+                            }
+                            
+                            // Since there is such a nice free space below the explain, lets put it here for now
+                            explain += '<p><b>' + PMA_messages['strAffectedRows'] + '</b> ' + data.affectedRows;
+
                             $('div#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
+                            
+                            $('div#queryAnalyzerDialog div.placeHolder a[href*="#showExplain"]').click(function() {
+                                var id = $(this).attr('href').split('-')[1];
+                                $(this).parent().find('div[class*="explain"]').hide();
+                                $(this).parent().find('div[class*="explain-' + id + '"]').show();
+                            });
                             
                             if(data.profiling) {
                                 var chartData = [];
@@ -1848,7 +1873,7 @@ $(function() {
                                 numberTable += '<tr><td><b>Total time:</b></td><td>' + PMA_prettyProfilingNum(totalTime,2) + '</td></tr>';
                                 numberTable += '</tbody></table>';
                                 
-                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results ' + profiling_docu + '</b> (<a href="#showNums">Table</a> | <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
+                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results ' + profiling_docu + '</b> (<a href="#showNums">Table</a>, <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
                                 
                                 $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
                                     $('div#queryAnalyzerDialog div#queryProfiling').hide();

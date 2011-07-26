@@ -161,6 +161,8 @@ $js_messages['strRefreshFailed'] = __('Monitor refresh failed');
 $js_messages['strInvalidResponseExplanation'] = __('While requesting new chart data the server returned an invalid response. This is most likely because your session expired. Reloading the page and reentering your credentials should help.');
 $js_messages['strReloadPage'] = __('Reload page');
 
+$js_messages['strAffectedRows'] = __('Affected rows: ');
+
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');

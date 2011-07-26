@@ -285,8 +285,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
         
         $result = PMA_DBI_try_query('EXPLAIN ' . $query);
-        $return['explain'] = PMA_DBI_fetch_assoc($result);
-        
+        while ($row = PMA_DBI_fetch_assoc($result)) {
+            $return['explain'][] = $row;
+        }
+    
         // In case an error happened
         $return['error'] = PMA_DBI_getError();
         
@@ -618,6 +620,7 @@ server_os = '<?php echo PHP_OS; ?>';
 is_superuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
 server_db_isLocal = <?php echo ($server_db_isLocal)?'true':'false'; ?>;
 profiling_docu = '<?php echo PMA_showMySQLDocu('general-thread-states','general-thread-states'); ?>';
+explain_docu = '<?php echo PMA_showMySQLDocu('explain-output', 'explain-output'); ?>';
 </script>
 <div id="serverstatus">
     <h2><?php
