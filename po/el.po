@@ -1863,7 +1863,7 @@ msgstr "Μέγεθος γραμματοσειράς"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Το αρχείο δεν ήταν αρχείο αποστολής."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #, fuzzy
