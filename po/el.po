@@ -1386,10 +1386,9 @@ msgid "Sum of grouped rows:"
 msgstr "Άθροισμα ομαδοποιημένων γραμμών"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Σύνολο"
+msgstr "Σύνολο:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
