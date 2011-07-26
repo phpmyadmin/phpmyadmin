@@ -1526,10 +1526,9 @@ msgid "Change"
 msgstr "Αλλαγή"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Μέγιστος χρόνος εκτέλεσης"
+msgstr "Χρόνος εκτέλεσης ερωτήματος"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
