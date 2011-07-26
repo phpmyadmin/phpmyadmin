@@ -390,11 +390,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
     }
     ?>
     <td>
-        <div class="edit_mode hide">
-            <input type="submit" value="<?php echo __('Edit mode'); ?>" />
+        <div class="save_edited hide">
+            <input type="submit" value="<?php echo __('Save edited data'); ?>" />
             <div class="navigation_separator">|</div>
         </div>
+        <?php echo '<input id="save_cells_at_once" type="hidden" value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'; ?>
         <?php echo '<input id="cell_edit_hint" type="hidden" value="' . __('Press escape to cancel editing') . '" />'; ?>
+        <?php echo '<input id="save_cell_warning" type="hidden" value="' . __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?') . '" />'; ?>
     </td>
     <td>
         <div class="restore_column hide">
