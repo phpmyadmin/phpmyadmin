@@ -160,7 +160,20 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $type = '';
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
-                $type = substr($row['sql_text'],0,strpos($row['sql_text'],' '));
+                $type = strtolower(substr($row['sql_text'],0,strpos($row['sql_text'],' ')));
+                
+                switch($type) {
+                    case 'insert':
+                    case 'update':
+                        // Cut off big inserts and updates, but append byte count therefor
+                        if(strlen($row['sql_text']) > 220)
+                            $row['sql_text'] = substr($row['sql_text'],0,200) . '... [' . 
+                                                implode(' ',PMA_formatByteDown(strlen($row['sql_text']), 2, 2)).']';
+
+                        break;
+                    default: 
+                        break;
+                }
                 
                 if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
                 $return['sum'][$type] += $row['#'];
@@ -223,9 +236,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         
                     case 'update':
                         // Cut off big inserts and updates, but append byte count therefor
-                        if(strlen($row['argument']) > 180)
-                            $row['argument'] = substr($row['argument'],0,160) . '... [' . 
-                                                PMA_formatByteDown(strlen($row['argument']), 2).']';
+                        if(strlen($row['argument']) > 220)
+                            $row['argument'] = substr($row['argument'],0,200) . '... [' . 
+                                                implode(' ',PMA_formatByteDown(strlen($row['argument'])), 2, 2).']';
                                                 
                         break;
                     
