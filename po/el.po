@@ -10183,7 +10183,7 @@ msgstr "Επιλεγμένο εύρος χρόνου:"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Λήψη μόνο των δηλώσεων SELECT,INSERT,UPDATE και DELETE"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
