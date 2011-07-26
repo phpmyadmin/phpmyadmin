@@ -617,6 +617,7 @@ server_time_diff = new Date().getTime() - <?php echo microtime(true)*1000; ?>;
 server_os = '<?php echo PHP_OS; ?>';
 is_superuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
 server_db_isLocal = <?php echo ($server_db_isLocal)?'true':'false'; ?>;
+profiling_docu = '<?php echo PMA_showMySQLDocu('general-thread-states','general-thread-states'); ?>';
 </script>
 <div id="serverstatus">
     <h2><?php
@@ -1395,7 +1396,7 @@ function printMonitor() {
         using the cog icon on each respective chart.
         <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
         left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
-        activity spike.</p>');
+        activity spike. To further analyze SELECT-queries click on them and the <i>Query Analyzer Dialog</i> will open</p>');
         ?>
         <p>
         <img class="icon ic_s_attention" src="themes/dot.gif" alt=""> 

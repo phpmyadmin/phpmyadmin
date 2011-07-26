@@ -1848,7 +1848,7 @@ $(function() {
                                 numberTable += '<tr><td><b>Total time:</b></td><td>' + PMA_prettyProfilingNum(totalTime,2) + '</td></tr>';
                                 numberTable += '</tbody></table>';
                                 
-                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results</b> (<a href="#showNums">Table</a> | <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
+                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results ' + profiling_docu + '</b> (<a href="#showNums">Table</a> | <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
                                 
                                 $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
                                     $('div#queryAnalyzerDialog div#queryProfiling').hide();
