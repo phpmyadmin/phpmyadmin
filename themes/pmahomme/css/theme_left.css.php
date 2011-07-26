@@ -92,6 +92,11 @@ button {
 .ic_s_loggoff { background-position: -1698px 0; }
 .ic_b_browse, .ic_b_sbrowse { background-position: -34px 0; }
 .ic_b_view { background-position: -1077px 0; }
+.ic_b_plus { background-position: -573px 0; }
+.ic_b_minus { background-position: -471px 0; }
+
+.ic_b_views, .ic_s_views { background-position: -1094px 0; }
+.ic_b_snewtbl { background-position: -788px 0; }
 
 /******************************************************************************/
 /* classes */
@@ -136,15 +141,22 @@ ul#databaseList span {
 }
 
 ul#databaseList a {
+    color: #333;
+    background: url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
     display: block;
-    padding:5px;
+    padding: 5px;
     font-style: normal;
 }
 
+div#navidbpageselector {
+    margin: 0.1em;
+    text-align: center;
+}
+
 div#navidbpageselector a,
-ul#databaseList a {
-    background:url(./themes/pmahomme/img/database.png) no-repeat 0% 50% transparent;
-    color:              #333;
+div#navidbpageselector select{
+    color: #333;
+    margin: 0.2em;
 }
 
 ul#databaseList ul {
