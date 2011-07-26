@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-26 18:22+0200\n"
+"PO-Revision-Date: 2011-07-26 18:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1381,10 +1381,9 @@ msgstr ""
 "Ομαδοποίηση ερωτημάτων, αγνοώντας τα δεδομένα μεταβλητής στις δηλώσεις WHERE"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Αριθμός εισαχθέντων γραμμών"
+msgstr "Άθροισμα ομαδοποιημένων γραμμών"
 
 #: js/messages.php:157
 #, fuzzy
