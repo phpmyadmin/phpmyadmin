@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-26 18:25+0200\n"
+"PO-Revision-Date: 2011-07-26 18:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1918,7 +1918,7 @@ msgstr "Σφάλμα κατά τη μετακίνηση αρχείου αποσ�
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Αδύνατη η ανάγνωση (μετακίνηση) του αρχείου αποστολής."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
