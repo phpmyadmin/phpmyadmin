@@ -1219,7 +1219,6 @@ msgid "slow_query_log is enabled."
 msgstr "Το slow_query_log είναι ενεργοποιημένα."
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "Το slow_query_log και το general_log είναι απενεργοποιημένα."
