@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-26 18:21+0200\n"
+"PO-Revision-Date: 2011-07-26 18:22+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1378,6 +1378,7 @@ msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονι
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
 msgstr ""
+"Ομαδοποίηση ερωτημάτων, αγνοώντας τα δεδομένα μεταβλητής στις δηλώσεις WHERE"
 
 #: js/messages.php:156
 #, fuzzy
