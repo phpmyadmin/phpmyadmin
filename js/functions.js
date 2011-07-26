@@ -1597,10 +1597,11 @@ function PMA_createProfilingChart(data, options) {
 
 // Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
 function PMA_prettyProfilingNum(num, acc) {
-    if(!acc) acc = 1;
+    if(!acc) acc = 2;
     acc = Math.pow(10,acc);
-    if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ'
-    else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm'
+    if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ';
+    else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm';
+    else num = Math.round(acc*num)/acc;
     
     return num + 's';
 }
