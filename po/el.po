@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-26 18:28+0200\n"
+"PO-Revision-Date: 2011-07-26 18:29+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6318,10 +6318,9 @@ msgid ""
 msgstr "Αλλάξτε τις ρυθμίσεις πατώντας τον αντίστοιχο σύνδεσμο «Επιλογές»"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Επεξεργαστεί τη δομή από τον σύνδεσμο «Δομή»"
+msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύνδεσμο «Δομή»"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
