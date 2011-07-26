@@ -198,6 +198,7 @@ $forms['Main_frame']['Browse'] = array(
     'Order',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
+    'SaveCellsAtOnce',
     'ShowDisplayDirection',
     'RepeatCells',
     'LimitChars',

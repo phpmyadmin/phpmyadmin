@@ -354,6 +354,7 @@ $strConfigRepeatCells_name = __('Repeat headers');
 $strConfigReplaceHelpImg_desc = __('Show help button instead of Documentation text');
 $strConfigReplaceHelpImg_name = __('Show help button');
 $strConfigRestoreDefaultValue = __('Restore default value');
+$strConfigSaveCellsAtOnce_name = __('Save all edited cells at once');
 $strConfigSaveDir_desc = __('Directory where exports can be saved on server');
 $strConfigSaveDir_name = __('Save directory');
 $strConfigServers_AllowDeny_order_desc = __('Leave blank if not used');
