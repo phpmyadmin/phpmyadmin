@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-26 12:03+0200\n"
+"PO-Revision-Date: 2011-07-26 12:04+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1347,7 +1347,6 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "フィルタ"
