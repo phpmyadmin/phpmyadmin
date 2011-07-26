@@ -1373,7 +1373,7 @@ msgstr "Φίλτρο"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
