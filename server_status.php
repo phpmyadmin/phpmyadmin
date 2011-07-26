@@ -149,8 +149,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $end = intval($_REQUEST['time_end']);
         
         if ($_REQUEST['type'] == 'slow') {
-            $q = 'SELECT query_time, SUM(lock_time) as lock_time, '.
-                 'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, sql_text, COUNT(sql_text) AS \'#\' '.
+            $q = 'SELECT start_time, user_host, Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, '.
+                 'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' '.
                  'FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME('.$start.') '.
                  'AND start_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text';
                  
@@ -158,7 +158,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
-            $return['q']=$q;
+
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $type = substr($row['sql_text'],0,strpos($row['sql_text'],' '));
                 
@@ -268,13 +268,16 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         // Do not cache query
         $query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
         
+        $result = PMA_DBI_try_query($query);
+        $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
+        
         $result = PMA_DBI_try_query('EXPLAIN ' . $query);
         $return['explain'] = PMA_DBI_fetch_assoc($result);
         
         // In case an error happened
         $return['error'] = PMA_DBI_getError();
         
-        PMA_DBI_free_result($result);        
+        PMA_DBI_free_result($result);
         
         if($profiling) {
             $return['profiling'] = array();

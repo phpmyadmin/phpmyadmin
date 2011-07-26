@@ -582,7 +582,7 @@ $(function() {
     var monitorSettings = null;
     
     var defaultMonitorSettings = {
-        columns: 4,
+        columns: 3,
         chartSize: { width: 295, height: 250 },
         // Max points in each chart. Settings it to 'auto' sets gridMaxPoints to (chartwidth - 40) / 12
         gridMaxPoints: 'auto', 
@@ -1374,7 +1374,6 @@ $(function() {
         var htmlnode = chartObj.options.chart.renderTo;
         if(! htmlnode ) return;
         
-        
         $.each(runtime.charts, function(key, value) {
             if(value.chart.options.chart.renderTo == htmlnode) {
                 delete runtime.charts[key];
@@ -1388,7 +1387,7 @@ $(function() {
         // which throws an error when the chart is destroyed
         setTimeout(function() {
             chartObj.destroy();
-            $('li#' + htmlnode).remove();
+            $('div#' + htmlnode).remove();
         },10);
         
         saveMonitor(); // Save settings
@@ -1585,18 +1584,29 @@ $(function() {
             if(val.length == 0) textFilter = null;
             else textFilter = new RegExp(val, 'i');
             
-            var rowSum = 0, totalSum = 0;
-            
-            var i=0, q;
+            var rowSum = 0, totalSum = 0, i=0, q;
             var noVars = $('div#logTable input#noWHEREData').attr('checked');
             var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
             var filteredQueries = {};
             var filteredQueriesLines = {};
-            var hide = false;
+            var hide = false, rowData;
             var queryColumnName = runtime.logDataCols[runtime.logDataCols.length - 2];
             var sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
+                
+            var isSlowLog = opts.src == 'slow';
+            var columnSums = {};
+                
+            var countRow = function(query, row) {
+                var cells = row.match(/<td>(.*?)<\/td>/gi);
+                if(!columnSums[query]) columnSums[query] = [0,0,0,0];
 
+                columnSums[query][0] += timeToSec(cells[2].replace(/(<td>|<\/td>)/gi,''));
+                columnSums[query][1] += timeToSec(cells[3].replace(/(<td>|<\/td>)/gi,''));
+                columnSums[query][2] += parseInt(cells[4].replace(/(<td>|<\/td>)/gi,''));
+                columnSums[query][3] += parseInt(cells[5].replace(/(<td>|<\/td>)/gi,''));
+            };
+            
             // We just assume the sql text is always in the second last column, and that the total count is right of it
             $('div#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
                 if(varFilterChange && $(this).html().match(/^SELECT/i)) {
@@ -1614,10 +1624,23 @@ $(function() {
                             filteredQueriesLines[q] = i;
                             $(this).text(q);
                         }
+                        if(isSlowLog) countRow(q, $(this).parent().html());
                         
+                    // Restore original columns
                     } else {
-                        $(this).text($(this).parent().data('query')[queryColumnName]);
-                        $(this).next().text($(this).parent().data('query')[sumColumnName]);
+                        rowData = $(this).parent().data('query');
+                        
+                        // SQL Text
+                        $(this).text(rowData[queryColumnName]);
+                        // #
+                        $(this).next().text(rowData[sumColumnName]);
+                        // Slow log columns
+                        if(isSlowLog) {
+                            $(this).parent().children('td:nth-child(3)').text(rowData['query_time']);
+                            $(this).parent().children('td:nth-child(4)').text(rowData['lock_time']);
+                            $(this).parent().children('td:nth-child(5)').text(rowData['rows_sent']);
+                            $(this).parent().children('td:nth-child(6)').text(rowData['rows_examined']);
+                        }
                     }
                 }
                 
@@ -1643,22 +1666,29 @@ $(function() {
                 hide = false;
                 i++;
             });
-            
+                       
+            // Update count values of grouped entries
             if(varFilterChange) {
                 if(noVars) {
+                    var numCol, row, $table = $('div#logTable table tbody');
                     $.each(filteredQueriesLines, function(key,value) {
-                        if(filteredQueries[value] <= 1) return;
+                        if(filteredQueries[key] <= 1) return;
                         
-                        var numCol = $('div#logTable table tbody tr:nth-child(' + (value+1) + ')')
-                                        .children(':nth-child(' + (runtime.logDataCols.length) + ')');
-                        
+                        row =  $table.children('tr:nth-child(' + (value+1) + ')');
+                        numCol = row.children(':nth-child(' + (runtime.logDataCols.length) + ')');
                         numCol.text(filteredQueries[key]);
+                        
+                        if(isSlowLog) {
+                            row.children('td:nth-child(3)').text(secToTime(columnSums[key][0]));
+                            row.children('td:nth-child(4)').text(secToTime(columnSums[key][1]));
+                            row.children('td:nth-child(5)').text(columnSums[key][2]);
+                            row.children('td:nth-child(6)').text(columnSums[key][3]);
+                        }
                     });
                 }
                 
                 $('div#logTable table').trigger("update"); 
-                setTimeout(function() {
-                    
+                setTimeout(function() {                    
                     $('div#logTable table').trigger('sorton',[[[runtime.logDataCols.length - 1,1]]]);
                 }, 0);
             }
@@ -1677,6 +1707,24 @@ $(function() {
         removeVariables: true,
         limitTypes: true
     });*/
+    
+    function timeToSec(timeStr) {
+        var time = timeStr.split(':');
+        return parseInt(time[0]*3600) + parseInt(time[1]*60) + parseInt(time[2]);
+    }
+    
+    function secToTime(timeInt) {
+        hours = Math.floor(timeInt / 3600);
+        timeInt -= hours*3600;
+        minutes = Math.floor(timeInt / 60);
+        timeInt -= minutes*60;
+        
+        if(hours < 10) hours = '0' + hours;
+        if(minutes < 10) minutes = '0' + minutes;
+        if(timeInt < 10) timeInt = '0' + timeInt;
+        
+        return hours + ':' + minutes + ':' + timeInt;
+    }
     
     function buildLogTable(data) {
         var rows = data.rows;
