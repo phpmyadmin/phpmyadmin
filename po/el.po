@@ -10200,10 +10200,9 @@ msgstr ""
 "αποτελέσματα ομοδοποιούνται ανά κείμενο ερωτήματος."
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Τύπος ερωτήματος"
+msgstr "Αναλυτής ερωτήματος"
 
 #: server_status.php:1512
 #, php-format
