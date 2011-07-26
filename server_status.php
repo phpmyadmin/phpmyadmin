@@ -567,6 +567,9 @@ foreach ($server_status as $name => $value) {
     }
 }
 
+if(PMA_DRIZZLE) 
+    $used_queries = PMA_DBI_fetch_result('SELECT * FROM data_dictionary.global_statements', 0, 1);
+
 // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
 unset($used_queries['Com_admin_commands']);
 
