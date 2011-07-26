@@ -484,6 +484,7 @@
                         g.isCellEditActive = false;
                         g.currentEditCell = cell;
                         $(g.cEdit).find('input[type=text]').focus();
+                        $(g.cEdit).find('*').attr('disabled', false);
                     }
                 } else {
                     g.hideEditCell();
@@ -985,6 +986,7 @@
                     
                     var $editArea = $(g.cEdit).find('.edit_area');
                     $editArea.addClass('edit_area_posting');
+                    $(g.cEdit).find('*').attr('disabled', true);
 
                     $.post('tbl_replace.php', post_params, function(data) {
                         $editArea.removeClass('edit_area_posting');
