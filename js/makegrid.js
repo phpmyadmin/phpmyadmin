@@ -814,168 +814,190 @@
              * Post the content of edited cell.
              */
             postEditedCell: function() {
-                $('.to_be_saved').each(function() {
-                    /**
-                     * @var $this_field    Object referring to the td that is being edited
-                     */
-                    var $this_field = $(this);
-                    
-                    // remove the to_be_saved class
-                    $this_field.removeClass('to_be_saved');
-                    
-                    var $test_element = ''; // to test the presence of a element
-
-                    // Initialize variables
-                    var where_clause = $this_field.parent('tr').find('.where_clause').val();
-
-                    /**
-                     * @var nonunique   Boolean, whether this row is unique or not
-                     */
-                    var nonunique = $this_field.is('.nonunique') ? 0 : 1;
-                    /**
-                     * @var relation_fields Array containing the name/value pairs of relational fields
-                     */
-                    var relation_fields = {};
-                    /**
-                     * @var relational_display string 'K' if relational key, 'D' if relational display column
-                     */
-                    var relational_display = $("#relational_display_K").attr('checked') ? 'K' : 'D';
-                    /**
-                     * @var transform_fields    Array containing the name/value pairs for transformed fields
-                     */
-                    var transform_fields = {};
-                    /**
-                     * @var transformation_fields   Boolean, if there are any transformed fields in this row
-                     */
-                    var transformation_fields = false;
-
-                    /**
-                     * @var sql_query String containing the SQL query to update this row
-                     */
-                    var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
-
-                    var new_clause = '';
-
-                    /**
-                     * @var field_name  String containing the name of this field.
-                     * @see getFieldName()
-                     */
-                    var field_name = getFieldName($this_field);
-
-                    /**
-                     * @var this_field_params   Array temporary storage for the name/value of current field
-                     */
-                    var this_field_params = {};
-
-                    if($this_field.is('.transformed')) {
-                        transformation_fields =  true;
-                    }
-                    /**
-                     * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
-                     */
-                    var is_null = $this_field.data('value') == null;
-                    var value;
-                    var addQuotes = true;
-
-                    if (is_null) {
-                        sql_query += ' `' + field_name + "`=NULL , ";
-                    } else {
-                        this_field_params[field_name] = $this_field.data('value');
-                        if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
-                            if($this_field.is('.transformed')) {
-                                $.extend(transform_fields, this_field_params);
-                            }
-                        } else if ($this_field.is('.bit')) {
-                            addQuotes = false;
-                        } else if($this_field.is('.relation')) {
-                            $.extend(relation_fields, this_field_params);
-                        }
-                        if (where_clause.indexOf(field_name) > -1) {
-                            new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
-                        }
-                        if (addQuotes == true) {
-                            sql_query += ' `' + field_name + "`='" + this_field_params[field_name].replace(/'/g, "''") + "', ";
-                        } else {
-                            sql_query += ' `' + field_name + "`=" + this_field_params[field_name].replace(/'/g, "''") + ", ";
-                        }
-                    }
-                    
-                    /*
-                     * update the where_clause, remove the last appended ' AND '
-                     * */
-
-                    //Remove the last ',' appended in the above loop
-                    sql_query = sql_query.replace(/,\s$/, '');
-                    //Fix non-escaped backslashes
-                    sql_query = sql_query.replace(/\\/g, '\\\\');
-                    new_clause = new_clause.substring(0, new_clause.length-5);
-                    new_clause = PMA_urlencode(new_clause);
-                    sql_query += ' WHERE ' + PMA_urldecode(where_clause);
-                    // Avoid updating more than one row in case there is no primary key
-                    // (happened only for duplicate rows)
-                    sql_query += ' LIMIT 1';
-                    /**
-                     * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
-                     */
-                    var rel_fields_list = $.param(relation_fields);
-
-                    /**
-                     * @var transform_fields_list  String, url encoded representation of {@link transform_fields}
-                     */
-                    var transform_fields_list = $.param(transform_fields);
-
-                    // Make the Ajax post after setting all parameters
-                    /**
-                     * @var post_params Object containing parameters for the POST request
-                     */
-                    var post_params = {'ajax_request' : true,
-                                    'sql_query' : sql_query,
-                                    'token' : window.parent.token,
-                                    'server' : window.parent.server,
-                                    'db' : window.parent.db,
-                                    'table' : window.parent.table,
-                                    'clause_is_unique' : nonunique,
-                                    'where_clause' : where_clause,
-                                    'rel_fields_list' : rel_fields_list,
-                                    'do_transformations' : transformation_fields,
-                                    'transform_fields_list' : transform_fields_list,
-                                    'relational_display' : relational_display,
-                                    'goto' : 'sql.php',
-                                    'submit_type' : 'save'
-                                  };
-                    
-                    $(g.cEdit).find('*').attr('disabled', true);
-                    var $editArea = $(g.cEdit).find('.edit_area');
-                    $editArea.addClass('edit_area_posting');
-                    
-                    $.ajax({
-                        type: 'POST',
-                        url: 'tbl_replace.php',
-                        data: post_params,
-                        context: $this_field[0],
-                        success:
-                            function(data) {
-                                $editArea.removeClass('edit_area_posting');
-                                if(data.success == true) {
-                                    PMA_ajaxShowMessage(data.message);
-                                    if (new_clause != '') {
-                                        $this_field.parent('tr').find('.where_clause').attr('value', new_clause);
-                                    }
-                                    // remove possible previous feedback message
-                                    $('#result_query').remove();
-                                    if (typeof data.sql_query != 'undefined') {
-                                        // display feedback
-                                        $('#sqlqueryresults').prepend(data.sql_query);
-                                    }
-                                    g.hideEditCell(true, data, this);
-                                } else {
-                                    PMA_ajaxShowMessage(data.error);
-                                }
-                            }
-                    }) // end $.post()
-                }); // end of $('to_be_saved').each()
+                /**
+                 * @var relation_fields Array containing the name/value pairs of relational fields
+                 */
+                var relation_fields = {};
+                /**
+                 * @var relational_display string 'K' if relational key, 'D' if relational display column
+                 */
+                var relational_display = $("#relational_display_K").attr('checked') ? 'K' : 'D';
+                /**
+                 * @var transform_fields    Array containing the name/value pairs for transformed fields
+                 */
+                var transform_fields = {};
+                /**
+                 * @var transformation_fields   Boolean, if there are any transformed fields in the edited cells
+                 */
+                var transformation_fields = false;
+                /**
+                 * @var full_sql_query String containing the complete SQL query to update this table
+                 */
+                var full_sql_query = '';
+                /**
+                 * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
+                 */
+                var rel_fields_list = '';
+                /**
+                 * @var transform_fields_list  String, url encoded representation of {@link transform_fields}
+                 */
+                var transform_fields_list = '';
+                /**
+                 * @var where_clause Array containing where clause for updated fields
+                 */
+                var full_where_clause = Array();
+                /**
+                 * @var nonunique   Boolean, whether the rows in this table is unique or not
+                 */
+                var nonunique = $('.to_be_saved').is('.nonunique') ? 0 : 1;
+                /**
+                 * multi edit variables
+                 */
+                var me_fields_name = Array();
+                var me_fields = Array();
                 
-                $('.save_edited').hide();
+                // loop each edited row
+                $('.to_be_saved').parents('tr').each(function() {
+                    var where_clause = $(this).find('.where_clause').val();
+                    full_where_clause.push(unescape(where_clause.replace(/[+]/g, ' ')));
+                    var new_clause = '';
+                    
+                    /**
+                     * multi edit variables, for current row
+                     * @TODO array indices are still not correct, they should be md5 of field's name
+                     */
+                    var fields_name = Array();
+                    var fields = Array();
+
+                    // loop each edited cell in a row
+                    $(this).find('.to_be_saved').each(function() {
+                        /**
+                         * @var $this_field    Object referring to the td that is being edited
+                         */
+                        var $this_field = $(this);
+                        
+                        var $test_element = ''; // to test the presence of a element
+
+                        /**
+                         * @var field_name  String containing the name of this field.
+                         * @see getFieldName()
+                         */
+                        var field_name = getFieldName($this_field);
+
+                        /**
+                         * @var this_field_params   Array temporary storage for the name/value of current field
+                         */
+                        var this_field_params = {};
+
+                        if($this_field.is('.transformed')) {
+                            transformation_fields =  true;
+                        }
+                        /**
+                         * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
+                         */
+                        var is_null = $this_field.data('value') == null;
+                        var value;
+                        var addQuotes = true;
+                        
+                        fields_name.push(field_name);
+                        fields.push($this_field.data('value'));
+
+                        if (!is_null) {
+                            this_field_params[field_name] = $this_field.data('value');
+                            if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
+                                if($this_field.is('.transformed')) {
+                                    $.extend(transform_fields, this_field_params);
+                                }
+                            } else if ($this_field.is('.bit')) {
+                                addQuotes = false;
+                            } else if($this_field.is('.relation')) {
+                                $.extend(relation_fields, this_field_params);
+                            }
+                            if (where_clause.indexOf(field_name) > -1) {
+                                new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
+                            }
+                        }
+                        
+                        /*
+                         * update the where_clause, remove the last appended ' AND '
+                         * */
+
+                        // prepare and save new_clause
+                        new_clause = new_clause.substring(0, new_clause.length-5);
+                        new_clause = PMA_urlencode(new_clause);
+                        $this_field.parent('tr').data('new_clause', new_clause);
+                        
+                        rel_fields_list += $.param(relation_fields) + '&';
+                        transform_fields_list += $.param(transform_fields) + '&';
+                        
+                    }); // end of loop for every edited cells in a row
+                    
+                    me_fields_name.push(fields_name);
+                    me_fields.push(fields);
+                
+                }); // end of loop for every edited rows
+                
+                // Make the Ajax post after setting all parameters
+                /**
+                 * @var post_params Object containing parameters for the POST request
+                 */
+                var post_params = {'ajax_request' : true,
+                                'sql_query' : full_sql_query,
+                                'token' : window.parent.token,
+                                'server' : window.parent.server,
+                                'db' : window.parent.db,
+                                'table' : window.parent.table,
+                                'clause_is_unique' : nonunique,
+                                'where_clause' : full_where_clause,
+                                'fields[multi_edit]' : me_fields,
+                                'fields_name[multi_edit]' : me_fields_name,
+                                'rel_fields_list' : rel_fields_list,
+                                'do_transformations' : transformation_fields,
+                                'transform_fields_list' : transform_fields_list,
+                                'relational_display' : relational_display,
+                                'goto' : 'sql.php',
+                                'submit_type' : 'save'
+                              };
+                
+                $(g.cEdit).find('*').attr('disabled', true);
+                var $editArea = $(g.cEdit).find('.edit_area');
+                $editArea.addClass('edit_area_posting');
+                
+                $.ajax({
+                    type: 'POST',
+                    url: 'tbl_replace.php',
+                    data: post_params,
+                    context: $this_field[0],
+                    success:
+                        function(data) {
+                            $editArea.removeClass('edit_area_posting');
+                            if(data.success == true) {
+                                PMA_ajaxShowMessage(data.message);
+                                $('.to_be_saved').each(function() {
+                                    var new_clause = $(this).parent('tr').data('new_clause');
+                                    if (new_clause != '') {
+                                        $(this).parent('tr').find('.where_clause').attr('value', new_clause);
+                                    }
+                                });
+                                // remove possible previous feedback message
+                                $('#result_query').remove();
+                                if (typeof data.sql_query != 'undefined') {
+                                    // display feedback
+                                    $('#sqlqueryresults').prepend(data.sql_query);
+                                }
+                                g.hideEditCell(true, data, this);
+                                
+                                // remove the "Save edited cells" button
+                                $('.save_edited').hide();
+                                // remove the to_be_saved class
+                                $('.to_be_saved').removeClass('to_be_saved');
+                                
+                                g.isCellEdited = false;
+                            } else {
+                                PMA_ajaxShowMessage(data.error);
+                            }
+                        }
+                }) // end $.ajax()
             },
             
             // save edited cell, so it can be posted later
