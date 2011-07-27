@@ -1139,7 +1139,7 @@ msgstr "Štatistika dopytov"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Využitie CPU"
 
 #: js/messages.php:95
 msgid "System memory"
