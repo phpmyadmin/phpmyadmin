@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 16:47+0200\n"
+"PO-Revision-Date: 2011-07-27 16:48+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1867,7 +1867,7 @@ msgstr "Tamaño de fuente"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "El archivo no era un archivo subido."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #, fuzzy
