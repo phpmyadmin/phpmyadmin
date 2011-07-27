@@ -5312,10 +5312,9 @@ msgid "Number of rows"
 msgstr "Počet riadkov"
 
 #: libraries/display_tbl.lib.php:440
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Viac"
+msgstr "Režim"
 
 #: libraries/display_tbl.lib.php:442
 msgid "horizontal"
