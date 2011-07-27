@@ -1870,10 +1870,9 @@ msgid "File was not an uploaded file."
 msgstr "El archivo no era un archivo subido."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Error desconocido al subir el archivo."
+msgstr "Error desconocido durante subida."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
