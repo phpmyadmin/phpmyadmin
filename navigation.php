@@ -156,6 +156,7 @@ require_once './libraries/header_http.inc.php';
 </head>
 
 <body id="body_leftFrame">
+<div id="frameCollapse" style="display:none;"><img src="themes/pmahomme/img/frame-collapse.png"></div>
 <?php
 require './libraries/navigation_header.inc.php';
 

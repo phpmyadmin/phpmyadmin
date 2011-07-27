@@ -109,6 +109,13 @@ button {
 /******************************************************************************/
 /* specific elements */
 
+div#frameCollapse {
+    position:absolute;
+    top: 50%;
+    right: 0;
+    cursor: pointer;
+}
+
 div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
 }

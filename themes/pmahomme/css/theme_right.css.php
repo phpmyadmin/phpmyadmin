@@ -943,6 +943,13 @@ form.login label {
 /******************************************************************************/
 /* specific elements */
 
+div#frameExpand {
+    position:absolute;
+    top: 50%;
+    left: 0;
+    cursor: pointer;
+}
+
 /* topmenu */
 #topmenu a {
     text-shadow:0px 1px 0px #fff;
