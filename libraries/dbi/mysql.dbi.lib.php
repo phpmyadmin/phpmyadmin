@@ -72,10 +72,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
             : ':' . $cfg['Server']['socket'];
     }
 
-    if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
-        $cfg['Server']['socket'] = '';
-    }
-
     $client_flags = 0;
 
     // always use CLIENT_LOCAL_FILES as defined in mysql_com.h

@@ -74,11 +74,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
             : $GLOBALS['cfg']['Server']['socket'];
     }
 
-
-    if (strtolower($GLOBALS['cfg']['Server']['connect_type']) == 'tcp') {
-        $GLOBALS['cfg']['Server']['socket'] = '';
-    }
-
     // NULL enables connection to the default socket
 
     $link = mysqli_init();
