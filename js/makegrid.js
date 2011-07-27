@@ -1371,6 +1371,7 @@
             }
         });
         $('.save_edited').click(function() {
+            g.hideEditCell();
             g.postEditedCell();
         });
         $(window).bind('beforeunload', function(e) {
