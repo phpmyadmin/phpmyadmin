@@ -10213,7 +10213,7 @@ msgstr "Rango de tiempo seleccionado:"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Sólo recuperar sentencias SELECT, INSERT, UPDATE y DELETE"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
