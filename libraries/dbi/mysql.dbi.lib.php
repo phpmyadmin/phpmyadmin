@@ -20,18 +20,18 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
     unset($client_api);
 }
 
-function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistant=false)
+function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent=false)
 {
     global $cfg;
 
     if (empty($client_flags)) {
-        if ($cfg['PersistentConnections'] || $persistant) {
+        if ($cfg['PersistentConnections'] || $persistent) {
             $link = @mysql_pconnect($server, $user, $password);
         } else {
             $link = @mysql_connect($server, $user, $password);
         }
     } else {
-        if ($cfg['PersistentConnections'] || $persistant) {
+        if ($cfg['PersistentConnections'] || $persistent) {
             $link = @mysql_pconnect($server, $user, $password, $client_flags);
         } else {
             $link = @mysql_connect($server, $user, $password, false, $client_flags);
@@ -40,11 +40,12 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
 
     return $link;
 }
+
 /**
  * @param   string  $user           mysql user name
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
- * @param   array   $server host/port/socket/persistant
+ * @param   array   $server host/port/socket/persistent
  * @param   boolean $auxiliary_connection (when true, don't go back to login if connection fails)
  * @return  mixed   false on error or a mysqli object on success
  */
@@ -59,7 +60,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
         $server_socket = (empty($server['socket']))
             ? ''
             : ':' . $server['socket'];
-        $server_persistant = (empty($server['persistant']))
+        $server_persistent = (empty($server['persistent']))
             ? false
             : true;
     } else {
@@ -101,9 +102,9 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
         }
     } else {
         if (!isset($server['host'])) {
-            $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistant);
+            $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistent);
         } else {
-            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistant);
+            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistent);
         }
     }
     if (empty($link)) {
