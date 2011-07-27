@@ -7052,7 +7052,7 @@ msgstr "関数"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "申し訳ありませんが、削除されたトリガの復元に失敗しました。"
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
