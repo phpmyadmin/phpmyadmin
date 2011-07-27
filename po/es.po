@@ -6338,10 +6338,9 @@ msgid ""
 msgstr "Las siguientes estructureas fueron creadas o alteradas. Puedes:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Ver los contenidos de una estructura pulsando en su nombre"
+msgstr "Puede ver los contenidos de una estructura pulsando en su nombre"
 
 #: libraries/import.lib.php:1070
 msgid ""
