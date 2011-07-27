@@ -899,6 +899,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             unset($login_without_password_is_forbidden); //Clean up after you!
         }
 
+        // if using TCP socket is not needed
+        if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
+            $cfg['Server']['socket'] = '';
+        }
+
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
