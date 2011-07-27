@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 16:40+0200\n"
+"PO-Revision-Date: 2011-07-27 16:47+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1389,10 +1389,9 @@ msgid "Sum of grouped rows:"
 msgstr "Suma de filas agrupadas:"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
