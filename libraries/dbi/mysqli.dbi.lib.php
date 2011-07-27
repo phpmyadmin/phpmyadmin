@@ -44,6 +44,34 @@ if (! defined('MYSQLI_TYPE_BIT')) {
 }
 
 /**
+ * Helper function for connecting to the database server
+ *
+ * @param   mysqli  $link
+ * @param   string  $host
+ * @param   string  $user
+ * @param   string  $password
+ * @param   string  $dbname
+ * @param   int     $server_port
+ * @param   string  $server_socket
+ * @param   int     $client_flags
+ * @param   boolean $persistent
+ * @return  boolean
+ */
+function PMA_DBI_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket, $client_flags = null, $persistent = false)
+{
+    global $cfg;
+
+    if ($cfg['PersistentConnections'] || $persistent) {
+        $host = 'p:' . $host;
+    }
+    if ($client_flags === null) {
+        return @mysqli_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket);
+    } else {
+        return @mysqli_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket, $client_flags);
+    }
+}
+
+/**
  * connects to the database server
  *
  * @param   string  $user           mysql user name
@@ -95,13 +123,13 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if (!$server) {
-        $return_value = @mysqli_real_connect($link, $cfg['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
+        $return_value = @PMA_DBI_real_connect($link, $cfg['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
         // Retry with empty password if we're allowed to
         if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
-            $return_value = @mysqli_real_connect($link, $cfg['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
+            $return_value = @PMA_DBI_real_connect($link, $cfg['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
         }
     } else {
-        $return_value = @mysqli_real_connect($link, $server['host'], $user, $password, false, $server_port, $server_socket);
+        $return_value = @PMA_DBI_real_connect($link, $server['host'], $user, $password, false, $server_port, $server_socket);
     }
 
     if ($return_value == false) {
