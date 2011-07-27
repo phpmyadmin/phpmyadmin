@@ -55,6 +55,8 @@ if (! defined('MYSQLI_TYPE_BIT')) {
  */
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
+    global $cfg;
+
     if ($server) {
         $server_port   = (empty($server['port']))
             ? false
@@ -66,12 +68,12 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
             ? 'localhost'
             : $server['host'];
     } else {
-        $server_port   = (empty($GLOBALS['cfg']['Server']['port']))
+        $server_port   = (empty($cfg['Server']['port']))
             ? false
-            : (int) $GLOBALS['cfg']['Server']['port'];
-        $server_socket = (empty($GLOBALS['cfg']['Server']['socket']))
+            : (int) $cfg['Server']['port'];
+        $server_socket = (empty($cfg['Server']['socket']))
             ? null
-            : $GLOBALS['cfg']['Server']['socket'];
+            : $cfg['Server']['socket'];
     }
 
     // NULL enables connection to the default socket
@@ -83,20 +85,20 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     $client_flags = 0;
 
     /* Optionally compress connection */
-    if ($GLOBALS['cfg']['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
+    if ($cfg['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
         $client_flags |= MYSQLI_CLIENT_COMPRESS;
     }
 
     /* Optionally enable SSL */
-    if ($GLOBALS['cfg']['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
+    if ($cfg['Server']['ssl'] && defined('MYSQLI_CLIENT_SSL')) {
         $client_flags |= MYSQLI_CLIENT_SSL;
     }
 
     if (!$server) {
-        $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
+        $return_value = @mysqli_real_connect($link, $cfg['Server']['host'], $user, $password, false, $server_port, $server_socket, $client_flags);
         // Retry with empty password if we're allowed to
-        if ($return_value == false && isset($GLOBALS['cfg']['Server']['nopassword']) && $GLOBALS['cfg']['Server']['nopassword'] && !$is_controluser) {
-            $return_value = @mysqli_real_connect($link, $GLOBALS['cfg']['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
+        if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
+            $return_value = @mysqli_real_connect($link, $cfg['Server']['host'], $user, '', false, $server_port, $server_socket, $client_flags);
         }
     } else {
         $return_value = @mysqli_real_connect($link, $server['host'], $user, $password, false, $server_port, $server_socket);
