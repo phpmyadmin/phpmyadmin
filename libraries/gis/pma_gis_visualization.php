@@ -2,7 +2,7 @@
 /**
  * Generates the JavaScripts needed to visualize GIS data.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Visualization
 {
@@ -74,6 +74,8 @@ class PMA_GIS_Visualization
 
     /**
      * All the variable initialization, options handling has to be done here.
+     *
+     * @return nothing
      */
     protected function init()
     {
@@ -83,6 +85,8 @@ class PMA_GIS_Visualization
     /**
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
+     *
+     * @return nothing
      */
     private function _handleOptions()
     {
@@ -121,6 +125,8 @@ class PMA_GIS_Visualization
      * @param string $file_name file name
      * @param string $type      mime type
      * @param string $ext       extension of the file
+     *
+     * @return nothing
      */
     private function _toFile($file_name, $type, $ext)
     {
@@ -179,6 +185,8 @@ class PMA_GIS_Visualization
      * Saves as a SVG image to a file.
      *
      * @param string $file_name File name
+     *
+     * @return nothing
      */
     public function toFileAsSvg($file_name)
     {
@@ -201,7 +209,10 @@ class PMA_GIS_Visualization
 
         // fill the background
         $bg = imagecolorallocate($image, 229, 229, 229);
-        imagefilledrectangle($image, 0, 0, $this->_settings['width'] - 1, $this->_settings['height'] - 1, $bg);
+        imagefilledrectangle(
+            $image, 0, 0, $this->_settings['width'] - 1,
+            $this->_settings['height'] - 1, $bg
+        );
 
         $scale_data = $this->_scaleDataSet($this->_data);
         $image = $this->_prepareDataSet($this->_data, 0, $scale_data, 'png', $image);
@@ -234,6 +245,8 @@ class PMA_GIS_Visualization
      * Saves as a PNG image to a file.
      *
      * @param string $file_name File name
+     *
+     * @return nothing
      */
     public function toFileAsPng($file_name)
     {
@@ -260,6 +273,8 @@ class PMA_GIS_Visualization
      * Saves as a PDF to a file.
      *
      * @param string $file_name File name
+     *
+     * @return nothing
      */
     public function toFileAsPdf($file_name)
     {

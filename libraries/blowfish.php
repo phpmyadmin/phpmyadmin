@@ -483,8 +483,8 @@ class Horde_Cipher_blowfish
 /**
  * Encryption using blowfish algorithm
  *
- * @param   string  original data
- * @param   string  the secret
+ * @param string  original data
+ * @param string  the secret
  *
  * @return  string  the encrypted result
  *
@@ -511,8 +511,8 @@ function PMA_blowfish_encrypt($data, $secret)
 /**
  * Decryption using blowfish algorithm
  *
- * @param   string  encrypted data
- * @param   string  the secret
+ * @param string  encrypted data
+ * @param string  the secret
  *
  * @return  string  original data
  *

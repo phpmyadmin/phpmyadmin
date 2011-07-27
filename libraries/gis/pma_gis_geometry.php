@@ -2,7 +2,7 @@
 /**
  * Base class for all GIS data type classes.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 abstract class PMA_GIS_Geometry
 {
@@ -36,26 +36,27 @@ abstract class PMA_GIS_Geometry
      *
      * @param string $spatial    GIS data object
      * @param string $label      Label for the GIS data object
-     * @param string $line_color Color for the GIS data object
+     * @param string $color      Color for the GIS data object
      * @param array  $scale_data Array containing data related to scaling
      * @param image  $pdf        TCPDF instance
      *
      * @return the modified TCPDF instance
      */
-    public abstract function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+    public abstract function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
     /**
-     * Prepares the JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares the JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
-     * @param string $spatial     GIS data object
-     * @param int    $srid        Spatial reference ID
-     * @param string $label       Label for the GIS data object
-     * @param string $point_color Color for the GIS data object
-     * @param array  $scale_data  Array containing data related to scaling
+     * @param string $spatial    GIS data object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS data object
+     * @param string $color      Color for the GIS data object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return the JavaScript related to a row in the GIS dataset
      */
-    public abstract function prepareRowAsOl($spatial, $srid, $label, $point_color, $scale_data);
+    public abstract function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
 
     /**
      * Scales each row.
@@ -77,9 +78,11 @@ abstract class PMA_GIS_Geometry
     protected function getBoundsForOl($srid, $scale_data)
     {
         return 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat('
-            . $scale_data['minX'] . ', ' . $scale_data['minY'] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $scale_data['minX'] . ', ' . $scale_data['minY']
+            . ').transform(new OpenLayers.Projection("EPSG:'
             . $srid . '"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat('
-            . $scale_data['maxX'] . ', ' . $scale_data['maxY'] . ').transform(new OpenLayers.Projection("EPSG:'
+            . $scale_data['maxX'] . ', ' . $scale_data['maxY']
+            . ').transform(new OpenLayers.Projection("EPSG:'
             . $srid . '"), map.getProjectionObject()));';
     }
 
@@ -152,10 +155,53 @@ abstract class PMA_GIS_Geometry
                 $points_arr[] = $x;
                 $points_arr[] = $y;
             }
-            unset($cordinate_arr);
         }
 
         return $points_arr;
+    }
+
+    /**
+     * Generates JavaScriipt for adding points for OpenLayers polygon.
+     *
+     * @param string $polygon points of a polygon in WKT form
+     * @param string $srid    spatial reference id
+     *
+     * @return JavaScriipt for adding points for OpenLayers polygon
+     */
+    protected function addPointsForOpenLayersPolygon($polygon, $srid)
+    {
+        $row = 'new OpenLayers.Geometry.Polygon(new Array(';
+        // If the polygon doesnt have an inner polygon
+        if (strpos($polygon, "),(") === false) {
+            $points_arr = $this->extractPoints($polygon, null);
+            $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+            foreach ($points_arr as $point) {
+                $row .= '(new OpenLayers.Geometry.Point('
+                    . $point[0] . ', ' . $point[1] . '))'
+                    . '.transform(new OpenLayers.Projection("EPSG:'
+                    . $srid . '"), map.getProjectionObject()), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+            $row .= '))';
+        } else {
+            // Seperate outer and inner polygons
+            $parts = explode("),(", $polygon);
+            foreach ($parts as $ring) {
+                $points_arr = $this->extractPoints($ring, null);
+                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
+                foreach ($points_arr as $point) {
+                    $row .= '(new OpenLayers.Geometry.Point('
+                        . $point[0] . ', ' . $point[1] . '))'
+                        . '.transform(new OpenLayers.Projection("EPSG:'
+                        . $srid . '"), map.getProjectionObject()), ';
+                }
+                $row = substr($row, 0, strlen($row) - 2);
+                $row .= ')), ';
+            }
+            $row = substr($row, 0, strlen($row) - 2);
+        }
+        $row .= ')), ';
+        return $row;
     }
 }
 ?>

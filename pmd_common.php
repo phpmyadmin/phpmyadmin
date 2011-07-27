@@ -167,7 +167,7 @@ function get_pk_or_unique_keys()
 /**
  * returns all indizes
  *
- * @param   boolean whether to include ony unique ones
+ * @param boolean whether to include ony unique ones
  * @return  array indizes
  */
 function get_all_keys($unique_only = false)
@@ -203,12 +203,12 @@ function get_script_tabs()
         '<script type="text/javascript">' . "\n" .
         '// <![CDATA[' . "\n" .
         'var j_tabs = new Array();' . "\n" .
-		'var h_tabs = new Array();' . "\n" ;
+        'var h_tabs = new Array();' . "\n" ;
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
             . (PMA_foreignkey_supported($GLOBALS['PMD']['TABLE_TYPE'][$i]) ? '1' : '0') . "';\n";
-    	$script_tabs .="h_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = 1;"."\n" ;
-	}
+        $script_tabs .="h_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = 1;"."\n" ;
+    }
     $script_tabs .=
         '// ]]>' . "\n" .
         '</script>' . "\n";

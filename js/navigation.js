@@ -58,7 +58,7 @@ function PMA_saveFrameSizeReal()
     if (parent.text_dir == 'ltr') {
         pma_navi_width = parseInt(parent.document.getElementById('mainFrameset').cols)
     } else {
-        pma_navi_width = parent.document.getElementById('mainFrameset').cols.match(/\d+$/) 
+        pma_navi_width = parent.document.getElementById('mainFrameset').cols.match(/\d+$/)
     }
     if ((pma_navi_width > 0) && (pma_navi_width != PMA_getCookie('pma_navi_width'))) {
         PMA_setCookie('pma_navi_width', pma_navi_width, expires);
@@ -209,18 +209,18 @@ $(document).ready(function(){
     /* Create table */
     $('#newtable a.ajax').click(function(event){
         event.preventDefault();
-       	/*Getting the url */
+        /*Getting the url */
         var url = $('#newtable a').attr("href");
         if (url.substring(0, 15) == "tbl_create.php?") {
              url = url.substring(15);
         }
-       	url = url +"&num_fields=&ajax_request=true";
-       	/*Creating a div on the frame_content frame */
-       	var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
-       	var target = "tbl_create.php";
+        url = url +"&num_fields=&ajax_request=true";
+        /*Creating a div on the frame_content frame */
+        var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
+        var target = "tbl_create.php";
 
-       	/*Calling to the createTableDialog function*/
-       	PMA_createTableDialog(div , url , target);
+        /*Calling to the createTableDialog function*/
+        PMA_createTableDialog(div , url , target);
     });//end of create new table
 });//end of document get ready
 

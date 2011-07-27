@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS GEOMETRYCOLLECTION objects.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
 {
@@ -24,8 +24,8 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public static function singleton()
     {
         if (!isset(self::$_instance)) {
-            $c = __CLASS__;
-            self::$_instance = new $c;
+            $class = __CLASS__;
+            self::$_instance = new $class;
         }
 
         return self::$_instance;
@@ -130,7 +130,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
             $type = substr($sub_part, 0, $type_pos);
 
             $gis_obj = PMA_GIS_Factory::factory($type);
-            $image = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
+            $pdf = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
         }
         return $pdf;
     }
@@ -165,7 +165,8 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param int    $srid       Spatial reference ID

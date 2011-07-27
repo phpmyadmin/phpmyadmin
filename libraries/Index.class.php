@@ -86,7 +86,7 @@ class PMA_Index
     /**
      * Constructor
      *
-     * @param   array $params
+     * @param array $params
      */
     public function __construct($params = array())
     {
@@ -111,8 +111,8 @@ class PMA_Index
     /**
      * returns an array with all indexes from the given table
      *
-     * @param   string $table
-     * @param   string $schema
+     * @param string $table
+     * @param string $schema
      * @return  array
      */
     static public function getFromTable($table, $schema)
@@ -129,8 +129,8 @@ class PMA_Index
     /**
      * return primary if set, false otherwise
      *
-     * @param   string $table
-     * @param   string $schema
+     * @param string $table
+     * @param string $schema
      * @return  mixed primary index or false if no one exists
      */
     static public function getPrimary($table, $schema)
@@ -147,8 +147,8 @@ class PMA_Index
     /**
      * Load index data for table
      *
-     * @param   string $table
-     * @param   string $schema
+     * @param string $table
+     * @param string $schema
      * @return  boolean
      */
     static protected function _loadIndexes($table, $schema)
@@ -176,7 +176,7 @@ class PMA_Index
     /**
      * Add column to index
      *
-     * @param   array $params column params
+     * @param array $params column params
      */
     public function addColumn($params)
     {
@@ -216,7 +216,7 @@ class PMA_Index
     /**
      * Returns true if $column indexed in this index
      *
-     * @param   string $column
+     * @param string $column
      * @return  boolean
      */
     public function hasColumn($column)
@@ -403,10 +403,10 @@ class PMA_Index
     /**
      * Show index data
      *
-     * @param   string      $table          The tablename
-     * @param   array       $indexes_info   Referenced info array
-     * @param   array       $indexes_data   Referenced data array
-     * @param   boolean     $print_mode
+     * @param string      $table          The tablename
+     * @param array       $indexes_info   Referenced info array
+     * @param array       $indexes_data   Referenced data array
+     * @param boolean     $print_mode
      * @access  public
      * @return  array       Index collection array
      */
@@ -539,7 +539,7 @@ class PMA_Index
      * Function to check over array of indexes and look for common problems
      *
      * @access  public
-     * @param   string      name of table
+     * @param string      name of table
      * @return  string      Output HTML
      */
     static public function findDuplicates($table, $schema)

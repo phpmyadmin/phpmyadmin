@@ -264,7 +264,7 @@ if ($import_file != 'none' && !$error) {
                 $file_to_unlink = $import_file_new;
             }
 
-	    $size = filesize($import_file);
+            $size = filesize($import_file);
         }
     }
 

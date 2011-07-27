@@ -21,8 +21,9 @@ class PMA_showPHPDocu_test extends PHPUnit_Framework_TestCase
 
         $target = "docu";
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="http://php.net/manual/' . $lang . '/' . $target . '" target="documentation"><img class="icon" src="'
-                    . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
+        $expected = '<a href="http://php.net/manual/' . $lang . '/' . $target 
+            . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' 
+            . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
 
         $this->assertEquals($expected, PMA_showPHPDocu($target));
     }
@@ -33,7 +34,8 @@ class PMA_showPHPDocu_test extends PHPUnit_Framework_TestCase
 
         $target = "docu";
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '[<a href="http://php.net/manual/' . $lang . '/' . $target . '" target="documentation">' . __('Documentation') . '</a>]';
+        $expected = '[<a href="http://php.net/manual/' . $lang . '/' . $target 
+            . '" target="documentation">' . __('Documentation') . '</a>]';
 
         $this->assertEquals($expected, PMA_showPHPDocu($target));
     }

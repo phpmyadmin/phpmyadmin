@@ -80,7 +80,7 @@ if (strlen($ldi_enclosed) > 0) {
 if (strlen($ldi_escaped) > 0) {
     $sql .= ' ESCAPED BY \'' . PMA_sqlAddSlashes($ldi_escaped) . '\'';
 }
-if (strlen($ldi_new_line) > 0){
+if (strlen($ldi_new_line) > 0) {
     if ($ldi_new_line == 'auto') {
         $ldi_new_line = PMA_whichCrlf() == "\n" ? '\n' : '\r\n';
     }

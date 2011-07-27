@@ -300,7 +300,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
      * Database has been successfully renamed/moved.  If in an Ajax request,
      * generate the output with {@link PMA_ajaxResponse} and exit
      */
-    if( $GLOBALS['is_ajax_request'] == true) {
+    if ( $GLOBALS['is_ajax_request'] == true) {
         $extra_data['newname'] = $newname;
         $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
@@ -404,17 +404,6 @@ if ($db != 'mysql') {
     ?>
         </legend>
         <input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" />
-        <?php
-    echo '(' . __('Command') . ': ';
-    /**
-     * @todo (see explanations above in a previous todo)
-     */
-    //if (PMA_MYSQL_INT_VERSION >= XYYZZ) {
-    //    echo 'RENAME DATABASE';
-    //} else {
-        echo 'INSERT INTO ... SELECT';
-    //}
-    echo ')'; ?>
     </fieldset>
     <fieldset class="tblFooters">
         <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />

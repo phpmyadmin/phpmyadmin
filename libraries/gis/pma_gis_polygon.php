@@ -2,7 +2,7 @@
 /**
  * Handles the visualization of GIS POLYGON objects.
  *
- * @package phpMyAdmin
+ * @package phpMyAdmin-GIS
  */
 class PMA_GIS_Polygon extends PMA_GIS_Geometry
 {
@@ -24,8 +24,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public static function singleton()
     {
         if (!isset(self::$_instance)) {
-            $c = __CLASS__;
-            self::$_instance = new $c;
+            $class = __CLASS__;
+            self::$_instance = new $class;
         }
 
         return self::$_instance;
@@ -77,10 +77,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
     {
         // allocate colors
-        $r = hexdec(substr($fill_color, 1, 2));
-        $g = hexdec(substr($fill_color, 3, 2));
-        $b = hexdec(substr($fill_color, 4, 2));
-        $color = imagecolorallocate($image, $r, $g, $b);
+        $red   = hexdec(substr($fill_color, 1, 2));
+        $green = hexdec(substr($fill_color, 3, 2));
+        $blue  = hexdec(substr($fill_color, 4, 2));
+        $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
@@ -122,10 +122,10 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
     {
         // allocate colors
-        $r = hexdec(substr($fill_color, 1, 2));
-        $g = hexdec(substr($fill_color, 3, 2));
-        $b = hexdec(substr($fill_color, 4, 2));
-        $color = array($r, $g, $b);
+        $red   = hexdec(substr($fill_color, 1, 2));
+        $green = hexdec(substr($fill_color, 3, 2));
+        $blue  = hexdec(substr($fill_color, 4, 2));
+        $color = array($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
@@ -206,7 +206,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset to visualize it with OpenLayers.
+     * Prepares JavaScript related to a row in the GIS dataset
+     * to visualize it with OpenLayers.
      *
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       Spatial reference ID
@@ -234,34 +235,9 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = substr($spatial, 9, (strlen($spatial) - 11));
 
-        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.Polygon(new Array(';
-        // If the polygon doesnt have an inner polygon
-        if (strpos($polygon, "),(") === false) {
-            $points_arr = $this->extractPoints($polygon, null);
-            $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
-            foreach ($points_arr as $point) {
-                $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                    . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
-            $row .= '))';
-        } else {
-            // Seperate outer and inner polygons
-            $parts = explode("),(", $polygon);
-            foreach ($parts as $ring) {
-                $points_arr = $this->extractPoints($ring, null);
-                $row .= 'new OpenLayers.Geometry.LinearRing(new Array(';
-                foreach ($points_arr as $point) {
-                    $row .= '(new OpenLayers.Geometry.Point(' . $point[0] . ', ' . $point[1] . '))'
-                        . '.transform(new OpenLayers.Projection("EPSG:' . $srid . '"), map.getProjectionObject()), ';
-                }
-                $row = substr($row, 0, strlen($row) - 2);
-                $row .= ')), ';
-            }
-            $row = substr($row, 0, strlen($row) - 2);
-        }
-        $row .= ')), null, ' . json_encode($style_options) . '));';
+        $row .= 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector(';
+        $row .= $this->addPointsForOpenLayersPolygon($polygon, $srid);
+        $row .= 'null, ' . json_encode($style_options) . '));';
         return $row;
     }
 

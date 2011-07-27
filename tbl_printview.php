@@ -69,7 +69,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote($table);
     }
-    echo '<strong>'.  __('Show tables') . ': ' . $tbl_list . '</strong>' . "\n";
+    echo '<strong>'.  __('Show tables') . ': ' . htmlspecialchars($tbl_list) . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 
@@ -84,7 +84,7 @@ foreach ($the_tables as $key => $table) {
     }
     $counter++;
     echo '<div' . $breakstyle . '>' . "\n";
-    echo '<h1>' . $table . '</h1>' . "\n";
+    echo '<h1>' . htmlspecialchars($table) . '</h1>' . "\n";
 
     /**
      * Gets table informations
@@ -276,7 +276,7 @@ foreach ($the_tables as $key => $table) {
             if ($nonisam == false) {
                 // Gets some sizes
 
-		$mergetable = PMA_Table::isMerge($db, $table);
+        $mergetable = PMA_Table::isMerge($db, $table);
 
                 list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
                 if ($mergetable == false) {

@@ -153,7 +153,7 @@ function PMA_generateCharsetQueryPart($collation) {
 /**
  * returns collation of given db
  *
- * @param   string  $db     name of db
+ * @param string  $db     name of db
  * @return  string  collation of $db
  */
 function PMA_getDbCollation($db) {
@@ -190,7 +190,7 @@ function PMA_getServerCollation() {
  * returns description for given collation
  *
  *
- * @param   string  $collation  MySQL collation string
+ * @param string  $collation  MySQL collation string
  * @return  string  collation description
  */
 function PMA_getCollationDescr($collation) {

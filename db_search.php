@@ -92,7 +92,7 @@ if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
  */
 $sub_part = '';
 
-if( $GLOBALS['is_ajax_request'] != true) {
+if ( $GLOBALS['is_ajax_request'] != true) {
     require './libraries/db_info.inc.php';
     echo '<div id="searchresults">';
 }
@@ -113,10 +113,10 @@ if (isset($_REQUEST['submit_search'])) {
      * explode
      * count
      * strlen
-     * @param   string   the table name
-     * @param   string   restrict the search to this field
-     * @param   string   the string to search
-     * @param   integer  type of search (1 -> 1 word at least, 2 -> all words,
+     * @param string   the table name
+     * @param string   restrict the search to this field
+     * @param string   the string to search
+     * @param integer  type of search (1 -> 1 word at least, 2 -> all words,
      *                                   3 -> exact string, 4 -> regexp)
      *
      * @return  array    3 SQL querys (for count, display and delete results)
@@ -254,7 +254,7 @@ if (isset($_REQUEST['submit_search'])) {
 /**
  * If we are in an Ajax request, we need to exit after displaying all the HTML
  */
-if($GLOBALS['is_ajax_request'] == true) {
+if ($GLOBALS['is_ajax_request'] == true) {
     exit;
 }
 else {

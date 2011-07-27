@@ -28,7 +28,7 @@ var codemirror_editor = false;
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
  */
 var chart_activeTimeouts = new Object();
-    
+
 
 /**
  * Add a hidden field to the form to indicate that this will be an
@@ -140,7 +140,7 @@ function PMA_addDatepicker($this_element, options) {
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
     }
-    
+
     var defaultOptions = {
         showOn: 'button',
         buttonImage: themeCalendarImage, // defined in js/messages.php
@@ -159,7 +159,7 @@ function PMA_addDatepicker($this_element, options) {
 
             // Fix wrong timepicker z-index, doesn't work without timeout
             setTimeout(function() {
-                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index')) 
+                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'))
             },0);
         },
         constrainInput: false
@@ -214,7 +214,7 @@ function confirmLink(theLink, theSqlQuery)
 			var name = 'is_js_confirmed';
             if($(theLink).attr('href').indexOf('usesubform') != -1)
 				name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
-			
+
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
         } else if ( typeof(theLink.href) != 'undefined' ) {
             theLink.href += '&is_js_confirmed=1';
@@ -406,7 +406,7 @@ function checkSqlQuery(theForm)
 function emptyCheckTheField(theForm, theFieldName)
 {
     var theField = theForm.elements[theFieldName];
-    var space_re = new RegExp('\\s+');    
+    var space_re = new RegExp('\\s+');
     return (theField.value.replace(space_re, '') == '') ? 1 : 0;
 } // end of the 'emptyCheckTheField()' function
 
@@ -602,13 +602,13 @@ $(document).ready(function() {
             return;
         }
         var $tr = $(this);
-        
+
         // make the table unselectable (to prevent default highlighting when shift+click)
         $tr.parents('table').noSelect();
-        
+
         if (!e.shiftKey || last_clicked_row == -1) {
             // usual click
-            
+
             // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
             var $checkbox = $tr.find(':checkbox');
             if ($checkbox.length) {
@@ -629,14 +629,14 @@ $(document).ready(function() {
                 $tr.toggleClass('marked');
                 last_click_checked = false;
             }
-            
+
             // remember the last clicked row
             last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
             var start, end;
-            
+
             // clear last shift click result
             if (last_shift_clicked_row >= 0) {
                 if (last_shift_clicked_row >= last_clicked_row) {
@@ -652,7 +652,7 @@ $(document).ready(function() {
                     .find(':checkbox')
                     .attr('checked', false);
             }
-            
+
             // handle new shift click
             var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
             if (curr_row >= last_clicked_row) {
@@ -667,7 +667,7 @@ $(document).ready(function() {
                 .addClass('marked')
                 .find(':checkbox')
                 .attr('checked', true);
-            
+
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
         }
@@ -1424,14 +1424,14 @@ function PMA_createTableDialog( div, url , target) {
  *                              realtime: {
  *                                  url: adress to get the data from (will always add token, ajax_request=1 and chart_data=1 to the GET request)
  *                                  type: the GET request will also add type=[value of the type property] to the request
- *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order: 
+ *                                  callback: Callback function that should draw the point, it's called with 4 parameters in this order:
  *                                      - the chart object
  *                                      - the current response value of the GET request, JSON parsed
  *                                      - the previous response value of the GET request, JSON parsed
  *                                      - the number of added points
  *                                  error: Callback function when the get request fails. TODO: Apply callback on timeouts aswell
  *                              }
- * 
+ *
  * @return  object   The created highcharts instance
  */
 function PMA_createChart(passedSettings) {
@@ -1449,14 +1449,14 @@ function PMA_createChart(passedSettings) {
                     var lastValue = null, curValue = null;
                     var numLoadedPoints = 0, otherSum = 0;
                     var diff;
-                    
+
                     // No realtime updates for graphs that are being exported, and disabled when realtime is not set
                     // Also don't do live charting if we don't have the server time
-                    if(thisChart.options.chart.forExport == true || 
-                        ! thisChart.options.realtime || 
+                    if(thisChart.options.chart.forExport == true ||
+                        ! thisChart.options.realtime ||
                         ! thisChart.options.realtime.callback ||
                         ! server_time_diff) return;
-                            
+
                     thisChart.options.realtime.timeoutCallBack = function() {
                         thisChart.options.realtime.postRequest = $.post(
                             thisChart.options.realtime.url,
@@ -1469,31 +1469,31 @@ function PMA_createChart(passedSettings) {
                                         thisChart.options.realtime.error(err);
                                     return;
                                 }
-                                
+
                                 if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
                                 else diff = parseInt(curValue.x - lastValue.x);
-                                
+
                                 thisChart.xAxis[0].setExtremes(
-                                    thisChart.xAxis[0].getExtremes().min+diff, 
-                                    thisChart.xAxis[0].getExtremes().max+diff, 
+                                    thisChart.xAxis[0].getExtremes().min+diff,
+                                    thisChart.xAxis[0].getExtremes().max+diff,
                                     false
                                 );
-                                
+
                                 thisChart.options.realtime.callback(thisChart,curValue,lastValue,numLoadedPoints);
-                                
+
                                 lastValue = curValue;
                                 numLoadedPoints++;
-                                
+
                                 // Timeout has been cleared => don't start a new timeout
                                 if(chart_activeTimeouts[container] == null) return;
-                                
+
                                 chart_activeTimeouts[container] = setTimeout(
-                                    thisChart.options.realtime.timeoutCallBack, 
+                                    thisChart.options.realtime.timeoutCallBack,
                                     thisChart.options.realtime.refreshRate
-                                ); 
+                                );
                         });
                     }
-                    
+
                     chart_activeTimeouts[container] = setTimeout(thisChart.options.realtime.timeoutCallBack, 5);
                 }
             }
@@ -1525,7 +1525,7 @@ function PMA_createChart(passedSettings) {
         tooltip: {
             formatter: function() {
                     return '<b>' + this.series.name +'</b><br/>' +
-                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' + 
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
                     Highcharts.numberFormat(this.y, 2);
             }
         },
@@ -1534,18 +1534,18 @@ function PMA_createChart(passedSettings) {
         },
         series: []
     }
-    
+
     /* Set/Get realtime chart default values */
-    if(passedSettings.realtime) {        
-        if(!passedSettings.realtime.refreshRate) 
+    if(passedSettings.realtime) {
+        if(!passedSettings.realtime.refreshRate)
             passedSettings.realtime.refreshRate = 5000;
-        
-        if(!passedSettings.realtime.numMaxPoints) 
+
+        if(!passedSettings.realtime.numMaxPoints)
             passedSettings.realtime.numMaxPoints = 30;
-        
+
         // Allow custom POST vars to be added
         passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
-        
+
         if(server_time_diff) {
             settings.xAxis.min = new Date().getTime() - server_time_diff - passedSettings.realtime.numMaxPoints * passedSettings.realtime.refreshRate;
             settings.xAxis.max = new Date().getTime() - server_time_diff + passedSettings.realtime.refreshRate;
@@ -1588,8 +1588,8 @@ function PMA_createProfilingChart(data, options) {
             }
         },
         tooltip: {
-            formatter: function() { 
-                return '<b>'+ this.point.name +'</b><br/>'+PMA_prettyProfilingNum(this.y)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)'; 
+            formatter: function() {
+                return '<b>'+ this.point.name +'</b><br/>'+PMA_prettyProfilingNum(this.y)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)';
             }
         }
     },options));
@@ -1864,12 +1864,12 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Create Table'
 
 /**
- * jQuery coding for 'Change Table'.  Used on tbl_structure.php *
+ * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
 $(document).ready(function() {
     /**
-     *Ajax action for submitting the column change form
+     *Ajax action for submitting the "Column Change" and "Add Column" form
     **/
     $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
         event.preventDefault();
@@ -1904,16 +1904,20 @@ $(document).ready(function() {
                         $("#result_query").prepend((data.message));
                         if ($("#change_column_dialog").length > 0) {
                             $("#change_column_dialog").dialog("close").remove();
+                        } else if ($("#add_columns").length > 0) {
+                            $("#add_columns").dialog("close").remove();
                         }
                         /*Reload the field form*/
                         $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
                             $("#fieldsForm").remove();
+                            $("#addColumns").remove();
                             var $temp_div = $("<div id='temp_div'><div>").append(form_data);
                             if ($("#sqlqueryresults").length != 0) {
                                 $temp_div.find("#fieldsForm").insertAfter("#sqlqueryresults");
                             } else {
                                 $temp_div.find("#fieldsForm").insertAfter(".error");
                             }
+                            $temp_div.find("#addColumns").insertBefore("iframe.IE_hack");
                             /*Call the function to display the more options in table*/
                             displayMoreTableOpts();
                         });
@@ -2135,6 +2139,10 @@ $(document).ready(function() {
         $("#popup_background").css({"opacity":"0.7"});
         $("#popup_background").fadeIn("fast");
         $("#enum_editor").fadeIn("fast");
+        /**Replacing the column name in the enum editor header*/
+        var column_name = $("#append_fields_form").find("input[id=field_0_1]").attr("value");
+        var h3_text = $("#enum_editor h3").html();
+        $("#enum_editor h3").html(h3_text.split('"')[0]+'"'+column_name+'"');
 
         // Get the values
         var values = $(this).parent().prev("input").attr("value").split(",");
@@ -2312,9 +2320,9 @@ function checkIndexName(form_id)
 /**
  * function to convert the footnotes to tooltips
  *
- * @param   jquery-Object   $div    a div jquery object which specifies the 
- *                                  domain for searching footnootes. If we 
- *                                  ommit this parameter the function searches 
+ * @param   jquery-Object   $div    a div jquery object which specifies the
+ *                                  domain for searching footnootes. If we
+ *                                  ommit this parameter the function searches
  *                                  the footnotes in the whole body
  **/
 function PMA_convertFootnotesToTooltips($div) {
@@ -2669,7 +2677,7 @@ $(document).ready(function() {
                 $checkbox.attr('checked', checked);
             }
             // for all td of the same vertical row, toggle the marked class
-            if (checked) {      
+            if (checked) {
                 $('.vmarker').filter('.row_' + row_num).addClass('marked');
             } else {
                 $('.vmarker').filter('.row_' + row_num).removeClass('marked');
@@ -2731,7 +2739,7 @@ $(document).ready(function() {
      * Enables the text generated by PMA_linkOrButton() to be clickable
      */
     $('a[class~="formLinkSubmit"]').live('click',function(e) {
-        
+
         if($(this).attr('href').indexOf('=') != -1) {
             var data = $(this).attr('href').substr($(this).attr('href').indexOf('#')+1).split('=',2);
             $(this).parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '"/>');
@@ -2926,7 +2934,7 @@ $(document).ready(function() {
                 else $(this).removeAttr('unselectable', 'on');
             });
         }
-    }; //end noSelect    
+    }; //end noSelect
 })(jQuery);
 
 /**
@@ -2964,7 +2972,7 @@ function PMA_createqTip($elements, content, options) {
             }
         }
     }
-    
+
     $elements.qtip($.extend(true, o, options));
 }
 
