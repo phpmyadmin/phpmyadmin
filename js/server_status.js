@@ -596,20 +596,20 @@ $(function() {
     var presetCharts = {
         'cpu-WINNT': {
             title: PMA_messages['strSystemCPUUsage'],
-            nodes: [{ dataType: 'cpu', name: 'loadavg', unit: '%'}]
+            nodes: [{ dataType: 'cpu', name: PMA_messages['strAverageLoad'], dataPoint: 'loadavg', unit: '%'}]
         },
         'memory-WINNT': {
             title: PMA_messages['strSystemMemory'],
             nodes: [
-                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  },
+                { dataType: 'memory', name: PMA_messages['strTotalMemory'], dataPoint: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  },
             ]
         },
         'swap-WINNT': {
             title: PMA_messages['strSystemSwap'],
             nodes: [
-                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedSwap'], dataPoint: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
             ]
         },
         'cpu-Linux': {
@@ -630,10 +630,10 @@ $(function() {
         'memory-Linux': {
             title: PMA_messages['strSystemMemory'],
             nodes: [
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strCachedMemory'], dataPoint: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strBufferedMemory'], dataPoint: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strFreeMemory'], dataPoint:'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
             ],
             settings: {
                 chart: {
@@ -650,9 +650,9 @@ $(function() {
         'swap-Linux': {
             title: PMA_messages['strSystemSwap'],
             nodes: [
-                { dataType: 'memory', name: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strCachedSwap'], dataPoint: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strFreeSwap'], dataPoint: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
             ],
             settings: {
                 chart: {
@@ -671,18 +671,18 @@ $(function() {
     // Default setting
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
-                 nodes: [{ dataType: 'statusvar', name: 'Questions', display: 'differential' }]
-              },
-         'c1': {
+                 nodes: [{ dataType: 'statusvar', name: PMA_messages['strQuestions'], dataPoint: 'Questions', display: 'differential' }]
+        },
+        'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
-                 nodes: [ { dataType: 'statusvar', name: 'Connections', display: 'differential' },
-                          { dataType: 'proc', name: 'Processes'} ]
-               },
-         'c2': {
+                 nodes: [ { dataType: 'statusvar', name: PMA_messages['strConnections'], dataPoint: 'Connections', display: 'differential' },
+                          { dataType: 'proc', name: PMA_messages['strProcesses'], dataPoint: 'processes'} ]
+        },
+        'c2': {
                  title: PMA_messages['strTraffic'],
                  nodes: [
-                    { dataType: 'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
-                    { dataType: 'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
+                    { dataType: 'statusvar', name: PMA_messages['strBytesSent'], dataPoint: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
+                    { dataType: 'statusvar', name: PMA_messages['strBytesReceived'], dataPoint: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
                  ]
          }
     };
@@ -706,7 +706,7 @@ $(function() {
             menuItems: [{
                 textKey: 'editChart',
                 onclick: function() {
-                    alert('tbi');
+                    editChart(this);
                 }
             }, {
                 textKey: 'removeChart',
@@ -746,9 +746,6 @@ $(function() {
                     height: 24
                 },
                 events: {
-                    start: function() {
-                      //  console.log('start.');
-                    },
                     // Drop event. The drag child element is moved into the drop element
                     // and vice versa. So the parameters are switched.
                     drop: function(drag, drop, pos) {
@@ -1133,11 +1130,12 @@ $(function() {
 
         var serie = {
             dataType:'statusvar',
+            dataPoint: $('input#variableInput').attr('value'),
             name: $('input#variableInput').attr('value'),
             display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : ''
         };
 
-        if(serie.name == 'Processes') serie.dataType='proc';
+        if(serie.dataPoint == 'Processes') serie.dataType='proc';
 
         if($('input[name="useDivisor"]').attr('checked'))
             serie.valueDivisor = parseInt($('input[name="valueDivisor"]').attr('value'));
@@ -1150,7 +1148,7 @@ $(function() {
         var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
         str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
 
-        $('#seriesPreview').append('- ' + serie.name + str + '<br>');
+        $('#seriesPreview').append('- ' + serie.dataPoint + str + '<br>');
 
         newChart.nodes.push(serie);
 
@@ -1209,7 +1207,7 @@ $(function() {
             height: $('table#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top - $('table#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
         }
         $('table#chartGrid').html('');
-
+        
         /* Add all charts - in correct order */
         var keys = [];
         $.each(runtime.charts, function(key, value) {
@@ -1358,7 +1356,7 @@ $(function() {
 
         chartObj.chart = PMA_createChart(settings);
         chartObj.numPoints = 0;
-
+        
         if(initialize != true) {
             runtime.charts['c'+runtime.chartAI] = chartObj;
             buildRequiredDataList();
@@ -1370,6 +1368,55 @@ $(function() {
         runtime.chartAI++;
     }
 
+    function editChart(chartObj) {
+        var htmlnode = chartObj.options.chart.renderTo;
+        if(! htmlnode ) return;
+        
+        var chart=null;
+        var chartKey=null;
+        $.each(runtime.charts, function(key, value) {
+            if(value.chart.options.chart.renderTo == htmlnode) {
+                chart = value;
+                chartKey = key;
+                return false;
+            }
+        });
+        
+        if(chart == null) return;
+        
+        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';       
+        htmlStr += '</p><p><b>Series:</b> </p><ol>';
+        for(var i=0; i<chart.nodes.length; i++) {
+            htmlStr += '<li><i>' + chart.nodes[i].dataPoint  +': </i><br/><input type="text" name="chartSerie-' + i + '" value=" ' + chart.nodes[i].name + '" /></li>';
+        }
+        
+        dlgBtns = {};
+        dlgBtns['Save'] = function() {
+            runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').attr('value');
+            runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
+            
+            $('div#emptyDialog input[name*="chartSerie"]').each(function() {
+                var idx = $(this).attr('name').split('-')[1];
+                runtime.charts[chartKey].nodes[idx].name = $(this).attr('value');
+                runtime.charts[chartKey].chart.series[idx].name = $(this).attr('value');
+            });
+            
+            $(this).dialog('close');
+            saveMonitor();
+        };
+        dlgBtns['Cancel'] = function() {
+            $(this).dialog('close');
+        };
+        
+        $('div#emptyDialog').attr('title','Edit chart');
+        $('div#emptyDialog').html(htmlStr+'</ol>');
+        $('div#emptyDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: dlgBtns
+        });
+    }
+    
     function removeChart(chartObj) {
         var htmlnode = chartObj.options.chart.renderTo;
         if(! htmlnode ) return;
@@ -1404,7 +1451,7 @@ $(function() {
             }
             var value, i=0;
             var diff;
-
+            
             /* Update values in each graph */
             $.each(runtime.charts, function(orderKey, elem) {
                 var key = elem.chartID;
@@ -1435,9 +1482,8 @@ $(function() {
                     if(elem.nodes[j].transformFn) {
                         value = eval('(function(cur, prev) { ' + elem.nodes[j].transformFn + '})(' +
                             'chartData[key][j],' + (oldChartData == null ? 'null' : 'oldChartData[key][j]') + ')');
-                        
                     }
-
+                    
                     if(value != undefined)
                         elem.chart.series[j].addPoint(
                             {  x: chartData.x, y: value },

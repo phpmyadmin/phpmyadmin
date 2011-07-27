@@ -88,8 +88,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         switch ($node['dataType']) {
                             case 'statusvar':
                                 // Some white list filtering
-                                if (!preg_match('/[^a-zA-Z_]+/',$node['name']))
-                                    $statusVars[] = $node['name'];
+                                if (!preg_match('/[^a-zA-Z_]+/',$node['dataPoint']))
+                                    $statusVars[] = $node['dataPoint'];
                                 break;
 
                             case 'proc':
@@ -121,7 +121,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 if (!$memory)
                                     $memory  = $sysinfo->memory();
 
-                                $ret[$chart_id][$node_id]['y'] = $memory[$node['name']];
+                                $ret[$chart_id][$node_id]['y'] = $memory[$node['dataPoint']];
                                 break;
                         }
                     }
@@ -134,7 +134,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 foreach ($ret as $chart_id => $chartNodes) {
                     foreach ($chartNodes as $node_id => $node) {
                         if ($node['dataType'] == 'statusvar')
-                            $ret[$chart_id][$node_id]['y'] = $vars[$node['name']];
+                            $ret[$chart_id][$node_id]['y'] = $vars[$node['dataPoint']];
                     }
                 }
 

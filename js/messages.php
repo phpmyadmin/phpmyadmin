@@ -98,12 +98,28 @@ $js_messages['strMiB'] = __('MiB');
 $js_messages['strKiB'] = __('KiB');
 
 $js_messages['strAverageLoad'] = __('Average load');
+$js_messages['strTotalMemory'] = __('Total memory');
+$js_messages['strCachedMemory'] = __('Cached memory');
+$js_messages['strBufferedMemory'] = __('Buffered memory');
+$js_messages['strFreeMemory'] = __('Free memory');
+$js_messages['strUsedMemory'] = __('Used memory');
+
+$js_messages['strTotalSwap'] = __('Total Swap');
+$js_messages['strCachedSwap'] = __('Cached Swap');
+$js_messages['strUsedSwap'] = __('Used Swap');
+$js_messages['strFreeSwap'] = __('Free Swap');
+
+$js_messages['strBytesSent'] = __('Bytes sent');
+$js_messages['strBytesReceived'] = __('Bytes received');
+$js_messages['strConnections'] = __('Connections');
+$js_messages['strProcesses'] = __('Processes');
+
 /* l10n: Questions is the name of a MySQL Status variable */
 $js_messages['strQuestions'] = __('Questions');
 $js_messages['strTraffic'] = __('Traffic');
 $js_messages['strSettings'] = __('Settings');
 $js_messages['strRemoveChart'] = __('Remove chart');
-$js_messages['strEditChart'] = __('Edit labels and series');
+$js_messages['strEditChart'] = __('Edit title and labels');
 $js_messages['strAddChart'] = __('Add chart to grid');
 $js_messages['strClose'] = __('Close');
 $js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to the series');
