@@ -1189,7 +1189,7 @@ msgstr "Upraviť popisy a série"
 
 #: js/messages.php:107
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Pridať graf do mriežky"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
