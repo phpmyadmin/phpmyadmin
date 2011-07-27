@@ -10146,6 +10146,7 @@ msgstr ""
 "tarea muy intensiva por lo que se recomienda seleccionar un período de "
 "tiempo lo más pequeño posible y desactivar «general_log» y vaciar sus tablas "
 "una vez que ya no se necesite monitorizar.\n"
+"        "
 
 #: server_status.php:1396
 msgid "CPU Usage"
