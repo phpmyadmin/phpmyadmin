@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 16:49+0200\n"
+"PO-Revision-Date: 2011-07-27 16:50+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10066,7 +10066,6 @@ msgid "Monitor Instructions"
 msgstr "Instrucciones de monitorización"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -10083,8 +10082,10 @@ msgid ""
 msgstr ""
 "El monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
-"esto último va a necesitar que «log_output» esté definido como 'TABLE' y "
-"tener activado «slow_query_log» o «general_log»."
+"esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1373
 #, fuzzy
