@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-24 11:06+0200\n"
+"PO-Revision-Date: 2011-07-25 19:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -705,7 +705,7 @@ msgstr "Tabloyu onar"
 
 #: db_structure.php:513 tbl_operations.php:627
 msgid "Analyze table"
-msgstr "Tabloyu incele"
+msgstr "Tabloyu çözümle"
 
 #: db_structure.php:515
 msgid "Add prefix to table"
@@ -1199,10 +1199,9 @@ msgid "Pause monitor"
 msgstr "İzlemeyi duraklat"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log ve slow_query_log etkinleştirildi."
+msgstr "general_log ve slow_query_log etkin."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
@@ -1213,10 +1212,9 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log etkinleştirildi."
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log ve general_log etkisizleştirildi."
+msgstr "slow_query_log ve general_log etkisiz."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
@@ -1314,7 +1312,7 @@ msgstr "Genel günlükten"
 
 #: js/messages.php:142
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Günlükler inceleniyor ve yükleniyor. Bu biraz zaman alabilir."
+msgstr "Günlükler çözümleniyor ve yükleniyor. Bu biraz zaman alabilir."
 
 #: js/messages.php:143
 msgid ""
@@ -1346,14 +1344,13 @@ msgstr "Günlük tablosuna atla"
 
 #: js/messages.php:148
 msgid "Log analysed, but not data found in this time span."
-msgstr "Günlük incelendi, ama bu zaman aralığında bulunan veri yok."
+msgstr "Günlük çözümlendi, ama bu zaman aralığında bulunan veri yok."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Süzgeç"
+msgstr "Süzgeçler"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:153 navigation.php:270
@@ -1362,23 +1359,21 @@ msgstr "Süzgeç"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Kelime/düzenli ifadeye göre sorguları süz"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
-msgstr ""
+msgstr "Sorguları grupla, WHERE ifadelerindeki değişken veri yoksayılıyor"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Eklenmiş satır sayısı"
+msgstr "Gruplanmış satırların toplamı:"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Toplam"
+msgstr "Toplam:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1517,10 +1512,9 @@ msgid "Change"
 msgstr "Değiştir"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "En fazla yürütme süresi"
+msgstr "Sorgu yürütme süresi"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
@@ -1536,10 +1530,9 @@ msgid "Ignore"
 msgstr "Yoksay"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Sütun ekle"
+msgstr "Sütunları ekle"
 
 #: js/messages.php:221
 msgid "Select referenced key"
@@ -6255,10 +6248,9 @@ msgid ""
 msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "İsmine tıklayarak yapının içeriklerini görüntüleyin"
+msgstr "Adına tıklayarak yapının içeriklerini görün"
 
 #: libraries/import.lib.php:1070
 msgid ""
@@ -6268,10 +6260,9 @@ msgstr ""
 "değiştirin"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Aşağıdaki \"Yapı\" bağlantısıyla bunun yapısını düzenleyin"
+msgstr "Aşağıdaki \"Yapı\" bağlantısıyla yapısını düzenleyin"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
@@ -6920,7 +6911,7 @@ msgstr "Her olay için geçerli aralık değeri vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr "Olay için geçerli bir çalıştırma zamanı vermek zorundasınız."
+msgstr "Olay için geçerli bir yürütme zamanı vermek zorundasınız."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
@@ -6966,7 +6957,7 @@ msgid ""
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
 "Çoklu sorguları kullanma kabiliyeti olmayan PHP'nin onaylamadığı 'mysql' "
-"uzantısını kullanıyorsunuz. <b>Bazı depolanmış yordamların çalıştırılması "
+"uzantısını kullanıyorsunuz. <b>Bazı depolanmış yordamların yürütülmesi "
 "başarısız olabilir!</b> Lütfen herhangi bir sorundan kaçınmak için gelişmiş "
 "'mysql' uzantısı kullanın."
 
@@ -7085,7 +7076,7 @@ msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi"
 #: libraries/rte/rte_routines.lib.php:1214
 #, php-format
 msgid "Execution results of routine %s"
-msgstr "%s yordamı çalıştırma sonuçları"
+msgstr "%s yordamı yürütme sonuçları"
 
 #: libraries/rte/rte_routines.lib.php:1288
 #: libraries/rte/rte_routines.lib.php:1294
@@ -10025,11 +10016,11 @@ msgstr "Seçili zaman aralığı:"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Sadece SELECT,INSERT,UPDATE ve DELETE İfadeleri erişir"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
 
 #: server_status.php:1473
 msgid ""
@@ -10040,10 +10031,9 @@ msgstr ""
 "metnine göre gruplandırılır."
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Sorgu türü"
+msgstr "Sorgu çözümleyici"
 
 #: server_status.php:1512
 #, php-format
@@ -10845,7 +10835,7 @@ msgstr "Bölüm %s"
 
 #: tbl_operations.php:744
 msgid "Analyze"
-msgstr "İncele"
+msgstr "Çözümle"
 
 #: tbl_operations.php:745
 msgid "Check"
@@ -11140,7 +11130,7 @@ msgstr "Bu seçenek tablolarınızı ve içerdiği veriyi değiştirecektir."
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr "SQL çalıştırma"
+msgstr "SQL yürütme"
 
 #: tbl_tracking.php:572
 #, php-format

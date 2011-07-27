@@ -1391,8 +1391,12 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         is known to cause data corruption when having enabled buffering.</dd>
 
     <dt id="cfg_PersistentConnections">$cfg['PersistentConnections'] boolean</dt>
-    <dd>Whether persistent connections should be used or not (mysql_connect or
-        mysql_pconnect).</dd>
+    <dd>Whether <a href="http://php.net/manual/en/features.persistent-connections.php">persistent connections</a>
+        should be used or not. Works with following extensions:
+        <ul>
+            <li>mysql (<a href="http://php.net/manual/en/function.mysql-pconnect.php">mysql_pconnect</a>),</li>
+            <li>mysqli (requires PHP 5.3.0 or newer, <a href="http://php.net/manual/en/mysqli.persistconns.php">more information</a>).</li>
+        </ul></dd>
 
     <dt id="cfg_ForceSSL">$cfg['ForceSSL'] boolean</dt>
     <dd>Whether to force using https while accessing phpMyAdmin.</dd>

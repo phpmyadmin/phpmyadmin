@@ -216,25 +216,34 @@ if ($reread_info) {
 unset($reread_info);
 
 /**
- * Displays top menu links
+ * Displays top menu links in non ajax requests
  */
-require_once './libraries/tbl_links.inc.php';
-
+if (!isset($_REQUEST['ajax_request'])) {
+    require_once './libraries/tbl_links.inc.php';
+}
 if (isset($result) && empty($message_to_show)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)
     $_type = 'success';
     if (empty($_message)) {
-        $_message = $result ? __('Your SQL query has been executed successfully') : __('Error');
+        $_message = $result ? $message = PMA_Message::success(__('Your SQL query has been executed successfully')) : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
+        if ( $GLOBALS['is_ajax_request'] == true) {
+            $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
+            PMA_ajaxResponse($_message,$_message->isSuccess() ,$extra_data);
+        }
     }
     if (! empty($warning_messages)) {
         $_message = new PMA_Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
+        if ( $GLOBALS['is_ajax_request'] == true) {
+            PMA_ajaxResponse($_message, false);
+        }
         unset($warning_messages);
     }
+
     PMA_showMessage($_message, $sql_query, $_type);
     unset($_message, $_type);
 }
@@ -258,7 +267,7 @@ unset($local_query);
 ?>
 <!-- Order the table -->
 <div class="operations_half_width">
-<form method="post" action="tbl_operations.php">
+<form method="post" id="alterTableOrderby" action="tbl_operations.php" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <fieldset id="fieldset_table_order">
     <legend><?php echo __('Alter table order by'); ?></legend>
