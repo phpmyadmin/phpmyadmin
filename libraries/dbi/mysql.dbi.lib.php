@@ -30,7 +30,7 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  * @param   boolean $persistent
  * @return  mixed   false on error or a mysql connection resource on success
  */
-function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent=false)
+function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent = false)
 {
     global $cfg;
 
@@ -72,9 +72,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
         $server_socket = (empty($server['socket']))
             ? ''
             : ':' . $server['socket'];
-        $server_persistent = (empty($server['persistent']))
-            ? false
-            : true;
     } else {
         $server_port   = (empty($cfg['Server']['port']))
             ? ''
@@ -110,9 +107,9 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
         }
     } else {
         if (!isset($server['host'])) {
-            $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL, $server_persistent);
+            $link = PMA_DBI_real_connect($server_socket, $user, $password, NULL);
         } else {
-            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL, $server_persistent);
+            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, NULL);
         }
     }
     if (empty($link)) {
