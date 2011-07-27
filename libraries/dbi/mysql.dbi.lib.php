@@ -63,7 +63,7 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
  */
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
-    global $cfg, $php_errormsg;
+    global $cfg;
 
     if ($server) {
         $server_port = (empty($server['port']))
