@@ -5444,9 +5444,8 @@ msgid "Visualize GIS data"
 msgstr "Zobraziť GIS data"
 
 #: libraries/display_tbl.lib.php:2526
-#, fuzzy
 msgid "Create view"
-msgstr "Vytvoriť relaciu"
+msgstr "Vytvoriť pohľad"
 
 #: libraries/display_tbl.lib.php:2626
 msgid "Link not found"
