@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 14:44+0200\n"
+"PO-Revision-Date: 2011-07-27 14:45+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1143,7 +1143,7 @@ msgstr "Využitie CPU"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Systémová pamäť"
 
 #: js/messages.php:96
 msgid "System swap"
