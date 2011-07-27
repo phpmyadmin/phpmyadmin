@@ -10228,10 +10228,9 @@ msgstr ""
 "se agruparán por el texto de la consulta."
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Tipo de consulta"
+msgstr "Analizador de consultas"
 
 #: server_status.php:1512
 #, php-format
