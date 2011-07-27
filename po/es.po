@@ -1381,7 +1381,7 @@ msgstr "Filtrar consultas por palabra/expresión regular:"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
-msgstr ""
+msgstr "Agrupar consultas, ignorando datos variables en sentencias WHERE"
 
 #: js/messages.php:156
 #, fuzzy
