@@ -128,9 +128,9 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 /**
  * selects given database
  *
- * @param   string          $dbname database name to select
- * @param   object mysqli   $link   the mysqli object
- * @return  boolean         true or false
+ * @param string  $dbname  database name to select
+ * @param mysqli  $link    the mysqli object
+ * @return boolean
  */
 function PMA_DBI_select_db($dbname, $link = null)
 {
@@ -147,10 +147,10 @@ function PMA_DBI_select_db($dbname, $link = null)
 /**
  * runs a query and returns the result
  *
- * @param   string          $query      query to execute
- * @param   object mysqli   $link       mysqli object
- * @param   integer         $options
- * @return  mixed           true, false or result object
+ * @param   string   $query      query to execute
+ * @param   mysqli   $link       mysqli object
+ * @param   integer  $options
+ * @return  mysqli_result|boolean
  */
 function PMA_DBI_real_query($query, $link, $options)
 {
@@ -168,8 +168,8 @@ function PMA_DBI_real_query($query, $link, $options)
 /**
  * returns array of rows with associative and numeric keys from $result
  *
- * @param   object mysqli result    $result
- * @return  array                   result rows
+ * @param   mysqli_result  $result
+ * @return  array
  */
 function PMA_DBI_fetch_array($result)
 {
@@ -179,8 +179,8 @@ function PMA_DBI_fetch_array($result)
 /**
  * returns array of rows with associative keys from $result
  *
- * @param   object mysqli result    $result
- * @return  array                   result rows
+ * @param   mysqli_result  $result
+ * @return  array
  */
 function PMA_DBI_fetch_assoc($result)
 {
@@ -190,8 +190,8 @@ function PMA_DBI_fetch_assoc($result)
 /**
  * returns array of rows with numeric keys from $result
  *
- * @param   object mysqli result    $result
- * @return  array                   result rows
+ * @param   mysqli_result  $result
+ * @return  array
  */
 function PMA_DBI_fetch_row($result)
 {
@@ -227,7 +227,7 @@ function PMA_DBI_free_result()
 /**
  * Check if there are any more query results from a multi query
  *
- * @param   object mysqli   $link   the mysqli object
+ * @param   mysqli   $link   the mysqli object
  * @return  boolean         true or false
  */
 function PMA_DBI_more_results($link = null) {
@@ -244,7 +244,7 @@ function PMA_DBI_more_results($link = null) {
 /**
  * Prepare next result from multi_query
  *
- * @param   object mysqli   $link   the mysqli object
+ * @param   mysqli   $link   the mysqli object
  * @return  boolean         true or false
  */
 function PMA_DBI_next_result($link = null) {
@@ -353,8 +353,10 @@ function PMA_DBI_getError($link = null)
 }
 
 /**
+ * returns the number of rows returned by last query
  *
- * @param   object mysqli result    $result
+ * @param   mysqli_result    $result
+ * @return  string|ineteger
  */
 function PMA_DBI_num_rows($result)
 {
@@ -369,10 +371,10 @@ function PMA_DBI_num_rows($result)
 /**
  * returns last inserted auto_increment id for given $link or $GLOBALS['userlink']
  *
- * @param   object mysqli   $link   the mysqli object
- * @return  string ineteger
+ * @param   mysqli   $link   the mysqli object
+ * @return  string|ineteger
  */
-function PMA_DBI_insert_id($link = '')
+function PMA_DBI_insert_id($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -393,9 +395,9 @@ function PMA_DBI_insert_id($link = '')
 /**
  * returns the number of rows affected by last query
  *
- * @param   object mysqli   $link   the mysqli object
- * @param   boolean         $get_from_cache
- * @return  string integer
+ * @param   mysqli   $link   the mysqli object
+ * @param   boolean  $get_from_cache
+ * @return  string|integer
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
 {
@@ -417,8 +419,8 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
  * returns metainfo for fields in $result
  *
  * @todo preserve orignal flags value
- * @param   object mysqli result    $result
- * @return  array                   meta info for fields in $result
+ * @param   mysqli_result    $result
+ * @return  array  meta info for fields in $result
  */
 function PMA_DBI_get_fields_meta($result)
 {
@@ -496,8 +498,8 @@ function PMA_DBI_get_fields_meta($result)
 /**
  * return number of fields in given $result
  *
- * @param   object mysqli result    $result
- * @return  integer                 field count
+ * @param   mysqli_result    $result
+ * @return  integer  field count
  */
 function PMA_DBI_num_fields($result)
 {
@@ -507,9 +509,9 @@ function PMA_DBI_num_fields($result)
 /**
  * returns the length of the given field $i in $result
  *
- * @param   object mysqli result    $result
- * @param   integer                 $i      field
- * @return  integer                 length of field
+ * @param   mysqli_result    $result
+ * @param   integer          $i      field
+ * @return  integer  length of field
  */
 function PMA_DBI_field_len($result, $i)
 {
@@ -519,9 +521,9 @@ function PMA_DBI_field_len($result, $i)
 /**
  * returns name of $i. field in $result
  *
- * @param   object mysqli result    $result
- * @param   integer                 $i      field
- * @return  string                  name of $i. field in $result
+ * @param   mysqli_result    $result
+ * @param   integer          $i      field
+ * @return  string  name of $i. field in $result
  */
 function PMA_DBI_field_name($result, $i)
 {
@@ -531,9 +533,9 @@ function PMA_DBI_field_name($result, $i)
 /**
  * returns concatenated string of human readable field flags
  *
- * @param   object mysqli result    $result
- * @param   integer                 $i      field
- * @return  string                  field flags
+ * @param   mysqli_result    $result
+ * @param   integer          $i      field
+ * @return  string  field flags
  */
 function PMA_DBI_field_flags($result, $i)
 {

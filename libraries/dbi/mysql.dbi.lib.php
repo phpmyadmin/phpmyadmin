@@ -20,6 +20,16 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
     unset($client_api);
 }
 
+/**
+ * Helper function for connecting to the database server
+ *
+ * @param   string  $server
+ * @param   string  $user
+ * @param   string  $password
+ * @param   int     $client_flags
+ * @param   boolean $persistent
+ * @return  mixed   false on error or a mysql connection resource on success
+ */
 function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent=false)
 {
     global $cfg;
@@ -42,6 +52,8 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
 }
 
 /**
+ * connects to the database server
+ * 
  * @param   string  $user           mysql user name
  * @param   string  $password       mysql user password
  * @param   boolean $is_controluser
@@ -125,11 +137,11 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
 }
 
 /**
- * select a db
+ * selects given database
  *
- * @param string $dbname name of db to select
- * @param resource $link mysql link resource
- * @return boolean success
+ * @param string    $dbname  name of db to select
+ * @param resource  $link    mysql link resource
+ * @return boolean
  */
 function PMA_DBI_select_db($dbname, $link = null)
 {
@@ -146,9 +158,9 @@ function PMA_DBI_select_db($dbname, $link = null)
 /**
  * runs a query and returns the result
  *
- * @param string $query query to run
+ * @param string   $query query to run
  * @param resource $link mysql link resource
- * @param integer $options
+ * @param integer  $options
  * @return mixed
  */
 function PMA_DBI_real_query($query, $link, $options)
@@ -162,15 +174,33 @@ function PMA_DBI_real_query($query, $link, $options)
     }
 }
 
+/**
+ * returns array of rows with associative and numeric keys from $result
+ *
+ * @param   resource  $result
+ * @return  array
+ */
 function PMA_DBI_fetch_array($result)
 {
     return mysql_fetch_array($result, MYSQL_BOTH);
 }
 
+/**
+ * returns array of rows with associative keys from $result
+ *
+ * @param   resource  $result
+ * @return  array
+ */
 function PMA_DBI_fetch_assoc($result) {
     return mysql_fetch_array($result, MYSQL_ASSOC);
 }
 
+/**
+ * returns array of rows with numeric keys from $result
+ *
+ * @param   resource  $result
+ * @return  array
+ */
 function PMA_DBI_fetch_row($result)
 {
     return mysql_fetch_array($result, MYSQL_NUM);
@@ -334,6 +364,12 @@ function PMA_DBI_getError($link = null)
     return $error;
 }
 
+/**
+ * returns the number of rows returned by last query
+ *
+ * @param   resource    $result
+ * @return  string|ineteger
+ */
 function PMA_DBI_num_rows($result)
 {
     if (!is_bool($result)) {
@@ -343,6 +379,12 @@ function PMA_DBI_num_rows($result)
     }
 }
 
+/**
+ * returns last inserted auto_increment id for given $link or $GLOBALS['userlink']
+ *
+ * @param   resource $link   the mysql object
+ * @return  string|ineteger
+ */
 function PMA_DBI_insert_id($link = null)
 {
     if (empty($link)) {
@@ -363,9 +405,9 @@ function PMA_DBI_insert_id($link = null)
 /**
  * returns the number of rows affected by last query
  *
- * @param   object mysql   $link   the mysql object
- * @param   boolean        $get_from_cache
- * @return  string integer
+ * @param   resource   $link   the mysql object
+ * @param   boolean    $get_from_cache
+ * @return  string|integer
  */
 function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
 {
@@ -385,7 +427,11 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
 }
 
 /**
+ * returns metainfo for fields in $result
+ *
  * @todo add missing keys like in from mysqli_query (orgname, orgtable, flags, decimals)
+ * @param   resource    $result
+ * @return  array  meta info for fields in $result
  */
 function PMA_DBI_get_fields_meta($result)
 {
