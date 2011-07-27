@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 16:53+0200\n"
+"PO-Revision-Date: 2011-07-27 16:54+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -10217,7 +10217,7 @@ msgstr "Sólo recuperar sentencias SELECT, INSERT, UPDATE y DELETE"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Eliminar datos variables en sentencias INSERT para mejor agrupación"
 
 #: server_status.php:1473
 msgid ""
