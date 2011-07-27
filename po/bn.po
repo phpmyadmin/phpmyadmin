@@ -11503,7 +11503,6 @@ msgid "Rename view to"
 msgstr "টেবিল রিনেম করুন"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Refresh"
 

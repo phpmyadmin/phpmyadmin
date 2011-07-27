@@ -11164,7 +11164,6 @@ msgid "Rename view to"
 msgstr "දසුනේ නම වෙනස් කරන්න"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "අලුත් කරන්න"
 

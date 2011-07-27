@@ -10935,7 +10935,6 @@ msgid "Rename view to"
 msgstr "दृश्य का नाम बदलो"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "ताज़ा करना"
 

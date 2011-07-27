@@ -11931,7 +11931,6 @@ msgid "Rename view to"
 msgstr "Rename table to"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "განახლება"
 

@@ -11502,7 +11502,6 @@ msgid "Rename view to"
 msgstr "Nimeta tabel ümber"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Uuenda"
 

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-09 03:43+0200\n"
+"PO-Revision-Date: 2011-07-25 22:07+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1122,15 +1122,14 @@ msgstr "اتصالات / عمليات"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "الإتصالات منذ آخر تحديث"
+msgstr "العمليات منذ آخر تحديث"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "العمليات (الجمل المنفذة بواسطة الخادم)"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
@@ -1138,11 +1137,11 @@ msgstr "إحصائيات الإستعلام"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "إستخدام النظام للمعالج (CPU)"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "ذاكرة النظام"
 
 #: js/messages.php:96
 msgid "System swap"
@@ -1158,14 +1157,13 @@ msgstr "كيلوبايت"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "متوسط التحميل"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "نسخ"
+msgstr "العمليات"
 
 #: js/messages.php:103 server_status.php:894
 msgid "Traffic"
@@ -1173,20 +1171,18 @@ msgstr "بيانات سير"
 
 #: js/messages.php:104 libraries/server_links.inc.php:73
 #: server_status.php:1324
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "الإعدادات"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "حذف قاعدة البيانات"
+msgstr "حذف الرسم البياني"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "حذف العناوين والسلاسل"
 
 #: js/messages.php:107
 msgid "Add chart to grid"
@@ -1194,7 +1190,7 @@ msgstr ""
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "فضلا , أضف متغير واحد على الأقل للسلسلة"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
@@ -10591,7 +10587,7 @@ msgstr "صيانة الجدول"
 
 #: tbl_operations.php:614
 msgid "Defragment table"
-msgstr ""
+msgstr "إلغاء تجزئة الجدول"
 
 #: tbl_operations.php:662
 #, php-format
@@ -10599,26 +10595,23 @@ msgid "Table %s has been flushed"
 msgstr "لقد تم إعادة تحميل الجدول %s  بنجاح"
 
 #: tbl_operations.php:668
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "إعادة تحميل الجدول (\"FLUSH\")"
+msgstr "إعادة تحميل الجدول (FLUSH)"
 
 #: tbl_operations.php:677
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "إرجاع أو استيراد بيانات الجدول"
+msgstr "حذف البيانات او الجدول"
 
 #: tbl_operations.php:692
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "إفراغ الجدول (TRUNCATE)"
 
 #: tbl_operations.php:712
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Delete the table (DROP)"
-msgstr "إنسخ قاعدة البيانات إلى"
+msgstr "حذف الجدول (DROP)"
 
 #: tbl_operations.php:733
 msgid "Partition maintenance"
@@ -10627,7 +10620,7 @@ msgstr ""
 #: tbl_operations.php:741
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "تقسيم %s"
 
 #: tbl_operations.php:744
 msgid "Analyze"
@@ -10639,19 +10632,19 @@ msgstr "تحقق"
 
 #: tbl_operations.php:746
 msgid "Optimize"
-msgstr ""
+msgstr "تحسين"
 
 #: tbl_operations.php:747
 msgid "Rebuild"
-msgstr ""
+msgstr "إعادة بناء"
 
 #: tbl_operations.php:748
 msgid "Repair"
-msgstr "صلح"
+msgstr "إصلاح"
 
 #: tbl_operations.php:760
 msgid "Remove partitioning"
-msgstr ""
+msgstr "إزالة التقسيم"
 
 #: tbl_operations.php:786
 msgid "Check referential integrity:"
@@ -10659,15 +10652,15 @@ msgstr "تحديد التكامل المرجعي:"
 
 #: tbl_printview.php:72
 msgid "Show tables"
-msgstr "شاهد الجدول"
+msgstr "عرض الجداول"
 
 #: tbl_printview.php:307 tbl_structure.php:789
 msgid "Space usage"
-msgstr "المساحة المستغلة"
+msgstr "المساحة المستخدمة"
 
 #: tbl_printview.php:311 tbl_structure.php:793
 msgid "Usage"
-msgstr "المساحة"
+msgstr "الإستخدام"
 
 #: tbl_printview.php:338 tbl_structure.php:820
 msgid "Effective"
@@ -10699,7 +10692,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:402
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "العلاقات الداخلية"
@@ -10712,21 +10704,20 @@ msgstr ""
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "قيود المفتاح الغريب"
 
 #: tbl_select.php:110
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "تجعل \"استعلام بواسطة المثال\" (wildcard: \"%\")"
+msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
 
 #: tbl_select.php:260
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "اختيار حقول (على الأقل واحد):"
+msgstr "اختيار الأعمدة (واحد على الأقل):"
 
 #: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "أضف شروط البحث (جسم من الفقره \"where\" clause):"
+msgstr "أضف شروط البحث (الفقرة \"where\" ):"
 
 #: tbl_select.php:285
 msgid "Number of rows per page"
@@ -10742,21 +10733,20 @@ msgstr ""
 
 #: tbl_structure.php:165 tbl_structure.php:169
 msgid "Browse distinct values"
-msgstr ""
+msgstr "إستعرض القيم المميزة"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add primary key"
-msgstr ""
+msgstr "إضافة مفتاح رئيسي"
 
 #: tbl_structure.php:172 tbl_structure.php:173
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add index"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة فهرس"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add unique index"
-msgstr ""
+msgstr "إضافة فهرس مميز"
 
 #: tbl_structure.php:176 tbl_structure.php:177
 #, fuzzy
@@ -10769,49 +10759,46 @@ msgid "Add FULLTEXT index"
 msgstr ""
 
 #: tbl_structure.php:391
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "لا شيء"
 
 #: tbl_structure.php:404
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "جدول %s حذفت"
+msgstr "تم حذف العمود %s"
 
 #: tbl_structure.php:415 tbl_structure.php:509
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "لقد أُضيف المفتاح الأساسي في %s"
+msgstr "تم إضافة المفتاح الأساسي في %s"
 
 #: tbl_structure.php:430 tbl_structure.php:445 tbl_structure.php:465
 #: tbl_structure.php:480 tbl_structure.php:522 tbl_structure.php:535
 #: tbl_structure.php:548 tbl_structure.php:561
 #, php-format
 msgid "An index has been added on %s"
-msgstr "لقد أُضيف الفهرس في %s"
+msgstr "تم إضافة الفهرس في %s"
 
 #: tbl_structure.php:497
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "عرض المعلومات المتعلقة ب  PHP"
+msgstr "عرض المزيد من العمليات"
 
 #: tbl_structure.php:642 tbl_structure.php:644
 msgid "Relation view"
-msgstr "عرض الروابط"
+msgstr "عرض العلاقات"
 
 #: tbl_structure.php:651 tbl_structure.php:653
 msgid "Propose table structure"
 msgstr "اقترح بناء الجدول"
 
 #: tbl_structure.php:676
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add column"
-msgstr "أضف إلى الملاحظات"
+msgstr "إضافة عمود"
 
 #: tbl_structure.php:690
 msgid "At End of Table"
@@ -10827,38 +10814,38 @@ msgid "After %s"
 msgstr "بعد %s"
 
 #: tbl_structure.php:732
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "تصميم فهرسه على&nbsp;%s&nbsp;عمود"
+msgstr "إنشاء فهرس للعمود %s"
 
 #: tbl_structure.php:889
 msgid "partitioned"
-msgstr ""
+msgstr "مقسم"
 
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "تتبع التقرير للجدول %s"
 
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "تم إنشاء الإصدار %s , التتبع نشط لـ %s.%s"
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "اللتبع لـ %s.%s , الإصدار %s  معطل ."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "اللتبع لـ %s.%s , الإصدار %s مفعل."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "تم تنفيذ جمل SQL."
 
 #: tbl_tracking.php:214
 msgid ""
@@ -10884,10 +10871,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:384 tbl_tracking.php:401
-#, fuzzy
 #| msgid "errors."
 msgid "Query error"
-msgstr "أخطاء."
+msgstr "خطأ في الإستعلام"
 
 #: tbl_tracking.php:399
 msgid "Tracking data manipulation successfully deleted"
@@ -10909,10 +10895,9 @@ msgid "Delete tracking data row from report"
 msgstr "يسمح بإضافة واستبدال البيانات."
 
 #: tbl_tracking.php:443
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "لايوجد قواعد بيانات"
+msgstr "لايوجد بيانات"
 
 #: tbl_tracking.php:453 tbl_tracking.php:510
 msgid "Date"
@@ -10940,16 +10925,16 @@ msgstr ""
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr ""
+msgstr "تنفيذ SQL"
 
 #: tbl_tracking.php:572
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "تصدير كـ %s"
 
 #: tbl_tracking.php:612
 msgid "Show versions"
-msgstr ""
+msgstr "عرض الإصدارات"
 
 #: tbl_tracking.php:644
 msgid "Version"
@@ -10958,48 +10943,48 @@ msgstr "نسخة"
 #: tbl_tracking.php:692
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "تعطيل التتبع لـ %s.%s"
 
 #: tbl_tracking.php:694
 msgid "Deactivate now"
-msgstr ""
+msgstr "تعطيل الآن"
 
 #: tbl_tracking.php:705
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "تنشيط التتبع لـ %s.%s"
 
 #: tbl_tracking.php:707
 msgid "Activate now"
-msgstr ""
+msgstr "تنشيط الآن"
 
 #: tbl_tracking.php:720
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "انشئ إصدار %s  لـ %s.s%s"
 
 #: tbl_tracking.php:724
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "تتبع تقارير تعريف البيانات:"
 
 #: tbl_tracking.php:732
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "تتبع تقارير التلاعب بالبيانات:"
 
 #: tbl_tracking.php:740
 msgid "Create version"
-msgstr ""
+msgstr "إنشاء إصدار"
 
 #: themes.php:31
 #, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
-msgstr ""
+msgstr "لايوجد سمة مدعومة , فضلا راجع إعدادات السمات في المسار %s."
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "الحصول على سمات جديدة!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -11015,7 +11000,6 @@ msgid "Available transformations"
 msgstr "التحويلات المتوفرة"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -11027,18 +11011,17 @@ msgstr "ليس لديك الحقوق الكافية بأن تكون هنا ال�
 
 #: user_password.php:96
 msgid "The profile has been updated."
-msgstr "لقد تم تجديد العرض الجانبي."
+msgstr "لقد تم تجديد الملف الشخصي."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "اسم VIEW"
 
 #: view_operations.php:91
 msgid "Rename view to"
 msgstr "أعد تسمية العرض الـ"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "حدث"
 

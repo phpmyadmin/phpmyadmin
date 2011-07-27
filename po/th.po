@@ -11127,7 +11127,6 @@ msgid "Rename view to"
 msgstr "เปลี่ยนชื่อตารางเป็น"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "เรียกใหม่"
 

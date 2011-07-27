@@ -12179,7 +12179,6 @@ msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Yangilash"
 

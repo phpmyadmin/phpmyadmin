@@ -11380,7 +11380,6 @@ msgstr "Renomear a visão para "
 #~ msgstr "Agrupar INSERTs na mesma tabela"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate"
 #~ msgstr "Atualizar"
 
