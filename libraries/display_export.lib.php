@@ -56,16 +56,16 @@ if (isset($single_table)) {
 echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' . "\n";
 
 // If the export method was not set, the default is quick
-if(isset($_GET['export_method'])) {
+if (isset($_GET['export_method'])) {
     $cfg['Export']['method'] = $_GET['export_method'];
-} elseif(! isset($cfg['Export']['method'])) {
+} elseif (! isset($cfg['Export']['method'])) {
     $cfg['Export']['method'] = 'quick';
 }
 // The export method (quick, custom or custom-no-form)
 echo '<input type="hidden" name="export_method" value="' . htmlspecialchars($cfg['Export']['method']) . '" />';
 
 
-if(isset($_GET['sql_query'])) {
+if (isset($_GET['sql_query'])) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
 } elseif (! empty($sql_query)) {
     echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
@@ -76,9 +76,9 @@ if(isset($_GET['sql_query'])) {
     <h2>
         <img class="icon ic_b_export" src="themes/dot.gif" alt="export" />
         <?php
-        if($export_type == 'server') {
+        if ($export_type == 'server') {
             echo __('Exporting databases from the current server');
-        } elseif($export_type == 'database') {
+        } elseif ($export_type == 'database') {
             printf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
         } else {
             printf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
@@ -91,14 +91,14 @@ if(isset($_GET['sql_query'])) {
     <ul>
         <li>
             <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"';
-            if(isset($_GET['quick_or_custom'])) {
+            if (isset($_GET['quick_or_custom'])) {
                 $export_method = $_GET['quick_or_custom'];
-                if($export_method == 'custom' || $export_method == 'custom_no_form') {
+                if ($export_method == 'custom' || $export_method == 'custom_no_form') {
                     echo ' />';
                 } else {
                     echo ' checked="checked" />';
                 }
-            } elseif($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
+            } elseif ($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
                 echo ' />';
             } else {
                 echo ' checked="checked" />';
@@ -107,14 +107,14 @@ if(isset($_GET['sql_query'])) {
         </li>
         <li>
             <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
-            if(isset($_GET['quick_or_custom'])) {
+            if (isset($_GET['quick_or_custom'])) {
                 $export_method = $_GET['quick_or_custom'];
-                if($export_method == 'custom' || $export_method == 'custom_no_form') {
+                if ($export_method == 'custom' || $export_method == 'custom_no_form') {
                     echo ' checked="checked" />';
                 } else {
                     echo ' />';
                 }
-            } elseif($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
+            } elseif ($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
                 echo ' checked="checked" />';
             } else {
                 echo ' />';
@@ -126,9 +126,9 @@ if(isset($_GET['sql_query'])) {
 
 <div class="exportoptions" id="databases_and_tables">
     <?php
-        if($export_type == 'server') {
+        if ($export_type == 'server') {
             echo '<h3>' . __('Database(s):') . '</h3>';
-        } else if($export_type == 'database') {
+        } else if ($export_type == 'database') {
             echo '<h3>' . __('Table(s):') . '</h3>';
         }
         if (! empty($multi_values)) {
@@ -142,7 +142,7 @@ if(isset($_GET['sql_query'])) {
         <h3><?php echo __('Rows:'); ?></h3>
         <ul>
             <li>
-                <?php if(isset($_GET['allrows']) && $_GET['allrows'] == 1) {
+                <?php if (isset($_GET['allrows']) && $_GET['allrows'] == 1) {
                         echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" />';
                     } else {
                         echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
@@ -158,7 +158,7 @@ if(isset($_GET['sql_query'])) {
                 </ul>
             </li>
             <li>
-                <?php if(isset($_GET['allrows']) && $_GET['allrows'] == 0) {
+                <?php if (isset($_GET['allrows']) && $_GET['allrows'] == 0) {
                     echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" />';
                 } else {
                     echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" checked="checked" />';
@@ -241,7 +241,7 @@ if(isset($_GET['sql_query'])) {
                     <input type="text" name="filename_template" id="filename_template"
                     <?php
                         echo ' value="';
-                        if(isset($_GET['filename_template'])) {
+                        if (isset($_GET['filename_template'])) {
                             echo $_GET['filename_template'];
                         } else {
                             if ($export_type == 'database') {
@@ -276,7 +276,7 @@ if(isset($_GET['sql_query'])) {
                     echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
                     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
                         echo '<option value="' . $temp_charset . '"';
-                        if(isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
+                        if (isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
                             echo '';
                         } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')
                           || $temp_charset == $cfg['Export']['charset']) {
@@ -288,7 +288,7 @@ if(isset($_GET['sql_query'])) {
                 } // end if
                 ?>
                  <?php
-                if(isset($_GET['compression'])) {
+                if (isset($_GET['compression'])) {
                     $selected_compression = $_GET['compression'];
                 } elseif (isset($cfg['Export']['compression'])) {
                     $selected_compression = $cfg['Export']['compression'];

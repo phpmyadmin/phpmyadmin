@@ -65,9 +65,9 @@ function PMA_change_enc_order() {
  * Kanji string encoding convert
  * 2002/1/4 by Y.Kawada
  *
- * @param   string   the string to convert
- * @param   string   the destination encoding code
- * @param   string   set 'kana' convert to JIS-X208-kana
+ * @param string   the string to convert
+ * @param string   the destination encoding code
+ * @param string   set 'kana' convert to JIS-X208-kana
  *
  * @global  string   the available encoding codes list
  *
@@ -98,9 +98,9 @@ function PMA_kanji_str_conv($str, $enc, $kana) {
  * Kanji file encoding convert
  * 2002/1/4 by Y.Kawada
  *
- * @param   string   the name of the file to convert
- * @param   string   the destination encoding code
- * @param   string   set 'kana' convert to JIS-X208-kana
+ * @param string   the name of the file to convert
+ * @param string   the destination encoding code
+ * @param string   set 'kana' convert to JIS-X208-kana
  *
  * @return  string   the name of the converted file
  */
@@ -131,7 +131,7 @@ function PMA_kanji_file_conv($file, $enc, $kana) {
  * Defines radio form fields to switch between encoding modes
  * 2002/1/4 by Y.Kawada
  *
- * @param   string   spaces character to prepend the output with
+ * @param string   spaces character to prepend the output with
  *
  * @return  string   xhtml code for the radio controls
  */

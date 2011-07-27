@@ -49,14 +49,14 @@ if (!empty($selected_tbl) && empty($table_select)) {
 }
 
 // Check if the selected tables are defined in $_GET (from clicking Back button on export.php)
-if(isset($_GET['table_select'])) {
+if (isset($_GET['table_select'])) {
     $_GET['table_select'] = urldecode($_GET['table_select']);
     $_GET['table_select'] = explode(",", $_GET['table_select']);
 }
 
 foreach ($tables as $each_table) {
-    if(isset($_GET['table_select'])) {
-        if(in_array($each_table['Name'], $_GET['table_select'])) {
+    if (isset($_GET['table_select'])) {
+        if (in_array($each_table['Name'], $_GET['table_select'])) {
             $is_selected = ' selected="selected"';
         } else {
             $is_selected = '';

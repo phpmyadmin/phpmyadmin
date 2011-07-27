@@ -45,7 +45,7 @@ function PMD_err_sav() {
     }
 }
 
-if(! empty($die_save_pos)) {
+if (! empty($die_save_pos)) {
   header("Content-Type: text/xml; charset=utf-8");
   header("Cache-Control: no-cache");
 ?>

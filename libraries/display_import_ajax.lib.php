@@ -27,10 +27,10 @@ $upload_id = uniqid("");
   * list of available plugins
   */
 $plugins = array(
-	   "uploadprogress",
-	   "apc",
-	   "noplugin"
-	   ); // available plugins. Each plugin has own checkfunction in display_import_ajax.lib.php and own file with functions in upload_#KEY#.php
+       "uploadprogress",
+       "apc",
+       "noplugin"
+       ); // available plugins. Each plugin has own checkfunction in display_import_ajax.lib.php and own file with functions in upload_#KEY#.php
 
 // select available plugin
 foreach ($plugins as $plugin) {

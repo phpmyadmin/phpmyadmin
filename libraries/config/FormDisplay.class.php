@@ -334,8 +334,8 @@ class FormDisplay
                 }
                 return;
             case 'NULL':
-            	trigger_error("Field $system_path has no type", E_USER_WARNING);
-            	return;
+                trigger_error("Field $system_path has no type", E_USER_WARNING);
+                return;
         }
 
         // TrustedProxies requires changes before displaying

@@ -91,7 +91,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
             $pk_array[$row['Column_name']] = 1;
         }
         // Retains keys informations
-        if ($row['Key_name'] != $lastIndex){
+        if ($row['Key_name'] != $lastIndex) {
             $indexes[] = $row['Key_name'];
             $lastIndex = $row['Key_name'];
         }

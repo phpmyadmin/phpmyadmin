@@ -30,9 +30,9 @@
  * </code>
  *
  * @see     PMA_isValid()
- * @param   mixed   $var        param to check
- * @param   mixed   $default    default value
- * @param   mixed   $type       var type or array of values to check against $var
+ * @param mixed   $var        param to check
+ * @param mixed   $default    default value
+ * @param mixed   $type       var type or array of values to check against $var
  * @return  mixed   $var or $default
  */
 function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
@@ -80,9 +80,9 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @todo create some testsuites
  * @todo add some more var types like hex, bin, ...?
  * @see     http://php.net/gettype
- * @param   mixed   $var        variable to check
- * @param   mixed   $type       var type or array of valid values to check against $var
- * @param   mixed   $compare    var to compare with $var
+ * @param mixed   $var        variable to check
+ * @param mixed   $type       var type or array of valid values to check against $var
+ * @param mixed   $compare    var to compare with $var
  * @return  boolean whether valid or not
  */
 function PMA_isValid(&$var, $type = 'length', $compare = null)
@@ -171,7 +171,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
  * require() when a part of the path comes from an insecure source
  * like a cookie or form.
  *
- * @param    string  The path to check
+ * @param string  The path to check
  *
  * @return   string  The secured path
  *
@@ -192,8 +192,8 @@ function PMA_securePath($path)
  * loads language file if not loaded already
  *
  * @todo    use detected argument separator (PMA_Config)
- * @param   string $error_message the error message or named error message
- * @param   string|array $message_args arguments applied to $error_message
+ * @param string $error_message the error message or named error message
+ * @param string|array $message_args arguments applied to $error_message
  * @return  exit
  */
 function PMA_fatalError($error_message, $message_args = null)
@@ -276,7 +276,7 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 /**
  * returns count of tables in given db
  *
- * @param   string  $db database to count tables for
+ * @param string  $db database to count tables for
  * @return  integer count of tables in $db
  */
 function PMA_getTableCount($db)
@@ -308,7 +308,7 @@ function PMA_getTableCount($db)
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
- * @param   string  $size
+ * @param string  $size
  * @return  integer $size
  */
 function PMA_get_real_size($size = 0)
@@ -343,9 +343,9 @@ function PMA_get_real_size($size = 0)
  *
  * @see     http://php.net/array_merge
  * @see     http://php.net/array_merge_recursive
- * @param   array   array to merge
- * @param   array   array to merge
- * @param   array   ...
+ * @param array   array to merge
+ * @param array   array to merge
+ * @param array   ...
  * @return  array   merged array
  */
 function PMA_array_merge_recursive()
@@ -398,8 +398,8 @@ function PMA_array_merge_recursive()
  * @see http://www.php-security.org/MOPB/MOPB-02-2007.html
  * @see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1549
  *
- * @param   array   $array      array to walk
- * @param   string  $function   function to call for every array element
+ * @param array   $array      array to walk
+ * @param string  $function   function to call for every array element
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
@@ -431,8 +431,8 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
  * checks given given $page against given $whitelist and returns true if valid
  * it ignores optionaly query paramters in $page (script.php?ignored)
  *
- * @param   string  &$page      page to check
- * @param   array   $whitelist  whitelist to check page against
+ * @param string  &$page      page to check
+ * @param array   $whitelist  whitelist to check page against
  * @return  boolean whether $page is valid or not (in $whitelist or not)
  */
 function PMA_checkPageValidity(&$page, $whitelist)
@@ -460,7 +460,7 @@ function PMA_checkPageValidity(&$page, $whitelist)
  * searchs in $_SERVER, $_ENV than trys getenv() and apache_getenv()
  * in this order
  *
- * @param   string  $var_name   variable name
+ * @param string  $var_name   variable name
  * @return  string  value of $var or empty string
  */
 function PMA_getenv($var_name) {
@@ -481,7 +481,7 @@ function PMA_getenv($var_name) {
 /**
  * Send HTTP header, taking IIS limits into account (600 seems ok)
  *
- * @param   string   $uri the header to send
+ * @param string   $uri the header to send
  * @return  boolean  always true
  */
 function PMA_sendHeaderLocation($uri)
@@ -542,9 +542,9 @@ function PMA_sendHeaderLocation($uri)
  * $path is a string describing position of an element in an associative array,
  * eg. Servers/1/host refers to $array[Servers][1][host]
  *
- * @param  string   $path
- * @param  array    $array
- * @param  mixed    $default
+ * @param string   $path
+ * @param array    $array
+ * @param mixed    $default
  * @return mixed    array element or $default
  */
 function PMA_array_read($path, $array, $default = null)
@@ -563,9 +563,9 @@ function PMA_array_read($path, $array, $default = null)
 /**
  * Stores value in an array
  *
- * @param  string   $path
- * @param  array    &$array
- * @param  mixed    $value
+ * @param string   $path
+ * @param array    &$array
+ * @param mixed    $value
  */
 function PMA_array_write($path, &$array, $value)
 {
@@ -584,9 +584,9 @@ function PMA_array_write($path, &$array, $value)
 /**
  * Removes value from an array
  *
- * @param  string   $path
- * @param  array    &$array
- * @param  mixed    $value
+ * @param string   $path
+ * @param array    &$array
+ * @param mixed    $value
  */
 function PMA_array_remove($path, &$array)
 {

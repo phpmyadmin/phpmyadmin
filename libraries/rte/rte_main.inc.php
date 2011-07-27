@@ -79,13 +79,13 @@ $errors = array();
 switch ($_PMA_RTE) {
 case 'RTN':
     PMA_RTN_main();
-	break;
+    break;
 case 'TRI':
     PMA_TRI_main();
-	break;
+    break;
 case 'EVN':
     PMA_EVN_main();
-	break;
+    break;
 }
 
 /**

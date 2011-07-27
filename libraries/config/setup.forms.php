@@ -225,7 +225,7 @@ $forms['Main_frame']['Tabs'] = array(
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable',
-	'QueryWindowDefTab');
+    'QueryWindowDefTab');
 $forms['Import']['Import_defaults'] = array('Import' => array(
     'format',
     'charset',
