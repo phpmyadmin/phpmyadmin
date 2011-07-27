@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 14:47+0200\n"
+"PO-Revision-Date: 2011-07-27 14:49+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -5303,10 +5303,9 @@ msgid "%d is not valid row number."
 msgstr "%d nie je platné číslo riadku."
 
 #: libraries/display_tbl.lib.php:433
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "Štart"
+msgstr "Prvý riadok"
 
 #: libraries/display_tbl.lib.php:435
 msgid "Number of rows"
