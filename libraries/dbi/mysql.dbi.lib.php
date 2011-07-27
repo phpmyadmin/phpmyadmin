@@ -216,17 +216,14 @@ function PMA_DBI_data_seek($result, $offset)
 }
 
 /**
- * Frees the memory associated with the results
+ * Frees memory associated with the result
  *
- * @param result    $result,...     one or more mysql result resources
+ * @param  resource  $result
  */
-function PMA_DBI_free_result()
+function PMA_DBI_free_result($result)
 {
-    foreach (func_get_args() as $result) {
-        if (is_resource($result)
-         && get_resource_type($result) === 'mysql result') {
-            mysql_free_result($result);
-        }
+    if (is_resource($result) && get_resource_type($result) === 'mysql result') {
+        mysql_free_result($result);
     }
 }
 
