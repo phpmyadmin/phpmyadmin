@@ -425,3 +425,7 @@ function toggleNavigation() {
         }
     );
 }
+
+function currentWidth() {
+	return $('frame#frame_navigation').width();
+}
