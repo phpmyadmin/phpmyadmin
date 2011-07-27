@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-27 14:45+0200\n"
+"PO-Revision-Date: 2011-07-27 14:46+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1147,7 +1147,7 @@ msgstr "Systémová pamäť"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Stránkovacia oblasť"
 
 #: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
 msgid "MiB"
