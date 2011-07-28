@@ -293,6 +293,8 @@ function initGISEditorVisualization() {
  * Restart insertion with 'N' rows.
  */
 $(document).ready(function() {
+    // Remove the class that is added due to the URL being too long.
+    $('.open_gis_editor a').removeClass('formLinkSubmit');
 
     $('.open_gis_editor').live('click', function(event) {
         event.preventDefault();
