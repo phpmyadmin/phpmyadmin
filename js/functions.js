@@ -2981,6 +2981,8 @@ function PMA_createqTip($elements, content, options) {
 function PMA_getCellValue(td) {
     if ($(td).is('.null')) {
         return '';
+    } else if ($(td).data('original_data')) {
+        return $(td).data('original_data');
     } else if ($(td).is(':not(.transformed, .relation, .enum, .set, .null)')) {
         return unescape($(td).find('span').html()).replace(/<br>/g, "\n");
     } else {
