@@ -655,6 +655,9 @@
                         //handle relations
                         $editArea.addClass('edit_area_loading');
 
+                        // initialize the original data
+                        $td.data('original_data', null);
+                        
                         /**
                          * @var post_params Object containing parameters for the POST request
                          */
@@ -672,6 +675,12 @@
 
                         $.post('sql.php', post_params, function(data) {
                             $editArea.removeClass('edit_area_loading');
+                            // save original_data
+                            var value = $(data.dropdown).val();
+                            $td.data('original_data', value);
+                            // update the text input field, in case where the "Relational display column" is checked
+                            $(g.cEdit).find('input[type=text]').val(value);
+                            
                             $editArea.append(data.dropdown);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                         }) // end $.post()
