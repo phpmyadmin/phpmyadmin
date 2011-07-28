@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once './libraries/logging.lib.php';
+require_once './libraries/dbi/drizzle-wrappers.lib.php';
 
 /**
  * MySQL client API
@@ -34,9 +35,9 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
 function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password, $db = null, $options = DRIZZLE_CON_NONE)
 {
     if ($uds) {
-        $con = $drizzle->addTcp($host, $port, $user, $password, $db, $options);
-    } else {
         $con = $drizzle->addUds($uds, $user, $password, $db, $options);
+    } else {
+        $con = $drizzle->addTcp($host, $port, $user, $password, $db, $options);
     }
 
     return $con;
@@ -54,6 +55,8 @@ function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password, $d
  */
 function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
 {
+    global $cfg;
+
     if ($server) {
         $server_port   = (empty($server['port']))
             ? false
@@ -72,7 +75,6 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
             ? null
             : $cfg['Server']['socket'];
     }
-
 
     if (strtolower($GLOBALS['cfg']['Server']['connect_type']) == 'tcp') {
         $GLOBALS['cfg']['Server']['socket'] = '';
@@ -93,10 +95,10 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if (!$server) {
-        $link = @PMA_DBI_real_connect($drizzle, $GLOBALS['cfg']['Server']['host'], $server_port, $server_socket, $user, $password, false, $client_flags);
+        $link = @PMA_DBI_real_connect($drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user, $password, false, $client_flags);
         // Retry with empty password if we're allowed to
-        if ($link == false && isset($GLOBALS['cfg']['Server']['nopassword']) && $GLOBALS['cfg']['Server']['nopassword'] && !$is_controluser) {
-            $link = @PMA_DBI_real_connect($drizzle, $GLOBALS['cfg']['Server']['host'], $server_port, $server_socket, $user, null, false, $client_flags);
+        if ($link == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
+            $link = @PMA_DBI_real_connect($drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user, null, false, $client_flags);
         }
     } else {
         $link = @PMA_DBI_real_connect($drizzle, $server['host'], $server_port, $server_socket, $user, $password);
