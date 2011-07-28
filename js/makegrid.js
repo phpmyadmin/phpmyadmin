@@ -967,7 +967,6 @@
                     type: 'POST',
                     url: 'tbl_replace.php',
                     data: post_params,
-                    context: $this_field[0],
                     success:
                         function(data) {
                             $editArea.removeClass('edit_area_posting');
@@ -985,7 +984,7 @@
                                     // display feedback
                                     $('#sqlqueryresults').prepend(data.sql_query);
                                 }
-                                g.hideEditCell(true, data, this);
+                                g.hideEditCell(true, data);
                                 
                                 // remove the "Save edited cells" button
                                 $('.save_edited').hide();
