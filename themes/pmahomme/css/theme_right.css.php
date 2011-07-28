@@ -466,6 +466,19 @@ th.headerSortDown img.sortableIcon { background-position: 0 0; }
 
 /******************************************************************************/
 /* classes */
+.clearfloat {
+    clear: both;
+}
+
+.floatleft {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right; ?>: 1em;
+}
+
+.paddingtop {
+    padding-top: 1em;
+}
+
 div.tools {
    /* border: 1px solid #000000; */
     padding: 0.2em;
@@ -1366,9 +1379,6 @@ table#serverstatusqueriesdetails th {
     min-width: 35px;
 }
 
-.clearfloat {
-    clear: both;
-}
 table#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;

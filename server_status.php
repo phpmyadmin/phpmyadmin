@@ -1365,13 +1365,14 @@ function printMonitor() {
         <a href="#addNewChart">
             <img src="themes/dot.gif" class="icon ic_b_chart" alt="" />
             <?php echo __('Add chart'); ?>
-        </a> |
-        <a href="#rearrangeCharts"> <?php echo __('Rearrange/edit charts'); ?></a><br>
-        <p>
-            <?php echo __('Refresh rate:'); refreshList('gridChartRefresh', 5, Array(2,3,4,5,10,20,40,60,120,300,600,1200)); ?><br>
-        </p>
-        <p>
-            <?php echo __('Chart columns:'); ?>
+        </a> 
+        <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
+        <div class="clearfloat paddingtop"></div>
+        <div class="floatleft">
+            <?php echo __('Refresh rate').'<br />'; refreshList('gridChartRefresh', 5, Array(2,3,4,5,10,20,40,60,120,300,600,1200)); ?><br>
+        </div>
+        <div class="floatleft">
+            <?php echo __('Chart columns'); ?> <br />
             <select name="chartColumns">
                 <option>1</option>
                 <option>2</option>
@@ -1384,8 +1385,12 @@ function printMonitor() {
                 <option>9</option>
                 <option>10</option>
             </select>
-        </p>
-        <a href="#clearMonitorConfig"><?php echo __('Clear monitor config'); ?></a>
+        </div>
+        
+        <div class="clearfloat paddingtop">
+        <b><?php echo __('Chart arrangement'); ?></b> <?php echo PMA_showHint(__('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.')); ?><br/>
+        <a href="#importMonitorConfig"><?php echo __('Import'); ?></a>&nbsp;&nbsp;<a href="#exportMonitorConfig"><?php echo __('Export'); ?></a>&nbsp;&nbsp;<a href="#clearMonitorConfig"><?php echo __('Reset to default'); ?></a>
+        </div>
     </div>
 
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">

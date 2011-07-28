@@ -558,15 +558,10 @@ $(function() {
     var newChart = null;
     var chartSpacing;
 
-    // Runtime parameter of the monitor
+    // Runtime parameter of the monitor, is being fully set in initGrid()
     var runtime = {
         // Holds all visible charts in the grid
         charts: null,
-        // Current max points per chart (needed for auto calculation)
-        gridMaxPoints: 20,
-        // displayed time frame
-        xmin: -1,
-        xmax: -1,
         // Stores the timeout handler so it can be cleared
         refreshTimeout: null,
         // Stores the GET request to refresh the charts
@@ -576,9 +571,14 @@ $(function() {
         // To play/pause the monitor
         redrawCharts: false,
         // Object that contains a list of nodes that need to be retrieved from the server for chart updates
-        dataList: []
+        dataList: [],
+        // Current max points per chart (needed for auto calculation)
+        gridMaxPoints: 20,
+        // displayed time frame
+        xmin: -1,
+        xmax: -1
     };
-
+    
     var monitorSettings = null;
 
     var defaultMonitorSettings = {
@@ -938,6 +938,102 @@ $(function() {
 
         return false;
     });
+    
+    $('a[href="#exportMonitorConfig"]').click(function() {
+        var gridCopy = {};
+
+        $.each(runtime.charts, function(key, elem) {
+            gridCopy[key] = {};
+            gridCopy[key].nodes = elem.nodes;
+            gridCopy[key].settings = elem.settings;
+            gridCopy[key].title = elem.title;
+        });
+        
+        var exportData = {
+            monitorCharts: gridCopy,
+            monitorSettings: monitorSettings
+        };
+        var $form;
+        
+        $('body').append($form = $('<form method="post" action="file_echo.php?'+url_query+'&filename=1" style="display:none;"></form>'));
+        
+        $form.append('<input type="hidden" name="monitorconfig" value="' + encodeURI($.toJSON(exportData)) + '">');
+        $form.submit();
+        $form.remove();
+    });
+
+    $('a[href="#importMonitorConfig"]').click(function() {
+        $('div#emptyDialog').attr('title','Import monitor configuration');
+        $('div#emptyDialog').html('Please select the file you want to import:<br/><form action="file_echo.php?'+url_query+'&import=1" method="post" enctype="multipart/form-data">'+
+            '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
+        
+        var dlgBtns = {};
+        
+        dlgBtns[PMA_messages['strImport']] = function() {
+            var $iframe, $form;
+            $('body').append($iframe = $('<iframe id="monitorConfigUpload" style="display:none;"></iframe>'));
+            var d = $iframe[0].contentWindow.document;
+            d.open(); d.close();
+            mew = d;
+            
+            $iframe.load(function() {
+                var json;
+
+                // Try loading config
+                try {
+                    json = $.parseJSON($('body',$('iframe#monitorConfigUpload')[0].contentWindow.document).html());
+                } catch (err) {
+                    alert(PMA_messages['strFailedParsingConfig']);
+                    $('div#emptyDialog').dialog('close');
+                    return;
+                }
+            
+                // Basic check, is this a monitor config json?
+                if(!json || ! json.monitorCharts || ! json.monitorCharts) {
+                    alert(PMA_messages['strFailedParsingConfig']);
+                    $('div#emptyDialog').dialog('close');
+                    return;
+                }
+                
+                // If json ok, try applying config
+                try {
+                    window.localStorage['monitorCharts'] = $.toJSON(json.monitorCharts);
+                    window.localStorage['monitorSettings'] = $.toJSON(json.monitorSettings);
+                    rebuildGrid();
+                } catch(err) {
+                    alert(PMA_messages['strFailedBuildingGrid']);
+                    // If an exception is thrown, load default again
+                    window.localStorage.removeItem('monitorCharts');
+                    window.localStorage.removeItem('monitorSettings');
+                    rebuildGrid();
+                }
+                
+                $('div#emptyDialog').dialog('close');
+            });
+            
+            $("body", d).append($form=$('div#emptyDialog').find('form'));
+            $form.submit();
+            $('div#emptyDialog').append('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+        };
+        
+        dlgBtns[PMA_messages['strCancel']] = function() {
+            $(this).dialog('close');
+        }
+        
+        
+        $('div#emptyDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: dlgBtns
+        });
+    });
+
+    $('a[href="#clearMonitorConfig"]').click(function() {
+        window.localStorage.removeItem('monitorCharts');
+        window.localStorage.removeItem('monitorSettings');
+        $(this).hide();
+        rebuildGrid();
+    });
 
     $('a[href="#pauseCharts"]').click(function() {
         runtime.redrawCharts = ! runtime.redrawCharts;
@@ -945,7 +1041,7 @@ $(function() {
             $(this).html('<img src="themes/dot.gif" class="icon ic_play" alt="" /> ' + PMA_messages['strResumeMonitor']);
         else {
             $(this).html('<img src="themes/dot.gif" class="icon ic_pause" alt="" /> ' + PMA_messages['strPauseMonitor']);
-            if(runtime.charts == null) {
+            if(! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
             }
@@ -1226,10 +1322,56 @@ $(function() {
 
         // Empty cells should keep their size so you can drop onto them
         $('table#chartGrid tr td').css('width',chartSize().width + 'px');
-
-
+        
         buildRequiredDataList();
         refreshChartGrid();
+    }
+    
+    function destroyGrid() {
+        if(runtime.charts)
+            $.each(runtime.charts, function(key, value) {
+                try {
+                    value.chart.destroy();
+                } catch(err) {}
+            });
+        try {
+            runtime.refreshRequest.abort();
+        } catch(err) {}
+        try {    
+            clearTimeout(runtime.refreshTimeout);
+        } catch(err) {}
+            
+        $('table#chartGrid').html('');
+
+        runtime.charts = null;
+        runtime.chartAI = 0;
+        monitorSettings = null;
+    }
+    
+    function rebuildGrid() {
+        var oldData = null;
+        if(runtime.charts) {
+            oldData = {};
+            $.each(runtime.charts, function(key, chartObj) {
+                for(var i=0; i < chartObj.nodes.length; i++) {
+                    oldData[chartObj.nodes[i].dataPoint] = [];
+                    for(var j=0; j < chartObj.chart.series[i].data.length; j++)
+                        oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.series[i].data[j].x, chartObj.chart.series[i].data[j].y]);
+                }
+            });
+        }
+        
+        destroyGrid();
+        initGrid();
+        
+        if(oldData) {
+            $.each(runtime.charts, function(key, chartObj) {
+                for(var j=0; j < chartObj.nodes.length; j++) {
+                    if(oldData[chartObj.nodes[j].dataPoint])
+                        chartObj.chart.series[j].setData(oldData[chartObj.nodes[j].dataPoint]);
+                }
+            });
+        }      
     }
 
     function chartSize() {
@@ -2012,12 +2154,6 @@ $(function() {
         $('a[href="#clearMonitorConfig"]').show();
     }
 
-    $('a[href="#clearMonitorConfig"]').click(function() {
-        window.localStorage.removeItem('monitorCharts');
-        window.localStorage.removeItem('monitorSettings');
-        $(this).hide();
-    });
-    
     function serverResponseError() {
         var btns = {};
         btns[PMA_messages['strReloadPage']] = function() {
