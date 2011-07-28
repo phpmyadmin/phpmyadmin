@@ -515,63 +515,45 @@
                 g.isCellEditActive = false;
                 
                 if (data) {
-                    $this_field = field == undefined ? $(g.currentEditCell) : $(field);
-                    $this_field_span = $this_field.children('span');
-
-                    var is_null = $this_field.data('value') == null;
-                    if (is_null) {
-                        $this_field_span.html('NULL');
-                        $this_field.addClass('null');
-                    } else {
-                        $this_field.removeClass('null');
-                        /**
-                         * @var new_html    String containing value of the data field after edit
-                         */
+                    if (data === true) {
+                        // replace current edited field with the new value
+                        var $this_field = $(g.currentEditCell);
                         var new_html = $this_field.data('value');
-
-                        if($this_field.is(':not(.relation, .enum, .set)')) {
-                            if($this_field.is('.transformed')) {
-                                var field_name = getFieldName($this_field);
-                                if (typeof data.transformations != 'undefined') {
-                                    $.each(data.transformations, function(key, value) {
-                                        if(key == field_name) {
-                                            if($this_field.is('.text_plain, .application_octetstream')) {
-                                                new_html = value;
-                                                return false;
-                                            } else {
-                                                var new_value = $this_field.data('value');
-                                                new_html = $(value).append(new_value);
-                                                return false;
-                                            }
-                                        }
-                                    })
-                                }
-                            } else if ($this_field.is('.truncated')) {
+                        var is_null = $this_field.data('value') == null;
+                        if (is_null) {
+                            $this_field_span.html('NULL');
+                            $this_field.addClass('null');
+                        } else {
+                            $this_field.removeClass('null');
+                            if ($this_field.is('.truncated')) {
                                 if (new_html.length > g.maxTruncatedLen) {
                                     new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
                                 }
                             }
                             // replace '\n' with <br>
                             new_html = new_html.replace(/\n/g, '<br />');
-                        } else {
-                            if($this_field.is('.relation')) {
-                                var field_name = getFieldName($this_field);
-                                if (typeof data.relations != 'undefined') {
-                                    $.each(data.relations, function(key, value) {
-                                        if(key == field_name) {
-                                            new_html = $(value);
-                                            return false;
-                                        }
-                                    })
-                                }
-                            }
                         }
-                        $this_field_span.html(new_html);
+                        $this_field.find('span').html(new_html);
+                    } else {
+                        // update edited fields with new value from "data"
+                        if (data.transformations != undefined) {
+                            $.each(data.transformations, function(cell_index, value) {
+                                var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
+                                $this_field.find('span').html(value);
+                            });
+                        }
+                        if (data.relations != undefined) {
+                            $.each(data.relations, function(cell_index, value) {
+                                var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
+                                $this_field.find('span').html(value);
+                            });
+                        }
                     }
+                    
                     // refresh the grid
                     this.reposRsz();
                     this.reposDrop();
-                }   // end of if "data" is defined, i.e. post successful
+                }
             },
             
             /**
@@ -756,43 +738,62 @@
                         })
                     }
                     else if($td.is('.truncated, .transformed')) {
-                        /** @lends jQuery */
-                        //handle truncated/transformed values values
-                        $editArea.addClass('edit_area_loading');
+                        if ($td.is('.to_be_saved')) {   // cell has been edited
+                            var value = $td.data('value');
+                            $(g.cEdit).find('input[type=text]').val(value);
+                            $editArea.append('<textarea>'+value+'</textarea>');
+                            $editArea.find('textarea').live('keyup', function(e) {
+                                $(g.cEdit).find('input[type=text]').val($(this).val());
+                            });
+                            $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
+                                $editArea.find('textarea').val($(this).val());
+                            });
+                            $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        } else {
+                            /** @lends jQuery */
+                            //handle truncated/transformed values values
+                            $editArea.addClass('edit_area_loading');
 
-                        /**
-                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
-                         */
-                        var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
+                            // initialize the original data
+                            $td.data('original_data', null);
 
-                        // Make the Ajax call and get the data, wrap it and insert it
-                        $.post('sql.php', {
-                            'token' : window.parent.token,
-                            'server' : window.parent.server,
-                            'db' : window.parent.db,
-                            'ajax_request' : true,
-                            'sql_query' : sql_query,
-                            'inline_edit' : true
-                        }, function(data) {
-                            $editArea.removeClass('edit_area_loading');
-                            if(data.success == true) {
-                                // get the truncated data length
-                                g.maxTruncatedLen = PMA_getCellValue(g.currentEditCell).length - 3;
-                                
-                                $(g.cEdit).find('input[type=text]').val(data.value);
-                                $editArea.append('<textarea>'+data.value+'</textarea>');
-                                $editArea.find('textarea').live('keyup', function(e) {
-                                    $(g.cEdit).find('input[type=text]').val($(this).val());
-                                });
-                                $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
-                                    $editArea.find('textarea').val($(this).val());
-                                });
-                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                            }
-                            else {
-                                PMA_ajaxShowMessage(data.error);
-                            }
-                        }) // end $.post()
+                            /**
+                             * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                             */
+                            var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
+                            
+                            // Make the Ajax call and get the data, wrap it and insert it
+                            $.post('sql.php', {
+                                'token' : window.parent.token,
+                                'server' : window.parent.server,
+                                'db' : window.parent.db,
+                                'ajax_request' : true,
+                                'sql_query' : sql_query,
+                                'inline_edit' : true
+                            }, function(data) {
+                                $editArea.removeClass('edit_area_loading');
+                                if(data.success == true) {
+                                    if ($td.is('.truncated')) {
+                                        // get the truncated data length
+                                        g.maxTruncatedLen = $(g.currentEditCell).text().length - 3;
+                                    }
+                                    
+                                    $td.data('original_data', data.value);
+                                    $(g.cEdit).find('input[type=text]').val(data.value);
+                                    $editArea.append('<textarea>'+data.value+'</textarea>');
+                                    $editArea.find('textarea').live('keyup', function(e) {
+                                        $(g.cEdit).find('input[type=text]').val($(this).val());
+                                    });
+                                    $(g.cEdit).find('input[type=text]').live('keyup', function(e) {
+                                        $editArea.find('textarea').val($(this).val());
+                                    });
+                                    $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                                }
+                                else {
+                                    PMA_ajaxShowMessage(data.error);
+                                }
+                            }) // end $.post()
+                        }
                         g.isEditCellTextEditable = true;
                     } else {
                         $editArea.append('<textarea>' + PMA_getCellValue(g.currentEditCell) + '</textarea>');
@@ -896,22 +897,22 @@
                          * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                          */
                         var is_null = $this_field.data('value') == null;
-                        var value;
-                        var addQuotes = true;
                         
                         fields_name.push(field_name);
                         fields.push($this_field.data('value'));
-
+                        
                         if (!is_null) {
                             this_field_params[field_name] = $this_field.data('value');
+                            
+                            var cell_index = $this_field.index('.to_be_saved');
                             if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
                                 if($this_field.is('.transformed')) {
-                                    $.extend(transform_fields, this_field_params);
+                                    transform_fields[cell_index] = {};
+                                    $.extend(transform_fields[cell_index], this_field_params);
                                 }
-                            } else if ($this_field.is('.bit')) {
-                                addQuotes = false;
                             } else if($this_field.is('.relation')) {
-                                $.extend(relation_fields, this_field_params);
+                                relation_fields[cell_index] = {};
+                                $.extend(relation_fields[cell_index], this_field_params);
                             }
                             if (where_clause.indexOf(field_name) > -1) {
                                 new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
@@ -926,16 +927,15 @@
                         new_clause = new_clause.substring(0, new_clause.length-5);
                         new_clause = PMA_urlencode(new_clause);
                         $this_field.parent('tr').data('new_clause', new_clause);
-                        
-                        rel_fields_list += $.param(relation_fields) + '&';
-                        transform_fields_list += $.param(transform_fields) + '&';
-                        
                     }); // end of loop for every edited cells in a row
                     
                     me_fields_name.push(fields_name);
                     me_fields.push(fields);
                 
                 }); // end of loop for every edited rows
+                
+                rel_fields_list = $.param(relation_fields);
+                transform_fields_list = $.param(transform_fields);
                 
                 // Make the Ajax post after setting all parameters
                 /**
@@ -988,8 +988,11 @@
                                 
                                 // remove the "Save edited cells" button
                                 $('.save_edited').hide();
-                                // remove the to_be_saved class
-                                $('.to_be_saved').removeClass('to_be_saved');
+                                // update saved fields
+                                $(g.t).find('.to_be_saved')
+                                    .removeClass('to_be_saved')
+                                    .data('value', null)
+                                    .data('original_data', null);
                                 
                                 g.isCellEdited = false;
                             } else {
