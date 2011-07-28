@@ -977,9 +977,14 @@
                                 'submit_type' : 'save'
                               };
                 
-                $(g.cEdit).find('*').attr('disabled', true);
-                var $editArea = $(g.cEdit).find('.edit_area');
-                $editArea.addClass('edit_area_posting');
+                if (!g.saveCellsAtOnce) {
+                    $(g.cEdit).find('*').attr('disabled', true);
+                    var $editArea = $(g.cEdit).find('.edit_area');
+                    $editArea.addClass('edit_area_posting');
+                } else {
+                    $('.save_edited').addClass('saving_edited_data')
+                        .attr('disabled', true);
+                }
                 
                 $.ajax({
                     type: 'POST',
@@ -987,7 +992,12 @@
                     data: post_params,
                     success:
                         function(data) {
-                            $editArea.removeClass('edit_area_posting');
+                            if (!g.saveCellsAtOnce) {
+                                $editArea.removeClass('edit_area_posting');
+                            } else {
+                                $('.save_edited').removeClass('saving_edited_data')
+                                    .attr('disabled', false);
+                            }
                             if(data.success == true) {
                                 PMA_ajaxShowMessage(data.message);
                                 $('.to_be_saved').each(function() {

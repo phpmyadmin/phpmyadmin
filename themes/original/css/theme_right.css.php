@@ -2505,3 +2505,8 @@ span.mysql-number {
     padding: 0.2em 0.3em;
 }
 
+.saving_edited_data {
+    background: url(./themes/pmahomme/img/ajax_clock_small.gif) no-repeat left;
+    padding-left: 20px;
+}
+
