@@ -20,22 +20,25 @@ define('PMA_DBI_GETVAR_SESSION',    1);
 define('PMA_DBI_GETVAR_GLOBAL',     2);
 
 /**
- * Checks one of the mysql extensions
+ * Checks whether database extension is loaded
  *
  * @param string  $extension  mysql extension to check
+ * @return bool
  */
-function PMA_DBI_checkMysqlExtension($extension = 'mysql') {
-    if (! function_exists($extension . '_connect')) {
-        return false;
+function PMA_DBI_checkDbExtension($extension = 'mysql') {
+    if ($extension == 'drizzle' && function_exists('drizzle_create')) {
+        return true;
+    } else if (function_exists($extension . '_connect')) {
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 /**
  * check for requested extension
  */
-if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
+if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
 
     // if it fails try alternative extension ...
     // and display an error ...
@@ -52,7 +55,7 @@ if (! PMA_DBI_checkMysqlExtension($GLOBALS['cfg']['Server']['extension'])) {
         $alternativ_extension = 'mysql';
     }
 
-    if (! PMA_DBI_checkMysqlExtension($alternativ_extension)) {
+    if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
         // if alternative fails too ...
         PMA_warnMissingExtension($GLOBALS['cfg']['Server']['extension'], true, PMA_showDocu('faqmysql'));
     }
@@ -1155,6 +1158,7 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
+PMA_cacheUnset('PMA_MYSQL_INT_VERSION', true);
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if (PMA_cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define('PMA_MYSQL_INT_VERSION', PMA_cacheGet('PMA_MYSQL_INT_VERSION', true));
@@ -1183,7 +1187,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         // detect Drizzle by version number (year.month.day.?patch-version)
         define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
     }
-
+var_dump(PMA_MYSQL_MAJOR_VERSION);
     // Skip charsets for Drizzle
     if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
