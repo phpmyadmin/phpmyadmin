@@ -66,15 +66,9 @@ function PMA_auth_set_user()
  */
 function PMA_auth_fails()
 {
-    global $php_errormsg, $cfg;
-
     $conn_error = PMA_DBI_getError();
     if (!$conn_error) {
-        if (isset($php_errormsg)) {
-            $conn_error = $php_errormsg;
-        } else {
-            $conn_error = __('Cannot connect: invalid settings.');
-        }
+        $conn_error = __('Cannot connect: invalid settings.');
     }
 
     // Defines the charset to be used
