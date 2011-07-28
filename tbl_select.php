@@ -35,6 +35,7 @@ if ($GLOBALS['cfg']['PropertiesIconic'] == true) {
     $titles['Browse'] = __('Browse foreign values');
 }
 
+$geom_types = PMA_getGISDatatypes();
 /**
  * Not selection yet required -> displays the selection form
  */
@@ -64,9 +65,14 @@ if (! isset($param) || $param[0] == '') {
     $result     = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
     $fields_cnt = PMA_DBI_num_rows($result);
     $fields_list = $fields_null = $fields_type = $fields_collation = array();
+    $geom_column_present = false;
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
+        // check whether table contains geometric columns
+        if (in_array($type, $geom_types)) {
+            $geom_column_present = true;
+        }
         // reformat mysql query output
         if (strncasecmp($type, 'set', 3) == 0
             || strncasecmp($type, 'enum', 4) == 0) {
@@ -111,7 +117,13 @@ if (! isset($param) || $param[0] == '') {
     <legend><?php echo __('Do a "query by example" (wildcard: "%")') ?></legend>
     <table class="data">
     <thead>
-    <tr><th><?php echo __('Column'); ?></th>
+    <tr><?php
+        // Display the Function column only if there is alteast one geomety colum
+        if ($geom_column_present) {
+            echo('<th>'); echo __('Function');  echo('</th>');
+        }
+        ?>
+        <th><?php echo __('Column'); ?></th>
         <th><?php echo __('Type'); ?></th>
         <th><?php echo __('Collation'); ?></th>
         <th><?php echo __('Operator'); ?></th>
@@ -125,6 +137,27 @@ if (! isset($param) || $param[0] == '') {
     for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
+            <?php
+            // if 'Function' column is present
+            if ($geom_column_present) {
+                echo('<td>');
+                // if a geometry column
+                if (in_array($fields_type[$i], $geom_types)) {
+                    echo('<select name="geom_func['. $i .']">');
+                        // get the relevant list of functions
+                        $funcs = PMA_getGISFunctions($fields_type[$i], false, true);
+                        foreach ($funcs as $func) {
+                            $name = $func['name'];
+                            echo('<option value="' . htmlspecialchars($name) . '">'
+                                . htmlspecialchars($name) . '</option>');
+                        }
+                    echo('</select>');
+                } else {
+                    echo('&nbsp;');
+                }
+                echo('</td>');
+            }
+            ?>
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
             <td><?php echo $fields_type[$i]; ?></td>
             <td><?php echo $fields_collation[$i]; ?></td>
@@ -360,13 +393,31 @@ else {
            "= ''" => 1,
            "!= ''" => 1
         );
+        $geom_unary_operators = array(
+            'IsEmpty' => 1,
+            'IsSimple' => 1,
+            'IsRing' => 1,
+            'IsClosed' => 1,
+        );
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
+            // If geometry funciton is set apply it to the field name
+            if (isset($geom_func[$i]) && trim($geom_func[$i]) != '') {
+                $backquoted_name = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ')';
+                // If the intended where clause is something like 'IsEmpty(`spatial_col_name`)'
+                if (isset($geom_unary_operators[$geom_func[$i]]) && trim($fields[$i]) == '') {
+                    $w[] = $backquoted_name;
+                    continue;
+                }
+            } else {
+                $backquoted_name = PMA_backquote($names[$i]);
+            }
+
             list($charsets[$i]) = explode('_', $collations[$i]);
             if (isset($unary_operators[$func_type])) {
                 $fields[$i] = '';
-                $w[] = PMA_backquote($names[$i]) . ' ' . $func_type;
+                $w[] = $backquoted_name . ' ' . $func_type;
 
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
@@ -393,7 +444,7 @@ else {
                         $enum_where .= ', \'' . PMA_sqlAddSlashes($fields[$i][$e]) . '\'';
                     }
 
-                    $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+                    $w[] = $backquoted_name . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
                 }
 
             } elseif ($fields[$i] != '') {
@@ -425,12 +476,12 @@ else {
                         $value = $quot . PMA_sqlAddSlashes(trim($value)) . $quot;
 
                     if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
-                        $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
+                        $w[] = $backquoted_name . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
                     else
-                        $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' (' . implode(',', $values) . ')';
+                        $w[] = $backquoted_name . ' ' . $func_type . ' (' . implode(',', $values) . ')';
                 }
                 else {
-                    $w[] = PMA_backquote($names[$i]) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddSlashes($fields[$i]) . $quot;;
+                    $w[] = $backquoted_name . ' ' . $func_type . ' ' . $quot . PMA_sqlAddSlashes($fields[$i]) . $quot;;
                 }
 
             } // end if
