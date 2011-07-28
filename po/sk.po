@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-14 15:30+0200\n"
+"PO-Revision-Date: 2011-07-27 15:32+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -1131,7 +1131,7 @@ msgstr "Spojení od posledného obnovenia"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Dopyty (príkazy vykonané na serveri)"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
@@ -1139,15 +1139,15 @@ msgstr "Štatistika dopytov"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Využitie CPU"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Systémová pamäť"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "Stránkovacia oblasť"
 
 #: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
 msgid "MiB"
@@ -1159,14 +1159,13 @@ msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Priemerné vyťaženie"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Verzia"
+msgstr "Dopyty"
 
 #: js/messages.php:103 server_status.php:894
 msgid "Traffic"
@@ -1178,22 +1177,21 @@ msgid "Settings"
 msgstr "Nastavenia"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Odstrániť databázu"
+msgstr "Odstrániť graf"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Upraviť popisy a série"
 
 #: js/messages.php:107
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Pridať graf do mriežky"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Pridajte prosím aspoň jednu hodnotu do série"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
@@ -1212,19 +1210,19 @@ msgstr ""
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log a slow_query_log sú povolené."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log je povolený."
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log je povolený."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log a general_log sú zakázané."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
@@ -5305,20 +5303,18 @@ msgid "%d is not valid row number."
 msgstr "%d nie je platné číslo riadku."
 
 #: libraries/display_tbl.lib.php:433
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "Štart"
+msgstr "Prvý riadok"
 
 #: libraries/display_tbl.lib.php:435
 msgid "Number of rows"
 msgstr "Počet riadkov"
 
 #: libraries/display_tbl.lib.php:440
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Viac"
+msgstr "Režim"
 
 #: libraries/display_tbl.lib.php:442
 msgid "horizontal"
@@ -5448,9 +5444,8 @@ msgid "Visualize GIS data"
 msgstr "Zobraziť GIS data"
 
 #: libraries/display_tbl.lib.php:2526
-#, fuzzy
 msgid "Create view"
-msgstr "Vytvoriť relaciu"
+msgstr "Vytvoriť pohľad"
 
 #: libraries/display_tbl.lib.php:2626
 msgid "Link not found"
@@ -5704,7 +5699,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Hlavičky metadát"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
@@ -5733,13 +5728,16 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr ""
+msgstr "Veľkosť vyrovnávacej pamäte indexu"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Množstvo pamäte vyhradenej pre vyrovnávaciu pamät indexu. Štandardná hodnota "
+"je 32MB. Pamät tu priradená je použitá výhradne pre vyrovnávaciu pamäť "
+"indexových stránok."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
@@ -5771,6 +5769,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Maximálna veľkosť transakčného logu pred jeho pretočením a vytvorením "
+"nového. Štandardná hodnota je 16MB."
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
