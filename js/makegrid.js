@@ -32,6 +32,7 @@
             saveCellsAtOnce: false,     // $cfg[saveCellsAtOnce]
             isCellEdited: false,        // true if at least one cell has been edited
             saveCellWarning: '',        // string, warning text when user want to leave a page with unsaved edited data
+            lastXHR : null,             // last XHR object used in AJAX request
             
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
@@ -510,6 +511,14 @@
                     g.saveOrPostEditedCell();
                     return;
                 }
+                
+                // cancel any previous request
+                if (g.lastXHR != null) {
+                    g.lastXHR.abort();
+                    g.lastXHR = null;
+                }
+                
+                // hide the cell editing area
                 $(g.cEdit).hide();
                 $(g.cEdit).find('input[type=text]').blur();
                 g.isCellEditActive = false;
@@ -673,7 +682,7 @@
                                 'relation_key_or_display_column' : relation_key_or_display_column
                         }
 
-                        $.post('sql.php', post_params, function(data) {
+                        g.lastXHR = $.post('sql.php', post_params, function(data) {
                             $editArea.removeClass('edit_area_loading');
                             // save original_data
                             var value = $(data.dropdown).val();
@@ -707,7 +716,7 @@
                                 'token' : window.parent.token,
                                 'curr_value' : curr_value
                         }
-                        $.post('sql.php', post_params, function(data) {
+                        g.lastXHR = $.post('sql.php', post_params, function(data) {
                             $editArea.removeClass('edit_area_loading');
                             $editArea.append(data.dropdown);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -736,7 +745,7 @@
                                 'curr_value' : curr_value
                         }
 
-                        $.post('sql.php', post_params, function(data) {
+                        g.lastXHR = $.post('sql.php', post_params, function(data) {
                             $editArea.removeClass('edit_area_loading');
                             $editArea.append(data.select);
                             $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -772,7 +781,7 @@
                             var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
                             
                             // Make the Ajax call and get the data, wrap it and insert it
-                            $.post('sql.php', {
+                            g.lastXHR = $.post('sql.php', {
                                 'token' : window.parent.token,
                                 'server' : window.parent.server,
                                 'db' : window.parent.db,
