@@ -5357,7 +5357,7 @@ msgstr "Πατήστε για εναλλαγή επισήμανσης"
 
 #: libraries/display_tbl.lib.php:417
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr "Πατήστε το βέλος drop-down<br />για εναλλαγή της εμφάνισης στηλών"
+msgstr "Πατήστε το προς τα κάτω βέλος<br />για εναλλαγή της εμφάνισης στηλών"
 
 #: libraries/display_tbl.lib.php:428
 #, php-format
