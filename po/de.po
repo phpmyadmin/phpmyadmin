@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:40+0200\n"
+"PO-Revision-Date: 2011-07-29 13:41+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1377,7 +1377,7 @@ msgstr ""
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
-msgstr ""
+msgstr "Gruppiere die Abfragen und ignoriere Werte in WHERE-Abfragen"
 
 #: js/messages.php:156
 #, fuzzy
