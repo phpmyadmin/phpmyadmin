@@ -2704,7 +2704,7 @@ msgstr "Η επέκταση SOAP δεν βρέθηκε"
 #: libraries/config/FormDisplay.class.php:741
 #, php-format
 msgid "maximum %s"
-msgstr "Μέγιστος αριθμός %s"
+msgstr "μέγιστος αριθμός %s"
 
 #: libraries/config/FormDisplay.tpl.php:167
 msgid "This setting is disabled, it will not be applied to your configuration"
