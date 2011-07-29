@@ -4734,7 +4734,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:489
 msgid "Textarea columns"
-msgstr "Στήλες περιοχής κειμένου (textarea)"
+msgstr "Στήλες textarea"
 
 #: libraries/config/messages.inc.php:490
 msgid ""
