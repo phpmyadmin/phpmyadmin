@@ -890,7 +890,8 @@ msgid ""
 msgstr ""
 "Δεν ελήφθησαν δεδομένα για εισαγωγή. Είτε δεν υποβλήθηκε αρχείο είτε το "
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
-"της ΡΗΡ. Δείτε τις [a@Documentation.html#faq1_16@Documentation]ΣΑΕ 1.16[/a]."
+"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ "
+"1.16[/a]."
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
