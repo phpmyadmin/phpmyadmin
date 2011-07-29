@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:07+0200\n"
+"PO-Revision-Date: 2011-07-29 13:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -947,8 +947,8 @@ msgstr "Επιστροφή"
 #: index.php:164
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
-"Το phpMyAdmin είναι πιο φιλικό με έναν φυλλομετρητή <b>που υποστηρίζει "
-"frames</b>."
+"Το phpMyAdmin είναι πιο φιλικό με έναν <b>που υποστηρίζει frames</b> "
+"φυλλομετρητή."
 
 #: js/messages.php:27 server_synchronize.php:340 server_synchronize.php:352
 #: server_synchronize.php:368 server_synchronize.php:375
