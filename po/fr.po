@@ -1334,6 +1334,8 @@ msgstr "Depuis le journal général"
 #: js/messages.php:142
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
+"Analyse et chargement des journaux en cours. Ceci peut prendre un certain "
+"temps."
 
 #: js/messages.php:143
 msgid ""
