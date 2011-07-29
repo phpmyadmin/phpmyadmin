@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 15:43+0200\n"
+"PO-Revision-Date: 2011-07-29 15:44+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1212,7 +1212,7 @@ msgstr "Reprendre la surveillance"
 
 #: js/messages.php:112
 msgid "Pause monitor"
-msgstr ""
+msgstr "Mettre la surveillance en pause"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
