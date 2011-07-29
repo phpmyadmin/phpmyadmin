@@ -4416,7 +4416,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:427
 msgid "UI preferences table"
-msgstr "Πίνακας προτιμήσεων περιβάλλοντος χρήστη"
+msgstr "Πίνακας προτιμήσεων UI"
 
 #: libraries/config/messages.inc.php:428
 msgid ""
