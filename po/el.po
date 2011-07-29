@@ -9450,7 +9450,7 @@ msgstr ""
 
 #: server_status.php:1096
 msgid "The number of internal ROLLBACK statements."
-msgstr "Ο αριθμός των εσωτερικών δηλώσεων ΕΠΙΣΤΡΟΦΗΣ (ROLLBACK)."
+msgstr "Ο αριθμός των εσωτερικών δηλώσεων ROLLBACK."
 
 #: server_status.php:1097
 msgid "The number of requests to update a row in a table."
