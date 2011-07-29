@@ -880,7 +880,7 @@
                 $('.to_be_saved').parents('tr').each(function() {
                     var where_clause = $(this).find('.where_clause').val();
                     full_where_clause.push(unescape(where_clause.replace(/[+]/g, ' ')));
-                    var new_clause = '';
+                    var new_clause = where_clause;
                     
                     /**
                      * multi edit variables, for current row
@@ -939,17 +939,13 @@
                                 $.extend(relation_fields[cell_index], this_field_params);
                             }
                             if (where_clause.indexOf(field_name) > -1) {
-                                new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
+                                var old_sub_clause_regex = new RegExp(PMA_urlencode('`' + window.parent.table + '`.' + '`' + field_name + '`') + '[+]%3D[+][^+]*');
+                                var new_sub_clause = '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'";
+                                new_clause = new_clause.replace(old_sub_clause_regex, new_sub_clause);
                             }
                         }
                         
-                        /*
-                         * update the where_clause, remove the last appended ' AND '
-                         * */
-
-                        // prepare and save new_clause
-                        new_clause = new_clause.substring(0, new_clause.length-5);
-                        new_clause = PMA_urlencode(new_clause);
+                        // save new_clause
                         $this_field.parent('tr').data('new_clause', new_clause);
                     }); // end of loop for every edited cells in a row
                     
@@ -1011,7 +1007,13 @@
                                 $('.to_be_saved').each(function() {
                                     var new_clause = $(this).parent('tr').data('new_clause');
                                     if (new_clause != '') {
-                                        $(this).parent('tr').find('.where_clause').attr('value', new_clause);
+                                        var $where_clause = $(this).parent('tr').find('.where_clause');
+                                        var old_clause = $where_clause.attr('value');
+                                        $where_clause.attr('value', new_clause);
+                                        // update Edit, Copy, and Delete links also
+                                        $(this).parent('tr').find('a').each(function() {
+                                            $(this).attr('href', $(this).attr('href').replace(old_clause, new_clause));
+                                        });
                                     }
                                 });
                                 // remove possible previous feedback message
