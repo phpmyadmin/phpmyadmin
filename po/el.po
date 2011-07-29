@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:52+0200\n"
+"PO-Revision-Date: 2011-07-29 12:53+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5129,7 +5129,7 @@ msgstr "Προσαρμογή - προβολή όλων των πιθανών ε�
 
 #: libraries/display_export.lib.php:130
 msgid "Database(s):"
-msgstr "Βάση(εις) Δεδομένων"
+msgstr "Βάση(εις) Δεδομένων:"
 
 #: libraries/display_export.lib.php:132
 msgid "Table(s):"
