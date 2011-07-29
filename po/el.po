@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:05+0200\n"
+"PO-Revision-Date: 2011-07-29 12:06+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -975,7 +975,7 @@ msgstr "Πρόκειται να DESTROY μια ολόκληρη βάση δεδ�
 
 #: js/messages.php:34
 msgid "You are about to DESTROY a complete table!"
-msgstr "Πρόκειται να ΚΑΤΑΣΤΡΕΨΕΤΕ (DESTROY) έναν ολόκληρο πίνακα!"
+msgstr "Πρόκειται να DESTROY έναν ολόκληρο πίνακα!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
