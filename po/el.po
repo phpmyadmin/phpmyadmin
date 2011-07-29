@@ -11103,7 +11103,7 @@ msgstr "Εκτέλεσε ένα «επερώτημα κατά παράδειγμ
 
 #: tbl_select.php:260
 msgid "Select columns (at least one):"
-msgstr "Επιλογή πεδίων (τουλάχιστον ένα)"
+msgstr "Επιλογή πεδίων (τουλάχιστον ένα):"
 
 #: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
