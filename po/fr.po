@@ -6296,7 +6296,6 @@ msgstr ""
 "Modifiez l'un des paramètres en cliquant le lien «Options» correspondant"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Modifier sa structure via le lien «Structure»"
