@@ -6219,7 +6219,7 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Αχρήστευση δυαδικών στηλών σε δεκαεξαδική σημείωση <i>(για παράδειγμα, το "
+"Μετατροπή δυαδικών στηλών σε δεκαεξαδική σημείωση <i>(για παράδειγμα, το "
 "«abc» γίνεται 0x616263)</i>"
 
 #: libraries/export/sql.php:289
