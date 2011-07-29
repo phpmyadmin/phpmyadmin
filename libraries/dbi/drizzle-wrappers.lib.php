@@ -350,11 +350,12 @@ class PMA_DrizzleResult
      */
     public function free()
     {
-        foreach ($this->columns as $col) {
+        // too much freeing, causes segfault in drizzle.so (v.0.5): (zif_drizzle_column_free+0x25)
+        /*foreach ($this->columns as $col) {
             drizzle_column_free($col);
         }
         unset($this->columns);
-        unset($this->columnNames);
+        unset($this->columnNames);*/
         drizzle_result_free($this->dresult);
         $this->dresult = null;
     }
