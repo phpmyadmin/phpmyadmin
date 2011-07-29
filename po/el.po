@@ -6836,7 +6836,7 @@ msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
 #: libraries/replication_gui.lib.php:303 server_privileges.php:832
 msgid "Any host"
-msgstr "Οποιοδήποτε Σύστημα"
+msgstr "Οποιοδήποτε σύστημα"
 
 #: libraries/replication_gui.lib.php:307 server_privileges.php:836
 msgid "Local"
