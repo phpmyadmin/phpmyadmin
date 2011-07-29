@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 20:24+0200\n"
+"PO-Revision-Date: 2011-07-29 21:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -8686,7 +8686,7 @@ msgstr "Kullanıcı gözden geçirme"
 #: server_privileges.php:1697 server_privileges.php:1889
 #: server_privileges.php:2239
 msgid "Grant"
-msgstr "Onayla"
+msgstr "Onaylı"
 
 #: server_privileges.php:1770
 msgid "Remove selected users"
