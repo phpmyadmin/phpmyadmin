@@ -530,7 +530,7 @@
                         var new_html = $this_field.data('value');
                         var is_null = $this_field.data('value') == null;
                         if (is_null) {
-                            $this_field_span.html('NULL');
+                            $this_field.find('span').html('NULL');
                             $this_field.addClass('null');
                         } else {
                             $this_field.removeClass('null');
@@ -541,8 +541,8 @@
                             }
                             // replace '\n' with <br>
                             new_html = new_html.replace(/\n/g, '<br />');
+                            $this_field.find('span').html(new_html);
                         }
-                        $this_field.find('span').html(new_html);
                     } else {
                         // update edited fields with new value from "data"
                         if (data.transformations != undefined) {
@@ -874,6 +874,7 @@
                  */
                 var me_fields_name = Array();
                 var me_fields = Array();
+                var me_fields_null = Array();
                 
                 // loop each edited row
                 $('.to_be_saved').parents('tr').each(function() {
@@ -887,6 +888,7 @@
                      */
                     var fields_name = Array();
                     var fields = Array();
+                    var fields_null = Array();
 
                     // loop each edited cell in a row
                     $(this).find('.to_be_saved').each(function() {
@@ -914,12 +916,16 @@
                         /**
                          * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                          */
-                        var is_null = $this_field.data('value') == null;
+                        var is_null = $this_field.data('value') === null;
                         
                         fields_name.push(field_name);
-                        fields.push($this_field.data('value'));
                         
-                        if (!is_null) {
+                        if (is_null) {
+                            fields_null.push('on');
+                            fields.push('');
+                        } else {
+                            fields_null.push('');
+                            fields.push($this_field.data('value'));
                             this_field_params[field_name] = $this_field.data('value');
                             
                             var cell_index = $this_field.index('.to_be_saved');
@@ -949,6 +955,7 @@
                     
                     me_fields_name.push(fields_name);
                     me_fields.push(fields);
+                    me_fields_null.push(fields_null);
                 
                 }); // end of loop for every edited rows
                 
@@ -969,6 +976,7 @@
                                 'where_clause' : full_where_clause,
                                 'fields[multi_edit]' : me_fields,
                                 'fields_name[multi_edit]' : me_fields_name,
+                                'fields_null[multi_edit]' : me_fields_null,
                                 'rel_fields_list' : rel_fields_list,
                                 'do_transformations' : transformation_fields,
                                 'transform_fields_list' : transform_fields_list,
