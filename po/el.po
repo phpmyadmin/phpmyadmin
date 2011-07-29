@@ -9367,7 +9367,7 @@ msgstr "Ο αριθμός των εκτελεσθέντων δηλώσεων FLU
 
 #: server_status.php:1087
 msgid "The number of internal COMMIT statements."
-msgstr "Ο αριθμός των εσωτερικών δηλώσεων ΠΑΡΑΠΟΜΠΗΣ (COMMIT)."
+msgstr "Ο αριθμός των εσωτερικών δηλώσεων COMMIT."
 
 #: server_status.php:1088
 msgid "The number of times a row was deleted from a table."
