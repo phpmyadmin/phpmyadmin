@@ -6825,7 +6825,7 @@ msgstr "Προσθήκη δευτερέοντα χρήστη αναπαραγω�
 
 #: libraries/replication_gui.lib.php:255 server_privileges.php:784
 msgid "Any user"
-msgstr "Οποιοσδήποτε Χρήστης"
+msgstr "Οποιοσδήποτε xρήστης"
 
 #: libraries/replication_gui.lib.php:256 libraries/replication_gui.lib.php:324
 #: libraries/replication_gui.lib.php:347 server_privileges.php:785
