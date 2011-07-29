@@ -5237,7 +5237,7 @@ msgstr "Μορφοποίηση:"
 
 #: libraries/display_export.lib.php:331
 msgid "Format-specific options:"
-msgstr "Επιλογές Ορισμένης Μορφής:"
+msgstr "Επιλογές ορισμένης μορφής:"
 
 #: libraries/display_export.lib.php:332
 msgid ""
