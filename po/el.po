@@ -10911,7 +10911,7 @@ msgstr "Όνομα ευρετηρίου:"
 
 #: tbl_indexes.php:185
 msgid "Index type:"
-msgstr "Τύπος ευρετηρίου :"
+msgstr "Τύπος ευρετηρίου:"
 
 #: tbl_indexes.php:265
 #, php-format
