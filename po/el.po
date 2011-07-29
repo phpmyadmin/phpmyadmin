@@ -1383,7 +1383,7 @@ msgstr ""
 #: js/messages.php:156
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Άθροισμα ομαδοποιημένων γραμμών"
+msgstr "Άθροισμα ομαδοποιημένων γραμμών:"
 
 #: js/messages.php:157
 #| msgid "Total"
