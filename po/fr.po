@@ -9945,10 +9945,9 @@ msgid "The number of threads that are not sleeping."
 msgstr "Le nombre de fils d'exécution non suspendus."
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Ligne de départ"
+msgstr "Démarrer la surveillance"
 
 #: server_status.php:1328
 #, fuzzy
