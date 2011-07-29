@@ -4931,7 +4931,7 @@ msgstr "Έγγραφο Microsoft Word 2000"
 #: libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:265 libraries/export/odt.php:22
 msgid "Open Document Text"
-msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα (ODΤ)"
+msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα - ODΤ"
 
 #: libraries/config/validate.lib.php:197 libraries/config/validate.lib.php:204
 msgid "Could not connect to MySQL server"
