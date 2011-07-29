@@ -1843,7 +1843,7 @@ msgstr "Font size"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "File was not an uploaded file."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
 #, fuzzy
