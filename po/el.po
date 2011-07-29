@@ -1349,7 +1349,7 @@ msgstr ""
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 "Τα δεδομένα καταγραφής φορτώθηκαν. Τα ερωτήματα που εκτελέστηκαν σε αυτή την "
-"επέκταση χρόνου."
+"επέκταση χρόνου:"
 
 #: js/messages.php:147
 msgid "Jump to Log table"
