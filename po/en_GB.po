@@ -9905,7 +9905,7 @@ msgstr "or type variable name:"
 
 #: server_status.php:1428
 msgid "Display as differential value"
-msgstr ""
+msgstr "Display as differential value"
 
 #: server_status.php:1430
 msgid "Apply a divisor"
