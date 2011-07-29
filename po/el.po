@@ -7081,7 +7081,7 @@ msgstr "Τύπος επιστροφής"
 
 #: libraries/rte/rte_routines.lib.php:881
 msgid "Return length/values"
-msgstr "Μήκος/Τιμές επιστροφής"
+msgstr "Επιστροφή μήκους/τιμών"
 
 #: libraries/rte/rte_routines.lib.php:887
 msgid "Return options"
