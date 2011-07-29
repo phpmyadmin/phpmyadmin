@@ -1330,7 +1330,7 @@ msgstr ""
 
 #: js/messages.php:145
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Log data loaded. Queries executed in this time span:"
 
 #: js/messages.php:147
 #, fuzzy
