@@ -491,7 +491,6 @@
                         $(g.cEdit).find('input')
                             .val(value);
                         
-                        g.isCellEditActive = false;
                         g.currentEditCell = cell;
                         $(g.cEdit).find('input[type=text]').focus();
                         $(g.cEdit).find('*').removeAttr('disabled');
@@ -513,7 +512,6 @@
             hideEditCell: function(force, data, field) {
                 if (g.isCellEditActive && !force) {
                     // cell is being edited, post the edited data
-                    g.isCellEditActive = false;
                     g.saveOrPostEditedCell();
                     return;
                 }
