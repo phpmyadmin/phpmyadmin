@@ -6285,7 +6285,7 @@ msgstr "Άνοιγμα νέου παραθύρου phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:129
 msgid "No data found for GIS visualization."
-msgstr "Δεν βρέθηκαν δεδομένα για την οπτικοποίηση ΓΠΣ."
+msgstr "Δεν βρέθηκαν δεδομένα για την οπτικοποίηση GIS."
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:54
 msgid "SQL result"
