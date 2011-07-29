@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-25 11:36+0200\n"
+"POT-Creation-Date: 2011-07-29 09:55-0400\n"
 "PO-Revision-Date: 2011-02-24 16:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: polish <pl@li.org>\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
@@ -75,9 +75,9 @@ msgstr "Szukaj"
 #: server_privileges.php:2224 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1219 tbl_change.php:335 tbl_change.php:1027
-#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:280
-#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
+#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:289
+#: tbl_operations.php:326 tbl_operations.php:528 tbl_operations.php:590
+#: tbl_operations.php:772 tbl_select.php:318 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -131,7 +131,7 @@ msgid "Database comment: "
 msgstr "Komentarz bazy danych: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
-#: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
+#: libraries/tbl_properties.inc.php:717 tbl_operations.php:371
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Komentarze tabeli"
@@ -143,7 +143,7 @@ msgstr "Komentarze tabeli"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
 #: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
 #: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
-#: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
+#: tbl_select.php:114 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
 msgstr "Kolumna"
 
@@ -158,7 +158,7 @@ msgstr "Kolumna"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2237
 #: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
-#: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
+#: tbl_printview.php:310 tbl_select.php:115 tbl_structure.php:205
 #: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "Typ"
@@ -297,15 +297,15 @@ msgstr "Usuń bazę danych (DROP)"
 msgid "Copy database to"
 msgstr "Kopiuj bazę danych do"
 
-#: db_operations.php:480 tbl_operations.php:548 tbl_tracking.php:418
+#: db_operations.php:480 tbl_operations.php:557 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "Tylko struktura"
 
-#: db_operations.php:481 tbl_operations.php:549 tbl_tracking.php:420
+#: db_operations.php:481 tbl_operations.php:558 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "Struktura i dane"
 
-#: db_operations.php:482 tbl_operations.php:550 tbl_tracking.php:419
+#: db_operations.php:482 tbl_operations.php:559 tbl_tracking.php:419
 msgid "Data only"
 msgstr "Tylko dane"
 
@@ -315,17 +315,17 @@ msgstr "CREATE DATABASE przed przekopiowaniem"
 
 #: db_operations.php:493 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
-#: libraries/config/messages.inc.php:135 tbl_operations.php:556
+#: libraries/config/messages.inc.php:135 tbl_operations.php:565
 #, php-format
 msgid "Add %s"
 msgstr "Dodaj %s"
 
 #: db_operations.php:497 libraries/config/messages.inc.php:119
-#: tbl_operations.php:314 tbl_operations.php:558
+#: tbl_operations.php:323 tbl_operations.php:567
 msgid "Add AUTO_INCREMENT value"
 msgstr "Dodaj wartości AUTO_INCREMENT"
 
-#: db_operations.php:501 tbl_operations.php:565
+#: db_operations.php:501 tbl_operations.php:574
 msgid "Add constraints"
 msgstr "Dodaj ograniczenia"
 
@@ -337,7 +337,7 @@ msgstr "Przełącz do przekopiowanej bazy danych"
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
 #: libraries/tbl_properties.inc.php:723 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
+#: server_collations.php:65 tbl_operations.php:387 tbl_select.php:116
 #: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -435,15 +435,15 @@ msgstr "Sortuj"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:895
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:275
-#: tbl_select.php:304
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:284
+#: tbl_select.php:305
 msgid "Ascending"
 msgstr "Rosnąco"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:892
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:276
-#: tbl_select.php:305
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:285
+#: tbl_select.php:306
 msgid "Descending"
 msgstr "Malejąco"
 
@@ -470,7 +470,7 @@ msgstr "Usuń"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:393 tbl_change.php:890 tbl_indexes.php:264
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Or"
 msgstr "lub"
 
@@ -505,8 +505,8 @@ msgstr "Zapytanie SQL dla bazy danych <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Wykonaj zapytania"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:83
-#: libraries/auth/config.auth.lib.php:102
+#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
@@ -604,17 +604,17 @@ msgstr "Wewnątrz kolumny:"
 msgid "No tables found in database"
 msgstr "Nie znaleziono żadnych tabel w bazie danych."
 
-#: db_structure.php:271 tbl_operations.php:688
+#: db_structure.php:271 tbl_operations.php:697
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabela %s została opróżniona"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Widok %s został usunięty"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabela %s została usunięta"
@@ -630,11 +630,11 @@ msgstr "Monitorowanie nie jest aktywne."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Ta perspektywa ma przynajmniej tyle wierszy. Więcej informacji w "
-"%sdocumentation%s."
+"Ta perspektywa ma przynajmniej tyle wierszy. Więcej informacji w %"
+"sdocumentation%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
@@ -707,20 +707,20 @@ msgstr "Wyczyść"
 msgid "Drop"
 msgstr "Usuń"
 
-#: db_structure.php:507 tbl_operations.php:604
+#: db_structure.php:507 tbl_operations.php:613
 msgid "Check table"
 msgstr "Sprawdź tabelę"
 
-#: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
+#: db_structure.php:509 tbl_operations.php:662 tbl_structure.php:842
 #: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "Optymalizuj tabelę"
 
-#: db_structure.php:511 tbl_operations.php:640
+#: db_structure.php:511 tbl_operations.php:649
 msgid "Repair table"
 msgstr "Napraw tabelę"
 
-#: db_structure.php:513 tbl_operations.php:627
+#: db_structure.php:513 tbl_operations.php:636
 msgid "Analyze table"
 msgstr "Analizuj tabelę"
 
@@ -873,8 +873,8 @@ msgstr "Zrzut został zapisany do pliku %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Prawdopodobnie próbowano wrzucić duży plik. Aby poznać sposoby obejścia tego "
 "limitu, proszę zapoznać się z %sdokumenacją%s."
@@ -946,7 +946,7 @@ msgstr ""
 
 #: import.php:452 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2232 libraries/rte/rte_routines.lib.php:1193
-#: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
+#: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Zapytanie SQL zostało wykonane pomyślnie"
@@ -1363,7 +1363,7 @@ msgstr ""
 #: js/messages.php:143
 msgid ""
 "This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries "
+"together. However only the SQL Text is being compared, thus the queries of "
 "other attributes such as start time may differ."
 msgstr ""
 
@@ -2048,7 +2048,7 @@ msgstr "Bazy danych"
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:531
 #: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
-#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Błąd"
 
@@ -2169,26 +2169,26 @@ msgstr "Nie znaleziono ścieżki do motywu %s!"
 msgid "Theme"
 msgstr ""
 
-#: libraries/auth/config.auth.lib.php:76
+#: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
 msgstr "Nie udało się nawiązać połączenia: błędne ustawienia."
 
-#: libraries/auth/config.auth.lib.php:91
+#: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Witamy w %s"
 
-#: libraries/auth/config.auth.lib.php:106
+#: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Prawdopodobnie powodem jest brak utworzonego pliku konfiguracyjnego. Do jego "
 "stworzenia można użyć %1$sskryptu instalacyjnego%2$s."
 
-#: libraries/auth/config.auth.lib.php:115
+#: libraries/auth/config.auth.lib.php:109
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2251,7 +2251,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
-#: libraries/auth/signon.auth.lib.php:244
+#: libraries/auth/signon.auth.lib.php:242
 msgid "Cannot log in to the MySQL server"
 msgstr "Nie udało się zalogować na serwer MySQL"
 
@@ -2419,7 +2419,7 @@ msgstr "Serwer"
 msgid "Invalid authentication method set in configuration:"
 msgstr "W konfiguracji ustawiono błędną metodę uwierzytelniania:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:934
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Zaleca się aktualizację do %s w wersji %s lub nowszej."
@@ -5144,23 +5144,23 @@ msgstr ""
 "Może być w przybliżeniu. Zobacz [a@./Documentation."
 "html#faq3_11@Documentation]FAQ 3.11[/a]"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:112
+#: libraries/dbi/mysql.dbi.lib.php:117 libraries/dbi/mysqli.dbi.lib.php:137
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Połączenie dla użytkownika kontrolnego zdefiniowanego w pliku "
 "konfiguracyjnym nie powiodło się."
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysql.dbi.lib.php:326
-#: libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysql.dbi.lib.php:350
+#: libraries/dbi/mysqli.dbi.lib.php:377
 msgid "The server is not responding"
 msgstr "Serwer nie odpowiada"
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysqli.dbi.lib.php:377
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr ""
 "(lub gniazdo lokalnego serwera MySQL nie jest skonfigurowane poprawnie)"
 
-#: libraries/dbi/mysql.dbi.lib.php:333
+#: libraries/dbi/mysql.dbi.lib.php:357
 msgid "Details..."
 msgstr "Szczegóły…"
 
@@ -5342,8 +5342,8 @@ msgstr ", @TABLE@ zostanie zastąpione nazwą wybranej tabeli"
 #| "happen: %3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Interpretacja tej wartości należy do funkcji %1$sstrftime%2$s i można użyć "
 "jej napisów formatujących. Dodatkowo zostaną zastosowane następujące "
@@ -5600,7 +5600,7 @@ msgstr "Sortuj wg klucza"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xls.php:28
 #: libraries/import/xlsx.php:28 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:257
+#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:886
 msgid "Options"
 msgstr "Opcje"
@@ -6149,8 +6149,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -7003,7 +7003,7 @@ msgstr "Zmienna"
 #: libraries/rte/rte_routines.lib.php:1357 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1249 tbl_change.php:329 tbl_printview.php:367
-#: tbl_select.php:117 tbl_structure.php:862
+#: tbl_select.php:118 tbl_structure.php:862
 msgid "Value"
 msgstr "Wartość"
 
@@ -7907,8 +7907,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Analizator składni SQL nie mógł zostać zainicjowany. Sprawdź, czy "
-"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w "
-"%sdokumentacji%s."
+"zainstalowane są niezbędne rozszerzenia PHP, tak jak zostało to opisane w %"
+"sdokumentacji%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
@@ -7958,8 +7958,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij "
-"%sopisy transformacji%s"
+"Aby uzyskać listę dostępnych opcji transformacji i ich typów MIME, kliknij %"
+"sopisy transformacji%s"
 
 #: libraries/tbl_properties.inc.php:147
 msgid "Transformation options"
@@ -8026,7 +8026,7 @@ msgid "You have to add at least one column."
 msgstr "Należy dodać przynajmniej jedno pole."
 
 #: libraries/tbl_properties.inc.php:719 server_engines.php:55
-#: tbl_operations.php:370
+#: tbl_operations.php:379
 msgid "Storage Engine"
 msgstr "Mechanizm składowania"
 
@@ -8439,8 +8439,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja"
-"%s."
+"Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje %sdokumentacja%"
+"s."
 
 #: navigation.php:180 server_databases.php:280 server_synchronize.php:1201
 msgid "No databases"
@@ -8576,7 +8576,7 @@ msgstr "Utwórz"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
-#: tbl_select.php:116
+#: tbl_select.php:117
 msgid "Operator"
 msgstr "Operator"
 
@@ -9179,8 +9179,8 @@ msgstr "Usuń bazy danych o takich samych nazwach jak użytkownicy."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Uwaga: phpMyAdmin pobiera uprawnienia użytkowników wprost z tabeli uprawnień "
 "MySQL-a. Zawartość tej tabeli, jeśli zostały w niej dokonane ręczne zmiany, "
@@ -10993,8 +10993,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Jeżeli wydaje się to konieczne, można użyć dodatkowych ustawień "
-"bezpieczeństwa — [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server_config]uwierzytelniania na podstawie hosta[/a] i [a@?"
+"bezpieczeństwa — [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server_config]uwierzytelniania na podstawie hosta[/a] i [a@?"
 "page=form&amp;formset=features#tab_Security]listy zaufanych serwerów proxy[/"
 "a]. Jednakże ochrona oparta na adresy IP może nie być wiarygodna, jeżeli "
 "używany IP należy do ISP, do którego podłączonych jest tysiące użytkowników."
@@ -11005,9 +11005,9 @@ msgstr ""
 #| "You set the [kbd]config[/kbd] authentication type and included username "
 #| "and password for auto-login, which is not a desirable option for live "
 #| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id="
-#| "%1$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http"
-#| "[/kbd]."
+#| "access your phpMyAdmin panel. Set [a@?page=servers&amp;mode=edit&amp;id=%1"
+#| "$d#tab_Server]authentication type[/a] to [kbd]cookie[/kbd] or [kbd]http[/"
+#| "kbd]."
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -11074,8 +11074,8 @@ msgstr "Klucz jest za krótki, powinien mieć co najmniej 8 znaków."
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Klucz powinien zawierać znaki alfanumeryczne [em]i[/em] i specjalne."
 
-#: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
-#: tbl_select.php:31 tbl_select.php:34
+#: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
+#: tbl_select.php:32 tbl_select.php:35
 msgid "Browse foreign values"
 msgstr "Przeglądaj zewnętrzne wartości"
 
@@ -11382,102 +11382,102 @@ msgstr "Tabela %s została przekopiowana do %s."
 msgid "The table name is empty!"
 msgstr "Brak nazwy tabeli!"
 
-#: tbl_operations.php:264
+#: tbl_operations.php:273
 msgid "Alter table order by"
 msgstr "Sortowanie tabeli wg"
 
-#: tbl_operations.php:273
+#: tbl_operations.php:282
 msgid "(singly)"
 msgstr "(pojedynczo)"
 
-#: tbl_operations.php:293
+#: tbl_operations.php:302
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Przenieś tabelę do (bazadanych<b>.</b>tabela):"
 
-#: tbl_operations.php:351
+#: tbl_operations.php:360
 msgid "Table options"
 msgstr "Opcje tabeli"
 
-#: tbl_operations.php:355
+#: tbl_operations.php:364
 msgid "Rename table to"
 msgstr "Zmień nazwę tabeli na"
 
-#: tbl_operations.php:531
+#: tbl_operations.php:540
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopiuj tabelę do (bazadanych<b>.</b>tabela):"
 
-#: tbl_operations.php:578
+#: tbl_operations.php:587
 msgid "Switch to copied table"
 msgstr "Przełącz na przekopiowaną tabelę"
 
-#: tbl_operations.php:590
+#: tbl_operations.php:599
 msgid "Table maintenance"
 msgstr "Zarządzanie tabelą"
 
-#: tbl_operations.php:614
+#: tbl_operations.php:623
 msgid "Defragment table"
 msgstr "Defragmentuj tabelę"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:671
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Tabela %s została przeładowana"
 
-#: tbl_operations.php:668
+#: tbl_operations.php:677
 #, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Przeładuj tabelę (\"FLUSH\")"
 
-#: tbl_operations.php:677
+#: tbl_operations.php:686
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
 msgstr "Zrzut danych tabeli"
 
-#: tbl_operations.php:692
+#: tbl_operations.php:701
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: tbl_operations.php:712
+#: tbl_operations.php:721
 #, fuzzy
 msgid "Delete the table (DROP)"
 msgstr "Brak baz danych"
 
-#: tbl_operations.php:733
+#: tbl_operations.php:742
 msgid "Partition maintenance"
 msgstr "Zarządzanie partycjami"
 
-#: tbl_operations.php:741
+#: tbl_operations.php:750
 #, php-format
 msgid "Partition %s"
 msgstr "Partycja %s"
 
-#: tbl_operations.php:744
+#: tbl_operations.php:753
 msgid "Analyze"
 msgstr "Analizuj"
 
-#: tbl_operations.php:745
+#: tbl_operations.php:754
 msgid "Check"
 msgstr "Sprawdź"
 
-#: tbl_operations.php:746
+#: tbl_operations.php:755
 msgid "Optimize"
 msgstr "Optymalizuj"
 
-#: tbl_operations.php:747
+#: tbl_operations.php:756
 msgid "Rebuild"
 msgstr "Przebuduj"
 
-#: tbl_operations.php:748
+#: tbl_operations.php:757
 msgid "Repair"
 msgstr "Napraw"
 
-#: tbl_operations.php:760
+#: tbl_operations.php:769
 msgid "Remove partitioning"
 msgstr "Usuń partycjonowanie"
 
-#: tbl_operations.php:786
+#: tbl_operations.php:795
 msgid "Check referential integrity:"
 msgstr "Sprawdź spójność powiązań:"
 
@@ -11541,25 +11541,25 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr ""
 
-#: tbl_select.php:110
+#: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Wykonaj \"zapytanie przez przykład\" (znak globalny: \"%\")"
 
-#: tbl_select.php:260
+#: tbl_select.php:261
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Wybór pól (co najmniej jedno):"
 
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Dodaj warunki przeszukiwania (warunek dla \"WHERE\"):"
 
-#: tbl_select.php:285
+#: tbl_select.php:286
 msgid "Number of rows per page"
 msgstr "rekordów na stronie"
 
-#: tbl_select.php:291
+#: tbl_select.php:292
 msgid "Display order:"
 msgstr "Kolejność wyświetlania:"
 
