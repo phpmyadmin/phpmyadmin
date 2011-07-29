@@ -7129,10 +7129,8 @@ msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτ�
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-"%d εγγραφή επηρεάστηκε από την τελευταία δήλωση μέσα στη διαδικασία "
-msgstr[1] ""
-"%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
+msgstr[0] "%d εγγραφή επηρεάστηκε από την τελευταία δήλωση μέσα στη διαδικασία"
+msgstr[1] "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία"
 
 #: libraries/rte/rte_routines.lib.php:1214
 #, php-format
