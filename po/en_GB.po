@@ -9922,7 +9922,7 @@ msgstr "Add this series"
 
 #: server_status.php:1445
 msgid "Clear series"
-msgstr ""
+msgstr "Clear series"
 
 #: server_status.php:1448
 #, fuzzy
