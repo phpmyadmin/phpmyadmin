@@ -6007,7 +6007,7 @@ msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στ�
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
-msgstr "Έκδοση Excel"
+msgstr "Έκδοση Excel:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:215
