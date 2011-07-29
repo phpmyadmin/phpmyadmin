@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:16+0200\n"
+"PO-Revision-Date: 2011-07-29 12:17+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4899,7 +4899,7 @@ msgstr "Βιβλίο εργασίας Excel 2007 XLSX"
 #: libraries/config/user_preferences.forms.php:261 libraries/export/ods.php:18
 #: libraries/import/ods.php:22
 msgid "Open Document Spreadsheet"
-msgstr "Έγγραφο Λογιστικού Φύλλου Ανοιχτού Κώδικα (ODS)"
+msgstr "Έγγραφο Λογιστικού Φύλλου Ανοιχτού Κώδικα - ODS"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:168
