@@ -10067,7 +10067,7 @@ msgstr "Appliquer un diviseur"
 
 #: server_status.php:1437
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Ajouter l'unité aux valeurs de données"
 
 #: server_status.php:1443
 #, fuzzy
