@@ -9870,10 +9870,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1396
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Usage"
+msgstr "CPU Usage"
 
 #: server_status.php:1399
 #, fuzzy
