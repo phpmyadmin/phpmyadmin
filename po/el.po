@@ -6190,9 +6190,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"εισάγει πολλαπλές εγγραφές σε κάθε δήλωση <code>ΕΙΣΑΓΩΓΗΣ</code> (INSERT)"
-"<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES "
-"(1,2,3), (4,5,6), (7,8,9)</code>"
+"εισάγει πολλαπλές εγγραφές σε κάθε δήλωση <code>INSERT</code><br /> &nbsp; "
+"&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES (1,2,3), "
+"(4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:266
 msgid ""
