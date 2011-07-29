@@ -1524,10 +1524,9 @@ msgid "Ignore"
 msgstr "Ignore"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Add column"
+msgstr "Add columns"
 
 #: js/messages.php:221
 msgid "Select referenced key"
