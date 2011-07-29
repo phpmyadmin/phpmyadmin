@@ -7723,7 +7723,7 @@ msgstr "Μηχανή αποθήκευσης"
 
 #: libraries/tbl_properties.inc.php:748
 msgid "PARTITION definition"
-msgstr "Ορισμός ΚΑΤΑΤΜΗΣΗΣ (PARTITION)"
+msgstr "Ορισμός PARTITION"
 
 #: libraries/tbl_properties.inc.php:779
 msgid "+ Add a value"
