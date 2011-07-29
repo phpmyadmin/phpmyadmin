@@ -1368,20 +1368,11 @@ function printMonitor() {
         </div>
         <div class="monitorUse" style="display:none;">
         <p></p>
-        <?php echo __('<b>Using the monitor:</b><br/>
-        Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts
-        in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart
-        using the cog icon on each respective chart.
-        <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
-        left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
-        activity spike.</p>');
+        <?php echo __('<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart using the cog icon on each respective chart.<p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the activity spike.</p>');
         ?>
         <p>
         <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
-        <?php echo __('<b>Please note:</b>
-        Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a
-        load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.
-        '); ?>
+        <?php echo __('<b>Please note:</b> Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.'); ?>
         </p>
         </div>
     </div>
