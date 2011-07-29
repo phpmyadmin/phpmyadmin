@@ -10661,7 +10661,7 @@ msgstr "Επιτρέπετε την σύνδεση στο διακομιστή �
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Το κλειδί είναι πολύ μικρό. Πρέπει να έχει τουλάχιστον 8 χαρακτήρες"
+msgstr "Το κλειδί είναι πολύ μικρό. Πρέπει να έχει τουλάχιστον 8 χαρακτήρες."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
