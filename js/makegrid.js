@@ -488,7 +488,7 @@
                         g.isCellEditActive = false;
                         g.currentEditCell = cell;
                         $(g.cEdit).find('input[type=text]').focus();
-                        $(g.cEdit).find('*').attr('disabled', false);
+                        $(g.cEdit).find('*').removeAttr('disabled');
                     }
                 } else {
                     g.hideEditCell();
@@ -984,12 +984,12 @@
                               };
                 
                 if (!g.saveCellsAtOnce) {
-                    $(g.cEdit).find('*').attr('disabled', true);
+                    $(g.cEdit).find('*').attr('disabled', 'disabled');
                     var $editArea = $(g.cEdit).find('.edit_area');
                     $editArea.addClass('edit_area_posting');
                 } else {
                     $('.save_edited').addClass('saving_edited_data')
-                        .attr('disabled', true);
+                        .find('input').attr('disabled', 'disabled');    // disable the save button
                 }
                 
                 $.ajax({
@@ -1002,7 +1002,7 @@
                                 $editArea.removeClass('edit_area_posting');
                             } else {
                                 $('.save_edited').removeClass('saving_edited_data')
-                                    .attr('disabled', false);
+                                    .find('input').removeAttr('disabled');  // enable the save button back
                             }
                             if(data.success == true) {
                                 PMA_ajaxShowMessage(data.message);
