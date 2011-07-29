@@ -9000,10 +9000,9 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: server_status.php:629 server_status.php:651
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Refresh rate:"
+msgstr "Refresh rate: "
 
 #: server_status.php:672
 msgid "Containing the word:"
