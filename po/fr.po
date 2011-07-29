@@ -9134,7 +9134,6 @@ msgid "Monitor"
 msgstr "Surveillance"
 
 #: server_status.php:629 server_status.php:651
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
 msgstr "Taux de rafraîchissement :"
