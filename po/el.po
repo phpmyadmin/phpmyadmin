@@ -6172,7 +6172,7 @@ msgstr "δηλώσεις <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:245
 msgid "Function to use when dumping data:"
-msgstr "Η συνάρτηση που θα χρησιμοποιηθεί κατά την αχρήστευση δεδομένων:"
+msgstr "Η συνάρτηση που θα χρησιμοποιηθεί κατά την μετατροπή δεδομένων:"
 
 #: libraries/export/sql.php:258
 msgid "Syntax to use when inserting data:"
