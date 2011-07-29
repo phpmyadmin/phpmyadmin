@@ -5207,7 +5207,7 @@ msgstr "Σύνολο χαρακτήρων του αρχείου:"
 
 #: libraries/display_export.lib.php:304
 msgid "Compression:"
-msgstr "Συμπίεση"
+msgstr "Συμπίεση:"
 
 #: libraries/display_export.lib.php:308
 msgid "zipped"
