@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:09+0200\n"
+"PO-Revision-Date: 2011-07-29 12:10+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3121,7 +3121,7 @@ msgstr "Αποθήκευση στο διακομιστή"
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:188 libraries/display_export.lib.php:214
 msgid "Overwrite existing file(s)"
-msgstr "Αντικατάσταση υπαρχόντων αρχείων"
+msgstr "Αντικατάσταση αρχείου(ων)"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
