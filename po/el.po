@@ -251,7 +251,7 @@ msgstr "Εμφάνιση σκαριφήματος (σχήματος) της βά
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:374 navigation.php:296
 msgid "No tables found in database."
-msgstr "Δεν βρέθηκαν Πίνακες στη βάση δεδομένων."
+msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
 
 #: db_export.php:40 db_search.php:317 server_export.php:26
 msgid "Select All"
