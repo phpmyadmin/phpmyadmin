@@ -5984,7 +5984,7 @@ msgstr "Στήλες που χωρίζονται με:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
-msgstr "Στήλες που περικλείονται με"
+msgstr "Στήλες που περικλείονται με:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
