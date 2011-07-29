@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 16:15+0200\n"
+"PO-Revision-Date: 2011-07-29 16:29+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -10024,10 +10024,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1396
-#, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Espace"
+msgstr "Utilisation du processeur"
 
 #: server_status.php:1399
 #, fuzzy
