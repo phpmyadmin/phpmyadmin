@@ -2303,8 +2303,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"Αυτό σημαίνει, συνήθως, ότι υπάρχει συντακτικό λάθος. Ελέγξτε τα σφάλματα "
-"που εμφανίζονται παρακάτω."
+"Αυτό σημαίνει, συνήθως, ότι υπάρχει συντακτικό λάθος, για αυτό ελέγξτε τα "
+"σφάλματα που εμφανίζονται παρακάτω."
 
 #: libraries/common.inc.php:596
 #, php-format
