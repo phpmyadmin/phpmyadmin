@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:12+0200\n"
+"PO-Revision-Date: 2011-07-29 12:13+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -4147,7 +4147,8 @@ msgstr "Σύνδεση συμπίεσης"
 #: libraries/config/messages.inc.php:377
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
-"Πως να συνδεθείτε στο διακομιστή, κρατήστε το tcp αν δεν είστε σίγουρος/η"
+"Πως να συνδεθείτε στο διακομιστή, κρατήστε το [kbd]tcp[/kbd] αν δεν είστε "
+"σίγουρος/η"
 
 #: libraries/config/messages.inc.php:378
 msgid "Connection type"
