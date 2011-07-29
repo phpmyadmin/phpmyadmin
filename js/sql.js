@@ -20,7 +20,7 @@ function PMA_urldecode(str) {
 }
 
 function PMA_urlencode(str) {
-    return encodeURIComponent(str.replace(/\%20/g, '+'));
+    return encodeURIComponent(str).replace(/\%20/g, '+');
 }
 
 /**
