@@ -4878,7 +4878,7 @@ msgstr "Σειρά επικύρωσης"
 #: libraries/config/setup.forms.php:245
 #: libraries/config/user_preferences.forms.php:147 libraries/import/ldi.php:35
 msgid "CSV using LOAD DATA"
-msgstr "CSV με χρήση ΦΟΡΤΩΣΗΣ ΔΕΔΟΜΕΝΩΝ (LOAD DATA)"
+msgstr "CSV με χρήση LOAD DATA"
 
 #: libraries/config/setup.forms.php:254 libraries/config/setup.forms.php:348
 #: libraries/config/user_preferences.forms.php:155
