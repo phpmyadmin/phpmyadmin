@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:42+0200\n"
+"PO-Revision-Date: 2011-07-29 13:43+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -10127,7 +10127,7 @@ msgstr "Ausgewählte Zeit-Spanne:"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Rufe nur SELECT, INSERT, UPDATE und DELETE Abfragen ab"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
