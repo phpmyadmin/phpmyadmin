@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 15:49+0200\n"
+"PO-Revision-Date: 2011-07-29 15:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1298,10 +1298,9 @@ msgstr ""
 "contactez l'administrateur du serveur."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Gérer vos paramètres"
+msgstr "Changer les réglages"
 
 #: js/messages.php:133
 #, fuzzy
