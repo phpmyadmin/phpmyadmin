@@ -1233,7 +1233,7 @@ msgstr "\"log_output\" não está definido para a TABELA"
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "\"log_output\" está definido para a TABELA"
 
 #: js/messages.php:120
 #, php-format
