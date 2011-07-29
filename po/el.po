@@ -604,7 +604,7 @@ msgstr "Η προβολή %s διαγράφτηκε"
 #: db_structure.php:280 tbl_operations.php:705
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "Ο Πίνακας %s διεγράφη"
+msgstr "Ο πίνακας %s διεγράφη"
 
 #: db_structure.php:287 tbl_create.php:269
 msgid "Tracking is active."
