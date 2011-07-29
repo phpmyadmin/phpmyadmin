@@ -5228,7 +5228,7 @@ msgstr "Προβολή εξαγόμενου ως κείμενο"
 #: libraries/display_export.lib.php:326 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
 msgid "Format:"
-msgstr "Μορφοποίηση"
+msgstr "Μορφοποίηση:"
 
 #: libraries/display_export.lib.php:331
 msgid "Format-specific options:"
