@@ -10143,10 +10143,9 @@ msgstr ""
 "sollen</p> Ergebnisse sind nach Abfrage-Text zusammengefasst."
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Abfrageart"
+msgstr "Query Analyzer"
 
 #: server_status.php:1512
 #, php-format
