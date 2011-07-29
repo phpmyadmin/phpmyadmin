@@ -6084,7 +6084,7 @@ msgstr "Χρόνος δημιουργίας"
 #: libraries/export/latex.php:135 libraries/export/sql.php:476
 #: libraries/export/xml.php:101 main.php:162
 msgid "Server version"
-msgstr "Έκδοση Διακομιστή"
+msgstr "Έκδοση διακομιστή"
 
 #: libraries/export/latex.php:136 libraries/export/sql.php:477
 #: libraries/export/xml.php:102
