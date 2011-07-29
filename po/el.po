@@ -1005,7 +1005,7 @@ msgstr ""
 
 #: js/messages.php:46
 msgid "Missing value in the form!"
-msgstr "Ελλειπής τιμή στο πεδίο !"
+msgstr "Η τιμή δεν υπάρχει στη φόρμα!"
 
 #: js/messages.php:47
 msgid "This is not a number!"
