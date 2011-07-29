@@ -152,7 +152,7 @@ $js_messages['strFilters'] = __('Filters');
 /* l10n: Filter as in "Start Filtering" */
 $js_messages['strFilter'] = __('Filter');
 $js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
-$js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE statements');
+$js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE clauses');
 $js_messages['strSumRows'] = __('Sum of grouped rows:');
 $js_messages['strTotal'] = __('Total:');
 
