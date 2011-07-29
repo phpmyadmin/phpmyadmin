@@ -9802,7 +9802,7 @@ msgstr "Instructions/Setup"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Done rearranging/editing charts"
 
 #: server_status.php:1339
 #, fuzzy
