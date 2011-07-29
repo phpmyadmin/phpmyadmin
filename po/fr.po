@@ -2478,10 +2478,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s jours, %s heures, %s minutes et %s secondes"
 
 #: libraries/common.lib.php:1856
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Paramètres de procédure"
+msgstr "Paramètre manquant :"
 
 #: libraries/common.lib.php:2162 libraries/common.lib.php:2165
 #: libraries/display_tbl.lib.php:299
