@@ -6160,7 +6160,7 @@ msgstr "Αντί για δηλώσεις <code>INSERT</code>, χρησιμοπο
 
 #: libraries/export/sql.php:229
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ ΚΑΘΥΣΤΕΡΗΜΕΝΗΣ</code> (INSERT DELAYED)"
+msgstr "δηλώσεις <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:235
 msgid "<code>INSERT IGNORE</code> statements"
