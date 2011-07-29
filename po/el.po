@@ -10844,7 +10844,7 @@ msgstr "Εμφάνιση σκαριφήματος (σχήματος) του πί
 
 #: tbl_gis_visualization.php:111
 msgid "Display GIS Visualization"
-msgstr "Εμφάνιση Οπτικοποίησης ΓΠΣ"
+msgstr "Εμφάνιση Οπτικοποίησης GIS"
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
