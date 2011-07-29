@@ -5476,7 +5476,7 @@ msgstr "στην εντολή"
 
 #: libraries/display_tbl.lib.php:2203
 msgid "Showing rows"
-msgstr "Εμφάνιση εγγραφών "
+msgstr "Εμφάνιση εγγραφών"
 
 #: libraries/display_tbl.lib.php:2213
 msgid "total"
