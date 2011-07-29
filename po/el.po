@@ -921,7 +921,7 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"Το χρονικό όριο του κώδικα εξαντλήθηκε. Αν θέλετε να τελειώσετε την "
+"Το χρονικό όριο του κώδικα εξαντλήθηκε, οπότε αν θέλετε να τελειώσετε την "
 "εισαγωγή, επανυποβάλτε το ίδιο αρχείο και η εισαγωγή θα συνεχίσει."
 
 #: import.php:424
