@@ -133,7 +133,7 @@ msgstr "Σχόλιο βάσης: "
 #: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
 #: tbl_printview.php:127
 msgid "Table comments"
-msgstr "Σχόλια Πίνακα"
+msgstr "Σχόλια πίνακα"
 
 #: db_datadict.php:166 db_qbe.php:196 libraries/Index.class.php:436
 #: libraries/export/htmlword.php:251 libraries/export/latex.php:361
