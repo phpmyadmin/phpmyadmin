@@ -10112,7 +10112,7 @@ msgstr ""
 
 #: server_status.php:1396
 msgid "CPU Usage"
-msgstr "Χρήση Επεξεργαστή"
+msgstr "Χρήση CPU"
 
 #: server_status.php:1399
 msgid "Memory Usage"
