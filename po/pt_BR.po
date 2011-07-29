@@ -1179,7 +1179,7 @@ msgstr "Configurações"
 #: js/messages.php:105
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Remover Gráfico"
+msgstr "Remover Gráfico/Tabela"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
