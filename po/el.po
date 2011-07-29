@@ -10988,7 +10988,7 @@ msgstr "Ανασυγκρότηση πίνακα"
 #: tbl_operations.php:662
 #, php-format
 msgid "Table %s has been flushed"
-msgstr "Ο Πίνακας %s εκκαθαρίστηκε"
+msgstr "Ο πίνακας %s εκκαθαρίστηκε"
 
 #: tbl_operations.php:668
 msgid "Flush the table (FLUSH)"
