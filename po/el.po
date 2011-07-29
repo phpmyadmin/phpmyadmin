@@ -5468,7 +5468,7 @@ msgstr "Αντιγραφή"
 
 #: libraries/display_tbl.lib.php:1315 libraries/display_tbl.lib.php:1327
 msgid "The row has been deleted"
-msgstr "Η Εγγραφή έχει διαγραφεί"
+msgstr "Η εγγραφή έχει διαγραφεί"
 
 #: libraries/display_tbl.lib.php:1354 libraries/display_tbl.lib.php:2311
 #: server_status.php:1050
