@@ -10649,7 +10649,7 @@ msgstr ""
 msgid "You should use SSL connections if your web server supports it."
 msgstr ""
 "Πρέπει να χρησιμοποιήσετε συνδέσεις SSL αν ο διακομιστής ιστού σας τις "
-"υποστηρίζει"
+"υποστηρίζει."
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
