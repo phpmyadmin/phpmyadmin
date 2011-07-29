@@ -4438,7 +4438,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:431
 msgid "Add DROP TABLE"
-msgstr "Προσθήκη ΔΙΑΓΡΑΦΗΣ ΠΙΝΑΚΑ (DROP TABLE)"
+msgstr "Προσθήκη DROP TABLE"
 
 #: libraries/config/messages.inc.php:432
 msgid ""
