@@ -938,9 +938,11 @@
                                 relation_fields[cell_index] = {};
                                 $.extend(relation_fields[cell_index], this_field_params);
                             }
-                            if (where_clause.indexOf(field_name) > -1) {
-                                var old_sub_clause_regex = new RegExp(PMA_urlencode('`' + window.parent.table + '`.' + '`' + field_name + '`') + '[+]%3D[+][^+]*');
-                                var new_sub_clause = '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'";
+                            if (where_clause.indexOf(PMA_urlencode(field_name)) > -1) {
+                                var fields_str = PMA_urlencode('`' + window.parent.table + '`.' + '`' + field_name + '` = ');
+                                fields_str = fields_str.replace(/[+]/g, '[+]');    // replace '+' sign with '[+]' (regex)
+                                var old_sub_clause_regex = new RegExp(fields_str + '[^+]*');
+                                var new_sub_clause = PMA_urlencode('`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'");
                                 new_clause = new_clause.replace(old_sub_clause_regex, new_sub_clause);
                             }
                         }
