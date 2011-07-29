@@ -1386,10 +1386,9 @@ msgid "Group queries, ignoring variable data in WHERE statements"
 msgstr "Grouper les requêtes en ignorant la partie variable des clauses WHERE"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Nombre de lignes à insérer"
+msgstr "Somme des lignes regroupées :"
 
 #: js/messages.php:157
 #, fuzzy
