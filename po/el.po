@@ -1605,7 +1605,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:241
 msgid ", latest stable version:"
-msgstr ". τελευταία έκδοση:"
+msgstr ", τελευταία έκδοση:"
 
 #: js/messages.php:242
 msgid "up to date"
