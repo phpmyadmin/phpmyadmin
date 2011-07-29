@@ -2398,7 +2398,7 @@ msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
 #: libraries/common.lib.php:1024
 msgid "Failed to connect to SQL validator!"
-msgstr "Αδύνατη η σύνδεση στο εγκυροποιητή SQL"
+msgstr "Αδύνατη η σύνδεση στο εγκυροποιητή SQL!"
 
 #: libraries/common.lib.php:1065 libraries/config/messages.inc.php:474
 msgid "Explain SQL"
