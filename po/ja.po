@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-24 04:22+0200\n"
+"PO-Revision-Date: 2011-07-27 12:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1118,15 +1118,14 @@ msgstr "接続／プロセス"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "更新間隔中の接続数"
+msgstr "更新間隔中の問い合わせ数"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "問い合わせ数（サーバで実行された命令文）"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
@@ -1158,10 +1157,9 @@ msgstr "平均負荷"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Suggestions:"
 msgid "Questions"
-msgstr "提案："
+msgstr "問い合わせ"
 
 #: js/messages.php:103 server_status.php:894
 msgid "Traffic"
@@ -1186,7 +1184,7 @@ msgstr "モニタリンググラフを追加する"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "少なくとも１つの系列を追加してください"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
@@ -1244,7 +1242,7 @@ msgstr ""
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
+msgstr "以下の設定は、グローバルに適用され、サーバの再起動時にはデフォルトにリセットされます。"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
@@ -1255,17 +1253,17 @@ msgstr "出力をファイルに保存する"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "有効"
+msgstr "%s を有効にする"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "無効"
+msgstr "%s を無効にする"
 
 #. l10n: %d seconds
 #: js/messages.php:130
@@ -1277,19 +1275,17 @@ msgstr ""
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
-msgstr ""
+msgstr "これらの変数を変更することはできません。root でログインするか、データベース管理者に連絡してください。"
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "ユーザ設定の管理"
+msgstr "設定の変更"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "詳細設定"
+msgstr "現在の設定"
 
 #: js/messages.php:135 server_status.php:1393
 msgid "Chart Title"
@@ -1349,7 +1345,6 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "フィルタ"
@@ -1535,7 +1530,6 @@ msgid "Ignore"
 msgstr "無視"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
 msgstr "カラムを追加する"
@@ -1855,13 +1849,12 @@ msgstr "フォントサイズ"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "アップロードされたファイルではありません。"
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "ファイルのアップロード中に予期しないエラーが発生しました。"
+msgstr "アップロード中に予期しないエラーが発生しました。"
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2455,10 +2448,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
 #: libraries/common.lib.php:1856
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "ルーチンのパラメータ"
+msgstr "パラメータがありません："
 
 #: libraries/common.lib.php:2162 libraries/common.lib.php:2165
 #: libraries/display_tbl.lib.php:299
@@ -6932,7 +6924,7 @@ msgstr "ルーチンタイプが不正です: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:268
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "申し訳ありませんが、削除されたルーチンの復元に失敗しました。"
 
 #: libraries/rte/rte_routines.lib.php:273
 #, php-format
@@ -7058,7 +7050,7 @@ msgstr "関数"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "申し訳ありませんが、削除されたトリガの復元に失敗しました。"
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
@@ -9041,10 +9033,10 @@ msgstr "関連リンク"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:738
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "起動以後のネットワークトラフィック：%s"
+msgstr "起動以後の問い合わせ数：%s"
 
 #: server_status.php:744 server_status.php:779 server_status.php:895
 #: server_status.php:940
@@ -9074,10 +9066,10 @@ msgid "Network traffic since startup: %s"
 msgstr "起動以後のネットワークトラフィック：%s"
 
 #: server_status.php:852
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "この MySQL サーバの稼働時間: %s (起動時刻: %s)"
+msgstr "この MySQL サーバの稼働時間: %1$s (起動時刻: %2$s)"
 
 #: server_status.php:862
 msgid ""
@@ -9843,6 +9835,9 @@ msgid ""
 "        general_log produces a lot of data and increases server load by up "
 "to 15%"
 msgstr ""
+"phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡することができます。後者の場合には、テーブルに log_output "
+"を設定し、slow_query_log または general_log のいずれかを有効にする必要があります。なお、general_log "
+"を大量のデータを生成し、サーバの負荷を 15% 増加させますので、注意するようにしてください。"
 
 #: server_status.php:1373
 msgid ""
@@ -10858,7 +10853,7 @@ msgstr "カラムを選択してください (最低 1 つ)"
 
 #: tbl_select.php:278
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "または 検索条件 (WHERE 節の内容) を追加してください"
+msgstr "検索条件 (WHERE 節の内容) を追加してください"
 
 #: tbl_select.php:285
 msgid "Number of rows per page"

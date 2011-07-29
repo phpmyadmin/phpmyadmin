@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-19 22:29+0200\n"
+"PO-Revision-Date: 2011-07-27 16:54+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -1212,7 +1212,6 @@ msgid "Pause monitor"
 msgstr "Pausar monitorización"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "«general_log» y «slow_query_log» activos."
@@ -1226,7 +1225,6 @@ msgid "slow_query_log is enabled."
 msgstr "«slow_query_log» activo."
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "«slow_query_log» y «general_log» desactivados."
@@ -1288,7 +1286,6 @@ msgid "Set long_query_time to %ds"
 msgstr "Definir «long_query_time» a %ds"
 
 #: js/messages.php:131
-#, fuzzy
 #| msgid ""
 #| "You don't have super user rights to change this variables. Please log in "
 #| "as root account or contact your database administrator."
@@ -1296,9 +1293,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"No posee permisos de superusuario para cambiar estas variables. Por favor "
-"inicie sesión con la cuenta root o contacte a su administrador de base de "
-"datos."
+"No posee permisos para cambiar estas variables. Por favor inicie sesión con "
+"la cuenta root o contacte a su administrador de base de datos."
 
 #: js/messages.php:132
 msgid "Change settings"
@@ -1370,10 +1366,9 @@ msgstr ""
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Filtrar"
+msgstr "Filtros"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:153 navigation.php:270
@@ -1382,23 +1377,21 @@ msgstr "Filtrar"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrar consultas por palabra/expresión regular:"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
-msgstr ""
+msgstr "Agrupar consultas, ignorando datos variables en sentencias WHERE"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Número de filas insertadas"
+msgstr "Suma de filas agrupadas:"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1537,10 +1530,9 @@ msgid "Change"
 msgstr "Cambiar"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Tiempo máximo de ejecución"
+msgstr "Tiempo de ejecución de la consulta"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
@@ -1556,10 +1548,9 @@ msgid "Ignore"
 msgstr "Ignorar"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Añadir columna"
+msgstr "Agregar columnas"
 
 #: js/messages.php:221
 msgid "Select referenced key"
@@ -1876,13 +1867,12 @@ msgstr "Tamaño de fuente"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "El archivo no era un archivo subido."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Error desconocido al subir el archivo."
+msgstr "Error desconocido durante subida."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1928,11 +1918,11 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Error al mover el archivo subido."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "No se puede leer el archivo subido (y movido)."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
@@ -2490,10 +2480,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s días, %s horas, %s minutos y %s segundos"
 
 #: libraries/common.lib.php:1856
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Parámetros de rutina"
+msgstr "Parámetro faltante:"
 
 #: libraries/common.lib.php:2162 libraries/common.lib.php:2165
 #: libraries/display_tbl.lib.php:299
@@ -6349,10 +6338,9 @@ msgid ""
 msgstr "Las siguientes estructureas fueron creadas o alteradas. Puedes:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Ver los contenidos de una estructura pulsando en su nombre"
+msgstr "Puede ver los contenidos de una estructura pulsando en su nombre"
 
 #: libraries/import.lib.php:1070
 msgid ""
@@ -6362,10 +6350,9 @@ msgstr ""
 "correspondiente"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Edite su estructura siguiendo el enlace \"Estructura\""
+msgstr "Edite la estructura siguiendo el enlace \"Estructura\""
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
@@ -10079,7 +10066,6 @@ msgid "Monitor Instructions"
 msgstr "Instrucciones de monitorización"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -10096,11 +10082,12 @@ msgid ""
 msgstr ""
 "El monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
-"esto último va a necesitar que «log_output» esté definido como 'TABLE' y "
-"tener activado «slow_query_log» o «general_log»."
+"esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1373
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
 #| "        Ok, you are good to go! Once you click 'Start monitor' your "
@@ -10141,14 +10128,7 @@ msgstr ""
 "<p>Cuando vea un pico repentino de actividad, seleccione el intervalo de "
 "tiempo relevante en el gráfico manteniendo pulsado el botón izquierdo y "
 "arrastrando sobre el gráfico. Esto cargará las estadísticas de los "
-"registros, lo que lo ayudará a encontrar la causa del pico de actividad.</"
-"p>\n"
-"<p><b>Notar que:</b>\n"
-"Activar «general_log» puede aumentar la carga en el servidor hast un 5-15%. "
-"También esté al tanto que generar estadísticas de los registros es una tarea "
-"muy intensiva por lo que se recomienda seleccionar un período de tiempo lo "
-"más pequeño posible.\n"
-"</p>"
+"registros, lo que lo ayudará a encontrar la causa del pico de actividad.</p>"
 
 #: server_status.php:1383
 msgid ""
@@ -10160,6 +10140,13 @@ msgid ""
 "not required any more.\n"
 "        "
 msgstr ""
+"<b>Notar que:</b>\n"
+"Activar «general_log» puede aumentar la carga en el servidor hasta un 5-15%. "
+"También esté al tanto que generar estadísticas de los registros es una "
+"tarea muy intensiva por lo que se recomienda seleccionar un período de "
+"tiempo lo más pequeño posible y desactivar «general_log» y vaciar sus tablas "
+"una vez que ya no se necesite monitorizar.\n"
+"        "
 
 #: server_status.php:1396
 msgid "CPU Usage"
@@ -10227,11 +10214,11 @@ msgstr "Rango de tiempo seleccionado:"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Sólo recuperar sentencias SELECT, INSERT, UPDATE y DELETE"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Eliminar datos variables en sentencias INSERT para mejor agrupación"
 
 #: server_status.php:1473
 msgid ""
@@ -10242,10 +10229,9 @@ msgstr ""
 "se agruparán por el texto de la consulta."
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Tipo de consulta"
+msgstr "Analizador de consultas"
 
 #: server_status.php:1512
 #, php-format
