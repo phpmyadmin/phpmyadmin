@@ -7355,7 +7355,7 @@ msgstr "Εσωτερικές συσχετίσεις"
 
 #: libraries/schema/User_Schema.class.php:112
 msgid "FOREIGN KEY"
-msgstr "ΜΗ ΔΙΑΚΡΙΤΟ ΚΛΕΙΔΙ"
+msgstr "FOREIGN KEY"
 
 #: libraries/schema/User_Schema.class.php:144
 msgid "Please choose a page to edit"
