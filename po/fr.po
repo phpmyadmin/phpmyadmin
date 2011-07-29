@@ -1197,7 +1197,7 @@ msgstr "Ajouter graphique à la grille"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Veuillez ajouter au moins une variable à la série"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
