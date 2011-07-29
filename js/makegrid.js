@@ -34,6 +34,12 @@
             saveCellWarning: '',        // string, warning text when user want to leave a page with unsaved edited data
             lastXHR : null,             // last XHR object used in AJAX request
             
+            // common hidden inputs
+            token: null,
+            server: null,
+            db: null,
+            table: null,
+            
             // functions
             dragStartRsz: function(e, obj) {    // start column resize
                 var n = $(this.cRsz).find('div').index(obj);
@@ -284,10 +290,10 @@
             sendColPrefs: function() {
                 $.post('sql.php', {
                     ajax_request: true,
-                    db: window.parent.db,
-                    table: window.parent.table,
-                    token: window.parent.token,
-                    server: window.parent.server,
+                    db: g.db,
+                    table: g.table,
+                    token: g.token,
+                    server: g.server,
                     set_col_prefs: true,
                     col_order: this.colOrder.toString(),
                     col_visib: this.colVisib.toString(),
@@ -485,10 +491,9 @@
                         $(g.cEdit).find('input')
                             .val(value);
                         
-                        g.isCellEditActive = false;
                         g.currentEditCell = cell;
                         $(g.cEdit).find('input[type=text]').focus();
-                        $(g.cEdit).find('*').attr('disabled', false);
+                        $(g.cEdit).find('*').removeAttr('disabled');
                     }
                 } else {
                     g.hideEditCell();
@@ -507,7 +512,6 @@
             hideEditCell: function(force, data, field) {
                 if (g.isCellEditActive && !force) {
                     // cell is being edited, post the edited data
-                    g.isCellEditActive = false;
                     g.saveOrPostEditedCell();
                     return;
                 }
@@ -518,19 +522,14 @@
                     g.lastXHR = null;
                 }
                 
-                // hide the cell editing area
-                $(g.cEdit).hide();
-                $(g.cEdit).find('input[type=text]').blur();
-                g.isCellEditActive = false;
-                
                 if (data) {
-                    if (data === true) {
+                    if (g.currentEditCell) {    // save value of currently edited cell
                         // replace current edited field with the new value
                         var $this_field = $(g.currentEditCell);
                         var new_html = $this_field.data('value');
                         var is_null = $this_field.data('value') == null;
                         if (is_null) {
-                            $this_field_span.html('NULL');
+                            $this_field.find('span').html('NULL');
                             $this_field.addClass('null');
                         } else {
                             $this_field.removeClass('null');
@@ -541,28 +540,32 @@
                             }
                             // replace '\n' with <br>
                             new_html = new_html.replace(/\n/g, '<br />');
+                            $this_field.find('span').html(new_html);
                         }
-                        $this_field.find('span').html(new_html);
-                    } else {
-                        // update edited fields with new value from "data"
-                        if (data.transformations != undefined) {
-                            $.each(data.transformations, function(cell_index, value) {
-                                var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
-                                $this_field.find('span').html(value);
-                            });
-                        }
-                        if (data.relations != undefined) {
-                            $.each(data.relations, function(cell_index, value) {
-                                var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
-                                $this_field.find('span').html(value);
-                            });
-                        }
+                    }
+                    if (data.transformations != undefined) {
+                        $.each(data.transformations, function(cell_index, value) {
+                            var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
+                            $this_field.find('span').html(value);
+                        });
+                    }
+                    if (data.relations != undefined) {
+                        $.each(data.relations, function(cell_index, value) {
+                            var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
+                            $this_field.find('span').html(value);
+                        });
                     }
                     
                     // refresh the grid
                     this.reposRsz();
                     this.reposDrop();
                 }
+                
+                // hide the cell editing area
+                $(g.cEdit).hide();
+                $(g.cEdit).find('input[type=text]').blur();
+                g.isCellEditActive = false;
+                g.currentEditCell = null;
             },
             
             /**
@@ -673,11 +676,11 @@
                         var post_params = {
                                 'ajax_request' : true,
                                 'get_relational_values' : true,
-                                'server' : window.parent.server,
-                                'db' : window.parent.db,
-                                'table' : window.parent.table,
+                                'server' : g.server,
+                                'db' : g.db,
+                                'table' : g.table,
                                 'column' : field_name,
-                                'token' : window.parent.token,
+                                'token' : g.token,
                                 'curr_value' : relation_curr_value,
                                 'relation_key_or_display_column' : relation_key_or_display_column
                         }
@@ -709,11 +712,11 @@
                         var post_params = {
                                 'ajax_request' : true,
                                 'get_enum_values' : true,
-                                'server' : window.parent.server,
-                                'db' : window.parent.db,
-                                'table' : window.parent.table,
+                                'server' : g.server,
+                                'db' : g.db,
+                                'table' : g.table,
                                 'column' : field_name,
-                                'token' : window.parent.token,
+                                'token' : g.token,
                                 'curr_value' : curr_value
                         }
                         g.lastXHR = $.post('sql.php', post_params, function(data) {
@@ -737,11 +740,11 @@
                         var post_params = {
                                 'ajax_request' : true,
                                 'get_set_values' : true,
-                                'server' : window.parent.server,
-                                'db' : window.parent.db,
-                                'table' : window.parent.table,
+                                'server' : g.server,
+                                'db' : g.db,
+                                'table' : g.table,
                                 'column' : field_name,
-                                'token' : window.parent.token,
+                                'token' : g.token,
                                 'curr_value' : curr_value
                         }
 
@@ -778,13 +781,13 @@
                             /**
                              * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
                              */
-                            var sql_query = 'SELECT `' + field_name + '` FROM `' + window.parent.table + '` WHERE ' + PMA_urldecode(where_clause);
+                            var sql_query = 'SELECT `' + field_name + '` FROM `' + g.table + '` WHERE ' + PMA_urldecode(where_clause);
                             
                             // Make the Ajax call and get the data, wrap it and insert it
                             g.lastXHR = $.post('sql.php', {
-                                'token' : window.parent.token,
-                                'server' : window.parent.server,
-                                'db' : window.parent.db,
+                                'token' : g.token,
+                                'server' : g.server,
+                                'db' : g.db,
                                 'ajax_request' : true,
                                 'sql_query' : sql_query,
                                 'inline_edit' : true
@@ -868,18 +871,19 @@
                 /**
                  * @var nonunique   Boolean, whether the rows in this table is unique or not
                  */
-                var nonunique = $('.to_be_saved').is('.nonunique') ? 0 : 1;
+                var nonunique = $('.inline_edit_anchor').is('.nonunique') ? 0 : 1;
                 /**
                  * multi edit variables
                  */
                 var me_fields_name = Array();
                 var me_fields = Array();
+                var me_fields_null = Array();
                 
                 // loop each edited row
                 $('.to_be_saved').parents('tr').each(function() {
                     var where_clause = $(this).find('.where_clause').val();
                     full_where_clause.push(unescape(where_clause.replace(/[+]/g, ' ')));
-                    var new_clause = '';
+                    var new_clause = where_clause;
                     
                     /**
                      * multi edit variables, for current row
@@ -887,6 +891,7 @@
                      */
                     var fields_name = Array();
                     var fields = Array();
+                    var fields_null = Array();
 
                     // loop each edited cell in a row
                     $(this).find('.to_be_saved').each(function() {
@@ -914,12 +919,16 @@
                         /**
                          * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                          */
-                        var is_null = $this_field.data('value') == null;
+                        var is_null = $this_field.data('value') === null;
                         
                         fields_name.push(field_name);
-                        fields.push($this_field.data('value'));
                         
-                        if (!is_null) {
+                        if (is_null) {
+                            fields_null.push('on');
+                            fields.push('');
+                        } else {
+                            fields_null.push('');
+                            fields.push($this_field.data('value'));
                             this_field_params[field_name] = $this_field.data('value');
                             
                             var cell_index = $this_field.index('.to_be_saved');
@@ -932,23 +941,22 @@
                                 relation_fields[cell_index] = {};
                                 $.extend(relation_fields[cell_index], this_field_params);
                             }
-                            if (where_clause.indexOf(field_name) > -1) {
-                                new_clause += '`' + window.parent.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'" + ' AND ';
+                            if (where_clause.indexOf(PMA_urlencode(field_name)) > -1) {
+                                var fields_str = PMA_urlencode('`' + g.table + '`.' + '`' + field_name + '` = ');
+                                fields_str = fields_str.replace(/[+]/g, '[+]');    // replace '+' sign with '[+]' (regex)
+                                var old_sub_clause_regex = new RegExp(fields_str + '[^+]*');
+                                var new_sub_clause = PMA_urlencode('`' + g.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'");
+                                new_clause = new_clause.replace(old_sub_clause_regex, new_sub_clause);
                             }
                         }
                         
-                        /*
-                         * update the where_clause, remove the last appended ' AND '
-                         * */
-
-                        // prepare and save new_clause
-                        new_clause = new_clause.substring(0, new_clause.length-5);
-                        new_clause = PMA_urlencode(new_clause);
+                        // save new_clause
                         $this_field.parent('tr').data('new_clause', new_clause);
                     }); // end of loop for every edited cells in a row
                     
                     me_fields_name.push(fields_name);
                     me_fields.push(fields);
+                    me_fields_null.push(fields_null);
                 
                 }); // end of loop for every edited rows
                 
@@ -961,14 +969,15 @@
                  */
                 var post_params = {'ajax_request' : true,
                                 'sql_query' : full_sql_query,
-                                'token' : window.parent.token,
-                                'server' : window.parent.server,
-                                'db' : window.parent.db,
-                                'table' : window.parent.table,
+                                'token' : g.token,
+                                'server' : g.server,
+                                'db' : g.db,
+                                'table' : g.table,
                                 'clause_is_unique' : nonunique,
                                 'where_clause' : full_where_clause,
                                 'fields[multi_edit]' : me_fields,
                                 'fields_name[multi_edit]' : me_fields_name,
+                                'fields_null[multi_edit]' : me_fields_null,
                                 'rel_fields_list' : rel_fields_list,
                                 'do_transformations' : transformation_fields,
                                 'transform_fields_list' : transform_fields_list,
@@ -978,12 +987,12 @@
                               };
                 
                 if (!g.saveCellsAtOnce) {
-                    $(g.cEdit).find('*').attr('disabled', true);
+                    $(g.cEdit).find('*').attr('disabled', 'disabled');
                     var $editArea = $(g.cEdit).find('.edit_area');
                     $editArea.addClass('edit_area_posting');
                 } else {
                     $('.save_edited').addClass('saving_edited_data')
-                        .attr('disabled', true);
+                        .find('input').attr('disabled', 'disabled');    // disable the save button
                 }
                 
                 $.ajax({
@@ -993,17 +1002,24 @@
                     success:
                         function(data) {
                             if (!g.saveCellsAtOnce) {
+                                $(g.cEdit).find('*').removeAttr('disabled');
                                 $editArea.removeClass('edit_area_posting');
                             } else {
                                 $('.save_edited').removeClass('saving_edited_data')
-                                    .attr('disabled', false);
+                                    .find('input').removeAttr('disabled');  // enable the save button back
                             }
                             if(data.success == true) {
                                 PMA_ajaxShowMessage(data.message);
                                 $('.to_be_saved').each(function() {
                                     var new_clause = $(this).parent('tr').data('new_clause');
                                     if (new_clause != '') {
-                                        $(this).parent('tr').find('.where_clause').attr('value', new_clause);
+                                        var $where_clause = $(this).parent('tr').find('.where_clause');
+                                        var old_clause = $where_clause.attr('value');
+                                        $where_clause.attr('value', new_clause);
+                                        // update Edit, Copy, and Delete links also
+                                        $(this).parent('tr').find('a').each(function() {
+                                            $(this).attr('href', $(this).attr('href').replace(old_clause, new_clause));
+                                        });
                                     }
                                 });
                                 // remove possible previous feedback message
@@ -1187,6 +1203,13 @@
         
         // initialize cell editing configuration
         g.saveCellsAtOnce = $('#save_cells_at_once').val();
+        
+        // assign common hidden inputs
+        var $common_hidden_inputs = $('.common_hidden_inputs');
+        g.token = $common_hidden_inputs.find('input[name=token]').val();
+        g.server = $common_hidden_inputs.find('input[name=server]').val();
+        g.db = $common_hidden_inputs.find('input[name=db]').val();
+        g.table = $common_hidden_inputs.find('input[name=table]').val();
         
         // initialize column order
         $col_order = $('#col_order');
@@ -1405,7 +1428,9 @@
             g.postEditedCell();
         });
         $(window).bind('beforeunload', function(e) {
-            return g.isCellEdited ? g.saveCellWarning : null;
+            if (g.isCellEdited) {
+                g.saveCellWarning;
+            }
         });
         
         // add table class

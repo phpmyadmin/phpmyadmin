@@ -397,6 +397,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
         <?php echo '<input id="save_cells_at_once" type="hidden" value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'; ?>
         <?php echo '<input id="cell_edit_hint" type="hidden" value="' . __('Press escape to cancel editing') . '" />'; ?>
         <?php echo '<input id="save_cell_warning" type="hidden" value="' . __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?') . '" />'; ?>
+        <?php
+            // data usually get from window.parent, which don't exist when we open only right frame in new window/tab
+            // P.S. not sure to put these in here, but can't find other better place to put
+            echo '<div class="common_hidden_inputs">';
+            echo PMA_generate_common_hidden_inputs($db, $table);
+            echo '</div>';
+        ?>
     </td>
     <td>
         <div class="restore_column hide">

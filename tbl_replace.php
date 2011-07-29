@@ -271,8 +271,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
-            if (!(! empty($me_fields_null_prev[$key])
-             && isset($me_fields_null[$key]))) {
+            if (empty($me_fields_null_prev[$key])
+             || empty($me_fields_null[$key])) {
                  $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
             }
         }
@@ -528,7 +528,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'],$_REQUEST['table']);
-    $extra_data['sql_query'] = PMA_showMessage(NULL, $GLOBALS['display_query']);
+    $extra_data['sql_query'] = PMA_showMessage($message, $GLOBALS['display_query']);
     PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
 }
 

@@ -95,7 +95,7 @@ if (false !== $possibly_uploaded_val) {
     // Was the Null checkbox checked for this field?
     // (if there is a value, we ignore the Null checkbox: this could
     // be possible if Javascript is disabled in the browser)
-    if (isset($me_fields_null[$key])
+    if (! empty($me_fields_null[$key])
      && ($val == "''" || $val == '')) {
         $val = 'NULL';
     }
