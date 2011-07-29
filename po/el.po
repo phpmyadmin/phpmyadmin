@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:02+0200\n"
+"PO-Revision-Date: 2011-07-29 13:03+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8592,7 +8592,7 @@ msgstr ""
 #: server_privileges.php:652
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
-"Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι και δευτερεύοντες "
+"Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι / δευτερεύοντες "
 "διακομιστές."
 
 #: server_privileges.php:59 server_privileges.php:260
