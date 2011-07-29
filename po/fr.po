@@ -10089,10 +10089,9 @@ msgid "Loading logs"
 msgstr "Chargement des journaux en cours"
 
 #: server_status.php:1459
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Afficher les statistiques"
+msgstr "Statistiques des journaux"
 
 #: server_status.php:1460
 #, fuzzy
