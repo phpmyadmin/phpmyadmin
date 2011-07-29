@@ -9359,9 +9359,7 @@ msgstr ""
 
 #: server_status.php:1085
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
-"Ο αριθμός των ΚΑΘΥΣΤΕΡΗΜΕΝΑ ΕΙΣΕΡΧΟΜΕΝΩΝ (INSERT DELAYED) γραμμών που "
-"εγγράφτηκαν."
+msgstr "Ο αριθμός των INSERT DELAYED γραμμών που εγγράφτηκαν."
 
 #: server_status.php:1086
 msgid "The number of executed FLUSH statements."
