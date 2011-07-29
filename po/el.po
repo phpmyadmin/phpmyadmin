@@ -8875,7 +8875,7 @@ msgstr "Χρήστες με πρόσβαση στη βάση «%s»"
 
 #: server_privileges.php:2340
 msgid "global"
-msgstr "Γενικός"
+msgstr "γενικός"
 
 #: server_privileges.php:2342
 msgid "database-specific"
