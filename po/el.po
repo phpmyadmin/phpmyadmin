@@ -4679,7 +4679,7 @@ msgstr "Απαιτεί την ενεργοποίηση του Εγκυροποι
 #: server_privileges.php:868 server_privileges.php:879
 #: server_privileges.php:1694 server_synchronize.php:1185
 msgid "Password"
-msgstr "Κωδικός Πρόσβασης"
+msgstr "Κωδικός πρόσβασης"
 
 #: libraries/config/messages.inc.php:480
 msgid ""
