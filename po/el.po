@@ -7251,7 +7251,7 @@ msgstr ""
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
-msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση"
+msgstr "Δεν υπάρχουν ενέργειες για εμφάνιση."
 
 #: libraries/rte/rte_words.lib.php:42
 msgid "Add event"
