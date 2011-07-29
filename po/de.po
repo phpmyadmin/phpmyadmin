@@ -6283,7 +6283,6 @@ msgstr ""
 "können Sie:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "Zum Anzeigen einer Struktur einfach auf den Namen klicken"
