@@ -979,7 +979,7 @@ msgstr "Πρόκειται να DESTROY έναν ολόκληρο πίνακα!"
 
 #: js/messages.php:35
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Πρόκειται να ΑΔΕΙΑΣΕΤΕ (TRUNCATE) έναν ολόκληρο πίνακα!"
+msgstr "Πρόκειται να TRUNCATE έναν ολόκληρο πίνακα!"
 
 #: js/messages.php:37
 msgid "Deleting tracking data"
