@@ -5988,7 +5988,7 @@ msgstr "Στήλες που περικλείονται με:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
-msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής: "
+msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
