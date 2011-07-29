@@ -5305,7 +5305,7 @@ msgstr "Οι αποστολές αρχείων δεν επιτρέπονται �
 
 #: libraries/display_import.lib.php:208
 msgid "Partial Import:"
-msgstr "Μερική εισαγωγή"
+msgstr "Μερική εισαγωγή:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
