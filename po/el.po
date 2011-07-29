@@ -4747,7 +4747,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:491
 msgid "Textarea rows"
-msgstr "Γραμμές περιοχής κειμένου (textarea)"
+msgstr "Γραμμές textarea"
 
 #: libraries/config/messages.inc.php:492
 msgid "Title of browser window when a database is selected"
