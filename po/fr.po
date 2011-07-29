@@ -1329,7 +1329,7 @@ msgstr "Depuis le journal des requêtes lentes (slow log)"
 
 #: js/messages.php:141
 msgid "From general log"
-msgstr ""
+msgstr "Depuis le journal général"
 
 #: js/messages.php:142
 msgid "Analysing & loading logs. This may take a while."
