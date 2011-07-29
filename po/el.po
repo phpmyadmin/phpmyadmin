@@ -10653,7 +10653,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:306
 msgid "You should use mysqli for performance reasons."
-msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης"
+msgstr "Πρέπει να χρησιμοποιείτε την mysqli για λόγους απόδοσης."
 
 #: setup/lib/index.lib.php:331
 msgid "You allow for connecting to the server without a password."
