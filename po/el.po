@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:21+0200\n"
+"PO-Revision-Date: 2011-07-29 13:22+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -1579,7 +1579,7 @@ msgstr "Προσθήκη επιλογής για τη στήλη "
 
 #: js/messages.php:231
 msgid "Generate password"
-msgstr "Δημιουργία Κωδικού Πρόσβασης"
+msgstr "Δημιουργία κωδικού πρόσβασης"
 
 #: js/messages.php:232 libraries/replication_gui.lib.php:364
 msgid "Generate"
