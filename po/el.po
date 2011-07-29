@@ -7309,7 +7309,7 @@ msgstr "Αυτή η σελίδα δεν περιέχει κανένα πίνακ
 
 #: libraries/schema/Export_Relation_Schema.class.php:195
 msgid "SCHEMA ERROR: "
-msgstr "ΣΦΑΛΜΑ ΣΧΗΜΑΤΟΣ"
+msgstr "ΣΦΑΛΜΑ ΣΧΗΜΑΤΟΣ: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:868
 #: libraries/schema/Pdf_Relation_Schema.class.php:1107
