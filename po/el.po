@@ -10951,7 +10951,7 @@ msgstr "Το όνομα του πίνακα είναι κενό!"
 
 #: tbl_operations.php:264
 msgid "Alter table order by"
-msgstr "Αλλαγή ταξινόμησης Πίνακα κατά"
+msgstr "Αλλαγή ταξινόμησης πίνακα κατά"
 
 #: tbl_operations.php:273
 msgid "(singly)"
