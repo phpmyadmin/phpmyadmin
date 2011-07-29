@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:34+0200\n"
+"PO-Revision-Date: 2011-07-29 13:35+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -6028,7 +6028,7 @@ msgstr "Άδειασμα δεδομένων του πίνακα"
 #: libraries/export/htmlword.php:195 libraries/export/odt.php:235
 #: libraries/export/sql.php:980 libraries/export/texytext.php:177
 msgid "Table structure for table"
-msgstr "Δομή Πίνακα για τον Πίνακα"
+msgstr "Δομή πίνακα για τον πίνακα"
 
 #: libraries/export/latex.php:14
 msgid "Content of table @TABLE@"
