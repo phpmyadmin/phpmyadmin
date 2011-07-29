@@ -7610,7 +7610,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Ο επικυρωτής SQL δεν μπόρεσε να ξεκινήσει. Ελέγξτε ότι έχετε εγκαταστήσει "
-"της απαραίτητες επεκτάσεις της php όπως περιγράφεται στην %sτεκμηρίωση%s."
+"της απαραίτητες επεκτάσεις της PHP όπως περιγράφεται στην %sτεκμηρίωση%s."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
