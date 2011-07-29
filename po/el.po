@@ -3564,7 +3564,7 @@ msgstr "Μερική εισαγωγή: να επιτρέπεται η διακο
 #: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:250
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr "Να μην γίνετια ακύρωση σε σφάλμα ΕΙΣΑΓΩΓΗΣ (INSERT)"
+msgstr "Να μην γίνετια ακύρωση σε σφάλμα INSERT"
 
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
