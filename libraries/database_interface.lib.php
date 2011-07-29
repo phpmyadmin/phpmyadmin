@@ -1158,7 +1158,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
-PMA_cacheUnset('PMA_MYSQL_INT_VERSION', true);
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if (PMA_cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define('PMA_MYSQL_INT_VERSION', PMA_cacheGet('PMA_MYSQL_INT_VERSION', true));
@@ -1187,7 +1186,7 @@ PMA_cacheUnset('PMA_MYSQL_INT_VERSION', true);
         // detect Drizzle by version number (year.month.day.?patch-version)
         define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
     }
-var_dump(PMA_MYSQL_MAJOR_VERSION);
+
     // Skip charsets for Drizzle
     if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
