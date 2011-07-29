@@ -10943,7 +10943,7 @@ msgstr "Ο πίνακας %s μεταφέρθηκε στο %s."
 #: tbl_move_copy.php:56
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "Ο Πίνακας %s αντιγράφηκε στο %s."
+msgstr "Ο πίνακας %s αντιγράφηκε στο %s."
 
 #: tbl_move_copy.php:74
 msgid "The table name is empty!"
