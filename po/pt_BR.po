@@ -1130,7 +1130,7 @@ msgstr "Requisições desde a última atualização"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr "Solicitações (Declarações executadas pelo servidor)"
+msgstr "Requisições (Declarações executadas pelo servidor)"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
