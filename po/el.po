@@ -8064,8 +8064,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Η έκδοση της βιβλιοθήκης PHP MySQL (%s) διαφέρει από την έκδοση του "
-"διακομιστή MySQL (%s). Αυτό ίσως έχει μη προβλέψιμα αποτελέσματα."
+"Η έκδοση της βιβλιοθήκης PHP MySQL %s διαφέρει από την έκδοση του διακομιστή "
+"MySQL %s. Αυτό ίσως έχει μη προβλέψιμα αποτελέσματα."
 
 #: main.php:341
 #, php-format
