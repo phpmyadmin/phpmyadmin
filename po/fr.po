@@ -10100,7 +10100,7 @@ msgstr "Sélectionnez un intervalle de temps :"
 
 #: server_status.php:1465
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Ne traiter que les énoncés SELECT, INSERT, UPDATE et DELETE"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
