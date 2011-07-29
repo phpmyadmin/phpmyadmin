@@ -868,7 +868,7 @@
                 /**
                  * @var nonunique   Boolean, whether the rows in this table is unique or not
                  */
-                var nonunique = $('.to_be_saved').is('.nonunique') ? 0 : 1;
+                var nonunique = $('.inline_edit_anchor').is('.nonunique') ? 0 : 1;
                 /**
                  * multi edit variables
                  */
