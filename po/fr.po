@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 16:09+0200\n"
+"PO-Revision-Date: 2011-07-29 16:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1922,7 +1922,7 @@ msgstr "Erreur lors du déplacement du fichier téléversé."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Impossible de lire le fichier téléversé."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
