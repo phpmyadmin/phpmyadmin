@@ -895,7 +895,8 @@ msgstr ""
 
 #: import.php:370 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Αδύνατη η φόρτωση προσθέτων εισαγωγής. Ελέξτε την εγκατάστασή σας!"
+msgstr ""
+"Αδύνατη η φόρτωση προσθέτων εισαγωγής, για αυτό ελέξτε την εγκατάστασή σας!"
 
 #: import.php:395
 msgid "The bookmark has been deleted."
