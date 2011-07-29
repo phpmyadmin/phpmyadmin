@@ -10947,7 +10947,7 @@ msgstr "Ο πίνακας %s αντιγράφηκε στο %s."
 
 #: tbl_move_copy.php:74
 msgid "The table name is empty!"
-msgstr "Το όνομα του Πίνακα είναι κενό!"
+msgstr "Το όνομα του πίνακα είναι κενό!"
 
 #: tbl_operations.php:264
 msgid "Alter table order by"
