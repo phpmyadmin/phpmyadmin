@@ -11073,7 +11073,7 @@ msgstr "δυναμικά"
 
 #: tbl_printview.php:401 tbl_structure.php:918
 msgid "Row length"
-msgstr "Μέγεθος Γραμμής"
+msgstr "Μέγεθος γραμμής"
 
 #: tbl_printview.php:411 tbl_structure.php:926
 msgid " Row size "
