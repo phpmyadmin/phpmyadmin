@@ -9189,10 +9189,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Trafic réseau depuis le démarrage : %s"
 
 #: server_status.php:852
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Ce serveur MySQL fonctionne depuis %s. Il a démarré le %s."
+msgstr "Ce serveur MySQL fonctionne depuis %1$s. Il a démarré le %2$s."
 
 #: server_status.php:862
 msgid ""
