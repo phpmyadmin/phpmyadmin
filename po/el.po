@@ -10888,7 +10888,7 @@ msgstr "Το όνομα του πρωτεύοντος κλειδιού πρέπ�
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
-msgstr "Η μετατροπή του ευρετηρίου σε ΠΡΩΤΕΥΟΝ σε είναι εφικτή!"
+msgstr "Η μετατροπή του ευρετηρίου σε PRIMARY δεν είναι εφικτή!"
 
 #: tbl_indexes.php:91
 msgid "No index parts defined!"
