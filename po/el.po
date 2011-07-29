@@ -5547,7 +5547,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
-msgstr "Μέγεθος Buffer pool"
+msgstr "Μέγεθος buffer pool"
 
 #: libraries/engines/innodb.lib.php:33
 msgid ""
