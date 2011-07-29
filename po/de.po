@@ -10132,6 +10132,7 @@ msgstr "Rufe nur SELECT, INSERT, UPDATE und DELETE Abfragen ab"
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
+"Lösche Variablen-Werte in INSERT Abfragen um die Gruppierung zu verbessern"
 
 #: server_status.php:1473
 msgid ""
