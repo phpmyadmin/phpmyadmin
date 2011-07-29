@@ -9935,10 +9935,9 @@ msgid "Loading logs"
 msgstr "Loading logs"
 
 #: server_status.php:1459
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Show statistics"
+msgstr "Log statistics"
 
 #: server_status.php:1460
 msgid "Selected time range:"
