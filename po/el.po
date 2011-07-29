@@ -8447,7 +8447,7 @@ msgstr "Μηχανές αποθήκευσης"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Εμφάνισης σχήματος βάσεων"
+msgstr "Εμφάνισης σκαριφήματος (σχήματος) βάσεων δεδομένων"
 
 #: server_privileges.php:32 server_privileges.php:362
 msgid "Includes all privileges except GRANT."
