@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 16:07+0200\n"
+"PO-Revision-Date: 2011-07-29 16:08+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1548,10 +1548,9 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Ajouter une colonne"
+msgstr "Ajouter des colonnes"
 
 #: js/messages.php:221
 msgid "Select referenced key"
