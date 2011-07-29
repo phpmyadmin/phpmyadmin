@@ -5505,7 +5505,7 @@ msgstr "Εμφάνιση διαγράμματος"
 
 #: libraries/display_tbl.lib.php:2506
 msgid "Visualize GIS data"
-msgstr "Οπτικοποίηση δεδομένων ΓΠΣ"
+msgstr "Οπτικοποίηση δεδομένων GIS"
 
 #: libraries/display_tbl.lib.php:2526
 msgid "Create view"
