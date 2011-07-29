@@ -238,8 +238,6 @@ function PMA_auth_fails()
             $_SESSION['PMA_single_signon_error_message'] = sprintf(__('No activity within %s seconds; please log in again'), $GLOBALS['cfg']['LoginCookieValidity']);
         } elseif (PMA_DBI_getError()) {
             $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(PMA_DBI_getError());
-        } elseif (isset($php_errormsg)) {
-            $_SESSION['PMA_single_signon_error_message'] = $php_errormsg;
         } else {
             $_SESSION['PMA_single_signon_error_message'] = __('Cannot log in to the MySQL server');
         }

@@ -1944,6 +1944,38 @@ $(document).ready(function() {
 }, 'top.frame_content'); //end $(document).ready for 'Change Table'
 
 /**
+ * jQuery coding for 'Table operations'.  Used on tbl_operations.php
+ * Attach Ajax Event handlers for Table operations
+ */
+$(document).ready(function() {
+    /**
+     *Ajax action for submitting the "Alter table order by"
+    **/
+    $("#alterTableOrderby.ajax").live('submit', function(event) {
+        event.preventDefault();
+        $form = $(this);
+
+        PMA_prepareForAjaxRequest($form);
+        /*variables which stores the common attributes*/
+        $.post($form.attr('action'), $form.serialize()+"&submitorderby=Go", function(data) {
+            if ($("#sqlqueryresults").length != 0) {
+                $("#sqlqueryresults").remove();
+            }
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data.sql_query);
+                $("#result_query .notice").remove();
+                $("#result_query").prepend((data.message));
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        }) // end $.post()
+    });//end of alterTableOrderby ajax submit
+}, 'top.frame_content'); //end $(document).ready for 'Table operations'
+
+
+/**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
  *

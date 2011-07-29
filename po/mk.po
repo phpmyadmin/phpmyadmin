@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-25 11:36+0200\n"
+"POT-Creation-Date: 2011-07-29 09:55-0400\n"
 "PO-Revision-Date: 2011-05-19 17:04+0200\n"
 "Last-Translator: <sjanevski@gmail.com>\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
-"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: mk\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -74,9 +74,9 @@ msgstr "Пребарување"
 #: server_privileges.php:2224 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1219 tbl_change.php:335 tbl_change.php:1027
-#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:280
-#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
+#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:289
+#: tbl_operations.php:326 tbl_operations.php:528 tbl_operations.php:590
+#: tbl_operations.php:772 tbl_select.php:318 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -128,7 +128,7 @@ msgid "Database comment: "
 msgstr "Коментар на базата на податоци:"
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
-#: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
+#: libraries/tbl_properties.inc.php:717 tbl_operations.php:371
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Коментар на табелата"
@@ -140,7 +140,7 @@ msgstr "Коментар на табелата"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
 #: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
 #: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
-#: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
+#: tbl_select.php:114 tbl_tracking.php:266 tbl_tracking.php:317
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
@@ -157,7 +157,7 @@ msgstr "Имиња на колони"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2237
 #: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
-#: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
+#: tbl_printview.php:310 tbl_select.php:115 tbl_structure.php:205
 #: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "Тип"
@@ -297,15 +297,15 @@ msgstr "Базата на податоци не постои"
 msgid "Copy database to"
 msgstr "Копирај ја базата на податоци во"
 
-#: db_operations.php:480 tbl_operations.php:548 tbl_tracking.php:418
+#: db_operations.php:480 tbl_operations.php:557 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "Само структура"
 
-#: db_operations.php:481 tbl_operations.php:549 tbl_tracking.php:420
+#: db_operations.php:481 tbl_operations.php:558 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "Структура и податоци"
 
-#: db_operations.php:482 tbl_operations.php:550 tbl_tracking.php:419
+#: db_operations.php:482 tbl_operations.php:559 tbl_tracking.php:419
 msgid "Data only"
 msgstr "Само податоци"
 
@@ -315,17 +315,17 @@ msgstr "CREATE DATABASE пред копирање"
 
 #: db_operations.php:493 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
-#: libraries/config/messages.inc.php:135 tbl_operations.php:556
+#: libraries/config/messages.inc.php:135 tbl_operations.php:565
 #, php-format
 msgid "Add %s"
 msgstr ""
 
 #: db_operations.php:497 libraries/config/messages.inc.php:119
-#: tbl_operations.php:314 tbl_operations.php:558
+#: tbl_operations.php:323 tbl_operations.php:567
 msgid "Add AUTO_INCREMENT value"
 msgstr "Додади AUTO_INCREMENT вредност"
 
-#: db_operations.php:501 tbl_operations.php:565
+#: db_operations.php:501 tbl_operations.php:574
 msgid "Add constraints"
 msgstr "Додади ограничувања"
 
@@ -337,7 +337,7 @@ msgstr "Префрли се на копираната база на подато
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
 #: libraries/tbl_properties.inc.php:723 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
+#: server_collations.php:65 tbl_operations.php:387 tbl_select.php:116
 #: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -437,15 +437,15 @@ msgstr "Подредуваање"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:895
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:275
-#: tbl_select.php:304
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:284
+#: tbl_select.php:305
 msgid "Ascending"
 msgstr "Растечки редослед"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:892
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:276
-#: tbl_select.php:305
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:285
+#: tbl_select.php:306
 msgid "Descending"
 msgstr "Опаѓачки редослед"
 
@@ -472,7 +472,7 @@ msgstr "Del"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:393 tbl_change.php:890 tbl_indexes.php:264
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Or"
 msgstr "или"
 
@@ -509,8 +509,8 @@ msgstr "SQL упит на базата на податоци <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Изврши SQL"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:83
-#: libraries/auth/config.auth.lib.php:102
+#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
@@ -613,17 +613,17 @@ msgstr "во табела(и):"
 msgid "No tables found in database"
 msgstr "Табелите не се пронајдени во базата на податоци."
 
-#: db_structure.php:271 tbl_operations.php:688
+#: db_structure.php:271 tbl_operations.php:697
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Табелата %s е испразнета"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Прегледот %s е избришан"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Табелата %s е избришана"
@@ -639,8 +639,8 @@ msgstr ""
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
@@ -715,20 +715,20 @@ msgstr "Испразни"
 msgid "Drop"
 msgstr "Бриши"
 
-#: db_structure.php:507 tbl_operations.php:604
+#: db_structure.php:507 tbl_operations.php:613
 msgid "Check table"
 msgstr "Проверка на табелата"
 
-#: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
+#: db_structure.php:509 tbl_operations.php:662 tbl_structure.php:842
 #: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "Оптимизација на табелата"
 
-#: db_structure.php:511 tbl_operations.php:640
+#: db_structure.php:511 tbl_operations.php:649
 msgid "Repair table"
 msgstr "Поправка на табелата"
 
-#: db_structure.php:513 tbl_operations.php:627
+#: db_structure.php:513 tbl_operations.php:636
 msgid "Analyze table"
 msgstr "Анализа на табелата"
 
@@ -883,8 +883,8 @@ msgstr "Содржината на базата на податоци е сочу
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:277 import.php:330 libraries/File.class.php:456
@@ -944,7 +944,7 @@ msgstr ""
 
 #: import.php:452 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2232 libraries/rte/rte_routines.lib.php:1193
-#: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
+#: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Вашиот SQL упит успешно е извршен"
@@ -1358,7 +1358,7 @@ msgstr ""
 #: js/messages.php:143
 msgid ""
 "This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries "
+"together. However only the SQL Text is being compared, thus the queries of "
 "other attributes such as start time may differ."
 msgstr ""
 
@@ -2078,7 +2078,7 @@ msgstr "База на податоци"
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:531
 #: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
-#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Грешка"
 
@@ -2192,24 +2192,24 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: libraries/auth/config.auth.lib.php:76
+#: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
 msgstr "Не може да се поврзам: лоши подесувања."
 
-#: libraries/auth/config.auth.lib.php:91
+#: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s Добредојдовте"
 
-#: libraries/auth/config.auth.lib.php:106
+#: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
-#: libraries/auth/config.auth.lib.php:115
+#: libraries/auth/config.auth.lib.php:109
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2273,7 +2273,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
-#: libraries/auth/signon.auth.lib.php:244
+#: libraries/auth/signon.auth.lib.php:242
 msgid "Cannot log in to the MySQL server"
 msgstr "Не можам да се пријавам на MySQL серверот"
 
@@ -2436,7 +2436,7 @@ msgstr "Сервер"
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:934
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
@@ -5021,20 +5021,20 @@ msgstr ""
 "Бројот на записи може да биде приближен. За подетални информации види FAQ "
 "3.11"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:112
+#: libraries/dbi/mysql.dbi.lib.php:117 libraries/dbi/mysqli.dbi.lib.php:137
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysql.dbi.lib.php:326
-#: libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysql.dbi.lib.php:350
+#: libraries/dbi/mysqli.dbi.lib.php:377
 msgid "The server is not responding"
 msgstr "Серверот не одговара"
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysqli.dbi.lib.php:377
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(или приклучокот со локалниот MySQL сервер не е исправно подесен)"
 
-#: libraries/dbi/mysql.dbi.lib.php:333
+#: libraries/dbi/mysql.dbi.lib.php:357
 msgid "Details..."
 msgstr ""
 
@@ -5210,8 +5210,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:268
@@ -5440,7 +5440,7 @@ msgstr "Подредување по клуч"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xls.php:28
 #: libraries/import/xlsx.php:28 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:257
+#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:886
 #, fuzzy
 msgid "Options"
@@ -5958,8 +5958,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6795,7 +6795,7 @@ msgstr "Променлива"
 #: libraries/rte/rte_routines.lib.php:1357 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1249 tbl_change.php:329 tbl_printview.php:367
-#: tbl_select.php:117 tbl_structure.php:862
+#: tbl_select.php:118 tbl_structure.php:862
 msgid "Value"
 msgstr "Вредност"
 
@@ -7786,7 +7786,7 @@ msgid "You have to add at least one column."
 msgstr "Морате да изберете барем една колона за приказ"
 
 #: libraries/tbl_properties.inc.php:719 server_engines.php:55
-#: tbl_operations.php:370
+#: tbl_operations.php:379
 msgid "Storage Engine"
 msgstr "Вид на складиште"
 
@@ -8299,7 +8299,7 @@ msgstr "Креирај"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
-#: tbl_select.php:116
+#: tbl_select.php:117
 msgid "Operator"
 msgstr "Оператор"
 
@@ -8905,8 +8905,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Напомена: phpMyAdmin ги зема привилегиите на корисникот директно од MySQL "
 "табелата на привилегии. Содржината на оваа табела табела може да се "
@@ -10536,8 +10536,8 @@ msgstr ""
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
-#: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
-#: tbl_select.php:31 tbl_select.php:34
+#: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
+#: tbl_select.php:32 tbl_select.php:35
 msgid "Browse foreign values"
 msgstr "Прегледни ги надворешните вредности"
 
@@ -10836,105 +10836,105 @@ msgstr "Табелата %s е копирана во %s."
 msgid "The table name is empty!"
 msgstr "Името на табелата е празно!"
 
-#: tbl_operations.php:264
+#: tbl_operations.php:273
 msgid "Alter table order by"
 msgstr "Промени го редоследот во табелата"
 
-#: tbl_operations.php:273
+#: tbl_operations.php:282
 msgid "(singly)"
 msgstr "(по едно поле)"
 
-#: tbl_operations.php:293
+#: tbl_operations.php:302
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Премести ја табелата во (база<b>.</b>табела):"
 
-#: tbl_operations.php:351
+#: tbl_operations.php:360
 msgid "Table options"
 msgstr "Опции на табелата"
 
-#: tbl_operations.php:355
+#: tbl_operations.php:364
 msgid "Rename table to"
 msgstr "Промени го името на табелата во "
 
-#: tbl_operations.php:531
+#: tbl_operations.php:540
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Копирај ја табелата во (база<b>.</b>табела):"
 
-#: tbl_operations.php:578
+#: tbl_operations.php:587
 msgid "Switch to copied table"
 msgstr "Премини на копираната табела"
 
-#: tbl_operations.php:590
+#: tbl_operations.php:599
 msgid "Table maintenance"
 msgstr "Можете да извршите:"
 
-#: tbl_operations.php:614
+#: tbl_operations.php:623
 msgid "Defragment table"
 msgstr "Дефрагментирај ја табелата"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:671
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Табелата %s е освежена"
 
-#: tbl_operations.php:668
+#: tbl_operations.php:677
 #, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Освежување на табелата (\"FLUSH\")"
 
-#: tbl_operations.php:677
+#: tbl_operations.php:686
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
 msgstr "Приказ на податоци од табелата"
 
-#: tbl_operations.php:692
+#: tbl_operations.php:701
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: tbl_operations.php:712
+#: tbl_operations.php:721
 #, fuzzy
 msgid "Delete the table (DROP)"
 msgstr "Базата на податоци не постои"
 
-#: tbl_operations.php:733
+#: tbl_operations.php:742
 #, fuzzy
 msgid "Partition maintenance"
 msgstr "Можете да извршите:"
 
-#: tbl_operations.php:741
+#: tbl_operations.php:750
 #, php-format
 msgid "Partition %s"
 msgstr ""
 
-#: tbl_operations.php:744
+#: tbl_operations.php:753
 msgid "Analyze"
 msgstr ""
 
-#: tbl_operations.php:745
+#: tbl_operations.php:754
 #, fuzzy
 msgid "Check"
 msgstr "Чешки"
 
-#: tbl_operations.php:746
+#: tbl_operations.php:755
 msgid "Optimize"
 msgstr ""
 
-#: tbl_operations.php:747
+#: tbl_operations.php:756
 msgid "Rebuild"
 msgstr ""
 
-#: tbl_operations.php:748
+#: tbl_operations.php:757
 #, fuzzy
 msgid "Repair"
 msgstr "Поправка на табелата"
 
-#: tbl_operations.php:760
+#: tbl_operations.php:769
 msgid "Remove partitioning"
 msgstr ""
 
-#: tbl_operations.php:786
+#: tbl_operations.php:795
 msgid "Check referential integrity:"
 msgstr "Провери го референцијалниот интегритет:"
 
@@ -10995,25 +10995,25 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr ""
 
-#: tbl_select.php:110
+#: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Направи \"упит по пример\" (џокер знак: \"%\")"
 
-#: tbl_select.php:260
+#: tbl_select.php:261
 #, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Избери полиња (најмалку едно)"
 
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Додади услови за пребарување (делот \"WHERE\" од упитот):"
 
-#: tbl_select.php:285
+#: tbl_select.php:286
 msgid "Number of rows per page"
 msgstr "Број на записи на страница"
 
-#: tbl_select.php:291
+#: tbl_select.php:292
 msgid "Display order:"
 msgstr "Редослед на приказ:"
 
