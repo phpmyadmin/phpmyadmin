@@ -3287,7 +3287,7 @@ msgstr "Προσαρμογή προεπιλεγμένων επιλογών ει�
 
 #: libraries/config/messages.inc.php:173
 msgid "Import / export"
-msgstr "Εισαγωγή / Εξαγωγή"
+msgstr "Εισαγωγή / εξαγωγή"
 
 #: libraries/config/messages.inc.php:174
 msgid "Set import and export directories and compression options"
