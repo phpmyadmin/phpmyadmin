@@ -10667,7 +10667,7 @@ msgstr "Το κλειδί είναι πολύ μικρό. Πρέπει να έχ
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Το κλειδί πρέπει να περιέχει γράμματα, αριθμούς [em]και[/em] ειδικούς "
-"χαρακτήρες"
+"χαρακτήρες."
 
 #: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
 #: tbl_select.php:31 tbl_select.php:34
