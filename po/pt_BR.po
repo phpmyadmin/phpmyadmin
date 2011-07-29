@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-30 01:21+0200\n"
+"PO-Revision-Date: 2011-07-30 01:22+0200\n"
 "Last-Translator: Julio Cesar Zuppa <juliozuppa@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1146,7 +1146,7 @@ msgstr "Memória do sistema"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr "Swap do sistema"
+msgstr "Área de Troca (Swap) do sistema"
 
 #: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
 msgid "MiB"
