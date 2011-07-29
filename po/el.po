@@ -10743,7 +10743,7 @@ msgstr "Εισαγωγή ως νέα γραμμή και παράβλεψη σφ
 
 #: tbl_change.php:985
 msgid "Show insert query"
-msgstr "Εμφάνιση ερωτήματος εισαγωγής SQL"
+msgstr "Εμφάνιση ερωτήματος εισαγωγής"
 
 #: tbl_change.php:996
 msgid "and then"
