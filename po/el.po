@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:30+0200\n"
+"PO-Revision-Date: 2011-07-29 12:31+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -8261,7 +8261,7 @@ msgstr "Σφάλμα: Δεν προστέθηκε η συσχέτιση."
 
 #: pmd_relation_new.php:62
 msgid "FOREIGN KEY relation added"
-msgstr "Προστέθηκε η συσχέτιση ΜΗ ΔΙΑΚΡΙΤΟΥ ΚΛΕΙΔΙΟΥ (FOREIGN KEY)"
+msgstr "Προστέθηκε η συσχέτιση FOREIGN KEY"
 
 #: pmd_relation_new.php:84
 msgid "Internal relation added"
