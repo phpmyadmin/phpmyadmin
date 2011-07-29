@@ -3330,7 +3330,7 @@ msgstr "Microsoft Excel"
 
 #: libraries/config/messages.inc.php:188
 msgid "Open Document"
-msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα (ODΤ)"
+msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα - ODΤ"
 
 #: libraries/config/messages.inc.php:190
 msgid "Other core settings"
