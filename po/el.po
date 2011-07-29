@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 14:14+0200\n"
+"PO-Revision-Date: 2011-07-29 14:16+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -5146,7 +5146,7 @@ msgstr "Εγγραφές:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr "Αχρήστευση εγγραφής(ών)"
+msgstr "Μετατροπή εγγραφής(ών)"
 
 #: libraries/display_export.lib.php:152
 msgid "Number of rows:"
