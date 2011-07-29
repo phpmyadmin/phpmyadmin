@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 17:10+0200\n"
+"PO-Revision-Date: 2011-07-29 17:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -9890,10 +9890,9 @@ msgid "Status variable(s)"
 msgstr "Status variable(s)"
 
 #: server_status.php:1407
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Select Tables"
+msgstr "Select series:"
 
 #: server_status.php:1409
 msgid "Commonly monitored"
