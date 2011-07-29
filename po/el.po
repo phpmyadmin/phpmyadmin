@@ -5134,7 +5134,7 @@ msgstr "Προσαρμογή - προβολή όλων των πιθανών ε�
 
 #: libraries/display_export.lib.php:130
 msgid "Database(s):"
-msgstr "Βάση(εις) Δεδομένων:"
+msgstr "Βάση(εις) δεδομένων:"
 
 #: libraries/display_export.lib.php:132
 msgid "Table(s):"
