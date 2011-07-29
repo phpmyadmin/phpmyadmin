@@ -9913,7 +9913,7 @@ msgstr "Apply a divisor"
 
 #: server_status.php:1437
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Append unit to data values"
 
 #: server_status.php:1443
 #, fuzzy
