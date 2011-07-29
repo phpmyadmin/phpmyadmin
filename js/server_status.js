@@ -619,11 +619,7 @@ $(function() {
                   name: PMA_messages['strAverageLoad'],
                   unit: '%',
                   // Needs to be string so it is not ignored by $.toJSON()
-                  transformFn:
-                      'if(prev == null) return undefined;' +
-                      'var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);' +
-                      'var diff_idle = cur.idle - prev.idle;' +
-                      'return 100*(diff_total - diff_idle) / diff_total;'
+                  transformFn: 'cpu-linux'
                 }
             ]
         },
@@ -981,7 +977,7 @@ $(function() {
 
                 // Try loading config
                 try {
-                    json = $.parseJSON($('body',$('iframe#monitorConfigUpload')[0].contentWindow.document).html());
+                    json = $.secureEvalJSON($('body',$('iframe#monitorConfigUpload')[0].contentWindow.document).html());
                 } catch (err) {
                     alert(PMA_messages['strFailedParsingConfig']);
                     $('div#emptyDialog').dialog('close');
@@ -1622,8 +1618,11 @@ $(function() {
                         value = value / elem.nodes[j].valueDivisor;
 
                     if(elem.nodes[j].transformFn) {
-                        value = eval('(function(cur, prev) { ' + elem.nodes[j].transformFn + '})(' +
-                            'chartData[key][j],' + (oldChartData == null ? 'null' : 'oldChartData[key][j]') + ')');
+                        value = chartValueTransform(
+                            elem.nodes[j].transformFn, 
+                            chartData[key][j], 
+                            (oldChartData == null ? null : oldChartData[key][j])
+                        );
                     }
                     
                     if(value != undefined)
@@ -1645,6 +1644,17 @@ $(function() {
 
             runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
         });
+    }
+    
+    function chartValueTransform(name,cur,prev) {
+        switch(name) {
+            case 'cpu-linux':
+                if(prev == null) return undefined;
+                var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
+                var diff_idle = cur.idle - prev.idle;
+                return 100*(diff_total - diff_idle) / diff_total;
+        }
+        return undefined;
     }
 
     /* Build list of nodes that need to be retrieved */
