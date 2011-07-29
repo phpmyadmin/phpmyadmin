@@ -5170,7 +5170,7 @@ msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
 
 #: libraries/display_export.lib.php:220
 msgid "File name template:"
-msgstr "Πρότυπο ονόματος αρχείου"
+msgstr "Πρότυπο ονόματος αρχείου:"
 
 #: libraries/display_export.lib.php:222
 msgid "@SERVER@ will become the server name"
