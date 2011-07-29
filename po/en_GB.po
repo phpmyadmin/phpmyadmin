@@ -9896,7 +9896,7 @@ msgstr "Select series:"
 
 #: server_status.php:1409
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Commonly monitored"
 
 #: server_status.php:1424
 #, fuzzy
