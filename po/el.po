@@ -4531,7 +4531,7 @@ msgstr "Φιλοχρηστικό όνομα διακομιστή"
 
 #: libraries/config/messages.inc.php:448
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «Εμφάνιση όλων (γραμμών)»"
+msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (γραμμών)»"
 
 #: libraries/config/messages.inc.php:449
 msgid "Allow to display all the rows"
