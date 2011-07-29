@@ -1134,7 +1134,7 @@ msgstr "Solicitações (Declarações executadas pelo servidor)"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
-msgstr "Estatísticas de Query"
+msgstr "Estatísticas de Consultas"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
