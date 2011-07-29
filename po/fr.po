@@ -10044,10 +10044,9 @@ msgid "Status variable(s)"
 msgstr "Variables d'état"
 
 #: server_status.php:1407
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Choisissez les tables"
+msgstr "Choisissez les séries :"
 
 #: server_status.php:1409
 msgid "Commonly monitored"
