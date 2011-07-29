@@ -5992,7 +5992,7 @@ msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα δι�
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
-msgstr "Γραμμές που τελειώνουν με"
+msgstr "Γραμμές που τελειώνουν με:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
