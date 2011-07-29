@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:32+0200\n"
+"PO-Revision-Date: 2011-07-29 12:33+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -9363,7 +9363,7 @@ msgstr "Ο αριθμός των INSERT DELAYED γραμμών που εγγρά
 
 #: server_status.php:1086
 msgid "The number of executed FLUSH statements."
-msgstr "Ο αριθμός των εκτελεσθέντων δηλώσεων ΕΚΚΑΘΑΡΙΣΗΣ (FLUSH)."
+msgstr "Ο αριθμός των εκτελεσθέντων δηλώσεων FLUSH."
 
 #: server_status.php:1087
 msgid "The number of internal COMMIT statements."
