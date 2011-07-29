@@ -6200,10 +6200,9 @@ msgstr ""
 "The following structures have either been created or altered. Here you can:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "View a structure`s contents by clicking on its name"
+msgstr "View a structure's contents by clicking on its name"
 
 #: libraries/import.lib.php:1070
 msgid ""
