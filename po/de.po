@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:43+0200\n"
+"PO-Revision-Date: 2011-07-29 13:44+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1373,7 +1373,7 @@ msgstr "Filter"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filte die Abfragen durch Wort / Regulären Ausdruck:"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE statements"
