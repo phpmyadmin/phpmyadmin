@@ -7539,7 +7539,7 @@ msgstr "Τοποθεσία του αρχείου κειμένου"
 
 #: libraries/sql_query_form.lib.php:449 tbl_change.php:890
 msgid "web server upload directory"
-msgstr "Υποκατάλογος αποθήκευσης αρχείων διακομιστή"
+msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή"
 
 #: libraries/sqlparser.lib.php:136
 msgid ""
