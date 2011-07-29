@@ -503,7 +503,7 @@ msgstr "Υποβολή ερωτήματος"
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
-msgstr "Άρνηση Πρόσβασης"
+msgstr "Άρνηση πρόσβασης"
 
 #: db_search.php:42 db_search.php:284
 msgid "at least one of the words"
