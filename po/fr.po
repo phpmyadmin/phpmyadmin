@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 16:10+0200\n"
+"PO-Revision-Date: 2011-07-29 16:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -9156,10 +9156,10 @@ msgstr "Liens connexes:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:738
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Trafic réseau depuis le démarrage : %s"
+msgstr "Questions depuis le démarrage : %s"
 
 #: server_status.php:744 server_status.php:779 server_status.php:895
 #: server_status.php:940
