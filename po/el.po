@@ -5133,7 +5133,7 @@ msgstr "Βάση(εις) Δεδομένων:"
 
 #: libraries/display_export.lib.php:132
 msgid "Table(s):"
-msgstr "Πίνακας(ες)"
+msgstr "Πίνακας(ες):"
 
 #: libraries/display_export.lib.php:142
 msgid "Rows:"
