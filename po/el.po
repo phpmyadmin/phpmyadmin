@@ -408,8 +408,8 @@ msgstr "Tελευταίος έλεγχος"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s Πίνακας"
-msgstr[1] "%s Πίνακες"
+msgstr[0] "%s πίνακας"
+msgstr[1] "%s πίνακες"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
