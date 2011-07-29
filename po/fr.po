@@ -1364,7 +1364,7 @@ msgstr "Aller à la table du journal"
 
 #: js/messages.php:148
 msgid "Log analysed, but not data found in this time span."
-msgstr ""
+msgstr "Journal analysé, mais aucune donnée trouvée pour ce laps de temps."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
