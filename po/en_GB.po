@@ -9925,10 +9925,9 @@ msgid "Clear series"
 msgstr "Clear series"
 
 #: server_status.php:1448
-#, fuzzy
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Series:"
+msgstr "Series in Chart:"
 
 #: server_status.php:1456
 #, fuzzy
