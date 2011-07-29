@@ -1417,7 +1417,9 @@
             g.postEditedCell();
         });
         $(window).bind('beforeunload', function(e) {
-            return g.isCellEdited ? g.saveCellWarning : null;
+            if (g.isCellEdited) {
+                g.saveCellWarning;
+            }
         });
         
         // add table class
