@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 14:07+0200\n"
+"PO-Revision-Date: 2011-07-29 14:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3615,7 +3615,7 @@ msgstr "Μερική εισαγωγή: παράβλεψη ερωτημάτων"
 
 #: libraries/config/messages.inc.php:261
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Να μην γίνεται αυτόματη αρίθμηση σε μηδενικές τιμές"
+msgstr "Να μην γίνεται AUTO_INCREMENT για μηδενικές τιμές"
 
 #: libraries/config/messages.inc.php:264
 msgid "Initial state for sliders"
