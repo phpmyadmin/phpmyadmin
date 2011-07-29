@@ -1972,7 +1972,7 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:99
 #: server_privileges.php:1826
 msgid "Databases"
-msgstr "Βάσεις Δεδομένων"
+msgstr "Βάσεις δεδομένων"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:531
