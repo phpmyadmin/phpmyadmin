@@ -9972,10 +9972,9 @@ msgid "Refresh rate:"
 msgstr "Taux de rafraîchissement :"
 
 #: server_status.php:1346
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Taille horizontale pour une zone de texte"
+msgstr "Colonnes du graphique :"
 
 #: server_status.php:1360
 #, fuzzy
