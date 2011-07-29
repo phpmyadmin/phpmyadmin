@@ -3586,7 +3586,7 @@ msgstr "Μορφή εισαχθέντος αρχείου"
 
 #: libraries/config/messages.inc.php:251 libraries/import/ldi.php:46
 msgid "Use LOCAL keyword"
-msgstr "Χρήση ΤΟΠΙΚΗΣ λέξης-κλειδί"
+msgstr "Χρήση λέξης-κλειδί LOCAL"
 
 #: libraries/config/messages.inc.php:254 libraries/config/messages.inc.php:262
 #: libraries/config/messages.inc.php:263
