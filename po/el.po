@@ -8239,7 +8239,7 @@ msgstr "Δημιουργία μιας σελίδας και εξαγωγή σε 
 
 #: pmd_pdf.php:111
 msgid "New page name: "
-msgstr "Νέο όνομα σελίδα:"
+msgstr "Νέο όνομα σελίδα: "
 
 #: pmd_pdf.php:114
 msgid "Export/Import to scale"
