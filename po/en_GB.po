@@ -8997,7 +8997,7 @@ msgstr "All status variables"
 
 #: server_status.php:619
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: server_status.php:629 server_status.php:651
 #, fuzzy
