@@ -5137,7 +5137,7 @@ msgstr "Πίνακας(ες):"
 
 #: libraries/display_export.lib.php:142
 msgid "Rows:"
-msgstr "Εγγραφές"
+msgstr "Εγγραφές:"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
