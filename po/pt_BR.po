@@ -1249,7 +1249,7 @@ msgstr ""
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time está definida para %d segundo(s)."
+msgstr "\"long_query_time\" está definida para %d segundo(s)."
 
 #: js/messages.php:122
 msgid ""
