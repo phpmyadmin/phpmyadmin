@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:45+0200\n"
+"PO-Revision-Date: 2011-07-29 13:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -10665,7 +10665,8 @@ msgstr "Επιτρέπετε την σύνδεση στο διακομιστή �
 
 #: setup/lib/index.lib.php:351
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "Το κλειδί είναι πολύ μικρό. Πρέπει να έχει τουλάχιστον 8 χαρακτήρες."
+msgstr ""
+"Το κλειδί είναι πολύ μικρό γιατί πρέπει να έχει τουλάχιστον 8 χαρακτήρες."
 
 #: setup/lib/index.lib.php:358
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
