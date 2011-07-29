@@ -5980,7 +5980,7 @@ msgstr "Η Ιστοσελίδα του PrimeBase Media Streaming (PBMS)"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
-msgstr "Στήλες που χωρίζονται με"
+msgstr "Στήλες που χωρίζονται με:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
