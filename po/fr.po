@@ -1136,7 +1136,7 @@ msgstr "Questions depuis le dernier rafraîchissement"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Questions (énoncés exécutés par le serveur)"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
