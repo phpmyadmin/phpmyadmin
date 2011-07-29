@@ -2840,7 +2840,7 @@ msgstr "Αριθμός γραμμών για περιοχές κειμένου C
 
 #: libraries/config/messages.inc.php:37
 msgid "CHAR textarea rows"
-msgstr "Γραμμές περιοχής κειμένου (textarea) CHAR"
+msgstr "Γραμμές textarea για CHAR"
 
 #: libraries/config/messages.inc.php:38
 msgid "Check config file permissions"
