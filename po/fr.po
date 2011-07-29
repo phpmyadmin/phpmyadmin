@@ -9982,10 +9982,9 @@ msgid "Clear monitor config"
 msgstr "Effacer la configuration de surveillance"
 
 #: server_status.php:1363
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Introduction"
+msgstr "Consignes pour la surveillance"
 
 #: server_status.php:1364
 msgid ""
