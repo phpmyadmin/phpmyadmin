@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-16 14:57+0200\n"
+"PO-Revision-Date: 2011-07-29 15:37+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: french <fr@li.org>\n"
 "Language: fr\n"
@@ -1129,10 +1129,9 @@ msgstr "Connexions / Processus"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Connexions depuis le dernier rafraîchissement"
+msgstr "Questions depuis le dernier rafraîchissement"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
