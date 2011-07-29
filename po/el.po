@@ -5117,7 +5117,7 @@ msgstr "Εξαγωγή εγγραφών από τον πίνακα «%s»"
 
 #: libraries/display_export.lib.php:90
 msgid "Export Method:"
-msgstr "Μέθοδος εξαγωγής"
+msgstr "Μέθοδος εξαγωγής:"
 
 #: libraries/display_export.lib.php:106
 msgid "Quick - display only the minimal options"
