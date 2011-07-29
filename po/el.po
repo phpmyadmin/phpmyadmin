@@ -2630,7 +2630,7 @@ msgstr "πλήρεις εντολές Insert"
 
 #: libraries/config.values.php:121
 msgid "extended inserts"
-msgstr "Εκτεταμένες εντολές Insert"
+msgstr "εκτεταμένες εντολές Insert"
 
 #: libraries/config.values.php:122
 msgid "both of the above"
