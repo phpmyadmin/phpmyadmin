@@ -3571,7 +3571,7 @@ msgstr "Να μην γίνετια ακύρωση σε σφάλμα INSERT"
 #: libraries/config/messages.inc.php:244 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
-msgstr "Αντικατάσταση δεδομένων Πίνακα με το αρχείο"
+msgstr "Αντικατάσταση δεδομένων πίνακα με το αρχείο"
 
 #: libraries/config/messages.inc.php:246
 msgid ""
