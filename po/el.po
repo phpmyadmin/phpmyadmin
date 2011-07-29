@@ -5142,7 +5142,7 @@ msgstr "Εγγραφές"
 
 #: libraries/display_export.lib.php:150
 msgid "Dump some row(s)"
-msgstr "Αχρήστευση μερικών εγγραφών"
+msgstr "Αχρήστευση εγγραφής(ών)"
 
 #: libraries/display_export.lib.php:152
 msgid "Number of rows:"
