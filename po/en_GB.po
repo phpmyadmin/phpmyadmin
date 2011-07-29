@@ -1324,6 +1324,9 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Since grouping of INSERTs queries has been selected, INSERT queries into the "
+"same table are also being grouped together, disregarding of the inserted "
+"data."
 
 #: js/messages.php:145
 msgid "Log data loaded. Queries executed in this time span:"
