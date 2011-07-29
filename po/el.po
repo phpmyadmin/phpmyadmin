@@ -10836,7 +10836,7 @@ msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
 
 #: tbl_export.php:24
 msgid "View dump (schema) of table"
-msgstr "Εμφάνιση σχήματος του πίνακα"
+msgstr "Εμφάνιση σκαριφήματος (σχήματος) του πίνακα"
 
 #: tbl_gis_visualization.php:111
 msgid "Display GIS Visualization"
