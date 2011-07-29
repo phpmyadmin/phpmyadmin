@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 12:08+0200\n"
+"PO-Revision-Date: 2011-07-29 12:09+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -2832,7 +2832,7 @@ msgstr "Αριθμός στηλών για περιοχές κειμένου CHA
 
 #: libraries/config/messages.inc.php:35
 msgid "CHAR textarea columns"
-msgstr "Στήλες περιοχής κειμένου (textarea) CHAR"
+msgstr "Στήλες textarea για CHAR"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of rows for CHAR/VARCHAR textareas"
