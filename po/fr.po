@@ -6285,7 +6285,6 @@ msgstr ""
 "Les structures suivanates ont été créées ou modifiées. Ici vous pouvez :"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom"
