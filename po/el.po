@@ -8721,7 +8721,7 @@ msgstr "Ανακαλέσατε τα δικαιώματα για %s"
 #: server_privileges.php:1322
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "Ο Κωδικός Πρόσβασης για τον χρήστη %s άλλαξε επιτυχώς."
+msgstr "Ο κωδικός πρόσβασης για τον χρήστη %s άλλαξε επιτυχώς."
 
 #: server_privileges.php:1342
 #, php-format
