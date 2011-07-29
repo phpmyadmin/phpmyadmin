@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-30 01:28+0200\n"
+"PO-Revision-Date: 2011-07-30 01:29+0200\n"
 "Last-Translator: Julio Cesar Zuppa <juliozuppa@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1172,10 +1172,9 @@ msgstr "Tráfego"
 
 #: js/messages.php:104 libraries/server_links.inc.php:73
 #: server_status.php:1324
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Recursos de relações gerais"
+msgstr "Configurações"
 
 #: js/messages.php:105
 #, fuzzy
