@@ -1188,7 +1188,7 @@ msgstr "Supprimer le graphique"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Éditer étiquettes et séries"
 
 #: js/messages.php:107
 #, fuzzy
