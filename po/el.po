@@ -1497,7 +1497,7 @@ msgstr "Απόκρυψη παραθύρου ερωτήματος"
 
 #: js/messages.php:201
 msgid "Show query box"
-msgstr "Προβολή παραθύρου ερωτήματος SQL"
+msgstr "Προβολή παραθύρου ερωτήματος"
 
 #: js/messages.php:202
 msgid "Inline Edit"
