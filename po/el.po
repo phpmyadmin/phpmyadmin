@@ -10338,7 +10338,7 @@ msgstr "Ρυθμίσεις και μεταβλητές του διακομιστ
 
 #: server_variables.php:110 server_variables.php:133
 msgid "Session value"
-msgstr "Τιμή Συνεδρίας"
+msgstr "Τιμή συνεδρίας"
 
 #: server_variables.php:110
 msgid "Global value"
