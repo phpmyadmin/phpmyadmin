@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 13:25+0200\n"
+"PO-Revision-Date: 2011-07-29 13:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -3131,7 +3131,7 @@ msgstr "Πρότυπο απομνημόνευσης ονοματος αρχεί�
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
-msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Στηλών"
+msgstr "Χρήση ανάποδων εισαγωγικών στα ονόματα των πινάκων και των στηλών"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:260
 #: libraries/display_export.lib.php:346
