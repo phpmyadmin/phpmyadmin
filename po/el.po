@@ -8257,7 +8257,7 @@ msgstr "προτείνεται"
 
 #: pmd_relation_new.php:29
 msgid "Error: relation already exists."
-msgstr "Σφάλμα: Η συσχέτιση υπαρχει ήδη."
+msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
 #: pmd_relation_new.php:61 pmd_relation_new.php:86
 msgid "Error: Relation not added."
