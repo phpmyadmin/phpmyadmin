@@ -1191,10 +1191,9 @@ msgid "Edit labels and series"
 msgstr "Éditer étiquettes et séries"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Accrocher à la grille"
+msgstr "Ajouter graphique à la grille"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
