@@ -3506,7 +3506,7 @@ msgstr "Προσαρμογή πεδίων εισαγωγής κειμένου"
 
 #: libraries/config/messages.inc.php:228 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr "Κείμενο Texy!"
+msgstr "Κείμενο Texy"
 
 #: libraries/config/messages.inc.php:230
 msgid "Warnings"
