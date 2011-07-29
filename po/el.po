@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-29 14:13+0200\n"
+"PO-Revision-Date: 2011-07-29 14:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
 "Language: el\n"
@@ -11147,7 +11147,7 @@ msgstr "Προσθήκη ευρετηρίου SPATIAL"
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
-msgstr "Προσθήκη ευρετηρίου ΠΛΗΡΟΥΣ ΚΕΙΜΕΝΟΥ"
+msgstr "Προσθήκη ευρετηρίου FULLTEXT"
 
 #: tbl_structure.php:391
 msgctxt "None for default"
