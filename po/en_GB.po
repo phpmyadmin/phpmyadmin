@@ -9823,10 +9823,9 @@ msgid "Chart columns:"
 msgstr "Chart columns:"
 
 #: server_status.php:1360
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "User for config auth"
+msgstr "Clear monitor config"
 
 #: server_status.php:1363
 #, fuzzy
