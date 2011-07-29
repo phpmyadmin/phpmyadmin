@@ -467,7 +467,7 @@ msgstr "Διαγραφή"
 #: server_privileges.php:393 tbl_change.php:890 tbl_indexes.php:264
 #: tbl_select.php:278
 msgid "Or"
-msgstr "ΕΝΩΣΗ"
+msgstr "Ενωση"
 
 #: db_qbe.php:529
 msgid "Modify"
