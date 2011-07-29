@@ -9668,7 +9668,7 @@ msgstr ""
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 "Ο μέγιστος χρόνος απόκτησης ενός κλειδώματος γραμμής σε "
-"χιλιοστοδευτερόλεπτα.."
+"χιλιοστοδευτερόλεπτα."
 
 #: server_status.php:1137
 msgid "The number of times a row lock had to be waited for."
