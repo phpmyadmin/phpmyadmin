@@ -6156,7 +6156,7 @@ msgstr ""
 
 #: libraries/export/sql.php:224
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Αντί για δηλώσεις <code>ΕΙΣΑΓΩΓΗΣ</code> (INSERT), χρησιμοποιήστε:"
+msgstr "Αντί για δηλώσεις <code>INSERT</code>, χρησιμοποιήστε:"
 
 #: libraries/export/sql.php:229
 msgid "<code>INSERT DELAYED</code> statements"
