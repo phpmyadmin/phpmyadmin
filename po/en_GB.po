@@ -9885,10 +9885,9 @@ msgid "Swap Usage"
 msgstr "Swap Usage"
 
 #: server_status.php:1405
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "All status variables"
+msgstr "Status variable(s)"
 
 #: server_status.php:1407
 #, fuzzy
