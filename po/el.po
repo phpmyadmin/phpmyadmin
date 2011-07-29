@@ -1246,7 +1246,7 @@ msgstr ""
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "Το long_query_time έχει οριστεί στο(α) %d δευτερόλεπτο(α).."
+msgstr "Το long_query_time έχει οριστεί σε %d δευτερόλεπτο(α)."
 
 #: js/messages.php:122
 msgid ""
