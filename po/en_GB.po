@@ -9811,7 +9811,7 @@ msgstr "Add chart"
 
 #: server_status.php:1341
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Rearrange/edit charts"
 
 #: server_status.php:1343
 msgid "Refresh rate:"
