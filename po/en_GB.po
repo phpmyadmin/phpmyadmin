@@ -1339,7 +1339,7 @@ msgstr "Jump to Log table"
 
 #: js/messages.php:148
 msgid "Log analysed, but not data found in this time span."
-msgstr ""
+msgstr "Log analysed, but not data found in this time span."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
