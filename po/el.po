@@ -7190,7 +7190,7 @@ msgstr "Πρέπει να δώσετε ένα έγκυρο χρόνο για τ�
 
 #: libraries/rte/rte_triggers.lib.php:409
 msgid "You must provide a valid event for the trigger"
-msgstr "Πρέπει να δώσετε ένα έγκυρο συμβάν για την ενέργεια."
+msgstr "Πρέπει να δώσετε ένα έγκυρο συμβάν για την ενέργεια"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid table name"
