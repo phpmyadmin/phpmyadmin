@@ -1168,10 +1168,9 @@ msgstr "Charge moyenne"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Suggestions:"
 msgid "Questions"
-msgstr "Suggestions&nbsp;:"
+msgstr "Questions"
 
 #: js/messages.php:103 server_status.php:894
 msgid "Traffic"
