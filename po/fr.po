@@ -1148,7 +1148,7 @@ msgstr "Utilisation processeur"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Mémoire système"
 
 #: js/messages.php:96
 msgid "System swap"
