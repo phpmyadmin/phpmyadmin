@@ -4626,7 +4626,7 @@ msgid ""
 "comment and the real name"
 msgstr ""
 "Αν οι επεξηγήσεις είναι ενεργοποιημένες και έχει οριστεί σχόλιο για τη βάση "
-"δεδομένων, αυτή η επιλογή θα αντικαταστήσει το όνομα με το σχόλιο."
+"δεδομένων, αυτή η επιλογή θα αντικαταστήσει το όνομα με το σχόλιο"
 
 #: libraries/config/messages.inc.php:467
 msgid "Display database comment instead of its name"
