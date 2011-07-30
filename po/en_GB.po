@@ -9845,6 +9845,13 @@ msgid ""
 "        general_log produces a lot of data and increases server load by up "
 "to 15%"
 msgstr ""
+"The phpMyAdmin Monitor can assist you in optimising the server configuration "
+"and track down time intensive\n"
+"        queries. For the latter you will need to set log_output to 'TABLE' "
+"and have either the slow_query_log or general_log enabled. Note however, "
+"that the\n"
+"        general_log produces a lot of data and increases server load by up "
+"to 15%"
 
 #: server_status.php:1373
 msgid ""
