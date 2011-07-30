@@ -9977,7 +9977,7 @@ msgstr "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 
 #: server_status.php:1470
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Remove variable data in INSERT statements for better grouping"
 
 #: server_status.php:1473
 msgid ""
