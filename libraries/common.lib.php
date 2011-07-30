@@ -3046,12 +3046,12 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
     }
 
     // Unary functions common to all geomety types
-    $funcs['Dimension'] = array('params' => 1, 'type' => 'int');
-    $funcs['Envelope'] = array('params' => 1, 'type' => 'Polygon');
+    $funcs['Dimension']    = array('params' => 1, 'type' => 'int');
+    $funcs['Envelope']     = array('params' => 1, 'type' => 'Polygon');
     $funcs['GeometryType'] = array('params' => 1, 'type' => 'text');
-    $funcs['SRID'] = array('params' => 1, 'type' => 'int');
-    $funcs['IsEmpty'] = array('params' => 1, 'type' => 'int');
-    $funcs['IsSimple'] = array('params' => 1, 'type' => 'int');
+    $funcs['SRID']         = array('params' => 1, 'type' => 'int');
+    $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
+    $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
 
     $geom_type = trim(strtolower($geom_type));
     if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
@@ -3062,26 +3062,31 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
     if ($geom_type == 'point') {
         $funcs['X'] = array('params' => 1, 'type' => 'float');
         $funcs['Y'] = array('params' => 1, 'type' => 'float');
+
     } elseif ($geom_type == 'multipoint') {
         // no fucntions here
     } elseif ($geom_type == 'linestring') {
-        $funcs['EndPoint'] = array('params' => 1, 'type' => 'point');
-        $funcs['GLength'] = array('params' => 1, 'type' => 'float');
-        $funcs['NumPoints'] = array('params' => 1, 'type' => 'int');
+        $funcs['EndPoint']   = array('params' => 1, 'type' => 'point');
+        $funcs['GLength']    = array('params' => 1, 'type' => 'float');
+        $funcs['NumPoints']  = array('params' => 1, 'type' => 'int');
         $funcs['StartPoint'] = array('params' => 1, 'type' => 'point');
-        $funcs['IsRing'] = array('params' => 1, 'type' => 'int');
+        $funcs['IsRing']     = array('params' => 1, 'type' => 'int');
+
     } elseif ($geom_type == 'multilinestring') {
-        $funcs['GLength'] = array('params' => 1, 'type' => 'float');
+        $funcs['GLength']  = array('params' => 1, 'type' => 'float');
         $funcs['IsClosed'] = array('params' => 1, 'type' => 'int');
+
     } elseif ($geom_type == 'polygon') {
-        $funcs['Area'] = array('params' => 1, 'type' => 'float');
-        $funcs['ExteriorRing'] = array('params' => 1, 'type' => 'linestring');
+        $funcs['Area']             = array('params' => 1, 'type' => 'float');
+        $funcs['ExteriorRing']     = array('params' => 1, 'type' => 'linestring');
         $funcs['NumInteriorRings'] = array('params' => 1, 'type' => 'int');
+
     } elseif ($geom_type == 'multipolygon') {
-        $funcs['Area'] = array('params' => 1, 'type' => 'float');
+        $funcs['Area']     = array('params' => 1, 'type' => 'float');
         $funcs['Centroid'] = array('params' => 1, 'type' => 'point');
         // Not yet implemented in MySQL
         //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
+
     } elseif ($geom_type == 'geometrycollection') {
         $funcs['NumGeometries'] = array('params' => 1, 'type' => 'int');
     }
@@ -3093,24 +3098,24 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
             $funcs[] = array('display' => '--------');
         }
         if (PMA_MYSQL_INT_VERSION < 50601) {
-            $funcs['Crosses'] = array('params' => 2, 'type' => 'int');
-            $funcs['Contains'] = array('params' => 2, 'type' => 'int');
-            $funcs['Disjoint'] = array('params' => 2, 'type' => 'int');
-            $funcs['Equals'] = array('params' => 2, 'type' => 'int');
+            $funcs['Crosses']    = array('params' => 2, 'type' => 'int');
+            $funcs['Contains']   = array('params' => 2, 'type' => 'int');
+            $funcs['Disjoint']   = array('params' => 2, 'type' => 'int');
+            $funcs['Equals']     = array('params' => 2, 'type' => 'int');
             $funcs['Intersects'] = array('params' => 2, 'type' => 'int');
-            $funcs['Overlaps'] = array('params' => 2, 'type' => 'int');
-            $funcs['Touches'] = array('params' => 2, 'type' => 'int');
-            $funcs['Within'] = array('params' => 2, 'type' => 'int');
+            $funcs['Overlaps']   = array('params' => 2, 'type' => 'int');
+            $funcs['Touches']    = array('params' => 2, 'type' => 'int');
+            $funcs['Within']     = array('params' => 2, 'type' => 'int');
         } else {
             // If MySQl version is greaeter than or equal 5.6.1, use the ST_ prefix.
-            $funcs['ST_Crosses'] = array('params' => 2, 'type' => 'int');
-            $funcs['ST_Contains'] = array('params' => 2, 'type' => 'int');
-            $funcs['ST_Disjoint'] = array('params' => 2, 'type' => 'int');
-            $funcs['ST_Equals'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Crosses']    = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Contains']   = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Disjoint']   = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Equals']     = array('params' => 2, 'type' => 'int');
             $funcs['ST_Intersects'] = array('params' => 2, 'type' => 'int');
-            $funcs['ST_Overlaps'] = array('params' => 2, 'type' => 'int');
-            $funcs['ST_Touches'] = array('params' => 2, 'type' => 'int');
-            $funcs['ST_Within'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Overlaps']   = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Touches']    = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Within']     = array('params' => 2, 'type' => 'int');
 
         }
 
@@ -3118,13 +3123,13 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
             $funcs[] = array('display' => '--------');
         }
         // Minimum bounding rectangle functions
-        $funcs['MBRContains'] = array('params' => 2, 'type' => 'int');
-        $funcs['MBRDisjoint'] = array('params' => 2, 'type' => 'int');
-        $funcs['MBREquals'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBRContains']   = array('params' => 2, 'type' => 'int');
+        $funcs['MBRDisjoint']   = array('params' => 2, 'type' => 'int');
+        $funcs['MBREquals']     = array('params' => 2, 'type' => 'int');
         $funcs['MBRIntersects'] = array('params' => 2, 'type' => 'int');
-        $funcs['MBROverlaps'] = array('params' => 2, 'type' => 'int');
-        $funcs['MBRTouches'] = array('params' => 2, 'type' => 'int');
-        $funcs['MBRWithin'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBROverlaps']   = array('params' => 2, 'type' => 'int');
+        $funcs['MBRTouches']    = array('params' => 2, 'type' => 'int');
+        $funcs['MBRWithin']     = array('params' => 2, 'type' => 'int');
     }
     return $funcs;
 }
