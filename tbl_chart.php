@@ -102,10 +102,10 @@ url_query = '<?php echo $url_query;?>';
             
             foreach ($keys as $idx => $key) {
                 if ($yaxis == -1 && (($idx == count($data[0]) - 1) || preg_match("/(date|time)/i", $key))) {
-                    echo '<option value="' . $idx . '" selected>' . $key . '</option>';
+                    echo '<option value="' . htmlspecialchars($idx) . '" selected>' . htmlspecialchars($key) . '</option>';
                     $yaxis=$idx;
                 } else {
-                    echo '<option value="' . $idx . '">' . $key . '</option>';
+                    echo '<option value="' . htmlspecialchars($idx) . '">' . htmlspecialchars($key) . '</option>';
                 }
             }
             
@@ -116,7 +116,7 @@ url_query = '<?php echo $url_query;?>';
             <option value="columns"><?php echo __('The remaining columns'); ?></option>
             <?php
             foreach ($keys as $idx => $key) {
-                echo '<option>' . $key . '</option>';
+                echo '<option>' . htmlspecialchars($key) . '</option>';
             }
         ?>
         </select>
