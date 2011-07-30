@@ -10,6 +10,11 @@
  * @package phpMyAdmin-DBI-Drizzle
  */
 
+// TODO: drizzle module segfaults while freeing resources, often. Keep
+register_shutdown_function(function() {
+    flush();
+});
+
 /**
  * Wrapper for Drizzle class
  */
@@ -97,6 +102,12 @@ class PMA_DrizzleCon
     private $dcon;
 
     /**
+     * Result of the most recent query
+     * @var PMA_DrizzleResult
+     */
+    private $lastResult;
+
+    /**
      * Constructor
      *
      * @param DrizzleCon $dcon
@@ -118,13 +129,26 @@ class PMA_DrizzleCon
     {
         $result = $this->dcon->query($query);
         if ($result instanceof DrizzleResult) {
-            return new PMA_DrizzleResult($result, $bufferMode, $fetchMode);
+            $this->lastResult = new PMA_DrizzleResult($result, $bufferMode, $fetchMode);
+            return $this->lastResult;
         }
         return $result;
     }
 
     /**
-     * Pass all not overwritten methods to DrizzleCon
+     * Returns the number of rows affected by last query
+     *
+     * @return int|false
+     */
+    public function affectedRows()
+    {
+        return $this->lastResult
+            ? $this->lastResult->affectedRows()
+            : false;
+    }
+
+    /**
+     * Pass calls of undefined methods to DrizzleCon object
      * 
      * @param $method
      * @param $args
@@ -336,7 +360,7 @@ class PMA_DrizzleResult
     }
 
     /**
-     * Returns the number of rows affected by last query
+     * Returns the number of rows affected by query
      *
      * @return int|false
      */
@@ -350,13 +374,9 @@ class PMA_DrizzleResult
      */
     public function free()
     {
-        // too much freeing, causes segfault in drizzle.so (v.0.5): (zif_drizzle_column_free+0x25)
-        /*foreach ($this->columns as $col) {
-            drizzle_column_free($col);
-        }
+        // count on GC, using drizzle_free or drizzle_column_free causes segfaults
         unset($this->columns);
-        unset($this->columnNames);*/
-        drizzle_result_free($this->dresult);
-        $this->dresult = null;
+        unset($this->columnNames);
+        unset($this->dresult);
     }
 }
