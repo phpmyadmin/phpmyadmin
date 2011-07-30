@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-30 02:13+0200\n"
+"PO-Revision-Date: 2011-07-30 02:19+0200\n"
 "Last-Translator: Julio Cesar Zuppa <juliozuppa@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1186,6 +1186,7 @@ msgstr "Remover Gráfico/Tabela ou Relatório"
 msgid "Edit labels and series"
 msgstr "Editar rótulos e séries."
 
+# The word "chart" in brasilian portuguese can mean either "Table = tabela" or "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it depends of the context.
 #: js/messages.php:107
 #, fuzzy
 #| msgid "Snap to grid"
