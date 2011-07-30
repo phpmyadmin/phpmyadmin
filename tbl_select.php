@@ -146,8 +146,8 @@ if (! isset($param) || $param[0] == '') {
                     echo('<select name="geom_func['. $i .']">');
                         // get the relevant list of functions
                         $funcs = PMA_getGISFunctions($fields_type[$i], false, true);
-                        foreach ($funcs as $func) {
-                            $name = $func['name'];
+                        foreach ($funcs as $func_name => $func) {
+                            $name =  isset($func['display']) ? $func['display'] : $func_name;
                             echo('<option value="' . htmlspecialchars($name) . '">'
                                 . htmlspecialchars($name) . '</option>');
                         }
@@ -402,9 +402,14 @@ else {
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
-            // If geometry funciton is set apply it to the field name
+            // If geometry function is set apply it to the field name
             if (isset($geom_func[$i]) && trim($geom_func[$i]) != '') {
                 $backquoted_name = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ')';
+
+                // New output type is the output type of the function being applied
+                $geom_funcs = PMA_getGISFunctions($types[$i], false, false);
+                $types[$i] = $geom_funcs[$geom_func[$i]]['type'];
+
                 // If the intended where clause is something like 'IsEmpty(`spatial_col_name`)'
                 if (isset($geom_unary_operators[$geom_func[$i]]) && trim($fields[$i]) == '') {
                     $w[] = $backquoted_name;
@@ -419,6 +424,8 @@ else {
                 $fields[$i] = '';
                 $w[] = $backquoted_name . ' ' . $func_type;
 
+            } elseif (in_array($types[$i], $geom_types)) {
+                $w[] = $backquoted_name . ' ' . $func_type . " GeomFromText('" . $fields[$i] . "')";
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
                     if (! is_array($fields[$i])) {

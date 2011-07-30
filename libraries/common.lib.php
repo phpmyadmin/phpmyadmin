@@ -3039,84 +3039,92 @@ function PMA_getGISDatatypes($upper_case = false) {
  *               geometry data typess.
  */
 function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false) {
-    // Unary functions common to all geomety types
+
     $funcs = array();
     if ($display) {
-        $funcs[] = array('name' => ' ');
+        $funcs[] = array('display' => ' ');
     }
 
-    $funcs[] = array('name' => 'Dimension', 'params' => 1, 'type' => 'int');
-    //$funcs[] = array('name' => 'Envelope', 'params' => 1, 'type' => 'Polygon');
-    $funcs[] = array('name' => 'GeometryType', 'params' => 1, 'type' => 'text');
-    $funcs[] = array('name' => 'SRID', 'params' => 1, 'type' => 'int');
-    $funcs[] = array('name' => 'IsEmpty', 'params' => 1, 'type' => 'int');
-    $funcs[] = array('name' => 'IsSimple', 'params' => 1, 'type' => 'int');
+    // Unary functions common to all geomety types
+    $funcs['Dimension'] = array('params' => 1, 'type' => 'int');
+    $funcs['Envelope'] = array('params' => 1, 'type' => 'Polygon');
+    $funcs['GeometryType'] = array('params' => 1, 'type' => 'text');
+    $funcs['SRID'] = array('params' => 1, 'type' => 'int');
+    $funcs['IsEmpty'] = array('params' => 1, 'type' => 'int');
+    $funcs['IsSimple'] = array('params' => 1, 'type' => 'int');
 
     $geom_type = trim(strtolower($geom_type));
     if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
-        $funcs[] = array('name' => '--------');
+        $funcs[] = array('display' => '--------');
     }
 
+    // Unary functions that are specific to each geomety type
     if ($geom_type == 'point') {
-        $funcs[] = array('name' => 'X', 'params' => 1, 'type' => 'float');
-        $funcs[] = array('name' => 'Y', 'params' => 1, 'type' => 'float');
+        $funcs['X'] = array('params' => 1, 'type' => 'float');
+        $funcs['Y'] = array('params' => 1, 'type' => 'float');
     } elseif ($geom_type == 'multipoint') {
         // no fucntions here
     } elseif ($geom_type == 'linestring') {
-        //$funcs[] = array('name' => 'EndPoint', 'params' => 1, 'type' => 'Point');
-        $funcs[] = array('name' => 'GLength', 'params' => 1, 'type' => 'float');
-        $funcs[] = array('name' => 'NumPoints', 'params' => 1, 'type' => 'int');
-        //$funcs[] = array('name' => 'StartPoint', 'params' => 1, 'type' => 'Point');
-        $funcs[] = array('name' => 'IsRing', 'params' => 1, 'type' => 'int');
+        $funcs['EndPoint'] = array('params' => 1, 'type' => 'point');
+        $funcs['GLength'] = array('params' => 1, 'type' => 'float');
+        $funcs['NumPoints'] = array('params' => 1, 'type' => 'int');
+        $funcs['StartPoint'] = array('params' => 1, 'type' => 'point');
+        $funcs['IsRing'] = array('params' => 1, 'type' => 'int');
     } elseif ($geom_type == 'multilinestring') {
-        $funcs[] = array('name' => 'GLength', 'params' => 1, 'type' => 'float');
-        $funcs[] = array('name' => 'IsClosed', 'params' => 1, 'type' => 'int');
+        $funcs['GLength'] = array('params' => 1, 'type' => 'float');
+        $funcs['IsClosed'] = array('params' => 1, 'type' => 'int');
     } elseif ($geom_type == 'polygon') {
-        $funcs[] = array('name' => 'Area', 'params' => 1, 'type' => 'float');
-        //$funcs[] = array('name' => 'ExteriorRing', 'params' => 1, 'type' => 'Linestring');
-        $funcs[] = array('name' => 'NumInteriorRings', 'params' => 1, 'type' => 'int');
+        $funcs['Area'] = array('params' => 1, 'type' => 'float');
+        $funcs['ExteriorRing'] = array('params' => 1, 'type' => 'linestring');
+        $funcs['NumInteriorRings'] = array('params' => 1, 'type' => 'int');
     } elseif ($geom_type == 'multipolygon') {
-        $funcs[] = array('name' => 'Area', 'params' => 1, 'type' => 'float');
-        //$funcs[] = array('name' => 'Centroid', 'params' => 1, 'type' => 'Point');
+        $funcs['Area'] = array('params' => 1, 'type' => 'float');
+        $funcs['Centroid'] = array('params' => 1, 'type' => 'point');
         // Not yet implemented in MySQL
-        //$funcs[] = array('name' => 'PointOnSurface', 'params' => 1, 'type' => 'Point');
+        //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
     } elseif ($geom_type == 'geometrycollection') {
-        $funcs[] = array('name' => 'NumGeometries', 'params' => 1, 'type' => 'int');
+        $funcs['NumGeometries'] = array('params' => 1, 'type' => 'int');
     }
 
     // If we are asked for binary functions as well
     if ($binary) {
+        // section seperator
         if ($display) {
-            $funcs[] = array('name' => '--------');
+            $funcs[] = array('display' => '--------');
         }
-        $binary = array(
-            array('name' => 'Crosses', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Contains', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Disjoint', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Equals', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Intersects', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Overlaps', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Touches', 'params' => 2, 'type' => 'int'),
-            array('name' => 'Within', 'params' => 2, 'type' => 'int'),
-        );
+        if (PMA_MYSQL_INT_VERSION < 50601) {
+            $funcs['Crosses'] = array('params' => 2, 'type' => 'int');
+            $funcs['Contains'] = array('params' => 2, 'type' => 'int');
+            $funcs['Disjoint'] = array('params' => 2, 'type' => 'int');
+            $funcs['Equals'] = array('params' => 2, 'type' => 'int');
+            $funcs['Intersects'] = array('params' => 2, 'type' => 'int');
+            $funcs['Overlaps'] = array('params' => 2, 'type' => 'int');
+            $funcs['Touches'] = array('params' => 2, 'type' => 'int');
+            $funcs['Within'] = array('params' => 2, 'type' => 'int');
+        } else {
+            // If MySQl version is greaeter than or equal 5.6.1, use the ST_ prefix.
+            $funcs['ST_Crosses'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Contains'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Disjoint'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Equals'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Intersects'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Overlaps'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Touches'] = array('params' => 2, 'type' => 'int');
+            $funcs['ST_Within'] = array('params' => 2, 'type' => 'int');
 
-        // If MySQl version is greaeter than or equal 5.6.1, use the ST_ prefix.
-        if (PMA_MYSQL_INT_VERSION >= 50601) {
-            for ($i = 0; $i < count($binary); $i++) {
-                $binary[$i]['name'] = 'ST_' . $binary[$i]['name'];
-            }
         }
-        $funcs = array_merge($funcs, $binary);
+
         if ($display) {
-            $funcs[] = array('name' => '--------');
+            $funcs[] = array('display' => '--------');
         }
-        $funcs[] = array('name' => 'MBRContains', 'params' => 2, 'type' => 'int');
-        $funcs[] = array('name' => 'MBRDisjoint', 'params' => 2, 'type' => 'int');
-        $funcs[] = array('name' => 'MBREquals', 'params' => 2, 'type' => 'int');
-        $funcs[] = array('name' => 'MBRIntersects', 'params' => 2, 'type' => 'int');
-        $funcs[] = array('name' => 'MBROverlaps', 'params' => 2, 'type' => 'int');
-        $funcs[] = array('name' => 'MBRTouches', 'params' => 2, 'type' => 'int');
-        $funcs[] = array('name' => 'MBRWithin', 'params' => 2, 'type' => 'int');
+        // Minimum bounding rectangle functions
+        $funcs['MBRContains'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBRDisjoint'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBREquals'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBRIntersects'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBROverlaps'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBRTouches'] = array('params' => 2, 'type' => 'int');
+        $funcs['MBRWithin'] = array('params' => 2, 'type' => 'int');
     }
     return $funcs;
 }
