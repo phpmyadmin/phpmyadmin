@@ -182,9 +182,14 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
 
         if ($server > 0) {
-            PMA_printListItem(__('MySQL client version') . ': ' . PMA_DBI_get_client_info(),
+            $client_version_str = $GLOBALS['cfg']['Server']['extension'] == 'drizzle'
+                ? __('Drizzle client version')
+                : __('MySQL client version');
+            PMA_printListItem($client_version_str . ': ' . PMA_DBI_get_client_info(),
                 'li_mysql_client_version');
-            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension'] . ' ' . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
+            PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
+                    . phpversion($GLOBALS['cfg']['Server']['extension']) . ' '
+                    . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
                 'li_used_php_extension');
         }
     }
