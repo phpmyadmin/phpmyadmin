@@ -479,13 +479,15 @@ else {
 
                     // quote values one by one
                     $values = explode(',', $fields[$i]);
-                    foreach ($values as &$value)
+                    foreach ($values as &$value) {
                         $value = $quot . PMA_sqlAddSlashes(trim($value)) . $quot;
+                    }
 
-                    if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN')
+                    if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
                         $w[] = $backquoted_name . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')  . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                    else
+                    } else {
                         $w[] = $backquoted_name . ' ' . $func_type . ' (' . implode(',', $values) . ')';
+                    }
                 }
                 else {
                     $w[] = $backquoted_name . ' ' . $func_type . ' ' . $quot . PMA_sqlAddSlashes($fields[$i]) . $quot;;
