@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-25 11:36+0200\n"
+"POT-Creation-Date: 2011-07-30 07:37-0400\n"
 "PO-Revision-Date: 2011-06-19 09:59+0200\n"
 "Last-Translator:  <star@origin.club.tw>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
-"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -73,9 +73,9 @@ msgstr "搜尋"
 #: server_privileges.php:2224 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1219 tbl_change.php:335 tbl_change.php:1027
-#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:280
-#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
+#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:289
+#: tbl_operations.php:326 tbl_operations.php:528 tbl_operations.php:590
+#: tbl_operations.php:772 tbl_select.php:318 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -127,7 +127,7 @@ msgid "Database comment: "
 msgstr "資料庫註釋："
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
-#: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
+#: libraries/tbl_properties.inc.php:717 tbl_operations.php:371
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "表註釋"
@@ -139,7 +139,7 @@ msgstr "表註釋"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
 #: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
 #: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
-#: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
+#: tbl_select.php:114 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
 msgstr "欄位"
 
@@ -154,7 +154,7 @@ msgstr "欄位"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2237
 #: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
-#: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
+#: tbl_printview.php:310 tbl_select.php:115 tbl_structure.php:205
 #: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "類型"
@@ -293,15 +293,15 @@ msgstr "刪除資料庫 (DROP)"
 msgid "Copy database to"
 msgstr "複製資料庫到"
 
-#: db_operations.php:480 tbl_operations.php:548 tbl_tracking.php:418
+#: db_operations.php:480 tbl_operations.php:557 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "僅結構"
 
-#: db_operations.php:481 tbl_operations.php:549 tbl_tracking.php:420
+#: db_operations.php:481 tbl_operations.php:558 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "結構和資料"
 
-#: db_operations.php:482 tbl_operations.php:550 tbl_tracking.php:419
+#: db_operations.php:482 tbl_operations.php:559 tbl_tracking.php:419
 msgid "Data only"
 msgstr "僅資料"
 
@@ -311,17 +311,17 @@ msgstr "複製前建立資料庫 (CREATE DATABASE)"
 
 #: db_operations.php:493 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
-#: libraries/config/messages.inc.php:135 tbl_operations.php:556
+#: libraries/config/messages.inc.php:135 tbl_operations.php:565
 #, php-format
 msgid "Add %s"
 msgstr "新增 %s"
 
 #: db_operations.php:497 libraries/config/messages.inc.php:119
-#: tbl_operations.php:314 tbl_operations.php:558
+#: tbl_operations.php:323 tbl_operations.php:567
 msgid "Add AUTO_INCREMENT value"
 msgstr "新增自動遞增(AUTO_INCREMENT)數值"
 
-#: db_operations.php:501 tbl_operations.php:565
+#: db_operations.php:501 tbl_operations.php:574
 msgid "Add constraints"
 msgstr "新增 constraints"
 
@@ -333,7 +333,7 @@ msgstr "切換到複製的資料庫"
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
 #: libraries/tbl_properties.inc.php:723 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
+#: server_collations.php:65 tbl_operations.php:387 tbl_select.php:116
 #: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -424,15 +424,15 @@ msgstr "排序"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:895
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:275
-#: tbl_select.php:304
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:284
+#: tbl_select.php:305
 msgid "Ascending"
 msgstr "遞增"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:892
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:276
-#: tbl_select.php:305
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:285
+#: tbl_select.php:306
 msgid "Descending"
 msgstr "遞減"
 
@@ -459,7 +459,7 @@ msgstr "刪除"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:393 tbl_change.php:890 tbl_indexes.php:264
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Or"
 msgstr "或"
 
@@ -492,8 +492,8 @@ msgstr "在資料庫 <b>%s</b> 執行 SQL 指令："
 msgid "Submit Query"
 msgstr "送出查詢"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:83
-#: libraries/auth/config.auth.lib.php:102
+#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
@@ -587,17 +587,17 @@ msgstr "於以下欄位:"
 msgid "No tables found in database"
 msgstr "沒有在資料庫中找到表"
 
-#: db_structure.php:271 tbl_operations.php:688
+#: db_structure.php:271 tbl_operations.php:697
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "已清空表 %s "
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "View %s has been dropped"
 msgstr "已刪除 view %s"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "已刪除表 %s "
@@ -613,8 +613,8 @@ msgstr "追蹤已停用"
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
@@ -688,20 +688,20 @@ msgstr "清空"
 msgid "Drop"
 msgstr "刪除"
 
-#: db_structure.php:507 tbl_operations.php:604
+#: db_structure.php:507 tbl_operations.php:613
 msgid "Check table"
 msgstr "檢查表"
 
-#: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
+#: db_structure.php:509 tbl_operations.php:662 tbl_structure.php:842
 #: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "最佳化表"
 
-#: db_structure.php:511 tbl_operations.php:640
+#: db_structure.php:511 tbl_operations.php:649
 msgid "Repair table"
 msgstr "修復表"
 
-#: db_structure.php:513 tbl_operations.php:627
+#: db_structure.php:513 tbl_operations.php:636
 msgid "Analyze table"
 msgstr "分析表"
 
@@ -850,8 +850,8 @@ msgstr "備份資料已儲存至檔案 %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr "您上傳的檔案過大, 請查看此 %s 文件 %s 了解如何解決此限制."
 
 #: import.php:277 import.php:330 libraries/File.class.php:456
@@ -918,7 +918,7 @@ msgstr ""
 
 #: import.php:452 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2232 libraries/rte/rte_routines.lib.php:1193
-#: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
+#: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "您的 SQL 語法已順利執行"
@@ -1132,11 +1132,11 @@ msgstr ""
 msgid "System swap"
 msgstr ""
 
-#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1422
 msgid "MiB"
 msgstr "MB"
 
-#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1422
 msgid "KiB"
 msgstr "KB"
 
@@ -1183,7 +1183,7 @@ msgstr ""
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:562 pmd_general.php:510
-#: server_privileges.php:2041 server_status.php:1054 server_status.php:1450
+#: server_privileges.php:2041 server_status.php:1054 server_status.php:1439
 msgid "None"
 msgstr "無"
 
@@ -1283,7 +1283,7 @@ msgstr "管理我的設定"
 msgid "Current settings"
 msgstr "更多設定"
 
-#: js/messages.php:135 server_status.php:1393
+#: js/messages.php:135 server_status.php:1382
 #, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
@@ -1315,9 +1315,9 @@ msgstr ""
 
 #: js/messages.php:143
 msgid ""
-"This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries "
-"other attributes such as start time may differ."
+"This column shows the amount of identical queries that are grouped together. "
+"However only the SQL query itself has been used as a grouping criteria, so "
+"the other attributes of queries, such as start time, may differ."
 msgstr ""
 
 #: js/messages.php:144
@@ -1358,7 +1358,7 @@ msgid "Filter queries by word/regexp:"
 msgstr ""
 
 #: js/messages.php:155
-msgid "Group queries, ignoring variable data in WHERE statements"
+msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: js/messages.php:156
@@ -1957,7 +1957,7 @@ msgstr "資料庫"
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:531
 #: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
-#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "錯誤"
 
@@ -2065,25 +2065,25 @@ msgstr "找不到主題 %s 的路徑"
 msgid "Theme"
 msgstr ""
 
-#: libraries/auth/config.auth.lib.php:76
+#: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
 msgstr "無法連線: 設定錯誤."
 
-#: libraries/auth/config.auth.lib.php:91
+#: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "歡迎使用 %s"
 
-#: libraries/auth/config.auth.lib.php:106
+#: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "您可能還沒有建立設定檔案。您可以使用 %1$s設定指令%2$s 來建立一個設定檔案"
 
-#: libraries/auth/config.auth.lib.php:115
+#: libraries/auth/config.auth.lib.php:109
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2143,7 +2143,7 @@ msgstr "登錄超時 (%s 秒未操作)，請重新登錄"
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
-#: libraries/auth/signon.auth.lib.php:244
+#: libraries/auth/signon.auth.lib.php:242
 msgid "Cannot log in to the MySQL server"
 msgstr "無法登錄 MySQL 伺服器"
 
@@ -2302,7 +2302,7 @@ msgstr "伺服器"
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定檔案中設定的認證方式無效："
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:934
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您應升級到 %s %s 或更高版本。"
@@ -4845,20 +4845,20 @@ msgid ""
 msgstr ""
 "可能接近。參見 [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:112
+#: libraries/dbi/mysql.dbi.lib.php:117 libraries/dbi/mysqli.dbi.lib.php:137
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用設定檔案中定義的控制使用者連線失敗"
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysql.dbi.lib.php:326
-#: libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysql.dbi.lib.php:350
+#: libraries/dbi/mysqli.dbi.lib.php:377
 msgid "The server is not responding"
 msgstr "伺服器沒有響應"
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysqli.dbi.lib.php:377
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(或者本地 MySQL 伺服器的連線埠沒有正確設定)"
 
-#: libraries/dbi/mysql.dbi.lib.php:333
+#: libraries/dbi/mysql.dbi.lib.php:357
 msgid "Details..."
 msgstr "詳細..."
 
@@ -5011,8 +5011,8 @@ msgstr "，@TABLE@ 將變成資料資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "這個值是使用 %1$sstrftime%2$s 來解析的，所以您能用時間格式的字元串。另外，下"
 "列內容也將被轉換：%3$s。其他文字將保持原樣。參見%4$s常見問題 (FAQ)%5$s"
@@ -5231,7 +5231,7 @@ msgstr "主鍵排序"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xls.php:28
 #: libraries/import/xlsx.php:28 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:257
+#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:886
 msgid "Options"
 msgstr "選項"
@@ -5738,8 +5738,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "關於 PBXT 的檔案和更多資訊請參見 %sPrimeBase XT 首頁%s"
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6551,7 +6551,7 @@ msgstr "變數"
 #: libraries/rte/rte_routines.lib.php:1357 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1249 tbl_change.php:329 tbl_printview.php:367
-#: tbl_select.php:117 tbl_structure.php:862
+#: tbl_select.php:118 tbl_structure.php:862
 msgid "Value"
 msgstr "值"
 
@@ -7519,7 +7519,7 @@ msgid "You have to add at least one column."
 msgstr "至少要增加一個字段。"
 
 #: libraries/tbl_properties.inc.php:719 server_engines.php:55
-#: tbl_operations.php:370
+#: tbl_operations.php:379
 msgid "Storage Engine"
 msgstr "儲存引擎"
 
@@ -7959,7 +7959,7 @@ msgstr "聚合"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
-#: tbl_select.php:116
+#: tbl_select.php:117
 msgid "Operator"
 msgstr "運算符"
 
@@ -8523,8 +8523,8 @@ msgstr "刪除與使用者同名的資料庫"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 權限表取得使用者權限。如果使用者手動更改表，表"
 "內容將可能與伺服器使用的使用者權限有異。在這種情況下，您應在繼續前%s重新載入"
@@ -9661,152 +9661,145 @@ msgstr "資料"
 #: server_status.php:1364
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive\n"
-"        queries. For the latter you will need to set log_output to 'TABLE' "
-"and have either the slow_query_log or general_log enabled. Note however, "
-"that the\n"
-"        general_log produces a lot of data and increases server load by up "
-"to 15%"
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1373
+#: server_status.php:1371
 msgid ""
-"<b>Using the monitor:</b><br/>\n"
-"        Ok, you are good to go! Once you click 'Start monitor' your browser "
-"will refresh all displayed charts\n"
-"        in a regular interval. You may add charts and change the refresh "
-"rate under 'Settings', or remove any chart\n"
-"        using the cog icon on each respective chart.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the\n"
-"        left mouse button and panning over the chart. This will load "
-"statistics from the logs helping you find what caused the\n"
-"        activity spike.</p>"
+"<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
+"monitor' your browser will refresh all displayed charts in a regular "
+"interval. You may add charts and change the refresh rate under 'Settings', "
+"or remove any chart using the cog icon on each respective chart.<p>When you "
+"get to see a sudden spike in activity, select the relevant time span on any "
+"chart by holding down the left mouse button and panning over the chart. This "
+"will load statistics from the logs helping you find what caused the activity "
+"spike.</p>"
 msgstr ""
 
-#: server_status.php:1383
+#: server_status.php:1375
 msgid ""
-"<b>Please note:</b>\n"
-"        Enabling the general_log may increase the server load by 5-15%. Also "
-"be aware that generating statistics from the logs is a\n"
-"        load intensive task, so it is advisable to select only a small time "
-"span and to disable the general_log and empty its table once monitoring is "
-"not required any more.\n"
-"        "
+"<b>Please note:</b> Enabling the general_log may increase the server load by "
+"5-15%. Also be aware that generating statistics from the logs is a load "
+"intensive task, so it is advisable to select only a small time span and to "
+"disable the general_log and empty its table once monitoring is not required "
+"any more."
 msgstr ""
 
-#: server_status.php:1396
+#: server_status.php:1385
 #, fuzzy
 #| msgid "Usage"
 msgid "CPU Usage"
 msgstr "已用"
 
-#: server_status.php:1399
+#: server_status.php:1388
 msgid "Memory Usage"
 msgstr ""
 
-#: server_status.php:1402
+#: server_status.php:1391
 #, fuzzy
 #| msgid "Usage"
 msgid "Swap Usage"
 msgstr "已用"
 
-#: server_status.php:1405
+#: server_status.php:1394
 #, fuzzy
 #| msgid "See slave status table"
 msgid "Status variable(s)"
 msgstr "查看從伺服器狀態"
 
-#: server_status.php:1407
+#: server_status.php:1396
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
 msgstr "選擇表"
 
-#: server_status.php:1409
+#: server_status.php:1398
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1424
+#: server_status.php:1413
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "無效的資料資料表名稱"
 
-#: server_status.php:1428
+#: server_status.php:1417
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status.php:1430
+#: server_status.php:1419
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status.php:1437
+#: server_status.php:1426
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status.php:1443
+#: server_status.php:1432
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
 msgstr "新增伺服器"
 
-#: server_status.php:1445
+#: server_status.php:1434
 msgid "Clear series"
 msgstr ""
 
-#: server_status.php:1448
+#: server_status.php:1437
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
 msgstr "SQL 查詢"
 
-#: server_status.php:1456
+#: server_status.php:1445
 #, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
 msgstr "載入中"
 
-#: server_status.php:1459
+#: server_status.php:1448
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
 msgstr "顯示統計"
 
-#: server_status.php:1460
+#: server_status.php:1449
 #, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
 msgstr "選擇頁"
 
-#: server_status.php:1465
+#: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1470
+#: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1473
+#: server_status.php:1462
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1476
+#: server_status.php:1465
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "查詢方式"
 
-#: server_status.php:1512
+#: server_status.php:1501
 #, fuzzy, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "秒"
 
-#: server_status.php:1514
+#: server_status.php:1503
 #, fuzzy, php-format
 #| msgid "Minute"
 msgid "%d minute"
@@ -10230,8 +10223,8 @@ msgstr "短語密碼太短，至少應有 8 個字元"
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "短語密碼應包含字母、數字[em]和[/em]特殊字元"
 
-#: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
-#: tbl_select.php:31 tbl_select.php:34
+#: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
+#: tbl_select.php:32 tbl_select.php:35
 msgid "Browse foreign values"
 msgstr "瀏覽不相關的值"
 
@@ -10527,97 +10520,97 @@ msgstr "已將資料表 %s 複製爲 %s"
 msgid "The table name is empty!"
 msgstr "資料表名稱不能爲空！"
 
-#: tbl_operations.php:264
+#: tbl_operations.php:273
 msgid "Alter table order by"
 msgstr "更改表的排序，根據"
 
-#: tbl_operations.php:273
+#: tbl_operations.php:282
 msgid "(singly)"
 msgstr "(逐一)"
 
-#: tbl_operations.php:293
+#: tbl_operations.php:302
 msgid "Move table to (database<b>.</b>table):"
 msgstr "將資料表移動到(資料庫名<b>.</b>資料資料表名稱)："
 
-#: tbl_operations.php:351
+#: tbl_operations.php:360
 msgid "Table options"
 msgstr "表選項"
 
-#: tbl_operations.php:355
+#: tbl_operations.php:364
 msgid "Rename table to"
 msgstr "將表改名爲"
 
-#: tbl_operations.php:531
+#: tbl_operations.php:540
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "將資料表複製到(資料庫名<b>.</b>資料資料表名稱)："
 
-#: tbl_operations.php:578
+#: tbl_operations.php:587
 msgid "Switch to copied table"
 msgstr "切換到複製的資料表"
 
-#: tbl_operations.php:590
+#: tbl_operations.php:599
 msgid "Table maintenance"
 msgstr "表維護"
 
-#: tbl_operations.php:614
+#: tbl_operations.php:623
 msgid "Defragment table"
 msgstr "排序規則表碎片"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:671
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "已強制更新表 %s "
 
-#: tbl_operations.php:668
+#: tbl_operations.php:677
 msgid "Flush the table (FLUSH)"
 msgstr "刷新表 (FLUSH)"
 
-#: tbl_operations.php:677
+#: tbl_operations.php:686
 msgid "Delete data or table"
 msgstr "刪除資料或資料表"
 
-#: tbl_operations.php:692
+#: tbl_operations.php:701
 msgid "Empty the table (TRUNCATE)"
 msgstr "清空資料表 (TRUNCATE)"
 
-#: tbl_operations.php:712
+#: tbl_operations.php:721
 msgid "Delete the table (DROP)"
 msgstr "刪除資料表 (DROP)"
 
-#: tbl_operations.php:733
+#: tbl_operations.php:742
 msgid "Partition maintenance"
 msgstr "分區維護"
 
-#: tbl_operations.php:741
+#: tbl_operations.php:750
 #, php-format
 msgid "Partition %s"
 msgstr "分區 %s"
 
-#: tbl_operations.php:744
+#: tbl_operations.php:753
 msgid "Analyze"
 msgstr "分析"
 
-#: tbl_operations.php:745
+#: tbl_operations.php:754
 msgid "Check"
 msgstr "檢查"
 
-#: tbl_operations.php:746
+#: tbl_operations.php:755
 msgid "Optimize"
 msgstr "最佳化"
 
-#: tbl_operations.php:747
+#: tbl_operations.php:756
 msgid "Rebuild"
 msgstr "重建"
 
-#: tbl_operations.php:748
+#: tbl_operations.php:757
 msgid "Repair"
 msgstr "修復"
 
-#: tbl_operations.php:760
+#: tbl_operations.php:769
 msgid "Remove partitioning"
 msgstr "刪除分區"
 
-#: tbl_operations.php:786
+#: tbl_operations.php:795
 msgid "Check referential integrity:"
 msgstr "檢查引用完整性："
 
@@ -10676,23 +10669,23 @@ msgstr "不需要一個和外部鍵關聯一致的行內部關聯"
 msgid "Foreign key constraint"
 msgstr "外部鍵約束"
 
-#: tbl_select.php:110
+#: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "執行“依例查詢”(萬用字元：“%”)"
 
-#: tbl_select.php:260
+#: tbl_select.php:261
 msgid "Select columns (at least one):"
 msgstr "選擇欄位 (至少一個)："
 
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "新增搜尋條件 (“where”指令的主體)："
 
-#: tbl_select.php:285
+#: tbl_select.php:286
 msgid "Number of rows per page"
 msgstr "每頁行數"
 
-#: tbl_select.php:291
+#: tbl_select.php:292
 msgid "Display order:"
 msgstr "顯示順序："
 
@@ -11132,8 +11125,8 @@ msgstr "將 view改名爲"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
-#~ "html#faq6_29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6_29"
+#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

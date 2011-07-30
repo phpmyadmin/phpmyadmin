@@ -140,7 +140,7 @@ $js_messages['strDividedBy'] = __('Divided by %s:');
 $js_messages['strFromSlowLog'] = __('From slow log');
 $js_messages['strFromGeneralLog'] = __('From general log');
 $js_messages['strAnalysingLogs'] = __('Analysing & loading logs. This may take a while.');
-$js_messages['strCountColumnExplanation'] = __('This columns shows the amount of identical queries that are grouped together. However only the SQL Text is being compared, thus the queries other attributes such as start time may differ.');
+$js_messages['strCountColumnExplanation'] = __('This column shows the amount of identical queries that are grouped together. However only the SQL query itself has been used as a grouping criteria, so the other attributes of queries, such as start time, may differ.');
 $js_messages['strMoreCountColumnExplanation'] = __('Since grouping of INSERTs queries has been selected, INSERT queries into the same table are also being grouped together, disregarding of the inserted data.');
 $js_messages['strLogDataLoaded'] = __('Log data loaded. Queries executed in this time span:');
 
@@ -152,7 +152,7 @@ $js_messages['strFilters'] = __('Filters');
 /* l10n: Filter as in "Start Filtering" */
 $js_messages['strFilter'] = __('Filter');
 $js_messages['strFilterByWordRegexp'] = __('Filter queries by word/regexp:');
-$js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE statements');
+$js_messages['strIgnoreWhereAndGroup'] = __('Group queries, ignoring variable data in WHERE clauses');
 $js_messages['strSumRows'] = __('Sum of grouped rows:');
 $js_messages['strTotal'] = __('Total:');
 
