@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-29 10:27-0400\n"
+"POT-Creation-Date: 2011-07-30 07:37-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1288,9 +1288,9 @@ msgstr ""
 
 #: js/messages.php:143
 msgid ""
-"This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries of "
-"other attributes such as start time may differ."
+"This column shows the amount of identical queries that are grouped together. "
+"However only the SQL query itself has been used as a grouping criteria, so "
+"the other attributes of queries, such as start time, may differ."
 msgstr ""
 
 #: js/messages.php:144
