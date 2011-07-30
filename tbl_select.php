@@ -425,7 +425,14 @@ else {
                 $w[] = $backquoted_name . ' ' . $func_type;
 
             } elseif (in_array($types[$i], $geom_types)) {
-                $w[] = $backquoted_name . ' ' . $func_type . " GeomFromText('" . $fields[$i] . "')";
+                // extract the section before the opening parentheses
+                $wkt_type = strtolower(substr($fields[$i], 0, strpos($fields[$i], "(")));
+                if (in_array($wkt_type, $geom_types)) {
+                    $w[] = $backquoted_name . ' ' . $func_type . " GeomFromText('" . $fields[$i] . "')";
+                } else {
+                    $w[] = $backquoted_name . ' ' . $func_type . ' ' . $fields[$i];
+                }
+
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {
                     if (! is_array($fields[$i])) {
