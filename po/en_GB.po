@@ -9889,6 +9889,13 @@ msgid ""
 "not required any more.\n"
 "        "
 msgstr ""
+"<b>Please note:</b>\n"
+"        Enabling the general_log may increase the server load by 5-15%. Also "
+"be aware that generating statistics from the logs is a\n"
+"        load intensive task, so it is advisable to select only a small time "
+"span and to disable the general_log and empty its table once monitoring is "
+"not required any more.\n"
+"        "
 
 #: server_status.php:1396
 #| msgid "Usage"
