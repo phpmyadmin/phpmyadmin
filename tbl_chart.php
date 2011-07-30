@@ -92,30 +92,31 @@ url_query = '<?php echo $url_query;?>';
         </span>
         <br>
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
-        <?php $keys = array_keys($data[0]);
-        $yaxis=-1;
-        if (count($keys)>1) {
+        <?php
+        $keys = array_keys($data[0]);
+        $yaxis = -1;
+        if (count($keys) > 1) {
             echo '<br>';
             echo __('X-Axis:'); ?> <select name="chartXAxis">
             <?php
             
-            foreach ($keys as $idx=>$key) {
-                if ($yaxis==-1 && ($idx==count($data[0])-1 || preg_match("/(date|time)/i",$key))) {
-                    echo '<option value="'.$idx.'" selected>'.$key.'</option>';
+            foreach ($keys as $idx => $key) {
+                if ($yaxis == -1 && (($idx == count($data[0]) - 1) || preg_match("/(date|time)/i", $key))) {
+                    echo '<option value="' . $idx . '" selected>' . $key . '</option>';
                     $yaxis=$idx;
                 } else {
-                    echo '<option value="'.$idx.'">'.$key.'</option>';
+                    echo '<option value="' . $idx . '">' . $key . '</option>';
                 }
             }
             
             ?>
-        </select><br>
+        </select><br />
         <?php echo __('Series:'); ?>
         <select name="chartSeries">
             <option value="columns"><?php echo __('The remaining columns'); ?></option>
             <?php
-            foreach ($keys as $idx=>$key) {
-                echo '<option>'.$key.'</option>';
+            foreach ($keys as $idx => $key) {
+                echo '<option>' . $key . '</option>';
             }
         ?>
         </select>
@@ -125,7 +126,8 @@ url_query = '<?php echo $url_query;?>';
         
     </div>
     <div style="float:left; padding-left:40px;">
-        <?php echo __('X-Axis label:'); ?> <input style="margin-top:0;" type="text" name="xaxis_label" value="<?php  echo ($yaxis==-1)?__('X Values'):$keys[$yaxis]; ?>"><br>
+        <?php echo __('X-Axis label:'); ?> <input style="margin-top:0;" type="text" name="xaxis_label" 
+            value="<?php echo ($yaxis == -1) ? __('X Values') : $keys[$yaxis]; ?>"><br />
         <?php echo __('Y-Axis label:'); ?> <input type="text" name="yaxis_label" value="<?php echo __('Y Values'); ?>">
     </div>
     <p style="clear:both;">&nbsp;</p>
