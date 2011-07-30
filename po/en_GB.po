@@ -9988,10 +9988,9 @@ msgstr ""
 "Results are grouped by query text."
 
 #: server_status.php:1476
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Query type"
+msgstr "Query analyser"
 
 #: server_status.php:1512
 #, php-format
