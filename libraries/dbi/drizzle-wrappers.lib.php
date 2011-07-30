@@ -10,10 +10,65 @@
  * @package phpMyAdmin-DBI-Drizzle
  */
 
-// TODO: drizzle module segfaults while freeing resources, often. Keep
-register_shutdown_function(function() {
+// TODO: drizzle module segfaults while freeing resources, often. This allows at least for some development
+function _drizzle_shutdown_flush() {
     flush();
-});
+}
+register_shutdown_function('_drizzle_shutdown_flush');
+
+function _dlog_argstr($args)
+{
+    $r = array();
+    foreach ($args as $arg) {
+        if (is_object($arg)) {
+            $r[] = get_class($arg);
+        } elseif (is_bool($arg)) {
+            $r[] = $arg ? 'true' : 'false';
+        } elseif (is_null($arg)) {
+            $r[] = 'null';
+        } else {
+            $r[] = $arg;
+        }
+    }
+    return implode(', ', $r);
+}
+
+function _dlog($end = false)
+{
+    /*
+    static $fp = null;
+
+    if (!$fp) {
+        $fp = fopen('./drizzle_log.log', 'a');
+        flock($fp, LOCK_EX);
+        fwrite($fp, "\r\n[" . date('H:i:s') . "]\t" . $_SERVER['REQUEST_URI'] . "\r\n");
+        register_shutdown_function(function() use ($fp) {
+            fwrite($fp, '[' . date('H:i:s') . "]\tEND\r\n\r\n");
+        });
+    }
+    if ($end) {
+        fwrite($fp, '[' . date('H:i:s') . "]\tok\r\n");
+    } else {
+        $bt = debug_backtrace(true);
+        $caller = (isset($bt[1]['class']) ? $bt[1]['class'] . '::' : '') . $bt[1]['function'];
+        if ($bt[1]['function'] == '__call') {
+            $caller .= '^' . $bt[1]['args'][0];
+            $args = _dlog_argstr($bt[1]['args'][1]);
+        } else {
+            $args = _dlog_argstr($bt[1]['args']);
+        }
+        fwrite($fp, '[' . date('H:i:s') . "]\t" . $caller . "\t" . $args . "\r\n");
+        for ($i = 2; $i <= count($bt)-1; $i++) {
+            if (!isset($bt[$i])) {
+                break;
+            }
+            $caller = (isset($bt[$i]['class']) ? $bt[$i]['class'] . '::' : '') . $bt[$i]['function'];
+            $caller .= ' (' . $bt[$i]['file'] . ':' . $bt[$i]['line'] .  ')';
+            fwrite($fp, str_repeat(' ', 20) . $caller . "\r\n");
+        }
+    }
+    //*/
+}
 
 /**
  * Wrapper for Drizzle class
@@ -46,7 +101,7 @@ class PMA_Drizzle extends Drizzle
      * Constructor
      */
     public function __construct()
-    {
+    {_dlog();
         parent::__construct();
     }
 
@@ -62,7 +117,7 @@ class PMA_Drizzle extends Drizzle
      * @return PMA_DrizzleCon
      */
     public function addTcp($host, $port, $user, $password, $db, $options)
-    {
+    {_dlog();
         $dcon = parent::addTcp($host, $port, $user, $password, $db, $options);
         return $dcon instanceof DrizzleCon
             ? new PMA_DrizzleCon($dcon)
@@ -80,7 +135,7 @@ class PMA_Drizzle extends Drizzle
      * @return PMA_DrizzleCon
      */
     public function addUds($uds, $user, $password, $db, $options)
-    {
+    {_dlog();
         $dcon = parent::addUds($uds, $user, $password, $db, $options);
         return $dcon instanceof DrizzleCon
             ? new PMA_DrizzleCon($dcon)
@@ -113,7 +168,7 @@ class PMA_DrizzleCon
      * @param DrizzleCon $dcon
      */
     public function __construct(DrizzleCon $dcon)
-    {
+    {_dlog();
         $this->dcon = $dcon;
     }
 
@@ -126,9 +181,10 @@ class PMA_DrizzleCon
      * @return PMA_DrizzleResult
      */
     public function query($query, $bufferMode = PMA_Drizzle::BUFFER_RESULT, $fetchMode = PMA_Drizzle::FETCH_ASSOC)
-    {
+    {_dlog();
         $result = $this->dcon->query($query);
         if ($result instanceof DrizzleResult) {
+    _dlog(true);
             $this->lastResult = new PMA_DrizzleResult($result, $bufferMode, $fetchMode);
             return $this->lastResult;
         }
@@ -155,7 +211,7 @@ class PMA_DrizzleCon
      * @return mixed
      */
     public function __call($method, $args)
-    {
+    {_dlog();
         return call_user_func_array(array($this->dcon, $method), $args);
     }
 
@@ -165,7 +221,7 @@ class PMA_DrizzleCon
      * @return DrizzleCon
      */
     public function getConnectionObject()
-    {
+    {_dlog();
         return $this->dcon;
     }
 }
@@ -211,7 +267,7 @@ class PMA_DrizzleResult
      * @param int           $fetchMode
      */
     public function __construct(DrizzleResult $dresult, $bufferMode, $fetchMode)
-    {
+    {_dlog();
         $this->dresult = $dresult;
         $this->bufferMode = $bufferMode;
         $this->fetchMode = $fetchMode;
@@ -227,7 +283,7 @@ class PMA_DrizzleResult
      * @param int $fetchMode
      */
     public function setFetchMode($fetchMode)
-    {
+    {_dlog();
         $this->fetchMode = $fetchMode;
     }
 
@@ -235,7 +291,7 @@ class PMA_DrizzleResult
      * Reads information about columns contained in current result set into {@see $columns} and {@see $columnNames} arrays
      */
     private function _readColumns()
-    {
+    {_dlog();
         $this->columns = array();
         $this->columnNames = array();
         if ($this->bufferMode == PMA_Drizzle::BUFFER_RESULT) {
@@ -257,7 +313,7 @@ class PMA_DrizzleResult
      * @return DrizzleColumn[]
      */
     public function getColumns()
-    {
+    {_dlog();
         if (!$this->columns) {
             $this->_readColumns();
         }
@@ -270,7 +326,7 @@ class PMA_DrizzleResult
      * @return int
      */
     public function numColumns()
-    {
+    {_dlog();
         return $this->dresult->columnCount();
     }
 
@@ -289,9 +345,13 @@ class PMA_DrizzleResult
         switch ($fetchMode) {
             case PMA_Drizzle::FETCH_ASSOC:
                 $row = array_combine($this->columnNames, $row);
+                break;
             case PMA_Drizzle::FETCH_BOTH:
-                // XXX: adding indices in a loop would be more memory-friendly
-                $row = array_merge(array_combine($this->columnNames, $row), $row);
+                $length = count($row);
+                for ($i = 0; $i < $length; $i++) {
+                    $row[$this->columnNames[$i]] = $row[$i];
+                }
+                break;
             default:
                 break;
         }
@@ -304,7 +364,7 @@ class PMA_DrizzleResult
      * @return array|null
      */
     public function fetchRow($fetchMode = null)
-    {
+    {_dlog();
         // read column names on first fetch, only buffered results allow for reading it later
         if (!$this->columns) {
             $this->_readColumns();
@@ -332,7 +392,7 @@ class PMA_DrizzleResult
      * @return bool
      */
     public function seek($row_index)
-    {
+    {_dlog();
         if ($this->bufferMode != PMA_Drizzle::BUFFER_RESULT) {
             trigger_error("Can't seek in an unbuffered result set", E_USER_WARNING);
             return false;
@@ -351,7 +411,7 @@ class PMA_DrizzleResult
      * @return int|false
      */
     public function numRows()
-    {
+    {_dlog();
         if ($this->bufferMode != PMA_Drizzle::BUFFER_RESULT) {
             trigger_error("Can't count rows in an unbuffered result set", E_USER_WARNING);
             return false;
@@ -365,7 +425,7 @@ class PMA_DrizzleResult
      * @return int|false
      */
     public function affectedRows()
-    {
+    {_dlog();
         return $this->dresult->affectedRows();
     }
 
@@ -373,10 +433,10 @@ class PMA_DrizzleResult
      * Frees resources taken by this result
      */
     public function free()
-    {
-        // count on GC, using drizzle_free or drizzle_column_free causes segfaults
+    {_dlog();
         unset($this->columns);
         unset($this->columnNames);
+        drizzle_result_free($this->dresult);
         unset($this->dresult);
     }
 }
