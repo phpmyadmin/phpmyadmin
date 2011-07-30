@@ -1134,7 +1134,7 @@ msgstr "System processoranvändning"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Systemminne"
 
 #: js/messages.php:96
 msgid "System swap"
