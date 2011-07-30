@@ -3,6 +3,11 @@
 /**
  * Interface to the Drizzle extension
  *
+ * WARNING - EXPERIMENTAL, never use in production, drizzle module segfaults often and when you least expect it to
+ *
+ * TODO: This file and drizzle-wrappers.lib.php should be devoid of any segault related hacks.
+ * TODO: Crashing versions of drizzle module and/or libdrizzle should be blacklisted
+ *
  * @package phpMyAdmin-DBI-Drizzle
  */
 if (! defined('PHPMYADMIN')) {
@@ -259,9 +264,11 @@ function PMA_DBI_get_host_info($link = null)
         }
     }
 
-    $str = $link->uds()
+    // this segfaults...
+    /*$str = $link->uds()
         ? 'Localhost via UNIX socket'
-        : $link->host() . ' via TCP/IP connection';
+        : $link->host() . ' via TCP/IP connection';*/
+    $str = '?';
     return $str;
 }
 
@@ -279,7 +286,10 @@ function PMA_DBI_get_proto_info($link = null)
             return false;
         }
     }
-    return $link->protocolVersion();
+
+    // this segfaults...
+    //return $link->protocolVersion();
+    return drizzle_con_protocol_version($link->getConnectionObject());
 }
 
 /**
