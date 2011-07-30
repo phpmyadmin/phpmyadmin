@@ -1177,6 +1177,7 @@ msgid "Settings"
 msgstr "Configurações"
 
 #: js/messages.php:105
+#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
 msgstr "Remover Gráfico/Tabela ou Relatório"
