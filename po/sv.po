@@ -1154,10 +1154,9 @@ msgstr "Genomsnittlig belastning"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versioner"
+msgstr "Frågor"
 
 #: js/messages.php:103 server_status.php:894
 msgid "Traffic"
