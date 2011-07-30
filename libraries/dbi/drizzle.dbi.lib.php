@@ -264,11 +264,9 @@ function PMA_DBI_get_host_info($link = null)
         }
     }
 
-    // this segfaults...
-    /*$str = $link->uds()
-        ? 'Localhost via UNIX socket'
-        : $link->host() . ' via TCP/IP connection';*/
-    $str = '?';
+    $str = $link->port()
+        ? $link->host() . ':' . $link->port() . ' via TCP/IP'
+        : 'Localhost via UNIX socket';
     return $str;
 }
 
