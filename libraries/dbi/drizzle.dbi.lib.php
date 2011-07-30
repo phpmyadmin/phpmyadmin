@@ -285,9 +285,7 @@ function PMA_DBI_get_proto_info($link = null)
         }
     }
 
-    // this segfaults...
-    //return $link->protocolVersion();
-    return drizzle_con_protocol_version($link->getConnectionObject());
+    return $link->protocolVersion();
 }
 
 /**
