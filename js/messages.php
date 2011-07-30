@@ -145,7 +145,7 @@ $js_messages['strMoreCountColumnExplanation'] = __('Since grouping of INSERTs qu
 $js_messages['strLogDataLoaded'] = __('Log data loaded. Queries executed in this time span:');
 
 $js_messages['strJumpToTable'] = __('Jump to Log table');
-$js_messages['strNoDataFound'] = __('Log analysed, but not data found in this time span.');
+$js_messages['strNoDataFound'] = __('Log analysed, but no data found in this time span.');
 
 /* l10n: A collection of available filters */
 $js_messages['strFilters'] = __('Filters');
