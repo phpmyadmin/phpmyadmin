@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-30 07:37-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-05-27 18:52+0200\n"
 "Last-Translator: <slygyor@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -1368,7 +1368,7 @@ msgid "Jump to Log table"
 msgstr "Adatbázisra ugrás"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
@@ -11035,41 +11035,41 @@ msgstr "Halmozott"
 msgid "Chart title"
 msgstr "A jelentés címe"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
 msgstr "SQL-lekérdezések"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
 msgstr "Szövegterület oszlopai"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 #, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "X tengely címkéje"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Érték"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "Y tengely címkéje"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"

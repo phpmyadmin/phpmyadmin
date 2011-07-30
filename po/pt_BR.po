@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-30 07:37-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-07-21 16:15+0200\n"
 "Last-Translator:  <teunome@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
@@ -1366,7 +1366,7 @@ msgid "Jump to Log table"
 msgstr "Ir para banco de dados"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
@@ -10714,41 +10714,41 @@ msgstr "Pacote"
 msgid "Chart title"
 msgstr "Título do Relatório"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr "Eixo X"
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
 msgstr "Consultas SQL"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "The remaining columns"
 msgstr "Adicionar/Remover colunas"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 #, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "Rótulo do Eixo X"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Valor"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "Rótulo do Eixo Y"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
