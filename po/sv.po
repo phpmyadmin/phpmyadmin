@@ -1183,7 +1183,7 @@ msgstr "Adders diagrammet till rutnätet"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Lägg till minst en variabel till serien"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
