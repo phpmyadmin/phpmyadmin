@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 17:23+0200\n"
+"PO-Revision-Date: 2011-07-31 17:24+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1307,7 +1307,7 @@ msgstr "Differential"
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Dividerat med %s:"
 
 #: js/messages.php:140
 msgid "From slow log"
