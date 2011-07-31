@@ -1519,10 +1519,9 @@ msgid "Change"
 msgstr "Ändra"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maximal exekveringstid"
+msgstr "Exekveringstid för frågor"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
