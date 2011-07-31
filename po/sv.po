@@ -1904,7 +1904,7 @@ msgstr "Fel vid flytt av uppladdad fil, se FAQ 1.11"
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Fel när du flyttar uppladdad fil."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
