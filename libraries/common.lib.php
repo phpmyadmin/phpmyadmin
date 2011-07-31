@@ -3025,6 +3025,23 @@ function PMA_getGISDatatypes($upper_case = false) {
 }
 
 /**
+ * Generates GIS data based on the string passed.
+ *
+ * @param string $gis_string GIS string
+ */
+function PMA_createGISData($gis_string) {
+    $gis_string =  trim($gis_string);
+    $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+    if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
+        return 'GeomFromText(' . $gis_string . ')';
+    } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
+        return "GeomFromText('" . $gis_string[$i] . "')";
+    } else {
+        return $gis_string;
+    }
+}
+
+/**
  * Returns the names and details of the functions
  * that can be applied on geometry data typess.
  *

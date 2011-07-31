@@ -263,6 +263,13 @@ if (! isset($param) || $param[0] == '') {
             // g e o m e t r y
             echo '            <input type="text" name="fields[' . $i . ']"'
                 .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
+
+            $edit_url = 'gis_data_editor.php' . PMA_generate_common_url();
+            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'), true);
+            echo('<span class="open_search_gis_editor">');
+            echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
+            echo('</span>');
+
             echo('<span class="switch">');
             echo(PMA_display_html_checkbox('switch[' . $i . ']', __("Switch"), false, ''));
             echo('</span>');
@@ -303,6 +310,7 @@ if (! isset($param) || $param[0] == '') {
     ?>
     </tbody>
     </table>
+<div id="gis_editor"></div><div id="popup_background"></div>
 </fieldset>
 <?php
     PMA_generate_slider_effect('searchoptions', __('Options'));
@@ -429,17 +437,14 @@ else {
                     $backquoted_name = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ')';
                 // If the function takes two parameters
                 } else {
-                    // extract the section before the opening parentheses
-                    $wkt_type = strtolower(substr($fields[$i], 0, strpos($fields[$i], "(")));
-                    if (in_array($wkt_type, $geom_types)) {
-                        $fields[$i] = "GeomFromText('" . $fields[$i] . "')";
-                    }
+                    // create gis data from the string
+                    $gis_data = PMA_createGISData($fields[$i]);
 
                     // If two geometries should be switched
                     if (isset($switch[$i]) && $switch[$i]) {
-                        $w[] = $geom_func[$i] . '(' . $fields[$i] . ', ' . PMA_backquote($names[$i]) . ')';
+                        $w[] = $geom_func[$i] . '(' . $gis_data . ', ' . PMA_backquote($names[$i]) . ')';
                     } else {
-                        $w[] = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ',' . $fields[$i] . ')';
+                        $w[] = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ',' . $gis_data . ')';
                     }
                     continue;
                 }
@@ -462,13 +467,9 @@ else {
                 $w[] = $backquoted_name . ' ' . $func_type;
 
             } elseif (in_array($types[$i], $geom_types)) {
-                // extract the section before the opening parentheses
-                $wkt_type = strtolower(substr($fields[$i], 0, strpos($fields[$i], "(")));
-                if (in_array($wkt_type, $geom_types)) {
-                    $w[] = $backquoted_name . ' ' . $func_type . " GeomFromText('" . $fields[$i] . "')";
-                } else {
-                    $w[] = $backquoted_name . ' ' . $func_type . ' ' . $fields[$i];
-                }
+                // create gis data from the string
+                $gis_data = PMA_createGISData($fields[$i]);
+                $w[] = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
 
             } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
                 if (!empty($fields[$i])) {

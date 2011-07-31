@@ -90,8 +90,10 @@ $(document).ready(function() {
     })
 
     // Following section is related to the 'function based search' for geometry data types.
-    // Initialy hide all the switch spans
+    // Initialy hide all the switch spans and open_gis_editor spans
     $('.switch').hide();
+    $('.open_search_gis_editor').hide();
+
     $('.geom_func').bind('change', function() {
         var $geomFuncSelector = $(this);
         var switchableFunctions = [
@@ -129,6 +131,16 @@ $(document).ready(function() {
           'ST_Within',
         ];
 
+        var tempArray = [
+           'Envelope',
+           'EndPoint',
+           'StartPoint',
+           'ExteriorRing',
+           'Centroid',
+           'PointOnSurface'
+        ];
+        var outputGeomFunctions = binaryFunctions.concat(tempArray);
+
         // If the chosen function needs to switch the two geom objects
         var $switchSpan = $geomFuncSelector.parents('tr').find('.switch');
         if ($.inArray($geomFuncSelector.val(), switchableFunctions) >= 0){
@@ -144,6 +156,40 @@ $(document).ready(function() {
         } else {
             $operator.attr('disabled', false);
         }
+
+        // if the chosen function's output is a geometry, enable GIS editor
+        var $editorSpan = $geomFuncSelector.parents('tr').find('.open_search_gis_editor');
+        if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0){
+            $editorSpan.show();
+        } else {
+            $editorSpan.hide();
+        }
+        
+    });
+
+    $('.open_search_gis_editor').live('click', function(event) {
+        event.preventDefault();
+
+        var $span = $(this);
+        // Current value
+        var value = $span.parent('td').children("input[type='text']").val();
+        // Field name
+        var field = 'Parameter';
+        // Column type
+        var geom_func = $span.parents('tr').find('.geom_func').val();
+        if (geom_func == 'Envelope') {
+            var type = 'polygon';
+        } else if (geom_func == 'ExteriorRing') {
+            var type = 'linestring';
+        } else {
+            var type = 'point';
+        }
+        // Names of input field and null checkbox
+        var input_name = $span.parent('td').children("input[type='text']").attr('name');
+        //Token
+        var token = $("input[name='token']").val();
+
+        openGISEditor(value, field, type, input_name, token);
     });
 
 }, 'top.frame_content'); // end $(document).ready()
