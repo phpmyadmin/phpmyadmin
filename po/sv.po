@@ -9971,10 +9971,9 @@ msgid "Status variable(s)"
 msgstr "Alla statusvariabler"
 
 #: server_status.php:1396
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Välj tabeller"
+msgstr "Välj serier:"
 
 #: server_status.php:1398
 msgid "Commonly monitored"
