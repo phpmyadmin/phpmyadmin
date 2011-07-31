@@ -69,7 +69,7 @@ $(document).ready(function() {
                 $("#sqlqueryresults").trigger('appendAnchor');
                 $("#sqlqueryresults").trigger('makegrid');
                 $('#tbl_search_form')
-                // work around for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
+                // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                  .slideToggle()    
                  .hide();
                 $('#togglesearchformlink')
@@ -88,4 +88,62 @@ $(document).ready(function() {
             });
         }) // end $.post()
     })
+
+    // Following section is related to the 'function based search' for geometry data types.
+    // Initialy hide all the switch spans
+    $('.switch').hide();
+    $('.geom_func').bind('change', function() {
+        var $geomFuncSelector = $(this);
+        var switchableFunctions = [
+          'MBRContains', 
+          'MBRWithin', 
+          'Contains', 
+          'Within', 
+          'ST_Contains', 
+          'ST_Within'
+        ];
+
+        var binaryFunctions = [
+          'Contains',
+          'Crosses',
+          'Disjoint',
+          'Equals',
+          'Intersects',
+          'Overlaps',
+          'Touches',
+          'Within',
+          'MBRContains',
+          'MBRDisjoint',
+          'MBREquals',
+          'MBRIntersects',
+          'MBROverlaps',
+          'MBRTouches',
+          'MBRWithin',
+          'ST_Contains',
+          'ST_Crosses',
+          'ST_Disjoint',
+          'ST_Equals',
+          'ST_Intersects',
+          'ST_Overlaps',
+          'ST_Touches',
+          'ST_Within',
+        ];
+
+        // If the chosen function needs to switch the two geom objects
+        var $switchSpan = $geomFuncSelector.parents('tr').find('.switch');
+        if ($.inArray($geomFuncSelector.val(), switchableFunctions) >= 0){
+            $switchSpan.show();
+        } else {
+            $switchSpan.hide();
+        }
+
+        // If the chosen function takes two geomerty objects as parameters
+        var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');
+        if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0){
+            $operator.attr('disabled', true);
+        } else {
+            $operator.attr('disabled', false);
+        }
+    });
+
 }, 'top.frame_content'); // end $(document).ready()

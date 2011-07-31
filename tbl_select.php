@@ -143,7 +143,7 @@ if (! isset($param) || $param[0] == '') {
                 echo('<td>');
                 // if a geometry column
                 if (in_array($fields_type[$i], $geom_types)) {
-                    echo('<select name="geom_func['. $i .']">');
+                    echo('<select class="geom_func" name="geom_func['. $i .']">');
                         // get the relevant list of functions
                         $funcs = PMA_getGISFunctions($fields_type[$i], true, true);
                         foreach ($funcs as $func_name => $func) {
@@ -253,7 +253,7 @@ if (! isset($param) || $param[0] == '') {
             // g e o m e t r y
             echo '            <input type="text" name="fields[' . $i . ']"'
                 .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
-            echo('<span>');
+            echo('<span class="switch">');
             echo(PMA_display_html_checkbox('switch[' . $i . ']', __("Switch"), false, ''));
             echo('</span>');
         } elseif (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
