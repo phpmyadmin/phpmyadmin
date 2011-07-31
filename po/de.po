@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-30 07:37-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-07-25 14:55+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
@@ -1362,7 +1362,9 @@ msgid "Jump to Log table"
 msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+#, fuzzy
+#| msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 "Protokoll wurde analysiert, es wurden jedoch keine Daten im angegebenen "
 "Zeitraum gefunden."
@@ -10782,31 +10784,31 @@ msgstr "Gestapelt"
 msgid "Chart title"
 msgstr "Titel des Reports"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr "X-Achse:"
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 msgid "Series:"
 msgstr "Reihe:"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 msgid "The remaining columns"
 msgstr "Die verbleibenden Spalten"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 msgid "X-Axis label:"
 msgstr "Beschriftung X-Achse:"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 msgid "X Values"
 msgstr "X-Werte"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y-Axis label:"
 msgstr "Beschriftung Y-Achse:"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y Values"
 msgstr "Y-Werte"
 

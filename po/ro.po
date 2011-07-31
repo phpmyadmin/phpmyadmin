@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-30 07:37-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2010-07-22 02:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: romanian <ro@li.org>\n"
@@ -1411,7 +1411,7 @@ msgid "Jump to Log table"
 msgstr "Nu sînt baze de date"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
@@ -10965,36 +10965,36 @@ msgstr "Împachetat"
 msgid "Chart title"
 msgstr "Titlu raport"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 #, fuzzy
 msgid "Series:"
 msgstr "Comanda SQL"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "The remaining columns"
 msgstr "Adaugă/șterge coloane"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 msgid "X-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Valoare"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"

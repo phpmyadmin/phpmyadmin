@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-30 07:37-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-07-23 21:27+0200\n"
 "Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
 "Language-Team: danish <da@li.org>\n"
@@ -1354,7 +1354,9 @@ msgid "Jump to Log table"
 msgstr "Gå til logtabellen"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+#, fuzzy
+#| msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
 
 #. l10n: A collection of available filters
@@ -10636,31 +10638,31 @@ msgstr "Stak"
 msgid "Chart title"
 msgstr "Diagramtitel"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr "X-akse:"
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 msgid "Series:"
 msgstr "Serie:"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 msgid "The remaining columns"
 msgstr "De resterende kolonner"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 msgid "X-Axis label:"
 msgstr "X-akse betegnelse:"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 msgid "X Values"
 msgstr "X værdier"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y-Axis label:"
 msgstr "Y-akse betegnelse:"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y Values"
 msgstr "Y-værdier"
 
