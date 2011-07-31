@@ -6811,10 +6811,9 @@ msgstr ""
 "<b> Ett eller flera fel har inträffat under hanteringen av din begäran: </b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Skapa vy"
+msgstr "Skapa händelse"
 
 #: libraries/rte/rte_events.lib.php:185
 #, fuzzy
