@@ -1961,10 +1961,43 @@ $(document).ready(function() {
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
             } else {
-                PMA_ajaxShowMessage(data.error);
+                $temp_div = $("<div id='temp_div'></div>")
+                $temp_div.html(data.error);
+                $error = $temp_div.find("code").addClass("error");
+                PMA_ajaxShowMessage($error);
             }
         }) // end $.post()
     });//end of alterTableOrderby ajax submit
+
+    /**
+     *Ajax action for submitting the "Copy table"
+    **/
+    $("#copyTable.ajax").live('submit', function(event) {
+        event.preventDefault();
+        $form = $(this);
+
+        PMA_prepareForAjaxRequest($form);
+        /*variables which stores the common attributes*/
+        $.post($form.attr('action'), $form.serialize()+"&submit_copy=Go", function(data) {
+            if ($("#sqlqueryresults").length != 0) {
+                $("#sqlqueryresults").remove();
+            }
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data.sql_query);
+                $("#result_query .notice").remove();
+                $("#result_query").prepend((data.message));
+                $("#copyTable").find("select[name='target_db'] option[value='sakila']").attr('selected', 'selected');
+            } else {
+                $temp_div = $("<div id='temp_div'></div>")
+                $temp_div.html(data.error);
+                $error = $temp_div.find("code").addClass("error");
+                PMA_ajaxShowMessage($error);
+            }
+        }) // end $.post()
+    });//end of copyTable ajax submit
+
 }, 'top.frame_content'); //end $(document).ready for 'Table operations'
 
 

@@ -532,7 +532,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 
 <!-- Copy table -->
 <div class="operations_half_width">
-<form method="post" action="tbl_operations.php"
+<form method="post" action="tbl_operations.php" name="copyTable" id="copyTable" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
