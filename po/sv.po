@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 20:46+0200\n"
+"PO-Revision-Date: 2011-07-31 20:47+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9989,7 +9989,7 @@ msgstr "Välj tabeller"
 
 #: server_status.php:1409
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Vanligen övervakade"
 
 #: server_status.php:1424
 #, fuzzy
