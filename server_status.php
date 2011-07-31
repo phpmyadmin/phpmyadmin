@@ -145,6 +145,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
 
     if (isset($_REQUEST['log_data'])) {
+        if(PMA_MYSQL_INT_VERSION < 50106) exit('""');
+        
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);
 
@@ -1395,28 +1397,37 @@ function printMonitor() {
 
     <div id="monitorInstructionsDialog" title="<?php echo __('Monitor Instructions'); ?>" style="display:none;">
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%'); ?>
-        <p></p>
-        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
-        <div class="ajaxContent">
-        </div>
-        <div class="monitorUse" style="display:none;">
-        <p></p>
-        <?php echo __('<b>Using the monitor:</b><br/>
-        Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts
-        in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart
-        using the cog icon on each respective chart.
-        <p>When you get to see a sudden spike in activity, select the relevant time span on any chart by holding down the
-        left mouse button and panning over the chart. This will load statistics from the logs helping you find what caused the
-        activity spike. To further analyze SELECT-queries click on them and the <i>Query Analyzer Dialog</i> will open</p>');
-        ?>
+    <?php if(PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
         <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
-        <?php echo __('<b>Please note:</b>
-        Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a
-        load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.
-        '); ?>
+        <?php 
+            echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.'); 
+        ?>
         </p>
+    <?php 
+    } else {
+    ?>
+        <p></p>
+        <img class="ajaxIcon" src="<?php echo $GLOBALS['pmaThemeImage']; ?>ajax_clock_small.gif" alt="Loading">
+        <div class="ajaxContent"></div>
+        <div class="monitorUse" style="display:none;">
+            <p></p>
+            <?php echo __('<b>Using the monitor:</b><br/>
+            Ok, you are good to go! Once you click \'Start monitor\' your browser will refresh all displayed charts
+            in a regular interval. You may add charts and change the refresh rate under \'Settings\', or remove any chart
+            using the cog icon on each respective chart.
+            <p>To display queries from the logs, select the relevant time span on any chart by holding down the left mouse button and panning over the chart. 
+			Once confirmed, this will load a table of grouped queries, there you may click on any occuring SELECT statements to further analyze them.</p>');
+            ?>
+            <p>
+            <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
+            <?php echo __('<b>Please note:</b>
+            Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a
+            load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.
+            '); ?>
+            </p>
         </div>
+    <?php } ?>
     </div>
 
     <div id="addChartDialog" title="Add chart" style="display:none;">
