@@ -87,9 +87,6 @@ if(isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
         if (isset($_REQUEST['input_name'])) {
             echo('<input type="hidden" name="input_name" value="' . htmlspecialchars($_REQUEST['input_name']) . '">');
         }
-        if (isset($_REQUEST['null_checkbox_name'])) {
-            echo('<input type="hidden" name="null_checkbox_name" value="' . htmlspecialchars($_REQUEST['null_checkbox_name']) . '">');
-        }
         echo PMA_generate_common_hidden_inputs();
 ?>
         <!-- Visualization section -->
