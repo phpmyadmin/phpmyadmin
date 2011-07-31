@@ -9867,7 +9867,7 @@ msgstr "Starta Monitor"
 
 #: server_status.php:1328
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Instruktioner/Setup"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
