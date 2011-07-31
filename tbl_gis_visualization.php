@@ -20,6 +20,7 @@ $GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.min.js';
 $GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
+$GLOBALS['js_include'][] = 'OpenStreetMap.js';
 
 // Allows for resending headers even after sending some data
 ob_start();
@@ -115,7 +116,6 @@ $visualization = PMA_GIS_visualization_results($data, $visualizationSettings, $f
     <div id="openlayersmap"></div>
     <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
 
-    <script type="text/javascript" src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
     <script language="javascript" type="text/javascript">
         function drawOpenLayers() {
             <?php echo (PMA_GIS_visualization_results($data, $visualizationSettings, 'ol')); ?>

@@ -308,7 +308,7 @@ $(document).ready(function() {
         var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
         var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
         var $gis_editor = $("#gis_editor");
-        $gis_editor.css({"position":"absolute", "top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
+        $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
 
         // Current value
         var value = $span.parent('td').children("input[type='text']").val();

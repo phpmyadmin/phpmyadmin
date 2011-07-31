@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-30 07:37-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-06-04 15:35+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -1356,7 +1356,7 @@ msgid "Jump to Log table"
 msgstr "දත්තගබඩාව වෙත යන්න"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
@@ -10524,41 +10524,41 @@ msgstr "ගොඩ ගසන ලද"
 msgid "Chart title"
 msgstr "වාර්තා මාතෘකාව:"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
 msgstr "SQL විමසුම"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "The remaining columns"
 msgstr "ක්ෂේත්‍ර තීර එක් කරන්න/ඉවත් කරන්න"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 #, fuzzy
 #| msgid "X Axis label"
 msgid "X-Axis label:"
 msgstr "X අක්ෂයේ ලේබලය"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "අගය"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
 msgstr "Y අක්ෂයේ ලේබලය"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
