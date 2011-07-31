@@ -7130,10 +7130,9 @@ msgid "You must provide a valid event for the trigger"
 msgstr "Du måste ange en giltig händelse för triggern"
 
 #: libraries/rte/rte_triggers.lib.php:415
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "Du måste ange ett giltigt tabellnamn"
 
 #: libraries/rte/rte_triggers.lib.php:421
 #, fuzzy
