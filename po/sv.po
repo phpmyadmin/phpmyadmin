@@ -6852,10 +6852,9 @@ msgid "Execute at"
 msgstr "Utför vid"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Utför"
+msgstr "Utför varje"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
