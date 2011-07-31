@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-29 09:55-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-07-26 18:41+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: greek <el@li.org>\n"
@@ -1148,11 +1148,11 @@ msgstr "Μνήμη συστήματος"
 msgid "System swap"
 msgstr "Αδράνεια συστήματος"
 
-#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1422
 msgid "MiB"
 msgstr "MB"
 
-#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1422
 msgid "KiB"
 msgstr "KB"
 
@@ -1193,7 +1193,7 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:562 pmd_general.php:510
-#: server_privileges.php:2041 server_status.php:1054 server_status.php:1450
+#: server_privileges.php:2041 server_status.php:1054 server_status.php:1439
 msgid "None"
 msgstr "Καμία"
 
@@ -1295,7 +1295,7 @@ msgstr "Αλλαγή ρυθμίσεων"
 msgid "Current settings"
 msgstr "Τρέχουσες ρυθμίσεις"
 
-#: js/messages.php:135 server_status.php:1393
+#: js/messages.php:135 server_status.php:1382
 msgid "Chart Title"
 msgstr "Τίτλος Διαγράμματος"
 
@@ -1328,9 +1328,9 @@ msgstr "Ανάλυση & φόρτωση καταγραφών. Αυτό ίσως 
 #| "together. However only the SQL Text is being compared, thus the queries "
 #| "other attributes such as start time may differ."
 msgid ""
-"This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries of "
-"other attributes such as start time may differ."
+"This column shows the amount of identical queries that are grouped together. "
+"However only the SQL query itself has been used as a grouping criteria, so "
+"the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Αυτές οι στήλες δείχνουν τον αριθμό των μοναδικών ερωτημάτων που "
 "ομαδοποιήθηκαν. Ωστόσο, μόνο το Κείμενο SQL συγκρίνεται έτσι οι ιδιότητες "
@@ -1356,7 +1356,9 @@ msgid "Jump to Log table"
 msgstr "Μετάβαση στον πίνακα Καταγραφής"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+#, fuzzy
+#| msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 "Η καταγραφή αναλύθηκε αλλά δεν βρέθηκαν δεδομένα σε αυτή την επέκταση χρόνου."
 
@@ -1375,7 +1377,9 @@ msgid "Filter queries by word/regexp:"
 msgstr "Φιλτράρισμα ερωτημάτων ανά λέξη/κανονική έκφραση:"
 
 #: js/messages.php:155
-msgid "Group queries, ignoring variable data in WHERE statements"
+#, fuzzy
+#| msgid "Group queries, ignoring variable data in WHERE statements"
+msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "Ομαδοποίηση ερωτημάτων, αγνοώντας τα δεδομένα μεταβλητής στις δηλώσεις WHERE"
 
@@ -10022,14 +10026,21 @@ msgid "Monitor Instructions"
 msgstr "Οδηγίες Εποπτείας"
 
 #: server_status.php:1364
+#, fuzzy
+#| msgid ""
+#| "The phpMyAdmin Monitor can assist you in optimizing the server "
+#| "configuration and track down time intensive\n"
+#| "        queries. For the latter you will need to set log_output to "
+#| "'TABLE' and have either the slow_query_log or general_log enabled. Note "
+#| "however, that the\n"
+#| "        general_log produces a lot of data and increases server load by "
+#| "up to 15%"
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive\n"
-"        queries. For the latter you will need to set log_output to 'TABLE' "
-"and have either the slow_query_log or general_log enabled. Note however, "
-"that the\n"
-"        general_log produces a lot of data and increases server load by up "
-"to 15%"
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%"
 msgstr ""
 "Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
 "του διακομιστή και να καταγράφει χρονοβόρα\n"
@@ -10039,19 +10050,29 @@ msgstr ""
 "general_log παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή "
 "μέχρι και 15%"
 
-#: server_status.php:1373
+#: server_status.php:1371
+#, fuzzy
+#| msgid ""
+#| "<b>Using the monitor:</b><br/>\n"
+#| "        Ok, you are good to go! Once you click 'Start monitor' your "
+#| "browser will refresh all displayed charts\n"
+#| "        in a regular interval. You may add charts and change the refresh "
+#| "rate under 'Settings', or remove any chart\n"
+#| "        using the cog icon on each respective chart.\n"
+#| "        <p>When you get to see a sudden spike in activity, select the "
+#| "relevant time span on any chart by holding down the\n"
+#| "        left mouse button and panning over the chart. This will load "
+#| "statistics from the logs helping you find what caused the\n"
+#| "        activity spike.</p>"
 msgid ""
-"<b>Using the monitor:</b><br/>\n"
-"        Ok, you are good to go! Once you click 'Start monitor' your browser "
-"will refresh all displayed charts\n"
-"        in a regular interval. You may add charts and change the refresh "
-"rate under 'Settings', or remove any chart\n"
-"        using the cog icon on each respective chart.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the\n"
-"        left mouse button and panning over the chart. This will load "
-"statistics from the logs helping you find what caused the\n"
-"        activity spike.</p>"
+"<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
+"monitor' your browser will refresh all displayed charts in a regular "
+"interval. You may add charts and change the refresh rate under 'Settings', "
+"or remove any chart using the cog icon on each respective chart.<p>When you "
+"get to see a sudden spike in activity, select the relevant time span on any "
+"chart by holding down the left mouse button and panning over the chart. This "
+"will load statistics from the logs helping you find what caused the activity "
+"spike.</p>"
 msgstr ""
 "<b>Χρήση της εποπτείας:</b><br/>\n"
 "        Εντάξει, είστε έτοιμοι! Μόλις πατήσετε το «Έναρξη εποπτείας» ο "
@@ -10067,15 +10088,22 @@ msgstr ""
 "βρείτε τι προκάλεσε αυτή\n"
 "        την έντονη δραστηριότητα.</p>"
 
-#: server_status.php:1383
+#: server_status.php:1375
+#, fuzzy
+#| msgid ""
+#| "<b>Please note:</b>\n"
+#| "        Enabling the general_log may increase the server load by 5-15%. "
+#| "Also be aware that generating statistics from the logs is a\n"
+#| "        load intensive task, so it is advisable to select only a small "
+#| "time span and to disable the general_log and empty its table once "
+#| "monitoring is not required any more.\n"
+#| "        "
 msgid ""
-"<b>Please note:</b>\n"
-"        Enabling the general_log may increase the server load by 5-15%. Also "
-"be aware that generating statistics from the logs is a\n"
-"        load intensive task, so it is advisable to select only a small time "
-"span and to disable the general_log and empty its table once monitoring is "
-"not required any more.\n"
-"        "
+"<b>Please note:</b> Enabling the general_log may increase the server load by "
+"5-15%. Also be aware that generating statistics from the logs is a load "
+"intensive task, so it is advisable to select only a small time span and to "
+"disable the general_log and empty its table once monitoring is not required "
+"any more."
 msgstr ""
 "<b>Σημειώστε:</b>\n"
 "        Η ενεργοποίηση του general_log μπορεί να αυξήσει τη χρήση των πόρων "
@@ -10085,81 +10113,81 @@ msgstr ""
 "απενεργοποιήσετε το general_log και να αδειάσετε τον πίνακά του μόλις η "
 "εποπτεία δεν είναι πλέον απαραίτητη.        "
 
-#: server_status.php:1396
+#: server_status.php:1385
 msgid "CPU Usage"
 msgstr "Χρήση Επεξεργαστή"
 
-#: server_status.php:1399
+#: server_status.php:1388
 msgid "Memory Usage"
 msgstr "Χρήση Μνήμης"
 
-#: server_status.php:1402
+#: server_status.php:1391
 msgid "Swap Usage"
 msgstr "Χρήση Αδράνειας"
 
-#: server_status.php:1405
+#: server_status.php:1394
 msgid "Status variable(s)"
 msgstr "Μεταβλητή(ές) κατάστασης"
 
-#: server_status.php:1407
+#: server_status.php:1396
 msgid "Select series:"
 msgstr "Επιλογή σειρών:"
 
-#: server_status.php:1409
+#: server_status.php:1398
 msgid "Commonly monitored"
 msgstr "Συχνά εποπτευόμενα"
 
-#: server_status.php:1424
+#: server_status.php:1413
 msgid "or type variable name:"
 msgstr "ή όνομα τύπου μεταβλητής"
 
-#: server_status.php:1428
+#: server_status.php:1417
 msgid "Display as differential value"
 msgstr "Προβολή ως διαφορική τιμή"
 
-#: server_status.php:1430
+#: server_status.php:1419
 msgid "Apply a divisor"
 msgstr "Εφαρμογή διαιρέτη"
 
-#: server_status.php:1437
+#: server_status.php:1426
 msgid "Append unit to data values"
 msgstr "Προσάρτηση μονάδας στις τιμές δεδομένων"
 
-#: server_status.php:1443
+#: server_status.php:1432
 msgid "Add this series"
 msgstr "Προσθήκη αυτής της σειράς"
 
-#: server_status.php:1445
+#: server_status.php:1434
 msgid "Clear series"
 msgstr "Εκκαθάριση σειράς"
 
-#: server_status.php:1448
+#: server_status.php:1437
 msgid "Series in Chart:"
 msgstr "Σειρά σε Διάγραμμα:"
 
-#: server_status.php:1456
+#: server_status.php:1445
 msgid "Loading logs"
 msgstr "Φόρτωση καταγραφών"
 
-#: server_status.php:1459
+#: server_status.php:1448
 msgid "Log statistics"
 msgstr "Στατιστικά καταγραφών"
 
-#: server_status.php:1460
+#: server_status.php:1449
 msgid "Selected time range:"
 msgstr "Επιλεγμένο εύρος χρόνου:"
 
-#: server_status.php:1465
+#: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Λήψη μόνο των δηλώσεων SELECT,INSERT,UPDATE και DELETE"
 
-#: server_status.php:1470
+#: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Απομάκρυνση δεδομένων μεταβλητών στις δηλώσεις INSERT για καλύτερη "
 "ομαδοποιήση"
 
-#: server_status.php:1473
+#: server_status.php:1462
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
@@ -10167,18 +10195,18 @@ msgstr ""
 "<p>Επιλέξτε από ποια καταγραφή θέλετε να προκύψουν τα στατιστικά.</p> Τα "
 "αποτελέσματα ομοδοποιούνται ανά κείμενο ερωτήματος."
 
-#: server_status.php:1476
+#: server_status.php:1465
 msgid "Query analyzer"
 msgstr "Αναλυτής ερωτήματος"
 
-#: server_status.php:1512
+#: server_status.php:1501
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d δευτερόλεπτο"
 msgstr[1] "%d δευτερόλεπτο"
 
-#: server_status.php:1514
+#: server_status.php:1503
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10773,31 +10801,31 @@ msgstr "Σταθεροποιημένο"
 msgid "Chart title"
 msgstr "Τίτλος διαγράμματος"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr "Άξονας Χ:"
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 msgid "Series:"
 msgstr "Σειρές:"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 msgid "The remaining columns"
 msgstr "Οι απομένουσες στήλες"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 msgid "X-Axis label:"
 msgstr "Ετικέτα άξονα Χ:"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 msgid "X Values"
 msgstr "Τιμές Χ"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y-Axis label:"
 msgstr "Ετικέτα άξονα Υ:"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y Values"
 msgstr "Τιμές Υ"
 

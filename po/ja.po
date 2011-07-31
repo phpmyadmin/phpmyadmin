@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-29 09:55-0400\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
 "PO-Revision-Date: 2011-07-27 12:14+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
@@ -1142,11 +1142,11 @@ msgstr "システムメモリ"
 msgid "System swap"
 msgstr "システムスワップ"
 
-#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1422
 msgid "MiB"
 msgstr "MiB"
 
-#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1422
 msgid "KiB"
 msgstr "KiB"
 
@@ -1187,7 +1187,7 @@ msgstr "少なくとも１つの系列を追加してください"
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:562 pmd_general.php:510
-#: server_privileges.php:2041 server_status.php:1054 server_status.php:1450
+#: server_privileges.php:2041 server_status.php:1054 server_status.php:1439
 msgid "None"
 msgstr "なし"
 
@@ -1285,7 +1285,7 @@ msgstr "設定の変更"
 msgid "Current settings"
 msgstr "現在の設定"
 
-#: js/messages.php:135 server_status.php:1393
+#: js/messages.php:135 server_status.php:1382
 msgid "Chart Title"
 msgstr "グラフの題名"
 
@@ -1315,9 +1315,9 @@ msgstr ""
 
 #: js/messages.php:143
 msgid ""
-"This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries of "
-"other attributes such as start time may differ."
+"This column shows the amount of identical queries that are grouped together. "
+"However only the SQL query itself has been used as a grouping criteria, so "
+"the other attributes of queries, such as start time, may differ."
 msgstr ""
 
 #: js/messages.php:144
@@ -1338,7 +1338,7 @@ msgid "Jump to Log table"
 msgstr "データベースに移動"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
+msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #. l10n: A collection of available filters
@@ -1356,7 +1356,7 @@ msgid "Filter queries by word/regexp:"
 msgstr ""
 
 #: js/messages.php:155
-msgid "Group queries, ignoring variable data in WHERE statements"
+msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: js/messages.php:156
@@ -9818,14 +9818,21 @@ msgid "Monitor Instructions"
 msgstr "はじめに"
 
 #: server_status.php:1364
+#, fuzzy
+#| msgid ""
+#| "The phpMyAdmin Monitor can assist you in optimizing the server "
+#| "configuration and track down time intensive\n"
+#| "        queries. For the latter you will need to set log_output to "
+#| "'TABLE' and have either the slow_query_log or general_log enabled. Note "
+#| "however, that the\n"
+#| "        general_log produces a lot of data and increases server load by "
+#| "up to 15%"
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive\n"
-"        queries. For the latter you will need to set log_output to 'TABLE' "
-"and have either the slow_query_log or general_log enabled. Note however, "
-"that the\n"
-"        general_log produces a lot of data and increases server load by up "
-"to 15%"
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%"
 msgstr ""
 "phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡する"
 "ことができます。後者の場合には、テーブルに log_output を設定し、"
@@ -9833,131 +9840,126 @@ msgstr ""
 "お、general_log を大量のデータを生成し、サーバの負荷を 15% 増加させますので、"
 "注意するようにしてください。"
 
-#: server_status.php:1373
+#: server_status.php:1371
 msgid ""
-"<b>Using the monitor:</b><br/>\n"
-"        Ok, you are good to go! Once you click 'Start monitor' your browser "
-"will refresh all displayed charts\n"
-"        in a regular interval. You may add charts and change the refresh "
-"rate under 'Settings', or remove any chart\n"
-"        using the cog icon on each respective chart.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the\n"
-"        left mouse button and panning over the chart. This will load "
-"statistics from the logs helping you find what caused the\n"
-"        activity spike.</p>"
+"<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
+"monitor' your browser will refresh all displayed charts in a regular "
+"interval. You may add charts and change the refresh rate under 'Settings', "
+"or remove any chart using the cog icon on each respective chart.<p>When you "
+"get to see a sudden spike in activity, select the relevant time span on any "
+"chart by holding down the left mouse button and panning over the chart. This "
+"will load statistics from the logs helping you find what caused the activity "
+"spike.</p>"
 msgstr ""
 
-#: server_status.php:1383
+#: server_status.php:1375
 msgid ""
-"<b>Please note:</b>\n"
-"        Enabling the general_log may increase the server load by 5-15%. Also "
-"be aware that generating statistics from the logs is a\n"
-"        load intensive task, so it is advisable to select only a small time "
-"span and to disable the general_log and empty its table once monitoring is "
-"not required any more.\n"
-"        "
+"<b>Please note:</b> Enabling the general_log may increase the server load by "
+"5-15%. Also be aware that generating statistics from the logs is a load "
+"intensive task, so it is advisable to select only a small time span and to "
+"disable the general_log and empty its table once monitoring is not required "
+"any more."
 msgstr ""
 
-#: server_status.php:1396
+#: server_status.php:1385
 msgid "CPU Usage"
 msgstr "CPU 使用状況"
 
-#: server_status.php:1399
+#: server_status.php:1388
 msgid "Memory Usage"
 msgstr "メモリ使用状況"
 
-#: server_status.php:1402
+#: server_status.php:1391
 msgid "Swap Usage"
 msgstr "スワップ状況"
 
-#: server_status.php:1405
+#: server_status.php:1394
 msgid "Status variable(s)"
 msgstr "状態変数"
 
-#: server_status.php:1407
+#: server_status.php:1396
 msgid "Select series:"
 msgstr "系列の選択："
 
-#: server_status.php:1409
+#: server_status.php:1398
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1424
+#: server_status.php:1413
 #, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "or type variable name:"
 msgstr "有効なテーブル名を指定してください"
 
-#: server_status.php:1428
+#: server_status.php:1417
 msgid "Display as differential value"
 msgstr "差分値として表示する"
 
-#: server_status.php:1430
+#: server_status.php:1419
 msgid "Apply a divisor"
 msgstr "除数を適用する"
 
-#: server_status.php:1437
+#: server_status.php:1426
 msgid "Append unit to data values"
 msgstr "データ値に単位を追加する"
 
-#: server_status.php:1443
+#: server_status.php:1432
 msgid "Add this series"
 msgstr "この系列を追加する"
 
-#: server_status.php:1445
+#: server_status.php:1434
 msgid "Clear series"
 msgstr "系列をクリアする"
 
-#: server_status.php:1448
+#: server_status.php:1437
 msgid "Series in Chart:"
 msgstr "グラフの系列"
 
-#: server_status.php:1456
+#: server_status.php:1445
 #, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
 msgstr "読み込み中"
 
-#: server_status.php:1459
+#: server_status.php:1448
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
 msgstr "統計を表示する"
 
-#: server_status.php:1460
+#: server_status.php:1449
 #, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
 msgstr "ページを選択してください"
 
-#: server_status.php:1465
+#: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1470
+#: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1473
+#: server_status.php:1462
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1476
+#: server_status.php:1465
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "クエリ種別"
 
-#: server_status.php:1512
+#: server_status.php:1501
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
-#: server_status.php:1514
+#: server_status.php:1503
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10534,33 +10536,33 @@ msgstr "積み上げ形式"
 msgid "Chart title"
 msgstr "グラフの題名"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr "横軸："
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 msgid "Series:"
 msgstr "系列："
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "The remaining columns"
 msgstr "textarea の 1 行の文字数"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 msgid "X-Axis label:"
 msgstr "横軸のラベル："
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 msgid "X Values"
 msgstr "横軸の値"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y-Axis label:"
 msgstr "縦軸のラベル："
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y Values"
 msgstr "縦軸の値"
 
