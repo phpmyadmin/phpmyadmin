@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 20:05+0200\n"
+"PO-Revision-Date: 2011-07-31 20:07+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7125,10 +7125,9 @@ msgid "You must provide a valid timing for the trigger"
 msgstr "Du måste ange en giltig tidsgräns för triggern"
 
 #: libraries/rte/rte_triggers.lib.php:409
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
+msgstr "Du måste ange en giltig händelse för triggern"
 
 #: libraries/rte/rte_triggers.lib.php:415
 #, fuzzy
