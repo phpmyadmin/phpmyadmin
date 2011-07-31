@@ -145,7 +145,7 @@ if (! isset($param) || $param[0] == '') {
                 if (in_array($fields_type[$i], $geom_types)) {
                     echo('<select name="geom_func['. $i .']">');
                         // get the relevant list of functions
-                        $funcs = PMA_getGISFunctions($fields_type[$i], false, true);
+                        $funcs = PMA_getGISFunctions($fields_type[$i], true, true);
                         foreach ($funcs as $func_name => $func) {
                             $name =  isset($func['display']) ? $func['display'] : $func_name;
                             echo('<option value="' . htmlspecialchars($name) . '">'
@@ -249,6 +249,13 @@ if (! isset($param) || $param[0] == '') {
             // ]]>
             </script>
             <?php
+        } elseif (in_array($fields_type[$i], $geom_types)) {
+            // g e o m e t r y
+            echo '            <input type="text" name="fields[' . $i . ']"'
+                .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
+            echo('<span>');
+            echo(PMA_display_html_checkbox('switch[' . $i . ']', __("Switch"), false, ''));
+            echo('</span>');
         } elseif (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
             // e n u m s
             $enum_value=explode(', ', str_replace("'", '', substr($fields_type[$i], 5, -1)));
@@ -393,7 +400,7 @@ else {
            "= ''" => 1,
            "!= ''" => 1
         );
-        $geom_unary_operators = array(
+        $geom_unary_functions = array(
             'IsEmpty' => 1,
             'IsSimple' => 1,
             'IsRing' => 1,
@@ -404,14 +411,34 @@ else {
         while (list($i, $func_type) = each($func)) {
             // If geometry function is set apply it to the field name
             if (isset($geom_func[$i]) && trim($geom_func[$i]) != '') {
-                $backquoted_name = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ')';
+                // Get details about the geometry fucntions
+                $geom_funcs = PMA_getGISFunctions($types[$i], true, false);
+
+                // If the function takes a single parameter
+                if ($geom_funcs[$geom_func[$i]]['params'] == 1) {
+                    $backquoted_name = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ')';
+                // If the function takes two parameters
+                } else {
+                    // extract the section before the opening parentheses
+                    $wkt_type = strtolower(substr($fields[$i], 0, strpos($fields[$i], "(")));
+                    if (in_array($wkt_type, $geom_types)) {
+                        $fields[$i] = "GeomFromText('" . $fields[$i] . "')";
+                    }
+
+                    // If two geometries should be switched
+                    if (isset($switch[$i]) && $switch[$i]) {
+                        $w[] = $geom_func[$i] . '(' . $fields[$i] . ', ' . PMA_backquote($names[$i]) . ')';
+                    } else {
+                        $w[] = $geom_func[$i] . '(' . PMA_backquote($names[$i]) . ',' . $fields[$i] . ')';
+                    }
+                    continue;
+                }
 
                 // New output type is the output type of the function being applied
-                $geom_funcs = PMA_getGISFunctions($types[$i], false, false);
                 $types[$i] = $geom_funcs[$geom_func[$i]]['type'];
 
                 // If the intended where clause is something like 'IsEmpty(`spatial_col_name`)'
-                if (isset($geom_unary_operators[$geom_func[$i]]) && trim($fields[$i]) == '') {
+                if (isset($geom_unary_functions[$geom_func[$i]]) && trim($fields[$i]) == '') {
                     $w[] = $backquoted_name;
                     continue;
                 }
