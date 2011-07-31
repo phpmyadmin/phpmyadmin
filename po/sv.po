@@ -6924,10 +6924,9 @@ msgid "Event scheduler status"
 msgstr "Status för händelsehanteraren "
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Returtyp"
+msgstr "Returnerar"
 
 #: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:320
 #: server_status.php:1019 sql.php:943
