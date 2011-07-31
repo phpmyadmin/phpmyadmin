@@ -21,6 +21,7 @@ function PMA_checkLink($url)
     );
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '../Documentation.html';
+        $valid_starts[] = '?page=form&';
     } else {
         $valid_starts[] = './Documentation.html';
     }
