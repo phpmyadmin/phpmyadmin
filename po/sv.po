@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 17:34+0200\n"
+"PO-Revision-Date: 2011-07-31 17:37+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1351,7 +1351,7 @@ msgstr "Gå till tabellogg"
 
 #: js/messages.php:148
 msgid "Log analysed, but not data found in this time span."
-msgstr ""
+msgstr "Loggdata laddad. Frågorna exekverade under denna tidsperiod:"
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
