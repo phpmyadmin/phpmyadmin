@@ -2489,10 +2489,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 
 #: libraries/common.lib.php:2427
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Klicka för att markera"
+msgstr "Klicka för att växla"
 
 #: libraries/common.lib.php:2698 libraries/common.lib.php:2705
 #: libraries/common.lib.php:2894 libraries/config/setup.forms.php:296
