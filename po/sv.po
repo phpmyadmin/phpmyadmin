@@ -1311,7 +1311,7 @@ msgstr "Dividerat med %s:"
 
 #: js/messages.php:140
 msgid "From slow log"
-msgstr ""
+msgstr "Från långsam logg"
 
 #: js/messages.php:141
 msgid "From general log"
