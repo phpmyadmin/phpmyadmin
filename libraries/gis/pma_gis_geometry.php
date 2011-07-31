@@ -141,18 +141,21 @@ abstract class PMA_GIS_Geometry
             // Extract cordinates of the point
             $cordinates = explode(" ", $point);
 
-            if ($scale_data != null) {
-                if (trim($cordinates[0]) != '' && trim($cordinates[1]) != '') {
+            if (isset($cordinates[0]) && trim($cordinates[0]) != ''
+                && isset($cordinates[1]) && trim($cordinates[1]) != ''
+            ) {
+                if ($scale_data != null) {
                     $x = ($cordinates[0] - $scale_data['x']) * $scale_data['scale'];
                     $y = $scale_data['height'] - ($cordinates[1] - $scale_data['y']) * $scale_data['scale'];
                 } else {
-                    $x = '';
-                    $y = '';
+                    $x = trim($cordinates[0]);
+                    $y = trim($cordinates[1]);
                 }
             } else {
-                $x = trim($cordinates[0]);
-                $y = trim($cordinates[1]);
+                $x = '';
+                $y = '';
             }
+
 
             if (! $linear) {
                 $points_arr[] = array($x, $y);

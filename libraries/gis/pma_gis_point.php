@@ -130,8 +130,9 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         $point = substr($spatial, 6, (strlen($spatial) - 7));
         $points_arr = $this->extractPoints($point, $scale_data);
 
+        $row = '';
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $row = '<circle cx="' . $points_arr[0][0] . '" cy="' . $points_arr[0][1] . '" r="3"';
+            $row .= '<circle cx="' . $points_arr[0][0] . '" cy="' . $points_arr[0][1] . '" r="3"';
             foreach ($point_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim($val) . '"';
             }
