@@ -7188,10 +7188,10 @@ msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Ingen rutin med namnet %1$s finns i databasen %2$s"
+msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
