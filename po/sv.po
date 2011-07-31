@@ -6882,10 +6882,9 @@ msgid "The definer must be in the \"username@hostname\" format"
 msgstr "Defineraren måste vara i formatet: \"användarnamn@hostname\""
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "Du måste ange ett händelsenamn"
 
 #: libraries/rte/rte_events.lib.php:537
 #, fuzzy
