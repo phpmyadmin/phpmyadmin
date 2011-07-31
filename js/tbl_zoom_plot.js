@@ -376,7 +376,10 @@ $(document).ready(function() {
 	    currentSettings.yAxis.max = Array.max(yCord) + 3
 	    currentSettings.yAxis.min = Array.min(yCord) - 2
 	    currentSettings.xAxis.labels = { formatter : function() {
-	            return temp[1][this.value];
+		    if(temp[1][this.value] && temp[1][this.value].length > 10)
+		        return temp[1][this.value].substring(0,10);
+		    else
+	                return temp[1][this.value];
 	        }
             }
 	}
@@ -394,7 +397,10 @@ $(document).ready(function() {
 	    currentSettings.yAxis.max = Array.max(xCord) + 3
 	    currentSettings.yAxis.min = Array.min(xCord) - 2
 	    currentSettings.xAxis.labels = { formatter : function() {
-	            return temp[1][this.value];
+		    if(temp[1][this.value] && temp[1][this.value].length > 10)
+		        return temp[1][this.value].substring(0,10);
+		    else
+	                return temp[1][this.value];
 	        }
             }
 	    currentSettings.xAxis.title.text = $('#tableid_1').val() 
@@ -413,11 +419,17 @@ $(document).ready(function() {
 	        it++;   
             });
 	    currentSettings.xAxis.labels = { formatter : function() {
-	            return temp[1][this.value];
+		    if(temp[1][this.value] && temp[1][this.value].length > 10)
+		        return temp[1][this.value].substring(0,10);
+		    else
+	                return temp[1][this.value];
 	        }
             }
 	    currentSettings.yAxis.labels = { formatter : function() {
-	            return temp2[1][this.value];
+		    if(temp[1][this.value] && temp[1][this.value].length > 10)
+		        return temp[1][this.value].substring(0,10);
+		    else
+	                return temp2[1][this.value];
 	        }
 	    }
 	}
