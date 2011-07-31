@@ -1954,6 +1954,9 @@ $(document).ready(function() {
             if ($("#sqlqueryresults").length != 0) {
                 $("#sqlqueryresults").remove();
             }
+            if ($("#result_query").length != 0) {
+                $("#result_query").remove();
+            }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
@@ -1972,30 +1975,39 @@ $(document).ready(function() {
     /**
      *Ajax action for submitting the "Copy table"
     **/
-    $("#copyTable.ajax").live('submit', function(event) {
+    $("#copyTable.ajax input[name='submit_copy']").live('click', function(event) {
         event.preventDefault();
-        $form = $(this);
-
-        PMA_prepareForAjaxRequest($form);
-        /*variables which stores the common attributes*/
-        $.post($form.attr('action'), $form.serialize()+"&submit_copy=Go", function(data) {
-            if ($("#sqlqueryresults").length != 0) {
-                $("#sqlqueryresults").remove();
-            }
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
-                $("#sqlqueryresults").html(data.sql_query);
-                $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
-                $("#copyTable").find("select[name='target_db'] option[value='sakila']").attr('selected', 'selected');
-            } else {
-                $temp_div = $("<div id='temp_div'></div>")
-                $temp_div.html(data.error);
-                $error = $temp_div.find("code").addClass("error");
-                PMA_ajaxShowMessage($error);
-            }
-        }) // end $.post()
+        $form = $("#copyTable");
+        if($form.find("input[name='switch_to_new']").attr('checked')) {
+            $form.append('<input type="hidden" name="submit_copy" value="Go" />');
+            $form.removeClass('ajax');
+            $form.find("#ajax_request_hidden").remove();
+            $form.submit();
+        } else {
+            PMA_prepareForAjaxRequest($form);
+            /*variables which stores the common attributes*/
+            $.post($form.attr('action'), $form.serialize()+"&submit_copy=Go", function(data) {
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                }
+                if ($("#result_query").length != 0) {
+                    $("#result_query").remove();
+                }
+                if (data.success == true) {
+                    PMA_ajaxShowMessage(data.message);
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend((data.message));
+                    $("#copyTable").find("select[name='target_db'] option[value="+data.db+"]").attr('selected', 'selected');
+                } else {
+                    $temp_div = $("<div id='temp_div'></div>")
+                    $temp_div.html(data.error);
+                    $error = $temp_div.find("code").addClass("error");
+                    PMA_ajaxShowMessage($error);
+                }
+            }) // end $.post()
+        }
     });//end of copyTable ajax submit
 
 }, 'top.frame_content'); //end $(document).ready for 'Table operations'

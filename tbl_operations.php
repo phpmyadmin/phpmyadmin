@@ -229,7 +229,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message = $result ? $message = PMA_Message::success(__('Your SQL query has been executed successfully')) : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
-        if ( $GLOBALS['is_ajax_request'] == true) {
+        if ( $_REQUEST['ajax_request'] == true) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
             PMA_ajaxResponse($_message,$_message->isSuccess() ,$extra_data);
         }
@@ -238,7 +238,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message = new PMA_Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
-        if ( $GLOBALS['is_ajax_request'] == true) {
+        if ( $_REQUEST['ajax_request'] == true) {
             PMA_ajaxResponse($_message, false);
         }
         unset($warning_messages);

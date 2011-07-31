@@ -66,7 +66,7 @@ if (PMA_isValid($_REQUEST['new_name'])) {
             $table     = $_REQUEST['new_name'];
         }
         
-        if ( $GLOBALS['is_ajax_request'] == true) {
+        if ( $_REQUEST['ajax_request'] == true) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
             $extra_data['db'] = $GLOBALS['db'];
             PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
