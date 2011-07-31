@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 20:10+0200\n"
+"PO-Revision-Date: 2011-07-31 20:11+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7168,10 +7168,9 @@ msgid "There are no routines to display."
 msgstr "Det finns inga rutiner att visa."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Lägg till en ny Trigger"
+msgstr "Lägg till trigger"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
