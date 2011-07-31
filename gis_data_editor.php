@@ -30,7 +30,8 @@ if (! isset($gis_data['gis_type'])) {
         $gis_data['gis_type'] = strtoupper($_REQUEST['type']);
     }
     if (isset($_REQUEST['value']) && trim($_REQUEST['value']) != '') {
-        $gis_data['gis_type'] = substr($_REQUEST['value'], 1, strpos($_REQUEST['value'], "(") - 1);
+        $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
+        $gis_data['gis_type'] = substr($_REQUEST['value'], $start, strpos($_REQUEST['value'], "(") - $start);
     }
     if(! in_array($gis_data['gis_type'], $gis_types)) {
         $gis_data['gis_type'] = $gis_types[0];

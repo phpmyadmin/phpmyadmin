@@ -279,9 +279,9 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     public function generateParams($value)
     {
         $params = array();
-        $last_comma = strripos($value, ",");
-        $params['srid'] = trim(substr($value, $last_comma + 1));
-        $wkt = trim(substr($value, 1, $last_comma - 2));
+        $data = PMA_GIS_Geometry::generateParams($value);
+        $params['srid'] = $data['srid'];
+        $wkt = $data['wkt'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = substr($wkt, 19, (strlen($wkt) - 20));

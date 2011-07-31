@@ -3035,7 +3035,7 @@ function PMA_createGISData($gis_string) {
     if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
         return 'GeomFromText(' . $gis_string . ')';
     } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
-        return "GeomFromText('" . $gis_string[$i] . "')";
+        return "GeomFromText('" . $gis_string . "')";
     } else {
         return $gis_string;
     }

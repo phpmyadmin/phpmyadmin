@@ -122,6 +122,27 @@ abstract class PMA_GIS_Geometry
     }
 
     /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * This method performs common work. More specific work is performed by each of the geom classes.
+     *
+     * @param $gis_string $value of the GIS column
+     *
+     * @return  array parameters for the GIS data editor from the value of the GIS column
+     */
+    protected function generateParams($value) {
+        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+        if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
+            $last_comma = strripos($value, ",");
+            $srid = trim(substr($value, $last_comma + 1));
+            $wkt = trim(substr($value, 1, $last_comma - 2));
+        } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $value)) {
+            $srid = 0;
+            $wkt = $value;
+        }
+        return array('srid' => $srid, 'wkt' => $wkt);
+    }
+
+    /**
      * Extracts points, scales and returns them as an array.
      *
      * @param string  $point_set  String of comma sperated points
