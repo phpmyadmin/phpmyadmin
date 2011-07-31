@@ -699,18 +699,16 @@ since this link provides funding for phpMyAdmin.
         <br /><br />
 
         <tt><i>mysql</i></tt> :
-        The classic MySQL extension. This is the recommended and default
-        method at this time.<br /><br />
+        The classic MySQL extension.<br /><br />
 
         <tt><i>mysqli</i></tt> :
         The improved MySQL extension. This extension became available
-        with php 5.0.0 and is the recommended way to connect to a server
+        with PHP 5.0.0 and is the recommended way to connect to a server
         running MySQL 4.1.x or newer.</dd>
 
     <dt id="cfg_Servers_compress">$cfg['Servers'][$i]['compress'] boolean</dt>
     <dd>Whether to use a compressed protocol for the MySQL server connection
-        or not (experimental).<br />
-        This feature requires PHP&nbsp;&gt;=&nbsp;4.3.0.</dd>
+        or not (experimental).</dd>
 
     <dt id="controluser">
         <span id="cfg_Servers_controluser">$cfg['Servers'][$i]['controluser']</span> string<br />
@@ -1840,9 +1838,7 @@ $cfg['TrustedProxies'] =
     <dd>Specifies whether GD &gt;= 2 is available. If yes it can be used for
         MIME transformations.<br />
         Possible values are:
-        <ul><li>auto - automatically detect, this is a bit expensive
-                operation for php &lt; 4.3.0 so it is preferred to change this
-                according to your server real possibilities</li>
+        <ul><li>auto - automatically detect</li>
             <li>yes - GD 2 functions can be used</li>
             <li>no - GD 2 function cannot be used</li>
         </ul>
@@ -2674,7 +2670,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     <abbr title="HyperText Transfer Protocol">HTTP</abbr> headers ...&quot;.</a>
 </h4>
 
-<p> You just forgot to read the <i>install.txt</i> file from the php distribution.
+<p> You just forgot to read the <i>install.txt</i> file from the PHP distribution.
     Have a look at the last message in this
     <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
     official PHP bug database.</p>
@@ -2816,7 +2812,7 @@ setfacl -d -m "g:www-data:rwx" tmp
     connect to your MySQL server using PHP's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
     <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
-    is available in php 5.0. The latter one should be used unless you have a
+    is available in PHP 5.0. The latter one should be used unless you have a
     good reason not to do so.<br />
     When compiling PHP, we strongly recommend that you manually link the MySQL
     extension of your choice to a MySQL client library of at least the same
@@ -3014,11 +3010,7 @@ SetInputFilter PHP
 </ol>
 
 <h4 id="faq1_33">
-    <a href="#faq1_33">1.33 Is there a problem with the mysqli extension when running
-    PHP 5.0.4 on 64-bit systems?</a></h4>
-
-<p> Yes. This problem affects phpMyAdmin (&quot;Call to undefined function
-    pma_reloadnavigation&quot;), so upgrade your PHP to the next version.</p>
+    <a href="#faq1_33">1.33 (withdrawn).</a></h4>
 
 <h4 id="faq1_34">
     <a href="#faq1_34">1.34 Can I access directly to database or table pages?</a></h4>
@@ -3227,8 +3219,8 @@ the <tt>mysql_upgrade</tt> command on the server.</p>
 <p> Try to set the <a href="#cfg_OBGzip" class="configrule">$cfg['OBGZip']</a>
     directive to <tt>FALSE</tt> in the phpMyAdmin configuration file. It helps
     sometime.<br />
-    Also have a look at your PHP version number: if it contains &quot;4.0b...&quot;
-    it means you're running a beta version of PHP. That's not a so good idea,
+    Also have a look at your PHP version number: if it contains &quot;b&quot; or &quot;alpha&quot;
+    it means you're running a testing version of PHP. That's not a so good idea,
     please upgrade to a plain revision.</p>
 
 <h4 id="faq2_5">
