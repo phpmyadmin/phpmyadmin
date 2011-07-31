@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 18:12+0200\n"
+"PO-Revision-Date: 2011-07-31 18:13+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6867,10 +6867,9 @@ msgid "Definition"
 msgstr "Definition"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "kompletta infogningar"
+msgstr "Vid avslut, bevara"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
