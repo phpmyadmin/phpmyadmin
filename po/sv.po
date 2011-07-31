@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 20:50+0200\n"
+"PO-Revision-Date: 2011-07-31 20:51+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -10017,7 +10017,7 @@ msgstr "Lägg till en ny Trigger"
 
 #: server_status.php:1445
 msgid "Clear series"
-msgstr ""
+msgstr "Rensa serier"
 
 #: server_status.php:1448
 #, fuzzy
