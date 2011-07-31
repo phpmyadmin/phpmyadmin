@@ -9997,10 +9997,9 @@ msgid "Append unit to data values"
 msgstr "Lägg till enhet till datavärdena"
 
 #: server_status.php:1432
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add this series"
-msgstr "Lägg till en ny Trigger"
+msgstr "Lägg till denna serie"
 
 #: server_status.php:1434
 msgid "Clear series"
