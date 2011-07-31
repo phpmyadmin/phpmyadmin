@@ -9065,7 +9065,7 @@ msgstr "Alla statusvariabler"
 
 #: server_status.php:619
 msgid "Monitor"
-msgstr ""
+msgstr "Övervaka"
 
 #: server_status.php:629 server_status.php:651
 #, fuzzy
