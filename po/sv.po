@@ -9897,9 +9897,8 @@ msgid "Clear monitor config"
 msgstr "Rensa monitor config"
 
 #: server_status.php:1363
-#, fuzzy
 msgid "Monitor Instructions"
-msgstr "Information"
+msgstr "Övervaka instruktioner"
 
 #: server_status.php:1364
 msgid ""
