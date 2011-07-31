@@ -9967,7 +9967,7 @@ msgstr "Användning"
 
 #: server_status.php:1399
 msgid "Memory Usage"
-msgstr ""
+msgstr "Minnesanvändning"
 
 #: server_status.php:1402
 #, fuzzy
