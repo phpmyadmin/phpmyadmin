@@ -10016,10 +10016,9 @@ msgid "Loading logs"
 msgstr "Läser in loggar"
 
 #: server_status.php:1448
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Visa statistik"
+msgstr "Logga statistik"
 
 #: server_status.php:1449
 #, fuzzy
