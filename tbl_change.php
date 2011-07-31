@@ -985,7 +985,6 @@ foreach ($rows as $row_id => $vrow) {
             echo('<span class="open_gis_editor">');
             echo(PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank'));
             echo('</span>');
-            echo('<div id="gis_editor"></div><div id="popup_background"></div>');
         }
         ?>
             </td>
@@ -996,8 +995,8 @@ foreach ($rows as $row_id => $vrow) {
     $o_rows++;
     echo '  </tbody></table><br />';
 } // end foreach on multi-edit
-
 ?>
+    <div id="gis_editor"></div><div id="popup_background"></div>
     <br />
     <fieldset id="actions_panel">
     <table border="0" cellpadding="5" cellspacing="0">
