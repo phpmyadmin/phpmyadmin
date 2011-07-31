@@ -131,12 +131,13 @@ abstract class PMA_GIS_Geometry
      */
     protected function generateParams($value) {
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+        $srid = 0;
+        $wkt = '';
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
             $last_comma = strripos($value, ",");
             $srid = trim(substr($value, $last_comma + 1));
             $wkt = trim(substr($value, 1, $last_comma - 2));
         } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $value)) {
-            $srid = 0;
             $wkt = $value;
         }
         return array('srid' => $srid, 'wkt' => $wkt);
