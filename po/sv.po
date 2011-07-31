@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-31 21:14+0200\n"
+"PO-Revision-Date: 2011-07-31 21:15+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -9966,7 +9966,6 @@ msgid "Swap Usage"
 msgstr "Swap användning"
 
 #: server_status.php:1394
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
 msgstr "Alla statusvariabler"
