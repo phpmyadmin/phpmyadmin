@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 18:28+0200\n"
+"PO-Revision-Date: 2011-07-31 18:29+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7100,10 +7100,9 @@ msgid "Trigger %1$s has been created."
 msgstr "Triggern %1$s har skapats."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Skapa vy"
+msgstr "Skapa trigger"
 
 #: libraries/rte/rte_triggers.lib.php:161
 #, fuzzy
