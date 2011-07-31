@@ -7178,10 +7178,9 @@ msgid "Export of trigger %s"
 msgstr "Exportera trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Trigger"
+msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:34
 #, fuzzy
