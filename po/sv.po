@@ -1355,7 +1355,6 @@ msgstr "Loggdata laddad. Frågorna exekverade under denna tidsperiod:"
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "Filter"
