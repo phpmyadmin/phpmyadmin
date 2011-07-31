@@ -48,29 +48,4 @@ function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')
         ? ($type == 'desc' ? PMA_lang($lang_key) : $GLOBALS["strConfig$lang_key"])
         : ($default == 'key' ? $lang_key : $default);
 }
-
-/**
- * Wraps link in &lt;a&gt; tags and replaces argument separator in internal links
- * to the one returned by PMA_get_arg_separator()
- *
- * @param string $link
- * @param string $text
- * @return string
- */
-function PMA_lang_link_replace($link, $text)
-{
-    static $separator;
-
-    if (!isset($separator)) {
-        $separator = PMA_get_arg_separator('html');
-    }
-
-    if (!preg_match('#^https?://#', $link)) {
-        $link = str_replace('&amp;', $separator, $link);
-    } else {
-        $link = PMA_linkURL($link);
-    }
-
-    return '<a href="' . $link . '">' . $text . '</a>';
-}
 ?>
