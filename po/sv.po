@@ -7110,10 +7110,9 @@ msgid "Edit trigger"
 msgstr "Editera trigger"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Trigger"
+msgstr "Trigger namn"
 
 #: libraries/rte/rte_triggers.lib.php:399
 #, fuzzy
