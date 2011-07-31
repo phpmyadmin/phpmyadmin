@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-31 18:08+0200\n"
+"PO-Revision-Date: 2011-07-31 18:09+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -6793,10 +6793,10 @@ msgid "The backed up query was:"
 msgstr "Den säkerhetskopierade frågan var:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Rutinen %1$s har modifierats."
+msgstr "Händelsen %1$s har ändrats."
 
 #: libraries/rte/rte_events.lib.php:133
 #, fuzzy, php-format
