@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-29 13:44+0200\n"
+"PO-Revision-Date: 2011-07-31 21:12+0200\n"
 "Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1326,7 +1326,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analysiere und Lade Protokolle. Dies kann eine Weile dauern."
 
 #: js/messages.php:143
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
@@ -1337,7 +1336,7 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Diese Spalte zeigt die Anzahl der identischen Abfragen an, die gruppiert "
-"wurden. Dennoch wird nur der SQL-Text verglichen, daher kann die Angabe von "
+"wurden. Jedoch wird nur der SQL-Text verglichen, daher kann die Angabe von "
 "anderen Werten der Abfrage, wie die Startzeit, unterschiedlich sein."
 
 #: js/messages.php:144
@@ -1360,12 +1359,11 @@ msgid "Jump to Log table"
 msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Protokoll wurde analysiert, es wurden jedoch keine Daten im angegebenen "
-"Zeitraum gefunden."
+"Das Protokoll wurde analysiert, es wurden jedoch keine Daten für den "
+"angegebenen Zeitraum gefunden."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
