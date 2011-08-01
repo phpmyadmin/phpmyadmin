@@ -1044,7 +1044,7 @@ function printServerTraffic() {
                 p.command  AS Command,
                 p.time     AS Time,
                 p.state    AS State,
-                " . ($show_full_sql ? 's.query' : 'p.info') . " AS Info
+                " . ($show_full_sql ? 's.query' : 'left(p.info, ' . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')') . " AS Info
             FROM data_dictionary.PROCESSLIST p
                 " . ($show_full_sql ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' : '');
     } else {
@@ -1071,9 +1071,9 @@ function printServerTraffic() {
         <th><?php echo __('Status'); ?></th>
         <th><?php echo __('SQL query'); ?>
             <a href="<?php echo $full_text_link; ?>"
-                title="<?php echo empty($full) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>">
-                <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (empty($_REQUEST['full']) ? 'full' : 'partial'); ?>text.png"
-                alt="<?php echo empty($_REQUEST['full']) ? __('Show Full Queries') : __('Truncate Shown Queries'); ?>" />
+                title="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>">
+                <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
+                alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
             </a>
         </th>
     </tr>
@@ -1099,7 +1099,7 @@ function printServerTraffic() {
         if (empty($process['Info'])) {
             echo '---';
         } else {
-            if (empty($_REQUEST['full']) && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            if (!$show_full_sql && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 echo htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
             } else {
                 echo PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']));
