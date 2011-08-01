@@ -66,7 +66,6 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
     $foreigners = PMA_getForeigners($db, $table);
     $flag = 1;
     $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
-    $maxPlotlLimit = $GLOBALS['cfg']['maxRowPlotLimit'];
     if(!isset($zoom_submit) && !isset($inputs))
         $dataLabel = PMA_getDisplayField($db,$table);
 
@@ -256,7 +255,7 @@ for($i = 0 ; $i < 4 ; $i++){
 	    $dataLabel = PMA_getDisplayField($db,$table);
     }
     ?>
-    <table>
+    <table class="data">
     <tr><td><label for="label"><?php echo __("Data Label"); ?></label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
@@ -273,6 +272,16 @@ for($i = 0 ; $i < 4 ; $i++){
         } ?>
     </select>
     </td></tr>
+    <tr><td><label for="label"><?php echo __("Maximum rows to plot"); ?></label></td>
+    <td>
+    <?php if(isset($maxPlotLimit)) { ?>
+        <input type="text" name="maxPlotLimit" value="<?php echo $maxPlotLimit; ?>" /></td></tr>
+    <?php
+      }
+      else { ?>
+	<input type="text" name="maxPlotLimit" value="<?php echo $GLOBALS['cfg']['maxRowPlotLimit']; ?>" /></td></tr>
+    <?php
+	} ?> 
     </table>
 
 </fieldset>
@@ -318,7 +327,7 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
         if ($w) {
             $sql_query .= ' WHERE ' . implode(' AND ', $w);
         }
-	$sql_query .= ' LIMIT ' . $maxPlotlLimit;
+	$sql_query .= ' LIMIT ' . $maxPlotLimit;
 
     /*
      * Query execution part
