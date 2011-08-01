@@ -1429,7 +1429,7 @@
         });
         $(window).bind('beforeunload', function(e) {
             if (g.isCellEdited) {
-                g.saveCellWarning;
+                return g.saveCellWarning;
             }
         });
         
