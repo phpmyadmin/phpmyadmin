@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-25 14:55+0200\n"
-"Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
+"PO-Revision-Date: 2011-07-31 21:12+0200\n"
+"Last-Translator:  <mrbendig@mrbendig.com>\n"
 "Language-Team: german <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1209,7 +1209,6 @@ msgid "Pause monitor"
 msgstr "Überwachung pausieren"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "general_log and slow_query_log is enabled."
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log und slow_query_log sind aktiviert."
@@ -1223,7 +1222,6 @@ msgid "slow_query_log is enabled."
 msgstr "slow_query_log ist aktiviert."
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "slow_query_log and general_log is disabled."
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log und general_log sind deaktiviert."
@@ -1328,7 +1326,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analysiere und Lade Protokolle. Dies kann eine Weile dauern."
 
 #: js/messages.php:143
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
@@ -1339,7 +1336,7 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Diese Spalte zeigt die Anzahl der identischen Abfragen an, die gruppiert "
-"wurden. Dennoch wird nur der SQL-Text verglichen, daher kann die Angabe von "
+"wurden. Jedoch wird nur der SQL-Text verglichen, daher kann die Angabe von "
 "anderen Werten der Abfrage, wie die Startzeit, unterschiedlich sein."
 
 #: js/messages.php:144
@@ -1362,16 +1359,14 @@ msgid "Jump to Log table"
 msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Protokoll wurde analysiert, es wurden jedoch keine Daten im angegebenen "
-"Zeitraum gefunden."
+"Das Protokoll wurde analysiert, es wurden jedoch keine Daten für den "
+"angegebenen Zeitraum gefunden."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "Filter"
@@ -1383,23 +1378,21 @@ msgstr "Filter"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filte die Abfragen durch Wort / Regulären Ausdruck:"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Gruppiere die Abfragen und ignoriere Werte in WHERE-Abfragen"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Anzahl der eingefügten Datensätze"
+msgstr "Anzahl der gruppierten Datensätze"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Insgesamt"
+msgstr "Insgesamt:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1541,10 +1534,9 @@ msgid "Change"
 msgstr "Bearbeiten"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maximale Ausführungszeit"
+msgstr "Ausführungszeit der Abfrage"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
@@ -1560,10 +1552,9 @@ msgid "Ignore"
 msgstr "Ignorieren"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Spalte hinzufügen"
+msgstr "Spalten hinzufügen"
 
 #: js/messages.php:221
 msgid "Select referenced key"
@@ -6297,7 +6288,6 @@ msgstr ""
 "können Sie:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "Zum Anzeigen einer Struktur einfach auf den Namen klicken"
@@ -6309,10 +6299,9 @@ msgstr ""
 "Zum Ändern der Einstellungen auf das entsprechende \"Optionen\" klicken"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Zum Ändern der Struktur auf das entsprechenden \"Struktur\" klicken"
+msgstr "Zum Ändern der Struktur auf den entsprechenden \"Struktur\"-Link klicken"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
@@ -10167,11 +10156,12 @@ msgstr "Ausgewählte Zeit-Spanne:"
 
 #: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Rufe nur SELECT, INSERT, UPDATE und DELETE Abfragen ab"
 
 #: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
+"Lösche Variablen-Werte in INSERT Abfragen um die Gruppierung zu verbessern"
 
 #: server_status.php:1462
 msgid ""
@@ -10182,10 +10172,9 @@ msgstr ""
 "sollen</p> Ergebnisse sind nach Abfrage-Text zusammengefasst."
 
 #: server_status.php:1465
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Abfrageart"
+msgstr "Query Analyzer"
 
 #: server_status.php:1501
 #, php-format

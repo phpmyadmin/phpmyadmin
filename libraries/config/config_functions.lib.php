@@ -11,11 +11,11 @@
  * for formatting. Takes variable number of arguments.
  * Based on PMA_sanitize from sanitize.lib.php.
  *
- * @param  string  $lang_key key in $GLOBALS WITHOUT 'strSetup' prefix
- * @param  mixed   $args     arguments for sprintf
+ * @param  string  $lang_key  key in $GLOBALS WITHOUT 'strSetup' prefix
+ * @param  mixed   $args,...  arguments for sprintf
  * @return string
  */
-function PMA_lang($lang_key)
+function PMA_lang($lang_key, $args = null)
 {
     $message = isset($GLOBALS["strConfig$lang_key"]) ? $GLOBALS["strConfig$lang_key"] : $lang_key;
 
@@ -47,30 +47,5 @@ function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')
     return isset($GLOBALS["strConfig$lang_key"])
         ? ($type == 'desc' ? PMA_lang($lang_key) : $GLOBALS["strConfig$lang_key"])
         : ($default == 'key' ? $lang_key : $default);
-}
-
-/**
- * Wraps link in &lt;a&gt; tags and replaces argument separator in internal links
- * to the one returned by PMA_get_arg_separator()
- *
- * @param string $link
- * @param string $text
- * @return string
- */
-function PMA_lang_link_replace($link, $text)
-{
-    static $separator;
-
-    if (!isset($separator)) {
-        $separator = PMA_get_arg_separator('html');
-    }
-
-    if (!preg_match('#^https?://#', $link)) {
-        $link = str_replace('&amp;', $separator, $link);
-    } else {
-        $link = PMA_linkURL($link);
-    }
-
-    return '<a href="' . $link . '">' . $text . '</a>';
 }
 ?>
