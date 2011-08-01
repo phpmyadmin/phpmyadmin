@@ -1094,7 +1094,19 @@ function printServerTraffic() {
         <td><?php echo $process['Command']; ?></td>
         <td class="value"><?php echo $process['Time']; ?></td>
         <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>
-        <td><?php echo (empty($process['Info']) ? '---' : PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']))); ?></td>
+        <td>
+        <?php
+        if (empty($process['Info'])) {
+            echo '---';
+        } else {
+            if (empty($_REQUEST['full']) && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+                echo htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
+            } else {
+                echo PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']));
+            }
+        }
+        ?>
+        </td>
     </tr>
         <?php
         $odd_row = ! $odd_row;
