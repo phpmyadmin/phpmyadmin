@@ -1264,11 +1264,11 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
 }
 
 /**
- * returns the definition of a specific PROCEDURE, FUNCTION or EVENT
+ * returns the definition of a specific PROCEDURE, FUNCTION, EVENT or VIEW
  *
  * @param string              $db     db name
- * @param string              $which  PROCEDURE | FUNCTION | EVENT
- * @param string              $name  the procedure|function|event name
+ * @param string              $which  PROCEDURE | FUNCTION | EVENT | VIEW
+ * @param string              $name  the procedure|function|event|view name
  * @param resource            $link   mysql link
  *
  * @return  string              the definition
@@ -1278,7 +1278,8 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
     $returned_field = array(
         'PROCEDURE' => 'Create Procedure',
         'FUNCTION'  => 'Create Function',
-        'EVENT'     => 'Create Event'
+        'EVENT'     => 'Create Event',
+        'VIEW'      => 'Create View'
     );
     $query = 'SHOW CREATE ' . $which . ' ' . PMA_backquote($db) . '.' . PMA_backquote($name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
