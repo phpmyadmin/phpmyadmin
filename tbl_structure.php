@@ -622,7 +622,20 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 /**
  * Work on the table
  */
+
+if ($tbl_is_view) {
+    $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
 ?>
+    <a href="tbl_sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode($create_view); ?>&amp;show_query=1"><?php
+    if ($cfg['PropertiesIconic']) {
+        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="' . __('Edit view') . '"/>';
+    }
+    echo __('Edit view');
+?></a>
+<?php
+}
+?>
+
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
 if ($cfg['PropertiesIconic']) {
     echo '<img class="icon ic_b_print" src="themes/dot.gif" alt="' . __('Print view') . '"/>';
