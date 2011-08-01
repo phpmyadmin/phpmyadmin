@@ -1073,7 +1073,9 @@
                 var is_null = $(g.cEdit).find('input:checkbox').is(':checked');
                 var value;
 
-                if (is_null) {
+                if ($(g.cEdit).find('.edit_area').is('.edit_area_loading')) {
+                    need_to_post = false;
+                } else if (is_null) {
                     if (!g.wasEditedCellNull) {
                         this_field_params[field_name] = null;
                         need_to_post = true;
