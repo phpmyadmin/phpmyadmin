@@ -294,7 +294,7 @@ function PMA_DBI_get_proto_info($link = null)
  */
 function PMA_DBI_get_client_info()
 {
-    return drizzle_version();
+    return 'libdrizzle (Drizzle ' . drizzle_version() . ')';
 }
 
 /**
