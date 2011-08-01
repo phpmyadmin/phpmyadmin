@@ -156,8 +156,8 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<h2>' . __('Database server') . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
-    PMA_printListItem(__('Server type') . ': ' . PMA_getServerType(), 'li_server_type');
-    PMA_printListItem(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
+    PMA_printListItem(__('Software') . ': ' . PMA_getServerType(), 'li_server_type');
+    PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION, 'li_server_version');
     PMA_printListItem(__('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto');
     PMA_printListItem(__('User') . ': ' . htmlspecialchars($mysql_cur_user_and_host),
@@ -182,13 +182,14 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
 
         if ($server > 0) {
-            $client_version_str = $GLOBALS['cfg']['Server']['extension'] == 'drizzle'
-                ? __('Drizzle client version')
-                : __('MySQL client version');
-            PMA_printListItem($client_version_str . ': ' . PMA_DBI_get_client_info(),
+            $client_version_str = PMA_DBI_get_client_info();
+            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
+                    && in_array($GLOBALS['cfg']['Server']['extension'], array('mysql', 'mysqli'))) {
+                $client_version_str = 'libmysql - ' . $client_version_str;
+            }
+            PMA_printListItem(__('Database client version') . ': ' . $client_version_str,
                 'li_mysql_client_version');
             PMA_printListItem(__('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
-                    . phpversion($GLOBALS['cfg']['Server']['extension']) . ' '
                     . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
                 'li_used_php_extension');
         }
