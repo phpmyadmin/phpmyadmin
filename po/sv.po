@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2011-07-25 11:36+0200\n"
-"PO-Revision-Date: 2011-07-07 21:24+0200\n"
+"POT-Creation-Date: 2011-07-30 14:14-0400\n"
+"PO-Revision-Date: 2011-07-31 21:19+0200\n"
 "Last-Translator:  <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -74,9 +74,9 @@ msgstr "Sök"
 #: server_privileges.php:2224 server_replication.php:233
 #: server_replication.php:316 server_replication.php:347
 #: server_synchronize.php:1219 tbl_change.php:335 tbl_change.php:1027
-#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:280
-#: tbl_operations.php:317 tbl_operations.php:519 tbl_operations.php:581
-#: tbl_operations.php:763 tbl_select.php:317 tbl_structure.php:698
+#: tbl_change.php:1064 tbl_indexes.php:268 tbl_operations.php:289
+#: tbl_operations.php:326 tbl_operations.php:528 tbl_operations.php:590
+#: tbl_operations.php:772 tbl_select.php:318 tbl_structure.php:698
 #: tbl_structure.php:735 tbl_tracking.php:425 tbl_tracking.php:563
 #: view_create.php:181 view_operations.php:99
 msgid "Go"
@@ -130,7 +130,7 @@ msgid "Database comment: "
 msgstr "Databaskommentar: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1204
-#: libraries/tbl_properties.inc.php:717 tbl_operations.php:362
+#: libraries/tbl_properties.inc.php:717 tbl_operations.php:371
 #: tbl_printview.php:127
 msgid "Table comments"
 msgstr "Tabellkommentarer"
@@ -142,7 +142,7 @@ msgstr "Tabellkommentarer"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1251
 #: libraries/tbl_properties.inc.php:277 tbl_change.php:313 tbl_chart.php:86
 #: tbl_indexes.php:196 tbl_printview.php:139 tbl_relation.php:399
-#: tbl_select.php:113 tbl_tracking.php:266 tbl_tracking.php:317
+#: tbl_select.php:114 tbl_tracking.php:266 tbl_tracking.php:317
 msgid "Column"
 msgstr "Kolumn"
 
@@ -157,7 +157,7 @@ msgstr "Kolumn"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1252
 #: libraries/tbl_properties.inc.php:103 server_privileges.php:2237
 #: tbl_change.php:292 tbl_change.php:319 tbl_printview.php:140
-#: tbl_printview.php:310 tbl_select.php:114 tbl_structure.php:205
+#: tbl_printview.php:310 tbl_select.php:115 tbl_structure.php:205
 #: tbl_structure.php:792 tbl_tracking.php:267 tbl_tracking.php:314
 msgid "Type"
 msgstr "Typ"
@@ -296,15 +296,15 @@ msgstr "Tag bort databasen (DROP)"
 msgid "Copy database to"
 msgstr "Kopiera databas till"
 
-#: db_operations.php:480 tbl_operations.php:548 tbl_tracking.php:418
+#: db_operations.php:480 tbl_operations.php:557 tbl_tracking.php:418
 msgid "Structure only"
 msgstr "Enbart struktur"
 
-#: db_operations.php:481 tbl_operations.php:549 tbl_tracking.php:420
+#: db_operations.php:481 tbl_operations.php:558 tbl_tracking.php:420
 msgid "Structure and data"
 msgstr "Struktur och data"
 
-#: db_operations.php:482 tbl_operations.php:550 tbl_tracking.php:419
+#: db_operations.php:482 tbl_operations.php:559 tbl_tracking.php:419
 msgid "Data only"
 msgstr "Enbart data"
 
@@ -314,17 +314,17 @@ msgstr "CREATE DATABASE före kopiering"
 
 #: db_operations.php:493 libraries/config/messages.inc.php:126
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:129
-#: libraries/config/messages.inc.php:135 tbl_operations.php:556
+#: libraries/config/messages.inc.php:135 tbl_operations.php:565
 #, php-format
 msgid "Add %s"
 msgstr "Lägg till %s"
 
 #: db_operations.php:497 libraries/config/messages.inc.php:119
-#: tbl_operations.php:314 tbl_operations.php:558
+#: tbl_operations.php:323 tbl_operations.php:567
 msgid "Add AUTO_INCREMENT value"
 msgstr "Lägg till AUTO_INCREMENT-värde"
 
-#: db_operations.php:501 tbl_operations.php:565
+#: db_operations.php:501 tbl_operations.php:574
 msgid "Add constraints"
 msgstr "Lägg till restriktioner"
 
@@ -336,7 +336,7 @@ msgstr "Byt till kopierad databas"
 #: libraries/build_html_for_db.lib.php:19 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:110 libraries/tbl_properties.inc.php:110
 #: libraries/tbl_properties.inc.php:723 server_collations.php:53
-#: server_collations.php:65 tbl_operations.php:378 tbl_select.php:115
+#: server_collations.php:65 tbl_operations.php:387 tbl_select.php:116
 #: tbl_structure.php:206 tbl_structure.php:900 tbl_tracking.php:268
 #: tbl_tracking.php:319
 msgid "Collation"
@@ -429,15 +429,15 @@ msgstr "Sortera"
 
 #: db_qbe.php:231 db_qbe.php:265 libraries/db_structure.lib.php:97
 #: libraries/display_tbl.lib.php:554 libraries/display_tbl.lib.php:895
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:275
-#: tbl_select.php:304
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:284
+#: tbl_select.php:305
 msgid "Ascending"
 msgstr "Stigande"
 
 #: db_qbe.php:232 db_qbe.php:273 libraries/db_structure.lib.php:105
 #: libraries/display_tbl.lib.php:559 libraries/display_tbl.lib.php:892
-#: server_databases.php:157 server_databases.php:174 tbl_operations.php:276
-#: tbl_select.php:305
+#: server_databases.php:157 server_databases.php:174 tbl_operations.php:285
+#: tbl_select.php:306
 msgid "Descending"
 msgstr "Fallande"
 
@@ -464,7 +464,7 @@ msgstr "Ta bort"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:393 tbl_change.php:890 tbl_indexes.php:264
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Or"
 msgstr "Eller"
 
@@ -497,8 +497,8 @@ msgstr "SQL-fråga i databas <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Kör fråga"
 
-#: db_search.php:30 libraries/auth/config.auth.lib.php:83
-#: libraries/auth/config.auth.lib.php:102
+#: db_search.php:30 libraries/auth/config.auth.lib.php:77
+#: libraries/auth/config.auth.lib.php:96
 #: libraries/auth/cookie.auth.lib.php:566 libraries/auth/http.auth.lib.php:51
 #: libraries/auth/signon.auth.lib.php:236
 msgid "Access denied"
@@ -590,17 +590,17 @@ msgstr "Inuti kolumnen:"
 msgid "No tables found in database"
 msgstr "Inga tabeller finns i databasen."
 
-#: db_structure.php:271 tbl_operations.php:688
+#: db_structure.php:271 tbl_operations.php:697
 #, php-format
 msgid "Table %s has been emptied"
 msgstr "Tabellen %s har tömts"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "View %s has been dropped"
 msgstr "Vyn %s har tagits bort"
 
-#: db_structure.php:280 tbl_operations.php:705
+#: db_structure.php:280 tbl_operations.php:714
 #, php-format
 msgid "Table %s has been dropped"
 msgstr "Tabellen %s har tagits bort"
@@ -616,8 +616,8 @@ msgstr "Spårning är inte aktiv."
 #: db_structure.php:373 libraries/display_tbl.lib.php:2195
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
@@ -691,20 +691,20 @@ msgstr "Töm"
 msgid "Drop"
 msgstr "Radera"
 
-#: db_structure.php:507 tbl_operations.php:604
+#: db_structure.php:507 tbl_operations.php:613
 msgid "Check table"
 msgstr "Kontrollera tabell"
 
-#: db_structure.php:509 tbl_operations.php:653 tbl_structure.php:842
+#: db_structure.php:509 tbl_operations.php:662 tbl_structure.php:842
 #: tbl_structure.php:844
 msgid "Optimize table"
 msgstr "Optimera tabell"
 
-#: db_structure.php:511 tbl_operations.php:640
+#: db_structure.php:511 tbl_operations.php:649
 msgid "Repair table"
 msgstr "Reparera tabell"
 
-#: db_structure.php:513 tbl_operations.php:627
+#: db_structure.php:513 tbl_operations.php:636
 msgid "Analyze table"
 msgstr "Analysera tabell"
 
@@ -855,8 +855,8 @@ msgstr "SQL-satserna har sparats till filen %s."
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 "Du försökte förmodligen ladda upp en för stor fil. Se %sdokumentationen%s "
 "för att gå runt denna begränsning."
@@ -928,7 +928,7 @@ msgstr ""
 
 #: import.php:452 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2232 libraries/rte/rte_routines.lib.php:1193
-#: libraries/sql_query_form.lib.php:113 tbl_operations.php:228
+#: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:289 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
 msgstr "Din SQL-fråga utfördes korrekt"
@@ -1115,15 +1115,14 @@ msgstr "Förbindelser / Processer"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
-#, fuzzy
 #| msgid "Connections since last refresh"
 msgid "Questions since last refresh"
-msgstr "Anslutningar sedan förra uppdateringen"
+msgstr "Frågor sedan förra uppdateringen"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Frågor (utförda kommandon från servern)"
 
 #: js/messages.php:91 server_status.php:617
 msgid "Query statistics"
@@ -1131,34 +1130,33 @@ msgstr "Visa statistik"
 
 #: js/messages.php:94
 msgid "System CPU Usage"
-msgstr ""
+msgstr "System processoranvändning"
 
 #: js/messages.php:95
 msgid "System memory"
-msgstr ""
+msgstr "Systemminne"
 
 #: js/messages.php:96
 msgid "System swap"
-msgstr ""
+msgstr "System swap"
 
-#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:97 libraries/common.lib.php:1274 server_status.php:1422
 msgid "MiB"
 msgstr "MiB"
 
-#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1433
+#: js/messages.php:98 libraries/common.lib.php:1274 server_status.php:1422
 msgid "KiB"
 msgstr "KiB"
 
 #: js/messages.php:100
 msgid "Average load"
-msgstr ""
+msgstr "Genomsnittlig belastning"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:102
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "Versioner"
+msgstr "Frågor"
 
 #: js/messages.php:103 server_status.php:894
 msgid "Traffic"
@@ -1170,63 +1168,61 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "Radera databasen"
+msgstr "Ta bort diagram"
 
 #: js/messages.php:106
 msgid "Edit labels and series"
-msgstr ""
+msgstr "Redigera etiketter och serier"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "Fäst vid rutnät"
+msgstr "Adders diagrammet till rutnätet"
 
 #: js/messages.php:109
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Lägg till minst en variabel till serien"
 
 #: js/messages.php:110 libraries/display_export.lib.php:306
 #: libraries/display_tbl.lib.php:561 libraries/export/sql.php:1052
 #: libraries/tbl_properties.inc.php:562 pmd_general.php:510
-#: server_privileges.php:2041 server_status.php:1054 server_status.php:1450
+#: server_privileges.php:2041 server_status.php:1054 server_status.php:1439
 msgid "None"
 msgstr "Inget"
 
 #: js/messages.php:111
 msgid "Resume monitor"
-msgstr ""
+msgstr "Återuppta monitor"
 
 #: js/messages.php:112
 msgid "Pause monitor"
-msgstr ""
+msgstr "Pausa monitor"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log och slow_query_log är aktiverade."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log är aktiverad."
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log är aktiverad."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log och general_log är deaktiverade."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output är inte definierad som TABLE."
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output är definerad som TABLE."
 
 #: js/messages.php:120
 #, php-format
@@ -1235,99 +1231,104 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log är aktiverad, men servern loggar endast frågor som tar längre "
+"tid än% d sekunder. Det är lämpligt att definiera long_query_time till 0-2 "
+"sekunder, beroende på ditt system."
 
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time är definerad till %d sekund(er)."
 
 #: js/messages.php:122
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Följande inställningar kommer appliceras globalt och återställs till "
+"standardvärdet när servern startas om:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Spara utdata till en fil"
+msgstr "Sätt log_output till %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Aktiverat"
+msgstr "Aktivera %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Inaktiverad"
+msgstr "Inaktivera %s"
 
 #. l10n: %d seconds
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Sätt long_query_time till %ds"
 
 #: js/messages.php:131
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Du kan inte ändra dessa variabler. Logga in som root eller kontakta din "
+"databasadministratör."
 
 #: js/messages.php:132
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Hantera dina inställningar"
+msgstr "Ändra inställningar"
 
 #: js/messages.php:133
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Fler inställningar"
+msgstr "Nuvarande inställningar"
 
-#: js/messages.php:135 server_status.php:1393
-#, fuzzy
-#| msgid "Chart title"
+#: js/messages.php:135 server_status.php:1382
 msgid "Chart Title"
 msgstr "Diagramtitel"
 
 #. l10n: As in differential values
 #: js/messages.php:137
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Skillnad"
+msgstr "Differential"
 
 #: js/messages.php:138
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "Dividerat med %s:"
 
 #: js/messages.php:140
 msgid "From slow log"
-msgstr ""
+msgstr "Från långsam logg"
 
 #: js/messages.php:141
 msgid "From general log"
-msgstr ""
+msgstr "Från allmän logg"
 
 #: js/messages.php:142
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analyserar och laddar loggar. Detta kan ta lite tid."
 
 #: js/messages.php:143
 msgid ""
-"This columns shows the amount of identical queries that are grouped "
-"together. However only the SQL Text is being compared, thus the queries "
-"other attributes such as start time may differ."
+"This column shows the amount of identical queries that are grouped together. "
+"However only the SQL query itself has been used as a grouping criteria, so "
+"the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Denna kolumn visar antalet identiska frågor som är grupperade tillsammans. "
+"Men endast SQL Text blir jämförd, följaktligen blir frågorna andra attribut "
+"som starttid kan variera."
 
 #: js/messages.php:144
 msgid ""
@@ -1335,24 +1336,24 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Sedan gruppering av INSERT frågor har valts, är INSERT frågor i samma tabell "
+"också grupperas tillsammans, oberoende av de infogade data."
 
 #: js/messages.php:145
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Loggdata laddad. Frågorna utförda under denna tidsperiod:"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Gå till daatabas"
+msgstr "Gå till tabellogg"
 
 #: js/messages.php:148
-msgid "Log analysed, but not data found in this time span."
-msgstr ""
+msgid "Log analysed, but no data found in this time span."
+msgstr "Loggdata laddad. Frågorna exekverade under denna tidsperiod:"
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "Filter"
@@ -1364,23 +1365,21 @@ msgstr "Filter"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrera frågor med ord/regexp:"
 
 #: js/messages.php:155
-msgid "Group queries, ignoring variable data in WHERE statements"
-msgstr ""
+msgid "Group queries, ignoring variable data in WHERE clauses"
+msgstr "Gruppfrågor, ignorera variabeldata i WHERE kommandon"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Antal infogade rader"
+msgstr "Summan av grupperade rader:"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Totalt:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1519,10 +1518,9 @@ msgid "Change"
 msgstr "Ändra"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maximal exekveringstid"
+msgstr "Exekveringstid för frågor"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
@@ -1538,10 +1536,9 @@ msgid "Ignore"
 msgstr "Ignorera"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Lägg till kolumn"
+msgstr "Addera kolumn"
 
 #: js/messages.php:221
 msgid "Select referenced key"
@@ -1858,13 +1855,12 @@ msgstr "Teckenstorlek"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Filen var inte en uppladdad fil."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Okänt fel i filuppladdning."
+msgstr "Okänt fel vid uppladdning."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1907,11 +1903,11 @@ msgstr "Fel vid flytt av uppladdad fil, se FAQ 1.11"
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Fel när du flyttar uppladdad fil."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Kan inte läsa (flyttad) uppladdad fil."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
@@ -1969,7 +1965,7 @@ msgstr "Databaserna"
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:303
 #: libraries/blobstreaming.lib.php:309 libraries/common.lib.php:531
 #: libraries/core.lib.php:210 libraries/import.lib.php:135 tbl_change.php:886
-#: tbl_operations.php:228 tbl_relation.php:287 view_operations.php:60
+#: tbl_operations.php:229 tbl_relation.php:287 view_operations.php:60
 msgid "Error"
 msgstr "Fel"
 
@@ -2082,26 +2078,26 @@ msgstr "Temats sökväg för tema %s hittades inte!"
 msgid "Theme"
 msgstr "Tema"
 
-#: libraries/auth/config.auth.lib.php:76
+#: libraries/auth/config.auth.lib.php:71
 msgid "Cannot connect: invalid settings."
 msgstr "Kan ej skapa förbindelse: ogiltiga inställningar."
 
-#: libraries/auth/config.auth.lib.php:91
+#: libraries/auth/config.auth.lib.php:85
 #: libraries/auth/cookie.auth.lib.php:172 libraries/auth/http.auth.lib.php:64
 #, php-format
 msgid "Welcome to %s"
 msgstr "Välkommen till %s"
 
-#: libraries/auth/config.auth.lib.php:106
+#: libraries/auth/config.auth.lib.php:100
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Du har troligen inte skapat en konfigurationsfil. Du vill kanske använda "
-"%1$suppsättningsskript%2$s för att skapa denna."
+"Du har troligen inte skapat en konfigurationsfil. Du vill kanske använda %1"
+"$suppsättningsskript%2$s för att skapa denna."
 
-#: libraries/auth/config.auth.lib.php:115
+#: libraries/auth/config.auth.lib.php:109
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -2165,7 +2161,7 @@ msgstr "Ingen aktivitet sedan %s sekunder; var god logga in igen"
 
 #: libraries/auth/cookie.auth.lib.php:578
 #: libraries/auth/cookie.auth.lib.php:580
-#: libraries/auth/signon.auth.lib.php:244
+#: libraries/auth/signon.auth.lib.php:242
 msgid "Cannot log in to the MySQL server"
 msgstr "Kan ej logga in på MySQL-server"
 
@@ -2326,7 +2322,7 @@ msgstr "Server"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/common.inc.php:929
+#: libraries/common.inc.php:934
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
@@ -2461,10 +2457,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dagar, %s timmar, %s minuter och %s sekunder"
 
 #: libraries/common.lib.php:1856
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Rutinparametrar"
+msgstr "Saknade parametrar:"
 
 #: libraries/common.lib.php:2162 libraries/common.lib.php:2165
 #: libraries/display_tbl.lib.php:299
@@ -2493,10 +2488,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten för %s påverkas av en känd bugg, se %s"
 
 #: libraries/common.lib.php:2427
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Klicka för att markera"
+msgstr "Klicka för att växla"
 
 #: libraries/common.lib.php:2698 libraries/common.lib.php:2705
 #: libraries/common.lib.php:2894 libraries/config/setup.forms.php:296
@@ -4962,20 +4956,20 @@ msgstr ""
 "Kan vara ungefärligt. Se [a@./Documentation.html#faq3_11@Documentation)FAQ "
 "3.11[/a]"
 
-#: libraries/dbi/mysql.dbi.lib.php:111 libraries/dbi/mysqli.dbi.lib.php:112
+#: libraries/dbi/mysql.dbi.lib.php:117 libraries/dbi/mysqli.dbi.lib.php:137
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Uppkoppling för controluser enligt din konfiguration misslyckades."
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysql.dbi.lib.php:326
-#: libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysql.dbi.lib.php:350
+#: libraries/dbi/mysqli.dbi.lib.php:377
 msgid "The server is not responding"
 msgstr "Servern svarar inte"
 
-#: libraries/dbi/mysql.dbi.lib.php:324 libraries/dbi/mysqli.dbi.lib.php:351
+#: libraries/dbi/mysql.dbi.lib.php:348 libraries/dbi/mysqli.dbi.lib.php:377
 msgid "(or the local MySQL server's socket is not correctly configured)"
 msgstr "(eller den lokala MySQL-serverns socket är inte korrekt konfigurerad)"
 
-#: libraries/dbi/mysql.dbi.lib.php:333
+#: libraries/dbi/mysql.dbi.lib.php:357
 msgid "Details..."
 msgstr "Detaljer..."
 
@@ -5126,8 +5120,8 @@ msgstr ", @TABLE@ blir tabellnamnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Detta värde tolkas med %1$sstrftime%2$s, så du kan använda strängar med "
 "tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig "
@@ -5347,7 +5341,7 @@ msgstr "Sortera efter nyckel"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:32
 #: libraries/import/sql.php:20 libraries/import/xls.php:28
 #: libraries/import/xlsx.php:28 libraries/import/xml.php:25
-#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:257
+#: libraries/rte/rte_routines.lib.php:852 tbl_select.php:258
 #: tbl_structure.php:886
 msgid "Options"
 msgstr "Alternativ"
@@ -5886,11 +5880,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentation och ytterligare information finns på %sPrimeBase XT Home Page"
-"%s."
+"Dokumentation och ytterligare information finns på %sPrimeBase XT Home Page%"
+"s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6221,10 +6215,9 @@ msgid ""
 msgstr "Följande strukturer har antingen skapats eller ändrats. Här kan du"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "Visa en strukturs innehåll genom att klicka på dess namn"
+msgstr "Visa en strukturs innehåll genom att klicka på namnet"
 
 #: libraries/import.lib.php:1070
 msgid ""
@@ -6234,10 +6227,9 @@ msgstr ""
 "\" länk"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Redigera dess struktur genom att följa \"Struktur\" länken"
+msgstr "Redigera strukturen genom att följa \"Structure\" länken"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
@@ -6719,7 +6711,7 @@ msgstr "Variabel"
 #: libraries/rte/rte_routines.lib.php:1357 pmd_general.php:476
 #: pmd_general.php:535 pmd_general.php:658 pmd_general.php:775
 #: server_status.php:1249 tbl_change.php:329 tbl_printview.php:367
-#: tbl_select.php:117 tbl_structure.php:862
+#: tbl_select.php:118 tbl_structure.php:862
 msgid "Value"
 msgstr "Värde"
 
@@ -6790,10 +6782,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "Följande fråga har fallerat:  \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Tyvärr, vi lyckades inte återställa den slängda rutinen."
+msgstr "Tyvärr kunde vi inte återställa tappade händelsen."
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:269
 #: libraries/rte/rte_triggers.lib.php:90
@@ -6801,16 +6792,16 @@ msgid "The backed up query was:"
 msgstr "Den säkerhetskopierade frågan var:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "Rutinen %1$s har modifierats."
+msgstr "Händelsen %1$s har ändrats."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "Tabell %1$s har skapats."
+msgstr "Händelsen %1$s har skapats."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:294
 #: libraries/rte/rte_triggers.lib.php:114
@@ -6819,16 +6810,14 @@ msgstr ""
 "<b> Ett eller flera fel har inträffat under hanteringen av din begäran: </b>"
 
 #: libraries/rte/rte_events.lib.php:181
-#, fuzzy
 #| msgid "Create view"
 msgid "Create event"
-msgstr "Skapa vy"
+msgstr "Skapa händelse"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Ändra server"
+msgstr "Editera händelse"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1264
@@ -6843,10 +6832,9 @@ msgid "Details"
 msgstr "Detaljer"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Händelsetyp"
+msgstr "Händelsenamn"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
@@ -6858,22 +6846,19 @@ msgid "Change to %s"
 msgstr "Ändra till %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Utför"
+msgstr "Utför vid"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Utför"
+msgstr "Utför varje"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 #| msgid "Startup"
 msgid "Start"
-msgstr "Uppstart"
+msgstr "Start"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:912
 #: libraries/rte/rte_triggers.lib.php:348
@@ -6881,10 +6866,9 @@ msgid "Definition"
 msgstr "Definition"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "complete inserts"
 msgid "On completion preserve"
-msgstr "kompletta infogningar"
+msgstr "Vid avslut, bevara"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:922
 #: libraries/rte/rte_triggers.lib.php:354
@@ -6894,61 +6878,54 @@ msgstr "Definierare"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:986
 #: libraries/rte/rte_triggers.lib.php:392
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Defineraren måste vara i formatet: \"användarnamn@hostname\""
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "Du måste ange ett händelsenamn"
 
 #: libraries/rte/rte_events.lib.php:537
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid interval value for the event."
-msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
+msgstr "Du måste ange ett giltigt intervall värde för händelsen."
 
 #: libraries/rte/rte_events.lib.php:549
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a valid execution time for the event."
-msgstr "Du måste ange en rutindefinition."
+msgstr "Du måste ange en giltig exekveringstid för händelsen."
 
 #: libraries/rte/rte_events.lib.php:553
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid type for the event."
-msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
+msgstr "Du måste ange en giltig typ för händelsen."
 
 #: libraries/rte/rte_events.lib.php:572
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide an event definition."
-msgstr "Du måste ange en rutindefinition."
+msgstr "Du måste ange en händelsedefinition."
 
 #: libraries/rte/rte_footer.lib.php:29
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 #: libraries/rte/rte_footer.lib.php:108
-#, fuzzy
 #| msgid "The event scheduler is enabled"
 msgid "Event scheduler status"
-msgstr "Schemaläggaren är aktiverad"
+msgstr "Status för händelsehanteraren "
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Returtyp"
+msgstr "Returnerar"
 
 #: libraries/rte/rte_list.lib.php:62 libraries/rte/rte_triggers.lib.php:320
 #: server_status.php:1019 sql.php:943
@@ -7069,10 +7046,9 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
 
 #: libraries/rte/rte_routines.lib.php:1065
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid return type for the routine."
-msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
+msgstr "Du måste ange en giltig returtyp för händelsen."
 
 #: libraries/rte/rte_routines.lib.php:1109
 msgid "You must provide a routine definition."
@@ -7106,70 +7082,61 @@ msgid "Function"
 msgstr "Funktion"
 
 #: libraries/rte/rte_triggers.lib.php:89
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Tyvärr, vi lyckades inte återställa den slängda rutinen."
+msgstr "Tyvärr lyckades vi inte återställa den släppta triggern."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
-msgstr "Rutinen %1$s har modifierats."
+msgstr "Triggern %1$s har modifierats."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "Tabell %1$s har skapats."
+msgstr "Triggern %1$s har skapats."
 
 #: libraries/rte/rte_triggers.lib.php:157
-#, fuzzy
 #| msgid "Create view"
 msgid "Create trigger"
-msgstr "Skapa vy"
+msgstr "Skapa trigger"
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Edit trigger"
-msgstr "Lägg till en ny Trigger"
+msgstr "Editera trigger"
 
 #: libraries/rte/rte_triggers.lib.php:301
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Trigger"
+msgstr "Trigger namn"
 
 #: libraries/rte/rte_triggers.lib.php:399
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "Du måste ange ett triggernamn"
 
 #: libraries/rte/rte_triggers.lib.php:404
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "Du måste ange en giltig tidsgräns för triggern"
 
 #: libraries/rte/rte_triggers.lib.php:409
-#, fuzzy
 #| msgid "You must provide a name and a type for each routine parameter."
 msgid "You must provide a valid event for the trigger"
-msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
+msgstr "Du måste ange en giltig händelse för triggern"
 
 #: libraries/rte/rte_triggers.lib.php:415
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "Du måste ange ett giltigt tabellnamn"
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "You must provide a routine definition."
 msgid "You must provide a trigger definition."
-msgstr "Du måste ange en rutindefinition."
+msgstr "Du måste ange en trigger definition."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
@@ -7181,16 +7148,14 @@ msgid "Export of routine %s"
 msgstr "Exportera rutin %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Rutiner"
+msgstr "Rutin"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Du har inte tillräcklig behörighet för att skapa en ny rutin"
+msgstr "Du har inte den nödvändiga behörigheent att skapa en rutin"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
@@ -7202,10 +7167,9 @@ msgid "There are no routines to display."
 msgstr "Det finns inga rutiner att visa."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a trigger"
 msgid "Add trigger"
-msgstr "Lägg till en ny Trigger"
+msgstr "Lägg till trigger"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
@@ -7213,32 +7177,29 @@ msgid "Export of trigger %s"
 msgstr "Exportera trigger %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Trigger"
+msgstr "trigger"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Du har inte tillräcklig behörighet för att skapa en ny rutin"
+msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Ingen rutin med namnet %1$s finns i databasen %2$s"
+msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
 msgid "There are no triggers to display."
 msgstr "Det finns inga triggers att visa"
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add an event"
 msgid "Add event"
-msgstr "Lägg till en ny händelse"
+msgstr "Lägg till händelse"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
@@ -7246,22 +7207,20 @@ msgid "Export of event %s"
 msgstr "Exportera händelse %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Händelse"
+msgstr "händelse"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Du har inte tillräcklig behörighet för att skapa en ny rutin"
+msgstr "Du har inte tillräcklig behörighet för att skapa en händelse"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No event with name %s found in database %s"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Ingen händelse med namnet %s finns i databasen %s"
+msgstr "Ingen händelse med namnet %1$s hittades i databasen %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
@@ -7704,7 +7663,7 @@ msgid "You have to add at least one column."
 msgstr "Du måste lägga till åtminstone en kolumn."
 
 #: libraries/tbl_properties.inc.php:719 server_engines.php:55
-#: tbl_operations.php:370
+#: tbl_operations.php:379
 msgid "Storage Engine"
 msgstr "Lagringsmotor"
 
@@ -8044,8 +8003,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL server version "
-"%s. Detta kan orsaka oförutsägbara beteenden."
+"Din PHP MySQL bibliotekversion %s skiljer sig från din MySQL server version %"
+"s. Detta kan orsaka oförutsägbara beteenden."
 
 #: main.php:341
 #, php-format
@@ -8171,7 +8130,7 @@ msgstr "Aggregera"
 
 #: pmd_general.php:487 pmd_general.php:507 pmd_general.php:629
 #: pmd_general.php:642 pmd_general.php:705 pmd_general.php:759
-#: tbl_select.php:116
+#: tbl_select.php:117
 msgid "Operator"
 msgstr "Aktör"
 
@@ -8748,8 +8707,8 @@ msgstr "Ta bort databaserna med samma namn som användarna."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Anm: phpMyAdmin hämtar användarnas privilegier direkt från MySQL:s "
 "privilegiumtabeller. Innehållet i dessa tabeller kan skilja sig från "
@@ -9105,10 +9064,9 @@ msgstr "Alla statusvariabler"
 
 #: server_status.php:619
 msgid "Monitor"
-msgstr ""
+msgstr "Övervaka"
 
 #: server_status.php:629 server_status.php:651
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
 msgstr "Uppdateringsfrekvens:"
@@ -9131,10 +9089,10 @@ msgstr "Liknande länkar:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:738
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Nätverkstrafik sedan start:%s"
+msgstr "Frågor sedan start: %s"
 
 #: server_status.php:744 server_status.php:779 server_status.php:895
 #: server_status.php:940
@@ -9164,10 +9122,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Nätverkstrafik sedan start:%s"
 
 #: server_status.php:852
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Denna MySQL-server har varit igång i %s. Den startade den %s."
+msgstr "Denna MySQL-servern har varit igång i %1$s. Den startade den %2$s."
 
 #: server_status.php:862
 msgid ""
@@ -9244,6 +9202,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Antalet anslutningar som avbröts eftersom klienten dog utan att stänga "
+"anslutningen ordentligt."
 
 #: server_status.php:1076
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9900,199 +9860,200 @@ msgid "The number of threads that are not sleeping."
 msgstr "Antalet trådar som inte är vilande."
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Starta rad"
+msgstr "Starta Monitor"
 
 #: server_status.php:1328
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Instruktioner/Setup"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Klar ändra/editera diagram"
 
 #: server_status.php:1339
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Lägg till parameter"
+msgstr "Lägg till diagram"
 
 #: server_status.php:1341
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Ordna/editera diagram"
 
 #: server_status.php:1343
 msgid "Refresh rate:"
 msgstr "Uppdateringsfrekvens:"
 
 #: server_status.php:1346
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Textarea kolumner"
+msgstr "Visa kolumner:"
 
 #: server_status.php:1360
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "Användare för config auth"
+msgstr "Rensa monitor config"
 
 #: server_status.php:1363
-#, fuzzy
 msgid "Monitor Instructions"
-msgstr "Information"
+msgstr "Övervaka instruktioner"
 
 #: server_status.php:1364
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
-"and track down time intensive\n"
-"        queries. For the latter you will need to set log_output to 'TABLE' "
-"and have either the slow_query_log or general_log enabled. Note however, "
-"that the\n"
-"        general_log produces a lot of data and increases server load by up "
-"to 15%"
+"and track down time intensive queries. For the latter you will need to set "
+"log_output to 'TABLE' and have either the slow_query_log or general_log "
+"enabled. Note however, that the general_log produces a lot of data and "
+"increases server load by up to 15%"
 msgstr ""
+"phpMyAdmin Monitor hjälpa dig optimera server konfigurationen och spåra tid "
+"intensivt \\ icke intensiva frågor. För de senare måste du ställa log_output "
+"till \"TABLE\" och ha antingen slow_query_log eller general_log aktiverat. "
+"Observera att general_log producerar mycket data och ökar lasten på servern "
+"med upp till 15%"
 
-#: server_status.php:1373
+#: server_status.php:1371
 msgid ""
-"<b>Using the monitor:</b><br/>\n"
-"        Ok, you are good to go! Once you click 'Start monitor' your browser "
-"will refresh all displayed charts\n"
-"        in a regular interval. You may add charts and change the refresh "
-"rate under 'Settings', or remove any chart\n"
-"        using the cog icon on each respective chart.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the\n"
-"        left mouse button and panning over the chart. This will load "
-"statistics from the logs helping you find what caused the\n"
-"        activity spike.</p>"
+"<b>Using the monitor:</b><br/> Ok, you are good to go! Once you click 'Start "
+"monitor' your browser will refresh all displayed charts in a regular "
+"interval. You may add charts and change the refresh rate under 'Settings', "
+"or remove any chart using the cog icon on each respective chart.<p>When you "
+"get to see a sudden spike in activity, select the relevant time span on any "
+"chart by holding down the left mouse button and panning over the chart. This "
+"will load statistics from the logs helping you find what caused the activity "
+"spike.</p>"
 msgstr ""
+"<b> Använda monitorn: </b><br/>\n"
+"  Ok, du är klar stt sätta igång! När du klickar på \"Start monitor\" kommer "
+"webbläsaren uppdatera alla visade diagram \n"
+"  med jämna mellanrum. Du kan lägga till diagram och ändra "
+"uppdateringsfrekvensen under \"Inställningar\", eller ta bort diagram \n"
+"  med tyngdpunkten ikonen på respektive diagram. \n"
+"  <p> När du får en plötslig topp i akviviteten, ävlj önskad tidsperiod på "
+"önskadt diagram genom att hålla ner \n"
+"  vänster musknapp och panorera över diagrammet. Detta kommer ladda "
+"statistik från loggarna vilka hjälper dig att hitta vad som orsakade \n"
+"  aktivitetstopp. </ p>"
 
-#: server_status.php:1383
+#: server_status.php:1375
 msgid ""
-"<b>Please note:</b>\n"
-"        Enabling the general_log may increase the server load by 5-15%. Also "
-"be aware that generating statistics from the logs is a\n"
-"        load intensive task, so it is advisable to select only a small time "
-"span and to disable the general_log and empty its table once monitoring is "
-"not required any more.\n"
-"        "
+"<b>Please note:</b> Enabling the general_log may increase the server load by "
+"5-15%. Also be aware that generating statistics from the logs is a load "
+"intensive task, so it is advisable to select only a small time span and to "
+"disable the general_log and empty its table once monitoring is not required "
+"any more.\n"
 msgstr ""
+"<b>Observera:</b>\n"
+" Att aktivera general_log kan öka belastningen på servern med 5-15%. Var "
+"medveten om att generera statistik från loggarna är en \n"
+"belastningsintensiv uppgift, så det är klokt att välja en kort tidsperiod "
+"samt att inaktivera general_log och tömma tabellen när övervakningen inte "
+"behövs längre. \n"
 
-#: server_status.php:1396
-#, fuzzy
+#: server_status.php:1385
 #| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Användning"
+msgstr "CPU Användning"
 
-#: server_status.php:1399
+#: server_status.php:1388
 msgid "Memory Usage"
-msgstr ""
+msgstr "Minnesanvändning"
 
-#: server_status.php:1402
-#, fuzzy
+#: server_status.php:1391
 #| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Användning"
+msgstr "Swap användning"
 
-#: server_status.php:1405
-#, fuzzy
+#: server_status.php:1394
 #| msgid "All status variables"
 msgid "Status variable(s)"
 msgstr "Alla statusvariabler"
 
-#: server_status.php:1407
-#, fuzzy
+#: server_status.php:1396
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Välj tabeller"
+msgstr "Välj serier:"
 
-#: server_status.php:1409
+#: server_status.php:1398
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Vanligen övervakade"
 
-#: server_status.php:1424
-#, fuzzy
+#: server_status.php:1413
 #| msgid "You must provide a routine name"
 msgid "or type variable name:"
-msgstr "Du måste ange ett rutinnamn"
+msgstr "eller skriv ett variabelnamn:"
 
-#: server_status.php:1428
+#: server_status.php:1417
 msgid "Display as differential value"
-msgstr ""
+msgstr "Visa som differensvärde"
 
-#: server_status.php:1430
+#: server_status.php:1419
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Tillämpa en dividend"
 
-#: server_status.php:1437
+#: server_status.php:1426
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Lägg till enhet till datavärdena"
 
-#: server_status.php:1443
-#, fuzzy
+#: server_status.php:1432
 #| msgid "Add a trigger"
 msgid "Add this series"
-msgstr "Lägg till en ny Trigger"
+msgstr "Lägg till denna serie"
 
-#: server_status.php:1445
+#: server_status.php:1434
 msgid "Clear series"
-msgstr ""
+msgstr "Rensa serier"
 
-#: server_status.php:1448
-#, fuzzy
+#: server_status.php:1437
 #| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Serie:"
+msgstr "Serier i diagram:"
 
-#: server_status.php:1456
-#, fuzzy
+#: server_status.php:1445
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Laddar"
+msgstr "Läser in loggar"
 
-#: server_status.php:1459
-#, fuzzy
+#: server_status.php:1448
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Visa statistik"
+msgstr "Logga statistik"
 
-#: server_status.php:1460
-#, fuzzy
+#: server_status.php:1449
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "Välj sida"
+msgstr "Valt tidsintervall:"
 
-#: server_status.php:1465
+#: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Hämta endast SELECT, INSERT, UPDATE och DELETE kommandon"
 
-#: server_status.php:1470
+#: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Ta bort variabeldata med INSERT kommandon för bättre gruppering"
 
-#: server_status.php:1473
+#: server_status.php:1462
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
 msgstr ""
+"<p>Välj den logg du vill att statistiken ska genereras från. </p>Resultaten "
+"grupperas efter frågetexten."
 
-#: server_status.php:1476
-#, fuzzy
+#: server_status.php:1465
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Fråge-typ"
+msgstr "Fråge analyserare"
 
-#: server_status.php:1512
+#: server_status.php:1501
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekund"
 msgstr[1] "%d sekunder"
 
-#: server_status.php:1514
+#: server_status.php:1503
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10488,8 +10449,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Om du känner att detta är nödvändigt, använd extra skyddsinställningar - "
-"%shost autentisering%s inställningarna  och %strusted proxies listan%s. Dock "
+"Om du känner att detta är nödvändigt, använd extra skyddsinställningar - %"
+"shost autentisering%s inställningarna  och %strusted proxies listan%s. Dock "
 "kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP där "
 "tusentals användare, inklusive dig, är anslutna till"
 
@@ -10546,8 +10507,8 @@ msgstr "Nyckeln är för kort, den ska ha minst 8 tecken."
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 
-#: sql.php:95 tbl_change.php:257 tbl_select.php:27 tbl_select.php:28
-#: tbl_select.php:31 tbl_select.php:34
+#: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
+#: tbl_select.php:32 tbl_select.php:35
 msgid "Browse foreign values"
 msgstr "Bläddra bland främmande värden"
 
@@ -10671,31 +10632,31 @@ msgstr "Staplade"
 msgid "Chart title"
 msgstr "Diagramtitel"
 
-#: tbl_chart.php:99
+#: tbl_chart.php:100
 msgid "X-Axis:"
 msgstr "X-axel:"
 
-#: tbl_chart.php:113
+#: tbl_chart.php:114
 msgid "Series:"
 msgstr "Serie:"
 
-#: tbl_chart.php:115
+#: tbl_chart.php:116
 msgid "The remaining columns"
 msgstr "Återstående kolumner"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:129
 msgid "X-Axis label:"
 msgstr "X-axel etikett"
 
-#: tbl_chart.php:128
+#: tbl_chart.php:130
 msgid "X Values"
 msgstr "X värde"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y-Axis label:"
 msgstr "Y-axel etikett"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:131
 msgid "Y Values"
 msgstr "Y värden"
 
@@ -10819,97 +10780,97 @@ msgstr "Tabellen %s har kopierats till %s."
 msgid "The table name is empty!"
 msgstr "Tabellnamnet är tomt!"
 
-#: tbl_operations.php:264
+#: tbl_operations.php:273
 msgid "Alter table order by"
 msgstr "Sortera om tabellen efter"
 
-#: tbl_operations.php:273
+#: tbl_operations.php:282
 msgid "(singly)"
 msgstr "(var för sig)"
 
-#: tbl_operations.php:293
+#: tbl_operations.php:302
 msgid "Move table to (database<b>.</b>table):"
 msgstr "Flytta tabellen till (databas<b>.</b>tabell):"
 
-#: tbl_operations.php:351
+#: tbl_operations.php:360
 msgid "Table options"
 msgstr "Tabellalternativ"
 
-#: tbl_operations.php:355
+#: tbl_operations.php:364
 msgid "Rename table to"
 msgstr "Döp om tabellen till"
 
-#: tbl_operations.php:531
+#: tbl_operations.php:540
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "Kopiera tabellen till (databas<b>.</b>tabell):"
 
-#: tbl_operations.php:578
+#: tbl_operations.php:587
 msgid "Switch to copied table"
 msgstr "Byt till kopierad tabell"
 
-#: tbl_operations.php:590
+#: tbl_operations.php:599
 msgid "Table maintenance"
 msgstr "Tabellunderhåll"
 
-#: tbl_operations.php:614
+#: tbl_operations.php:623
 msgid "Defragment table"
 msgstr "Defragmentera tabell"
 
-#: tbl_operations.php:662
+#: tbl_operations.php:671
 #, php-format
 msgid "Table %s has been flushed"
 msgstr "Tabellen %s har rensats"
 
-#: tbl_operations.php:668
+#: tbl_operations.php:677
 msgid "Flush the table (FLUSH)"
 msgstr "Rensa tabellen (flush)"
 
-#: tbl_operations.php:677
+#: tbl_operations.php:686
 msgid "Delete data or table"
 msgstr "Ta bort data eller tabell"
 
-#: tbl_operations.php:692
+#: tbl_operations.php:701
 msgid "Empty the table (TRUNCATE)"
 msgstr "Töm tabellen (TRUNCATE)"
 
-#: tbl_operations.php:712
+#: tbl_operations.php:721
 msgid "Delete the table (DROP)"
 msgstr "Ta bort tabellen (DROP)"
 
-#: tbl_operations.php:733
+#: tbl_operations.php:742
 msgid "Partition maintenance"
 msgstr "Underhåll av partition"
 
-#: tbl_operations.php:741
+#: tbl_operations.php:750
 #, php-format
 msgid "Partition %s"
 msgstr "Partition %s"
 
-#: tbl_operations.php:744
+#: tbl_operations.php:753
 msgid "Analyze"
 msgstr "Analysera"
 
-#: tbl_operations.php:745
+#: tbl_operations.php:754
 msgid "Check"
 msgstr "Kontrollera"
 
-#: tbl_operations.php:746
+#: tbl_operations.php:755
 msgid "Optimize"
 msgstr "Optimera"
 
-#: tbl_operations.php:747
+#: tbl_operations.php:756
 msgid "Rebuild"
 msgstr "Återskapa"
 
-#: tbl_operations.php:748
+#: tbl_operations.php:757
 msgid "Repair"
 msgstr "Reparera"
 
-#: tbl_operations.php:760
+#: tbl_operations.php:769
 msgid "Remove partitioning"
 msgstr "Ta bort partitionering"
 
-#: tbl_operations.php:786
+#: tbl_operations.php:795
 msgid "Check referential integrity:"
 msgstr "Kontrollera referensintegritet:"
 
@@ -10970,23 +10931,23 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "Begränsning av främmande nyckel"
 
-#: tbl_select.php:110
+#: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Utför en \"Query By Example\" (jokertecken: \"%\")"
 
-#: tbl_select.php:260
+#: tbl_select.php:261
 msgid "Select columns (at least one):"
 msgstr "Markera kolumner (minst en):"
 
-#: tbl_select.php:278
+#: tbl_select.php:279
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Lägg till sökvillkor (uttryck i \"where\"-sats):"
 
-#: tbl_select.php:285
+#: tbl_select.php:286
 msgid "Number of rows per page"
 msgstr "Anntal rader per sida"
 
-#: tbl_select.php:291
+#: tbl_select.php:292
 msgid "Display order:"
 msgstr "Visningsordning:"
 

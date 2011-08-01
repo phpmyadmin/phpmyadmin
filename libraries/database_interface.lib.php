@@ -952,7 +952,7 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
     $value = false;
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE, false);
     }
 
     // return false if result is empty or false
@@ -1004,7 +1004,7 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null,
  */
 function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null, $options = 0) {
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_try_query($result, $link, $options | PMA_DBI_QUERY_STORE, false);
     }
 
     // return null if result is empty or false
@@ -1087,7 +1087,7 @@ function PMA_DBI_fetch_result($result, $key = null, $value = null,
     $resultrows = array();
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options);
+        $result = PMA_DBI_try_query($result, $link, $options, false);
     }
 
     // return empty array if result is empty or false
