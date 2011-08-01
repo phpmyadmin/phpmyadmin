@@ -10060,7 +10060,6 @@ msgid "Monitor Instructions"
 msgstr "Instrucciones de monitorización"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -10076,11 +10075,12 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
-"El monitorizador de phpMyAdmin puede asistir en la optimización de la "
+"El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
-"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1371
 #, fuzzy
