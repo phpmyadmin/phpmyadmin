@@ -120,31 +120,45 @@ function openGISEditor(value, field, type, input_name, token) {
     $gis_editor.fadeIn("fast");
 }
 
+/**
+ * Prepare and insert the GIS data in Well Known Text format
+ * to the input field.
+ */
+function insertDataAndClose() {
+    var $form = $('form#gis_data_editor_form');
+    var input_name = $form.find("input[name='input_name']").val();
+
+    $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
+        if(data.success == true) {
+            $("input[name='" + input_name + "']").val(data.result);
+        } else {
+            PMA_ajaxShowMessage(data.error);
+        }
+    }, 'json');
+    closeGISEditor();
+}
+
 $(document).ready(function() {
 
     // Remove the class that is added due to the URL being too long.
     $('.open_gis_editor a').removeClass('formLinkSubmit');
     
     /**
-     * Prepare and insert the GIS data in Well Known Text format
-     * to the input field.
+     * Prepares and insert the GIS data to the input field on clicking 'copy'.
      */
     $("input[name='gis_data[save]']").live('click', function(event) {
         event.preventDefault();
-
-        var $form = $('form#gis_data_editor_form');
-        var input_name = $form.find("input[name='input_name']").val();
-
-        $.post('gis_data_editor.php', $form.serialize() + "&generate=true", function(data) {
-            if(data.success == true) {
-                $("input[name='" + input_name + "']").val(data.result);
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }, 'json');
-        closeGISEditor();
+        insertDataAndClose();
     });
-    
+
+    /**
+     * Prepares and insert the GIS data to the input field on pressing 'enter'.
+     */
+    $('#gis_editor').live('submit', function(event) {
+        event.preventDefault();
+        insertDataAndClose();
+    });
+
     /**
      * Trigger asynchronous calls on data change and update the output.
      */
