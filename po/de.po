@@ -10064,7 +10064,6 @@ msgstr ""
 "Aktivitätsspitze zu unterstützen.</p>"
 
 #: server_status.php:1375
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b>\n"
 #| "        Enabling the general_log may increase the server load by 5-15%. "
@@ -10080,12 +10079,10 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
-"<b>Bitte beachten Sie:</b>\n"
-"Das Aktivieren des general_log kann die Serverlast um 5-15% steigern. Seien "
-"Sie sich bewusst, dass das Erzeugen von Statistiken aus den Logs ein \n"
-"sehr aufwändiger Prozess ist. Deshalb ist es ratsam, nur einen kleinen "
-"Zeitraum auszuwählen.\n"
-"        "
+"<b>Bitte beachten Sie:</b> Das Aktivieren des general_log kann die "
+"Serverlast um 5-15% steigern. Seien Sie sich bewusst, dass das Erzeugen von "
+"Statistiken aus den Logs ein sehr aufwändiger Prozess ist. Deshalb ist es "
+"ratsam, nur einen kleinen Zeitraum auszuwählen."
 
 #: server_status.php:1385
 msgid "CPU Usage"
