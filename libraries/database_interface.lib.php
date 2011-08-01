@@ -1183,7 +1183,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             PMA_cacheSet('PMA_MYSQL_MAJOR_VERSION', PMA_MYSQL_MAJOR_VERSION, true);
             PMA_cacheSet('PMA_MYSQL_STR_VERSION', PMA_MYSQL_STR_VERSION, true);
         }
-        // detect Drizzle by version number (year.month.day.?patch-version)
+        // detect Drizzle by version number - <year>.<month>.<build number>(.<patch rev)
         define('PMA_DRIZZLE', PMA_MYSQL_MAJOR_VERSION >= 2009);
     }
 
