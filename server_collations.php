@@ -49,7 +49,7 @@ require_once './libraries/mysql_charsets.lib.php';
  * Outputs the result
  */
 echo '<div id="div_mysql_charset_collations">' . "\n"
-   . '<table class="data">' . "\n"
+   . '<table class="data noclick">' . "\n"
    . '<tr><th>' . __('Collation') . '</th>' . "\n"
    . '    <th>' . __('Description') . '</th>' . "\n"
    . '</tr>' . "\n";
@@ -61,7 +61,7 @@ foreach ($mysql_charsets as $current_charset) {
     if ($i >= $table_row_count / 2) {
         $i = 0;
         echo '</table>' . "\n"
-           . '<table class="data">' . "\n"
+           . '<table class="data noclick">' . "\n"
            . '<tr><th>' . __('Collation') . '</th>' . "\n"
            . '    <th>' . __('Description') . '</th>' . "\n"
            . '</tr>' . "\n";
@@ -78,7 +78,7 @@ foreach ($mysql_charsets as $current_charset) {
     $odd_row = true;
     foreach ($mysql_collations[$current_charset] as $current_collation) {
         $i++;
-        echo '<tr class="noclick '
+        echo '<tr class="'
            . ($odd_row ? 'odd' : 'even')
            . ($mysql_default_collations[$current_charset] == $current_collation
                 ? ' marked'

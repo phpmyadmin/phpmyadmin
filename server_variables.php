@@ -102,7 +102,7 @@ isSuperuser = <?php echo PMA_isSuperuser()?'true':'false'; ?>;
     <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
 </div>
 </fieldset>
-<table id="serverVariables" class="data filteredData">
+<table id="serverVariables" class="data filteredData noclick">
 <thead>
 <tr><th><?php echo __('Variable'); ?></th>
     <th class="valueHeader">
@@ -118,7 +118,7 @@ echo __('Session value') . ' / ' . __('Global value');
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
     ?>
-<tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
     <th nowrap="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
     <td class="value"><?php echo formatVariable($name,$value); ?></td>
     <td class="value"><?php
@@ -129,7 +129,7 @@ foreach ($serverVars as $name => $value) {
     if (isset($serverVarsSession[$name]) && $serverVarsSession[$name] != $value) {
         ?>
 </tr>
-<tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?> ">
+<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> ">
     <td>(<?php echo __('Session value'); ?>)</td>
     <td class="value"><?php echo formatVariable($name,$serverVarsSession[$name]); ?></td>
     <td class="value"></td>

@@ -597,7 +597,7 @@ $(document).ready(function() {
      * next pages reached via AJAX); a tr may have the class noclick to remove
      * this behavior.
      */
-    $('tr.odd:not(.noclick), tr.even:not(.noclick)').live('click',function(e) {
+    $('table:not(.noclick) tr.odd:not(.noclick), table:not(.noclick) tr.even:not(.noclick)').live('click',function(e) {
         // do not trigger when clicked on anchor
         if ($(e.target).is('a, img, a *')) {
             return;
