@@ -211,9 +211,10 @@ function confirmLink(theLink, theSqlQuery)
     var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
     if (is_confirmed) {
         if ( $(theLink).hasClass('formLinkSubmit') ) {
-			var name = 'is_js_confirmed';
-            if($(theLink).attr('href').indexOf('usesubform') != -1)
-				name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+            var name = 'is_js_confirmed';
+            if ($(theLink).attr('href').indexOf('usesubform') != -1) {
+                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+            }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
         } else if ( typeof(theLink.href) != 'undefined' ) {
@@ -848,10 +849,11 @@ function insertValueQuery() {
         var chaineAj = "";
         var NbSelect = 0;
         for(var i=0; i<myListBox.options.length; i++) {
-            if (myListBox.options[i].selected){
+            if (myListBox.options[i].selected) {
                 NbSelect++;
-                if (NbSelect > 1)
+                if (NbSelect > 1) {
                     chaineAj += ", ";
+                }
                 chaineAj += myListBox.options[i].value;
             }
         }
@@ -1139,12 +1141,14 @@ function pdfPaperSize(format, axis) {
 function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_height)
 {
     // if width not specified, use default
-    if (w_width == undefined)
+    if (w_width == undefined) {
         w_width = 640;
+    }
 
     // if height not specified, use default
-    if (w_height == undefined)
+    if (w_height == undefined) {
         w_height = 480;
+    }
 
     // open popup window (for displaying video/playing audio)
     var mediaWin = window.open('bs_play_media.php?' + url_params + '&bs_reference=' + bs_ref + '&media_type=' + m_type + '&custom_type=' + is_cust_type, 'viewBSMedia', 'width=' + w_width + ', height=' + w_height + ', resizable=1, scrollbars=1, status=0');
@@ -1161,15 +1165,17 @@ function popupBSMedia(url_params, bs_ref, m_type, is_cust_type, w_width, w_heigh
 function requestMIMETypeChange(db, table, reference, current_mime_type)
 {
     // no mime type specified, set to default (nothing)
-    if (undefined == current_mime_type)
+    if (undefined == current_mime_type) {
         current_mime_type = "";
+    }
 
     // prompt user for new mime type
     var new_mime_type = prompt("Enter custom MIME type", current_mime_type);
 
     // if new mime_type is specified and is not the same as the previous type, request for mime type change
-    if (new_mime_type && new_mime_type != current_mime_type)
+    if (new_mime_type && new_mime_type != current_mime_type) {
         changeMIMEType(db, table, reference, new_mime_type);
+    }
 }
 
 /**
@@ -1470,8 +1476,11 @@ function PMA_createChart(passedSettings) {
                                     return;
                                 }
 
-                                if(lastValue==null) diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
-                                else diff = parseInt(curValue.x - lastValue.x);
+                                if (lastValue==null) {
+                                    diff = curValue.x - thisChart.xAxis[0].getExtremes().max;
+                                } else {
+                                    diff = parseInt(curValue.x - lastValue.x);
+                                }
 
                                 thisChart.xAxis[0].setExtremes(
                                     thisChart.xAxis[0].getExtremes().min+diff,
@@ -1485,7 +1494,9 @@ function PMA_createChart(passedSettings) {
                                 numLoadedPoints++;
 
                                 // Timeout has been cleared => don't start a new timeout
-                                if(chart_activeTimeouts[container] == null) return;
+                                if (chart_activeTimeouts[container] == null) {
+                                    return;
+                                }
 
                                 chart_activeTimeouts[container] = setTimeout(
                                     thisChart.options.realtime.timeoutCallBack,
@@ -1537,11 +1548,13 @@ function PMA_createChart(passedSettings) {
 
     /* Set/Get realtime chart default values */
     if(passedSettings.realtime) {
-        if(!passedSettings.realtime.refreshRate)
+        if(!passedSettings.realtime.refreshRate) {
             passedSettings.realtime.refreshRate = 5000;
+        }
 
-        if(!passedSettings.realtime.numMaxPoints)
+        if(!passedSettings.realtime.numMaxPoints) {
             passedSettings.realtime.numMaxPoints = 30;
+        }
 
         // Allow custom POST vars to be added
         passedSettings.realtime.postData = $.extend(false,{ ajax_request: true, chart_data: 1, type: passedSettings.realtime.type },passedSettings.realtime.postData);
@@ -1597,10 +1610,15 @@ function PMA_createProfilingChart(data, options) {
 
 // Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
 function PMA_prettyProfilingNum(num, acc) {
-    if(!acc) acc = 1;
+    if (!acc) {
+        acc = 1;
+    }
     acc = Math.pow(10,acc);
-    if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ'
-    else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm'
+    if (num*1000 < 0.1) {
+        num = Math.round(acc*(num*1000*1000))/acc + 'µ'
+    } else if (num < 0.1) {
+        num = Math.round(acc*(num*1000))/acc + 'm'
+    }
 
     return num + 's';
 }
