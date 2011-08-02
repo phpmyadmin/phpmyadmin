@@ -33,17 +33,17 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
     // The image source is changed when the showDetails function is called.
     if ($img.hasClass('selected')) {
         if ($img.hasClass('struct_img')) {
-            $img.attr('src', pmaThemeImage + 'new_struct_selected.jpg');
+            $img.attr('src', pmaThemeImage + 'new_struct_selected.png');
         }
         if ($img.hasClass('data_img')) {
-            $img.attr('src', pmaThemeImage + 'new_data_selected.jpg');
+            $img.attr('src', pmaThemeImage + 'new_data_selected.png');
         }
     } else {
         if ($img.hasClass('struct_img')) {
-            $img.attr('src', pmaThemeImage + 'new_struct.jpg');
+            $img.attr('src', pmaThemeImage + 'new_struct.png');
         }
         if ($img.hasClass('data_img')) {
-            $img.attr('src', pmaThemeImage + 'new_data.jpg');
+            $img.attr('src', pmaThemeImage + 'new_data.png');
         }
     }
 
@@ -347,9 +347,9 @@ $(document).ready(function() {
             var $img = $(this);
             $img.addClass('hover');
             if ($img.hasClass('selected')) {
-                $img.attr('src', pmaThemeImage + 'new_struct_selected_hovered.jpg');
+                $img.attr('src', pmaThemeImage + 'new_struct_selected_hovered.png');
             } else {
-                $img.attr('src', pmaThemeImage + 'new_struct_hovered.jpg');
+                $img.attr('src', pmaThemeImage + 'new_struct_hovered.png');
             }
         },
         function() {
@@ -357,9 +357,9 @@ $(document).ready(function() {
             var $img = $(this);
             $img.removeClass('hover');
             if ($img.hasClass('selected')) {
-                $img.attr('src', pmaThemeImage + 'new_struct_selected.jpg');
+                $img.attr('src', pmaThemeImage + 'new_struct_selected.png');
             } else {
-                $img.attr('src', pmaThemeImage + 'new_struct.jpg');
+                $img.attr('src', pmaThemeImage + 'new_struct.png');
             }
         }
     );
@@ -370,9 +370,9 @@ $(document).ready(function() {
             var $img = $(this);
             $img.addClass('hover');
             if ($img.hasClass('selected')) {
-                $img.attr('src', pmaThemeImage + 'new_data_selected_hovered.jpg');
+                $img.attr('src', pmaThemeImage + 'new_data_selected_hovered.png');
             } else {
-                $img.attr('src', pmaThemeImage + 'new_data_hovered.jpg');
+                $img.attr('src', pmaThemeImage + 'new_data_hovered.png');
             }
         },
         function() {
@@ -380,9 +380,9 @@ $(document).ready(function() {
             var $img = $(this);
             $img.removeClass('hover');
             if ($img.hasClass('selected')) {
-                $img.attr('src', pmaThemeImage + 'new_data_selected.jpg');
+                $img.attr('src', pmaThemeImage + 'new_data_selected.png');
             } else {
-                $img.attr('src', pmaThemeImage + 'new_data.jpg');
+                $img.attr('src', pmaThemeImage + 'new_data.png');
             }
         }
     );
