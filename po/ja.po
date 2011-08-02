@@ -1236,7 +1236,7 @@ msgstr ""
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time を %d 秒に設定する。"
+msgstr "long_query_time は %d 秒に設定されています。"
 
 #: js/messages.php:122
 msgid ""
