@@ -2019,7 +2019,7 @@ $(document).ready(function() {
                     $("#result_query").prepend((data.message));
                     $("#copyTable").find("select[name='target_db'] option[value="+data.db+"]").attr('selected', 'selected');
                 
-                    //Refresh navigation frame as a new table has been added
+                    //Refresh navigation frame when the table is coppied
                     if (window.parent && window.parent.frame_navigation) {
                         window.parent.frame_navigation.location.reload();
                     }
