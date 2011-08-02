@@ -1332,10 +1332,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "ログデータを読み込みました。この期間に行われたクエリは以下の通りです。"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "データベースに移動"
+msgstr "ログの表に移動する"
 
 #: js/messages.php:148
 msgid "Log analysed, but no data found in this time span."
