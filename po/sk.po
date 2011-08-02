@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2010-07-22 02:26+0200\n"
@@ -5458,7 +5458,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Hlavičky metadát"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
@@ -5489,13 +5489,16 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr ""
+msgstr "Veľkosť vyrovnávacej pamäte indexu"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Množstvo pamäte vyhradenej pre vyrovnávaciu pamät indexu. Štandardná hodnota "
+"je 32MB. Pamät tu priradená je použitá výhradne pre vyrovnávaciu pamäť "
+"indexových stránok."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
@@ -5527,6 +5530,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Maximálna veľkosť transakčného logu pred jeho pretočením a vytvorením "
+"nového. Štandardná hodnota je 16MB."
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"

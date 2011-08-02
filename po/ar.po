@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-04-21 13:56+0200\n"
@@ -9441,7 +9441,7 @@ msgstr "صيانة الجدول"
 
 #: tbl_operations.php:610
 msgid "Defragment table"
-msgstr ""
+msgstr "إلغاء تجزئة الجدول"
 
 #: tbl_operations.php:658
 #, php-format
@@ -9462,7 +9462,7 @@ msgstr "إرجاع أو استيراد بيانات الجدول"
 
 #: tbl_operations.php:688
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "إفراغ الجدول (TRUNCATE)"
 
 #: tbl_operations.php:708
 #, fuzzy
@@ -9477,7 +9477,7 @@ msgstr ""
 #: tbl_operations.php:737
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "تقسيم %s"
 
 #: tbl_operations.php:740
 msgid "Analyze"
@@ -9489,11 +9489,11 @@ msgstr "تحقق"
 
 #: tbl_operations.php:742
 msgid "Optimize"
-msgstr ""
+msgstr "تحسين"
 
 #: tbl_operations.php:743
 msgid "Rebuild"
-msgstr ""
+msgstr "إعادة بناء"
 
 #: tbl_operations.php:744
 msgid "Repair"
@@ -9501,7 +9501,7 @@ msgstr "صلح"
 
 #: tbl_operations.php:756
 msgid "Remove partitioning"
-msgstr ""
+msgstr "إزالة التقسيم"
 
 #: tbl_operations.php:782
 msgid "Check referential integrity:"
@@ -9566,7 +9566,7 @@ msgstr ""
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "قيود المفتاح الغريب"
 
 #: tbl_row_action.php:28
 msgid "No rows selected"
@@ -9596,11 +9596,11 @@ msgstr "ترتيب العرض:"
 
 #: tbl_structure.php:161 tbl_structure.php:165
 msgid "Browse distinct values"
-msgstr ""
+msgstr "إستعرض القيم المميزة"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
-msgstr ""
+msgstr "إضافة مفتاح رئيسي"
 
 #: tbl_structure.php:168 tbl_structure.php:169
 #, fuzzy
@@ -9610,7 +9610,7 @@ msgstr "إضافة حقل جديد"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add unique index"
-msgstr ""
+msgstr "إضافة فهرس مميز"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add FULLTEXT index"
@@ -9681,31 +9681,31 @@ msgstr "تصميم فهرسه على&nbsp;%s&nbsp;عمود"
 
 #: tbl_structure.php:850
 msgid "partitioned"
-msgstr ""
+msgstr "مقسم"
 
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "تتبع التقرير للجدول %s"
 
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "تم إنشاء الإصدار %s , التتبع نشط لـ %s.%s"
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "اللتبع لـ %s.%s , الإصدار %s  معطل ."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "اللتبع لـ %s.%s , الإصدار %s مفعل."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "تم تنفيذ جمل SQL."
 
 #: tbl_tracking.php:215
 msgid ""
@@ -9761,16 +9761,16 @@ msgstr ""
 
 #: tbl_tracking.php:503
 msgid "SQL execution"
-msgstr ""
+msgstr "تنفيذ SQL"
 
 #: tbl_tracking.php:515
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "تصدير كـ %s"
 
 #: tbl_tracking.php:555
 msgid "Show versions"
-msgstr ""
+msgstr "عرض الإصدارات"
 
 #: tbl_tracking.php:587
 msgid "Version"
@@ -9779,48 +9779,48 @@ msgstr "نسخة"
 #: tbl_tracking.php:635
 #, php-format
 msgid "Deactivate tracking for %s.%s"
-msgstr ""
+msgstr "تعطيل التتبع لـ %s.%s"
 
 #: tbl_tracking.php:637
 msgid "Deactivate now"
-msgstr ""
+msgstr "تعطيل الآن"
 
 #: tbl_tracking.php:648
 #, php-format
 msgid "Activate tracking for %s.%s"
-msgstr ""
+msgstr "تنشيط التتبع لـ %s.%s"
 
 #: tbl_tracking.php:650
 msgid "Activate now"
-msgstr ""
+msgstr "تنشيط الآن"
 
 #: tbl_tracking.php:663
 #, php-format
 msgid "Create version %s of %s.%s"
-msgstr ""
+msgstr "انشئ إصدار %s  لـ %s.s%s"
 
 #: tbl_tracking.php:667
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "تتبع تقارير تعريف البيانات:"
 
 #: tbl_tracking.php:675
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "تتبع تقارير التلاعب بالبيانات:"
 
 #: tbl_tracking.php:683
 msgid "Create version"
-msgstr ""
+msgstr "إنشاء إصدار"
 
 #: themes.php:31
 #, php-format
 msgid ""
 "No themes support; please check your configuration and/or your themes in "
 "directory %s."
-msgstr ""
+msgstr "لايوجد سمة مدعومة , فضلا راجع إعدادات السمات في المسار %s."
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "الحصول على سمات جديدة!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -9852,7 +9852,7 @@ msgstr "لقد تم تجديد العرض الجانبي."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "اسم VIEW"
 
 #: view_operations.php:91
 msgid "Rename view to"

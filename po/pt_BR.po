@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2011-04-14 17:44+0200\n"
@@ -9062,7 +9062,7 @@ msgstr "Aplicar mudanças selecionadas"
 
 #: server_synchronize.php:450 server_synchronize.php:895
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Sincronizar Bando de Dados"
 
 #: server_synchronize.php:463
 msgid "Selected target tables have been synchronized with source tables."
@@ -9133,6 +9133,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"Você não está usando conexão segura; todos dados (incluindo possíveis "
+"informações sensíveis, como senhas) são transferidos sem criptografia."
 
 #: setup/frames/index.inc.php:60
 #, php-format
@@ -9140,6 +9142,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
+"Se o seu servidor também está configurado para aceitar requisições HTTPS "
+"siga [a@%s]este link[/a] para usar uma conexão segura."
 
 #: setup/frames/index.inc.php:64
 msgid "Insecure connection"
@@ -9236,6 +9240,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Leitura de versão falhou. Você pode estar offline ou o servidor de "
+"atualização não responde."
 
 #: setup/lib/index.lib.php:143
 msgid "Got invalid version string from server"
@@ -9251,10 +9257,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Se você estiver usando versão do Gir, execute [kbd]git pull[/kbd] :-)[br]A "
+"versão estável mais nova é %s, lançada em %s."
 
 #: setup/lib/index.lib.php:165
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Não existe nenhuma versão estável mais nova."
 
 #: setup/lib/index.lib.php:250
 #, php-format
@@ -9284,11 +9292,13 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Este valor deve ser verificado com atenção para garantir que este diretório "
+"não seja acessado ou escrito por outros usuários no seu servidor."
 
 #: setup/lib/index.lib.php:256
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
+msgstr "Esta %sopção%s deveria estar habilitada se seu navegador tem suporter."
 
 #: setup/lib/index.lib.php:258
 #, php-format
@@ -9384,7 +9394,7 @@ msgstr "Visualizar valores estrangeiros"
 #: sql.php:163
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Usando marcador \"%s\" como padrão."
 
 #: sql.php:600 tbl_replace.php:387
 #, php-format
@@ -9427,7 +9437,7 @@ msgstr "Por causa da sua largura,<br /> esse campo pode não ser editável"
 
 #: tbl_change.php:875
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Remover referência a repositório BLOB"
 
 #: tbl_change.php:881
 msgid "Binary - do not edit"
@@ -9535,7 +9545,7 @@ msgstr "Mar"
 
 #: tbl_chart.php:135
 msgid "Line"
-msgstr ""
+msgstr "Linhas"
 
 #: tbl_chart.php:136
 msgid "Radar"
@@ -9822,6 +9832,8 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
+"Uma relação interna é desnecessária quando uma CHAVE ESTRANGEIRA "
+"correspondente existe."
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
@@ -9944,22 +9956,22 @@ msgstr "particionado"
 #: tbl_tracking.php:109
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Relatório de rastreamento para tabela `%s`"
 
 #: tbl_tracking.php:182
 #, php-format
 msgid "Version %s is created, tracking for %s.%s is activated."
-msgstr ""
+msgstr "Versão %s criada, rastreamento para %s. %s ativado(a)."
 
 #: tbl_tracking.php:190
 #, php-format
 msgid "Tracking for %s.%s , version %s is deactivated."
-msgstr ""
+msgstr "Rastreamento para %s.%s, versão %s desativado(a)."
 
 #: tbl_tracking.php:198
 #, php-format
 msgid "Tracking for %s.%s , version %s is activated."
-msgstr ""
+msgstr "Rastreamento para %s.%s, versão %s ativado(a)."
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
@@ -9970,6 +9982,8 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Você pode executar o dump criando e usando uma tabela temporária.Por favor, "
+"certifique-se de ter os privilégios necessários."
 
 #: tbl_tracking.php:216
 msgid "Comment out these two lines if you do not need them."
@@ -9983,7 +9997,7 @@ msgstr "Instruções SQL exportadas. Por favor copie a saída ou execute."
 #: tbl_tracking.php:256
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Instantâneo (código SQL) da versão %s"
 
 #: tbl_tracking.php:375
 msgid "Tracking statements"
@@ -9992,7 +10006,7 @@ msgstr "Rastreando instruções"
 #: tbl_tracking.php:391 tbl_tracking.php:498
 #, php-format
 msgid "Show %s with dates from %s to %s by user %s %s"
-msgstr ""
+msgstr "Mostrar %s com datas desde %s até %s pelo usuário %s %s"
 
 #: tbl_tracking.php:404 tbl_tracking.php:455
 msgid "Date"

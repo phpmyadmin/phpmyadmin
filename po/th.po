@@ -1,7 +1,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.4.4-dev\n"
+"Project-Id-Version: phpMyAdmin 3.4.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-06-02 08:31+0200\n"
 "PO-Revision-Date: 2010-03-12 09:19+0100\n"
@@ -109,7 +109,7 @@ msgstr "เชื่อมต่อ url ปลายทางไม่สำเ�
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
+msgstr "ไม่สามารถเปิดไฟล์ %s ได้ เพื่อรายละเอียด กรุณาไป www.phpmyadmin.net"
 
 #: db_create.php:58
 #, fuzzy, php-format
