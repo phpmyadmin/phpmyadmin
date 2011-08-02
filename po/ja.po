@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 16:06+0200\n"
+"PO-Revision-Date: 2011-08-02 16:08+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1236,7 +1236,7 @@ msgstr ""
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time を %d 秒に設定する。"
 
 #: js/messages.php:122
 msgid ""
