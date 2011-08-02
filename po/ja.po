@@ -1201,7 +1201,7 @@ msgstr "モニタ一時中断"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log および slow_query_log は有効です。"
 
 #: js/messages.php:115
 msgid "general_log is enabled."
