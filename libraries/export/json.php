@@ -30,144 +30,144 @@ if (isset($plugin_list)) {
     );
 } else {
 
-/**
- * Set of functions used to build exports of tables
- */
+    /**
+     * Set of functions used to build exports of tables
+     */
 
-/**
- * Outputs export footer
- *
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportFooter()
-{
-    return true;
-}
-
-/**
- * Outputs export header
- *
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportHeader()
-{
-    PMA_exportOutputHandler(
-        '/**' . $GLOBALS['crlf']
-        . ' Export to JSON plugin for PHPMyAdmin' . $GLOBALS['crlf']
-        . ' @version 0.1' . $GLOBALS['crlf']
-        . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
-    );
-    return true;
-}
-
-/**
- * Outputs database header
- *
- * @param string  $db Database name
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportDBHeader($db)
-{
-    PMA_exportOutputHandler('// Database \'' . $db . '\'' . $GLOBALS['crlf'] );
-    return true;
-}
-
-/**
- * Outputs database footer
- *
- * @param string  $db Database name
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportDBFooter($db)
-{
-    return true;
-}
-
-/**
- * Outputs CREATE DATABASE statement
- *
- * @param string  $db Database name
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportDBCreate($db)
-{
-    return true;
-}
-
-/**
- * Outputs the content of a table in JSON format
- *
- * @param string  $db         database name
- * @param string  $table      table name
- * @param string  $crlf       the end of line sequence
- * @param string  $error_url  the url to go back in case of error
- * @param string  $sql_query  SQL query for obtaining data
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
-{
-    $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-
-    $columns_cnt = PMA_DBI_num_fields($result);
-    for ($i = 0; $i < $columns_cnt; $i++) {
-        $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
+    /**
+     * Outputs export footer
+     *
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportFooter()
+    {
+        return true;
     }
-    unset($i);
 
-    $buffer = '';
-    $record_cnt = 0;
-    while ($record = PMA_DBI_fetch_row($result)) {
+    /**
+     * Outputs export header
+     *
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportHeader()
+    {
+        PMA_exportOutputHandler(
+            '/**' . $GLOBALS['crlf']
+            . ' Export to JSON plugin for PHPMyAdmin' . $GLOBALS['crlf']
+            . ' @version 0.1' . $GLOBALS['crlf']
+            . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
+        );
+        return true;
+    }
 
-        $record_cnt++;
+    /**
+     * Outputs database header
+     *
+     * @param string  $db Database name
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportDBHeader($db)
+    {
+        PMA_exportOutputHandler('// Database \'' . $db . '\'' . $GLOBALS['crlf'] );
+        return true;
+    }
 
-        // Output table name as comment if this is the first record of the table
-        if ($record_cnt == 1) {
-            $buffer .= '// ' . $db . '.' . $table . $crlf . $crlf;
-            $buffer .= '[{';
-        } else {
-            $buffer .= ', {';
-        }
+    /**
+     * Outputs database footer
+     *
+     * @param string  $db Database name
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportDBFooter($db)
+    {
+        return true;
+    }
 
+    /**
+     * Outputs CREATE DATABASE statement
+     *
+     * @param string  $db Database name
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportDBCreate($db)
+    {
+        return true;
+    }
+
+    /**
+     * Outputs the content of a table in JSON format
+     *
+     * @param string  $db         database name
+     * @param string  $table      table name
+     * @param string  $crlf       the end of line sequence
+     * @param string  $error_url  the url to go back in case of error
+     * @param string  $sql_query  SQL query for obtaining data
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+    {
+        $result      = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+
+        $columns_cnt = PMA_DBI_num_fields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
+            $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
+        }
+        unset($i);
 
-            $isLastLine = ($i + 1 >= $columns_cnt);
+        $buffer = '';
+        $record_cnt = 0;
+        while ($record = PMA_DBI_fetch_row($result)) {
 
-            $column = $columns[$i];
+            $record_cnt++;
 
-            if (is_null($record[$i])) {
-                $buffer .= '"' . addslashes($column) . '": null' . (! $isLastLine ? ',' : '');
-            } elseif (is_numeric($record[$i])) {
-                $buffer .= '"' . addslashes($column) . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
+            // Output table name as comment if this is the first record of the table
+            if ($record_cnt == 1) {
+                $buffer .= '// ' . $db . '.' . $table . $crlf . $crlf;
+                $buffer .= '[{';
             } else {
-                $buffer .= '"' . addslashes($column) . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
+                $buffer .= ', {';
             }
+
+            for ($i = 0; $i < $columns_cnt; $i++) {
+
+                $isLastLine = ($i + 1 >= $columns_cnt);
+
+                $column = $columns[$i];
+
+                if (is_null($record[$i])) {
+                    $buffer .= '"' . addslashes($column) . '": null' . (! $isLastLine ? ',' : '');
+                } elseif (is_numeric($record[$i])) {
+                    $buffer .= '"' . addslashes($column) . '": ' . $record[$i] . (! $isLastLine ? ',' : '');
+                } else {
+                    $buffer .= '"' . addslashes($column) . '": "' . addslashes($record[$i]) . '"' . (! $isLastLine ? ',' : '');
+                }
+            }
+
+            $buffer .= '}';
         }
 
-        $buffer .= '}';
-    }
+        if ($record_cnt) {
+            $buffer .=  ']';
+        }
+        if (! PMA_exportOutputHandler($buffer)) {
+            return false;
+        }
 
-    if ($record_cnt) {
-        $buffer .=  ']';
-    }
-    if (! PMA_exportOutputHandler($buffer)) {
-        return false;
-    }
+        PMA_DBI_free_result($result);
 
-    PMA_DBI_free_result($result);
-
-    return true;
-}
+        return true;
+    }
 
 }
