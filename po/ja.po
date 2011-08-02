@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 11:50+0200\n"
+"PO-Revision-Date: 2011-08-02 11:52+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9929,10 +9929,9 @@ msgid "Log statistics"
 msgstr "統計を表示する"
 
 #: server_status.php:1449
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "ページを選択してください"
+msgstr "選択期間："
 
 #: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
