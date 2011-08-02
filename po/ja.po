@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 15:45+0200\n"
+"PO-Revision-Date: 2011-08-02 15:46+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9944,7 +9944,7 @@ msgstr ""
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
-msgstr "<p>ログの生成元を選択することができます。</p> 結果はクエリ文でグループ化されます。"
+msgstr "<p>ログの統計元を選択することができます。</p>結果はクエリ文でグループ化されます。"
 
 #: server_status.php:1465
 #, fuzzy
