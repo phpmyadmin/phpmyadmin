@@ -351,7 +351,7 @@ $(function() {
     });
 
     $('#filterText').keyup(function(e) {
-        word = $(this).val().replace('_',' ');
+        word = $(this).val().replace(/_/g,' ');
 
         if(word.length == 0) textFilter = null;
         else textFilter = new RegExp("(^|_)" + word,'i');
@@ -618,7 +618,6 @@ $(function() {
                 { dataType: 'cpu',
                   name: PMA_messages['strAverageLoad'],
                   unit: '%',
-                  // Needs to be string so it is not ignored by $.toJSON()
                   transformFn: 'cpu-linux'
                 }
             ]
@@ -1974,13 +1973,17 @@ $(function() {
 
 
         function queryAnalyzer() {
-            var query = $(this).parent().data('query')[cols[cols.length-2]];
+            var query = $(this).parent().data('query').argument || $(this).parent().data('query').sql_text;
+            var db = $(this).parent().data('query').db || '';
 
             /* A very basic SQL Formatter. Totally fails in the cases of
-               - Any string appearance containing a MySQL Keyword, surrounded by whitespaces
+               - Any string appearance containing a MySQL Keyword, surrounded by whitespaces, e.g. WHERE bar = "This where the formatter fails"
                - Subqueries too probably
             */
-            // .* selector doesn't includde whitespace, [^] doesn't work in IE8, thus we use [^\0] since the zero-byte char (hopefully) doesn't appear in table names ;)
+            
+            // Matches the columns to be selected
+            // .* selector doesn't include whitespace and we have no PCRE_DOTALL modifier, (.|\s)+ crashes Chrome (reported and confirmed), 
+            // [^]+ results in JS error in IE8, thus we use [^\0]+ for matching each column since the zero-byte char (hopefully) doesn't appear in column names ;)
             var sLists = query.match(/SELECT\s+[^\0]+\s+FROM\s+/gi);
             if(sLists) {
                 for(var i=0; i < sLists.length; i++) {
@@ -2008,7 +2011,8 @@ $(function() {
                         $.post('server_status.php?'+url_query, {
                             ajax_request: true,
                             query_analyzer: true,
-                            query: codemirror_editor.getValue()
+                            query: codemirror_editor.getValue(),
+                            database: db
                         }, function(data) {
                             data = $.parseJSON(data);
                             var totalTime = 0;

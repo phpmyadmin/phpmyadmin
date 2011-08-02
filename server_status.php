@@ -276,6 +276,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
     if(isset($_REQUEST['query_analyzer'])) {
         $return = array();
+        
+        if(strlen($_REQUEST['database']))
+            PMA_DBI_select_db($_REQUEST['database']);
 
         if ($profiling = PMA_profilingSupported())
             PMA_DBI_query('SET PROFILING=1;');
@@ -420,18 +423,20 @@ if (isset($server_status['Key_reads'])
 
 // Threads_cache_hitrate
 if (isset($server_status['Threads_created'])
-        && isset($server_status['Connections'])
-        && $server_status['Connections'] > 0) {
+    && isset($server_status['Connections'])
+    && $server_status['Connections'] > 0) {
+    
     $server_status['Threads_cache_hitrate_%'] =
-        100
-        - $server_status['Threads_created']
-        / $server_status['Connections']
-        * 100;
+        100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
 }
 
 // Format Uptime_since_flush_status : show as days, hours, minutes, seconds
 if (isset($server_status['Uptime_since_flush_status'])) {
     $server_status['Uptime_since_flush_status'] = PMA_timespanFormat($server_status['Uptime_since_flush_status']);
+}
+if (isset($server_status['Uptime'])) {
+    $uptime_unformatted = $server_status['Uptime'];
+    $server_status['Uptime'] = PMA_timespanFormat($server_status['Uptime']);
 }
 
 /**
@@ -755,9 +760,9 @@ echo __('Runtime Information');
 <?php
 
 function printQueryStatistics() {
-    global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
+    global $server_status, $used_queries, $url_query, $PMA_PHP_SELF, $uptime_unformatted;
 
-    $hour_factor   = 3600 / $server_status['Uptime'];
+    $hour_factor   = 3600 / $uptime_unformatted;
 
     $total_queries = array_sum($used_queries);
 
@@ -776,12 +781,12 @@ function printQueryStatistics() {
         echo '<br>';
 
         echo '&oslash; '.__('per minute').': ';
-        echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
+        echo PMA_formatNumber( $total_queries * 60 / $uptime_unformatted, 0);
         echo '<br>';
 
-        if ($total_queries / $server_status['Uptime'] >= 1) {
+        if ($total_queries / $uptime_unformatted >= 1) {
             echo '&oslash; '.__('per second').': ';
-            echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0);
+            echo PMA_formatNumber( $total_queries / $uptime_unformatted, 0);
         }
         ?>
         </span>
@@ -858,15 +863,15 @@ function printQueryStatistics() {
 
 function printServerTraffic() {
     global $server_status,$PMA_PHP_SELF;
-    global $server_master_status, $server_slave_status, $replication_types;
+    global $server_master_status, $server_slave_status, $replication_types, $uptime_unformatted;
 
-    $hour_factor    = 3600 / $server_status['Uptime'];
+    $hour_factor    = 3600 / $uptime_unformatted;
 
     /**
      * starttime calculation
      */
     $start_time = PMA_DBI_fetch_value(
-        'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
+        'SELECT UNIX_TIMESTAMP() - ' . $uptime_unformatted);
 
     ?>
     <h3><?php
@@ -880,7 +885,7 @@ function printServerTraffic() {
     <p>
     <?php
     echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
-        PMA_timespanFormat($server_status['Uptime']),
+        $server_status['Uptime'],
         PMA_localisedDate($start_time)) . "\n";
     ?>
     </p>
