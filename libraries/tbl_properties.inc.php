@@ -628,7 +628,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
     //$empty_row = array_pop($content_cells);
 
-    echo '<table id="table_columns">';
+    echo '<table id="table_columns" class="noclick">';
     echo '<caption class="tblHeaders">' . __('Structure') . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
 
     if ($display_type == 'horizontal') {
@@ -642,7 +642,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
 
         $odd_row = true;
         foreach ($content_cells as $content_row) {
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
 
             if (is_array($content_row)) {
@@ -658,7 +658,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
         $i = 0;
         $odd_row = true;
         foreach ($header_cells as $header_val) {
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
             ?>
     <th><?php echo $header_val; ?></th>

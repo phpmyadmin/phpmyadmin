@@ -1287,66 +1287,75 @@ function PMA_displayQuery($query) {
 }
 
 /**
- * PMA_syncDisplayHeaderSource() shows the header for source database
+ * PMA_syncDisplayHeaderCompare() shows the header for source database
  *
- * @param string $src_db          source db name
+ * @param string $src_db  source db name
+ * @param string $trg_db  target db name
  * @return nothing
  */
-function PMA_syncDisplayHeaderSource($src_db) {
-    echo '<div id="serverstatus" style = "overflow: auto; width: 1020px; height: 220px; border-left: 1px gray solid; border-bottom: 1px gray solid; padding:0; margin-bottom: 1em "> ';
+function PMA_syncDisplayHeaderCompare($src_db, $trg_db) {
+    echo '<fieldset style="padding:0"><div style="padding:1.5em; overflow:auto; height:220px">';
 
-    echo '<table id="serverstatusconnections" class="data" width="55%">';
+    echo '<table class="data">';
     echo '<tr>';
-    echo '<th>' . __('Source database') . ':  ' . $src_db . '<br />(';
+    echo '<th>' . __('Source database') . ':  ' . htmlspecialchars($src_db) . '<br />(';
     if ('cur' == $_SESSION['src_type']) {
         echo __('Current server');
     } else {
-        echo __('Remote server') . ' ' . $_SESSION['src_server']['host'];
+        echo __('Remote server') . ' ' . htmlspecialchars($_SESSION['src_server']['host']);
     }
     echo ')</th>';
     echo '<th>' . __('Difference') . '</th>';
-    echo '</tr>';
-}
-
-/**
- * PMA_syncDisplayHeaderTargetAndMatchingTables() shows the header for target database and the matching tables
- *
- * @param string  $trg_db          target db name
- * @param array   $matching_tables
- * @return  boolean $odd_row         current value of this toggle
- */
-function PMA_syncDisplayHeaderTargetAndMatchingTables($trg_db, $matching_tables) {
-    echo '<table id="serverstatusconnections" class="data" width="43%">';
-    echo '<tr>';
-    echo '<th>' . __('Target database') . ':  '. $trg_db . '<br />(';
+    echo '<th>' . __('Target database') . ':  '. htmlspecialchars($trg_db) . '<br />(';
     if ('cur' == $_SESSION['trg_type']) {
         echo __('Current server');
     } else {
-        echo __('Remote server') . ' ' . $_SESSION['trg_server']['host'];
+        echo __('Remote server') . ' ' . htmlspecialchars($_SESSION['trg_server']['host']);
     }
     echo ')</th>';
     echo '</tr>';
-    $odd_row = false;
-    foreach ($matching_tables as $tbl_name) {
-        $odd_row = PMA_syncDisplayBeginTableRow($odd_row);
-        echo '<td>  ' . htmlspecialchars($tbl_name) . '</td>';
-        echo '</tr>';
-    }
-    return $odd_row;
 }
 
 /**
- * PMA_syncDisplayBeginTableRow() displays the TR tag for alternating colors
+ * Prints table row
  *
- * @param boolean $odd_row        current status of the toggle
- * @return  boolean $odd_row        final status of the toggle
+ * $rows contains following keys:
+ * - src_table_name - source server table name
+ * - dst_table_name - target server table name
+ * - btn_type - 'M' or 'U'
+ * - btn_structure - null or arguments for showDetails in server_synchronize.js (without img_obj and table_name):
+ *                       i, update_size, insert_size, remove_size, insert_index, remove_index
+ *
+ * @param array $rows
  */
-function PMA_syncDisplayBeginTableRow($odd_row) {
-    $odd_row = ! $odd_row;
-    echo '<tr height="32" class=" ';
-    echo $odd_row ? 'odd' : 'even';
-    echo '">';
-    return $odd_row;
+function PMA_syncDisplayDataCompare($rows) {
+    global $pmaThemeImage;
+
+    $odd_row = true;
+    foreach ($rows as $row) {
+        echo '<tr class=" ' . ($odd_row ? 'odd' : 'even') . '">';
+        echo '<td>' . htmlspecialchars($row['src_table_name']) . '</td><td style="text-align:center">';
+        if (isset($row['btn_structure']) && $row['btn_structure']) {
+            // parameters: i, update_size, insert_size, remove_size, insert_index, remove_index
+            $p = $row['btn_structure'];
+            $p[0] = $row['btn_type'] . 'S' . $p[0];
+            echo '<img class="icon struct_img" src="' . $pmaThemeImage . 'new_struct.png" width="16" height="16"
+                 alt="Structure" title="' . __('Click to select') . '" style="cursor:pointer" onclick="showDetails('
+                 . "'" . implode($p, "','") . "'"
+                 . ', this, ' . "'" . PMA_escapeJsString(htmlspecialchars($row['src_table_name'])) . "'" . ')" /> ';
+        }
+        if (isset($row['btn_data']) && $row['btn_data']) {
+            // parameters: i, update_size, insert_size, remove_size, insert_index, remove_index
+            $p = $row['btn_data'];
+            $p[0] = $row['btn_type'] . 'D' . $p[0];
+            echo '<img class="icon data_img" src="' . $pmaThemeImage . 'new_data.png" width="16" height="16"
+                alt="Data" title="' . __('Click to select') . '" style="cursor:pointer" onclick="showDetails('
+                . "'" . implode($p, "','") . "'"
+                . ', this, ' . "'" . PMA_escapeJsString(htmlspecialchars($row['src_table_name'])) . "'" . ')" />';
+        }
+        echo '</td><td>' . htmlspecialchars($row['dst_table_name']) . '</td></tr>';
+        $odd_row = !$odd_row;
+    }
 }
 
 /**

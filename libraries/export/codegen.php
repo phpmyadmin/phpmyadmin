@@ -42,188 +42,188 @@ if (isset($plugin_list)) {
         );
 } else {
 
-/**
- * Set of functions used to build exports of tables
- */
+    /**
+     * Set of functions used to build exports of tables
+     */
 
-/**
- * Outputs export footer
- *
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportFooter()
-{
-    return true;
-}
+    /**
+     * Outputs export footer
+     *
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportFooter()
+    {
+        return true;
+    }
 
-/**
- * Outputs export header
- *
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportHeader()
-{
-    return true;
-}
+    /**
+     * Outputs export header
+     *
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportHeader()
+    {
+        return true;
+    }
 
-/**
- * Outputs database header
- *
- * @param string  $db Database name
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportDBHeader($db)
-{
-    return true;
-}
+    /**
+     * Outputs database header
+     *
+     * @param string  $db Database name
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportDBHeader($db)
+    {
+        return true;
+    }
 
-/**
- * Outputs database footer
- *
- * @param string  $db Database name
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportDBFooter($db)
-{
-    return true;
-}
+    /**
+     * Outputs database footer
+     *
+     * @param string  $db Database name
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportDBFooter($db)
+    {
+        return true;
+    }
 
-/**
- * Outputs CREATE DATABASE statement
- *
- * @param string  $db Database name
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportDBCreate($db)
-{
-    return true;
-}
+    /**
+     * Outputs CREATE DATABASE statement
+     *
+     * @param string  $db Database name
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportDBCreate($db)
+    {
+        return true;
+    }
 
-/**
- * Outputs the content of a table in NHibernate format
- *
- * @param string  $db         database name
- * @param string  $table      table name
- * @param string  $crlf       the end of line sequence
- * @param string  $error_url  the url to go back in case of error
- * @param string  $sql_query  SQL query for obtaining data
- * @return  bool        Whether it suceeded
- *
- * @access  public
- */
-function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
-{
-    global $CG_FORMATS, $CG_HANDLERS, $what;
-    $format = $GLOBALS[$what . '_format'];
-    if (isset($CG_FORMATS[$format])) {
-        return PMA_exportOutputHandler($CG_HANDLERS[$format]($db, $table, $crlf));
+    /**
+     * Outputs the content of a table in NHibernate format
+     *
+     * @param string  $db         database name
+     * @param string  $table      table name
+     * @param string  $crlf       the end of line sequence
+     * @param string  $error_url  the url to go back in case of error
+     * @param string  $sql_query  SQL query for obtaining data
+     * @return  bool        Whether it suceeded
+     *
+     * @access  public
+     */
+    function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
+    {
+        global $CG_FORMATS, $CG_HANDLERS, $what;
+        $format = $GLOBALS[$what . '_format'];
+        if (isset($CG_FORMATS[$format])) {
+            return PMA_exportOutputHandler($CG_HANDLERS[$format]($db, $table, $crlf));
+        }
+        return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
     }
-    return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
-}
 
-/**
- *
- * @package phpMyAdmin-Export
- * @subpackage Codegen
- */
-class TableProperty
-{
-    public $name;
-    public $type;
-    public $nullable;
-    public $key;
-    public $defaultValue;
-    public $ext;
-    function __construct($row)
+    /**
+     *
+     * @package phpMyAdmin-Export
+     * @subpackage Codegen
+     */
+    class TableProperty
     {
-        $this->name = trim($row[0]);
-        $this->type = trim($row[1]);
-        $this->nullable = trim($row[2]);
-        $this->key = trim($row[3]);
-        $this->defaultValue = trim($row[4]);
-        $this->ext = trim($row[5]);
+        public $name;
+        public $type;
+        public $nullable;
+        public $key;
+        public $defaultValue;
+        public $ext;
+        function __construct($row)
+        {
+            $this->name = trim($row[0]);
+            $this->type = trim($row[1]);
+            $this->nullable = trim($row[2]);
+            $this->key = trim($row[3]);
+            $this->defaultValue = trim($row[4]);
+            $this->ext = trim($row[5]);
+        }
+        function getPureType()
+        {
+            $pos=strpos($this->type, "(");
+            if ($pos > 0)
+                return substr($this->type, 0, $pos);
+            return $this->type;
+        }
+        function isNotNull()
+        {
+            return $this->nullable == "NO" ? "true" : "false";
+        }
+        function isUnique()
+        {
+            return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
+        }
+        function getDotNetPrimitiveType()
+        {
+            if (strpos($this->type, "int") === 0) return "int";
+            if (strpos($this->type, "long") === 0) return "long";
+            if (strpos($this->type, "char") === 0) return "string";
+            if (strpos($this->type, "varchar") === 0) return "string";
+            if (strpos($this->type, "text") === 0) return "string";
+            if (strpos($this->type, "longtext") === 0) return "string";
+            if (strpos($this->type, "tinyint") === 0) return "bool";
+            if (strpos($this->type, "datetime") === 0) return "DateTime";
+            return "unknown";
+        }
+        function getDotNetObjectType()
+        {
+            if (strpos($this->type, "int") === 0) return "Int32";
+            if (strpos($this->type, "long") === 0) return "Long";
+            if (strpos($this->type, "char") === 0) return "String";
+            if (strpos($this->type, "varchar") === 0) return "String";
+            if (strpos($this->type, "text") === 0) return "String";
+            if (strpos($this->type, "longtext") === 0) return "String";
+            if (strpos($this->type, "tinyint") === 0) return "Boolean";
+            if (strpos($this->type, "datetime") === 0) return "DateTime";
+            return "Unknown";
+        }
+        function getIndexName()
+        {
+            if (strlen($this->key)>0)
+                return "index=\"" . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8') . "\"";
+            return "";
+        }
+        function isPK()
+        {
+            return $this->key=="PRI";
+        }
+        function formatCs($text)
+        {
+            $text=str_replace("#name#", cgMakeIdentifier($this->name, false), $text);
+            return $this->format($text);
+        }
+        function formatXml($text)
+        {
+            $text=str_replace("#name#", htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'), $text);
+            $text=str_replace("#indexName#", $this->getIndexName(), $text);
+            return $this->format($text);
+        }
+        function format($text)
+        {
+            $text=str_replace("#ucfirstName#", cgMakeIdentifier($this->name), $text);
+            $text=str_replace("#dotNetPrimitiveType#", $this->getDotNetPrimitiveType(), $text);
+            $text=str_replace("#dotNetObjectType#", $this->getDotNetObjectType(), $text);
+            $text=str_replace("#type#", $this->getPureType(), $text);
+            $text=str_replace("#notNull#", $this->isNotNull(), $text);
+            $text=str_replace("#unique#", $this->isUnique(), $text);
+            return $text;
+        }
     }
-    function getPureType()
-    {
-        $pos=strpos($this->type, "(");
-        if ($pos > 0)
-            return substr($this->type, 0, $pos);
-        return $this->type;
-    }
-    function isNotNull()
-    {
-        return $this->nullable == "NO" ? "true" : "false";
-    }
-    function isUnique()
-    {
-        return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
-    }
-    function getDotNetPrimitiveType()
-    {
-        if (strpos($this->type, "int") === 0) return "int";
-        if (strpos($this->type, "long") === 0) return "long";
-        if (strpos($this->type, "char") === 0) return "string";
-        if (strpos($this->type, "varchar") === 0) return "string";
-        if (strpos($this->type, "text") === 0) return "string";
-        if (strpos($this->type, "longtext") === 0) return "string";
-        if (strpos($this->type, "tinyint") === 0) return "bool";
-        if (strpos($this->type, "datetime") === 0) return "DateTime";
-        return "unknown";
-    }
-    function getDotNetObjectType()
-    {
-        if (strpos($this->type, "int") === 0) return "Int32";
-        if (strpos($this->type, "long") === 0) return "Long";
-        if (strpos($this->type, "char") === 0) return "String";
-        if (strpos($this->type, "varchar") === 0) return "String";
-        if (strpos($this->type, "text") === 0) return "String";
-        if (strpos($this->type, "longtext") === 0) return "String";
-        if (strpos($this->type, "tinyint") === 0) return "Boolean";
-        if (strpos($this->type, "datetime") === 0) return "DateTime";
-        return "Unknown";
-    }
-    function getIndexName()
-    {
-        if (strlen($this->key)>0)
-            return "index=\"" . htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8') . "\"";
-        return "";
-    }
-    function isPK()
-    {
-        return $this->key=="PRI";
-    }
-    function formatCs($text)
-    {
-        $text=str_replace("#name#", cgMakeIdentifier($this->name, false), $text);
-        return $this->format($text);
-    }
-    function formatXml($text)
-    {
-        $text=str_replace("#name#", htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'), $text);
-        $text=str_replace("#indexName#", $this->getIndexName(), $text);
-        return $this->format($text);
-    }
-    function format($text)
-    {
-        $text=str_replace("#ucfirstName#", cgMakeIdentifier($this->name), $text);
-        $text=str_replace("#dotNetPrimitiveType#", $this->getDotNetPrimitiveType(), $text);
-        $text=str_replace("#dotNetObjectType#", $this->getDotNetObjectType(), $text);
-        $text=str_replace("#type#", $this->getPureType(), $text);
-        $text=str_replace("#notNull#", $this->isNotNull(), $text);
-        $text=str_replace("#unique#", $this->isUnique(), $text);
-        return $text;
-    }
-}
 
     function cgMakeIdentifier($str, $ucfirst = true)
     {
