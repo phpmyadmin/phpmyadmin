@@ -227,6 +227,15 @@ $js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the l
 /* Visual query builder (pmd/scripts/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
 
+/* For makegrid.js (column reordering, show/hide column, grid editing) */
+$js_messages['strCellEditHint'] = __('Press escape to cancel editing');
+$js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
+$js_messages['strColOrderHint'] = __('Drag to reorder');
+$js_messages['strSortHint'] = __('Click to sort');
+$js_messages['strColMarkHint'] = __('Click to mark/unmark');
+$js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
+$js_messages['strShowAllCol'] = __('Show all');
+
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
 $js_messages['strGenerate'] = __('Generate');
@@ -240,6 +249,7 @@ $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available
 /* l10n: Latest available phpMyAdmin version */
 $js_messages['strLatestAvailable'] = __(', latest stable version:');
 $js_messages['strUpToDate'] = __('up to date');
+
 
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
