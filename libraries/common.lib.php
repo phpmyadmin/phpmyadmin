@@ -1182,7 +1182,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // in the tools div, only display the Inline link when not in ajax
         // mode because 1) it currently does not work and 2) we would
         // have two similar mechanisms on the page for the same goal
-        if ($is_select || $GLOBALS['is_ajax_request'] === false) {
+        if ($is_select || $GLOBALS['is_ajax_request'] === false && ! $query_too_big) {
         // see in js/functions.js the jQuery code attached to id inline_edit
         // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .

@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-27 16:54+0200\n"
+"PO-Revision-Date: 2011-08-01 18:53+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1326,7 +1326,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analizando y cargando registros. Esto puede demorar."
 
 #: js/messages.php:143
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
@@ -1337,8 +1336,9 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Esta columna muestra la cantidad de consultas idénticas que fueron "
-"agrupadas. Sin embargo, sólo el texto SQL es comparado, por lo que los demás "
-"atributos de las consultas como el tiempo de inicio podría diferir."
+"agrupadas. Sin embargo, sólo la consulta SQL en sí es es utilizada para "
+"agrupar, por lo que los demás atributos de las consultas como el tiempo de "
+"inicio podría diferir."
 
 #: js/messages.php:144
 msgid ""
@@ -1360,11 +1360,11 @@ msgid "Jump to Log table"
 msgstr "Saltar a la tabla de registros"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Registros analizados, pero no se encontraron datos en este período de tiempo."
+"Registros analizados, pero no se encontraron datos en este período de "
+"tiempo."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
@@ -1381,10 +1381,9 @@ msgid "Filter queries by word/regexp:"
 msgstr "Filtrar consultas por palabra/expresión regular:"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Group queries, ignoring variable data in WHERE statements"
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Agrupar consultas, ignorando datos variables en sentencias WHERE"
+msgstr "Agrupar consultas ignorando datos variables en sentencias WHERE"
 
 #: js/messages.php:156
 msgid "Sum of grouped rows:"
@@ -10061,7 +10060,6 @@ msgid "Monitor Instructions"
 msgstr "Instrucciones de monitorización"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -10077,14 +10075,14 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
-"El monitorizador de phpMyAdmin puede asistir en la optimización de la "
+"El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
-"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1371
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
 #| "        Ok, you are good to go! Once you click 'Start monitor' your "
@@ -10107,19 +10105,17 @@ msgid ""
 "will load statistics from the logs helping you find what caused the activity "
 "spike.</p>"
 msgstr ""
-"<b>Utilizando el monitorizador:</b><br />\n"
-"¡Ya estás listo! Una vez que pulses en 'Iniciar monitorización' el navegador "
-"actualizará a intervalos regulares todos los gráficos mostrados. Podría "
-"agregar gráficos y cambiar la velocidad de actualización en 'Configuración', "
-"o eliminar cualquier gráfico utilizando el icono de rueda dentada en cada "
-"gráfico.\n"
-"<p>Cuando vea un pico repentino de actividad, seleccione el intervalo de "
-"tiempo relevante en el gráfico manteniendo pulsado el botón izquierdo y "
-"arrastrando sobre el gráfico. Esto cargará las estadísticas de los "
-"registros, lo que lo ayudará a encontrar la causa del pico de actividad.</p>"
+"<b>Utilizando el monitorizador:</b><br /> ¡Ya está listo! Una vez que pulse "
+"en 'Iniciar monitorización' el navegador actualizará a intervalos regulares "
+"todos los gráficos mostrados. Puede agregar gráficos y cambiar la velocidad "
+"de actualización en la sección 'Configuración' o eliminar cualquier gráfico "
+"utilizando el icono de rueda dentada en cada gráfico. <p>Cuando vea un pico "
+"repentino de actividad, seleccione el intervalo de tiempo relevante en el "
+"gráfico manteniendo pulsado el botón izquierdo y arrastrando sobre el "
+"gráfico. Esto cargará las estadísticas de los registros, lo que lo ayudará a "
+"encontrar la causa del pico de actividad.</p>"
 
 #: server_status.php:1375
-#, fuzzy
 #| msgid ""
 #| "<b>Please note:</b>\n"
 #| "        Enabling the general_log may increase the server load by 5-15%. "
@@ -10135,13 +10131,12 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
-"<b>Notar que:</b>\n"
-"Activar «general_log» puede aumentar la carga en el servidor hasta un 5-15%. "
-"También esté al tanto que generar estadísticas de los registros es una tarea "
-"muy intensiva por lo que se recomienda seleccionar un período de tiempo lo "
-"más pequeño posible y desactivar «general_log» y vaciar sus tablas una vez "
-"que ya no se necesite monitorizar.\n"
-"        "
+"<b>Notar que:</b> Activar «general_log» puede aumentar la carga en el "
+"servidor hasta un 5-15%. También esté al tanto que generar estadísticas de "
+"los registros es una tarea muy intensiva por lo que se recomienda "
+"seleccionar un período de tiempo lo más pequeño posible y desactivar "
+"«general_log» y vaciar sus tablas una vez que ya no se necesite monitorizar. "
+"       "
 
 #: server_status.php:1385
 msgid "CPU Usage"
