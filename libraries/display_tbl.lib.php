@@ -394,45 +394,12 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
             <input type="submit" value="<?php echo __('Save edited data'); ?>" />
             <div class="navigation_separator">|</div>
         </div>
-        <?php echo '<input id="save_cells_at_once" type="hidden" value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'; ?>
-        <?php echo '<input id="cell_edit_hint" type="hidden" value="' . __('Press escape to cancel editing') . '" />'; ?>
-        <?php echo '<input id="save_cell_warning" type="hidden" value="' . __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?') . '" />'; ?>
-        <?php
-            // data usually get from window.parent, which don't exist when we open only right frame in new window/tab
-            // P.S. not sure to put these in here, but can't find other better place to put
-            echo '<div class="common_hidden_inputs">';
-            echo PMA_generate_common_hidden_inputs($db, $table);
-            echo '</div>';
-        ?>
     </td>
     <td>
         <div class="restore_column hide">
             <input type="submit" value="<?php echo __('Restore column order'); ?>" />
             <div class="navigation_separator">|</div>
         </div>
-        <?php
-        if (PMA_isSelect()) {
-            // generate the column order, if it is set
-            $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-            $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-            if ($col_order) {
-                echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
-            }
-            $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
-            if ($col_visib) {
-                echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
-            }
-            // generate table create time
-            echo '<input id="table_create_time" type="hidden" value="' .
-                 PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
-        }
-        // generate hints
-        echo '<input id="col_order_hint" type="hidden" value="' . __('Drag to reorder') . '" />';
-        echo '<input id="sort_hint" type="hidden" value="' . __('Click to sort') . '" />';
-        echo '<input id="col_mark_hint" type="hidden" value="' . __('Click to mark/unmark') . '" />';
-        echo '<input id="col_visib_hint" type="hidden" value="' . __('Click the drop-down arrow<br />to toggle column\'s visibility') . '" />';
-        echo '<input id="show_all_col_text" type="hidden" value="' . __('Show all') . '" />';
-        ?>
     </td>
 
 <?php // if displaying a VIEW, $unlim_num_rows could be zero because
@@ -580,6 +547,29 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo '</form>' . "\n";
             }
         }
+    }
+
+
+    // Output data needed for grid editing
+    echo '<input id="save_cells_at_once" type="hidden" value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />';
+    echo '<div class="common_hidden_inputs">';
+    echo PMA_generate_common_hidden_inputs($db, $table);
+    echo '</div>';
+    // Output data needed for column reordering and show/hide column
+    if (PMA_isSelect()) {
+        // generate the column order, if it is set
+        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+        if ($col_order) {
+            echo '<input id="col_order" type="hidden" value="' . implode(',', $col_order) . '" />';
+        }
+        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+        if ($col_visib) {
+            echo '<input id="col_visib" type="hidden" value="' . implode(',', $col_visib) . '" />';
+        }
+        // generate table create time
+        echo '<input id="table_create_time" type="hidden" value="' .
+             PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Create_time') . '" />';
     }
 
 
