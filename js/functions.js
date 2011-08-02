@@ -2000,6 +2000,11 @@ $(document).ready(function() {
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
                     $("#copyTable").find("select[name='target_db'] option[value="+data.db+"]").attr('selected', 'selected');
+                
+                    //Refresh navigation frame as a new table has been added
+                    if (window.parent && window.parent.frame_navigation) {
+                        window.parent.frame_navigation.location.reload();
+                    }
                 } else {
                     $temp_div = $("<div id='temp_div'></div>")
                     $temp_div.html(data.error);
