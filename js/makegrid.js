@@ -1015,6 +1015,9 @@
                                     if (new_clause != '') {
                                         var $where_clause = $(this).parent('tr').find('.where_clause');
                                         var old_clause = $where_clause.attr('value');
+                                        var decoded_old_clause = PMA_urldecode(old_clause);
+                                        var decoded_new_clause = PMA_urldecode(new_clause);
+                                        
                                         $where_clause.attr('value', new_clause);
                                         // update Edit, Copy, and Delete links also
                                         $(this).parent('tr').find('a').each(function() {
@@ -1025,9 +1028,18 @@
                                                     .unbind('click')
                                                     .bind('click', function() {
                                                         return confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
-                                                               PMA_urldecode(new_clause) + (is_unique ? '' : ' LIMIT 1'));
+                                                               decoded_new_clause + (is_unique ? '' : ' LIMIT 1'));
                                                     });
                                             }
+                                        });
+                                        // update the multi edit checkboxes
+                                        $(this).parent('tr').find('input[type=checkbox]').each(function() {
+                                            var $checkbox = $(this);
+                                            var checkbox_name = $checkbox.attr('name');
+                                            var checkbox_value = $checkbox.attr('value');
+                                            
+                                            $checkbox.attr('name', checkbox_name.replace(old_clause, new_clause));
+                                            $checkbox.attr('value', checkbox_value.replace(decoded_old_clause, decoded_new_clause));
                                         });
                                     }
                                 });
