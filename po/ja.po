@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 15:47+0200\n"
+"PO-Revision-Date: 2011-08-02 15:54+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9780,10 +9780,9 @@ msgid "Start Monitor"
 msgstr "モニタ開始"
 
 #: server_status.php:1328
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "はじめに"
+msgstr "使用方法／セットアップ"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
