@@ -869,9 +869,9 @@
                  */
                 var full_where_clause = Array();
                 /**
-                 * @var nonunique   Boolean, whether the rows in this table is unique or not
+                 * @var is_unique   Boolean, whether the rows in this table is unique or not
                  */
-                var nonunique = $('.inline_edit_anchor').is('.nonunique') ? 0 : 1;
+                var is_unique = $('.inline_edit_anchor').is('.nonunique') ? 0 : 1;
                 /**
                  * multi edit variables
                  */
@@ -973,7 +973,7 @@
                                 'server' : g.server,
                                 'db' : g.db,
                                 'table' : g.table,
-                                'clause_is_unique' : nonunique,
+                                'clause_is_unique' : is_unique,
                                 'where_clause' : full_where_clause,
                                 'fields[multi_edit]' : me_fields,
                                 'fields_name[multi_edit]' : me_fields_name,
@@ -1019,6 +1019,15 @@
                                         // update Edit, Copy, and Delete links also
                                         $(this).parent('tr').find('a').each(function() {
                                             $(this).attr('href', $(this).attr('href').replace(old_clause, new_clause));
+                                            // update delete confirmation in Delete link
+                                            if ($(this).attr('href').indexOf('DELETE') > -1) {
+                                                $(this).removeAttr('onclick')
+                                                    .unbind('click')
+                                                    .bind('click', function() {
+                                                        return confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
+                                                               PMA_urldecode(new_clause) + (is_unique ? '' : ' LIMIT 1'));
+                                                    });
+                                            }
                                         });
                                     }
                                 });
