@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 10:37+0200\n"
+"PO-Revision-Date: 2011-08-02 10:38+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1345,10 +1345,9 @@ msgid "Jump to Log table"
 msgstr "Günlük tablosuna atla"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
-msgstr "Günlük çözümlendi, ama bu zaman aralığında bulunan veri yok."
+msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
