@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 10:41+0200\n"
+"PO-Revision-Date: 2011-08-02 10:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9894,7 +9894,6 @@ msgid "Monitor Instructions"
 msgstr "İzleme Yönergeleri"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -9911,11 +9910,10 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 "phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
-"iz sürme süresinde size yardımcı\n"
-"olabilir. Sonrası için log_output'u 'TABLE'a ayarlamanız gerekecektir ve ya "
-"slow_query_log ya da general_log etkinleştirilir.\n"
-"Ancak unutmayın, general_log çok fazla veri üretir ve sunucu yükünü %15'e "
-"kadar arttırır"
+"iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
+"'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
+"etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
+"sunucu yükünü %15'e kadar arttırır"
 
 #: server_status.php:1371
 #, fuzzy
