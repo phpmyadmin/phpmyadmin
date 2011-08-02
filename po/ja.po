@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-02 12:41+0200\n"
+"PO-Revision-Date: 2011-08-02 16:09+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1230,11 +1230,13 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log は有効になっていますが、サーバは %d "
+"秒より長くかかるクエリだけをログに記録します。お使いのシステムによっては、long_query_time を 0～2 秒に設定したほうがいいでしょう。"
 
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time は %d 秒に設定されています。"
 
 #: js/messages.php:122
 msgid ""
@@ -1267,7 +1269,7 @@ msgstr "%s を無効にする"
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time を %d 秒に設定する"
 
 #: js/messages.php:131
 msgid ""
@@ -9780,10 +9782,9 @@ msgid "Start Monitor"
 msgstr "モニタ開始"
 
 #: server_status.php:1328
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "はじめに"
+msgstr "使用方法／セットアップ"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
@@ -9810,10 +9811,9 @@ msgid "Clear monitor config"
 msgstr "モニタ設定のクリア"
 
 #: server_status.php:1363
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "はじめに"
+msgstr "モニタの使用方法"
 
 #: server_status.php:1364
 #| msgid ""
@@ -9833,7 +9833,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡することができます。後者の場合には、テーブルに log_output "
 "を設定し、slow_query_log または general_log のいずれかを有効にする必要があります。なお、general_log "
-"を大量のデータを生成し、サーバの負荷を 15% 増加させますので、注意するようにしてください。"
+"は大量のデータを生成し、サーバの負荷を 15% 増加させますので、注意するようにしてください。"
 
 #: server_status.php:1371
 msgid ""
@@ -9923,10 +9923,9 @@ msgid "Loading logs"
 msgstr "ログの読み込み"
 
 #: server_status.php:1448
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "統計を表示する"
+msgstr "ログの統計"
 
 #: server_status.php:1449
 #| msgid "Select page"
@@ -9945,7 +9944,7 @@ msgstr ""
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
-msgstr ""
+msgstr "<p>ログの統計元を選択することができます。</p>結果はクエリ文でグループ化されます。"
 
 #: server_status.php:1465
 #, fuzzy
