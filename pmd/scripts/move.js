@@ -26,20 +26,20 @@
         eval (hrefscript);
         return false;
     }).attr('href', '#');
-}); 
+});
 
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
  $(document).ready(function(){
     $(window).bind('beforeunload', function(){        // onbeforeunload for the frame window.
-        if (_change == 1 && _staying == 0) 
+        if (_change == 1 && _staying == 0)
             return PMA_messages['strLeavingDesigner'];
-        else if (_change == 1 && _staying == 1) 
+        else if (_change == 1 && _staying == 1)
             _staying = 0;
     });
     $(window).unload(function(){
         _change = 0;
-    });    
+    });
     window.top.onbeforeunload = function(){     // onbeforeunload for the browser main window.
         if (_change == 1 && _staying == 0){
             _staying = 1;                                                   //  Helps if the user stays on the page  as there
@@ -48,7 +48,7 @@
         }
     };
 });
- 
+
  function make_zero(){   // Function called if the user stays after seeing the confirmation prompt.
       _staying = 0;
 }
@@ -1015,7 +1015,7 @@ function getColorByTarget( target )
   return color;
 }
 
-function Click_option(id_this,column_name,table_name) 
+function Click_option(id_this,column_name,table_name)
 {
     var left = Glob_X - (document.getElementById(id_this).offsetWidth>>1);
     document.getElementById(id_this).style.left = left + 'px';
@@ -1044,10 +1044,10 @@ function Select_all(id_this,owner)
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
                 var temp = '`' + id_this.substring(owner.length +1) + '`.*';
-           }	
+           }
            else {
                parent.elements[i].checked = false;
-               parent.elements[i].disabled = false;	
+               parent.elements[i].disabled = false;
            }
         }
     }
@@ -1063,8 +1063,8 @@ function Select_all(id_this,owner)
             }
         }
         for(k =0 ;k < from_array.length;k++){
-            if(from_array[k] == id_this){ 
-                from_array.splice(k,1); 
+            if(from_array[k] == id_this){
+                from_array.splice(k,1);
                 break;
             }
         }
@@ -1096,7 +1096,7 @@ function store_column(id_this,owner,col) {
     var i = 0;
     var k = 0;
     if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
-        select_field.push('`' + id_this + '`.`' + col +'`');	
+        select_field.push('`' + id_this + '`.`' + col +'`');
         from_array.push(id_this);
     }
     else {
@@ -1107,9 +1107,9 @@ function store_column(id_this,owner,col) {
             }
         }
         for(k =0 ;k < from_array.length;k++){
-            if(from_array[k] == id_this){ 
-                from_array.splice(k,1); 
-			    break;
+            if(from_array[k] == id_this){
+                from_array.splice(k,1);
+                break;
             }
         }
      }
@@ -1119,13 +1119,13 @@ function store_column(id_this,owner,col) {
  * This function builds object and adds them to history_array
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
  * then a new history object is made and finally all these history objects are addded to history_array[]
- * 
- * @uses	where()
- * @uses	history()
- * @uses	aggregate()
- * @uses	rename()
- * @uses	panel()
- * @uses	display()
+ *
+ * @uses where()
+ * @uses history()
+ * @uses aggregate()
+ * @uses rename()
+ * @uses panel()
+ * @uses display()
 **/
 
 function add_object() {
@@ -1151,18 +1151,18 @@ function add_object() {
         sum = sum + 1;
         document.getElementById('new_name').value = "" ;
     }
-	if (document.getElementById('operator').value != '---') {
+    if (document.getElementById('operator').value != '---') {
         var aggregate_obj = new aggregate(document.getElementById('operator').value) ;
         history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[downer + '.' + tab_name],"Aggregate"));
         sum = sum + 1;
         document.getElementById('operator').value = '---';
-		//make aggregate operator
+        //make aggregate operator
     }
     if (document.getElementById('groupby').checked == true ) {
         history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[downer + '.' +tab_name],"GroupBy"));
         sum = sum + 1;
         document.getElementById('groupby').checked = false;
-	//make groupby
+        //make groupby
     }
     if (document.getElementById('h_rel_opt').value != '--') {
         if (document.getElementById('having').value == "") {
@@ -1182,11 +1182,11 @@ function add_object() {
         history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[downer + '.' + tab_name],"OrderBy"));
         sum = sum + 1;
         document.getElementById('orderby').checked = false;
-		//make orderby
+        //make orderby
     }
     document.getElementById('hint').innerHTML = sum + "object created" ;
     document.getElementById('hint').style.visibility = "visible";
-	//output sum new objects created
+    //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init,history_array.length);
     Close_option();

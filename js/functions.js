@@ -211,9 +211,9 @@ function confirmLink(theLink, theSqlQuery)
     var is_confirmed = confirm(PMA_messages['strDoYouReally'] + ' :\n' + theSqlQuery);
     if (is_confirmed) {
         if ( $(theLink).hasClass('formLinkSubmit') ) {
-			var name = 'is_js_confirmed';
+            var name = 'is_js_confirmed';
             if($(theLink).attr('href').indexOf('usesubform') != -1)
-				name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
+                name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
         } else if ( typeof(theLink.href) != 'undefined' ) {
