@@ -188,7 +188,7 @@ function test_php_errormsg($start = true)
 function test_db_connection($extension, $connect_type, $host, $port, $socket, $user, $pass = null, $error_key = 'Server')
 {
     //    test_php_errormsg();
-    $socket = empty($socket) || $connect_type == 'tcp' ? null : ':' . $socket;
+    $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
     $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
     $error = null;
     if ($extension == 'mysql') {

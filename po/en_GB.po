@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-24 20:54+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2011-07-30 22:27+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1199,7 +1199,7 @@ msgstr "Pause monitor"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log and slow_query_log are enabled."
 
 #: js/messages.php:115
 msgid "general_log is enabled."
@@ -1211,7 +1211,7 @@ msgstr "slow_query_log is enabled."
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log and general_log are disabled."
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
@@ -1317,6 +1317,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"This columns shows the amount of identical queries that are grouped "
+"together. However only the SQL Text is being compared, thus the queries "
+"other attributes such as start time may differ."
 
 #: js/messages.php:144
 msgid ""
@@ -1324,27 +1327,28 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Since grouping of INSERTs queries has been selected, INSERT queries into the "
+"same table are also being grouped together, disregarding of the inserted "
+"data."
 
 #: js/messages.php:145
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "Log data loaded. Queries executed in this time span:"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Jump to database"
+msgstr "Jump to Log table"
 
 #: js/messages.php:148
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "Log analyzed, but no data found in this time span."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "Filter"
+msgstr "Filters"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:153 navigation.php:270
@@ -1353,23 +1357,21 @@ msgstr "Filter"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filter queries by word/regexp:"
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Group queries, ignoring variable data in WHERE clauses"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Number of inserted rows"
+msgstr "Sum of grouped rows:"
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Total"
+msgstr "Total:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -1507,10 +1509,9 @@ msgid "Change"
 msgstr "Change"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maximum execution time"
+msgstr "Query execution time"
 
 #: js/messages.php:211
 msgid "Hide search criteria"
@@ -1526,10 +1527,9 @@ msgid "Ignore"
 msgstr "Ignore"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Add column"
+msgstr "Add columns"
 
 #: js/messages.php:221
 msgid "Select referenced key"
@@ -1846,13 +1846,12 @@ msgstr "Font size"
 
 #: libraries/File.class.php:220
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "File was not an uploaded file."
 
 #: libraries/File.class.php:259 libraries/File.class.php:388
-#, fuzzy
 #| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
-msgstr "Unknown error in file upload."
+msgstr "Unknown error while uploading."
 
 #: libraries/File.class.php:277
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -1897,11 +1896,11 @@ msgstr ""
 
 #: libraries/File.class.php:507
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Error while moving uploaded file."
 
 #: libraries/File.class.php:515
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Cannot read (moved) upload file."
 
 #: libraries/Index.class.php:418 tbl_relation.php:526
 msgid "No index defined!"
@@ -2449,10 +2448,9 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s days, %s hours, %s minutes and %s seconds"
 
 #: libraries/common.lib.php:1856
-#, fuzzy
 #| msgid "Routine parameters"
 msgid "Missing parameter:"
-msgstr "Routine parameters"
+msgstr "Missing parameter:"
 
 #: libraries/common.lib.php:2162 libraries/common.lib.php:2165
 #: libraries/display_tbl.lib.php:299
@@ -6205,10 +6203,9 @@ msgstr ""
 "The following structures have either been created or altered. Here you can:"
 
 #: libraries/import.lib.php:1069
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "View a structure`s contents by clicking on its name"
+msgstr "View a structure's contents by clicking on its name"
 
 #: libraries/import.lib.php:1070
 msgid ""
@@ -6217,10 +6214,9 @@ msgstr ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 
 #: libraries/import.lib.php:1071
-#, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Edit its structure by following the \"Structure\" link"
+msgstr "Edit structure by following the \"Structure\" link"
 
 #: libraries/import.lib.php:1074
 msgid "Go to database"
@@ -9004,13 +9000,12 @@ msgstr "All status variables"
 
 #: server_status.php:619
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: server_status.php:629 server_status.php:651
-#, fuzzy
 #| msgid "Refresh rate:"
 msgid "Refresh rate: "
-msgstr "Refresh rate:"
+msgstr "Refresh rate: "
 
 #: server_status.php:672
 msgid "Containing the word:"
@@ -9030,10 +9025,10 @@ msgstr "Related links:"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:738
-#, fuzzy, php-format
+#, php-format
 #| msgid "Network traffic since startup: %s"
 msgid "Questions since startup: %s"
-msgstr "Network traffic since startup: %s"
+msgstr "Questions since startup: %s"
 
 #: server_status.php:744 server_status.php:779 server_status.php:895
 #: server_status.php:940
@@ -9063,10 +9058,10 @@ msgid "Network traffic since startup: %s"
 msgstr "Network traffic since startup: %s"
 
 #: server_status.php:852
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "This MySQL server has been running for %s. It started up on %s."
+msgstr "This MySQL server has been running for %1$s. It started up on %2$s."
 
 #: server_status.php:862
 msgid ""
@@ -9142,6 +9137,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"The number of connections that were aborted because the client died without "
+"closing the connection properly."
 
 #: server_status.php:1076
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9797,52 +9794,46 @@ msgid "The number of threads that are not sleeping."
 msgstr "The number of threads that are not sleeping."
 
 #: server_status.php:1320
-#, fuzzy
 #| msgid "Start row"
 msgid "Start Monitor"
-msgstr "Start row"
+msgstr "Start Monitor"
 
 #: server_status.php:1328
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "Introduction"
+msgstr "Instructions/Setup"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Done rearranging/editing charts"
 
 #: server_status.php:1339
-#, fuzzy
 #| msgid "Add parameter"
 msgid "Add chart"
-msgstr "Add parameter"
+msgstr "Add chart"
 
 #: server_status.php:1341
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Rearrange/edit charts"
 
 #: server_status.php:1343
 msgid "Refresh rate:"
 msgstr "Refresh rate:"
 
 #: server_status.php:1346
-#, fuzzy
 #| msgid "Textarea columns"
 msgid "Chart columns:"
-msgstr "Textarea columns"
+msgstr "Chart columns:"
 
 #: server_status.php:1360
-#, fuzzy
 #| msgid "User for config auth"
 msgid "Clear monitor config"
-msgstr "User for config auth"
+msgstr "Clear monitor config"
 
 #: server_status.php:1363
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "Introduction"
+msgstr "Monitor Instructions"
 
 #: server_status.php:1364
 msgid ""
@@ -9852,6 +9843,13 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"The phpMyAdmin Monitor can assist you in optimising the server configuration "
+"and track down time intensive\n"
+"        queries. For the latter you will need to set log_output to 'TABLE' "
+"and have either the slow_query_log or general_log enabled. Note however, "
+"that the\n"
+"        general_log produces a lot of data and increases server load by up "
+"to 15%"
 
 #: server_status.php:1371
 msgid ""
@@ -9864,6 +9862,17 @@ msgid ""
 "will load statistics from the logs helping you find what caused the activity "
 "spike.</p>"
 msgstr ""
+"<b>Using the monitor:</b><br/>\n"
+"        Ok, you are good to go! Once you click 'Start monitor' your browser "
+"will refresh all displayed charts\n"
+"        in a regular interval. You may add charts and change the refresh "
+"rate under 'Settings', or remove any chart\n"
+"        using the cog icon on each respective chart.\n"
+"        <p>When you get to see a sudden spike in activity, select the "
+"relevant time span on any chart by holding down the\n"
+"        left mouse button and panning over the chart. This will load "
+"statistics from the logs helping you find what caused the\n"
+"        activity spike.</p>"
 
 #: server_status.php:1375
 msgid ""
@@ -9873,86 +9882,73 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
+"<b>Please note:</b>\n"
+"        Enabling the general_log may increase the server load by 5-15%. Also "
+"be aware that generating statistics from the logs is a\n"
+"        load intensive task, so it is advisable to select only a small time "
+"span and to disable the general_log and empty its table once monitoring is "
+"not required any more.\n"
+"        "
 
 #: server_status.php:1385
-#, fuzzy
-#| msgid "Usage"
 msgid "CPU Usage"
-msgstr "Usage"
+msgstr "CPU Usage"
 
 #: server_status.php:1388
-#, fuzzy
-#| msgid "2. Usage"
 msgid "Memory Usage"
-msgstr "2. Usage"
+msgstr "Memory Usage"
 
 #: server_status.php:1391
-#, fuzzy
-#| msgid "Usage"
 msgid "Swap Usage"
-msgstr "Usage"
+msgstr "Swap Usage"
 
 #: server_status.php:1394
-#, fuzzy
-#| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "All status variables"
+msgstr "Status variable(s)"
 
 #: server_status.php:1396
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Select Tables"
+msgstr "Select series:"
 
 #: server_status.php:1398
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Commonly monitored"
 
 #: server_status.php:1413
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "or type variable name:"
-msgstr "You must provide a valid table name"
+msgstr "or type variable name:"
 
 #: server_status.php:1417
 msgid "Display as differential value"
-msgstr ""
+msgstr "Display as differential value"
 
 #: server_status.php:1419
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Apply a divisor"
 
 #: server_status.php:1426
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Append unit to data values"
 
 #: server_status.php:1432
-#, fuzzy
-#| msgid "Add trigger"
 msgid "Add this series"
-msgstr "Add trigger"
+msgstr "Add this series"
 
 #: server_status.php:1434
 msgid "Clear series"
-msgstr ""
+msgstr "Clear series"
 
 #: server_status.php:1437
-#, fuzzy
-#| msgid "Series:"
 msgid "Series in Chart:"
-msgstr "Series:"
+msgstr "Series in Chart:"
 
 #: server_status.php:1445
-#, fuzzy
-#| msgid "Loading"
 msgid "Loading logs"
-msgstr "Loading"
+msgstr "Loading logs"
 
 #: server_status.php:1448
-#, fuzzy
-#| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "Show statistics"
+msgstr "Log statistics"
 
 #: server_status.php:1449
 msgid "Selected time range:"
@@ -9960,11 +9956,11 @@ msgstr "Selected time range:"
 
 #: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 
 #: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Remove variable data in INSERT statements for better grouping"
 
 #: server_status.php:1462
 msgid ""
@@ -9975,10 +9971,8 @@ msgstr ""
 "Results are grouped by query text."
 
 #: server_status.php:1465
-#, fuzzy
-#| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Query type"
+msgstr "Query analyser"
 
 #: server_status.php:1501
 #, php-format

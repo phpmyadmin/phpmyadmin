@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-25 19:31+0200\n"
+"PO-Revision-Date: 2011-08-02 10:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1313,7 +1313,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Günlükler çözümleniyor ve yükleniyor. Bu biraz zaman alabilir."
 
 #: js/messages.php:143
-#, fuzzy
 #| msgid ""
 #| "This columns shows the amount of identical queries that are grouped "
 #| "together. However only the SQL Text is being compared, thus the queries "
@@ -1324,8 +1323,8 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Bu sütunlar birlikte gruplanmış özdeş sorguların miktarını gösterir. Ancak "
-"sadece SQL Metin karşılaştırılır, böylece başlama zamanı gibi sorgular diğer "
-"öznitelikler farklı olabilir."
+"sadece SQL Metnin kendisi gruplama kriteri olarak kullanılır, böylece "
+"başlama zamanı gibi, sorguların diğer öznitelikleri farklı olabilir."
 
 #: js/messages.php:144
 msgid ""
@@ -1346,10 +1345,9 @@ msgid "Jump to Log table"
 msgstr "Günlük tablosuna atla"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Log analysed, but not data found in this time span."
 msgid "Log analysed, but no data found in this time span."
-msgstr "Günlük çözümlendi, ama bu zaman aralığında bulunan veri yok."
+msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok."
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
@@ -1363,13 +1361,12 @@ msgstr "Süzgeç"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr "Kelime/düzenli ifadeye göre sorguları süz"
+msgstr "Kelime/düzenli ifadeye göre sorguları süz:"
 
 #: js/messages.php:155
-#, fuzzy
 #| msgid "Group queries, ignoring variable data in WHERE statements"
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Sorguları grupla, WHERE ifadelerindeki değişken veri yoksayılıyor"
+msgstr "Grup sorguları, WHERE cümleciklerindeki değişken veri yoksayılıyor"
 
 #: js/messages.php:156
 msgid "Sum of grouped rows:"
@@ -8686,7 +8683,7 @@ msgstr "Kullanıcı gözden geçirme"
 #: server_privileges.php:1697 server_privileges.php:1889
 #: server_privileges.php:2239
 msgid "Grant"
-msgstr "Onayla"
+msgstr "Onaylı"
 
 #: server_privileges.php:1770
 msgid "Remove selected users"
@@ -9897,7 +9894,6 @@ msgid "Monitor Instructions"
 msgstr "İzleme Yönergeleri"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -9914,14 +9910,12 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 "phpMyAdmin İzleyici sunucu yapılandırmasını uyarlamada ve yoğun sorgularda "
-"iz sürme süresinde size yardımcı\n"
-"olabilir. Sonrası için log_output'u 'TABLE'a ayarlamanız gerekecektir ve ya "
-"slow_query_log ya da general_log etkinleştirilir.\n"
-"Ancak unutmayın, general_log çok fazla veri üretir ve sunucu yükünü %15'e "
-"kadar arttırır"
+"iz sürme süresinde size yardımcı olabilir. Sonrası için log_output'u "
+"'TABLE'a ayarlamanız gerekecektir ve ya slow_query_log ya da general_log "
+"etkinleştirilir. Ancak unutmayın, general_log çok fazla veri üretir ve "
+"sunucu yükünü %15'e kadar arttırır"
 
 #: server_status.php:1371
-#, fuzzy
 #| msgid ""
 #| "<b>Using the monitor:</b><br/>\n"
 #| "        Ok, you are good to go! Once you click 'Start monitor' your "
@@ -9944,17 +9938,15 @@ msgid ""
 "will load statistics from the logs helping you find what caused the activity "
 "spike.</p>"
 msgstr ""
-"<b>İzleyici kullanımı:</b><br/>\n"
-"        Tamam, ilerlemeye hazırsınız! Bir kere 'İzlemeyi başlat'a "
-"tıkladığınızda tarayıcınız tüm görüntülenen\n"
-"        çizelgeleri düzenli aralıklarla yenileyecek. 'Ayarlar' altında "
-"çizelgeleri ekleyebilir ve yenileme oranını değiştirebilirsiniz\n"
-"        veya her çizelgenin kendi dişli çark simgesini kullanarak herhangi "
-"bir çizelgeyi kaldırabilirsiniz.\n"
-"        <p>When you get to see a sudden spike in activity, select the "
-"relevant time span on any chart by holding down the        left mouse button "
-"and panning over the chart. This will load statistics from the logs helping "
-"you find what caused the        activity spike.</p>"
+"<b>İzleyici kullanımı:</b><br/> Tamam, ilerlemeye hazırsınız! Bir kere "
+"'İzlemeyi başlat'a tıkladığınızda tarayıcınız tüm görüntülenen çizelgeleri "
+"düzenli aralıklarla yenileyecek. 'Ayarlar' altında çizelgeleri ekleyebilir "
+"ve yenileme oranını değiştirebilirsiniz veya her çizelgenin kendi dişli çark "
+"simgesini kullanarak herhangi bir çizelgeyi kaldırabilirsiniz. <p>Ani "
+"hareketlilik gördüğünüzde, herhangi bir çizlgede sol fare tuşunu basılı "
+"tutarak ve çizelge üzerinde kaydırarak ilgili zaman aralığını seçin. Bu, ani "
+"hareketlenmenin sebebini bulmanızda yardımcı olan istatistikleri günlükten "
+"yükleyecek.</p>"
 
 #: server_status.php:1375
 msgid ""
@@ -9964,6 +9956,11 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
+"<b>Lütfen unutmayın:</b> general_log'u etkinleştirmek sunucu yükünü %5-15 "
+"arttırabilir. Aynı zamanda günlükten oluşturulan istatistiklerin yoğun görev "
+"yükü olduğundan haberiniz olsun bu yüzden sadece küçük zaman aralıkları "
+"seçmek ve general_log'u etkisizleştirmek tavsiye edilir ve tablolarını bir "
+"defa boşaltmak daha fazla izlemeyi gerektirmez."
 
 #: server_status.php:1385
 msgid "CPU Usage"
