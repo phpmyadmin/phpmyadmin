@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-03 12:26+0200\n"
+"PO-Revision-Date: 2011-08-03 12:32+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -9942,7 +9942,7 @@ msgstr "SELECT、INSERT、UPDATE、DELETE 文のみ取得する"
 
 #: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "結果を扱いやすくするために INSERT 文におけるデータ部を同一のように扱う"
 
 #: server_status.php:1462
 msgid ""
