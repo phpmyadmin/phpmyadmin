@@ -1285,7 +1285,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
          *       with only one field and it's a BLOB; in this case,
          *       avoid to display the delete and edit links
          */
-        list($where_clause, $clause_is_unique) = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+        list($where_clause, $clause_is_unique, $condition_array) = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
         $where_clause_html = urlencode($where_clause);
 
         // 1.2 Defines the URLs for the modify/delete link(s)
@@ -1377,14 +1377,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+                echo PMA_generateCheckboxAndLinks('left', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
             } else if (($GLOBALS['cfg']['RowActionLinks'] == 'none')
                         && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
                         || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')) {
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks('none', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+                echo PMA_generateCheckboxAndLinks('none', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
             } // end if (1.3)
         } // end if (1)
 
@@ -1669,7 +1669,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
             if (! isset($js_conf)) {
                 $js_conf = '';
             }
-            echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
+            echo PMA_generateCheckboxAndLinks('right', $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf);
         } // end if (3)
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
@@ -1696,7 +1696,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
         }
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
-            $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, '[%_PMA_CHECKBOX_DIR_%]', $alternating_color_class . $vertical_class);
+            $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, '[%_PMA_CHECKBOX_DIR_%]', $alternating_color_class . $vertical_class);
         } else {
             unset($vertical_display['row_delete'][$row_no]);
         }
@@ -2711,7 +2711,7 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
  * @return  string  the generated HTML
  */
 
-function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix, $class) {
+function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix, $class) {
     $ret = '';
     if (! empty($del_url) && $is_display['del_lnk'] != 'kp') {
         $ret .= '<td ';
@@ -2722,6 +2722,7 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
            . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix . '" name="rows_to_delete[' . $where_clause_html . ']"'
            . ' class="multi_checkbox"'
            . ' value="' . htmlspecialchars($del_query) . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />'
+           . '<input type="hidden" class="condition_array" value="' . htmlspecialchars(json_encode($condition_array)) . '" />'
            . '    </td>';
     }
     return $ret;
@@ -2827,11 +2828,11 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * @param string  $js_conf
  * @return  string  the generated HTML
  */
-function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf) {
+function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf) {
     $ret = '';
 
     if ($position == 'left') {
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_left', '', '', '');
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
@@ -2846,9 +2847,9 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
 
         $ret .= PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html, '');
 
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_right', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_right', '', '', '');
     } else { // $position == 'none'
-        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix='_left', '', '', '');
+        $ret .= PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix='_left', '', '', '');
     }
     return $ret;
 }

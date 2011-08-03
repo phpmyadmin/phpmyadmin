@@ -881,9 +881,10 @@
                 
                 // loop each edited row
                 $('.to_be_saved').parents('tr').each(function() {
-                    var where_clause = $(this).find('.where_clause').val();
+                    var $tr = $(this);
+                    var where_clause = $tr.find('.where_clause').val();
                     full_where_clause.push(unescape(where_clause.replace(/[+]/g, ' ')));
-                    var new_clause = where_clause;
+                    var condition_array = jQuery.parseJSON($tr.find('.condition_array').val());
                     
                     /**
                      * multi edit variables, for current row
@@ -894,14 +895,12 @@
                     var fields_null = Array();
 
                     // loop each edited cell in a row
-                    $(this).find('.to_be_saved').each(function() {
+                    $tr.find('.to_be_saved').each(function() {
                         /**
                          * @var $this_field    Object referring to the td that is being edited
                          */
                         var $this_field = $(this);
                         
-                        var $test_element = ''; // to test the presence of a element
-
                         /**
                          * @var field_name  String containing the name of this field.
                          * @see getFieldName()
@@ -916,10 +915,12 @@
                         if($this_field.is('.transformed')) {
                             transformation_fields =  true;
                         }
+                        this_field_params[field_name] = $this_field.data('value');
+                        
                         /**
                          * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                          */
-                        var is_null = $this_field.data('value') === null;
+                        var is_null = this_field_params[field_name] === null;
                         
                         fields_name.push(field_name);
                         
@@ -929,7 +930,6 @@
                         } else {
                             fields_null.push('');
                             fields.push($this_field.data('value'));
-                            this_field_params[field_name] = $this_field.data('value');
                             
                             var cell_index = $this_field.index('.to_be_saved');
                             if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
@@ -941,18 +941,30 @@
                                 relation_fields[cell_index] = {};
                                 $.extend(relation_fields[cell_index], this_field_params);
                             }
-                            if (where_clause.indexOf(PMA_urlencode(field_name)) > -1) {
-                                var fields_str = PMA_urlencode('`' + g.table + '`.' + '`' + field_name + '` = ');
-                                fields_str = fields_str.replace(/[+]/g, '[+]');    // replace '+' sign with '[+]' (regex)
-                                var old_sub_clause_regex = new RegExp(fields_str + '[^+]*');
-                                var new_sub_clause = PMA_urlencode('`' + g.table + '`.' + '`' + field_name + "` = '" + this_field_params[field_name].replace(/'/g,"''") + "'");
-                                new_clause = new_clause.replace(old_sub_clause_regex, new_sub_clause);
+                        }
+                        // check if edited field appears in WHERE clause
+                        if (where_clause.indexOf(PMA_urlencode(field_name)) > -1) {
+                            var field_str = '`' + g.table + '`.' + '`' + field_name + '`';
+                            for (var field in condition_array) {
+                                if (field.indexOf(field_str) > -1) {
+                                    condition_array[field] = is_null ? 'IS NULL' : "= '" + this_field_params[field_name].replace(/'/g,"''") + "'";
+                                    break;
+                                }
                             }
                         }
                         
-                        // save new_clause
-                        $this_field.parent('tr').data('new_clause', new_clause);
                     }); // end of loop for every edited cells in a row
+                    
+                    // save new_clause
+                    var new_clause = '';
+                    for (var field in condition_array) {
+                        new_clause += field + ' ' + condition_array[field] + ' AND ';
+                    }
+                    new_clause = new_clause.substring(0, new_clause.length - 5); // remove the last AND
+                    new_clause = PMA_urlencode(new_clause);
+                    $tr.data('new_clause', new_clause);
+                    // save condition_array
+                    $tr.find('.condition_array').val(JSON.stringify(condition_array));
                     
                     me_fields_name.push(fields_name);
                     me_fields.push(fields);
