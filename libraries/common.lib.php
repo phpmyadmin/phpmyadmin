@@ -1962,6 +1962,13 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row, $force
                     // this blob won't be part of the final condition
                     $condition = '';
                 }
+            } elseif (in_array($meta->type, PMA_getGISDatatypes()) && ! empty($row[$i])) {
+                // do not build a too big condition
+                if (strlen($row[$i]) < 5000) {
+                    $condition .= '=0x' . bin2hex($row[$i]) . ' AND';
+                } else {
+                    $condition = '';
+                }
             } elseif ($meta->type == 'bit') {
                 $condition .= "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "' AND";
             } else {
