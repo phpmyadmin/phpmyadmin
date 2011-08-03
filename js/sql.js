@@ -34,12 +34,13 @@ function getFieldName($this_field) {
     var this_field_index = $this_field.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var leftActionExist = !$('#table_results').find('th:first').hasClass('draggable');
-    // 5 columns to account for the checkbox, edit, appended inline edit, copy and delete anchors but index is zero-based so substract 4
-    var field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index - (leftActionExist ? 4 : 0)) + ') a').text();
+    var left_action_exist = !$('#table_results').find('th:first').hasClass('draggable');
+    // number of column span for checkbox and Actions
+    var left_action_skip = left_action_exist ? $('#table_results').find('th:first').attr('colspan') - 1 : 0;
+    var field_name = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ') a').text();
     // happens when just one row (headings contain no a)
     if ("" == field_name) {
-        field_name = $('#table_results').find('thead').find('th:nth('+ (this_field_index - (leftActionExist ? 4 : 0)) + ')').text();
+        field_name = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ')').text();
     }
 
     field_name = $.trim(field_name);
