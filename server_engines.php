@@ -50,7 +50,7 @@ if (empty($_REQUEST['engine'])
     /**
      * Displays the table header
      */
-    echo '<table>' . "\n"
+    echo '<table class="noclick">' . "\n"
        . '<thead>' . "\n"
        . '<tr><th>' . __('Storage Engine') . '</th>' . "\n"
        . '    <th>' . __('Description') . '</th>' . "\n"
@@ -64,7 +64,7 @@ if (empty($_REQUEST['engine'])
      */
     $odd_row = true;
     foreach (PMA_StorageEngine::getStorageEngines() as $engine => $details) {
-        echo '<tr class="noclick '
+        echo '<tr class="'
            . ($odd_row ? 'odd' : 'even')
            . ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED'
                 ? ' disabled'
@@ -82,7 +82,7 @@ if (empty($_REQUEST['engine'])
     $PMA_Config = $GLOBALS['PMA_Config'];
     if ($PMA_Config->get('BLOBSTREAMING_PLUGINS_EXIST')) {
         // Special case for PBMS daemon which is not listed as an engine
-        echo '<tr class="noclick '
+        echo '<tr class="'
             . ($odd_row ? 'odd' : 'even')
             .  '">' . "\n"
             . '    <td><a href="./server_engines.php'
