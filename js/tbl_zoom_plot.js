@@ -58,7 +58,7 @@ function isEmpty(obj) {
  ** @param field: field type (as in database structure)
  **/ 
 function getType(field) {
-	if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1)
+	if(field.toString().search(/int/i) != -1 || field.toString().search(/decimal/i) != -1 || field.toString().search(/year/i) != -1)
 	    return 'numeric';
 	else if(field.toString().search(/time/i) != -1)
 	    return 'text';
@@ -181,17 +181,17 @@ $(document).ready(function() {
         //Prevent default submission of form
         event.preventDefault();
 	
-	//Update the data, find changed values
+	//Find changed values by comparing form values with selectedRow Object
 	var newValues = new Array();//Stores the values changed from original
         var it = 4;
         var xChange = false;
         var yChange = false;
-	for (key in data[currentData]) {
+	for (key in selectedRow) {
 	    if (key != 'where_clause'){
-		var oldVal = data[currentData][key];
+		var oldVal = selectedRow[key];
 		var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
 		if (oldVal != newVal){
-		    data[currentData][key] = newVal;
+		    selectedRow[key] = newVal;
 		    newValues[key] = newVal;
 		    if(key == xLabel)
 			xChange = true;
@@ -201,8 +201,8 @@ $(document).ready(function() {
 	    }
 	    it++    
 	}//End data update
-
-        //Update the chart series and replot
+        
+	//Update the chart series and replot
         if (xChange || yChange) {
 	    var newSeries = new Array();
 	    newSeries[0] = new Object();
@@ -211,9 +211,9 @@ $(document).ready(function() {
             };
 	    //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. Code includes a lot of checks so as to replot only when necessary
             if(xChange) {
-  	        xCord[currentData] = data[currentData][xLabel];
+  	        xCord[currentData] = selectedRow[xLabel];
 		if(xType == 'numeric') {
-		    currentChart.series[0].data[currentData].update({ x : data[currentData][xLabel] });
+		    currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
 		    currentChart.xAxis[0].setExtremes(Array.min(xCord) - 2,Array.max(xCord) + 2);
                 }
 		else {
@@ -244,9 +244,9 @@ $(document).ready(function() {
 
 	    }
             if(yChange) {
-  	        yCord[currentData] = data[currentData][yLabel];
+  	        yCord[currentData] = selectedRow[yLabel];
 		if(yType == 'numeric') {
-		    currentChart.series[0].data[currentData].update({ y : data[currentData][yLabel] });
+		    currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
 		    currentChart.yAxis[0].setExtremes(Array.min(yCord) - 2,Array.max(yCord) + 2);
                 }
 		else {
@@ -326,6 +326,7 @@ $(document).ready(function() {
          .text(PMA_messages['strShowSearchCriteria'])
 	$('#togglesearchformdiv').show();
         
+        var selectedRow;
     	var columnNames = new Array();
     	var colorCodes = ['#FF0000','#00FFFF','#0000FF','#0000A0','#FF0080','#800080','#FFFF00','#00FF00','#FF00FF'];
     	var series = new Array();
@@ -362,15 +363,30 @@ $(document).ready(function() {
                         events: {
                             click: function() {
 			        var id = this.id;
-				var j = 4;
-                                for( key in data[id]) {
-					if (data[id][key] == null)
-					    $('#fields_null_id_' + j).attr('checked', true);
-					else
-					    $('#fieldID_' + j).val(data[id][key]);
-					j++;
-				} 
+				var fid = 4;
 				currentData = id;
+				// Make AJAX request to tbl_zoom_select.php for getting the complete row info
+				var post_params = {
+                                    'ajax_request' : true,
+                                    'get_data_row' : true,
+                                    'db' : window.parent.db,
+                                    'table' : window.parent.table,
+                                    'where_clause' : data[id]['where_clause'],
+                                    'token' : window.parent.token,
+                                }
+                                $.post('tbl_zoom_select.php', post_params, function(data) {
+				    // Row is contained in data.row_info, now fill the displayResultForm with row values
+				    for ( key in data.row_info) { 
+					if (data.row_info[key] == null)
+					    $('#fields_null_id_' + fid).attr('checked', true);
+					else
+					    $('#fieldID_' + fid).val(data.row_info[key]);
+					fid++;
+				     }
+				     selectedRow = new Object();
+				     selectedRow = data.row_info;
+                                });
+
 			        $("#dataDisplay").dialog("open");	
                             },
                         }

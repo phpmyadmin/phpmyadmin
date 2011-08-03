@@ -29,6 +29,23 @@ $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 
 
+/** 
+ * Handle AJAX request for data row on point select
+ * @var post_params Object containing parameters for the POST request
+ */
+
+if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
+    
+    $extra_data = array(); 
+    $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`' . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];	
+    $result     = PMA_DBI_query( $row_info_query . ";" , null, PMA_DBI_QUERY_STORE);
+    $fields_meta = PMA_DBI_get_fields_meta($result);
+    while ($row = PMA_DBI_fetch_assoc($result)) 
+	$extra_data['row_info'] = $row;
+
+    PMA_ajaxResponse(NULL, true, $extra_data);
+}
+
 $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaThemeImage);
 /**
  * Not selection yet required -> displays the selection form
@@ -71,6 +88,7 @@ $titles['Browse'] = PMA_tbl_setTitle($GLOBALS['cfg']['PropertiesIconic'], $pmaTh
 
     ?>
 
+
 <div id="sqlqueryresults"></div>
 <fieldset id="fieldset_subtab">
 <?php
@@ -97,6 +115,8 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 
     }
 }
+
+
 ?>
 
 <?php
@@ -111,6 +131,8 @@ if(isset($inputs) && ($inputs[0] != __('pma_null') || $inputs[1] != __('pma_null
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
 <input type="hidden" name="flag" id="id_flag" value=<?php echo $flag; ?> />
+
+
 
 
 <fieldset id="inputSection">
@@ -343,7 +365,10 @@ if(isset($zoom_submit) && $inputs[0] != __('pma_null') && $inputs[1] != __('pma_
 	$uniqueCondition = PMA_getUniqueCondition($result, $fields_cnt, $fields_meta, $tmpRow, true);
 	//Append it to row array as where_clause
 	$row['where_clause'] = $uniqueCondition[0];
-        $data[] = $row;
+	if($dataLabel == $inputs[0] || $dataLabel == $inputs[1])
+            $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], 'where_clause' => $uniqueCondition[0]);
+	else
+            $data[] = array($inputs[0] => $row[$inputs[0]], $inputs[1] => $row[$inputs[1]], $dataLabel => $row[$dataLabel], 'where_clause' => $uniqueCondition[0]);
     }	
 
 ?>
