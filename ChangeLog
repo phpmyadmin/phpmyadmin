@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #3375325 [interface] Page list in navigation frame looks odd
 - bug #3313235 [interface] Error div misplaced
 - bug #3374802 [interface] Comment on a column breaks inline editing
+- bug #3383711 [display] Order by a column in a view doesn't work in some cases
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
