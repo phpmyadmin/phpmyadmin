@@ -45,6 +45,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     'zerofill' => false,
                     'spec_in_brackets' => "'a','b'",
                     'enum_set_values' => array('a', 'b'),
+                    'attribute' => ' ',
                     ),
                 ),
             array(
@@ -57,6 +58,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     'zerofill' => false,
                     'spec_in_brackets' => "'\'a','b'",
                     'enum_set_values' => array("'a", 'b'),
+                    'attribute' => ' ',
                     ),
                 ),
             array(
@@ -69,6 +71,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     'zerofill' => true,
                     'spec_in_brackets' => '',
                     'enum_set_values' => array(),
+                    'attribute' => 'UNSIGNED ZEROFILL',
                     ),
                 ),
             array(
@@ -81,6 +84,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     'zerofill' => false,
                     'spec_in_brackets' => '255',
                     'enum_set_values' => array(),
+                    'attribute' => ' ',
                     ),
                 ),
             array(
@@ -93,6 +97,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     'zerofill' => false,
                     'spec_in_brackets' => '255',
                     'enum_set_values' => array(),
+                    'attribute' => ' ',
                     ),
                 ),
             );

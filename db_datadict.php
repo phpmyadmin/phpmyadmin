@@ -196,16 +196,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
             $type_nowrap  = ' nowrap="nowrap"';
         }
         $type = htmlspecialchars($extracted_fieldspec['print_type']);
-        $attribute     = ' ';
-        if ($extracted_fieldspec['binary']) {
-            $attribute = 'BINARY';
-        }
-        if ($extracted_fieldspec['unsigned']) {
-            $attribute = 'UNSIGNED';
-        }
-        if ($extracted_fieldspec['zerofill']) {
-            $attribute = 'UNSIGNED ZEROFILL';
-        }
+        $attribute     = $extracted_fieldspec['attribute']
         if (! isset($row['Default'])) {
             if ($row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';

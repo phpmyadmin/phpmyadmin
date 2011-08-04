@@ -259,16 +259,8 @@ if (isset($plugin_list)) {
                 $type     = '&nbsp;';
             }
 
-            $attribute     = '&nbsp;';
-            if ($extracted_fieldspec['binary']) {
-                $attribute = 'BINARY';
-            }
-            if ($extracted_fieldspec['unsigned']) {
-                $attribute = 'UNSIGNED';
-            }
-            if ($extracted_fieldspec['zerofill']) {
-                $attribute = 'UNSIGNED ZEROFILL';
-            }
+            $attribute     = $extracted_fieldspec['attribute']
+
             if (! isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';

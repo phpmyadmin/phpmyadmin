@@ -2650,6 +2650,17 @@ function PMA_extractFieldSpec($fieldspec) {
 
     }
 
+    $attribute     = ' ';
+    if ($binary) {
+        $attribute = 'BINARY';
+    }
+    if ($unsigned) {
+        $attribute = 'UNSIGNED';
+    }
+    if ($zerofill) {
+        $attribute = 'UNSIGNED ZEROFILL';
+    }
+
     return array(
         'type' => $type,
         'spec_in_brackets' => $spec_in_brackets,
@@ -2658,6 +2669,7 @@ function PMA_extractFieldSpec($fieldspec) {
         'binary' => $binary,
         'unsigned' => $unsigned,
         'zerofill' => $zerofill,
+        'attribute' => $attribute,
     );
 }
 

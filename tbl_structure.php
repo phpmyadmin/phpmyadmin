@@ -294,16 +294,7 @@ foreach ($fields as $row) {
         $type_mime = '';
     }
 
-    $attribute     = ' ';
-    if ($extracted_fieldspec['binary']) {
-        $attribute = 'BINARY';
-    }
-    if ($extracted_fieldspec['unsigned']) {
-        $attribute = 'UNSIGNED';
-    }
-    if ($extracted_fieldspec['zerofill']) {
-        $attribute = 'UNSIGNED ZEROFILL';
-    }
+    $attribute     = $extracted_fieldspec['attribute'];
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
