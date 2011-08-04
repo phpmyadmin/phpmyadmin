@@ -1301,8 +1301,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params + array('default_action' => 'update'));
                 $copy_url = 'tbl_change.php' . PMA_generate_common_url($_url_params + array('default_action' => 'insert'));
 
-                $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
-                $copy_str = PMA_getIcon('b_insrow.png', __('Copy'), true);
+                $edit_str = PMA_getIcon('b_edit.png', __('Edit'));
+                $copy_str = PMA_getIcon('b_insrow.png', __('Copy'));
 
                 // Class definitions required for inline editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
@@ -1337,7 +1337,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
                           . ' WHERE ' . PMA_jsFormat($where_clause, false)
                           . ($clause_is_unique ? '' : ' LIMIT 1');
-                $del_str = PMA_getIcon('b_drop.png', __('Delete'), true);
+                $del_str = PMA_getIcon('b_drop.png', __('Delete'));
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
 
                 $_url_params = array(
@@ -1356,7 +1356,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
                 $del_query = 'KILL ' . $row[0];
                 $js_conf  = 'KILL ' . $row[0];
-                $del_str = PMA_getIcon('b_drop.png', __('Kill'), true);
+                $del_str = PMA_getIcon('b_drop.png', __('Kill'));
             } // end if (1.2.2)
 
             // 1.3 Displays the links at left if required
@@ -2438,14 +2438,14 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
 
             echo PMA_linkOrButton(
                 'sql.php' . $url_query,
-                PMA_getIcon('b_print.png', __('Print view'), false, true),
+                PMA_getIcon('b_print.png', __('Print view')),
                 '', true, true, 'print_view') . "\n";
 
             if ($_SESSION['tmp_user_values']['display_text']) {
                 $_url_params['display_text'] = 'F';
                 echo PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($_url_params),
-                    PMA_getIcon('b_print.png', __('Print view (with full texts)'), false, true),
+                    PMA_getIcon('b_print.png', __('Print view (with full texts)')),
                     '', true, true, 'print_view') . "\n";
                 unset($_url_params['display_text']);
             }
@@ -2487,13 +2487,13 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
 
         echo PMA_linkOrButton(
             'tbl_export.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_tblexport.png', __('Export'), false, true),
+            PMA_getIcon('b_tblexport.png', __('Export')),
             '', true, true, '') . "\n";
 
         // show chart
         echo PMA_linkOrButton(
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_chart.png', __('Display chart'), false, true),
+            PMA_getIcon('b_chart.png', __('Display chart')),
             '', true, true, '') . "\n";
 
         // show GIS chart
@@ -2508,7 +2508,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         if ($geometry_found) {
             echo PMA_linkOrButton(
                 'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), false, true),
+                PMA_getIcon('b_globe.gif', __('Visualize GIS data')),
                 '', true, true, '') . "\n";
         }
     }
@@ -2528,7 +2528,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     if (! isset($analyzed_sql[0]['queryflags']['procedure'])) {
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
-            PMA_getIcon('b_views.png', __('Create view'), false, true),
+            PMA_getIcon('b_views.png', __('Create view')),
             '', true, true, '') . "\n";
     }
     if ($header_shown) {
