@@ -91,7 +91,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
 {
     if (isset($matching_table[$matching_table_index])) {
         $fld = array();
-        $fld_results = PMA_DBI_get_columns($src_db, $matching_table[$matching_table_index], true, $src_link);
+        $fld_results = PMA_DBI_get_columns($src_db, $matching_table[$matching_table_index], null, true, $src_link);
         $is_key = array();
         if (isset($fld_results)) {
             foreach ($fld_results as $each_field) {
@@ -109,7 +109,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
         $source_result_set = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $is_key, $src_link);
         $source_size = sizeof($source_result_set);
 
-        $trg_fld_results = PMA_DBI_get_columns($trg_db, $matching_table[$matching_table_index], true, $trg_link);
+        $trg_fld_results = PMA_DBI_get_columns($trg_db, $matching_table[$matching_table_index], null, true, $trg_link);
         $all_keys_match = true;
         $trg_keys = array();
 
@@ -592,7 +592,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
 function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncommon_tables, $table_index, &$uncommon_tables_fields, $display)
 {
     if (isset($uncommon_tables[$table_index])) {
-        $fields_result = PMA_DBI_get_columns($src_db, $uncommon_tables[$table_index], true, $src_link);
+        $fields_result = PMA_DBI_get_columns($src_db, $uncommon_tables[$table_index], null, true, $src_link);
         $fields = array();
         foreach ($fields_result as $each_field) {
             $field_name = $each_field['Field'];
