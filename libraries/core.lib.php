@@ -538,6 +538,25 @@ function PMA_sendHeaderLocation($uri)
 }
 
 /**
+ * Outputs headers to prevent caching in browser (and on the way).
+ */
+function PMA_no_cache_header()
+{
+    header('Expires: ' . date(DATE_RFC1123));
+    if (PMA_USR_BROWSER_AGENT == 'IE') {
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+    } else {
+        header('Pragma: no-cache');
+        // test case: exporting a database into a .gz file with Safari
+        // would produce files not having the current time
+        // (added this header for Safari but should not harm other browsers)
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    }
+}
+
+
+/**
  * Sends header indicating file download.
  *
  * @param $filename string Filename to include in headers.
@@ -546,17 +565,7 @@ function PMA_sendHeaderLocation($uri)
  */
 function PMA_download_header($filename, $mimetype, $avoid_cache = true) {
     if ($avoid_cache) {
-        header('Expires: ' . date(DATE_RFC1123));
-        if (PMA_USR_BROWSER_AGENT == 'IE') {
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: public');
-        } else {
-            header('Pragma: no-cache');
-            // test case: exporting a database into a .gz file with Safari
-            // would produce files not having the current time
-            // (added this header for Safari but should not harm other browsers)
-            header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        }
+        PMA_no_cache_header();
     }
     header('Content-Description: File Transfer');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
