@@ -224,7 +224,7 @@ function PMA_fatalError($error_message, $message_args = null)
     }
 
     require('./libraries/error.inc.php');
-    
+
     if (!defined('TESTSUITE')) {
         exit;
     }
@@ -536,6 +536,22 @@ function PMA_sendHeaderLocation($uri)
         }
     }
 }
+
+/**
+ * Sends header indicating file download.
+ *
+ * @param $filename string Filename to include in headers.
+ * @param $mimetype string MIME type to include in headers.
+ * @return nothing
+ */
+function PMA_download_header($filename, $mimetype) {
+    header('Cache-Control: private');
+    header('Content-Description: File Transfer');
+    header('Content-Disposition: attachment; filename=' . $filename);
+    header('Content-Type: ' . $mimetype);
+    header('Content-Transfer-Encoding: binary');
+}
+
 
 /**
  * Returns value of an element in $array given by $path.
