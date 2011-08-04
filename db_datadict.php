@@ -196,7 +196,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
             $type_nowrap  = ' nowrap="nowrap"';
         }
         $type = htmlspecialchars($extracted_fieldspec['print_type']);
-        $attribute     = $extracted_fieldspec['attribute']
+        $attribute     = $extracted_fieldspec['attribute'];
         if (! isset($row['Default'])) {
             if ($row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
