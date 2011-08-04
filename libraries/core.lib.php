@@ -224,7 +224,7 @@ function PMA_fatalError($error_message, $message_args = null)
     }
 
     require('./libraries/error.inc.php');
-    
+
     if (!defined('TESTSUITE')) {
         exit;
     }
@@ -536,6 +536,52 @@ function PMA_sendHeaderLocation($uri)
         }
     }
 }
+
+/**
+ * Outputs headers to prevent caching in browser (and on the way).
+ *
+ * @return nothing
+ */
+function PMA_no_cache_header()
+{
+    header('Expires: ' . date(DATE_RFC1123)); // rfc2616 - Section 14.21
+    header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
+    if (PMA_USR_BROWSER_AGENT == 'IE') {
+        /* FIXME: Why is this speecial case for IE needed? */
+        header('Pragma: public');
+    } else {
+        header('Pragma: no-cache'); // HTTP/1.0
+        // test case: exporting a database into a .gz file with Safari
+        // would produce files not having the current time
+        // (added this header for Safari but should not harm other browsers)
+        header('Last-Modified: ' . date(DATE_RFC1123));
+    }
+}
+
+
+/**
+ * Sends header indicating file download.
+ *
+ * @param string $filename Filename to include in headers.
+ * @param string $mimetype MIME type to include in headers.
+ * @param int    $length   Length of content (optional)
+ * @param bool   $no_cache Whether to include no-caching headers.
+ *
+ * @return nothing
+ */
+function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true) {
+    if ($no_cache) {
+        PMA_no_cache_header();
+    }
+    header('Content-Description: File Transfer');
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
+    header('Content-Type: ' . $mimetype);
+    header('Content-Transfer-Encoding: binary');
+    if ($length > 0) {
+        header('Content-Length: ' . $length);
+    }
+}
+
 
 /**
  * Returns value of an element in $array given by $path.

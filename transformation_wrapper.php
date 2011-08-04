@@ -60,15 +60,16 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 require_once './libraries/header_http.inc.php';
 // [MIME]
 if (isset($ct) && !empty($ct)) {
-    $content_type = 'Content-Type: ' . $ct;
+    $mime_type = $ct;
 } else {
-    $content_type = 'Content-Type: ' . (isset($mime_map[$transform_key]['mimetype']) ? str_replace('_', '/', $mime_map[$transform_key]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
+    $mime_type = (isset($mime_map[$transform_key]['mimetype']) ? str_replace('_', '/', $mime_map[$transform_key]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
-header($content_type);
 
-if (isset($cn) && !empty($cn)) {
-    header('Content-Disposition: attachment; filename=' . $cn);
+if (empty($cn)) {
+    $cn = 'download.bin';
 }
+
+PMA_download_header($mime_type, $cn);
 
 if (! isset($resize)) {
     echo $row[$transform_key];

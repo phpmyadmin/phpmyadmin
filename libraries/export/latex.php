@@ -148,7 +148,7 @@ if (isset($plugin_list)) {
     function PMA_exportDBHeader($db) {
         global $crlf;
         $head = '% ' . $crlf
-              . '% ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+              . '% ' . __('Database') . ': ' . '\'' . $db . '\'' . $crlf
               . '% ' . $crlf;
         return PMA_exportOutputHandler($head);
     }
@@ -391,30 +391,12 @@ if (isset($plugin_list)) {
 
         $fields = PMA_DBI_get_columns($db, $table);
         foreach ($fields as $row) {
-            $type             = $row['Type'];
-            // reformat mysql query output
-            // set or enum types: slashes single quotes inside options
-            if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
-                $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
-                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                $type_nowrap  = '';
-
-                $binary       = 0;
-                $unsigned     = 0;
-                $zerofill     = 0;
-            } else {
-                $type_nowrap  = ' nowrap="nowrap"';
-                $type         = preg_replace('/BINARY/i', '', $type);
-                $type         = preg_replace('/ZEROFILL/i', '', $type);
-                $type         = preg_replace('/UNSIGNED/i', '', $type);
-                if (empty($type)) {
-                    $type     = '&nbsp;';
-                }
-
-                $binary       = preg_match('/BINARY/i', $row['Type']);
-                $unsigned     = preg_match('/UNSIGNED/i', $row['Type']);
-                $zerofill     = preg_match('/ZEROFILL/i', $row['Type']);
+            $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+            $type = $extracted_fieldspec['print_type'];
+            if (empty($type)) {
+                $type     = ' ';
             }
+
             if (!isset($row['Default'])) {
                 if ($row['Null'] != 'NO') {
                     $row['Default'] = 'NULL';

@@ -254,12 +254,7 @@ $url_params['back'] = 'tbl_operations.php';
 /**
  * Get columns names
  */
-$local_query = '
-    SHOW COLUMNS
-    FROM ' . PMA_backquote($GLOBALS['table']) . '
-    FROM ' . PMA_backquote($GLOBALS['db']);
-$columns = PMA_DBI_fetch_result($local_query, null, 'Field');
-unset($local_query);
+$columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 
 /**
  * Displays the page
@@ -274,8 +269,8 @@ unset($local_query);
     <select name="order_field">
 <?php
 foreach ($columns as $fieldname) {
-    echo '            <option value="' . htmlspecialchars($fieldname) . '">'
-        . htmlspecialchars($fieldname) . '</option>' . "\n";
+    echo '            <option value="' . htmlspecialchars($fieldname['Field']) . '">'
+        . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
 }
 unset($columns);
 ?>

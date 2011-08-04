@@ -1068,9 +1068,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
         // instead of $pdf->Output():
         $pdfData = $pdf->getPDFData();
-        header('Content-Type: application/pdf');
-        header('Content-Length: '.strlen($pdfData).'');
-        header('Content-disposition: attachment; filename="'.$filename.'"');
+        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
         echo $pdfData;
     }
 
@@ -1090,7 +1088,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetX(10);
             $pdf->Cell(0, 6, $i . ' ' . $table, 0, 1, 'L', 0, $pdf->PMA_links['doc'][$table]['-']);
             // $pdf->Ln(1);
-            $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table));
+            $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table), null, PMA_DBI_QUERY_STORE);
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $pdf->SetX(20);
                 $field_name = $row['Field'];
@@ -1138,7 +1136,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $result = PMA_DBI_query(PMA_DBI_get_table_indexes_sql($db, $table));
+            $result = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
             $primary = '';
             $indexes = array();
             $lastIndex = '';
@@ -1178,8 +1176,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets fields properties
              */
-            $result = PMA_DBI_query(PMA_DBI_get_columns_sql($db, $table), null, PMA_DBI_QUERY_STORE);
-            $fields_cnt = PMA_DBI_num_rows($result);
+            $columns = PMA_DBI_get_columns($db, $table);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in
@@ -1261,41 +1258,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             }
             $pdf->SetFont($this->_ff, '');
 
-            while ($row = PMA_DBI_fetch_assoc($result)) {
-                $type = $row['Type'];
-                // reformat mysql query output
-                // set or enum types: slashes single quotes inside options
-                if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-                    $tmp[2] = substr(preg_replace("@([^,])''@", "\\1\\'", ',' . $tmp[2]), 1);
-                    $type = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                    $type_nowrap = '';
-
-                    $binary = 0;
-                    $unsigned = 0;
-                    $zerofill = 0;
-                } else {
-                    $type_nowrap = ' nowrap="nowrap"';
-                    $type = preg_replace('@BINARY@i', '', $type);
-                    $type = preg_replace('@ZEROFILL@i', '', $type);
-                    $type = preg_replace('@UNSIGNED@i', '', $type);
-                    if (empty($type)) {
-                        $type = '&nbsp;';
-                    }
-
-                    $binary = stristr($row['Type'], 'BINARY');
-                    $unsigned = stristr($row['Type'], 'UNSIGNED');
-                    $zerofill = stristr($row['Type'], 'ZEROFILL');
-                }
-                $attribute = ' ';
-                if ($binary) {
-                    $attribute = 'BINARY';
-                }
-                if ($unsigned) {
-                    $attribute = 'UNSIGNED';
-                }
-                if ($zerofill) {
-                    $attribute = 'UNSIGNED ZEROFILL';
-                }
+            foreach ($columns as $row) {
+                $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+                $type             = $extracted_fieldspec['print_type'];
+                $attribute     = $extracted_fieldspec['attribute'];
                 if (! isset($row['Default'])) {
                     if ($row['Null'] != '' && $row['Null'] != 'NO') {
                         $row['Default'] = 'NULL';
@@ -1327,9 +1293,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     unset($links[6]);
                 }
                 $pdf->Row($pdf_row, $links);
-            } // end while
+            } // end foreach
             $pdf->SetFont($this->_ff, '', 14);
-            PMA_DBI_free_result($result);
         } //end each
     }
 }

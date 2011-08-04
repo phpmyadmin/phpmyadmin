@@ -24,9 +24,7 @@ $error = '';
 if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') == 'text_file') {
     // export to JSON file
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
-    header('Content-Type: application/json');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-    header('Expires: ' . date(DATE_RFC1123));
+    PMA_download_header($filename, 'application/json');
     $settings = PMA_load_userprefs();
     echo json_encode($settings['config_data']);
     return;

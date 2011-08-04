@@ -302,11 +302,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
             $length = $extracted_fieldspec['spec_in_brackets'];
         } else {
-            // strip the "BINARY" attribute, except if we find "BINARY(" because
-            // this would be a BINARY or VARBINARY field type
-            $type   = preg_replace('@BINARY([^\(])@i', '', $type);
-            $type   = preg_replace('@ZEROFILL@i', '', $type);
-            $type   = preg_replace('@UNSIGNED@i', '', $type);
+            $type = $extracted_fieldspec['print_type'];
             $length = $extracted_fieldspec['spec_in_brackets'];
         } // end if else
     } else {
@@ -340,15 +336,6 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     // column length
-    if (isset($extracted_fieldspec) && ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type'])) {
-        $binary           = 0;
-        $unsigned         = 0;
-        $zerofill         = 0;
-    } else {
-        $binary           = false;
-        $unsigned         = stristr($row['Type'], 'unsigned');
-        $zerofill         = stristr($row['Type'], 'zerofill');
-    }
     $length_to_display = $length;
 
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
@@ -429,15 +416,10 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
-    if ($binary) {
-        $attribute = 'BINARY';
+    if (isset($extracted_fieldspec)) {
+        $attribute = $extracted_fieldspec['attribute'];
     }
-    if ($unsigned) {
-        $attribute = 'UNSIGNED';
-    }
-    if ($zerofill) {
-        $attribute = 'UNSIGNED ZEROFILL';
-    }
+
     if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }

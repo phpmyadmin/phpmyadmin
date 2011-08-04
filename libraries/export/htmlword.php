@@ -273,40 +273,13 @@ if (isset($plugin_list)) {
         foreach ($columns as $column) {
 
             $schema_insert = '<tr class="print-category">';
-            $type          = $column['Type'];
-            // reformat mysql query output
-            // set or enum types: slashes single quotes inside options
-            if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
-                $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
-                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                $type_nowrap  = '';
 
-                $binary       = 0;
-                $unsigned     = 0;
-                $zerofill     = 0;
-            } else {
-                $type_nowrap  = ' nowrap="nowrap"';
-                $type         = preg_replace('/BINARY/i', '', $type);
-                $type         = preg_replace('/ZEROFILL/i', '', $type);
-                $type         = preg_replace('/UNSIGNED/i', '', $type);
-                if (empty($type)) {
-                    $type     = '&nbsp;';
-                }
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
 
-                $binary       = preg_match('/BINARY/i', $column['Type']);
-                $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
-                $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
-            }
-            $attribute     = '&nbsp;';
-            if ($binary) {
-                $attribute = 'BINARY';
-            }
-            if ($unsigned) {
-                $attribute = 'UNSIGNED';
-            }
-            if ($zerofill) {
-                $attribute = 'UNSIGNED ZEROFILL';
-            }
             if (! isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';

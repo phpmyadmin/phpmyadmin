@@ -1119,7 +1119,7 @@ function PMA_DBI_get_table_indexes($database, $table, $link = null)
     return $indexes;
 }
 
- /**
+/**
  * returns value of given mysql server variable
  *
  * @param string  $var    mysql server variable name
