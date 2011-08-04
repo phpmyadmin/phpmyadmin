@@ -559,7 +559,7 @@ function PMA_download_header($filename, $mimetype, $avoid_cache = true) {
         }
     }
     header('Content-Description: File Transfer');
-    header('Content-Disposition: attachment; filename=' . $filename);
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
     header('Content-Type: ' . $mimetype);
     header('Content-Transfer-Encoding: binary');
 }
