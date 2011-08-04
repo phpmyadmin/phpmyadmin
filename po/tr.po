@@ -1165,7 +1165,7 @@ msgstr "Önbelleklenen bellek"
 #: js/messages.php:103
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Arabelleklenmiş bellek"
+msgstr "Arabelleklenen bellek"
 
 #: js/messages.php:104
 #| msgid "System memory"
