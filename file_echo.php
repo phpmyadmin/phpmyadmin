@@ -20,7 +20,7 @@ if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         $_REQUEST['filename'] .= '.' . $allowed[$_REQUEST['type']];
     }
 
-    downloadHeader($_REQUEST['filename'],$_REQUEST['type']);
+    PMA_download_header($_REQUEST['filename'], $_REQUEST['type']);
 
     if ($allowed[$_REQUEST['type']] != 'svg') {
         echo base64_decode(substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1));
@@ -32,7 +32,7 @@ if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
 }
 
 if(isset($_REQUEST['monitorconfig'])) {
-    downloadHeader('monitor.cfg','application/force-download');
+    PMA_download_header('monitor.cfg', 'application/force-download');
     echo urldecode($_REQUEST['monitorconfig']);
     exit();
 }
@@ -40,15 +40,5 @@ if(isset($_REQUEST['monitorconfig'])) {
 if(isset($_REQUEST['import'])) {
     echo '<html><body>' . file_get_contents($_FILES['file']['tmp_name']) . '</body></html>';
     exit();
-}
-
-exit('Invalid request');
-
-function downloadHeader($file,$type) {
-    header("Cache-Control: public");
-    header("Content-Description: File Transfer");
-    header("Content-Disposition: attachment; filename=".$file);
-    header("Content-Type: ".$type);
-    header("Content-Transfer-Encoding: binary");
 }
 ?>
