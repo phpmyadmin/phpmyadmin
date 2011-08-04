@@ -317,36 +317,9 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = $extracted_fieldspec['print_type'];
 
-            $field_name = $column['Field'];
-            $GLOBALS['odt_buffer'] .= '<table:table-row>';
-            $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
-                . '</table:table-cell>';
-            // reformat mysql query output
-            // set or enum types: slashes single quotes inside options
-            $type = $column['Type'];
-            if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
-                $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
-                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                $type_nowrap  = '';
-
-                $binary       = 0;
-                $unsigned     = 0;
-                $zerofill     = 0;
-            } else {
-                $type_nowrap  = ' nowrap="nowrap"';
-                $type         = preg_replace('/BINARY/i', '', $type);
-                $type         = preg_replace('/ZEROFILL/i', '', $type);
-                $type         = preg_replace('/UNSIGNED/i', '', $type);
-                if (empty($type)) {
-                    $type     = '&nbsp;';
-                }
-
-                $binary       = preg_match('/BINARY/i', $column['Type']);
-                $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
-                $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
-            }
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . htmlspecialchars($type) . '</text:p>'
                 . '</table:table-cell>';
