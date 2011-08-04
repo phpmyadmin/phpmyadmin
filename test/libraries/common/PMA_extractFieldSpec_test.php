@@ -14,9 +14,14 @@
  */
 require_once 'libraries/common.lib.php';
 
+/**
+ * Test for PMA_extractFieldSpec function.
+ */
 class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
 {
     /**
+     * Test case for parsing SHOW COLUNS output
+     *
      * @dataProvider provider
      */
     public function testParsing($in, $out)
@@ -24,6 +29,9 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
         $this->assertEquals($out, PMA_extractFieldSpec($in));
     }
 
+    /**
+     * Data provider
+     */
     public function provider()
     {
         return array(
