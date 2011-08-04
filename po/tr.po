@@ -5591,7 +5591,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
-msgstr "Ara Bellek Havuzu"
+msgstr "Arabellek Havuzu"
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:551
 msgid "InnoDB Status"
