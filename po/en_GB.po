@@ -1190,10 +1190,9 @@ msgid "Used Swap"
 msgstr "Used Swap"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Free pages"
+msgstr "Free Swap"
 
 #: js/messages.php:112
 msgid "Bytes sent"
