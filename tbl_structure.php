@@ -250,22 +250,19 @@ foreach ($fields as $row) {
     $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
 
     if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
-        $type         = $extracted_fieldspec['type'] . '(' .
-            str_replace("','", "', '", $extracted_fieldspec['spec_in_brackets']) . ')';
-
-        // for the case ENUM('&#8211;','&ldquo;')
-        $type         = htmlspecialchars($type);
-        if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
-            $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
-        }
-
         $type_nowrap  = '';
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
-        $type         = $extracted_fieldspec['short_type'];
-        if (empty($type)) {
-            $type     = ' ';
-        }
+    }
+    $type         = $extracted_fieldspec['print_type'];
+    if (empty($type)) {
+        $type     = ' ';
+    }
+    // for the case ENUM('&#8211;','&ldquo;')
+    $type         = htmlspecialchars($type);
+    // in case it is too long
+    if (strlen($type) > $GLOBALS['cfg']['LimitChars']) {
+        $type = '<abbr title="' . $type . '">' . substr($type, 0, $GLOBALS['cfg']['LimitChars']) . '</abbr>';
     }
 
     unset($field_charset);

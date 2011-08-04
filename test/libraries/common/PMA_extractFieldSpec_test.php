@@ -28,26 +28,26 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
     {
         return array(
             array(
-                "SET('a', 'b')",
+                "SET('a','b')",
                 array(
                     'type' => 'set',
-                    'short_type' => 'set',
+                    'print_type' => "set('a', 'b')",
                     'binary' => false,
                     'unsigned' => false,
                     'zerofill' => false,
-                    'spec_in_brackets' => "'a', 'b'",
+                    'spec_in_brackets' => "'a','b'",
                     'enum_set_values' => array('a', 'b'),
                     ),
                 ),
             array(
-                "SET('\'a', 'b')",
+                "SET('\'a','b')",
                 array(
                     'type' => 'set',
-                    'short_type' => 'set',
+                    'print_type' => "set('\'a', 'b')",
                     'binary' => false,
                     'unsigned' => false,
                     'zerofill' => false,
-                    'spec_in_brackets' => "'\'a', 'b'",
+                    'spec_in_brackets' => "'\'a','b'",
                     'enum_set_values' => array("'a", 'b'),
                     ),
                 ),
@@ -55,7 +55,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                 "INT UNSIGNED zerofill",
                 array(
                     'type' => 'int unsigned zerofill',
-                    'short_type' => 'int',
+                    'print_type' => 'int',
                     'binary' => false,
                     'unsigned' => true,
                     'zerofill' => true,
@@ -67,7 +67,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                 "VARCHAR(255)",
                 array(
                     'type' => 'varchar',
-                    'short_type' => 'varchar(255)',
+                    'print_type' => 'varchar(255)',
                     'binary' => false,
                     'unsigned' => false,
                     'zerofill' => false,
@@ -79,7 +79,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                 "VARBINARY(255)",
                 array(
                     'type' => 'varbinary',
-                    'short_type' => 'varbinary(255)',
+                    'print_type' => 'varbinary(255)',
                     'binary' => false,
                     'unsigned' => false,
                     'zerofill' => false,

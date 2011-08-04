@@ -2624,29 +2624,29 @@ function PMA_extractFieldSpec($fieldspec) {
             // Increment character index
             $index++;
         } // end while
-        $shorttype = $type;
+        $printtype = $type . '(' .  str_replace("','", "', '", $spec_in_brackets) . ')';
         $binary = false;
         $unsigned = false;
         $zerofill = false;
     } else {
         $enum_set_values = array();
 
-        /* Create short type name */
-        $shorttype = strtolower($fieldspec);
+        /* Create printable type name */
+        $printtype = strtolower($fieldspec);
 
         // strip the "BINARY" attribute, except if we find "BINARY(" because
         // this would be a BINARY or VARBINARY field type
-        if (!preg_match('@binary[\(]@', $shorttype)) {
-            $binary = strpos($shorttype, 'blob') !== false || strpos($shorttype, 'binary') !== false;
-            $shorttype = preg_replace('@binary@', '', $shorttype);
+        if (!preg_match('@binary[\(]@', $printtype)) {
+            $binary = strpos($printtype, 'blob') !== false || strpos($printtype, 'binary') !== false;
+            $printtype = preg_replace('@binary@', '', $printtype);
         } else {
             $binary = false;
         }
-        $shorttype = preg_replace('@zerofill@', '', $shorttype, -1, $zerofill_cnt);
+        $printtype = preg_replace('@zerofill@', '', $printtype, -1, $zerofill_cnt);
         $zerofill = ($zerofill_cnt > 0);
-        $shorttype = preg_replace('@unsigned@', '', $shorttype, -1, $unsigned_cnt);
+        $printtype = preg_replace('@unsigned@', '', $printtype, -1, $unsigned_cnt);
         $unsigned = ($unsigned_cnt > 0);
-        $shorttype = trim($shorttype);
+        $printtype = trim($printtype);
 
     }
 
@@ -2654,7 +2654,7 @@ function PMA_extractFieldSpec($fieldspec) {
         'type' => $type,
         'spec_in_brackets' => $spec_in_brackets,
         'enum_set_values'  => $enum_set_values,
-        'short_type' => $shorttype,
+        'print_type' => $printtype,
         'binary' => $binary,
         'unsigned' => $unsigned,
         'zerofill' => $zerofill,
