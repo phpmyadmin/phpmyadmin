@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-04 18:02+0200\n"
+"PO-Revision-Date: 2011-08-04 18:03+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9510,7 +9510,7 @@ msgstr ""
 
 #: server_status.php:1169
 msgid "Total size of buffer pool, in pages."
-msgstr "Sayfalardaki ara bellek havuzunun toplam boyutudur."
+msgstr "Sayfalardaki arabellek havuzunun toplam boyutudur."
 
 #: server_status.php:1170
 msgid ""
