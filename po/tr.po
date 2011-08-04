@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-04 18:05+0200\n"
+"PO-Revision-Date: 2011-08-04 18:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -9993,10 +9993,9 @@ msgid "Chart columns"
 msgstr "Çizelge sütunları"
 
 #: server_status.php:1430
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Hata yönetimi:"
+msgstr "Çizelge ayarlaması"
 
 #: server_status.php:1430
 msgid ""
