@@ -38,7 +38,7 @@ class PMA_expandUserString_test extends PHPUnit_Extensions_OutputTestCase
     }
 
     /**
-     * Test case for parsing SHOW COLUNS output
+     * Test case for expanding strings
      *
      * @dataProvider provider
      */
@@ -48,7 +48,7 @@ class PMA_expandUserString_test extends PHPUnit_Extensions_OutputTestCase
     }
 
     /**
-     * Test case for parsing SHOW COLUNS output
+     * Test case for expanding strings with escaping
      *
      * @dataProvider provider
      */

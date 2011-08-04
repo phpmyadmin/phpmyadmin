@@ -19,7 +19,7 @@ require_once 'libraries/common.lib.php';
 class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
 {
     /**
-     * Test case for parsing SHOW COLUNS output
+     * Test case for parsing SHOW COLUMNS output
      *
      * @dataProvider provider
      */
