@@ -2629,12 +2629,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                     break;
             } // end switch ($typearr[2])
 
-/*
+            /*
             if ($typearr[3] != 'punct_qualifier') {
                 $after             .= ' ';
             }
             $after                 .= "\n";
-*/
+            */
             $str .= $before;
             if ($mode=='color') {
                 $str .= PMA_SQP_formatHTML_colorize($arr[$i]);
@@ -2650,7 +2650,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $indent--;
             $str .= ($mode != 'query_only' ? '</div>' : ' ');
         }
-       /* End possibly unclosed documentation link */
+        /* End possibly unclosed documentation link */
         if ($close_docu_link) {
             $str .= '</a>';
             $close_docu_link = false;

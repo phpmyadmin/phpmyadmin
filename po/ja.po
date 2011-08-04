@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-07-27 12:14+0200\n"
+"PO-Revision-Date: 2011-08-03 12:39+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
@@ -1201,27 +1201,27 @@ msgstr "モニタ一時中断"
 
 #: js/messages.php:114
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log および slow_query_log は有効です。"
 
 #: js/messages.php:115
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log は有効です。"
 
 #: js/messages.php:116
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log は有効です。"
 
 #: js/messages.php:117
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log および general_log は無効です。"
 
 #: js/messages.php:118
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output はテーブルに設定されていません。"
 
 #: js/messages.php:119
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output はテーブルに設定されています。"
 
 #: js/messages.php:120
 #, php-format
@@ -1230,11 +1230,13 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log は有効になっていますが、サーバは %d "
+"秒より長くかかるクエリだけをログに記録します。お使いのシステムによっては、long_query_time を 0～2 秒に設定したほうがいいでしょう。"
 
 #: js/messages.php:121
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time は %d 秒に設定されています。"
 
 #: js/messages.php:122
 msgid ""
@@ -1246,10 +1248,10 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:124
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "出力をファイルに保存する"
+msgstr "%s に log_output を設定する"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:126
@@ -1267,7 +1269,7 @@ msgstr "%s を無効にする"
 #: js/messages.php:130
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time を %d 秒に設定する"
 
 #: js/messages.php:131
 msgid ""
@@ -1311,7 +1313,7 @@ msgstr ""
 
 #: js/messages.php:142
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "ログの解析および読み込み中。すこし時間がかかることがあります。"
 
 #: js/messages.php:143
 msgid ""
@@ -1319,6 +1321,8 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"この列は、グループ化された同一のクエリの数を示しています。しかし、１つの SQL "
+"クエリをグループの基準として使用しています。そのため、開始時刻いったような属性は、他クエリでは異なる場合があります。"
 
 #: js/messages.php:144
 msgid ""
@@ -1326,20 +1330,21 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"INSERT クエリのグループ化が選択されています。そのため、同じテーブルへの INSERT "
+"クエリは挿入されたデータ部は同一のようにみなされて、グループ化が行われます。"
 
 #: js/messages.php:145
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "ログデータを読み込みました。この期間に行われたクエリは以下の通りです。"
 
 #: js/messages.php:147
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "データベースに移動"
+msgstr "ログの表に移動する"
 
 #: js/messages.php:148
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "ログの解析を行いましたが、この期間のデータは見つかりませんでした。"
 
 #. l10n: A collection of available filters
 #: js/messages.php:151
@@ -1353,23 +1358,21 @@ msgstr "フィルタ"
 
 #: js/messages.php:154
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "単語／正規表現でクエリをフィルタ："
 
 #: js/messages.php:155
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "WHERE 句内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
 
 #: js/messages.php:156
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "挿入する行数"
+msgstr "グループ後の件数："
 
 #: js/messages.php:157
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "合計"
+msgstr "合計:"
 
 #: js/messages.php:161 libraries/tbl_properties.inc.php:780
 #: pmd_general.php:388 pmd_general.php:425 pmd_general.php:545
@@ -9782,10 +9785,9 @@ msgid "Start Monitor"
 msgstr "モニタ開始"
 
 #: server_status.php:1328
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions/Setup"
-msgstr "はじめに"
+msgstr "使用方法／セットアップ"
 
 #: server_status.php:1332
 msgid "Done rearranging/editing charts"
@@ -9812,13 +9814,11 @@ msgid "Clear monitor config"
 msgstr "モニタ設定のクリア"
 
 #: server_status.php:1363
-#, fuzzy
 #| msgid "Introduction"
 msgid "Monitor Instructions"
-msgstr "はじめに"
+msgstr "モニタの使用方法"
 
 #: server_status.php:1364
-#, fuzzy
 #| msgid ""
 #| "The phpMyAdmin Monitor can assist you in optimizing the server "
 #| "configuration and track down time intensive\n"
@@ -9834,11 +9834,9 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
-"phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡する"
-"ことができます。後者の場合には、テーブルに log_output を設定し、"
-"slow_query_log または general_log のいずれかを有効にする必要があります。な"
-"お、general_log を大量のデータを生成し、サーバの負荷を 15% 増加させますので、"
-"注意するようにしてください。"
+"phpMyAdmin モニタは、サーバ構成の最適化を支援し、時間のかかるクエリを追跡することができます。後者の場合には、テーブルに log_output "
+"を設定し、slow_query_log または general_log のいずれかを有効にする必要があります。なお、general_log "
+"は大量のデータを生成し、サーバの負荷を 15% 増加させますので、注意するようにしてください。"
 
 #: server_status.php:1371
 msgid ""
@@ -9851,6 +9849,10 @@ msgid ""
 "will load statistics from the logs helping you find what caused the activity "
 "spike.</p>"
 msgstr ""
+"<b>モニタの使い方：</b><br/>「モニタ開始」をクリックすると、ブラウザは一定間隔で表示されている全てのグラフを更新します。「設定」のところより"
+"グラフを追加や再描画間隔の変更が行え、それぞれのグラフにある歯車のアイコンを通じて削除を行えます。<p>モニタリングしていてスパイク信号が見られることが"
+"あります。マウスの左ボタンを押したままグラフの上をドラッグするように移動させことで、グラフの任意の期間を選択できます。こうすることでログから統計の読み込"
+"みが行え、スパイク信号の原因を探ることができます。</p>"
 
 #: server_status.php:1375
 msgid ""
@@ -9860,6 +9862,9 @@ msgid ""
 "disable the general_log and empty its table once monitoring is not required "
 "any more."
 msgstr ""
+"<b>注意事項：</b>general_log を有効にすると、5～15% サーバの負荷が増加することがあります。ログから生成される統計は、負荷が集中す"
+"る作業であることを認識しておいてください。ですから、テーブルのモニタで必要としないのであれば、しばらくの間 general_log "
+"を無効にして空にしておくのが望ましいです。"
 
 #: server_status.php:1385
 msgid "CPU Usage"
@@ -9916,42 +9921,38 @@ msgid "Series in Chart:"
 msgstr "グラフの系列"
 
 #: server_status.php:1445
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "読み込み中"
+msgstr "ログの読み込み"
 
 #: server_status.php:1448
-#, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
-msgstr "統計を表示する"
+msgstr "ログの統計"
 
 #: server_status.php:1449
-#, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
-msgstr "ページを選択してください"
+msgstr "選択期間："
 
 #: server_status.php:1454
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "SELECT、INSERT、UPDATE、DELETE 文のみ取得する"
 
 #: server_status.php:1459
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "結果を扱いやすくするために INSERT 文におけるデータ部を同一のように扱う"
 
 #: server_status.php:1462
 msgid ""
 "<p>Choose from which log you want the statistics to be generated from.</p> "
 "Results are grouped by query text."
-msgstr ""
+msgstr "<p>ログの統計元を選択することができます。</p>結果はクエリ文でグループ化されます。"
 
 #: server_status.php:1465
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "クエリ種別"
+msgstr "クエリの解析"
 
 #: server_status.php:1501
 #, php-format
