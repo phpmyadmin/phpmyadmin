@@ -1157,10 +1157,9 @@ msgid "Total memory"
 msgstr "Total memory"
 
 #: js/messages.php:102
-#, fuzzy
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "System memory"
+msgstr "Cached memory"
 
 #: js/messages.php:103
 #, fuzzy
