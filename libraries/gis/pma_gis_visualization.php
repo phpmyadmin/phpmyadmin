@@ -309,7 +309,7 @@ class PMA_GIS_Visualization
         include_once './libraries/tcpdf/tcpdf.php';
 
         // create pdf
-        $pdf = new TCPDF('', 'pt', 'A4', true, 'UTF-8', false);
+        $pdf = new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false);
 
         // disable header and footer
         $pdf->setPrintHeader(false);
