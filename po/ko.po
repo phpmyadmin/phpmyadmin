@@ -639,7 +639,7 @@ msgstr "뷰"
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:477
 msgid "Replication"
-msgstr ""
+msgstr "복제"
 
 #: db_structure.php:442
 msgid "Sum"
