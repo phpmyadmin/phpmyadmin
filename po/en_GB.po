@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-07-30 22:27+0200\n"
-"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"PO-Revision-Date: 2011-08-04 21:45+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
@@ -1152,10 +1152,9 @@ msgid "Average load"
 msgstr "Average load"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "System memory"
+msgstr "Total memory"
 
 #: js/messages.php:102
 #, fuzzy
