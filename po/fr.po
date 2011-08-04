@@ -1203,10 +1203,9 @@ msgid "Used Swap"
 msgstr "Zone d'échange utilisée"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "Pages libres"
+msgstr "Zone d'échange libre"
 
 #: js/messages.php:112
 msgid "Bytes sent"
