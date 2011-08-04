@@ -1209,7 +1209,7 @@ msgstr "Zone d'échange libre"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Octets envoyés"
 
 #: js/messages.php:113
 #, fuzzy
