@@ -1173,10 +1173,9 @@ msgid "Free memory"
 msgstr "Boş bellek"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Sistem belleği"
+msgstr "Kullanılan bellek"
 
 #: js/messages.php:107
 #, fuzzy
