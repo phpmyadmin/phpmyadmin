@@ -34,7 +34,8 @@ $forms['Features']['General'] = array(
     'SkipLockedTables',
     'DisableMultiTableMaintenance',
     'MaxDbList',
-    'MaxTableList');
+    'MaxTableList',
+    'ShowHint');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'CharTextareaCols',

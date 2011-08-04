@@ -96,6 +96,12 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
             define('PMA_DISPLAY_HEADING', 1);
         }
 
+        // pass configuration for hint tooltip display
+        // (to be used by PMA_createqTip in js/functions.js)
+        if (! $GLOBALS['cfg']['ShowHint']) {
+            echo '<span id="no_hint" class="hide"></span>';
+        }
+
         /**
          * Display heading if needed. Design can be set in css file.
          */

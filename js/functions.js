@@ -2973,6 +2973,9 @@ $(document).ready(function() {
  * can be overriden by specifying optional "options" parameter (see qTip options).
  */
 function PMA_createqTip($elements, content, options) {
+    if ($('#no_hint').length > 0) {
+        return;
+    }
     var o = {
         content: content,
         style: {

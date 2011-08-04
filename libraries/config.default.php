@@ -544,6 +544,13 @@ $cfg['MaxDbList'] = 100;
 $cfg['MaxTableList'] = 250;
 
 /**
+ * whether to show hint or not
+ *
+ * @global boolean $cfg['ShowHint']
+ */
+$cfg['ShowHint'] = true;
+
+/**
  * maximum number of characters when a SQL query is displayed
  *
  * @global integer $cfg['MaxCharactersInDisplayedSQL']
