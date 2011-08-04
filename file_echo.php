@@ -29,7 +29,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     if (! preg_match($valid_match, $_REQUEST['filename'])) {
         if (! preg_match('/^[^\n\r]*$/', $_REQUEST['filename'])) {
             /* Filename is unsafe, discard it */
-            $filename = 'dowload.' . $extension;
+            $filename = 'download.' . $extension;
         } else {
             /* Add extension */
             $filename = $_REQUEST['filename'] . '.' . $extension;
