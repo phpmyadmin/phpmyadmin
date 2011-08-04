@@ -563,7 +563,7 @@ function PMA_no_cache_header()
  * @param $mimetype string MIME type to include in headers.
  * @return nothing
  */
-function PMA_download_header($filename, $mimetype, $avoid_cache = true) {
+function PMA_download_header($filename, $mimetype, $avoid_cache = true, $length = 0) {
     if ($avoid_cache) {
         PMA_no_cache_header();
     }
@@ -571,6 +571,9 @@ function PMA_download_header($filename, $mimetype, $avoid_cache = true) {
     header('Content-Disposition: attachment; filename="' . $filename . '"');
     header('Content-Type: ' . $mimetype);
     header('Content-Transfer-Encoding: binary');
+    if ($length > 0) {
+        header('Content-Length: ' . $length);
+    }
 }
 
 
