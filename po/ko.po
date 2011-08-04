@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-07-30 14:14-0400\n"
-"PO-Revision-Date: 2011-08-04 11:53+0200\n"
+"PO-Revision-Date: 2011-08-04 11:54+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -117,7 +117,7 @@ msgstr "원격 URL 열기 실패했습니다"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr ""
+msgstr "%s 파일은 사용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하세요."
 
 #: db_create.php:58
 #, php-format
