@@ -15,10 +15,15 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         'image/svg+xml' => 'svg',
     );
 
+    /* Check whether MIME type is allowed */
     if (! isset($allowed[$_REQUEST['type']])) {
         die('Invalid export type');
     }
 
+    /*
+     * Check file name to match mime type and not contain new lines
+     * to prevent response splitting.
+     */
     if (! preg_match('/^[^\n\r]*\.' . $allowed[$_REQUEST['type']] . '$/', $_REQUEST['filename'])) {
         if (! preg_match('/^[^\n\r]*$/', $_REQUEST['filename'])) {
             /* Add extension */
@@ -32,8 +37,10 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         $filename = $_REQUEST['filename'];
     }
 
+    /* Send download header */
     PMA_download_header($filename, $_REQUEST['type']);
 
+    /* Send data */
     if ($allowed[$_REQUEST['type']] != 'svg') {
         echo base64_decode(substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1));
     } else {
