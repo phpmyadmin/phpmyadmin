@@ -159,9 +159,9 @@ function PMA_DBI_select_db($dbname, $link = null)
  */
 function PMA_DBI_real_query($query, $link, $options)
 {
-    $buffer_mode = $options & PMA_DBI_QUERY_STORE
-        ? PMA_Drizzle::BUFFER_RESULT
-        : PMA_Drizzle::BUFFER_ROW;
+    $buffer_mode = $options & PMA_DBI_QUERY_UNBUFFERED
+        ? PMA_Drizzle::BUFFER_ROW
+        : PMA_Drizzle::BUFFER_RESULT;
     $res = $link->query($query, $buffer_mode);
     return $res;
 }
