@@ -2573,7 +2573,7 @@ function PMA_extractFieldSpec($fieldspec) {
         // convert to lowercase just to be sure
         $type = strtolower(chop(substr($fieldspec, 0, $first_bracket_pos)));
     } else {
-        $type = $fieldspec;
+        $type = strtolower($fieldspec);
         $spec_in_brackets = '';
     }
 

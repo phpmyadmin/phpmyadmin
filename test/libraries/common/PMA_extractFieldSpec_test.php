@@ -54,7 +54,7 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
             array(
                 "INT UNSIGNED zerofill",
                 array(
-                    'type' => 'INT UNSIGNED zerofill',
+                    'type' => 'int unsigned zerofill',
                     'short_type' => 'INT',
                     'binary' => false,
                     'unsigned' => true,
