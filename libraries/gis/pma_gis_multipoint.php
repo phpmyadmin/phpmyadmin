@@ -59,6 +59,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $point_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($point_color, 1, 2));
         $green = hexdec(substr($point_color, 3, 2));
         $blue  = hexdec(substr($point_color, 4, 2));
@@ -73,6 +74,10 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             if ($point[0] != '' && $point[1] != '') {
                 imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
             }
+        }
+        // print label for one point, point color can group them
+        if (isset($label) && trim($label) != '') {
+            imagestring($image, 2, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
         }
         return $image;
     }
