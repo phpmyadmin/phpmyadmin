@@ -1328,7 +1328,7 @@ div#tablestatistics table {
 
 /* serverstatus */
 
-div#logTable table td.analyzableQuery:hover {
+.linkElem:hover {
     text-decoration:    underline;
     color:              #235a81;
     cursor: pointer;

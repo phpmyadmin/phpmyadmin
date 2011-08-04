@@ -6,7 +6,7 @@
  *
  * @package phpMyAdmin
  */
-
+ 
 /**
  * no need for variables importing
  * @ignore
@@ -310,6 +310,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         exit(json_encode($return));
     }
+    
+    if(isset($_REQUEST['advisor'])) {
+        include('libraries/advisor.lib.php');
+        $advisor = new Advisor();
+        exit(json_encode($advisor->run()));
+    }
 }
 
 
@@ -428,15 +434,6 @@ if (isset($server_status['Threads_created'])
     
     $server_status['Threads_cache_hitrate_%'] =
         100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
-}
-
-// Format Uptime_since_flush_status : show as days, hours, minutes, seconds
-if (isset($server_status['Uptime_since_flush_status'])) {
-    $server_status['Uptime_since_flush_status'] = PMA_timespanFormat($server_status['Uptime_since_flush_status']);
-}
-if (isset($server_status['Uptime'])) {
-    $uptime_unformatted = $server_status['Uptime'];
-    $server_status['Uptime'] = PMA_timespanFormat($server_status['Uptime']);
 }
 
 /**
@@ -652,6 +649,7 @@ echo __('Runtime Information');
             <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
             <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
             <li><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
+            <li><a href="#statustabs_advisor"><?php echo __('Advisor'); ?></a></li>
         </ul>
 
         <div id="statustabs_traffic">
@@ -724,6 +722,10 @@ echo __('Runtime Information');
                 ?>
                     </select>
                 </div>
+                <div class="formelement">
+                    <input type="checkbox" name="dontFormat" id="dontFormat">
+                    <label for="dontFormat"><?php echo __('Show unformatted values'); ?></label>
+                </div>
             </fieldset>
             <div id="linkSuggestions" class="defaultLinks" style="display:none">
                 <p class="notice"><?php echo __('Related links:'); ?>
@@ -754,15 +756,30 @@ echo __('Runtime Information');
         <div id="statustabs_charting">
             <?php printMonitor(); ?>
         </div>
+        
+        <div id="statustabs_advisor">
+            <p><a href="#startAnalyzer">Start analyzer</a> | <a href="#openAdvisorInstructions">Instructions</a></p>
+            <div class="tabInnerContent">
+            </div>
+            <div id="advisorInstructionsDialog" style="display:none;">
+            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. 
+        Do note however that this system provides recommendations based on fairly simple calculations and by rule of thumb and 
+        may not necessarily work for your system.
+        Prior to changing any of the configuration, be sure to know what you are changing and how to undo the change. Wrong tuning
+        can have a very negative effect on performance.
+        The best way to tune the system would be to change only one setting at a time, observe or benchmark your database, and 
+        undo the change if there was no clearly measurable improvement.'); ?>
+            </div>
+        </div>
     </div>
 </div>
 
 <?php
 
 function printQueryStatistics() {
-    global $server_status, $used_queries, $url_query, $PMA_PHP_SELF, $uptime_unformatted;
+    global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 
-    $hour_factor   = 3600 / $uptime_unformatted;
+    $hour_factor   = 3600 / $server_status['Uptime'];
 
     $total_queries = array_sum($used_queries);
 
@@ -781,12 +798,12 @@ function printQueryStatistics() {
         echo '<br>';
 
         echo '&oslash; '.__('per minute').': ';
-        echo PMA_formatNumber( $total_queries * 60 / $uptime_unformatted, 0);
+        echo PMA_formatNumber( $total_queries * 60 / $server_status['Uptime'], 0);
         echo '<br>';
 
-        if ($total_queries / $uptime_unformatted >= 1) {
+        if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash; '.__('per second').': ';
-            echo PMA_formatNumber( $total_queries / $uptime_unformatted, 0);
+            echo PMA_formatNumber( $total_queries / $server_status['Uptime'], 0);
         }
         ?>
         </span>
@@ -863,15 +880,15 @@ function printQueryStatistics() {
 
 function printServerTraffic() {
     global $server_status,$PMA_PHP_SELF;
-    global $server_master_status, $server_slave_status, $replication_types, $uptime_unformatted;
+    global $server_master_status, $server_slave_status, $replication_types;
 
-    $hour_factor    = 3600 / $uptime_unformatted;
+    $hour_factor    = 3600 / $server_status['Uptime'];
 
     /**
      * starttime calculation
      */
     $start_time = PMA_DBI_fetch_value(
-        'SELECT UNIX_TIMESTAMP() - ' . $uptime_unformatted);
+        'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']);
 
     ?>
     <h3><?php
@@ -885,7 +902,7 @@ function printServerTraffic() {
     <p>
     <?php
     echo sprintf(__('This MySQL server has been running for %1$s. It started up on %2$s.'),
-        $server_status['Uptime'],
+        PMA_timespanFormat($server_status['Uptime']),
         PMA_localisedDate($start_time)) . "\n";
     ?>
     </p>
@@ -1295,7 +1312,7 @@ function printVariablesTable() {
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_'.$allocationMap[$name]:''; ?>">
             <th class="name"><?php echo htmlspecialchars(str_replace('_',' ',$name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
             </th>
-            <td class="value"><?php
+            <td class="value"><span class="formatted"><?php
             if (isset($alerts[$name])) {
                 if ($value > $alerts[$name]) {
                     echo '<span class="attention">';
@@ -1305,6 +1322,8 @@ function printVariablesTable() {
             }
             if ('%' === substr($name, -1, 1)) {
                 echo PMA_formatNumber($value, 0, 2) . ' %';
+            } elseif (strpos($name,'Uptime')!==FALSE) {
+                echo PMA_timespanFormat($value);
             } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
                 echo PMA_formatNumber($value, 3, 1);
             } elseif (is_numeric($value) && $value == (int) $value) {
@@ -1317,7 +1336,8 @@ function printVariablesTable() {
             if (isset($alerts[$name])) {
                 echo '</span>';
             }
-            ?></td>
+            ?></span><span style="display:none;" class="original"><?php echo $value; ?></span>
+            </td>
             <td class="descr">
             <?php
             if (isset($strShowStatus[$name ])) {

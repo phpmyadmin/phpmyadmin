@@ -365,6 +365,11 @@ $(function() {
         categoryFilter = $(this).val();
         filterVariables();
     });
+    
+    $('input#dontFormat').change(function() {
+        $('#serverstatusvariables td.value span.original').toggle(this.checked);
+        $('#serverstatusvariables td.value span.formatted').toggle(! this.checked);
+    });
 
     /* Adjust DOM / Add handlers to the tabs */
     function initTab(tab,data) {
@@ -548,7 +553,55 @@ $(function() {
         return pointInfo;
     }
 
+    /**** Server config advisor ****/
 
+    $('a[href="#openAdvisorInstructions"]').click(function() {
+        $('#advisorInstructionsDialog').dialog();
+    });
+    
+    $('a[href="#startAnalyzer"]').click(function() {
+        var $cnt = $('#statustabs_advisor .tabInnerContent');
+        $cnt.html('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+        
+        $.get('server_status.php?'+url_query, { ajax_request: true, advisor: true },function(data) {
+            var $tbody, $tr, str, even = true;
+            
+            data = $.parseJSON(data);
+            $cnt.html('<p><b>Possible performance issues</b></p>');
+            if(data.fired.length > 0) {
+                $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr><th>Issue</th><th>Recommendation</th></tr></thead><tbody></tbody></table>'); 
+                $tbody = $cnt.find('table#rulesFired');
+                $.each(data.fired, function(key,value) {
+                    $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' + value.issue + '</td>' +
+                                           '<td>' + value.recommendation + ' </td></tr>')); 
+                    even = !even;
+                    
+                    $tr.data('rule',value);
+                    $tr.click(function() {
+                        var rule = $(this).data('rule');
+                        $('div#emptyDialog').attr('title','Rule details');
+                        $('div#emptyDialog').html(
+                            '<p><b>Issue:</b><br />' + rule.issue + '</p>' +
+                            '<p><b>Recommendation:</b><br />' + rule.recommendation + '</p>' +
+                            '<p><b>Justification:</b><br />' + rule.justification + '</p>' +
+                            '<p><b>Used variable / formula:</b><br />' + rule.formula + '</p>' +
+                            '<p><b>Test:</b><br />' + rule.test + '</p>'
+                        );
+                        $('div#emptyDialog').dialog({
+                            width: 600,
+                            buttons: {
+                                'Close' : function() {
+                                    $(this).dialog('close');
+                                }
+                            }
+                        });
+                    });
+                });
+            }
+        });
+                
+        return false;
+    });
 
 
     /**** Monitor charting implementation ****/
@@ -1956,7 +2009,7 @@ $(function() {
             for(var j=0; j < cols.length; j++) {
                 // Assuming the query column is the second last
                 if(j == cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
-                    $tRow.append($tCell=$('<td class="analyzableQuery">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
+                    $tRow.append($tCell=$('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
                     $tCell.click(queryAnalyzer);
                 } else
                     $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
