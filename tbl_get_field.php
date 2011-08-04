@@ -38,15 +38,5 @@ if ($result === false) {
 @ini_set('url_rewriter.tags', '');
 
 PMA_download_header($table . '-' .  $transform_key . '.bin',  PMA_detectMIME($result));
-if (PMA_USR_BROWSER_AGENT == 'IE') {
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-    header('Pragma: public');
-} else {
-    header('Pragma: no-cache');
-    // test case: exporting a database into a .gz file with Safari
-    // would produce files not having the current time
-    // (added this header for Safari but should not harm other browsers)
-    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-}
 echo $result;
 ?>
