@@ -41,7 +41,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
 
     /* Decode data */
     if ($extension != 'svg') {
-        $data = substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1);
+        $data = substr($_REQUEST['image'], strpos($_REQUEST['image'], ',') + 1);
         $data = base64_decode($data);
     } else {
         $data = $_REQUEST['image'];
