@@ -1444,10 +1444,9 @@ msgstr ""
 "reentering your credentials should help."
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Reload"
+msgstr "Reload page"
 
 #: js/messages.php:180
 msgid "Affected rows: "
