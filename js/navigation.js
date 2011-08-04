@@ -199,9 +199,9 @@ $(document).ready(function(){
     /* Jump to recent table */
     $('#recentTable').change(function() {
         if (this.value != '') {
-            var arr = this.value.split('.');
-            window.parent.setDb(arr[0]);
-            window.parent.setTable(arr[1]);
+            var arr = jQuery.parseJSON(this.value);
+            window.parent.setDb(arr['db']);
+            window.parent.setTable(arr['table']);
             window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
         }
     });

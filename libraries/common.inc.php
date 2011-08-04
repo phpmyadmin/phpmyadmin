@@ -510,21 +510,22 @@ if (PMA_isValid($_REQUEST['db'])) {
  */
 $GLOBALS['table'] = '';
 if (PMA_isValid($_REQUEST['table'])) {
-    // check if specified table contain db name
-    if (strpos($_REQUEST['table'], '.')) {
-        $splitted = explode('.', $_REQUEST['table']);
-        if (count($splitted) == 2) {    // make sure the format is "db.table"
-            $GLOBALS['db'] = $splitted[0];
-            $GLOBALS['url_params']['db'] = $GLOBALS['db'];
-            $GLOBALS['table'] = $splitted[1];
-            $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-        }
-    } else {
-        // can we strip tags from this?
-        // only \ and / is not allowed in table names for MySQL
-        $GLOBALS['table'] = $_REQUEST['table'];
-        $GLOBALS['url_params']['table'] = $GLOBALS['table'];
-    }
+    // can we strip tags from this?
+    // only \ and / is not allowed in table names for MySQL
+    $GLOBALS['table'] = $_REQUEST['table'];
+    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
+}
+
+/**
+ * Store currently selected recent table.
+ * Affect $GLOBALS['db'] and $GLOBALS['table']
+ */
+if (PMA_isValid($_REQUEST['selected_recent_table'])) {
+    $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
+    $GLOBALS['db'] = $recent_table['db'];
+    $GLOBALS['url_params']['db'] = $GLOBALS['db'];
+    $GLOBALS['table'] = $recent_table['table'];
+    $GLOBALS['url_params']['table'] = $GLOBALS['table'];
 }
 
 /**
