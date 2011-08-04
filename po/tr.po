@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-04 18:33+0200\n"
+"PO-Revision-Date: 2011-08-04 18:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1464,6 +1464,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"İçe aktarılan yapılandırma ile çizelge çizgilerinin oluşturulması başarısız. "
+"Varsayılan yapılandırmaya sıfırlanıyor..."
 
 #: js/messages.php:184 libraries/config/messages.inc.php:170
 #: libraries/db_links.inc.php:83 libraries/server_links.inc.php:69
