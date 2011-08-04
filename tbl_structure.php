@@ -123,10 +123,8 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
 unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
-$fields_rs   = PMA_DRIZZLE
-            ? PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE)
-            : PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
-$fields_cnt  = PMA_DBI_num_rows($fields_rs);
+$fields = PMA_DBI_get_columns($db, $table, !PMA_DRIZZLE);
+$fields_cnt  = count($fields);
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
@@ -243,7 +241,7 @@ $aryFields = array();
 $checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
 $odd_row   = true;
-while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+foreach ($fields as $row) {
     $save_row[] = $row;
     $rownum++;
     $aryFields[]      = $row['Field'];
@@ -575,7 +573,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 </tr>
     <?php
     unset($field_charset);
-} // end while
+} // end foreach
 
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
