@@ -318,7 +318,10 @@ if (isset($plugin_list)) {
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
             $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
-            $type = $extracted_fieldspec['print_type'];
+            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
 
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . htmlspecialchars($type) . '</text:p>'

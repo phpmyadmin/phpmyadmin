@@ -393,6 +393,10 @@ if (isset($plugin_list)) {
         foreach ($fields as $row) {
             $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
             $type = $extracted_fieldspec['print_type'];
+            if (empty($type)) {
+                $type     = ' ';
+            }
+
             if (!isset($row['Default'])) {
                 if ($row['Null'] != 'NO') {
                     $row['Default'] = 'NULL';
