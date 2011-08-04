@@ -119,8 +119,8 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
     /**
      * Gets columns properties
      */
-    $result      = PMA_DBI_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
-    $fields_cnt  = PMA_DBI_num_rows($result);
+    $columns = PMA_DBI_get_columns($db, $table);
+    $fields_cnt  = count($columns);
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
         // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
@@ -181,7 +181,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
 </tr>
     <?php
     $odd_row = true;
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    foreach ($columns as $row) {
 
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
@@ -284,8 +284,7 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
         ?>
 </tr>
         <?php
-    } // end while
-    PMA_DBI_free_result($result);
+    } // end foreach
     $count++;
     ?>
 </table>
