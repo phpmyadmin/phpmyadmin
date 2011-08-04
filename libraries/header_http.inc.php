@@ -24,7 +24,7 @@ if (!$GLOBALS['cfg']['AllowThirdPartyFraming']) {
     header('X-Frame-Options: SAMEORIGIN');
     header('X-Content-Security-Policy: allow \'self\'; options inline-script eval-script; frame-ancestors \'self\'; img-src \'self\' data:; script-src \'self\' www.phpmyadmin.net');
 }
-PMA_no_cache_header()
+PMA_no_cache_header();
 if (!defined('IS_TRANSFORMATION_WRAPPER')) {
     // Define the charset to be used
     header('Content-Type: text/html; charset=utf-8');
