@@ -1068,7 +1068,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
         // instead of $pdf->Output():
         $pdfData = $pdf->getPDFData();
-        PMA_download_header($filename, 'application/pdf');
+        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
         echo $pdfData;
     }
 

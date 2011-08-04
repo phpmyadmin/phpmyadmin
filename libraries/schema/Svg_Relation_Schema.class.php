@@ -168,8 +168,8 @@ class PMA_SVG extends XMLWriter
     function showOutput($fileName)
     {
         //ob_get_clean();
-        PMA_download_header($fileName . '.svg', 'image/svg+xml');
         $output = $this->flush();
+        PMA_download_header($fileName . '.svg', 'image/svg+xml', strlen($output));
         print $output;
     }
 

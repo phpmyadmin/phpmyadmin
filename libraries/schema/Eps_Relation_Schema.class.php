@@ -333,8 +333,8 @@ class PMA_EPS
         // if(ob_get_clean()){
             //ob_end_clean();
         //}
-        PMA_download_header($fileName . '.eps', 'image/x-eps');
         $output = $this->stringCommands;
+        PMA_download_header($fileName . '.eps', 'image/x-eps', strlen($output));
         print $output;
     }
 }
