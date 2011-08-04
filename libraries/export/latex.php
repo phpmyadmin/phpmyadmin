@@ -148,7 +148,7 @@ if (isset($plugin_list)) {
     function PMA_exportDBHeader($db) {
         global $crlf;
         $head = '% ' . $crlf
-              . '% ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+              . '% ' . __('Database') . ': ' . '\'' . $db . '\'' . $crlf
               . '% ' . $crlf;
         return PMA_exportOutputHandler($head);
     }

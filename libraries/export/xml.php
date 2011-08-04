@@ -271,7 +271,7 @@ if (isset($plugin_list)) {
 
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             $head = '    <!--' . $crlf
-                  . '    - ' . __('Database') . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+                  . '    - ' . __('Database') . ': ' .  '\'' . $db . '\'' . $crlf
                   . '    -->' . $crlf
                   . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
 
