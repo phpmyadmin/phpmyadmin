@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-04 21:46+0200\n"
+"PO-Revision-Date: 2011-08-04 21:47+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -1228,7 +1228,7 @@ msgstr "Remove chart"
 #: js/messages.php:122
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Edit title and labelss"
+msgstr "Edit title and labels"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
