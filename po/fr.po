@@ -1190,10 +1190,9 @@ msgid "Used memory"
 msgstr "Mémoire utilisée"
 
 #: js/messages.php:107
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Total"
+msgstr "Zone d'échange totale"
 
 #: js/messages.php:108
 msgid "Cached Swap"
