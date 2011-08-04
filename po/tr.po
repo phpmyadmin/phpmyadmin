@@ -1197,7 +1197,7 @@ msgstr "Serbest Takas"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Gönderilmiş bayt"
 
 #: js/messages.php:113
 #, fuzzy
