@@ -2624,14 +2624,42 @@ function PMA_extractFieldSpec($fieldspec) {
             // Increment character index
             $index++;
         } // end while
+        $shorttype = $type;
+        $binary = false;
+        $unsigned = false;
+        $zerofill = false;
     } else {
         $enum_set_values = array();
+
+        /* Create short type name */
+        $shorttype = $fieldspec;
+
+        // strip the "BINARY" attribute, except if we find "BINARY(" because
+        // this would be a BINARY or VARBINARY field type
+        if (!preg_match('@BINARY[\(]@i', $shorttype)) {
+            $shorttype = preg_replace('@BINARY@i', '', $shorttype);
+        }
+        $shorttype = preg_replace('@ZEROFILL@i', '', $shorttype);
+        $shorttype = preg_replace('@UNSIGNED@i', '', $shorttype);
+        $shorttype = trim($shorttype);
+        if (!preg_match('@BINARY[\(]@i', $fieldspec)) {
+            $binary = stristr($fieldspec, 'blob') || stristr($fieldspec, 'binary');
+        } else {
+            $binary = false;
+        }
+
+        $unsigned = stristr($fieldspec, 'unsigned');
+        $zerofill = stristr($fieldspec, 'zerofill');
     }
 
     return array(
         'type' => $type,
         'spec_in_brackets' => $spec_in_brackets,
-        'enum_set_values'  => $enum_set_values
+        'enum_set_values'  => $enum_set_values,
+        'short_type' => $shorttype,
+        'binary' => $binary,
+        'unsigned' => $unsigned,
+        'zerofill' => $zerofill,
     );
 }
 

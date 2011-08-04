@@ -260,31 +260,12 @@ foreach ($fields as $row) {
         }
 
         $type_nowrap  = '';
-
-        $binary       = 0;
-        $unsigned     = 0;
-        $zerofill     = 0;
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
-        // strip the "BINARY" attribute, except if we find "BINARY(" because
-        // this would be a BINARY or VARBINARY field type
-        if (!preg_match('@BINARY[\(]@i', $type)) {
-            $type         = preg_replace('@BINARY@i', '', $type);
-        }
-        $type         = preg_replace('@ZEROFILL@i', '', $type);
-        $type         = preg_replace('@UNSIGNED@i', '', $type);
+        $type         = $extracted_fieldspec['short_type'];
         if (empty($type)) {
             $type     = ' ';
         }
-
-        if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
-            $binary           = stristr($row['Type'], 'blob') || stristr($row['Type'], 'binary');
-        } else {
-            $binary           = false;
-        }
-
-        $unsigned     = stristr($row['Type'], 'unsigned');
-        $zerofill     = stristr($row['Type'], 'zerofill');
     }
 
     unset($field_charset);
@@ -296,7 +277,7 @@ foreach ($fields as $row) {
         || substr($type, 0, 8) == 'longtext'
         || substr($type, 0, 3) == 'set'
         || substr($type, 0, 4) == 'enum'
-        ) && !$binary) {
+        ) && !$extracted_fieldspec['binary']) {
         if (strpos($type, ' character set ')) {
             $type = substr($type, 0, strpos($type, ' character set '));
         }
@@ -317,13 +298,13 @@ foreach ($fields as $row) {
     }
 
     $attribute     = ' ';
-    if ($binary) {
+    if ($extracted_fieldspec['binary']) {
         $attribute = 'BINARY';
     }
-    if ($unsigned) {
+    if ($extracted_fieldspec['unsigned']) {
         $attribute = 'UNSIGNED';
     }
-    if ($zerofill) {
+    if ($extracted_fieldspec['zerofill']) {
         $attribute = 'UNSIGNED ZEROFILL';
     }
 
