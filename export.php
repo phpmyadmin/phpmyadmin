@@ -347,25 +347,7 @@ if (!$save_on_server) {
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags','');
 
-        header('Content-Type: ' . $mime_type);
-        header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        // Tested behavior of
-        //       IE 5.50.4807.2300
-        //       IE 6.0.2800.1106 (small glitch, asks twice when I click Open)
-        //       IE 6.0.2900.2180
-        //       Firefox 1.0.6
-        // in http and https
-        header('Content-Disposition: attachment; filename="' . $filename . '"');
-        if (PMA_USR_BROWSER_AGENT == 'IE') {
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: public');
-        } else {
-            header('Pragma: no-cache');
-            // test case: exporting a database into a .gz file with Safari
-            // would produce files not having the current time
-            // (added this header for Safari but should not harm other browsers)
-            header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        }
+        PMA_download_header($filename, $mime_type);
     } else {
         // HTML
         if ($export_type == 'database') {
