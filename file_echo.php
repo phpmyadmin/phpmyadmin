@@ -24,13 +24,15 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
      * Check file name to match mime type and not contain new lines
      * to prevent response splitting.
      */
-    if (! preg_match('/^[^\n\r]*\.' . $allowed[$_REQUEST['type']] . '$/', $_REQUEST['filename'])) {
+    $extension = $allowed[$_REQUEST['type']];
+    $valid_match = '/^[^\n\r]*\.' . $extension . '$/';
+    if (! preg_match($valid_match, $_REQUEST['filename'])) {
         if (! preg_match('/^[^\n\r]*$/', $_REQUEST['filename'])) {
             /* Add extension */
-            $filename = 'dowload.' . $allowed[$_REQUEST['type']];
+            $filename = 'dowload.' . $extension;
         } else {
             /* Filename is unsafe, discard it */
-            $filename = $_REQUEST['filename'] . '.' . $allowed[$_REQUEST['type']];
+            $filename = $_REQUEST['filename'] . '.' . $extension;
         }
     } else {
         /* Filename from request should be safe here */
@@ -41,7 +43,7 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     PMA_download_header($filename, $_REQUEST['type']);
 
     /* Send data */
-    if ($allowed[$_REQUEST['type']] != 'svg') {
+    if ($extension != 'svg') {
         echo base64_decode(substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1));
     } else {
         echo $_REQUEST['image'];
