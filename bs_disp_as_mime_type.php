@@ -43,7 +43,7 @@ if ($fHnd === false) {
 
 $f_size = $hdrs['Content-Length'];
 
-PMA_download_header(basename($filename), $c_type, true, $f_size);
+PMA_download_header(basename($filename), $c_type, $f_size);
 
 $pos = 0;
 $content = "";

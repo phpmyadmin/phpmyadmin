@@ -40,7 +40,6 @@ if ($result === false) {
 PMA_download_header(
     $table . '-' .  $transform_key . '.bin',
     PMA_detectMIME($result),
-    true,
     strlen($result));
 echo $result;
 ?>
