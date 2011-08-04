@@ -132,7 +132,7 @@ class Advisor {
         $j = -1;
         $ruleLine = -1;
         
-        for($i = 0; $i<$numLines; $i++) {
+        for ($i = 0; $i<$numLines; $i++) {
             $line = $file[$i];
             if($line[0] == '#' || $line[0] == "\n") continue;
 
