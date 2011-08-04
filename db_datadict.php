@@ -186,37 +186,24 @@ while ($row = PMA_DBI_fetch_row($rowset)) {
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
         }
-        $type             = $row['Type'];
+        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
-        if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-            $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
-            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+        if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
             $type_nowrap  = '';
 
-            $binary       = 0;
-            $unsigned     = 0;
-            $zerofill     = 0;
         } else {
-            $binary       = stristr($row['Type'], 'binary');
-            $unsigned     = stristr($row['Type'], 'unsigned');
-            $zerofill     = stristr($row['Type'], 'zerofill');
             $type_nowrap  = ' nowrap="nowrap"';
-            $type         = preg_replace('@BINARY@i', '', $type);
-            $type         = preg_replace('@ZEROFILL@i', '', $type);
-            $type         = preg_replace('@UNSIGNED@i', '', $type);
-            if (empty($type)) {
-                $type     = ' ';
-            }
         }
+        $type = htmlspecialchars($extracted_fieldspec['print_type']);
         $attribute     = ' ';
-        if ($binary) {
+        if ($extracted_fieldspec['binary']) {
             $attribute = 'BINARY';
         }
-        if ($unsigned) {
+        if ($extracted_fieldspec['unsigned']) {
             $attribute = 'UNSIGNED';
         }
-        if ($zerofill) {
+        if ($extracted_fieldspec['zerofill']) {
             $attribute = 'UNSIGNED ZEROFILL';
         }
         if (! isset($row['Default'])) {
