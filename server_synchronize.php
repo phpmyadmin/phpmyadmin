@@ -190,7 +190,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             $criteria = array('Field', 'Type', 'Null', 'Collation', 'Key', 'Default', 'Comment');
 
-            for($i = 0; $i < sizeof($matching_tables); $i++) {
+            for ($i = 0; $i < sizeof($matching_tables); $i++) {
                 /**
                 * Finding out all the differences structure, data and index diff for all the matching tables only
                 */
@@ -204,7 +204,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 $add_indexes_array, $alter_indexes_array, $remove_indexes_array, $i);
             }
 
-            for($j = 0; $j < sizeof($source_tables_uncommon); $j++) {
+            for ($j = 0; $j < sizeof($source_tables_uncommon); $j++) {
                 /**
                 * Finding out the number of rows to be added in tables that need to be added in target database
                 */
@@ -518,7 +518,7 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Applying the structure difference on selected matching tables
     */
-    for($q = 0; $q < sizeof($matching_table_structure_diff); $q++)
+    for ($q = 0; $q < sizeof($matching_table_structure_diff); $q++)
     {
         if (isset($alter_str_array[$matching_table_structure_diff[$q]])) {
 
@@ -564,7 +564,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Applying the data difference. First checks if structure diff is applied or not.
     * If not, then apply structure difference first then apply data difference.
     */
-    for($p = 0; $p < sizeof($matching_table_data_diff); $p++)
+    for ($p = 0; $p < sizeof($matching_table_data_diff); $p++)
     {
         if ($_REQUEST['checked'] == 'true') {
 
@@ -643,7 +643,7 @@ if (isset($_REQUEST['Table_ids'])) {
     /**
     * Applying structure difference to selected non-matching tables (present in Source but absent from Target).
     */
-    for($s = 0; $s < sizeof($uncommon_table_structure_diff); $s++)
+    for ($s = 0; $s < sizeof($uncommon_table_structure_diff); $s++)
     {
         PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $uncommon_tables, $uncommon_table_structure_diff[$s], $uncommon_tables_fields, false);
         $_SESSION['uncommon_tables_fields'] = $uncommon_tables_fields;
@@ -654,7 +654,7 @@ if (isset($_REQUEST['Table_ids'])) {
     * Applying data difference to selected non-matching tables (present in Source but absent from Target).
     * Before data synchronization, structure synchronization is confirmed.
     */
-    for($r = 0; $r < sizeof($uncommon_table_data_diff); $r++)
+    for ($r = 0; $r < sizeof($uncommon_table_data_diff); $r++)
     {
         if (!(in_array($uncommon_table_data_diff[$r], $uncommon_table_structure_diff))) {
             if (isset($uncommon_tables[$uncommon_table_data_diff[$r]])) {
@@ -680,7 +680,7 @@ if (isset($_REQUEST['Table_ids'])) {
 
     PMA_syncDisplayHeaderCompare($src_db, $trg_db);
     $rows = array();
-    for($i = 0; $i < count($matching_tables); $i++) {
+    for ($i = 0; $i < count($matching_tables); $i++) {
         $num_alter_cols  = 0;
         $num_insert_cols = 0;
         $num_remove_cols = 0;
@@ -950,7 +950,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Applying all sorts of differences for each matching table
     */
-    for($p = 0; $p < sizeof($matching_tables); $p++) {
+    for ($p = 0; $p < sizeof($matching_tables); $p++) {
         /**
         *  If the check box is checked for deleting previous rows from the target database tables then
         *  first find out rows to be deleted and then delete the rows.
@@ -1009,7 +1009,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     *  Creating and populating tables present in source but absent from target database.
     */
-    for($q = 0; $q < sizeof($source_tables_uncommon); $q++) {
+    for ($q = 0; $q < sizeof($source_tables_uncommon); $q++) {
         if (isset($uncommon_tables[$q])) {
             PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
