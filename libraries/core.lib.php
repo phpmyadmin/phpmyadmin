@@ -562,15 +562,15 @@ function PMA_no_cache_header()
 /**
  * Sends header indicating file download.
  *
- * @param string $filename    Filename to include in headers.
- * @param string $mimetype    MIME type to include in headers.
- * @param int    $length      Length of content (optional)
- * @param bool   $avoid_cache Whether to include no-caching headers.
+ * @param string $filename Filename to include in headers.
+ * @param string $mimetype MIME type to include in headers.
+ * @param int    $length   Length of content (optional)
+ * @param bool   $no_cache Whether to include no-caching headers.
  *
  * @return nothing
  */
-function PMA_download_header($filename, $mimetype, $length = 0, $avoid_cache = true) {
-    if ($avoid_cache) {
+function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true) {
+    if ($no_cache) {
         PMA_no_cache_header();
     }
     header('Content-Description: File Transfer');
