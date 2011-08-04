@@ -1451,7 +1451,7 @@ msgstr "Sayfayı yeniden yükle"
 
 #: js/messages.php:180
 msgid "Affected rows: "
-msgstr ""
+msgstr "Etkilenen satırlar:"
 
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
