@@ -847,7 +847,7 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
     return $fields;
 }
 
- /**
+/**
  * returns value of given mysql server variable
  *
  * @param string  $var    mysql server variable name
