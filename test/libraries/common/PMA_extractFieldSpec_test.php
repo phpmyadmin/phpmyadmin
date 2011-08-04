@@ -63,6 +63,18 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     'enum_set_values' => array(),
                     ),
                 ),
+            array(
+                "VARCHAR(255)",
+                array(
+                    'type' => 'varchar',
+                    'short_type' => 'VARCHAR(255)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '255',
+                    'enum_set_values' => array(),
+                    ),
+                ),
             );
     }
 }
