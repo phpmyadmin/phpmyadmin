@@ -71,7 +71,6 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
     </head>
 
     <body>
-        <div id="frameExpand" style="display:none;"><img src="themes/pmahomme/img/frame-expand.png"></div>
         <?php
 
         // Include possible custom headers

@@ -14,8 +14,6 @@ var querywindow = '';
  */
 var query_to_load = '';
 
-var leftFrameWidth = -1;
-
 /**
  * sets current selected db
  *
@@ -364,68 +362,4 @@ function updateTableTitle( table_link_id, new_title ) {
     }
 
     return false;
-}
-
-(function($) {
-    $.fn.extend({
-        dom: function () {
-            var $this = $(this);
-            var getDom = function(o) {
-                if( !o || (!o.contentWindow && !o.contentDocument) ) {
-                    return null;
-                }
-               
-                var doc = (o.contentWindow || o.contentDocument);
-               
-                return doc.document || doc;
-            };
-           
-            var dom = getDom($this[0]);
-           
-            return dom === null ? $this : $(dom);
-        }
-    });
-})(jQuery);
-
-$(document).ready(function() {
-    $('frame#frame_navigation').load(function() {    
-        $('frame#frame_navigation').dom().find('div#frameCollapse').show().click(toggleNavigation);
-    });
-    $('frame#frame_content').load(function() {    
-        $('frame#frame_content').dom().find('div#frameExpand').click(toggleNavigation);
-    });
-});
-
-function toggleNavigation() {
-    if(leftFrameWidth == -1) leftFrameWidth = $('frame#frame_navigation').width();
-    
-    var newWidth = leftFrameWidth - $('frame#frame_navigation').width();
-    var $frameset = $('frameset');
-    
-    if(newWidth == 0) {
-        $('frame#frame_navigation').dom().find('body').css('width',leftFrameWidth + 'px');
-        $('frame#frame_navigation').dom().find('body').css('overflow','hidden');
-    } else {
-        $('frame#frame_content').dom().find('div#frameExpand').hide();
-    }
-    
-    $('frame#frame_navigation').animate(
-        { width: newWidth },
-        { step: function(now, fx) {
-                    $frameset.attr('cols',fx.now + ',*');
-                },
-          complete: function() {
-              if(newWidth != 0) {
-                  $('frame#frame_navigation').dom().find('body').css('width','');
-                  $('frame#frame_navigation').dom().find('body').css('overflow','');                  
-              } else {
-                  $('frame#frame_content').dom().find('div#frameExpand').show();
-              }
-          }
-        }
-    );
-}
-
-function currentWidth() {
-	return $('frame#frame_navigation').width();
 }
