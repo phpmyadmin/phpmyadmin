@@ -9,11 +9,14 @@
 
 require_once './libraries/common.inc.php';
 
-if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
-    $allowed = Array( 'image/png'=>'png', 'image/svg+xml'=>'svg');
+if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
+    $allowed = array(
+        'image/png'     => 'png',
+        'image/svg+xml' => 'svg',
+    );
 
     if (! isset($allowed[$_REQUEST['type']])) {
-        exit('Invalid export type');
+        die('Invalid export type');
     }
 
     if (! preg_match("/(".implode("|",$allowed).")$/i", $_REQUEST['filename'])) {
@@ -28,17 +31,10 @@ if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         echo $_REQUEST['image'];
     }
 
-    exit();
-}
-
-if(isset($_REQUEST['monitorconfig'])) {
+} else if (isset($_REQUEST['monitorconfig'])) {
     PMA_download_header('monitor.cfg', 'application/force-download');
     echo urldecode($_REQUEST['monitorconfig']);
-    exit();
-}
-
-if(isset($_REQUEST['import'])) {
+} else if (isset($_REQUEST['import'])) {
     echo '<html><body>' . file_get_contents($_FILES['file']['tmp_name']) . '</body></html>';
-    exit();
 }
 ?>
