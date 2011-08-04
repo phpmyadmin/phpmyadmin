@@ -1378,13 +1378,12 @@ function PMA_get_column_values($database, $table, $column, $link = null)
  */
 function PMA_get_table_indexes($database, $table, $link = null)
 {
-
     $indexes = PMA_DBI_fetch_result(
               'SHOW INDEXES FROM ' .PMA_backquote($database) . '.' . PMA_backquote($table),
                null, null, $link);
 
-    if (! is_array($indexes) || count($indexes) < 1) {
-        return false;
+    if (!is_array($indexes) || count($indexes) == 0) {
+        return null;
     }
     return $indexes;
 }
