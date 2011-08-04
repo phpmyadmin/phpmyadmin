@@ -19,11 +19,20 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         die('Invalid export type');
     }
 
-    if (! preg_match("/(".implode("|",$allowed).")$/i", $_REQUEST['filename'])) {
-        $_REQUEST['filename'] .= '.' . $allowed[$_REQUEST['type']];
+    if (! preg_match('/^[^\n\r]*\.' . $allowed[$_REQUEST['type']] . '$/', $_REQUEST['filename'])) {
+        if (! preg_match('/^[^\n\r]*$/', $_REQUEST['filename'])) {
+            /* Add extension */
+            $filename = 'dowload.' . $allowed[$_REQUEST['type']];
+        } else {
+            /* Filename is unsafe, discard it */
+            $filename = $_REQUEST['filename'] . '.' . $allowed[$_REQUEST['type']];
+        }
+    } else {
+        /* Filename from request should be safe here */
+        $filename = $_REQUEST['filename'];
     }
 
-    PMA_download_header($_REQUEST['filename'], $_REQUEST['type']);
+    PMA_download_header($filename, $_REQUEST['type']);
 
     if ($allowed[$_REQUEST['type']] != 'svg') {
         echo base64_decode(substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1));
