@@ -2632,7 +2632,7 @@ function PMA_extractFieldSpec($fieldspec) {
         $enum_set_values = array();
 
         /* Create short type name */
-        $shorttype = $fieldspec;
+        $shorttype = strtolower($fieldspec);
 
         // strip the "BINARY" attribute, except if we find "BINARY(" because
         // this would be a BINARY or VARBINARY field type
