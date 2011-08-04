@@ -1187,7 +1187,7 @@ msgstr "Cached Swap"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Used Swap"
 
 #: js/messages.php:110
 #, fuzzy
