@@ -1188,7 +1188,7 @@ msgstr "Önbelleklenen Takas"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Kullanılan Takas"
 
 #: js/messages.php:110
 #, fuzzy
