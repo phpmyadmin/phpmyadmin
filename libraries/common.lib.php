@@ -2639,6 +2639,8 @@ function PMA_extractFieldSpec($fieldspec) {
         if (!preg_match('@binary[\(]@', $shorttype)) {
             $binary = strpos($shorttype, 'blob') !== false || strpos($shorttype, 'binary') !== false;
             $shorttype = preg_replace('@binary@', '', $shorttype);
+        } else {
+            $binary = false;
         }
         $shorttype = preg_replace('@zerofill@', '', $shorttype, -1, $zerofill_cnt);
         $zerofill = ($zerofill_cnt > 0);
