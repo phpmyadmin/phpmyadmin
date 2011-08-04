@@ -1431,7 +1431,7 @@ msgstr "Loading logs"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Monitor refresh failed"
 
 #: js/messages.php:177
 msgid ""
