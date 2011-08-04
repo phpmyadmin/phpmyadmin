@@ -76,28 +76,28 @@ rule 'Slow query logging'
 #
 # versions
 rule 'Release Series'
-	'version'
+	version
 	!PMA_DRIZZLE && substr(value,0,3) != "5.1"
 	The MySQL server version less then 5.1.
 	You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 even more so.
 	Current version: %s | value
 
 rule 'Minor Version'
-	'version'
+	version
 	!PMA_DRIZZLE && substr(value,4,2) < 30
 	Version less then 5.1.30 (the first GA release of 5.1).
 	You should upgrade, as recent versions of MySQL 5.1 have improved performance and MySQL 5.5 even more so.
 	Current version: %s | value
 
 rule 'Distribution'
-	'version_comment'
+	version_comment
 	preg_match('/source/i',value)
 	Version is compiled from source, not a MySQL official binary. If you did not compile from source, you may be using a package modified by a distribution.  
 	The MySQL manual only is accurate for official MySQL binaries, not any package distributions (such as RedHat, Debian/Ubuntu etc).
 	'source' found in version_comment
 
 rule 'Distribution'
-	'version_comment'
+	version_comment
 	preg_match('/percona/i',value)
 	The MySQL manual only is accurate for official MySQL binaries.
 	Percona documentation is at http://www.percona.com/docs/wiki/
@@ -112,9 +112,11 @@ rule 'MySQL Architecture'
 
 #
 # Query cache
+
+# Lame: 'ON' == 0 is true, so you need to compare 'ON' == '0'
 rule 'Query cache disabled'
 	query_cache_size
-	value == 0 || query_cache_type == 'OFF' || query_cache_type == 0
+	value == 0 || query_cache_type == 'OFF' || query_cache_type == '0'
 	The query cache is not enabled. 
 	The query cache is known to greatly improve performance if configured correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value and setting {query_cache_type} to 'ON'
 	query_cache_size is set to 0 or query_cache_type is set to 'OFF'

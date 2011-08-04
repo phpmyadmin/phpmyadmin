@@ -62,8 +62,7 @@ class Advisor {
                     continue;
                 }
                 
-                if(is_string($value)) $this->variables['value'] = "'".$value."'";
-                else $this->variables['value'] = $value;
+                $this->variables['value'] = $value;
                 
                 try {
                     if($this->ruleExprEvaluate($rule['test']))
@@ -107,9 +106,9 @@ class Advisor {
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
         }
-        
+		$old=$expr;
         $expr = preg_replace('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie','1',$expr); //isset($this->runResult[\'fired\']
-        $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? $this->variables[\'\1\'] : \'\1\'', $expr); 
+        $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? (!is_numeric($this->variables[\'\1\']) ? \'"\'.$this->variables[\'\1\'].\'"\' : $this->variables[\'\1\']) : \'\1\'', $expr); 
         if($ignoreUntil > 0){
             $expr = $exprIgnore . $expr;
         }
@@ -119,7 +118,6 @@ class Advisor {
         eval('$value = '.$expr.';');
         $err = ob_get_contents();
         ob_end_clean();
-        
         if($err) throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
         return $value;
     }
