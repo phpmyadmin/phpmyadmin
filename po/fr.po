@@ -1200,7 +1200,7 @@ msgstr "Zone d'échange en cache"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Zone d'échange utilisée"
 
 #: js/messages.php:110
 #, fuzzy
