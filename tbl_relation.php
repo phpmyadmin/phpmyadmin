@@ -384,10 +384,10 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
 
 // Now find out the columns of our $table
 // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
+$columns = PMA_DBI_get_columns($db, $table);
 
-if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
-    while ($row = PMA_DBI_fetch_assoc($col_rs)) {
+if (count($columns) > 0) {
+    foreach($columns as $row) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
