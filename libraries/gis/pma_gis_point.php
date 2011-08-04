@@ -107,6 +107,12 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
             $pdf->Circle($points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line);
         }
+        // print label if applicable
+        if (isset($label) && trim($label) != '') {
+            $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
+            $pdf->SetFontSize(7);
+            $pdf->Cell(0, 0, trim($label));
+        }
         return $pdf;
     }
 

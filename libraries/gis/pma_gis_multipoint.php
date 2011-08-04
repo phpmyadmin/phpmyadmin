@@ -111,6 +111,12 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
                 $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
             }
         }
+        // print label for one point, point color can group them
+        if (isset($label) && trim($label) != '') {
+            $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
+            $pdf->SetFontSize(7);
+            $pdf->Cell(0, 0, trim($label));
+        }
         return $pdf;
     }
 
