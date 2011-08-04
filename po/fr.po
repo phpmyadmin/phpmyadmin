@@ -1180,10 +1180,9 @@ msgid "Buffered memory"
 msgstr "Mémoire-tampon"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Mémoire système"
+msgstr "Mémoire libre"
 
 #: js/messages.php:105
 #, fuzzy
