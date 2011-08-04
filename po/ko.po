@@ -105,7 +105,7 @@ msgstr "디스크 쓰기에 실패했습니다."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "원격 URL 열기 실패했습니다"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -113,6 +113,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s 파일은 사용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하세"
+"요."
 
 #: db_create.php:58
 #, php-format
@@ -626,13 +628,13 @@ msgstr ""
 #: db_structure.php:393 db_structure.php:407 libraries/header.inc.php:138
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:206 test/theme.php:73
 msgid "View"
-msgstr ""
+msgstr "뷰"
 
 #: db_structure.php:444 libraries/db_structure.lib.php:40
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:383
 msgid "Replication"
-msgstr ""
+msgstr "복제"
 
 #: db_structure.php:448
 msgid "Sum"
