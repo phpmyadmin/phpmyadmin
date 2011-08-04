@@ -11550,7 +11550,6 @@ msgstr "Переименовать представление в"
 #~ msgstr "Частота обновления:"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Прописанный пользователь"
 

@@ -11628,12 +11628,10 @@ msgid "Rename view to"
 msgstr "Reanomena la vista a"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Refresca"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Usuari per autenticació config"
 

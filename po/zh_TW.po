@@ -11112,12 +11112,10 @@ msgid "Rename view to"
 msgstr "將 view改名爲"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "重新整理"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "config 認證方式的帳號"
 

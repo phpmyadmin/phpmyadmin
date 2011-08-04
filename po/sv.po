@@ -11322,7 +11322,6 @@ msgstr "Ändra namn till"
 #~ msgid "Refresh rate:"
 #~ msgstr "Uppdateringsfrekvens:"
 
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Rensa monitor config"
 

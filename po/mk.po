@@ -11446,7 +11446,6 @@ msgid "Rename view to"
 msgstr "Промени го името на табелата во "
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Освежи"
 

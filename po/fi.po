@@ -11974,12 +11974,10 @@ msgid "Rename view to"
 msgstr "Nimeä taulu uudelleen"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Päivitä"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Config-todennuksen käyttäjä"
 

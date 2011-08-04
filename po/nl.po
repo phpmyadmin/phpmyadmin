@@ -11624,12 +11624,10 @@ msgid "Rename view to"
 msgstr "Hernoem view naar"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Vernieuw"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Gebruiker voor 'config' authenticatie"
 

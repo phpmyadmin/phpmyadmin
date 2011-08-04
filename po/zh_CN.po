@@ -11141,12 +11141,10 @@ msgid "Rename view to"
 msgstr "将视图改名为"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "刷新"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "config 认证方式的用户名"
 

@@ -11377,7 +11377,6 @@ msgid "Rename view to"
 msgstr "Pārsaukt tabulu uz"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Atjaunot"
 

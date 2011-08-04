@@ -11296,7 +11296,6 @@ msgstr "Rename view to"
 #~ msgid "Refresh rate:"
 #~ msgstr "Refresh rate:"
 
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Clear monitor config"
 

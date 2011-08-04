@@ -12301,12 +12301,10 @@ msgid "Rename view to"
 msgstr "Ko‘rinish nomini o‘zgartirish"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Yangilash"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "\"config\" autentifikatsiya usuli foydalanuvchisi"
 

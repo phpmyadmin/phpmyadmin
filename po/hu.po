@@ -11795,12 +11795,10 @@ msgid "Rename view to"
 msgstr "Nézet átnevezése"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Frissítés"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "A konfigurációs hitelesítés felhasználóneve"
 

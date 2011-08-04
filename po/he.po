@@ -11269,7 +11269,6 @@ msgid "Rename view to"
 msgstr "שינוי שם טבלה אל"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "רענון"
 

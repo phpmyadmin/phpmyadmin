@@ -12219,12 +12219,10 @@ msgid "Rename view to"
 msgstr "Mudar o nome da táboa para"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Refrescar"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Usuario para config auth"
 

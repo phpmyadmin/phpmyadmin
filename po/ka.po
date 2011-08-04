@@ -12051,12 +12051,10 @@ msgid "Rename view to"
 msgstr "Rename table to"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "განახლება"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "User for config auth"
 

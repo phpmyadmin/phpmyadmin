@@ -11447,7 +11447,6 @@ msgstr "Changer le nom de la vue pour"
 #~ msgid "Refresh rate:"
 #~ msgstr "Taux de rafraîchissement :"
 
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Effacer la configuration de surveillance"
 

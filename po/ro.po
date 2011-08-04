@@ -11734,12 +11734,10 @@ msgid "Rename view to"
 msgstr "Redenumire tabel la"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Reîncarcă"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Utilizator pentru „config auth”"
 

@@ -11713,12 +11713,10 @@ msgid "Rename view to"
 msgstr "Endre tabellens navn"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Oppdater"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Bruker for config autentisering"
 

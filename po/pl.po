@@ -11997,12 +11997,10 @@ msgid "Rename view to"
 msgstr "Zmień nazwę perspektywy na"
 
 #, fuzzy
-#~| msgid "Refresh"
 #~ msgid "Refresh rate:"
 #~ msgstr "Odśwież"
 
 #, fuzzy
-#~| msgid "User for config auth"
 #~ msgid "Clear monitor config"
 #~ msgstr "Użytkownik dla uwierzytelniania typu config"
 
