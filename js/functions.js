@@ -31,7 +31,7 @@ var chart_activeTimeouts = new Object();
 
 if(window.parent) {
 	$(document).ready(function() {
-		if(window.parent.currentWidth() == 0) 
+		if(window.parent.currentWidth() == 0)
 			$('div#frameExpand').show();
 	});
 }
@@ -1616,12 +1616,18 @@ function PMA_createProfilingChart(data, options) {
 
 // Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
 function PMA_prettyProfilingNum(num, acc) {
-    if(!acc) acc = 2;
+    if (!acc) {
+        acc = 2;
+    }
     acc = Math.pow(10,acc);
-    if(num*1000 < 0.1) num = Math.round(acc*(num*1000*1000))/acc + 'µ';
-    else if(num < 0.1) num = Math.round(acc*(num*1000))/acc + 'm';
-    else num = Math.round(acc*num)/acc;
-    
+    if (num * 1000 < 0.1) {
+        num = Math.round(acc * (num * 1000 * 1000)) / acc + 'µ';
+    } else if (num < 0.1) {
+        num = Math.round(acc * (num * 1000)) / acc + 'm';
+    } else {
+        num = Math.round(acc * num) / acc;
+    }
+
     return num + 's';
 }
 
@@ -2020,7 +2026,7 @@ $(document).ready(function() {
                     $("#result_query .notice").remove();
                     $("#result_query").prepend((data.message));
                     $("#copyTable").find("select[name='target_db'] option[value="+data.db+"]").attr('selected', 'selected');
-                
+
                     //Refresh navigation frame when the table is coppied
                     if (window.parent && window.parent.frame_navigation) {
                         window.parent.frame_navigation.location.reload();
