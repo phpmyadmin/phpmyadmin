@@ -546,7 +546,7 @@ function PMA_sendHeaderLocation($uri)
  */
 function PMA_download_header($filename, $mimetype, $avoid_cache = true) {
     if ($avoid_cache) {
-        header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        header('Expires: ' . date(DATE_RFC1123));
         if (PMA_USR_BROWSER_AGENT == 'IE') {
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Pragma: public');
