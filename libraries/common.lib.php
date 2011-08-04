@@ -7,6 +7,25 @@
  */
 
 /**
+ * Detects which function to use for PMA_pow.
+ *
+ * @return string Function name.
+ */
+function PMA_detect_pow()
+{
+    if (function_exists('bcpow')) {
+        // BCMath Arbitrary Precision Mathematics Function
+        return 'bcpow';
+    } elseif (function_exists('gmp_pow')) {
+        // GMP Function
+        return 'gmp_pow';
+    } else {
+        // PHP function
+        return 'pow';
+    }
+}
+
+/**
  * Exponential expression / raise number into power
  *
  * @param string $base         base to raise
@@ -19,16 +38,7 @@ function PMA_pow($base, $exp, $use_function = false)
     static $pow_function = null;
 
     if (null == $pow_function) {
-        if (function_exists('bcpow')) {
-            // BCMath Arbitrary Precision Mathematics Function
-            $pow_function = 'bcpow';
-        } elseif (function_exists('gmp_pow')) {
-            // GMP Function
-            $pow_function = 'gmp_pow';
-        } else {
-            // PHP function
-            $pow_function = 'pow';
-        }
+        $pow_function = PMA_detect_pow();
     }
 
     if (! $use_function) {
