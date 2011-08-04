@@ -112,16 +112,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
         $dump .= $entry['statement'];
     }
     $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
-    header('Content-Type: text/x-sql');
-    header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-    } else {
-        header('Pragma: no-cache');
-        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-    }
+    PMA_download_header($filename, 'text/x-sql');
 
     echo $dump;
     exit();
@@ -370,14 +361,14 @@ if (isset($_REQUEST['snapshot'])) {
 if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))) {
 
     if (isset($_REQUEST['delete_ddlog'])) {
-        
+
         // Delete ddlog row data
         $delete_id = $_REQUEST['delete_ddlog'];
-        
+
         // Only in case of valable id
         if ($delete_id == (int)$delete_id) {
             unset($data['ddlog'][$delete_id]);
-            
+
             if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DDL', $data['ddlog']))
                 $msg = PMA_Message::success(__('Tracking data definition successfully deleted'));
             else
@@ -387,14 +378,14 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
     }
 
     if (isset($_REQUEST['delete_dmlog'])) {
-        
+
         // Delete dmlog row data
         $delete_id = $_REQUEST['delete_dmlog'];
-        
+
         // Only in case of valable id
         if ($delete_id == (int)$delete_id) {
             unset($data['dmlog'][$delete_id]);
-            
+
             if (PMA_Tracker::changeTrackingData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version'], 'DML', $data['dmlog']))
                 $msg = PMA_Message::success(__('Tracking data manipulation successfully deleted'));
             else
@@ -403,7 +394,7 @@ if (isset($_REQUEST['report']) && (isset($_REQUEST['delete_ddlog']) || isset($_R
         }
     }
 }
- 
+
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Close');?></a>]</h3>
