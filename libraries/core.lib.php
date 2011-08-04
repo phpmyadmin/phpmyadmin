@@ -539,6 +539,8 @@ function PMA_sendHeaderLocation($uri)
 
 /**
  * Outputs headers to prevent caching in browser (and on the way).
+ *
+ * @return nothing
  */
 function PMA_no_cache_header()
 {
