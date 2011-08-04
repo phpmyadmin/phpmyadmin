@@ -9988,10 +9988,9 @@ msgid "Refresh rate"
 msgstr "Oranı yenile"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Çizelge sütunları:"
+msgstr "Çizelge sütunları"
 
 #: server_status.php:1430
 #, fuzzy
