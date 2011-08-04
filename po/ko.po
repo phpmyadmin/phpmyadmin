@@ -289,9 +289,8 @@ msgid "Database %s has been dropped."
 msgstr "데이터베이스 %s 를 제거했습니다."
 
 #: db_operations.php:444
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "데이터베이스가 없습니다"
+msgstr "데이터베이스 제거"
 
 #: db_operations.php:473
 msgid "Copy database to"
