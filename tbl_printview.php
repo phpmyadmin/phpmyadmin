@@ -51,7 +51,7 @@ PMA_DBI_select_db($db);
 
 
 /**
- * Multi-tables printview 
+ * Multi-tables printview
  */
 if (isset($selected_tbl) && is_array($selected_tbl)) {
     $the_tables   = $selected_tbl;
@@ -98,10 +98,7 @@ foreach ($the_tables as $key => $table) {
     /**
      * Gets fields properties
      */
-    $result      = PMA_DBI_query(
-        'SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null,
-        PMA_DBI_QUERY_STORE);
-    $fields_cnt  = PMA_DBI_num_rows($result);
+    $columns = PMA_DBI_get_columns($db, $table);
 
 
 // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
@@ -155,40 +152,11 @@ foreach ($the_tables as $key => $table) {
 </thead>
 <tbody>
     <?php
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $type             = $row['Type'];
-        // reformat mysql query output
-        // set or enum types: slashes single quotes inside options
-        if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-            $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'',
-                                    ',' . $tmp[2]), 1);
-            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+    foreach ($columns as $row) {
+        $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+        $type             = $extracted_fieldspec['print_type'];
+        $attribute     = $extracted_fieldspec['attribute'];
 
-            $binary       = 0;
-            $unsigned     = 0;
-            $zerofill     = 0;
-        } else {
-            $type         = preg_replace('@BINARY@i', '', $type);
-            $type         = preg_replace('@ZEROFILL@i', '', $type);
-            $type         = preg_replace('@UNSIGNED@i', '', $type);
-            if (empty($type)) {
-                $type     = '&nbsp;';
-            }
-
-            $binary       = stristr($row['Type'], 'binary');
-            $unsigned     = stristr($row['Type'], 'unsigned');
-            $zerofill     = stristr($row['Type'], 'zerofill');
-        }
-        $attribute     = '&nbsp;';
-        if ($binary) {
-            $attribute = 'BINARY';
-        }
-        if ($unsigned) {
-            $attribute = 'UNSIGNED';
-        }
-        if ($zerofill) {
-            $attribute = 'UNSIGNED ZEROFILL';
-        }
         if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
                 $row['Default'] = '<i>NULL</i>';
@@ -252,8 +220,7 @@ foreach ($the_tables as $key => $table) {
     ?>
 </tr>
         <?php
-    } // end while
-    PMA_DBI_free_result($result);
+    } // end foreach
     ?>
 </tbody>
 </table>
