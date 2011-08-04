@@ -2,10 +2,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_checkParameters from common.lib.php
+ * Test for PMA_extractFieldSpec from common.lib.php
  *
  * @package phpMyAdmin-test
- * @version $Id: PMA_checkParameters_test.php
  * @group common.lib-tests
  */
 
