@@ -10004,10 +10004,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1431
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Varsayılan değeri geri yükle"
+msgstr "Varsayılana sıfırla"
 
 #: server_status.php:1435
 msgid "Monitor Instructions"
