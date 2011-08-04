@@ -544,8 +544,20 @@ function PMA_sendHeaderLocation($uri)
  * @param $mimetype string MIME type to include in headers.
  * @return nothing
  */
-function PMA_download_header($filename, $mimetype) {
-    header('Cache-Control: private');
+function PMA_download_header($filename, $mimetype, $avoid_cache = true) {
+    if ($avoid_cache) {
+        header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        if (PMA_USR_BROWSER_AGENT == 'IE') {
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+        } else {
+            header('Pragma: no-cache');
+            // test case: exporting a database into a .gz file with Safari
+            // would produce files not having the current time
+            // (added this header for Safari but should not harm other browsers)
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        }
+    }
     header('Content-Description: File Transfer');
     header('Content-Disposition: attachment; filename=' . $filename);
     header('Content-Type: ' . $mimetype);
