@@ -49,7 +49,7 @@ $('table').sortableTable('destroy')   - removes all events from the table
 			},
 			destroy : function( ) { 
 				$(this).data('sortableTable').destroy();
-			},
+			}
 		};
 
 		if ( methods[method] ) {

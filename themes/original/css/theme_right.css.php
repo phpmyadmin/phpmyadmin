@@ -286,6 +286,19 @@ th.headerSortDown img.sortableIcon { background-position: 0 -1528px; width: 11px
 
 /******************************************************************************/
 /* classes */
+.clearfloat {
+    clear: both;
+}
+
+.floatleft {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right; ?>: 1em;
+}
+
+.paddingtop {
+    padding-top: 1em;
+}
+
 div.tools {
     border: 1px solid #000000;
     padding: 0.2em;
@@ -1140,10 +1153,6 @@ table#serverstatustraffic {
 table#serverstatusconnections {
     float: <?php echo $left; ?>;
     margin-<?php echo $left; ?>: 30px;
-}
-
-.clearfloat {
-    clear: both;
 }
 
 table#serverstatusvariables {
