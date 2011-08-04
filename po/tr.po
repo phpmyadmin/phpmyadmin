@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-04 17:57+0200\n"
+"PO-Revision-Date: 2011-08-04 17:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1163,10 +1163,9 @@ msgid "Cached memory"
 msgstr "Önbelleklenmiş bellek"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "Ara Bellek Havuzu"
+msgstr "Arabelleklenmiş bellek"
 
 #: js/messages.php:104
 #, fuzzy
