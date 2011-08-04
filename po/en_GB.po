@@ -1172,10 +1172,9 @@ msgid "Free memory"
 msgstr "Free memory"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "System memory"
+msgstr "Used memory"
 
 #: js/messages.php:107
 #, fuzzy
