@@ -62,6 +62,19 @@ class PMA_extractFieldSpec_test extends PHPUnit_Extensions_OutputTestCase
                     ),
                 ),
             array(
+                "SET('''a','b')",
+                array(
+                    'type' => 'set',
+                    'print_type' => "set('''a', 'b')",
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => "'''a','b'",
+                    'enum_set_values' => array("'a", 'b'),
+                    'attribute' => ' ',
+                    ),
+                ),
+            array(
                 "INT UNSIGNED zerofill",
                 array(
                     'type' => 'int unsigned zerofill',
