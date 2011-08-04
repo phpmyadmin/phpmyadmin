@@ -562,10 +562,10 @@ function PMA_no_cache_header()
 /**
  * Sends header indicating file download.
  *
- * @param $filename    string Filename to include in headers.
- * @param $mimetype    string MIME type to include in headers.
- * @param $length      int    Length of content (optional)
- * @param $avoid_cache bool   Whether to include no-caching headers.
+ * @param string $filename    Filename to include in headers.
+ * @param string $mimetype    MIME type to include in headers.
+ * @param int    $length      Length of content (optional)
+ * @param bool   $avoid_cache Whether to include no-caching headers.
  *
  * @return nothing
  */
