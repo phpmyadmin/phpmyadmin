@@ -542,16 +542,16 @@ function PMA_sendHeaderLocation($uri)
  */
 function PMA_no_cache_header()
 {
-    header('Expires: ' . date(DATE_RFC1123));
+    header('Expires: ' . date(DATE_RFC1123)); // rfc2616 - Section 14.21
     if (PMA_USR_BROWSER_AGENT == 'IE') {
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
     } else {
-        header('Pragma: no-cache');
+        header('Pragma: no-cache'); // HTTP/1.0
         // test case: exporting a database into a .gz file with Safari
         // would produce files not having the current time
         // (added this header for Safari but should not harm other browsers)
-        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        header('Last-Modified: ' . date(DATE_RFC1123));
     }
 }
 
