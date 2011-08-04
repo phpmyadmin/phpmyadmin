@@ -83,7 +83,6 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
 {
     $include_icon = false;
     $include_text = false;
-    $include_box  = false;
     $alternate    = htmlspecialchars($alternate);
     $button       = '';
 
@@ -95,11 +94,6 @@ function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = f
         // $cfg['PropertiesIconic'] is false or both
         // OR we have no $include_icon
         $include_text = true;
-    }
-
-    if ($include_text && $include_icon && $container) {
-        // we have icon, text and request for container
-        $include_box = true;
     }
 
     // Always use a span (we rely on this in js/sql.js)
