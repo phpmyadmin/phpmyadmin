@@ -39,15 +39,19 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
         $filename = $_REQUEST['filename'];
     }
 
+    /* Decode data */
+    if ($extension != 'svg') {
+        $data = substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1);
+        $data = base64_decode($data);
+    } else {
+        $data = $_REQUEST['image'];
+    }
+
     /* Send download header */
-    PMA_download_header($filename, $_REQUEST['type']);
+    PMA_download_header($filename, $_REQUEST['type'], strlen($data));
 
     /* Send data */
-    if ($extension != 'svg') {
-        echo base64_decode(substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1));
-    } else {
-        echo $_REQUEST['image'];
-    }
+    echo $data;
 
 } else if (isset($_REQUEST['monitorconfig'])) {
     PMA_download_header('monitor.cfg', 'application/force-download');
