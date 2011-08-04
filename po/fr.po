@@ -1175,7 +1175,6 @@ msgid "Cached memory"
 msgstr "Mémoire cache"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Mémoire-tampon"
