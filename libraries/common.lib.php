@@ -2637,13 +2637,13 @@ function PMA_extractFieldSpec($fieldspec) {
         // strip the "BINARY" attribute, except if we find "BINARY(" because
         // this would be a BINARY or VARBINARY field type
         if (!preg_match('@binary[\(]@', $shorttype)) {
-            $binary = strstr($shorttype, 'blob') || strstr($shorttype, 'binary');
+            $binary = strpos($shorttype, 'blob') !== false || strpos($shorttype, 'binary') !== false;
             $shorttype = preg_replace('@binary@', '', $shorttype);
         }
-        $zerofill = strstr($shorttype, 'zerofill');
-        $shorttype = preg_replace('@zerofill@', '', $shorttype);
-        $unsigned = strstr($shorttype, 'unsigned');
-        $shorttype = preg_replace('@unsigned@', '', $shorttype);
+        $shorttype = preg_replace('@zerofill@', '', $shorttype, -1, $zerofill_cnt);
+        $zerofill = ($zerofill_cnt > 0);
+        $shorttype = preg_replace('@unsigned@', '', $shorttype, -1, $unsigned_cnt);
+        $unsigned = ($unsigned_cnt > 0);
         $shorttype = trim($shorttype);
 
     }
