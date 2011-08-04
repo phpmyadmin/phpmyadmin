@@ -1184,7 +1184,7 @@ msgstr "Toplam Takas"
 
 #: js/messages.php:108
 msgid "Cached Swap"
-msgstr ""
+msgstr "Önbelleklenen Takas"
 
 #: js/messages.php:109
 msgid "Used Swap"
