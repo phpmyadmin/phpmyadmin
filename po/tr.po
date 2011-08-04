@@ -1227,10 +1227,9 @@ msgid "Remove chart"
 msgstr "Çizelgeyi kaldır"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Etiketleri ve diziyi düzenle"
+msgstr "Etiketleri ve başlığı düzenle"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
