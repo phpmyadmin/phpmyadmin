@@ -80,20 +80,13 @@ function PMA_pow($base, $exp, $use_function = false)
  */
 function PMA_getIcon($icon, $alternate = '', $force_text = false, $noSprite = false)
 {
-    $include_icon = false;
-    $include_text = false;
+    // $cfg['PropertiesIconic'] is true or both
+    $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
+    // $cfg['PropertiesIconic'] is false or both
+    // OR we have no $include_icon
+    $include_text = ($force_text || true !== $GLOBALS['cfg']['PropertiesIconic']);
     $alternate    = htmlspecialchars($alternate);
     $button       = '';
-
-    if ($GLOBALS['cfg']['PropertiesIconic']) {
-         $include_icon = true;
-    }
-
-    if ($force_text || true !== $GLOBALS['cfg']['PropertiesIconic']) {
-        // $cfg['PropertiesIconic'] is false or both
-        // OR we have no $include_icon
-        $include_text = true;
-    }
 
     // Always use a span (we rely on this in js/sql.js)
     $button .= '<span class="nowrap">';
