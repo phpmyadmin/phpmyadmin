@@ -9146,10 +9146,9 @@ msgid "Monitor"
 msgstr "İzleme"
 
 #: server_status.php:652
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Böleni uygula"
+msgstr "Danışman"
 
 #: server_status.php:662 server_status.php:684
 msgid "Refresh rate: "
