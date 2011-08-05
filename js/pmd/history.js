@@ -488,7 +488,7 @@ function build_query(formtitle, fadin)
 {
     var q_select = "SELECT ";
     var temp;
-    for(i = 0;i < select_field.length; i++) {
+    for (i = 0;i < select_field.length; i++) {
         temp = check_aggregate(select_field[i]);
         if (temp != "") {
             q_select += temp;
@@ -535,7 +535,7 @@ function build_query(formtitle, fadin)
 
 function query_from()
 {
-    var i =0;
+    var i;
     var tab_left = [];
     var tab_used = [];
     var t_tab_used = [];
@@ -547,7 +547,7 @@ function query_from()
     var t_array = [];
     t_array = from_array;
     var K = 0;
-    for(i; i < history_array.length ; i++) {
+    for (i = 0; i < history_array.length ; i++) {
         from_array.push(history_array[i].get_tab());
     }
     from_array = unique( from_array );
@@ -650,9 +650,9 @@ function remove_array(rem,arr)
 
 function query_groupby()
 {
-    var i = 0;
+    var i;
     var str = "";
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "GroupBy") { str +=history_array[i].get_column_name() + ", ";}
     }
     str = str.substr(0,str.length -1);
@@ -666,9 +666,9 @@ function query_groupby()
 
 function query_having()
 {
-    var i = 0;
+    var i;
     var and = "(";
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "Having") {
             if (history_array[i].get_obj().get_operator() != 'None') {
                 and += history_array[i].get_obj().get_operator() + "(" + history_array[i].get_column_name() + " ) " + history_array[i].get_obj().getrelation_operator();
@@ -692,9 +692,9 @@ function query_having()
 
 function query_orderby()
 {
-    var i = 0;
+    var i;
     var str = "" ;
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "OrderBy") { str += history_array[i].get_column_name() + " , "; }
     }
     str = str.substr(0,str.length -1);
@@ -709,10 +709,10 @@ function query_orderby()
 
 function query_where()
 {
-    var i = 0;
+    var i;
     var and = "(";
     var or = "(";
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "Where") {
             if(history_array[i].get_and_or() == 0) {
                 and += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() +" " + history_array[i].get_obj().getquery() + ")";                and += " AND ";
@@ -741,8 +741,8 @@ function query_where()
 
 function check_aggregate(id_this)
 {
-    var i = 0;
-    for(i;i < history_array.length;i++) {
+    var i;
+    for (i = 0;i < history_array.length;i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
         if(temp == id_this && history_array[i].get_type() == "Aggregate") {
             return history_array[i].get_obj().get_operator() + '(' + id_this +')';
@@ -753,8 +753,8 @@ function check_aggregate(id_this)
 
 function check_rename(id_this)
 {
-    var i = 0;
-    for (i;i < history_array.length;i++) {
+    var i;
+    for (i = 0;i < history_array.length;i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
         if(temp == id_this && history_array[i].get_type() == "Rename") {
             return  " AS `" + history_array[i].get_obj().getrename_to() +"`";

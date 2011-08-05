@@ -1038,7 +1038,7 @@ function Select_all(id_this,owner)
     downer =owner;
     var i;
     var tab = [];
-    for(i = 0; i < parent.elements.length; i++) {
+    for (i = 0; i < parent.elements.length; i++) {
         if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {
             if(document.getElementById('select_all_' + id_this).checked == true) {
                 parent.elements[i].checked = true;
@@ -1094,20 +1094,20 @@ function Table_onover(id_this,val,buil)
  */
 function store_column(id_this,owner,col)
 {
-    var i = 0;
-    var k = 0;
+    var i;
+    var k;
     if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
         select_field.push('`' + id_this + '`.`' + col +'`');
         from_array.push(id_this);
     }
     else {
-        for(i; i < select_field.length ;i++) {
+        for (i = 0; i < select_field.length ;i++) {
             if (select_field[i] == ('`' + id_this + '`.`' + col +'`')) {
                 select_field.splice(i,1);
                 break;
             }
         }
-        for(k =0 ;k < from_array.length;k++){
+        for (k = 0 ;k < from_array.length;k++){
             if(from_array[k] == id_this){
                 from_array.splice(k,1);
                 break;
