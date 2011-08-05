@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:08+0200\n"
+"PO-Revision-Date: 2011-08-05 14:09+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10177,7 +10177,7 @@ msgstr "기본 언어"
 
 #: setup/frames/index.inc.php:196
 msgid "let the user choose"
-msgstr ""
+msgstr "사용자 선택"
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
