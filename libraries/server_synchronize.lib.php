@@ -422,6 +422,7 @@ function PMA_updateTargetTables($table, $update_array, $src_db, $trg_db, $trg_li
                             }
                         }
                     }
+                    $query .= ';';
                     if ($display == true) {
                         echo "<p>" . $query . "</p>";
                     }
@@ -621,6 +622,7 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, &$uncomm
                 }
             }
          }
+         $Create_Table_Query .= ';';
          if ($display == true) {
               echo '<p>' . $Create_Table_Query . '</p>';
          }
@@ -1040,6 +1042,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables, &$s
             }
         }
     }
+    $query .= ';';
     if ($check) {
         if ($display == true) {
             echo '<p>' . $query . '</p>';
@@ -1229,6 +1232,7 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
                 $query .= " )";
             }
         }
+        $query .= ';';
         if ($display == true) {
             echo '<p>' . $query . '</p>';
         }

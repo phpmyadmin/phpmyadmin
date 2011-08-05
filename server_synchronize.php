@@ -256,7 +256,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             ?>
             <form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">
-                <?php PMA_generate_common_hidden_inputs('', ''); ?>
+                <?php echo PMA_generate_common_hidden_inputs('', ''); ?>
             <table width="40%">
             <tr>
                 <td>
@@ -283,8 +283,9 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Calculating the number of updates for each matching table
                 */
-                if (isset($update_array[$i]) && isset($update_array[$i][0]) &&
-                        isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
+                if (isset($update_array[$i]) && isset($update_array[$i][0])
+                        && !empty($matching_tables_keys[$i][0])
+                        && isset($update_array[$i][0][$matching_tables_keys[$i][0]])) {
                     $num_of_updates = sizeof($update_array[$i]);
                 } else {
                     $num_of_updates = 0;
@@ -292,8 +293,9 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Calculating the number of insertions for each matching table
                 */
-                if (isset($insert_array[$i]) && isset($insert_array[$i][0]) &&
-                        isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
+                if (isset($insert_array[$i]) && isset($insert_array[$i][0])
+                        && !empty($matching_tables_keys[$i])
+                        && isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
                     $num_of_insertions = sizeof($insert_array[$i]);
                 } else {
                     $num_of_insertions = 0;
@@ -343,7 +345,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 /**
                 * Display the green button of data synchronization if there exists any data difference.
                 */
-                if (isset($update_array[$i]) || isset($insert_array[$i])) {
+                if ((isset($update_array[$i]) || isset($insert_array[$i])) && !empty($matching_tables_keys[$i])) {
                     if (isset($update_array[$i][0][$matching_tables_keys[$i][0]]) || isset($insert_array[$i][0][$matching_tables_keys[$i][0]])) {
                         $btn_data_params = array($i, $num_of_updates, $num_of_insertions, null, null, null);
                     }
@@ -745,6 +747,7 @@ if (isset($_REQUEST['Table_ids'])) {
         }
         $rows[] = array(
             'src_table_name' => $matching_tables[$i],
+            'dst_table_name' => $matching_tables[$i],
             'btn_type' => 'M',
             'btn_structure' => $btn_structure_params,
             'btn_data' => $btn_data_params
@@ -955,9 +958,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Displaying the queries.
     */
-    echo '<h5>' . __('The following queries have been executed:') . '</h5>';
-    echo '<div id="serverstatus" style = "overflow: auto; width: 1050px; height: 180px;
-         border-left: 1px gray solid; border-bottom: 1px gray solid; padding: 0px; margin: 0px"> ';
+    echo '<fieldset><legend>' . __('Executed queries') . '</legend>';
     /**
     * Applying all sorts of differences for each matching table
     */
@@ -1028,7 +1029,7 @@ if (isset($_REQUEST['synchronize_db'])) {
             PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
     }
-    echo "</div>";
+    echo "</fieldset>";
 }
 
 /**
@@ -1094,7 +1095,7 @@ if (isset($_REQUEST['synchronize_db'])) {
 
         $loaded_dbi = $GLOBALS['cfg']['Server']['extension'];
         foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
-            if (empty($tmp_server['host'])) {
+            if (empty($tmp_server['host']) && empty($tmp_server['socket'])) {
                 continue;
             }
 

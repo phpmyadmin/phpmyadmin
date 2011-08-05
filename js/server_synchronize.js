@@ -226,33 +226,23 @@ function showDetails(i, update_size, insert_size, remove_size, insert_index, rem
  */
 function ApplySelectedChanges(token)
 {
-    var div =  document.getElementById("list");
-    var table = div.getElementsByTagName('table')[0];
-    var table_body = table.getElementsByTagName('tbody')[0];
-    // Get all the rows from the details table
-    var table_rows = table_body.getElementsByTagName('tr');
-    var x = table_rows.length;
-    var i;
     /**
      Append the token at the beginning of the query string followed by
     Table_ids that shows that "Apply Selected Changes" button is pressed
     */
-    var append_string = "?token="+token+"&Table_ids="+1;
-    for(i=0; i<x; i++){
-           append_string += "&";
-           append_string += i+"="+table_rows[i].id;
+    var params = {
+        token: $('#synchronize_form input[name=token]').val(),
+        server: $('#synchronize_form input[name=server]').val(),
+        checked: $('#delete_rows').prop('checked') ? 'true' : 'false',
+        Table_ids: 1
+    };
+    var $rows = $('#list tbody tr');
+    for(var i = 0; i < $rows.length; i++) {
+        params[i] = $($rows[i]).attr('id');
     }
 
-    // Getting the value of checkbox delete_rows
-    var checkbox = document.getElementById("delete_rows");
-    if (checkbox.checked){
-        append_string += "&checked=true";
-    } else {
-         append_string += "&checked=false";
-    }
     //Appending the token and list of table ids in the URL
-    location.href += token;
-    location.href += append_string;
+    location.href += '?' + $.param(params);
 }
 
 
