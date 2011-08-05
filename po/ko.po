@@ -10219,7 +10219,7 @@ msgstr "새 사용자 추가"
 
 #: setup/lib/form_processing.lib.php:42
 msgid "Warning"
-msgstr ""
+msgstr "경고"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Submitted form contains errors"
