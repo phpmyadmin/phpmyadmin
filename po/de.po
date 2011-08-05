@@ -10108,10 +10108,9 @@ msgid "Chart columns"
 msgstr "Schaubild-Spalten"
 
 #: server_status.php:1430
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Fehlerbehandlung:"
+msgstr "Schaubild-Anordnung"
 
 #: server_status.php:1430
 msgid ""
