@@ -6,7 +6,6 @@
  * @package phpMyAdmin-test
  */
 
-require_once 'libraries/data_mysql.inc.php';
 require_once 'libraries/common.lib.php';
 
 
@@ -17,16 +16,17 @@ require_once 'libraries/rte/rte_routines.lib.php';
 
 class PMA_RTN_getDataFromRequest_test extends PHPUnit_Framework_TestCase
 {
+    public function setUp()
+    {
+        require 'libraries/data_mysql.inc.php';
+    }
+
     /**
      * @dataProvider provider
      */
     public function testgetDataFromRequest($in, $out)
     {
         global $cfg, $_REQUEST;
-
-        if (! isset($cfg['ColumnTypes'])) {
-            $this->markTestSkipped('Can\'t get column types'); // FIXME
-        }
 
         unset($_REQUEST);
         foreach ($in as $key => $value) {
