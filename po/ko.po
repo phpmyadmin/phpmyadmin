@@ -10028,7 +10028,7 @@ msgstr "컬럼 제거"
 
 #: server_synchronize.php:406 server_synchronize.php:832
 msgid "Alter column(s)"
-msgstr ""
+msgstr "컬럼 뒤에"
 
 #: server_synchronize.php:407 server_synchronize.php:833
 msgid "Remove index(s)"
