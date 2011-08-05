@@ -2551,12 +2551,12 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
  * Verifies what to do with non-printable contents (binary or BLOB)
  * in Browse mode.
  *
- * @param string  $category BLOB|BINARY|GEOMETRY
- * @param string  $content  the binary content
- * @param string  $transform_function
- * @param string  $transform_options
- * @param string  $default_function
- * @param object  $meta   the meta-information about this field
+ * @param string $category           BLOB|BINARY|GEOMETRY
+ * @param string $content            the binary content
+ * @param string $transform_function transformation function
+ * @param string $transform_options  transformation parameters
+ * @param string $default_function   default transformation function
+ * @param object $meta               the meta-information about this field
  * @return  mixed  string or float
  */
 function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array())
@@ -2597,17 +2597,17 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * Prepares the displayable content of a data cell in Browse mode,
  * taking into account foreign key description field and transformations
  *
- * @param string  $class
- * @param string  $condition_field
- * @param string  $analyzed_sql
- * @param object  $meta   the meta-information about this field
- * @param string  $map
- * @param string  $data
- * @param string  $transform_function
- * @param string  $default_function
- * @param string  $nowrap
- * @param string  $where_comparison
- * @param bool    $is_field_truncated
+ * @param string $class
+ * @param string $condition_field
+ * @param string $analyzed_sql
+ * @param object $meta   the meta-information about this field
+ * @param string $map
+ * @param string $data
+ * @param string $transform_function
+ * @param string $default_function
+ * @param string $nowrap
+ * @param string $where_comparison
+ * @param bool   $is_field_truncated
  * @return  string  formatted data
  */
 function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated )
@@ -2699,13 +2699,13 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @param string  $del_url
- * @param array   $is_display
- * @param string  $row_no
- * @param string  $where_clause_html
- * @param string  $del_query
- * @param string  $id_suffix
- * @param string  $class
+ * @param string $del_url
+ * @param array  $is_display
+ * @param string $row_no
+ * @param string $where_clause_html
+ * @param string $del_query
+ * @param string $id_suffix
+ * @param string $class
  * @return  string  the generated HTML
  */
 
@@ -2729,11 +2729,11 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 /**
  * Generates an Edit link
  *
- * @param string  $edit_url
- * @param string  $class
- * @param string  $edit_str
- * @param string  $where_clause
- * @param string  $where_clause_html
+ * @param string $edit_url
+ * @param string $class
+ * @param string $edit_str
+ * @param string $where_clause
+ * @param string $where_clause_html
  * @return  string  the generated HTML
  */
 function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html)
@@ -2757,10 +2757,10 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 /**
  * Generates an Copy link
  *
- * @param string  $copy_url
- * @param string  $copy_str
- * @param string  $where_clause
- * @param string  $where_clause_html
+ * @param string $copy_url
+ * @param string $copy_str
+ * @param string $where_clause
+ * @param string $where_clause_html
  * @return  string  the generated HTML
  */
 function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class)
@@ -2788,10 +2788,10 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 /**
  * Generates a Delete link
  *
- * @param string  $del_url
- * @param string  $del_str
- * @param string  $js_conf
- * @param string  $class
+ * @param string $del_url
+ * @param string $del_str
+ * @param string $js_conf
+ * @param string $class
  * @return  string  the generated HTML
  */
 function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
@@ -2813,20 +2813,20 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
  * Generates checkbox and links at some position (left or right)
  * (only called for horizontal mode)
  *
- * @param string  $position
- * @param string  $del_url
- * @param array   $is_display
- * @param string  $row_no
- * @param string  $where_clause
- * @param string  $where_clause_html
- * @param string  $del_query
- * @param string  $id_suffix
- * @param string  $edit_url
- * @param string  $copy_url
- * @param string  $class
- * @param string  $edit_str
- * @param string  $del_str
- * @param string  $js_conf
+ * @param string $position
+ * @param string $del_url
+ * @param array  $is_display
+ * @param string $row_no
+ * @param string $where_clause
+ * @param string $where_clause_html
+ * @param string $del_query
+ * @param string $id_suffix
+ * @param string $edit_url
+ * @param string $copy_url
+ * @param string $class
+ * @param string $edit_str
+ * @param string $del_str
+ * @param string $js_conf
  * @return  string  the generated HTML
  */
 function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf)
