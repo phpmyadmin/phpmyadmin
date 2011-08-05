@@ -70,10 +70,10 @@ require_once './libraries/dbi/' . $GLOBALS['cfg']['Server']['extension'] . '.dbi
 /**
  * runs a query
  *
- * @param string $query
- * @param mixed  $link
- * @param int    $options
- * @param bool   $cache_affected_rows
+ * @param string $query               SQL query to execte
+ * @param mixed  $link                optional database link to use
+ * @param int    $options             optional query options
+ * @param bool   $cache_affected_rows whether to cache affected rows
  * @return mixed
  */
 function PMA_DBI_query($query, $link = null, $options = 0, $cache_affected_rows = true)
