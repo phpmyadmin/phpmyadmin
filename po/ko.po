@@ -10200,9 +10200,8 @@ msgid "Load"
 msgstr "로드"
 
 #: setup/frames/index.inc.php:240
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin 설명서"
+msgstr "phpMyAdmin 홈페이지"
 
 #: setup/frames/index.inc.php:241
 msgid "Donate"
