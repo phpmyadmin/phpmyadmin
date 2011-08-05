@@ -10578,7 +10578,7 @@ msgstr "너비"
 
 #: tbl_gis_visualization.php:161
 msgid "Height"
-msgstr ""
+msgstr "높이"
 
 #: tbl_gis_visualization.php:165
 #, fuzzy
