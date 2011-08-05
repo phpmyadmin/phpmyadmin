@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:58+0200\n"
+"PO-Revision-Date: 2011-08-05 13:59+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10367,7 +10367,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:323
 msgid "You should use SSL connections if your web server supports it."
-msgstr ""
+msgstr "웹 서버가 지원한다면 SSL 연결 사용"
 
 #: setup/lib/index.lib.php:336
 msgid "You should use mysqli for performance reasons."
