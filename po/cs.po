@@ -9101,10 +9101,9 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: server_status.php:652
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Vynásobit"
+msgstr "Poradce"
 
 #: server_status.php:662 server_status.php:684
 msgid "Refresh rate: "
