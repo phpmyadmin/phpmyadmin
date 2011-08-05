@@ -150,9 +150,9 @@ function PMA_extract_db_or_table($string, $what = 'db')
     }
 }
 /**
- * @param String $action - possible values: START or STOP
- * @param String $control - default: null, possible values: SQL_THREAD or IO_THREAD or null. If it is set to null, it controls both SQL_THREAD and IO_THREAD
- * @param mixed  $link   - mysql link
+ * @param string $action  possible values: START or STOP
+ * @param string $control default: null, possible values: SQL_THREAD or IO_THREAD or null. If it is set to null, it controls both SQL_THREAD and IO_THREAD
+ * @param mixed  $link    mysql link
  *
  * @return mixed output of PMA_DBI_try_query
  */
@@ -171,14 +171,14 @@ function PMA_replication_slave_control($action, $control = null, $link = null)
     return PMA_DBI_try_query($action . " SLAVE " . $control . ";", $link);
 }
 /**
- * @param String $user - replication user on master
- * @param String $password - password for the user
- * @param String $host - master's hostname or IP
- * @param int $port - port, where mysql is running
- * @param array $pos - position of mysql replication, array should contain fields File and Position
- * @param boolean $stop - shall we stop slave?
- * @param boolean $start - shall we start slave?
- * @param mixed $link - mysql link
+ * @param string $user     replication user on master
+ * @param string $password password for the user
+ * @param string $host     master's hostname or IP
+ * @param int    $port     port, where mysql is running
+ * @param array  $pos      position of mysql replication, array should contain fields File and Position
+ * @param bool   $stop     shall we stop slave?
+ * @param bool   $start    shall we start slave?
+ * @param mixed  $link     mysql link
  *
  * @return output of CHANGE MASTER mysql command
  */
@@ -206,11 +206,11 @@ function PMA_replication_slave_change_master($user, $password, $host, $port, $po
 /**
  * This function provides connection to remote mysql server
  *
- * @param String $user - mysql username
- * @param String $password - password for the user
- * @param String $host - mysql server's hostname or IP
- * @param int $port - mysql remote port
- * @param String $socket - path to unix socket
+ * @param string $user     mysql username
+ * @param string $password password for the user
+ * @param string $host     mysql server's hostname or IP
+ * @param int    $port     mysql remote port
+ * @param string $socket   path to unix socket
  *
  * @return mixed $link mysql link on success
  */
@@ -226,7 +226,7 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
     return PMA_DBI_connect($user, $password, false, $server, true);
 }
 /**
- * @param $link - mysql link
+ * @param mixed $link mysql link
  *
  * @return array - containing File and Position in MySQL replication on master server, useful for PMA_replication_slave_change_master
  */
@@ -245,7 +245,7 @@ function PMA_replication_slave_bin_log_master($link = null)
 /**
  * Get list of replicated databases on master server
  *
- * @param mixed mysql link
+ * @param mixed $link mysql link
  *
  * @return array array of replicated databases
  */
@@ -285,12 +285,13 @@ function PMA_replication_master_replicated_dbs($link = null)
 }
 /**
  * This function provides synchronization of structure and data between two mysql servers.
- * TODO: improve code sharing between the function and synchronization
  *
- * @param String $db - name of database, which should be synchronized
- * @param mixed $src_link - link of source server, note: if the server is current PMA server, use null
- * @param mixed $trg_link - link of target server, note: if the server is current PMA server, use null
- * @param boolean $data - if true, then data will be copied as well
+ * @todo improve code sharing between the function and synchronization
+ *
+ * @param string $db       name of database, which should be synchronized
+ * @param mixed  $src_link link of source server, note: if the server is current PMA server, use null
+ * @param mixed  $trg_link link of target server, note: if the server is current PMA server, use null
+ * @param bool   $data     if true, then data will be copied as well
  */
 
 function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
@@ -357,7 +358,7 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
      * INTEGRATION OF STRUCTURE DIFFERENCE CODE
      *
      */
-    $source_columns = array();
+    $source_columns = array();test/libraries/common/PMA_contains_nonprintable_ascii_test.php:
     $target_columns = array();
     $alter_str_array = array(array());
     $add_column_array = array(array());
