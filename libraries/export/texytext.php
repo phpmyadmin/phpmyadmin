@@ -253,7 +253,7 @@ if (isset($plugin_list)) {
 
             $text_output = '';
 
-            $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
             $type = $extracted_fieldspec['print_type'];
             if (empty($type)) {
                 $type     = '&nbsp;';
