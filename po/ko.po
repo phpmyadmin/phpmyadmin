@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:37+0200\n"
+"PO-Revision-Date: 2011-08-05 13:38+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -11001,10 +11001,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:375 tbl_tracking.php:392
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "질의 종류"
+msgstr "질의 오류"
 
 #: tbl_tracking.php:390
 msgid "Tracking data manipulation successfully deleted"
