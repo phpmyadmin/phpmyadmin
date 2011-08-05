@@ -10758,7 +10758,7 @@ msgstr ""
 
 #: tbl_operations.php:749
 msgid "Check"
-msgstr ""
+msgstr "검사"
 
 #: tbl_operations.php:750
 msgid "Optimize"
