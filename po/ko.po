@@ -11067,7 +11067,7 @@ msgstr ""
 
 #: tbl_tracking.php:603
 msgid "Show versions"
-msgstr ""
+msgstr "버전 보기"
 
 #: tbl_tracking.php:635
 #, fuzzy
