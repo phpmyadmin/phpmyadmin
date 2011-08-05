@@ -10482,7 +10482,7 @@ msgstr "다음 행 수정"
 #: tbl_change.php:1024
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr ""
+msgstr "탭 키를 이용해 이동하거나 CTRL+화살표로 이동할 수 있다"
 
 #: tbl_change.php:1062
 #, php-format
