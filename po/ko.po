@@ -10040,7 +10040,7 @@ msgstr "인덱스 적용"
 
 #: server_synchronize.php:409 server_synchronize.php:835
 msgid "Update row(s)"
-msgstr ""
+msgstr "행 업데이트"
 
 #: server_synchronize.php:410 server_synchronize.php:836
 msgid "Insert row(s)"
