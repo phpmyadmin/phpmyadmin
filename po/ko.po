@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:54+0200\n"
+"PO-Revision-Date: 2011-08-05 13:55+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10456,7 +10456,7 @@ msgstr ""
 
 #: tbl_change.php:985
 msgid "Show insert query"
-msgstr ""
+msgstr "삽입 쿼리 보기"
 
 #: tbl_change.php:996
 msgid "and then"
