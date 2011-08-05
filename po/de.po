@@ -1242,10 +1242,9 @@ msgid "Remove chart"
 msgstr "Skala entfernen"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "Beschriftungen und Serien bearbeiten"
+msgstr "Titel und Beschriftungen bearbeiten"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
