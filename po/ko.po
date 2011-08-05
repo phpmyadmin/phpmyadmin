@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:12+0200\n"
+"PO-Revision-Date: 2011-08-05 14:13+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10036,7 +10036,7 @@ msgstr "인덱스 제거"
 
 #: server_synchronize.php:408 server_synchronize.php:834
 msgid "Apply index(s)"
-msgstr ""
+msgstr "인덱스 적용"
 
 #: server_synchronize.php:409 server_synchronize.php:835
 msgid "Update row(s)"
