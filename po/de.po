@@ -10122,10 +10122,9 @@ msgstr ""
 "eingerichtet haben."
 
 #: server_status.php:1431
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Voreingestellten Wert wiederherstellen"
+msgstr "Zurücksetzen"
 
 #: server_status.php:1435
 msgid "Monitor Instructions"
