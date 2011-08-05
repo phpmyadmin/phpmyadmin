@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-05 02:17+0200\n"
+"PO-Revision-Date: 2011-08-05 02:18+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1212,7 +1212,7 @@ msgstr "Unbenutzte Seiten"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Bytes gesendet"
 
 #: js/messages.php:113
 #, fuzzy
