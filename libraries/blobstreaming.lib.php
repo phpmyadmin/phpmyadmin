@@ -329,7 +329,7 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     $content_type = pbms_get_metadata_value("Content-Type");
     if ($content_type == false) {
         $br = trim($bs_reference);
-        PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink('$br', '$db_name'): " . __('get BLOB Content-Type failed'));
+        PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink('$br', '$db_name'): " . __('PBMS get BLOB Content-Type failed'));
     }
 
     PMA_do_disconnect();
