@@ -29,12 +29,6 @@ var codemirror_editor = false;
  */
 var chart_activeTimeouts = new Object();
 
-if(window.parent) {
-	$(document).ready(function() {
-		if(window.parent.currentWidth() == 0)
-			$('div#frameExpand').show();
-	});
-}
 
 /**
  * Add a hidden field to the form to indicate that this will be an
