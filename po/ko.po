@@ -10185,7 +10185,7 @@ msgstr "-없음-"
 
 #: setup/frames/index.inc.php:210
 msgid "Default server"
-msgstr ""
+msgstr "기본 서버"
 
 #: setup/frames/index.inc.php:220
 msgid "End of line"
