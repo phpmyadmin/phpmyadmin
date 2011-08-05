@@ -10375,7 +10375,7 @@ msgstr "효율적 이유로 mysqli 사용"
 
 #: setup/lib/index.lib.php:367
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "암호 없이 서버 접속 허용"
 
 #: setup/lib/index.lib.php:389
 msgid "Key is too short, it should have at least 8 characters."
