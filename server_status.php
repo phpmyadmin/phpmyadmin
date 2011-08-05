@@ -489,6 +489,7 @@ if ($server_master_status || $server_slave_status) {
     } elseif ($server_slave_status) {
         echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
     }
+    echo ' ';
     echo __('For further information about replication status on the server, please visit the <a href=#replication>replication section</a>.');
     echo '</p>';
 }
