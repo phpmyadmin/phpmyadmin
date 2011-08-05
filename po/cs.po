@@ -1430,7 +1430,7 @@ msgstr "Nahrávám záznamy"
 
 #: js/messages.php:176
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Obnovení monitoru selhalo"
 
 #: js/messages.php:177
 msgid ""
