@@ -94,6 +94,9 @@ class Advisor {
 
                         $rule['justification'] = $str;
                     }
+                    
+                    $rule['recommendation'] = preg_replace('/\{([a-z_0-9]+)\}/Ui','<a href="server_variables.php?'.$GLOBALS['url_query'].'#filter=\1">\1</a>',$rule['recommendation']);
+                    
                     break;
         }
 

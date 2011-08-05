@@ -85,6 +85,23 @@ $(function() {
     $(window).resize(limitTableWidth);
     limitTableWidth();
     
+    // Filter options are invisible for disabled js users
+    $('fieldset#tableFilter').css('display','');
+     
+    $('#filterText').keyup(function(e) {
+        if($(this).val().length==0) textFilter=null;
+        else textFilter = new RegExp("(^| )"+$(this).val().replace(/_/g,' '),'i');
+        filterVariables();
+    });
+
+    if(location.hash.substr(1).split('=')[0] == 'filter') {
+        var name = location.hash.substr(1).split('=')[1];
+        // Only allow variable names
+        if(! name.match(/[^0-9a-zA-Z_]+/)) {
+            $('#filterText').attr('value',name).trigger('keyup');
+        }
+    }
+    
     function limitTableWidth() {
         var fulltext;
         var charDiff;
@@ -123,15 +140,6 @@ $(function() {
             });
         }
     }
-    
-    // Filter options are invisible for disabled js users
-    $('fieldset#tableFilter').css('display','');
-    
-    $('#filterText').keyup(function(e) {
-        if($(this).val().length==0) textFilter=null;
-        else textFilter = new RegExp("(^| )"+$(this).val().replace(/_/g,' '),'i');
-        filterVariables();
-    });
     
     function filterVariables() {
         odd_row=false;
