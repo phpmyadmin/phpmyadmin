@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 11:15+0200\n"
+"PO-Revision-Date: 2011-08-05 11:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -9122,10 +9122,9 @@ msgid "Filter by category..."
 msgstr "Filtrovat podle kategorie..."
 
 #: server_status.php:727
-#, fuzzy
 #| msgid "Show only alert values"
 msgid "Show unformatted values"
-msgstr "Zobrazit jen hodnoty s upozorněním"
+msgstr "Zobrazit neformátované hodnoty"
 
 #: server_status.php:731
 msgid "Related links:"
