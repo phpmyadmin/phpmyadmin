@@ -358,7 +358,7 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
      * INTEGRATION OF STRUCTURE DIFFERENCE CODE
      *
      */
-    $source_columns = array();test/libraries/common/PMA_contains_nonprintable_ascii_test.php:
+    $source_columns = array();
     $target_columns = array();
     $alter_str_array = array(array());
     $add_column_array = array(array());
