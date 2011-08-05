@@ -10884,7 +10884,7 @@ msgstr ""
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT 인덱스 추가"
 
 #: tbl_structure.php:358
 #, fuzzy
