@@ -81,9 +81,9 @@ function PMA_replication_gui_changemaster($submitname)
 /**
  * This function prints out table with replication status.
  *
- * @param String type - either master or slave
- * @param boolean $hidden - if true, then default style is set to hidden, default value false
- * @param boolen $title - if true, then title is displayed, default true
+ * @param string  $type   either master or slave
+ * @param boolean $hidden if true, then default style is set to hidden, default value false
+ * @param boolen  $title  if true, then title is displayed, default true
  */
 function PMA_replication_print_status_table($type, $hidden = false, $title = true)
 {
