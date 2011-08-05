@@ -10766,7 +10766,7 @@ msgstr ""
 
 #: tbl_operations.php:751
 msgid "Rebuild"
-msgstr ""
+msgstr "리빌드"
 
 #: tbl_operations.php:752
 #, fuzzy
