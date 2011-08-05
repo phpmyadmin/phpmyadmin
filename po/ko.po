@@ -10189,7 +10189,7 @@ msgstr "기본 서버"
 
 #: setup/frames/index.inc.php:220
 msgid "End of line"
-msgstr ""
+msgstr "줄 끝"
 
 #: setup/frames/index.inc.php:225
 msgid "Display"
