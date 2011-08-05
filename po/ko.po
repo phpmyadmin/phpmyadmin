@@ -10020,7 +10020,7 @@ msgstr "차이나는 데이터"
 
 #: server_synchronize.php:404 server_synchronize.php:830
 msgid "Add column(s)"
-msgstr ""
+msgstr "컬럼 추가"
 
 #: server_synchronize.php:405 server_synchronize.php:831
 msgid "Remove column(s)"
