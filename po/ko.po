@@ -10406,7 +10406,7 @@ msgstr "PHP 코드 보기"
 
 #: sql.php:681 tbl_replace.php:343
 msgid "Showing SQL query"
-msgstr ""
+msgstr "SQL 쿼리 보기"
 
 #: sql.php:683
 #, fuzzy
