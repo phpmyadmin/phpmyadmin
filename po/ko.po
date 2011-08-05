@@ -10044,7 +10044,7 @@ msgstr "행 업데이트"
 
 #: server_synchronize.php:410 server_synchronize.php:836
 msgid "Insert row(s)"
-msgstr ""
+msgstr "행 삽입"
 
 #: server_synchronize.php:420 server_synchronize.php:847
 msgid "Would you like to delete all the previous rows from target tables?"
