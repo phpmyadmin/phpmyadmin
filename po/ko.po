@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:48+0200\n"
+"PO-Revision-Date: 2011-08-05 13:50+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10714,7 +10714,7 @@ msgstr "테이블 유지보수"
 
 #: tbl_operations.php:618
 msgid "Defragment table"
-msgstr ""
+msgstr "테이블 단편화 제거"
 
 #: tbl_operations.php:666
 #, php-format
