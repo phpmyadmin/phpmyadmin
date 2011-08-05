@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 10:58+0200\n"
+"PO-Revision-Date: 2011-08-05 11:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1199,7 +1199,7 @@ msgstr "Volný swap"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "Odesláno bajtů"
 
 #: js/messages.php:113
 #, fuzzy
