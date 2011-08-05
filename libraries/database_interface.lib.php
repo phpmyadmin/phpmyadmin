@@ -841,8 +841,8 @@ function PMA_DBI_get_columns($database, $table, $full = false, $link = null)
         'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
         FROM ' . PMA_backquote($database) . '.' . PMA_backquote($table),
         'Field', null, $link);
-    if (! is_array($fields) || count($fields) < 1) {
-        return false;
+    if (! is_array($fields) || count($fields) == 0) {
+        return null;
     }
     return $fields;
 }

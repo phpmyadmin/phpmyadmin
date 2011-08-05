@@ -210,6 +210,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 */
                 PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_link, $j, $row_count);
             }
+
             /**
             * Storing all arrays in session for use when page is reloaded for each button press
             */

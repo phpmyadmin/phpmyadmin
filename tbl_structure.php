@@ -123,7 +123,7 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
 unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
-$fields = PMA_DBI_get_columns($db, $table, !PMA_DRIZZLE);
+$fields = PMA_DBI_get_columns($db, $table, true);
 $fields_cnt  = count($fields);
 
 // Get more complete field information
