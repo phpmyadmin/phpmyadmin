@@ -1096,7 +1096,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                                 __('Go to table') . ': ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])),
                                 htmlspecialchars($tables[$i][TBL_NAME]),
                                 $tbl_struct_url,
-                                htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('structure'),
+                                sprintf(__('Structure of %s'), htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME]))),
                                 $tbl_ops_url,
                                 sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
         } else {
