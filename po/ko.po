@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-04 11:57+0200\n"
+"PO-Revision-Date: 2011-08-05 13:46+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -100,7 +100,7 @@ msgstr "이 값을 사용합니다"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:343
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "blob streaming 서버 설정이 되지 않았습니다!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -10758,15 +10758,15 @@ msgstr ""
 
 #: tbl_operations.php:749
 msgid "Check"
-msgstr ""
+msgstr "검사"
 
 #: tbl_operations.php:750
 msgid "Optimize"
-msgstr ""
+msgstr "옵티마이저"
 
 #: tbl_operations.php:751
 msgid "Rebuild"
-msgstr ""
+msgstr "리빌드"
 
 #: tbl_operations.php:752
 #, fuzzy
@@ -10803,7 +10803,7 @@ msgstr "행(레코드) 통계"
 
 #: tbl_printview.php:344 tbl_structure.php:840
 msgid "static"
-msgstr ""
+msgstr "정적"
 
 #: tbl_printview.php:346 tbl_structure.php:842
 msgid "dynamic"
@@ -10834,7 +10834,7 @@ msgstr ""
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "외래키 제약"
 
 #: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -10868,15 +10868,15 @@ msgstr ""
 
 #: tbl_structure.php:168 tbl_structure.php:169
 msgid "Add primary key"
-msgstr ""
+msgstr "기본키 추가"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add index"
-msgstr ""
+msgstr "인덱스 추가"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add unique index"
-msgstr ""
+msgstr "유일 인덱스 추가"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add SPATIAL index"
@@ -10884,7 +10884,7 @@ msgstr ""
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT 인덱스 추가"
 
 #: tbl_structure.php:358
 #, fuzzy
@@ -10975,7 +10975,7 @@ msgstr ""
 
 #: tbl_tracking.php:199
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL 문장 실행됨"
 
 #: tbl_tracking.php:205
 msgid ""
@@ -11001,10 +11001,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:375 tbl_tracking.php:392
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "질의 종류"
+msgstr "질의 오류"
 
 #: tbl_tracking.php:390
 msgid "Tracking data manipulation successfully deleted"
@@ -11046,11 +11045,11 @@ msgstr ""
 
 #: tbl_tracking.php:549
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL 덤프(파일 다운로드)"
 
 #: tbl_tracking.php:550
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL 덤프"
 
 #: tbl_tracking.php:551
 msgid "This option will replace your table and contained data."
@@ -11058,7 +11057,7 @@ msgstr ""
 
 #: tbl_tracking.php:551
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL 실행"
 
 #: tbl_tracking.php:563
 #, php-format
@@ -11067,7 +11066,7 @@ msgstr ""
 
 #: tbl_tracking.php:603
 msgid "Show versions"
-msgstr ""
+msgstr "버전 보기"
 
 #: tbl_tracking.php:635
 #, fuzzy
@@ -11081,7 +11080,7 @@ msgstr ""
 
 #: tbl_tracking.php:685
 msgid "Deactivate now"
-msgstr ""
+msgstr "지금 비활성화"
 
 #: tbl_tracking.php:696
 #, php-format
@@ -11090,7 +11089,7 @@ msgstr ""
 
 #: tbl_tracking.php:698
 msgid "Activate now"
-msgstr ""
+msgstr "지금 활성화"
 
 #: tbl_tracking.php:711
 #, php-format
@@ -11119,7 +11118,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "더 많은 테마들!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -11150,7 +11149,7 @@ msgstr "프로파일을 업데이트했습니다."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "뷰 이름"
 
 #: view_operations.php:91
 #, fuzzy
