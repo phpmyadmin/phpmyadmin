@@ -23,7 +23,8 @@ function getSysInfo()
 }
 
 
-class WINNT {
+class WINNT
+{
     private $_wmi;
 
     public $os = 'WINNT';
@@ -100,7 +101,8 @@ class WINNT {
     }
 }
 
-class Linux {
+class Linux
+{
     public $os = 'Linux';
 
     function loadavg() {

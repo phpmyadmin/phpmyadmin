@@ -1,6 +1,7 @@
 <?php
 
-class Advisor {
+class Advisor
+{
     var $variables;
     var $parseResult;
     var $runResult;
