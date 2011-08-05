@@ -206,7 +206,6 @@ function PMA_isSelect()
 /**
  * Displays a navigation button
  *
- *
  * @param string  $caption            iconic caption for button
  * @param string  $title              text for button
  * @param integer $pos                position for next query
@@ -214,6 +213,8 @@ function PMA_isSelect()
  * @param string  $onsubmit           optional onsubmit clause
  * @param string  $input_for_real_end optional hidden field for special treatment
  * @param string  $onclick            optional onclick clause
+ *
+ * @return nothing
  *
  * @global string   $db             the database name
  * @global string   $table          the table name
@@ -259,6 +260,8 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  * @param integer $pos_prev                  the offset for the "previous" page
  * @param string  $sql_query                 the URL-encoded query
  * @param string  $id_for_direction_dropdown the id for the direction dropdown
+ *
+ * @return nothing
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
@@ -467,10 +470,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
 /**
  * Displays the headers of the results table
  *
- * @param array    which elements to display
- * @param array    the list of fields properties
- * @param integer  the total number of fields returned by the SQL query
- * @param array    the analyzed query
+ * @param array   &$is_display                 which elements to display
+ * @param array   &$fields_meta                the list of fields properties
+ * @param integer $fields_cnt                  the total number of fields returned by the SQL query
+ * @param array   $analyzed_sql                the analyzed query
+ * @param string  $sort_expression             sort expression
+ * @param string  $sort_expression_nodirection sort expression without direction
+ * @param string  $sort_direction              sort direction
  *
  * @return  boolean  $clause_is_unique
  *
@@ -1099,6 +1105,7 @@ function PMA_buildNullDisplay($class, $condition_field)
  *
  * @param string $class           class of table cell
  * @param bool   $condition_field whether to add CSS class condition
+ * @param object $meta            the meta-information about this field
  * @param string $align           cell allignment
  *
  * @return  string  the td
@@ -1116,7 +1123,7 @@ function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '')
  * @param bool   $condition_field    whether to add CSS class condition
  * @param object $meta               the meta-information about this field
  * @param string $nowrap             avoid wrapping
- * @param bool $is_field_truncated   is field truncated (display ...)
+ * @param bool   $is_field_truncated is field truncated (display ...)
  * @param string $transform_function transformation function
  * @param string $default_function   default transformation function
  *
