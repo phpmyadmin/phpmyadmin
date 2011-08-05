@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:50+0200\n"
+"PO-Revision-Date: 2011-08-05 13:51+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10694,7 +10694,7 @@ msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명):"
 
 #: tbl_operations.php:355
 msgid "Table options"
-msgstr ""
+msgstr "테이블 옵션"
 
 #: tbl_operations.php:359
 msgid "Rename table to"
