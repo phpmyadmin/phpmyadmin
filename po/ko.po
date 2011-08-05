@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:36+0200\n"
+"PO-Revision-Date: 2011-08-05 13:37+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -11046,7 +11046,7 @@ msgstr ""
 
 #: tbl_tracking.php:549
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL 덤프(파일 다운로드)"
 
 #: tbl_tracking.php:550
 msgid "SQL dump"
