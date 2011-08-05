@@ -11050,7 +11050,7 @@ msgstr ""
 
 #: tbl_tracking.php:550
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL 덤프"
 
 #: tbl_tracking.php:551
 msgid "This option will replace your table and contained data."
