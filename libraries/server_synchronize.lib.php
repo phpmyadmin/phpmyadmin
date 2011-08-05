@@ -125,9 +125,6 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link, &$matching
         }
         $update_row = 0;
         $insert_row = 0;
-        $update_field = 0;
-        $insert_field = 0;
-        $starting_index = 0;
 
         for ($j = 0; $j < $source_size; $j++) {
             $starting_index = 0;
@@ -307,11 +304,9 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table, $ma
 {
     if (isset($trg_keys[$matching_table_index])) {
         $target_key_values = PMA_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);
-        $target_row_size = sizeof($target_key_values);
     }
     if (isset($src_keys[$matching_table_index])) {
         $source_key_values = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);
-        $source_size = sizeof($source_key_values);
     }
     $all_keys_match = 1;
     for ($a = 0; $a < sizeof($trg_keys[$matching_table_index]); $a++) {
