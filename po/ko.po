@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:52+0200\n"
+"PO-Revision-Date: 2011-08-05 13:53+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10574,7 +10574,7 @@ msgstr ""
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
-msgstr ""
+msgstr "너비"
 
 #: tbl_gis_visualization.php:161
 msgid "Height"
