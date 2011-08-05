@@ -1469,7 +1469,7 @@ msgstr "Neuladen"
 
 #: js/messages.php:180
 msgid "Affected rows: "
-msgstr ""
+msgstr "Betroffene Zeilen: "
 
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
