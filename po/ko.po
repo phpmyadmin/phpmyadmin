@@ -9986,7 +9986,7 @@ msgstr[0] "%d 분"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "소스에 접속할 수 없음"
 
 #: server_synchronize.php:95
 msgid "Could not connect to the target"
