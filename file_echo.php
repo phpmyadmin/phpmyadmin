@@ -1,52 +1,62 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * "Echo" service to allow force downloading of exported charts (png or svg) and server status monitor settings
+ * "Echo" service to allow force downloading of exported charts (png or svg)
+ * and server status monitor settings
  *
  * @package phpMyAdmin
  */
- 
-
-define('PMA_MINIMUM_COMMON', true);
 
 require_once './libraries/common.inc.php';
 
-if(isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
-    $allowed = Array( 'image/png'=>'png', 'image/svg+xml'=>'svg');
-    
-    if (! isset($allowed[$_REQUEST['type']])) exit('Invalid export type');
-    
-    if (! preg_match("/(".implode("|",$allowed).")$/i", $_REQUEST['filename']))
-        $_REQUEST['filename'] .= '.' . $allowed[$_REQUEST['type']];
-        
-    downloadHeader($_REQUEST['filename'],$_REQUEST['type']);
+if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
+    $allowed = array(
+        'image/png'     => 'png',
+        'image/svg+xml' => 'svg',
+    );
 
-    if ($allowed[$_REQUEST['type']] != 'svg')
-        echo base64_decode(substr($_REQUEST['image'], strpos($_REQUEST['image'],',') + 1));
-    else
-        echo $_REQUEST['image'];
-        
-    exit();
-}
-    
-if(isset($_REQUEST['monitorconfig'])) {
-    downloadHeader('monitor.cfg','application/force-download');
+    /* Check whether MIME type is allowed */
+    if (! isset($allowed[$_REQUEST['type']])) {
+        die('Invalid export type');
+    }
+
+    /*
+     * Check file name to match mime type and not contain new lines
+     * to prevent response splitting.
+     */
+    $extension = $allowed[$_REQUEST['type']];
+    $valid_match = '/^[^\n\r]*\.' . $extension . '$/';
+    if (! preg_match($valid_match, $_REQUEST['filename'])) {
+        if (! preg_match('/^[^\n\r]*$/', $_REQUEST['filename'])) {
+            /* Filename is unsafe, discard it */
+            $filename = 'download.' . $extension;
+        } else {
+            /* Add extension */
+            $filename = $_REQUEST['filename'] . '.' . $extension;
+        }
+    } else {
+        /* Filename from request should be safe here */
+        $filename = $_REQUEST['filename'];
+    }
+
+    /* Decode data */
+    if ($extension != 'svg') {
+        $data = substr($_REQUEST['image'], strpos($_REQUEST['image'], ',') + 1);
+        $data = base64_decode($data);
+    } else {
+        $data = $_REQUEST['image'];
+    }
+
+    /* Send download header */
+    PMA_download_header($filename, $_REQUEST['type'], strlen($data));
+
+    /* Send data */
+    echo $data;
+
+} else if (isset($_REQUEST['monitorconfig'])) {
+    PMA_download_header('monitor.cfg', 'application/force-download');
     echo urldecode($_REQUEST['monitorconfig']);
-    exit();
-}
-
-if(isset($_REQUEST['import'])) {
+} else if (isset($_REQUEST['import'])) {
     echo '<html><body>' . file_get_contents($_FILES['file']['tmp_name']) . '</body></html>';
-    exit();
-} 
-
-exit('Invalid request');
-
-function downloadHeader($file,$type) {
-    header("Cache-Control: public");
-    header("Content-Description: File Transfer");
-    header("Content-Disposition: attachment; filename=".$file);
-    header("Content-Type: ".$type);
-    header("Content-Transfer-Encoding: binary");
 }
 ?>

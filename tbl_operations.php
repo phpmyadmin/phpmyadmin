@@ -229,7 +229,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message = $result ? $message = PMA_Message::success(__('Your SQL query has been executed successfully')) : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
-        if ( $GLOBALS['is_ajax_request'] == true) {
+        if ( $_REQUEST['ajax_request'] == true) {
             $extra_data['sql_query'] = PMA_showMessage(NULL, $sql_query);
             PMA_ajaxResponse($_message,$_message->isSuccess() ,$extra_data);
         }
@@ -238,7 +238,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message = new PMA_Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
-        if ( $GLOBALS['is_ajax_request'] == true) {
+        if ( $_REQUEST['ajax_request'] == true) {
             PMA_ajaxResponse($_message, false);
         }
         unset($warning_messages);
@@ -254,12 +254,7 @@ $url_params['back'] = 'tbl_operations.php';
 /**
  * Get columns names
  */
-$local_query = '
-    SHOW COLUMNS
-    FROM ' . PMA_backquote($GLOBALS['table']) . '
-    FROM ' . PMA_backquote($GLOBALS['db']);
-$columns = PMA_DBI_fetch_result($local_query, null, 'Field');
-unset($local_query);
+$columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 
 /**
  * Displays the page
@@ -274,8 +269,8 @@ unset($local_query);
     <select name="order_field">
 <?php
 foreach ($columns as $fieldname) {
-    echo '            <option value="' . htmlspecialchars($fieldname) . '">'
-        . htmlspecialchars($fieldname) . '</option>' . "\n";
+    echo '            <option value="' . htmlspecialchars($fieldname['Field']) . '">'
+        . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
 }
 unset($columns);
 ?>
@@ -532,7 +527,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 
 <!-- Copy table -->
 <div class="operations_half_width">
-<form method="post" action="tbl_operations.php"
+<form method="post" action="tbl_operations.php" name="copyTable" id="copyTable" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
     onsubmit="return emptyFormElements(this, 'new_name')">
 <?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />

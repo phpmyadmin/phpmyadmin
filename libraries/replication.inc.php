@@ -379,7 +379,7 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
     /**
      * Generating Create Table query for all the non-matching tables present in Source but not in Target and populating tables.
      */
-    for($q = 0; $q < sizeof($source_tables_uncommon); $q++) {
+    for ($q = 0; $q < sizeof($source_tables_uncommon); $q++) {
         if (isset($uncommon_tables[$q])) {
             PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, false);
         }

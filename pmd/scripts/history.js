@@ -6,7 +6,7 @@
   * @requires    moves.js
   * @version $Id$
   */
-  
+
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause
 var g_index;
@@ -14,12 +14,12 @@ var g_index;
 /**
  * function for panel, hides and shows toggle_container <div>,which is for history elements uses {@link JQuery}.
  *
- * @param	index	has value 1 or 0,decides wheter to hide toggle_container on load. 
+ * @param index has value 1 or 0,decides wheter to hide toggle_container on load.
 **/
 
 function panel(index) {
     if (!index) {
-        $(".toggle_container").hide(); 
+        $(".toggle_container").hide();
     }
     $("h2.tiger").click(function(){
     $(this).toggleClass("active").next().slideToggle("slow");
@@ -31,18 +31,18 @@ function panel(index) {
  * clubbing all objects of same tables together
  * This function is called whenever changes are made in history_array[]
  *
- * @uses	and_or()
- * @uses	history_edit()
- * @uses	history_delete()
- * 	
- * @param {int}  init 	starting index of unsorted array   
- * @param {int}	final   last index of unsorted array
+ * @uses and_or()
+ * @uses history_edit()
+ * @uses history_delete()
+ *
+ * @param {int}  init starting index of unsorted array
+ * @param {int} final   last index of unsorted array
  *
 **/
 
 function display(init,final) {
     var str,i,j,k,sto;
-    // this part sorts the history array based on table name,this is needed for clubbing all object of same name together. 
+    // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init;i < final;i++) {
         sto = history_array[i];
         var temp = history_array[i].get_tab() ;//+ '.' + history_array[i].get_obj_no(); for Self JOINS
@@ -60,7 +60,7 @@ function display(init,final) {
     str =''; // string to store Html code for history tab
     for ( var i=0; i < history_array.length; i++){
         var temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
-        str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';  				
+        str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';
         str += '<div class="toggle_container">\n';
         while((history_array[i].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
             str +='<div class="block"> <table width ="250">';
@@ -76,7 +76,7 @@ function display(init,final) {
                 str += '</td><td align="center"><img class="icon ic_b_info" src="themes/dot.gif" title="'+detail(i)+'"/><td title="' + detail(i) +'">' + history_array[i].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete('+ i +')><img class="icon ic_b_drop" src="themes/dot.gif" title="Delete"></td></tr></thead>';
            }
            else {
-               str += '</td><td align="center"><img class="icon ic_b_info" src="themes/dot.gif" title="'+detail(i)+'"/></td><td title="' + detail(i) +'">' + history_array[i].               get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit('+ i +')><img class="icon ic_b_edit" src="themes/dot.gif" title="Edit"/></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete('+ i +')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>'; 
+               str += '</td><td align="center"><img class="icon ic_b_info" src="themes/dot.gif" title="'+detail(i)+'"/></td><td title="' + detail(i) +'">' + history_array[i].               get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit('+ i +')><img class="icon ic_b_edit" src="themes/dot.gif" title="Edit"/></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete('+ i +')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
            }
            i++;
            if(i >= history_array.length) {
@@ -91,9 +91,9 @@ function display(init,final) {
 }
 
 /**
- * To change And/Or relation in history tab 
- * 
- * @uses	panel()
+ * To change And/Or relation in history tab
+ *
+ * @uses panel()
  *
  * @param {int} index of history_array where change is to be made
  *
@@ -113,8 +113,8 @@ function and_or(index) {
 
 /**
  * To display details of obects(where,rename,Having,aggregate,groupby,orderby,having)
- * 
- * @param	index	index of history_array where change is to be made
+ *
+ * @param index index of history_array where change is to be made
  *
 **/
 
@@ -152,16 +152,16 @@ function detail (index) {
 /**
  * Deletes entry in history_array
  *
- * @uses	panel()
- * @uses	display()
- * @param	index	index of history_array[] which is to be deleted
+ * @uses panel()
+ * @uses display()
+ * @param index index of history_array[] which is to be deleted
  *
 **/
 
 function history_delete(index) {
     for(var k =0 ;k < from_array.length;k++){
-        if(from_array[k] == history_array[index].get_tab()){ 
-            from_array.splice(k,1); 
+        if(from_array[k] == history_array[index].get_tab()){
+            from_array.splice(k,1);
             break;
         }
     }
@@ -173,8 +173,8 @@ function history_delete(index) {
 
 /**
  * To show where,rename,aggregate,having forms to edit a object
- * 
- * @param{int} index	index of history_array where change is to be made
+ *
+ * @param{int} index index of history_array where change is to be made
  *
 **/
 
@@ -219,10 +219,10 @@ function history_edit(index) {
 /**
  * Make changes in history_array when Edit button is clicked
  * checks for the type of object and then sets the new value
- * @uses	panel()
- * @uses	display()
+ * @uses panel()
+ * @uses display()
  *
- * @param	index	index of history_array where change is to be made
+ * @param index index of history_array where change is to be made
 **/
 
 function edit(type) {
@@ -261,13 +261,13 @@ function edit(type) {
 }
 
 /**
- * history object closure  
+ * history object closure
  *
- * @param	ncolumn_name	name of the column on which conditions are put
- * @param	nobj			object details(where,rename,orderby,groupby,aggregate)
- * @param	ntab			table name of the column on which conditions are applied
- * @param	nobj_no			object no used for inner join
- * @param	ntype			type of object
+ * @param ncolumn_name  name of the column on which conditions are put
+ * @param nobj          object details(where,rename,orderby,groupby,aggregate)
+ * @param ntab          table name of the column on which conditions are applied
+ * @param nobj_no       object no used for inner join
+ * @param ntype         type of object
  *
 **/
 
@@ -328,8 +328,8 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype) {
 /**
  * where object closure, makes an object with all information of where
  *
- * @param	nrelation_operator	type of relation operator to be applied
- * @param	nquery				stores value of value/sub-query 
+ * @param nrelation_operator type of relation operator to be applied
+ * @param nquery             stores value of value/sub-query
  *
 **/
 
@@ -357,8 +357,8 @@ var where = function (nrelation_operator,nquery) {
 /**
  * Having object closure, makes an object with all information of where
  *
- * @param	nrelation_operator	type of relation operator to be applied
- * @param	nquery				stores value of value/sub-query 
+ * @param nrelation_operator type of relation operator to be applied
+ * @param nquery             stores value of value/sub-query
  *
 **/
 
@@ -392,7 +392,7 @@ var having = function (nrelation_operator,nquery,noperator) {
 /**
  * rename object closure,makes an object with all information of rename
  *
- * @param	nrename_to	new name information
+ * @param nrename_to new name information
  *
 **/
 
@@ -410,7 +410,7 @@ var rename = function(nrename_to) {
 /**
  * aggregate object closure
  *
- * @param	noperator	aggregte operator
+ * @param noperator aggregte operator
  *
 **/
 
@@ -435,10 +435,10 @@ var aggregate = function(noperator) {
 function unique(arrayName) {
     var newArray=new Array();
     label:for(var i=0; i<arrayName.length;i++ )
-    {  
+    {
         for(var j=0; j<newArray.length;j++ )
         {
-            if(newArray[j]==arrayName[i]) 
+            if(newArray[j]==arrayName[i])
                 continue label;
         }
         newArray[newArray.length] = arrayName[i];
@@ -453,27 +453,27 @@ function unique(arrayName) {
  * @param arrayName array
  * @param value  value which is to be searched in the array
  */
- 
+
 function found(arrayName,value) {
     for(var i=0; i<arrayName.length; i++) {
         if(arrayName[i] == value) { return 1;}
     }
     return -1;
 }
-		
+
 /**
  * This function is the main function for query building.
  * uses history object details for this.
  *
  * @ uses query_where()
  * @ uses query_groupby()
- * @ uses query_having() 
+ * @ uses query_having()
  * @ uses query_orderby()
- * 
+ *
  * @param formtitle title for the form
- * @param fadin      
+ * @param fadin
  */
- 
+
 function build_query(formtitle, fadin) {
     var q_select = "SELECT ";
     var temp;
@@ -486,19 +486,19 @@ function build_query(formtitle, fadin) {
         }
         else {
             temp = check_rename(select_field[i]);
-            q_select += select_field[i] + temp +","; 
+            q_select += select_field[i] + temp +",";
         }
     }
     q_select = q_select.substring(0,q_select.length - 1);
     q_select += " FROM " + query_from();
     if(query_where() != "") {
         q_select +="\n WHERE";
-		q_select += query_where();
+        q_select += query_where();
     }
     if(query_groupby() != "") { q_select += "\nGROUP BY " + query_groupby(); }
     if(query_having() != "") { q_select += "\nHAVING " + query_having(); }
     if(query_orderby() != "") { q_select += "\nORDER BY " + query_orderby(); }
-    var box = document.getElementById('box'); 
+    var box = document.getElementById('box');
     document.getElementById('filter').style.display='block';
     var btitle = document.getElementById('boxtitle');
     btitle.innerHTML = 'SELECT';//formtitle;
@@ -506,21 +506,21 @@ function build_query(formtitle, fadin) {
         gradient("box", 0);
         fadein("box");
     }
-    else{ 	
+    else{
         box.style.display='block';
-    }  	
+    }
     document.getElementById('textSqlquery').innerHTML = q_select;
 }
  /**
   * This function builds from clause of query
   * makes automatic joins.
-  * 
+  *
   * @uses unique
   * @uses add_array
   * @uses remove_array
   *
   */
- 
+
 
 function query_from() {
     var i =0;
@@ -543,12 +543,12 @@ function query_from() {
     temp = tab_left.shift();
     quer = temp;
     tab_used.push(temp);
-    // if master table (key2) matches with tab used get all keys and check if tab_left matches 
-    //after this check if master table (key2) matches with tab left then check if any foriegn matches with master . 
-	for( i =0; i<2 ; i++) {
+    // if master table (key2) matches with tab used get all keys and check if tab_left matches
+    //after this check if master table (key2) matches with tab left then check if any foriegn matches with master .
+    for( i =0; i<2 ; i++) {
         for (K in contr){
             for (key in contr[K]){// contr name
-	             for (key2 in contr[K][key]){// table name
+                 for (key2 in contr[K][key]){// table name
                     parts = key2.split(".");
                     if(found(tab_used,parts[1]) > 0)  {
                         for (key3 in contr[K][key][key2]) {
@@ -564,7 +564,7 @@ function query_from() {
                     }
                 }
             }
-        }	
+        }
         K = 0;
         t_tab_left = unique (t_tab_left);
         tab_used = add_array(t_tab_left,tab_used);
@@ -574,7 +574,7 @@ function query_from() {
              for (key in contr[K]) {
                  for (key2 in contr[K][key]){// table name
                      parts = key2.split(".");
-                         if(found(tab_left,parts[1]) > 0){	
+                         if(found(tab_left,parts[1]) > 0){
                            for (key3 in contr[K][key][key2]){
                                parts1 = contr[K][key][key2][key3][0].split(".");
                                if(found(tab_used,parts1[1]) > 0) {
@@ -601,9 +601,7 @@ function query_from() {
         from_array = t_array;
         return query;
 }
-				/*		document.write(key3+";"); //master_field
-							document.write(contr[K][key][key2][key3][0]+";"); // foreign_table
-							document.write(contr[K][key][key2][key3][1]+";"); //forieign_feild */
+
 /**
  * This function concatenates two array
  *
@@ -616,7 +614,7 @@ function add_array(add,arr){
     }
     return arr;
 }
- 
+
 /* This fucntion removes all elements present in one array from the other.
  *
  * @params rem array from which each element is removed from other array.
@@ -635,7 +633,7 @@ function remove_array(rem,arr){
  * This function builds the groupby clause from history object
  *
  */
- 
+
 function query_groupby() {
     var i = 0;
     var str = "";
@@ -658,7 +656,7 @@ function query_having() {
         if(history_array[i].get_type() == "Having") {
             if (history_array[i].get_obj().get_operator() != 'None') {
                 and += history_array[i].get_obj().get_operator() + "(" + history_array[i].get_column_name() + " ) " + history_array[i].get_obj().getrelation_operator();
-                and += " " + history_array[i].get_obj().getquery() + ", " ; 
+                and += " " + history_array[i].get_obj().getquery() + ", " ;
             }
             else {
                 and +=  history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
@@ -707,11 +705,19 @@ function query_where(){
             }
         }
     }
-    if ( or != "(") {	or = or.substring(0,(or.length - 4 )) + ")"; }
-    else { or = "" ;}
-    if (and !="(") {and = and.substring(0,(and.length - 5)) + ")"; }
-    else {and = "" ;}
-    if ( or != "" ) { and = and + " OR " + or + " )"; }
+    if ( or != "(") {
+        or = or.substring(0,(or.length - 4 )) + ")";
+    } else {
+        or = "" ;
+    }
+    if (and !="(") {
+        and = and.substring(0,(and.length - 5)) + ")";
+    } else {
+        and = "" ;
+    }
+    if ( or != "" ) {
+        and = and + " OR " + or + " )";
+    }
     return and;
 }
 
@@ -749,7 +755,7 @@ function gradient(id, level)
 }
 
 
-function fadein(id) 
+function fadein(id)
 {
     var level = 0;
     while(level <= 1){

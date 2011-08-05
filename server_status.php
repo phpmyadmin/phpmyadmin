@@ -819,7 +819,7 @@ function printQueryStatistics() {
 
     ?>
 
-        <table id="serverstatusqueriesdetails" class="data sortable">
+        <table id="serverstatusqueriesdetails" class="data sortable noclick">
         <col class="namecol" />
         <col class="valuecol" span="3" />
         <thead>
@@ -851,7 +851,7 @@ function printQueryStatistics() {
             $other_sum += $value;
         else $chart_json[$name] = $value;
     ?>
-            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+            <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
                 <th class="name"><?php echo htmlspecialchars($name); ?></th>
                 <td class="value"><?php echo PMA_formatNumber($value, 5, 0, true); ?></td>
                 <td class="value"><?php echo
@@ -940,7 +940,7 @@ function printServerTraffic() {
     }
     ?>
 
-    <table id="serverstatustraffic" class="data">
+    <table id="serverstatustraffic" class="data noclick">
     <thead>
     <tr>
         <th colspan="2"><?php echo __('Traffic') . '&nbsp;' . PMA_showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
@@ -948,7 +948,7 @@ function printServerTraffic() {
     </tr>
     </thead>
     <tbody>
-    <tr class="noclick odd">
+    <tr class="odd">
         <th class="name"><?php echo __('Received'); ?></th>
         <td class="value"><?php echo
             implode(' ',
@@ -958,7 +958,7 @@ function printServerTraffic() {
                 PMA_formatByteDown(
                     $server_status['Bytes_received'] * $hour_factor, 3, 1)); ?></td>
     </tr>
-    <tr class="noclick even">
+    <tr class="even">
         <th class="name"><?php echo __('Sent'); ?></th>
         <td class="value"><?php echo
             implode(' ',
@@ -968,7 +968,7 @@ function printServerTraffic() {
                 PMA_formatByteDown(
                     $server_status['Bytes_sent'] * $hour_factor, 3, 1)); ?></td>
     </tr>
-    <tr class="noclick odd">
+    <tr class="odd">
         <th class="name"><?php echo __('Total'); ?></th>
         <td class="value"><?php echo
             implode(' ',
@@ -985,7 +985,7 @@ function printServerTraffic() {
     </tbody>
     </table>
 
-    <table id="serverstatusconnections" class="data">
+    <table id="serverstatusconnections" class="data noclick">
     <thead>
     <tr>
         <th colspan="2"><?php echo __('Connections'); ?></th>
@@ -994,14 +994,14 @@ function printServerTraffic() {
     </tr>
     </thead>
     <tbody>
-    <tr class="noclick odd">
+    <tr class="odd">
         <th class="name"><?php echo __('max. concurrent connections'); ?></th>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
         <td class="value">--- </td>
         <td class="value">--- </td>
     </tr>
-    <tr class="noclick even">
+    <tr class="even">
         <th class="name"><?php echo __('Failed attempts'); ?></th>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_connects'], 4, 1, true); ?></td>
@@ -1015,7 +1015,7 @@ function printServerTraffic() {
                 0, 2, true) . '%'
           : '--- '; ?></td>
     </tr>
-    <tr class="noclick odd">
+    <tr class="odd">
         <th class="name"><?php echo __('Aborted'); ?></th>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Aborted_clients'], 4, 1, true); ?></td>
@@ -1029,7 +1029,7 @@ function printServerTraffic() {
                 0, 2, true) . '%'
           : '--- '; ?></td>
     </tr>
-    <tr class="noclick even">
+    <tr class="even">
         <th class="name"><?php echo __('Total'); ?></th>
         <td class="value"><?php echo
             PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
@@ -1059,7 +1059,7 @@ function printServerTraffic() {
      * Displays the page
      */
     ?>
-    <table id="tableprocesslist" class="data clearfloat">
+    <table id="tableprocesslist" class="data clearfloat noclick">
     <thead>
     <tr>
         <th><?php echo __('Processes'); ?></th>
@@ -1098,7 +1098,7 @@ function printServerTraffic() {
         $url_params['kill'] = $process['Id'];
         $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
         ?>
-    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
+    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
         <td><a href="<?php echo $kill_process ; ?>"><?php echo __('Kill'); ?></a></td>
         <td class="value"><?php echo $process['Id']; ?></td>
         <td><?php echo $process['User']; ?></td>
@@ -1107,7 +1107,19 @@ function printServerTraffic() {
         <td><?php echo $process['Command']; ?></td>
         <td class="value"><?php echo $process['Time']; ?></td>
         <td><?php echo (empty($process['State']) ? '---' : $process['State']); ?></td>
-        <td><?php echo (empty($process['Info']) ? '---' : PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']))); ?></td>
+        <td>
+        <?php
+        if (empty($process['Info'])) {
+            echo '---';
+        } else {
+            if (empty($_REQUEST['full']) && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+                echo htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
+            } else {
+                echo PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']));
+            }
+        }
+        ?>
+        </td>
     </tr>
         <?php
         $odd_row = ! $odd_row;
@@ -1291,7 +1303,7 @@ function printVariablesTable() {
     );
 
 ?>
-<table class="data sortable" id="serverstatusvariables">
+<table class="data sortable noclick" id="serverstatusvariables">
     <col class="namecol" />
     <col class="valuecol" />
     <col class="descrcol" />
@@ -1309,7 +1321,7 @@ function printVariablesTable() {
     foreach ($server_status as $name => $value) {
             $odd_row = !$odd_row;
 ?>
-        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_'.$allocationMap[$name]:''; ?>">
+        <tr class="<?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_'.$allocationMap[$name]:''; ?>">
             <th class="name"><?php echo htmlspecialchars(str_replace('_',' ',$name)) . PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name); ?>
             </th>
             <td class="value"><span class="formatted"><?php

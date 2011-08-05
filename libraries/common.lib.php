@@ -7,6 +7,25 @@
  */
 
 /**
+ * Detects which function to use for PMA_pow.
+ *
+ * @return string Function name.
+ */
+function PMA_detect_pow()
+{
+    if (function_exists('bcpow')) {
+        // BCMath Arbitrary Precision Mathematics Function
+        return 'bcpow';
+    } elseif (function_exists('gmp_pow')) {
+        // GMP Function
+        return 'gmp_pow';
+    } else {
+        // PHP function
+        return 'pow';
+    }
+}
+
+/**
  * Exponential expression / raise number into power
  *
  * @param string $base         base to raise
@@ -19,16 +38,7 @@ function PMA_pow($base, $exp, $use_function = false)
     static $pow_function = null;
 
     if (null == $pow_function) {
-        if (function_exists('bcpow')) {
-            // BCMath Arbitrary Precision Mathematics Function
-            $pow_function = 'bcpow';
-        } elseif (function_exists('gmp_pow')) {
-            // GMP Function
-            $pow_function = 'gmp_pow';
-        } else {
-            // PHP function
-            $pow_function = 'pow';
-        }
+        $pow_function = PMA_detect_pow();
     }
 
     if (! $use_function) {
@@ -64,33 +74,19 @@ function PMA_pow($base, $exp, $use_function = false)
  *
  * @param string  $icon       name of icon file
  * @param string  $alternate  alternate text
- * @param boolean $container  include in container
  * @param boolean $force_text whether to force alternate text to be displayed
  * @param boolean $noSprite   If true, the image source will be not replaced with a CSS Sprite
  * @return html img tag
  */
-function PMA_getIcon($icon, $alternate = '', $container = false, $force_text = false, $noSprite = false)
+function PMA_getIcon($icon, $alternate = '', $force_text = false, $noSprite = false)
 {
-    $include_icon = false;
-    $include_text = false;
-    $include_box  = false;
+    // $cfg['PropertiesIconic'] is true or both
+    $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
+    // $cfg['PropertiesIconic'] is false or both
+    // OR we have no $include_icon
+    $include_text = ($force_text || true !== $GLOBALS['cfg']['PropertiesIconic']);
     $alternate    = htmlspecialchars($alternate);
     $button       = '';
-
-    if ($GLOBALS['cfg']['PropertiesIconic']) {
-         $include_icon = true;
-    }
-
-    if ($force_text || true !== $GLOBALS['cfg']['PropertiesIconic']) {
-        // $cfg['PropertiesIconic'] is false or both
-        // OR we have no $include_icon
-        $include_text = true;
-    }
-
-    if ($include_text && $include_icon && $container) {
-        // we have icon, text and request for container
-        $include_box = true;
-    }
 
     // Always use a span (we rely on this in js/sql.js)
     $button .= '<span class="nowrap">';
@@ -1182,7 +1178,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         // in the tools div, only display the Inline link when not in ajax
         // mode because 1) it currently does not work and 2) we would
         // have two similar mechanisms on the page for the same goal
-        if ($is_select || $GLOBALS['is_ajax_request'] === false) {
+        if ($is_select || $GLOBALS['is_ajax_request'] === false && ! $query_too_big) {
         // see in js/functions.js the jQuery code attached to id inline_edit
         // document.write conflicts with jQuery, hence used $().append()
             echo "<script type=\"text/javascript\">\n" .
@@ -2577,7 +2573,7 @@ function PMA_extractFieldSpec($fieldspec) {
         // convert to lowercase just to be sure
         $type = strtolower(chop(substr($fieldspec, 0, $first_bracket_pos)));
     } else {
-        $type = $fieldspec;
+        $type = strtolower($fieldspec);
         $spec_in_brackets = '';
     }
 
@@ -2628,14 +2624,52 @@ function PMA_extractFieldSpec($fieldspec) {
             // Increment character index
             $index++;
         } // end while
+        $printtype = $type . '(' .  str_replace("','", "', '", $spec_in_brackets) . ')';
+        $binary = false;
+        $unsigned = false;
+        $zerofill = false;
     } else {
         $enum_set_values = array();
+
+        /* Create printable type name */
+        $printtype = strtolower($fieldspec);
+
+        // strip the "BINARY" attribute, except if we find "BINARY(" because
+        // this would be a BINARY or VARBINARY field type
+        if (!preg_match('@binary[\(]@', $printtype)) {
+            $binary = strpos($printtype, 'blob') !== false || strpos($printtype, 'binary') !== false;
+            $printtype = preg_replace('@binary@', '', $printtype);
+        } else {
+            $binary = false;
+        }
+        $printtype = preg_replace('@zerofill@', '', $printtype, -1, $zerofill_cnt);
+        $zerofill = ($zerofill_cnt > 0);
+        $printtype = preg_replace('@unsigned@', '', $printtype, -1, $unsigned_cnt);
+        $unsigned = ($unsigned_cnt > 0);
+        $printtype = trim($printtype);
+
+    }
+
+    $attribute     = ' ';
+    if ($binary) {
+        $attribute = 'BINARY';
+    }
+    if ($unsigned) {
+        $attribute = 'UNSIGNED';
+    }
+    if ($zerofill) {
+        $attribute = 'UNSIGNED ZEROFILL';
     }
 
     return array(
         'type' => $type,
         'spec_in_brackets' => $spec_in_brackets,
-        'enum_set_values'  => $enum_set_values
+        'enum_set_values'  => $enum_set_values,
+        'print_type' => $printtype,
+        'binary' => $binary,
+        'unsigned' => $unsigned,
+        'zerofill' => $zerofill,
+        'attribute' => $attribute,
     );
 }
 
@@ -2760,9 +2794,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array()) {
 
     /* Fetch fields list if required */
     if (strpos($string, '@FIELDS@') !== false) {
-        $fields_list = PMA_DBI_fetch_result(
-            'SHOW COLUMNS FROM ' . PMA_backquote($GLOBALS['db'])
-            . '.' . PMA_backquote($GLOBALS['table']));
+        $fields_list = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 
         $field_names = array();
         foreach ($fields_list as $field) {
@@ -2885,23 +2917,23 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
 function PMA_buildActionTitles() {
     $titles = array();
 
-    $titles['Browse']     = PMA_getIcon('b_browse.png', __('Browse'), true);
-    $titles['NoBrowse']   = PMA_getIcon('bd_browse.png', __('Browse'), true);
-    $titles['Search']     = PMA_getIcon('b_select.png', __('Search'), true);
-    $titles['NoSearch']   = PMA_getIcon('bd_select.png', __('Search'), true);
-    $titles['Insert']     = PMA_getIcon('b_insrow.png', __('Insert'), true);
-    $titles['NoInsert']   = PMA_getIcon('bd_insrow.png', __('Insert'), true);
-    $titles['Structure']  = PMA_getIcon('b_props.png', __('Structure'), true);
-    $titles['Drop']       = PMA_getIcon('b_drop.png', __('Drop'), true);
-    $titles['NoDrop']     = PMA_getIcon('bd_drop.png', __('Drop'), true);
-    $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'), true);
-    $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'), true);
-    $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
-    $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'), true);
-    $titles['Export']     = PMA_getIcon('b_export.png', __('Export'), true);
-    $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'), true);
-    $titles['Execute']    = PMA_getIcon('b_nextpage.png', __('Execute'), true);
-    $titles['NoExecute']  = PMA_getIcon('bd_nextpage.png', __('Execute'), true);
+    $titles['Browse']     = PMA_getIcon('b_browse.png', __('Browse'));
+    $titles['NoBrowse']   = PMA_getIcon('bd_browse.png', __('Browse'));
+    $titles['Search']     = PMA_getIcon('b_select.png', __('Search'));
+    $titles['NoSearch']   = PMA_getIcon('bd_select.png', __('Search'));
+    $titles['Insert']     = PMA_getIcon('b_insrow.png', __('Insert'));
+    $titles['NoInsert']   = PMA_getIcon('bd_insrow.png', __('Insert'));
+    $titles['Structure']  = PMA_getIcon('b_props.png', __('Structure'));
+    $titles['Drop']       = PMA_getIcon('b_drop.png', __('Drop'));
+    $titles['NoDrop']     = PMA_getIcon('bd_drop.png', __('Drop'));
+    $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'));
+    $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'));
+    $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'));
+    $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'));
+    $titles['Export']     = PMA_getIcon('b_export.png', __('Export'));
+    $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'));
+    $titles['Execute']    = PMA_getIcon('b_nextpage.png', __('Execute'));
+    $titles['NoExecute']  = PMA_getIcon('bd_nextpage.png', __('Execute'));
     return $titles;
 }
 

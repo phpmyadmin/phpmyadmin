@@ -842,8 +842,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             // the orgname member does not exist for all MySQL versions
             // but if found, it's the one on which to sort
             $name_to_use_in_sort = $fields_meta[$i]->name;
+            $is_orgname = false;
             if (isset($fields_meta[$i]->orgname) && strlen($fields_meta[$i]->orgname)) {
                 $name_to_use_in_sort = $fields_meta[$i]->orgname;
+                $is_orgname = true;
             }
             // $name_to_use_in_sort might contain a space due to
             // formatting of function expressions like "COUNT(name )"
@@ -870,12 +872,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             // 2.1.3 Check the field name for a bracket.
             //       If it contains one, it's probably a function column
             //       like 'COUNT(`field`)'
-            if (strpos($name_to_use_in_sort, '(') !== false) {
+            //       It still might be a column name of a view. See bug #3383711
+            //       Check is_orgname.
+            if (strpos($name_to_use_in_sort, '(') !== false && ! $is_orgname) {
                 $sort_order = ' ORDER BY ' . $name_to_use_in_sort . ' ';
             } else {
                 $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($name_to_use_in_sort) . ' ';
             }
             unset($name_to_use_in_sort);
+            unset($is_orgname);
 
             // 2.1.4 Do define the sorting URL
             if (! $is_in_sort) {
@@ -1296,8 +1301,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $edit_url = 'tbl_change.php' . PMA_generate_common_url($_url_params + array('default_action' => 'update'));
                 $copy_url = 'tbl_change.php' . PMA_generate_common_url($_url_params + array('default_action' => 'insert'));
 
-                $edit_str = PMA_getIcon('b_edit.png', __('Edit'), true);
-                $copy_str = PMA_getIcon('b_insrow.png', __('Copy'), true);
+                $edit_str = PMA_getIcon('b_edit.png', __('Edit'));
+                $copy_str = PMA_getIcon('b_insrow.png', __('Copy'));
 
                 // Class definitions required for inline editing jQuery scripts
                 $edit_anchor_class = "edit_row_anchor";
@@ -1332,7 +1337,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.' . PMA_jsFormat($table)
                           . ' WHERE ' . PMA_jsFormat($where_clause, false)
                           . ($clause_is_unique ? '' : ' LIMIT 1');
-                $del_str = PMA_getIcon('b_drop.png', __('Delete'), true);
+                $del_str = PMA_getIcon('b_drop.png', __('Delete'));
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
 
                 $_url_params = array(
@@ -1351,7 +1356,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
                 $del_query = 'KILL ' . $row[0];
                 $js_conf  = 'KILL ' . $row[0];
-                $del_str = PMA_getIcon('b_drop.png', __('Kill'), true);
+                $del_str = PMA_getIcon('b_drop.png', __('Kill'));
             } // end if (1.2.2)
 
             // 1.3 Displays the links at left if required
@@ -2433,14 +2438,14 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
 
             echo PMA_linkOrButton(
                 'sql.php' . $url_query,
-                PMA_getIcon('b_print.png', __('Print view'), false, true),
+                PMA_getIcon('b_print.png', __('Print view')),
                 '', true, true, 'print_view') . "\n";
 
             if ($_SESSION['tmp_user_values']['display_text']) {
                 $_url_params['display_text'] = 'F';
                 echo PMA_linkOrButton(
                     'sql.php' . PMA_generate_common_url($_url_params),
-                    PMA_getIcon('b_print.png', __('Print view (with full texts)'), false, true),
+                    PMA_getIcon('b_print.png', __('Print view (with full texts)')),
                     '', true, true, 'print_view') . "\n";
                 unset($_url_params['display_text']);
             }
@@ -2482,13 +2487,13 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
 
         echo PMA_linkOrButton(
             'tbl_export.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_tblexport.png', __('Export'), false, true),
+            PMA_getIcon('b_tblexport.png', __('Export')),
             '', true, true, '') . "\n";
 
         // show chart
         echo PMA_linkOrButton(
             'tbl_chart.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_chart.png', __('Display chart'), false, true),
+            PMA_getIcon('b_chart.png', __('Display chart')),
             '', true, true, '') . "\n";
 
         // show GIS chart
@@ -2503,7 +2508,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
         if ($geometry_found) {
             echo PMA_linkOrButton(
                 'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), false, true),
+                PMA_getIcon('b_globe.gif', __('Visualize GIS data')),
                 '', true, true, '') . "\n";
         }
     }
@@ -2523,7 +2528,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
     if (! isset($analyzed_sql[0]['queryflags']['procedure'])) {
         echo PMA_linkOrButton(
             'view_create.php' . $url_query,
-            PMA_getIcon('b_views.png', __('Create view'), false, true),
+            PMA_getIcon('b_views.png', __('Create view')),
             '', true, true, '') . "\n";
     }
     if ($header_shown) {
