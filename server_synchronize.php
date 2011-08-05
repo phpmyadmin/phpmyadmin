@@ -948,9 +948,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     /**
     * Displaying the queries.
     */
-    echo '<h5>' . __('The following queries have been executed:') . '</h5>';
-    echo '<div id="serverstatus" style = "overflow: auto; width: 1050px; height: 180px;
-         border-left: 1px gray solid; border-bottom: 1px gray solid; padding: 0px; margin: 0px"> ';
+    echo '<fieldset><legend>' . __('Executed queries') . '</legend>';
     /**
     * Applying all sorts of differences for each matching table
     */
@@ -1021,7 +1019,7 @@ if (isset($_REQUEST['synchronize_db'])) {
             PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link, $source_tables_uncommon, $q, $uncommon_tables_fields, true);
         }
     }
-    echo "</div>";
+    echo "</fieldset>";
 }
 
 /**
