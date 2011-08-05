@@ -10210,7 +10210,7 @@ msgstr "기부"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "서버 수정"
 
 #: setup/frames/servers.inc.php:37
 #, fuzzy
