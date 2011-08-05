@@ -883,7 +883,7 @@
                 $('.to_be_saved').parents('tr').each(function() {
                     var $tr = $(this);
                     var where_clause = $tr.find('.where_clause').val();
-                    full_where_clause.push(unescape(where_clause.replace(/[+]/g, ' ')));
+                    full_where_clause.push(PMA_urldecode(where_clause));
                     var condition_array = jQuery.parseJSON($tr.find('.condition_array').val());
                     
                     /**
