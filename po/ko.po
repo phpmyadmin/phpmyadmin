@@ -9978,11 +9978,11 @@ msgid_plural "%d seconds"
 msgstr[0] "%d 초"
 
 #: server_status.php:1589
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "분"
+msgstr[0] "%d 분"
 
 #: server_synchronize.php:92
 msgid "Could not connect to the source"
