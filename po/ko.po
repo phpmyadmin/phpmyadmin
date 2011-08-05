@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:55+0200\n"
+"PO-Revision-Date: 2011-08-05 13:56+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10477,7 +10477,7 @@ msgstr "되돌아가기"
 
 #: tbl_change.php:1013
 msgid "Edit next row"
-msgstr ""
+msgstr "다음 행 수정"
 
 #: tbl_change.php:1024
 msgid ""
