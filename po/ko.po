@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:15+0200\n"
+"PO-Revision-Date: 2011-08-05 14:16+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -9971,11 +9971,11 @@ msgid "Query analyzer"
 msgstr "질의 종류"
 
 #: server_status.php:1587
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "초"
+msgstr[0] "%d 초"
 
 #: server_status.php:1589
 #, fuzzy, php-format
