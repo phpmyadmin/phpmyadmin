@@ -1074,7 +1074,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                         __('Go to database') . ': ' . htmlspecialchars(PMA_backquote($db_name)),
                         htmlspecialchars($db_name),
                         $db_ops_url,
-                        __('Edit') . ' ' . htmlspecialchars(PMA_backquote($db_name)) . ' ' . __('settings'));
+                        sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
 
     $message .= '<ul>';
 
@@ -1098,7 +1098,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                                 $tbl_struct_url,
                                 htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('structure'),
                                 $tbl_ops_url,
-                                __('Edit') . ' ' . htmlspecialchars(PMA_backquote($tables[$i][TBL_NAME])) . ' ' . __('settings'));
+                                sprintf(__('Edit settings for %s'), htmlspecialchars(PMA_backquote($db_name))));
         } else {
             $message .= sprintf('<li><a href="%s" title="%s">%s</a></li>',
                                 $tbl_url,
