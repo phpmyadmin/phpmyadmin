@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:05+0200\n"
+"PO-Revision-Date: 2011-08-05 14:06+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10235,9 +10235,8 @@ msgid "Ignore errors"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:49
-#, fuzzy
 msgid "Show form"
-msgstr "색깔 보기"
+msgstr "폼 보기"
 
 #: setup/lib/index.lib.php:122
 msgid ""
