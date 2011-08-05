@@ -254,7 +254,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             */
             ?>
             <form name="synchronize_form" id="synchronize_form" method="post" action="server_synchronize.php">
-                <?php PMA_generate_common_hidden_inputs('', ''); ?>
+                <?php echo PMA_generate_common_hidden_inputs('', ''); ?>
             <table width="40%">
             <tr>
                 <td>
