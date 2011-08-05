@@ -10872,7 +10872,7 @@ msgstr "기본키 추가"
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add index"
-msgstr ""
+msgstr "인덱스 추가"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add unique index"
