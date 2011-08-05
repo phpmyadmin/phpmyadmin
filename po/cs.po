@@ -1412,7 +1412,6 @@ msgid "Filter queries by word/regexp:"
 msgstr "Filtrovat dotazy podle slova nebo regulárního výrazu:"
 
 #: js/messages.php:171
-#, fuzzy
 #| msgid "Group queries, ignoring variable data in WHERE statements"
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Sloučit dotazy ignorováním dat ve WHERE"
