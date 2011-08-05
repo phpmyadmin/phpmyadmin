@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-04 14:01+0200\n"
-"PO-Revision-Date: 2011-08-05 02:21+0200\n"
+"PO-Revision-Date: 2011-08-05 02:24+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -9236,10 +9236,9 @@ msgid "Monitor"
 msgstr "Überwachung"
 
 #: server_status.php:652
-#, fuzzy
 #| msgid "Apply a divisor"
 msgid "Advisor"
-msgstr "Divisor hinzufügen"
+msgstr "Empfehlungen"
 
 #: server_status.php:662 server_status.php:684
 msgid "Refresh rate: "
