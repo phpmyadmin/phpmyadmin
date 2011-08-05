@@ -1175,10 +1175,9 @@ msgid "Free memory"
 msgstr "Volná paměť"
 
 #: js/messages.php:105
-#, fuzzy
 #| msgid "System memory"
 msgid "Used memory"
-msgstr "Operační paměť"
+msgstr "Využitá paměť"
 
 #: js/messages.php:107
 #, fuzzy
