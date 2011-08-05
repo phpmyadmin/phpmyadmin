@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:33+0200\n"
+"PO-Revision-Date: 2011-08-05 13:34+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -11119,7 +11119,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "더 많은 테마들!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
