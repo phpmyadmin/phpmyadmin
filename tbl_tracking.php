@@ -372,7 +372,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     <h3><?php echo __('Tracking report');?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo __('Close');?></a>]</h3>
 
-    <small><?php echo __('Tracking statements') . ' ' . $data['tracking']; ?></small><br/>
+    <small><?php echo __('Tracking statements') . ' ' . htmlspecialchars($data['tracking']); ?></small><br/>
     <br/>
 
     <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
@@ -383,9 +383,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . __('Data only') . '</option>' .
             '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . __('Structure and data') . '</option>' .
             '</select>';
-    $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19" />';
-    $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19" />';
-    $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '" />';
+    $str2 = '<input type="text" name="date_from" value="' . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
+    $str3 = '<input type="text" name="date_to" value="' . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
+    $str4 = '<input type="text" name="users" value="' . htmlspecialchars($_REQUEST['users']) . '" />';
     $str5 = '<input type="submit" name="list_report" value="' . __('Go') . '" />';
 
     printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
