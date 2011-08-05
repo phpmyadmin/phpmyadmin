@@ -6310,10 +6310,10 @@ msgid "Go to database"
 msgstr "Přejít na databázi"
 
 #: libraries/import.lib.php:1077 libraries/import.lib.php:1101
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "Chybí data v %s"
+msgstr "Upravit nastavení pro %s"
 
 #: libraries/import.lib.php:1096
 msgid "Go to table"
