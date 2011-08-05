@@ -1069,9 +1069,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 /**
  * Prepares the display for a value
  *
- * @param string  $class
- * @param string  $condition_field
- * @param string  $value
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
+ * @param string $value           value to display
  *
  * @return  string  the td
  */
@@ -1083,8 +1083,8 @@ function PMA_buildValueDisplay($class, $condition_field, $value)
 /**
  * Prepares the display for a null value
  *
- * @param string  $class
- * @param string  $condition_field
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
  *
  * @return  string  the td
  */
@@ -1097,9 +1097,9 @@ function PMA_buildNullDisplay($class, $condition_field)
 /**
  * Prepares the display for an empty value
  *
- * @param string  $class
- * @param string  $condition_field
- * @param string  $align
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
+ * @param string $align           cell allignment
  *
  * @return  string  the td
  */
@@ -1112,13 +1112,13 @@ function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '')
 /**
  * Adds the relavant classes.
  *
- * @param string $class
- * @param string $condition_field
- * @param object $meta   the meta-information about this field
- * @param string $nowrap
- * @param bool $is_field_truncated
- * @param string $transform_function
- * @param string $default_function
+ * @param string $class              class of table cell
+ * @param bool   $condition_field    whether to add CSS class condition
+ * @param object $meta               the meta-information about this field
+ * @param string $nowrap             avoid wrapping
+ * @param bool $is_field_truncated   is field truncated (display ...)
+ * @param string $transform_function transformation function
+ * @param string $default_function   default transformation function
  *
  * @return string the list of classes
  */
@@ -1155,27 +1155,27 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
 /**
  * Displays the body of the results table
  *
- * @param integer  the link id associated to the query which results have
- *                   to be displayed
- * @param array    which elements to display
- * @param array    the list of relations
- * @param array    the analyzed query
+ * @param integer &$dt_result   the link id associated to the query which results have
+ *                              to be displayed
+ * @param array   &$is_display  which elements to display
+ * @param array   $map          the list of relations
+ * @param array   $analyzed_sql the analyzed query
  *
  * @return  boolean  always true
  *
- * @global  string   $db                the database name
- * @global  string   $table             the table name
- * @global  string   $goto              the URL to go back in case of errors
- * @global  string   $sql_query         the SQL query
- * @global  array    $fields_meta       the list of fields properties
- * @global  integer  $fields_cnt        the total number of fields returned by
+ * @global string   $db                the database name
+ * @global string   $table             the table name
+ * @global string   $goto              the URL to go back in case of errors
+ * @global string   $sql_query         the SQL query
+ * @global array    $fields_meta       the list of fields properties
+ * @global integer  $fields_cnt        the total number of fields returned by
  *                                      the SQL query
- * @global  array    $vertical_display  informations used with vertical display
+ * @global array    $vertical_display  informations used with vertical display
  *                                      mode
- * @global  array    $highlight_columns column names to highlight
- * @global  array    $row               current row data
+ * @global array    $highlight_columns column names to highlight
+ * @global array    $row               current row data
  *
- * @access  private
+ * @access private
  *
  * @see     PMA_displayTable()
  */
