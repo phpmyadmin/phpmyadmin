@@ -140,7 +140,8 @@ foreach ($replication_types as $type) {
  * @param $what   what to extract (db|table)
  * @return $string the extracted part
  */
-function PMA_extract_db_or_table($string, $what = 'db') {
+function PMA_extract_db_or_table($string, $what = 'db')
+{
     $list = explode(".", $string);
     if ('db' == $what) {
         return $list[0];
@@ -155,7 +156,8 @@ function PMA_extract_db_or_table($string, $what = 'db') {
  *
  * @return mixed output of PMA_DBI_try_query
  */
-function PMA_replication_slave_control($action, $control = null, $link = null) {
+function PMA_replication_slave_control($action, $control = null, $link = null)
+{
     $action = strtoupper($action);
     $control = strtoupper($control);
 
@@ -180,7 +182,8 @@ function PMA_replication_slave_control($action, $control = null, $link = null) {
  *
  * @return output of CHANGE MASTER mysql command
  */
-function PMA_replication_slave_change_master($user, $password, $host, $port, $pos, $stop = true, $start = true, $link = null) {
+function PMA_replication_slave_change_master($user, $password, $host, $port, $pos, $stop = true, $start = true, $link = null)
+{
     if ($stop) {
         PMA_replication_slave_control("STOP", null, $link);
     }
@@ -211,7 +214,8 @@ function PMA_replication_slave_change_master($user, $password, $host, $port, $po
  *
  * @return mixed $link mysql link on success
  */
-function PMA_replication_connect_to_master($user, $password, $host = null, $port = null, $socket = null) {
+function PMA_replication_connect_to_master($user, $password, $host = null, $port = null, $socket = null)
+{
     $server = array();
     $server["host"] = $host;
     $server["port"] = $port;
@@ -226,7 +230,8 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
  *
  * @return array - containing File and Position in MySQL replication on master server, useful for PMA_replication_slave_change_master
  */
-function PMA_replication_slave_bin_log_master($link = null) {
+function PMA_replication_slave_bin_log_master($link = null)
+{
     $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link);
     $output = array();
 
@@ -245,7 +250,8 @@ function PMA_replication_slave_bin_log_master($link = null) {
  * @return array array of replicated databases
  */
 
-function PMA_replication_master_replicated_dbs($link = null) {
+function PMA_replication_master_replicated_dbs($link = null)
+{
     $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link); // let's find out, which databases are replicated
 
     $do_db     = array();
@@ -287,7 +293,8 @@ function PMA_replication_master_replicated_dbs($link = null) {
  * @param boolean $data - if true, then data will be copied as well
  */
 
-function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true) {
+function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
+{
     $src_db = $trg_db = $db;
 
     $src_connection = PMA_DBI_select_db($src_db, $src_link);

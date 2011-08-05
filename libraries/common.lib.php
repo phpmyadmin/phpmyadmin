@@ -410,7 +410,8 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
  *
  * @access  public
  */
-function PMA_showDocu($anchor) {
+function PMA_showDocu($anchor)
+{
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
         return '<a href="Documentation.html#' . $anchor . '" target="documentation"><img class="icon ic_b_help_s" src="themes/dot.gif" alt="' . __('Documentation') . '" title="' . __('Documentation') . '" /></a>';
     } else {
@@ -426,7 +427,8 @@ function PMA_showDocu($anchor) {
  *
  * @access  public
  */
-function PMA_showPHPDocu($target) {
+function PMA_showPHPDocu($target)
+{
     $url = PMA_getPHPDocLink($target);
 
     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
@@ -2142,7 +2144,8 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  *
  * @access  public
  */
-function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_count) {
+function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_count)
+{
 
     if ($max_count < $count) {
         echo 'frame_navigation' == $frame ? '<div id="navidbpageselector">' . "\n" : '';
@@ -2279,7 +2282,8 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  * @param boolean $checked is it initially checked?
  * @param boolean $onclick should it submit the form on click?
  */
-function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick) {
+function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
+{
 
     echo '<input type="checkbox" name="' . $html_field_name . '" id="' . $html_field_name . '"' . ($checked ? ' checked="checked"' : '') . ($onclick ? ' onclick="this.form.submit();"' : '') . ' /><label for="' . $html_field_name . '">' . $label . '</label>';
 }
@@ -2294,7 +2298,8 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
  * @param boolean $escape_label whether to use htmlspecialchars() on label
  * @param string  $class enclose each choice with a div of this class
  */
-function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='') {
+function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='')
+{
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
             echo '<div class="' . $class . '">';
@@ -2452,7 +2457,8 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
 /**
  * Clears cache content which needs to be refreshed on user change.
  */
-function PMA_clearUserCache() {
+function PMA_clearUserCache()
+{
     PMA_cacheUnset('is_superuser', true);
 }
 
@@ -2529,7 +2535,8 @@ function PMA_cacheUnset($var, $server = 0)
  * @param integer $length
  * @return  string  the printable value
  */
-function PMA_printable_bit_value($value, $length) {
+function PMA_printable_bit_value($value, $length)
+{
     $printable = '';
     for ($i = 0, $len_ceiled = ceil($length / 8); $i < $len_ceiled; $i++) {
         $printable .= sprintf('%08d', decbin(ord(substr($value, $i, 1))));
@@ -2544,7 +2551,8 @@ function PMA_printable_bit_value($value, $length) {
  * @param string $value
  * @return  boolean
  */
-function PMA_contains_nonprintable_ascii($value) {
+function PMA_contains_nonprintable_ascii($value)
+{
     return preg_match('@[^[:print:]]@', $value);
 }
 
@@ -2555,7 +2563,8 @@ function PMA_contains_nonprintable_ascii($value) {
  * @param string $bit_default_value
  * @return  string the converted value
  */
-function PMA_convert_bit_default_value($bit_default_value) {
+function PMA_convert_bit_default_value($bit_default_value)
+{
     return strtr($bit_default_value, array("b" => "", "'" => ""));
 }
 
@@ -2566,7 +2575,8 @@ function PMA_convert_bit_default_value($bit_default_value) {
  * @return  array associative array containing type, spec_in_brackets
  *          and possibly enum_set_values (another array)
  */
-function PMA_extractFieldSpec($fieldspec) {
+function PMA_extractFieldSpec($fieldspec)
+{
     $first_bracket_pos = strpos($fieldspec, '(');
     if ($first_bracket_pos) {
         $spec_in_brackets = chop(substr($fieldspec, $first_bracket_pos + 1, (strrpos($fieldspec, ')') - $first_bracket_pos - 1)));
@@ -2679,7 +2689,8 @@ function PMA_extractFieldSpec($fieldspec) {
  * @param string $engine
  * @return  boolean
  */
-function PMA_foreignkey_supported($engine) {
+function PMA_foreignkey_supported($engine)
+{
     $engine = strtoupper($engine);
     if ('INNODB' == $engine || 'PBXT' == $engine) {
         return true;
@@ -2694,7 +2705,8 @@ function PMA_foreignkey_supported($engine) {
  * @param string $content
  * @return  string the content with characters replaced
  */
-function PMA_replace_binary_contents($content) {
+function PMA_replace_binary_contents($content)
+{
     $result = str_replace("\x00", '\0', $content);
     $result = str_replace("\x08", '\b', $result);
     $result = str_replace("\x0a", '\n', $result);
@@ -2710,7 +2722,8 @@ function PMA_replace_binary_contents($content) {
  * @return  string with the chars replaced
  */
 
-function PMA_duplicateFirstNewline($string) {
+function PMA_duplicateFirstNewline($string)
+{
     $first_occurence = strpos($string, "\r\n");
     if ($first_occurence === 0) {
         $string = "\n".$string;
@@ -2726,7 +2739,8 @@ function PMA_duplicateFirstNewline($string) {
  *                        or $cfg['DefaultTabDatabase']
  * @return array
  */
-function PMA_getTitleForTarget($target) {
+function PMA_getTitleForTarget($target)
+{
     $mapping = array(
         // Values for $cfg['DefaultTabTable']
         'tbl_structure.php' =>  __('Structure'),
@@ -2752,7 +2766,8 @@ function PMA_getTitleForTarget($target) {
  * @param array     $updates Array with overrides for default parameters (obtained from GLOBALS).
  * @return string
  */
-function PMA_expandUserString($string, $escape = null, $updates = array()) {
+function PMA_expandUserString($string, $escape = null, $updates = array())
+{
     /* Content */
     $vars['http_host'] = PMA_getenv('HTTP_HOST') ? PMA_getenv('HTTP_HOST') : '';
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
@@ -2868,7 +2883,8 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
  *
  * @param $max_upload_size
  */
-function PMA_browseUploadFile($max_upload_size) {
+function PMA_browseUploadFile($max_upload_size)
+{
     echo '<label for="radio_import_file">' . __("Browse your computer:") . '</label>';
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
@@ -2884,7 +2900,8 @@ function PMA_browseUploadFile($max_upload_size) {
  * @param $import_list
  * @param $uploaddir
  */
-function PMA_selectUploadFile($import_list, $uploaddir) {
+function PMA_selectUploadFile($import_list, $uploaddir)
+{
     echo '<label for="radio_local_import_file">' . sprintf(__("Select from the web server upload directory <b>%s</b>:"), htmlspecialchars(PMA_userDir($uploaddir))) . '</label>';
     $extensions = '';
     foreach ($import_list as $key => $val) {
@@ -2914,7 +2931,8 @@ function PMA_selectUploadFile($import_list, $uploaddir) {
  *
  * @return   array   the action titles
  */
-function PMA_buildActionTitles() {
+function PMA_buildActionTitles()
+{
     $titles = array();
 
     $titles['Browse']     = PMA_getIcon('b_browse.png', __('Browse'));
@@ -3007,7 +3025,8 @@ function PMA_getSupportedDatatypes($html = false, $selected = '')
  * @return   array   list of datatypes
  */
 
-function PMA_unsupportedDatatypes() {
+function PMA_unsupportedDatatypes()
+{
     // These GIS data types are not yet supported.
     $no_support_types = array('geometry',
                               'point',

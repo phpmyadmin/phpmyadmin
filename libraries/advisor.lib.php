@@ -169,7 +169,8 @@ class Advisor {
     }
 }
 
-function PMA_bytime($num, $precision) {
+function PMA_bytime($num, $precision)
+{
     $per = '';
     if ($num >= 1) { # per second
         $per = "per second";

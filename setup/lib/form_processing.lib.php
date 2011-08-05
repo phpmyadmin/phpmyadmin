@@ -11,7 +11,8 @@
  *
  * @param FormDisplay $form_display
  */
-function process_formset(FormDisplay $form_display) {
+function process_formset(FormDisplay $form_display)
+{
     if (filter_input(INPUT_GET, 'mode') == 'revert') {
         // revert erroneous fields to their default values
         $form_display->fixErrors();

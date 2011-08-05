@@ -331,7 +331,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
  * @param integer $offset
  * @param integer $count
  */
-function PMA_displayDbList($ext_dblist, $offset, $count) {
+function PMA_displayDbList($ext_dblist, $offset, $count)
+{
     global $element_counter, $img_minus, $img_plus, $href_left,
         $db_start, $common_url_query;
 

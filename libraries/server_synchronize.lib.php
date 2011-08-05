@@ -1261,7 +1261,8 @@ function PMA_applyIndexesDiff ($trg_db, $trg_link, $matching_tables, $source_ind
  *
  * @param string $query  the query to display
  */
-function PMA_displayQuery($query) {
+function PMA_displayQuery($query)
+{
     if (strlen($query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
         $query = substr($query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
     }
@@ -1274,7 +1275,8 @@ function PMA_displayQuery($query) {
  * @param string $src_db  source db name
  * @param string $trg_db  target db name
  */
-function PMA_syncDisplayHeaderCompare($src_db, $trg_db) {
+function PMA_syncDisplayHeaderCompare($src_db, $trg_db)
+{
     echo '<fieldset style="padding:0"><div style="padding:1.5em; overflow:auto; height:220px">';
 
     echo '<table class="data">';
@@ -1309,7 +1311,8 @@ function PMA_syncDisplayHeaderCompare($src_db, $trg_db) {
  *
  * @param array $rows
  */
-function PMA_syncDisplayDataCompare($rows) {
+function PMA_syncDisplayDataCompare($rows)
+{
     global $pmaThemeImage;
 
     $odd_row = true;

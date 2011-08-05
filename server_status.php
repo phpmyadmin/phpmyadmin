@@ -776,7 +776,8 @@ echo __('Runtime Information');
 
 <?php
 
-function printQueryStatistics() {
+function printQueryStatistics()
+{
     global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 
     $hour_factor   = 3600 / $server_status['Uptime'];
@@ -878,7 +879,8 @@ function printQueryStatistics() {
         <?php
 }
 
-function printServerTraffic() {
+function printServerTraffic()
+{
     global $server_status,$PMA_PHP_SELF;
     global $server_master_status, $server_slave_status, $replication_types;
 
@@ -1131,7 +1133,8 @@ function printServerTraffic() {
     <?php
 }
 
-function printVariablesTable() {
+function printVariablesTable()
+{
     global $server_status, $server_variables, $allocationMap, $links;
     /**
      * Messages are built using the message name
@@ -1379,7 +1382,8 @@ function printVariablesTable() {
     <?php
 }
 
-function printMonitor() {
+function printMonitor()
+{
     global $server_status, $server_db_isLocal;
 ?>
     <div class="monitorLinks">
@@ -1577,7 +1581,8 @@ function printMonitor() {
 }
 
 /* Builds a <select> list for refresh rates */
-function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)) {
+function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
+{
 ?>
     <select name="<?php echo $name; ?>">
         <?php
@@ -1599,7 +1604,8 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
  *
  * @param array &$server_status
  */
-function cleanDeprecated(&$server_status) {
+function cleanDeprecated(&$server_status)
+{
     $deprecated = array(
         'Com_prepare_sql' => 'Com_stmt_prepare',
         'Com_execute_sql' => 'Com_stmt_execute',

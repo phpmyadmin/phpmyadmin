@@ -1092,7 +1092,8 @@ function Table_onover(id_this,val,buil)
  * In case column is checked it add else it deletes
  *
  */
-function store_column(id_this,owner,col) {
+function store_column(id_this,owner,col)
+{
     var i = 0;
     var k = 0;
     if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked == true) {
@@ -1128,7 +1129,8 @@ function store_column(id_this,owner,col) {
  * @uses display()
 **/
 
-function add_object() {
+function add_object()
+{
     var rel = document.getElementById('rel_opt');
     var sum = 0;
     var init = history_array.length;

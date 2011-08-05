@@ -49,7 +49,8 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * @access  public
  *
  */
-function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str) {
+function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
+{
 
     global $gnu_iconv_to_aix_iconv_codepage_map;
 
