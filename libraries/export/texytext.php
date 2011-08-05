@@ -259,8 +259,6 @@ if (isset($plugin_list)) {
                 $type     = '&nbsp;';
             }
 
-            $attribute     = $extracted_fieldspec['attribute'];
-
             if (! isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';
