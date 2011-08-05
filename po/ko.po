@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:51+0200\n"
+"PO-Revision-Date: 2011-08-05 13:52+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10660,7 +10660,7 @@ msgstr ""
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "같은 테이블이 있어 옮길 수 없음!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
