@@ -436,6 +436,9 @@ function PMA_updateTargetTables($table, $update_array, $src_db, $trg_db, $trg_li
 /**
  * PMA_insertIntoTargetTable() inserts missing rows in the target table using $array_insert[$matching_table_index]
  *
+ * @todo this function uses undefined variables and is possibly broken: $matching_tables,
+ *       $matching_tables_fields, $remove_indexes_array, $matching_table_keys
+ *
  * @param array  $matching_table          matching table names
  * @param string $src_db                  name of source database
  * @param string $trg_db                  name of target database
@@ -865,8 +868,8 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link, $ma
             if (isset($is_fk_result)) {
                 if (in_array($is_fk_result[0]['REFERENCED_TABLE_NAME'], $uncommon_tables)) {
                     $table_index = array_keys($uncommon_tables, $is_fk_result[0]['REFERENCED_TABLE_NAME']);
-                    PMA_checkForeignKeys($src_db, $src_link, $trg_db, $trg_link, $is_fk_result[0]['REFERENCED_TABLE_NAME'], $uncommon_tables, $uncommon_tables_fields);
-                    PMA_createTargetTables($src_db, $trg_db, $trg_link, $src_link, $uncommon_tables, $table_index[0], $uncommon_tables_fields);
+                    PMA_checkForeignKeys($src_db, $src_link, $trg_db, $trg_link, $is_fk_result[0]['REFERENCED_TABLE_NAME'], $uncommon_tables, $uncommon_tables_fields, $display);
+                    PMA_createTargetTables($src_db, $trg_db, $trg_link, $src_link, $uncommon_tables, $table_index[0], $uncommon_tables_fields, $display);
                     unset($uncommon_tables[$table_index[0]]);
                 }
                 $fk_query = "ALTER TABLE " . PMA_backquote($trg_db) . '.' . PMA_backquote($matching_tables[$table_counter]) .
