@@ -1165,7 +1165,6 @@ msgid "Cached memory"
 msgstr "Paměť cache"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Vyrovnávací paměť"
