@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:09+0200\n"
+"PO-Revision-Date: 2011-08-05 14:10+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10193,7 +10193,7 @@ msgstr "줄 끝"
 
 #: setup/frames/index.inc.php:225
 msgid "Display"
-msgstr ""
+msgstr "보기"
 
 #: setup/frames/index.inc.php:229
 msgid "Load"
