@@ -10173,7 +10173,7 @@ msgstr "새 서버"
 
 #: setup/frames/index.inc.php:186
 msgid "Default language"
-msgstr ""
+msgstr "기본 언어"
 
 #: setup/frames/index.inc.php:196
 msgid "let the user choose"
