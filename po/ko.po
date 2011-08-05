@@ -10497,7 +10497,7 @@ msgstr "3월"
 
 #: tbl_chart.php:87
 msgid "Line"
-msgstr ""
+msgstr "줄"
 
 #: tbl_chart.php:88
 msgid "Spline"
