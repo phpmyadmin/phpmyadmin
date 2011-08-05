@@ -37,15 +37,15 @@ function panel(index)
  * @uses history_delete()
  *
  * @param {int}  init starting index of unsorted array
- * @param {int} final   last index of unsorted array
+ * @param {int} finit   last index of unsorted array
  *
 **/
 
-function display(init,final)
+function display(init,finit)
 {
     var str,i,j,k,sto;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
-    for (i = init;i < final;i++) {
+    for (i = init;i < finit;i++) {
         sto = history_array[i];
         var temp = history_array[i].get_tab() ;//+ '.' + history_array[i].get_obj_no(); for Self JOINS
         for(j = 0;j < i;j++){
