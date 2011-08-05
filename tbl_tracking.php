@@ -288,17 +288,17 @@ if (isset($_REQUEST['snapshot'])) {
         <tr class="<?php echo $style; ?>">
             <?php
             if ($field['Key'] == 'PRI') {
-                echo '<td><b><u>' . $field['Field'] . '</u></b></td>' . "\n";
+                echo '<td><b><u>' . htmlspecialchars($field['Field']) . '</u></b></td>' . "\n";
             } else {
-                echo '<td><b>' . $field['Field'] . '</b></td>' . "\n";
+                echo '<td><b>' . htmlspecialchars($field['Field']) . '</b></td>' . "\n";
             }
             ?>
-            <td><?php echo $field['Type'];?></td>
-            <td><?php echo $field['Collation'];?></td>
-            <td><?php echo $field['Null'];?></td>
-            <td><?php echo $field['Default'];?></td>
-            <td><?php echo $field['Extra'];?></td>
-            <td><?php echo $field['Comment'];?></td>
+            <td><?php echo htmlspecialchars($field['Type']);?></td>
+            <td><?php echo htmlspecialchars($field['Collation']);?></td>
+            <td><?php echo htmlspecialchars($field['Null']);?></td>
+            <td><?php echo htmlspecialchars($field['Default']);?></td>
+            <td><?php echo htmlspecialchars($field['Extra']);?></td>
+            <td><?php echo htmlspecialchars($field['Comment']);?></td>
         </tr>
 <?php
             if ($style == 'even') {
@@ -344,15 +344,15 @@ if (isset($_REQUEST['snapshot'])) {
             }
 ?>
             <tr class="<?php echo $style; ?>">
-                <td><b><?php echo $index['Key_name'];?></b></td>
-                <td><?php echo $index['Index_type'];?></td>
+                <td><b><?php echo htmlspecialchars($index['Key_name']);?></b></td>
+                <td><?php echo htmlspecialchars($index['Index_type']);?></td>
                 <td><?php echo $str_unique;?></td>
                 <td><?php echo $str_packed;?></td>
-                <td><?php echo $index['Column_name'];?></td>
-                <td><?php echo $index['Cardinality'];?></td>
-                <td><?php echo $index['Collation'];?></td>
-                <td><?php echo $index['Null'];?></td>
-                <td><?php echo $index['Comment'];?></td>
+                <td><?php echo htmlspecialchars($index['Column_name']);?></td>
+                <td><?php echo htmlspecialchars($index['Cardinality']);?></td>
+                <td><?php echo htmlspecialchars($index['Collation']);?></td>
+                <td><?php echo htmlspecialchars($index['Null']);?></td>
+                <td><?php echo htmlspecialchars($index['Comment']);?></td>
             </tr>
 <?php
             if ($style == 'even') {
