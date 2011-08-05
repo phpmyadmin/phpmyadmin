@@ -1163,6 +1163,7 @@ msgid "Average load"
 msgstr "Durchschnittliche Auslastung"
 
 #: js/messages.php:101
+#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
 msgstr "Arbeitsspeicher"
