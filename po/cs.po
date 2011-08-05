@@ -9921,10 +9921,9 @@ msgid "Refresh rate"
 msgstr "Obnovovací frekvence"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
-msgstr "Sloupců grafů:"
+msgstr "Sloupce grafu"
 
 #: server_status.php:1430
 #, fuzzy
