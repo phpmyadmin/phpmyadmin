@@ -10664,7 +10664,7 @@ msgstr "같은 테이블이 있어 옮길 수 없음!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "같은 테이블이 있어 복사할 수 없음!"
 
 #: tbl_move_copy.php:54
 #, php-format
