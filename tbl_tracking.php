@@ -379,7 +379,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     <h3><?php echo $strTrackingReport;?>  [<a href="tbl_tracking.php?<?php echo $url_query;?>"><?php echo $strTrackingReportClose;?></a>]</h3>
 
-    <small><?php echo $strTrackingStatements . ' ' . $data['tracking']; ?></small><br/>
+    <small><?php echo $strTrackingStatements . ' ' . htmlspecialchars($data['tracking']); ?></small><br/>
     <br/>
 
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
@@ -390,9 +390,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . $strDataOnly . '</option>' .
             '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . $strStrucData . '</option>' .
             '</select>';
-    $str2 = '<input type="text" name="date_from" value="' . $_REQUEST['date_from'] . '" size="19" />';
-    $str3 = '<input type="text" name="date_to" value="' . $_REQUEST['date_to'] . '" size="19" />';
-    $str4 = '<input type="text" name="users" value="' . $_REQUEST['users'] . '" />';
+    $str2 = '<input type="text" name="date_from" value="' . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
+    $str3 = '<input type="text" name="date_to" value="' . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
+    $str4 = '<input type="text" name="users" value="' . htmlspecialchars($_REQUEST['users']) . '" />';
     $str5 = '<input type="submit" name="list_report" value="' . $strGo . '" />';
 
     printf($strTrackingShowLogDateUsers, $str1, $str2, $str3, $str4, $str5);
