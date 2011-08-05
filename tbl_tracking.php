@@ -480,8 +480,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         ?>
                 <tr class="<?php echo $style; ?>">
                     <td><small><?php echo $i; ?></small></td>
-                    <td><small><?php echo $entry['date']; ?></small></td>
-                    <td><small><?php echo $entry['username']; ?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['date']); ?></small></td>
+                    <td><small><?php echo htmlspecialchars($entry['username']); ?></small></td>
                     <td><?php echo $statement; ?></td>
                 </tr>
         <?php
@@ -514,10 +514,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     ?>
     </form>
     <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
-    <input type="hidden" name="logtype" value="<?php echo $_REQUEST['logtype'];?>" />
-    <input type="hidden" name="date_from" value="<?php echo $_REQUEST['date_from'];?>" />
-    <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>" />
-    <input type="hidden" name="users" value="<?php echo $_REQUEST['users'];?>" />
+    <input type="hidden" name="logtype" value="<?php echo htmlspecialchars($_REQUEST['logtype']);?>" />
+    <input type="hidden" name="date_from" value="<?php echo htmlspecialchars($_REQUEST['date_from']);?>" />
+    <input type="hidden" name="date_to" value="<?php echo htmlspecialchars($_REQUEST['date_to']);?>" />
+    <input type="hidden" name="users" value="<?php echo htmlspecialchars($_REQUEST['users']);?>" />
     <?php
     echo "<br/>" . sprintf($strTrackingExportAs, $str_export1) . $str_export2 . "<br/>";
     ?>
