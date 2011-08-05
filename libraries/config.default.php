@@ -2315,7 +2315,7 @@ $cfg['ShowPropertyComments']= true;
 /**
  * save edited cell(s) in browse-mode at once.
  */
-$cfg['SaveCellsAtOnce'] = true;
+$cfg['SaveCellsAtOnce'] = false;
 
 /**
  * shows table display direction.
