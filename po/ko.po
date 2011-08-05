@@ -11081,7 +11081,7 @@ msgstr ""
 
 #: tbl_tracking.php:685
 msgid "Deactivate now"
-msgstr ""
+msgstr "지금 비활성화"
 
 #: tbl_tracking.php:696
 #, php-format
