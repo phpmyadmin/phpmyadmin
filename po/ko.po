@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:46+0200\n"
+"PO-Revision-Date: 2011-08-05 13:47+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10754,7 +10754,7 @@ msgstr ""
 
 #: tbl_operations.php:748
 msgid "Analyze"
-msgstr ""
+msgstr "분석"
 
 #: tbl_operations.php:749
 msgid "Check"
