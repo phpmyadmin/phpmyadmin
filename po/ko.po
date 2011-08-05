@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 13:46+0200\n"
+"PO-Revision-Date: 2011-08-05 13:56+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10456,7 +10456,7 @@ msgstr ""
 
 #: tbl_change.php:985
 msgid "Show insert query"
-msgstr ""
+msgstr "삽입 쿼리 보기"
 
 #: tbl_change.php:996
 msgid "and then"
@@ -10477,12 +10477,12 @@ msgstr "되돌아가기"
 
 #: tbl_change.php:1013
 msgid "Edit next row"
-msgstr ""
+msgstr "다음 행 수정"
 
 #: tbl_change.php:1024
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr ""
+msgstr "탭 키를 이용해 이동하거나 CTRL+화살표로 이동할 수 있다"
 
 #: tbl_change.php:1062
 #, php-format
@@ -10497,7 +10497,7 @@ msgstr "3월"
 
 #: tbl_chart.php:87
 msgid "Line"
-msgstr ""
+msgstr "줄"
 
 #: tbl_chart.php:88
 msgid "Spline"
@@ -10574,11 +10574,11 @@ msgstr ""
 
 #: tbl_gis_visualization.php:157
 msgid "Width"
-msgstr ""
+msgstr "너비"
 
 #: tbl_gis_visualization.php:161
 msgid "Height"
-msgstr ""
+msgstr "높이"
 
 #: tbl_gis_visualization.php:165
 #, fuzzy
@@ -10588,7 +10588,7 @@ msgstr "컬럼 추가/삭제"
 
 #: tbl_gis_visualization.php:167
 msgid "-- None --"
-msgstr ""
+msgstr "-없음-"
 
 #: tbl_gis_visualization.php:180
 #, fuzzy
@@ -10660,11 +10660,11 @@ msgstr ""
 
 #: tbl_move_copy.php:44
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "같은 테이블이 있어 옮길 수 없음!"
 
 #: tbl_move_copy.php:46
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "같은 테이블이 있어 복사할 수 없음!"
 
 #: tbl_move_copy.php:54
 #, php-format
@@ -10694,7 +10694,7 @@ msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명):"
 
 #: tbl_operations.php:355
 msgid "Table options"
-msgstr ""
+msgstr "테이블 옵션"
 
 #: tbl_operations.php:359
 msgid "Rename table to"
@@ -10714,7 +10714,7 @@ msgstr "테이블 유지보수"
 
 #: tbl_operations.php:618
 msgid "Defragment table"
-msgstr ""
+msgstr "테이블 단편화 제거"
 
 #: tbl_operations.php:666
 #, php-format
@@ -10735,12 +10735,11 @@ msgstr "테이블의 덤프 데이터"
 
 #: tbl_operations.php:696
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "테이블 내용 비우기(TRUNCATE)"
 
 #: tbl_operations.php:716
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "데이터베이스가 없습니다"
+msgstr "테이블 삭제(DROP)"
 
 #: tbl_operations.php:737
 #, fuzzy
@@ -10754,7 +10753,7 @@ msgstr ""
 
 #: tbl_operations.php:748
 msgid "Analyze"
-msgstr ""
+msgstr "분석"
 
 #: tbl_operations.php:749
 msgid "Check"
