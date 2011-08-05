@@ -1170,10 +1170,9 @@ msgid "Buffered memory"
 msgstr "Vyrovnávací paměť"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "System memory"
 msgid "Free memory"
-msgstr "Operační paměť"
+msgstr "Volná paměť"
 
 #: js/messages.php:105
 #, fuzzy
