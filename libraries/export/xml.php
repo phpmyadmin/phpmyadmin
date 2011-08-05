@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 }
 
 if (strlen($GLOBALS['db'])) { /* Can't do server export */
+    return;
+}
 
 if (isset($plugin_list)) {
     $plugin_list['xml'] = array(
@@ -365,6 +367,5 @@ if (isset($plugin_list)) {
 
         return true;
     } // end of the 'PMA_getTableXML()' function
-    }
 }
 ?>
