@@ -59,6 +59,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($line_color, 1, 2));
         $green = hexdec(substr($line_color, 3, 2));
         $blue  = hexdec(substr($line_color, 4, 2));
@@ -76,6 +77,10 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
                 imageline($image, $temp_point[0], $temp_point[1], $point[0], $point[1], $color);
                 $temp_point = $point;
             }
+        }
+        // print label if applicable
+        if (isset($label) && trim($label) != '') {
+            imagestring($image, 2, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
         }
         return $image;
     }
@@ -111,6 +116,12 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
                 $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
                 $temp_point = $point;
             }
+        }
+        // print label
+        if (isset($label) && trim($label) != '') {
+            $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
+            $pdf->SetFontSize(7);
+            $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;
     }
