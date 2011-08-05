@@ -9926,10 +9926,9 @@ msgid "Chart columns"
 msgstr "Sloupce grafu"
 
 #: server_status.php:1430
-#, fuzzy
 #| msgid "Error management:"
 msgid "Chart arrangement"
-msgstr "Práce s chybami:"
+msgstr "Uspořádání grafů"
 
 #: server_status.php:1430
 msgid ""
