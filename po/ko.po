@@ -10024,7 +10024,7 @@ msgstr "컬럼 추가"
 
 #: server_synchronize.php:405 server_synchronize.php:831
 msgid "Remove column(s)"
-msgstr ""
+msgstr "컬럼 제거"
 
 #: server_synchronize.php:406 server_synchronize.php:832
 msgid "Alter column(s)"
