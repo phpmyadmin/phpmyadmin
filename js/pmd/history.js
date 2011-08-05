@@ -17,7 +17,8 @@ var g_index;
  * @param index has value 1 or 0,decides wheter to hide toggle_container on load.
 **/
 
-function panel(index) {
+function panel(index)
+{
     if (!index) {
         $(".toggle_container").hide();
     }
@@ -36,14 +37,15 @@ function panel(index) {
  * @uses history_delete()
  *
  * @param {int}  init starting index of unsorted array
- * @param {int} final   last index of unsorted array
+ * @param {int} finit   last index of unsorted array
  *
 **/
 
-function display(init,final) {
+function display(init,finit)
+{
     var str,i,j,k,sto;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
-    for (i = init;i < final;i++) {
+    for (i = init;i < finit;i++) {
         sto = history_array[i];
         var temp = history_array[i].get_tab() ;//+ '.' + history_array[i].get_obj_no(); for Self JOINS
         for(j = 0;j < i;j++){
@@ -99,7 +101,8 @@ function display(init,final) {
  *
 **/
 
-function and_or(index) {
+function and_or(index)
+{
     if (history_array[index].get_and_or()) {
         history_array[index].set_and_or(0);
     }
@@ -118,7 +121,8 @@ function and_or(index) {
  *
 **/
 
-function detail (index) {
+function detail (index)
+{
     var type = history_array[index].get_type();
     var str;
     if (type == "Where") {
@@ -158,7 +162,8 @@ function detail (index) {
  *
 **/
 
-function history_delete(index) {
+function history_delete(index)
+{
     for(var k =0 ;k < from_array.length;k++){
         if(from_array[k] == history_array[index].get_tab()){
             from_array.splice(k,1);
@@ -178,7 +183,8 @@ function history_delete(index) {
  *
 **/
 
-function history_edit(index) {
+function history_edit(index)
+{
     g_index = index;
     var type = history_array[index].get_type();
     if (type == "Where") {
@@ -225,7 +231,8 @@ function history_edit(index) {
  * @param index index of history_array where change is to be made
 **/
 
-function edit(type) {
+function edit(type)
+{
     if (type == "Rename") {
         if (document.getElementById('e_rename').value != "") {
             history_array[g_index].get_obj().setrename_to(document.getElementById('e_rename').value);
@@ -271,7 +278,8 @@ function edit(type) {
  *
 **/
 
-function history(ncolumn_name,nobj,ntab,nobj_no,ntype) {
+function history(ncolumn_name,nobj,ntab,nobj_no,ntype)
+{
     var and_or;
     var obj;
     var tab;
@@ -432,7 +440,8 @@ var aggregate = function(noperator) {
  * @return unique array
  */
 
-function unique(arrayName) {
+function unique(arrayName)
+{
     var newArray=new Array();
     label:for(var i=0; i<arrayName.length;i++ )
     {
@@ -454,7 +463,8 @@ function unique(arrayName) {
  * @param value  value which is to be searched in the array
  */
 
-function found(arrayName,value) {
+function found(arrayName,value)
+{
     for(var i=0; i<arrayName.length; i++) {
         if(arrayName[i] == value) { return 1;}
     }
@@ -474,10 +484,11 @@ function found(arrayName,value) {
  * @param fadin
  */
 
-function build_query(formtitle, fadin) {
+function build_query(formtitle, fadin)
+{
     var q_select = "SELECT ";
     var temp;
-    for(i = 0;i < select_field.length; i++) {
+    for (i = 0;i < select_field.length; i++) {
         temp = check_aggregate(select_field[i]);
         if (temp != "") {
             q_select += temp;
@@ -522,8 +533,9 @@ function build_query(formtitle, fadin) {
   */
 
 
-function query_from() {
-    var i =0;
+function query_from()
+{
+    var i;
     var tab_left = [];
     var tab_used = [];
     var t_tab_used = [];
@@ -535,7 +547,7 @@ function query_from() {
     var t_array = [];
     t_array = from_array;
     var K = 0;
-    for(i; i < history_array.length ; i++) {
+    for (i = 0; i < history_array.length ; i++) {
         from_array.push(history_array[i].get_tab());
     }
     from_array = unique( from_array );
@@ -608,7 +620,8 @@ function query_from() {
  * @params add array elements of which are pushed in
  * @params arr array in which elemnets are added
  */
-function add_array(add,arr){
+function add_array(add,arr)
+{
     for( var i=0; i<add.length; i++){
         arr.push(add[i]);
     }
@@ -621,7 +634,8 @@ function add_array(add,arr){
  * @params arr array from which elements are removed.
  *
  */
-function remove_array(rem,arr){
+function remove_array(rem,arr)
+{
     for(var i=0; i<rem.length; i++){
         for(var j=0; j<arr.length; j++)
             if(rem[i] == arr[j]) { arr.splice(j,1); }
@@ -634,10 +648,11 @@ function remove_array(rem,arr){
  *
  */
 
-function query_groupby() {
-    var i = 0;
+function query_groupby()
+{
+    var i;
     var str = "";
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "GroupBy") { str +=history_array[i].get_column_name() + ", ";}
     }
     str = str.substr(0,str.length -1);
@@ -649,10 +664,11 @@ function query_groupby() {
  *
  */
 
-function query_having() {
-    var i = 0;
+function query_having()
+{
+    var i;
     var and = "(";
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "Having") {
             if (history_array[i].get_obj().get_operator() != 'None') {
                 and += history_array[i].get_obj().get_operator() + "(" + history_array[i].get_column_name() + " ) " + history_array[i].get_obj().getrelation_operator();
@@ -674,10 +690,11 @@ function query_having() {
  *
  */
 
-function query_orderby() {
-    var i = 0;
+function query_orderby()
+{
+    var i;
     var str = "" ;
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "OrderBy") { str += history_array[i].get_column_name() + " , "; }
     }
     str = str.substr(0,str.length -1);
@@ -690,11 +707,12 @@ function query_orderby() {
  *
  */
 
-function query_where(){
-    var i = 0;
+function query_where()
+{
+    var i;
     var and = "(";
     var or = "(";
-    for(i; i < history_array.length;i++) {
+    for (i = 0; i < history_array.length;i++) {
         if(history_array[i].get_type() == "Where") {
             if(history_array[i].get_and_or() == 0) {
                 and += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() +" " + history_array[i].get_obj().getquery() + ")";                and += " AND ";
@@ -721,9 +739,10 @@ function query_where(){
     return and;
 }
 
-function check_aggregate(id_this) {
-    var i = 0;
-    for(i;i < history_array.length;i++) {
+function check_aggregate(id_this)
+{
+    var i;
+    for (i = 0;i < history_array.length;i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
         if(temp == id_this && history_array[i].get_type() == "Aggregate") {
             return history_array[i].get_obj().get_operator() + '(' + id_this +')';
@@ -732,9 +751,10 @@ function check_aggregate(id_this) {
     return "";
 }
 
-function check_rename(id_this) {
-    var i = 0;
-    for (i;i < history_array.length;i++) {
+function check_rename(id_this)
+{
+    var i;
+    for (i = 0;i < history_array.length;i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
         if(temp == id_this && history_array[i].get_type() == "Rename") {
             return  " AS `" + history_array[i].get_obj().getrename_to() +"`";

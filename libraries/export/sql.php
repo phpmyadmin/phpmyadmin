@@ -1108,7 +1108,7 @@ if (isset($plugin_list)) {
         // a possible error: the table has crashed
         $tmp_error = PMA_DBI_getError();
         if ($tmp_error) {
-            return PMA_exportOutputHandler(PMA_exportComment(__('in use') . ' (' . $tmp_error . ')'));
+            return PMA_exportOutputHandler(PMA_exportComment(__('Error reading data:') . ' (' . $tmp_error . ')'));
         }
 
         if ($result != false) {

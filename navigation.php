@@ -105,7 +105,7 @@ require_once './libraries/header_http.inc.php';
     <link rel="stylesheet" type="text/css"
         href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=left&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <?php
-    echo PMA_includeJS('jquery/jquery-1.6.1.js');
+    echo PMA_includeJS('jquery/jquery-1.6.2.js');
     echo PMA_includeJS('jquery/jquery-ui-1.8.custom.js');
     echo PMA_includeJS('navigation.js');
     echo PMA_includeJS('functions.js');
@@ -331,7 +331,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
  * @param integer $offset
  * @param integer $count
  */
-function PMA_displayDbList($ext_dblist, $offset, $count) {
+function PMA_displayDbList($ext_dblist, $offset, $count)
+{
     global $element_counter, $img_minus, $img_plus, $href_left,
         $db_start, $common_url_query;
 

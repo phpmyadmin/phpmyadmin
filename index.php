@@ -132,7 +132,7 @@ include ('./libraries/header_http.inc.php');
 // ]]>
 </script>
 <?php
-echo PMA_includeJS('jquery/jquery-1.6.1.js');
+echo PMA_includeJS('jquery/jquery-1.6.2.js');
 echo PMA_includeJS('update-location.js');
 echo PMA_includeJS('common.js');
 ?>

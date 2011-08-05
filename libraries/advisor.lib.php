@@ -1,20 +1,21 @@
 <?php
 
-class Advisor {
+class Advisor
+{
     var $variables;
     var $parseResult;
     var $runResult;
-    
-    function run() {        
+
+    function run() {
         // HowTo: A simple Advisory system in 3 easy steps.
-        
+
         // Step 1: Get some variables to evaluate on
         $this->variables = array_merge(PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1), PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1));
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
         // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
         $this->runRules();
-        
+
       /*  echo '<br/><hr>';
         echo 'Total rules: '.count($this->parseResult['rules']).' <br><br>';
         echo '<b>Possible performance issues</b><br/>';
@@ -29,7 +30,7 @@ class Advisor {
         foreach($this->runResult['notfired'] as $rule) {
             echo $rule['name'].'<br />';
         }
-        
+
         if($this->runResult['errors'])
             echo 'There were errors while testing the rules.';
           */
@@ -38,11 +39,11 @@ class Advisor {
 
     function runRules() {
         $this->runResult = array( 'fired' => array(), 'notfired' => array(), 'unchecked'=> array(), 'errors' => array() );
-        
+
         foreach($this->parseResult['rules'] as $rule) {
             $this->variables['value'] = 0;
             $precond = true;
-            
+
             if(isset($rule['precondition'])) {
                 try {
                      $precond = $this->ruleExprEvaluate($rule['precondition']);
@@ -51,7 +52,7 @@ class Advisor {
                     continue;
                 }
             }
-            
+
             if(! $precond)
                 $this->addRule('unchecked', $rule);
             else {
@@ -61,9 +62,9 @@ class Advisor {
                     $this->runResult['errors'][] = 'Failed calculating value for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                     continue;
                 }
-                
+
                 $this->variables['value'] = $value;
-                
+
                 try {
                     if($this->ruleExprEvaluate($rule['test']))
                         $this->addRule('fired', $rule);
@@ -73,10 +74,10 @@ class Advisor {
                 }
             }
         }
-        
+
         return true;
     }
-    
+
     function addRule($type, $rule) {
         switch($type) {
             case 'notfired':
@@ -90,12 +91,12 @@ class Advisor {
                             $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                             return;
                         }
-                        
+
                         $rule['justification'] = $str;
                     }
                     break;
         }
-        
+
         $this->runResult[$type][] = $rule;
     }
 
@@ -106,9 +107,8 @@ class Advisor {
             $exprIgnore = substr($expr,0,$ignoreUntil);
             $expr = substr($expr,$ignoreUntil);
         }
-		$old=$expr;
         $expr = preg_replace('/fired\s*\(\s*(\'|")(.*)\1\s*\)/Uie','1',$expr); //isset($this->runResult[\'fired\']
-        $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? (!is_numeric($this->variables[\'\1\']) ? \'"\'.$this->variables[\'\1\'].\'"\' : $this->variables[\'\1\']) : \'\1\'', $expr); 
+        $expr = preg_replace('/\b(\w+)\b/e','isset($this->variables[\'\1\']) ? (!is_numeric($this->variables[\'\1\']) ? \'"\'.$this->variables[\'\1\'].\'"\' : $this->variables[\'\1\']) : \'\1\'', $expr);
         if($ignoreUntil > 0){
             $expr = $exprIgnore . $expr;
         }
@@ -131,7 +131,7 @@ class Advisor {
         $numLines = count($file);
         $j = -1;
         $ruleLine = -1;
-        
+
         for ($i = 0; $i<$numLines; $i++) {
             $line = $file[$i];
             if($line[0] == '#' || $line[0] == "\n") continue;
@@ -151,7 +151,7 @@ class Advisor {
             } else {
                 if($ruleLine == -1) $errors[] = 'Unexpected characters on line '.($i+1);
             }
-            
+
             // Reading rule lines
             if($ruleLine > 0) {
                 if(!isset($line[0])) continue; // Empty lines are ok
@@ -165,33 +165,34 @@ class Advisor {
                 $ruleLine = -1;
             }
         }
-        
+
         return array('rules' => $rules, 'errors' => $errors);
     }
 }
 
-function PMA_bytime($num, $precision) {
+function PMA_bytime($num, $precision)
+{
     $per = '';
     if ($num >= 1) { # per second
         $per = "per second";
-    } 
+    }
     elseif ($num*60 >= 1) { # per minute
         $num = $num*60;
         $per = "per minute";
-    } 
+    }
     elseif ($num*60*60 >=1 ) { # per hour
         $num = $num*60*60;
         $per = "per hour";
-    } 
+    }
     else {
         $num = $num*60*60*24;
         $per = "per day";
     }
-    
+
     $num = round($num, $precision);
-    
+
     if($num == 0) $num = '<'.pow(10,-$precision);
-    
+
     return "$num $per";
 }
 

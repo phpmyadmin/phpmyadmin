@@ -11,7 +11,8 @@
  */
 require_once 'libraries/core.lib.php';
 
-class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase{
+class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase
+{
     protected $goto_whitelist = array(
         'db_create.php',
         'db_datadict.php',

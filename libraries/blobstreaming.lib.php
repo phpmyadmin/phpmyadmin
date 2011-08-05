@@ -247,15 +247,25 @@ function PMA_BS_GetVariables()
     return $BS_Variables;
 }
 
-//========================
-//========================
+/**
+ * Retrieves and shows PBMS error.
+ *
+ * @return nothing
+ */
 function PMA_BS_ReportPBMSError($msg)
 {
     $tmp_err = pbms_error();
     PMA_showMessage(__('PBMS error') . " $msg $tmp_err");
 }
 
-//------------
+/**
+ * Tries to connect to PBMS server.
+ *
+ * @param string $db_name Database name
+ * @param bool   $quiet   Whether to report errors
+ *
+ * @return bool Connection status.
+ */
 function PMA_do_connect($db_name, $quiet)
 {
     $PMA_Config = $GLOBALS['PMA_Config'];
@@ -285,17 +295,24 @@ function PMA_do_connect($db_name, $quiet)
     return true;
 }
 
-//------------
+/**
+ * Disconnects from PBMS server.
+ *
+ * @return nothing
+ */
 function PMA_do_disconnect()
 {
     pbms_close();
 }
 
-//------------
 /**
- * checks whether the BLOB reference looks valid
+ * Checks whether the BLOB reference looks valid
  *
-*/
+ * @param string $bs_reference BLOB reference
+ * @param string $db_name Database name
+ *
+ * @return bool True on success.
+ */
 function PMA_BS_IsPBMSReference($bs_reference, $db_name)
 {
     if (PMA_cacheGet('skip_blobstreaming', true)) {
@@ -331,7 +348,7 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     $content_type = pbms_get_metadata_value("Content-Type");
     if ($content_type == false) {
         $br = trim($bs_reference);
-        PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink('$br', '$db_name'): " . __('get BLOB Content-Type failed'));
+        PMA_BS_ReportPBMSError("PMA_BS_CreateReferenceLink('$br', '$db_name'): " . __('PBMS get BLOB Content-Type failed'));
     }
 
     PMA_do_disconnect();
@@ -376,11 +393,12 @@ function PMA_BS_CreateReferenceLink($bs_reference, $db_name)
     return $output;
 }
 
-//------------
-// In the future there may be server variables to turn on/off PBMS
-// BLOB streaming on a per table or database basis. So in anticipation of this
-// PMA_BS_IsTablePBMSEnabled() passes in the table and database name even though
-// they are not currently needed.
+/**
+ * In the future there may be server variables to turn on/off PBMS
+ * BLOB streaming on a per table or database basis. So in anticipation of this
+ * PMA_BS_IsTablePBMSEnabled() passes in the table and database name even though
+ * they are not currently needed.
+ */
 function PMA_BS_IsTablePBMSEnabled($db_name, $tbl_name, $tbl_type)
 {
     if (PMA_cacheGet('skip_blobstreaming', true)) {

@@ -31,7 +31,8 @@ $AUTH_MAP = array(
 /**
  * Simple function to show HTML page with given content.
  */
-function show_page($contents) {
+function show_page($contents)
+{
     header('Content-Type: text/html; charset=utf-8');
     echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     ?>

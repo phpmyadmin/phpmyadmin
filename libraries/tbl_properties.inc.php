@@ -676,7 +676,8 @@ if ($display_type == 'horizontal') {
 // <![CDATA[
 var odd_row = <?php echo $odd_row; ?>;
 
-function addField() {
+function addField()
+{
     var new_fields = document.getElementById('added_fields').value;
     var new_field_container = document.getElementById('table_columns');
     var new_field = '<?php echo preg_replace('|\s+|', ' ', preg_replace('|\'|', '\\\'', $new_field)); ?>';

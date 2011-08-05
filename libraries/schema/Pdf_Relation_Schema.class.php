@@ -71,12 +71,17 @@ class PMA_PDF extends TCPDF
         parent::_putpages();
     }
 
-    // added because tcpdf for PHP 5 has a protected $buffer
+    /**
+     * Getter for protected buffer.
+     */
     public function getBuffer()
     {
         return $this->buffer;
     }
 
+    /**
+     * Getter for protected state.
+     */
     public function getState()
     {
         return $this->state;
@@ -230,9 +235,11 @@ class PMA_PDF extends TCPDF
         }
     }
 
+    /**
+     * This function must be named "Footer" to work with the TCPDF library
+     */
     function Footer()
     {
-        // This function must be named "Footer" to work with the TCPDF library
         global $with_doc;
         if ($with_doc) {
             $this->SetY(-15);
@@ -243,9 +250,11 @@ class PMA_PDF extends TCPDF
         }
     }
 
+    /**
+     * Add a bookmark
+     */
     function Bookmark($txt, $level = 0, $y = 0, $page = '')
     {
-        // Add a bookmark
         $this->Outlines[0][] = $level;
         $this->Outlines[1][] = $txt;
         $this->Outlines[2][] = $this->page;
@@ -379,9 +388,11 @@ class PMA_PDF extends TCPDF
         $this->Ln($h);
     }
 
+    /**
+     * Compute number of lines used by a multicell of width w
+     */
     function NbLines($w, $txt)
     {
-        // compute number of lines used by a multicell of width w
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;

@@ -6,7 +6,6 @@
  * @package phpMyAdmin-test
  */
 require_once 'libraries/common.lib.php';
-require_once 'libraries/data_mysql.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 /*
@@ -18,6 +17,11 @@ class PMA_RTN_getEditorForm_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
+        global $cfg;
+
+        $cfg['ShowFunctionFields'] = false;
+        require 'libraries/data_mysql.inc.php';
+
         if (! function_exists('PMA_generateCharsetDropdownBox')) {
             function PMA_generateCharsetDropdownBox() {}
         }

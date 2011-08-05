@@ -13,7 +13,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return array
  */
-function PMA_getColumnOrder() {
+function PMA_getColumnOrder()
+{
 
     $column_order['DEFAULT_COLLATION_NAME'] = array(
             'disp_name' => __('Collation'),
@@ -70,7 +71,8 @@ function PMA_getColumnOrder() {
  *
  * @return array $column_order, $out
  */
-function PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query, $column_order, $replication_types, $replication_info) {
+function PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query, $column_order, $replication_types, $replication_info)
+{
 
     $out = '';
     if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {

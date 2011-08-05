@@ -248,15 +248,15 @@ if (isset($plugin_list)) {
         }
 
         $schema_insert = '<tr class="print-category">';
-        $schema_insert .= '<th class="print">' . htmlspecialchars(__('Column')) . '</th>';
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Type')) . '</b></td>';
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Null')) . '</b></td>';
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Default')) . '</b></td>';
+        $schema_insert .= '<th class="print">' . __('Column') . '</th>';
+        $schema_insert .= '<td class="print"><b>' . __('Type') . '</b></td>';
+        $schema_insert .= '<td class="print"><b>' . __('Null') . '</b></td>';
+        $schema_insert .= '<td class="print"><b>' . __('Default') . '</b></td>';
         if ($do_relation && $have_rel) {
-            $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Links to')) . '</b></td>';
+            $schema_insert .= '<td class="print"><b>' . __('Links to') . '</b></td>';
         }
         if ($do_comments) {
-            $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Comments')) . '</b></td>';
+            $schema_insert .= '<td class="print"><b>' . __('Comments') . '</b></td>';
             $comments = PMA_getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
@@ -298,7 +298,7 @@ if (isset($plugin_list)) {
             }
             $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
             $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-            $schema_insert .= '<td class="print">' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
+            $schema_insert .= '<td class="print">' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
             $schema_insert .= '<td class="print">' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '') . '</td>';
 
             $field_name = $column['Field'];

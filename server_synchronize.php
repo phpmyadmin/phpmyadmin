@@ -1109,7 +1109,7 @@ if (isset($_REQUEST['synchronize_db'])) {
             $value .= '||||';
             $value .= $tmp_server['only_db'];
             echo '<option value="' . $value . '" >'
-                . htmlspecialchars(sprintf(__('Configuration: %s'), $label)) . '</option>';
+                . sprintf(__('Configuration: %s'), htmlspecialchars($label)) . '</option>';
         } // end foreach
 ?>
          </select>

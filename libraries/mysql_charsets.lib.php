@@ -148,7 +148,8 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
     return $return_str;
 }
 
-function PMA_generateCharsetQueryPart($collation) {
+function PMA_generateCharsetQueryPart($collation)
+{
     if (!PMA_DRIZZLE) {
         list($charset) = explode('_', $collation);
         return ' CHARACTER SET ' . $charset . ($charset == $collation ? '' : ' COLLATE ' . $collation);
@@ -163,7 +164,8 @@ function PMA_generateCharsetQueryPart($collation) {
  * @param string  $db     name of db
  * @return  string  collation of $db
  */
-function PMA_getDbCollation($db) {
+function PMA_getDbCollation($db)
+{
     if (strtolower($db) == 'information_schema' || (PMA_DRIZZLE && strtolower($db) == 'data_dictionary')) {
         // We don't have to check the collation of the virtual
         // information_schema database: We know it!
@@ -191,7 +193,8 @@ function PMA_getDbCollation($db) {
  *
  * @return  string  $server_collation
  */
-function PMA_getServerCollation() {
+function PMA_getServerCollation()
+{
     return PMA_DBI_fetch_value(
         'SHOW VARIABLES LIKE \'collation_server\'', 0, 1);
 }
@@ -203,7 +206,8 @@ function PMA_getServerCollation() {
  * @param string  $collation  MySQL collation string
  * @return  string  collation description
  */
-function PMA_getCollationDescr($collation) {
+function PMA_getCollationDescr($collation)
+{
     if ($collation == 'binary') {
         return __('Binary');
     }
