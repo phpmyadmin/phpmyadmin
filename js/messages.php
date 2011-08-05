@@ -183,6 +183,18 @@ $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It does
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
 $js_messages['strImport'] = __('Import');
 
+/* Server status advisor */
+
+$js_messages['strAdvisorSystem'] = __('Advisor system');
+$js_messages['strPerformanceIssues'] = __('Possible performance issues');
+$js_messages['strIssuse'] = __('Issue');
+$js_messages['strRecommendation'] = __('Recommendation');
+$js_messages['strRuleDetails'] = __('Rule details');
+$js_messages['strJustification'] = __('Justification');
+$js_messages['strFormula'] = __('Used variable / formula');
+$js_messages['strTest'] = __('Test');
+
+
 /* For inline query editing */
 $js_messages['strGo'] = __('Go');
 $js_messages['strCancel'] = __('Cancel');

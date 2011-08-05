@@ -312,7 +312,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     }
     
     if(isset($_REQUEST['advisor'])) {
-        include('libraries/advisor.lib.php');
+        include('libraries/advisor.class.php');
         $advisor = new Advisor();
         exit(json_encode($advisor->run()));
     }
@@ -758,17 +758,14 @@ echo __('Runtime Information');
         </div>
         
         <div id="statustabs_advisor">
-            <p><a href="#startAnalyzer">Start analyzer</a> | <a href="#openAdvisorInstructions">Instructions</a></p>
-            <div class="tabInnerContent">
+            <div class="tabLinks">
+                <img src="themes/dot.gif" class="icon ic_play" alt="" /> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
+                <img src="themes/dot.gif" class="icon ic_b_help" alt="" /> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
+            </div>
+            <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. 
-        Do note however that this system provides recommendations based on fairly simple calculations and by rule of thumb and 
-        may not necessarily work for your system.
-        Prior to changing any of the configuration, be sure to know what you are changing and how to undo the change. Wrong tuning
-        can have a very negative effect on performance.
-        The best way to tune the system would be to change only one setting at a time, observe or benchmark your database, and 
-        undo the change if there was no clearly measurable improvement.'); ?>
+            <?php echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables. <p>Do note however that this system provides recommendations based on fairly simple calculations and by rule of thumb and may not necessarily work for your system.</p> <p>Prior to changing any of the configuration, be sure to know what you are changing and how to undo the change. Wrong tuning can have a very negative effect on performance.</p> <p>The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.</p>'); ?>
             </div>
         </div>
     </div>
@@ -1381,7 +1378,7 @@ function printVariablesTable() {
 function printMonitor() {
     global $server_status, $server_db_isLocal;
 ?>
-    <div class="monitorLinks">
+    <div class="tabLinks">
         <a href="#pauseCharts">
             <img src="themes/dot.gif" class="icon ic_play" alt="" />
             <?php echo __('Start Monitor'); ?>

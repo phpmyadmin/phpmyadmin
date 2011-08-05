@@ -1415,8 +1415,9 @@ table#chartGrid div.monitorChart {
     background: #EBEBEB;
 }
 
-div#statustabs_charting div.monitorLinks {
+div#serverstatus div.tabLinks {
     float:<?php echo $left; ?>;
+    padding-bottom: 10px;
 }
 
 .popupContent {

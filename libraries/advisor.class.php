@@ -1,4 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * A simple rules engine, that parses and executes the rules in advisory_rules.txt. Adjusted to phpMyAdmin 
+ *
+ *
+ * @package phpMyAdmin
+ */
 
 class Advisor {
     var $variables;
@@ -9,35 +16,25 @@ class Advisor {
         // HowTo: A simple Advisory system in 3 easy steps.
 
         // Step 1: Get some variables to evaluate on
-        $this->variables = array_merge(PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1), PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1));
+        $this->variables = array_merge(
+            PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1), 
+            PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
+        );
         // Step 2: Read and parse the list of rules
         $this->parseResult = $this->parseRulesFile();
         // Step 3: Feed the variables to the rules and let them fire. Sets $runResult
         $this->runRules();
 
-      /*  echo '<br/><hr>';
-        echo 'Total rules: '.count($this->parseResult['rules']).' <br><br>';
-        echo '<b>Possible performance issues</b><br/>';
-        foreach($this->runResult['fired'] as $rule) {
-            echo $rule['issue'].'<br />';
-        }
-        echo '<br/><b>Rules not checked due to unmet preconditions</b><br/>';
-        foreach($this->runResult['unchecked'] as $rule) {
-            echo $rule['name'].'<br />';
-        }
-        echo '<br/><b>Rules that didn\'t fire</b><br/>';
-        foreach($this->runResult['notfired'] as $rule) {
-            echo $rule['name'].'<br />';
-        }
-
-        if($this->runResult['errors'])
-            echo 'There were errors while testing the rules.';
-          */
-        return $this->runResult;
+        return array('parse' => array('errors' => $this->parseResult['errors']), 'run' => $this->runResult);
     }
 
     function runRules() {
-        $this->runResult = array( 'fired' => array(), 'notfired' => array(), 'unchecked'=> array(), 'errors' => array() );
+        $this->runResult = array( 
+            'fired' => array(),
+            'notfired' => array(),
+            'unchecked'=> array(),
+            'errors' => array()
+        );
 
         foreach($this->parseResult['rules'] as $rule) {
             $this->variables['value'] = 0;
@@ -77,6 +74,7 @@ class Advisor {
         return true;
     }
 
+    // Adds a rule to the result list
     function addRule($type, $rule) {
         switch($type) {
             case 'notfired':
@@ -85,7 +83,10 @@ class Advisor {
                     if(count($jst) > 1) {
                         $jst[0] = preg_replace('/%( |,|\.|$)/','%%\1',$jst[0]);
                         try {
-                            $str = $this->ruleExprEvaluate('sprintf("'.$jst[0].'",'.$jst[1].')',strlen('sprintf("'.$jst[0].'"'));
+                            $str = $this->ruleExprEvaluate(
+                                'sprintf("'.$jst[0].'",'.$jst[1].')',
+                                strlen('sprintf("'.$jst[0].'"')
+                            );
                         } catch (Exception $e) {
                             $this->runResult['errors'][] = 'Failed formattingstring for rule \''.$rule['name'].'\'. PHP threw following error: '.$e->getMessage();
                             return;
@@ -120,7 +121,8 @@ class Advisor {
         if($err) throw new Exception(strip_tags($err) . '<br />Executed code: $value = '.$expr.';');
         return $value;
     }
-
+    
+    // Reads the rule file into an array, throwing errors messages on syntax errors
     function parseRulesFile() {
         $file = file('libraries/advisory_rules.txt');
         $errors = array();
@@ -137,9 +139,12 @@ class Advisor {
 
             // Reading new rule
             if(substr($line, 0, 4) == 'rule') {
-                if($ruleLine > 0) { $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ; continue; }
-                $ruleLine = 1;
+                if($ruleLine > 0) { 
+                    $errors[] = 'Invalid rule declaration on line '.($i+1). ', expected line '.$ruleSyntax[$ruleLine++].' of previous rule' ; 
+                    continue; 
+                }
                 if(preg_match("/rule\s'(.*)'( \[(.*)\])?$/",$line,$match)) {
+                    $ruleLine = 1;
                     $j++;
                     $rules[$j] = array( 'name' => $match[1]);
                     if(isset($match[3])) $rules[$j]['precondition'] = $match[3];
