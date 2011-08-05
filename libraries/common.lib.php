@@ -2278,9 +2278,9 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
  * Generates and echoes an HTML checkbox
  *
  * @param string  $html_field_name the checkbox HTML field
- * @param string  $label
- * @param boolean $checked is it initially checked?
- * @param boolean $onclick should it submit the form on click?
+ * @param string  $label           label for checkbox
+ * @param boolean $checked         is it initially checked?
+ * @param boolean $onclick         should it submit the form on click?
  */
 function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
 {
@@ -2292,11 +2292,11 @@ function PMA_display_html_checkbox($html_field_name, $label, $checked, $onclick)
  * Generates and echoes a set of radio HTML fields
  *
  * @param string  $html_field_name the radio HTML field
- * @param array   $choices the choices values and labels
- * @param string  $checked_choice the choice to check by default
- * @param boolean $line_break whether to add an HTML line break after a choice
- * @param boolean $escape_label whether to use htmlspecialchars() on label
- * @param string  $class enclose each choice with a div of this class
+ * @param array   $choices         the choices values and labels
+ * @param string  $checked_choice  the choice to check by default
+ * @param boolean $line_break      whether to add an HTML line break after a choice
+ * @param boolean $escape_label    whether to use htmlspecialchars() on label
+ * @param string  $class           enclose each choice with a div of this class
  */
 function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '', $line_break = true, $escape_label = true, $class='')
 {
