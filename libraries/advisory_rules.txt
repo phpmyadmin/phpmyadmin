@@ -191,7 +191,7 @@ rule 'rate of joins without indexes'
 	(Select_range_check + Select_scan + Select_full_join) / Uptime
 	value * 60 * 60 > 1
 	There are too many joins without indexes.
-	This means that joins are doing full table scans. Adding indexes for the fields being used in the join conditions will greatly speed up the table joins
+	This means that joins are doing full table scans. Adding indexes for the fields being used in the join conditions will greatly speed up table joins
 	Table joins average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
 
 rule 'rate of reading first index entry'

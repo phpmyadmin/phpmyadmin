@@ -29,7 +29,6 @@ var codemirror_editor = false;
  */
 var chart_activeTimeouts = new Object();
 
-
 /**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)

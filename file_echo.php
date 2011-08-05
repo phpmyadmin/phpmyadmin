@@ -9,6 +9,7 @@
 
 require_once './libraries/common.inc.php';
 
+/* For chart exporting */
 if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     $allowed = array(
         'image/png'     => 'png',
@@ -53,10 +54,15 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     /* Send data */
     echo $data;
 
+/* For monitor chart config export */
 } else if (isset($_REQUEST['monitorconfig'])) {
     PMA_download_header('monitor.cfg', 'application/force-download');
     echo urldecode($_REQUEST['monitorconfig']);
+
+/* For monitor chart config import */
 } else if (isset($_REQUEST['import'])) {
-    echo '<html><body>' . file_get_contents($_FILES['file']['tmp_name']) . '</body></html>';
+    header('Content-type: text/plain');
+    if(!file_exists($_FILES['file']['tmp_name'])) exit();
+    echo file_get_contents($_FILES['file']['tmp_name']);
 }
 ?>
