@@ -10196,9 +10196,8 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:229
-#, fuzzy
 msgid "Load"
-msgstr "Local"
+msgstr "로드"
 
 #: setup/frames/index.inc.php:240
 #, fuzzy
