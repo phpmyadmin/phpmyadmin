@@ -9,7 +9,8 @@
 
 require_once 'libraries/core.lib.php';
 
-class PMA_securePath extends PHPUnit_Framework_TestCase{
+class PMA_securePath extends PHPUnit_Framework_TestCase
+{
     public function testReplaceDots(){
         $this->assertEquals(PMA_securePath('../../../etc/passwd'), './././etc/passwd');
         $this->assertEquals(PMA_securePath('/var/www/../phpmyadmin'), '/var/www/./phpmyadmin');

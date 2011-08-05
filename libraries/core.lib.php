@@ -239,7 +239,8 @@ function PMA_fatalError($error_message, $message_args = null)
  *
  * @access  public
  */
-function PMA_getPHPDocLink($target) {
+function PMA_getPHPDocLink($target)
+{
     /* l10n: Language to use for PHP documentation, please use only languages which do exist in official documentation. */
     $lang = _pgettext('PHP documentation language', 'en');
 
@@ -463,7 +464,8 @@ function PMA_checkPageValidity(&$page, $whitelist)
  * @param string  $var_name   variable name
  * @return  string  value of $var or empty string
  */
-function PMA_getenv($var_name) {
+function PMA_getenv($var_name)
+{
     if (isset($_SERVER[$var_name])) {
         return $_SERVER[$var_name];
     } elseif (isset($_ENV[$var_name])) {
@@ -569,7 +571,8 @@ function PMA_no_cache_header()
  *
  * @return nothing
  */
-function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true) {
+function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true)
+{
     if ($no_cache) {
         PMA_no_cache_header();
     }
@@ -675,7 +678,8 @@ function PMA_array_remove($path, &$array)
  *
  * @return string URL for a link.
  */
-function PMA_linkURL($url) {
+function PMA_linkURL($url)
+{
     if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
         return $url;
     } else {
@@ -692,7 +696,8 @@ function PMA_linkURL($url) {
  *
  * @return string HTML code for javascript inclusion.
  */
-function PMA_includeJS($url) {
+function PMA_includeJS($url)
+{
     if (strpos($url, '?') === false) {
         return '<script src="./js/' . $url . '?ts=' . filemtime('./js/' . $url) . '" type="text/javascript"></script>' . "\n";
     } else {

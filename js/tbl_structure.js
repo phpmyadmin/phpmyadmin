@@ -341,7 +341,7 @@ $(document).ready(function() {
     **/
     $("#addColumns.ajax input[value=Go]").live('click', function(event){
         event.preventDefault();
-        
+
         /*Remove the hidden dialogs if there are*/
         if ($('#add_columns').length != 0) {
             $('#add_columns').remove();
@@ -349,7 +349,7 @@ $(document).ready(function() {
         var $div = $('<div id="add_columns"></div>');
 
         var $form = $("#addColumns");
-        
+
         /**
          *  @var    button_options  Object that stores the options passed to jQueryUI
          *                          dialog
@@ -389,7 +389,7 @@ $(document).ready(function() {
                 //Remove the top menu container from the dialog
                 .find("#topmenucontainer").hide()
                 ; // end dialog options
-                
+
                 $div = $("#add_columns");
                 /*changed the z-index of the enum editor to allow the edit*/
                 $("#enum_editor").css("z-index", "1100");
@@ -399,7 +399,7 @@ $(document).ready(function() {
         }) // end $.get()
     });
 
-    
+
 
 }) // end $(document).ready()
 
@@ -411,7 +411,8 @@ $(document).ready(function() {
  * @param   string    $url    Variable which parses the data for the
  *                             post action
  */
-function changeColumns(action,url) {
+function changeColumns(action,url)
+{
     /*Remove the hidden dialogs if there are*/
     if ($('#change_column_dialog').length != 0) {
         $('#change_column_dialog').remove();

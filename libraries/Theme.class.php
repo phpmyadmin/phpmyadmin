@@ -16,7 +16,8 @@
  *
  * @package phpMyAdmin
  */
-class PMA_Theme {
+class PMA_Theme
+{
     /**
      * @var string theme version
      * @access  protected

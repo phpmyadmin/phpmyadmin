@@ -28,12 +28,12 @@ require_once './libraries/Index.class.php';
  *     the "display printable view" option.
  *     Of course '0'/'1' means the feature won't/will be enabled.
  *
- * @param string  &$the_disp_mode  the synthetic value for display_mode (see a few
- *                                   lines above for explanations)
- * @param integer  &$the_total  the total number of rows returned by the SQL query
- *                               without any programmatically appended "LIMIT" clause
- *                               (just a copy of $unlim_num_rows if it exists, else
- *                               computed inside this function)
+ * @param string  &$the_disp_mode the synthetic value for display_mode (see a few
+ *                                lines above for explanations)
+ * @param integer &$the_total     the total number of rows returned by the SQL query
+ *                                without any programmatically appended "LIMIT" clause
+ *                                (just a copy of $unlim_num_rows if it exists, else
+ *                                computed inside this function)
  *
  * @return  array    an array with explicit indexes for all the display
  *                   elements
@@ -80,7 +80,9 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['bkm_form']  = (string) '0';
             $do_display['text_btn']  = (string) '0';
             $do_display['pview_lnk'] = (string) '0';
-        } elseif ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
+        } elseif ($GLOBALS['is_count'] || $GLOBALS['is_analyse']
+            || $GLOBALS['is_maint'] || $GLOBALS['is_explain']
+            ) {
             // 2.1 Statement is a "SELECT COUNT", a
             //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
             //     contains a "PROC ANALYSE" part
@@ -131,7 +133,8 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
                             || $do_display['ins_row'] != '0');
                 // 2.3.2 Displays edit/delete/sort/insert links?
                 if ($is_link
-                    && ($fields_meta[$i]->table == '' || $fields_meta[$i]->table != $prev_table)) {
+                    && ($fields_meta[$i]->table == '' || $fields_meta[$i]->table != $prev_table)
+                    ) {
                     $do_display['edit_lnk'] = 'nn'; // don't display links
                     $do_display['del_lnk']  = 'nn';
                     /**
@@ -203,7 +206,6 @@ function PMA_isSelect()
 /**
  * Displays a navigation button
  *
- *
  * @param string  $caption            iconic caption for button
  * @param string  $title              text for button
  * @param integer $pos                position for next query
@@ -211,6 +213,8 @@ function PMA_isSelect()
  * @param string  $onsubmit           optional onsubmit clause
  * @param string  $input_for_real_end optional hidden field for special treatment
  * @param string  $onclick            optional onclick clause
+ *
+ * @return nothing
  *
  * @global string   $db             the database name
  * @global string   $table          the table name
@@ -220,7 +224,8 @@ function PMA_isSelect()
  *
  * @see     PMA_displayTableNavigation()
  */
-function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_query, $onsubmit = '', $input_for_real_end = '', $onclick = '') {
+function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_query, $onsubmit = '', $input_for_real_end = '', $onclick = '')
+{
 
     global $db, $table, $goto;
 
@@ -255,6 +260,8 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
  * @param integer $pos_prev                  the offset for the "previous" page
  * @param string  $sql_query                 the URL-encoded query
  * @param string  $id_for_direction_dropdown the id for the direction dropdown
+ *
+ * @return nothing
  *
  * @global  string   $db             the database name
  * @global  string   $table          the table name
@@ -463,10 +470,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query, $id_for_di
 /**
  * Displays the headers of the results table
  *
- * @param array    which elements to display
- * @param array    the list of fields properties
- * @param integer  the total number of fields returned by the SQL query
- * @param array    the analyzed query
+ * @param array   &$is_display                 which elements to display
+ * @param array   &$fields_meta                the list of fields properties
+ * @param integer $fields_cnt                  the total number of fields returned by the SQL query
+ * @param array   $analyzed_sql                the analyzed query
+ * @param string  $sort_expression             sort expression
+ * @param string  $sort_expression_nodirection sort expression without direction
+ * @param string  $sort_direction              sort direction
  *
  * @return  boolean  $clause_is_unique
  *
@@ -1065,25 +1075,27 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 /**
  * Prepares the display for a value
  *
- * @param string  $class
- * @param string  $condition_field
- * @param string  $value
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
+ * @param string $value           value to display
  *
  * @return  string  the td
  */
-function PMA_buildValueDisplay($class, $condition_field, $value) {
+function PMA_buildValueDisplay($class, $condition_field, $value)
+{
     return '<td align="left"' . ' class="' . $class . ($condition_field ? ' condition' : '') . '">' . $value . '</td>';
 }
 
 /**
  * Prepares the display for a null value
  *
- * @param string  $class
- * @param string  $condition_field
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
  *
  * @return  string  the td
  */
-function PMA_buildNullDisplay($class, $condition_field) {
+function PMA_buildNullDisplay($class, $condition_field)
+{
     // the null class is needed for inline editing
     return '<td align="right"' . ' class="' . $class . ($condition_field ? ' condition' : '') . ' null"><i>NULL</i></td>';
 }
@@ -1091,13 +1103,15 @@ function PMA_buildNullDisplay($class, $condition_field) {
 /**
  * Prepares the display for an empty value
  *
- * @param string  $class
- * @param string  $condition_field
- * @param string  $align
+ * @param string $class           class of table cell
+ * @param bool   $condition_field whether to add CSS class condition
+ * @param object $meta            the meta-information about this field
+ * @param string $align           cell allignment
  *
  * @return  string  the td
  */
-function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '') {
+function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '')
+{
     $nowrap = ' nowrap';
     return '<td ' . $align . ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap)  . '"></td>';
 }
@@ -1105,17 +1119,18 @@ function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '') {
 /**
  * Adds the relavant classes.
  *
- * @param string $class
- * @param string $condition_field
- * @param object $meta   the meta-information about this field
- * @param string $nowrap
- * @param bool $is_field_truncated
- * @param string $transform_function
- * @param string $default_function
+ * @param string $class              class of table cell
+ * @param bool   $condition_field    whether to add CSS class condition
+ * @param object $meta               the meta-information about this field
+ * @param string $nowrap             avoid wrapping
+ * @param bool   $is_field_truncated is field truncated (display ...)
+ * @param string $transform_function transformation function
+ * @param string $default_function   default transformation function
  *
  * @return string the list of classes
  */
-function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated = false, $transform_function = '', $default_function = '') {
+function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated = false, $transform_function = '', $default_function = '')
+{
     // Define classes to be added to this data field based on the type of data
     $enum_class = '';
     if (strpos($meta->flags, 'enum') !== false) {
@@ -1147,31 +1162,32 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_trunca
 /**
  * Displays the body of the results table
  *
- * @param integer  the link id associated to the query which results have
- *                   to be displayed
- * @param array    which elements to display
- * @param array    the list of relations
- * @param array    the analyzed query
+ * @param integer &$dt_result   the link id associated to the query which results have
+ *                              to be displayed
+ * @param array   &$is_display  which elements to display
+ * @param array   $map          the list of relations
+ * @param array   $analyzed_sql the analyzed query
  *
  * @return  boolean  always true
  *
- * @global  string   $db                the database name
- * @global  string   $table             the table name
- * @global  string   $goto              the URL to go back in case of errors
- * @global  string   $sql_query         the SQL query
- * @global  array    $fields_meta       the list of fields properties
- * @global  integer  $fields_cnt        the total number of fields returned by
+ * @global string   $db                the database name
+ * @global string   $table             the table name
+ * @global string   $goto              the URL to go back in case of errors
+ * @global string   $sql_query         the SQL query
+ * @global array    $fields_meta       the list of fields properties
+ * @global integer  $fields_cnt        the total number of fields returned by
  *                                      the SQL query
- * @global  array    $vertical_display  informations used with vertical display
+ * @global array    $vertical_display  informations used with vertical display
  *                                      mode
- * @global  array    $highlight_columns column names to highlight
- * @global  array    $row               current row data
+ * @global array    $highlight_columns column names to highlight
+ * @global array    $row               current row data
  *
- * @access  private
+ * @access private
  *
  * @see     PMA_displayTable()
  */
-function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql) {
+function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
+{
     global $db, $table, $goto;
     global $sql_query, $fields_meta, $fields_cnt;
     global $vertical_display, $highlight_columns;
@@ -2385,7 +2401,8 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     }
 } // end of the 'PMA_displayTable()' function
 
-function default_function($buffer) {
+function default_function($buffer)
+{
     $buffer = htmlspecialchars($buffer);
     $buffer = str_replace("\011", ' &nbsp;&nbsp;&nbsp;',
         str_replace('  ', ' &nbsp;', $buffer));
@@ -2413,7 +2430,8 @@ function default_function($buffer) {
  *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
  *          PMA_displayTableBody(), PMA_displayResultsOperations()
  */
-function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
+function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
+{
     global $db, $table, $sql_query, $unlim_num_rows, $fields_meta;
 
     $header_shown = false;
@@ -2540,15 +2558,16 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql) {
  * Verifies what to do with non-printable contents (binary or BLOB)
  * in Browse mode.
  *
- * @param string  $category BLOB|BINARY|GEOMETRY
- * @param string  $content  the binary content
- * @param string  $transform_function
- * @param string  $transform_options
- * @param string  $default_function
- * @param object  $meta   the meta-information about this field
+ * @param string $category           BLOB|BINARY|GEOMETRY
+ * @param string $content            the binary content
+ * @param string $transform_function transformation function
+ * @param string $transform_options  transformation parameters
+ * @param string $default_function   default transformation function
+ * @param object $meta               the meta-information about this field
  * @return  mixed  string or float
  */
-function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array()) {
+function PMA_handle_non_printable_contents($category, $content, $transform_function, $transform_options, $default_function, $meta, $url_params = array())
+{
     $result = '[' . $category;
     if (is_null($content)) {
         $result .= ' - NULL';
@@ -2585,20 +2604,21 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
  * Prepares the displayable content of a data cell in Browse mode,
  * taking into account foreign key description field and transformations
  *
- * @param string  $class
- * @param string  $condition_field
- * @param string  $analyzed_sql
- * @param object  $meta   the meta-information about this field
- * @param string  $map
- * @param string  $data
- * @param string  $transform_function
- * @param string  $default_function
- * @param string  $nowrap
- * @param string  $where_comparison
- * @param bool    $is_field_truncated
+ * @param string $class
+ * @param string $condition_field
+ * @param string $analyzed_sql
+ * @param object $meta   the meta-information about this field
+ * @param string $map
+ * @param string $data
+ * @param string $transform_function
+ * @param string $default_function
+ * @param string $nowrap
+ * @param string $where_comparison
+ * @param bool   $is_field_truncated
  * @return  string  formatted data
  */
-function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated ) {
+function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $map, $data, $transform_function, $default_function, $nowrap, $where_comparison, $transform_options, $is_field_truncated )
+{
 
     $result = ' class="' . PMA_addClass($class, $condition_field, $meta, $nowrap, $is_field_truncated, $transform_function, $default_function) . '">';
 
@@ -2686,17 +2706,18 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 /**
  * Generates a checkbox for multi-row submits
  *
- * @param string  $del_url
- * @param array   $is_display
- * @param string  $row_no
- * @param string  $where_clause_html
- * @param string  $del_query
- * @param string  $id_suffix
- * @param string  $class
+ * @param string $del_url
+ * @param array  $is_display
+ * @param string $row_no
+ * @param string $where_clause_html
+ * @param string $del_query
+ * @param string $id_suffix
+ * @param string $class
  * @return  string  the generated HTML
  */
 
-function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix, $class) {
+function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_clause_html, $del_query, $id_suffix, $class)
+{
     $ret = '';
     if (! empty($del_url) && $is_display['del_lnk'] != 'kp') {
         $ret .= '<td ';
@@ -2715,14 +2736,15 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no, $where_cla
 /**
  * Generates an Edit link
  *
- * @param string  $edit_url
- * @param string  $class
- * @param string  $edit_str
- * @param string  $where_clause
- * @param string  $where_clause_html
+ * @param string $edit_url
+ * @param string $class
+ * @param string $edit_str
+ * @param string $where_clause
+ * @param string $where_clause_html
  * @return  string  the generated HTML
  */
-function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html) {
+function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $where_clause_html)
+{
     $ret = '';
     if (! empty($edit_url)) {
         $ret .= '<td class="' . $class . '" align="center" ' . ' ><span class="nowrap">'
@@ -2742,13 +2764,14 @@ function PMA_generateEditLink($edit_url, $class, $edit_str, $where_clause, $wher
 /**
  * Generates an Copy link
  *
- * @param string  $copy_url
- * @param string  $copy_str
- * @param string  $where_clause
- * @param string  $where_clause_html
+ * @param string $copy_url
+ * @param string $copy_str
+ * @param string $where_clause
+ * @param string $where_clause_html
  * @return  string  the generated HTML
  */
-function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class) {
+function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause_html, $class)
+{
     $ret = '';
     if (! empty($copy_url)) {
         $ret .= '<td ';
@@ -2772,13 +2795,14 @@ function PMA_generateCopyLink($copy_url, $copy_str, $where_clause, $where_clause
 /**
  * Generates a Delete link
  *
- * @param string  $del_url
- * @param string  $del_str
- * @param string  $js_conf
- * @param string  $class
+ * @param string $del_url
+ * @param string $del_str
+ * @param string $js_conf
+ * @param string $class
  * @return  string  the generated HTML
  */
-function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
+function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class)
+{
     $ret = '';
     if (! empty($del_url)) {
         $ret .= '<td ';
@@ -2796,23 +2820,24 @@ function PMA_generateDeleteLink($del_url, $del_str, $js_conf, $class) {
  * Generates checkbox and links at some position (left or right)
  * (only called for horizontal mode)
  *
- * @param string  $position
- * @param string  $del_url
- * @param array   $is_display
- * @param string  $row_no
- * @param string  $where_clause
- * @param string  $where_clause_html
- * @param string  $del_query
- * @param string  $id_suffix
- * @param string  $edit_url
- * @param string  $copy_url
- * @param string  $class
- * @param string  $edit_str
- * @param string  $del_str
- * @param string  $js_conf
+ * @param string $position
+ * @param string $del_url
+ * @param array  $is_display
+ * @param string $row_no
+ * @param string $where_clause
+ * @param string $where_clause_html
+ * @param string $del_query
+ * @param string $id_suffix
+ * @param string $edit_url
+ * @param string $copy_url
+ * @param string $class
+ * @param string $edit_str
+ * @param string $del_str
+ * @param string $js_conf
  * @return  string  the generated HTML
  */
-function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf) {
+function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no, $where_clause, $where_clause_html, $del_query, $id_suffix, $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf)
+{
     $ret = '';
 
     if ($position == 'left') {
