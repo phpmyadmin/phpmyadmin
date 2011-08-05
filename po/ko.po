@@ -10032,7 +10032,7 @@ msgstr "컬럼 뒤에"
 
 #: server_synchronize.php:407 server_synchronize.php:833
 msgid "Remove index(s)"
-msgstr ""
+msgstr "인덱스 제거"
 
 #: server_synchronize.php:408 server_synchronize.php:834
 msgid "Apply index(s)"
