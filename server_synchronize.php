@@ -1083,7 +1083,7 @@ if (isset($_REQUEST['synchronize_db'])) {
         echo '>' .  __('Current connection') . '</option>';
 
         foreach ($GLOBALS['cfg']['Servers'] as $key => $tmp_server) {
-            if (empty($tmp_server['host'])) {
+            if (empty($tmp_server['host']) && empty($tmp_server['socket'])) {
                 continue;
             }
 
