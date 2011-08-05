@@ -1155,10 +1155,9 @@ msgid "Average load"
 msgstr "Průměrné zatížení"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "Operační paměť"
+msgstr "Celková paměť"
 
 #: js/messages.php:102
 #, fuzzy
