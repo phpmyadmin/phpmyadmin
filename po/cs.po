@@ -1190,7 +1190,7 @@ msgstr "Cachovaný swap"
 
 #: js/messages.php:109
 msgid "Used Swap"
-msgstr ""
+msgstr "Využitý swap"
 
 #: js/messages.php:110
 #, fuzzy
