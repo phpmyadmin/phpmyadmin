@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:13+0200\n"
+"PO-Revision-Date: 2011-08-05 14:14+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10048,7 +10048,7 @@ msgstr "행 삽입"
 
 #: server_synchronize.php:420 server_synchronize.php:847
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "대상 테이블에서 이전 행들을 모두 삭제하시겠습니까?"
 
 #: server_synchronize.php:423 server_synchronize.php:851
 msgid "Apply Selected Changes"
