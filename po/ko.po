@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-05 14:01+0200\n"
+"PO-Revision-Date: 2011-08-05 14:03+0200\n"
 "Last-Translator: Chung-Ook Lee <hantip@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
@@ -10383,7 +10383,7 @@ msgstr "키가 너무 짧다. 8글자 이상 사용"
 
 #: setup/lib/index.lib.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자 포함"
 
 #: sql.php:95 tbl_change.php:257 tbl_select.php:28 tbl_select.php:29
 #: tbl_select.php:32 tbl_select.php:35
