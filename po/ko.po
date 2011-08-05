@@ -10181,7 +10181,7 @@ msgstr "사용자 선택"
 
 #: setup/frames/index.inc.php:207
 msgid "- none -"
-msgstr ""
+msgstr "-없음-"
 
 #: setup/frames/index.inc.php:210
 msgid "Default server"
