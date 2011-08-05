@@ -375,7 +375,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     <small><?php echo __('Tracking statements') . ' ' . $data['tracking']; ?></small><br/>
     <br/>
 
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
     <?php
 
     $str1 = '<select name="logtype">' .
@@ -493,7 +493,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     }
     ?>
     </form>
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
     <?php
     printf(__('Show %s with dates from %s to %s by user %s %s'), $str1, $str2, $str3, $str4, $str5);
 
@@ -506,7 +506,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     $str_export2 = '<input type="submit" name="report_export" value="' . __('Go') .'" />';
     ?>
     </form>
-    <form method="post" action="tbl_tracking.php?<?php echo $url_query; ?>&amp;report=true&amp;version=<?php echo $_REQUEST['version'];?>">
+    <form method="post" action="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $_REQUEST['version'])); ?>">
     <input type="hidden" name="logtype" value="<?php echo $_REQUEST['logtype'];?>" />
     <input type="hidden" name="date_from" value="<?php echo $_REQUEST['date_from'];?>" />
     <input type="hidden" name="date_to" value="<?php echo $_REQUEST['date_to'];?>" />
@@ -616,7 +616,11 @@ if ($last_version > 0) {
             <td><?php echo $version['date_created'];?></td>
             <td><?php echo $version['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td> <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;report=true&amp;version=<?php echo $version['version'];?>"><?php echo __('Tracking report');?></a> | <a href="tbl_tracking.php?<?php echo $url_query;?>&amp;snapshot=true&amp;version=<?php echo $version['version'];?>"><?php echo __('Structure snapshot');?></a></td>
+            <td> <a href="tbl_tracking.php<?php echo PMA_generate_common_url($url_params + array('report' => 'true', 'version' => $version['version'])
+);?>"><?php echo __('Tracking report');?></a> 
+                | <a href="tbl_tracking.php?<?php echo PMA_generate_common_url($url_params + array('snapshot' => 'true', 'version' => $version['version'])
+);?>"><?php echo __('Structure snapshot');?></a>
+            </td>
         </tr>
     <?php
         if ($style == 'even') {
