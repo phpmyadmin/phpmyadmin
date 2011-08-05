@@ -1451,6 +1451,7 @@ msgstr "Ovlivněné záznamy: "
 #: js/messages.php:182
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgstr ""
+"Selhalo načtení konfiguračního souboru. Pravděpodobně se nejedná o JSON."
 
 #: js/messages.php:183
 msgid ""
