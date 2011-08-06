@@ -6349,10 +6349,10 @@ msgid "Go to database"
 msgstr "Veritabanına git"
 
 #: libraries/import.lib.php:1077 libraries/import.lib.php:1101
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "%s için kayıp veri"
+msgstr "%s için ayarları düzenle"
 
 #: libraries/import.lib.php:1096
 msgid "Go to table"
