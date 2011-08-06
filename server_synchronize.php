@@ -913,7 +913,7 @@ if (isset($_REQUEST['synchronize_db'])) {
     }
     foreach ($source_tables_uncommon as $tbl_nc_name) {
         $rows[] = array(
-            'src_table_name' => '+ ' + $tbl_nc_name,
+            'src_table_name' => '+ ' . $tbl_nc_name,
             'dst_table_name' => $tbl_nc_name);
     }
     foreach ($target_tables_uncommon as $tbl_nc_name) {
