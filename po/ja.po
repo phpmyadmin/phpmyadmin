@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-06 11:59+0200\n"
+"PO-Revision-Date: 2011-08-06 12:15+0200\n"
 "Last-Translator: Yuichiro <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2287,10 +2287,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS が BLOB 情報取得に失敗しました:"
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "BLOB の Content-Type の 取得に失敗しました"
+msgstr "PBMS が BLOB の Content-Type の 取得に失敗しました"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
