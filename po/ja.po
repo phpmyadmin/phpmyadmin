@@ -1160,10 +1160,9 @@ msgid "Cached memory"
 msgstr "キャッシュ割当メモリ"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
-msgstr "バッファプール"
+msgstr "バッファ割り当てメモリ"
 
 #: js/messages.php:104
 #| msgid "System memory"
