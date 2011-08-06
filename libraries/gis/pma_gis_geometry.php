@@ -68,6 +68,17 @@ abstract class PMA_GIS_Geometry
     public abstract function scaleRow($spatial);
 
     /**
+     * Generate the WKT with the set of parameters passed by the GIS editor.
+     *
+     * @param array  $gis_data GIS data
+     * @param int    $index    Index into the parameter object
+     * @param string $empty    Value for empty points
+     *
+     * @return WKT with the set of parameters passed by the GIS editor
+     */
+    public abstract function generateWkt($gis_data, $index, $empty);
+
+    /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
      *
      * @param string $srid       Spatial reference ID
