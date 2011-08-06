@@ -10118,7 +10118,6 @@ msgid "Refresh rate"
 msgstr "Aktualisierungs-Intervall"
 
 #: server_status.php:1414
-#, fuzzy
 #| msgid "Chart columns:"
 msgid "Chart columns"
 msgstr "Schaubild-Spalten"
