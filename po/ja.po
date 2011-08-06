@@ -1157,7 +1157,7 @@ msgstr "総メモリ"
 #: js/messages.php:102
 #| msgid "System memory"
 msgid "Cached memory"
-msgstr "キャッシュ割当メモリ"
+msgstr "キャッシュ割り当てメモリ"
 
 #: js/messages.php:103
 #| msgid "Buffer Pool"
