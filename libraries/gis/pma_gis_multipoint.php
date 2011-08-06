@@ -73,11 +73,11 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             // draw a small circle to mark the point
             if ($point[0] != '' && $point[1] != '') {
                 imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+                // print label for each point
+                if (isset($label) && trim($label) != '') {
+                    imagestring($image, 2, $point[0], $point[1], trim($label), $black);
+                }
             }
-        }
-        // print label for one point, point color can group them
-        if (isset($label) && trim($label) != '') {
-            imagestring($image, 2, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
         }
         return $image;
     }
@@ -109,13 +109,13 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             // draw a small circle to mark the point
             if ($point[0] != '' && $point[1] != '') {
                 $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+                // print label for each point
+                if (isset($label) && trim($label) != '') {
+                    $pdf->SetXY($point[0], $point[1]);
+                    $pdf->SetFontSize(7);
+                    $pdf->Cell(0, 0, trim($label));
+                }
             }
-        }
-        // print label for one point, point color can group them
-        if (isset($label) && trim($label) != '') {
-            $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
-            $pdf->SetFontSize(7);
-            $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;
     }
