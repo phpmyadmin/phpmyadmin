@@ -6405,7 +6405,7 @@ msgstr "Gehe zur Tabelle"
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Nur Struktur"
+msgstr "Struktur von %s"
 
 #: libraries/import.lib.php:1105
 msgid "Go to view"
