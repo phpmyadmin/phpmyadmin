@@ -6282,10 +6282,9 @@ msgid "Stand-in structure for view"
 msgstr "Görünüm yapısı durumu"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Veri okunmasına izin verir."
+msgstr "Veri okunması hatası:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
