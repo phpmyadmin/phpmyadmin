@@ -227,15 +227,15 @@ if (isset($plugin_list)) {
         }
 
         $text_output = "|------\n";
-        $text_output .= '|' . htmlspecialchars(__('Column'));
-        $text_output .= '|' . htmlspecialchars(__('Type'));
-        $text_output .= '|' . htmlspecialchars(__('Null'));
-        $text_output .= '|' . htmlspecialchars(__('Default'));
+        $text_output .= '|' . __('Column');
+        $text_output .= '|' . __('Type');
+        $text_output .= '|' . __('Null');
+        $text_output .= '|' . __('Default');
         if ($do_relation && $have_rel) {
-            $text_output .= '|' . htmlspecialchars(__('Links to'));
+            $text_output .= '|' . __('Links to');
         }
         if ($do_comments) {
-            $text_output .= '|' . htmlspecialchars(__('Comments'));
+            $text_output .= '|' . __('Comments');
             $comments = PMA_getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
@@ -277,7 +277,7 @@ if (isset($plugin_list)) {
             }
             $text_output .= '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
             $text_output .= '|' . htmlspecialchars($type);
-            $text_output .= '|' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
+            $text_output .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
             $text_output .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
 
             $field_name = $column['Field'];

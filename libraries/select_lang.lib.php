@@ -12,7 +12,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns language name
  */
-function PMA_langName($tmplang) {
+function PMA_langName($tmplang)
+{
     $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
 
     // Include native name if non empty
@@ -182,7 +183,8 @@ function PMA_langDetect($str, $envType)
  * example.
  *
  */
-function PMA_langDetails($lang) {
+function PMA_langDetails($lang)
+{
     switch ($lang) {
         case 'af':
             return array('af|afrikaans', 'af', '');

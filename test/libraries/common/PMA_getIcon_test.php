@@ -13,7 +13,8 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_getIcon_test extends PHPUnit_Framework_TestCase{
+class PMA_getIcon_test extends PHPUnit_Framework_TestCase
+{
 
     function testGetIconWithoutPropertiesIconic(){
 

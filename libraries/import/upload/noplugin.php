@@ -16,7 +16,8 @@ $ID_KEY      = 'noplugin';
  *
  * This is implementation when no webserver support exists, so it returns just zeroes.
  */
-function PMA_getUploadStatus($id) {
+function PMA_getUploadStatus($id)
+{
     global $SESSION_KEY;
     global $ID_KEY;
 

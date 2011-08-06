@@ -1,9 +1,10 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * for tbl_relation.php 
+ * for tbl_relation.php
  *
  */
-function show_hide_clauses(thisDropdown) {
+function show_hide_clauses(thisDropdown)
+{
     // here, one span contains the label and the clause dropdown
     // and we have one span for ON DELETE and one for ON UPDATE
     //

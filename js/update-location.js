@@ -10,13 +10,14 @@ var hash_init_done = 0;
 
 /**
  * Sets hash part in URL, either calls itself in parent frame or does the
- * work itself. The hash is not set directly if we did not yet process old 
+ * work itself. The hash is not set directly if we did not yet process old
  * one.
  */
-function setURLHash(hash) {
+function setURLHash(hash)
+{
     if (jQuery.browser.webkit) {
-        /* 
-         * Setting hash leads to reload in webkit: 
+        /*
+         * Setting hash leads to reload in webkit:
          * http://www.quirksmode.org/bugreports/archives/2005/05/Safari_13_visual_anomaly_with_windowlocationhref.html
          */
         return;
