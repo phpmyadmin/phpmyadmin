@@ -82,6 +82,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
     public function prepareRowAsPng($spatial, $label, $fill_color, $scale_data, $image)
     {
         // allocate colors
+        $black = imagecolorallocate($image, 0, 0, 0);
         $red   = hexdec(substr($fill_color, 1, 2));
         $green = hexdec(substr($fill_color, 3, 2));
         $blue  = hexdec(substr($fill_color, 4, 2));
@@ -112,6 +113,10 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             }
             // draw polygon
             imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
+            // print label if applicable
+            if (isset($label) && trim($label) != '') {
+                imagestring($image, 2, $points_arr[2], $points_arr[3], trim($label), $black);
+            }
         }
         return $image;
     }
@@ -161,6 +166,12 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             }
             // draw polygon
             $pdf->Polygon($points_arr, 'F*', array(), $color, true);
+            // print label if applicable
+            if (isset($label) && trim($label) != '') {
+                $pdf->SetXY($points_arr[2], $points_arr[3]);
+                $pdf->SetFontSize(7);
+                $pdf->Cell(0, 0, trim($label));
+            }
         }
         return $pdf;
     }
