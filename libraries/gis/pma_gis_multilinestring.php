@@ -79,6 +79,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         // Seperate each linestring
         $linestirngs = explode("),(", $multilinestirng);
 
+        $first_line = true;
         foreach ($linestirngs as $linestring) {
             $points_arr = $this->extractPoints($linestring, $scale_data);
             foreach ($points_arr as $point) {
@@ -92,9 +93,10 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             }
             unset($temp_point);
             // print label if applicable
-            if (isset($label) && trim($label) != '') {
+            if (isset($label) && trim($label) != '' && $first_line) {
                 imagestring($image, 2, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
             }
+            $first_line = false;
         }
         return $image;
     }
@@ -123,6 +125,7 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
         // Seperate each linestring
         $linestirngs = explode("),(", $multilinestirng);
 
+        $first_line = true;
         foreach ($linestirngs as $linestring) {
             $points_arr = $this->extractPoints($linestring, $scale_data);
             foreach ($points_arr as $point) {
@@ -136,11 +139,12 @@ class PMA_GIS_Multilinestring extends PMA_GIS_Geometry
             }
             unset($temp_point);
             // print label
-            if (isset($label) && trim($label) != '') {
+            if (isset($label) && trim($label) != '' && $first_line) {
                 $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
                 $pdf->SetFontSize(7);
                 $pdf->Cell(0, 0, trim($label));
             }
+            $first_line = false;
         }
         return $pdf;
     }

@@ -93,6 +93,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // Seperate each polygon
         $polygons = explode(")),((", $multipolygon);
 
+        $first_poly = true;
         foreach ($polygons as $polygon) {
             // If the polygon doesnt have an inner polygon
             if (strpos($polygon, "),(") === false) {
@@ -113,10 +114,15 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             }
             // draw polygon
             imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
-            // print label if applicable
-            if (isset($label) && trim($label) != '') {
-                imagestring($image, 2, $points_arr[2], $points_arr[3], trim($label), $black);
+            // mark label point if applicable
+            if (isset($label) && trim($label) != '' && $first_poly) {
+                $label_point = array($points_arr[2], $points_arr[3]);
             }
+            $first_poly = false;
+        }
+        // print label if applicable
+        if (isset($label_point)) {
+            imagestring($image, 2, $points_arr[2], $points_arr[3], trim($label), $black);
         }
         return $image;
     }
@@ -145,6 +151,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         // Seperate each polygon
         $polygons = explode(")),((", $multipolygon);
 
+        $first_poly = true;
         foreach ($polygons as $polygon) {
             // If the polygon doesnt have an inner polygon
             if (strpos($polygon, "),(") === false) {
@@ -166,12 +173,18 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
             }
             // draw polygon
             $pdf->Polygon($points_arr, 'F*', array(), $color, true);
-            // print label if applicable
-            if (isset($label) && trim($label) != '') {
-                $pdf->SetXY($points_arr[2], $points_arr[3]);
-                $pdf->SetFontSize(7);
-                $pdf->Cell(0, 0, trim($label));
+            // mark label point if applicable
+            if (isset($label) && trim($label) != '' && $first_poly) {
+                $label_point = array($points_arr[2], $points_arr[3]);
             }
+            $first_poly = false;
+        }
+
+        // print label if applicable
+        if (isset($label_point)) {
+            $pdf->SetXY($label_point[0], $label_point[1]);
+            $pdf->SetFontSize(7);
+            $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;
     }
