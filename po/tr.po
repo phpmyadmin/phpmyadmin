@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-06 11:09+0200\n"
+"PO-Revision-Date: 2011-08-06 11:10+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -6359,10 +6359,10 @@ msgid "Go to table"
 msgstr "Tabloya git"
 
 #: libraries/import.lib.php:1099
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Sadece yapı"
+msgstr "%s yapısı"
 
 #: libraries/import.lib.php:1105
 msgid "Go to view"
