@@ -100,7 +100,7 @@ msgstr "이 값을 사용합니다"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:326
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "blob streaming 서버 설정이 되지 않았습니다!"
 
 #: bs_disp_as_mime_type.php:35
 #, fuzzy
@@ -110,7 +110,7 @@ msgstr "디스크 쓰기에 실패했습니다."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "원격 URL 열기 실패했습니다"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -118,6 +118,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s 파일은 사용할 수 없습니다. www.phpmyadmin.net에 방문하여 정보를 확인하세"
+"요."
 
 #: db_create.php:58
 #, php-format
@@ -635,13 +637,13 @@ msgstr ""
 #: db_structure.php:387 db_structure.php:401 libraries/header.inc.php:151
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:212
 msgid "View"
-msgstr ""
+msgstr "뷰"
 
 #: db_structure.php:438 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:477
 msgid "Replication"
-msgstr ""
+msgstr "복제"
 
 #: db_structure.php:442
 msgid "Sum"
@@ -10628,15 +10630,15 @@ msgstr ""
 
 #: tbl_operations.php:754
 msgid "Check"
-msgstr ""
+msgstr "검사"
 
 #: tbl_operations.php:755
 msgid "Optimize"
-msgstr ""
+msgstr "옵티마이저"
 
 #: tbl_operations.php:756
 msgid "Rebuild"
-msgstr ""
+msgstr "리빌드"
 
 #: tbl_operations.php:757
 #, fuzzy
@@ -10673,7 +10675,7 @@ msgstr "행(레코드) 통계"
 
 #: tbl_printview.php:377 tbl_structure.php:873
 msgid "static"
-msgstr ""
+msgstr "정적"
 
 #: tbl_printview.php:379 tbl_structure.php:875
 msgid "dynamic"
@@ -10704,7 +10706,7 @@ msgstr ""
 
 #: tbl_relation.php:410
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "외래키 제약"
 
 #: tbl_select.php:111
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -10738,15 +10740,15 @@ msgstr ""
 
 #: tbl_structure.php:170 tbl_structure.php:171
 msgid "Add primary key"
-msgstr ""
+msgstr "기본키 추가"
 
 #: tbl_structure.php:172 tbl_structure.php:173
 msgid "Add index"
-msgstr ""
+msgstr "인덱스 추가"
 
 #: tbl_structure.php:174 tbl_structure.php:175
 msgid "Add unique index"
-msgstr ""
+msgstr "유일 인덱스 추가"
 
 #: tbl_structure.php:176 tbl_structure.php:177
 msgid "Add SPATIAL index"
@@ -10754,7 +10756,7 @@ msgstr ""
 
 #: tbl_structure.php:178 tbl_structure.php:179
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "FULLTEXT 인덱스 추가"
 
 #: tbl_structure.php:391
 #, fuzzy
@@ -10845,7 +10847,7 @@ msgstr ""
 
 #: tbl_tracking.php:208
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL 문장 실행됨"
 
 #: tbl_tracking.php:214
 msgid ""
@@ -10916,11 +10918,11 @@ msgstr ""
 
 #: tbl_tracking.php:558
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL 덤프(파일 다운로드)"
 
 #: tbl_tracking.php:559
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL 덤프"
 
 #: tbl_tracking.php:560
 msgid "This option will replace your table and contained data."
@@ -10928,7 +10930,7 @@ msgstr ""
 
 #: tbl_tracking.php:560
 msgid "SQL execution"
-msgstr ""
+msgstr "SQL 실행"
 
 #: tbl_tracking.php:572
 #, php-format
@@ -10937,7 +10939,7 @@ msgstr ""
 
 #: tbl_tracking.php:612
 msgid "Show versions"
-msgstr ""
+msgstr "버전 보기"
 
 #: tbl_tracking.php:644
 #, fuzzy
@@ -10951,7 +10953,7 @@ msgstr ""
 
 #: tbl_tracking.php:694
 msgid "Deactivate now"
-msgstr ""
+msgstr "지금 비활성화"
 
 #: tbl_tracking.php:705
 #, php-format
@@ -10960,7 +10962,7 @@ msgstr ""
 
 #: tbl_tracking.php:707
 msgid "Activate now"
-msgstr ""
+msgstr "지금 활성화"
 
 #: tbl_tracking.php:720
 #, php-format
@@ -10989,7 +10991,7 @@ msgstr ""
 
 #: themes.php:41
 msgid "Get more themes!"
-msgstr ""
+msgstr "더 많은 테마들!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -11020,7 +11022,7 @@ msgstr "프로파일을 업데이트했습니다."
 
 #: view_create.php:141
 msgid "VIEW name"
-msgstr ""
+msgstr "뷰 이름"
 
 #: view_operations.php:91
 #, fuzzy
