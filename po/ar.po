@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-07 03:47+0200\n"
+"PO-Revision-Date: 2011-08-07 03:48+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1324,7 +1324,7 @@ msgstr "تعطيل %s"
 #: js/messages.php:146
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "تعيين long_query_time بـ %ds"
 
 #: js/messages.php:147
 msgid ""
