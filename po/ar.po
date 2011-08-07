@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-07 03:38+0200\n"
+"PO-Revision-Date: 2011-08-07 03:39+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1154,10 +1154,9 @@ msgid "Average load"
 msgstr "متوسط التحميل"
 
 #: js/messages.php:101
-#, fuzzy
 #| msgid "System memory"
 msgid "Total memory"
-msgstr "ذاكرة النظام"
+msgstr "إجمالي الذاكرة"
 
 #: js/messages.php:102
 #, fuzzy
