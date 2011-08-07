@@ -1199,7 +1199,7 @@ msgstr "صفحات حرة"
 
 #: js/messages.php:112
 msgid "Bytes sent"
-msgstr ""
+msgstr "بايتات أُرسلت"
 
 #: js/messages.php:113
 #, fuzzy
