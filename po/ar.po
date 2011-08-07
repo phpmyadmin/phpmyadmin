@@ -1229,10 +1229,9 @@ msgid "Remove chart"
 msgstr "حذف الرسم البياني"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Edit labels and series"
 msgid "Edit title and labels"
-msgstr "حذف العناوين والسلاسل"
+msgstr "تحرير العناوين"
 
 #: js/messages.php:123
 msgid "Add chart to grid"
