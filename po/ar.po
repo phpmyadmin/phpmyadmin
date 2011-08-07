@@ -1335,10 +1335,9 @@ msgstr ""
 "البيانات."
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
-msgstr "المزايا العامّة للرابط"
+msgstr "تغيير الإعدادات"
 
 #: js/messages.php:149
 #, fuzzy
