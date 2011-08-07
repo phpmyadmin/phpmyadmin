@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-07 03:49+0200\n"
+"PO-Revision-Date: 2011-08-07 03:50+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1352,10 +1352,9 @@ msgstr "استورد الملفات"
 
 #. l10n: As in differential values
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "فرق"
+msgstr "الفارق"
 
 #: js/messages.php:154
 #, php-format
