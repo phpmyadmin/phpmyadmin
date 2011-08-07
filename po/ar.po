@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-07 03:50+0200\n"
+"PO-Revision-Date: 2011-08-07 03:51+0200\n"
 "Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
 "Language-Team: arabic <ar@li.org>\n"
 "Language: ar\n"
@@ -1392,10 +1392,9 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "قفز لقاعدة البيانات"
+msgstr "قفز لجدول التسجيل"
 
 #: js/messages.php:164
 msgid "Log analysed, but no data found in this time span."
