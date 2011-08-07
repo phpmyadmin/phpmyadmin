@@ -1359,7 +1359,7 @@ msgstr "الفارق"
 #: js/messages.php:154
 #, php-format
 msgid "Divided by %s:"
-msgstr ""
+msgstr "مقسوم على %s :"
 
 #: js/messages.php:156
 msgid "From slow log"
