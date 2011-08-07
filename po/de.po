@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2011-08-05 10:53+0200\n"
-"PO-Revision-Date: 2011-08-07 22:25+0200\n"
+"PO-Revision-Date: 2011-08-07 22:26+0200\n"
 "Last-Translator: Sven Strickroth <email@cs-ware.de>\n"
 "Language-Team: german <de@li.org>\n"
 "Language: de\n"
@@ -1442,7 +1442,6 @@ msgid "Loading logs"
 msgstr "Lade Protokolle"
 
 #: js/messages.php:176
-#, fuzzy
 msgid "Monitor refresh failed"
 msgstr "Aktualisierung der Überwachung fehlgeschlagen"
 
