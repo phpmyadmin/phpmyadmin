@@ -2311,10 +2311,9 @@ msgid "PBMS get BLOB info failed:"
 msgstr "PBMS: Infos über BLOB nicht erhalten:"
 
 #: libraries/blobstreaming.lib.php:332
-#, fuzzy
 #| msgid "get BLOB Content-Type failed"
 msgid "PBMS get BLOB Content-Type failed"
-msgstr "PBMS konnte den BLOB Content-Typs nicht bestimmen"
+msgstr "PBMS konnte den Content-Typ des BLOBs nicht bestimmen"
 
 #: libraries/blobstreaming.lib.php:358
 msgid "View image"
