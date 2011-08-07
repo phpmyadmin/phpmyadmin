@@ -359,7 +359,7 @@ if (!$is_information_schema) {
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <fieldset>
         <legend>
-        <?php echo PMA_getIcon('b_comment.png', __('Database comment: '), false, true); ?>
+        <?php echo PMA_getIcon('b_comment.png', __('Database comment: '), true); ?>
         </legend>
         <input type="text" name="comment" class="textfield" size="30"
             value="<?php

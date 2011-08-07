@@ -13,7 +13,8 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase{
+class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase
+{
 
     function setup()
     {
@@ -24,23 +25,23 @@ class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase{
     function testBuildActionTitles(){
         $titles = array();
 
-        $titles['Browse']     = PMA_getIcon('b_browse.png', __('Browse'), true);
-        $titles['NoBrowse']   = PMA_getIcon('bd_browse.png', __('Browse'), true);
-        $titles['Search']     = PMA_getIcon('b_select.png', __('Search'), true);
-        $titles['NoSearch']   = PMA_getIcon('bd_select.png', __('Search'), true);
-        $titles['Insert']     = PMA_getIcon('b_insrow.png', __('Insert'), true);
-        $titles['NoInsert']   = PMA_getIcon('bd_insrow.png', __('Insert'), true);
-        $titles['Structure']  = PMA_getIcon('b_props.png', __('Structure'), true);
-        $titles['Drop']       = PMA_getIcon('b_drop.png', __('Drop'), true);
-        $titles['NoDrop']     = PMA_getIcon('bd_drop.png', __('Drop'), true);
-        $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'), true);
-        $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'), true);
-        $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'), true);
-        $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'), true);
-        $titles['Export']     = PMA_getIcon('b_export.png', __('Export'), true);
-        $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'), true);
-        $titles['Execute']    = PMA_getIcon('b_nextpage.png', __('Execute'), true);
-        $titles['NoExecute']  = PMA_getIcon('bd_nextpage.png', __('Execute'), true);
+        $titles['Browse']     = PMA_getIcon('b_browse.png', __('Browse'));
+        $titles['NoBrowse']   = PMA_getIcon('bd_browse.png', __('Browse'));
+        $titles['Search']     = PMA_getIcon('b_select.png', __('Search'));
+        $titles['NoSearch']   = PMA_getIcon('bd_select.png', __('Search'));
+        $titles['Insert']     = PMA_getIcon('b_insrow.png', __('Insert'));
+        $titles['NoInsert']   = PMA_getIcon('bd_insrow.png', __('Insert'));
+        $titles['Structure']  = PMA_getIcon('b_props.png', __('Structure'));
+        $titles['Drop']       = PMA_getIcon('b_drop.png', __('Drop'));
+        $titles['NoDrop']     = PMA_getIcon('bd_drop.png', __('Drop'));
+        $titles['Empty']      = PMA_getIcon('b_empty.png', __('Empty'));
+        $titles['NoEmpty']    = PMA_getIcon('bd_empty.png', __('Empty'));
+        $titles['Edit']       = PMA_getIcon('b_edit.png', __('Edit'));
+        $titles['NoEdit']     = PMA_getIcon('bd_edit.png', __('Edit'));
+        $titles['Export']     = PMA_getIcon('b_export.png', __('Export'));
+        $titles['NoExport']   = PMA_getIcon('bd_export.png', __('Export'));
+        $titles['Execute']    = PMA_getIcon('b_nextpage.png', __('Execute'));
+        $titles['NoExecute']  = PMA_getIcon('bd_nextpage.png', __('Execute'));
 
         $this->assertEquals($titles, PMA_buildActionTitles());
 

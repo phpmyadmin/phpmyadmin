@@ -24,7 +24,8 @@
  *
  * @param jQuery object     $this_anchor
  */
-function PMA_adjustTotals($this_anchor) {
+function PMA_adjustTotals($this_anchor)
+{
     var $parent_tr = $this_anchor.closest('tr');
     var $rows_td = $parent_tr.find('.tbl_rows');
     var $size_td = $parent_tr.find('.tbl_size');

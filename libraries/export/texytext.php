@@ -227,15 +227,15 @@ if (isset($plugin_list)) {
         }
 
         $text_output = "|------\n";
-        $text_output .= '|' . htmlspecialchars(__('Column'));
-        $text_output .= '|' . htmlspecialchars(__('Type'));
-        $text_output .= '|' . htmlspecialchars(__('Null'));
-        $text_output .= '|' . htmlspecialchars(__('Default'));
+        $text_output .= '|' . __('Column');
+        $text_output .= '|' . __('Type');
+        $text_output .= '|' . __('Null');
+        $text_output .= '|' . __('Default');
         if ($do_relation && $have_rel) {
-            $text_output .= '|' . htmlspecialchars(__('Links to'));
+            $text_output .= '|' . __('Links to');
         }
         if ($do_comments) {
-            $text_output .= '|' . htmlspecialchars(__('Comments'));
+            $text_output .= '|' . __('Comments');
             $comments = PMA_getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
@@ -252,40 +252,13 @@ if (isset($plugin_list)) {
         foreach ($columns as $column) {
 
             $text_output = '';
-            $type             = $column['Type'];
-            // reformat mysql query output
-            // set or enum types: slashes single quotes inside options
-            if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
-                $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
-                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                $type_nowrap  = '';
 
-                $binary       = 0;
-                $unsigned     = 0;
-                $zerofill     = 0;
-            } else {
-                $type_nowrap  = ' nowrap="nowrap"';
-                $type         = preg_replace('/BINARY/i', '', $type);
-                $type         = preg_replace('/ZEROFILL/i', '', $type);
-                $type         = preg_replace('/UNSIGNED/i', '', $type);
-                if (empty($type)) {
-                    $type     = '&nbsp;';
-                }
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = $extracted_fieldspec['print_type'];
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
 
-                $binary       = preg_match('/BINARY/i', $column['Type']);
-                $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
-                $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
-            }
-            $attribute     = '&nbsp;';
-            if ($binary) {
-                $attribute = 'BINARY';
-            }
-            if ($unsigned) {
-                $attribute = 'UNSIGNED';
-            }
-            if ($zerofill) {
-                $attribute = 'UNSIGNED ZEROFILL';
-            }
             if (! isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';
@@ -304,7 +277,7 @@ if (isset($plugin_list)) {
             }
             $text_output .= '|' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post;
             $text_output .= '|' . htmlspecialchars($type);
-            $text_output .= '|' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
+            $text_output .= '|' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes'));
             $text_output .= '|' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '');
 
             $field_name = $column['Field'];

@@ -18,7 +18,8 @@
  *
  * @access  public
  */
-function PMA_auth() {
+function PMA_auth()
+{
     unset($_SESSION['LAST_SIGNON_URL']);
     if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
         PMA_fatalError('You must set SignonURL!');

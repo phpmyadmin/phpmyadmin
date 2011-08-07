@@ -19,7 +19,8 @@ var query_to_load = '';
  *
  * @param    string    db name
  */
-function setDb(new_db) {
+function setDb(new_db)
+{
     //alert('setDb(' + new_db + ')');
     if (new_db != db) {
         // db has changed
@@ -51,7 +52,8 @@ function setDb(new_db) {
  *
  * @param    string    table name
  */
-function setTable(new_table) {
+function setTable(new_table)
+{
     //alert('setTable(' + new_table + ')');
     if (new_table != table) {
         // table has changed
@@ -86,7 +88,8 @@ function setTable(new_table) {
  * @uses    encodeURIComponent()
  * @param    string    url    name of page to be loaded
  */
-function refreshMain(url) {
+function refreshMain(url)
+{
     if (! url) {
         if (db) {
             url = opendb_url;
@@ -115,12 +118,13 @@ function refreshMain(url) {
  * @uses     lang
  * @uses    collation_connection
  * @uses    encodeURIComponent()
- * @param    boolean    force   force reloading 
+ * @param    boolean    force   force reloading
  */
-function refreshNavigation(force) {
+function refreshNavigation(force)
+{
     // The goTo() function won't refresh in case the target
     // url is the same as the url given as parameter, but sometimes
-    // we want to refresh anyway. 
+    // we want to refresh anyway.
     if (typeof force != undefined && force && window.parent && window.parent.frame_navigation) {
         window.parent.frame_navigation.location.reload();
     } else {
@@ -174,7 +178,8 @@ function markDbTable(db, table)
 /**
  * sets current selected server, table and db (called from libraries/footer.inc.php)
  */
-function setAll( new_lang, new_collation_connection, new_server, new_db, new_table, new_token ) {
+function setAll( new_lang, new_collation_connection, new_server, new_db, new_table, new_token )
+{
     //alert('setAll( ' + new_lang + ', ' + new_collation_connection + ', ' + new_server + ', ' + new_db + ', ' + new_table + ', ' + new_token + ' )');
     if (new_server != server || new_lang != lang
       || new_collation_connection != collation_connection) {
@@ -257,7 +262,8 @@ function focus_querywindow(sql_query)
  * inserts query string into query window textarea
  * called from script tag in querywindow
  */
-function insertQuery() {
+function insertQuery()
+{
     if (query_to_load != '' && querywindow.document && querywindow.document.getElementById && querywindow.document.getElementById('sqlquery')) {
         querywindow.document.getElementById('sqlquery').value = query_to_load;
         query_to_load = '';
@@ -266,7 +272,8 @@ function insertQuery() {
     return false;
 }
 
-function open_querywindow( url ) {
+function open_querywindow( url )
+{
     if ( ! url ) {
         url = 'querywindow.php?' + common_query + '&db=' + encodeURIComponent(db) + '&table=' + encodeURIComponent(table);
     }
@@ -293,7 +300,8 @@ function open_querywindow( url ) {
     return true;
 }
 
-function refreshQuerywindow( url ) {
+function refreshQuerywindow( url )
+{
 
     if ( ! querywindow.closed && querywindow.location ) {
         if ( ! querywindow.document.sqlform.LockFromUpdate
@@ -310,7 +318,8 @@ function refreshQuerywindow( url ) {
  * @param    string    targeturl    new url to load
  * @param    string    target       frame where to load the new url
  */
-function goTo(targeturl, target) {
+function goTo(targeturl, target)
+{
     //alert(targeturl);
     if ( target == 'main' ) {
         target = window.frame_content;
@@ -339,7 +348,8 @@ function goTo(targeturl, target) {
 }
 
 // opens selected db in main frame
-function openDb(new_db) {
+function openDb(new_db)
+{
     //alert('opendb(' +  new_db + ')');
     setDb(new_db);
     setTable('');
@@ -347,7 +357,8 @@ function openDb(new_db) {
     return true;
 }
 
-function updateTableTitle( table_link_id, new_title ) {
+function updateTableTitle( table_link_id, new_title )
+{
     //alert('updateTableTitle');
     if ( window.parent.frame_navigation.document && window.parent.frame_navigation.document.getElementById(table_link_id) ) {
         var left = window.parent.frame_navigation.document;

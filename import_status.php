@@ -9,8 +9,7 @@ require_once './libraries/common.inc.php';
 require_once './libraries/display_import_ajax.lib.php';
 
 // AJAX requests can't be cached!
-header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-header("Expires: Sat, 11 Jan 1991 06:30:00 GMT"); // Date in the past
+PMA_no_cache_header();
 
 // $GLOBALS["message"] is used for asking for an import message
 if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {

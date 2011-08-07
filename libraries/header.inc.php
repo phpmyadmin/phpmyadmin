@@ -18,7 +18,8 @@ require_once './libraries/RecentTable.class.php';
  * @param string $db Database name where the table is located.
  * @param string $table The table name
  */
-function PMA_addRecentTable($db, $table) {
+function PMA_addRecentTable($db, $table)
+{
     $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
     if ($tmp_result === true) {
         echo '<span class="hide" id="update_recent_tables"></span>';

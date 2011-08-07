@@ -105,7 +105,7 @@ if (0 == $tbl_result_cnt) {
 
 // The tables list gets from MySQL
 while (list($tbl) = PMA_DBI_fetch_row($tbl_result)) {
-    $fld_results = PMA_DBI_get_columns($db, $tbl, true);
+    $fld_results = PMA_DBI_get_columns($db, $tbl);
 
     if (empty($tbl_names[$tbl]) && !empty($_REQUEST['TableList'])) {
         $tbl_names[$tbl] = '';
@@ -183,7 +183,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 ?>
 <div id="visual_builder_anchor" class="notice hide">
     <span id="footnote_1">
-<?php echo __('Switch to') . ' <a href="' . $tab_designer['link'] . PMA_get_arg_separator('html') . 'query=1">' . __('visual builder') . '</a>'; ?>
+<?php printf(__('Switch to %svisual builder%s'), ' <a href="' . $tab_designer['link'] . PMA_get_arg_separator('html') . 'query=1">', '</a>'); ?>
     </span>
 </div>
 <?php

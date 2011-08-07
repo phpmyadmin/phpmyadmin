@@ -248,15 +248,15 @@ if (isset($plugin_list)) {
         }
 
         $schema_insert = '<tr class="print-category">';
-        $schema_insert .= '<th class="print">' . htmlspecialchars(__('Column')) . '</th>';
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Type')) . '</b></td>';
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Null')) . '</b></td>';
-        $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Default')) . '</b></td>';
+        $schema_insert .= '<th class="print">' . __('Column') . '</th>';
+        $schema_insert .= '<td class="print"><b>' . __('Type') . '</b></td>';
+        $schema_insert .= '<td class="print"><b>' . __('Null') . '</b></td>';
+        $schema_insert .= '<td class="print"><b>' . __('Default') . '</b></td>';
         if ($do_relation && $have_rel) {
-            $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Links to')) . '</b></td>';
+            $schema_insert .= '<td class="print"><b>' . __('Links to') . '</b></td>';
         }
         if ($do_comments) {
-            $schema_insert .= '<td class="print"><b>' . htmlspecialchars(__('Comments')) . '</b></td>';
+            $schema_insert .= '<td class="print"><b>' . __('Comments') . '</b></td>';
             $comments = PMA_getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
@@ -273,40 +273,13 @@ if (isset($plugin_list)) {
         foreach ($columns as $column) {
 
             $schema_insert = '<tr class="print-category">';
-            $type          = $column['Type'];
-            // reformat mysql query output
-            // set or enum types: slashes single quotes inside options
-            if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
-                $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
-                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                $type_nowrap  = '';
 
-                $binary       = 0;
-                $unsigned     = 0;
-                $zerofill     = 0;
-            } else {
-                $type_nowrap  = ' nowrap="nowrap"';
-                $type         = preg_replace('/BINARY/i', '', $type);
-                $type         = preg_replace('/ZEROFILL/i', '', $type);
-                $type         = preg_replace('/UNSIGNED/i', '', $type);
-                if (empty($type)) {
-                    $type     = '&nbsp;';
-                }
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
 
-                $binary       = preg_match('/BINARY/i', $column['Type']);
-                $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
-                $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
-            }
-            $attribute     = '&nbsp;';
-            if ($binary) {
-                $attribute = 'BINARY';
-            }
-            if ($unsigned) {
-                $attribute = 'UNSIGNED';
-            }
-            if ($zerofill) {
-                $attribute = 'UNSIGNED ZEROFILL';
-            }
             if (! isset($column['Default'])) {
                 if ($column['Null'] != 'NO') {
                     $column['Default'] = 'NULL';
@@ -325,7 +298,7 @@ if (isset($plugin_list)) {
             }
             $schema_insert .= '<td class="print">' . $fmt_pre . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
             $schema_insert .= '<td class="print">' . htmlspecialchars($type) . '</td>';
-            $schema_insert .= '<td class="print">' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
+            $schema_insert .= '<td class="print">' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</td>';
             $schema_insert .= '<td class="print">' . htmlspecialchars(isset($column['Default']) ? $column['Default'] : '') . '</td>';
 
             $field_name = $column['Field'];

@@ -72,9 +72,9 @@ function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $sele
 }
 
 /**
- * Split a string on backquote pairs 
+ * Split a string on backquote pairs
  *
- * @param string  original string 
+ * @param string  original string
  * @return  array   containing the elements (and their surrounding backquotes)
  *
  * @access  public
@@ -97,7 +97,7 @@ function PMA_backquote_split($text)
         }
         $elements[] = substr($text, $first_backquote, $second_backquote - $first_backquote + 1);
         $pos = $second_backquote + 1;
-    } 
+    }
     return($elements);
 }
 
@@ -376,7 +376,7 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
          && isset($curr_table[1])
          && strtoupper($curr_table[1]) == $tbl_type) {
              // explicitely ask for non-quoted list of indexed columns
-             // need to obtain backquoted values to support dots inside values 
+             // need to obtain backquoted values to support dots inside values
              $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns($backquoted = true));
         }
     } // end while over tables
@@ -384,10 +384,10 @@ if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_type)) {
 
 // Now find out the columns of our $table
 // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
-$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
+$columns = PMA_DBI_get_columns($db, $table);
 
-if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
-    while ($row = PMA_DBI_fetch_assoc($col_rs)) {
+if (count($columns) > 0) {
+    foreach($columns as $row) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
@@ -506,9 +506,9 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             </span>
             <span class="formelement">
                 <?php
-                // For ON DELETE and ON UPDATE, the default action 
+                // For ON DELETE and ON UPDATE, the default action
                 // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
-                // won't display the clause if it's set as RESTRICT. 
+                // won't display the clause if it's set as RESTRICT.
                 PMA_generate_dropdown('ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,

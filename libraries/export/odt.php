@@ -106,7 +106,7 @@ if (isset($plugin_list)) {
      * @access  public
      */
     function PMA_exportDBHeader($db) {
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . htmlspecialchars(__('Database') . ' ' . $db) . '</text:h>';
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1" text:is-list-header="true">' . __('Database') . ' ' . htmlspecialchars($db) . '</text:h>';
         return true;
     }
 
@@ -158,7 +158,7 @@ if (isset($plugin_list)) {
             $field_flags[$j] = PMA_DBI_field_flags($result, $j);
         }
 
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars(__('Dumping data for table') . ' ' . $table) . '</text:h>';
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . __('Dumping data for table') . ' ' . htmlspecialchars($table) . '</text:h>';
         $GLOBALS['odt_buffer'] .= '<table:table table:name="' . htmlspecialchars($table) . '_structure">';
         $GLOBALS['odt_buffer'] .= '<table:table-column table:number-columns-repeated="' . $fields_cnt . '"/>';
 
@@ -232,7 +232,7 @@ if (isset($plugin_list)) {
         global $cfgRelation;
 
         /* Heading */
-        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . htmlspecialchars(__('Table structure for table') . ' ' . $table) . '</text:h>';
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">' . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';
 
         /**
          * Get the unique keys in the table
@@ -285,31 +285,31 @@ if (isset($plugin_list)) {
         /* Header */
         $GLOBALS['odt_buffer'] .= '<table:table-row>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(__('Column')) . '</text:p>'
+            . '<text:p>' . __('Column') . '</text:p>'
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(__('Type')) . '</text:p>'
+            . '<text:p>' . __('Type') . '</text:p>'
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(__('Null')) . '</text:p>'
+            . '<text:p>' . __('Null') . '</text:p>'
             . '</table:table-cell>';
         $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-            . '<text:p>' . htmlspecialchars(__('Default')) . '</text:p>'
+            . '<text:p>' . __('Default') . '</text:p>'
             . '</table:table-cell>';
         if ($do_relation && $have_rel) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars(__('Links to')) . '</text:p>'
+                . '<text:p>' . __('Links to') . '</text:p>'
                 . '</table:table-cell>';
         }
         if ($do_comments) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars(__('Comments')) . '</text:p>'
+                . '<text:p>' . __('Comments') . '</text:p>'
                 . '</table:table-cell>';
             $comments = PMA_getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars(__('MIME type')) . '</text:p>'
+                . '<text:p>' . __('MIME type') . '</text:p>'
                 . '</table:table-cell>';
             $mime_map = PMA_getMIME($db, $table, true);
         }
@@ -317,36 +317,18 @@ if (isset($plugin_list)) {
 
         $columns = PMA_DBI_get_columns($db, $table);
         foreach ($columns as $column) {
-
             $field_name = $column['Field'];
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
                 . '</table:table-cell>';
-            // reformat mysql query output
-            // set or enum types: slashes single quotes inside options
-            $type = $column['Type'];
-            if (preg_match('/^(set|enum)\((.+)\)$/i', $type, $tmp)) {
-                $tmp[2]       = substr(preg_replace('/([^,])\'\'/', '\\1\\\'', ',' . $tmp[2]), 1);
-                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                $type_nowrap  = '';
 
-                $binary       = 0;
-                $unsigned     = 0;
-                $zerofill     = 0;
-            } else {
-                $type_nowrap  = ' nowrap="nowrap"';
-                $type         = preg_replace('/BINARY/i', '', $type);
-                $type         = preg_replace('/ZEROFILL/i', '', $type);
-                $type         = preg_replace('/UNSIGNED/i', '', $type);
-                if (empty($type)) {
-                    $type     = '&nbsp;';
-                }
-
-                $binary       = preg_match('/BINARY/i', $column['Type']);
-                $unsigned     = preg_match('/UNSIGNED/i', $column['Type']);
-                $zerofill     = preg_match('/ZEROFILL/i', $column['Type']);
+            $extracted_fieldspec = PMA_extractFieldSpec($column['Type']);
+            $type = htmlspecialchars($extracted_fieldspec['print_type']);
+            if (empty($type)) {
+                $type     = '&nbsp;';
             }
+
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . htmlspecialchars($type) . '</text:p>'
                 . '</table:table-cell>';
@@ -360,7 +342,7 @@ if (isset($plugin_list)) {
                 $column['Default'] = $column['Default'];
             }
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
-                . '<text:p>' . htmlspecialchars(($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
+                . '<text:p>' . (($column['Null'] == '' || $column['Null'] == 'NO') ? __('No') : __('Yes')) . '</text:p>'
                 . '</table:table-cell>';
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'

@@ -138,7 +138,8 @@ $random_n = mt_rand(0,1000000); // a random number that will be appended to the 
  * @param string $tablename    Table name
  * @return string the escaped (if necessary) database.table
  */
-function PMA_wildcardEscapeForGrant($dbname, $tablename) {
+function PMA_wildcardEscapeForGrant($dbname, $tablename)
+{
 
     if (! strlen($dbname)) {
         $db_and_table = '*.*';

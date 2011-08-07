@@ -155,9 +155,8 @@ class PMA_VISIO extends XMLWriter
          //if(ob_get_clean()){
             //ob_end_clean();
         //}
-        header('Content-type: application/visio');
-        header('Content-Disposition: attachment; filename="'.$fileName.'.vdx"');
         $output = $this->flush();
+        PMA_download_header($fileName . '.vdx', 'application/visio', strlen($output));
         print $output;
     }
 }
