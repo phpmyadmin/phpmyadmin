@@ -44,8 +44,7 @@ foreach ($parameters as $key => $value) {
     $ini_file .= $key . '=' . $value . "\n";
 }
 
-header('Content-Type: application/webapp');
-header('Content-Disposition: attachment; filename="' . $name . '"');
+PMA_download_header($name, 'application/webapp', 0, false);
 
 $zip = new zipfile;
 $zip->setDoWrite();

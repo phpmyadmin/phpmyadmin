@@ -4,7 +4,7 @@ phpMyAdmin - ChangeLog
 3.5.0.0 (not yet released)
 + rfe #2021981 [interface] Add support for mass prefix change.
 + "up to date" message on main page when current version is up to date
-+ Update to jQuery 1.6.1
++ Update to jQuery 1.6.2
 + Patch #3256122 [search] Show/hide db search results
 + Patch #3302354 Add gettext wrappers around a message
 + Remove deprecated function PMA_DBI_get_fields
@@ -40,11 +40,14 @@ phpMyAdmin - ChangeLog
 + [interface] Improved support for triggers
 + [interface] Improved server monitoring
 + AJAX for table Structure column Add
++ AJAX for table Operations copy table
 
 3.4.5.0 (not yet released)
 - bug #3375325 [interface] Page list in navigation frame looks odd
 - bug #3313235 [interface] Error div misplaced
 - bug #3374802 [interface] Comment on a column breaks inline editing
+- bug #3383711 [display] Order by a column in a view doesn't work in some cases
+- bug #3386434 [interface] Add missing space to server status
 
 3.4.4.0 (not yet released)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes

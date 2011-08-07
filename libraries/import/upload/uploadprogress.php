@@ -15,7 +15,8 @@ $ID_KEY = "UPLOAD_IDENTIFIER";
  *
  * This is implementation for uploadprogress extension.
  */
-function PMA_getUploadStatus($id) {
+function PMA_getUploadStatus($id)
+{
     global $SESSION_KEY;
     global $ID_KEY;
 

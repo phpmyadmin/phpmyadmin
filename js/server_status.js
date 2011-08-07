@@ -218,7 +218,8 @@ $(function() {
                                     true,
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
-                            }
+                            },
+                            error: function() { serverResponseError(); }
                          }
             }
 
@@ -260,7 +261,8 @@ $(function() {
                                     true,
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
-                            }
+                            },
+                            error: function() { serverResponseError(); }
                          }
             };
 
@@ -295,7 +297,8 @@ $(function() {
                                     true,
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
                                 );
-                            }
+                            },
+                            error: function() { serverResponseError(); }
                          }
             };
         } else {
@@ -348,7 +351,7 @@ $(function() {
     });
 
     $('#filterText').keyup(function(e) {
-        word = $(this).val().replace('_',' ');
+        word = $(this).val().replace(/_/g,' ');
 
         if(word.length == 0) textFilter = null;
         else textFilter = new RegExp("(^|_)" + word,'i');
@@ -361,6 +364,11 @@ $(function() {
     $('#filterCategory').change(function() {
         categoryFilter = $(this).val();
         filterVariables();
+    });
+
+    $('input#dontFormat').change(function() {
+        $('#serverstatusvariables td.value span.original').toggle(this.checked);
+        $('#serverstatusvariables td.value span.formatted').toggle(! this.checked);
     });
 
     /* Adjust DOM / Add handlers to the tabs */
@@ -545,7 +553,55 @@ $(function() {
         return pointInfo;
     }
 
+    /**** Server config advisor ****/
 
+    $('a[href="#openAdvisorInstructions"]').click(function() {
+        $('#advisorInstructionsDialog').dialog();
+    });
+
+    $('a[href="#startAnalyzer"]').click(function() {
+        var $cnt = $('#statustabs_advisor .tabInnerContent');
+        $cnt.html('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+
+        $.get('server_status.php?'+url_query, { ajax_request: true, advisor: true },function(data) {
+            var $tbody, $tr, str, even = true;
+
+            data = $.parseJSON(data);
+            $cnt.html('<p><b>Possible performance issues</b></p>');
+            if(data.fired.length > 0) {
+                $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr><th>Issue</th><th>Recommendation</th></tr></thead><tbody></tbody></table>');
+                $tbody = $cnt.find('table#rulesFired');
+                $.each(data.fired, function(key,value) {
+                    $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' + value.issue + '</td>' +
+                                           '<td>' + value.recommendation + ' </td></tr>'));
+                    even = !even;
+
+                    $tr.data('rule',value);
+                    $tr.click(function() {
+                        var rule = $(this).data('rule');
+                        $('div#emptyDialog').attr('title','Rule details');
+                        $('div#emptyDialog').html(
+                            '<p><b>Issue:</b><br />' + rule.issue + '</p>' +
+                            '<p><b>Recommendation:</b><br />' + rule.recommendation + '</p>' +
+                            '<p><b>Justification:</b><br />' + rule.justification + '</p>' +
+                            '<p><b>Used variable / formula:</b><br />' + rule.formula + '</p>' +
+                            '<p><b>Test:</b><br />' + rule.test + '</p>'
+                        );
+                        $('div#emptyDialog').dialog({
+                            width: 600,
+                            buttons: {
+                                'Close' : function() {
+                                    $(this).dialog('close');
+                                }
+                            }
+                        });
+                    });
+                });
+            }
+        });
+
+        return false;
+    });
 
 
     /**** Monitor charting implementation ****/
@@ -555,15 +611,10 @@ $(function() {
     var newChart = null;
     var chartSpacing;
 
-    // Runtime parameter of the monitor
+    // Runtime parameter of the monitor, is being fully set in initGrid()
     var runtime = {
         // Holds all visible charts in the grid
         charts: null,
-        // Current max points per chart (needed for auto calculation)
-        gridMaxPoints: 20,
-        // displayed time frame
-        xmin: -1,
-        xmax: -1,
         // Stores the timeout handler so it can be cleared
         refreshTimeout: null,
         // Stores the GET request to refresh the charts
@@ -573,13 +624,18 @@ $(function() {
         // To play/pause the monitor
         redrawCharts: false,
         // Object that contains a list of nodes that need to be retrieved from the server for chart updates
-        dataList: []
+        dataList: [],
+        // Current max points per chart (needed for auto calculation)
+        gridMaxPoints: 20,
+        // displayed time frame
+        xmin: -1,
+        xmax: -1
     };
 
     var monitorSettings = null;
 
     var defaultMonitorSettings = {
-        columns: 4,
+        columns: 3,
         chartSize: { width: 295, height: 250 },
         // Max points in each chart. Settings it to 'auto' sets gridMaxPoints to (chartwidth - 40) / 12
         gridMaxPoints: 'auto',
@@ -593,20 +649,20 @@ $(function() {
     var presetCharts = {
         'cpu-WINNT': {
             title: PMA_messages['strSystemCPUUsage'],
-            nodes: [{ dataType: 'cpu', name: 'loadavg', unit: '%'}]
+            nodes: [{ dataType: 'cpu', name: PMA_messages['strAverageLoad'], dataPoint: 'loadavg', unit: '%'}]
         },
         'memory-WINNT': {
             title: PMA_messages['strSystemMemory'],
             nodes: [
-                { dataType: 'memory', name: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  },
+                { dataType: 'memory', name: PMA_messages['strTotalMemory'], dataPoint: 'MemTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB']  }
             ]
         },
         'swap-WINNT': {
             title: PMA_messages['strSystemSwap'],
             nodes: [
-                { dataType: 'memory', name: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapTotal', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedSwap'], dataPoint: 'SwapUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] }
             ]
         },
         'cpu-Linux': {
@@ -615,25 +671,17 @@ $(function() {
                 { dataType: 'cpu',
                   name: PMA_messages['strAverageLoad'],
                   unit: '%',
-                  transformFn: function(cur, prev) {
-                      console.log('cpu-linux chart, transformFn()');
-                      console.log(cur);
-                      console.log(prev);
-                      if(prev == null) return undefined;
-                      var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
-                      var diff_idle = cur.idle - prev.idle;
-                      return 100*(diff_total - diff_idle) / diff_total;
-                  }
+                  transformFn: 'cpu-linux'
                 }
             ]
         },
         'memory-Linux': {
             title: PMA_messages['strSystemMemory'],
             nodes: [
-                { dataType: 'memory', name: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strUsedMemory'], dataPoint: 'MemUsed', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strCachedMemory'], dataPoint: 'Cached',  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strBufferedMemory'], dataPoint: 'Buffers', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strFreeMemory'], dataPoint:'MemFree', valueDivisor: 1024, unit: PMA_messages['strMiB'] }
             ],
             settings: {
                 chart: {
@@ -650,9 +698,9 @@ $(function() {
         'swap-Linux': {
             title: PMA_messages['strSystemSwap'],
             nodes: [
-                { dataType: 'memory', name: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                { dataType: 'memory', name: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strTotalSwap'], dataPoint: 'SwapUsed',   valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strCachedSwap'], dataPoint: 'SwapCached', valueDivisor: 1024, unit: PMA_messages['strMiB'] },
+                { dataType: 'memory', name: PMA_messages['strFreeSwap'], dataPoint: 'SwapFree',   valueDivisor: 1024, unit: PMA_messages['strMiB'] }
             ],
             settings: {
                 chart: {
@@ -671,18 +719,18 @@ $(function() {
     // Default setting
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
-                 nodes: [{ dataType: 'statusvar', name: 'Questions', display: 'differential' }]
-              },
-         'c1': {
+                 nodes: [{ dataType: 'statusvar', name: PMA_messages['strQuestions'], dataPoint: 'Questions', display: 'differential' }]
+        },
+        'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
-                 nodes: [ { dataType: 'statusvar', name: 'Connections', display: 'differential' },
-                          { dataType: 'proc', name: 'Processes'} ]
-               },
-         'c2': {
+                 nodes: [ { dataType: 'statusvar', name: PMA_messages['strConnections'], dataPoint: 'Connections', display: 'differential' },
+                          { dataType: 'proc', name: PMA_messages['strProcesses'], dataPoint: 'processes'} ]
+        },
+        'c2': {
                  title: PMA_messages['strTraffic'],
                  nodes: [
-                    { dataType: 'statusvar', name: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
-                    { dataType: 'statusvar', name: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
+                    { dataType: 'statusvar', name: PMA_messages['strBytesSent'], dataPoint: 'Bytes_sent', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
+                    { dataType: 'statusvar', name: PMA_messages['strBytesReceived'], dataPoint: 'Bytes_received', display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
                  ]
          }
     };
@@ -706,7 +754,7 @@ $(function() {
             menuItems: [{
                 textKey: 'editChart',
                 onclick: function() {
-                    alert('tbi');
+                    editChart(this);
                 }
             }, {
                 textKey: 'removeChart',
@@ -746,9 +794,6 @@ $(function() {
                     height: 24
                 },
                 events: {
-                    start: function() {
-                      //  console.log('start.');
-                    },
                     // Drop event. The drag child element is moved into the drop element
                     // and vice versa. So the parameters are switched.
                     drop: function(drag, drop, pos) {
@@ -922,14 +967,14 @@ $(function() {
             saveMonitor(); // Save settings
 
             $(this).dialog("close");
-        }
+        };
 
         dlgButtons[PMA_messages['strClose']] = function() {
             newChart = null;
             $('span#clearSeriesLink').hide();
             $('#seriesPreview').html('');
             $(this).dialog("close");
-        }
+        };
 
         $('div#addChartDialog').dialog({
             width:'auto',
@@ -942,13 +987,111 @@ $(function() {
         return false;
     });
 
+    $('a[href="#exportMonitorConfig"]').click(function() {
+        var gridCopy = {};
+
+        $.each(runtime.charts, function(key, elem) {
+            gridCopy[key] = {};
+            gridCopy[key].nodes = elem.nodes;
+            gridCopy[key].settings = elem.settings;
+            gridCopy[key].title = elem.title;
+        });
+
+        var exportData = {
+            monitorCharts: gridCopy,
+            monitorSettings: monitorSettings
+        };
+        var $form;
+
+        $('body').append($form = $('<form method="post" action="file_echo.php?'+url_query+'&filename=1" style="display:none;"></form>'));
+
+        $form.append('<input type="hidden" name="monitorconfig" value="' + encodeURI($.toJSON(exportData)) + '">');
+        $form.submit();
+        $form.remove();
+    });
+
+    $('a[href="#importMonitorConfig"]').click(function() {
+        $('div#emptyDialog').attr('title','Import monitor configuration');
+        $('div#emptyDialog').html('Please select the file you want to import:<br/><form action="file_echo.php?'+url_query+'&import=1" method="post" enctype="multipart/form-data">'+
+            '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
+
+        var dlgBtns = {};
+
+        dlgBtns[PMA_messages['strImport']] = function() {
+            var $iframe, $form;
+            $('body').append($iframe = $('<iframe id="monitorConfigUpload" style="display:none;"></iframe>'));
+            var d = $iframe[0].contentWindow.document;
+            d.open(); d.close();
+            mew = d;
+
+            $iframe.load(function() {
+                var json;
+
+                // Try loading config
+                try {
+                    var data = $('body',$('iframe#monitorConfigUpload')[0].contentWindow.document).html();
+                    // Chrome wraps around '<pre style="word-wrap: break-word; white-space: pre-wrap;">' to any text content -.-
+                    json = $.secureEvalJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
+                } catch (err) {
+                    alert(PMA_messages['strFailedParsingConfig']);
+                    $('div#emptyDialog').dialog('close');
+                    return;
+                }
+
+                // Basic check, is this a monitor config json?
+                if(!json || ! json.monitorCharts || ! json.monitorCharts) {
+                    alert(PMA_messages['strFailedParsingConfig']);
+                    $('div#emptyDialog').dialog('close');
+                    return;
+                }
+
+                // If json ok, try applying config
+                try {
+                    window.localStorage['monitorCharts'] = $.toJSON(json.monitorCharts);
+                    window.localStorage['monitorSettings'] = $.toJSON(json.monitorSettings);
+                    rebuildGrid();
+                } catch(err) {
+                    alert(PMA_messages['strFailedBuildingGrid']);
+                    // If an exception is thrown, load default again
+                    window.localStorage.removeItem('monitorCharts');
+                    window.localStorage.removeItem('monitorSettings');
+                    rebuildGrid();
+                }
+
+                $('div#emptyDialog').dialog('close');
+            });
+
+            $("body", d).append($form=$('div#emptyDialog').find('form'));
+            $form.submit();
+            $('div#emptyDialog').append('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+        };
+
+        dlgBtns[PMA_messages['strCancel']] = function() {
+            $(this).dialog('close');
+        }
+
+
+        $('div#emptyDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: dlgBtns
+        });
+    });
+
+    $('a[href="#clearMonitorConfig"]').click(function() {
+        window.localStorage.removeItem('monitorCharts');
+        window.localStorage.removeItem('monitorSettings');
+        $(this).hide();
+        rebuildGrid();
+    });
+
     $('a[href="#pauseCharts"]').click(function() {
         runtime.redrawCharts = ! runtime.redrawCharts;
         if(! runtime.redrawCharts)
             $(this).html('<img src="themes/dot.gif" class="icon ic_play" alt="" /> ' + PMA_messages['strResumeMonitor']);
         else {
             $(this).html('<img src="themes/dot.gif" class="icon ic_pause" alt="" /> ' + PMA_messages['strPauseMonitor']);
-            if(runtime.charts == null) {
+            if(! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
             }
@@ -1067,7 +1210,7 @@ $(function() {
                     });
                 }
             );
-        }
+        };
 
 
         loadLogVars();
@@ -1133,11 +1276,12 @@ $(function() {
 
         var serie = {
             dataType:'statusvar',
+            dataPoint: $('input#variableInput').attr('value'),
             name: $('input#variableInput').attr('value'),
             display: $('input[name="differentialValue"]').attr('checked') ? 'differential' : ''
         };
 
-        if(serie.name == 'Processes') serie.dataType='proc';
+        if(serie.dataPoint == 'Processes') serie.dataType='proc';
 
         if($('input[name="useDivisor"]').attr('checked'))
             serie.valueDivisor = parseInt($('input[name="valueDivisor"]').attr('value'));
@@ -1150,7 +1294,7 @@ $(function() {
         var str = serie.display == 'differential' ? ', ' + PMA_messages['strDifferential'] : '';
         str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
 
-        $('#seriesPreview').append('- ' + serie.name + str + '<br>');
+        $('#seriesPreview').append('- ' + serie.dataPoint + str + '<br>');
 
         newChart.nodes.push(serie);
 
@@ -1229,9 +1373,55 @@ $(function() {
         // Empty cells should keep their size so you can drop onto them
         $('table#chartGrid tr td').css('width',chartSize().width + 'px');
 
-
         buildRequiredDataList();
         refreshChartGrid();
+    }
+
+    function destroyGrid() {
+        if(runtime.charts)
+            $.each(runtime.charts, function(key, value) {
+                try {
+                    value.chart.destroy();
+                } catch(err) {}
+            });
+        try {
+            runtime.refreshRequest.abort();
+        } catch(err) {}
+        try {
+            clearTimeout(runtime.refreshTimeout);
+        } catch(err) {}
+
+        $('table#chartGrid').html('');
+
+        runtime.charts = null;
+        runtime.chartAI = 0;
+        monitorSettings = null;
+    }
+
+    function rebuildGrid() {
+        var oldData = null;
+        if(runtime.charts) {
+            oldData = {};
+            $.each(runtime.charts, function(key, chartObj) {
+                for(var i=0; i < chartObj.nodes.length; i++) {
+                    oldData[chartObj.nodes[i].dataPoint] = [];
+                    for(var j=0; j < chartObj.chart.series[i].data.length; j++)
+                        oldData[chartObj.nodes[i].dataPoint].push([chartObj.chart.series[i].data[j].x, chartObj.chart.series[i].data[j].y]);
+                }
+            });
+        }
+
+        destroyGrid();
+        initGrid();
+
+        if(oldData) {
+            $.each(runtime.charts, function(key, chartObj) {
+                for(var j=0; j < chartObj.nodes.length; j++) {
+                    if(oldData[chartObj.nodes[j].dataPoint])
+                        chartObj.chart.series[j].setData(oldData[chartObj.nodes[j].dataPoint]);
+                }
+            });
+        }
     }
 
     function chartSize() {
@@ -1284,7 +1474,7 @@ $(function() {
                             $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
 
                             $(this).dialog("close");
-                        }
+                        };
 
                         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
                             var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').attr('value')) || min;
@@ -1301,7 +1491,7 @@ $(function() {
                             $('#logAnalyseDialog').find('dateStart,dateEnd').datepicker('destroy');
 
                             $(this).dialog("close");
-                        }
+                        };
 
                         $('#logAnalyseDialog').dialog({
                             width: 'auto',
@@ -1370,10 +1560,58 @@ $(function() {
         runtime.chartAI++;
     }
 
-    function removeChart(chartObj) {
+    function editChart(chartObj) {
         var htmlnode = chartObj.options.chart.renderTo;
         if(! htmlnode ) return;
 
+        var chart=null;
+        var chartKey=null;
+        $.each(runtime.charts, function(key, value) {
+            if(value.chart.options.chart.renderTo == htmlnode) {
+                chart = value;
+                chartKey = key;
+                return false;
+            }
+        });
+
+        if(chart == null) return;
+
+        var htmlStr = '<p><b>Chart title: </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
+        htmlStr += '</p><p><b>Series:</b> </p><ol>';
+        for(var i=0; i<chart.nodes.length; i++) {
+            htmlStr += '<li><i>' + chart.nodes[i].dataPoint  +': </i><br/><input type="text" name="chartSerie-' + i + '" value=" ' + chart.nodes[i].name + '" /></li>';
+        }
+
+        dlgBtns = {};
+        dlgBtns['Save'] = function() {
+            runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').attr('value');
+            runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
+
+            $('div#emptyDialog input[name*="chartSerie"]').each(function() {
+                var idx = $(this).attr('name').split('-')[1];
+                runtime.charts[chartKey].nodes[idx].name = $(this).attr('value');
+                runtime.charts[chartKey].chart.series[idx].name = $(this).attr('value');
+            });
+
+            $(this).dialog('close');
+            saveMonitor();
+        };
+        dlgBtns['Cancel'] = function() {
+            $(this).dialog('close');
+        };
+
+        $('div#emptyDialog').attr('title','Edit chart');
+        $('div#emptyDialog').html(htmlStr+'</ol>');
+        $('div#emptyDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: dlgBtns
+        });
+    }
+
+    function removeChart(chartObj) {
+        var htmlnode = chartObj.options.chart.renderTo;
+        if(! htmlnode ) return;
 
         $.each(runtime.charts, function(key, value) {
             if(value.chart.options.chart.renderTo == htmlnode) {
@@ -1388,7 +1626,7 @@ $(function() {
         // which throws an error when the chart is destroyed
         setTimeout(function() {
             chartObj.destroy();
-            $('li#' + htmlnode).remove();
+            $('div#' + htmlnode).remove();
         },10);
 
         saveMonitor(); // Save settings
@@ -1397,7 +1635,12 @@ $(function() {
     function refreshChartGrid() {
         /* Send to server */
         runtime.refreshRequest = $.post('server_status.php?'+url_query, { ajax_request: true, chart_data: 1, type: 'chartgrid', requiredData: $.toJSON(runtime.dataList) },function(data) {
-            var chartData = $.parseJSON(data);
+            var chartData;
+            try {
+                chartData = $.parseJSON(data);
+            } catch(err) {
+                return serverResponseError();
+            }
             var value, i=0;
             var diff;
 
@@ -1429,9 +1672,10 @@ $(function() {
                         value = value / elem.nodes[j].valueDivisor;
 
                     if(elem.nodes[j].transformFn) {
-                        value = elem.nodes[j].transformFn(
+                        value = chartValueTransform(
+                            elem.nodes[j].transformFn,
                             chartData[key][j],
-                            (oldChartData == null) ? null : oldChartData[key][j]
+                            (oldChartData == null ? null : oldChartData[key][j])
                         );
                     }
 
@@ -1456,6 +1700,17 @@ $(function() {
         });
     }
 
+    function chartValueTransform(name,cur,prev) {
+        switch(name) {
+            case 'cpu-linux':
+                if(prev == null) return undefined;
+                var diff_total = cur.busy + cur.idle - (prev.busy + prev.idle);
+                var diff_idle = cur.idle - prev.idle;
+                return 100*(diff_total - diff_idle) / diff_total;
+        }
+        return undefined;
+    }
+
     /* Build list of nodes that need to be retrieved */
     function buildRequiredDataList() {
         runtime.dataList = {};
@@ -1477,9 +1732,9 @@ $(function() {
         if(! opts.limitTypes)
             opts.limitTypes = false;
 
-        $('#loadingLogsDialog').html(PMA_messages['strAnalysingLogs'] + ' <img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+        $('#emptyDialog').html(PMA_messages['strAnalysingLogs'] + ' <img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
-        $('#loadingLogsDialog').dialog({
+        $('#emptyDialog').dialog({
             width: 'auto',
             height: 'auto',
             buttons: {
@@ -1503,17 +1758,23 @@ $(function() {
                 limitTypes: opts.limitTypes
             },
             function(data) {
-                var logData = $.parseJSON(data);
+                var logData;
+                try {
+                    logData = $.parseJSON(data);
+                } catch(err) {
+                    return serverResponseError();
+                }
 
                 if(logData.rows.length != 0) {
                     runtime.logDataCols = buildLogTable(logData);
 
                     /* Show some stats in the dialog */
-                    $('#loadingLogsDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
+                    $('#emptyDialog').attr('title', PMA_messages['strLoadingLogs']);
+                    $('#emptyDialog').html('<p>' + PMA_messages['strLogDataLoaded'] + '</p>');
                     $.each(logData.sum, function(key, value) {
                         key = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                         if(key == 'Total') key = '<b>' + key + '</b>';
-                        $('#loadingLogsDialog').append(key + ': ' + value + '<br/>');
+                        $('#emptyDialog').append(key + ': ' + value + '<br/>');
                     });
 
                     /* Add filter options if more than a bunch of rows there to filter */
@@ -1551,19 +1812,19 @@ $(function() {
                     dlgBtns[PMA_messages['strJumpToTable']] = function() {
                         $(this).dialog("close");
                         $(document).scrollTop($('div#logTable').offset().top);
-                    }
+                    };
 
-                    $('#loadingLogsDialog').dialog( "option", "buttons", dlgBtns);
+                    $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
 
                 } else {
-                    $('#loadingLogsDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
+                    $('#emptyDialog').html('<p>' + PMA_messages['strNoDataFound'] + '</p>');
 
                     var dlgBtns = {};
                     dlgBtns[PMA_messages['strClose']] = function() {
                         $(this).dialog("close");
-                    }
+                    };
 
-                    $('#loadingLogsDialog').dialog( "option", "buttons", dlgBtns );
+                    $('#emptyDialog').dialog( "option", "buttons", dlgBtns );
                 }
             }
         );
@@ -1575,17 +1836,28 @@ $(function() {
             if(val.length == 0) textFilter = null;
             else textFilter = new RegExp(val, 'i');
 
-            var rowSum = 0, totalSum = 0;
-
-            var i=0, q;
+            var rowSum = 0, totalSum = 0, i=0, q;
             var noVars = $('div#logTable input#noWHEREData').attr('checked');
             var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
             var filteredQueries = {};
             var filteredQueriesLines = {};
-            var hide = false;
+            var hide = false, rowData;
             var queryColumnName = runtime.logDataCols[runtime.logDataCols.length - 2];
             var sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
+
+            var isSlowLog = opts.src == 'slow';
+            var columnSums = {};
+
+            var countRow = function(query, row) {
+                var cells = row.match(/<td>(.*?)<\/td>/gi);
+                if(!columnSums[query]) columnSums[query] = [0,0,0,0];
+
+                columnSums[query][0] += timeToSec(cells[2].replace(/(<td>|<\/td>)/gi,''));
+                columnSums[query][1] += timeToSec(cells[3].replace(/(<td>|<\/td>)/gi,''));
+                columnSums[query][2] += parseInt(cells[4].replace(/(<td>|<\/td>)/gi,''));
+                columnSums[query][3] += parseInt(cells[5].replace(/(<td>|<\/td>)/gi,''));
+            };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
             $('div#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
@@ -1604,10 +1876,23 @@ $(function() {
                             filteredQueriesLines[q] = i;
                             $(this).text(q);
                         }
+                        if(isSlowLog) countRow(q, $(this).parent().html());
 
+                    // Restore original columns
                     } else {
-                        $(this).text($(this).parent().data('query')[queryColumnName]);
-                        $(this).next().text($(this).parent().data('query')[sumColumnName]);
+                        rowData = $(this).parent().data('query');
+
+                        // SQL Text
+                        $(this).text(rowData[queryColumnName]);
+                        // #
+                        $(this).next().text(rowData[sumColumnName]);
+                        // Slow log columns
+                        if(isSlowLog) {
+                            $(this).parent().children('td:nth-child(3)').text(rowData['query_time']);
+                            $(this).parent().children('td:nth-child(4)').text(rowData['lock_time']);
+                            $(this).parent().children('td:nth-child(5)').text(rowData['rows_sent']);
+                            $(this).parent().children('td:nth-child(6)').text(rowData['rows_examined']);
+                        }
                     }
                 }
 
@@ -1634,21 +1919,28 @@ $(function() {
                 i++;
             });
 
+            // Update count values of grouped entries
             if(varFilterChange) {
                 if(noVars) {
+                    var numCol, row, $table = $('div#logTable table tbody');
                     $.each(filteredQueriesLines, function(key,value) {
-                        if(filteredQueries[value] <= 1) return;
+                        if(filteredQueries[key] <= 1) return;
 
-                        var numCol = $('div#logTable table tbody tr:nth-child(' + (value+1) + ')')
-                                        .children(':nth-child(' + (runtime.logDataCols.length) + ')');
-
+                        row =  $table.children('tr:nth-child(' + (value+1) + ')');
+                        numCol = row.children(':nth-child(' + (runtime.logDataCols.length) + ')');
                         numCol.text(filteredQueries[key]);
+
+                        if(isSlowLog) {
+                            row.children('td:nth-child(3)').text(secToTime(columnSums[key][0]));
+                            row.children('td:nth-child(4)').text(secToTime(columnSums[key][1]));
+                            row.children('td:nth-child(5)').text(columnSums[key][2]);
+                            row.children('td:nth-child(6)').text(columnSums[key][3]);
+                        }
                     });
                 }
 
                 $('div#logTable table').trigger("update");
                 setTimeout(function() {
-
                     $('div#logTable table').trigger('sorton',[[[runtime.logDataCols.length - 1,1]]]);
                 }, 0);
             }
@@ -1668,6 +1960,24 @@ $(function() {
         limitTypes: true
     });*/
 
+    function timeToSec(timeStr) {
+        var time = timeStr.split(':');
+        return parseInt(time[0]*3600) + parseInt(time[1]*60) + parseInt(time[2]);
+    }
+
+    function secToTime(timeInt) {
+        hours = Math.floor(timeInt / 3600);
+        timeInt -= hours*3600;
+        minutes = Math.floor(timeInt / 60);
+        timeInt -= minutes*60;
+
+        if(hours < 10) hours = '0' + hours;
+        if(minutes < 10) minutes = '0' + minutes;
+        if(timeInt < 10) timeInt = '0' + timeInt;
+
+        return hours + ':' + minutes + ':' + timeInt;
+    }
+
     function buildLogTable(data) {
         var rows = data.rows;
         var cols = new Array();
@@ -1682,7 +1992,7 @@ $(function() {
                     return value.replace(/(\[.*?\])+/g,'');
             }
             return value;
-        }
+        };
 
         for(var i=0; i < rows.length; i++) {
             if(i == 0) {
@@ -1701,7 +2011,7 @@ $(function() {
             for(var j=0; j < cols.length; j++) {
                 // Assuming the query column is the second last
                 if(j == cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
-                    $tRow.append($tCell=$('<td class="analyzableQuery">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
+                    $tRow.append($tCell=$('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
                     $tCell.click(queryAnalyzer);
                 } else
                     $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
@@ -1718,13 +2028,17 @@ $(function() {
 
 
         function queryAnalyzer() {
-            var query = $(this).parent().data('query')[cols[cols.length-2]];
+            var query = $(this).parent().data('query').argument || $(this).parent().data('query').sql_text;
+            var db = $(this).parent().data('query').db || '';
 
             /* A very basic SQL Formatter. Totally fails in the cases of
-               - Any string appearance containing a MySQL Keyword, surrounded by whitespaces
+               - Any string appearance containing a MySQL Keyword, surrounded by whitespaces, e.g. WHERE bar = "This where the formatter fails"
                - Subqueries too probably
             */
-            // .* selector doesn't includde whitespace, [^] doesn't work in IE8, thus we use [^\0] since the zero-byte char (hopefully) doesn't appear in table names ;)
+
+            // Matches the columns to be selected
+            // .* selector doesn't include whitespace and we have no PCRE_DOTALL modifier, (.|\s)+ crashes Chrome (reported and confirmed),
+            // [^]+ results in JS error in IE8, thus we use [^\0]+ for matching each column since the zero-byte char (hopefully) doesn't appear in column names ;)
             var sLists = query.match(/SELECT\s+[^\0]+\s+FROM\s+/gi);
             if(sLists) {
                 for(var i=0; i < sLists.length; i++) {
@@ -1752,7 +2066,8 @@ $(function() {
                         $.post('server_status.php?'+url_query, {
                             ajax_request: true,
                             query_analyzer: true,
-                            query: codemirror_editor.getValue()
+                            query: codemirror_editor.getValue(),
+                            database: db
                         }, function(data) {
                             data = $.parseJSON(data);
                             var totalTime = 0;
@@ -1766,13 +2081,38 @@ $(function() {
                             $('div#queryAnalyzerDialog div.placeHolder')
                                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
-                            var explain = '<b>Explain output</b><p></p>';
-                            $.each(data.explain, function(key,value) {
-                                value = (value==null)?'null':value;
+                            var explain = '<b>Explain output</b> '+explain_docu;
+                            if(data.explain.length > 1) {
+                                explain += ' (';
+                                for(var i=0; i < data.explain.length; i++) {
+                                    if(i > 0) explain += ', ';
+                                    explain += '<a href="#showExplain-' + i + '">' + i + '</a>';
+                                }
+                                explain += ')';
+                            }
+                            explain +='<p></p>';
+                            for(var i=0; i < data.explain.length; i++) {
+                                explain += '<div class="explain-' + i + '"' + (i>0? 'style="display:none;"' : '' ) + '>';
+                                $.each(data.explain[i], function(key,value) {
+                                    value = (value==null)?'null':value;
 
-                                explain += key+': ' + value + '<br />';
-                            });
+                                    if(key == 'type' && value.toLowerCase() == 'all') value = '<span class="attention">' + value +'</span>';
+                                    if(key == 'Extra') value = value.replace(/(using (temporary|filesort))/gi,'<span class="attention">$1</span>');
+                                    explain += key+': ' + value + '<br />';
+                                });
+                                explain += '</div>';
+                            }
+
+                            // Since there is such a nice free space below the explain, lets put it here for now
+                            explain += '<p><b>' + PMA_messages['strAffectedRows'] + '</b> ' + data.affectedRows;
+
                             $('div#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
+
+                            $('div#queryAnalyzerDialog div.placeHolder a[href*="#showExplain"]').click(function() {
+                                var id = $(this).attr('href').split('-')[1];
+                                $(this).parent().find('div[class*="explain"]').hide();
+                                $(this).parent().find('div[class*="explain-' + id + '"]').show();
+                            });
 
                             if(data.profiling) {
                                 var chartData = [];
@@ -1790,7 +2130,7 @@ $(function() {
                                 numberTable += '<tr><td><b>Total time:</b></td><td>' + PMA_prettyProfilingNum(totalTime,2) + '</td></tr>';
                                 numberTable += '</tbody></table>';
 
-                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results</b> (<a href="#showNums">Table</a> | <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
+                                $('div#queryAnalyzerDialog div.placeHolder td.chart').append('<b>Profiling results ' + profiling_docu + '</b> (<a href="#showNums">Table</a>, <a href="#showChart">Chart</a>)<br/>' + numberTable + ' <div id="queryProfiling"></div>');
 
                                 $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
                                     $('div#queryAnalyzerDialog div#queryProfiling').hide();
@@ -1883,10 +2223,14 @@ $(function() {
         $('a[href="#clearMonitorConfig"]').show();
     }
 
-    $('a[href="#clearMonitorConfig"]').click(function() {
-        window.localStorage.removeItem('monitorCharts');
-        window.localStorage.removeItem('monitorSettings');
-        $(this).hide();
-    });
+    function serverResponseError() {
+        var btns = {};
+        btns[PMA_messages['strReloadPage']] = function() {
+            window.location.reload();
+        };
+        $('#emptyDialog').attr('title',PMA_messages['strRefreshFailed']);
+        $('#emptyDialog').html('<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + PMA_messages['strInvalidResponseExplanation'])
+        $('#emptyDialog').dialog({ buttons: btns });
+    }
 
 });

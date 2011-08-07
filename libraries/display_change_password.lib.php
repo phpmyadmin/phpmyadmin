@@ -27,14 +27,14 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
             }?>
     <fieldset id="fieldset_change_password">
         <legend><?php echo __('Change password'); ?></legend>
-        <table class="data">
-        <tr class="odd noclick">
+        <table class="data noclick">
+        <tr class="odd">
             <td colspan="2">
                 <input type="radio" name="nopass" value="1" id="nopass_1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
         <label for="nopass_1"><?php echo __('No Password') . "\n"; ?></label>
             </td>
         </tr>
-        <tr class="even noclick">
+        <tr class="even">
             <td>
                 <input type="radio" name="nopass" value="0" id="nopass_0" onclick="document.getElementById('text_pma_pw').focus();" checked="checked " />
         <label for="nopass_0"><?php echo __('Password'); ?>:&nbsp;</label>

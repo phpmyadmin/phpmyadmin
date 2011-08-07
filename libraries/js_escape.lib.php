@@ -64,7 +64,8 @@ function PMA_escapeJsString($string)
  * @param string $key Name of value to set
  * @param mixed $value Value to set, can be either string or array of strings
  */
-function PMA_printJsValue($key, $value) {
+function PMA_printJsValue($key, $value)
+{
     echo $key . ' = ';
     if (is_array($value)) {
         echo '[';

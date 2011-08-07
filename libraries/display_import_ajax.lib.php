@@ -11,7 +11,7 @@ if (!defined('PHPMYADMIN')) {
 /**
   * constant for differenciating array in $_SESSION variable
   */
-$SESSION_KEY = '__upload_status';  
+$SESSION_KEY = '__upload_status';
 
 /**
   * sets default plugin for handling the import process
@@ -35,12 +35,12 @@ $plugins = array(
 // select available plugin
 foreach ($plugins as $plugin) {
     $check = "PMA_import_" . $plugin . "Check";
-    
+
     if ($check()) {
         $_SESSION[$SESSION_KEY]["handler"] = $plugin;
         include_once("import/upload/" . $plugin . ".php");
         break;
-    } 
+    }
 }
 
 /**
@@ -48,7 +48,8 @@ foreach ($plugins as $plugin) {
   *
   * @return true if APC extension is available and if rfc1867 is enabled, false if it is not
   */
-function PMA_import_apcCheck() {
+function PMA_import_apcCheck()
+{
     if (! extension_loaded('apc') || ! function_exists('apc_fetch') || ! function_exists('getallheaders')) {
         return false;
     }
@@ -57,10 +58,11 @@ function PMA_import_apcCheck() {
 
 /**
   * Checks if UploadProgress bar extension is available.
-  * 
+  *
   * @return true if UploadProgress extension is available, false if it is not
   */
-function PMA_import_uploadprogressCheck() {
+function PMA_import_uploadprogressCheck()
+{
     if (! function_exists("uploadprogress_get_info") || ! function_exists('getallheaders')) {
         return false;
     }
@@ -68,19 +70,21 @@ function PMA_import_uploadprogressCheck() {
 }
 /**
   * Default plugin for handling import. If no other plugin is available, noplugin is used.
-  * 
-  * @return true 
+  *
+  * @return true
   */
-function PMA_import_nopluginCheck() {
+function PMA_import_nopluginCheck()
+{
     return true;
 }
 
 /**
   * The function outputs json encoded status of uploaded. It uses PMA_getUploadStatus, which is defined in plugin's file.
-  * 
+  *
   * @param $id - ID of transfer, usually $upload_id from display_import_ajax.lib.php
   */
-function PMA_importAjaxStatus($id) {
+function PMA_importAjaxStatus($id)
+{
     header('Content-type: application/json');
     echo json_encode(PMA_getUploadStatus($id));
 }

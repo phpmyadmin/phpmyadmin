@@ -43,14 +43,7 @@ if ($fHnd === false) {
 
 $f_size = $hdrs['Content-Length'];
 
-header("Expires: 0");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-header("Content-type: $c_type");
-header('Content-length: ' . $f_size);
-header("Content-disposition: attachment; filename=" . basename($filename));
+PMA_download_header(basename($filename), $c_type, $f_size);
 
 $pos = 0;
 $content = "";

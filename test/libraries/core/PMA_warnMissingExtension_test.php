@@ -12,7 +12,8 @@
  */
 require_once 'libraries/core.lib.php';
 
-class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase{
+class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
+{
 
     function testMissingExtention(){
         $ext = 'php_ext';

@@ -298,11 +298,7 @@ for ($i = 0; $i < $num_fields; $i++) {
         if ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type']) {
             $length = $extracted_fieldspec['spec_in_brackets'];
         } else {
-            // strip the "BINARY" attribute, except if we find "BINARY(" because
-            // this would be a BINARY or VARBINARY field type
-            $type   = preg_replace('@BINARY([^\(])@i', '', $type);
-            $type   = preg_replace('@ZEROFILL@i', '', $type);
-            $type   = preg_replace('@UNSIGNED@i', '', $type);
+            $type = $extracted_fieldspec['print_type'];
             $length = $extracted_fieldspec['spec_in_brackets'];
         } // end if else
     } else {
@@ -336,15 +332,6 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     // column length
-    if (isset($extracted_fieldspec) && ('set' == $extracted_fieldspec['type'] || 'enum' == $extracted_fieldspec['type'])) {
-        $binary           = 0;
-        $unsigned         = 0;
-        $zerofill         = 0;
-    } else {
-        $binary           = false;
-        $unsigned         = stristr($row['Type'], 'unsigned');
-        $zerofill         = stristr($row['Type'], 'zerofill');
-    }
     $length_to_display = $length;
 
     $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
@@ -425,15 +412,10 @@ for ($i = 0; $i < $num_fields; $i++) {
         . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
-    if ($binary) {
-        $attribute = 'BINARY';
+    if (isset($extracted_fieldspec)) {
+        $attribute = $extracted_fieldspec['attribute'];
     }
-    if ($unsigned) {
-        $attribute = 'UNSIGNED';
-    }
-    if ($zerofill) {
-        $attribute = 'UNSIGNED ZEROFILL';
-    }
+
     if (isset($row['Extra']) && $row['Extra'] == 'on update CURRENT_TIMESTAMP') {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
@@ -622,7 +604,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
     //$empty_row = array_pop($content_cells);
 
-    echo '<table id="table_columns">';
+    echo '<table id="table_columns" class="noclick">';
     echo '<caption class="tblHeaders">' . __('Structure') . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
 
     if ($display_type == 'horizontal') {
@@ -636,7 +618,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
 
         $odd_row = true;
         foreach ($content_cells as $content_row) {
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
 
             if (is_array($content_row)) {
@@ -652,7 +634,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
         $i = 0;
         $odd_row = true;
         foreach ($header_cells as $header_val) {
-            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+            echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
             ?>
     <th><?php echo $header_val; ?></th>
@@ -688,7 +670,8 @@ if ($display_type == 'horizontal') {
 // <![CDATA[
 var odd_row = <?php echo $odd_row; ?>;
 
-function addField() {
+function addField()
+{
     var new_fields = document.getElementById('added_fields').value;
     var new_field_container = document.getElementById('table_columns');
     var new_field = '<?php echo preg_replace('|\s+|', ' ', preg_replace('|\'|', '\\\'', $new_field)); ?>';
