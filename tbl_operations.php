@@ -598,7 +598,7 @@ if (isset($possible_row_formats[$tbl_type])) {
 <fieldset>
  <legend><?php echo __('Table maintenance'); ?></legend>
 
-<ul>
+<ul id="tbl_maintenance" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
 <?php
 // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
 if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {

@@ -866,6 +866,13 @@ else {
         PMA_ajaxResponse(NULL, true, $extra_data);
     }
 
+    if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
+        echo $show_query;
+        $message = PMA_Message::success($message);
+        $extra_data['sql_query'] = PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+        PMA_ajaxResponse($message,$message->isSuccess(),$extra_data);
+    }
+
     // Displays the headers
     if (isset($show_query)) {
         unset($show_query);

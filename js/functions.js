@@ -1964,7 +1964,7 @@ $(document).ready(function() {
     **/
     $("#alterTableOrderby.ajax").live('submit', function(event) {
         event.preventDefault();
-        $form = $(this);
+        var $form = $(this);
 
         PMA_prepareForAjaxRequest($form);
         /*variables which stores the common attributes*/
@@ -1982,9 +1982,9 @@ $(document).ready(function() {
                 $("#result_query .notice").remove();
                 $("#result_query").prepend((data.message));
             } else {
-                $temp_div = $("<div id='temp_div'></div>")
+                var $temp_div = $("<div id='temp_div'></div>")
                 $temp_div.html(data.error);
-                $error = $temp_div.find("code").addClass("error");
+                var $error = $temp_div.find("code").addClass("error");
                 PMA_ajaxShowMessage($error);
             }
         }) // end $.post()
@@ -1995,7 +1995,7 @@ $(document).ready(function() {
     **/
     $("#copyTable.ajax input[name='submit_copy']").live('click', function(event) {
         event.preventDefault();
-        $form = $("#copyTable");
+        var $form = $("#copyTable");
         if($form.find("input[name='switch_to_new']").attr('checked')) {
             $form.append('<input type="hidden" name="submit_copy" value="Go" />');
             $form.removeClass('ajax');
@@ -2024,14 +2024,43 @@ $(document).ready(function() {
                         window.parent.frame_navigation.location.reload();
                     }
                 } else {
-                    $temp_div = $("<div id='temp_div'></div>")
+                    var $temp_div = $("<div id='temp_div'></div>");
                     $temp_div.html(data.error);
-                    $error = $temp_div.find("code").addClass("error");
+                    var $error = $temp_div.find("code").addClass("error");
                     PMA_ajaxShowMessage($error);
                 }
             }) // end $.post()
         }
     });//end of copyTable ajax submit
+
+    /**
+     *Ajax events for actions in the "Table maintenance"
+    **/
+    $("#tbl_maintenance.ajax li").live('click', function(event) {
+        event.preventDefault();
+        var $link = $(this);
+        var href = $link.find("a").first().attr("href");
+        href = href.split('?');
+        //variables which stores the common attributes
+        $.post(href[0], href[1]+"&ajax_request=true", function(data) {
+            if ($("#sqlqueryresults").length != 0) {
+                $("#sqlqueryresults").remove();
+            }
+            if ($("#result_query").length != 0) {
+                $("#result_query").remove();
+            }
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+                $("<div id='sqlqueryresults'></div>").insertAfter("#topmenucontainer");
+                $("#sqlqueryresults").html(data.sql_query);
+            } else {
+                var $temp_div = $("<div id='temp_div'></div>")
+                $temp_div.html(data.error);
+                var $error = $temp_div.find("code").addClass("error");
+                PMA_ajaxShowMessage($error);
+            }
+        }) // end $.post()
+    });//end of table maintanance ajax click
 
 }, 'top.frame_content'); //end $(document).ready for 'Table operations'
 
