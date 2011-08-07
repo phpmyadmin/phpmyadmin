@@ -53,7 +53,7 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
 
 /**
  * connects to the database server
- * 
+ *
  * @param   string  $user           mysql user name
  * @param   string  $password       mysql user password
  * @param   bool    $is_controluser
@@ -188,7 +188,8 @@ function PMA_DBI_fetch_array($result)
  * @param   resource  $result
  * @return  array
  */
-function PMA_DBI_fetch_assoc($result) {
+function PMA_DBI_fetch_assoc($result)
+{
     return mysql_fetch_array($result, MYSQL_ASSOC);
 }
 
@@ -232,7 +233,8 @@ function PMA_DBI_free_result($result)
  *
  * @return  bool         false
  */
-function PMA_DBI_more_results() {
+function PMA_DBI_more_results()
+{
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
     // return false. Use the 'mysqli' extension, if
@@ -245,7 +247,8 @@ function PMA_DBI_more_results() {
  *
  * @return  boo         false
  */
-function PMA_DBI_next_result() {
+function PMA_DBI_next_result()
+{
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
     // return false. Use the 'mysqli' extension, if

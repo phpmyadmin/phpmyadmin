@@ -9,7 +9,6 @@
 /*
  * Needed for PMA_backquote() and PMA_RTN_getQueryFromRequest()
  */
-//require_once 'libraries/data_mysql.inc.php';
 require_once 'libraries/common.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
@@ -28,15 +27,9 @@ class PMA_RTN_getQueryFromRequest_test extends PHPUnit_Framework_TestCase
     {
         global $_REQUEST, $errors, $cfg;
 
-        // FIXME: the below two lines are needed to get the test to work,
-        // but are definitely the wrong way to go about the issue
-        // of $cfg['ColumnTypes'] being undefined
         $cfg['ShowFunctionFields'] = false;
-        eval(substr(file_get_contents('libraries/data_mysql.inc.php'), 5, -3));
 
-        if (! isset($cfg['ColumnTypes'])) {
-            $this->markTestSkipped('Can\'t get column types'); // FIXME
-        }
+        require 'libraries/data_mysql.inc.php';
 
         $errors = array();
         PMA_RTN_setGlobals();

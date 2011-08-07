@@ -26,7 +26,7 @@ require_once './libraries/header_meta_style.inc.php';
                 if (isset($_GET['values'])) { // This page was displayed when the "add a new value" link or the link in tbl_alter.php was clicked
                     $values = explode(',', urldecode($_GET['values']));
                 } elseif (isset($_GET['num_fields'])) { // This page was displayed from submitting this form
-                    for($field_num = 1; $field_num <= $_GET['num_fields']; $field_num++) {
+                    for ($field_num = 1; $field_num <= $_GET['num_fields']; $field_num++) {
                         $values[] = "'" . str_replace(array("'", '\\'), array("''", '\\\\'), $_GET['field' . $field_num]) . "'";
                     }
                 }
@@ -43,7 +43,7 @@ require_once './libraries/header_meta_style.inc.php';
                 // If extra empty fields are added, display them
                 if (isset($_GET['extra_fields'])) {
                     $total_fields += $_GET['extra_fields'];
-                    for($i = $field_counter+1; $i <= $total_fields; $i++) {
+                    for ($i = $field_counter+1; $i <= $total_fields; $i++) {
                         echo '<input type="text" size="30" name="field' . $i . '"/>';
                     }
                 } else {

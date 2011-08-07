@@ -4,7 +4,8 @@
  * @package phpMyAdmin-Transformation
  */
 
-function PMA_transformation_image_png__inline_info() {
+function PMA_transformation_image_png__inline_info()
+{
     return array(
         'info' => __('Displays a clickable thumbnail. The options are the maximum width and height in pixels. The original aspect ratio is preserved.'),
         );
@@ -13,7 +14,8 @@ function PMA_transformation_image_png__inline_info() {
 /**
  *
  */
-function PMA_transformation_image_png__inline($buffer, $options = array(), $meta = '') {
+function PMA_transformation_image_png__inline($buffer, $options = array(), $meta = '')
+{
     require_once './libraries/transformations/global.inc.php';
 
     if (PMA_IS_GD2) {

@@ -15,7 +15,8 @@ var svg;
 /**
  * Zooms and pans the visualization.
  */
-function zoomAndPan() {
+function zoomAndPan()
+{
     var g = svg.getElementById('groupPanel');
 
     g.setAttribute('transform', 'translate(' + x + ', ' + y + ') scale(' + scale + ')');
@@ -173,7 +174,7 @@ $(document).ready(function() {
         y = height / 2 - (height / 2 - y) * 1.5;
         zoomAndPan();
     });
-    
+
     $('#zoom_world').live('click', function(e) {
         e.preventDefault();
         scale = 1;
@@ -181,7 +182,7 @@ $(document).ready(function() {
         y = 0;
         zoomAndPan();
     });
-    
+
     $('#zoom_out').live('click', function(e) {
         e.preventDefault();
         //zoom out
@@ -239,7 +240,7 @@ $(document).ready(function() {
             }).appendTo("body").fadeIn(200);
         }
     });
-    
+
     /**
      * Detect the mouseout event and hide tooltips.
      */

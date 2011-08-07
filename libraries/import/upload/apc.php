@@ -16,7 +16,8 @@ $ID_KEY      = 'APC_UPLOAD_PROGRESS';
  *
  * This is implementation for APC extension.
  */
-function PMA_getUploadStatus($id) {
+function PMA_getUploadStatus($id)
+{
     global $SESSION_KEY;
     global $ID_KEY;
 

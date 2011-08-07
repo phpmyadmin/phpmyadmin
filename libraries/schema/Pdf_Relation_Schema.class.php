@@ -71,12 +71,17 @@ class PMA_PDF extends TCPDF
         parent::_putpages();
     }
 
-    // added because tcpdf for PHP 5 has a protected $buffer
+    /**
+     * Getter for protected buffer.
+     */
     public function getBuffer()
     {
         return $this->buffer;
     }
 
+    /**
+     * Getter for protected state.
+     */
     public function getState()
     {
         return $this->state;
@@ -230,9 +235,11 @@ class PMA_PDF extends TCPDF
         }
     }
 
+    /**
+     * This function must be named "Footer" to work with the TCPDF library
+     */
     function Footer()
     {
-        // This function must be named "Footer" to work with the TCPDF library
         global $with_doc;
         if ($with_doc) {
             $this->SetY(-15);
@@ -243,9 +250,11 @@ class PMA_PDF extends TCPDF
         }
     }
 
+    /**
+     * Add a bookmark
+     */
     function Bookmark($txt, $level = 0, $y = 0, $page = '')
     {
-        // Add a bookmark
         $this->Outlines[0][] = $level;
         $this->Outlines[1][] = $txt;
         $this->Outlines[2][] = $this->page;
@@ -379,9 +388,11 @@ class PMA_PDF extends TCPDF
         $this->Ln($h);
     }
 
+    /**
+     * Compute number of lines used by a multicell of width w
+     */
     function NbLines($w, $txt)
     {
-        // compute number of lines used by a multicell of width w
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
@@ -1068,9 +1079,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
         // instead of $pdf->Output():
         $pdfData = $pdf->getPDFData();
-        header('Content-Type: application/pdf');
-        header('Content-Length: '.strlen($pdfData).'');
-        header('Content-disposition: attachment; filename="'.$filename.'"');
+        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
         echo $pdfData;
     }
 
@@ -1178,8 +1187,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets fields properties
              */
-            $result = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', null, PMA_DBI_QUERY_STORE);
-            $fields_cnt = PMA_DBI_num_rows($result);
+            $columns = PMA_DBI_get_columns($db, $table);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in
@@ -1261,41 +1269,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             }
             $pdf->SetFont($this->_ff, '');
 
-            while ($row = PMA_DBI_fetch_assoc($result)) {
-                $type = $row['Type'];
-                // reformat mysql query output
-                // set or enum types: slashes single quotes inside options
-                if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
-                    $tmp[2] = substr(preg_replace("@([^,])''@", "\\1\\'", ',' . $tmp[2]), 1);
-                    $type = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
-                    $type_nowrap = '';
-
-                    $binary = 0;
-                    $unsigned = 0;
-                    $zerofill = 0;
-                } else {
-                    $type_nowrap = ' nowrap="nowrap"';
-                    $type = preg_replace('@BINARY@i', '', $type);
-                    $type = preg_replace('@ZEROFILL@i', '', $type);
-                    $type = preg_replace('@UNSIGNED@i', '', $type);
-                    if (empty($type)) {
-                        $type = '&nbsp;';
-                    }
-
-                    $binary = stristr($row['Type'], 'BINARY');
-                    $unsigned = stristr($row['Type'], 'UNSIGNED');
-                    $zerofill = stristr($row['Type'], 'ZEROFILL');
-                }
-                $attribute = ' ';
-                if ($binary) {
-                    $attribute = 'BINARY';
-                }
-                if ($unsigned) {
-                    $attribute = 'UNSIGNED';
-                }
-                if ($zerofill) {
-                    $attribute = 'UNSIGNED ZEROFILL';
-                }
+            foreach ($columns as $row) {
+                $extracted_fieldspec = PMA_extractFieldSpec($row['Type']);
+                $type             = $extracted_fieldspec['print_type'];
+                $attribute     = $extracted_fieldspec['attribute'];
                 if (! isset($row['Default'])) {
                     if ($row['Null'] != '' && $row['Null'] != 'NO') {
                         $row['Default'] = 'NULL';
@@ -1327,9 +1304,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     unset($links[6]);
                 }
                 $pdf->Row($pdf_row, $links);
-            } // end while
+            } // end foreach
             $pdf->SetFont($this->_ff, '', 14);
-            PMA_DBI_free_result($result);
         } //end each
     }
 }

@@ -38,8 +38,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     // Output generated config file
     //
-    header('Content-Type: text/plain');
-    header('Content-Disposition: attachment; filename="config.inc.php"');
+    PMA_download_header('config.inc.php', 'text/plain');
     echo ConfigGenerator::getConfigFile();
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_save'], '')) {
