@@ -80,7 +80,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         }
         // print label if applicable
         if (isset($label) && trim($label) != '') {
-            imagestring($image, 2, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
+            imagestring($image, 1, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
         }
         return $image;
     }
@@ -120,7 +120,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
         // print label
         if (isset($label) && trim($label) != '') {
             $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
-            $pdf->SetFontSize(7);
+            $pdf->SetFontSize(5);
             $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;

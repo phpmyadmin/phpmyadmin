@@ -26,7 +26,6 @@ class PMA_GIS_Visualization
             '#E02E75',
             '#5CE02E',
             '#E0B02E',
-            '#000000',
             '#0022E0',
             '#726CB1',
             '#481A36',

@@ -79,7 +79,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
         if ((isset($label) && trim($label) != '')
             && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
         ) {
-            imagestring($image, 2, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
+            imagestring($image, 1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
         }
         return $image;
     }
@@ -118,7 +118,7 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
             && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
         ) {
             $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
-            $pdf->SetFontSize(7);
+            $pdf->SetFontSize(5);
             $pdf->Cell(0, 0, trim($label));
         }
         return $pdf;

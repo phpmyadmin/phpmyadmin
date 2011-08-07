@@ -74,7 +74,7 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             imagearc($image, $points_arr[0][0], $points_arr[0][1], 7, 7, 0, 360, $color);
             // print label if applicable
             if (isset($label) && trim($label) != '') {
-                imagestring($image, 2, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
+                imagestring($image, 1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
             }
         }
         return $image;
@@ -109,7 +109,7 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
             // print label if applicable
             if (isset($label) && trim($label) != '') {
                 $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
-                $pdf->SetFontSize(7);
+                $pdf->SetFontSize(5);
                 $pdf->Cell(0, 0, trim($label));
             }
         }
