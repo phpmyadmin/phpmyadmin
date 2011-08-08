@@ -1437,10 +1437,9 @@ msgid "Sum of grouped rows:"
 msgstr "Įkeltų eilučių skaičius"
 
 #: js/messages.php:173
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Iš viso"
+msgstr "Iš viso:"
 
 #: js/messages.php:175
 #, fuzzy
