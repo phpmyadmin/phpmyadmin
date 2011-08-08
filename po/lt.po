@@ -6185,10 +6185,9 @@ msgid "Stand-in structure for view"
 msgstr "Tik struktūra rodiniui"
 
 #: libraries/export/sql.php:1071
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Leisti skaityti duomenis."
+msgstr "Klaida skaitant duomenis:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:21
 msgid "XML"
