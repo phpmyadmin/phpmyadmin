@@ -7,7 +7,8 @@
  * @package phpMyAdmin
  */
 
-class Advisor {
+class Advisor
+{
     var $variables;
     var $parseResult;
     var $runResult;
@@ -177,7 +178,8 @@ class Advisor {
     }
 }
 
-function PMA_bytime($num, $precision) {
+function PMA_bytime($num, $precision)
+{
     $per = '';
     if ($num >= 1) { # per second
         $per = "per second";

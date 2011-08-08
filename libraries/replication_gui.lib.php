@@ -43,7 +43,8 @@ function PMA_replication_db_multibox()
  * @param String $submitname - submit button name
  */
 
-function PMA_replication_gui_changemaster($submitname) {
+function PMA_replication_gui_changemaster($submitname)
+{
 
     list($username_length, $hostname_length) = PMA_replication_get_username_hostname_length();
 
@@ -80,11 +81,12 @@ function PMA_replication_gui_changemaster($submitname) {
 /**
  * This function prints out table with replication status.
  *
- * @param String type - either master or slave
- * @param boolean $hidden - if true, then default style is set to hidden, default value false
- * @param boolen $title - if true, then title is displayed, default true
+ * @param string  $type   either master or slave
+ * @param boolean $hidden if true, then default style is set to hidden, default value false
+ * @param boolen  $title  if true, then title is displayed, default true
  */
-function PMA_replication_print_status_table($type, $hidden = false, $title = true) {
+function PMA_replication_print_status_table($type, $hidden = false, $title = true)
+{
     global ${"{$type}_variables"};
     global ${"{$type}_variables_alerts"};
     global ${"{$type}_variables_oks"};
@@ -162,7 +164,8 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
  *
  * @param boolean $hidden - if true, then default style is set to hidden, default value false
  */
-function PMA_replication_print_slaves_table($hidden = false) {
+function PMA_replication_print_slaves_table($hidden = false)
+{
 
     // Fetch data
     $data = PMA_DBI_fetch_result('SHOW SLAVE HOSTS', null, null);
@@ -202,7 +205,8 @@ function PMA_replication_print_slaves_table($hidden = false) {
  * @return  array   username length, hostname length
  */
 
-function PMA_replication_get_username_hostname_length() {
+function PMA_replication_get_username_hostname_length()
+{
     $fields_info = PMA_DBI_get_columns('mysql', 'user');
     $username_length = 16;
     $hostname_length = 41;
@@ -227,7 +231,8 @@ function PMA_replication_get_username_hostname_length() {
 /**
  * Print code to add a replication slave user to the master
  */
-function PMA_replication_gui_master_addslaveuser() {
+function PMA_replication_gui_master_addslaveuser()
+{
 
     list($username_length, $hostname_length) = PMA_replication_get_username_hostname_length();
 

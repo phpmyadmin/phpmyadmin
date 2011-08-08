@@ -42,7 +42,8 @@ var chart_activeTimeouts = new Object();
  *
  * @param   object   the form
  */
-function PMA_prepareForAjaxRequest($form) {
+function PMA_prepareForAjaxRequest($form)
+{
     if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
         $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
     }
@@ -55,7 +56,8 @@ function PMA_prepareForAjaxRequest($form) {
  *
  * @return  boolean  always true
  */
-function suggestPassword(passwd_form) {
+function suggestPassword(passwd_form)
+{
     // restrict the password to just letters and numbers to avoid problems:
     // "editors and viewers regard the password as multiple words and
     // things like double click no longer work"
@@ -75,7 +77,8 @@ function suggestPassword(passwd_form) {
 /**
  * Version string to integer conversion.
  */
-function parseVersionString (str) {
+function parseVersionString (str)
+{
     if (typeof(str) != 'string') { return false; }
     var add = 0;
     // Parse possible alpha/beta/rc/
@@ -105,7 +108,8 @@ function parseVersionString (str) {
 /**
  * Indicates current available version on main page.
  */
-function PMA_current_version() {
+function PMA_current_version()
+{
     var current = parseVersionString(pmaversion);
     var latest = parseVersionString(PMA_latest_version);
     var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version;
@@ -131,7 +135,8 @@ function PMA_current_version() {
  *
  */
 
-function displayPasswordGenerateButton() {
+function displayPasswordGenerateButton()
+{
     $('#tr_element_before_generate_password').parent().append('<tr><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
     $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
 }
@@ -141,7 +146,8 @@ function displayPasswordGenerateButton() {
  *
  * @param   object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element, options) {
+function PMA_addDatepicker($this_element, options)
+{
     var showTimeOption = false;
     if ($this_element.is('.datetimefield')) {
         showTimeOption = true;
@@ -183,7 +189,8 @@ function PMA_addDatepicker($this_element, options) {
  * @param   boolean only_once   if true this is only done once
  *                              f.e. only on first focus
  */
-function selectContent( element, lock, only_once ) {
+function selectContent( element, lock, only_once )
+{
     if ( only_once && only_once_elements[element.name] ) {
         return;
     }
@@ -727,7 +734,8 @@ var marked_row = new Array;
  *
  * @param    container    DOM element
  */
-function markAllRows( container_id ) {
+function markAllRows( container_id )
+{
 
     $("#"+container_id).find("input:checkbox:enabled").attr('checked', 'checked')
     .parents("tr").addClass("marked");
@@ -740,7 +748,8 @@ function markAllRows( container_id ) {
  *
  * @param    container    DOM element
  */
-function unMarkAllRows( container_id ) {
+function unMarkAllRows( container_id )
+{
 
     $("#"+container_id).find("input:checkbox:enabled").removeAttr('checked')
     .parents("tr").removeClass("marked");
@@ -754,7 +763,8 @@ function unMarkAllRows( container_id ) {
  * @param   boolean  state         new value for checkbox (true or false)
  * @return  boolean  always true
  */
-function setCheckboxes( container_id, state ) {
+function setCheckboxes( container_id, state )
+{
 
     if(state) {
         $("#"+container_id).find("input:checkbox").attr('checked', 'checked');
@@ -784,7 +794,8 @@ function setSelectOptions(the_form, the_select, do_check)
 /**
  * Sets current value for query box.
  */
-function setQuery(query) {
+function setQuery(query)
+{
     if (codemirror_editor) {
         codemirror_editor.setValue(query);
     } else {
@@ -797,7 +808,8 @@ function setQuery(query) {
   * Create quick sql statements.
   *
   */
-function insertQuery(queryType) {
+function insertQuery(queryType)
+{
     if (queryType == "clear") {
         setQuery('');
         return;
@@ -846,7 +858,8 @@ function insertQuery(queryType) {
   * Inserts multiple fields.
   *
   */
-function insertValueQuery() {
+function insertValueQuery()
+{
     var myQuery = document.sqlform.sql_query;
     var myListBox = document.sqlform.dummy;
 
@@ -891,14 +904,16 @@ function insertValueQuery() {
 /**
   * listbox redirection
   */
-function goToUrl(selObj, goToLocation) {
+function goToUrl(selObj, goToLocation)
+{
     eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
 }
 
 /**
  * getElement
  */
-function getElement(e,f){
+function getElement(e,f)
+{
     if(document.layers){
         f=(f)?f:self;
         if(f.document.layers[e]) {
@@ -917,7 +932,8 @@ function getElement(e,f){
 /**
   * Refresh the WYSIWYG scratchboard after changes have been made
   */
-function refreshDragOption(e) {
+function refreshDragOption(e)
+{
     var elm = $('#' + e);
     if (elm.css('visibility') == 'visible') {
         refreshLayout();
@@ -928,7 +944,8 @@ function refreshDragOption(e) {
 /**
   * Refresh/resize the WYSIWYG scratchboard
   */
-function refreshLayout() {
+function refreshLayout()
+{
     var elm = $('#pdflayout')
     var orientation = $('#orientation_opt').val();
     if($('#paper_opt').length==1){
@@ -950,7 +967,8 @@ function refreshLayout() {
 /**
   * Show/hide the WYSIWYG scratchboard
   */
-function ToggleDragDrop(e) {
+function ToggleDragDrop(e)
+{
     var elm = $('#' + e);
     if (elm.css('visibility') == 'hidden') {
         PDFinit(); /* Defined in pdf_pages.php */
@@ -968,7 +986,8 @@ function ToggleDragDrop(e) {
   * PDF scratchboard: When a position is entered manually, update
   * the fields inside the scratchboard.
   */
-function dragPlace(no, axis, value) {
+function dragPlace(no, axis, value)
+{
     var elm = $('#table_' + no);
     if (axis == 'x') {
         elm.css('left', value + 'px');
@@ -980,7 +999,8 @@ function dragPlace(no, axis, value) {
 /**
  * Returns paper sizes for a given format
  */
-function pdfPaperSize(format, axis) {
+function pdfPaperSize(format, axis)
+{
     switch (format.toUpperCase()) {
         case '4A0':
             if (axis == 'x') return 4767.87; else return 6740.79;
@@ -1308,7 +1328,8 @@ $(document).ready(function(){
  *                              optional, defaults to 5000
  * @return  jQuery object       jQuery Element that holds the message div
  */
-function PMA_ajaxShowMessage(message, timeout) {
+function PMA_ajaxShowMessage(message, timeout)
+{
 
     //Handle the case when a empty data.message is passed. We don't want the empty message
     if (message == '') {
@@ -1358,7 +1379,8 @@ function PMA_ajaxShowMessage(message, timeout) {
 /**
  * Removes the message shown for an Ajax operation when it's completed
  */
-function PMA_ajaxRemoveMessage($this_msgbox) {
+function PMA_ajaxRemoveMessage($this_msgbox)
+{
     if ($this_msgbox != undefined && $this_msgbox instanceof jQuery) {
         $this_msgbox
         .stop(true, true)
@@ -1369,7 +1391,8 @@ function PMA_ajaxRemoveMessage($this_msgbox) {
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
  */
-function PMA_showNoticeForEnum(selectElement) {
+function PMA_showNoticeForEnum(selectElement)
+{
     var enum_notice_id = selectElement.attr("id").split("_")[1];
     enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
     var selectedType = selectElement.attr("value");
@@ -1383,7 +1406,8 @@ function PMA_showNoticeForEnum(selectElement) {
 /**
  * Generates a dialog box to pop up the create_table form
  */
-function PMA_createTableDialog( div, url , target) {
+function PMA_createTableDialog( div, url , target)
+{
      /**
      *  @var    button_options  Object that stores the options passed to jQueryUI
      *                          dialog
@@ -1446,7 +1470,8 @@ function PMA_createTableDialog( div, url , target) {
  *
  * @return  object   The created highcharts instance
  */
-function PMA_createChart(passedSettings) {
+function PMA_createChart(passedSettings)
+{
     var container = passedSettings.chart.renderTo;
 
     var settings = {
@@ -1581,7 +1606,8 @@ function PMA_createChart(passedSettings) {
 /*
  * Creates a Profiling Chart. Used in sql.php and server_status.js
  */
-function PMA_createProfilingChart(data, options) {
+function PMA_createProfilingChart(data, options)
+{
     return PMA_createChart($.extend(true, {
         chart: {
             renderTo: 'profilingchart',
@@ -1615,7 +1641,8 @@ function PMA_createProfilingChart(data, options) {
 }
 
 // Formats a profiling duration nicely. Used in PMA_createProfilingChart() and server_status.js
-function PMA_prettyProfilingNum(num, acc) {
+function PMA_prettyProfilingNum(num, acc)
+{
     if (!acc) {
         acc = 2;
     }
@@ -2210,7 +2237,8 @@ $(document).ready(function() {
     });
 });
 
-function PMA_verifyTypeOfAllColumns() {
+function PMA_verifyTypeOfAllColumns()
+{
     $("select[class='column_type']").each(function() {
         PMA_showNoticeForEnum($(this));
     });
@@ -2219,7 +2247,8 @@ function PMA_verifyTypeOfAllColumns() {
 /**
  * Closes the ENUM/SET editor and removes the data in it
  */
-function disable_popup() {
+function disable_popup()
+{
     $("#popup_background").fadeOut("fast");
     $("#enum_editor").fadeOut("fast");
     // clear the data from the text boxes
@@ -2315,7 +2344,8 @@ $(document).ready(function() {
     displayMoreTableOpts();
 });
 
-function displayMoreTableOpts() {
+function displayMoreTableOpts()
+{
     // Remove the actions from the table cells (they are available by default for JavaScript-disabled browsers)
     // if the table is not a view or information_schema (otherwise there is only one action to hide and there's no point)
     if($("input[type='hidden'][name='table_type']").val() == "table") {
@@ -2432,7 +2462,8 @@ function checkIndexName(form_id)
  *                                  ommit this parameter the function searches
  *                                  the footnotes in the whole body
  **/
-function PMA_convertFootnotesToTooltips($div) {
+function PMA_convertFootnotesToTooltips($div)
+{
     // Hide the footnotes from the footer (which are displayed for
     // JavaScript-disabled browsers) since the tooltip is sufficient
 
@@ -2578,14 +2609,16 @@ $(function() {
 /**
  * Get the row number from the classlist (for example, row_1)
  */
-function PMA_getRowNumber(classlist) {
+function PMA_getRowNumber(classlist)
+{
     return parseInt(classlist.split(/\s+row_/)[1]);
 }
 
 /**
  * Changes status of slider
  */
-function PMA_set_status_label(id) {
+function PMA_set_status_label(id)
+{
     if ($('#' + id).css('display') == 'none') {
         $('#anchor_status_' + id).text('+ ');
     } else {
@@ -2596,7 +2629,8 @@ function PMA_set_status_label(id) {
 /**
  * Initializes slider effect.
  */
-function PMA_init_slider() {
+function PMA_init_slider()
+{
     $('.pma_auto_slider').each(function(idx, e) {
         if ($(e).hasClass('slider_init_done')) return;
         $(e).addClass('slider_init_done');
@@ -2877,7 +2911,8 @@ $(document).ready(function() {
  *
  * @return  bool   True on success, false on failure
  */
-function PMA_slidingMessage(msg, $obj) {
+function PMA_slidingMessage(msg, $obj)
+{
     if (msg == undefined || msg.length == 0) {
         // Don't show an empty message
         return false;
@@ -3048,7 +3083,8 @@ $(document).ready(function() {
  * Create default PMA tooltip for the element specified. The default appearance
  * can be overriden by specifying optional "options" parameter (see qTip options).
  */
-function PMA_createqTip($elements, content, options) {
+function PMA_createqTip($elements, content, options)
+{
     var o = {
         content: content,
         style: {
@@ -3091,3 +3127,40 @@ loadJavascript=function(file) {
         $('head').append('<script type="text/javascript" src="'+file+'"></script>');
     }
 }
+
+$(document).ready(function() {
+    /**
+     * Theme selector.
+     */
+    $('a.themeselect').live('click', function(e) {
+        window.open(
+            e.target,
+            'themes',
+            'left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'
+            );
+        return false;
+    });
+
+    /**
+     * Automatic form submission on change.
+     */
+    $('.autosubmit').change(function(e) {
+        e.target.form.submit();
+    });
+
+    /**
+     * Theme changer.
+     */
+    $('.take_theme').live('click', function(e) {
+        alert(e.target.nodeName);
+        var evt = $(e);
+        var what = evt.target.id;
+        if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
+            window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
+            window.opener.document.forms['setTheme'].submit();
+            window.close();
+            return false;
+        }
+        return true;
+    });
+});

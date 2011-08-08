@@ -81,7 +81,8 @@ if (function_exists('mcrypt_encrypt')) {
  *
  * @access  public
  */
-function PMA_get_blowfish_secret() {
+function PMA_get_blowfish_secret()
+{
     if (empty($GLOBALS['cfg']['blowfish_secret'])) {
         if (empty($_SESSION['auto_blowfish_secret'])) {
             // this returns 23 characters

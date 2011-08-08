@@ -13,7 +13,8 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_browseUploadFile_test extends PHPUnit_Extensions_OutputTestCase{
+class PMA_browseUploadFile_test extends PHPUnit_Extensions_OutputTestCase
+{
 
     /*
      * Data provider for test

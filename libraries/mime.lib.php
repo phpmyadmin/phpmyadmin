@@ -10,7 +10,8 @@
 /**
  * Tries to detect MIME type of content.
  */
-function PMA_detectMIME(&$test) {
+function PMA_detectMIME(&$test)
+{
     $len = strlen($test);
     if ($len >= 2 && $test[0] == chr(0xff) && $test[1] == chr(0xd8)) {
         return 'image/jpeg';

@@ -256,7 +256,8 @@ function PMA_DBI_free_result($result)
  * @param   mysqli  $link  the mysqli object
  * @return  bool         true or false
  */
-function PMA_DBI_more_results($link = null) {
+function PMA_DBI_more_results($link = null)
+{
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -273,7 +274,8 @@ function PMA_DBI_more_results($link = null) {
  * @param   mysqli  $link  the mysqli object
  * @return  bool         true or false
  */
-function PMA_DBI_next_result($link = null) {
+function PMA_DBI_next_result($link = null)
+{
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -286,7 +288,7 @@ function PMA_DBI_next_result($link = null) {
 
 /**
  * Returns a string representing the type of connection used
- * 
+ *
  * @param   resource  $link  mysql link
  * @return  string          type of connection used
  */

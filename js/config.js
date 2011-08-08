@@ -14,7 +14,8 @@ var PMA_messages = {};
  *
  * @param {Element} field
  */
-function getFieldType(field) {
+function getFieldType(field)
+{
     field = $(field);
     var tagName = field.prop('tagName');
     if (tagName == 'INPUT') {
@@ -40,7 +41,8 @@ function getFieldType(field) {
  * @param {String}  field_type  see {@link #getFieldType}
  * @param {String|Boolean}  [value]
  */
-function setFieldValue(field, field_type, value) {
+function setFieldValue(field, field_type, value)
+{
     field = $(field);
     switch (field_type) {
         case 'text':
@@ -78,7 +80,8 @@ function setFieldValue(field, field_type, value) {
  * @param {String}  field_type returned by {@link #getFieldType}
  * @type Boolean|String|String[]
  */
-function getFieldValue(field, field_type) {
+function getFieldValue(field, field_type)
+{
     field = $(field);
     switch (field_type) {
         case 'text':
@@ -101,7 +104,8 @@ function getFieldValue(field, field_type) {
 /**
  * Returns values for all fields in fieldsets
  */
-function getAllValues() {
+function getAllValues()
+{
     var elements = $('fieldset input, fieldset select, fieldset textarea');
     var values = {};
     var type, value;
@@ -126,7 +130,8 @@ function getAllValues() {
  * @param {String}  type
  * @return boolean
  */
-function checkFieldDefault(field, type) {
+function checkFieldDefault(field, type)
+{
     field = $(field);
     var field_id = field.attr('id');
     if (typeof defaultValues[field_id] == 'undefined') {
@@ -157,7 +162,8 @@ function checkFieldDefault(field, type) {
  * Returns element's id prefix
  * @param {Element} element
  */
-function getIdPrefix(element) {
+function getIdPrefix(element)
+{
     return $(element).attr('id').replace(/[^-]+$/, '');
 }
 
@@ -254,7 +260,8 @@ var validators = {
  * @param {boolean} onKeyUp  whether fire on key up
  * @param {Array}   params   validation function parameters
  */
-function validateField(id, type, onKeyUp, params) {
+function validateField(id, type, onKeyUp, params)
+{
     if (typeof validators[type] == 'undefined') {
         return;
     }
@@ -272,7 +279,8 @@ function validateField(id, type, onKeyUp, params) {
  * @type Array
  * @return array of [function, paramseters to be passed to function]
  */
-function getFieldValidators(field_id, onKeyUpOnly) {
+function getFieldValidators(field_id, onKeyUpOnly)
+{
     // look for field bound validator
     var name = field_id.match(/[^-]+$/)[0];
     if (typeof validators._field[name] != 'undefined') {
@@ -302,7 +310,8 @@ function getFieldValidators(field_id, onKeyUpOnly) {
  *
  * @param {Object} error_list list of errors in the form {field id: error array}
  */
-function displayErrors(error_list) {
+function displayErrors(error_list)
+{
     for (var field_id in error_list) {
         var errors = error_list[field_id];
         var field = $('#'+field_id);
@@ -354,7 +363,8 @@ function displayErrors(error_list) {
  * @param {boolean} isKeyUp
  * @param {Object}  errors
  */
-function validate_fieldset(fieldset, isKeyUp, errors) {
+function validate_fieldset(fieldset, isKeyUp, errors)
+{
     fieldset = $(fieldset);
     if (fieldset.length && typeof validators._fieldset[fieldset.attr('id')] != 'undefined') {
         var fieldset_errors = validators._fieldset[fieldset.attr('id')].apply(fieldset[0], [isKeyUp]);
@@ -377,7 +387,8 @@ function validate_fieldset(fieldset, isKeyUp, errors) {
  * @param {boolean} isKeyUp
  * @param {Object}  errors
  */
-function validate_field(field, isKeyUp, errors) {
+function validate_field(field, isKeyUp, errors)
+{
     field = $(field);
     var field_id = field.attr('id');
     errors[field_id] = [];
@@ -403,7 +414,8 @@ function validate_field(field, isKeyUp, errors) {
  * @param {Element} field
  * @param {boolean} isKeyUp
  */
-function validate_field_and_fieldset(field, isKeyUp) {
+function validate_field_and_fieldset(field, isKeyUp)
+{
     field = $(field);
     var errors = {};
     validate_field(field, isKeyUp, errors);
@@ -416,7 +428,8 @@ function validate_field_and_fieldset(field, isKeyUp) {
  *
  * @param {Element} field
  */
-function markField(field) {
+function markField(field)
+{
     field = $(field);
     var type = getFieldType(field);
     var isDefault = checkFieldDefault(field, type);
@@ -433,7 +446,8 @@ function markField(field) {
  * @param {Element} field
  * @param {boolean} display
  */
-function setRestoreDefaultBtn(field, display) {
+function setRestoreDefaultBtn(field, display)
+{
     var el = $(field).closest('td').find('.restore-default img');
     el[display ? 'show' : 'hide']();
 }
@@ -495,7 +509,8 @@ $(function() {
  *
  * @param {String} tab_id
  */
-function setTab(tab_id) {
+function setTab(tab_id)
+{
     $('.tabs a').removeClass('active').filter('[href=' + tab_id + ']').addClass('active');
     $('.tabs_contents fieldset').hide().filter(tab_id).show();
     location.hash = 'tab_' + tab_id.substr(1);
@@ -562,7 +577,8 @@ $(function() {
  *
  * @param {String} field_id
  */
-function restoreField(field_id) {
+function restoreField(field_id)
+{
     var field = $('#'+field_id);
     if (field.length == 0 || defaultValues[field_id] == undefined) {
         return;

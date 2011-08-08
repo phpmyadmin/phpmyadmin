@@ -17,7 +17,8 @@
  *
  * It can optionally use configured username as parameter.
  */
-function get_login_credentials($user) {
+function get_login_credentials($user)
+{
     return array('root', '');
 }
 

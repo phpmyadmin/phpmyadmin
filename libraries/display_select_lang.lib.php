@@ -17,7 +17,8 @@ if (! defined('PHPMYADMIN')) {
  * @return  the sorted array
  * @access  private
  */
-function PMA_language_cmp(&$a, &$b) {
+function PMA_language_cmp(&$a, &$b)
+{
     return (strcmp($a[1], $b[1]));
 } // end of the 'PMA_language_cmp()' function
 
@@ -26,7 +27,8 @@ function PMA_language_cmp(&$a, &$b) {
  *
  * @access  public
  */
-function PMA_select_language($use_fieldset = false, $show_doc = true) {
+function PMA_select_language($use_fieldset = false, $show_doc = true)
+{
     global $cfg, $lang;
     ?>
 
@@ -53,7 +55,7 @@ function PMA_select_language($use_fieldset = false, $show_doc = true) {
     }
     ?>
 
-    <select name="lang" onchange="this.form.submit();" xml:lang="en" dir="ltr">
+    <select name="lang" class="autosubmit" xml:lang="en" dir="ltr">
     <?php
 
     uasort($GLOBALS['available_languages'], 'PMA_language_cmp');

@@ -3,7 +3,8 @@
   *
   * @param   object   event data
   */
-function onKeyDownArrowsHandler(e) {
+function onKeyDownArrowsHandler(e)
+{
     e = e||window.event;
     var o = (e.srcElement||e.target);
     if (!o) return;

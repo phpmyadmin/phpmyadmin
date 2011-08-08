@@ -81,7 +81,8 @@ function checkAddUser(the_form)
  * @param   new_user_initial        the first alphabet of the user's name
  * @param   new_user_initial_string html to replace the initial for pagination
  */
-function appendNewUser(new_user_string, new_user_initial, new_user_initial_string) {
+function appendNewUser(new_user_string, new_user_initial, new_user_initial_string)
+{
     //Append the newly retrived user to the table now
 
     //Calculate the index for the new row

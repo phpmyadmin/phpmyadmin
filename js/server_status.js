@@ -196,7 +196,7 @@ $(function() {
                                     { x: curVal.x, y: (curVal.y_received - lastVal.y_received) / 1024 },
                                     true,
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );                                            
+                                );
                             },
                             error: function() { serverResponseError(); }
                          }
@@ -239,7 +239,7 @@ $(function() {
                                     { x: curVal.x, y: curVal.y_proc },
                                     true,
                                     numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );                                            
+                                );
                             },
                             error: function() { serverResponseError(); }
                          }
@@ -344,7 +344,7 @@ $(function() {
         categoryFilter = $(this).val();
         filterVariables();
     });
-    
+
     $('input#dontFormat').change(function() {
         // Hiding the table while changing values speeds up the process a lot
         $('#serverstatusvariables').hide();
@@ -550,14 +550,14 @@ $(function() {
             buttons: dlgBtns 
         });
     });
-    
+
     $('a[href="#startAnalyzer"]').click(function() {
         var $cnt = $('#statustabs_advisor .tabInnerContent');
         $cnt.html('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
         
         $.get('server_status.php?'+url_query, { ajax_request: true, advisor: true }, function(data) {
             var $tbody, $tr, str, even = true;
-            
+
             data = $.parseJSON(data);
             
             $cnt.html('');
@@ -623,6 +623,6 @@ $(function() {
         };
         $('#emptyDialog').attr('title',PMA_messages['strRefreshFailed']);
         $('#emptyDialog').html('<img class="icon ic_s_attention" src="themes/dot.gif" alt=""> ' + PMA_messages['strInvalidResponseExplanation'])
-        $('#emptyDialog').dialog({ buttons: btns });       
+        $('#emptyDialog').dialog({ buttons: btns });
     }
 });

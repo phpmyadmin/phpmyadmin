@@ -6,7 +6,7 @@
  *
  * @package phpMyAdmin
  */
- 
+
 /**
  * no need for variables importing
  * @ignore
@@ -146,7 +146,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
     if (isset($_REQUEST['log_data'])) {
         if(PMA_MYSQL_INT_VERSION < 50106) exit('""');
-        
+
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);
 
@@ -155,7 +155,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                  'SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined, db, sql_text, COUNT(sql_text) AS \'#\' '.
                  'FROM `mysql`.`slow_log` WHERE start_time > FROM_UNIXTIME('.$start.') '.
                  'AND start_time < FROM_UNIXTIME('.$end.') GROUP BY sql_text';
-                 
+
             $result = PMA_DBI_try_query($q);
 
             $return = array('rows' => array(), 'sum' => array());
@@ -163,20 +163,20 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $type = strtolower(substr($row['sql_text'],0,strpos($row['sql_text'],' ')));
-                
+
                 switch($type) {
                     case 'insert':
                     case 'update':
                         // Cut off big inserts and updates, but append byte count therefor
                         if(strlen($row['sql_text']) > 220)
-                            $row['sql_text'] = substr($row['sql_text'],0,200) . '... [' . 
+                            $row['sql_text'] = substr($row['sql_text'],0,200) . '... [' .
                                                 implode(' ',PMA_formatByteDown(strlen($row['sql_text']), 2, 2)).']';
 
                         break;
-                    default: 
+                    default:
                         break;
                 }
-                
+
                 if(!isset($return['sum'][$type])) $return['sum'][$type] = 0;
                 $return['sum'][$type] += $row['#'];
                 $return['rows'][] = $row;
@@ -184,7 +184,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             $return['sum']['TOTAL'] = array_sum($return['sum']);
             $return['numRows'] = count($return['rows']);
-            
+
             PMA_DBI_free_result($result);
 
             exit(json_encode($return));
@@ -239,9 +239,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     case 'update':
                         // Cut off big inserts and updates, but append byte count therefor
                         if(strlen($row['argument']) > 220)
-                            $row['argument'] = substr($row['argument'],0,200) . '... [' . 
+                            $row['argument'] = substr($row['argument'],0,200) . '... [' .
                                                 implode(' ',PMA_formatByteDown(strlen($row['argument'])), 2, 2).']';
-                                                
+
                         break;
 
                     default: break;
@@ -276,7 +276,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
     if(isset($_REQUEST['query_analyzer'])) {
         $return = array();
-        
+
         if(strlen($_REQUEST['database']))
             PMA_DBI_select_db($_REQUEST['database']);
 
@@ -285,20 +285,20 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         // Do not cache query
         $query = preg_replace('/^(\s*SELECT)/i','\\1 SQL_NO_CACHE',$_REQUEST['query']);
-        
+
         $result = PMA_DBI_try_query($query);
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
-        
+
         $result = PMA_DBI_try_query('EXPLAIN ' . $query);
         while ($row = PMA_DBI_fetch_assoc($result)) {
             $return['explain'][] = $row;
         }
-    
+
         // In case an error happened
         $return['error'] = PMA_DBI_getError();
-        
+
         PMA_DBI_free_result($result);
-        
+
         if($profiling) {
             $return['profiling'] = array();
             $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
@@ -310,7 +310,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         exit(json_encode($return));
     }
-    
+
     if(isset($_REQUEST['advisor'])) {
         include('libraries/advisor.class.php');
         $advisor = new Advisor();
@@ -424,7 +424,7 @@ if (isset($server_status['Key_reads'])
 if (isset($server_status['Threads_created'])
     && isset($server_status['Connections'])
     && $server_status['Connections'] > 0) {
-    
+
     $server_status['Threads_cache_hitrate_%'] =
         100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
 }
@@ -567,7 +567,7 @@ foreach ($server_status as $name => $value) {
 if(PMA_DRIZZLE) {
     $used_queries = PMA_DBI_fetch_result('SELECT * FROM data_dictionary.global_statements', 0, 1);
     unset($used_queries['admin_commands']);
-} else { 
+} else {
     // admin commands are not queries (e.g. they include COM_PING, which is excluded from $server_status['Questions'])
     unset($used_queries['Com_admin_commands']);
 }
@@ -749,7 +749,7 @@ echo __('Runtime Information');
         <div id="statustabs_charting">
             <?php printMonitor(); ?>
         </div>
-        
+
         <div id="statustabs_advisor">
             <div class="tabLinks">
                 <img src="themes/dot.gif" class="icon ic_play" alt="" /> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
@@ -766,7 +766,8 @@ echo __('Runtime Information');
 
 <?php
 
-function printQueryStatistics() {
+function printQueryStatistics()
+{
     global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 
     $hour_factor   = 3600 / $server_status['Uptime'];
@@ -868,7 +869,8 @@ function printQueryStatistics() {
         <?php
 }
 
-function printServerTraffic() {
+function printServerTraffic()
+{
     global $server_status,$PMA_PHP_SELF;
     global $server_master_status, $server_slave_status, $replication_types;
 
@@ -907,6 +909,7 @@ function printServerTraffic() {
         } elseif ($server_slave_status) {
             echo __('This MySQL server works as <b>slave</b> in <b>replication</b> process.');
         }
+        echo ' ';
         echo __('For further information about replication status on the server, please visit the <a href="#replication">replication section</a>.');
         echo '</p>';
     }
@@ -1120,7 +1123,8 @@ function printServerTraffic() {
     <?php
 }
 
-function printVariablesTable() {
+function printVariablesTable()
+{
     global $server_status, $server_variables, $allocationMap, $links;
     /**
      * Messages are built using the message name
@@ -1368,7 +1372,8 @@ function printVariablesTable() {
     <?php
 }
 
-function printMonitor() {
+function printMonitor()
+{
     global $server_status, $server_db_isLocal;
 ?>
     <div class="tabLinks" style="display:none;">
@@ -1394,7 +1399,7 @@ function printMonitor() {
         <a href="#addNewChart">
             <img src="themes/dot.gif" class="icon ic_b_chart" alt="" />
             <?php echo __('Add chart'); ?>
-        </a> 
+        </a>
         <a href="#rearrangeCharts"><img class="icon ic_b_tblops" src="themes/dot.gif" width="16" height="16" alt=""> <?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
@@ -1415,7 +1420,7 @@ function printMonitor() {
                 <option>10</option>
             </select>
         </div>
-        
+
         <div class="clearfloat paddingtop">
         <b><?php echo __('Chart arrangement'); ?></b> <?php echo PMA_showHint(__('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.')); ?><br/>
         <a href="#importMonitorConfig"><?php echo __('Import'); ?></a>&nbsp;&nbsp;<a href="#exportMonitorConfig"><?php echo __('Export'); ?></a>&nbsp;&nbsp;<a href="#clearMonitorConfig"><?php echo __('Reset to default'); ?></a>
@@ -1427,11 +1432,11 @@ function printMonitor() {
     <?php if(PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
         <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
-        <?php 
-            echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.'); 
+        <?php
+            echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.');
         ?>
         </p>
-    <?php 
+    <?php
     } else {
     ?>
         <p></p>
@@ -1445,7 +1450,7 @@ function printMonitor() {
             <p>
             <img class="icon ic_s_attention" src="themes/dot.gif" alt="">
             <?php
-                echo __('<b>Please note:</b> Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.'); 
+                echo __('<b>Please note:</b> Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.');
             ?>
             </p>
         </div>
@@ -1516,7 +1521,7 @@ function printMonitor() {
             </div>
         </div>
     </div>
-    
+
     <!-- For generic use -->
     <div id="emptyDialog" title="Dialog" style="display:none;">
     </div>
@@ -1566,7 +1571,8 @@ function printMonitor() {
 }
 
 /* Builds a <select> list for refresh rates */
-function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)) {
+function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
+{
 ?>
     <select name="<?php echo $name; ?>">
         <?php
@@ -1588,7 +1594,8 @@ function refreshList($name,$defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 
  *
  * @param array &$server_status
  */
-function cleanDeprecated(&$server_status) {
+function cleanDeprecated(&$server_status)
+{
     $deprecated = array(
         'Com_prepare_sql' => 'Com_stmt_prepare',
         'Com_execute_sql' => 'Com_stmt_execute',

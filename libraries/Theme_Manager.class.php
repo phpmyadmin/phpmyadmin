@@ -280,13 +280,10 @@ class PMA_Theme_Manager
 
         $theme_selected = false;
         $theme_preview_path= './themes.php';
-        $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
-                            . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
-                            . '">';
+        $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme') . '</a>:' . "\n";
 
-        $select_box .=  '<select name="set_theme" xml:lang="en" dir="ltr"'
-            .' onchange="this.form.submit();" >';
+        $select_box .=  '<select name="set_theme" xml:lang="en" dir="ltr" class="autosubmit">';
         foreach ($this->themes as $each_theme_id => $each_theme) {
             $select_box .=  '<option value="' . $each_theme_id . '"';
             if ($this->active_theme === $each_theme_id) {
