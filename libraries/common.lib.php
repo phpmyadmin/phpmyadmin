@@ -1810,6 +1810,12 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 } // end of the 'PMA_linkOrButton()' function
 
 
+/**
+ * Splits a URL string by parameter 
+ *
+ * @param string  $url the URL
+ * @return array  the parameter/value pairs, for example [0] db=sakila
+ */
 function PMA_splitURLQuery($url) {
     // decode encoded url separators
     $separator   = PMA_get_arg_separator();
