@@ -10672,10 +10672,9 @@ msgid "X Values"
 msgstr "X Reikšmės"
 
 #: tbl_chart.php:131
-#, fuzzy
 #| msgid "Y Axis label"
 msgid "Y-Axis label:"
-msgstr "Y ašies etiketė"
+msgstr "Y ašies etiketė:"
 
 #: tbl_chart.php:131
 #, fuzzy
