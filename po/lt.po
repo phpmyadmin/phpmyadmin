@@ -6881,7 +6881,7 @@ msgstr "Vykdyti"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute every"
-msgstr ""
+msgstr "Vykdyti kas"
 
 #: libraries/rte/rte_events.lib.php:449
 #, fuzzy
