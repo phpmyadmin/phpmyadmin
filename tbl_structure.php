@@ -592,14 +592,16 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
 if ($tbl_is_view) {
     $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
-?>
-    <a href="tbl_sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode($create_view); ?>&amp;show_query=1"><?php
-    if ($cfg['PropertiesIconic']) {
-        echo '<img class="icon ic_b_edit" src="themes/dot.gif" alt="' . __('Edit view') . '"/>';
-    }
-    echo __('Edit view');
-?></a>
-<?php
+    echo PMA_linkOrButton(
+        'tbl_sql.php' . PMA_generate_common_url(
+            $url_params +
+            array(
+                'sql_query' => $create_view,
+                'show_query' => '1',
+            )
+        ),
+        sprintf('<img class="icon ic_b_edit" src="themes/dot.gif" alt="%1$s"/> %1$s', __('Edit view'))
+        );
 }
 ?>
 
