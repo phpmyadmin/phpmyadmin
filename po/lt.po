@@ -1347,10 +1347,9 @@ msgstr ""
 "susisiekite su Jūsų duombazės administratoriumi."
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Keiskite savo nustatymus"
+msgstr "Keisti nustatymus"
 
 #: js/messages.php:149
 #, fuzzy
