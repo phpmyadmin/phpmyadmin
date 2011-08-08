@@ -6849,7 +6849,6 @@ msgstr "Redaguoti įvykį"
 #: libraries/rte/rte_routines.lib.php:1264
 #: libraries/rte/rte_routines.lib.php:1300
 #: libraries/rte/rte_triggers.lib.php:187
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Klaida vykdant užklausą"
