@@ -8880,10 +8880,9 @@ msgid "wildcard"
 msgstr "pakaitos simbolis"
 
 #: server_privileges.php:2382
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "Rodinys %s buvo panaikintas"
+msgstr "Naudotojas buvo pridėtas."
 
 #: server_replication.php:49
 msgid "Unknown error"
